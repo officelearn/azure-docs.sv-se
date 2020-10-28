@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b1776518816a9b01ce803edfb39e147136dba08d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 35bb05eb019a1284a8a418df0197960130e8d013
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675468"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897304"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SAP Fiori
 
@@ -272,11 +272,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     1. I SAP, under **information om NameID-format "Ospecificerat"** , Observera information:
 
-        ![Information om NameID-formatet "ospecificerad" i SAP](./media/sapfiori-tutorial/nameiddetails.png)
+        ![Skärm bild som visar dialog rutan "det angivna NameID-formatet" i S A P.](./media/sapfiori-tutorial/nameiddetails.png)
 
     1. I Azure Portal, under **användarattribut & anspråk** , noterar du nödvändiga anspråk från Azure AD.
 
-        ![Dialog rutan användarattribut &-anspråk i Azure Portal](./media/sapfiori-tutorial/claimsaad1.png)
+        ![Skärm bild som visar dialog rutan "användarattribut & claims".](./media/sapfiori-tutorial/claimsaad1.png)
 
     **Scenario 2** : Välj det SAP-användar-ID som baseras på den konfigurerade e-postadressen i SU01. I det här fallet ska e-postadressen konfigureras i SU01 för varje användare som kräver SSO.
 

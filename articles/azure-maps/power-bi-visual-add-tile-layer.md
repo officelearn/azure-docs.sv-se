@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 8a0d930d1c0fd30c48d97b0d1d4b94548077fbca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab99f32932f39d5ad140b7a16d16ceae30fff54
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86262158"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896216"
 ---
 # <a name="add-a-tile-layer"></a>Lägga till ett panelskikt
 
@@ -27,7 +27,7 @@ Ett panel lager läses in i paneler från en server. Dessa bilder kan antingen f
 
 Begränsnings rutan och zoomnings intervallet där en panel tjänst är tillgänglig kan skickas som inställningar för att begränsa var paneler begärs. Detta är både prestanda förbättring för både visualiserings-och panel tjänsten. Nedan visas en översikt över alla inställningar som är tillgängliga i fönstret **format** som är tillgängliga i avsnittet **panel lager** .
 
-| Inställningen        | Beskrivning   |
+| Inställning        | Beskrivning   |
 |----------------|---------------|
 | URL            | En formaterad URL som pekar på en panel tjänst.  |
 | Panelstorlek      | Ett heltals värde som anger rutornas bredd och höjd-mått.   |
@@ -57,11 +57,11 @@ Panel-URL: en HTTPS-URL till en panels URL-mall som använder följande parametr
 -   `{quadkey}` -Panel `quadkey` identifierare baserad på Bing Maps-panelens system namngivnings konvention.
 -   `{bbox-epsg-3857}` – En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
 
-Följande är ett exempel på en formaterad panel URL för [väder polär-panelen](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) i Azure Maps. Observera att det `[subscription-key]` finns en plats hållare för din Azure Maps prenumerations nyckel.
+Följande är ett exempel på en formaterad panel URL för [väder polär-panelen](/rest/api/maps/renderv2/getmaptilepreview) i Azure Maps. Observera att det `[subscription-key]` finns en plats hållare för din Azure Maps prenumerations nyckel.
 
 > `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
 
-Mer information om hur du Azure Maps i systemet finns i [zoomnings nivåer och panel rutnät](zoom-levels-and-tile-grid.md).
+Mer information om hur du Azure Maps i systemet finns i [zoomnings nivåer och panel rutnät](zoom-levels-and-tile-grid.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

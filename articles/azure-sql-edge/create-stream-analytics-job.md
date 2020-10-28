@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e75edad9f2e473d27d81c73fc784c568c4e404c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888102"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896148"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Skapa ett data strömnings jobb i Azure SQL Edge 
 
@@ -38,9 +38,9 @@ Azure SQL Edge stöder för närvarande endast följande data källor som indata
 
 | Typ av data Källa | Indata | Resultat | Beskrivning |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge hubb | J | J | Data källa för att läsa och skriva strömmande data till en Azure IoT Edge hubb. Mer information finns i [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
-| SQL Database | N | J | Anslutning till data källa för att skriva strömmande data till SQL Database. Databasen kan vara en lokal databas i Azure SQL Edge eller en fjärrdatabas i SQL Server eller Azure SQL Database.|
-| Kafka | J | N | Data källa för att läsa strömmande data från ett Kafka-ämne. Det här kortet är för närvarande endast tillgängligt för Intel-eller AMD-versioner av Azure SQL Edge. Den är inte tillgänglig för ARM64-versionen av Azure SQL Edge.|
+| Azure IoT Edge hubb | Y | Y | Data källa för att läsa och skriva strömmande data till en Azure IoT Edge hubb. Mer information finns i [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| SQL Database | N | Y | Anslutning till data källa för att skriva strömmande data till SQL Database. Databasen kan vara en lokal databas i Azure SQL Edge eller en fjärrdatabas i SQL Server eller Azure SQL Database.|
+| Kafka | Y | N | Data källa för att läsa strömmande data från ett Kafka-ämne. Det här kortet är för närvarande endast tillgängligt för Intel-eller AMD-versioner av Azure SQL Edge. Den är inte tillgänglig för ARM64-versionen av Azure SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Exempel: skapa ett externt Stream-indata/utdata-objekt för Azure IoT Edge hubb
 
@@ -103,7 +103,7 @@ I följande exempel skapas ett externt Stream-objekt till den lokala databasen i
 
 3. Skapa en extern data källa med skapa extern DATA källa. Följande exempel:
 
-    * Skapar en extern data källa med namnet *LocalSQLOutput*.
+    * Skapar en extern data källa med namnet *LocalSQLOutput* .
     * Identifierar den externa data källan (LOCATION = ' <vendor> :// <server> [: <port> ] '). I exemplet pekar den på en lokal instans av Azure SQL Edge.
     * Använder de autentiseringsuppgifter som skapades tidigare.
 
@@ -117,7 +117,7 @@ I följande exempel skapas ett externt Stream-objekt till den lokala databasen i
     go
     ```
 
-4. Skapa det externa Stream-objektet. I följande exempel skapas ett externt Stream-objekt som pekar på en tabell *dbo. TemperatureMeasurements*, i databasen *MySQLDatabase*.
+4. Skapa det externa Stream-objektet. I följande exempel skapas ett externt Stream-objekt som pekar på en tabell *dbo. TemperatureMeasurements* , i databasen *MySQLDatabase* .
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -233,7 +233,8 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 (
        (
        name nvarchar(256),
-       status nvarchar(256)
+       status nvarchar(256),
+       error nvarchar(256)
        )
 )
 ```

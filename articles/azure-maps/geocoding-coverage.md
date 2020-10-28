@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037447"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897219"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps för att avkoda täckning
 
-Azure Maps [Search-tjänsten](https://docs.microsoft.com/rest/api/maps/search) stöder kodning, vilket innebär att din API-begäran kan ha Sök termer, till exempel en adress eller ett namn på en plats, och returnerar resultatet som latitud-och longitud-koordinater. Till exempel tar Azure Maps [Hämta Sök adress-API: er](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) emot frågor som innehåller plats information och returnerar resultat som latitud-och longitud-koordinater.
+Azure Maps [Search-tjänsten](/rest/api/maps/search) stöder kodning, vilket innebär att din API-begäran kan ha Sök termer, till exempel en adress eller ett namn på en plats, och returnerar resultatet som latitud-och longitud-koordinater. Till exempel tar Azure Maps [Hämta Sök adress-API: er](/rest/api/maps/search/getsearchaddress) emot frågor som innehåller plats information och returnerar resultat som latitud-och longitud-koordinater.
 
-Men Azure Maps [Sök tjänsten](https://docs.microsoft.com/rest/api/maps/search) har inte samma nivå av information och exakthet för alla regioner och länder. Använd den här artikeln för att avgöra vilken typ av platser du kan söka efter på ett tillförlitligt sätt i varje region.
+Men Azure Maps [Sök tjänsten](/rest/api/maps/search) har inte samma nivå av information och exakthet för alla regioner och länder. Använd den här artikeln för att avgöra vilken typ av platser du kan söka efter på ett tillförlitligt sätt i varje region.
 
 Möjligheten att koda i ett land/en region är beroende av vägtrafikens data täckning och kodnings precisionen för den landsspecifika tjänsten. Följande kategoriseringar används för att ange nivån för stöd för landsspecifika i varje land/region.
 
@@ -148,7 +148,7 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 | Vietnam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Wallis och Futuna                                   |                 |                |              |      ✓     |          ✓         |
 
-## <a name="europe"></a>Europa
+## <a name="europe"></a>Europe
 
 | Land/region                                      | Adress punkter |Hus nummer | Gatu nivå | Stads nivå | Intressanta punkter |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
@@ -301,4 +301,4 @@ Möjligheten att koda i ett land/en region är beroende av vägtrafikens data t�
 
 Läs mer om Azure Maps-kod:
 > [!div class="nextstepaction"]
-> [Search-tjänsten för Azure Maps](https://docs.microsoft.com/rest/api/maps/search)
+> [Search-tjänsten för Azure Maps](/rest/api/maps/search)

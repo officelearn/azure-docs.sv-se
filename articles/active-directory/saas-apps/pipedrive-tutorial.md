@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 00dbde0b207fc6d8406a4844d82581b00ef2255a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f85cb97406e8b6cbb4811268696fc36f47ec3adb
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92506435"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896556"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pipedrive"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med PipeDrive
 
@@ -49,14 +49,14 @@ Om du vill konfigurera integreringen av PipeDrive i Azure AD måste du lägga ti
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. Navigera till **företags program** och välj sedan **alla program** .
+1. Välj **nytt program** om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** , skriver du **PipeDrive** i sökrutan.
 1. Välj **PipeDrive** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-pipedrive"></a>Konfigurera och testa enkel inloggning med Azure AD för PipeDrive
 
-Konfigurera och testa Azure AD SSO med PipeDrive med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i PipeDrive.
+Konfigurera och testa Azure AD SSO med PipeDrive med hjälp av en test användare som heter **B. Simon** . För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i PipeDrive.
 
 Om du vill konfigurera och testa Azure AD SSO med PipeDrive, slutför du följande Bygg stenar:
 
@@ -71,8 +71,8 @@ Om du vill konfigurera och testa Azure AD SSO med PipeDrive, slutför du följan
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **PipeDrive** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **PipeDrive** , letar upp avsnittet **Hantera** och väljer **enkel inloggning** .
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML** .
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
@@ -83,7 +83,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. Skriv en URL i text rutan **svars-URL** med följande mönster: `https://<COMPANY-NAME>.pipedrive.com/sso/auth/samlp`
 
-1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP** -initierat läge:
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<COMPANY-NAME>.pipedrive.com/`
 
@@ -112,25 +112,25 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** , väljer **användare** och väljer sedan **alla användare** .
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I **Namn** -fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
-   1. Klicka på **Skapa**.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord** .
+   1. Klicka på **Skapa** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till PipeDrive.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **PipeDrive**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program** .
+1. I listan program väljer du **PipeDrive** .
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper** .
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Välj **Lägg till användare** och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
@@ -142,17 +142,17 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Logga in på PipeDrive-webbplatsen i ett annat webbläsarfönster som administratör.
 
-1. Klicka på **användar profil** och välj **Inställningar**.
+1. Klicka på **användar profil** och välj **Inställningar** .
 
-    ![PipeDrive-konfiguration](./media/pipedrive-tutorial/configure1.png)
+    ![Skärm bild som visar "Inställningar" som valts från menyn "användar profil".](./media/pipedrive-tutorial/configure1.png)
 
-1. Rulla ned till Security Center och välj **enkel inloggning**.
+1. Rulla ned till Security Center och välj **enkel inloggning** .
 
-    ![PipeDrive-konfiguration](./media/pipedrive-tutorial/configure2.png)
+    ![Skärm bild som visar "enkel inloggning" valt i "Security Center".](./media/pipedrive-tutorial/configure2.png)
 
 1. Utför följande steg i avsnittet **SAML-konfiguration för PipeDrive** :
 
-    ![PipeDrive-konfiguration](./media/pipedrive-tutorial/configure3.png)
+    ![Skärm bild som visar avsnittet "S A M L-konfiguration för PipeDrive" med alla text rutor markerade.](./media/pipedrive-tutorial/configure3.png)
 
     a. I text rutan **utfärdare** klistrar du in URL-värdet för **app Federation-Metadata** , som du har kopierat från Azure Portal.
 
@@ -166,13 +166,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Logga in på PipeDrive-webbplatsen i ett annat webbläsarfönster som administratör.
 
-1. Rulla ned till företag och välj **Hantera användare**.
+1. Rulla ned till företag och välj **Hantera användare** .
 
-    ![PipeDrive-konfiguration](./media/pipedrive-tutorial/user1.png)
+    ![Skärm bild som visar "hantera användare" som valts från "företaget"-menyn.](./media/pipedrive-tutorial/user1.png)
 
-1. Klicka på **Lägg till användare**.
+1. Klicka på **Lägg till användare** .
     
-    ![PipeDrive-konfiguration](./media/pipedrive-tutorial/user2.png)
+    ![Skärm bild som visar sidan "hantera användare" med knappen "Lägg till användare" markerad på höger sida.](./media/pipedrive-tutorial/user2.png)
 
 1. I avsnittet **Hantera användare** utför du följande steg:
 
@@ -184,7 +184,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     c. I text rutan **efter namn** anger du det senaste namnet på användaren.
 
-    d. Klicka på **Bekräfta och Bjud in användare**.
+    d. Klicka på **Bekräfta och Bjud in användare** .
 
 ## <a name="test-sso"></a>Testa SSO 
 

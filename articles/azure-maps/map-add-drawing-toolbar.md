@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 05a409faedb2093637b3d93045b35eb4e4929626
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00628ec5a9f41b027bf90b93421f3aa1404e97a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310755"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896403"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Lägga till ett verktygsfält för rit verktyg i en karta
 
-Den här artikeln visar hur du använder modulen för rit verktyg och hur du visar verktygsfältet Rita på kartan. [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) -kontrollen lägger till verktygsfältet Rita i kartan. Du får lära dig hur du skapar kartor med bara ett och alla rit verktyg och hur du anpassar åter givningen av ritnings formerna i Drawing Manager.
+Den här artikeln visar hur du använder modulen för rit verktyg och hur du visar verktygsfältet Rita på kartan. [DrawingToolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) -kontrollen lägger till verktygsfältet Rita i kartan. Du får lära dig hur du skapar kartor med bara ett och alla rit verktyg och hur du anpassar åter givningen av ritnings formerna i Drawing Manager.
 
 ## <a name="add-drawing-toolbar"></a>Lägga till verktygsfält för ritning
 
@@ -143,10 +143,10 @@ Lär dig hur du använder ytterligare funktioner i modulen rit verktyg:
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Karta](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Verktygsfältet Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Verktygsfältet Rita](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
 
 > [!div class="nextstepaction"]
-> [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Drawing Manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)

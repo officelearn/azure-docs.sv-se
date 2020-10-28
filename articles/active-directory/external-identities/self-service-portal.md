@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f72c255ddac1889131234fefd7d6b014b453d417
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4f9cd421224ad134b4df853b06b3bc34333a0613
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441733"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896114"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Registrera dig för Azure AD B2B-samarbete via självbetjäning
 
@@ -33,5 +33,5 @@ Organisationer kan använda [API: et Microsoft Graph Inbjudnings hanteraren](/gr
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
-* [Azure AD B2B-samarbetslicensiering](licensing-guidance.md)
+* [Prissättning för Externa identiteter](external-identities-pricing.md)
 * [Vanliga frågor och svar om Azure Active Directory B2B-samarbete](faq.md)

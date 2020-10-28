@@ -1,15 +1,16 @@
 ---
 title: Nätverksalternativ för Azure Functions
 description: En översikt över alla nätverks alternativ som är tillgängliga i Azure Functions.
+author: jeffhollan
 ms.topic: conceptual
-ms.date: 4/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.author: jehollan
+ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530104"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897083"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -66,11 +67,30 @@ För att ge en högre säkerhets nivå kan du begränsa ett antal Azure-tjänste
 
 Mer information finns i [tjänst slut punkter för virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Begränsa ditt lagrings konto till ett virtuellt nätverk
+## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Begränsa ditt lagrings konto till ett virtuellt nätverk (för hands version)
 
-När du skapar en Function-app måste du skapa eller länka till ett allmänt Azure Storage konto som har stöd för BLOB-, Queue-och table-lagring. Du kan för närvarande inte använda några begränsningar för virtuella nätverk för det här kontot. Om du konfigurerar en tjänst slut punkt för virtuellt nätverk på det lagrings konto som du använder för din Function-app kommer den konfigurationen att bryta din app.
+När du skapar en Function-app måste du skapa eller länka till ett allmänt Azure Storage konto som har stöd för BLOB-, Queue-och table-lagring.  Du kan ersätta det här lagrings kontot med ett som skyddas av tjänst slut punkter eller privat slut punkt.  Den här förhands gransknings funktionen fungerar för närvarande bara med Windows Premium-planer i Västeuropa.  Så här installerar du en funktion med ett lagrings konto som är begränsat till ett privat nätverk:
 
-Mer information finns i [krav för lagrings konton](./functions-create-function-app-portal.md#storage-account-requirements).
+> [!NOTE]
+> Begränsning av lagrings kontot fungerar för närvarande bara för Premium funktioner med hjälp av Windows i Västeuropa
+
+1. Skapa en funktion med ett lagrings konto där tjänstens slut punkter inte är aktiverade.
+1. Konfigurera funktionen för att ansluta till ditt virtuella nätverk.
+1. Skapa eller konfigurera ett annat lagrings konto.  Det här är lagrings kontot som vi skyddar med tjänstens slut punkter och ansluter vår funktion.
+1. [Skapa en fil resurs](../storage/files/storage-how-to-create-file-share.md#create-file-share) på det skyddade lagrings kontot.
+1. Aktivera tjänstens slut punkter eller privata slut punkter för lagrings kontot.  
+    * Se till att aktivera det undernät som är dedikerat för dina funktions program om du använder en tjänst slut punkt.
+    * Se till att skapa en DNS-post och konfigurera appen så att den [fungerar med slut punkter för privata slut](#azure-dns-private-zones) punkter om du använder privat slut punkt.  Lagrings kontot måste ha en privat slut punkt för `file` `blob` under resurserna.  Om du använder vissa funktioner som Durable Functions du också behöver `queue` och `table` kan nås via en privat slut punkts anslutning.
+1. Valfritt Kopiera filen och blob-innehållet från funktionen app Storage-kontot till det skyddade lagrings kontot och fil resursen.
+1. Kopiera anslutnings strängen för det här lagrings kontot.
+1. Uppdatera **program inställningarna** under **konfigurationen** för Function-appen till följande:
+    - `AzureWebJobsStorage` till anslutnings strängen för det skyddade lagrings kontot.
+    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` till anslutnings strängen för det skyddade lagrings kontot.
+    - `WEBSITE_CONTENTSHARE` till namnet på fil resursen som skapats i det skyddade lagrings kontot.
+    - Skapa en ny inställning med namnet `WEBSITE_CONTENTOVERVNET` och värdet för `1` .
+1. Spara program inställningarna.  
+
+Function-appen startas om och kommer nu att anslutas till ett skyddat lagrings konto.
 
 ## <a name="use-key-vault-references"></a>Använda Key Vault-referenser
 
@@ -87,7 +107,7 @@ För närvarande kan du använda icke-HTTP-utlösare i ett virtuellt nätverk p�
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Premium plan med virtuella nätverks utlösare
 
-När du kör en Premium-plan kan du ansluta funktioner som inte är HTTP-utlösare till tjänster som körs i ett virtuellt nätverk. För att göra detta måste du aktivera stöd för virtuell nätverks utlösare för din Function-app. Inställningen för **körnings skalnings övervakning** finns i [Azure Portal](https://portal.azure.com) under **konfigurations**  >  **funktionens körnings inställningar**.
+När du kör en Premium-plan kan du ansluta funktioner som inte är HTTP-utlösare till tjänster som körs i ett virtuellt nätverk. För att göra detta måste du aktivera stöd för virtuell nätverks utlösare för din Function-app. Inställningen för **körnings skalnings övervakning** finns i [Azure Portal](https://portal.azure.com) under **konfigurations**  >  **funktionens körnings inställningar** .
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -99,7 +119,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Virtuella nätverks utlösare stöds i version 2. x och senare av Functions-körningen. Följande typer av icke-HTTP-utlösare stöds.
 
-| Anknytning | Lägsta version |
+| Filnamnstillägg | Lägsta version |
 |-----------|---------| 
 |[Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 eller senare |
 |[Microsoft. Azure. WebJobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 eller senare|
@@ -136,8 +156,8 @@ När du integrerar en Function-app i en Premium-plan eller en App Service plan m
 ## <a name="automation"></a>Automation
 Med följande API: er kan du hantera regionala virtuella nätverks integreringar program mässigt:
 
-+ **Azure CLI**: Använd [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) kommandona för att lägga till, Visa eller ta bort en regional integrering av virtuella nätverk.  
-+ **Arm-mallar**: regional integrering av virtuella nätverk kan aktive ras med hjälp av en Azure Resource Manager mall. Ett fullständigt exempel finns i [snabb starts mal len för funktioner](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **Azure CLI** : Använd [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) kommandona för att lägga till, Visa eller ta bort en regional integrering av virtuella nätverk.  
++ **Arm-mallar** : regional integrering av virtuella nätverk kan aktive ras med hjälp av en Azure Resource Manager mall. Ett fullständigt exempel finns i [snabb starts mal len för funktioner](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Felsökning
 

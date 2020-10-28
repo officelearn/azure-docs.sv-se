@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 4d6728d4fbde4b7d6cc8ed06e961642264ad31bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321704"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896668"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Självstudie: Sök efter intresse punkter i närheten med hjälp av Azure Maps
 
-Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sedan använder API:er för Maps för att söka efter en orienteringspunkt. I den här guiden får du lära dig att:
+Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sedan använder API:er för Maps för att söka efter en orienteringspunkt. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett Azure Maps-konto
@@ -26,12 +26,12 @@ Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sed
 > * Skapa en ny webbsida med API:n för kartkontroll
 > * Använda Maps-söktjänsten för att hitta orienteringspunkter i närheten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 <a id="createaccount"></a>
 <a id="getkey"></a>
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 2. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
 3. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
@@ -41,7 +41,7 @@ Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sed
 
 Kartkontroll API är ett användbart klient bibliotek. Med det här API: et kan du enkelt integrera kartor i ditt webb program. Det döljer komplexiteten hos inga REST service-anrop och ökar produktiviteten med anpassningsbara komponenter. Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kartkontroll.
 
-1. Skapa en ny fil på den lokala datorn och ge den namnet **MapSearch.html**.
+1. Skapa en ny fil på den lokala datorn och ge den namnet **MapSearch.html** .
 2. Lägg till följande HTML-komponenter i filen:
 
    ```HTML
@@ -139,7 +139,7 @@ Kartkontroll API är ett användbart klient bibliotek. Med det här API: et kan 
 
 ## <a name="add-search-capabilities"></a>Lägga till sökfunktioner
 
-Det här avsnittet visar hur du använder [Sök-API: t](https://docs.microsoft.com/rest/api/maps/search) kartor för att hitta en orienterings punkt på kartan. Det är ett RESTful-API för utvecklare för att söka efter adresser, orienteringspunkter och annan geografisk information. Search Service tilldelar en angiven adress latitud- och longitudinformation. **Tjänstemodulen** som beskrivs nedan kan användas till att söka efter en plats med hjälp av API:et för kartsökning.
+Det här avsnittet visar hur du använder [Sök-API: t](/rest/api/maps/search) kartor för att hitta en orienterings punkt på kartan. Det är ett RESTful-API för utvecklare för att söka efter adresser, orienteringspunkter och annan geografisk information. Search Service tilldelar en angiven adress latitud- och longitudinformation. **Tjänstemodulen** som beskrivs nedan kan användas till att söka efter en plats med hjälp av API:et för kartsökning.
 
 ### <a name="service-module"></a>Tjänstmodul
 
@@ -156,7 +156,7 @@ Det här avsnittet visar hur du använder [Sök-API: t](https://docs.microsoft.c
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   `SubscriptionKeyCredential`Skapar en `SubscriptionKeyCredentialPolicy` för att autentisera HTTP-begäranden till Azure Maps med prenumerations nyckeln. `atlas.service.MapsURL.newPipeline()`Principen tar i `SubscriptionKeyCredential` principen och skapar en [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) -instans. `searchURL`Visar en URL som Azure Maps [Sök](https://docs.microsoft.com/rest/api/maps/search) åtgärder.
+   `SubscriptionKeyCredential`Skapar en `SubscriptionKeyCredentialPolicy` för att autentisera HTTP-begäranden till Azure Maps med prenumerations nyckeln. `atlas.service.MapsURL.newPipeline()`Principen tar i `SubscriptionKeyCredential` principen och skapar en [pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) -instans. `searchURL`Visar en URL som Azure Maps [Sök](/rest/api/maps/search) åtgärder.
 
 2. Lägg därefter till följande skriptblock för att skapa sökfrågan. Den använder det enkla söknings-API:et i Search Service, som kallas Fuzzy Search. Fuzzy Search-tjänsten hanterar de flesta fuzzy-indata som adresser, platser och platser av intresse (POI). Den här koden söker efter i närheten bensin stationer inom den angivna radien för den angivna latitud och longitud. En samling av en interjson-funktion från svaret extraheras sedan med hjälp av `geojson.getFeatures()` metoden och läggs till i data källan, vilket automatiskt resulterar i att de data som återges på kartan överförs via symbol lagret. Den sista delen av skriptet ställer in kameravyn med hjälp av avgränsningsrektangeln för resultat med kartans [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-)-egenskap.
 

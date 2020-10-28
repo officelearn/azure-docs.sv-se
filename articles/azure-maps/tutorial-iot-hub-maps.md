@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3eb405783b16d1bb7de27f6638dba394457601c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdbc972d230988420a066c4b927388b885f99a17
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321840"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896753"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Självstudie: implementera IoT spatial Analytics med hjälp av Azure Maps
 
@@ -30,7 +30,7 @@ I den här självstudien kommer du att:
 > * Prenumerera på IoT Device telemetri-händelser från Azure-funktionen via Azure Event Grid.
 > * Filtrera telemetri-händelserna genom att använda IoT Hub meddelanderoutning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -38,7 +38,7 @@ I den här självstudien kommer du att:
 
 3. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel. Mer information finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
-4. [Skapa en resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). I den här självstudien namnger vi vår resurs grupp *ContosoRental*, men du kan välja det namn du vill.
+4. [Skapa en resurs grupp](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). I den här självstudien namnger vi vår resurs grupp *ContosoRental* , men du kan välja det namn du vill.
 
 5. Ladda ned [C#-projektet rentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation).
 
@@ -83,7 +83,7 @@ I den här självstudien spårar du bara ett fordon. När du har konfigurerat Az
 
 3. En Azure-funktion utlöses på grund av händelse prenumerationen på händelser för telemetri.
 
-4. Funktionen loggar enhets platsens koordinater, händelse tid och enhets-ID. Den använder sedan den [spatiala gränsen för att hämta API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) för att avgöra om bilen har drivas utanför avgränsningen. Om den har passerat utanför gränserna, lagrar funktionen plats data som tas emot från händelsen i en BLOB-behållare. Funktionen frågar också om [Sök adressen omvänts](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) för att översätta koordinatens plats till en gatuadress och lagrar den med resten av enhetens plats data.
+4. Funktionen loggar enhets platsens koordinater, händelse tid och enhets-ID. Den använder sedan den [spatiala gränsen för att hämta API](/rest/api/maps/spatial/getgeofence) för att avgöra om bilen har drivas utanför avgränsningen. Om den har passerat utanför gränserna, lagrar funktionen plats data som tas emot från händelsen i en BLOB-behållare. Funktionen frågar också om [Sök adressen omvänts](/rest/api/maps/search/getsearchaddressreverse) för att översätta koordinatens plats till en gatuadress och lagrar den med resten av enhetens plats data.
 
 Följande diagram visar en översikt över systemet på en hög nivå.
 
@@ -95,9 +95,9 @@ Följande bild visar det yt avgränsnings ytan i blått. Hyr bils väg visas med
 
 ## <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
-Om du vill lagra spårnings data för Car-överträdelse skapar du ett [Allmänt-syfte v2-lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview#general-purpose-v2-accounts) i resurs gruppen. Om du inte har skapat någon resurs grupp följer du anvisningarna i [skapa en resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). I den här självstudien får du namnge resurs gruppen *ContosoRental*.
+Om du vill lagra spårnings data för Car-överträdelse skapar du ett [Allmänt-syfte v2-lagrings konto](../storage/common/storage-account-overview.md#general-purpose-v2-accounts) i resurs gruppen. Om du inte har skapat någon resurs grupp följer du anvisningarna i [skapa en resurs grupp](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). I den här självstudien får du namnge resurs gruppen *ContosoRental* .
 
-Följ instruktionerna i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)för att skapa ett lagrings konto. I den här självstudien namnger du lagrings kontots *contosorentalstorage*, men i allmänhet kan du ge det något som du vill.
+Följ instruktionerna i [skapa ett lagrings konto](../storage/common/storage-account-create.md?tabs=azure-portal)för att skapa ett lagrings konto. I den här självstudien namnger du lagrings kontots *contosorentalstorage* , men i allmänhet kan du ge det något som du vill.
 
 När du har skapat ditt lagrings konto måste du skapa en behållare för att lagra loggnings data.
 
@@ -105,7 +105,7 @@ När du har skapat ditt lagrings konto måste du skapa en behållare för att la
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/containers.png" alt-text="Diagram över system översikt.":::
 
-2. I det övre vänstra hörnet väljer du **+ container**. En panel visas till höger i webbläsaren. Namnge din container *contoso-hyr loggar*och välj **skapa**.
+2. I det övre vänstra hörnet väljer du **+ container** . En panel visas till höger i webbläsaren. Namnge din container *contoso-hyr loggar* och välj **skapa** .
 
      :::image type="content" source="./media/tutorial-iot-hub-maps/container-new.png" alt-text="Diagram över system översikt.":::
 
@@ -115,13 +115,13 @@ När du har skapat ditt lagrings konto måste du skapa en behållare för att la
 
 ## <a name="upload-a-geofence"></a>Ladda upp en avgränsning
 
-Sedan använder du [Postman-appen](https://www.getpostman.com) för att [Ladda upp den här gränsen](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) för Azure Maps. Den här gränsen definierar det tillåtna geografiska området för vårt hyr fordon. Du kommer att använda den yttersta gränsen i din Azure-funktion för att avgöra om en bil har flyttat utanför avgränsnings området.
+Sedan använder du [Postman-appen](https://www.getpostman.com) för att [Ladda upp den här gränsen](./geofence-geojson.md) för Azure Maps. Den här gränsen definierar det tillåtna geografiska området för vårt hyr fordon. Du kommer att använda den yttersta gränsen i din Azure-funktion för att avgöra om en bil har flyttat utanför avgränsnings området.
 
 Följ de här stegen för att ladda upp den här avgränsningen med hjälp av API: et för Azure Maps data överföring: 
 
-1. Öppna Postman-appen och välj **ny**. I fönstret **Skapa nytt** väljer du **samling**. Namnge samlingen och välj **skapa**.
+1. Öppna Postman-appen och välj **ny** . I fönstret **Skapa nytt** väljer du **samling** . Namnge samlingen och välj **skapa** .
 
-2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**och anger ett namn för begäran. Välj den samling som du skapade i föregående steg och välj sedan **Spara**.
+2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran** och anger ett namn för begäran. Välj den samling som du skapade i föregående steg och välj sedan **Spara** .
 
 3. Välj metoden **post** http på fliken Builder och ange följande URL för att ladda upp avgränsningen till API: et för data uppladdning. Se till att ersätta `{subscription-key}` med den primära prenumerations nyckeln.
 
@@ -131,7 +131,7 @@ Följ de här stegen för att ladda upp den här avgränsningen med hjälp av AP
 
     I URL-sökvägen `geojson` representerar värdet mot `dataFormat` parametern formatet för de data som laddas upp.
 
-4. Välj **brödtext**  >  **RAW** som indataformat och välj **JSON** i list rutan. [Öppna JSON-datafilen](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4)och kopiera JSON till avsnittet brödtext. Välj **Skicka**.
+4. Välj **brödtext**  >  **RAW** som indataformat och välj **JSON** i list rutan. [Öppna JSON-datafilen](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4)och kopiera JSON till avsnittet brödtext. Välj **Skicka** .
 
 5. Välj **Skicka** och vänta på att begäran ska bearbetas. När begäran har slutförts går du till fliken **sidhuvud** i svaret. Kopiera värdet för **plats** nyckeln, som är `status URL` .
 
@@ -153,7 +153,7 @@ Följ de här stegen för att ladda upp den här avgränsningen med hjälp av AP
       }
       ```
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 IoT Hub möjliggör säker och tillförlitlig dubbelriktad kommunikation mellan ett IoT-program och de enheter som hanteras av. I den här självstudien vill du hämta information från din fordons enhet för att fastställa placeringen av hyr bilen. I det här avsnittet skapar du en IoT-hubb i resurs gruppen *ContosoRental* . Den här hubben ansvarar för att publicera dina telemetri om enhets händelser.
 
@@ -164,7 +164,7 @@ Om du vill skapa en IoT-hubb i resurs gruppen *ContosoRental* följer du stegen 
 
 ## <a name="register-a-device-in-your-iot-hub"></a>Registrera en enhet i IoT Hub
 
-Enheter kan inte ansluta till IoT Hub om de inte är registrerade i IoT Hub Identity-registret. Här skapar du en enskild enhet med namnet *InVehicleDevice*. Om du vill skapa och registrera enheten i din IoT-hubb följer du stegen i [Registrera en ny enhet i IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#register-a-new-device-in-the-iot-hub). Se till att kopiera den primära anslutnings strängen för enheten. Du behöver det senare.
+Enheter kan inte ansluta till IoT Hub om de inte är registrerade i IoT Hub Identity-registret. Här skapar du en enskild enhet med namnet *InVehicleDevice* . Om du vill skapa och registrera enheten i din IoT-hubb följer du stegen i [Registrera en ny enhet i IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#register-a-new-device-in-the-iot-hub). Se till att kopiera den primära anslutnings strängen för enheten. Du behöver det senare.
 
 ## <a name="create-a-function-and-add-an-event-grid-subscription"></a>Skapa en funktion och Lägg till en Event Grid-prenumeration
 
@@ -176,24 +176,24 @@ Här är den [C#-skript kod som din funktion kommer att innehålla](https://gith
 
 Konfigurera nu Azure-funktionen.
 
-1. I instrument panelen Azure Portal väljer du **skapa en resurs**. Skriv **Funktionsapp** i text rutan Sök. Välj **Funktionsapp**  >  **skapa**.
+1. I instrument panelen Azure Portal väljer du **skapa en resurs** . Skriv **Funktionsapp** i text rutan Sök. Välj **Funktionsapp**  >  **skapa** .
 
-1. På sidan Skapa **Funktionsapp** namnger du din Function-app. Under **resurs grupp**väljer du **ContosoRental** i list rutan. Välj **.net Core** som **körnings stack**. Längst ned på sidan väljer du **Nästa: värd >**.
+1. På sidan Skapa **Funktionsapp** namnger du din Function-app. Under **resurs grupp** väljer du **ContosoRental** i list rutan. Välj **.net Core** som **körnings stack** . Längst ned på sidan väljer du **Nästa: värd >** .
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="Diagram över system översikt.":::
 
-1. För **lagrings konto**väljer du det lagrings konto som du skapade i [skapa ett Azure Storage-konto](#create-an-azure-storage-account). Välj **Granska + skapa**.
+1. För **lagrings konto** väljer du det lagrings konto som du skapade i [skapa ett Azure Storage-konto](#create-an-azure-storage-account). Välj **Granska + skapa** .
 
-1. Granska programmets information och välj **skapa**.
+1. Granska programmets information och välj **skapa** .
 
-1. När appen har skapats lägger du till en funktion i den. Gå till Function-appen. Välj rutan **funktioner** . Längst upp på sidan väljer du **+ Lägg till**. Panelen funktions mal len visas. Rulla nedåt i panelen och välj **Azure Event Grid utlösare**.
+1. När appen har skapats lägger du till en funktion i den. Gå till Function-appen. Välj rutan **funktioner** . Längst upp på sidan väljer du **+ Lägg till** . Panelen funktions mal len visas. Rulla nedåt i panelen och välj **Azure Event Grid utlösare** .
 
      >[!IMPORTANT]
     > **Azure Event Hub-utlösaren** och **Azure Event Grid utlösare** har liknande namn. Se till att du väljer mallen **Azure Event Grid utlösare** .
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="Diagram över system översikt.":::
 
-1. Ge funktionen ett namn. I den här självstudien använder du namnet, *GetGeoFunction*, men i allmänhet kan du använda alla namn som du vill. Välj **skapa funktion**.
+1. Ge funktionen ett namn. I den här självstudien använder du namnet, *GetGeoFunction* , men i allmänhet kan du använda alla namn som du vill. Välj **skapa funktion** .
 
 1. På den vänstra menyn väljer du kod-och **test** fönstret. Kopiera och klistra in [C#-skriptet](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) i fönstret kod.
 
@@ -202,23 +202,23 @@ Konfigurera nu Azure-funktionen.
 1. Ersätt följande parametrar i C#-koden:
     * Ersätt **SUBSCRIPTION_KEY** med din primära prenumerations nyckel för Azure Maps-kontot.
     * Ersätt **UDID** med det geografiskt `udid` avgränsnings tecken som du laddade upp i [överför ett avgränsnings](#upload-a-geofence)tecken.
-    * `CreateBlobAsync`Funktionen i skriptet skapar en BLOB per händelse i data lagrings kontot. Ersätt **ACCESS_KEY**, **ACCOUNT_NAME**och **STORAGE_CONTAINER_NAME** med lagrings kontots åtkomst nyckel, konto namn och data lagrings behållare. Dessa värden genererades när du skapade ditt lagrings konto i [skapa ett Azure Storage-konto](#create-an-azure-storage-account).
+    * `CreateBlobAsync`Funktionen i skriptet skapar en BLOB per händelse i data lagrings kontot. Ersätt **ACCESS_KEY** , **ACCOUNT_NAME** och **STORAGE_CONTAINER_NAME** med lagrings kontots åtkomst nyckel, konto namn och data lagrings behållare. Dessa värden genererades när du skapade ditt lagrings konto i [skapa ett Azure Storage-konto](#create-an-azure-storage-account).
 
-1. På den vänstra menyn väljer du **integrations** fönstret. Välj **Event Grid utlösare** i diagrammet. Skriv ett namn för utlösaren, *eventGridEvent*och välj **Skapa event Grid prenumeration**.
+1. På den vänstra menyn väljer du **integrations** fönstret. Välj **Event Grid utlösare** i diagrammet. Skriv ett namn för utlösaren, *eventGridEvent* och välj **Skapa event Grid prenumeration** .
 
      :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="Diagram över system översikt.":::
 
-1. Fyll i prenumerations informationen. Namnge händelse prenumerationen. För **händelse schema**väljer du **Event Grid schema**. För **ämnes typer**väljer du **Azure IoT Hub-konton**. För **resurs grupp**väljer du den resurs grupp som du skapade i början av den här självstudien. För **resurs**väljer du den IoT-hubb som du skapade i "skapa en Azure IoT Hub". För **filter till händelse typer**väljer du **telemetri för enhet**.
+1. Fyll i prenumerations informationen. Namnge händelse prenumerationen. För **händelse schema** väljer du **Event Grid schema** . För **ämnes typer** väljer du **Azure IoT Hub-konton** . För **resurs grupp** väljer du den resurs grupp som du skapade i början av den här självstudien. För **resurs** väljer du den IoT-hubb som du skapade i "skapa en Azure IoT Hub". För **filter till händelse typer** väljer du **telemetri för enhet** .
 
-   När du har valt de här alternativen visas **ämnes typen** ändra till **IoT Hub**. I **namn på system ämne**kan du använda samma namn som din resurs. I avsnittet **slut punkts information** väljer du slutligen **Välj en slut punkt**. Godkänn alla inställningar och välj **Bekräfta markering**.
+   När du har valt de här alternativen visas **ämnes typen** ändra till **IoT Hub** . I **namn på system ämne** kan du använda samma namn som din resurs. I avsnittet **slut punkts information** väljer du slutligen **Välj en slut punkt** . Godkänn alla inställningar och välj **Bekräfta markering** .
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription.png" alt-text="Diagram över system översikt.":::
 
-1. Granska inställningarna. Kontrol lera att slut punkten anger den funktion som du skapade i början av det här avsnittet. Välj **Skapa**.
+1. Granska inställningarna. Kontrol lera att slut punkten anger den funktion som du skapade i början av det här avsnittet. Välj **Skapa** .
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription-confirm.png" alt-text="Diagram över system översikt.":::
 
-1. Nu är du tillbaka på panelen **Redigera utlösare** . Välj **Spara**.
+1. Nu är du tillbaka på panelen **Redigera utlösare** . Välj **Spara** .
 
 ## <a name="filter-events-by-using-iot-hub-message-routing"></a>Filtrera händelser med hjälp av IoT Hub meddelanderoutning
 
@@ -226,7 +226,7 @@ När du lägger till en Event Grid-prenumeration i Azure-funktionen skapas en me
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="Diagram över system översikt.":::
 
-I ditt exempel scenario vill du bara ta emot meddelanden när hyr bil flyttas. Skapa en cirkulations fråga för att filtrera händelserna där `Engine` egenskapen är lika med **"på"**. Om du vill skapa en cirkulations fråga väljer du **RouteToEventGrid** -vägen och ersätter **Oper. åga** med **"motor =" på ""**. Välj sedan **Spara**. Nu publicerar IoT Hub bara enhets telemetri där motorn är på.
+I ditt exempel scenario vill du bara ta emot meddelanden när hyr bil flyttas. Skapa en cirkulations fråga för att filtrera händelserna där `Engine` egenskapen är lika med **"på"** . Om du vill skapa en cirkulations fråga väljer du **RouteToEventGrid** -vägen och ersätter **Oper. åga** med **"motor =" på ""** . Välj sedan **Spara** . Nu publicerar IoT Hub bara enhets telemetri där motorn är på.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="Diagram över system översikt.":::
 
@@ -270,14 +270,14 @@ I följande karta visas fyra fordons platser utanför den yttre gränsen. Varje 
 
 Information om Azure Maps-API: er som används i den här självstudien finns i:
 
-* [Hämta omvänd söknings adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)
-* [Hämta avgränsning](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
+* [Hämta omvänd söknings adress](/rest/api/maps/search/getsearchaddressreverse)
+* [Hämta avgränsning](/rest/api/maps/spatial/getgeofence)
 
 En fullständig lista över Azure Maps REST API: er finns i:
 
-* [Azure Maps REST-API: er](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
+* [Azure Maps REST-API: er](/rest/api/maps/spatial/getgeofence)
 
-* [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp)
+* [IoT Plug and Play](../iot-pnp/index.yml)
 
 Om du vill hämta en lista över enheter som är Azure-certifierade för IoT går du till:
 
@@ -289,4 +289,4 @@ Mer information om hur du skickar telemetri från enhet till moln, och det andra
 
 
 > [!div class="nextstepaction"]
-> [Skicka telemetri från en enhet](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)
+> [Skicka telemetri från en enhet](../iot-hub/quickstart-send-telemetry-dotnet.md)

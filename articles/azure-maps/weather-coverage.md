@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 5383309143302e0f3fb2052b47e4c497d9a21bf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e529e44f48343027457f18ba503e4bbb5930f1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976884"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896624"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps väder täckning
 
-Den här artikeln innehåller information om disponering för Azure Maps [väder tjänster](https://aka.ms/AzureMapsWeatherService). Azure Maps väder data tjänster returnerar information som radar paneler, aktuella väder förhållanden, väder prognoser och väder längs en väg.
+Den här artikeln innehåller information om disponering för Azure Maps [väder tjänster](/rest/api/maps/weather). Azure Maps väder data tjänster returnerar information som radar paneler, aktuella väder förhållanden, väder prognoser och väder längs en väg.
 
 Azure Maps har inte samma nivå av information och exakthet för alla länder och regioner.
 
@@ -239,7 +239,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Wallis och Futuna                 | ✓ |   | | ✓| 
 
 
-## <a name="europe"></a>Europa
+## <a name="europe"></a>Europe
 
 | Land/region              |  Satellit paneler | Minut prognos, radar paneler | Svåra väder varningar | Andra | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|:--------:|
@@ -299,4 +299,4 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Turkiet                 | ✓ |   | | ✓| 
 | Ukraina                | ✓ |   | | ✓| 
 | Storbritannien         | ✓ | ✓ | ✓| ✓| 
-| Vatikanstaten           | ✓ |   |✓ | ✓| 
+| Vatikanstaten           | ✓ |   |✓ | ✓|

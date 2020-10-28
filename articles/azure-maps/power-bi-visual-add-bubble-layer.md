@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff0d2c8e90995222af79d5be63ca3e9da24b3c45
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86262155"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896233"
 ---
 # <a name="add-a-bubble-layer"></a>Lägga till ett bubbelskikt
 
@@ -25,7 +25,7 @@ ms.locfileid: "86262155"
 
 Alla bubblor har ursprungligen samma fyllnings färg. Om ett fält skickas till **förklarings** Bucket för fönstret **fält** , kommer bubblorna att färgades baserat på deras kategorisering. Bubblornas kontur är vitt som standard, men kan ändras till en ny färg eller genom att aktivera alternativet för hög kontrast disposition. Alternativet för **hög kontrast disposition** tilldelar dynamiskt en kon tur färg som är en variant av en hög kontrast i fyllnings färgen. Detta hjälper till att se till att bubblorna syns tydligt oavsett stil på kartan. Följande är de viktigaste inställningarna i fönstret **format** som är tillgängliga i avsnittet **Bubble Layer** .
 
-| Inställningen               | Beskrivning    |
+| Inställning               | Beskrivning    |
 |-----------------------|----------------|
 | Storlek                  | Storleken på varje bubbla. Det här alternativet är dolt när ett fält skickas till **storleks** Bucket för fönstret **fält** . Ytterligare alternativ visas som beskrivs i avsnittet om [skalnings storlek i bubblor](#bubble-size-scaling) mer detaljerat i den här artikeln. |
 | Fyllningsfärg            | Färg på varje bubbla. Det här alternativet är dolt när ett fält skickas till **förklarings** Bucket för **fält** fönstret och ett separat **data färger** -avsnitt visas i fönstret **format** . |
@@ -45,21 +45,21 @@ Alla bubblor har ursprungligen samma fyllnings färg. Om ett fält skickas till 
 
 Om ett fält skickas till **storleks** Bucket för **fält** fönstret, skalas bubblorna relativt till Mät värdet för varje data punkt. Alternativet **storlek** i avsnittet **bubbeldiagram** i fönstret **format** försvinner när ett fält överförs till **storleks** gruppen, eftersom bubblornas radie skalas mellan ett minsta och högsta värde. Följande alternativ visas i avsnittet **bubbeldiagram** i fönstret **format** när en **storleks** Bucket har ett fält angivet.
 
-| Inställningen             | Beskrivning  |
+| Inställning             | Beskrivning  |
 |---------------------|--------------|
 | Minsta storlek            | Minsta bubbelstorlek vid skalning av data.|
 | Max storlek            | Maximal bubbelstorlek vid skalning av data.|
 | Metod för storleks skalning | Skalnings algoritm som används för att fastställa relativ bubbelstorlek.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Linjärt inmatnings data linjärt mappat till minsta och högsta storlek. (standard)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Logg intervallet för indata-logarithmically mappas till minsta och högsta storlek.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Cubic-Bezier – ange x1, Y1, x2, Y2-värden för en Cubic-Bezier kurva för att skapa en anpassad skalnings metod. |
 
-När **storleks skalnings metoden** är inställd på **log**blir följande alternativ tillgängliga.
+När **storleks skalnings metoden** är inställd på **log** blir följande alternativ tillgängliga.
 
-| Inställningen   | Beskrivning      |
+| Inställning   | Beskrivning      |
 |-----------|------------------|
 | Logg skala | Den logaritmiska skala som ska användas när bubblornas storlek beräknas. |
 
-När **storleks skalnings metoden** har angetts till **kubisk-Bezier**görs följande alternativ för att anpassa skalnings kurvan.
+När **storleks skalnings metoden** har angetts till **kubisk-Bezier** görs följande alternativ för att anpassa skalnings kurvan.
 
-| Inställningen | Beskrivning                           |
+| Inställning | Beskrivning                           |
 |---------|---------------------------------------|
 | PCIe      | X1-parameter för en kubikmeter av en kubikmeter. |
 | Y1      | X2-parametern för en kubikmeter av en kubikmeter. |
@@ -90,7 +90,7 @@ Lägg till mer kontext till kartan:
 Anpassa det visuella objektet:
 
 > [!div class="nextstepaction"]
-> [Tips och knep för färgformatering i Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Tips och knep för färgformatering i Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Anpassa visualiseringens rubriker, bakgrunder och förklaringar](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Anpassa visualiseringens rubriker, bakgrunder och förklaringar](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

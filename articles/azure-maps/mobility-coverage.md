@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d61cc94ee1b3c5d23135c033b1068aa7411761d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12548b04e5fb967572e17f1be88369b9950661c3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033265"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896301"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps mobilitets täckning
 
-Tjänsten Azure Maps [Mobility](https://aka.ms/AzureMapsMobilityService) förbättrar utvecklings tiden för program med funktioner för offentlig överföring, till exempel transit Routning och sökning efter närliggande offentlig överföring. Användare kan hämta detaljerad information om överförings stopp, rader och scheman. Mobilitets tjänsten gör det också möjligt för användare att hämta stopp-och rad-Geometries, aviseringar för stopp, rader och tjänst områden samt mottagna real tids-och tjänst aviseringar. Mobilitets tjänsten tillhandahåller dessutom routningsfunktioner med planerings alternativ för multimodal resan. Multimodal rese planering införlivar, alternativ för att dirigera och välja offentlig överföring, allt i en resa. Användare kan också få åtkomst till detaljerade multimodal steg-för-steg-färd vägar. 
+Tjänsten Azure Maps [Mobility](/rest/api/maps/mobility) förbättrar utvecklings tiden för program med funktioner för offentlig överföring, till exempel transit Routning och sökning efter närliggande offentlig överföring. Användare kan hämta detaljerad information om överförings stopp, rader och scheman. Mobilitets tjänsten gör det också möjligt för användare att hämta stopp-och rad-Geometries, aviseringar för stopp, rader och tjänst områden samt mottagna real tids-och tjänst aviseringar. Mobilitets tjänsten tillhandahåller dessutom routningsfunktioner med planerings alternativ för multimodal resan. Multimodal rese planering införlivar, alternativ för att dirigera och välja offentlig överföring, allt i en resa. Användare kan också få åtkomst till detaljerade multimodal steg-för-steg-färd vägar. 
 
 Azure Maps tillhandahåller inte samma nivå av information och noggrannhet för alla städer och länder/regioner. Möjligheten att anropa offentliga överförings data beror på Metro-ytan. Mappnings data får inte heller innehålla alla offentliga överförings alternativ och myndigheter som hanterar Metro-ytan.
 
@@ -74,7 +74,7 @@ Följande tabell innehåller information om disponering för Azure Maps Mobility
 | Thailand | Bangkok, Chiang Mai |
 | Vietnam | Hanoi, Hô Chi Minh City |
 
-## <a name="europe"></a>Europa
+## <a name="europe"></a>Europe
 
 | Land/region |  Ort (tunnelbane område) |
 |----------------|---------|
@@ -159,4 +159,4 @@ Lär dig hur du begär data i real tid med mobilitets tjänsten:
 Utforska dokumentationen för Azure Maps Mobility Service API
 
 > [!div class="nextstepaction"]
-> [API-dokumentation för Mobility Service](https://aka.ms/AzureMapsMobilityService)
+> [API-dokumentation för Mobility Service](/rest/api/maps/mobility)

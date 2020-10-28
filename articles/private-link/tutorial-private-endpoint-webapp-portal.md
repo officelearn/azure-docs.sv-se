@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
-ms.openlocfilehash: 6d4d9fd901337b9c05c7d7d7f271974273e9fe37
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 502c48a92f5b41c4434d03139335a0ce05fa451f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170072"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896981"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Självstudie: Anslut till en webbapp med en privat Azure-slutpunkt
 
@@ -48,16 +48,16 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
 
 1. Välj **Skapa en resurs > Nätverk > Virtuellt nätverk** eller sök efter **virtuellt nätverk** i sökrutan på den övre vänstra sidan på skärmen.
 
-2. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken **grundläggande** :
+2. I **Skapa virtuellt nätverk** anger eller väljer du den här informationen på fliken **grundläggande** :
 
     | **Inställning**          | **Värde**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Projekt information**  |                                                                 |
     | Prenumeration     | Välj din Azure-prenumeration                                  |
-    | Resource Group   | Välj **myResourceGroup** |
+    | Resursgrupp   | Välj **myResourceGroup** |
     | **Instansinformation** |                                                                 |
     | Name             | Ange **myVNet**                                    |
-    | Region           | Välj **USA, östra** |
+    | Region           | Välj **Europa, västra** |
 
 3. Välj fliken **IP-adresser** eller Välj **Nästa: knappen Nästa: IP-adress** längst ned på sidan.
 
@@ -67,31 +67,31 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
     |--------------------|----------------------------|
     | IPv4-adressutrymme | Ange **10.1.0.0/16** |
 
-5. Under **under näts namn**väljer du ordet **standard**.
+5. Under **under näts namn** väljer du ordet **standard** .
 
-6. I **Redigera undernät**anger du den här informationen:
+6. I **Redigera undernät** anger du den här informationen:
 
     | Inställning            | Värde                      |
     |--------------------|----------------------------|
     | Namn på undernät | Ange **undernät** |
     | Adressintervall för undernätet | Ange **10.1.0.0/24** |
 
-7. Välj **Spara**.
+7. Välj **Spara** .
 
 8. Välj fliken **säkerhet** .
 
-9. Under **BastionHost**väljer du **Aktivera**. Ange den här informationen:
+9. Under **BastionHost** väljer du **Aktivera** . Ange den här informationen:
 
     | Inställning            | Värde                      |
     |--------------------|----------------------------|
     | Skydds namn | Ange **myBastionHost** |
     | AzureBastionSubnet-adressutrymme | Ange **10.1.1.0/24** |
-    | Offentlig IP-adress | Välj **Skapa ny**. </br> Som **namn**anger du **myBastionIP**. </br> Välj **OK**. |
+    | Offentlig IP-adress | Välj **Skapa ny** . </br> Som **namn** anger du **myBastionIP** . </br> Välj **OK** . |
 
 
 8. Välj fliken **Granska + skapa** eller Välj knappen **Granska + skapa** .
 
-9. Välj **Skapa**.
+9. Välj **Skapa** .
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
@@ -100,16 +100,16 @@ I det här avsnittet ska du skapa en virtuell dator som ska användas för att t
 
 1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **beräkning**  >  **virtuell dator** eller Sök efter **virtuell dator** i sökrutan.
    
-2. I **skapa en virtuell dator**skriver eller väljer du värdena på fliken **grundläggande** :
+2. I **skapa en virtuell dator** skriver eller väljer du värdena på fliken **grundläggande** :
 
     | Inställning | Värde                                          |
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
-    | Resource Group | Välj **myResourceGroup** |
+    | Resursgrupp | Välj **myResourceGroup** |
     | **Instansinformation** |  |
     | Namn på virtuell dator | Ange **myVM** |
-    | Region | Välj **USA, östra** |
+    | Region | Välj **Europa, västra** |
     | Tillgänglighets alternativ | Välj **ingen redundans för infrastruktur krävs** |
     | Bild | Välj **Windows Server 2019 Data Center – gen1** |
     | Azure Spot-instans | Välj **Nej** |
@@ -119,7 +119,7 @@ I det här avsnittet ska du skapa en virtuell dator som ska användas för att t
     | Lösenord | Ange ett lösen ord |
     | Bekräfta lösenordet | Ange lösenordet igen |
 
-3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
+3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk** .
   
 4. På fliken nätverk väljer eller anger du:
 
@@ -128,19 +128,19 @@ I det här avsnittet ska du skapa en virtuell dator som ska användas för att t
     | **Nätverksgränssnitt** |  |
     | Virtuellt nätverk | **myVNet** |
     | Undernät | **mySubnet** |
-    | Offentlig IP-adress | Välj **Ingen**. |
+    | Offentlig IP-adress | Välj **Ingen** . |
     | Nätverks säkerhets grupp för nätverkskort | **Basic**|
-    | Offentliga inkommande portar | Välj **Ingen**. |
+    | Offentliga inkommande portar | Välj **Ingen** . |
    
-5. Välj **Granska + skapa**. 
+5. Välj **Granska + skapa** . 
   
-6. Granska inställningarna och välj sedan **Skapa**.
+6. Granska inställningarna och välj sedan **Skapa** .
 
 ## <a name="create-web-app"></a>Skapa webbapp
 
 I det här avsnittet ska du skapa en webbapp.
 
-1. På den vänstra menyn väljer du **skapa en resurs**  >  **lagrings**  >  **webbapp**eller söker efter **webb program** i sökrutan.
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **lagrings**  >  **webbapp** eller söker efter **webb program** i sökrutan.
 
 2. På fliken **grundläggande** i **skapa webbapp** anger eller väljer du följande information:
 
@@ -148,20 +148,20 @@ I det här avsnittet ska du skapa en webbapp.
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
-    | Resource Group | Välj **myResourceGroup** |
+    | Resursgrupp | Välj **myResourceGroup** |
     | **Instansinformation** |  |
-    | Name | Ange **webapp**. Om namnet inte är tillgängligt anger du ett unikt namn. |
-    | Publicera | Välj **Kod**. |
-    | Körnings stack | Välj **.net Core 3,1 (LTS)**. |
-    | Operativsystem | Välj **Windows**. |
-    | Region | Välj **USA, östra** |
+    | Name | Ange **webapp** . Om namnet inte är tillgängligt anger du ett unikt namn. |
+    | Publicera | Välj **Kod** . |
+    | Körningsstack | Välj **.net Core 3,1 (LTS)** . |
+    | Operativsystem | Välj **Windows** . |
+    | Region | Välj **Europa, västra** |
     | **App Service-plan** |  |
-    | Windows-plan (USA, östra) | Välj **Skapa ny**. </br> Ange **myServicePlan** i **namn**. |
-    | SKU och storlek | Välj **Ändra storlek**. </br> Välj **P2V2** på skärmen Välj **specifikation** . </br> Välj **Tillämpa**. |
+    | Windows-plan (Europa, västra) | Välj **Skapa ny** . </br> Ange **myServicePlan** i **namn** . |
+    | SKU och storlek | Välj **Ändra storlek** . </br> Välj **P2V2** på skärmen Välj **specifikation** . </br> Välj **Tillämpa** . |
    
-3. Välj **Granska + skapa**.
+3. Välj **Granska + skapa** .
 
-4. Välj **Skapa**.
+4. Välj **Skapa** .
 
     :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/create-web-app.png" alt-text="Fliken grunder i skapa en webbapp i Azure Portal." border="true":::
 
@@ -169,9 +169,9 @@ I det här avsnittet ska du skapa en webbapp.
 
 1. I den vänstra menyn väljer du **alla resurser**  >  **mywebapp** eller det namn som du valde när du skapade.
 
-2. I översikten över webbapp väljer du **Inställningar**  >  **nätverk**.
+2. I översikten över webbapp väljer du **Inställningar**  >  **nätverk** .
 
-3. I **nätverk**väljer **du konfigurera dina privata slut punkts anslutningar**.
+3. I **nätverk** väljer **du konfigurera dina privata slut punkts anslutningar** .
 
 4. Välj **+ Lägg till** på skärmen **anslutningar för privat slut punkt** .
 
@@ -179,13 +179,13 @@ I det här avsnittet ska du skapa en webbapp.
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Namn | Ange **mywebappendpoint**. |
+    | Namn | Ange **mywebappendpoint** . |
     | Prenumeration | Välj din prenumeration. |
-    | Virtuellt nätverk | Välj **myVNet**. |
-    | Undernät | Välj **undernät**. |
-    | Integrera med privat DNS-zon | Välj **Ja**. |
+    | Virtuellt nätverk | Välj **myVNet** . |
+    | Undernät | Välj **undernät** . |
+    | Integrera med privat DNS-zon | Välj **Ja** . |
 
-6. Välj **OK**.
+6. Välj **OK** .
     
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testa anslutningen till privat slut punkt
@@ -194,11 +194,11 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
 
 1. Välj **resurs grupper** i det vänstra navigerings fönstret.
 
-2. Välj **myResourceGroup**.
+2. Välj **myResourceGroup** .
 
-3. Välj **myVM**.
+3. Välj **myVM** .
 
-4. På sidan Översikt för **myVM**väljer du **Anslut** sedan **skydds**.
+4. På sidan Översikt för **myVM** väljer du **Anslut** sedan **skydds** .
 
 5. Välj knappen blå **användnings skydds** .
 
@@ -220,35 +220,35 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
 
     En privat IP-adress för **10.1.0.5** returneras för namnet på webb programmet.  Adressen finns i under nätet för det virtuella nätverk som du skapade tidigare.
 
-9. Öppna en webbläsare på den lokala datorn och ange den externa webb adressen för din webbapp, **https:// \<webapp-name> . azurewebsites.net**.
+9. Öppna en webbläsare på den lokala datorn och ange den externa webb adressen för din webbapp, **https:// \<webapp-name> . azurewebsites.net** .
 
 10. Kontrol lera att du får en **403** -sida. Den här sidan visar att webbappen inte är tillgänglig externt.
 
     :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="Fliken grunder i skapa en webbapp i Azure Portal." border="true":::
 
-11. Öppna Internet Explorer i skydds-anslutningen till **myVM**.
+11. Öppna Internet Explorer i skydds-anslutningen till **myVM** .
 
-12. Ange URL: en för din webbapp, **https:// \<webapp-name> . azurewebsites.net**.
+12. Ange URL: en för din webbapp, **https:// \<webapp-name> . azurewebsites.net** .
 
 13. Verifiera att du får standard sidan för webb program.
 
     :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-default-page.png" alt-text="Fliken grunder i skapa en webbapp i Azure Portal." border="true":::
 
-18. Stäng anslutningen till **myVM**.
+18. Stäng anslutningen till **myVM** .
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du inte kommer att fortsätta att använda det här programmet, tar du bort det virtuella nätverket, den virtuella datorn och webbappen med följande steg:
 
-1. Välj **resurs grupper**på den vänstra menyn.
+1. Välj **resurs grupper** på den vänstra menyn.
 
-2. Välj **myResourceGroup**.
+2. Välj **myResourceGroup** .
 
-3. Välj **Ta bort resursgrupp**.
+3. Välj **Ta bort resursgrupp** .
 
-4. Ange **myResourceGroup** i **Skriv resurs gruppens namn**.
+4. Ange **myResourceGroup** i **Skriv resurs gruppens namn** .
 
-5. Välj **Ta bort**.
+5. Välj **Ta bort** .
 
 ## <a name="next-steps"></a>Nästa steg
 

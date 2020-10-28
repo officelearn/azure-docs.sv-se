@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d902258c80467380518df3b55583cea1efa76609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119318"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896998"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Självstudie: använda villkor i ARM-mallar
 
@@ -37,7 +37,7 @@ Den här kursen täcker bara ett grundläggande scenario med att använda villko
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -54,7 +54,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 Azure snabb starts mallar är en lagrings plats för ARM-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här självstudien heter [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/) (Distribuera en enkel virtuell Windows-dator).
 
-1. Från Visual Studio **Code väljer du** > **Öppna fil**.
+1. Från Visual Studio **Code väljer du** > **Öppna fil** .
 1. I **Filnamn** klistrar du in följande URL:
 
     ```url
@@ -73,14 +73,14 @@ Azure snabb starts mallar är en lagrings plats för ARM-mallar. I stället för
 
     Det är bra att granska mal len referens innan du anpassar en mall.
 
-1. Välj **Arkiv** > **Spara som** om du vill spara en kopia av filen på den lokala datorn med namnet **azuredeploy.jspå**.
+1. Välj **Arkiv** > **Spara som** om du vill spara en kopia av filen på den lokala datorn med namnet **azuredeploy.jspå** .
 
 ## <a name="modify-the-template"></a>Ändra mallen
 
 Gör två ändringar av den befintliga mallen:
 
 * Lägg till namnparameter för lagringskonto. Användare kan ange antingen ett nytt lagringskontonamn eller ett befintligt lagringskontonamn.
-* Lägg till en ny parameter med namnet **newOrExisting**. Distributionen använder den här parametern för att avgöra om du ska skapa ett nytt lagrings konto eller använda ett befintligt lagrings konto.
+* Lägg till en ny parameter med namnet **newOrExisting** . Distributionen använder den här parametern för att avgöra om du ska skapa ett nytt lagrings konto eller använda ett befintligt lagrings konto.
 
 Här följer proceduren för att göra ändringarna:
 
@@ -88,7 +88,7 @@ Här följer proceduren för att göra ändringarna:
 1. Ersätt de tre **variablerna (' storageAccountName ')** med **parametrar (' storageAccountName ')** i hela mallen.
 1. Ta bort följande variabeldefinition:
 
-    ![Användnings villkors diagram för Resource Manager-mall](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Skärm bild som visar de variabel definitioner som du behöver ta bort.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 1. Lägg till följande två parametrar i början av avsnittet parametrar:
 
@@ -117,11 +117,11 @@ Här följer proceduren för att göra ändringarna:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    Villkoret kontrollerar värdet för parametern med namnet **newOrExisting**. Om parametervärdet är **new** (nytt) skapar distributionen lagringskontot.
+    Villkoret kontrollerar värdet för parametern med namnet **newOrExisting** . Om parametervärdet är **new** (nytt) skapar distributionen lagringskontot.
 
     Den uppdaterade lagringskontodefinitionen ser ut så här:
 
-    ![Resource Manager-användningsvillkor](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![Skärm bild som visar den uppdaterade lagrings konto definitionen.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 1. Uppdatera **storageUri** -egenskapen för den virtuella datorns resurs definition med följande värde:
 
     ```json
@@ -140,7 +140,7 @@ Här följer proceduren för att göra ändringarna:
 
     ![Azure Portal Cloud Shell Ladda upp fil](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Välj **Ladda upp/ned filer** och välj sedan **Ladda upp**. Se föregående skärmbild. Välj den fil som du sparade i föregående avsnitt. När du har överfört filen kan du använda kommandot **ls** och kommandot **Cat** för att kontrol lera att filen har laddats upp.
+1. Välj **Ladda upp/ned filer** och välj sedan **Ladda upp** . Se föregående skärmbild. Välj den fil som du sparade i föregående avsnitt. När du har överfört filen kan du använda kommandot **ls** och kommandot **Cat** för att kontrol lera att filen har laddats upp.
 
 1. Kör följande PowerShell-skript för att distribuera mallen.
 
@@ -178,7 +178,7 @@ Försök att göra en annan distribution med **newOrExisting** inställd på "be
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen. Om du vill ta bort resurs gruppen väljer du **prova** att öppna Cloud Shell. Om du vill klistra in PowerShell-skriptet högerklickar du på fönstret Shell och väljer **Klistra in**.
+När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen. Om du vill ta bort resurs gruppen väljer du **prova** att öppna Cloud Shell. Om du vill klistra in PowerShell-skriptet högerklickar du på fönstret Shell och väljer **Klistra in** .
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name you used in the last procedure"

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 618c8597f7f10ce669bb340b9f5ea4c96f5c1d3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d15f78c19b5f142f8879d54a1ae32e229ce7f50
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825302"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896590"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Zoomningsnivåer och rutnät
 
@@ -74,7 +74,7 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-Eftersom kart bredd och höjd skiljer sig på varje zoomnings nivå, så är pixel koordinaterna. Bild punkten i det övre vänstra hörnet av kartan har alltid pixel koordinater (0, 0). Bild punkten i det nedre högra hörnet av kartan har pixel koordinater *(bredd-1, höjd-1)* eller hänvisar till ekvationerna i föregående avsnitt *(tileSize \* 2<sup>zoom</sup>– 1, tileSize \* 2<sup>zoom</sup>– 1)*. Om du till exempel använder 512 fyrkantiga paneler på nivå 2, sträcker sig pixel koordinaterna från (0, 0) till (2047, 2047), så här:
+Eftersom kart bredd och höjd skiljer sig på varje zoomnings nivå, så är pixel koordinaterna. Bild punkten i det övre vänstra hörnet av kartan har alltid pixel koordinater (0, 0). Bild punkten i det nedre högra hörnet av kartan har pixel koordinater *(bredd-1, höjd-1)* eller hänvisar till ekvationerna i föregående avsnitt *(tileSize \* 2 <sup>zoom</sup>– 1, tileSize \* 2 <sup>zoom</sup>– 1)* . Om du till exempel använder 512 fyrkantiga paneler på nivå 2, sträcker sig pixel koordinaterna från (0, 0) till (2047, 2047), så här:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Panelen karta":::
 
@@ -100,7 +100,7 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Varje bricka tilldelas XY-koordinater från (0, 0) i det övre vänstra hörnet till *(2<sup>zoom</sup>– 1, 2<sup>zoom</sup>– 1)* längst ned till höger. Till exempel, vid zoomnings nivå 3, sträcker sig panelerna från (0, 0) till (7, 7) enligt följande:
+Varje bricka tilldelas XY-koordinater från (0, 0) i det övre vänstra hörnet till *(2 <sup>zoom</sup>– 1, 2 <sup>zoom</sup>– 1)* längst ned till höger. Till exempel, vid zoomnings nivå 3, sträcker sig panelerna från (0, 0) till (7, 7) enligt följande:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Panelen karta":::
 
@@ -933,20 +933,20 @@ module AzureMaps {
 
 > [!NOTE]
 > De interaktiva kart kontrollerna i Azure Maps SDK: n har hjälp funktioner för att konvertera mellan geospatiala positioner och visnings bild punkter. 
-> - [Webb-SDK: mappa pixel-och positions beräkningar](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [Webb-SDK: mappa pixel-och positions beräkningar](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Direkt åtkomst till kart paneler från Azure Maps REST-tjänster:
 
 > [!div class="nextstepaction"]
-> [Hämta kart paneler](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [Hämta kart paneler](/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [Hämta trafik flödes paneler](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [Hämta trafik flödes paneler](/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [Hämta incident paneler för trafik](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [Hämta incident paneler för trafik](/rest/api/maps/traffic/gettrafficincidenttile)
 
 Lär dig mer om geospatiala koncept:
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84169daa28fc394254ddce211a96d4a462f78cbd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441869"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896474"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Bevilja B2B-användare i Azure AD åtkomst till dina lokala program
 
@@ -39,8 +39,8 @@ Du måste göra något av följande:
 
 För att ge B2B-användare åtkomst till lokala program som skyddas med integrerad Windows-autentisering och Kerberos-begränsad delegering, behöver du följande komponenter:
 
-- **Autentisering via Azure-AD-programproxy**. B2B-användare måste kunna autentisera till det lokala programmet. Om du vill göra det måste du publicera den lokala appen via Azure-AD-programproxy. Mer information finns i [Kom igång med Application Proxy och installera Connector](../manage-apps/application-proxy-add-on-premises-application.md) och [Publicera program med hjälp av Azure AD-programproxy](../manage-apps/application-proxy-add-on-premises-application.md).
-- **Auktorisering via ett B2B-användar objekt i den lokala katalogen**. Programmet måste kunna utföra kontroller för användar åtkomst och ge åtkomst till rätt resurser. IWA och KCD kräver ett användar objekt i den lokala Windows Server-Active Directory för att slutföra den här auktoriseringen. Som beskrivs i [hur enkel inloggning med KCD fungerar](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)måste programproxyn ha det här användarobjektet för att personifiera användaren och hämta en Kerberos-token till appen. 
+- **Autentisering via Azure-AD-programproxy** . B2B-användare måste kunna autentisera till det lokala programmet. Om du vill göra det måste du publicera den lokala appen via Azure-AD-programproxy. Mer information finns i [Självstudier: Lägg till ett lokalt program för fjärråtkomst via Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md).
+- **Auktorisering via ett B2B-användar objekt i den lokala katalogen** . Programmet måste kunna utföra kontroller för användar åtkomst och ge åtkomst till rätt resurser. IWA och KCD kräver ett användar objekt i den lokala Windows Server-Active Directory för att slutföra den här auktoriseringen. Som beskrivs i [hur enkel inloggning med KCD fungerar](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)måste programproxyn ha det här användarobjektet för att personifiera användaren och hämta en Kerberos-token till appen. 
 
    > [!NOTE]
    > När du konfigurerar Azure-AD-programproxy bör du se till att den **delegerade inloggnings identiteten** är inställd på **användarens huvud namn** (standard) i konfigurationen för enkel inloggning för integrerad Windows-autentisering (IWA).
@@ -64,7 +64,7 @@ Följande diagram innehåller en översikt över hur Azure AD-programproxy och g
 
 ### <a name="lifecycle-management-policies"></a>Principer för livs cykel hantering
 
-Du kan hantera lokala B2B-användar objekt via principer för livs cykel hantering. Exempel:
+Du kan hantera lokala B2B-användar objekt via principer för livs cykel hantering. Till exempel:
 
 - Du kan ställa in Multi-Factor Authentication-principer (MFA) för gäst användaren så att MFA används vid autentisering i Application Proxy. Mer information finns i [villkorlig åtkomst för B2B-samarbets användare](conditional-access.md).
 - Alla sponsring, åtkomst granskningar, konto verifieringar osv. som utförs i Cloud B2B-användaren gäller för lokala användare. Om till exempel moln användaren tas bort via livs cykel hanterings principerna, tas den lokala användaren också bort av MIM Sync eller genom Azure AD Connect Sync. Mer information finns i [Hantera gäst åtkomst med åtkomst granskningar för Azure AD](../governance/manage-guest-access-with-access-reviews.md).

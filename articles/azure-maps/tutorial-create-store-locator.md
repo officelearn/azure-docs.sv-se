@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 9c2160a241243b59ca7adda99fe2100d416c55be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 981697211cf8ee0aff1ac0e3d0db6000c1089c00
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335270"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896857"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Självstudie: skapa en Store-lokaliserare med hjälp av Azure Maps
 
-Den här självstudien vägleder dig genom processen med att skapa en enkel butikslokaliserare med hjälp av Azure Maps. Butikslokaliserare är vanliga. Många av de begrepp som används i den här typen av program är tillämpliga på många andra typer av program. En butikslokaliserare för kunder är ett måste för de flesta företag som säljer direkt till konsumenter. I den här guiden får du lära dig att:
+Den här självstudien vägleder dig genom processen med att skapa en enkel butikslokaliserare med hjälp av Azure Maps. Butikslokaliserare är vanliga. Många av de begrepp som används i den här typen av program är tillämpliga på många andra typer av program. En butikslokaliserare för kunder är ett måste för de flesta företag som säljer direkt till konsumenter. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa en ny webbsida med API:et Azure Kartkontroll.
@@ -33,7 +33,7 @@ Den här självstudien vägleder dig genom processen med att skapa en enkel buti
 
 Gå vidare till [exemplet på livebutikslokaliserare](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) eller [källkoden](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. [Skapa ett Azure Maps konto med pris nivån S1](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
@@ -76,7 +76,7 @@ Du kan [ladda ned Excel-arbetsboken](https://github.com/Azure-Samples/AzureMapsC
 
 När vi tittar på skärmbilden över data kan vi göra följande observationer:
 
-* Platsinformation lagras med hjälp av kolumnerna **AddressLine**, **Stad**, **Kommun** (län), **AdminDivision** (region), **PostCode** (postnummer) och **Land**.  
+* Platsinformation lagras med hjälp av kolumnerna **AddressLine** , **Stad** , **Kommun** (län), **AdminDivision** (region), **PostCode** (postnummer) och **Land** .  
 * Kolumnerna **Latitud** och **Longitud** innehåller koordinaterna för varje plats för Contoso Coffee. Om du inte har koordinaternas information kan du använda Search-tjänsterna i Azure Maps för att fastställa platskoordinaterna.
 * Vissa ytterligare kolumner innehåller metadata som är relaterade till Café butiker: ett telefonnummer, booleska kolumner och lagrings tider i 24-timmarsformat. Booleska kolumner är för Wi-Fi-och Wheelchair-tillgänglighet. Du kan skapa egna kolumner som innehåller metadata som är mer relevanta för dina plats data.
 
@@ -87,7 +87,7 @@ Det finns många sätt att exponera datauppsättningen för programmet. En metod
 
 En annan metod är att konvertera datauppsättningen till en flat textfil som webbläsaren enkelt kan parsa. Själva filen kan finnas i resten av programmet. Det här alternativet gör allt enkelt, men det är endast ett bra alternativ för mindre datauppsättningar eftersom användaren hämtar alla data. Vi använder den flata textfilen för den här datauppsättningen eftersom filens datastorlek är mindre än 1 MB.  
 
-Om du vill konvertera arbetsboken till en flat textfil sparar du arbetsboken som en tabbavgränsad fil. Varje kolumn avgränsas med ett tabbtecken, vilket gör kolumnerna enkla att parsa i vår kod. Du kan använda formatet kommaavgränsade värden (CSV), men det alternativet kräver mer parsningslogik. Alla fält som har ett kommatecken runt sig skulle vara omslutna av citattecken. Om du vill exportera dessa data som en tabbavgränsad fil i Excel väljer du **Spara som**. I listrutan **Filformat** väljer du **Text (tabbavgränsad)(*.txt)**. Ge filen namnet *ContosoCoffee.txt*.
+Om du vill konvertera arbetsboken till en flat textfil sparar du arbetsboken som en tabbavgränsad fil. Varje kolumn avgränsas med ett tabbtecken, vilket gör kolumnerna enkla att parsa i vår kod. Du kan använda formatet kommaavgränsade värden (CSV), men det alternativet kräver mer parsningslogik. Alla fält som har ett kommatecken runt sig skulle vara omslutna av citattecken. Om du vill exportera dessa data som en tabbavgränsad fil i Excel väljer du **Spara som** . I listrutan **Filformat** väljer du **Text (tabbavgränsad)(*.txt)** . Ge filen namnet *ContosoCoffee.txt* .
 
 ![Skärmbild av dialogrutan Filformat](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -97,7 +97,7 @@ Om du öppnar textfilen i anteckningar liknar den följande bild:
 
 ## <a name="set-up-the-project"></a>Konfigurera projektet
 
-För att skapa projektet använder du [Visual Studio](https://visualstudio.microsoft.com) eller valfritt kodredigeringsprogram. Skapa tre filer i din projektmapp: *index.html*, *index.css* och *index.js*. De här filerna definierar layout, stil och logik för programmet. Skapa en mapp med namnet *data* och Lägg till *ContosoCoffee.txt* till mappen. Skapa en annan mapp med namnet *images*. Vi använder 10 bilder i det här programmet för ikoner, knappar och markörer på kartan. Du kan [ladda ned bilderna](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Din projektmapp bör nu se ut som följande bild:
+För att skapa projektet använder du [Visual Studio](https://visualstudio.microsoft.com) eller valfritt kodredigeringsprogram. Skapa tre filer i din projektmapp: *index.html* , *index.css* och *index.js* . De här filerna definierar layout, stil och logik för programmet. Skapa en mapp med namnet *data* och Lägg till *ContosoCoffee.txt* till mappen. Skapa en annan mapp med namnet *images* . Vi använder 10 bilder i det här programmet för ikoner, knappar och markörer på kartan. Du kan [ladda ned bilderna](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Din projektmapp bör nu se ut som följande bild:
 
 ![Skärmbild av projektmappen Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
@@ -105,7 +105,7 @@ För att skapa projektet använder du [Visual Studio](https://visualstudio.micro
 
 Lägg till kod till *index.html* för att skapa användargränssnittet:
 
-1. Lägg till följande `meta`-taggar till `head` i *index.html*. `charset`Taggen definierar teckenuppsättningen (UTF-8). Värdet för `http-equiv` visar att Internet Explorer och Microsoft Edge använder de senaste webb läsar versionerna. Och den sista `meta` taggen anger ett visnings område som fungerar bra för layouter som svarar.
+1. Lägg till följande `meta`-taggar till `head` i *index.html* . `charset`Taggen definierar teckenuppsättningen (UTF-8). Värdet för `http-equiv` visar att Internet Explorer och Microsoft Edge använder de senaste webb läsar versionerna. Och den sista `meta` taggen anger ett visnings område som fungerar bra för layouter som svarar.
 
     ```HTML
     <meta charset="utf-8">
@@ -126,7 +126,7 @@ Lägg till kod till *index.html* för att skapa användargränssnittet:
     <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
-1. Lägg till referenser till *index.js* och *index.css*:
+1. Lägg till referenser till *index.js* och *index.css* :
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css">
@@ -385,7 +385,7 @@ Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande läg
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Lägg till kod till *index.js*. Följande kod initierar kartan. Vi har lagt till en [händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) att vänta tills sidan har lästs in. Sedan kabelansluter vi händelser för att övervaka inläsningen av kartan och ge funktioner till knappen Sök och min plats.
+1. Lägg till kod till *index.js* . Följande kod initierar kartan. Vi har lagt till en [händelse lyssnare](/javascript/api/azure-maps-control/atlas.map#events) att vänta tills sidan har lästs in. Sedan kabelansluter vi händelser för att övervaka inläsningen av kartan och ge funktioner till knappen Sök och min plats.
 
    När användaren väljer Sök knappen, eller anger en plats i sökrutan, trycker på RETUR, en Fuzzy-sökning mot användarens fråga initieras. Skicka i en matris med ISO 2-värden för land/region till `countrySet` alternativet om du vill begränsa Sök resultaten till dessa länder/regioner. Genom att begränsa de länder/regioner som ska genomsökas kan du öka noggrannheten i de resultat som returneras. 
   
@@ -931,8 +931,8 @@ I den här självstudien har du lärt dig hur du skapar en grundläggande Store-
  * Tillåt att användaren [filtrerar på platser längs en väg](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
  * Lägg till möjligheten att [ange filter](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
  * Lägg till stöd för att ange ett inledande sökvärde med hjälp av en frågesträng. När du inkluderar det här alternativet i butikslokaliseraren kan du skapa bokmärken och dela sökningar. Det ger också ett enkelt sätt att skicka sökningar till den här sidan från en annan sida.  
- * Distribuera din butikslokaliserare som en [Azure App Service-webbapp](https://docs.microsoft.com/azure/app-service/quickstart-html). 
- * Lagra dina data i en databas och sök efter närliggande ställen. Mer information finns i [översikten över rumsliga data för SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017&preserve-view=true) och [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017&preserve-view=true) (Fråga rumsliga data efter den närmaste grannen).
+ * Distribuera din butikslokaliserare som en [Azure App Service-webbapp](../app-service/quickstart-html.md). 
+ * Lagra dina data i en databas och sök efter närliggande ställen. Mer information finns i [översikten över rumsliga data för SQL Server](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) och [Query spatial data for the nearest neighbor](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017) (Fråga rumsliga data efter den närmaste grannen).
 
 Du kan [Visa fullständig källkod](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [Visa Live-exempel](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) och lära dig mer om täckningen och funktionerna i Azure Maps med hjälp av [zoomnings nivåer och panel rutnät](zoom-levels-and-tile-grid.md). Du kan också [använda data drivna format uttryck](data-driven-style-expressions-web-sdk.md) för din affärs logik.
 

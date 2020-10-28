@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: b692475949645693267ffec69361d9fdc4c328e8
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0dc4528147a144ed9887ae1becfbbe2aa4b9fcf3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548222"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897697"
 ---
 > [!IMPORTANT]
 > Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker.
@@ -106,10 +106,6 @@ I programmets **main** -metod lägger du till anrop för de metoder som används
 * Om du vill få en URL för ett formulär att testa kan du använda ovanstående steg för att hämta SAS-URL: en för ett enskilt dokument i Blob Storage. Eller ta med URL: en för ett dokument som finns på annan plats.
 * Använd metoden ovan för att hämta URL: en för en kvitto bild.
 
-> [!NOTE]
-> Kodfragmenten i den här guiden använder fjärrformulär som används av URL: er. Om du vill bearbeta lokala formulär dokument i stället, se de relaterade metoderna i [referens dokumentationen](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview).
-
-
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
@@ -161,10 +157,12 @@ Lägg till följande kod högst upp i **huvud** metoden. Här ska du autentisera
 
 Du kan använda formulär igenkänning för att identifiera tabeller, rader och ord i dokument, utan att behöva träna en modell.
 
-Om du vill identifiera innehållet i en fil vid en specifik URI använder du metoden **beginRecognizeContentFromUrl** .
+Om du vill identifiera innehållet i en fil på en viss URL använder du metoden **beginRecognizeContentFromUrl** .
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_call)]
 
+> [!TIP]
+> Du kan också hämta innehåll från en lokal fil. Se [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) -metoderna, till exempel **beginRecognizeContent** . Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) för scenarier som involverar lokala avbildningar.
 
 Det returnerade värdet är en samling **FormPage** -objekt: en för varje sida i det dokument som skickas. Följande kod itererar igenom dessa objekt och skriver ut de extraherade nyckel-och värdeparen och tabell data.
 
@@ -192,12 +190,14 @@ Cell has text ET.
 
 Det här avsnittet visar hur du identifierar och extraherar vanliga fält från amerikanska kvitton med hjälp av en förtränad kvitto modell.
 
-Om du vill känna igen kvitton från en URI använder du metoden **beginRecognizeReceiptsFromUrl** . Det returnerade värdet är en samling **RecognizedReceipt** -objekt: en för varje sida i det dokument som skickas.
+Om du vill känna igen kvitton från en URI använder du metoden **beginRecognizeReceiptsFromUrl** . 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
+> [!TIP]
+> Du kan också få identifiera lokala kvitto avbildningar. Se [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) -metoderna, till exempel **beginRecognizeReceipts** . Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) för scenarier som involverar lokala avbildningar.
 
-Nästa kodblock upprepas genom kvittona och skriver ut information till-konsolen.
+Det returnerade värdet är en samling **RecognizedReceipt** -objekt: en för varje sida i det dokument som skickas. Nästa kodblock upprepas genom kvittona och skriver ut information till-konsolen.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print)]
 
@@ -305,12 +305,14 @@ Det här avsnittet visar hur du extraherar nyckel/värde-information och annat i
 > [!IMPORTANT]
 > För att implementera det här scenariot måste du redan ha tränat en modell så att du kan skicka dess ID till metoden nedan. Se avsnittet [träna en modell](#train-a-model-without-labels) .
 
-Du använder metoden **beginRecognizeCustomFormsFromUrl** . Det returnerade värdet är en samling **RecognizedForm** -objekt: en för varje sida i det dokument som skickas.
+Du använder metoden **beginRecognizeCustomFormsFromUrl** . 
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_call)]
 
+> [!TIP]
+> Du kan också analysera en lokal fil. Se [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable) -metoderna, till exempel **beginRecognizeCustomForms** . Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) för scenarier som involverar lokala avbildningar.
 
-Följande kod skriver ut analys resultaten till-konsolen. Det skriver ut varje identifierat fält och motsvarande värde, tillsammans med en förtroende poäng.
+Det returnerade värdet är en samling **RecognizedForm** -objekt: en för varje sida i det dokument som skickas. Följande kod skriver ut analys resultaten till-konsolen. Det skriver ut varje identifierat fält och motsvarande värde, tillsammans med en förtroende poäng.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_print)]
 
@@ -386,7 +388,7 @@ Du kan också ta bort en modell från ditt konto genom att referera till dess ID
 
 
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Gå tillbaka till huvud projekt katalogen. Bygg sedan appen med följande kommando:
 

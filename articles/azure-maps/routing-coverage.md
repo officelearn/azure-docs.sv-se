@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 160e8182a2de56b494e8f37bbedf4a8cec66c608
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05c3cfc390fed905f4a1b09c221095b56867d540
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88030902"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896182"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps routnings täckning
 
@@ -37,7 +37,7 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 <br>  
 
 
-## <a name="africa"></a>Afrika
+## <a name="africa"></a>Africa
 
 | Land/region                 | Routning         | Routning med trafik | Truck-routning |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
@@ -152,7 +152,7 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 | Vietnam                        |        ✓       |         ✓            |             |
 
 
-## <a name="europe"></a>Europa
+## <a name="europe"></a>Europe
 
 | Land/region                 | Routning         | Routning med trafik | Truck-routning |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
@@ -245,4 +245,4 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Maps routning finns i referens sidorna för [routning](https://docs.microsoft.com/rest/api/maps/route) .
+Mer information om Azure Maps routning finns i referens sidorna för [routning](/rest/api/maps/route) .

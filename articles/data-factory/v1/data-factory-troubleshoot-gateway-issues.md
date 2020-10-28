@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b12ff431b2d164baf4f70fa5341f538b16bca51
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319075"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896573"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Felsöka problem med gateway för datahantering
 Den här artikeln innehåller information om fel sökning av problem med att använda Data Management Gateway.
@@ -86,7 +86,7 @@ Du kan se följande fel meddelande när du registrerar en gateway.
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
 
-![Gateway-nyckeln är ogiltig eller tom](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
+![Skärm bild som visar fel meddelandet som anger att Gateway-nyckeln är ogiltig eller tom.](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Orsak
 Gateway-nyckeln har återskapats eller också har gatewayen tagits bort i Azure Portal. Det kan också inträffa om Data Management Gateway-installationen inte är senaste.
@@ -107,14 +107,14 @@ Du kan se följande fel meddelande när du registrerar en gateway.
 Det här felet kan inträffa på grund av att gatewayen har tagits bort eller att den associerade Gateway-nyckeln har återskapats.
 
 #### <a name="resolution"></a>Lösning
-Om gatewayen har tagits bort skapar du gatewayen på nytt från portalen, klickar på **Registrera**, kopierar nyckeln från portalen, klistrar in den och försöker registrera gatewayen.
+Om gatewayen har tagits bort skapar du gatewayen på nytt från portalen, klickar på **Registrera** , kopierar nyckeln från portalen, klistrar in den och försöker registrera gatewayen.
 
 Om gatewayen fortfarande finns men dess nyckel har återskapats använder du den nya nyckeln för att registrera gatewayen. Om du inte har nyckeln kan du återskapa nyckeln igen från portalen.
 
 ### <a name="7-problem"></a>7. problem
 När du registrerar en gateway kan du behöva ange sökväg och lösen ord för ett certifikat.
 
-![Ange certifikat](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
+![Skärm bild som visar var du anger sökvägen och lösen ordet för certifikatet.](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
 
 #### <a name="cause"></a>Orsak
 Gatewayen har registrerats på andra datorer tidigare. Under den inledande registreringen av en gateway har ett krypterings certifikat associerats med gatewayen. Certifikatet kan antingen skapas själv av gatewayen eller tillhandahållas av användaren.  Det här certifikatet används för att kryptera autentiseringsuppgifterna för data lagret (länkad tjänst).  
@@ -233,7 +233,7 @@ Om du ser data lager anslutning eller driv rutins fel utför du följande steg:
 
 1. Starta Data Management Gateway Configuration Manager på gateway-datorn.
 2. Växla till fliken **diagnostik** .
-3. I **Testa anslutning**lägger du till värdet för gateway-gruppen.
+3. I **Testa anslutning** lägger du till värdet för gateway-gruppen.
 4. Klicka på **testa** för att se om du kan ansluta till den lokala data källan från gateway-datorn med hjälp av anslutnings informationen och autentiseringsuppgifterna. Om testanslutningen fortfarande misslyckas när du har installerat en drivrutin, ska du starta om gatewayen så att den använder den senaste ändringen.
 
 ![Testa anslutning på fliken diagnostik](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
@@ -252,7 +252,7 @@ När du kontaktar Microsoft Support för att få hjälp med fel sökning av Gate
 4. Valfritt Klicka på **Sekretess** om du vill läsa sekretess policyn för Microsofts webb tjänster.
 5. När du är nöjd med vad du kommer att överföra klickar du på **skicka loggar** för att skicka loggarna från de senaste sju dagarna till Microsoft för fel sökning. Du bör se statusen för åtgärden skicka-loggar som visas på följande skärm bild.
 
-    ![Data Management Gateway skicka loggar status](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
+    ![Skärm bild som visar var du kan visa status för åtgärden skicka-loggar.](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. När åtgärden har slutförts visas en dialog ruta som visas i följande skärm bild.
 
     ![Data Management Gateway skicka loggar status](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
@@ -278,7 +278,7 @@ Klicka på länken **arkivera Gateway-loggar** för att arkivera och Spara logga
 ### <a name="locate-gateway-logs"></a>Hitta Gateway-loggar
 Du hittar detaljerad information om Gateway-loggen i händelse loggarna i Windows.
 
-1. Starta Windows **Loggboken**.
+1. Starta Windows **Loggboken** .
 2. Hitta loggar i Data Management Gateway mappen **program-och tjänst loggar**  >  **Data Management Gateway** .
 
    När du felsöker Gateway-relaterade problem kan du leta efter fel nivå händelser i logg boken.

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 06b56566108bb482109d02d8d4f9db66dc2a6995
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9e0bdbc9cc197deb5028848731f031ff19d5ebf7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755415"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897820"
 ---
 > [!IMPORTANT]
 > Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker.
@@ -91,6 +91,9 @@ I programmets **program** klass skapar du variabler för resursens nyckel och sl
 
 I programmets **main** -metod lägger du till ett anrop till den asynkrona aktivitet som används i den här snabb starten. Du kommer att implementera den senare.
 
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
+
+
 ## <a name="object-model"></a>Objekt modell 
 
 Med formulär tolken kan du skapa två olika klient typer. Det första `FormRecognizerClient` används för att fråga tjänsten om identifierade formulär fält och innehåll. Den andra används `FormTrainingClient` för att skapa och hantera anpassade modeller som du kan använda för att förbättra igenkänningen. 
@@ -143,16 +146,11 @@ Under **main** , skapar du en ny metod med namnet `AuthenticateClient` . Du ska 
 
 ## <a name="get-assets-for-testing"></a>Få till gångar för testning 
 
-Kodfragmenten i den här guiden använder fjärrformulär som används av URL: er. Om du vill bearbeta lokala formulär dokument i stället, se de relaterade metoderna i [referens dokumentation](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) och [exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
-
 Du måste också lägga till referenser till URL: erna för din utbildning och testa data. Lägg till dessa i roten för **program** klassen.
 
 * Om du vill hämta SAS-URL: en för din anpassade modell inlärnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst** . Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa** . Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Använd sedan stegen ovan för att hämta SAS-URL: en för ett enskilt dokument i Blob Storage.
 * Spara slutligen URL: en för exempel kvitto bilden som ingår i exemplen nedan (även tillgängligt på [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms). 
-
-> [!NOTE]
-> Kodfragmenten i den här guiden använder fjärrformulär som används av URL: er. Om du vill bearbeta lokala formulär dokument i stället, se de relaterade metoderna i [referens dokumentationen](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
 
@@ -161,9 +159,12 @@ Du måste också lägga till referenser till URL: erna för din utbildning och t
 
 Du kan använda formulär igenkänning för att identifiera tabeller, rader och ord i dokument, utan att behöva träna en modell. Det returnerade värdet är en samling **FormPage** -objekt: en för varje sida i det dokument som skickas. 
 
-Använd-metoden för att identifiera innehållet i en fil vid en specifik URI `StartRecognizeContentFromUri` .
+Använd metoden för att identifiera innehållet i en fil på en viss URL `StartRecognizeContentFromUri` .
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_call)]
+
+> [!TIP]
+> Du kan också hämta innehåll från en lokal fil. Se [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) -metoderna, till exempel **StartRecognizeContent** . Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) för scenarier som involverar lokala avbildningar.
 
 Resten av aktiviteten skriver ut innehålls informationen till-konsolen.
 
@@ -208,10 +209,12 @@ Table 0 has 2 rows and 6 columns.
 
 Det här avsnittet visar hur du identifierar och extraherar vanliga fält från amerikanska kvitton med hjälp av en förtränad kvitto modell.
 
-Om du vill känna igen kvitton från en URI använder du- `StartRecognizeReceiptsFromUri` metoden. 
+Om du vill känna igen kvitton från en URL använder du- `StartRecognizeReceiptsFromUri` metoden. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
 
+> [!TIP]
+> Du kan också identifiera lokala kvitto avbildningar. Se [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) -metoderna, till exempel **StartRecognizeReceipts** . Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) för scenarier som involverar lokala avbildningar.
 
 Det returnerade värdet är en samling `RecognizedReceipt` objekt: ett för varje sida i det dokument som skickas. Följande kod bearbetar kvittot vid den aktuella URI: n och skriver ut de viktigaste fälten och värdena till-konsolen.
 
@@ -401,12 +404,14 @@ Det här avsnittet visar hur du extraherar nyckel/värde-information och annat i
 > [!IMPORTANT]
 > För att implementera det här scenariot måste du redan ha tränat en modell så att du kan skicka dess ID till metoden nedan.
 
-Du använder- `StartRecognizeCustomFormsFromUri` metoden. Det returnerade värdet är en samling `RecognizedForm` objekt: ett för varje sida i det dokument som skickas. 
-
+Du använder- `StartRecognizeCustomFormsFromUri` metoden. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze)]
 
-Följande kod skriver ut analys resultaten till-konsolen. Det skriver ut varje identifierat fält och motsvarande värde, tillsammans med en förtroende poäng.
+> [!TIP]
+> Du kan också analysera en lokal fil. Se [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet) -metoderna, till exempel **StartRecognizeCustomForms** . Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) för scenarier som involverar lokala avbildningar.
+
+Det returnerade värdet är en samling `RecognizedForm` objekt: ett för varje sida i det dokument som skickas. Följande kod skriver ut analys resultaten till-konsolen. Det skriver ut varje identifierat fält och motsvarande värde, tillsammans med en förtroende poäng.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze_response)]
 

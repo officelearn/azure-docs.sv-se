@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 240bc8429ca786eb2f474a5a0b6ee296deb3b356
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9cf9e031c73b1412ab9fc20f5ffe94736d28eb4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310130"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896913"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps kategorier som stöds
 
-När du gör en [kategoris ökning](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) för intressanta punkter finns det fler än hundra olika kategorier som stöds. Nedan visas en lista över kategori koder för de kategori namn som stöds. Kategori koder skapas för kategorier på den översta nivån. Alla under Kategorier delar samma kategori kod. Den här kategori listan kan ändras med nya data versioner.
+När du gör en [kategoris ökning](/rest/api/maps/search/getsearchpoicategory) för intressanta punkter finns det fler än hundra olika kategorier som stöds. Nedan visas en lista över kategori koder för de kategori namn som stöds. Kategori koder skapas för kategorier på den översta nivån. Alla under Kategorier delar samma kategori kod. Den här kategori listan kan ändras med nya data versioner.
 
 <br/>
 

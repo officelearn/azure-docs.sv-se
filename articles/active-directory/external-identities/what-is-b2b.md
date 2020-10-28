@@ -12,19 +12,19 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7104040e73679b6563b02aba47698b8eac2b7a56
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d10eb3334154f4915aa0bddd488ddc78bde06805
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441393"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897270"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Vad är gästanvändaråtkomst i Azure Active Directory B2B?
 
 Azure Active Directory (B2B) samarbete mellan företag (Azure AD) är en funktion i externa identiteter som gör att du kan bjuda in gäst användare att samar beta med din organisation. Med B2B-samarbete kan du på ett säkert sätt dela ditt företags program och tjänster med gäst användare från vilken annan organisation som helst, samtidigt som du behåller kontrollen över dina egna företags data. Arbeta tryggt och säkert med externa partners, stora som små, även om de inte har Azure AD eller någon IT-avdelning. Tack vare en enkel process för inbjudan och inlösen kan dessa partners använda sina egna autentiseringsuppgifter för att få åtkomst till företagets resurser. Utvecklare kan använda Azure AD B2Bs API:er för att anpassa inbjudningsprocessen eller skriva program som självbetjäningsportaler för registrering. Information om licensiering och prissättning som rör gäst användare finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).  
 
    > [!IMPORTANT]
-   > Från och med den **31 mars 2021**kommer Microsoft inte längre att stödja inlösen av inbjudningar genom att skapa ohanterade Azure AD-konton och klienter för B2B-samarbets scenarier. Vi rekommenderar att kunderna väljer [autentisering med e-post med eng ång slö sen ord](one-time-passcode.md). Vi välkomnar din feedback om den här offentliga för hands versionen och är glada att skapa ännu fler sätt att samar beta.
+   > Från och med den **31 mars 2021** kommer Microsoft inte längre att stödja inlösen av inbjudningar genom att skapa ohanterade Azure AD-konton och klienter för B2B-samarbets scenarier. Vi rekommenderar att kunderna väljer [autentisering med e-post med eng ång slö sen ord](one-time-passcode.md). Vi välkomnar din feedback om den här offentliga för hands versionen och är glada att skapa ännu fler sätt att samar beta.
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>Samarbeta med alla partners med hjälp av deras identiteter
 
@@ -95,6 +95,6 @@ Du kan också använda [API-kopplingar](api-connectors-overview.md) för att int
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Licensieringsguide för Azure AD B2B-samarbete](licensing-guidance.md)
+- [Prissättning för Externa identiteter](external-identities-pricing.md)
 - [Lägg till gästanvändare för B2B-samarbete i portalen](add-users-administrator.md)
 - [Förstå inlösningsprocessen för inbjudningar](redemption-experience.md)

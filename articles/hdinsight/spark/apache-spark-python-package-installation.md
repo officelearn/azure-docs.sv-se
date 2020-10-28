@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: dc1da641ba628cef92250549c1c6b6482cf18b51
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5a0f9f9f972ec42987d6152c16e4377e399cdba5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547341"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896420"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
 
@@ -43,7 +43,7 @@ Det finns två typer av komponenter med öppen källkod som är tillgängliga i 
 
 HDInsight Spark-kluster skapas med Anaconda-installation. Det finns två python-installationer i klustret, Anaconda python 2,7 och python 3,5. I tabellen nedan visas standard inställningarna för python för Spark, livy och Jupyter.
 
-|Inställningen |Python 2,7|Python 3,5|
+|Inställning |Python 2,7|Python 3,5|
 |----|----|----|
 |Sökväg|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
 |Spark-version|Standard är inställt på 2,7|Kan ändra konfigurationen till 3,5|
@@ -129,6 +129,24 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
     4. Spara ändringarna och starta om berörda tjänster. Dessa ändringar kräver en omstart av Spark2-tjänsten. Ambari UI upprättar en nödvändig omstart, klicka på Starta om för att starta om alla berörda tjänster.
 
         ![Starta om tjänster](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+
+    5. Ange två egenskaper till Spark-sessionen för att säkerställa att jobbet pekar på den uppdaterade Spark-konfigurationen: `spark.yarn.appMasterEnv.PYSPARK_PYTHON` och `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON` . 
+
+        Använd den här terminalen eller en antecknings bok med `spark.conf.set` funktionen.
+
+        ```spark
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        spark.conf.set("spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON", "/usr/bin/anaconda/envs/py35/bin/python")
+        ```
+
+        Om du använder livy lägger du till följande egenskaper i begär ande texten:
+
+        ```
+        “conf” : {
+        “spark.yarn.appMasterEnv.PYSPARK_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”,
+        “spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON”:”/usr/bin/anaconda/envs/py35/bin/python”
+        }
+        ```
 
 4. Om du vill använda den nya virtuella miljön på Jupyter. Ändra Jupyter-konfiguration och starta om Jupyter. Kör skript åtgärder på alla huvudnoder med nedanstående instruktion för att peka Jupyter mot den nya virtuella miljön som skapats. Se till att ändra sökvägen till det prefix du angav för den virtuella miljön. När du har kört den här skript åtgärden startar du om Jupyter-tjänsten via Ambari-ANVÄNDARGRÄNSSNITTET för att göra den här ändringen tillgänglig.
 

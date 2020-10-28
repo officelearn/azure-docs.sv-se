@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 5499402e94cad8673da597afd68571b77047192a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f020f3d9e23b9f834fd203f6d030656581fb4416
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677685"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896607"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python)
 
@@ -23,11 +23,11 @@ Vind styrkan är en alternativ energi källa för fossila bränslen för att bek
 I den här självstudien kommer vi att:
 
 > [!div class="checklist"]
-> * Arbeta med datafiler i [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) i molnet.
+> * Arbeta med datafiler i [Azure Notebooks](../notebooks/index.yml) i molnet.
 > * Läs in demo data från fil.
 > * Anropa Azure Maps REST-API: er i python.
 > * Återge plats data på kartan.
-> * Förbättra demonstrations data med Azure Maps [dagliga data för dagliga prognoser](https://aka.ms/AzureMapsWeatherDailyForecast) .
+> * Förbättra demonstrations data med Azure Maps [dagliga data för dagliga prognoser](/rest/api/maps/weather/getdailyforecastpreview) .
 > * Rita prognos data i grafer.
 
 
@@ -41,7 +41,7 @@ För att slutföra den här självstudien måste du först:
 
 Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
-Om du vill bekanta dig med Azures antecknings böcker och vet hur du kommer igång, följer du anvisningarna [skapa en Azure-anteckningsbok](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebooks-project).
+Om du vill bekanta dig med Azures antecknings böcker och vet hur du kommer igång, följer du anvisningarna [skapa en Azure-anteckningsbok](./tutorial-ev-routing.md#create-an-azure-notebooks-project).
 
 > [!Note]
 > Jupyter Notebook-filen för det här projektet kan laddas ned från [väder Kartornas Jupyter Notebook-lagringsplats](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data).
@@ -68,7 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Begär dagliga prognos data
 
-I vårt scenario skulle vi vilja begära dagliga prognoser för varje sensor plats. Följande skript anropar [API: et för dagliga prognoser](https://aka.ms/AzureMapsWeatherDailyForecast) i Azure Maps väder tjänsten. Detta API returnerar väder prognoser för varje lindnings turbin, under de närmaste 15 dagarna från dagens datum.
+I vårt scenario skulle vi vilja begära dagliga prognoser för varje sensor plats. Följande skript anropar [API: et för dagliga prognoser](/rest/api/maps/weather/getdailyforecastpreview) i Azure Maps väder tjänsten. Detta API returnerar väder prognoser för varje lindnings turbin, under de närmaste 15 dagarna från dagens datum.
 
 
 ```python
@@ -107,7 +107,7 @@ for i in range(0, len(coords), 2):
 await session.close()
 ```
 
-Skriptet nedan återger turbin-platserna på kartan genom att anropa Azure Maps [Hämta avbildnings tjänsten](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
+Skriptet nedan återger turbin-platserna på kartan genom att anropa Azure Maps [Hämta avbildnings tjänsten](/rest/api/maps/render/getmapimage).
 
 ```python
 # Render the turbine locations on the map by calling the Azure Maps Get Map Image service
@@ -184,18 +184,18 @@ Diagrammen nedan visualiserar prognos data. För att ändra vridnings hastighete
 
 I den här självstudien får du lära dig att anropa Azure Maps REST-API: er för att hämta väder prognos data. Du har också lärt dig hur du visualiserar data i grafer.
 
-Om du vill veta mer om hur du anropar Azure Maps REST-API: er i Azure Notebooks, se [EV-routning med Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
+Om du vill veta mer om hur du anropar Azure Maps REST-API: er i Azure Notebooks, se [EV-routning med Azure Notebooks](./tutorial-ev-routing.md).
 
 Om du vill utforska de Azure Maps-API: er som används i den här självstudien, se:
 
-* [Daglig prognos](https://aka.ms/AzureMapsWeatherDailyForecast)
-* [Rendera-Hämta kart bild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Daglig prognos](/rest/api/maps/weather/getdailyforecastpreview)
+* [Rendera-Hämta kart bild](/rest/api/maps/render/getmapimage)
 
-En fullständig lista över Azure Maps REST API: er finns i [Azure Maps REST API: er](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+En fullständig lista över Azure Maps REST API: er finns i [Azure Maps REST API: er](./consumption-model.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure Notebooks finns i
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)
+> [Azure Notebooks](../notebooks/index.yml)

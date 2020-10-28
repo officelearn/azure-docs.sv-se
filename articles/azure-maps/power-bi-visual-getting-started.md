@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: aecda5ed9b87ba2345a52923a574919d6a08594f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c89922aef1ba802ee694aaed9bae2ac2dd273ee
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362679"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896250"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Komma igång med Azure Maps Power BI visuella objektet
 
-<Token>**gäller för:** ![ Grön bock markering. ](media/power-bi-visual/yes.png) Power BI-tjänst för ***konsumenter*** ![ grön bock markering. ](media/power-bi-visual/yes.png) Power BI-tjänst för designers & utvecklare ![ grön bock markering. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X som anger Nej. ](media/power-bi-visual/no.png) Kräver Pro-eller Premium-licens </Token>
+<Token>**gäller för:** ![ Grön bock markering. ](media/power-bi-visual/yes.png) Power BI-tjänst för * *_konsumenter_* _ ![ grön bock markering. ](media/power-bi-visual/yes.png) Power BI-tjänst för designers & utvecklare ![ grön bock markering. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X som anger Nej. ](media/power-bi-visual/no.png) Kräver Pro-eller Premium-licens</Token>
 
 Den här artikeln visar hur du använder Microsoft Azure Maps-visualisering för Power BI.
 
@@ -47,9 +47,9 @@ Mer information om sekretess och användnings villkor som rör Azure Maps visuel
 
 ## <a name="preview-behavior-and-requirements"></a>Förhandsgranskningens beteende och krav
 
-Det finns några överväganden och krav för den här för hands versionen av **Azure Maps**:
+Det finns några överväganden och krav för den här för hands versionen av _ * Azure Maps * *:
 
--   **Azure Maps** visualiseringen är i för hands version och måste vara aktive rad i Power BI Desktop. Om du vill aktivera **Azure Maps**väljer du alternativ för **fil** &gt; **och inställningar** för för &gt; **Options** &gt; **hands versions funktioner**och markerar sedan kryss rutan **Azure Maps visuella** objekt. Om Azure Maps visualiseringen inte är tillgänglig när du har gjort det, är det troligt att en klient administratörs växel i administrations portalen måste vara aktive rad.
+-   **Azure Maps** visualiseringen är i för hands version och måste vara aktive rad i Power BI Desktop. Om du vill aktivera **Azure Maps** väljer du alternativ för **fil** &gt; **och inställningar** för för &gt; **Options** &gt; **hands versions funktioner** och markerar sedan kryss rutan **Azure Maps visuella** objekt. Om Azure Maps visualiseringen inte är tillgänglig när du har gjort det, är det troligt att en klient administratörs växel i administrations portalen måste vara aktive rad.
 -   Data uppsättningen måste innehålla fält som innehåller information om **latitud** och **longitud** . Den här koden kommer att läggas till i en framtida uppdatering.
 -   Den inbyggda förklarings kontrollen för Power BI visas inte i den här för hands versionen. Den kommer att läggas till i en framtida uppdatering.
 
@@ -92,7 +92,7 @@ Utför följande steg för att läsa in Azure Maps visuella objekt:
 
 Följande databuckets är tillgängliga i rutan **fält** i Azure Maps visualiseringen.
 
-| Field     | Beskrivning  |
+| Fält     | Beskrivning  |
 |-----------|--------------|
 | Latitud  | Det fält som används för att ange latitud-värdet för data punkterna. Latitude-värden ska vara mellan-90 och 90 i formatet decimal grader.  |
 | Longitud | Det fält som används för att ange data punkternas longitud-värde. Longitud-värden ska vara mellan-180 och 180 i decimal format.  |
@@ -173,7 +173,7 @@ Läs mer om Azure Maps Power BI visuella objekt:
 Anpassa det visuella objektet:
 
 > [!div class="nextstepaction"]
-> [Tips och knep för färgformatering i Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Tips och knep för färgformatering i Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Anpassa visualiseringens rubriker, bakgrunder och förklaringar](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Anpassa visualiseringens rubriker, bakgrunder och förklaringar](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4a50a9d6d4a485f7d8e63adb9ae5032f49edc261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3404c02dc159309ed1e9fcd6f9f6bb593fc7552
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310364"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896947"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>Azure Maps inbyggda kart format som stöds
 
@@ -27,8 +27,8 @@ En **väg** karta är en standard karta som visar vägar. Den visar också natur
 
 **Tillämpliga API: er:**
 
-* [Kart bild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Kart panel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Kart bild](/rest/api/maps/render/getmapimage)
+* [Kart panel](/rest/api/maps/render/getmaptile)
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
 * Visuellt Power BI-objekt
@@ -52,7 +52,7 @@ De **tomma** och **blank_accessible** kart formaten innehåller en tom arbets yt
 
 **Tillämpliga API: er:**
 
-* [Satellit panel](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* [Satellit panel](/rest/api/maps/render/getmapimagerytilepreview)
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
 * Visuellt Power BI-objekt
@@ -77,8 +77,8 @@ Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå sat
 
 **Tillämpliga API: er:**
 
-* [Kart bild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Kart panel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Kart bild](/rest/api/maps/render/getmapimage)
+* [Kart panel](/rest/api/maps/render/getmaptile)
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
 * Visuellt Power BI-objekt
@@ -114,7 +114,7 @@ en **nedtonad** avlastning är ett Azure Maps huvud format som har slutförts me
 
 **Tillämpliga API: er:**
 
-* [Kart panel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Kart panel](/rest/api/maps/render/getmaptile)
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
 * Visuellt Power BI-objekt
@@ -134,4 +134,4 @@ en **nedtonad** avlastning är ett Azure Maps huvud format som har slutförts me
 
 Lär dig mer om hur du anger ett kart format i Azure Maps:
 
-[Välj ett kartformat](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+[Välj ett kartformat](./choose-map-style.md)

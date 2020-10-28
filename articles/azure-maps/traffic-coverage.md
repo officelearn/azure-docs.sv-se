@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3b1b86e47164ce4c1a13a3dfe037c0ecc659fbee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11aa0eb07ed9cb3a1a785b3155b832f8b447708f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310041"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896879"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps trafik täckning
 
-Azure Maps ger omfattande trafik information i form av **trafikflöde** och **incidenter**. Dessa data kan visualiseras på kartor eller användas för att generera smartare vägar som faktorr i verkliga kör förhållanden.
+Azure Maps ger omfattande trafik information i form av **trafikflöde** och **incidenter** . Dessa data kan visualiseras på kartor eller användas för att generera smartare vägar som faktorr i verkliga kör förhållanden.
 
 Maps har dock inte samma nivå av information och noggrannhet för alla länder eller regioner. Följande tabell innehåller information om vilken typ av trafik information som du kan begära från varje land eller region: 
 
@@ -57,7 +57,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 |Vietnam   |✓         |✓         |
 
 
-## <a name="europe"></a>Europa
+## <a name="europe"></a>Europe
 
 |Land/region   |Incidenter  |Flöden  |
 |---------|:---------:|:---------:|
@@ -135,4 +135,4 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Maps trafik data finns på sidan med [trafik](https://docs.microsoft.com/rest/api/maps/traffic) referens sidor.
+Mer information om Azure Maps trafik data finns på sidan med [trafik](/rest/api/maps/traffic) referens sidor.

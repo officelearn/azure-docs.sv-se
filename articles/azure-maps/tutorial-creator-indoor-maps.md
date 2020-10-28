@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80d61e69b5e8d666406c378c2d3fece28c822491
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371430"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896787"
 ---
 # <a name="tutorial-use-creator-to-create-indoor-maps"></a>Självstudie: använda Creator för att skapa inomhus Maps
 
@@ -28,7 +28,7 @@ I den här kursen får du lära dig hur du skapar inlednings kartor. I den här 
 > * Skapa en funktions stateset med hjälp av kart funktionerna och data i din data uppsättning
 > * Uppdatera din funktions stateset
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Skapa inomhus Maps:
 
@@ -44,13 +44,13 @@ I den här självstudien används [Postman](https://www.postman.com/) -programme
 
 ## <a name="upload-a-drawing-package"></a>Ladda upp ett ritnings paket
 
-Använd [API: et för data överföring](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) för att ladda upp ritnings paketet till Azure Maps resurser.
+Använd [API: et för data överföring](/rest/api/maps/data/uploadpreview) för att ladda upp ritnings paketet till Azure Maps resurser.
 
 API för data uppladdning är en tids krävande transaktion som implementerar det mönster som definierats här. När åtgärden har slutförts använder vi `udid` för att komma åt det överförda paketet för att konvertera det. Följ stegen nedan för att hämta `udid` .
 
-1. Öppna Postman-appen. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **samling**.  Namnge samlingen och välj knappen **skapa** .
+1. Öppna Postman-appen. Längst upp i Postman-appen väljer du **nytt** . I fönstret **Skapa nytt** väljer du **samling** .  Namnge samlingen och välj knappen **skapa** .
 
-2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Välj den samling som du skapade i föregående steg och välj sedan **Spara**.
+2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn** för begäran. Välj den samling som du skapade i föregående steg och välj sedan **Spara** .
 
 3. Välj metoden **post** http på fliken Builder och ange följande URL för att överföra ritnings paketet till Azure Maps-tjänsten. För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln.
 
@@ -58,7 +58,7 @@ API för data uppladdning är en tids krävande transaktion som implementerar de
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-4. Ange ett värde för nyckeln på fliken **sidhuvud** `Content-Type` . Ritnings paketet är en zippad mapp, så Använd `application/octet-stream` värdet. På fliken **brödtext** väljer du **binär**. Klicka på **Välj fil** och välj ett ritnings paket.
+4. Ange ett värde för nyckeln på fliken **sidhuvud** `Content-Type` . Ritnings paketet är en zippad mapp, så Använd `application/octet-stream` värdet. På fliken **brödtext** väljer du **binär** . Klicka på **Välj fil** och välj ett ritnings paket.
 
      ![data hantering](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
@@ -102,7 +102,7 @@ API för data uppladdning är en tids krävande transaktion som implementerar de
 
  Nu när ritnings paketet har överförts använder vi `udid` för det överförda paketet för att konvertera paketet till kartdata. Konverterings-API: et använder en tids krävande transaktion som implementerar det mönster som definierats [här](creator-long-running-operation.md). När åtgärden har slutförts använder vi `conversionId` för att komma åt konverterade data. Följ stegen nedan för att hämta `conversionId` .
 
-1. Välj **Nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**.
+1. Välj **Nytt** . I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn på begäran** och välj en samling. Klicka på **Spara** .
 
 2. Välj metoden **post** http på fliken Builder och ange följande URL för att konvertera det överförda ritnings paketet till kart data. Använd `udid` för det överförda paketet.
 
@@ -164,11 +164,11 @@ Exempel ritnings paketet ska konverteras utan fel eller varningar. Men om du få
 
 ## <a name="create-a-dataset"></a>Skapa en datauppsättning
 
-Data uppsättningen är en samling kart funktioner, till exempel byggnader, nivåer och rum. Om du vill skapa en data uppsättning använder du [data uppsättningen Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). Skapa-API: et för data uppsättningen tar `conversionId` för det konverterade ritnings paketet och returnerar en `datasetId` av de skapade data uppsättningarna. Stegen nedan visar hur du skapar en data uppsättning.
+Data uppsättningen är en samling kart funktioner, till exempel byggnader, nivåer och rum. Om du vill skapa en data uppsättning använder du [data uppsättningen Create API](/rest/api/maps/dataset/createpreview). Skapa-API: et för data uppsättningen tar `conversionId` för det konverterade ritnings paketet och returnerar en `datasetId` av de skapade data uppsättningarna. Stegen nedan visar hur du skapar en data uppsättning.
 
-1. I Postman-programmet väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
+1. I Postman-programmet väljer du **nytt** . I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
 
-2. Skapa en ny data uppsättning genom att göra en **post** -begäran till [data uppsättningen skapa API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) . Lägg till både din prenumerations nyckel och `conversionId` med den som `conversionId` hämtades under konverterings processen i steg 5 innan du skickar in begäran.  Begäran bör se ut som följande URL:
+2. Skapa en ny data uppsättning genom att göra en **post** -begäran till [data uppsättningen skapa API](/rest/api/maps/dataset/createpreview) . Lägg till både din prenumerations nyckel och `conversionId` med den som `conversionId` hämtades under konverterings processen i steg 5 innan du skickar in begäran.  Begäran bör se ut som följande URL:
 
     ```http
     https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -197,7 +197,7 @@ Data uppsättningen är en samling kart funktioner, till exempel byggnader, niv�
 
 En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets skapas från befintliga data uppsättningar. En TILESET är dock oberoende från den data uppsättning som den har blivit källaad från. Om data uppsättningen tas bort, kommer TILESET fortfarande att finnas kvar. Följ stegen nedan om du vill skapa en TILESET:
 
-1. I Postman-programmet väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
+1. I Postman-programmet väljer du **nytt** . I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
 
 2. Gör en **post** -begäran på fliken Builder. URL: en för begäran bör se ut som följande URL:
 
@@ -224,9 +224,9 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
 
 ## <a name="query-datasets-with-wfs-api"></a>Fråga data uppsättningar med WFS-API
 
- Data uppsättningar kan frågas med  [WFS-API](https://docs.microsoft.com/rest/api/maps/wfs). Med WFS-API: et kan du fråga efter funktions samlingar, en speciell samling eller en speciell funktion med ett funktions **-ID**. Funktions **-ID: t** identifierar en unik funktion i data uppsättningen. Den används till exempel för att identifiera vilket funktions tillstånd som ska uppdateras i en specifik stateset.
+ Data uppsättningar kan frågas med  [WFS-API](/rest/api/maps/wfs). Med WFS-API: et kan du fråga efter funktions samlingar, en speciell samling eller en speciell funktion med ett funktions **-ID** . Funktions **-ID: t** identifierar en unik funktion i data uppsättningen. Den används till exempel för att identifiera vilket funktions tillstånd som ska uppdateras i en specifik stateset.
 
-1. I Postman-programmet väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
+1. I Postman-programmet väljer du **nytt** . I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
 
 2. Gör en **Get** -begäran för att visa en lista över samlingarna i din data uppsättning. Ersätt `<dataset-id>` med `datasetId` . Använd Azure Maps primär nyckel istället för plats hållaren. Begäran bör se ut som följande URL:
 
@@ -234,7 +234,7 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. Svars texten levereras i formatet för det interjson-formatet och kommer att innehålla alla samlingar i data uppsättningen. För enkelhetens skull visar exemplet bara `unit` samlingen. Om du vill se ett exempel som innehåller alla samlingar, se [WFS beskriver API: er för samlingar](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). Om du vill veta mer om en samling kan du klicka på någon av URL: erna inuti `link` elementet.
+3. Svars texten levereras i formatet för det interjson-formatet och kommer att innehålla alla samlingar i data uppsättningen. För enkelhetens skull visar exemplet bara `unit` samlingen. Om du vill se ett exempel som innehåller alla samlingar, se [WFS beskriver API: er för samlingar](/rest/api/maps/wfs/collectiondescriptionpreview). Om du vill veta mer om en samling kan du klicka på någon av URL: erna inuti `link` elementet.
 
     ```json
     {
@@ -302,15 +302,15 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
 
 ## <a name="create-a-feature-stateset"></a>Skapa en funktions stateset
 
-1. I Postman-programmet väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
+1. I Postman-programmet väljer du **nytt** . I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
 
-2. Gör en **post** -begäran till [create Stateset-API: et](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Använd `datasetId` för data uppsättningen som innehåller det tillstånd som du vill ändra. Begäran bör se ut som följande URL:
+2. Gör en **post** -begäran till [create Stateset-API: et](/rest/api/maps/featurestate/createstatesetpreview). Använd `datasetId` för data uppsättningen som innehåller det tillstånd som du vill ändra. Begäran bör se ut som följande URL:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Ange som i **rubrikerna** för **post** -begäran `Content-Type` `application/json` . Ange formaten nedan i **bröd texten**för att återspegla ändringar i och- `occupied` `temperature` *tillstånden*. När du är klar klickar du på **Skicka**.
+3. Ange som i **rubrikerna** för **post** -begäran `Content-Type` `application/json` . Ange formaten nedan i **bröd texten** för att återspegla ändringar i och- `occupied` `temperature` *tillstånden* . När du är klar klickar du på **Skicka** .
 
     ```json
     {
@@ -402,7 +402,7 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
 
 7. Vid en lyckad uppdatering får du en `200 OK` HTTP-statuskod. Om du har en  [dynamisk formatering som har implementerats](indoor-map-dynamic-styling.md) för en inomhus karta visas uppdateringen i den angivna tids stämplingen.
 
-Med [funktionen Get](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) States API kan du hämta tillståndet för en funktion med hjälp av dess funktion `ID` . Du kan också ta bort stateset och dess resurser genom att använda [funktions tillstånd ta bort API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
+Med [funktionen Get](/rest/api/maps/featurestate/getstatespreview) States API kan du hämta tillståndet för en funktion med hjälp av dess funktion `ID` . Du kan också ta bort stateset och dess resurser genom att använda [funktions tillstånd ta bort API](/rest/api/maps/featurestate/deletestatesetpreview).
 
 Om du vill veta mer om de olika Azure Maps Creator-tjänster som beskrivs i den här artikeln kan du läsa om [Creators inomhus Maps](creator-indoor-maps.md).
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 905085d5b0787697d6094bd1337420ee8ae61d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: faa5e3e3177e18787a73c6b4c43aa04b6bc760b7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311099"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897100"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Lägg till ett panel lager till en karta med Azure Maps Android SDK
 
@@ -39,7 +39,7 @@ Panel-URL: en som skickas till ett panel lager måste vara en HTTP/HTTPS-URL til
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
+För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) för att läsa in en karta.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Lägg till ett panel lager på kartan
@@ -179,4 +179,4 @@ Om du kör programmet nu bör du se en linje på kartan som visas nedan:
 I följande artikel finns mer information om hur du anger kart format
 
 > [!div class="nextstepaction"]
-> [Ändra kart format i Android Maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Ändra kart format i Android Maps](./set-android-map-styles.md)

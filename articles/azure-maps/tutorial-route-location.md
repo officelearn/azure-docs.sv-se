@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 3cb9bee65ab7fa2c29185c40ecb48fd531192187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0004a250173ce6707462b852016d205782479717
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321721"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896688"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Självstudie: så här visar du väg riktningar med Azure Maps Route service och kart kontroll
 
-Den här självstudien visar hur du använder [API för Azure Maps Route service](https://docs.microsoft.com/rest/api/maps/route) och [kart kontroll](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) för att Visa väg riktningar från start till slut punkt. I den här självstudien får du lära dig att:
+Den här självstudien visar hur du använder [API för Azure Maps Route service](/rest/api/maps/route) och [kart kontroll](./how-to-use-map-control.md) för att Visa väg riktningar från start till slut punkt. I den här självstudien får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa och Visa kart kontrollen på en webb sida. 
 > * Definiera visnings åter givning för vägen genom att definiera [symbol lager](map-add-pin.md) och [linje lager](map-add-line-layer.md).
 > * Skapa och Lägg till interjson-objekt till kartan som representerar start-och slut punkter.
-> * Få vägvisningar från start-och slut punkter med hjälp av API: et för att [Hämta väg riktningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+> * Få vägvisningar från start-och slut punkter med hjälp av API: et för att [Hämta väg riktningar](/rest/api/maps/route/getroutedirections).
 
 Du kan hämta den fullständiga käll koden för exemplet [här](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Du hittar ett Live-exempel [här](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
@@ -39,7 +39,7 @@ Du kan hämta den fullständiga käll koden för exemplet [här](https://github.
 
 Följande steg visar hur du skapar och visar kart kontrollen på en webb sida.
 
-1. Skapa en ny fil på den lokala datorn och ge den namnet **MapRoute.html**.
+1. Skapa en ny fil på den lokala datorn och ge den namnet **MapRoute.html** .
 2. Kopiera/klistra in följande HTML-kod i filen.
 
     ```HTML
@@ -170,7 +170,7 @@ I den här självstudien återger vi vägen med ett linje lager. Start-och slut 
 
     Den här koden skapar två [objekt av punkt-JSON-plats](https://en.wikipedia.org/wiki/GeoJSON) som representerar start-och slut punkter, som sedan läggs till i data källan. 
 
-    Det sista blocket i kod ställer in kameravy med latitud och longitud för start-och slut punkterna. Start- och slutpunkterna läggs till i datakällan. Avgränsningsfältet för start- och slutpunkterna beräknas med hjälp av funktionen `atlas.data.BoundingBox.fromData`. Den här markerings rutan används för att ställa in kart kameror för visning över hela vägen med hjälp av `map.setCamera` funktionen. Utfyllnad läggs till för att kompensera pixel måtten för symbol ikonerna. Mer information om kart kontrollens egenskap setCamera finns i [setCamera (CameraOptions | Egenskapen CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false) .
+    Det sista blocket i kod ställer in kameravy med latitud och longitud för start-och slut punkterna. Start- och slutpunkterna läggs till i datakällan. Avgränsningsfältet för start- och slutpunkterna beräknas med hjälp av funktionen `atlas.data.BoundingBox.fromData`. Den här markerings rutan används för att ställa in kart kameror för visning över hela vägen med hjälp av `map.setCamera` funktionen. Utfyllnad läggs till för att kompensera pixel måtten för symbol ikonerna. Mer information om kart kontrollens egenskap setCamera finns i [setCamera (CameraOptions | Egenskapen CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false) .
 
 3. Spara **MapRoute.html** och uppdatera webbläsaren. Kartan centreras nu över Seattle. Den blå Teardrop-PIN-koden markerar start punkten. Den runda blå PIN-koden markerar slut punkten.
 
@@ -183,7 +183,7 @@ I den här självstudien återger vi vägen med ett linje lager. Start-och slut 
 Det här avsnittet visar hur du använder API: et för Azure Maps väg riktningar för att få väg riktningar och den uppskattade ankomst tiden från en punkt till en annan.
 
 >[!TIP]
->Azure Maps Route Services erbjuder API: er för att planera vägar baserat på olika typer av vägar, till exempel *snabbast*, *kortaste*, *eko*eller *thrilLing* vägar baserat på avstånd, trafik villkor och transport läge. Tjänsten låter också användare planera framtida vägar baserat på historiska trafik villkor. Användarna kan se förutsägelsen av väg varaktigheter för en bestämd tid. Mer information finns i [Hämta väg riktnings-API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+>Azure Maps Route Services erbjuder API: er för att planera vägar baserat på olika typer av vägar, till exempel *snabbast* , *kortaste* , *eko* eller *thrilLing* vägar baserat på avstånd, trafik villkor och transport läge. Tjänsten låter också användare planera framtida vägar baserat på historiska trafik villkor. Användarna kan se förutsägelsen av väg varaktigheter för en bestämd tid. Mer information finns i [Hämta väg riktnings-API](/rest/api/maps/route/getroutedirections).
 
 1. I `GetMap` -funktionen, i kontrollens `ready` händelse hanterare, lägger du till följande i JavaScript-koden.
 
@@ -198,7 +198,7 @@ Det här avsnittet visar hur du använder API: et för Azure Maps väg riktninga
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential`Skapar en `SubscriptionKeyCredentialPolicy` för att autentisera HTTP-begäranden till Azure Maps med prenumerations nyckeln. `atlas.service.MapsURL.newPipeline()`Principen tar i `SubscriptionKeyCredential` principen och skapar en [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) -instans. `routeURL`Representerar en URL som Azure Maps [väg](https://docs.microsoft.com/rest/api/maps/route) åtgärder.
+   `SubscriptionKeyCredential`Skapar en `SubscriptionKeyCredentialPolicy` för att autentisera HTTP-begäranden till Azure Maps med prenumerations nyckeln. `atlas.service.MapsURL.newPipeline()`Principen tar i `SubscriptionKeyCredential` principen och skapar en [pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) -instans. `routeURL`Representerar en URL som Azure Maps [väg](/rest/api/maps/route) åtgärder.
 
 2. När du har angett autentiseringsuppgifter och URL: en lägger du till följande kod i kontrollens `ready` händelse hanterare. Den här koden skapar vägen från start punkt till slut punkt. `routeURL`Begär API: et för Azure Maps Route service för att beräkna väg riktningar. En insamling av en interjson-funktion från svaret extraheras sedan med hjälp av `geojson.getFeatures()` metoden och läggs till i data källan.
 

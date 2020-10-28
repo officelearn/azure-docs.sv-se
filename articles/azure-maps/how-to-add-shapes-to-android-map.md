@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6ff64f975550a0222fd56325115bc98976fb038a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04773ef279717c7728cf1b07761c6e4c0726a877
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311316"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897134"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Lägga till en form till en karta med Azure Maps Android SDK
 
@@ -21,12 +21,12 @@ Den här artikeln visar hur du återger former på en karta med Azure Maps Andro
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
+För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) för att läsa in en karta.
 
 
 ## <a name="add-a-line-to-the-map"></a>Lägg till en rad i kartan
 
-Du kan lägga till en linje i kartan med ett **linje lager**och följa stegen nedan för att lägga till en linje på kartan.
+Du kan lägga till en linje i kartan med ett **linje lager** och följa stegen nedan för att lägga till en linje på kartan.
 
 1. Redigera **> för res > activity_main.xml** så att det ser ut som på bilden nedan:
 

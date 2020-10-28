@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 7c36dd87ac305db62d2d80b74de09f4389722da9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c8f85c6dd42f1f4505474e03e378c0fe48d70005
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675508"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896505"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Självstudie: Azure Active Directory integrering med SAML SSO för Confluence med hjälp av resolution GmbH
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med SAML 
 
 4. I avsnittet **grundläggande SAML-konfiguration** utför du följande steg, om du vill konfigurera programmet i **IDP** initierat läge:
 
-    ![Information om enkel inloggning med SAML SSO for Confluence by resolution GmbH-domäner och -URL:er](common/idp-intiated.png)
+    ![Skärm bild som visar "Basic S A M L-konfiguration" med text rutorna "identifierare" och "svara U R L" och "Spara"-åtgärden markerat.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -124,45 +124,45 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med SAML 
 
 2. Hovra över kugghjulet och klicka på **Tillägg** .
     
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon1.png)
+    ![Skärm bild som visar ikonen "kugg hjuls" vald och "tillägg" valda i list rutan.](./media/samlssoconfluence-tutorial/addon1.png)
 
 3. Du omdirigeras till sidan för administratörsåtkomst. Ange lösenordet och klicka på **Bekräfta** .
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon2.png)
+    ![Skärm bild som visar sidan "administratörs åtkomst" med knappen "bekräfta" vald.](./media/samlssoconfluence-tutorial/addon2.png)
 
 4. Klicka på **Hitta nya tillägg** under fliken **ATLASSIAN MARKETPLACE** . 
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon.png)
+    ![Skärm bild som visar fliken "Attlassian Marketplace" med alternativet "hitta nya tillägg" markerat.](./media/samlssoconfluence-tutorial/addon.png)
 
 5. Sök efter **SAML Single Sign On (SSO) for Confluence** och klicka på **Installera** för att installera det nya SAML-plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon7.png)
+    ![Skärm bild som visar sidan "hitta nya tilläggsprogram" med "S A M L enkel inloggning (S S) för Confluence" i sökrutan och knappen "installera" markerad.](./media/samlssoconfluence-tutorial/addon7.png)
 
 6. Installationen av plugin-programmet startar. Klicka på **Stäng** .
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon8.png)
+    ![Skärm bild som visar dialog rutan "installera".](./media/samlssoconfluence-tutorial/addon8.png)
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon9.png)
+    ![Skärm bild som visar "installerad och redo att gå!" dialog rutan med åtgärden "Stäng" vald.](./media/samlssoconfluence-tutorial/addon9.png)
 
 7.  Klicka på **Hantera** .
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon10.png)
+    ![Skärm bild som visar appen "S A M L enkel inloggning (S-S) för Confluence" med knappen "hantera" markerad.](./media/samlssoconfluence-tutorial/addon10.png)
     
 8. Klicka på **Konfigurera** för att konfigurera det nya plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon11.png)
+    ![Skärm bild som visar sidan "hantera" med knappen "Konfigurera" vald.](./media/samlssoconfluence-tutorial/addon11.png)
 
 9. Det nya plugin-programmet visas även under fliken **Användare och säkerhet** .
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon3.png)
+    ![Skärm bild som visar fliken "användare & säkerhet" med "S A M L SingleSignOn" vald.](./media/samlssoconfluence-tutorial/addon3.png)
     
 10. Klicka på **Lägg till ny IdP** på **konfigurationssidan för plugin-programmet SAML SingleSignOn** för att konfigurera inställningarna för identitetsprovidern.
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon4.png)
+    ![Skärm bild som visar sidan "S A M L SingleSignOn-plugin-program" med knappen "Lägg till nytt I d P" vald.](./media/samlssoconfluence-tutorial/addon4.png)
 
 11. Utför följande steg på sidan **Välj din SAML-identitetsprovider** :
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon5a.png)
+    ![Skärm bild som visar sidan "Välj din S A M L identitetsprovider" med text rutorna "I d P-typ", "namn" och "Beskrivning" markerade.](./media/samlssoconfluence-tutorial/addon5a.png)
  
     a. Ange **Azure AD** som IdP-typ.
     
@@ -174,11 +174,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med SAML 
     
 12. Klicka på knappen **Nästa** på **konfigurationssidan för identitetsprovidern** .
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon5b.png)
+    ![Skärm bild som visar sidan "konfiguration av identitetsprovider" med knappen "Nästa" vald.](./media/samlssoconfluence-tutorial/addon5b.png)
 
 13. Utför följande steg på sidan **Importera SAML IdP-metadata** :
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon5c.png)
+    ![Skärm bild som visar sidan "Importera S A M L I d P metadata" med knapparna "Importera", "Läs in fil" och "Nästa" markerade.](./media/samlssoconfluence-tutorial/addon5c.png)
 
     a. Klicka på **Läs in fil** och välj XML-filen med metadata som du hämtade i steg 5.
 
@@ -190,15 +190,15 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med SAML 
     
 14. Klicka på **Nästa** på sidan för **attribut för användar-ID och transformering** .
 
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon5d.png)
+    ![Skärm bild som visar sidan "User ID-attribut och transformering" med knappen "Nästa" vald.](./media/samlssoconfluence-tutorial/addon5d.png)
     
 15. Spara inställningarna genom att klicka på **Spara och Nästa** på sidan för **användargenerering och uppdatering** .   
     
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon6a.png)
+    ![Skärm bild som visar sidan "skapa och uppdatera användare" med knappen "Spara & nästa" markerat.](./media/samlssoconfluence-tutorial/addon6a.png)
     
 16. Hoppa över användartestningen så länge genom att klicka på **Hoppa över test och konfigurera manuellt** på sidan **Testa dina inställningar** . Du ska köra testningen i nästa avsnitt, vilket kräver ytterligare några inställningar på Azure-portalen. 
     
-    ![Konfigurera enkel inloggning](./media/samlssoconfluence-tutorial/addon6b.png)
+    ![Skärm bild som visar sidan "testa dina inställningar" med knappen "hoppa över test & konfigurera manuellt" markerat.](./media/samlssoconfluence-tutorial/addon6b.png)
     
 17. I dialog rutan visas, **hoppar du över testet...** , klickar du på **OK** .
     
@@ -266,7 +266,7 @@ I SAML SSO for Confluence by resolution GmbH är etableringen en manuell åtgär
 
 2. Hovra över kugghjulet och klicka på **Användarhantering** .
 
-    ![Lägga till medarbetare](./media/samlssoconfluence-tutorial/user1.png) 
+    ![Skärm bild som visar ikonen "kugg hjuls" vald och "användar hantering" vald på menyn.](./media/samlssoconfluence-tutorial/user1.png) 
 
 3. Under avsnittet användare klickar du på fliken **Lägg till användare** . Utför följande steg på dialog sidan **Lägg till en användare** :
 

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b839d35c27e86a754c19faff65039d350a66c6bd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 28fb3cb02d978c0a64884771727f33d01d8a4ceb
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755815"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897725"
 ---
 > [!IMPORTANT]
 > * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. Se referens dokumentationen nedan. 
@@ -123,14 +123,16 @@ Du måste också lägga till referenser till URL: erna för din utbildning och t
 * Om du vill hämta SAS-URL: en för din anpassade modell inlärnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst** . Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa** . Kopiera sedan värdet i **URL** -avsnittet. Det bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Använd exemplet från och kvitto bilder som ingår i exemplen nedan (även tillgängligt på [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/test-assets)) eller så kan du använda ovanstående steg för att hämta SAS-URL: en för ett enskilt dokument i Blob Storage. 
 
-> [!NOTE]
-> Kodfragmenten i den här guiden använder fjärrformulär som används av URL: er. Om du vill bearbeta lokala formulär dokument i stället, se de relaterade metoderna i [referens dokumentation](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) och [exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples).
 
 ## <a name="recognize-form-content"></a>Identifiera formulär innehåll
 
 Du kan använda formulär igenkänning för att identifiera tabeller, rader och ord i dokument, utan att behöva träna en modell. Använd-metoden för att identifiera innehållet i en fil vid en specifik URI `beginRecognizeContentFromUrl` .
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
+
+
+> [!TIP]
+> Du kan också hämta innehåll från en lokal fil. Se [FormRecognizerClient](https://docs.microsoft.com/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) -metoderna, till exempel **beginRecognizeContent** . Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) för scenarier som involverar lokala avbildningar.
 
 ### <a name="output"></a>Utdata
 
@@ -156,6 +158,8 @@ Om du vill känna igen kvitton från en URI använder du- `beginRecognizeReceipt
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
+> [!TIP]
+> Du kan också identifiera lokala kvitto avbildningar. Se [FormRecognizerClient](https://docs.microsoft.com/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) -metoderna, till exempel **beginRecognizeReceipts** . Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) för scenarier som involverar lokala avbildningar.
 
 ### <a name="output"></a>Utdata
 
@@ -273,6 +277,9 @@ Det här avsnittet visar hur du extraherar nyckel/värde-information och annat i
 Du använder- `beginRecognizeCustomFormsFromUrl` metoden. Det returnerade värdet är en samling `RecognizedForm` objekt: ett för varje sida i det dokument som skickas.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
+
+> [!TIP]
+> Du kan också analysera lokala filer. Se [FormRecognizerClient](https://docs.microsoft.com/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) -metoderna, till exempel **beginRecognizeCustomForms** . Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) för scenarier som involverar lokala avbildningar.
 
 
 ### <a name="output"></a>Utdata

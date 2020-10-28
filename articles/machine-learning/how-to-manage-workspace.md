@@ -10,15 +10,14 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 733a5c899e72809d979dfeeb60e4157c0d587bcf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9abfbe03a4192411a3790bb6d6e488d674c13109
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633713"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897168"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Skapa och hantera Azure Machine Learning arbets ytor 
-
 
 I den här artikeln skapar du, visar och tar bort [**Azure Machine Learning arbets ytor**](concept-workspace.md) för [Azure Machine Learning](overview-what-is-azure-ml.md)med hjälp av Azure Portal eller [SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
 
@@ -33,48 +32,82 @@ När du behöver ändra eller krav på Automation-höjning kan du också skapa o
 
 # <a name="python"></a>[Python](#tab/python)
 
-Det första exemplet kräver bara minimal specifikation, och alla beroende resurser samt resurs gruppen skapas automatiskt.
+* **Standard specifikation.** Som standard skapas beroende resurser och resurs gruppen automatiskt. Den här koden skapar en arbets yta med namnet `myworkspace` och en resurs grupp med namnet `myresourcegroup` i `eastus2` .
+    
+    ```python
+    from azureml.core import Workspace
+    
+    ws = Workspace.create(name='myworkspace',
+                   subscription_id='<azure-subscription-id>',
+                   resource_group='myresourcegroup',
+                   create_resource_group=True,
+                   location='eastus2'
+                   )
+    ```
+    Ange `create_resource_group` till false om du har en befintlig Azure-resurs grupp som du vill använda för arbets ytan.
 
-```python
-from azureml.core import Workspace
-   ws = Workspace.create(name='myworkspace',
-               subscription_id='<azure-subscription-id>',
-               resource_group='myresourcegroup',
-               create_resource_group=True,
-               location='eastus2'
-               )
-```
-Ange `create_resource_group` till false om du har en befintlig Azure-resurs grupp som du vill använda för arbets ytan.
+* <a name="create-multi-tenant"></a>**Flera klienter.**  Om du har flera konton lägger du till klient-ID: t för den Azure Active Directory som du vill använda.  Hitta klient-ID: t från [Azure Portal](https://portal.azure.com) under **Azure Active Directory, externa identiteter** .
 
-Du kan också skapa en arbets yta som använder befintliga Azure-resurser med ID-formatet för Azure-resurs. Hitta de aktuella Azure-resurs-ID: na i Azure Portal eller med SDK. I det här exemplet förutsätts att resurs gruppen, lagrings kontot, nyckel valvet, App Insights-och container registret redan finns.
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
+    ws = Workspace.create(name='myworkspace',
+                subscription_id='<azure-subscription-id>',
+                resource_group='myresourcegroup',
+                create_resource_group=True,
+                location='eastus2',
+                auth=interactive_auth
+                )
+    ```
 
-```python
-import os
+* **[Suveräna moln](reference-machine-learning-cloud-parity.md)** . Du behöver extra kod för att autentisera till Azure om du arbetar i ett suveränt moln.
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(cloud="<cloud name>") # for example, cloud="AzureUSGovernment"
+    ws = Workspace.create(name='myworkspace',
+                subscription_id='<azure-subscription-id>',
+                resource_group='myresourcegroup',
+                create_resource_group=True,
+                location='eastus2',
+                auth=interactive_auth
+                )
+    ```
+
+* **Använd befintliga Azure-resurser** .  Du kan också skapa en arbets yta som använder befintliga Azure-resurser med ID-formatet för Azure-resurs. Hitta de aktuella Azure-resurs-ID: na i Azure Portal eller med SDK. I det här exemplet förutsätts att resurs gruppen, lagrings kontot, nyckel valvet, App Insights-och container registret redan finns.
+
+   ```python
+   import os
    from azureml.core import Workspace
    from azureml.core.authentication import ServicePrincipalAuthentication
 
    service_principal_password = os.environ.get("AZUREML_PASSWORD")
 
    service_principal_auth = ServicePrincipalAuthentication(
-       tenant_id="<tenant-id>",
-       username="<application-id>",
-       password=service_principal_password)
+      tenant_id="<tenant-id>",
+      username="<application-id>",
+      password=service_principal_password)
 
-   ws = Workspace.create(name='myworkspace',
-                         auth=service_principal_auth,
-                         subscription_id='<azure-subscription-id>',
-                         resource_group='myresourcegroup',
-                         create_resource_group=False,
-                         location='eastus2',
-                         friendly_name='My workspace',
-                         storage_account='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.storage/storageaccounts/mystorageaccount',
-                         key_vault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/mykeyvault',
-                         app_insights='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.insights/components/myappinsights',
-                         container_registry='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.containerregistry/registries/mycontainerregistry',
-                         exist_ok=False)
-```
+                        auth=service_principal_auth,
+                             subscription_id='<azure-subscription-id>',
+                             resource_group='myresourcegroup',
+                             create_resource_group=False,
+                             location='eastus2',
+                             friendly_name='My workspace',
+                             storage_account='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.storage/storageaccounts/mystorageaccount',
+                             key_vault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/mykeyvault',
+                             app_insights='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.insights/components/myappinsights',
+                             container_registry='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.containerregistry/registries/mycontainerregistry',
+                             exist_ok=False)
+   ```
 
-Mer information finns i [SDK-referens för arbets yta](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)
+Mer information finns i [SDK-referens för arbets yta](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true).
+
+Om du har problem med att komma åt din prenumeration kan du läsa [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](how-to-setup-authentication.md)samt [autentiseringen i Azure Machine Learning](https://aka.ms/aml-notebook-auth) Notebook.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -237,6 +270,37 @@ Om du planerar att använda kod i din lokala miljö som hänvisar till den här 
 
 Placera filen i katalog strukturen med dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml* eller i en överordnad katalog. När du skapar en beräknings instans läggs den här filen till i rätt katalog på den virtuella datorn åt dig.
 
+## <a name="connect-to-a-workspace"></a>Anslut till en arbetsyta
+
+I python-koden skapar du ett objekt för arbets ytan för att ansluta till din arbets yta.  Den här koden kommer att läsa innehållet i konfigurations filen för att hitta din arbets yta.  Du får en uppfråga om du vill logga in om du inte redan har autentiserats.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+* <a name="connect-multi-tenant"></a>**Flera klienter.**  Om du har flera konton lägger du till klient-ID: t för den Azure Active Directory som du vill använda.  Hitta klient-ID: t från [Azure Portal](https://portal.azure.com) under **Azure Active Directory, externa identiteter** .
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
+
+* **[Suveräna moln](reference-machine-learning-cloud-parity.md)** . Du behöver extra kod för att autentisera till Azure om du arbetar i ett suveränt moln.
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(cloud="<cloud name>") # for example, cloud="AzureUSGovernment"
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
+    
+Om du har problem med att komma åt din prenumeration kan du läsa [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](how-to-setup-authentication.md)samt [autentiseringen i Azure Machine Learning](https://aka.ms/aml-notebook-auth) Notebook.
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Hitta en arbets yta
 

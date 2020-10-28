@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e880710b93a6764df50780e685c89b5f569b4ec0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037413"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897202"
 ---
 # <a name="geofencing-geojson-data"></a>Polystaket, polyjson-data
 
@@ -40,7 +40,7 @@ Data för avgränsning eller uppsättning av gränser representeras av `Feature`
 
 * Alla koordinater-värden visas som [longitud, Latitude] definierade i `WGS84` .
 * För varje funktion, som innehåller `MultiPoint` , `MultiLineString` , `MultiPolygon` eller `GeometryCollection` , används egenskaperna för alla element. till exempel: alla punkter i `MultiPoint` använder samma radie för att bilda ett geografiskt avgränsnings tecken på flera cirklar.
-* I punkt-cirkel-scenariot kan en cirkel geometri representeras med hjälp av ett `Point` Geometry-objekt med egenskaper som har [utökats i utökning av Geometries](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
+* I punkt-cirkel-scenariot kan en cirkel geometri representeras med hjälp av ett `Point` Geometry-objekt med egenskaper som har [utökats i utökning av Geometries](./extend-geojson.md).      
 
 Följande är en exempel begär ande text för ett område som representeras av en cirkels geometriska geometri i `GeoJSON` med hjälp av en mitt punkt och en radie. Den giltiga tids perioden för avgränsnings data börjar från 2018-10-22, 9 till 17, upprepas varje dag förutom helgen. `expiredTime` indikerar att dessa avgränsnings data kommer att anses vara förfallna, om `userTime` i begäran är senare än `2019-01-01` .  
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 462befd505333902bd4560f8f1dafeecceffd27f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c6e63f67aca279b64829e67e1aa06a69d312fd58
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873786"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897032"
 ---
 # <a name="tutorial---migrate-web-service-from-bing-maps"></a>Självstudie – migrera webb tjänsten från Bing Maps
 
@@ -24,19 +24,19 @@ Följande tabell innehåller API: er för Azure Maps tjänsten som tillhandahål
 
 | API för Bing Maps-tjänsten                 | API för Azure Maps tjänsten      |
 |---------------------------------------|-----------------------------|
-| Automatiska förslag                           | [Sök](https://docs.microsoft.com/rest/api/maps/search)     |
-| Vägvisningar (inklusive Truck)          | [Vägvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)                          |
-| Avstånds mat ris                       | [Väg mat ris](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)                          |
-| Bilder – statisk karta                  | [Rendering](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                                   |
-| ISO Kron                            | [Flödes intervall](https://docs.microsoft.com/rest/api/maps/route/getrouterange)                                    |
-| Lokala insikter                        | [Sök](https://docs.microsoft.com/rest/api/maps/search)  +  [Flödes intervall](https://docs.microsoft.com/rest/api/maps/route/getrouterange)    |
-| Lokal sökning                          | [Sök](https://docs.microsoft.com/rest/api/maps/search)     |
-| Plats igenkänning (POI: er)           | [Sök](https://docs.microsoft.com/rest/api/maps/search)     |
-| Platser (omvänt/omvända landskod) | [Sök](https://docs.microsoft.com/rest/api/maps/search)                                               |
-| Fäst vid väg                          | [Riktning efter väg](https://docs.microsoft.com/rest/api/maps/route/postroutedirections)                         |
-| Avstånds Data Services (SDS)           | [Sök](https://docs.microsoft.com/rest/api/maps/search)  +  [Routning](https://docs.microsoft.com/rest/api/maps/route) och andra Azure-tjänster |
-| Tidszon                             | [Tidszon](https://docs.microsoft.com/rest/api/maps/timezone)  |
-| Trafik incidenter                     | [Information om trafik incident](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidentdetail)                     |
+| Automatiska förslag                           | [Sök](/rest/api/maps/search)     |
+| Vägvisningar (inklusive Truck)          | [Vägvisningar](/rest/api/maps/route/getroutedirections)                          |
+| Avstånds mat ris                       | [Väg mat ris](/rest/api/maps/route/postroutematrixpreview)                          |
+| Bilder – statisk karta                  | [Rendering](/rest/api/maps/render/getmapimage)                                   |
+| ISO Kron                            | [Flödes intervall](/rest/api/maps/route/getrouterange)                                    |
+| Lokala insikter                        | [Sök](/rest/api/maps/search)  +  [Flödes intervall](/rest/api/maps/route/getrouterange)    |
+| Lokal sökning                          | [Sök](/rest/api/maps/search)     |
+| Plats igenkänning (POI: er)           | [Sök](/rest/api/maps/search)     |
+| Platser (omvänt/omvända landskod) | [Sök](/rest/api/maps/search)                                               |
+| Fäst vid väg                          | [Riktning efter väg](/rest/api/maps/route/postroutedirections)                         |
+| Avstånds Data Services (SDS)           | [Sök](/rest/api/maps/search)  +  [Routning](/rest/api/maps/route) och andra Azure-tjänster |
+| Tidszon                             | [Tidszon](/rest/api/maps/timezone)  |
+| Trafik incidenter                     | [Information om trafik incident](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
 
 Följande tjänst-API: er är för närvarande inte tillgängliga i Azure Maps:
 
@@ -46,18 +46,18 @@ Följande tjänst-API: er är för närvarande inte tillgängliga i Azure Maps:
 
 Azure Maps har flera andra REST-webbtjänster som kan vara av intresse,
 
--   [Azure Maps skapare](https://docs.microsoft.com/azure/azure-maps/creator-indoor-maps) – skapa en anpassad privat Digital byggnad av byggnader och utrymmen.
--   [Spatialdata](https://docs.microsoft.com/rest/api/maps/spatial) – avlastning av komplexa spatiala beräkningar och åtgärder, t. ex. polystaket, i en tjänst.
--   [Kart paneler](https://docs.microsoft.com/rest/api/maps/render/getmaptile) – åtkomst till väg-och bilder-paneler från Azure Maps som raster-och vektor paneler.
--   [Batchbearbetning](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview) – tillåter upp till 1 000 flödes begär Anden som görs i en enda batch under en viss tids period. Vägar beräknas parallellt på servern för snabbare bearbetning.
--   [Trafik](https://docs.microsoft.com/rest/api/maps/traffic) Flow – åtkomst till trafik flödes data i real tid som både raster och vektor paneler.
--   [API för geolokalisering](https://docs.microsoft.com/rest/api/maps/geolocation/getiptolocationpreview) – hämta platsen för en IP-adress.
--   [Väder tjänster](https://docs.microsoft.com/rest/api/maps/weather) – få till gång till väder data i real tid och prognoser.
+-   [Azure Maps skapare](./creator-indoor-maps.md) – skapa en anpassad privat Digital byggnad av byggnader och utrymmen.
+-   [Spatialdata](/rest/api/maps/spatial) – avlastning av komplexa spatiala beräkningar och åtgärder, t. ex. polystaket, i en tjänst.
+-   [Kart paneler](/rest/api/maps/render/getmaptile) – åtkomst till väg-och bilder-paneler från Azure Maps som raster-och vektor paneler.
+-   [Batchbearbetning](/rest/api/maps/route/postroutedirectionsbatchpreview) – tillåter upp till 1 000 flödes begär Anden som görs i en enda batch under en viss tids period. Vägar beräknas parallellt på servern för snabbare bearbetning.
+-   [Trafik](/rest/api/maps/traffic) Flow – åtkomst till trafik flödes data i real tid som både raster och vektor paneler.
+-   [API för geolokalisering](/rest/api/maps/geolocation/getiptolocationpreview) – hämta platsen för en IP-adress.
+-   [Väder tjänster](/rest/api/maps/weather) – få till gång till väder data i real tid och prognoser.
 
 Se även följande guider för bästa praxis:
 
--   [Metodtips för sökning](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search)
--   [Metod tips för routning](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-routing)
+-   [Metodtips för sökning](./how-to-use-best-practices-for-search.md)
+-   [Metod tips för routning](./how-to-use-best-practices-for-routing.md)
 
 ## <a name="geocoding-addresses"></a>Adresser för att koda
 
@@ -65,11 +65,11 @@ Kod för att omvandla en adress (till exempel `"1 Microsoft way, Redmond, WA"` )
 
 Azure Maps tillhandahåller flera metoder för att koda adresser.
 
--   [Kod för fri Forms adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Ange en enskild adress sträng (som `"1 Microsoft way, Redmond, WA"` ) och bearbeta begäran omedelbart. Den här tjänsten rekommenderas om du snabbt behöver koda enskilda adresser.
--   [Kodning av strukturerad adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Ange delar av en enskild adress, till exempel gatu namn, stad, land och post nummer och bearbeta begäran omedelbart. Den här tjänsten rekommenderas om du snabbt behöver koda enskilda adresser och data redan har tolkats i sina enskilda adress delar.
--   [Kodning av batch-adresser](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): skapa en begäran som innehåller upp till 10 000 adresser och behandla dem under en viss tids period. Alla adresser kommer att kodas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned. Den här tjänsten rekommenderas för att kunna koda stora data mängder.
--   [Fuzzy-sökning](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): det här API: et kombinerar adressens kod för att söka efter orienterings punkter. Det här API: et tar i en sträng med fri form som kan vara en adress, plats, landmärke, orienterings punkt eller kategori av intressant kategori och bearbeta begäran omedelbart. Detta API rekommenderas för program där användare kan söka efter adresser eller intressanta punkter från samma text ruta.
--   [Fuzzy batch-sökning](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): skapa en begäran som innehåller upp till 10 000 adresser, platser, landmärken eller anslags punkter och låta dem bearbetas under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
+-   [Kod för fri Forms adress](/rest/api/maps/search/getsearchaddress): Ange en enskild adress sträng (som `"1 Microsoft way, Redmond, WA"` ) och bearbeta begäran omedelbart. Den här tjänsten rekommenderas om du snabbt behöver koda enskilda adresser.
+-   [Kodning av strukturerad adress](/rest/api/maps/search/getsearchaddressstructured): Ange delar av en enskild adress, till exempel gatu namn, stad, land och post nummer och bearbeta begäran omedelbart. Den här tjänsten rekommenderas om du snabbt behöver koda enskilda adresser och data redan har tolkats i sina enskilda adress delar.
+-   [Kodning av batch-adresser](/rest/api/maps/search/postsearchaddressbatchpreview): skapa en begäran som innehåller upp till 10 000 adresser och behandla dem under en viss tids period. Alla adresser kommer att kodas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned. Den här tjänsten rekommenderas för att kunna koda stora data mängder.
+-   [Fuzzy-sökning](/rest/api/maps/search/getsearchfuzzy): det här API: et kombinerar adressens kod för att söka efter orienterings punkter. Det här API: et tar i en sträng med fri form som kan vara en adress, plats, landmärke, orienterings punkt eller kategori av intressant kategori och bearbeta begäran omedelbart. Detta API rekommenderas för program där användare kan söka efter adresser eller intressanta punkter från samma text ruta.
+-   [Fuzzy batch-sökning](/rest/api/maps/search/postsearchfuzzybatchpreview): skapa en begäran som innehåller upp till 10 000 adresser, platser, landmärken eller anslags punkter och låta dem bearbetas under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
 
 I följande tabeller sker en kors referens till Bing Maps API-parametrar med de jämförbara API-parametrarna i Azure Maps för strukturerad och kostnads fri Forms kodning.
 
@@ -85,9 +85,9 @@ I följande tabeller sker en kors referens till Bing Maps API-parametrar med de 
 | `maxResults` (`maxRes`)          | `limit`                                           |
 | `includeNeighborhood` (`inclnb`) | Ej tillämpligt – returneras alltid av Azure Maps om det är tillgängligt.   |
 | `include` (`incl`)               | N/A – lands ISO2 kod returneras alltid av Azure Maps. |
-| `key`                              | `subscription-key` – Se även [autentiseringen med Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) -dokumentationen. |
-| `culture` (`c`)                  | `language` – Se dokumentation om [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages) . |
-| `userRegion` (`ur`)              | `view` – Se dokumentation om [vilka vyer som stöds](https://aka.ms/AzureMapsLocalizationViews) . |
+| `key`                              | `subscription-key` – Se även [autentiseringen med Azure Maps](./azure-maps-authentication.md) -dokumentationen. |
+| `culture` (`c`)                  | `language` – Se dokumentation om [språk som stöds](./supported-languages.md) . |
+| `userRegion` (`ur`)              | `view` – Se dokumentation om [vilka vyer som stöds](./supported-languages.md#azure-maps-supported-views) . |
 
 Azure Maps stöder också;
 
@@ -103,9 +103,9 @@ Azure Maps stöder också;
 | `maxResults` (`maxRes`)          | `limit`                                |
 | `includeNeighborhood` (`inclnb`) | Ej tillämpligt – returneras alltid av Azure Maps om det är tillgängligt.  |
 | `include` (`incl`)               | N/A – lands ISO2 kod returneras alltid av Azure Maps.  |
-| `key`                              | `subscription-key` – Se även [autentiseringen med Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) -dokumentationen. |
-| `culture` (`c`)                  | `language` – Se dokumentation om [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages) .  |
-| `userRegion` (`ur`)              | `view` – Se dokumentation om [vilka vyer som stöds](https://aka.ms/AzureMapsLocalizationViews) . |
+| `key`                              | `subscription-key` – Se även [autentiseringen med Azure Maps](./azure-maps-authentication.md) -dokumentationen. |
+| `culture` (`c`)                  | `language` – Se dokumentation om [språk som stöds](./supported-languages.md) .  |
+| `userRegion` (`ur`)              | `view` – Se dokumentation om [vilka vyer som stöds](./supported-languages.md#azure-maps-supported-views) . |
 
 Azure Maps stöder också;
 
@@ -114,7 +114,7 @@ Azure Maps stöder också;
 -   `lat`/`lon`, `topLeft` / `btmRight` , `radius` – Ange användarens plats och område för att göra resultaten mer lokalt relevanta.
 -   `ofs` – Sida genom resultaten i kombination med `maxResults` parameter.
 
-Ett exempel på hur du använder Sök tjänsten finns dokumenterat [här](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address). Se till att gå igenom [metod tipsen för Sök efter](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search) dokumentation.
+Ett exempel på hur du använder Sök tjänsten finns dokumenterat [här](./how-to-search-for-address.md). Se till att gå igenom [metod tipsen för Sök efter](./how-to-use-best-practices-for-search.md) dokumentation.
 
 ## <a name="reverse-geocode-a-coordinate-find-a-location-by-point"></a>Omvändly-kod a-koordinat (hitta en plats efter punkt)
 
@@ -122,9 +122,9 @@ Omvänd polykodning är processen att konvertera geografiska koordinater (t. ex.
 
 Azure Maps ger flera omvända Omkodnings metoder;
 
--   [Omvänd landskod](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse): Ange en enda geografisk koordinat för att få den ungefärliga adressen och bearbeta begäran omedelbart.
--   [Kors gatan omvänd landskod](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet): Ange en enda geografisk koordinat för att få närliggande kors gatu information (till exempel 1st & main) och bearbeta begäran omedelbart.
--   [Omvänd landskod för batch-adress](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatchpreview): skapa en begäran som innehåller upp till 10 000 koordinater och har bearbetats under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
+-   [Omvänd landskod](/rest/api/maps/search/getsearchaddressreverse): Ange en enda geografisk koordinat för att få den ungefärliga adressen och bearbeta begäran omedelbart.
+-   [Kors gatan omvänd landskod](/rest/api/maps/search/getsearchaddressreversecrossstreet): Ange en enda geografisk koordinat för att få närliggande kors gatu information (till exempel 1st & main) och bearbeta begäran omedelbart.
+-   [Omvänd landskod för batch-adress](/rest/api/maps/search/postsearchaddressreversebatchpreview): skapa en begäran som innehåller upp till 10 000 koordinater och har bearbetats under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
 
 Följande tabell innehåller en kors referens till API-parametrarna Bing Maps med de jämförbara API-parametrarna i Azure Maps.
 
@@ -134,11 +134,11 @@ Följande tabell innehåller en kors referens till API-parametrarna Bing Maps me
 | `includeEntityTypes`                 | `entityType` – Se jämförelse tabell för entitetstyp nedan.    |
 | `includeNeighborhood` (`inclnb`)     | Ej tillämpligt – returneras alltid av Azure Maps om det är tillgängligt.         |
 | `include` (`incl`)                   | N/A – lands ISO2 kod returneras alltid av Azure Maps.    |
-| `key`                                | `subscription-key` – Se även [autentiseringen med Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) -dokumentationen. |
-| `culture` (`c`)                      | `language` – Se dokumentation om [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages) .   |
-| `userRegion` (`ur`)                  | `view` – Se dokumentation om [vilka vyer som stöds](https://aka.ms/AzureMapsLocalizationViews) . |
+| `key`                                | `subscription-key` – Se även [autentiseringen med Azure Maps](./azure-maps-authentication.md) -dokumentationen. |
+| `culture` (`c`)                      | `language` – Se dokumentation om [språk som stöds](./supported-languages.md) .   |
+| `userRegion` (`ur`)                  | `view` – Se dokumentation om [vilka vyer som stöds](./supported-languages.md#azure-maps-supported-views) . |
 
-Se till att gå igenom [metod tipsen för Sök efter](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search) dokumentation.
+Se till att gå igenom [metod tipsen för Sök efter](./how-to-use-best-practices-for-search.md) dokumentation.
 
 API: et för omväntitet i Azure Maps har vissa ytterligare funktioner som inte är tillgängliga i Bing Maps som kan vara användbara för att integrera när du migrerar appen:
 
@@ -154,21 +154,21 @@ Följande tabell refererar till värdena för Bing Maps-enhets typen till motsva
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *Adress*                                  |
 | `Neighborhood`        | `Neighbourhood`                                 | *Stadsdel*                             |
-| `PopulatedPlace`      | `Municipality` eller `MunicipalitySubdivision`     | *Stad*, *stad eller sub*eller *Super City*     |
+| `PopulatedPlace`      | `Municipality` eller `MunicipalitySubdivision`     | *Stad* , *stad eller sub* eller *Super City*     |
 | `Postcode1`           | `PostalCodeArea`                                | *Post nummer* eller *post* nummer                |
 | `AdminDivision1`      | `CountrySubdivision`                            | *Region* *Province*                      |
 | `AdminDivision2`      | `CountrySecondarySubdivison`                    | *Län* eller *distrikt*                    |
 | `CountryRegion`       | `Country`                                       | *Lands namn*                             |
-|                       | `CountryTertiarySubdivision`                    | *Boroughs*, *cantons*, *communes*          |
+|                       | `CountryTertiarySubdivision`                    | *Boroughs* , *cantons* , *communes*          |
 
 ## <a name="get-location-suggestions-autosuggest"></a>Hämta förslag på platser (automatiska förslag)
 
-Flera av API: erna för Azure Maps Search-API: et stöder förutsägbart läge som kan användas för automatiska förslags scenarier. API Azure Maps för automatiska förslag för Bing Maps är det mest precis som [Bing Maps API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) för automatiska förslag. Följande API: er har också stöd för förutsägande läge, Lägg till `&typeahead=true` i frågan.
+Flera av API: erna för Azure Maps Search-API: et stöder förutsägbart läge som kan användas för automatiska förslags scenarier. API Azure Maps för automatiska förslag för Bing Maps är det mest precis som [Bing Maps API](/rest/api/maps/search/getsearchfuzzy) för automatiska förslag. Följande API: er har också stöd för förutsägande läge, Lägg till `&typeahead=true` i frågan.
 
--   [Kod för fri Forms adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Ange en enskild adress sträng (som `"1 Microsoft way, Redmond, WA"` ) och bearbeta begäran omedelbart. Den här tjänsten rekommenderas om du snabbt behöver koda enskilda adresser.
--   [Fuzzy-sökning](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): det här API: et kombinerar adressens kod för att söka efter orienterings punkter. Det här API: et tar i en sträng med fri form som kan vara en adress, plats, landmärke, orienterings punkt eller kategori av intressant kategori och bearbeta begäran omedelbart. Detta API rekommenderas för program där användare kan söka efter adresser eller intressanta punkter från samma text ruta.
--   [POI sökning](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi): Sök efter intressanta platser efter namn. Exempel: `"starbucks"`.
--   [POI kategoris ökning](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory): Sök efter intressanta platser efter kategori. Exempel: "restaurang".
+-   [Kod för fri Forms adress](/rest/api/maps/search/getsearchaddress): Ange en enskild adress sträng (som `"1 Microsoft way, Redmond, WA"` ) och bearbeta begäran omedelbart. Den här tjänsten rekommenderas om du snabbt behöver koda enskilda adresser.
+-   [Fuzzy-sökning](/rest/api/maps/search/getsearchfuzzy): det här API: et kombinerar adressens kod för att söka efter orienterings punkter. Det här API: et tar i en sträng med fri form som kan vara en adress, plats, landmärke, orienterings punkt eller kategori av intressant kategori och bearbeta begäran omedelbart. Detta API rekommenderas för program där användare kan söka efter adresser eller intressanta punkter från samma text ruta.
+-   [POI sökning](/rest/api/maps/search/getsearchpoi): Sök efter intressanta platser efter namn. Exempel: `"starbucks"`.
+-   [POI kategoris ökning](/rest/api/maps/search/getsearchpoicategory): Sök efter intressanta platser efter kategori. Exempel: "restaurang".
 
 ## <a name="calculate-routes-and-directions"></a>Beräkna vägar och vägbeskrivningar
 
@@ -184,9 +184,9 @@ Azure Maps kan användas för att beräkna vägar och riktningar. Azure Maps har
 
 Tjänsten Azure Maps routning innehåller följande API: er för att beräkna vägar.
 
--   [Beräkna väg](https://docs.microsoft.com/rest/api/maps/route/getroutedirections): beräkna en väg och behandla begäran omedelbart. Detta API stöder både GET-och POST-förfrågningar. POST-begäranden rekommenderas när du anger ett stort antal waypoints eller när du använder flera väg alternativ för att säkerställa att URL-begäran inte blir för lång och orsaka problem.
--   [Batch-väg](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview): skapa en begäran som innehåller upp till 1 000 cirkulations förfrågan och behandla dem under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
--   [Mobilitets tjänster](https://docs.microsoft.com/rest/api/maps/mobility): beräkna vägar och vägbeskrivningar med hjälp av offentlig överföring.
+-   [Beräkna väg](/rest/api/maps/route/getroutedirections): beräkna en väg och behandla begäran omedelbart. Detta API stöder både GET-och POST-förfrågningar. POST-begäranden rekommenderas när du anger ett stort antal waypoints eller när du använder flera väg alternativ för att säkerställa att URL-begäran inte blir för lång och orsaka problem.
+-   [Batch-väg](/rest/api/maps/route/postroutedirectionsbatchpreview): skapa en begäran som innehåller upp till 1 000 cirkulations förfrågan och behandla dem under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
+-   [Mobilitets tjänster](/rest/api/maps/mobility): beräkna vägar och vägbeskrivningar med hjälp av offentlig överföring.
 
 Följande tabell innehåller en kors referens till API-parametrarna Bing Maps med de jämförbara API-parametrarna i Azure Maps.
 
@@ -194,7 +194,7 @@ Följande tabell innehåller en kors referens till API-parametrarna Bing Maps me
 |------------------------------------------------------------|---------------------------------------------------|
 | `avoid`                                                    | `avoid`                                           |
 | `dateTime` (`dt`)                                          | `departAt` eller `arriveAt`                          |
-| `distanceBeforeFirstTurn` (`dbft`)                         | E.t.                                               |
+| `distanceBeforeFirstTurn` (`dbft`)                         | Saknas                                               |
 | `distanceUnit` (`du`)                                      | Ej tillämpligt – Azure Maps endast använder Metric-systemet.     |
 | `heading` (`hd`)                                           | `vehicleHeading`                                  |
 | `maxSolutions` (`maxSolns`)                                | `maxAlternatives`, `alternativeType` , `minDeviationDistance` , och `minDeviationTime`  |
@@ -203,12 +203,12 @@ Följande tabell innehåller en kors referens till API-parametrarna Bing Maps me
 | `routeAttributes` (`ra`)                                   | `instructionsType`                                |
 | `routePathOutput` (`rpo`)                                  | `routeRepresentation`                             |
 | `timeType` (`tt`)                                          | `departAt` eller `arriveAt`                          |
-| `tolerances` (`tl`)                                        | E.t.                                               |
+| `tolerances` (`tl`)                                        | Saknas                                               |
 | `travelMode`                                               | `travelMode`                                      |
 | `waypoint.n` ( `wp.n` ) eller `viaWaypoint.n` (`vwp.n`)         | `query` – koordinater i formatet `lat0,lon0:lat1,lon1….`   |
-| `key`                                                      | `subscription-key` – Se även [autentiseringen med Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) -dokumentationen. |
-| `culture` (`c`)                                            | `language` – Se dokumentation om [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages) . |
-| `userRegion` (`ur`)                                        | `view` – Se dokumentation om [vilka vyer som stöds](https://aka.ms/AzureMapsLocalizationViews) . |
+| `key`                                                      | `subscription-key` – Se även [autentiseringen med Azure Maps](./azure-maps-authentication.md) -dokumentationen. |
+| `culture` (`c`)                                            | `language` – Se dokumentation om [språk som stöds](./supported-languages.md) . |
+| `userRegion` (`ur`)                                        | `view` – Se dokumentation om [vilka vyer som stöds](./supported-languages.md#azure-maps-supported-views) . |
 
 API för Azure Maps routning stöder också Truck-routning inom samma API. I följande tabell beskrivs de ytterligare Bing Maps-parametrarna för Truck-routning med de jämförbara API-parametrarna i Azure Maps.
 
@@ -221,19 +221,19 @@ API för Azure Maps routning stöder också Truck-routning inom samma API. I fö
 | `vehicleLength` (`vl`)                   | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)               | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                 | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                 | **EJ TILLÄMPLIGT**                                    |
+| `vehicleTrailers` (`vt`)                 | **Saknas**                                    |
 | `vehicleSemi` (`semi`)                   | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)             | **EJ TILLÄMPLIGT**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)          | **EJ TILLÄMPLIGT**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)         | **EJ TILLÄMPLIGT**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)     | **EJ TILLÄMPLIGT**                                    |
+| `vehicleMaxGradient` (`vmg`)             | **Saknas**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)          | **Saknas**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)         | **Saknas**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)     | **Saknas**                                    |
 | `vehicleHazardousMaterials` (`vhm`)      | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)        | `vehicleLoadType`                          |
 
 > [!TIP]
 > Som standard returnerar API för Azure Maps väg bara en sammanfattning (avstånd och tider) och koordinaterna för vägens sökväg. Använd `instructionsType` parametern för att hämta inaktiverade instruktioner. `routeRepresentation`Parametern kan användas för att filtrera ut sammanfattningen och vägens sökväg.
 
-Se också till att du läser igenom de [bästa metoderna för routning av](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-routing) dokumentation.
+Se också till att du läser igenom de [bästa metoderna för routning av](./how-to-use-best-practices-for-routing.md) dokumentation.
 
 API för Azure Maps routning har många ytterligare funktioner som inte är tillgängliga i Bing Maps som kan vara användbara att integrera när du migrerar appen:
 
@@ -255,7 +255,7 @@ Det finns flera sätt att fästa koordinater på vägar i Azure Maps.
 
 **Använda väg riktnings-API för att fästa koordinater**
 
-Azure Maps kan fästa koordinater mot vägar genom att använda [väg riktnings](https://docs.microsoft.com/rest/api/maps/route/postroutedirections) -API: et. Den här tjänsten kan användas för att rekonstruera en logisk väg mellan en uppsättning koordinater och är jämförbar med Bing Maps snap till Road API.
+Azure Maps kan fästa koordinater mot vägar genom att använda [väg riktnings](/rest/api/maps/route/postroutedirections) -API: et. Den här tjänsten kan användas för att rekonstruera en logisk väg mellan en uppsättning koordinater och är jämförbar med Bing Maps snap till Road API.
 
 Det finns två olika sätt att använda väg riktnings-API: et för att fästa koordinater på vägar.
 
@@ -272,9 +272,9 @@ Följande tabell innehåller en kors referens till API-parametrarna Bing Maps me
 | `includeTruckSpeedLimit`   | Saknas                                                                 |
 | `speedUnit`                | Saknas                                                                 |
 | `travelMode`               | `travelMode`                                                        |
-| `key`                      | `subscription-key` – Se även [autentiseringen med Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) -dokumentationen. |
-| `culture` (`c`)            | `language` – Se dokumentation om [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages) .   |
-| `userRegion` (`ur`)        | `view` – Se dokumentation om [vilka vyer som stöds](https://aka.ms/AzureMapsLocalizationViews) .   |
+| `key`                      | `subscription-key` – Se även [autentiseringen med Azure Maps](./azure-maps-authentication.md) -dokumentationen. |
+| `culture` (`c`)            | `language` – Se dokumentation om [språk som stöds](./supported-languages.md) .   |
+| `userRegion` (`ur`)        | `view` – Se dokumentation om [vilka vyer som stöds](./supported-languages.md#azure-maps-supported-views) .   |
 
 API: et för Azure Maps routning stöder också en väg för Truck i samma API för att se till att logiska sökvägar beräknas. I följande tabell beskrivs de ytterligare Bing Maps-parametrarna för Truck-routning med de jämförbara API-parametrarna i Azure Maps.
 
@@ -287,12 +287,12 @@ API: et för Azure Maps routning stöder också en väg för Truck i samma API f
 | `vehicleLength` (`vl`)                  | `vehicleLength`                            |
 | `vehicleWeight` (`weight`)              | `vehicleWeight`                            |
 | `vehicleAxles` (`axles`)                | `vehicleAxelWeight`                        |
-| `vehicleTrailers` (`vt`)                | **EJ TILLÄMPLIGT**                                    |
+| `vehicleTrailers` (`vt`)                | **Saknas**                                    |
 | `vehicleSemi` (`semi`)                  | `vehicleCommercial`                        |
-| `vehicleMaxGradient` (`vmg`)            | **EJ TILLÄMPLIGT**                                    |
-| `vehicleMinTurnRadius` (`vmtr`)         | **EJ TILLÄMPLIGT**                                    |
-| `vehicleAvoidCrossWind` (`vacw`)        | **EJ TILLÄMPLIGT**                                    |
-| `vehicleAvoidGroundingRisk` (`vagr`)    | **EJ TILLÄMPLIGT**                                    |
+| `vehicleMaxGradient` (`vmg`)            | **Saknas**                                    |
+| `vehicleMinTurnRadius` (`vmtr`)         | **Saknas**                                    |
+| `vehicleAvoidCrossWind` (`vacw`)        | **Saknas**                                    |
+| `vehicleAvoidGroundingRisk` (`vagr`)    | **Saknas**                                    |
 | `vehicleHazardousMaterials` (`vhm`)     | `vehicleLoadType`                          |
 | `vehicleHazardousPermits` (`vhp`)       | `vehicleLoadType`                          |
 
@@ -308,11 +308,11 @@ Den här metoden fäster dock endast mot väg segment som läses in i kart visni
 
 **Använda Azure Maps vektor paneler direkt till fästa koordinater**
 
-Azure Maps vektor panelerna innehåller geometriska geometriska data som kan användas för att beräkna närmaste punkt på en väg till en koordinat för att utföra grundläggande fästning av enskilda koordinater. Alla väg segment visas i sektorerna på zoomnings nivå 15, så du kommer att vilja hämta paneler därifrån. Sedan kan du använda [quadtree-panelens Pyramid matematik](https://docs.microsoft.com/azure/azure-maps/zoom-levels-and-tile-grid) för att fastställa att paneler behövs och konvertera panelerna till Geometries. Härifrån kan du använda ett överliggande matematiskt bibliotek, till exempel [Turf JS](http://turfjs.org/) eller [NetTopologySuite](https://github.com/NetTopologySuite/NetTopologySuite) , för att beräkna de närmaste linje segmenten.
+Azure Maps vektor panelerna innehåller geometriska geometriska data som kan användas för att beräkna närmaste punkt på en väg till en koordinat för att utföra grundläggande fästning av enskilda koordinater. Alla väg segment visas i sektorerna på zoomnings nivå 15, så du kommer att vilja hämta paneler därifrån. Sedan kan du använda [quadtree-panelens Pyramid matematik](./zoom-levels-and-tile-grid.md) för att fastställa att paneler behövs och konvertera panelerna till Geometries. Härifrån kan du använda ett överliggande matematiskt bibliotek, till exempel [Turf JS](http://turfjs.org/) eller [NetTopologySuite](https://github.com/NetTopologySuite/NetTopologySuite) , för att beräkna de närmaste linje segmenten.
 
 ## <a name="retrieve-a-map-image-static-map"></a>Hämta en kart bild (statisk karta)
 
-Azure Maps tillhandahåller ett API för att återge statiska kart bilder med data som har överanvänds. API: t för [rendering av Azure Maps Map-avbildningen](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile) är jämförbar med API: t för statisk mappning i Bing Maps.
+Azure Maps tillhandahåller ett API för att återge statiska kart bilder med data som har överanvänds. API: t för [rendering av Azure Maps Map-avbildningen](/rest/api/maps/render/getmapimagerytile) är jämförbar med API: t för statisk mappning i Bing Maps.
 
 > [!NOTE]
 > Azure Maps kräver att Center, alla kartnålar och Sök vägs platser är koordinater i `longitude,latitude` formatet, medan Bing Maps använder `latitude,longitude` formatet.</p>
@@ -325,9 +325,9 @@ Följande tabell innehåller en kors referens till API-parametrarna Bing Maps me
 | `centerPoint`            | `center`                                       |
 | `format`                 | `format` – anges som en del av URL-sökvägen. För närvarande stöds endast PNG.  |
 | `heading`                | Ej tillämpligt – Streetside stöds inte.                |
-| `imagerySet`             | `layer` och `style` – se dokumentation om [mappnings format som stöds](https://docs.microsoft.com/azure/azure-maps/supported-map-styles) .   |
+| `imagerySet`             | `layer` och `style` – se dokumentation om [mappnings format som stöds](./supported-map-styles.md) .   |
 | `mapArea` (`ma`)         | `bbox`                                         |
-| `mapLayer` (`ml`)        | E.t.                                            |
+| `mapLayer` (`ml`)        | Saknas                                            |
 | `mapSize` (`ms`)         | `width` och `height` – kan vara upp till 8192x8192 i storlek. |
 | `declutterPins` (`dcl`)  | Saknas                                            |
 | `dpi`                    | Saknas                                            |
@@ -339,20 +339,20 @@ Följande tabell innehåller en kors referens till API-parametrarna Bing Maps me
 | `query`                  | N/A – centrera eller markerings ram måste användas.     |
 | `highlightEntity` (`he`) | Saknas                                            |
 | `style`                  | Saknas                                            |
-| flödes parametrar         | E.t.                                            |
-| `key`                    | `subscription-key` – Se även [autentiseringen med Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) -dokumentationen. |
-| `culture` (`c`)          | `language` – Se dokumentation om [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages) .   |
-| `userRegion` (`ur`)      | `view` – Se dokumentation om [vilka vyer som stöds](https://aka.ms/AzureMapsLocalizationViews) . |
+| flödes parametrar         | Saknas                                            |
+| `key`                    | `subscription-key` – Se även [autentiseringen med Azure Maps](./azure-maps-authentication.md) -dokumentationen. |
+| `culture` (`c`)          | `language` – Se dokumentation om [språk som stöds](./supported-languages.md) .   |
+| `userRegion` (`ur`)      | `view` – Se dokumentation om [vilka vyer som stöds](./supported-languages.md#azure-maps-supported-views) . |
 
 > [!NOTE]
 > Azure Maps använder ett panel system med paneler som är två gånger så stora som de kart paneler som används i Bing Maps. Det innebär att värdet för zoomnings nivå i Azure Maps visas på en zoomnivå närmare Azure Maps jämfört med Bing Maps. Minska zoomnings nivån i de begär Anden som du migrerar med 1 för att kompensera för detta.
 
-Mer information finns i [instruktions guiden om kart bild åter givning](https://docs.microsoft.com/azure/azure-maps/how-to-render-custom-data) .
+Mer information finns i [instruktions guiden om kart bild åter givning](./how-to-render-custom-data.md) .
 
 Förutom att kunna generera en statisk kart bild ger tjänsten Azure Maps åter givning också möjlighet att direkt komma åt kart paneler i raster (PNG) och vektor format.
 
--   [Kart panel](https://docs.microsoft.com/rest/api/maps/render/getmaptile) – Hämta raster (png) och vektor paneler för bas Maps (vägar, gränser, bakgrund).
--   [Kart bilder panel](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile) – Hämta paneler för flyg-och satellit bilder.
+-   [Kart panel](/rest/api/maps/render/getmaptile) – Hämta raster (png) och vektor paneler för bas Maps (vägar, gränser, bakgrund).
+-   [Kart bilder panel](/rest/api/maps/render/getmapimagerytile) – Hämta paneler för flyg-och satellit bilder.
 
 ### <a name="pushpin-url-parameter-format-comparison"></a>Jämförelse av URL-parameter format för kartnål
 
@@ -446,7 +446,7 @@ I Azure Maps kan linjer och polygoner också läggas till i en statisk kart bild
 
 > `&path=pathStyles||pathLocation1|pathLocation2|...`
 
-När den kommer till sökvägar måste Azure Maps ha koordinaterna i `longitude latitude` formatet medan Bing Maps använder `latitude,longitude` format. Observera också att **det finns ett blank steg, inte en kommaavgränsad** longitud och latitud i Azure Maps. Azure Maps stöder för närvarande inte kodade sökvägar. Större data uppsättningar kan laddas upp som en interjson-fyllning i Azure Maps data lagrings-API: et som dokumenteras [här](https://docs.microsoft.com/azure/azure-maps/how-to-render-custom-data#get-data-from-azure-maps-data-storage).
+När den kommer till sökvägar måste Azure Maps ha koordinaterna i `longitude latitude` formatet medan Bing Maps använder `latitude,longitude` format. Observera också att **det finns ett blank steg, inte en kommaavgränsad** longitud och latitud i Azure Maps. Azure Maps stöder för närvarande inte kodade sökvägar. Större data uppsättningar kan laddas upp som en interjson-fyllning i Azure Maps data lagrings-API: et som dokumenteras [här](./how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
 
 Sök vägs format i Azure Maps läggs till med formatet `optionNameValue` , med flera format åtskiljda med pipe ( `|` )-tecken som detta `optionName1Value1|optionName2Value2` . Observera att alternativ namn och värden inte separeras. Följande format alternativ namn kan användas för att formatera sökvägar i Azure Maps:
 
@@ -469,7 +469,7 @@ I Azure Maps kan till exempel en blå linje med 50% opacitet och en tjocklek på
 
 Azure Maps innehåller ett API för att beräkna res tiderna och avståndet mellan en uppsättning platser som en distans mat ris. API: et för Azure Maps avstånds mat ris är jämförbar med API för distans mat ris i Bing Maps.
 
--   [Väg mat ris](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview): beräknar asynkrona res tider och avstånd för en uppsättning ursprung och mål. Upp till 700 celler per begäran stöds (antalet ursprung multiplicerat med antalet destinationer). Med den begränsningen i åtanke är exempel på möjliga mat ris dimensioner: `700x1` , `50x10` ,, `10x10` `28x25` , `10x70` .
+-   [Väg mat ris](/rest/api/maps/route/postroutematrixpreview): beräknar asynkrona res tider och avstånd för en uppsättning ursprung och mål. Upp till 700 celler per begäran stöds (antalet ursprung multiplicerat med antalet destinationer). Med den begränsningen i åtanke är exempel på möjliga mat ris dimensioner: `700x1` , `50x10` ,, `10x10` `28x25` , `10x70` .
 
 > [!NOTE]
 > En begäran till distans mat ris API: et kan bara göras med en POST-begäran med information om ursprung och mål i bröd texten i begäran.</p>
@@ -484,12 +484,12 @@ Följande tabell innehåller en kors referens till API-parametrarna Bing Maps me
 | `endTime`               | `arriveAt`                                                  |
 | `startTime`             | `departAt`                                                  |
 | `travelMode`            | `travelMode`                                                |
-| `resolution`            | E.t.                                                         |
+| `resolution`            | Saknas                                                         |
 | `distanceUnit`          | Ej tillämpligt – alla avstånd i meter.                              |
 | `timeUnit`              | Ej tillämpligt – alla tider på några sekunder.                                 |
-| `key`                   | `subscription-key` – Se även [autentiseringen med Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) -dokumentationen. |
-| `culture` (`c`)         | `language` – Se dokumentation om [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages) .  |
-| `userRegion` (`ur`)     | `view` – Se dokumentation om [vilka vyer som stöds](https://aka.ms/AzureMapsLocalizationViews) .     |
+| `key`                   | `subscription-key` – Se även [autentiseringen med Azure Maps](./azure-maps-authentication.md) -dokumentationen. |
+| `culture` (`c`)         | `language` – Se dokumentation om [språk som stöds](./supported-languages.md) .  |
+| `userRegion` (`ur`)     | `view` – Se dokumentation om [vilka vyer som stöds](./supported-languages.md#azure-maps-supported-views) .     |
 
 > [!TIP]
 > Alla avancerade vägvals alternativ som är tillgängliga i Azure Maps routnings-API: t (Truck-routning, motor-specifikationer, undvika...) stöds i API för Azure Maps avstånds mat ris.
@@ -498,7 +498,7 @@ Följande tabell innehåller en kors referens till API-parametrarna Bing Maps me
 
 Azure Maps tillhandahåller ett API för att beräkna en isochrone, en polygon som täcker ett utrymme som kan skickas till i vilken riktning som helst från en ursprungs plats inom en angiven tids period eller mängd bränsle/avgift. API: et för Azure Maps väg intervall är jämförbar med isochrone-API: et i Bing Maps.
 
--   [Dirigera](https://docs.microsoft.com/rest/api/maps/route/getrouterange) Intervall * *: beräkna en polygon som täcker ett område som kan överföras till i någon riktning från en ursprungs punkt inom en angiven tids period, avstånd eller mängd bränsle/kostnad tillgängligt.
+-   [Dirigera](/rest/api/maps/route/getrouterange) Intervall * *: beräkna en polygon som täcker ett område som kan överföras till i någon riktning från en ursprungs punkt inom en angiven tids period, avstånd eller mängd bränsle/kostnad tillgängligt.
 
 > [!NOTE]
 > Azure Maps kräver att frågans ursprung är en koordinat. Adresser måste vara kodade först.</p>
@@ -516,9 +516,9 @@ Följande tabell innehåller en kors referens till API-parametrarna Bing Maps me
 | `maxDistance` (`maxDis`)     | `distanceBudgetInMeters`                       |
 | `distanceUnit` (`du`)        | Ej tillämpligt – alla avstånd i meter.                 |
 | `optimize` (`optmz`)         | `routeType`                                    |
-| `key`                        | `subscription-key` – Se även [autentiseringen med Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) -dokumentationen. |
-| `culture` (`c`)              | `language` – Se dokumentation om [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages) .  |
-| `userRegion` (`ur`)          | `view` – Se dokumentation om [vilka vyer som stöds](https://aka.ms/AzureMapsLocalizationViews) . |
+| `key`                        | `subscription-key` – Se även [autentiseringen med Azure Maps](./azure-maps-authentication.md) -dokumentationen. |
+| `culture` (`c`)              | `language` – Se dokumentation om [språk som stöds](./supported-languages.md) .  |
+| `userRegion` (`ur`)          | `view` – Se dokumentation om [vilka vyer som stöds](./supported-languages.md#azure-maps-supported-views) . |
 
 > [!TIP]
 > Alla avancerade vägvals alternativ som är tillgängliga i Azure Maps routnings-API: t (Truck-routning, motor-specifikationer, Undvik...) stöds i API: et för Azure Maps isochrone.
@@ -527,21 +527,21 @@ Följande tabell innehåller en kors referens till API-parametrarna Bing Maps me
 
 Punkt för intressanta data kan sökas i Bing Maps med hjälp av följande API: er:
 
--   **Lokal sökning:** Söker efter intressanta punkter i närheten (radiell sökning), efter namn eller enhets typ (kategori). Den Azure Maps [POI Sök](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi) -och [POI för kategori sökning](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) är mest likt detta API.
--   **Plats igenkänning**: söker efter intressanta punkter som ligger inom ett visst avstånd från en plats. [Söknings](https://docs.microsoft.com/rest/api/maps/search/getsearchnearby) -API: t i närheten Azure Maps i närheten liknar det här API: et.
--   **Lokala insikter:** Söker efter ansvars punkter som ligger inom den angivna maximala kör tiden eller avståndet från en specifik koordinat. Detta är möjligt med Azure Maps genom att först beräkna en isochrone och sedan skicka den till [sökningen i Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) -API.
+-   **Lokal sökning:** Söker efter intressanta punkter i närheten (radiell sökning), efter namn eller enhets typ (kategori). Den Azure Maps [POI Sök](/rest/api/maps/search/getsearchpoi) -och [POI för kategori sökning](/rest/api/maps/search/getsearchpoicategory) är mest likt detta API.
+-   **Plats igenkänning** : söker efter intressanta punkter som ligger inom ett visst avstånd från en plats. [Söknings](/rest/api/maps/search/getsearchnearby) -API: t i närheten Azure Maps i närheten liknar det här API: et.
+-   **Lokala insikter:** Söker efter ansvars punkter som ligger inom den angivna maximala kör tiden eller avståndet från en specifik koordinat. Detta är möjligt med Azure Maps genom att först beräkna en isochrone och sedan skicka den till [sökningen i Geometry](/rest/api/maps/search/postsearchinsidegeometry) -API.
 
 Azure Maps tillhandahåller flera Sök-API: er för intressanta punkter:
 
--   [POI sökning](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi): Sök efter intressanta platser efter namn. Exempel: `"starbucks"`.
--   [POI kategoris ökning](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory): Sök efter intressanta platser efter kategori. Exempel: "restaurang".
--   [Närliggande sökning](https://docs.microsoft.com/rest/api/maps/search/getsearchnearby): söker efter anslags punkter som ligger inom ett visst avstånd från en plats.
--   [Fuzzy-sökning](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): det här API: et kombinerar adressens kod för att söka efter orienterings punkter. Det här API: et tar i en sträng med fri form som kan vara en adress, plats, landmärke, orienterings punkt eller kategori av intressant kategori och bearbeta begäran omedelbart. Detta API rekommenderas för program där användare kan söka efter adresser eller intressanta punkter från samma text ruta.
--   [Sök i geometrin](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry): Sök efter anslags punkter som är inom en angiven geometri (Polygon).
--   [Sök längs väg](https://docs.microsoft.com/rest/api/maps/search/postsearchalongroute): Sök efter anslags punkter som är utmed en angiven väg Sök väg.
--   [Fuzzy batch-sökning](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): skapa en begäran som innehåller upp till 10 000 adresser, platser, landmärken eller anslags punkter och låta dem bearbetas under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
+-   [POI sökning](/rest/api/maps/search/getsearchpoi): Sök efter intressanta platser efter namn. Exempel: `"starbucks"`.
+-   [POI kategoris ökning](/rest/api/maps/search/getsearchpoicategory): Sök efter intressanta platser efter kategori. Exempel: "restaurang".
+-   [Närliggande sökning](/rest/api/maps/search/getsearchnearby): söker efter anslags punkter som ligger inom ett visst avstånd från en plats.
+-   [Fuzzy-sökning](/rest/api/maps/search/getsearchfuzzy): det här API: et kombinerar adressens kod för att söka efter orienterings punkter. Det här API: et tar i en sträng med fri form som kan vara en adress, plats, landmärke, orienterings punkt eller kategori av intressant kategori och bearbeta begäran omedelbart. Detta API rekommenderas för program där användare kan söka efter adresser eller intressanta punkter från samma text ruta.
+-   [Sök i geometrin](/rest/api/maps/search/postsearchinsidegeometry): Sök efter anslags punkter som är inom en angiven geometri (Polygon).
+-   [Sök längs väg](/rest/api/maps/search/postsearchalongroute): Sök efter anslags punkter som är utmed en angiven väg Sök väg.
+-   [Fuzzy batch-sökning](/rest/api/maps/search/postsearchfuzzybatchpreview): skapa en begäran som innehåller upp till 10 000 adresser, platser, landmärken eller anslags punkter och låta dem bearbetas under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
 
-Se till att gå igenom [metod tipsen för Sök efter](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search) dokumentation.
+Se till att gå igenom [metod tipsen för Sök efter](./how-to-use-best-practices-for-search.md) dokumentation.
 
 ## <a name="get-traffic-incidents"></a>Hämta trafik incidenter
 
@@ -554,29 +554,29 @@ Bing Maps innehåller trafik flödes-och incident data i sina interaktiva kart k
 
 Trafik data integreras också i Azure Maps interaktiva kart kontroller. Azure Maps tillhandahåller även följande API: er för trafik tjänster
 
--   [Trafik flödes segment](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowsegment): ger information om hastigheterna och res tiderna för det väg fragment som ligger närmast de koordinaterna.
--   [Förbindelse paneler i trafikflödet](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile): innehåller raster och vektor paneler som innehåller trafikflödes data. Dessa kan användas med Azure Maps kontroller eller i kart kontroller från tredje part, till exempel broschyr. Vektor panelerna kan också användas för avancerad data analys.
--   [Information om trafik incidenter](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidentdetail): innehåller information om trafik incidenter i en avgränsnings ruta, zoomnings nivå och trafik modell.
--   [Panel för trafik incidenter](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile): innehåller raster och vektor paneler som innehåller trafik incident data.
--   [Visnings område för trafik incident](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidentviewport): hämtar den juridiska och tekniska informationen för visnings området som beskrivs i begäran, till exempel ID för trafik modell.
+-   [Trafik flödes segment](/rest/api/maps/traffic/gettrafficflowsegment): ger information om hastigheterna och res tiderna för det väg fragment som ligger närmast de koordinaterna.
+-   [Förbindelse paneler i trafikflödet](/rest/api/maps/traffic/gettrafficflowtile): innehåller raster och vektor paneler som innehåller trafikflödes data. Dessa kan användas med Azure Maps kontroller eller i kart kontroller från tredje part, till exempel broschyr. Vektor panelerna kan också användas för avancerad data analys.
+-   [Information om trafik incidenter](/rest/api/maps/traffic/gettrafficincidentdetail): innehåller information om trafik incidenter i en avgränsnings ruta, zoomnings nivå och trafik modell.
+-   [Panel för trafik incidenter](/rest/api/maps/traffic/gettrafficincidenttile): innehåller raster och vektor paneler som innehåller trafik incident data.
+-   [Visnings område för trafik incident](/rest/api/maps/traffic/gettrafficincidentviewport): hämtar den juridiska och tekniska informationen för visnings området som beskrivs i begäran, till exempel ID för trafik modell.
 
 I följande tabell beskrivs API-parametrarna för Bing Maps-trafik med information om jämförbar trafik incidenter i Azure Maps.
 
 | API-parameter för Bing Maps  | Jämförbar Azure Maps API-parameter   |
 |--------------------------|---------------------------------------|
 | `mapArea`                | `boundingBox` och `boundingZoom`      |
-| `includeLocationCodes`   | E.t.                                   |
+| `includeLocationCodes`   | Saknas                                   |
 | `severity` (`s`)         | Ej tillämpligt – alla returnerade data               |
 | `type` (`t`)             | Ej tillämpligt – alla returnerade data               |
-| `key`                    | `subscription-key` – Se även [autentiseringen med Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) -dokumentationen. |
-| `culture` (`c`)          | `language` – Se dokumentation om [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages) . |
-| `userRegion` (`ur`)      | `view` – Se dokumentation om [vilka vyer som stöds](https://aka.ms/AzureMapsLocalizationViews) . |
+| `key`                    | `subscription-key` – Se även [autentiseringen med Azure Maps](./azure-maps-authentication.md) -dokumentationen. |
+| `culture` (`c`)          | `language` – Se dokumentation om [språk som stöds](./supported-languages.md) . |
+| `userRegion` (`ur`)      | `view` – Se dokumentation om [vilka vyer som stöds](./supported-languages.md#azure-maps-supported-views) . |
 
 ## <a name="get-a-time-zone"></a>Hämta en tidszon
 
 Azure Maps tillhandahåller ett API för att hämta tids zonen som en koordinat är i. Azure Maps tidszons-API: et är jämförbar med tids zons-API: et i Bing Maps.
 
--   [Tidszon per koordinat](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonebycoordinates): Ange en koordinat och hämta information om tids zonen som den tillhör.
+-   [Tidszon per koordinat](/rest/api/maps/timezone/gettimezonebycoordinates): Ange en koordinat och hämta information om tids zonen som den tillhör.
 
 Följande tabell innehåller en kors referens till API-parametrarna Bing Maps med de jämförbara API-parametrarna i Azure Maps.
 
@@ -586,17 +586,17 @@ Följande tabell innehåller en kors referens till API-parametrarna Bing Maps me
 | `query`                 | N/A-platser måste vara omkodade först.      |
 | `dateTime`              | `timeStamp`                                  |
 | `includeDstRules`       | Ej tillämpligt – inkludera alltid som svar av Azure Maps. |
-| `key`                   | `subscription-key` – Se även [autentiseringen med Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication) -dokumentationen. |
-| `culture` (`c`)         | `language` – Se dokumentation om [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages) .  |
-| `userRegion` (`ur`)     | `view` – Se dokumentation om [vilka vyer som stöds](https://aka.ms/AzureMapsLocalizationViews) .  |
+| `key`                   | `subscription-key` – Se även [autentiseringen med Azure Maps](./azure-maps-authentication.md) -dokumentationen. |
+| `culture` (`c`)         | `language` – Se dokumentation om [språk som stöds](./supported-languages.md) .  |
+| `userRegion` (`ur`)     | `view` – Se dokumentation om [vilka vyer som stöds](./supported-languages.md#azure-maps-supported-views) .  |
 
 Förutom denna Azure Mapss plattform innehåller också ett antal ytterligare tids zons-API: er som hjälper till med konvertering med tids zons namn och-ID: n.
 
--   [Tidszon med ID](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonebyid): returnerar aktuell, historisk och framtida tids zons information för angivet ID för IANA-tidszon.
--   [Tids zons uppräknings-IANA](https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumiana): returnerar en fullständig lista över IANA-tidszonens ID. Uppdateringar av tjänsten IANA visas i systemet inom en dag. 
--   [Enum för tidszon Windows](https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneenumwindows): returnerar en fullständig lista över Windows tids zons-ID: n.
--   [Version för tids zonens IANA](https://docs.microsoft.com/rest/api/maps/timezone/gettimezoneianaversion): returnerar det aktuella IANA-versions numret som används av Azure Maps. 
--   [Time Zone Windows till IANA](https://docs.microsoft.com/rest/api/maps/timezone/gettimezonewindowstoiana): returnerar ett motsvarande IANA-ID, med ett giltigt Windows-tidszons-ID. Flera IANA-ID: n kan returneras för ett enda Windows-ID.
+-   [Tidszon med ID](/rest/api/maps/timezone/gettimezonebyid): returnerar aktuell, historisk och framtida tids zons information för angivet ID för IANA-tidszon.
+-   [Tids zons uppräknings-IANA](/rest/api/maps/timezone/gettimezoneenumiana): returnerar en fullständig lista över IANA-tidszonens ID. Uppdateringar av tjänsten IANA visas i systemet inom en dag. 
+-   [Enum för tidszon Windows](/rest/api/maps/timezone/gettimezoneenumwindows): returnerar en fullständig lista över Windows tids zons-ID: n.
+-   [Version för tids zonens IANA](/rest/api/maps/timezone/gettimezoneianaversion): returnerar det aktuella IANA-versions numret som används av Azure Maps. 
+-   [Time Zone Windows till IANA](/rest/api/maps/timezone/gettimezonewindowstoiana): returnerar ett motsvarande IANA-ID, med ett giltigt Windows-tidszons-ID. Flera IANA-ID: n kan returneras för ett enda Windows-ID.
 
 ## <a name="spatial-data-services-sds"></a>Avstånds Data Services (SDS)
 
@@ -616,11 +616,11 @@ Azure Maps har en batch-tjänst för att skapa en grupp, men det tillåter att u
 
 Ett annat alternativ för att ange ett stort antal adresser med Azure Maps är att göra parallella förfrågningar till standard Sök-API: erna. De här tjänsterna accepterar bara en enskild adress per begäran, men kan användas med S0-nivån som även ger kostnads fria användnings gränser. S0-nivån tillåter upp till 50 begär Anden per sekund till Azure Maps plattform från ett enda konto. Så om du bearbetar gräns thes för att hålla dig inom den gränsen, är det möjligt att hårdkoda upp till 180 000-adressen per timme. S1-nivån har ingen dokumenterad gräns för antalet frågor per sekund som kan göras från ett konto, så att mycket mer data kan bearbetas snabbare när du använder den pris nivån, men med hjälp av batch-tjänsten för att använda funktionen för att använda tjänster för att minska den totala mängden data som överförs drastiskt minskar nätverks trafiken.
 
--   [Kod för fri Forms adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress): Ange en enskild adress sträng (som `"1 Microsoft way, Redmond, WA"` ) och bearbeta begäran omedelbart. Den här tjänsten rekommenderas om du snabbt behöver koda enskilda adresser.
--   [Kodning av strukturerad adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured): Ange delar av en enskild adress, till exempel gatu namn, stad, land och post nummer och bearbeta begäran omedelbart. Den här tjänsten rekommenderas om du snabbt behöver koda enskilda adresser och data redan har tolkats i sina enskilda adress delar.
--   [Kodning av batch-adresser](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview): skapa en begäran som innehåller upp till 10 000 adresser och behandla dem under en viss tids period. Alla adresser kommer att kodas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned. Den här tjänsten rekommenderas för att kunna koda stora data mängder.
--   [Fuzzy-sökning](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy): det här API: et kombinerar adressens kod för att söka efter orienterings punkter. Det här API: et tar i en sträng med fri form som kan vara en adress, plats, landmärke, orienterings punkt eller kategori av intressant kategori och bearbeta begäran omedelbart. Detta API rekommenderas för program där användare kan söka efter adresser eller intressanta punkter från samma text ruta.
--   [Fuzzy batch-sökning](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview): skapa en begäran som innehåller upp till 10 000 adresser, platser, landmärken eller anslags punkter och låta dem bearbetas under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
+-   [Kod för fri Forms adress](/rest/api/maps/search/getsearchaddress): Ange en enskild adress sträng (som `"1 Microsoft way, Redmond, WA"` ) och bearbeta begäran omedelbart. Den här tjänsten rekommenderas om du snabbt behöver koda enskilda adresser.
+-   [Kodning av strukturerad adress](/rest/api/maps/search/getsearchaddressstructured): Ange delar av en enskild adress, till exempel gatu namn, stad, land och post nummer och bearbeta begäran omedelbart. Den här tjänsten rekommenderas om du snabbt behöver koda enskilda adresser och data redan har tolkats i sina enskilda adress delar.
+-   [Kodning av batch-adresser](/rest/api/maps/search/postsearchaddressbatchpreview): skapa en begäran som innehåller upp till 10 000 adresser och behandla dem under en viss tids period. Alla adresser kommer att kodas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned. Den här tjänsten rekommenderas för att kunna koda stora data mängder.
+-   [Fuzzy-sökning](/rest/api/maps/search/getsearchfuzzy): det här API: et kombinerar adressens kod för att söka efter orienterings punkter. Det här API: et tar i en sträng med fri form som kan vara en adress, plats, landmärke, orienterings punkt eller kategori av intressant kategori och bearbeta begäran omedelbart. Detta API rekommenderas för program där användare kan söka efter adresser eller intressanta punkter från samma text ruta.
+-   [Fuzzy batch-sökning](/rest/api/maps/search/postsearchfuzzybatchpreview): skapa en begäran som innehåller upp till 10 000 adresser, platser, landmärken eller anslags punkter och låta dem bearbetas under en viss tids period. Alla data kommer att bearbetas parallellt på servern och när du har slutfört den fullständiga resultat uppsättningen kan laddas ned.
 
 ### <a name="get-administrative-boundary-data"></a>Hämta information om administrations gränser
 
@@ -631,12 +631,12 @@ Azure Maps ger också till gång till administrativa gränser (länder, stater, 
 Till Sammanfattning:
 
 1.  Skicka en fråga för den gränser som du vill ta emot till någon av följande Sök-API: er.
-    -   [Kod för fri Forms adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)
-    -   [Kodning av strukturerad adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressstructured)
-    -   [Kodning av batch-adress](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatchpreview)
-    -   [Fuzzy-sökning](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
-    -   [Fuzzy batch-sökning](https://docs.microsoft.com/rest/api/maps/search/postsearchfuzzybatchpreview)
-2.  Om önskade resultat har ett Geometry-ID, skickar du det till API: et för Sök- [polygon](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
+    -   [Kod för fri Forms adress](/rest/api/maps/search/getsearchaddress)
+    -   [Kodning av strukturerad adress](/rest/api/maps/search/getsearchaddressstructured)
+    -   [Kodning av batch-adress](/rest/api/maps/search/postsearchaddressbatchpreview)
+    -   [Fuzzy-sökning](/rest/api/maps/search/getsearchfuzzy)
+    -   [Fuzzy batch-sökning](/rest/api/maps/search/postsearchfuzzybatchpreview)
+2.  Om önskade resultat har ett Geometry-ID, skickar du det till API: et för Sök- [polygon](/rest/api/maps/search/getsearchpolygon).
 
 ### <a name="host-and-query-spatial-business-data"></a>Värd och fråga för rums affärs data
 
@@ -648,15 +648,15 @@ Azure Cosmos DB tillhandahåller också en begränsad uppsättning spatiala funk
 
 Här är några användbara resurser som är värd för och frågar om spatialdata i Azure.
 
--   [Översikt över data typer för Azure SQL-spatialdata](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview)
--   [Azure SQL-spatialdata – fråga närmaste granne](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor)
--   [Översikt över Azure Cosmos DB geospatiala funktioner](https://docs.microsoft.com/azure/cosmos-db/geospatial)
+-   [Översikt över data typer för Azure SQL-spatialdata](/sql/relational-databases/spatial/spatial-data-types-overview)
+-   [Azure SQL-spatialdata – fråga närmaste granne](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor)
+-   [Översikt över Azure Cosmos DB geospatiala funktioner](../cosmos-db/sql-query-geospatial-intro.md)
 
 ## <a name="client-libraries"></a>Klientbibliotek
 
 Azure Maps tillhandahåller klient bibliotek för följande programmeringsspråk.
 
--   Java Script, typescript, Node.js – [dokumentation](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module) \| [NPM-paket](https://www.npmjs.com/package/azure-maps-rest)
+-   Java Script, typescript, Node.js – [dokumentation](./how-to-use-services-module.md) \| [NPM-paket](https://www.npmjs.com/package/azure-maps-rest)
 
 Klient bibliotek med öppen källkod för andra programmeringsspråk.
 
@@ -676,7 +676,7 @@ Läs mer om Azure Maps REST-tjänsterna.
 > [Så här använder du modulen tjänster (Web SDK)](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
-> [Dokumentation om Azure Maps REST service API-referens](https://docs.microsoft.com/rest/api/maps/)
+> [Dokumentation om Azure Maps REST service API-referens](/rest/api/maps/)
 
 > [!div class="nextstepaction"]
-> [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Kodexempel](/samples/browse/?products=azure-maps)

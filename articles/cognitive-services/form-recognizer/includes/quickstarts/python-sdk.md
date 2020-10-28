@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: a9aa51e46595c7c65b1f83776eb72caca13e0180
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5ff9c95e51f63de77ca20dee965718687daae5f4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755842"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897813"
 ---
 > [!IMPORTANT]
 > * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. Se referens dokumentationen nedan. 
@@ -109,10 +109,12 @@ Du måste lägga till referenser till URL: erna för din utbildning och testa da
 
 Du kan använda formulär igenkänning för att identifiera tabeller, rader och ord i dokument, utan att behöva träna en modell.
 
-Använd metoden för att identifiera innehållet i en fil på en viss URL `begin_recognize_content` . Det returnerade värdet är en samling `FormPage` objekt: ett för varje sida i det dokument som skickas. Följande kod itererar igenom dessa objekt och skriver ut de extraherade nyckel-och värdeparen och tabell data.
+Använd metoden för att identifiera innehållet i en fil på en viss URL `begin_recognize_content_from_url` . Det returnerade värdet är en samling `FormPage` objekt: ett för varje sida i det dokument som skickas. Följande kod itererar igenom dessa objekt och skriver ut de extraherade nyckel-och värdeparen och tabell data.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_getcontent)]
 
+> [!TIP]
+> Du kan också hämta innehåll från lokala avbildningar. Se [FormRecognizerClient](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) -metoderna, till exempel `begin_recognize_content` . Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) för scenarier som involverar lokala avbildningar.
 
 ### <a name="output"></a>Utdata
 
@@ -144,6 +146,8 @@ Det här avsnittet visar hur du identifierar och extraherar vanliga fält från 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 
+> [!TIP]
+> Du kan också identifiera lokala kvitto avbildningar. Se [FormRecognizerClient](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) -metoderna, till exempel `begin_recognize_receipts` . Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) för scenarier som involverar lokala avbildningar.
 
 ### <a name="output"></a>Utdata
 
@@ -271,6 +275,9 @@ Det här avsnittet visar hur du extraherar nyckel/värde-information och annat i
 Du använder- `begin_recognize_custom_forms_from_url` metoden. Det returnerade värdet är en samling `RecognizedForm` objekt: ett för varje sida i det dokument som skickas. Följande kod skriver ut analys resultaten till-konsolen. Det skriver ut varje identifierat fält och motsvarande värde, tillsammans med en förtroende poäng.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_analyze)]
+
+> [!TIP]
+> Du kan också analysera lokala avbildningar. Se [FormRecognizerClient](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python) -metoderna, till exempel `begin_recognize_custom_forms` . Eller, se exempel koden på [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) för scenarier som involverar lokala avbildningar.
 
 
 ### <a name="output"></a>Utdata

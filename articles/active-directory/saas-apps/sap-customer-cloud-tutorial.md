@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: jeedes
-ms.openlocfilehash: feb65d11c525b396e272c8a43ad9619d10a010d8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9b244d5e6aa9dd732aa670fd645b6bbc266c9535
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671188"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897287"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-for-customer"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SAP-moln för kund
 
@@ -86,13 +86,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. SAP-moln för kund program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar dialog rutan för användarattribut med ikonen "redigera" markerad.](common/edit-attribute.png)
 
 1. Gör följande i avsnittet **Användarattribut** i dialogrutan **Användarattribut och anspråk** :
 
     a. Öppna dialogrutan **Hantera användaranspråk** genom att klicka på **redigeringsikonen** .
 
-    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
+    ![Skärm bild som visar "User attributes &-anspråk" med ikonen "redigera" markerad.](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
     ![image](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 
@@ -149,11 +149,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Från menyn till vänster klickar du på **identitet leverantörer**  >  **företags identitets leverantörer**  >  **Lägg till** och i popup-fönstret Lägg till ID-providern som **Azure AD** , klickar på **Spara** och sedan på **SAML 2,0-konfiguration** .
 
-    ![SAP-konfiguration](./media/sap-customer-cloud-tutorial/configure01.png)
+    ![Skärm bild som visar sidan "identitets leverantörer" med text rutan "Lägg till identitetsprovider" och dialog rutan "Spara" markerad.](./media/sap-customer-cloud-tutorial/configure01.png)
 
 3. I **konfigurations avsnittet för SAML 2,0** utför du följande steg:
 
-    ![SAP-konfiguration](./media/sap-customer-cloud-tutorial/configure02.png)
+    ![Skärm bild som visar "S A M L 2,0-konfiguration" med knappen "Bläddra" vald.](./media/sap-customer-cloud-tutorial/configure02.png)
 
     a. Klicka på **Bläddra** för att ladda upp XML-filen för federationsmetadata som du har laddat ned från Azure Portal.
 
@@ -169,7 +169,7 @@ Om du vill att Azure AD-användare ska kunna logga in på SAP-molnet för kunden
 
 2. På vänster sida av menyn klickar du på **användare & auktorisering**  >  **användar hantering**  >  **Lägg till användare** .
 
-    ![SAP-konfiguration](./media/sap-customer-cloud-tutorial/configure03.png)
+    ![Skärm bild som visar sidan "användar hantering" med knappen "Lägg till användare" vald.](./media/sap-customer-cloud-tutorial/configure03.png)
 
 3. Utför följande steg i avsnittet **Lägg till ny användare** :
 

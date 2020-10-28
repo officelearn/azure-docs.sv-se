@@ -1,18 +1,17 @@
 ---
 title: ta med fil
-description: ta med fil
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116654"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897757"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina avbildningar. Delade avbildnings gallerier ger:
 
@@ -46,7 +45,7 @@ Funktionen för delad bild galleri har flera resurs typer:
 
 Bild definitioner är en logisk gruppering för versioner av en bild. Bild definitionen innehåller information om varför avbildningen skapades, vilket operativ system den är för och annan information om hur du använder avbildningen. En bild definition är som en plan för all information om hur du skapar en speciell avbildning. Du distribuerar inte en virtuell dator från en avbildnings definition, men från avbildnings versionerna som skapas från definitionen.
 
-Det finns tre parametrar för varje avbildnings definition som används i kombinations **utgivare**, **erbjudande** och **SKU**. Dessa används för att hitta en bestämd avbildnings definition. Du kan ha avbildnings versioner som delar en eller två, men inte alla tre värden.  Här är till exempel tre bild definitioner och deras värden:
+Det finns tre parametrar för varje avbildnings definition som används i kombinations **utgivare** , **erbjudande** och **SKU** . Dessa används för att hitta en bestämd avbildnings definition. Du kan ha avbildnings versioner som delar en eller två, men inte alla tre värden.  Här är till exempel tre bild definitioner och deras värden:
 
 |Bilddefinition|Publisher|Erbjudande|Sku|
 |---|---|---|---|
@@ -102,7 +101,7 @@ Specialiserade virtuella datorer har inte genomgått någon process för att ta 
 
 Alla offentliga regioner kan vara mål regioner, men för att replikera till Australien, centrala och Australien, Central 2 måste din prenumeration läggas till i listan över tillåtna. Om du vill begära att en prenumeration läggs till i listan över tillåtna går du till: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-## <a name="limits"></a>Gränser 
+## <a name="limits"></a>Begränsningar 
 
 Det finns gränser per prenumeration för att distribuera resurser med hjälp av delade avbildnings gallerier:
 - 100 delade avbildnings gallerier, per prenumeration, per region
@@ -116,7 +115,7 @@ Mer information finns i [kontrol lera resursanvändningen mot begränsningar](ht
 ## <a name="scaling"></a>Skalning
 Med det delade bild galleriet kan du ange antalet repliker som du vill att Azure ska behålla avbildningarna. Detta bidrar till distributions scenarier med flera virtuella datorer eftersom distributioner av virtuella datorer kan spridas till olika repliker, vilket minskar risken för bearbetning av instans skapande begränsas på grund av överbelastning av en enskild replik.
 
-Med delade avbildnings galleriet kan du nu distribuera upp till en 1 000 VM-instanser i en skalnings uppsättning för virtuella datorer (upp till 600 med hanterade avbildningar). Avbildnings repliker ger bättre distributions prestanda, tillförlitlighet och konsekvens. Du kan ange ett annat antal repliker i varje mål region, baserat på skalnings behoven för regionen. Eftersom varje replik är en djupgående kopia av din avbildning hjälper det att skala dina distributioner linjärt med varje extra replik. Vi förstår att inga två bilder eller regioner är desamma, här är vår allmänna rikt linje om hur du använder repliker i en region:
+Med delade avbildnings galleriet kan du nu distribuera upp till en 1 000 VM-instanser i en skalnings uppsättning för virtuella datorer (upp till 600 med hanterade avbildningar). Avbildnings repliker ger bättre distributions prestanda, tillförlitlighet och konsekvens.  Du kan ange ett annat antal repliker i varje mål region, baserat på skalnings behoven för regionen. Eftersom varje replik är en djupgående kopia av din avbildning hjälper det att skala dina distributioner linjärt med varje extra replik. Vi förstår att inga två bilder eller regioner är desamma, här är vår allmänna rikt linje om hur du använder repliker i en region:
 
 - För VMSS-distributioner för icke-virtuella datorer, rekommenderar vi att du behåller en replik för varje 20 virtuella datorer som du skapar samtidigt. Om du till exempel skapar 120 virtuella datorer samtidigt med samma avbildning i en region, rekommenderar vi att du behåller minst 6 repliker av avbildningen. 
 - För VMSS-distributioner (Virtual Machine Scale set) – för varje skalnings uppsättnings distribution med upp till 600 instanser rekommenderar vi att du behåller minst en replik. Om du till exempel skapar 5 skalnings uppsättningar samtidigt, var och en med 600 VM-instanser med samma avbildning i en enda region, rekommenderar vi att du behåller minst 5 repliker av avbildningen. 
@@ -140,7 +139,7 @@ De regioner som en delad avbildnings version replikeras till kan uppdateras efte
 
 ![Bild som visar hur du kan replikera bilder](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Åtkomst
 
 När galleriet för delad avbildning, bild definition och avbildnings version är alla resurser kan de delas med de inbyggda inbyggda Azure RBAC-kontrollerna. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvud namn och grupper. Du kan även dela åtkomst till personer utanför den klient organisation de skapades i. När en användare har åtkomst till den delade avbildnings versionen kan de distribuera en virtuell dator eller en skalnings uppsättning för virtuella datorer.  Här är en delnings mat ris som hjälper dig att förstå vad användaren får åtkomst till:
 
@@ -155,8 +154,11 @@ Avbildningar kan också delas, i stor skala, även mellan klienter som använder
 
 ## <a name="billing"></a>Fakturering
 Det kostar inget extra att använda tjänsten Shared Image Gallery. Du kommer att debiteras för följande resurser:
-- Lagrings kostnader för lagring av delade avbildnings versioner. Kostnaden beror på antalet repliker av avbildnings versionen och antalet regioner som versionen replikeras till. Om du till exempel har två bilder och båda replikeras till tre regioner debiteras du för 6 hanterade diskar baserat på deras storlek. Mer information finns i [Managed disks prissättning](https://azure.microsoft.com/pricing/details/managed-disks/).
-- Nätverks utgående kostnader för replikering av den första avbildnings versionen från käll regionen till de replikerade regionerna. Efterföljande repliker hanteras i regionen, så det finns inga ytterligare avgifter. 
+-   Lagrings kostnader för lagring av varje replik. Lagrings kostnaden debiteras som en ögonblicks bild och baseras på bild versionens storlek, antalet repliker och antalet regioner som versionen replikeras till. 
+-   Nätverks utgående kostnader för replikering av den första avbildnings versionen från käll regionen till de replikerade regionerna. Efterföljande repliker hanteras i regionen, så det finns inga ytterligare avgifter. 
+
+Anta till exempel att du har en avbildning av en 127 GB OS-disk, som endast upptar 10 GB lagrings utrymme och en tom 32 GB-datadisk. Den förfallna storleken på varje bild skulle vara 10 GB. Avbildningen replikeras till tre regioner och varje region har två repliker. Det kommer att finnas sex ögonblicks bilder, var och en med 10 GB. Du debiteras lagrings kostnaden för varje ögonblicks bild baserat på den upptagna storleken på 10 GB. Du betalar utgående avgifter för nätverket för den första repliken som ska kopieras till de ytterligare två regionerna. Mer information om priserna för ögonblicks bilder i varje region finns i [priser för Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). Mer information om utgående nätverk finns i [prissättning för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 
 ## <a name="updating-resources"></a>Uppdaterar resurser
 
@@ -220,9 +222,9 @@ Du kan skapa en resurs för delade avbildnings galleri med hjälp av mallar. Det
 Om du vill visa en lista över alla delade avbildnings Galleri resurser över prenumerationer som du har åtkomst till på Azure Portal följer du stegen nedan:
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
-1. Rulla ned på sidan och välj **alla resurser**.
+1. Rulla ned på sidan och välj **alla resurser** .
 1. Välj alla prenumerationer som du vill lista alla resurser under.
-1. Sök efter resurser av typen **delade avbildnings Galleri**.
+1. Sök efter resurser av typen **delade avbildnings Galleri** .
   
 Om du vill visa en lista över alla delade avbildnings Galleri resurser över prenumerationer som du har behörighet till använder du följande kommando i Azure CLI:
 

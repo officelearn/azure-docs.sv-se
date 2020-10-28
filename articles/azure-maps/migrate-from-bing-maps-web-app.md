@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 168b3d51b66078b3d4c2e113711d3124820dd6bd
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: be0b2a3a15c77ae0de303f02be078f115b283eb9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677795"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897151"
 ---
 # <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>Självstudie – migrera en webbapp från Bing Maps
 
 Webb program som använder Bing Maps använder ofta Bing Maps V8 Java Script SDK. Azure Maps Web SDK är lämplig Azure-baserad SDK för att migrera till. Med Azure Maps Web SDK kan du anpassa interaktiva kartor med ditt eget innehåll och bilder för visning i dina webb-eller mobil program. Den här kontrollen använder WebGL, så att du kan rendera stora datauppsättningar med höga prestanda. Utveckla med det här SDK: t med Java Script eller TypeScript.
 
-Om du migrerar ett befintligt webb program kontrollerar du att det använder ett kart kontroll bibliotek med öppen källkod, till exempel cesium, häfte och openlager. Om det är och du föredrar att fortsätta att använda biblioteket kan du ansluta det till Azure Maps panel[tjänster (satellit paneler i](https://docs.microsoft.com/rest/api/maps/render/getmaptile) panelens \| [satellit paneler](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). Länkarna nedan innehåller information om hur du använder Azure Maps i några ofta använda kart kontroll bibliotek med öppen källkod.
+Om du migrerar ett befintligt webb program kontrollerar du att det använder ett kart kontroll bibliotek med öppen källkod, till exempel cesium, häfte och openlager. Om det är och du föredrar att fortsätta att använda biblioteket kan du ansluta det till Azure Maps panel[tjänster (satellit paneler i](/rest/api/maps/render/getmaptile) panelens \| [satellit paneler](/rest/api/maps/render/getmapimagerytile)). Länkarna nedan innehåller information om hur du använder Azure Maps i några ofta använda kart kontroll bibliotek med öppen källkod.
 
 -   Cesium – en 3D-kart kontroll för webben. [Kod exempel](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Dokumentation](https://cesiumjs.org/)
 -   Broschyr – förenklad 2D-kart kontroll för webben. [Kod exempel](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Dokumentation](https://leafletjs.com/)
@@ -53,7 +53,7 @@ I följande tabell visas viktiga API-funktioner i Bing Maps V8 JavaScript SDK oc
 | Netencoder-tjänst         | ✓                                                                                      |
 | Vägbeskrivnings tjänst       | ✓                                                                                      |
 | Distans mat ris tjänst  | ✓                                                                                      |
-| Spatial data tjänst     | E.t.                                                                                    |
+| Spatial data tjänst     | Saknas                                                                                    |
 | Satellit-/flyg bilder | ✓                                                                                      |
 | Fåglars ögon bilder         | Planerad                                                                                |
 | Streetside bilder       | Planerad                                                                                |
@@ -68,7 +68,7 @@ Azure Maps också många ytterligare [moduler med öppen källkod för webb-SDK]
 
 Följande är några av de viktigaste skillnaderna mellan Bing Maps och Azure Maps webb-SDK: er som ska vara medvetna om:
 
--   Förutom att tillhandahålla en värdbaserad slut punkt för åtkomst till Azure Maps Web SDK är ett NPM-paket också tillgängligt för att bädda in webb-SDK i appar om det är lämpligt. Mer information finns i den här [dokumentationen](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) . Det här paketet innehåller även TypeScript-definitioner.
+-   Förutom att tillhandahålla en värdbaserad slut punkt för åtkomst till Azure Maps Web SDK är ett NPM-paket också tillgängligt för att bädda in webb-SDK i appar om det är lämpligt. Mer information finns i den här [dokumentationen](./how-to-use-map-control.md) . Det här paketet innehåller även TypeScript-definitioner.
 -   Bing Maps innehåller två värdbaserade grenar av sina SDK: er. Lansering och experiment. Experiment grenen kan ta emot flera uppdateringar per dag när en ny utveckling sker. Azure Maps bara är värd för en versions gren, men experimentella funktioner skapas som anpassade moduler i projektet med öppen källkod Azure Maps kod exempel. Bing Maps som används för att ha en frusen gren och som har uppdaterats mindre ofta, vilket minskar risken för att bryta ändringar på grund av en version. I Azure Maps där kan du använda modulen NPM och peka på en tidigare del versions version.
 
 > [!TIP]
@@ -78,20 +78,20 @@ Följande är några av de viktigaste skillnaderna mellan Bing Maps och Azure Ma
 -   Båda plattformarna använder ett liknande överlappande system för bas Maps, men panelerna i Bing Maps är 256 pixlar i dimensionen, medan panelerna i Azure Maps är 512 pixlar i dimensionen. För att få samma Map-vy i Azure Maps som Bing Maps måste en zoomnivå som används i Bing Maps subtraheras av en i Azure Maps.
 -   Koordinaterna i Bing Maps kallas `latitude, longitude` när Azure Maps används `longitude, latitude` . Det här formatet överensstämmer med standarden `[x, y]` som följs av de flesta GIS-plattformarna.
 
--   Former i Azure Maps Web SDK baseras på det interjson-schemat. Hjälp klasser exponeras genom [Atlas. data område](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). Det finns även [atlasen. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) -klass som kan användas för att figursätta INTERjson-objekt och göra dem enkla att uppdatera och underhålla på ett data bindnings sätt.
+-   Former i Azure Maps Web SDK baseras på det interjson-schemat. Hjälp klasser exponeras genom [Atlas. data område](/javascript/api/azure-maps-control/atlas.data). Det finns även [atlasen. Shape](/javascript/api/azure-maps-control/atlas.shape) -klass som kan användas för att figursätta INTERjson-objekt och göra dem enkla att uppdatera och underhålla på ett data bindnings sätt.
 -   Koordinater i Azure Maps definieras som positions objekt som kan anges som en enkel siffer mat ris i formatet `[longitude, latitude]` eller `new atlas.data.Position(longitude, latitude)` .
 
 > [!TIP]
-> Positions klassen har en statisk hjälp funktion för att importera koordinater i `latitude, longitude` formatet. Funktionen [Atlas. data. position. fromLatLng](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.position)kan ofta ersätta `new Microsoft.Maps.Location` funktionen i Bing Maps-kod.
+> Positions klassen har en statisk hjälp funktion för att importera koordinater i `latitude, longitude` formatet. Funktionen [Atlas. data. position. fromLatLng](/javascript/api/azure-maps-control/atlas.data.position)kan ofta ersätta `new Microsoft.Maps.Location` funktionen i Bing Maps-kod.
 
 -   I stället för att ange formateringsinformation för varje form som läggs till i kartan Azure Maps separerar format från data. Data lagras i data källor och är anslutna till åter givnings skikt som Azure Maps kod använder för att återge data. Den här metoden ger bättre prestanda nytta. Dessutom stöder många lager data driven format där affärs logik kan läggas till i lager stil alternativ som ändrar hur enskilda former återges inom ett lager baserat på egenskaper som definierats i formen.
 -   Azure Maps tillhandahåller en mängd användbara, spatiala matematiska funktioner i `atlas.math` namn området, men de skiljer sig åt från de i Bing mapss spatiala matematik-modul. Den främsta skillnaden är att Azure Maps inte tillhandahåller inbyggda funktioner för binära åtgärder, t. ex. union och skärning, eftersom Azure Maps baseras på en icke öppen standard, så finns det många bibliotek med öppen källkod. Ett populärt alternativ som fungerar bra med Azure Maps och ger ett ton med spatiala matematiska funktioner är [Turf JS](http://turfjs.org/).
 
-Se även [Azure Maps ord](https://docs.microsoft.com/azure/azure-maps/glossary) lista för en djupgående lista över termer som är kopplade till Azure Maps.
+Se även [Azure Maps ord](./glossary.md) lista för en djupgående lista över termer som är kopplade till Azure Maps.
 
 ## <a name="web-sdk-side-by-side-examples"></a>Webb-SDK sida vid sida-exempel
 
-Följande är en samling kod exempel för varje plattform som används för vanliga användnings fall för att hjälpa dig att migrera ditt webb program från Bing Maps V8 Java Script SDK till Azure Maps Web SDK. Kod exempel som är relaterade till webb program finns i Java Script. Azure Maps även tillhandahålla TypeScript-definitioner som ett ytterligare alternativ genom en [NPM-modul](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Följande är en samling kod exempel för varje plattform som används för vanliga användnings fall för att hjälpa dig att migrera ditt webb program från Bing Maps V8 Java Script SDK till Azure Maps Web SDK. Kod exempel som är relaterade till webb program finns i Java Script. Azure Maps även tillhandahålla TypeScript-definitioner som ett ytterligare alternativ genom en [NPM-modul](./how-to-use-map-control.md).
 
 **Ämnen**
 
@@ -230,14 +230,14 @@ Om den här koden körs i en webbläsare visas en karta som ser ut som på följ
 
 ![Azure Maps Karta](media/migrate-bing-maps-web-app/azure-maps-load-map.jpg)</center>
 
-Detaljerad dokumentation om hur du konfigurerar och använder Azure Maps kart kontroll i en webbapp finns [här](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Detaljerad dokumentation om hur du konfigurerar och använder Azure Maps kart kontroll i en webbapp finns [här](./how-to-use-map-control.md).
 
 > [!TIP]
 > Azure Maps publicerar både minified-och unminified-versioner av SDK: n. Ta bort `.min` från fil namnen. Unminified-versionen är användbar vid fel sökning av problem, men se till att använda minified-versionen i produktion för att dra nytta av den mindre fil storleken.
 
 **Ytterligare resurser**
 
--   Azure Maps innehåller också navigerings kontroller för att rotera och stämma av kart visningen som dokumenteras [här](https://docs.microsoft.com/azure/azure-maps/map-add-controls).
+-   Azure Maps innehåller också navigerings kontroller för att rotera och stämma av kart visningen som dokumenteras [här](./map-add-controls.md).
 
 ### <a name="localizing-the-map"></a>Lokalisera kartan
 
@@ -281,7 +281,7 @@ map = new atlas.Map('myMap', {
 ```
 
 > [!NOTE]
-> Med Azure Maps kan du läsa in flera kart instanser på samma sida med olika språk-och region inställningar. Dessutom är det också möjligt att uppdatera inställningarna i kartan när den har lästs in. En detaljerad lista över språk som stöds i Azure Maps hittar du [här](https://docs.microsoft.com/azure/azure-maps/supported-languages).
+> Med Azure Maps kan du läsa in flera kart instanser på samma sida med olika språk-och region inställningar. Dessutom är det också möjligt att uppdatera inställningarna i kartan när den har lästs in. En detaljerad lista över språk som stöds i Azure Maps hittar du [här](./supported-languages.md).
 
 Här är ett exempel på Azure Maps med språket "fr" och användar regionen inställt på "fr-FR".
 
@@ -333,8 +333,8 @@ map.setStyle({
 
 **Ytterligare resurser**
 
--   [Välj ett kartformat](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
--   [Mappningsformat som stöds](https://docs.microsoft.com/azure/azure-maps/supported-map-styles)
+-   [Välj ett kartformat](./choose-map-style.md)
+-   [Mappningsformat som stöds](./supported-map-styles.md)
 
 ### <a name="adding-a-pushpin"></a>Lägga till en kartnål
 
@@ -462,16 +462,16 @@ När du använder ett symbol lager måste data läggas till i en data källa och
 
 **Ytterligare resurser**
 
--   [Skapa en datakälla](https://docs.microsoft.com/azure/azure-maps/create-data-source-web-sdk)
--   [Lägg till ett symbol lager](https://docs.microsoft.com/azure/azure-maps/map-add-pin)
--   [Lägg till ett bubbel-lager](https://docs.microsoft.com/azure/azure-maps/map-add-bubble-layer)
--   [Klusterpunktdata](https://docs.microsoft.com/azure/azure-maps/clustering-point-data-web-sdk)
--   [Lägg till HTML-markörer](https://docs.microsoft.com/azure/azure-maps/map-add-custom-html)
--   [Använda datadrivna formatuttryck](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
--   [Ikon alternativ för symbol skikt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions)
--   [Text alternativ för symbol skikt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions)
--   [HTML-markör klass](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
--   [Alternativ för HTML-markör](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+-   [Skapa en datakälla](./create-data-source-web-sdk.md)
+-   [Lägg till ett symbol lager](./map-add-pin.md)
+-   [Lägg till ett bubbel-lager](./map-add-bubble-layer.md)
+-   [Klusterpunktdata](./clustering-point-data-web-sdk.md)
+-   [Lägg till HTML-markörer](./map-add-custom-html.md)
+-   [Använda datadrivna formatuttryck](./data-driven-style-expressions-web-sdk.md)
+-   [Ikon alternativ för symbol skikt](/javascript/api/azure-maps-control/atlas.iconoptions)
+-   [Text alternativ för symbol skikt](/javascript/api/azure-maps-control/atlas.textoptions)
+-   [HTML-markör klass](/javascript/api/azure-maps-control/atlas.htmlmarker)
+-   [Alternativ för HTML-markör](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 ### <a name="adding-a-custom-pushpin"></a>Lägga till en anpassad kartnål
 
@@ -593,14 +593,14 @@ Symbol lager i Azure Maps stöder anpassade avbildningar också, men bilden mås
 
 **Ytterligare resurser**
 
--   [Skapa en datakälla](https://docs.microsoft.com/azure/azure-maps/create-data-source-web-sdk)
--   [Lägg till ett symbol lager](https://docs.microsoft.com/azure/azure-maps/map-add-pin)
--   [Lägg till HTML-markörer](https://docs.microsoft.com/azure/azure-maps/map-add-custom-html)
--   [Använda datadrivna formatuttryck](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
--   [Ikon alternativ för symbol skikt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions)
--   [Text alternativ för symbol skikt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions)
--   [HTML-markör klass](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
--   [Alternativ för HTML-markör](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+-   [Skapa en datakälla](./create-data-source-web-sdk.md)
+-   [Lägg till ett symbol lager](./map-add-pin.md)
+-   [Lägg till HTML-markörer](./map-add-custom-html.md)
+-   [Använda datadrivna formatuttryck](./data-driven-style-expressions-web-sdk.md)
+-   [Ikon alternativ för symbol skikt](/javascript/api/azure-maps-control/atlas.iconoptions)
+-   [Text alternativ för symbol skikt](/javascript/api/azure-maps-control/atlas.textoptions)
+-   [HTML-markör klass](/javascript/api/azure-maps-control/atlas.htmlmarker)
+-   [Alternativ för HTML-markör](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 ### <a name="adding-a-polyline"></a>Lägga till en polyline
 
@@ -668,9 +668,9 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Ytterligare resurser**
 
--   [Lägg till rader till kartan](https://docs.microsoft.com/azure/azure-maps/map-add-line-layer)
--   [Alternativ för linje skikt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
--   [Använda datadrivna formatuttryck](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
+-   [Lägg till rader till kartan](./map-add-line-layer.md)
+-   [Alternativ för linje skikt](/javascript/api/azure-maps-control/atlas.linelayeroptions)
+-   [Använda datadrivna formatuttryck](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="adding-a-polygon"></a>Lägga till en polygon
 
@@ -744,11 +744,11 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Ytterligare resurser**
 
--   [Lägg till en polygon till kartan](https://docs.microsoft.com/azure/azure-maps/map-add-shape#use-a-polygon-layer)
--   [Lägg till en cirkel till kartan](https://docs.microsoft.com/azure/azure-maps/map-add-shape#add-a-circle-to-the-map)
--   [Alternativ för polygon-lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
--   [Alternativ för linje skikt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
--   [Använda datadrivna formatuttryck](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
+-   [Lägg till en polygon till kartan](./map-add-shape.md#use-a-polygon-layer)
+-   [Lägg till en cirkel till kartan](./map-add-shape.md#add-a-circle-to-the-map)
+-   [Alternativ för polygon-lager](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+-   [Alternativ för linje skikt](/javascript/api/azure-maps-control/atlas.linelayeroptions)
+-   [Använda datadrivna formatuttryck](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="display-an-infobox"></a>Visa en information
 
@@ -820,12 +820,12 @@ map.events.add('click', marker, function () {
 
 **Ytterligare resurser**
 
--   [Lägg till ett popup-fönster](https://docs.microsoft.com/azure/azure-maps/map-add-popup)
+-   [Lägg till ett popup-fönster](./map-add-popup.md)
 -   [Popup med medie innehåll](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popup%20with%20Media%20Content)
 -   [Popup-fönster på former](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popups%20on%20Shapes)
 -   [Återanvända popup med flera PIN-bara](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Reusing%20Popup%20with%20Multiple%20Pins)
--   [Popup-klass](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
--   [Popup-alternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
+-   [Popup-klass](/javascript/api/azure-maps-control/atlas.popup)
+-   [Popup-alternativ](/javascript/api/azure-maps-control/atlas.popupoptions)
 
 ### <a name="pushpin-clustering"></a>Kartnål-kluster
 
@@ -947,7 +947,7 @@ När klustring är aktiverat skickar data källan klustrade och data punkter som
 | `getClusterExpansionZoom(clusterId: number)`                         | `Promise<number>`                            | Beräknar en zoomnings nivå som klustret börjar att utöka eller dela upp.    |
 | `getClusterLeaves(clusterId: number, limit: number, offset: number)` | `Promise<Feature<Geometry, any> | Shape>` | Hämtar alla punkter i ett kluster. Ange `limit` för att returnera en delmängd av punkterna och Använd `offset` sidan till för att gå igenom punkterna.    |
 
-När du återger klustrade data på kartan är det ofta enklast att använda två eller flera lager. Exemplet nedan använder tre lager, ett bubbeldiagram för ritning som skalats ut färgade cirklar baserat på kluster storleken, ett symbol lager för att återge kluster storleken som text och ett andra symbol lager för att återge de ogrupperade punkterna. Det finns många andra sätt att återge klustrade data i Azure Maps markerade i data dokumentationen för [kluster punkten](https://docs.microsoft.com/azure/azure-maps/clustering-point-data-web-sdk) .
+När du återger klustrade data på kartan är det ofta enklast att använda två eller flera lager. Exemplet nedan använder tre lager, ett bubbeldiagram för ritning som skalats ut färgade cirklar baserat på kluster storleken, ett symbol lager för att återge kluster storleken som text och ett andra symbol lager för att återge de ogrupperade punkterna. Det finns många andra sätt att återge klustrade data i Azure Maps markerade i data dokumentationen för [kluster punkten](./clustering-point-data-web-sdk.md) .
 
 Du kan importera data från en data källa direkt i Azure Maps med hjälp av `importDataFromUrl` funktionen i `DataSource` klassen.
 
@@ -1051,10 +1051,10 @@ Du kan importera data från en data källa direkt i Azure Maps med hjälp av `im
 
 **Ytterligare resurser**
 
--   [Lägg till ett symbol lager](https://docs.microsoft.com/azure/azure-maps/map-add-pin)
--   [Lägg till ett bubbel-lager](https://docs.microsoft.com/azure/azure-maps/map-add-bubble-layer)
--   [Klusterpunktdata](https://docs.microsoft.com/azure/azure-maps/clustering-point-data-web-sdk)
--   [Använda datadrivna formatuttryck](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
+-   [Lägg till ett symbol lager](./map-add-pin.md)
+-   [Lägg till ett bubbel-lager](./map-add-bubble-layer.md)
+-   [Klusterpunktdata](./clustering-point-data-web-sdk.md)
+-   [Använda datadrivna formatuttryck](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="add-a-heat-map"></a>Lägg till en värme karta
 
@@ -1183,10 +1183,10 @@ I Azure Maps läser du in de interjson-data till en data källa och ansluter dat
 
 **Ytterligare resurser**
 
--   [Lägga till ett heatmapskikt](https://docs.microsoft.com/azure/azure-maps/map-add-heat-map-layer)
--   [Termisk kart skikts klass](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
--   [Alternativ för termisk kart skikt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
--   [Använda datadrivna formatuttryck](https://docs.microsoft.com/azure/azure-maps/data-driven-style-expressions-web-sdk)
+-   [Lägga till ett heatmapskikt](./map-add-heat-map-layer.md)
+-   [Termisk kart skikts klass](/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
+-   [Alternativ för termisk kart skikt](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+-   [Använda datadrivna formatuttryck](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="overlay-a-tile-layer"></a>Täcka över ett panel lager
 
@@ -1238,9 +1238,9 @@ map.layers.add(new atlas.layer.TileLayer({
 
 **Ytterligare resurser**
 
--   [Lägga till panelskikt](https://docs.microsoft.com/azure/azure-maps/map-add-tile-layer)
--   [Panels skikt klass](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)
--   [Alternativ för panel lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions)
+-   [Lägga till panelskikt](./map-add-tile-layer.md)
+-   [Panels skikt klass](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
+-   [Alternativ för panel lager](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
 ### <a name="show-traffic-data"></a>Visa trafikdata
 
@@ -1284,7 +1284,7 @@ Om du klickar på en av trafik ikonerna i Azure Maps visas ytterligare informati
 
 **Ytterligare resurser**
 
--   [Visa trafik på kartan](https://docs.microsoft.com/azure/azure-maps/map-show-traffic)
+-   [Visa trafik på kartan](./map-show-traffic.md)
 -   [Alternativ för trafik överlägg](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Traffic%20Overlay%20Options)
 -   [Trafik kontroll](https://azuremapscodesamples.azurewebsites.net/?sample=Traffic%20controls)
 
@@ -1344,7 +1344,7 @@ Om den här koden körs i en webbläsare visas en karta som ser ut som på följ
 I Azure Maps kan de refererade avbildningarna överkonfigureras med hjälp av `atlas.layer.ImageLayer` klassen. Den här klassen kräver en URL till en bild och en uppsättning koordinater för bildens fyra hörn. Avbildningen måste vara värd för antingen en domän eller ha CORs aktiverat.
 
 > [!TIP]
-> Om du bara har Nord-, syd-, väst-och rotations information och inte koordinater för varje hörn i bilden, kan du använda funktionen static [Atlas. Layer. ImageLayer. getCoordinatesFromEdges](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-) .
+> Om du bara har Nord-, syd-, väst-och rotations information och inte koordinater för varje hörn i bilden, kan du använda funktionen static [Atlas. Layer. ImageLayer. getCoordinatesFromEdges](/javascript/api/azure-maps-control/atlas.layer.imagelayer#getcoordinatesfromedges-number--number--number--number--number-) .
 
 ```html
 <!DOCTYPE html>
@@ -1404,8 +1404,8 @@ I Azure Maps kan de refererade avbildningarna överkonfigureras med hjälp av `a
 
 **Ytterligare resurser**
 
--   [Lägga till en bild som överlägg](https://docs.microsoft.com/azure/azure-maps/map-add-image-layer)
--   [Bild skikts klass](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer)
+-   [Lägga till en bild som överlägg](./map-add-image-layer.md)
+-   [Bild skikts klass](/javascript/api/azure-maps-control/atlas.layer.imagelayer)
 
 ### <a name="add-kml-data-to-the-map"></a>Lägg till KML-data till kartan
 
@@ -1467,7 +1467,7 @@ Om den här koden körs i en webbläsare visas en karta som ser ut som på följ
 
 **Efter: Azure Maps**
 
-I Azure Maps är interjson det viktigaste data formatet som används i webb-SDK, och ytterligare avstånd för spatialdata kan enkelt integreras i med hjälp av den [spatiala IO-modulen](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/). Den här modulen har funktioner för både läsning och skrivning av spatialdata och innehåller även ett enkelt data lager som enkelt kan återge data från något av dessa avstånds data format. Om du vill läsa data i en spatialdata, skickar du en URL eller rå data som sträng eller BLOB till `atlas.io.read` funktionen. Då returneras alla parsade data från filen som sedan kan läggas till i kartan. KML är lite mer komplex än det mest spatialdata data formatet, eftersom det innehåller mycket mer information om formatering. Klassen har stöd för att `SpatialDataLayer` återge majoriteten av dessa format, men ikoner för bilder måste läsas in i kartan före inläsning av funktions data och bas överlägg måste läggas till som lager till kartan separat. Vid inläsning av data via en URL bör den finnas på en CORs-aktiverad slut punkt, eller också ska en proxyserver skickas som ett alternativ till funktionen Read.
+I Azure Maps är interjson det viktigaste data formatet som används i webb-SDK, och ytterligare avstånd för spatialdata kan enkelt integreras i med hjälp av den [spatiala IO-modulen](/javascript/api/azure-maps-spatial-io/). Den här modulen har funktioner för både läsning och skrivning av spatialdata och innehåller även ett enkelt data lager som enkelt kan återge data från något av dessa avstånds data format. Om du vill läsa data i en spatialdata, skickar du en URL eller rå data som sträng eller BLOB till `atlas.io.read` funktionen. Då returneras alla parsade data från filen som sedan kan läggas till i kartan. KML är lite mer komplex än det mest spatialdata data formatet, eftersom det innehåller mycket mer information om formatering. Klassen har stöd för att `SpatialDataLayer` återge majoriteten av dessa format, men ikoner för bilder måste läsas in i kartan före inläsning av funktions data och bas överlägg måste läggas till som lager till kartan separat. Vid inläsning av data via en URL bör den finnas på en CORs-aktiverad slut punkt, eller också ska en proxyserver skickas som ett alternativ till funktionen Read.
 
 ```html
 <!DOCTYPE html>
@@ -1564,9 +1564,9 @@ I Azure Maps är interjson det viktigaste data formatet som används i webb-SDK,
 
 **Ytterligare resurser**
 
--   [funktionen Atlas. io. Read](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-)
--   [SimpleDataLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
--   [SimpleDataLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
+-   [funktionen Atlas. io. Read](/javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-)
+-   [SimpleDataLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
+-   [SimpleDataLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
 
 ### <a name="add-drawing-tools"></a>Lägg till rit verktyg
 
@@ -1683,7 +1683,7 @@ I Azure Maps modulen för rit verktyg måste läsas in genom att läsa in JavaSc
 
 **Ytterligare resurser**
 
--   [Dokumentation](https://docs.microsoft.com/azure/azure-maps/set-drawing-options)
+-   [Dokumentation](./set-drawing-options.md)
 -   [Kodexempel](https://azuremapscodesamples.azurewebsites.net/#Drawing-Tools-Module)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -1703,16 +1703,16 @@ Granska kod exempel relaterad migrering av andra Bing Maps-funktioner:
 **Tjänster**
 
 > [!div class="nextstepaction"]
-> [Använda modulen Azure Maps tjänster](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
+> [Använda modulen Azure Maps tjänster](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Sök efter orienteringspunkter](https://docs.microsoft.com/azure/azure-maps/map-search-location)
+> [Sök efter orienteringspunkter](./map-search-location.md)
 
 > [!div class="nextstepaction"]
-> [Hämta information från en koordinat (omvänd landskod)](https://docs.microsoft.com/azure/azure-maps/map-get-information-from-coordinate)
+> [Hämta information från en koordinat (omvänd landskod)](./map-get-information-from-coordinate.md)
 
 > [!div class="nextstepaction"]
-> [Visa anvisningar från A till B](https://docs.microsoft.com/azure/azure-maps/map-route)
+> [Visa anvisningar från A till B](./map-route.md)
 
 > [!div class="nextstepaction"]
 > [Sök automatiska förslag med JQuery-användargränssnitt](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Search%20Autosuggest%20and%20JQuery%20UI)
@@ -1729,7 +1729,7 @@ Läs mer om Azure Maps Web SDK.
 > [Använda modulen verktyg för ritning](set-drawing-options.md)
 
 > [!div class="nextstepaction"]
-> [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Kodexempel](/samples/browse/?products=azure-maps)
 
 > [!div class="nextstepaction"]
-> [Dokumentation om Azure Maps Web SDK-tjänstens API-referens](https://docs.microsoft.com/javascript/api/azure-maps-control/)
+> [Dokumentation om Azure Maps Web SDK-tjänstens API-referens](/javascript/api/azure-maps-control/)

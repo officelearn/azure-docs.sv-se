@@ -2,15 +2,15 @@
 title: Distribuera resurser till klient organisationen
 description: Beskriver hur du distribuerar resurser i klient omfånget i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372399"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668698"
 ---
-# <a name="create-resources-at-the-tenant-level"></a>Skapa resurser på klient nivå
+# <a name="tenant-deployments-with-arm-templates"></a>Klient distributioner med ARM-mallar
 
 När din organisation är vuxen kan du behöva definiera och tilldela [principer](../../governance/policy/overview.md) eller [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/overview.md) i Azure AD-klienten. Med mallar för klient organisations nivå kan du tillämpa principer och tilldela roller på global nivå.
 
@@ -49,13 +49,19 @@ Schemat som används för klient distributioner skiljer sig från schemat för r
 För mallar använder du:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    ...
+}
 ```
 
 Schemat för en parameter fil är detsamma för alla distributions omfång. För parameter-filer använder du:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## <a name="required-access"></a>Nödvändig åtkomst
@@ -78,21 +84,11 @@ Den globala administratören för Azure Active Directory har inte automatiskt be
 
 Huvud kontot har nu de behörigheter som krävs för att distribuera mallen.
 
-## <a name="deployment-scopes"></a>Distributions omfång
-
-När du distribuerar till en klient organisation kan du rikta in klient organisation eller hanterings grupper, prenumerationer och resurs grupper i klient organisationen. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
-
-De resurser som definieras i avsnittet resurser i mallen tillämpas på klienten.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
-
-Om du vill rikta en hanterings grupp inom klienten lägger du till en kapslad distribution och anger `scope` egenskapen.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
-
 ## <a name="deployment-commands"></a>Distributions kommandon
 
 Kommandona för klient distributioner skiljer sig från kommandona för resurs grupp distributioner.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 För Azure CLI använder du [AZ Deployment Tenant Create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
@@ -103,6 +99,8 @@ az deployment tenant create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 För Azure PowerShell använder du [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
@@ -112,38 +110,58 @@ New-AzTenantDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
-För REST API använder du [distributioner – skapa eller uppdatera i klient omfånget](/rest/api/resources/deployments/createorupdateattenantscope).
+---
+
+Mer detaljerad information om distributions kommandon och alternativ för att distribuera ARM-mallar finns i:
+
+* [Distribuera resurser med ARM-mallar och Azure Portal](deploy-portal.md)
+* [Distribuera resurser med ARM-mallar och Azure CLI](deploy-cli.md)
+* [Distribuera resurser med ARM-mallar och Azure PowerShell](deploy-powershell.md)
+* [Distribuera resurser med ARM-mallar och Azure Resource Manager REST API](deploy-rest.md)
+* [Använd en distributions knapp för att distribuera mallar från GitHub-lagringsplatsen](deploy-to-azure-button.md)
+* [Distribuera ARM-mallar från Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Distributions omfång
+
+När du distribuerar till en hanterings grupp kan du distribuera resurser för att:
+
+* klienten
+* hanterings grupper inom klienten
+* prenumerationer
+* resurs grupper (via två kapslade distributioner)
+* [tilläggs resurser](scope-extension-resources.md) kan tillämpas på resurser
+
+Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
+
+I det här avsnittet visas hur du anger olika omfång. Du kan kombinera dessa olika omfång i en enda mall.
+
+### <a name="scope-to-tenant"></a>Scope till klient organisation
+
+De resurser som definieras i avsnittet resurser i mallen tillämpas på klienten.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+### <a name="scope-to-management-group"></a>Omfång till hanterings grupp
+
+Om du vill rikta en hanterings grupp inom klienten lägger du till en kapslad distribution och anger `scope` egenskapen.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
+### <a name="scope-to-subscription"></a>Omfång till prenumeration
+
+Du kan också rikta prenumerationer inom klienten. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
+
+Om du vill rikta en prenumeration inom klienten använder du en kapslad distribution och `subscriptionId` egenskapen.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
 
 ## <a name="deployment-location-and-name"></a>Distributions plats och namn
 
 För distributioner på klient nivå måste du ange en plats för distributionen. Platsen för distributionen är separat från platsen för de resurser som du distribuerar. Distributions platsen anger var distributions data ska lagras.
 
-Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy**.
+Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy** .
 
 För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
-
-## <a name="use-template-functions"></a>Använda mall funktioner
-
-För klient distributioner finns det några viktiga saker att tänka på när du använder mall-funktioner:
-
-* Funktionen [resourceGroup ()](template-functions-resource.md#resourcegroup) stöds **inte** .
-* Funktionen [Subscription ()](template-functions-resource.md#subscription) stöds **inte** .
-* Funktionerna [Reference ()](template-functions-resource.md#reference) och [List ()](template-functions-resource.md#list) stöds.
-* Använd inte [resourceId ()](template-functions-resource.md#resourceid) för att hämta resurs-ID för resurser som distribueras på klient nivå.
-
-  Använd i stället funktionen [tenantResourceId ()](template-functions-resource.md#tenantresourceid) .
-
-  Om du till exempel vill hämta resurs-ID för en inbyggd princip definition använder du:
-
-  ```json
-  tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
-  ```
-
-  Det returnerade resurs-ID: t har följande format:
-
-  ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="create-management-group"></a>Skapa en hanteringsgrupp
 

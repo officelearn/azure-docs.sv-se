@@ -6,22 +6,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: d77b4b5824c4426f106d10ca246c5b0d5e76327a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d6c29cb41d38e5473a9b24dbc89fd99d3e19c16f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372267"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638337"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Övervaka hälsan för Log Analytics arbets ytan i Azure Monitor
-För att upprätthålla prestanda och tillgänglighet för din Log Analytics-arbetsyta i Azure Monitor måste du kunna identifiera eventuella problem som uppstår i proaktivt. Den här artikeln beskriver hur du övervakar hälso tillståndet för din Log Analytics-arbetsyta med hjälp av data i [Åtgärds](/azure-monitor/reference/tables/operation) tabellen. Den här tabellen ingår i varje Log Analytics arbets yta och innehåller fel och varningar som inträffar i din arbets yta. Du bör regelbundet granska dessa data och skapa aviseringar för att proaktivt meddelas när det finns viktiga incidenter på arbets ytan.
+För att upprätthålla prestanda och tillgänglighet för din Log Analytics-arbetsyta i Azure Monitor måste du kunna identifiera eventuella problem som uppstår i proaktivt. Den här artikeln beskriver hur du övervakar hälso tillståndet för din Log Analytics-arbetsyta med hjälp av data i [Åtgärds](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) tabellen. Den här tabellen ingår i varje Log Analytics arbets yta och innehåller fel och varningar som inträffar i din arbets yta. Du bör regelbundet granska dessa data och skapa aviseringar för att proaktivt meddelas när det finns viktiga incidenter på arbets ytan.
 
-## <a name="_logsoperation-function"></a>_LogsOperation funktion
-Azure Monitor loggar skickar information om eventuella problem till [Åtgärds](/azure-monitor/reference/tables/operation) tabellen på arbets ytan där problemet uppstod. Systemfunktionen **_LogsOperation** baseras på **Åtgärds** tabellen och innehåller en förenklad uppsättning information för analys och avisering.
+## <a name="_logoperation-function"></a>_LogOperation funktion
+Azure Monitor loggar skickar information om eventuella problem till [Åtgärds](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) tabellen på arbets ytan där problemet uppstod. Systemfunktionen **_LogOperation** baseras på **Åtgärds** tabellen och innehåller en förenklad uppsättning information för analys och avisering.
 
 ## <a name="columns"></a>Kolumner
 
-Funktionen **_LogsOperation** returnerar kolumnerna i följande tabell.
+Funktionen **_LogOperation** returnerar kolumnerna i följande tabell.
 
 | Kolumn | Beskrivning |
 |:---|:---|
@@ -36,7 +36,7 @@ Funktionen **_LogsOperation** returnerar kolumnerna i följande tabell.
 
 
 ## <a name="categories"></a>Kategorier
-I följande tabell beskrivs kategorierna från _LogsOperations-funktionen. 
+I följande tabell beskrivs kategorierna från _LogOperation-funktionen. 
 
 | Kategori | Beskrivning |
 |:---|:---|
@@ -66,7 +66,7 @@ Inmatnings åtgärder är problem som uppstod vid data inmatning, inklusive medd
 | Inmatnings hastighet | Information | Gräns för inmatnings frekvens som närmar sig 70%. | [Azure Monitor tjänst gränser](../service-limits.md#log-analytics-workspaces) |
 | Inmatnings hastighet | Varning | Gräns för inmatnings frekvensen närmar sig gränsen. | [Azure Monitor tjänst gränser](../service-limits.md#log-analytics-workspaces) |
 | Inmatnings hastighet | Fel   | Hastighets gränsen har uppnåtts. | [Azure Monitor tjänst gränser](../service-limits.md#log-analytics-workspaces) |
-| Storage | Fel   | Det går inte att komma åt lagrings kontot eftersom de autentiseringsuppgifter som används är ogiltiga.  |
+| Lagring | Fel   | Det går inte att komma åt lagrings kontot eftersom de autentiseringsuppgifter som används är ogiltiga.  |
 
 
 
@@ -80,10 +80,10 @@ En rekommenderad strategi är att börja med två varnings regler baserat på pr
 Använd processen i [skapa, Visa och hantera logg aviseringar med hjälp av Azure Monitor](../platform/alerts-log.md) för att skapa logg varnings reglerna. I följande avsnitt beskrivs informationen för varje regel.
 
 
-| Söka i data | Tröskelvärde | Period | Frequency |
+| Söka i data | Tröskelvärde | Period | Frekvens |
 |:---|:---|:---|:---|
-| `_LogsOperation | where Level == "Error"`   | 0 | 5 | 5 |
-| `_LogsOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
+| `_LogOperation | where Level == "Error"`   | 0 | 5 | 5 |
+| `_LogOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
 
 Dessa aviserings regler svarar på samma sak som alla åtgärder med fel eller varning. När du blir mer bekant med de åtgärder som genererar aviseringar kanske du vill svara på olika sätt för vissa åtgärder. Till exempel kanske du vill skicka meddelanden till olika personer för särskilda åtgärder. 
 

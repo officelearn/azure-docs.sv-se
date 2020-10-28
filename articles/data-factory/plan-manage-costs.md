@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: ca76563475dfbf8d35595c1de3cdee37f80e3ce1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f61085d3dab6d4489aa190204be4169ea5c2fb
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83691266"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638014"
 ---
 # <a name="plan-and-manage-costs-for-azure-data-factory"></a>Planera och hantera kostnader för Azure Data Factory
 
@@ -56,15 +56,15 @@ Nu kan du ansluta 30 aktivitets körningar och 380 DIU till ADF-pris Kalkylatorn
 
 ## <a name="use-budgets-and-cost-alerts"></a>Använda budgetar och kostnadsaviseringar
 
-Du kan skapa [budgetar](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets) för att hantera kostnader och skapa aviseringar som automatiskt meddelar mottagarna om kostnadsavvikelser och risker för överförbrukning.  Aviseringar baseras på utgifter jämfört med budget- och kostnadströsklar.  När du skapar en budget kan du antingen göra det på prenumerations nivå eller med en lägre kornig het genom att lägga till ytterligare filter, till exempel resurs-ID och mätar namn.  Men du kan inte skapa budgetar för enskilda pipelines i en fabrik.
+Du kan skapa [budgetar](../cost-management-billing/costs/tutorial-acm-create-budgets.md) för att hantera kostnader och skapa aviseringar som automatiskt meddelar mottagarna om kostnadsavvikelser och risker för överförbrukning.  Aviseringar baseras på utgifter jämfört med budget- och kostnadströsklar.  När du skapar en budget kan du antingen göra det på prenumerations nivå eller med en lägre kornig het genom att lägga till ytterligare filter, till exempel resurs-ID och mätar namn.  Men du kan inte skapa budgetar för enskilda pipelines i en fabrik.
 
 ## <a name="monitor-costs-at-factory-level"></a>Övervaka kostnader på fabriks nivå
 
-När du börjar använda Azure Data Factory kan du se kostnaderna som uppkommer i fönstret [kostnads analys](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis) i Azure Portal.
+När du börjar använda Azure Data Factory kan du se kostnaderna som uppkommer i fönstret [kostnads analys](../cost-management-billing/costs/quick-acm-cost-analysis.md) i Azure Portal.
 
-1. Om du vill visa [kostnads analys](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis)öppnar du fönstret **Cost Management + fakturering** , väljer **kostnads hantering** på menyn och väljer sedan **Öppna kostnads analys**.
+1. Om du vill visa [kostnads analys](../cost-management-billing/costs/quick-acm-cost-analysis.md)öppnar du fönstret **Cost Management + fakturering** , väljer **kostnads hantering** på menyn och väljer sedan **Öppna kostnads analys** .
 2. I standardvyn visas ackumulerade kostnader för den aktuella månaden.  Du kan växla till ett annat tidsintervall och en annan kornig het, som varje dag eller månad.
-3. Om du vill begränsa kostnaderna för en enskild tjänst, till exempel Azure Data Factory, väljer du **Lägg till filter** och väljer sedan **tjänst namn**.  Välj sedan **Azure Data Factory v2** från listan.
+3. Om du vill begränsa kostnaderna för en enskild tjänst, till exempel Azure Data Factory, väljer du **Lägg till filter** och väljer sedan **tjänst namn** .  Välj sedan **Azure Data Factory v2** från listan.
 4. Du kan lägga till ytterligare filter för att analysera kostnader för en speciell fabriks instans och en bestämd precisions nivå för ADF-mätare.
 
    ![Kostnadsanalys](media/plan-manage-costs/cost-analysis.png)
@@ -81,7 +81,7 @@ Om du klickar på knappen **förbrukning** bredvid pipeline-namnet visas ett pop
 
 ![Information om pipeline-förbrukning](media/plan-manage-costs/pipeline-consumption-details.png)
 
-I vyn pipeline-körnings användning visas hur mycket som förbrukas för varje ADF-mätare för den specifika pipeline-körningen, men det visar inte det faktiska priset, eftersom det belopp som debiteras du beror på vilken typ av Azure-konto du har och vilken typ av valuta som används.  Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data).
+I vyn pipeline-körnings användning visas hur mycket som förbrukas för varje ADF-mätare för den specifika pipeline-körningen, men det visar inte det faktiska priset, eftersom det belopp som debiteras du beror på vilken typ av Azure-konto du har och vilken typ av valuta som används.  Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](../cost-management-billing/costs/understand-cost-mgt-data.md).
 
 ## <a name="monitor-consumption-at-activity-run-level"></a>Övervaka förbrukning vid aktivitet – körnings nivå
 När du förstår den aggregerade förbrukningen på pipeline-körning finns det scenarier där du behöver öka detalj nivån och identifiera vilken som är den mest kostsamma aktiviteten i pipelinen.
@@ -101,5 +101,5 @@ Här är ett exempel på en mappning av data flödes aktivitet som körs:
 I följande artiklar finns mer information om hur prissättning fungerar i Azure Data Factory:
 
 - [Sidan Azure Data Factory prissättning](https://azure.microsoft.com/pricing/details/data-factory/ssis/)
-- [Förstå Azure Data Factory via exempel](https://docs.microsoft.com/azure/data-factory/pricing-concepts)
+- [Förstå Azure Data Factory via exempel](./pricing-concepts.md)
 - [Azure Data Factory pris kalkylator](https://azure.microsoft.com/pricing/calculator/?service=data-factory)

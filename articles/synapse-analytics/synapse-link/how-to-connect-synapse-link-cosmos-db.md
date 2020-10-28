@@ -1,6 +1,6 @@
 ---
 title: Ansluta till Azure Synapse-länken (för hands version) för Azure Cosmos DB
-description: Så här ansluter du en Azure Cosmos DB till en Synapse-arbetsyta med Azure Synapse-länk
+description: Lär dig hur du ansluter en Azure Cosmos DB-databas till en Azure dataSynapses-arbetsyta med Azure Synapse-länken.
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 50717c7e8a7b0f748df98c1896e1b7eb64cd7be3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 3434953de3460d3eff066768474f03aa0e14165e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819347"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668601"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Ansluta till Azure Synapse-länken (för hands version) för Azure Cosmos DB
 
@@ -24,44 +24,44 @@ Den här artikeln beskriver hur du kommer åt en Azure Cosmos DB databas från A
 
 Innan du ansluter en Azure Cosmos DB databas till din arbets yta behöver du:
 
+* Befintliga Azure Cosmos DB databasen eller skapa ett nytt konto genom att följa stegen i [snabb start: hantera ett Azure Cosmos DB konto](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account).
+* Befintlig Azure Synapse-arbetsyta eller skapa en ny arbets yta genom att följa stegen i [snabb start: skapa en Synapse-arbetsyta](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
+
 > [!IMPORTANT]
-> Azure Synapse-länken för Azure Cosmos DB stöds för närvarande för arbets ytor som inte har hanterat virtuellt nätverk aktiverat. 
+> Azure Synapse-länken för Azure Cosmos DB stöds för närvarande för arbets ytor som inte har något hanterat virtuellt nätverk aktiverat.
 
-* Befintliga Azure Cosmos DB databasen eller skapa ett nytt konto efter den här [snabb](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account) starten
-* Befintlig arbets yta i Synapse eller skapa en ny arbets yta efter den här [snabb](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) starten 
+## <a name="enable-synapse-link-on-an-azure-cosmos-db-database-account"></a>Aktivera Synapse-länk på ett Azure Cosmos DB databas konto
 
-## <a name="enable-azure-cosmos-db-analytical-store"></a>Aktivera Azure Cosmos DB analys lager
+Om du vill köra storskalig analys i Azure Cosmos DB utan att påverka drifts prestanda rekommenderar vi att du aktiverar Synapse-länken för Azure Cosmos DB. Synapse-länken ger HTAP-kapacitet till en behållare och inbyggt stöd i Azure Synapse.
 
-Om du vill köra storskalig analys i Azure Cosmos DB utan att påverka din drifts prestanda rekommenderar vi att du aktiverar Synapse-länken för Azure Cosmos DB. Synapse-länken ger HTAP-kapacitet till en behållare och inbyggt stöd i Azure Synapse.
+## <a name="go-to-synapse-studio"></a>Gå till Synapse Studio
 
-## <a name="navigate-to-synapse-studio"></a>Gå till Synapse Studio
+Från din Azure Synapse-arbetsyta väljer du **Starta Synapse Studio** . På Start sidan för Synapse Studio väljer du **data** , som tar dig till data Object Explorer.
 
-Från din Synapse-arbetsyta väljer du **Starta Synapse Studio**. På Start sidan för Synapse Studio väljer du **data**, vilket leder dig till **data Object Explorer**.
+## <a name="connect-an-azure-cosmos-db-database-to-an-azure-synapse-workspace"></a>Ansluta en Azure Cosmos DB-databas till en Azure Synapse-arbetsyta
 
-## <a name="connect-an-azure-cosmos-db-database-to-a-synapse-workspace"></a>Ansluta en Azure Cosmos DB-databas till en Synapse-arbetsyta
+Anslutning av en Azure Cosmos DB databas görs som en länkad tjänst. Med en Azure Cosmos DB länkad tjänst kan du söka efter och utforska data, läsa och skriva från Apache Spark för Azure Synapse Analytics eller SQL till Azure Cosmos DB.
 
-Anslutning av en Azure Cosmos DB databas görs som en länkad tjänst. Med en Azure Cosmos DB länkad tjänst kan användare söka efter och utforska data, läsa och skriva från Apache Spark för Azure Synapse Analytics eller SQL till Azure Cosmos DB.
+Från data Object Explorer kan du ansluta direkt till en Azure Cosmos DB-databas genom att följa dessa steg:
 
-Från data Object Explorer kan du ansluta direkt till en Azure Cosmos DB-databas genom att utföra följande steg:
+1. Välj **+** ikonen nära **data** .
+1. Välj **Anslut till externa data** .
+1. Välj det API som du vill ansluta till, till exempel **SQL API** eller **API för MongoDB** .
+1. Välj **Fortsätt** .
+1. Använd ett eget namn för att namnge den länkade tjänsten. Namnet kommer att visas i data Object Explorer och används av Azure Synapse-körningar för att ansluta till databasen och behållarna.
+1. Välj det **Azure Cosmos DB konto namnet** och **databas namnet** .
+1. Valfritt Om ingen region anges dirigeras Azure Synapse runtime-åtgärder mot den närmaste region där analys lagret är aktiverat. Du kan också manuellt ange den region som du vill att användarna ska använda för att få åtkomst till den Azure Cosmos DB analytiska butiken. Välj **Ytterligare egenskaper för anslutning** och välj sedan **ny** . Under **egenskaps namn** , anger du **PreferredRegions** . Ange **värdet** till den region som du vill ha, till exempel **WestUS2** . (Det finns inga blank steg mellan orden och talet.)
+1. Välj **Skapa** .
 
-1. Välj ***+*** ikon nära data
-2. Välj **Anslut till externa data**
-3. Välj det API som du vill ansluta till: SQL API eller API för MongoDB
-4. Välj ***Fortsätt***
-5. Namnge den länkade tjänsten. Namnet visas i Object Explorer och används av Synapse körnings tider för att ansluta till databasen och behållarna. Vi rekommenderar att du använder ett eget namn.
-6. Välj det **Azure Cosmos DB konto namnet** och **databas namnet**
-7. Valfritt Om ingen region anges dirigeras Synapse kör tids åtgärder till den närmaste region där analys lagret är aktiverat. Du kan dock ange manuellt vilken region du vill att användarna ska ha åtkomst till Azure Cosmos DB analys lager. Välj **ytterligare anslutnings egenskaper** och sedan **ny**. Under **egenskaps namn**skriver du ***PreferredRegions*** och anger **värdet** till den region som du vill ha (exempel: WestUS2, det finns inget blank steg mellan ord och nummer)
-8. Välj ***Skapa***
+Azure Cosmos DB databaser visas på fliken **länkad** under avsnittet **Azure Cosmos DB** . Med Azure Cosmos DB kan du särskilja en HTAP-aktiverad behållare från en OLTP-behållare via följande ikoner:
 
-Azure Cosmos DB-databaser visas under den flik som är **länkad** i avsnittet Azure Cosmos dB. Med Azure Cosmos DB kan du särskilja en HTAP-aktiverad behållare från en skrivskyddad OLTP-behållare via följande ikoner:
+**Endast OLTP-behållare** :
 
-**Endast behållare för OLTP**:
+![Visualisering som visar ikonen för OLTP-behållare.](../media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
 
-![OLTP-behållare](../media/quickstart-connect-synapse-link-cosmosdb/oltp-container.png)
+**HTAP-aktive rad behållare** :
 
-**HTAP-aktiverad behållare**:
-
-![HTAP-behållare](../media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
+![Visualisering som visar HTAP container-ikonen.](../media/quickstart-connect-synapse-link-cosmosdb/htap-container.png)
 
 ## <a name="quickly-interact-with-code-generated-actions"></a>Interagera snabbt med kod genererade åtgärder
 
@@ -69,5 +69,5 @@ Genom att högerklicka på en behållare har du en lista med gester som utlöser
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig vad som stöds mellan Synapse och Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
+* [Lär dig vad som stöds mellan Azure Synapse och Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
 * [Lär dig hur du frågar analys lagret med Spark](./how-to-query-analytical-store-spark.md)

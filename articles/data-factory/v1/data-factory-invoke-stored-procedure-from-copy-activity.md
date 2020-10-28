@@ -12,24 +12,24 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f687901601ba517a50710610d4c827524b8ec565
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2b10744222da8e5d85b19e1ded5aa24cf9c9706
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85320989"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637861"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Anropa lagrad procedur från kopierings aktivitet i Azure Data Factory
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [transformera data med hjälp av lagrade procedur aktiviteter i Data Factory](../transform-data-using-stored-procedure.md).
 
 
-När du kopierar data till [SQL Server](data-factory-sqlserver-connector.md) eller [Azure SQL Database](data-factory-azure-sql-connector.md)kan du konfigurera **SqlSink** i kopierings aktiviteten för att anropa en lagrad procedur. Du kanske vill använda den lagrade proceduren för att utföra ytterligare bearbetning (sammanfoga kolumner, leta upp värden, infoga i flera tabeller osv.) krävs innan du infogar data i mål tabellen. Den här funktionen utnyttjar [tabell värdes parametrar](https://msdn.microsoft.com/library/bb675163.aspx). 
+När du kopierar data till [SQL Server](data-factory-sqlserver-connector.md) eller [Azure SQL Database](data-factory-azure-sql-connector.md)kan du konfigurera **SqlSink** i kopierings aktiviteten för att anropa en lagrad procedur. Du kanske vill använda den lagrade proceduren för att utföra ytterligare bearbetning (sammanfoga kolumner, leta upp värden, infoga i flera tabeller osv.) krävs innan du infogar data i mål tabellen. Den här funktionen utnyttjar [tabell värdes parametrar](/dotnet/framework/data/adonet/sql/table-valued-parameters). 
 
 Följande exempel visar hur du anropar en lagrad procedur i en SQL Server databas från en Data Factory pipeline (kopierings aktivitet):  
 
 ## <a name="output-dataset-json"></a>JSON för utgående data mängd
-I JSON för utgående data uppsättning anger du **typen** till: **SqlServerTable**. Ange den som **AzureSqlTable** som ska användas med Azure SQL Database. Värdet för egenskapen **TableName** måste matcha namnet på den första parametern för den lagrade proceduren.  
+I JSON för utgående data uppsättning anger du **typen** till: **SqlServerTable** . Ange den som **AzureSqlTable** som ska användas med Azure SQL Database. Värdet för egenskapen **TableName** måste matcha namnet på den första parametern för den lagrade proceduren.  
 
 ```json
 {
@@ -68,7 +68,7 @@ Definiera avsnittet **SqlSink** i JSON-filen för kopierings aktiviteten enligt 
 ```
 
 ## <a name="stored-procedure-definition"></a>Definition av lagrad procedur 
-I databasen definierar du den lagrade proceduren med samma namn som **SqlWriterStoredProcedureName**. Den lagrade proceduren hanterar indata från käll data lagret och infogar data i en tabell i mål databasen. Namnet på den första parametern för den lagrade proceduren måste matcha det tableName som definierats i data uppsättnings-JSON (Marketing).
+I databasen definierar du den lagrade proceduren med samma namn som **SqlWriterStoredProcedureName** . Den lagrade proceduren hanterar indata från käll data lagret och infogar data i en tabell i mål databasen. Namnet på den första parametern för den lagrade proceduren måste matcha det tableName som definierats i data uppsättnings-JSON (Marketing).
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
@@ -81,7 +81,7 @@ END
 ```
 
 ## <a name="table-type-definition"></a>Definition av tabell typ
-I databasen definierar du tabell typen med samma namn som **SqlWriterTableType**. Schemat för tabell typen måste matcha schemat för data uppsättningen för indata.
+I databasen definierar du tabell typen med samma namn som **SqlWriterTableType** . Schemat för tabell typen måste matcha schemat för data uppsättningen för indata.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(

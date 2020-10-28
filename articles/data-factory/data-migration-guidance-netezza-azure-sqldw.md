@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
-ms.openlocfilehash: 2197136b86d0bfbb2de79af6712c953339d46371
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8192b1351d54acbb553bacb8b36474cba271cb05
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442845"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638082"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Använd Azure Data Factory för att migrera data från en lokal Netezza-server till Azure 
 
@@ -41,13 +41,13 @@ Azure Data Factory erbjuder en server lös arkitektur som tillåter parallellite
 
 Föregående diagram kan tolkas på följande sätt:
 
-- En enda kopierings aktivitet kan dra nytta av skalbara beräknings resurser. När du använder Azure Integration Runtime kan du ange [upp till 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) för varje kopierings aktivitet på ett Server lös sätt. Med en lokal integration Runtime (lokal IR) kan du manuellt skala upp datorn eller skala ut till flera datorer ([upp till fyra noder](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)) och en enda kopierings aktivitet distribuerar dess partition över alla noder. 
+- En enda kopierings aktivitet kan dra nytta av skalbara beräknings resurser. När du använder Azure Integration Runtime kan du ange [upp till 256 DIUs](./copy-activity-performance.md#data-integration-units) för varje kopierings aktivitet på ett Server lös sätt. Med en lokal integration Runtime (lokal IR) kan du manuellt skala upp datorn eller skala ut till flera datorer ([upp till fyra noder](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)) och en enda kopierings aktivitet distribuerar dess partition över alla noder. 
 
 - En enskild kopierings aktivitet läser från och skriver till data lagret genom att använda flera trådar. 
 
-- Azure Data Factory kontroll flöde kan starta flera kopierings aktiviteter parallellt. Den kan till exempel starta dem med hjälp av en [for each-loop](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
+- Azure Data Factory kontroll flöde kan starta flera kopierings aktiviteter parallellt. Den kan till exempel starta dem med hjälp av en [for each-loop](./control-flow-for-each-activity.md). 
 
-Mer information finns i [guiden Kopiera aktivitets prestanda och skalbarhet](https://docs.microsoft.com/azure/data-factory/copy-activity-performance).
+Mer information finns i [guiden Kopiera aktivitets prestanda och skalbarhet](./copy-activity-performance.md).
 
 ## <a name="resilience"></a>Återhämtning
 
@@ -63,7 +63,7 @@ Alternativt, om du inte vill att data ska överföras via det offentliga Interne
 
 I nästa avsnitt beskrivs hur du uppnår högre säkerhet.
 
-## <a name="solution-architecture"></a>Lösningsarkitektur
+## <a name="solution-architecture"></a>Lösningsarkitekturen
 
 I det här avsnittet beskrivs två sätt att migrera dina data.
 
@@ -95,33 +95,33 @@ Föregående diagram kan tolkas på följande sätt:
 
 ### <a name="manage-authentication-and-credentials"></a>Hantera autentisering och autentiseringsuppgifter 
 
-- Du kan använda [ODBC-autentisering via anslutnings sträng](https://docs.microsoft.com/azure/data-factory/connector-netezza#linked-service-properties)för att autentisera till Netezza. 
+- Du kan använda [ODBC-autentisering via anslutnings sträng](./connector-netezza.md#linked-service-properties)för att autentisera till Netezza. 
 
 - För att autentisera till Azure Blob Storage: 
 
-   - Vi rekommenderar starkt att du använder [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity). Med hanterade identiteter som byggts ovanpå en automatiskt hanterad Azure Data Factory identitet i Azure Active Directory (Azure AD) kan du konfigurera pipelines utan att behöva ange autentiseringsuppgifter i den länkade tjänst definitionen.  
+   - Vi rekommenderar starkt att du använder [hanterade identiteter för Azure-resurser](./connector-azure-blob-storage.md#managed-identity). Med hanterade identiteter som byggts ovanpå en automatiskt hanterad Azure Data Factory identitet i Azure Active Directory (Azure AD) kan du konfigurera pipelines utan att behöva ange autentiseringsuppgifter i den länkade tjänst definitionen.  
 
-   - Alternativt kan du autentisera till Azure Blob Storage med hjälp av [tjänstens huvud namn](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), en [signatur för delad åtkomst](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)eller en [lagrings konto nyckel](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
+   - Alternativt kan du autentisera till Azure Blob Storage med hjälp av [tjänstens huvud namn](./connector-azure-blob-storage.md#service-principal-authentication), en [signatur för delad åtkomst](./connector-azure-blob-storage.md#shared-access-signature-authentication)eller en [lagrings konto nyckel](./connector-azure-blob-storage.md#account-key-authentication). 
 
 - För att autentisera till Azure Data Lake Storage Gen2: 
 
-   - Vi rekommenderar starkt att du använder [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity).
+   - Vi rekommenderar starkt att du använder [hanterade identiteter för Azure-resurser](./connector-azure-data-lake-storage.md#managed-identity).
    
-   - Du kan också använda [tjänstens huvud namn](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) eller en [lagrings konto nyckel](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication). 
+   - Du kan också använda [tjänstens huvud namn](./connector-azure-data-lake-storage.md#service-principal-authentication) eller en [lagrings konto nyckel](./connector-azure-data-lake-storage.md#account-key-authentication). 
 
 - För att autentisera till Azure Synapse Analytics:
 
-   - Vi rekommenderar starkt att du använder [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity).
+   - Vi rekommenderar starkt att du använder [hanterade identiteter för Azure-resurser](./connector-azure-sql-data-warehouse.md#managed-identity).
    
-   - Du kan också använda [tjänstens huvud namn](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication) eller [SQL-autentisering](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication).
+   - Du kan också använda [tjänstens huvud namn](./connector-azure-sql-data-warehouse.md#service-principal-authentication) eller [SQL-autentisering](./connector-azure-sql-data-warehouse.md#sql-authentication).
 
-- När du inte använder hanterade identiteter för Azure-resurser rekommenderar vi starkt att du [lagrar autentiseringsuppgifterna i Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) för att göra det lättare att hantera och rotera nycklar centralt utan att behöva ändra Azure Data Factory länkade tjänster. Detta är också en av de [rekommenderade metoderna för CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- När du inte använder hanterade identiteter för Azure-resurser rekommenderar vi starkt att du [lagrar autentiseringsuppgifterna i Azure Key Vault](./store-credentials-in-key-vault.md) för att göra det lättare att hantera och rotera nycklar centralt utan att behöva ändra Azure Data Factory länkade tjänster. Detta är också en av de [rekommenderade metoderna för CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
 
 ### <a name="migrate-initial-snapshot-data"></a>Migrera inledande ögonblicks bild data 
 
 För små tabeller (det vill säga tabeller med en volym på mindre än 100 GB eller som kan migreras till Azure inom två timmar) kan du göra varje belastnings data för kopierings jobb per tabell. För större data flöde kan du köra flera Azure Data Factory kopierings jobb för att läsa in separata tabeller samtidigt. 
 
-I varje kopierings jobb, för att köra parallella frågor och kopiera data efter partitioner, kan du också komma åt en nivå av parallellitet genom att använda [ `parallelCopies` egenskaps inställningen](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) med något av följande alternativ för datapartition:
+I varje kopierings jobb, för att köra parallella frågor och kopiera data efter partitioner, kan du också komma åt en nivå av parallellitet genom att använda [ `parallelCopies` egenskaps inställningen](./copy-activity-performance.md#parallel-copy) med något av följande alternativ för datapartition:
 
 - För att få bättre effektivitet rekommenderar vi att du börjar med en data sektor.  Kontrol lera att värdet i `parallelCopies` inställningen är mindre än det totala antalet data segment partitioner i tabellen på Netezza-servern.  
 
@@ -192,18 +192,18 @@ Här är det uppskattade priset baserat på föregående antaganden:
 Mer information finns i följande artiklar och guider:
 
 - [Migrera data från en lokal databas för Relations informations lager till Azure med hjälp av Azure Data Factory](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/)
-- [Netezza-anslutning](https://docs.microsoft.com/azure/data-factory/connector-netezza)
-- [ODBC-anslutningsapp](https://docs.microsoft.com/azure/data-factory/connector-odbc)
-- [Azure Blob Storage-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Azure Data Lake Storage Gen2-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Azure Synapse Analytics-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
-- [Prestanda justerings guide för kopierings aktivitet](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Skapa och konfigurera lokalt installerad integrationskörning](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [Egen värd för integration runtime-tillgänglighet och skalbarhet](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Säkerhetsöverväganden vid dataflytt](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Spara autentiseringsuppgifter i Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Kopiera data stegvis från en tabell](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-portal)
-- [Kopiera data stegvis från flera tabeller](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
+- [Netezza-anslutning](./connector-netezza.md)
+- [ODBC-anslutningsapp](./connector-odbc.md)
+- [Azure Blob Storage-anslutning](./connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen2-anslutning](./connector-azure-data-lake-storage.md)
+- [Azure Synapse Analytics-anslutning](./connector-azure-sql-data-warehouse.md)
+- [Prestanda justerings guide för kopierings aktivitet](./copy-activity-performance.md)
+- [Skapa och konfigurera lokalt installerad integrationskörning](./create-self-hosted-integration-runtime.md)
+- [Egen värd för integration runtime-tillgänglighet och skalbarhet](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [Säkerhetsöverväganden vid dataflytt](./data-movement-security-considerations.md)
+- [Spara autentiseringsuppgifter i Azure Key Vault](./store-credentials-in-key-vault.md)
+- [Kopiera data stegvis från en tabell](./tutorial-incremental-copy-portal.md)
+- [Kopiera data stegvis från flera tabeller](./tutorial-incremental-copy-multiple-tables-portal.md)
 - [Sidan Azure Data Factory prissättning](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>Nästa steg

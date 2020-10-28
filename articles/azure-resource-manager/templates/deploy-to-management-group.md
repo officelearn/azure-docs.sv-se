@@ -2,15 +2,15 @@
 title: Distribuera resurser till hanterings grupp
 description: Beskriver hur du distribuerar resurser i hanterings gruppens omfattning i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 23f86d7d0b7e1f882cf3fb74adc484e0fe47db87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 084ab69f463334569d37efd9187bfe587bfc524d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372433"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668941"
 ---
-# <a name="create-resources-at-the-management-group-level"></a>Skapa resurser på hanterings grupps nivå
+# <a name="management-group-deployments-with-arm-templates"></a>Distributioner av hanterings grupper med ARM-mallar
 
 När din organisation är vuxen kan du distribuera en Azure Resource Manager-mall (ARM-mall) för att skapa resurser på hanterings grupps nivå. Du kan till exempel behöva definiera och tilldela [principer](../../governance/policy/overview.md) eller [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/overview.md) för en hanterings grupp. Med mallar för hanterings grupps nivåer kan du tillämpa principer och tilldela roller på hanterings grupps nivån.
 
@@ -43,7 +43,7 @@ För kapslade mallar som distribuerar till prenumerationer eller resurs grupper 
 
 Använd följande för att hantera resurser:
 
-* [tags](/azure/templates/microsoft.resources/tags)
+* [taggen](/azure/templates/microsoft.resources/tags)
 
 ## <a name="schema"></a>Schema
 
@@ -52,42 +52,26 @@ Schemat som används för distributioner av hanterings grupper skiljer sig från
 För mallar använder du:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    ...
+}
 ```
 
 Schemat för en parameter fil är detsamma för alla distributions omfång. För parameter-filer använder du:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
-
-## <a name="deployment-scopes"></a>Distributions omfång
-
-När du distribuerar till en hanterings grupp kan du rikta in den angivna hanterings gruppen i distributions kommandot, eller så kan du välja en annan hanterings grupp i klienten.
-
-De resurser som definieras i avsnittet resurser i mallen tillämpas på hanterings gruppen från distributions kommandot.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
-
-Om du vill rikta en annan hanterings grupp lägger du till en kapslad distribution och anger `scope` egenskapen. Ange `scope` ett värde i formatet för egenskapen `Microsoft.Management/managementGroups/<mg-name>` .
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
-
-Du kan också rikta prenumerationer eller resurs grupper i en hanterings grupp. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
-
-Om du vill rikta en prenumeration inom hanterings gruppen använder du en kapslad distribution och `subscriptionId` egenskapen.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
-
-Om du vill rikta en resurs grupp i den prenumerationen lägger du till en annan kapslad distribution och `resourceGroup` egenskapen.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
-
-Om du vill använda en distribution av hanterings grupper för att skapa en resurs grupp i en prenumeration och distribuera ett lagrings konto till den resurs gruppen, se [distribuera till prenumeration och resurs grupp](#deploy-to-subscription-and-resource-group).
 
 ## <a name="deployment-commands"></a>Distributions kommandon
 
-Kommandona för distributioner av hanterings grupper skiljer sig från kommandona för resurs grupps distributioner.
+Om du vill distribuera till en hanterings grupp använder du distributions kommandona för hanterings gruppen.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 För Azure CLI använder du [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
@@ -99,6 +83,8 @@ az deployment mg create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 För Azure PowerShell använder du [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment).
 
 ```azurepowershell-interactive
@@ -109,42 +95,70 @@ New-AzManagementGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
 ```
 
-För REST API använder du [distributioner – skapa i hanterings gruppens omfång](/rest/api/resources/deployments/createorupdateatmanagementgroupscope).
+---
+
+Mer detaljerad information om distributions kommandon och alternativ för att distribuera ARM-mallar finns i:
+
+* [Distribuera resurser med ARM-mallar och Azure Portal](deploy-portal.md)
+* [Distribuera resurser med ARM-mallar och Azure CLI](deploy-cli.md)
+* [Distribuera resurser med ARM-mallar och Azure PowerShell](deploy-powershell.md)
+* [Distribuera resurser med ARM-mallar och Azure Resource Manager REST API](deploy-rest.md)
+* [Använd en distributions knapp för att distribuera mallar från GitHub-lagringsplatsen](deploy-to-azure-button.md)
+* [Distribuera ARM-mallar från Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Distributions omfång
+
+När du distribuerar till en hanterings grupp kan du distribuera resurser för att:
+
+* mål hanterings gruppen från åtgärden
+* en annan hanterings grupp i klienten
+* prenumerationer i hanterings gruppen
+* resurs grupper i hanterings gruppen (via två kapslade distributioner)
+* [tilläggs resurser](scope-extension-resources.md) kan tillämpas på resurser
+
+Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
+
+I det här avsnittet visas hur du anger olika omfång. Du kan kombinera dessa olika omfång i en enda mall.
+
+### <a name="scope-to-target-management-group"></a>Omfång till mål hanterings grupp
+
+De resurser som definieras i avsnittet resurser i mallen tillämpas på hanterings gruppen från distributions kommandot.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
+
+### <a name="scope-to-another-management-group"></a>Omfång till en annan hanterings grupp
+
+Om du vill rikta en annan hanterings grupp lägger du till en kapslad distribution och anger `scope` egenskapen. Ange `scope` ett värde i formatet för egenskapen `Microsoft.Management/managementGroups/<mg-name>` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+
+### <a name="scope-to-subscription"></a>Omfång till prenumeration
+
+Du kan också rikta prenumerationer i en hanterings grupp. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
+
+Om du vill rikta en prenumeration inom hanterings gruppen använder du en kapslad distribution och `subscriptionId` egenskapen.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+
+### <a name="scope-to-resource-group"></a>Omfång till resurs grupp
+
+Om du vill rikta en resurs grupp i den prenumerationen lägger du till två kapslade distributioner. De första målen är den prenumeration som har resurs gruppen. Det andra målet är resurs gruppen genom att ange `resourceGroup` egenskapen.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
+
+Om du vill använda en distribution av hanterings grupper för att skapa en resurs grupp i en prenumeration och distribuera ett lagrings konto till den resurs gruppen, se [distribuera till prenumeration och resurs grupp](#deploy-to-subscription-and-resource-group).
 
 ## <a name="deployment-location-and-name"></a>Distributions plats och namn
 
 För distributioner på hanterings grupp nivå måste du ange en plats för distributionen. Platsen för distributionen är separat från platsen för de resurser som du distribuerar. Distributions platsen anger var distributions data ska lagras.
 
-Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy**.
+Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy** .
 
 För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
 
-## <a name="use-template-functions"></a>Använda mall funktioner
-
-För distributioner av hanterings grupper finns det några viktiga saker att tänka på när du använder mall-funktioner:
-
-* Funktionen [resourceGroup ()](template-functions-resource.md#resourcegroup) stöds **inte** .
-* Funktionen [Subscription ()](template-functions-resource.md#subscription) stöds **inte** .
-* Funktionerna [Reference ()](template-functions-resource.md#reference) och [List ()](template-functions-resource.md#list) stöds.
-* Använd inte funktionen [resourceId ()](template-functions-resource.md#resourceid) för resurser som distribueras till hanterings gruppen.
-
-  Använd i stället funktionen [extensionResourceId ()](template-functions-resource.md#extensionresourceid) för resurser som implementeras som tillägg för hanterings gruppen. Anpassade princip definitioner som distribueras till hanterings gruppen är tillägg för hanterings gruppen.
-
-  Använd följande för att hämta resurs-ID för en anpassad princip definition på hanterings grupps nivå:
-  
-  ```json
-  "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
-  ```
-
-  Använd funktionen [tenantResourceId](template-functions-resource.md#tenantresourceid) för klient resurser som är tillgängliga i hanterings gruppen. Inbyggda princip definitioner är klient nivå resurser.
-
-  Om du vill hämta resurs-ID för en inbyggd princip definition använder du:
-  
-  ```json
-  "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
-  ```
-
 ## <a name="azure-policy"></a>Azure Policy
+
+Anpassade princip definitioner som distribueras till hanterings gruppen är tillägg för hanterings gruppen. Om du vill hämta ID för en anpassad princip definition använder du funktionen [extensionResourceId ()](template-functions-resource.md#extensionresourceid) . Inbyggda princip definitioner är klient nivå resurser. Använd funktionen [tenantResourceId](template-functions-resource.md#tenantresourceid) för att hämta ID: t för en inbyggd princip definition.
 
 I följande exempel visas hur du [definierar](../../governance/policy/concepts/definition-structure.md) en princip på hanterings grupps nivån och tilldelar den.
 

@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f1332255ae83a32f9b71d24d812b00fad9b7fa1
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86172034"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637929"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Felsöka SSIS Integration Runtime Management i Azure Data Factory
 
@@ -82,7 +82,7 @@ Den här typen av fel meddelande ser ut så här: "ogiltigt objekt namn" catalog
 
 ## <a name="custom-setup-issues"></a>Anpassade installations problem
 
-Anpassad installation tillhandahåller ett gränssnitt där du kan lägga till egna installationssteg under etablering eller omkonfiguration av din SSIS IR. Mer information finns i [Anpassa installation för Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+Anpassad installation tillhandahåller ett gränssnitt där du kan lägga till egna installationssteg under etablering eller omkonfiguration av din SSIS IR. Mer information finns i [Anpassa installation för Azure-SSIS Integration Runtime](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
 Kontrollera att din container endast innehåller nödvändiga filer för anpassad installation. Alla filer i containern laddas ned till SSIS IR-arbetsnoden. Vi rekommenderar att du testar skriptet för anpassad installation på en lokal dator för att åtgärda eventuella problem med skriptkörning innan du kör skriptet i SSIS IR.
 
@@ -114,7 +114,7 @@ Det här felet innebär att försöket att ladda upp körningsloggar för anpass
 
 ## <a name="virtual-network-configuration"></a>Konfiguration av virtuellt nätverk
 
-När du kopplar SSIS IR till Azure Virtual Network använder SSIS IR det virtuella nätverk som finns under användarprenumerationen. Mer information finns i [Koppla en Azure-SSIS Integration Runtime till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+När du kopplar SSIS IR till Azure Virtual Network använder SSIS IR det virtuella nätverk som finns under användarprenumerationen. Mer information finns i [Koppla en Azure-SSIS Integration Runtime till ett virtuellt nätverk](./join-azure-ssis-integration-runtime-virtual-network.md).
 Om det uppstår problem med nätverks anslutningen när SSIS IR har startats kan du försöka använda [diagnostisera anslutnings verktyg](ssis-integration-runtime-diagnose-connectivity-faq.md) för att diagnostisera problemet själv.
 När det finns ett problem som rör virtuellt nätverk visas något av följande fel.
 
@@ -141,7 +141,7 @@ Dessa fel innebär att det virtuella nätverket inte finns, att Azure Batch-tjä
 
 Den här typen av fel meddelande kan se ut så här: "Det gick inte att etablera Integration Runtime i VNet. Om DNS-servern eller NSG-inställningarna konfigureras kontrollerar du att DNS-servern är tillgänglig och att NSG har kon figurer ATS korrekt. "
 
-I den här situationen har du förmodligen en anpassad konfiguration av DNS-serverns eller NSG-inställningarna, vilket förhindrar att det Azure-servernamn som krävs av SSIS IR matchas eller nås. Mer information finns i [Konfiguration av virtuellt nätverk för SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Om det fortfarande är problem kan du kontakta supportteamet för Azure Data Factory.
+I den här situationen har du förmodligen en anpassad konfiguration av DNS-serverns eller NSG-inställningarna, vilket förhindrar att det Azure-servernamn som krävs av SSIS IR matchas eller nås. Mer information finns i [Konfiguration av virtuellt nätverk för SSIS IR](./join-azure-ssis-integration-runtime-virtual-network.md). Om det fortfarande är problem kan du kontakta supportteamet för Azure Data Factory.
 
 ### <a name="vnetresourcegrouplockedduringupgrade"></a>VNetResourceGroupLockedDuringUpgrade
 
@@ -157,11 +157,11 @@ När du stoppar SSIS IR tas alla Virtual Network-relaterade resurser bort. Men b
 
 ### <a name="nodeunavailable"></a>NodeUnavailable
 
-Det här felet uppstår när IR körs och innebär att IR har blivit defekt. Det här felet orsakas alltid av en ändring i den DNS-server- eller NSG-konfiguration som blockerar SSIS IR från att ansluta till en nödvändig tjänst. Eftersom konfigurationen av DNS-server och NSG kontrolleras av kunden måste kunden åtgärda blockeringsproblemen på deras sida. Mer information finns i [Konfiguration av virtuellt nätverk för SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Om det fortfarande är problem kan du kontakta supportteamet för Azure Data Factory.
+Det här felet uppstår när IR körs och innebär att IR har blivit defekt. Det här felet orsakas alltid av en ändring i den DNS-server- eller NSG-konfiguration som blockerar SSIS IR från att ansluta till en nödvändig tjänst. Eftersom konfigurationen av DNS-server och NSG kontrolleras av kunden måste kunden åtgärda blockeringsproblemen på deras sida. Mer information finns i [Konfiguration av virtuellt nätverk för SSIS IR](./join-azure-ssis-integration-runtime-virtual-network.md). Om det fortfarande är problem kan du kontakta supportteamet för Azure Data Factory.
 
 ## <a name="static-public-ip-addresses-configuration"></a>Konfiguration av statiska offentliga IP-adresser
 
-När du ansluter Azure-SSIS IR till Azure Virtual Network kan du också ta med egna statiska offentliga IP-adresser för IR så att IR kan komma åt data källor som begränsar åtkomsten till specifika IP-adresser. Mer information finns i [Koppla en Azure-SSIS Integration Runtime till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+När du ansluter Azure-SSIS IR till Azure Virtual Network kan du också ta med egna statiska offentliga IP-adresser för IR så att IR kan komma åt data källor som begränsar åtkomsten till specifika IP-adresser. Mer information finns i [Koppla en Azure-SSIS Integration Runtime till ett virtuellt nätverk](./join-azure-ssis-integration-runtime-virtual-network.md).
 
 Förutom ovanstående problem med virtuella nätverk kan du också möta problem som rör statiska offentliga IP-adresser. Kontrol lera följande fel om du behöver hjälp.
 
@@ -174,7 +174,7 @@ Det här felet kan inträffa av olika orsaker när du startar Azure-SSIS IR:
 | Den angivna statiska offentliga IP-adressen används redan, ange två oanvända för Azure-SSIS Integration Runtime. | Du bör välja två oanvända statiska offentliga IP-adresser eller ta bort aktuella referenser till den angivna offentliga IP-adressen och sedan starta om Azure-SSIS IR. |
 | Den angivna statiska offentliga IP-adressen har inget DNS-namn. Ange två av dem med DNS-namnet för din Azure-SSIS Integration Runtime. | Du kan konfigurera DNS-namnet för den offentliga IP-adressen i Azure Portal, som visas i bilden nedan. De olika stegen är följande: (1) öppna Azure Portal och gå till resurs sidan för den här offentliga IP-adressen. (2) Välj **konfigurations** avsnittet och konfigurera DNS-namnet och klicka sedan på knappen **Spara** . (3) starta om Azure-SSIS IR. |
 | De angivna VNet-och statiska offentliga IP-adresserna för din Azure-SSIS Integration Runtime måste finnas på samma plats. | Enligt Azure-nätverkets krav bör den statiska offentliga IP-adressen och det virtuella nätverket finnas på samma plats och i samma prenumeration. Ange två giltiga statiska offentliga IP-adresser och starta om Azure-SSIS IR. |
-| Den tillhandahållna statiska offentliga IP-adressen är en grundläggande lösning, ange två standard för din Azure-SSIS Integration Runtime. | Se [SKU: er för offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) för hjälp. |
+| Den tillhandahållna statiska offentliga IP-adressen är en grundläggande lösning, ange två standard för din Azure-SSIS Integration Runtime. | Se [SKU: er för offentlig IP-adress](../virtual-network/public-ip-addresses.md#sku) för hjälp. |
 
 ![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
 

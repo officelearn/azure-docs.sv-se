@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: 63b657e77172282225a9bc890b2f185b0f4d42a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e691244c4c03635eb87a7905eff6756da5c04f9
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417138"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638133"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Använd Azure Data Factory för att migrera data från ett lokalt Hadoop-kluster till Azure Storage 
 
@@ -26,8 +26,8 @@ Azure Data Factory tillhandahåller en genomförd, robust och kostnads effektiv 
 
 Data Factory erbjuder två grundläggande metoder för att migrera data från en lokal HDFS till Azure. Du kan välja metod baserat på ditt scenario. 
 
-- **Data Factory DistCp-läge** (rekommenderas): i Data Factory kan du använda [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (distribuerad kopia) för att kopiera filer som-är till Azure Blob Storage (inklusive [mellanlagrad kopia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)) eller Azure Data Lake Store Gen2. Använd Data Factory integrerat med DistCp för att dra nytta av ett befintligt kraftfullt kluster för att uppnå bästa kopiering av data flödet. Du får också fördelarna med flexibel schemaläggning och en enhetlig övervaknings upplevelse från Data Factory. Beroende på din Data Factory konfiguration konstruerar kopierings aktiviteten automatiskt ett DistCp-kommando, skickar data till ditt Hadoop-kluster och övervakar sedan kopierings statusen. Vi rekommenderar Data Factory DistCp-läge för att migrera data från ett lokalt Hadoop-kluster till Azure.
-- **Data Factory ursprungligt integrerings körnings läge**: DistCp är inte ett alternativ i alla scenarier. I en Azure Virtual Networks-miljö stöder t. ex. DistCp-verktyget inte Azure ExpressRoute Private-peering med en Azure Storage virtuell nätverks slut punkt. I vissa fall vill du inte använda ditt befintliga Hadoop-kluster som en motor för att migrera data så att du inte lägger till tung belastning i klustret, vilket kan påverka prestanda för befintliga ETL-jobb. I stället kan du använda den inbyggda funktionen i Data Factory integration runtime som motor som kopierar data från en lokal HDFS till Azure.
+- **Data Factory DistCp-läge** (rekommenderas): i Data Factory kan du använda [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (distribuerad kopia) för att kopiera filer som-är till Azure Blob Storage (inklusive [mellanlagrad kopia](./copy-activity-performance.md#staged-copy)) eller Azure Data Lake Store Gen2. Använd Data Factory integrerat med DistCp för att dra nytta av ett befintligt kraftfullt kluster för att uppnå bästa kopiering av data flödet. Du får också fördelarna med flexibel schemaläggning och en enhetlig övervaknings upplevelse från Data Factory. Beroende på din Data Factory konfiguration konstruerar kopierings aktiviteten automatiskt ett DistCp-kommando, skickar data till ditt Hadoop-kluster och övervakar sedan kopierings statusen. Vi rekommenderar Data Factory DistCp-läge för att migrera data från ett lokalt Hadoop-kluster till Azure.
+- **Data Factory ursprungligt integrerings körnings läge** : DistCp är inte ett alternativ i alla scenarier. I en Azure Virtual Networks-miljö stöder t. ex. DistCp-verktyget inte Azure ExpressRoute Private-peering med en Azure Storage virtuell nätverks slut punkt. I vissa fall vill du inte använda ditt befintliga Hadoop-kluster som en motor för att migrera data så att du inte lägger till tung belastning i klustret, vilket kan påverka prestanda för befintliga ETL-jobb. I stället kan du använda den inbyggda funktionen i Data Factory integration runtime som motor som kopierar data från en lokal HDFS till Azure.
 
 Den här artikeln innehåller följande information om båda metoderna:
 > [!div class="checklist"]
@@ -45,11 +45,11 @@ DistCp använder MapReduce för att påverka distribution, fel hantering och åt
 
 Data Factory ursprungligt integration runtime-läge tillåter också parallellitet på olika nivåer. Du kan använda parallellitet för att helt utnyttja din nätverks bandbredd, Storage IOPS och bandbredd för att maximera data flödet för data förflyttning:
 
-- En enda kopierings aktivitet kan dra nytta av skalbara beräknings resurser. Med en egen värd för integration runtime kan du manuellt skala upp datorn eller skala ut till flera datorer ([upp till fyra noder](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)). En enda kopierings aktivitet partitionerar sin fil uppsättning på alla noder. 
+- En enda kopierings aktivitet kan dra nytta av skalbara beräknings resurser. Med en egen värd för integration runtime kan du manuellt skala upp datorn eller skala ut till flera datorer ([upp till fyra noder](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)). En enda kopierings aktivitet partitionerar sin fil uppsättning på alla noder. 
 - En enskild kopierings aktivitet läser från och skriver till data lagret genom att använda flera trådar. 
-- Data Factory kontroll flöde kan starta flera kopierings aktiviteter parallellt. Du kan till exempel använda en [for each-slinga](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
+- Data Factory kontroll flöde kan starta flera kopierings aktiviteter parallellt. Du kan till exempel använda en [for each-slinga](./control-flow-for-each-activity.md). 
 
-Mer information finns i [prestanda guiden för kopierings aktivitet](https://docs.microsoft.com/azure/data-factory/copy-activity-performance).
+Mer information finns i [prestanda guiden för kopierings aktivitet](./copy-activity-performance.md).
 
 ## <a name="resilience"></a>Återhämtning
 
@@ -65,7 +65,7 @@ Data Factory överför som standard data från en lokal HDFS till Blob Storage e
 
 Alternativt, om du inte vill att data ska överföras via det offentliga Internet, kan du överföra data via en privat peering-länk via ExpressRoute, för högre säkerhet. 
 
-## <a name="solution-architecture"></a>Lösningsarkitektur
+## <a name="solution-architecture"></a>Lösningsarkitekturen
 
 Den här bilden visar hur du migrerar data via det offentliga Internet:
 
@@ -93,10 +93,10 @@ Vi rekommenderar att du följer dessa rekommendationer när du implementerar dat
 
 ### <a name="authentication-and-credential-management"></a>Autentisering och hantering av autentiseringsuppgifter 
 
-- Om du vill autentisera till HDFS kan du [antingen använda Windows (Kerberos) eller anonym](https://docs.microsoft.com/azure/data-factory/connector-hdfs#linked-service-properties). 
-- Flera autentiseringstyper stöds för att ansluta till Azure Blob Storage.  Vi rekommenderar starkt att du använder [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity). Med hanterade identiteter som bygger på en automatiskt hanterad Data Factory identitet i Azure Active Directory (Azure AD) kan du konfigurera pipelines utan att ange autentiseringsuppgifter i den länkade tjänst definitionen. Alternativt kan du autentisera till Blob Storage med hjälp av ett [huvud namn för tjänsten](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), en [signatur för delad åtkomst](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)eller en [lagrings konto nyckel](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
-- Flera autentiseringstyper stöds också för att ansluta till Data Lake Storage Gen2.  Vi rekommenderar starkt att du använder [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity), men du kan också använda ett [huvud namn för tjänsten](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) eller en [lagrings konto nyckel](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication). 
-- När du inte använder hanterade identiteter för Azure-resurser rekommenderar vi starkt att du [lagrar autentiseringsuppgifterna i Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) för att göra det lättare att hantera och rotera nycklar centralt utan att ändra Data Factory länkade tjänster. Detta är också en [bra metod för CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- Om du vill autentisera till HDFS kan du [antingen använda Windows (Kerberos) eller anonym](./connector-hdfs.md#linked-service-properties). 
+- Flera autentiseringstyper stöds för att ansluta till Azure Blob Storage.  Vi rekommenderar starkt att du använder [hanterade identiteter för Azure-resurser](./connector-azure-blob-storage.md#managed-identity). Med hanterade identiteter som bygger på en automatiskt hanterad Data Factory identitet i Azure Active Directory (Azure AD) kan du konfigurera pipelines utan att ange autentiseringsuppgifter i den länkade tjänst definitionen. Alternativt kan du autentisera till Blob Storage med hjälp av ett [huvud namn för tjänsten](./connector-azure-blob-storage.md#service-principal-authentication), en [signatur för delad åtkomst](./connector-azure-blob-storage.md#shared-access-signature-authentication)eller en [lagrings konto nyckel](./connector-azure-blob-storage.md#account-key-authentication). 
+- Flera autentiseringstyper stöds också för att ansluta till Data Lake Storage Gen2.  Vi rekommenderar starkt att du använder [hanterade identiteter för Azure-resurser](./connector-azure-data-lake-storage.md#managed-identity), men du kan också använda ett [huvud namn för tjänsten](./connector-azure-data-lake-storage.md#service-principal-authentication) eller en [lagrings konto nyckel](./connector-azure-data-lake-storage.md#account-key-authentication). 
+- När du inte använder hanterade identiteter för Azure-resurser rekommenderar vi starkt att du [lagrar autentiseringsuppgifterna i Azure Key Vault](./store-credentials-in-key-vault.md) för att göra det lättare att hantera och rotera nycklar centralt utan att ändra Data Factory länkade tjänster. Detta är också en [bra metod för CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
 
 ### <a name="initial-snapshot-data-migration"></a>Första migrering av ögonblicks bild data 
 
@@ -110,7 +110,7 @@ Om något av kopierings jobben Miss lyckas på grund av tillfälliga problem med
 
 I Data Factory DistCp-läge kan du använda kommando rads parametern DistCp `-update` , skriva data när käll filen och målfilen skiljer sig i storlek, för migrering av delta data.
 
-I Data Factory enhetligt integrerings läge, är det mest presterande sättet att identifiera nya eller ändrade filer från HDFS genom att använda en tidspartitionerad namngivnings konvention. När dina data i HDFS har tidspartitioner ATS med Time-slice-information i fil-eller mappnamnet (till exempel */yyyy/mm/dd/file.csv*), kan pipelinen enkelt identifiera vilka filer och mappar som ska kopieras stegvis.
+I Data Factory enhetligt integrerings läge, är det mest presterande sättet att identifiera nya eller ändrade filer från HDFS genom att använda en tidspartitionerad namngivnings konvention. När dina data i HDFS har tidspartitioner ATS med Time-slice-information i fil-eller mappnamnet (till exempel */yyyy/mm/dd/file.csv* ), kan pipelinen enkelt identifiera vilka filer och mappar som ska kopieras stegvis.
 
 Alternativt, om dina data i HDFS inte är tidspartitionerade, kan Data Factory identifiera nya eller ändrade filer med hjälp av deras **LastModifiedDate** -värde. Data Factory genomsöker alla filer från HDFS och kopierar endast nya och uppdaterade filer som har en senast modifierad tidstämpel som är större än ett angivet värde. 
 
@@ -141,16 +141,16 @@ Här är det uppskattade priset baserat på våra antaganden:
 
 ### <a name="additional-references"></a>Ytterligare referenser
 
-- [HDFS-anslutning](https://docs.microsoft.com/azure/data-factory/connector-hdfs)
-- [Azure Blob Storage-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Azure Data Lake Storage Gen2-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Prestanda justerings guide för kopierings aktivitet](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Skapa och konfigurera lokalt installerad integrationskörning](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [Egen värd för integration runtime med hög tillgänglighet och skalbarhet](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Säkerhetsöverväganden vid dataflytt](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Spara autentiseringsuppgifter i Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Kopiera en fil i taget baserat på ett tidspartitionat fil namn](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [Kopiera nya och ändrade filer baserat på LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [HDFS-anslutning](./connector-hdfs.md)
+- [Azure Blob Storage-anslutning](./connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen2-anslutning](./connector-azure-data-lake-storage.md)
+- [Prestanda justerings guide för kopierings aktivitet](./copy-activity-performance.md)
+- [Skapa och konfigurera lokalt installerad integrationskörning](./create-self-hosted-integration-runtime.md)
+- [Egen värd för integration runtime med hög tillgänglighet och skalbarhet](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [Säkerhetsöverväganden vid dataflytt](./data-movement-security-considerations.md)
+- [Spara autentiseringsuppgifter i Azure Key Vault](./store-credentials-in-key-vault.md)
+- [Kopiera en fil i taget baserat på ett tidspartitionat fil namn](./tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
+- [Kopiera nya och ändrade filer baserat på LastModifiedDate](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [Sidan Data Factory prissättning](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>Nästa steg

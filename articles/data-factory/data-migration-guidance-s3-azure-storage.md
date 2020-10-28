@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 963a541835c5e45c5642f2d516da53fd165142b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be1cb7abbc243e3f79e183223fbbb32380f5d02d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616932"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638048"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Använd Azure Data Factory för att migrera data från Amazon S3 till Azure Storage 
 
@@ -41,9 +41,9 @@ Kunderna har migrerat petabyte av data som består av hundratals miljoner filer 
 
 Bilden ovan illustrerar hur du kan uppnå hög hastighet för data förflyttning genom olika nivåer av parallellitet:
  
-- En enda kopierings aktivitet kan dra nytta av skalbara beräknings resurser: när du använder Azure Integration Runtime kan du ange [upp till 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) för varje kopierings aktivitet på ett Server lös sätt. När du använder Integration Runtime med egen värd kan du skala upp datorn manuellt eller skala ut till flera datorer ([upp till 4 noder](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)) och en enda kopierings aktivitet partitionerar dess fil uppsättning på alla noder. 
+- En enda kopierings aktivitet kan dra nytta av skalbara beräknings resurser: när du använder Azure Integration Runtime kan du ange [upp till 256 DIUs](./copy-activity-performance.md#data-integration-units) för varje kopierings aktivitet på ett Server lös sätt. När du använder Integration Runtime med egen värd kan du skala upp datorn manuellt eller skala ut till flera datorer ([upp till 4 noder](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)) och en enda kopierings aktivitet partitionerar dess fil uppsättning på alla noder. 
 - En enskild kopierings aktivitet läser från och skriver till data lagret med hjälp av flera trådar. 
-- ADF-kontroll flödet kan starta flera kopierings aktiviteter parallellt, till exempel använda [för varje slinga](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
+- ADF-kontroll flödet kan starta flera kopierings aktiviteter parallellt, till exempel använda [för varje slinga](./control-flow-for-each-activity.md). 
 
 ## <a name="resilience"></a>Återhämtning
 
@@ -57,7 +57,7 @@ Som standard överför ADF data från Amazon S3 till Azure Blob Storage eller Az
 
 Alternativt, om du inte vill att data ska överföras över offentliga Internet, kan du öka säkerheten genom att överföra data via en privat peering-länk mellan AWS Direct Connect och Azure Express Route.  Se lösnings arkitekturen nedan om hur detta kan uppnås. 
 
-## <a name="solution-architecture"></a>Lösningsarkitektur
+## <a name="solution-architecture"></a>Lösningsarkitekturen
 
 Migrera data över offentliga Internet:
 
@@ -81,10 +81,10 @@ Migrera data över privat länk:
 
 ### <a name="authentication-and-credential-management"></a>Autentisering och hantering av autentiseringsuppgifter 
 
-- Om du vill autentisera till Amazon S3-kontot måste du använda [åtkomst nyckel för IAM-kontot](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service#linked-service-properties). 
-- Flera typer av autentisering stöds för att ansluta till Azure Blob Storage.  Du rekommenderas att använda [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity) : byggt ovanpå en automatiskt hanterad ADF-identifiering i Azure AD, där du kan konfigurera pipelines utan att ange autentiseringsuppgifter i den länkade tjänst definitionen.  Alternativt kan du autentisera till Azure Blob Storage med [tjänstens huvud namn](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), [signatur för delad åtkomst](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)eller [lagrings konto nyckel](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
-- Flera autentiseringstyper stöds också för att ansluta till Azure Data Lake Storage Gen2.  Användning av [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity) är starkt rekommenderat, även om [tjänstens huvud namn](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) eller [lagrings konto nyckel](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication) också kan användas. 
-- Om du inte använder hanterade identiteter för Azure-resurser rekommenderar vi att du [sparar autentiseringsuppgifterna i Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) för att göra det enklare att hantera och rotera nycklar centralt utan att ändra ADF-länkade tjänster.  Detta är också en av de [rekommenderade metoderna för CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
+- Om du vill autentisera till Amazon S3-kontot måste du använda [åtkomst nyckel för IAM-kontot](./connector-amazon-simple-storage-service.md#linked-service-properties). 
+- Flera typer av autentisering stöds för att ansluta till Azure Blob Storage.  Du rekommenderas att använda [hanterade identiteter för Azure-resurser](./connector-azure-blob-storage.md#managed-identity) : byggt ovanpå en automatiskt hanterad ADF-identifiering i Azure AD, där du kan konfigurera pipelines utan att ange autentiseringsuppgifter i den länkade tjänst definitionen.  Alternativt kan du autentisera till Azure Blob Storage med [tjänstens huvud namn](./connector-azure-blob-storage.md#service-principal-authentication), [signatur för delad åtkomst](./connector-azure-blob-storage.md#shared-access-signature-authentication)eller [lagrings konto nyckel](./connector-azure-blob-storage.md#account-key-authentication). 
+- Flera autentiseringstyper stöds också för att ansluta till Azure Data Lake Storage Gen2.  Användning av [hanterade identiteter för Azure-resurser](./connector-azure-data-lake-storage.md#managed-identity) är starkt rekommenderat, även om [tjänstens huvud namn](./connector-azure-data-lake-storage.md#service-principal-authentication) eller [lagrings konto nyckel](./connector-azure-data-lake-storage.md#account-key-authentication) också kan användas. 
+- Om du inte använder hanterade identiteter för Azure-resurser rekommenderar vi att du [sparar autentiseringsuppgifterna i Azure Key Vault](./store-credentials-in-key-vault.md) för att göra det enklare att hantera och rotera nycklar centralt utan att ändra ADF-länkade tjänster.  Detta är också en av de [rekommenderade metoderna för CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
 
 ### <a name="initial-snapshot-data-migration"></a>Första migrering av ögonblicks bild data 
 
@@ -138,16 +138,16 @@ Här är det uppskattade priset baserat på ovanstående antaganden:
 ![Skärm bild av en tabell visar ett uppskattat pris.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### <a name="additional-references"></a>Ytterligare referenser 
-- [Amazon Simple Storage Service Connector](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
-- [Azure Blob Storage-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-- [Azure Data Lake Storage Gen2-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Prestanda justerings guide för kopierings aktivitet](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
-- [Skapa och konfigurera egen värd Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [Egen värd för integration runtime-tillgänglighet och skalbarhet](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [Säkerhetsöverväganden vid dataflytt](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Spara autentiseringsuppgifter i Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [Kopierings fil, stegvis baserat på tidspartitionerat fil namn](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-partitioned-file-name-copy-data-tool)
-- [Kopiera nya och ändrade filer baserat på LastModifiedDate](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-lastmodified-copy-data-tool)
+- [Amazon Simple Storage Service Connector](./connector-amazon-simple-storage-service.md)
+- [Azure Blob Storage-anslutning](./connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen2-anslutning](./connector-azure-data-lake-storage.md)
+- [Prestanda justerings guide för kopierings aktivitet](./copy-activity-performance.md)
+- [Skapa och konfigurera egen värd Integration Runtime](./create-self-hosted-integration-runtime.md)
+- [Egen värd för integration runtime-tillgänglighet och skalbarhet](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)
+- [Säkerhetsöverväganden vid dataflytt](./data-movement-security-considerations.md)
+- [Spara autentiseringsuppgifter i Azure Key Vault](./store-credentials-in-key-vault.md)
+- [Kopierings fil, stegvis baserat på tidspartitionerat fil namn](./tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
+- [Kopiera nya och ändrade filer baserat på LastModifiedDate](./tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 - [Sidan med priser för ADF](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="template"></a>Mall

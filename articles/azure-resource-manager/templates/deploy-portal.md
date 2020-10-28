@@ -2,24 +2,24 @@
 title: Distribuera resurser med Azure Portal
 description: Använd Azure Portal och Azure resurs hantering för att distribuera dina resurser till en resurs grupp i din prenumeration.
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: 31f80eb617820def871633dac1541c7dc3bed691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: b87ac48bbaec7f94d5e75939cf5ec17df0ff2d2f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85255270"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668762"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-portal"></a>Distribuera resurser med ARM-mallar och Azure Portal
 
-Lär dig hur du distribuerar dina Azure-resurser med hjälp av [Azure Portal](https://portal.azure.com) med [Azure Resource Manager-mallar (arm)](overview.md) . Information om hur du hanterar dina resurser finns i [Hantera Azure-resurser med hjälp av Azure Portal](../management/manage-resources-portal.md).
+Lär dig hur du använder [Azure Portal](https://portal.azure.com) med [Azure Resource Manager mallar (arm-mallar)](overview.md) för att distribuera dina Azure-resurser. Information om hur du hanterar dina resurser finns i [Hantera Azure-resurser med hjälp av Azure Portal](../management/manage-resources-portal.md).
 
 Att distribuera Azure-resurser med hjälp av Azure Portal omfattar vanligt vis två steg:
 
 - Skapa en resursgrupp.
 - Distribuera resurser till resurs gruppen.
 
-Dessutom kan du också distribuera en ARM-mall för att skapa Azure-resurser.
+Du kan också skapa en anpassad ARM-mall för att distribuera Azure-resurser.
 
 I den här artikeln visas båda metoderna.
 
@@ -29,20 +29,20 @@ I den här artikeln visas båda metoderna.
 
    ![Välj resurs grupper](./media/deploy-portal/select-resource-groups.png)
 
-1. Under resurs grupper väljer du **Lägg till**.
+1. Under resurs grupper väljer du **Lägg till** .
 
    ![Lägg till resurs grupp](./media/deploy-portal/add-resource-group.png)
 
 1. Välj eller ange följande egenskaps värden:
 
-    - **Prenumeration**: Välj en Azure-prenumeration.
-    - **Resurs grupp**: ge resurs gruppen ett namn.
-    - **Region**: Ange en Azure-plats. Detta är den plats där resurs gruppen lagrar metadata om resurserna. Av kompatibilitetsskäl kan du vilja ange var metadata lagras. I allmänhet rekommenderar vi att du anger en plats där de flesta av dina resurser kommer att finnas. Att använda samma plats kan förenkla din mall.
+    - **Prenumeration** : Välj en Azure-prenumeration.
+    - **Resurs grupp** : ge resurs gruppen ett namn.
+    - **Region** : Ange en Azure-plats. Den här platsen är den plats där resurs gruppen lagrar metadata om resurserna. Av kompatibilitetsskäl kan du vilja ange var metadata lagras. I allmänhet rekommenderar vi att du anger en plats där de flesta av dina resurser kommer att vara. Att använda samma plats kan förenkla din mall.
 
    ![Ange grupp värden](./media/deploy-portal/set-group-properties.png)
 
-1. Välj **Granska + skapa**.
-1. granska värdena och välj sedan **skapa**.
+1. Välj **Granska + skapa** .
+1. Granska värdena och välj sedan **skapa** .
 1. Välj **Uppdatera** innan du kan se den nya resurs gruppen i listan.
 
 ## <a name="deploy-resources-to-a-resource-group"></a>Distribuera resurser till en resurs grupp
@@ -61,15 +61,17 @@ När du har skapat en resurs grupp kan du distribuera resurser till gruppen frå
 
    ![Skapa resursgrupp](./media/deploy-portal/select-existing-group.png)
 
-   Alternativt kan du välja att skapa en resurs grupp när du distribuerar dina resurser. Välj **Skapa ny** och ge resurs gruppen ett namn.
+   Du kan välja att skapa en resurs grupp när du distribuerar dina resurser. Välj **Skapa ny** och ge resurs gruppen ett namn.
 
 1. Distributionen börjar. Distributionen kan ta flera minuter. Vissa resurser tar längre tid än andra resurser. När distributionen är färdig visas ett meddelande. Välj **gå till resurs** för att öppna
 
    ![Visa meddelande](./media/deploy-portal/view-notification.png)
 
-1. När du har distribuerat resurserna kan du lägga till fler resurser i resurs gruppen genom att välja **Lägg till**.
+1. När du har distribuerat resurserna kan du lägga till fler resurser i resurs gruppen genom att välja **Lägg till** .
 
    ![Lägg till resurs](./media/deploy-portal/add-resource.png)
+
+Även om du inte ser det, använde portalen en ARM-mall för att distribuera de resurser som du har valt. Du kan hitta mallen från distributions historiken. Mer information finns i [Exportera mall efter distribution](export-template-portal.md#export-template-after-deployment).
 
 ## <a name="deploy-resources-from-custom-template"></a>Distribuera resurser från anpassad mall
 
@@ -78,29 +80,29 @@ Om du vill köra en distribution men inte använda någon av mallarna i Marketpl
 > [!NOTE]
 > Portal gränssnittet har inte stöd för att referera till en [hemlighet från en Key Vault](key-vault-parameter.md). Använd i stället [PowerShell](deploy-powershell.md) eller [Azure CLI](deploy-cli.md) för att distribuera mallen lokalt eller från en extern URI.
 
-1. Om du vill distribuera en anpassad mall via portalen väljer du **skapa en resurs**, Sök efter **mall**. och välj sedan **malldistribution**.
+1. Om du vill distribuera en anpassad mall via portalen väljer du **skapa en resurs** , Sök efter **mall** . och välj sedan **malldistribution** .
 
    ![Distribution av Sök mall](./media/deploy-portal/search-template.png)
 
-1. Välj **Skapa**.
+1. Välj **Skapa** .
 1. Du ser flera alternativ för att skapa en mall:
 
-    - Skapa en **egen mall i redigerings programmet**: skapa en mall med hjälp av redigeraren för Portal mal len.  Redigeraren kan lägga till ett schema för resurs mal len.
-    - **Vanliga mallar**: det finns fyra vanliga mallar för att skapa en virtuell Linux-dator, en virtuell Windows-dator, ett webb program och en databas i Azure SQL Database.
-    - **Läs in en GitHub snabb starts mall**: Använd en befintlig [snabb starts](https://azure.microsoft.com/resources/templates/)mall.
+    - Skapa **en egen mall i redigeraren** : skapa en egen mall i redigeraren för Portal mal len.
+    - **Vanliga mallar** : Välj bland vanliga lösningar.
+    - **Läs in en GitHub snabb starts mall** : Välj från [snabb starts mallar](https://azure.microsoft.com/resources/templates/).
 
    ![Visnings alternativ](./media/deploy-portal/see-options.png)
 
     Den här självstudien innehåller instruktioner för att läsa in en snabb starts mall.
 
-1. Under **Läs in en GitHub snabb starts mall**skriver eller väljer du **101-Storage-Account-Create**.
+1. Under **Läs in en GitHub snabb starts mall** skriver eller väljer du **101-Storage-Account-Create** .
 
     Du kan välja mellan två alternativ:
 
-    - **Välj mall**: Distribuera mallen.
-    - **Redigera mall**: redigera snabb starts mal len innan du distribuerar den.
+    - **Välj mall** : Distribuera mallen.
+    - **Redigera mall** : redigera snabb starts mal len innan du distribuerar den.
 
-1. Välj **Redigera mall** för att utforska redigeraren för Portal mal len. Mallen läses in i redigeraren. Observera att det finns två parametrar: **storageAccountType** och **location**.
+1. Välj **Redigera mall** för att utforska redigeraren för Portal mal len. Mallen läses in i redigeraren. Observera att det finns två parametrar: **storageAccountType** och **location** .
 
    ![Skapa mallen](./media/deploy-portal/show-json.png)
 
@@ -110,17 +112,17 @@ Om du vill köra en distribution men inte använda någon av mallarna i Marketpl
     "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
     ```
 
-1. Välj **Spara**. Nu ser du distributions gränssnittet för Portal mal len. Lägg märke till de två parametrarna som du har definierat i mallen.
+1. Välj **Spara** . Nu ser du distributions gränssnittet för Portal mal len. Lägg märke till de två parametrarna som du har definierat i mallen.
 1. Ange eller Välj egenskaps värden:
 
-    - **Prenumeration**: Välj en Azure-prenumeration.
-    - **Resurs grupp**: Välj **Skapa ny** och ge ett namn.
-    - **Plats**: Välj en Azure-plats.
-    - **Typ av lagrings konto**: Använd standardvärdet.
-    - **Plats**: Använd standardvärdet.
-    - **Jag godkänner villkoren ovan**: (välj)
+    - **Prenumeration** : Välj en Azure-prenumeration.
+    - **Resurs grupp** : Välj **Skapa ny** och ge ett namn.
+    - **Plats** : Välj en Azure-plats.
+    - **Typ av lagrings konto** : Använd standardvärdet.
+    - **Plats** : Använd standardvärdet.
+    - **Jag godkänner villkoren ovan** : (välj)
 
-1. Välj **Köp**.
+1. Välj **Köp** .
 
 ## <a name="next-steps"></a>Nästa steg
 

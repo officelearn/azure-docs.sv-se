@@ -2,15 +2,15 @@
 title: Distribuera resurser till prenumerationen
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 0673ea5260c7312395acde8a62b5d457657b9793
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729125"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92668885"
 ---
-# <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
+# <a name="subscription-deployments-with-arm-templates"></a>Prenumerations distribution med ARM-mallar
 
 För att förenkla hanteringen av resurser kan du använda en Azure Resource Manager mall (ARM-mall) för att distribuera resurser på nivån i din Azure-prenumeration. Du kan t. ex. distribuera [principer](../../governance/policy/overview.md) och [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) till din prenumeration, som tillämpar dem i din prenumeration. Du kan också skapa resurs grupper i prenumerationen och distribuera resurser till resurs grupper i prenumerationen.
 
@@ -56,7 +56,7 @@ Använd följande för att hantera din prenumeration:
 * [budget](/azure/templates/microsoft.consumption/budgets)
 * [Ändra analys profil](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
-* [tags](/azure/templates/microsoft.resources/tags)
+* [taggen](/azure/templates/microsoft.resources/tags)
 
 Andra typer som stöds är:
 
@@ -71,32 +71,26 @@ Schemat som används för distributioner på prenumerations nivå skiljer sig fr
 För mallar använder du:
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    ...
+}
 ```
 
 Schemat för en parameter fil är detsamma för alla distributions omfång. För parameter-filer använder du:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
-
-## <a name="deployment-scopes"></a>Distributions omfång
-
-När du distribuerar till en prenumeration kan du rikta en prenumeration och eventuella resurs grupper i prenumerationen. Du kan inte distribuera till en annan prenumeration än mål prenumerationen. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
-
-De resurser som definieras i avsnittet resurser i mallen tillämpas på prenumerationen.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
-
-Om du vill rikta en resurs grupp i prenumerationen lägger du till en kapslad distribution och inkluderar `resourceGroup` egenskapen. I följande exempel riktar den kapslade distributionen till en resurs grupp med namnet `rg2` .
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
-
-I den här artikeln hittar du mallar som visar hur du distribuerar resurser till olika omfång. En mall som skapar en resurs grupp och distribuerar ett lagrings konto till den finns i [skapa resurs grupper och resurser](#create-resource-group-and-resources). För en mall som skapar en resurs grupp, använder ett lås på den och tilldelar en roll för resurs gruppen, se [åtkomst kontroll](#access-control).
 
 ## <a name="deployment-commands"></a>Distributions kommandon
 
-Kommandona för distributioner på prenumerations nivå skiljer sig från kommandona för resurs grupp distributioner.
+Använd distributions kommandon på prenumerations nivå för att distribuera till en prenumeration.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 För Azure CLI använder du [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create). I följande exempel distribueras en mall för att skapa en resurs grupp:
 
@@ -108,7 +102,9 @@ az deployment sub create \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
-För kommandot PowerShell-distribution använder du [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) eller **New-AzSubscriptionDeployment**. I följande exempel distribueras en mall för att skapa en resurs grupp:
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+För kommandot PowerShell-distribution använder du [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) eller **New-AzSubscriptionDeployment** . I följande exempel distribueras en mall för att skapa en resurs grupp:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -119,35 +115,52 @@ New-AzSubscriptionDeployment `
   -rgLocation centralus
 ```
 
-För REST API använder du [distributioner – skapa vid prenumerations omfång](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+---
+
+Mer detaljerad information om distributions kommandon och alternativ för att distribuera ARM-mallar finns i:
+
+* [Distribuera resurser med ARM-mallar och Azure Portal](deploy-portal.md)
+* [Distribuera resurser med ARM-mallar och Azure CLI](deploy-cli.md)
+* [Distribuera resurser med ARM-mallar och Azure PowerShell](deploy-powershell.md)
+* [Distribuera resurser med ARM-mallar och Azure Resource Manager REST API](deploy-rest.md)
+* [Använd en distributions knapp för att distribuera mallar från GitHub-lagringsplatsen](deploy-to-azure-button.md)
+* [Distribuera ARM-mallar från Cloud Shell](deploy-cloud-shell.md)
+
+## <a name="deployment-scopes"></a>Distributions omfång
+
+När du distribuerar till en prenumeration kan du distribuera resurser för att:
+
+* mål prenumerationen från åtgärden
+* resurs grupper i prenumerationen
+* [tilläggs resurser](scope-extension-resources.md) kan tillämpas på resurser
+
+Du kan inte distribuera till en annan prenumeration än mål prenumerationen. Användaren som distribuerar mallen måste ha åtkomst till det angivna omfånget.
+
+I det här avsnittet visas hur du anger olika omfång. Du kan kombinera dessa olika omfång i en enda mall.
+
+### <a name="scope-to-subscription"></a>Omfång till prenumeration
+
+Om du vill distribuera resurser till mål prenumerationen lägger du till resurserna i avsnittet resurser i mallen.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+Exempel på hur du distribuerar till prenumerationen finns i [skapa resurs grupper](#create-resource-groups) och [tilldela princip definition](#assign-policy-definition).
+
+### <a name="scope-to-resource-group"></a>Omfång till resurs grupp
+
+Om du vill distribuera resurser till en resurs grupp i prenumerationen lägger du till en kapslad distribution och inkluderar `resourceGroup` egenskapen. I följande exempel riktar den kapslade distributionen till en resurs grupp med namnet `demoResourceGroup` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+Ett exempel på hur du distribuerar till en resurs grupp finns i [skapa resurs grupper och resurser](#create-resource-group-and-resources).
 
 ## <a name="deployment-location-and-name"></a>Distributions plats och namn
 
 För distributioner på prenumerations nivå måste du ange en plats för distributionen. Platsen för distributionen är separat från platsen för de resurser som du distribuerar. Distributions platsen anger var distributions data ska lagras.
 
-Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy**.
+Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall som heter **azuredeploy.jspå** skapas ett standard distributions namn för **azuredeploy** .
 
 För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
-
-## <a name="use-template-functions"></a>Använda mall funktioner
-
-För distributioner på prenumerations nivå finns det några viktiga överväganden när du använder mallarna:
-
-* Funktionen [resourceGroup ()](template-functions-resource.md#resourcegroup) stöds **inte** .
-* Funktionerna [Reference ()](template-functions-resource.md#reference) och [List ()](template-functions-resource.md#list) stöds.
-* Använd inte [resourceId ()](template-functions-resource.md#resourceid) för att hämta resurs-ID för resurser som distribueras på prenumerations nivå. Använd i stället funktionen [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
-
-  Om du till exempel vill hämta resurs-ID för en princip definition som distribueras till en prenumeration använder du:
-
-  ```json
-  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
-  ```
-
-  Det returnerade resurs-ID: t har följande format:
-
-  ```json
-  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## <a name="resource-groups"></a>Resursgrupper
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: c392ad7a098116a8f2224d6844d38dc40e01d753
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545998"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629450"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Utveckling av skript åtgärder med HDInsight
 
@@ -239,7 +239,7 @@ Följande hjälpprogram som är tillgängliga för användning i skriptet:
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Laddar ned en fil från käll-URI: n till angiven fil Sök väg. Som standard skriver den inte över en befintlig fil. |
 | `untar_file TARFILE DESTDIR` |Extraherar en tar-fil (med `-xf` ) till mål katalogen. |
-| `test_is_headnode` |Om kördes på en klusternod, returnerar 1; Annars, 0. |
+| `test_is_headnode` |Om skriptet kördes på en klusternod, returnerar 1; Annars, 0. |
 | `test_is_datanode` |Om den aktuella noden är en data-nod (Worker), returnerar du 1; Annars, 0. |
 | `test_is_first_datanode` |Om den aktuella noden är den första data (Work)-noden (med namnet workernode0) returnerar 1; Annars, 0. |
 | `get_headnodes` |Returnera det fullständigt kvalificerade domän namnet för huvudnoderna i klustret. Namnen är kommaavgränsade. En tom sträng returnerades vid fel. |
@@ -268,7 +268,7 @@ Att ställa in en miljö variabel utförs av följande uttryck:
 VARIABLENAME=value
 ```
 
-Där VARIABLENAME är namnet på variabeln. Använd för att få åtkomst till variabeln `$VARIABLENAME` . Om du till exempel vill tilldela ett värde som tillhandahålls av en positions parameter som en miljö variabel med namnet PASSWORD, använder du följande instruktion:
+I föregående exempel `VARIABLENAME` är namnet på variabeln. Använd för att få åtkomst till variabeln `$VARIABLENAME` . Om du till exempel vill tilldela ett värde som tillhandahålls av en positions parameter som en miljö variabel med namnet PASSWORD, använder du följande instruktion:
 
 ```bash
 PASSWORD=$1

@@ -66,9 +66,9 @@ För användare som är inloggade med en personlig [Microsoft-konto (MSA)](https
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problem med interaktiv webb läsar autentisering
 
-När du skriver authentication code i dina Azure Digital-program med version **1.2.0** av ** [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) -biblioteket**kan det uppstå problem med [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) -metoden.
+När du skriver authentication code i dina Azure Digital-program med version **1.2.0** av **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) -biblioteket** kan det uppstå problem med [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) -metoden.
 
-Detta är inte den senaste versionen av biblioteket. Den senaste versionen är **1.2.2**.
+Detta är inte den senaste versionen av biblioteket. Den senaste versionen är **1.2.2** .
 
 Den berörda metoden används i följande artiklar: 
 * [*Självstudie: koda en klient app*](tutorial-code.md)
@@ -79,11 +79,11 @@ Problemet innehåller ett felsvar för "Azure. Identity. AuthenticationFailedExc
 
 ### <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
-Du löser problemet genom att uppdatera dina program för att använda `Azure.Identity` version **1.2.2**. I den här versionen av biblioteket bör webbläsaren läsa in och autentiseras som förväntat.
+Du löser problemet genom att uppdatera dina program för att använda `Azure.Identity` version **1.2.2** . I den här versionen av biblioteket bör webbläsaren läsa in och autentiseras som förväntat.
 
 ### <a name="possible-causes"></a>Möjliga orsaker
 
-Detta är relaterat till ett öppet ärende med den senaste versionen av `Azure.Identity` biblioteket (version **1.2.0**): [*kan inte autentiseras när du använder InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
+Detta är relaterat till ett öppet ärende med den senaste versionen av `Azure.Identity` biblioteket (version **1.2.0** ): [*kan inte autentiseras när du använder InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
 Du ser det här problemet om du använder version **1.2.0** i ditt Azure Digitals dubbla program, eller om du lägger till biblioteket i projektet utan att ange en version (som även som standard till den senaste versionen).
 

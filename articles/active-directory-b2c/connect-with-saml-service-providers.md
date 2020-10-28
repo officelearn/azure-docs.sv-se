@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 18afa6b2e974c605b18d4e38b82061234619e9ff
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c59a104796e11b15af805e34f9cd14b2ce8bd075
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998113"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628855"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -51,7 +51,7 @@ Sammanfatta de två icke-exklusiva huvud scenarierna med SAML:
 
 Det finns tre huvud komponenter som krävs för det här scenariot:
 
-* SAML **-** tjänstprovider med möjlighet att skicka SAML-begäranden och ta emot, avkoda och svara på SAML-kontroller från Azure AD B2C. Detta kallas även för den förlitande parten.
+* SAML **-** tjänstprovider med möjlighet att skicka SAML-begäranden och ta emot, avkoda och svara på SAML-kontroller från Azure AD B2C. Tjänst leverantören kallas även för den förlitande part applikationen.
 * Offentligt tillgänglig **slut punkt** för SAML-metadata för din tjänst leverantör.
 * [Azure AD B2C klient](tutorial-create-tenant.md)
 
@@ -99,13 +99,13 @@ Om du inte redan har ett certifikat kan du använda ett självsignerat certifika
 Sedan laddar du upp certifikatet för SAML Assertion och svars signering till Azure AD B2C.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och bläddra till Azure AD B2C klienten.
-1. Under **principer**väljer du **identitets miljö ramverk** och sedan **princip nycklar**.
-1. Välj **Lägg till**och välj sedan **alternativ**  >  **Ladda upp**.
-1. Ange ett **namn**, till exempel *SamlIdpCert*. Prefixet *B2C_1A_* läggs automatiskt till i namnet på din nyckel.
+1. Under **principer** väljer du **identitets miljö ramverk** och sedan **princip nycklar** .
+1. Välj **Lägg till** och välj sedan **alternativ**  >  **Ladda upp** .
+1. Ange ett **namn** , till exempel *SamlIdpCert* . Prefixet *B2C_1A_* läggs automatiskt till i namnet på din nyckel.
 1. Ladda upp certifikatet med hjälp av upload File-kontrollen.
 1. Ange certifikatets lösen ord.
-1. Välj **Skapa**.
-1. Kontrol lera att nyckeln visas som förväntat. Till exempel *B2C_1A_SamlIdpCert*.
+1. Välj **Skapa** .
+1. Kontrol lera att nyckeln visas som förväntat. Till exempel *B2C_1A_SamlIdpCert* .
 
 ## <a name="2-prepare-your-policy"></a>2. Förbered principen
 
@@ -159,7 +159,7 @@ Nu när din klient organisation kan utfärda SAML-intyg måste du skapa principe
 
 ### <a name="31-create-sign-up-or-sign-in-policy"></a>3,1 Skapa registrerings-eller inloggnings princip
 
-1. Skapa en kopia av *SignUpOrSignin.xml* -filen i arbets katalogen för ditt Start paket och spara den med ett nytt namn. Till exempel *SignUpOrSigninSAML.xml*. Detta är den förlitande partens princip fil.
+1. Skapa en kopia av *SignUpOrSignin.xml* -filen i arbets katalogen för ditt Start paket och spara den med ett nytt namn. Till exempel *SignUpOrSigninSAML.xml* . Detta är den förlitande partens princip fil.
 
 1. Öppna *SignUpOrSigninSAML.xml* -filen i önskat redigerings program.
 
@@ -208,7 +208,7 @@ Nu när din klient organisation kan utfärda SAML-intyg måste du skapa principe
 
 1. Uppdatera `tenant-name` med namnet på din Azure AD B2C-klient.
 
-Den slutgiltiga förlitande partens princip fil bör se ut så här:
+Den slutgiltiga förlitande partens princip fil bör se ut som följande XML-kod:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -272,11 +272,11 @@ Din anpassade princip och Azure AD B2C klient är nu klara. Skapa sedan en progr
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
-1. Välj **Appregistreringar**och välj sedan **ny registrering**.
-1. Ange ett **namn** för programmet. Till exempel *SAMLApp1*.
-1. Under **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**
-1. Under **omdirigerings-URI**väljer du **webb**och anger sedan `https://localhost` . Du ändrar det här värdet senare i program registreringens manifest.
+1. På den vänstra menyn väljer du **Azure AD B2C** . Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C** .
+1. Välj **Appregistreringar** och välj sedan **ny registrering** .
+1. Ange ett **namn** för programmet. Till exempel *SAMLApp1* .
+1. Under **konto typer som stöds** väljer du **konton endast i den här organisations katalogen**
+1. Under **omdirigerings-URI** väljer du **webb** och anger sedan `https://localhost` . Du ändrar det här värdet senare i program registreringens manifest.
 1. Välj **Register** (Registrera).
 
 ### <a name="42-update-the-app-manifest"></a>4,2 uppdatera app-manifestet
@@ -284,11 +284,11 @@ Din anpassade princip och Azure AD B2C klient är nu klara. Skapa sedan en progr
 För SAML-appar finns det flera egenskaper som du måste konfigurera i program registreringens manifest.
 
 1. I [Azure Portal](https://portal.azure.com)navigerar du till den program registrering som du skapade i föregående avsnitt.
-1. Under **Hantera**väljer du **manifest** för att öppna manifest redigeraren. Du ändrar flera egenskaper i följande avsnitt.
+1. Under **Hantera** väljer du **manifest** för att öppna manifest redigeraren. Du ändrar flera egenskaper i följande avsnitt.
 
 #### <a name="identifieruris"></a>identifierUris
 
-`identifierUris`Är en sträng samling som innehåller användardefinierade URI: er som unikt identifierar en webbapp inom den Azure AD B2C klienten. Tjänste leverantören måste ange det här värdet i `Issuer` elementet i en SAML-begäran.
+`identifierUris`Är en sträng samling som innehåller användardefinierade URI: er som unikt identifierar en webbapp inom den Azure AD B2C klienten. URI: n måste matcha SAML-frågans `Issuer` namn. Den användardefinierade URI: n är vanligt vis samma värde som tjänste leverantörens metadata `entityID` .
 
 #### <a name="samlmetadataurl"></a>samlMetadataUrl
 
@@ -296,7 +296,7 @@ Den här egenskapen representerar tjänst leverantörens allmänt tillgängliga 
 
 Metadata är information som används i SAML-protokollet för att exponera konfigurationen av en SAML-part, till exempel en tjänst leverantör. Metadata definierar var tjänsterna finns, t. ex. inloggning och utloggning, certifikat, inloggnings metod med mera. Azure AD B2C läser metadata för tjänste leverantören och fungerar enligt detta. Metadata krävs inte. Du kan också ange vissa attribut, t. ex. svars-URI och utloggnings-URI direkt i app-manifestet.
 
-Om det finns egenskaper som anges *i URL: en för SAML* -metadata och i program registreringens manifest, **slås de samman**. Egenskaperna som anges i URL: en för metadata bearbetas först och prioriteras.
+Om det finns egenskaper som anges *i URL: en för SAML* -metadata och i program registreringens manifest, **slås de samman** . Egenskaperna som anges i URL: en för metadata bearbetas först och prioriteras.
 
 I den här självstudien, som använder SAML-testprogrammet, använder du följande värde för `samlMetadataUrl` :
 
@@ -335,12 +335,14 @@ I den här självstudien, som använder SAML-testprogrammet, lämnar `logoutUrl`
 
 Det sista steget är att aktivera Azure AD B2C som en SAML-IdP i ditt SAML-förlitande parts program. Varje program är olika och stegen för att göra det varierar. Mer information finns i dokumentationen till appen.
 
+Metadata kan konfigureras i tjänst leverantören som "statiska metadata" eller "dynamiska metadata". I statiskt läge kopierar du hela eller delar av metadata från Azure AD B2C-principens metadata. I dynamiskt läge ställer du in URL: en till metadata och låter programmet läsa metadata dynamiskt.
+
 En eller flera av följande är vanligt vis obligatoriska:
 
-* **Metadata**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Utfärdare**: Använd entityId i metadatafilen
-* **Inloggnings webb adress/SAML-slut punkt/SAML-URL**: kontrol lera värdet i metadatafilen
-* **Certifikat**: det här är *B2C_1A_SamlIdpCert*, men utan den privata nyckeln. Så här hämtar du den offentliga nyckeln för certifikatet:
+* **Metadata** : `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
+* **Utfärdare** : SAML-begärans `issuer` värde måste matcha en av de URI: er som kon figurer ATS i `identifierUris` elementet i manifestet för program registrering. Om SAML-frågans `issuer` namn inte finns i `identifierUris` elementet, [lägger du till det i manifestet för program registreringen](#identifieruris). Till exempel `https://contoso.onmicrosoft.com/app-name`. 
+* **Inloggnings webb adress/SAML-slut punkt/SAML-URL** : kontrol lera värdet i Azure AD B2C SAML-principens metadatafil för `<SingleSignOnService>` XML-elementet
+* **Certifikat** : det här är *B2C_1A_SamlIdpCert* , men utan den privata nyckeln. Så här hämtar du den offentliga nyckeln för certifikatet:
 
     1. Gå till URL: en för metadata som anges ovan.
     1. Kopiera värdet i `<X509Certificate>` elementet.
@@ -353,7 +355,7 @@ För att slutföra den här självstudien med vårt [SAML-testprogram][samltest]
 
 * Uppdatera klient organisations namnet
 * Uppdaterings princip namn, till exempel *B2C_1A_signup_signin_saml*
-* Ange denna utfärdar-URI: `https://contoso.onmicrosoft.com/app-name`
+* Ange den här utfärdar-URI: n. Använd en av de URI: er som finns i `identifierUris` elementet i program registrerings manifestet, till exempel `https://contoso.onmicrosoft.com/app-name` .
 
 Välj **Logga in** och visa en användar inloggnings skärm. Vid inloggning utfärdas en SAML-kontroll tillbaka till exempel programmet.
 
@@ -361,7 +363,7 @@ Välj **Logga in** och visa en användar inloggnings skärm. Vid inloggning utf�
 
 Om du vill kryptera SAML-kontroller som skickas tillbaka till tjänst leverantören använder Azure AD B2C tjänst leverantörens offentliga nyckel certifikat. Den offentliga nyckeln måste finnas i SAML-metadata som anges i ovanstående ["samlMetadataUrl"](#samlmetadataurl) som en nyckel beskrivning med användning av "kryptering".
 
-Följande är ett exempel på en nyckel beskrivning för SAML-metadata med en användnings uppsättning som kryptering:
+Följande XML-kod är ett exempel på en nyckel beskrivning för SAML-metadata med en användnings uppsättning som kryptering:
 
 ```xml
 <KeyDescriptor use="encryption">
@@ -391,7 +393,9 @@ Om du vill aktivera Azure AD B2C skicka krypterade intyg anger du **WantsEncrypt
 
 ## <a name="enable-identity-provider-initiated-flow-optional"></a>Aktivera flöde för initierad identitetsprovider (valfritt)
 
-I initierat flöde för identitetsprovider initieras inloggnings processen av identitets leverantören (Azure AD B2C), som skickar ett oönskat SAML-svar till tjänst leverantören (ditt förlitande parts program). Om du vill aktivera flödet för initierad identitetsprovider anger du **IdpInitiatedProfileEnabled** -objektet till `true` i den [förlitande partens tekniska profil](relyingparty.md#technicalprofile).
+I initierat flöde för identitetsprovider initieras inloggnings processen av identitets leverantören (Azure AD B2C), som skickar ett oönskat SAML-svar till tjänst leverantören (ditt förlitande parts program). Vi stöder för närvarande inte scenarier där den initierande identitets leverantören är en extern identitetsprovider, till exempel [AD-FS](identity-provider-adfs2016-custom.md)eller [Salesforce](identity-provider-salesforce-custom.md).
+
+Om du vill aktivera Identity Provider (Azure AD B2C) initierat flöde anger du **IdpInitiatedProfileEnabled** -objektet till `true` i den [förlitande partens tekniska profil](relyingparty.md#technicalprofile).
 
 ```xml
 <RelyingParty>
@@ -410,14 +414,14 @@ I initierat flöde för identitetsprovider initieras inloggnings processen av id
 Om du vill logga in eller registrera en användare via ett initierat flöde för identitetsprovider använder du följande URL:
 
 ```
-https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic/login
+https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic/login?EntityId=app-identifier-uri 
 ```
 
 Ersätt följande värden:
 
 * **klient organisations** namn med ditt klient namn
 * **princip-namn** med ditt SAML-princip namn för förlitande part
-
+* **app-Identifier-URI** med `identifierUris` i metadatafilen, till exempel `https://contoso.onmicrosoft.com/app-name`
 ## <a name="sample-policy"></a>Exempel-princip
 
 Vi tillhandahåller en komplett exempel princip som du kan använda för testning med SAML test-appen.
@@ -435,22 +439,19 @@ Följande scenarier för SAML-förlitande part (RP) stöds via din egen metadata
 * Ange token krypterings nyckel i program/tjänstens huvud namns objekt.
 * Identitets leverantören initierade inloggningen, där identitetsprovider är Azure AD B2C.
 
-Följande scenarier för SAML-förlitande part (RP) stöds inte för närvarande:
-* Identitetsprovider initierade inloggning, där identitets leverantören är en extern identitetsprovider, till exempel ADFS.
-
 ## <a name="saml-token"></a>SAML-token
 
 En SAML-token är en säkerhetstoken som utfärdas av Azure AD B2C efter en lyckad inloggning. Den innehåller information om användaren, tjänst leverantören som token är avsedd för, signatur och giltighets tid. I följande tabell visas de anspråk och egenskaper som du kan förväntar dig i en SAML-token som utfärdats av Azure AD B2C.
 
-|Element  |Egenskap  |Kommentarer  |
+|Element  |Egenskap  |Kommentarer  |
 |---------|---------|---------|
 |`<Response>`| `ID` | En automatiskt genererad unik identifierare för svaret. | 
 |`<Response>`| `InResponseTo` | ID: t för SAML-begäran som detta meddelande är svar på. | 
-|`<Response>` | `IssueInstant` | Tiden för att skicka svar. Time-värdet är kodat i UTC.Om du vill ändra inställningarna för dina token för din token anger du `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) för den tekniska profilen för utfärdare av SAML-token. | 
+|`<Response>` | `IssueInstant` | Tiden för att skicka svar. Time-värdet är kodat i UTC.  Om du vill ändra inställningarna för dina token för din token anger du `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) för den tekniska profilen för utfärdare av SAML-token. | 
 |`<Response>` | `Destination`| En URI-referens som visar adressen som svaret har skickats till. Värdet är identiskt med SAML-begäran `AssertionConsumerServiceURL` . | 
-|`<Response>` `<Issuer>` | |Identifierar token utfärdaren. Det här är en godtycklig URI som definieras av utfärdarens metadata för SAML-token `IssuerUri` [metadata](saml-issuer-technical-profile.md#metadata)     |
-|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |Det huvud konto som används för att kontrollera token, till exempel användar objekt-ID. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Den kan användas för att utföra verifierings kontroller på ett säkert sätt, till exempel när token används för att få åtkomst till en resurs. Som standard fylls ämnes anspråket med objekt-ID: t för användaren i katalogen.|
-|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | En URI-referens som representerar klassificeringen av strängbaserade ID-information. Som standard utelämnas den här egenskapen. Du kan ställa in den förlitande partens [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) för att ange `NameID` formatet, till exempel `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` . |
+|`<Response>` `<Issuer>` | |Identifierar token utfärdaren. Det här är en godtycklig URI som definieras av utfärdarens metadata för SAML-token `IssuerUri` [metadata](saml-issuer-technical-profile.md#metadata)     |
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |Det huvud konto som används för att kontrollera token, till exempel användar objekt-ID. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Den kan användas för att utföra verifierings kontroller på ett säkert sätt, till exempel när token används för att få åtkomst till en resurs. Som standard fylls ämnes anspråket med objekt-ID: t för användaren i katalogen.|
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | En URI-referens som representerar klassificeringen av strängbaserade ID-information. Som standard utelämnas den här egenskapen. Du kan ställa in den förlitande partens [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) för att ange `NameID` formatet, till exempel `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` . |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |Tiden då token börjar gälla. Time-värdet är kodat i UTC. Programmet bör använda detta anspråk för att kontrol lera giltigheten för token för token. Om du vill ändra inställningarna för dina livs längder för token anger du `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) för den tekniska profilen för SAML-token. |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | Tiden då token blir ogiltig. Programmet bör använda detta anspråk för att kontrol lera giltigheten för token för token. Värdet är 15 minuter efter `NotBefore` och kan inte ändras.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |En URI-referens som identifierar en avsedd mål grupp. Den identifierar den avsedda mottagaren av token. Värdet är identiskt med SAML-begäran `AssertionConsumerServiceURL` .|

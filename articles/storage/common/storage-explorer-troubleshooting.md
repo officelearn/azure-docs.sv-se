@@ -23,7 +23,7 @@ I den här guiden sammanfattas lösningar för problem som ofta visas i Storage 
 
 ## <a name="azure-rbac-permissions-issues"></a>Problem med Azure RBAC-behörighet
 
-Azure-rollbaserad åtkomst kontroll [Azure RBAC](/azure/role-based-access-control/overview) möjliggör mycket detaljerad åtkomst hantering av Azure-resurser genom att kombinera uppsättningar med behörigheter i _roller_. Här följer några strategier för att få Azure RBAC fungerar optimalt i Storage Explorer.
+Azure-rollbaserad åtkomst kontroll [Azure RBAC](/azure/role-based-access-control/overview) möjliggör mycket detaljerad åtkomst hantering av Azure-resurser genom att kombinera uppsättningar med behörigheter i _roller_ . Här följer några strategier för att få Azure RBAC fungerar optimalt i Storage Explorer.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Hur gör jag för att åtkomst till mina resurser i Storage Explorer?
 
@@ -46,7 +46,7 @@ Du måste tilldelas minst en roll som beviljar åtkomst för att läsa data frå
 
 ### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Varför behöver jag en hanterings skikt roll för att se mina resurser i Storage Explorer?
 
-Azure Storage har två åtkomst nivåer: _hantering_ och _data_. Prenumerationer och lagrings konton nås via hanterings skiktet. Behållare, blobbar och andra data resurser nås via data lagret. Om du till exempel vill hämta en lista över dina lagrings konton från Azure skickar du en begäran till hanterings slut punkten. Om du vill ha en lista över BLOB-behållare i ett konto skickar du en begäran till lämplig tjänst slut punkt.
+Azure Storage har två åtkomst nivåer: _hantering_ och _data_ . Prenumerationer och lagrings konton nås via hanterings skiktet. Behållare, blobbar och andra data resurser nås via data lagret. Om du till exempel vill hämta en lista över dina lagrings konton från Azure skickar du en begäran till hanterings slut punkten. Om du vill ha en lista över BLOB-behållare i ett konto skickar du en begäran till lämplig tjänst slut punkt.
 
 Azure-roller kan ge dig behörigheter för hantering eller åtkomst till data lager. Rollen läsare, till exempel beviljar skrivskyddad åtkomst till hanterings skikts resurser.
 
@@ -70,10 +70,10 @@ För andra resurs typer har vi för närvarande ingen Azure RBAC-relaterad lösn
 ### <a name="recommended-azure-built-in-roles"></a>Rekommenderade inbyggda Azure-roller
 
 Det finns flera inbyggda Azure-roller som kan ge de behörigheter som krävs för att använda Storage Explorer. Några av dessa roller är:
-- [Ägare](/azure/role-based-access-control/built-in-roles#owner): hantera allt, inklusive åtkomst till resurser. **Obs**: den här rollen ger dig nyckel åtkomst.
-- [Deltagare](/azure/role-based-access-control/built-in-roles#contributor): hantera allt, förutom åtkomst till resurser. **Obs**: den här rollen ger dig nyckel åtkomst.
+- [Ägare](/azure/role-based-access-control/built-in-roles#owner): hantera allt, inklusive åtkomst till resurser. **Obs** : den här rollen ger dig nyckel åtkomst.
+- [Deltagare](/azure/role-based-access-control/built-in-roles#contributor): hantera allt, förutom åtkomst till resurser. **Obs** : den här rollen ger dig nyckel åtkomst.
 - [Läsare](/azure/role-based-access-control/built-in-roles#reader): läsa och lista resurser.
-- [Lagrings konto deltagare](/azure/role-based-access-control/built-in-roles#storage-account-contributor): fullständig hantering av lagrings konton. **Obs**: den här rollen ger dig nyckel åtkomst.
+- [Lagrings konto deltagare](/azure/role-based-access-control/built-in-roles#storage-account-contributor): fullständig hantering av lagrings konton. **Obs** : den här rollen ger dig nyckel åtkomst.
 - [Storage BLOB data-ägare](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): fullständig åtkomst till Azure Storage BLOB-behållare och data.
 - [Storage BLOB data-deltagare](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): läsa, skriva och ta bort Azure Storage behållare och blobbar.
 - [Storage BLOB data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): läsa och lista Azure Storage behållare och blobbar.
@@ -82,13 +82,13 @@ Det finns flera inbyggda Azure-roller som kan ge de behörigheter som krävs fö
 
 Certifikat fel inträffar vanligt vis i någon av följande situationer:
 
-- Appen är ansluten via en _transparent proxy_. Det innebär att en server (till exempel din företags server) fångar upp HTTPS-trafik, dekrypterar den och sedan krypterar den med hjälp av ett självsignerat certifikat.
+- Appen är ansluten via en _transparent proxy_ . Det innebär att en server (till exempel din företags server) fångar upp HTTPS-trafik, dekrypterar den och sedan krypterar den med hjälp av ett självsignerat certifikat.
 - Du kör ett program som matar in ett självsignerat TLS/SSL-certifikat i de HTTPS-meddelanden som du får. Exempel på program som injicerar certifikat är antivirus-och kontroll program för nätverks trafik.
 
 När Storage Explorer ser ett självsignerat eller ej betrott certifikat, vet det inte längre om det mottagna HTTPS-meddelandet har ändrats. Om du har en kopia av det självsignerade certifikatet kan du instruera Storage Explorer att lita på det genom att följa dessa steg:
 
 1. Hämta en kopia av certifikatet med bas-64-kodad X. 509 (. cer).
-2. Gå till **Redigera**  >  **SSL-certifikat**  >  **Importera certifikat**och Använd sedan fil väljaren för att söka efter, välja och öppna. CER-filen.
+2. Gå till **Redigera**  >  **SSL-certifikat**  >  **Importera certifikat** och Använd sedan fil väljaren för att söka efter, välja och öppna. CER-filen.
 
 Det här problemet kan även uppstå om det finns flera certifikat (rot och mellanliggande). För att åtgärda det här felet måste båda certifikaten läggas till.
 
@@ -98,12 +98,12 @@ Om du är osäker på var certifikatet kommer från följer du de här stegen f�
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): vilken som helst av de ljusa versionerna bör vara tillräckliga.
     * Mac och Linux: bör ingå i operativ systemet.
 2. Kör OpenSSL.
-    * Windows: öppna installations katalogen, Välj **/bin/** och dubbelklicka på **openssl.exe**.
+    * Windows: öppna installations katalogen, Välj **/bin/** och dubbelklicka på **openssl.exe** .
     * Mac och Linux: kör `openssl` från en Terminal.
 3. Kör `s_client -showcerts -connect microsoft.com:443`.
 4. Leta efter självsignerade certifikat. Om du är osäker på vilka certifikat som är självsignerade måste du anteckna var och en av dem `("s:")` och utfärdaren `("i:")` .
 5. När du hittar självsignerade certifikat för var och en, kopierar och klistrar du in allt från (och inkluderar) till `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` en ny. cer-fil.
-6. Öppna Storage Explorer och gå till **Redigera**  >  **SSL-certifikat**  >  **Importera certifikat**. Använd sedan fil väljaren för att söka efter, välja och öppna CER-filerna som du skapade.
+6. Öppna Storage Explorer och gå till **Redigera**  >  **SSL-certifikat**  >  **Importera certifikat** . Använd sedan fil väljaren för att söka efter, välja och öppna CER-filerna som du skapade.
 
 Om du inte hittar några självsignerade certifikat genom att följa dessa steg kan du kontakta oss via feedback-verktyget. Du kan också öppna Storage Explorer från kommando raden med hjälp av `--ignore-certificate-errors` flaggan. Vid öppning med den här flaggan ignorerar Storage Explorer certifikat fel.
 
@@ -113,7 +113,7 @@ Om du inte hittar några självsignerade certifikat genom att följa dessa steg 
 
 Tomma inloggnings dialog rutor inträffar oftast när Active Directory Federation Services (AD FS) (AD FS) begär Storage Explorer att utföra en omdirigering, vilket inte stöds av Electron. För att undvika det här problemet kan du försöka använda enhets kod flödet för inloggning. Det gör du på följande sätt:
 
-1. Öppna **Inställningar**i det vänstra lodräta verktygsfältet. I panelen Inställningar går du till **program**  >  **inloggning**. Aktivera **Använd enhets kod flödes inloggning**.
+1. Öppna **Inställningar** i det vänstra lodräta verktygsfältet. I panelen Inställningar går du till **program**  >  **inloggning** . Aktivera **Använd enhets kod flödes inloggning** .
 2. Öppna dialog rutan **Anslut** (antingen via plugin-ikonen på vänster lodrätt fält eller genom att välja **Lägg till konto** på konto panelen).
 3. Välj den miljö som du vill logga in på.
 4. Välj **Logga in.**
@@ -130,7 +130,7 @@ Följ dessa steg om du befinner dig i en loop för autentisering eller har ändr
 
 1. Ta bort alla konton och Stäng Storage Explorer.
 2. Ta bort. IdentityService-mappen från din dator. I Windows finns mappen på `C:\users\<username>\AppData\Local` . För Mac och Linux kan du hitta mappen i roten i din användar katalog.
-3. Om du kör Mac eller Linux måste du också ta bort posten Microsoft. Developer. IdentityService från operativ systemets nyckel lager. I Mac är nyckel lagringen *gnome nyckel rings* program. I Linux kallas programmet vanligt vis för _nyckel_ring, men namnet kan variera beroende på din distribution.
+3. Om du kör Mac eller Linux måste du också ta bort posten Microsoft. Developer. IdentityService från operativ systemets nyckel lager. I Mac är nyckel lagringen *gnome nyckel rings* program. I Linux kallas programmet vanligt vis för _nyckel_ ring, men namnet kan variera beroende på din distribution.
 
 ### <a name="conditional-access"></a>Villkorlig åtkomst
 
@@ -141,7 +141,7 @@ På grund av en begränsning i Azure AD-biblioteket som används av Storage Expl
 MacOS-nyckel ringen kan ibland ange ett tillstånd som orsakar problem med biblioteket för Storage Explorer autentisering. Följ dessa steg om du vill hämta nyckel ringen ur det här läget:
 
 1. Stäng Storage Explorer.
-2. Öppna nyckel ringen (tryck på kommando + blank steg, Skriv **nyckel Ring**och tryck på RETUR).
+2. Öppna nyckel ringen (tryck på kommando + blank steg, Skriv **nyckel Ring** och tryck på RETUR).
 3. Välj nyckel ringen för inloggning.
 4. Välj hänglås ikonen för att låsa nyckel ringen. (Hänglåset blir låst när processen är klar. Det kan ta några sekunder, beroende på vilka appar som är öppna).
 
@@ -230,7 +230,7 @@ Om du är ansluten till Azure via en proxyserver kontrollerar du att proxyinstä
 
 ## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Anslutnings strängen har inte fullständiga konfigurations inställningar
 
-Om du får det här fel meddelandet är det möjligt att du inte har de behörigheter som krävs för att hämta nycklarna för ditt lagrings konto. För att bekräfta att detta är fallet går du till portalen och letar upp ditt lagrings konto. Du kan göra detta genom att högerklicka på noden för ditt lagrings konto och välja **Öppna i portalen**. Gå sedan till bladet **åtkomst nycklar** . Om du inte har behörighet att Visa nycklar visas meddelandet "du har inte åtkomst". För att undvika det här problemet kan du antingen hämta konto nyckeln från någon annan och ansluta via namnet och nyckeln, eller så kan du be någon om en SAS till lagrings kontot och använda det för att ansluta lagrings kontot.
+Om du får det här fel meddelandet är det möjligt att du inte har de behörigheter som krävs för att hämta nycklarna för ditt lagrings konto. För att bekräfta att detta är fallet går du till portalen och letar upp ditt lagrings konto. Du kan göra detta genom att högerklicka på noden för ditt lagrings konto och välja **Öppna i portalen** . Gå sedan till bladet **åtkomst nycklar** . Om du inte har behörighet att Visa nycklar visas meddelandet "du har inte åtkomst". För att undvika det här problemet kan du antingen hämta konto nyckeln från någon annan och ansluta via namnet och nyckeln, eller så kan du be någon om en SAS till lagrings kontot och använda det för att ansluta lagrings kontot.
 
 Om du ser konto nycklarna kan du ange ett problem i GitHub så att vi kan hjälpa dig att lösa problemet.
 
@@ -238,8 +238,8 @@ Om du ser konto nycklarna kan du ange ett problem i GitHub så att vi kan hjälp
 
 Om du får det här fel meddelandet när du försöker lägga till en anpassad anslutning kan de anslutnings data som lagras i den lokala Autentiseringshanteraren vara skadade. Undvik det här problemet genom att försöka ta bort dina skadade lokala anslutningar och sedan lägga till dem på nytt:
 
-1. Starta Storage Explorer. I menyn går du till **Hjälp**att  >  **Växla utvecklarverktyg**.
-2. I det öppnade fönstret, på fliken **program** , går du till **lokal lagring** (vänster sida) > **File://**.
+1. Starta Storage Explorer. I menyn går du till **Hjälp** att  >  **Växla utvecklarverktyg** .
+2. I det öppnade fönstret, på fliken **program** , går du till **lokal lagring** (vänster sida) > **File://** .
 3. Beroende på vilken typ av anslutning du har problem med, letar du efter nyckeln och kopierar dess värde till en text redigerare. Värdet är en matris med dina anpassade anslutnings namn, som följande:
     * Lagringskonton
         * `StorageExplorer_CustomConnections_Accounts_v1`
@@ -265,13 +265,13 @@ När du har gått igenom alla dina anslutningar, för alla anslutnings namn som 
 # <a name="windows"></a>[Windows](#tab/Windows)
 
 1. På **Start** -menyn söker du efter **Autentiseringshanteraren** och öppnar den.
-2. Gå till **Windows-autentiseringsuppgifter**.
-3. Under **allmänna autentiseringsuppgifter**söker du efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckeln (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
+2. Gå till **Windows-autentiseringsuppgifter** .
+3. Under **allmänna autentiseringsuppgifter** söker du efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckeln (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 4. Ta bort dessa poster och Lägg till anslutningarna på nytt.
 
 # <a name="macos"></a>[macOS](#tab/macOS)
 
-1. Öppna Spotlight (kommando + blank steg) och Sök efter **nyckel rings åtkomst**.
+1. Öppna Spotlight (kommando + blank steg) och Sök efter **nyckel rings åtkomst** .
 2. Leta efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckeln (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1` ).
 3. Ta bort dessa poster och Lägg till anslutningarna på nytt.
 

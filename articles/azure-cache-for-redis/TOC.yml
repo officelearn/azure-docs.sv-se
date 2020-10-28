@@ -40,7 +40,7 @@
     - name: Java Spring
       items:
         - name: Använda Spring Boot-initiering
-          href: cache-java-spring-boot-initializer-with-redis-cache.md
+          href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
     - name: Skapa rankningslistor
       href: cache-web-app-cache-aside-leaderboard.md
     - name: Distribuera en maskininlärningsmodell
@@ -67,7 +67,7 @@
         - name: Säkerhetsbaslinje
           href: security-baseline.md
     - name: Arkitektur för cachelagring
-      href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+      href: /azure/architecture/best-practices/caching?toc=%252fazure%252fredis-cache%252ftoc.json
 - name: Instruktionsguider
   items:
     - name: Planera
@@ -169,7 +169,7 @@
     - name: Azure CLI
       href: /cli/azure/redis
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/redis/'
+      href: /rest/api/redis/
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.cache/allversions
     - name: Inbyggda Azure Policy-program
@@ -184,7 +184,7 @@
     - name: Videoklipp
       href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
     - name: Frågesida på Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-cache-redis.html'
+      href: /answers/topics/azure-cache-redis.html
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cache/'
     - name: Utveckla dina färdigheter med Microsoft Learn

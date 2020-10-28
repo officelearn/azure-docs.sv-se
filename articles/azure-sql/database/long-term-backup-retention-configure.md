@@ -11,19 +11,19 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
-ms.openlocfilehash: a9ff0219a9b811cae15f9b34ec85240d303ab841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7c66c37be1d200a73aa04854f946946b69c6b76
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450275"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629144"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig kvarhållning av säkerhets kopior
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 I Azure SQL Database kan du konfigurera en databas med en [långsiktig säkerhets kopierings](long-term-retention-overview.md) princip (brv) för att automatiskt behålla databas säkerhets kopiorna i separata Azure Blob Storage-behållare i upp till 10 år. Du kan sedan återställa en databas med hjälp av de här säkerhets kopiorna med hjälp av Azure Portal eller PowerShell. Du kan också konfigurera långsiktig kvarhållning för en [Azure SQL-hanterad instans](../managed-instance/long-term-backup-retention-configure.md) , men den finns för närvarande i begränsad för hands version.
 
-## <a name="using-the-azure-portal"></a>Använda Azure Portal
+## <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
 I följande avsnitt visar vi hur du använder Azure Portal för att konfigurera långsiktig kvarhållning, Visa säkerhets kopior i långsiktig kvarhållning och återställa säkerhets kopian från långsiktig kvarhållning.
 
@@ -31,7 +31,7 @@ I följande avsnitt visar vi hur du använder Azure Portal för att konfigurera 
 
 Du kan konfigurera SQL Database att [behålla automatiserade säkerhets kopieringar](long-term-retention-overview.md) under en längre tid än kvarhållningsperioden för din tjänst nivå.
 
-1. I Azure Portal väljer du SQL Server instansen och klickar sedan på **hantera säkerhets kopior**. På fliken **Konfigurera principer** markerar du kryss rutan för den databas där du vill ange eller ändra bevarande principer för långsiktig säkerhets kopiering. Om kryss rutan bredvid databasen inte är markerad gäller inte ändringarna för principen för den databasen.  
+1. I Azure Portal väljer du SQL Server instansen och klickar sedan på **hantera säkerhets kopior** . På fliken **Konfigurera principer** markerar du kryss rutan för den databas där du vill ange eller ändra bevarande principer för långsiktig säkerhets kopiering. Om kryss rutan bredvid databasen inte är markerad gäller inte ändringarna för principen för den databasen.  
 
    ![hantera säkerhets kopierings länk](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
@@ -39,7 +39,7 @@ Du kan konfigurera SQL Database att [behålla automatiserade säkerhets kopierin
 
    ![konfigurera principer](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
 
-3. När du är klar klickar du på **Använd**.
+3. När du är klar klickar du på **Använd** .
 
 > [!IMPORTANT]
 > När du aktiverar en långsiktig bevarande princip för säkerhets kopiering kan det ta upp till sju dagar innan den första säkerhets kopieringen blir synlig och tillgänglig för återställning. Mer information om säkerhets kopierings cadance finns i [långsiktig kvarhållning av säkerhets kopior](long-term-retention-overview.md).
@@ -48,7 +48,7 @@ Du kan konfigurera SQL Database att [behålla automatiserade säkerhets kopierin
 
 Visa säkerhets kopiorna som bevaras för en speciell databas med en LTR-princip och Återställ från dessa säkerhets kopior.
 
-1. I Azure Portal väljer du servern och klickar sedan på **hantera säkerhets kopior**. På fliken **tillgängliga säkerhets kopior** väljer du den databas som du vill se tillgängliga säkerhets kopior för.
+1. I Azure Portal väljer du servern och klickar sedan på **hantera säkerhets kopior** . På fliken **tillgängliga säkerhets kopior** väljer du den databas som du vill se tillgängliga säkerhets kopior för.
 
    ![Välj databas](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
 
@@ -82,7 +82,7 @@ Följande avsnitt visar hur du använder PowerShell för att konfigurera långsi
 
 ### <a name="azure-roles-to-manage-long-term-retention"></a>Azure-roller för att hantera långsiktig kvarhållning
 
-För **Get-AzSqlDatabaseLongTermRetentionBackup** och **restore-AzSqlDatabase**måste du ha en av följande roller:
+För **Get-AzSqlDatabaseLongTermRetentionBackup** och **restore-AzSqlDatabase** måste du ha en av följande roller:
 
 - Prenumerations ägarens roll eller
 - SQL Server deltagar roll eller
@@ -90,7 +90,7 @@ För **Get-AzSqlDatabaseLongTermRetentionBackup** och **restore-AzSqlDatabase**m
 
    Microsoft. SQL/locations/longTermRetentionBackups/Read Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionBackups/Read Microsoft. SQL/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/Read
 
-För **Remove-AzSqlDatabaseLongTermRetentionBackup**måste du ha en av följande roller:
+För **Remove-AzSqlDatabaseLongTermRetentionBackup** måste du ha en av följande roller:
 
 - Prenumerations ägarens roll eller
 - Anpassad roll med följande behörighet:
@@ -200,6 +200,9 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 > [!NOTE]
 > Här kan du ansluta till den återställda databasen med hjälp av SQL Server Management Studio för att utföra nödvändiga åtgärder, till exempel för att extrahera en del data från den återställda databasen och kopiera dem till den befintliga databasen eller för att ta bort den befintliga databasen och byta namn på den återställda databasen till det befintliga databasnamnet. Se tidpunkt [för återställning](recovery-using-backups.md#point-in-time-restore).
+
+## <a name="limitations"></a>Begränsningar
+- När du återställer från en LTR-säkerhetskopiering är egenskapen Läs skalning inaktive rad. Om du vill aktivera, Läs skala på den återställda databasen uppdaterar du databasen när den har skapats.
 
 ## <a name="next-steps"></a>Nästa steg
 

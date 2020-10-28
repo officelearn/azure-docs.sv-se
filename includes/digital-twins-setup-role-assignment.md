@@ -14,7 +14,7 @@ ms.locfileid: "92478869"
 ---
 Azure Digitals dubbla använder [Azure Active Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) för rollbaserad åtkomst kontroll (RBAC). Det innebär att innan en användare kan göra data planet anrop till din Azure Digital-instansen, måste användaren tilldelas en roll med rätt behörighet för den.
 
-För Azure Digitals, är den här rollen _**Azure Digitals sammanflätade data ägare**_. Du kan läsa mer om roller och säkerhet i [*begrepp: säkerhet för Azure Digitals dubbla lösningar*](../articles/digital-twins/concepts-security.md).
+För Azure Digitals, är den här rollen _**Azure Digitals sammanflätade data ägare**_ . Du kan läsa mer om roller och säkerhet i [*begrepp: säkerhet för Azure Digitals dubbla lösningar*](../articles/digital-twins/concepts-security.md).
 
 [!INCLUDE [digital-twins-role-rename-note.md](digital-twins-role-rename-note.md)]
 
@@ -25,4 +25,4 @@ I det här avsnittet visas hur du skapar en roll tilldelning för en användare 
 Om du vill ge en användare behörighet att hantera en Azure Digitals-instans måste du tilldela dem rollen _**Azure Digitals data ägare**_ i instansen.
 
 > [!NOTE]
-> Observera att den här rollen skiljer sig från rollen Azure AD- *ägare* , som också kan tilldelas i omfånget för Azure Digital-instansen. Detta är två distinkta hanterings roller och Azure AD- *ägaren* beviljar inte åtkomst till data Plans funktioner som beviljas med *Azure Digitals data ägare*.
+> Observera att den här rollen skiljer sig från rollen Azure AD- *ägare* , som också kan tilldelas i omfånget för Azure Digital-instansen. Detta är två distinkta hanterings roller och Azure AD- *ägaren* beviljar inte åtkomst till data Plans funktioner som beviljas med *Azure Digitals data ägare* .

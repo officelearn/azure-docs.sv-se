@@ -13,4 +13,4 @@ ms.lasthandoff: 10/23/2020
 ms.locfileid: "92478885"
 ---
 >[!NOTE]
-> Den här rollen har nyligen bytt namn från sitt tidigare namn i för hands versionen. Azure _**Digitals dubbla data ägare**_ hade tidigare *Azure Digitals-ägare (för hands version)*.
+> Den här rollen har nyligen bytt namn från sitt tidigare namn i för hands versionen. Azure _**Digitals dubbla data ägare**_ hade tidigare *Azure Digitals-ägare (för hands version)* .

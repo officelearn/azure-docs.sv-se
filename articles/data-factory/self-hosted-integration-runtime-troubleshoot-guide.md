@@ -5,14 +5,14 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ms.author: lle
-ms.openlocfilehash: d35dd94c8aa264c9b4dd679d3b50f3783acb2fde
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c85e27cedfbcebe7060dfed2f96fc53aea9838c9
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427219"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629401"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
 
@@ -34,7 +34,7 @@ Azure Data Factory stöder visning och överföring av fel loggar för misslycka
 
     ![Skicka loggar](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
 
-1. Du kan välja vilka loggar du vill skicka. För *IR med egen värd*kan du överföra loggar relaterade till misslyckad aktivitet eller alla loggar på IR-noden med egen värd. För *delad IR*kan du bara ladda upp loggar som är relaterade till misslyckad aktivitet.
+1. Du kan välja vilka loggar du vill skicka. För *IR med egen värd* kan du överföra loggar relaterade till misslyckad aktivitet eller alla loggar på IR-noden med egen värd. För *delad IR* kan du bara ladda upp loggar som är relaterade till misslyckad aktivitet.
 
     ![Välj loggar](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
@@ -52,7 +52,7 @@ Azure Data Factory stöder visning och överföring av fel loggar för misslycka
 
 #### <a name="symptoms"></a>Symtom
 
-När du försöker aktivera TLS/SSL-certifikat (avancerat) från **Konfigurationshanterare för lokalt installerad IR** -> **Fjärråtkomst från intranät**, efter att ha valt TLS/SSL-certifikat, visas följande fel:
+När du försöker aktivera TLS/SSL-certifikat (avancerat) från **Konfigurationshanterare för lokalt installerad IR** -> **Fjärråtkomst från intranät** , efter att ha valt TLS/SSL-certifikat, visas följande fel:
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
@@ -65,7 +65,7 @@ Det här är ett känt problem i WCF: WCF TLS/SSL-valideringen kontrollerar enda
 #### <a name="resolution"></a>Lösning
 
 Jokerteckencertifikat stöds i Azure Data Factory v2 – lokalt installerad IR. Det här problemet beror vanligtvis på att SSL-certifikatet inte är korrekt. Senaste DNSName i SAN ska vara giltigt. Följ stegen nedan för att kontrollera det. 
-1.  Öppna hanterings konsolen, markera både *ämne* och *alternativt ämnes namn* i certifikat informationen. I ovanstående fall är till exempel det sista objektet i *Alternativt namn för certifikat mottagare*, som är "DNS-namn = Microsoft.com.com", inte giltigt.
+1.  Öppna hanterings konsolen, markera både *ämne* och *alternativt ämnes namn* i certifikat informationen. I ovanstående fall är till exempel det sista objektet i *Alternativt namn för certifikat mottagare* , som är "DNS-namn = Microsoft.com.com", inte giltigt.
 2.  Kontakta företaget för certifikat utfärdare för att ta bort fel DNS-namn.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problem med gräns för samtidiga jobb
@@ -102,7 +102,7 @@ När vi hanterar fall som rör SSL/TLS-handskakning kan vi stöta på problem so
 
 - Här är ett snabbt och intuitivt sätt att felsöka X. 509-certifikat kedjans build-fel.
  
-    1. Exportera certifikatet, som måste verifieras. Gå till Hantera datorcertifikat och leta upp det certifikat som du vill kontrollera och högerklicka på **Alla uppgifter** -> **Exportera**.
+    1. Exportera certifikatet, som måste verifieras. Gå till Hantera datorcertifikat och leta upp det certifikat som du vill kontrollera och högerklicka på **Alla uppgifter** -> **Exportera** .
     
         ![Exportera uppgifter](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,7 +138,7 @@ När vi hanterar fall som rör SSL/TLS-handskakning kan vi stöta på problem so
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. Därefter öppnas **URL-hämtningsverktyget**. Du kan verifiera certifikat från AIA, CDP och OCSP genom att klicka på knappen **Hämta**.
+    1. Därefter öppnas **URL-hämtningsverktyget** . Du kan verifiera certifikat från AIA, CDP och OCSP genom att klicka på knappen **Hämta** .
 
         ![Hämtnings knapp](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -164,8 +164,8 @@ Om du tar Process Monitor kan du se följande resultat:
 
 > [!TIP] 
 > Du kan ange filter så som visas i skärm bilden nedan.
-> Det meddelar oss att dll- **systemet. ValueTuple** inte finns i GAC-relaterade mappar, eller i *C:\Program Files\Microsoft integration Runtime\4.0\Gateway*eller i *c:\Program Files\Microsoft integration Runtime\4.0\Shared* Folder.
-> I princip kommer den att läsa in dll-filen från *GAC*-mappen först och sedan från *Delas* och slutligen från mappen *Gateway*. Därför kan du placera dll-filen på valfri sökväg som kan vara till hjälp.
+> Det meddelar oss att dll- **systemet. ValueTuple** inte finns i GAC-relaterade mappar, eller i *C:\Program Files\Microsoft integration Runtime\4.0\Gateway* eller i *c:\Program Files\Microsoft integration Runtime\4.0\Shared* Folder.
+> I princip kommer den att läsa in dll-filen från *GAC* -mappen först och sedan från *Delas* och slutligen från mappen *Gateway* . Därför kan du placera dll-filen på valfri sökväg som kan vara till hjälp.
 
 ![Konfigurera filter](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -179,7 +179,7 @@ Du kan använda samma metod för att lösa andra problem med en saknad fil eller
 
 Anledningen till att du ser System.ValueTuple.dll under *%windir%\Microsoft.NET\assembly* och *%windir%\assembly* är att det är ett .net-beteende. 
 
-Från felet nedan kan du tydligt se sammansättnings *systemet ValueTuple.* Det här problemet uppstår när programmet försöker kontrol lera sammansättnings *System.ValueTuple.dll*.
+Från felet nedan kan du tydligt se sammansättnings *systemet ValueTuple.* Det här problemet uppstår när programmet försöker kontrol lera sammansättnings *System.ValueTuple.dll* .
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
@@ -201,7 +201,7 @@ Den egna värdbaserade integreringskörningen kopplas plötsligt från utan nyck
 
 #### <a name="resolution"></a>Lösning
 
-Om inget av ovanstående orsaker gäller kan du gå till mappen: *%programdata%\Microsoft\Data Transfer\DataManagementGateway*och kontrol lera om filen med namnet **konfigurationer** har tagits bort. Om den är borttagen följer du anvisningarna [här](https://www.netwrix.com/how_to_detect_who_deleted_file.html) för att se efter vem som tagit bort filen.
+Om inget av ovanstående orsaker gäller kan du gå till mappen: *%programdata%\Microsoft\Data Transfer\DataManagementGateway* och kontrol lera om filen med namnet **konfigurationer** har tagits bort. Om den är borttagen följer du anvisningarna [här](https://www.netwrix.com/how_to_detect_who_deleted_file.html) för att se efter vem som tagit bort filen.
 
 ![Kontrol lera konfigurations filen](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
 
@@ -210,7 +210,7 @@ Om inget av ovanstående orsaker gäller kan du gå till mappen: *%programdata%\
 
 #### <a name="symptoms"></a>Symtom
 
-När du har skapat lokalt installerad IR för både käll- och måldatalager, behöver du ansluta dina två IR för att slutföra en kopia. Om data butikerna har kon figurer ATS i olika virtuella nätverk, eller om de inte kan förstå Gateway-mekanismen, kommer du att trycka på fel som: *det går inte att hitta driv rutinen för källan i målet IR*. *källan kan inte nås av mål-IR*.
+När du har skapat lokalt installerad IR för både käll- och måldatalager, behöver du ansluta dina två IR för att slutföra en kopia. Om data butikerna har kon figurer ATS i olika virtuella nätverk, eller om de inte kan förstå Gateway-mekanismen, kommer du att trycka på fel som: *det går inte att hitta driv rutinen för källan i målet IR* . *källan kan inte nås av mål-IR* .
  
 #### <a name="cause"></a>Orsak
 
@@ -288,14 +288,14 @@ Gå till händelse loggen för Integration Runtime för att kontrol lera felet.
 
 ![IR-händelseloggen](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
-Om felet visas som ovan *UnauthorizedAccessException*följer du anvisningarna nedan:
+Om felet visas som ovan *UnauthorizedAccessException* följer du anvisningarna nedan:
 
 
 1. Kontrol lera inloggnings tjänst kontot för *dia Host service* på panelen Windows-tjänst.
 
     ![Konto för inloggnings tjänst](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. Kontrol lera om kontot för inloggnings tjänsten har behörigheten R/W för mappen: *%programdata%\Microsoft\DataTransfer\DataManagementGateway*.
+2. Kontrol lera om kontot för inloggnings tjänsten har behörigheten R/W för mappen: *%programdata%\Microsoft\DataTransfer\DataManagementGateway* .
 
     - Om tjänst inloggnings kontot inte har ändrats bör som standard ha behörigheten R/W.
 
@@ -305,7 +305,7 @@ Om felet visas som ovan *UnauthorizedAccessException*följer du anvisningarna ne
         1. Rensa den aktuella IR-filen med egen värd.
         1. Installera IR-BITS med egen värd.
         1. Följ anvisningarna nedan om du vill ändra tjänst kontot: 
-            1. Gå till selfhosted IR: s installationsmapp, växla till mappen: *Microsoft integration Runtime\4.0\Shared*.
+            1. Gå till selfhosted IR: s installationsmapp, växla till mappen: *Microsoft integration Runtime\4.0\Shared* .
             1. Starta en kommando rad med utökade privilegier. Ersätt *\<user>* och *\<password>* med ditt eget användar namn och lösen ord och kör sedan följande kommando:
                        
                 ```
@@ -325,7 +325,7 @@ Om felet visas som ovan *UnauthorizedAccessException*följer du anvisningarna ne
             1. Du kan använda en lokal/domän användare för inloggnings kontot för IR-tjänsten.            
         1. Registrera Integration Runtime.
 
-Om felet visas som: *Det gick inte att starta tjänsten integration runtime tjänsten (dia Host service). Kontrol lera att du har behörighet att starta system tjänster*, följ instruktionerna nedan:
+Om felet visas som: *Det gick inte att starta tjänsten integration runtime tjänsten (dia Host service). Kontrol lera att du har behörighet att starta system tjänster* , följ instruktionerna nedan:
 
 1. Kontrol lera inloggnings tjänst kontot för *dia Host service* på panelen Windows-tjänst.
    
@@ -351,7 +351,7 @@ Det gick inte att hitta knappen **Registrera** i Configuration Manager UI när d
 
 #### <a name="cause"></a>Orsak
 
-Eftersom lanseringen av *Integration Runtime 3,0*har du tagit bort **register** knappen på en befintlig integration runtime-nod för att aktivera en renare och säkrare miljö. Om en nod har registrerats på någon Integration Runtime (oavsett om den är online eller inte), för att omregistrera den till en annan Integration Runtime, måste du avinstallera den tidigare noden och sedan installera och registrera noden.
+Eftersom lanseringen av *Integration Runtime 3,0* har du tagit bort **register** knappen på en befintlig integration runtime-nod för att aktivera en renare och säkrare miljö. Om en nod har registrerats på någon Integration Runtime (oavsett om den är online eller inte), för att omregistrera den till en annan Integration Runtime, måste du avinstallera den tidigare noden och sedan installera och registrera noden.
 
 #### <a name="resolution"></a>Lösning
 
@@ -431,7 +431,7 @@ Den egna värdbaserade integrerings körningen kan inte ansluta till Data Factor
     ```
         
    > [!NOTE]     
-   > URL: en för tjänsten kan variera beroende på din Data Factory plats. Du hittar tjänst-URL: en **ADF UI**under  >  **Connections**  >  **integrerings körningar**i ADF UI  >  **-anslutningar redigera egen värd för IR**  >  **Nodes**  >  **-noder Visa tjänst-URL: er**.
+   > URL: en för tjänsten kan variera beroende på din Data Factory plats. Du hittar tjänst-URL: en **ADF UI** under  >  **Connections**  >  **integrerings körningar** i ADF UI  >  **-anslutningar redigera egen värd för IR**  >  **Nodes**  >  **-noder Visa tjänst-URL: er** .
             
     Följande är det förväntade svaret:
             
@@ -484,7 +484,7 @@ Det här problemet uppstår när noder inte kan kommunicera med varandra.
 
 #### <a name="resolution"></a>Lösning
 
-1. Logga in på den nod-värdbaserade virtuella datorn. Under **program-och tjänst loggar**  >  **integration runtime**öppnar du Loggboken och filtrerar alla fel loggar.
+1. Logga in på den nod-värdbaserade virtuella datorn. Under **program-och tjänst loggar**  >  **integration runtime** öppnar du Loggboken och filtrerar alla fel loggar.
 
 1. Kontrol lera om fel loggen innehåller följande fel: 
     
@@ -569,7 +569,7 @@ Ta Netmon-spårningen och analysera vidare.
  
     *Nätverks paket från Linux system A med TTL 64-> B TTL 64 minus 1 = 63-> C TTL 63 minus 1 = 62-> TTL 62 minus 1 = 61 lokal IR*
 
-- I ideal fallet är TTL 128, vilket innebär att Windows system kör vår Data Factory. Som du ser i exemplet nedan, *128 – 107 = 21 hopp*, vilket innebär att 21 hopp för paketet har skickats från Data Factory till IR med egen värd under TCP 3-handskakningen.
+- I ideal fallet är TTL 128, vilket innebär att Windows system kör vår Data Factory. Som du ser i exemplet nedan, *128 – 107 = 21 hopp* , vilket innebär att 21 hopp för paketet har skickats från Data Factory till IR med egen värd under TCP 3-handskakningen.
  
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
@@ -587,11 +587,11 @@ När du försöker använda Telnet **8.8.8.8 888** med Netmon-spårningen, ska d
 ![Netmon spårning 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-Det innebär att du inte kan göra TCP-anslutning till **8.8.8.8** -Server sidan baserat på port **888**, så att du ser två **SynReTransmit** ytterligare paket där. Eftersom källan **Self-HOST2** inte kunde ansluta till **8.8.8.8** i det första paketet, kommer den att fortsätta att upprätta anslutningen.
+Det innebär att du inte kan göra TCP-anslutning till **8.8.8.8** -Server sidan baserat på port **888** , så att du ser två **SynReTransmit** ytterligare paket där. Eftersom källan **Self-HOST2** inte kunde ansluta till **8.8.8.8** i det första paketet, kommer den att fortsätta att upprätta anslutningen.
 
 > [!TIP]
-> - Du kan klicka på **load filter**  ->  **standard filter**  ->  **adresser**  ->  **IPv4-adresser**.
-> - Ange **IPv4. address = = 8.8.8.8** som filter och klicka på **tillämpa**. Därefter kan du bara se kommunikationen från den lokala datorn till mål- **8.8.8.8**.
+> - Du kan klicka på **load filter**  ->  **standard filter**  ->  **adresser**  ->  **IPv4-adresser** .
+> - Ange **IPv4. address = = 8.8.8.8** som filter och klicka på **tillämpa** . Därefter kan du bara se kommunikationen från den lokala datorn till mål- **8.8.8.8** .
 
 ![Filtrera adresser 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         
@@ -630,7 +630,7 @@ Detta meddelande påverkar följande scenarier:
 ##### <a name="scenario-1-outbound-communication-from-self-hosted-integration-runtime-running-on-premises-behind-the-corporate-firewall"></a>Scenario 1: utgående kommunikation från egen värd Integration Runtime som körs lokalt bakom företags brand väggen
 Så här avgör du om du påverkas:
 - Du påverkas inte om du definierar brand Väggs regler baserat på FQDN-namn med hjälp av metoden som beskrivs i det här dokumentet: [brand Väggs konfiguration och inställningar för att konfigurera för IP-adress](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
-- Du kommer dock att påverkas om du uttryckligen vit listning utgående IP-adresser i företagets brand vägg.
+- Du kommer dock att påverkas om du uttryckligen aktiverar listan över tillåtna för utgående IP-adresser i företags brand väggen.
 
 Åtgärd som ska vidtas om du påverkas: meddela nätverks infrastrukturens team att du vill uppdatera nätverks konfigurationen så att den använder de senaste Data Factory IP-adresserna senast den 8 november 2020.  Hämta de senaste IP-adresserna genom att gå till [service Tags IP-intervall nedladdnings länk](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
@@ -639,16 +639,55 @@ Så här avgör du om du påverkas:
 - Kontrol lera om du har regler för utgående NSG i ditt privata nätverk som innehåller Integration Runtime med egen värd. Om det inte finns några utgående begränsningar påverkas ingen påverkan.
 - Om du har regler för utgående trafik kontrollerar du om du använder service tag eller inte. Om du använder service tag-koden behöver du inte ändra eller lägga till något som nya IP-adressintervall är under befintligt service tag. 
  ![Mål kontroll](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
-- Du kommer dock att påverkas om du uttryckligen vit listning utgående IP-adresser i inställningen för NSG-regler på det virtuella Azure-nätverket.
+- Du kommer dock att påverkas om du uttryckligen aktiverar listan över tillåtna för utgående IP-adresser i NSG-regler på det virtuella Azure-nätverket.
 
 Åtgärd som ska vidtas om du påverkas: meddela din nätverks infrastrukturs team att uppdatera NSG-regler i din Azure Virtual Network-konfiguration för att använda de senaste Data Factory IP-adresserna senast den 8 november 2020.  Hämta de senaste IP-adresserna genom att gå till [service Tags IP-intervall nedladdnings länk](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
 ##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Scenario 3: utgående kommunikation från SSIS Integration Runtime i kundens hanterade Azure Virtual Network
 - Kontrol lera om du har utgående NSG-regler i ditt privata nätverk som innehåller SSIS Integration Runtime. Om det inte finns några utgående begränsningar påverkas ingen påverkan.
 - Om du har regler för utgående trafik kontrollerar du om du använder service tag eller inte. Om du använder service tag-koden behöver du inte ändra eller lägga till något som nya IP-adressintervall är under befintligt service tag.
-- Du kommer dock att påverkas om du uttryckligen vit listning utgående IP-adress på inställningen för NSG-regler på det virtuella Azure-nätverket.
+- Du kommer dock att påverkas om du uttryckligen aktiverar listan över tillåtna för utgående IP-adresser på din NSG-regel på det virtuella Azure-nätverket.
 
 Åtgärd som ska vidtas om du påverkas: meddela din nätverks infrastrukturs team att uppdatera NSG-regler i din Azure Virtual Network-konfiguration för att använda de senaste Data Factory IP-adresserna senast den 8 november 2020.  Hämta de senaste IP-adresserna genom att gå till [service Tags IP-intervall nedladdnings länk](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+
+### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Det gick inte att upprätta en förtroende relation för den säkra SSLTLS-kanalen 
+
+#### <a name="symptoms"></a>Symtom
+
+IR med egen värd kan inte ansluta till ADF-tjänsten.
+
+Genom att kontrol lera händelse loggen för SHIR eller klient meddelande loggarna i CustomLogEvent-tabellen, hittas följande fel meddelande:
+
+`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.The remote certificate is invalid according to the validation procedure.`
+
+Kontrol lera Server certifikatet för ADF-tjänsten:
+
+Det enklaste sättet är att öppna ADF-tjänstens URL i webbläsare, till exempel öppna https://eu.frontend.clouddatahub.net/ på den dator där SHIR är installerat och sedan Visa Server certifikat informationen:
+
+  ![Kontrol lera Server certifikatet för ADF-tjänsten](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+
+  ![Kontrol lera Server certifikat Sök väg](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+
+#### <a name="cause"></a>Orsak
+
+Två möjliga orsaker till det här problemet:
+
+- Rot certifikat utfärdaren för ADF service Server-certifikatet är inte betrott på den dator där SHIR är installerat. 
+- Du använder proxy i din miljö och Server certifikatet för ADF-tjänsten ersätts av proxyservern, medan det ersatta Server certifikatet inte är betrott av den dator där SHIR är installerat.
+
+#### <a name="solution"></a>Lösning
+
+- För orsak 1 kontrollerar du att ADF-servercertifikatet och certifikat kedjan är betrodd av den dator där SHIR är installerat.
+- För orsak 2 kan du antingen lita på den ersatta rot certifikat utfärdaren på SHIR dator eller konfigurera proxyn så att den inte ersätter ADF-servercertifikat.
+
+Se [den här artikeln](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) för information om att lita på ett certifikat i Windows.
+
+#### <a name="additional-info"></a>Ytterligare info
+Vi håller på att lansera ett nytt SSL-certifikat, som är signerat från DigiCert, kontrol lera om DigiCert globala rot G2 är i den betrodda rot certifikat utfärdaren.
+
+  ![DigiCert global root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
+
+Om inte, laddar du ned det [här](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
 ## <a name="self-hosted-ir-sharing"></a>Delning av lokalt installerad integrationskörning (IR)
 

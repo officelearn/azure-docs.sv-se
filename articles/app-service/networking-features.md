@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 860b1ac1713ac7afb7db2643d68974b399b5236b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9b75df9df2e81f01543b407b019c752c77ee6807
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207074"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628838"
 ---
 # <a name="app-service-networking-features"></a>App Service nätverksfunktioner
 
@@ -29,6 +29,7 @@ Azure App Service är ett distribuerat system. Rollerna som hanterar inkommande 
 | App-tilldelad adress | Hybridanslutningar |
 | Åtkomst begränsningar | Gateway krävs VNet-integrering |
 | Tjänstslutpunkter | VNET-integration |
+| Privata slut punkter ||
 
 Om inget annat anges kan alla funktioner användas tillsammans. Du kan blanda funktionerna för att lösa de olika problemen.
 
@@ -42,8 +43,8 @@ För alla typer av användnings fall kan det finnas några sätt att lösa probl
 | Inte delad, dedikerad inkommande adress för din app | app-tilldelad adress |
 | Begränsa åtkomsten till din app från en uppsättning väldefinierade adresser | Åtkomst begränsningar |
 | Begränsa åtkomsten till min app från resurser i ett virtuellt nätverk | Tjänstslutpunkter </br> ILB ASE </br> Privata slut punkter |
-| Exponera min app på en privat IP-adress i mitt VNet | ILB ASE </br> Privata slut punkter </br> privat IP för inkommande på en Application Gateway med tjänst slut punkter |
-| Skydda min app med en brand vägg för webbaserade program (WAF) | Application Gateway + ILB ASE </br> Application Gateway med privata slut punkter </br> Application Gateway med tjänst slut punkter </br> Azures frontend-dörr med åtkomst begränsningar |
+| Exponera min app på en privat IP-adress i mitt VNet | ILB ASE </br> Privata slut punkter </br> Privat IP för inkommande på en Application Gateway med tjänst slut punkter |
+| Skydda min app med en brand vägg för webbaserade program (WAF) | Application Gateway + ILB ASE </br> Application Gateway med privata slut punkter </br> Application Gateway med tjänstslutpunkter </br> Azures frontend-dörr med åtkomst begränsningar |
 | Belastnings Utjämnings trafik till Mina appar i olika regioner | Azures frontend-dörr med åtkomst begränsningar | 
 | Belastnings Utjämnings trafik i samma region | [Application Gateway med tjänstslutpunkter][appgwserviceendpoints] | 
 
@@ -89,20 +90,23 @@ Du kan lära dig hur du anger en adress i din app med själv studie kursen om hu
 
 ### <a name="access-restrictions"></a>Åtkomst begränsningar 
 
-Med funktionen åtkomst begränsningar kan du filtrera **inkommande** förfrågningar baserat på den ursprungliga IP-adressen. Filtrerings åtgärden utförs på de frontend-roller som är överordnade från arbets rollerna där dina appar körs. Eftersom front-end-rollerna är överordnade från arbets tagarna kan funktionen åtkomst begränsningar betraktas som skydd på nätverks nivå för dina appar. Med funktionen kan du bygga en lista över tillåtna och neka-adressblock som utvärderas i prioritetsordning. Det liknar funktionen nätverks säkerhets grupp (NSG) som finns i Azure-nätverk.  Du kan använda den här funktionen i en ASE eller i tjänsten flera innehavare. När det används med en ILB-ASE kan du begränsa åtkomsten från privata adress block.
+Med funktionen åtkomst begränsningar kan du filtrera **inkommande** begär Anden. Filtrerings åtgärden utförs på de frontend-roller som är överordnade från arbets rollerna där dina appar körs. Eftersom front-end-rollerna är överordnade från arbets tagarna kan funktionen åtkomst begränsningar betraktas som skydd på nätverks nivå för dina appar. Med funktionen kan du bygga en lista över regler för att tillåta och neka som utvärderas i prioritetsordning. Det liknar funktionen nätverks säkerhets grupp (NSG) som finns i Azure-nätverk.  Du kan använda den här funktionen i en ASE eller i tjänsten flera innehavare. När det används med en ILB-ASE eller privat slut punkt kan du begränsa åtkomsten från privata adress block.
+> [!NOTE]
+> Upp till 512 åtkomst begränsnings regler kan konfigureras per app. 
 
 ![Åtkomst begränsningar](media/networking-features/access-restrictions.png)
+#### <a name="ip-based-access-restriction-rules"></a>Regler för IP-baserad åtkomst begränsning
 
-Funktionen åtkomst begränsningar hjälper dig i scenarier där du vill begränsa vilka IP-adresser som kan användas för att nå din app. Bland användnings exemplen för den här funktionen är:
+Funktionen IP-baserade åtkomst begränsningar hjälper i scenarier där du vill begränsa de IP-adresser som kan användas för att nå din app. Det finns stöd för både IPv4 och IPv6. Bland användnings exemplen för den här funktionen är:
 
 * Begränsa åtkomsten till din app från en uppsättning väldefinierade adresser 
-* Begränsa åtkomsten till att komma via en belastnings Utjämnings tjänst, till exempel Azure-frontend. Om du vill låsa inkommande trafik till Azure-frontend skapar du regler för att tillåta trafik från 147.243.0.0/16 och 2a01:111:2050::/44. 
+* Begränsa åtkomsten via en belastnings Utjämnings tjänst, t. ex. Azures front dörr
 
 ![Åtkomst begränsningar med front dörren](media/networking-features/access-restrictions-afd.png)
 
-Om du vill låsa åtkomsten till din app så att den bara kan nås från resurser i din Azure-Virtual Network (VNet) behöver du en statisk offentlig adress på vilken källa som är i ditt VNet. Om resurserna inte har en offentlig adress bör du använda funktionen tjänst slut punkter i stället. Lär dig hur du aktiverar den här funktionen med självstudien om hur du [konfigurerar åtkomst begränsningar][iprestrictions].
+Lär dig hur du aktiverar den här funktionen med självstudien om hur du [konfigurerar åtkomst begränsningar][iprestrictions].
 
-### <a name="service-endpoints"></a>Tjänstslutpunkter
+#### <a name="service-endpoint-based-access-restriction-rules"></a>Begränsnings regler för tjänst slut punkt baserad åtkomst
 
 Med tjänst slut punkter kan du låsa **inkommande** åtkomst till din app så att käll adressen måste komma från en uppsättning undernät som du väljer. Den här funktionen fungerar tillsammans med begränsningar för IP-åtkomst. Tjänst slut punkter är inte kompatibla med fjärrfelsökning. Om du vill använda fjärrfelsökning med din app kan klienten inte finnas i ett undernät med aktiverade tjänst slut punkter. Tjänst slut punkter anges i samma användar upplevelse som begränsningarna för IP-åtkomst. Du kan bygga en lista över tillåtna/nekade åtkomst regler som innehåller offentliga adresser samt undernät i din virtuella nätverk. Den här funktionen stöder scenarier som:
 
@@ -115,7 +119,7 @@ Med tjänst slut punkter kan du låsa **inkommande** åtkomst till din app så a
 
 Du kan lära dig mer om hur du konfigurerar tjänst slut punkter med din app i självstudien om hur du [konfigurerar åtkomst begränsningar för tjänst slut punkt][serviceendpoints]
 
-### <a name="private-endpoints"></a>Privata slutpunkter
+### <a name="private-endpoints"></a>Privata slut punkter
 
 Privat slut punkt är ett nätverks gränssnitt som ansluter dig privat och säkert till din webbapp via en privat Azure-länk. Privat slut punkt använder en privat IP-adress från ditt virtuella nätverk, vilket på ett effektivt sätt ansluter webbappen till ditt VNet. Den här funktionen är endast för **inkommande** flöden till din webbapp.
 [Använda privata slut punkter för Azure Web App][privateendpoints]

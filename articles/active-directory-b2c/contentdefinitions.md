@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd2f7d46df09085d19b19709c7f45cd3d6566988
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202865"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628668"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -24,7 +24,7 @@ ms.locfileid: "85202865"
 
 Du kan anpassa utseendet på en [egen, kontrollerad teknisk profil](self-asserted-technical-profile.md). Azure Active Directory B2C (Azure AD B2C) kör kod i kundens webbläsare och använder en modern metod som kallas CORS (Cross-Origin Resource Sharing).
 
-Om du vill anpassa användar gränssnittet anger du en URL i **ContentDefinition** -elementet med anpassat HTML-innehåll. I den självkontrollerade tekniska profilen eller **OrchestrationStep**pekar du på den innehålls definitions identifieraren. Innehålls definitionen kan innehålla ett **LocalizedResourcesReferences** -element som anger en lista över lokaliserade resurser som ska läsas in. Azure AD B2C sammanfogar användargränssnittets element med HTML-innehåll som läses in från din URL och visar sedan sidan för användaren.
+Om du vill anpassa användar gränssnittet anger du en URL i **ContentDefinition** -elementet med anpassat HTML-innehåll. I den självkontrollerade tekniska profilen eller **OrchestrationStep** pekar du på den innehålls definitions identifieraren. Innehålls definitionen kan innehålla ett **LocalizedResourcesReferences** -element som anger en lista över lokaliserade resurser som ska läsas in. Azure AD B2C sammanfogar användargränssnittets element med HTML-innehåll som läses in från din URL och visar sedan sidan för användaren.
 
 **ContentDefinitions** -elementet innehåller URL: er till HTML5-mallar som kan användas i en användar resa. HTML5-sidans URI används för ett angivet användar gränssnitts steg. Till exempel inloggnings-eller registrerings-, lösen ords återställning eller fel sidor. Du kan ändra utseendet och känslan genom att åsidosätta LoadUri för HTML5-filen. Du kan skapa nya innehålls definitioner efter dina behov. Det här elementet kan innehålla en lokaliserad resurs referens till lokaliserings identifieraren som anges i [lokaliserings](localization.md) elementet.
 
@@ -90,7 +90,7 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 
 ### <a name="select-a-page-layout"></a>Välj en sidlayout
 
-Du kan aktivera [JavaScript-kod på klient sidan](javascript-samples.md) genom att infoga `contract` mellan `elements` och sid typen. Exempelvis `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+Du kan aktivera [JavaScript-kod på klient sidan](javascript-samples.md) genom att infoga `contract` mellan `elements` och sid typen. Till exempel `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -111,7 +111,7 @@ I följande exempel visas **DataUri** för `selfasserted` version `1.2.0` :
 
 #### <a name="migrating-to-page-layout"></a>Migrera till sidlayouten
 
-Formatet för värdet måste innehålla ordet `contract` : _urn: com: Microsoft: AAD: B2C: Elements:**kontrakt**:p ålder-Name: version_. Om du vill ange en sidlayout i dina anpassade principer som använder ett gammalt **DataUri** -värde, använder du följande tabell för att migrera till det nya formatet.
+Formatet för värdet måste innehålla ordet `contract` : _urn: com: Microsoft: AAD: B2C: Elements: **kontrakt** :p ålder-Name: version_ . Om du vill ange en sidlayout i dina anpassade principer som använder ett gammalt **DataUri** -värde, använder du följande tabell för att migrera till det nya formatet.
 
 | Gammalt DataUri-värde | Nytt DataUri-värde |
 | ----------------- | ----------------- |
@@ -126,6 +126,39 @@ Formatet för värdet måste innehålla ordet `contract` : _urn: com: Microsoft:
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
+I följande exempel visas innehålls definitions identifierarna och motsvarande **DataUri** med sid kontrakt: 
+
+```xml
+<ContentDefinitions>
+  <ContentDefinition Id="api.error">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.idpselections.signup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.signuporsignin">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.selfasserted.profileupdate">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountsignup">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.localaccountpasswordreset">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+  </ContentDefinition>
+  <ContentDefinition Id="api.phonefactor">
+    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0</DataUri>
+  </ContentDefinition>
+</ContentDefinitions>
+```
 
 ### <a name="metadata"></a>Metadata
 
@@ -139,15 +172,15 @@ Ett **metadataelement** innehåller följande element:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Tangent | Ja | Nyckeln metadata.  |
+| Nyckel | Ja | Nyckeln metadata.  |
 
 #### <a name="metadata-keys"></a>Nycklar för metadata
 
 Innehålls definitionen stöder följande metadata:
 
-| Tangent | Krävs | Beskrivning |
+| Nyckel | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| DisplayName | Inga | En sträng som innehåller namnet på innehålls definitionen. |
+| DisplayName | Nej | En sträng som innehåller namnet på innehålls definitionen. |
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 

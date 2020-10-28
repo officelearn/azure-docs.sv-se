@@ -17,6 +17,6 @@ ms.locfileid: "92478882"
 
 En fullständig installation av en ny Azure Digitals dubbla instanser består av två delar:
 1. **Skapar instansen**
-2. Konfigurera **användar åtkomst behörigheter**: Azure-användare måste ha rollen *Azure Digitals-dataägare* på den digitala Azure-instansen för att kunna hantera den och dess data. I det här steget ska du som ägare/administratör av Azure-prenumerationen tilldela rollen till den person som ska hantera din Azure Digital-instansen. Detta kan vara själv eller någon annan i din organisation.
+2. Konfigurera **användar åtkomst behörigheter** : Azure-användare måste ha rollen *Azure Digitals-dataägare* på den digitala Azure-instansen för att kunna hantera den och dess data. I det här steget ska du som ägare/administratör av Azure-prenumerationen tilldela rollen till den person som ska hantera din Azure Digital-instansen. Detta kan vara själv eller någon annan i din organisation.
 
 [!INCLUDE [digital-twins-role-rename-note.md](digital-twins-role-rename-note.md)]

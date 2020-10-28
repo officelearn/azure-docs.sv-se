@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: ce6f0ff97b1dfa8757b05b13dff653a1d34f4531
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6629f02178b7c00ccc849e2ccfc3f0a48f419a7f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315296"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735559"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Skapa migreringsplan med Azure Migrate
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller en snabb guide som hjälper dig att bygga din migr
 - [Allmänna frågor](resources-faq.md) om Azure Migrate
 - Frågor om [Azure Migrate-enheten](common-questions-appliance.md)
 - Frågor om [Server migrering](common-questions-server-migration.md)
-- Få svar på frågor i [Azure Migrate-forumet](https://aka.ms/AzureMigrateForum)
+- Få svar på frågor i [Azure Migrate-forumet](https://docs.microsoft.com/answers/topics/azure-migrate.html)
 
 ## <a name="define-the-goals-of-cloud-migration"></a>Definiera målen för molnbaserad migrering
 
@@ -75,13 +75,13 @@ Eftersom Azure ger flexibilitet att ändra storlek på moln kapaciteten med tide
 ### <a name="readiness-and-suitability-analysis-for-azure"></a>Beredskap och lämplighet analys för Azure
 Exportera utvärderings rapporten för Azure VM och filtrera efter följande beredskaps kategorier för att förstå VM-beredskap för Azure:
 
-- **Redo för Azure**: du kan migrera de här datorerna som de är till Azure utan några ändringar  
+- **Redo för Azure** : du kan migrera de här datorerna som de är till Azure utan några ändringar  
 
-- **Villkorligt redo för Azure**: du kan migrera de här datorerna till Azure, men du behöver mindre ändringar på dessa servrar enligt den reparations vägledning som finns i utvärderingen
+- **Villkorligt redo för Azure** : du kan migrera de här datorerna till Azure, men du behöver mindre ändringar på dessa servrar enligt den reparations vägledning som finns i utvärderingen
 
-- **Inte redo för Azure**: du kan inte migrera de här datorerna till Azure som de är och behöver åtgärda problemen enligt reparations vägledningen före migreringen
+- **Inte redo för Azure** : du kan inte migrera de här datorerna till Azure som de är och behöver åtgärda problemen enligt reparations vägledningen före migreringen
 
-- **Beredskap okänd**: Azure Migrate kan inte fastställa datorns beredskap på grund av otillräckliga metadata
+- **Beredskap okänd** : Azure Migrate kan inte fastställa datorns beredskap på grund av otillräckliga metadata
 
 Med hjälp av databas utvärderingen kan du utvärdera beredskap för att migrera SQL Server datafastighet till Azure SQL Database eller Azure SQL-hanterade instanser. Du kan se status procent för migrations beredskap för var och en av SQL Server-instanserna. För var och en av instanserna kan du också se det rekommenderade målet i Azure, potentiella migreringsåtgärder, bryta antalet ändringar, beredskap för Azure SQL DB/Azure SQL VM och kompatibilitetsnivå. Du kan gå djupare och lär dig hur du kan ta reda på hur migrations spärrarna och rekommendationerna fungerar.
 
@@ -95,19 +95,19 @@ När datorn har marker ATS som klar för Azure, gör Server utvärderingen det m
 
 Med det *prestandabaserade* alternativet för storleks ändring i utvärderingarna kan du optimera arbets belastningar för Azure. Förutom att göra det finns det några andra vägar som gör det enklare att spara pengar:
 
-- **Reserverade instanser**: med reserverade instanser kan du avsevärt minska kostnaderna jämfört med priset enligt principen betala per användning med 1-eller tre års villkor för Windows och Linux (VM: ar)
+- **Reserverade instanser** : med reserverade instanser kan du avsevärt minska kostnaderna jämfört med priset enligt principen betala per användning med 1-eller tre års villkor för Windows och Linux (VM: ar)
 
-- **Azure Hybrid-förmåner**: du kan ta med lokala Windows Server-licenser med Software Assurance till Azure och kombinera dem med alternativ för reserverade instanser
+- **Azure Hybrid-förmåner** : du kan ta med lokala Windows Server-licenser med Software Assurance till Azure och kombinera dem med alternativ för reserverade instanser
 
-- **Enterprise-avtal erbjudande (EA)**: Enterprise-avtal erbjuder inbyggda besparingar som gäller din prenumeration
+- **Enterprise-avtal erbjudande (EA)** : Enterprise-avtal erbjuder inbyggda besparingar som gäller din prenumeration
 
-- **Erbjudanden**: det finns flera Azure-erbjudanden, till exempel Dev/Test – betala per användning och Enterprise dev/test som tillhandahåller lägre priser för utveckling eller testning av virtuella datorer
+- **Erbjudanden** : det finns flera Azure-erbjudanden, till exempel Dev/Test – betala per användning och Enterprise dev/test som tillhandahåller lägre priser för utveckling eller testning av virtuella datorer
 
-- **VM-drift tid**: du kan ange varaktigheten i dagar per månad och timmar per dag när de virtuella Azure-datorerna ska köras för att minska kostnaderna (gäller inte för RI)
+- **VM-drift tid** : du kan ange varaktigheten i dagar per månad och timmar per dag när de virtuella Azure-datorerna ska köras för att minska kostnaderna (gäller inte för RI)
 
-- **Mål region**: du kan skapa flera utvärderingar i olika regioner för att jämföra om migrering till en viss region i en geografi kan vara mer kostnads effektivt
+- **Mål region** : du kan skapa flera utvärderingar i olika regioner för att jämföra om migrering till en viss region i en geografi kan vara mer kostnads effektivt
 
-- **Prestandabaserade rekommendationer**: bästa praxis är att försöka använda de rekommendationer som hjälper dig att spara moln kostnader
+- **Prestandabaserade rekommendationer** : bästa praxis är att försöka använda de rekommendationer som hjälper dig att spara moln kostnader
 
 ### <a name="visualize-data"></a>Visualisera data
 
@@ -125,7 +125,7 @@ Nu när du har all viktig information för att fatta ditt beslut om migrering b�
 
 Några rekommenderade strategier för migrering är:
 
-- **Prioritera din snabb WINS**: du kan använda utvärderings rapporterna för att identifiera låg hängande frukt, inklusive servrar och databaser som är helt klara och som kräver minimal ansträngning för att migrera till Azure:
+- **Prioritera din snabb WINS** : du kan använda utvärderings rapporterna för att identifiera låg hängande frukt, inklusive servrar och databaser som är helt klara och som kräver minimal ansträngning för att migrera till Azure:
     - Azure-klar: exportera utvärderings rapporten och filtrera alla datorer som är klara för Azure. Det kan vara din första grupp av datorer som du kan lyfta och byta med Azure Migrate: Migreringsverktyg för Server.
     - Support för OS-slut: exportera utvärderings rapporten och filtrera alla datorer som kör operativ systemen Windows Server 2008 och Windows Server 2008 R2. Dessa SKU: er har slut på support och bara Azure ger dig kostnads fria tre års säkerhets uppdateringar när du migrerar dem till Azure. När du kombinerar, Azure Hybrid-förmån och använder reserverade instanser kan det vara mycket högre att spara.
     - SQL Server migrering: Använd rekommendationer för databas bedömning för att migrera databaserna som är klara för Azure SQL-databaser med hjälp av Azure Migrate: databas migrering och databaserna som är klara för virtuella Azure SQL-datorer med hjälp av Azure Migrate: Server-migrering.
@@ -133,9 +133,9 @@ Några rekommenderade strategier för migrering är:
     - Överallokerade virtuella datorer: exportera utvärderings rapporten och filtrera ut datorer med låg processor användning (%) och minnes användning (%).  Du kan använda den här möjligheten för att migrera till en beställd virtuell dator i Azure och spara det du har betalat för underutnyttjade resurser.
     - Kapacitets begränsningar: exportera utvärderings rapporten och filtrera ut datorer med hög processor användning (%) och minnes användning (%).  Du kan förhindra att de överbelastade virtuella datorerna bryter ned och ökar prestanda genom att migrera dem till Azure och använda funktionen för automatisk skalning för att möta efter frågan. Du kan också titta på utvärderings rapporten för att förstå dina lagrings begränsningar genom att analysera diskens IOPS och data flöde och hitta den rekommenderade disk typen som passar dina behov bäst.
 
-- **Starta små och gå sedan till stor**: börja med att flytta program och arbets belastningar som är minimala och mindre komplexa, för att skapa förtroende i din migrerings strategi. Du kan också överlappa dina rekommendationer för Azure Migrate bedömning med organisationens CMDB-lagringsplats för att hitta och migrera arbets belastningar för utveckling/testning av miljö i dina pilot-migreringar. De lär sig från dessa piloter kan användas för att migrera produktions arbets belastningar.  
+- **Starta små och gå sedan till stor** : börja med att flytta program och arbets belastningar som är minimala och mindre komplexa, för att skapa förtroende i din migrerings strategi. Du kan också överlappa dina rekommendationer för Azure Migrate bedömning med organisationens CMDB-lagringsplats för att hitta och migrera arbets belastningar för utveckling/testning av miljö i dina pilot-migreringar. De lär sig från dessa piloter kan användas för att migrera produktions arbets belastningar.  
 
-- **Följ kraven för din lagstiftning eller bransch**: Azure underhåller den största portföljen för regelefterlevnad i branschen, med avseende på bredd och djup för erbjudanden. Använd detta som en affärs möjlighet för att prioritera dina migreringar till Azure och följa dina nationella, regionala och branschspecifika standarder och lagar. Detta gäller särskilt för organisationer som hanterar affärs kritiska eller innehåller känslig information eller som är i kraftigt reglerade branscher, där standarderna och reglerna Abound och i vissa fall kan ändras ofta, vilket gör det svårt att fortsätta med.  
+- **Följ kraven för din lagstiftning eller bransch** : Azure underhåller den största portföljen för regelefterlevnad i branschen, med avseende på bredd och djup för erbjudanden. Använd detta som en affärs möjlighet för att prioritera dina migreringar till Azure och följa dina nationella, regionala och branschspecifika standarder och lagar. Detta gäller särskilt för organisationer som hanterar affärs kritiska eller innehåller känslig information eller som är i kraftigt reglerade branscher, där standarderna och reglerna Abound och i vissa fall kan ändras ofta, vilket gör det svårt att fortsätta med.  
 
 ## <a name="finalize-the-migration-planandprepare-formigration"></a>Slutför migrations planen och Förbered för migrering
 

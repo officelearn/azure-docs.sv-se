@@ -6,13 +6,13 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.custom: legacy
-ms.openlocfilehash: c7d93ee928653cc1656e3e9a7cdb0d2fd6d7094b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: legacy, devx-track-azurecli
+ms.openlocfilehash: f92f286fc9d9438331617cb567272a331834af42
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654420"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735383"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Skapa en kopia av en virtuell Linux-dator med hjälp av Azure CLI och Managed Disks
 
@@ -31,7 +31,7 @@ Du kan också [Ladda upp och skapa en virtuell dator från en virtuell hård dis
 ## <a name="stop-the-source-vm"></a>Stoppa den virtuella käll datorn
 
 Frigör den virtuella käll datorn genom att använda [AZ VM deallokering](/cli/azure/vm#az-vm-deallocate).
-I följande exempel avallokeras den virtuella datorn med namnet *myVM* i resurs gruppen *myResourceGroup*:
+I följande exempel avallokeras den virtuella datorn med namnet *myVM* i resurs gruppen *myResourceGroup* :
 
 ```azurecli
 az vm deallocate \
@@ -45,7 +45,7 @@ Om du vill kopiera en virtuell dator skapar du en kopia av den underliggande vir
 
 Mer information om Azure Managed Disks finns i [Översikt över Azure Managed Disks](../managed-disks-overview.md). 
 
-1.  Lista varje virtuell dator och namnet på sin OS-disk med [AZ VM List](/cli/azure/vm#az-vm-list). I följande exempel visas alla virtuella datorer i resurs gruppen med namnet *myResourceGroup*:
+1.  Lista varje virtuell dator och namnet på sin OS-disk med [AZ VM List](/cli/azure/vm#az-vm-list). I följande exempel visas alla virtuella datorer i resurs gruppen med namnet *myResourceGroup* :
     
     ```azurecli
     az vm list -g myResourceGroup \
@@ -61,14 +61,14 @@ Mer information om Azure Managed Disks finns i [Översikt över Azure Managed Di
     myVM    myDisk
     ```
 
-1.  Kopiera disken genom att skapa en ny hanterad disk och genom att använda [AZ disk Create](/cli/azure/disk#az-disk-create). I följande exempel skapas en disk med namnet *myCopiedDisk* från den hanterade disken med namnet min *disk*:
+1.  Kopiera disken genom att skapa en ny hanterad disk och genom att använda [AZ disk Create](/cli/azure/disk#az-disk-create). I följande exempel skapas en disk med namnet *myCopiedDisk* från den hanterade disken med namnet min *disk* :
 
     ```azurecli
     az disk create --resource-group myResourceGroup \
          --name myCopiedDisk --source myDisk
     ``` 
 
-1.  Verifiera de hanterade diskarna nu i din resurs grupp med hjälp av [AZ disk List](/cli/azure/disk#az-disk-list). I följande exempel visas de hanterade diskarna i resurs gruppen med namnet *myResourceGroup*:
+1.  Verifiera de hanterade diskarna nu i din resurs grupp med hjälp av [AZ disk List](/cli/azure/disk#az-disk-list). I följande exempel visas de hanterade diskarna i resurs gruppen med namnet *myResourceGroup* :
 
     ```azurecli
     az disk list --resource-group myResourceGroup --output table
@@ -83,7 +83,7 @@ Om du kopierar en virtuell dator för fel söknings syfte eller ytterligare dist
 
 Om du vill skapa en virtuell nätverks infrastruktur för dina kopierade virtuella datorer följer du de följande stegen. Om du inte vill skapa ett virtuellt nätverk kan du gå vidare till [skapa en virtuell dator](#create-a-vm).
 
-1.  Skapa det virtuella nätverket med [AZ Network VNet Create](/cli/azure/network/vnet#az-network-vnet-create). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* och ett undernät med namnet *subsubnet*:
+1.  Skapa det virtuella nätverket med [AZ Network VNet Create](/cli/azure/network/vnet#az-network-vnet-create). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* och ett undernät med namnet *subsubnet* :
 
     ```azurecli
     az network vnet create --resource-group myResourceGroup \
@@ -93,7 +93,7 @@ Om du vill skapa en virtuell nätverks infrastruktur för dina kopierade virtuel
         --subnet-prefix 192.168.1.0/24
     ```
 
-1.  Skapa en offentlig IP-adress med [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* med DNS-namnet *mypublicdns*. (Eftersom DNS-namnet måste vara unikt anger du ett unikt namn.)
+1.  Skapa en offentlig IP-adress med [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* med DNS-namnet *mypublicdns* . (Eftersom DNS-namnet måste vara unikt anger du ett unikt namn.)
 
     ```azurecli
     az network public-ip create --resource-group myResourceGroup \

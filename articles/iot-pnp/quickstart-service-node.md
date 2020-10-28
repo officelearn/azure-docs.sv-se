@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js
-ms.openlocfilehash: b144d49daf9ab89a4553b93e3b36c9c2c8bef9ca
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 9a71a45f69f7a2bd2fbc198292526a6928e421a2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521333"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735993"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (Node.js)
 
@@ -69,8 +69,8 @@ I den här snabb starten använder du ett exempel på en termostat-enhet som är
 
 I [Konfigurera din miljö för iot plug and Play snabb starter och självstudier](set-up-environment.md) som du har skapat två miljövariabler för att konfigurera exemplet för att ansluta till din IoT-hubb och-enhet:
 
-* **IOTHUB_CONNECTION_STRING**: den IoT Hub-anslutningssträng som du antecknade tidigare.
-* **IOTHUB_DEVICE_ID**: `"my-pnp-device"` .
+* **IOTHUB_CONNECTION_STRING** : den IoT Hub-anslutningssträng som du antecknade tidigare.
+* **IOTHUB_DEVICE_ID** : `"my-pnp-device"` .
 
 I den här snabb starten använder du en exempel-IoT-lösning i Node.js för att interagera med den exempel enhet som du nyss konfigurerat.
 
@@ -164,7 +164,7 @@ I den här snabb starten använder du en exempel-IoT-lösning i Node.js för att
 I det här scenariot matas den ut `Model Id: dtmi:com:example:Thermostat;1` .
 
 > [!NOTE]
-> Dessa tjänst exempel använder **register** klassen från **IoT Hub-tjänst klienten**. Mer information om API: er, inklusive digitala dubbla API: er, finns i [service Developer-guiden](concepts-developer-guide-service.md).
+> Dessa tjänst exempel använder **register** klassen från **IoT Hub-tjänst klienten** . Mer information om API: er, inklusive digitala dubbla API: er, finns i [service Developer-guiden](concepts-developer-guide-service.md).
 
 ### <a name="update-a-writable-property"></a>Uppdatera en skrivbar egenskap
 

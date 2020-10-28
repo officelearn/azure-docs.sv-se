@@ -8,18 +8,18 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2020
-ms.openlocfilehash: 0efcc82617c75089ff2bf396133f9fbc7ec701ea
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a8890db90fa9f76b676a5fb944f74a773b00c8cd
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107699"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737509"
 ---
-# <a name="source-transformation-in-mapping-data-flow"></a>Käll omvandling i data flöde för mappning 
+# <a name="source-transformation-in-mapping-data-flow"></a>Käll omvandling i data flöde för mappning
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En käll omvandling konfigurerar data källan för data flödet. När du skapar data flöden kommer ditt första steg alltid att konfigurera en käll omvandling. Om du vill lägga till en källa klickar du på rutan **Lägg till källa** i arbets ytan data flöde.
+En käll omvandling konfigurerar data källan för data flödet. När du skapar data flöden konfigurerar det första steget alltid en käll omvandling. Om du vill lägga till en källa väljer du rutan **Lägg till källa** i arbets ytan data flöde.
 
 Varje data flöde kräver minst en käll omvandling, men du kan lägga till så många källor som behövs för att slutföra dina data transformationer. Du kan koppla ihop dessa källor med en JOIN-, lookup-eller union-omvandling.
 
@@ -27,19 +27,19 @@ Varje käll omvandling är associerad med exakt en data uppsättning eller länk
 
 ## <a name="inline-datasets"></a>Infogade data uppsättningar
 
-Det första beslut du fattar när du skapar en käll omvandling är om din käll information definieras i ett DataSet-objekt eller i käll omvandlingen. De flesta format är bara tillgängliga i den ena eller den andra. Referera till lämpligt kopplings dokument för att lära dig hur du använder en speciell anslutning.
+Det första beslut du fattar när du skapar en käll omvandling är om din käll information definieras i ett DataSet-objekt eller i käll omvandlingen. De flesta format är bara tillgängliga i en eller ett annat. Information om hur du använder en speciell koppling finns i lämpligt kopplings dokument.
 
-När ett format stöds för både infogade och i ett data uppsättnings objekt, finns det fördelar med båda. Data uppsättnings objekt är återanvändbara entiteter som kan utnyttjas i andra data flöden och aktiviteter som kopiering. Dessa är särskilt användbara när du använder ett strikt schema. Data uppsättningar är inte baserade i Spark och ibland kan du behöva åsidosätta vissa inställningar eller schema projektion i käll omvandlingen.
+När ett format stöds för både infogade och i ett data uppsättnings objekt, finns det fördelar med båda. Data uppsättnings objekt är återanvändbara entiteter som kan användas i andra data flöden och aktiviteter som kopiering. Dessa återanvändbara entiteter är särskilt användbara när du använder ett strikt schema. Data uppsättningar är inte baserade i Spark. Ibland kan du behöva åsidosätta vissa inställningar eller schema projektion i käll omvandlingen.
 
-Infogade data uppsättningar rekommenderas när du använder flexibla scheman, ensidiga käll instanser eller parameter källor. Om källan är mycket parametriserad kan du använda data uppsättningar i rad för att inte skapa ett "dummy"-objekt. Infogade data uppsättningar baseras i Spark och deras egenskaper är inbyggda i data flödet.
+Infogade data uppsättningar rekommenderas när du använder flexibla scheman, ensidiga käll instanser eller parameter källor. Om källan är mycket parametriserad kan infogade data uppsättningar inte skapa ett "dummy"-objekt. Infogade data uppsättningar baseras i Spark och deras egenskaper är inbyggda i data flödet.
 
-Om du vill använda en infogad data uppsättning väljer du det önskade formatet i väljaren för **käll typ** . I stället för att välja en käll data uppsättning väljer du den länkade tjänst som du vill ansluta till.
+Om du vill använda en infogad data uppsättning väljer du det format som du vill använda i väljaren för **käll typ** . I stället för att välja en käll data uppsättning väljer du den länkade tjänst som du vill ansluta till.
 
-![Infogad data uppsättning](media/data-flow/inline-selector.png "Infogad data uppsättning")
+![Skärm bild som visar infogad markering.](media/data-flow/inline-selector.png "Skärm bild som visar infogad markering.")
 
 ##  <a name="supported-source-types"></a><a name="supported-sources"></a> Käll typer som stöds
 
-Genom att mappa data flödet följer du metoden extrahera, läsa in, transformera (ELT) och arbetar med *mellanlagring* av data uppsättningar som är alla i Azure. För närvarande kan följande data uppsättningar användas i en käll omvandling:
+Genom att mappa data flödet följer du en metod för att extrahera, läsa in och transformera (ELT) och fungerar med *mellanlagring* av data uppsättningar som är alla i Azure. För närvarande kan följande data uppsättningar användas i en käll omvandling.
 
 | Anslutningsprogram | Format | Data uppsättning/intern |
 | --------- | ------ | -------------- |
@@ -52,35 +52,35 @@ Genom att mappa data flödet följer du metoden extrahera, läsa in, transformer
 | [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
-Inställningar som är aktuella för dessa anslutningar finns på fliken **käll alternativ** . Skript exempel för information och data flöde i dessa inställningar finns i anslutnings dokumentationen. 
+Inställningar som är aktuella för dessa anslutningar finns på fliken **käll alternativ** . Skript exempel för information och data flöde i dessa inställningar finns i anslutnings dokumentationen.
 
-Azure Data Factory har åtkomst till över [90 inbyggda anslutningsprogram](connector-overview.md). Om du vill ta med data från de andra källorna i ditt data flöde använder du kopierings aktiviteten för att läsa in dessa data till något av de mellanliggande mellanlagrings områdena.
+Azure Data Factory har till gång till fler än [90 inbyggda anslutningar](connector-overview.md). Om du vill ta med data från de andra källorna i ditt data flöde använder du kopierings aktiviteten för att läsa in dessa data till något av de mellanliggande mellanlagrings områdena.
 
 ## <a name="source-settings"></a>Källinställningar
 
-När du har lagt till en källa konfigurerar du via fliken **käll inställningar** . Här kan du välja eller skapa den data uppsättning som din käll pekar på. Du kan också välja schema-och samplings alternativ för dina data. 
+När du har lagt till en källa konfigurerar du via fliken **käll inställningar** . Här kan du välja eller skapa den data uppsättning som din käll pekar på. Du kan också välja schema-och samplings alternativ för dina data.
 
-Utvecklings värden för data uppsättnings parametrar kan konfigureras i [fel söknings inställningar](concepts-data-flow-debug-mode.md) (du måste aktivera fel söknings läge).
+Utvecklings värden för data uppsättnings parametrar kan konfigureras i [fel söknings inställningar](concepts-data-flow-debug-mode.md). (Fel söknings läge måste vara aktiverat.)
 
-![Fliken käll inställningar](media/data-flow/source1.png "Fliken käll inställningar")
+![Skärm bild som visar fliken käll inställningar.](media/data-flow/source1.png "Skärm bild som visar fliken käll inställningar.")
 
-**Namn på utdataström:** Namnet på käll omvandlingen.
+**Namn på utdataström** : namnet på käll omvandlingen.
 
-**Typ av källa:** Välj om du vill använda en infogad data uppsättning eller ett befintligt data uppsättnings objekt.
+**Typ av källa** : Välj om du vill använda en infogad data uppsättning eller ett befintligt data uppsättnings objekt.
 
-**Testa anslutning:** Testa om data flödet Spark-tjänsten kan ansluta till den länkade tjänsten som används i din käll data uppsättning. Fel söknings läge måste vara aktiverat för att den här funktionen ska vara aktive rad.
+**Testa anslutning** : testa om data flödets Spark-tjänst kan ansluta till den länkade tjänsten som används i din käll data uppsättning. Fel söknings läge måste vara aktiverat för att den här funktionen ska vara aktive rad.
 
-**Schema avvikelse:** [schema avvikelse](concepts-data-flow-schema-drift.md) är data fabriks möjlighet att hantera flexibla scheman i dina data flöden utan att uttryckligen definiera kolumn ändringar.
+**Schema avvikelse** : [schema avvikelse](concepts-data-flow-schema-drift.md) är möjligheten att Data Factory att internt hantera flexibla scheman i dina data flöden utan att uttryckligen definiera kolumn ändringar.
 
 * Markera kryss rutan **Tillåt schema avvikelse** om käll kolumnerna ska ändras ofta. Med den här inställningen kan alla inkommande källfält flöda genom omvandlingarna till mottagaren.
 
 * Om du väljer **härledda kolumn typer** instrueras Data Factory att identifiera och definiera data typer för varje ny kolumn som identifieras. När den här funktionen är inaktive rad blir alla nedsatta kolumner av typen sträng.
 
-**Verifiera schema:** Om verifiera schema har valts kan data flödet inte köras om inkommande källdata inte matchar det definierade schemat för data uppsättningen.
+**Verifiera schema:** Om **Verifiera schema** har valts kan data flödet inte köras om inkommande källdata inte matchar det definierade schemat för data uppsättningen.
 
-**Hoppa över linje antal:** Fältet slopa rad antal anger hur många rader som ska ignoreras i början av data uppsättningen.
+**Hoppa över linje antal** : fältet **slopa rad antal** anger hur många rader som ska ignoreras i början av data uppsättningen.
 
-**Sampling:** Aktivera sampling för att begränsa antalet rader från källan. Använd den här inställningen när du testar eller samplar data från källan för fel sökning.
+**Sampling** : aktivera **sampling** för att begränsa antalet rader från källan. Använd den här inställningen när du testar eller samplar data från källan för fel sökning.
 
 Verifiera att källan är korrekt konfigurerad genom att aktivera fel söknings läge och hämta en data förhands granskning. Mer information finns i [fel söknings läge](concepts-data-flow-debug-mode.md).
 
@@ -89,33 +89,33 @@ Verifiera att källan är korrekt konfigurerad genom att aktivera fel söknings 
 
 ## <a name="source-options"></a>Käll alternativ
 
-Fliken käll alternativ innehåller inställningar som är aktuella för den koppling och det format som valts. Mer information och exempel finns i relevant Connector- [dokumentation](#supported-sources).
+Fliken **käll alternativ** innehåller inställningar som är aktuella för den koppling och det format som valts. Mer information och exempel finns i relevant Connector- [dokumentation](#supported-sources).
 
 ## <a name="projection"></a>Projektion
 
-Som scheman i data uppsättningar definierar projektionen i en källa data kolumnerna, typerna och formaten från käll data. För de flesta typer av data uppsättningar, till exempel SQL och Parquet, åtgärdas projektionen i en källa för att återspegla det schema som definierats i en data uppsättning. När källfilerna inte är starkt skrivna (till exempel enkla CSV-filer i stället för Parquet-filer) kan du definiera data typerna för varje fält i käll omvandlingen.
+Som scheman i data uppsättningar definierar projektionen i en källa data kolumnerna, typerna och formaten från käll data. För de flesta typer av data uppsättningar, till exempel SQL och Parquet, åtgärdas projektionen i en källa för att återspegla det schema som definierats i en data uppsättning. Om källfilerna inte är starkt skrivna (till exempel flat. csv-filer i stället för Parquet-filer) kan du definiera data typerna för varje fält i käll omvandlingen.
 
-![Inställningar på fliken projektion](media/data-flow/source3.png "Projektion")
+![Skärm bild som visar inställningarna på fliken projektion.](media/data-flow/source3.png "Skärm bild som visar inställningarna på fliken projektion.")
 
 Om text filen inte har något definierat schema väljer du **identifiera data typ** så att Data Factory kan sampla och härleda data typerna. Välj **definiera standardformat** för att automatiskt identifiera standard data formaten.
 
 **Återställ schema** återställer projektionen till det som definieras i den refererade data uppsättningen.
 
-Du kan ändra kolumn data typerna i en nedströms härledd kolumn-omvandling. Använd en SELECT-omvandling för att ändra kolumn namnen.
+Du kan ändra kolumn data typerna i en underordnad härledd kolumn-omvandling. Använd en SELECT-omvandling för att ändra kolumn namnen.
 
 ### <a name="import-schema"></a>Importera schema
 
-Knappen **Importera schema** på fliken **projektion** gör att du kan använda ett aktivt fel söknings kluster för att skapa en schema projektion. När du importerar schemat i varje källtyp åsidosätts den projektion som definierats i data uppsättningen. Dataset-objektet kommer inte att ändras.
+Välj knappen **Importera schema** på fliken **projektion** om du vill använda ett aktivt fel söknings kluster för att skapa en schema projektion. Den är tillgänglig i varje källtyp. Genom att importera schemat här åsidosätts projektionen som definierats i data uppsättningen. Dataset-objektet ändras inte.
 
-Detta är användbart i data uppsättningar som Avro och Azure Cosmos DB som stöder komplexa data strukturer kräver inte att schema definitioner finns i data uppsättningen. För infogade data uppsättningar är det enda sättet att referera till kolumnens metadata utan schema avvikelser.
+Att importera schemat är användbart i data uppsättningar som Avro och Azure Cosmos DB som stöder komplexa data strukturer som inte kräver att schema definitioner finns i data uppsättningen. För infogade data uppsättningar är importera schema det enda sättet att referera till kolumnens metadata utan schema avvikelser.
 
 ## <a name="optimize-the-source-transformation"></a>Optimera käll omvandlingen
 
 På fliken **optimera** kan du redigera partitionsinformation i varje omformnings steg. I de flesta fall optimeras **användningen av nuvarande partitionering** för den perfekta partitionerings strukturen för en källa.
 
-Om du läser från en Azure SQL Database källa kommer den anpassade **käll** partitionering sannolikt att läsa data som är snabbast. ADF kommer att läsa stora frågor genom att göra anslutningar till databasen parallellt. Den här käll partitionering kan göras i en kolumn eller med en fråga.
+Om du läser från en Azure SQL Database källa kommer den anpassade **käll** partitionering sannolikt att läsa data som är snabbast. Data Factory kommer att läsa stora frågor genom att göra anslutningar till databasen parallellt. Den här käll partitionering kan göras i en kolumn eller med hjälp av en fråga.
 
-![Käll partitions inställningar](media/data-flow/sourcepart3.png "partitionering")
+![Skärm bild som visar käll partitionens inställningar.](media/data-flow/sourcepart3.png "Skärm bild som visar käll partitionens inställningar.")
 
 Mer information om optimering i data flödet för mappning finns på [fliken optimera](concepts-data-flow-overview.md#optimize).
 

@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 02f627c9f606ced7e1b0d991e5053dab17050292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826736"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737993"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Hantera bibliotek för Apache Spark i Azure Synapse Analytics
 
@@ -58,7 +58,7 @@ Så här installerar du bibliotek till en spark-pool (för hands version) när d
    
 3. Ladda upp miljö konfigurations filen med fil väljaren i avsnittet **paket** på sidan. 
    
-![Lägg till Python-bibliotek när du skapar en pool](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Lägg till Python-bibliotek")
+    ![Lägg till Python-bibliotek när du skapar en pool](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Lägg till Python-bibliotek")
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Installera paket från arbets ytan Synapse
@@ -68,11 +68,11 @@ Uppdatera eller lägga till ytterligare bibliotek i en spark-pool (för hands ve
    
 2.  Starta din Azure Synapse Analytics-arbetsyta från Azure Portal.
 
-3.  Välj **Hantera** från huvud navigerings panelen och välj sedan **Apache Spark pooler**.
+3.  Välj **Hantera** från huvud navigerings panelen och välj sedan **Apache Spark pooler** .
    
 4. Välj en enskild Spark-pool och överför miljö konfigurations filen med fil väljaren i avsnittet  **paket** på sidan.
 
-![Lägga till Python-bibliotek i Synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png "Lägg till Python-bibliotek")
+    ![Lägga till Python-bibliotek i Synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### <a name="install-packages-from-the-azure-portal"></a>Installera paket från Azure Portal
 Så här installerar du ett bibliotek på en spark-pool (för hands version) direkt från Azure Portal:
@@ -85,7 +85,7 @@ Så här installerar du ett bibliotek på en spark-pool (för hands version) dir
 
  4. Ladda upp miljö konfigurations filen med fil väljaren.
 
-![Skärm bild som visar knappen Ladda upp miljö konfigurations fil.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Lägg till Python-bibliotek")
+    ![Skärm bild som visar knappen Ladda upp miljö konfigurations fil.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Lägg till Python-bibliotek")
 
 ### <a name="verify-installed-libraries"></a>Verifiera installerade bibliotek
 
@@ -106,13 +106,13 @@ Så här uppdaterar eller avinstallerar du ett bibliotek:
 
 3. Navigera till avsnittet **paket** och ladda upp en ny miljö konfigurations fil
    
-4. När du har sparat ändringarna måste du avsluta aktiva sessioner och låta poolen starta om. Du kan också tvinga aktiva sessioner att sluta genom att markera kryss rutan för att **tvinga nya inställningar**.
+4. När du har sparat ändringarna måste du avsluta aktiva sessioner och låta poolen starta om. Du kan också tvinga aktiva sessioner att sluta genom att markera kryss rutan för att **tvinga nya inställningar** .
 
-![Lägg till Python-bibliotek](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Lägg till Python-bibliotek")
+    ![Lägg till Python-bibliotek](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Lägg till Python-bibliotek")
    
 
 > [!IMPORTANT]
-> Genom att välja alternativet för att **tvinga nya inställningar**kommer du att avsluta alla aktuella sessioner för den valda Spark-poolen. När sessionerna har slutförts måste du vänta tills poolen startats om. 
+> Genom att välja alternativet för att **tvinga nya inställningar** kommer du att avsluta alla aktuella sessioner för den valda Spark-poolen. När sessionerna har slutförts måste du vänta tills poolen startats om. 
 >
 > Om den här inställningen är omarkerad måste du vänta tills den aktuella Spark-sessionen avslutas eller stoppa den manuellt. När sessionen har upphört måste du låta poolen starta om. 
 

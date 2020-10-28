@@ -7,13 +7,13 @@ ms.date: 7/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: 187a0598dfc26394d1fd48e67d83ef7e98ef6226
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 065e65c0c8ccf61dd67da19fd5a94d4506db73ff
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91574047"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737307"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-python"></a>Snabb start: ansluta ett exempel på IoT Plug and Play enhets program till IoT Hub (python)
 
@@ -37,7 +37,7 @@ I din lokala python-miljö installerar du paketet på följande sätt:
 pip install azure-iot-device
 ```
 
-Klona din python SDK IoT-lagringsplats och kolla ut **Master**:
+Klona din python SDK IoT-lagringsplats och kolla ut **Master** :
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-python
@@ -61,7 +61,7 @@ Mappen *Azure-IoT-SDK-python\azure-IoT-device\samples\pnp* innehåller exempel k
 
     1. Använder enhets-SDK för att skapa en enhets klient och ansluta till IoT Hub.
 
-    1. Egenskaper för uppdateringar. Modellen vi använder, **termostat**, definierar `targetTemperature` och `maxTempSinceLastReboot` som de två egenskaperna för vår termostat, så det är vad vi ska använda. Egenskaperna uppdateras med den `patch_twin_reported_properties` metod som definierats i `device_client` .
+    1. Egenskaper för uppdateringar. Modellen vi använder, **termostat** , definierar `targetTemperature` och `maxTempSinceLastReboot` som de två egenskaperna för vår termostat, så det är vad vi ska använda. Egenskaperna uppdateras med den `patch_twin_reported_properties` metod som definierats i `device_client` .
 
     1. Börjar lyssna efter kommando begär Anden med hjälp av funktionen **execute_command_listener** . Funktionen konfigurerar en lyssnare för att lyssna efter kommandon som kommer från tjänsten. När du ställer in den lyssnare som du anger `method_name` , `user_command_handler` , och `create_user_response_handler` .
         - `user_command_handler`Funktionen definierar vad enheten ska göra när den får ett kommando. Om ditt larm till exempel inaktive ras, aktive ras resultatet av att ta emot det här kommandot. Tänk på detta som "påverkan" på det kommando som anropas.
@@ -69,7 +69,7 @@ Mappen *Azure-IoT-SDK-python\azure-IoT-device\samples\pnp* innehåller exempel k
 
     1. Börjar skicka telemetri. **Pnp_send_telemetry** definieras i filen pnp_methods. py. Exempel koden använder en slinga för att anropa den här funktionen var åttonde sekund.
 
-    1. Inaktiverar alla lyssnare och uppgifter och finns i slingan när du trycker på **q** eller **q**.
+    1. Inaktiverar alla lyssnare och uppgifter och finns i slingan när du trycker på **q** eller **q** .
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

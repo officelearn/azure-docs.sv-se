@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
-ms.openlocfilehash: 92fd4d629585ed465e2891be2dce1c1bdc8c88e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ccc4cb6a6f95cfc51fb7e265e455131bc6393c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287935"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735616"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager testen het
 
@@ -35,6 +35,9 @@ En distributions mall innehåller alla Azure-resurser som utgör din lösning. P
   - **Kall** – den här typen av instans representerar det totala antalet instanser som eventuellt kan distribueras per region. Kalla instanser kräver att hela test enhetens Resource Manager-mall distribueras när en kund begär test enheten, så att *kalla* instanser är mycket långsammare att läsa in än *varma* instanser. Kompromissen är att du bara behöver betala under test enhetens varaktighet, den körs *inte* alltid på din Azure-prenumeration som en *aktiv* instans.
 
 - **Testa enhet Azure Resource Manager mall** – Ladda upp zip-filen som innehåller din Azure Resource Manager-mall. Lär dig mer om hur du skapar en Azure Resource Manager-mall i snabb starts artikeln [skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+
+    > [!note]
+    > För att publicera fungerar är det viktigt att verifiera formateringen av ARM-mallen. Två sätt att göra detta är (1) med hjälp av ett [online-API-verktyg](https://docs.microsoft.com/rest/api/resources/deployments/validate) eller (2) med en [test distribution](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
 
 - **Test enhetens varaktighet** (krävs) – ange antalet timmar som test enheten ska vara aktiv. Test enheten avslutas automatiskt när den här tids perioden är slut. Använd endast heltal (till exempel "2" timmar är giltigt, "1,5" är inte).
 
@@ -293,11 +296,11 @@ Det sista avsnittet att slutföra är att kunna distribuera test enheterna autom
 
 ![Information om distributions prenumeration för test enhet](media/test-drive/deployment-subscription-details.png)
 
-1. Hämta ett **ID för Azure-prenumeration**. Detta ger åtkomst till Azure-tjänster och Azure Portal. Prenumerationen är den plats där resursanvändningen rapporteras och tjänsterna faktureras. Om du inte redan har en separat Azure-prenumeration för test enheter kan du göra en. Du kan hitta ID: n för Azure-prenumerationer (till exempel `1a83645ac-1234-5ab6-6789-1h234g764ghty1` ) genom att logga in på Azure Portal och välja **prenumerationer** på menyn till vänster-navigerings.
+1. Hämta ett **ID för Azure-prenumeration** . Detta ger åtkomst till Azure-tjänster och Azure Portal. Prenumerationen är den plats där resursanvändningen rapporteras och tjänsterna faktureras. Om du inte redan har en separat Azure-prenumeration för test enheter kan du göra en. Du kan hitta ID: n för Azure-prenumerationer (till exempel `1a83645ac-1234-5ab6-6789-1h234g764ghty1` ) genom att logga in på Azure Portal och välja **prenumerationer** på menyn till vänster-navigerings.
 
    ![Azure-prenumerationer](media/test-drive/azure-subscriptions.png)
 
-2. Hämta ett **klient-ID för Azure AD**. Om du redan har ett klient-ID tillgängligt kan du hitta det i **Azure Active Directory**  >  **Egenskaper**  >  **katalog-ID**:
+2. Hämta ett **klient-ID för Azure AD** . Om du redan har ett klient-ID tillgängligt kan du hitta det i **Azure Active Directory**  >  **Egenskaper**  >  **katalog-ID** :
 
    ![Azure Active Directory egenskaper](media/test-drive/azure-active-directory-properties.png)
 
@@ -306,14 +309,14 @@ Det sista avsnittet att slutföra är att kunna distribuera test enheterna autom
 3. **Azure AD App-ID** – skapa och registrera ett nytt program. Vi kommer att använda det här programmet för att utföra åtgärder på din test enhets instans.
 
    1. Navigera till katalogen som skapats eller redan är befintlig och välj Azure Active Directory i filter fönstret.
-   2. Sök **Appregistreringar** och välj **Lägg till**.
+   2. Sök **Appregistreringar** och välj **Lägg till** .
    3. Ange ett program namn.
-   4. Välj **typ** av **webbapp/API**.
+   4. Välj **typ** av **webbapp/API** .
    5. Ange ett värde i URL: en för inloggning, det här fältet används inte.
-   6. Välj **Skapa**.
-   7. När programmet har skapats väljer du **Egenskaper**  >  **Ange programmet som flera innehavare** och sedan **Spara**.
+   6. Välj **Skapa** .
+   7. När programmet har skapats väljer du **Egenskaper**  >  **Ange programmet som flera innehavare** och sedan **Spara** .
 
-4. Välj **Spara**.
+4. Välj **Spara** .
 
 5. Kopiera program-ID: t för den här registrerade appen och klistra in det i fältet test enhet.
 
@@ -323,7 +326,7 @@ Det sista avsnittet att slutföra är att kunna distribuera test enheterna autom
 
    1. Välj den typ av **prenumeration** som du använder för test enheten.
    1. Välj **Åtkomstkontroll (IAM)** .
-   1. Välj fliken **roll tilldelningar** och **Lägg sedan till roll tilldelning**.
+   1. Välj fliken **roll tilldelningar** och **Lägg sedan till roll tilldelning** .
 
       ![Lägg till en ny Access Control huvud konto](media/test-drive/access-control-principal.jpg)
 
@@ -331,9 +334,9 @@ Det sista avsnittet att slutföra är att kunna distribuera test enheterna autom
 
       ![Lägg till behörigheterna](media/test-drive/access-control-permissions.jpg)
 
-   1. Välj **Spara**.
+   1. Välj **Spara** .
 
-7. Generera en nyckel för **Azure AD App** -autentisering. Under **nycklar**lägger du till en **nyckel Beskrivning**, ställer in varaktigheten så att den **aldrig upphör att gälla** (en förfallen nyckel bryter din test enhet i produktion) och väljer sedan **Spara**. Kopiera och klistra in det här värdet i fältet för test enheten som krävs.
+7. Generera en nyckel för **Azure AD App** -autentisering. Under **nycklar** lägger du till en **nyckel Beskrivning** , ställer in varaktigheten så att den **aldrig upphör att gälla** (en förfallen nyckel bryter din test enhet i produktion) och väljer sedan **Spara** . Kopiera och klistra in det här värdet i fältet för test enheten som krävs.
 
 ![Visar nycklar för Azure AD-programmet](media/test-drive/azure-ad-app-keys.png)
 
@@ -349,7 +352,7 @@ Nu när alla test enhets fält är slutförda **publicerar** du om erbjudandet. 
 
 Ta inte bort några test enhets instanser som tillhandahålls för dina kunder. Test Drive-tjänsten rensar automatiskt dessa resurs grupper efter att en kund är klar.
 
-När du är van vid ditt för hands versions erbjudande är det dags att **gå live**! Det finns en slutgiltig gransknings process för att kontrol lera hela slut punkt till slut punkt. Om vi avvisar erbjudandet kommer vi att e-posta teknisk kontakt för ditt erbjudande som förklarar vad som behöver åtgärdas.
+När du är van vid ditt för hands versions erbjudande är det dags att **gå live** ! Det finns en slutgiltig gransknings process för att kontrol lera hela slut punkt till slut punkt. Om vi avvisar erbjudandet kommer vi att e-posta teknisk kontakt för ditt erbjudande som förklarar vad som behöver åtgärdas.
 
 ## <a name="next-steps"></a>Nästa steg
 

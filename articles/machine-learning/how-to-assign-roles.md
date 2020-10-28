@@ -10,13 +10,13 @@ ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: how-to, seodec18
-ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: how-to, seodec18, devx-track-azurecli
+ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425650"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736611"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
@@ -45,7 +45,7 @@ Om du är ägare till en arbets yta kan du lägga till och ta bort roller för a
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [REST-API](/azure/role-based-access-control/role-assignments-rest)
-- [Azure Resource Manager-mallar](/azure/role-based-access-control/role-assignments-template)
+- [Azure Resource Manager mallar](/azure/role-based-access-control/role-assignments-template)
 
 Om du har installerat [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md)kan du använda CLI-kommandon för att tilldela roller till användare:
 
@@ -173,7 +173,7 @@ Vi publicerar för närvarande inte [inbyggda Azure-roller](/azure/role-based-ac
 
 Ja här är några vanliga scenarier med anpassade föreslagna roll definitioner som du kan använda som bas för att definiera egna anpassade roller:
 
-* __Data expert Custom__: gör att en data-expert kan utföra alla åtgärder inom en arbets yta **utom**:
+* __Data expert Custom__ : gör att en data-expert kan utföra alla åtgärder inom en arbets yta **utom** :
 
     * Skapa beräkning
     * Distribuera modeller till ett AKS-kluster för produktion
@@ -209,7 +209,7 @@ Ja här är några vanliga scenarier med anpassade föreslagna roll definitioner
     }
     ```
 
-* __Data expert-begränsad anpassad__: en mer begränsad roll definition utan jokertecken i tillåtna åtgärder. Den kan utföra alla åtgärder inom en arbets yta **förutom**:
+* __Data expert-begränsad anpassad__ : en mer begränsad roll definition utan jokertecken i tillåtna åtgärder. Den kan utföra alla åtgärder inom en arbets yta **förutom** :
 
     * Skapa beräkning
     * Distribuera modeller till ett AKS-kluster för produktion
@@ -270,7 +270,7 @@ Ja här är några vanliga scenarier med anpassade föreslagna roll definitioner
     }
     ```
      
-* __MLflow data expert Custom__: gör att en data expert kan utföra alla MLflow azureml-åtgärder som stöds, **förutom**:
+* __MLflow data expert Custom__ : gör att en data expert kan utföra alla MLflow azureml-åtgärder som stöds, **förutom** :
 
    * Skapa beräkning
    * Distribuera modeller till ett AKS-kluster för produktion
@@ -310,7 +310,7 @@ Ja här är några vanliga scenarier med anpassade föreslagna roll definitioner
     }
     ```   
 
-* __MLOps anpassad__: gör att du kan tilldela en roll till ett huvud namn för tjänsten och använda det för att automatisera dina MLOps-pipeliner. Till exempel för att skicka körningar till en redan publicerad pipeline:
+* __MLOps anpassad__ : gör att du kan tilldela en roll till ett huvud namn för tjänsten och använda det för att automatisera dina MLOps-pipeliner. Till exempel för att skicka körningar till en redan publicerad pipeline:
 
     `mlops_custom_role.json` :
     ```json
@@ -351,7 +351,7 @@ Ja här är några vanliga scenarier med anpassade föreslagna roll definitioner
     }
     ```
 
-* __Arbets ytans administratör__: gör att du kan utföra alla åtgärder inom en arbets ytans omfång, **förutom**:
+* __Arbets ytans administratör__ : gör att du kan utföra alla åtgärder inom en arbets ytans omfång, **förutom** :
 
     * Skapa en ny arbets yta
     * Tilldelar kvoter för prenumerations-eller arbets ytans nivå
@@ -381,7 +381,7 @@ Ja här är några vanliga scenarier med anpassade föreslagna roll definitioner
     ```
 
 <a name="labeler"></a>
-* __Labeler anpassad__: låter dig definiera en roll som är begränsad till att etikettera data:
+* __Labeler anpassad__ : låter dig definiera en roll som är begränsad till att etikettera data:
 
     `labeler_custom_role.json` :
     ```json

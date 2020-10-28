@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom: mqtt
-ms.openlocfilehash: 4e380fdcd72ab21f00272536b9f08145dcb09bc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03e05eb2bc56a07c2bda3d3fb224012abb3c9e4a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81728820"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735931"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guide för Azure IoT Hub-utvecklare
 
@@ -52,7 +52,7 @@ Den här guiden för IoT Hub utvecklare innehåller följande artiklar:
 
 * [Ladda upp filer från en enhet](iot-hub-devguide-file-upload.md) beskriver hur du kan ladda upp filer från en enhet. Artikeln innehåller också information om ämnen, till exempel de meddelanden som överförings processen kan skicka.
 
-* [Hantera enhets identiteter i IoT Hub](iot-hub-devguide-identity-registry.md)beskriver vilken information varje IoT Hub-identitets register lagrar. Artikeln beskriver också hur du kan komma åt och ändra den.
+* [Hantera enhets identiteter i IoT Hub](iot-hub-devguide-identity-registry.md) beskriver vilken information varje IoT Hub-identitets register lagrar. Artikeln beskriver också hur du kan komma åt och ändra den.
 
 * [Kontrol lera åtkomst till IoT Hub](iot-hub-devguide-security.md) beskriver den säkerhets modell som används för att bevilja åtkomst till IoT Hub funktioner för både enheter och moln komponenter. Artikeln innehåller information om hur du använder tokens och X. 509-certifikat, samt information om de behörigheter som du kan bevilja.
 

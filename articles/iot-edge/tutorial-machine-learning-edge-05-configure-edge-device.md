@@ -8,13 +8,13 @@ ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: amqp
-ms.openlocfilehash: 2245bd970e93595358e95465bcc815ddaf2ef821
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: amqp, devx-track-azurecli
+ms.openlocfilehash: b85984207742e0b8991ab65875dd22505b918185
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974557"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736744"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Självstudie: Konfigurera en IoT Edge enhet
 
@@ -39,11 +39,11 @@ I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en 
 
 4. Öppna Visual Studio Code.
 
-5. Välj **File**  >  **Öppna mapp för fil...** och välj **C: \\ Source \\ IoTEdgeAndMlSample \\ CreateCertificates**.
+5. Välj **File**  >  **Öppna mapp för fil...** och välj **C: \\ Source \\ IoTEdgeAndMlSample \\ CreateCertificates** .
 
-6. I Explorer-fönstret högerklickar du på **Dockerfile** och väljer **Bygg avbildning**.
+6. I Explorer-fönstret högerklickar du på **Dockerfile** och väljer **Bygg avbildning** .
 
-7. I dialog rutan godkänner du standardvärdet för avbildningens namn och tagg: **createcertificates: senaste**.
+7. I dialog rutan godkänner du standardvärdet för avbildningens namn och tagg: **createcertificates: senaste** .
 
     ![Skapa certifikat i Visual Studio Code](media/tutorial-machine-learning-edge-05-configure-edge-device/create-certificates.png)
 
@@ -58,11 +58,11 @@ I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en 
     docker run --name createcertificates --rm -v c:\edgeCertificates:/edgeCertificates createcertificates /edgeCertificates
     ```
 
-10. Docker kommer att uppmanas att få åtkomst till enheten **c: \\ ** . Välj **dela den**.
+10. Docker kommer att uppmanas att få åtkomst till enheten **c: \\** . Välj **dela den** .
 
 11. Ange dina autentiseringsuppgifter när du uppmanas till det.
 
-12. När behållaren har körts klart kontrollerar du att följande filer finns i **c: \\ edgeCertificates**:
+12. När behållaren har körts klart kontrollerar du att följande filer finns i **c: \\ edgeCertificates** :
 
     * c: \\ edgeCertificates \\ certifikat \\ Azure-IoT-test-Only. root. ca. cert. pem
     * c: \\ edgeCertificates- \\ certifikat \\ New-Edge-Device-full-Chain. cert. pem
@@ -76,7 +76,7 @@ För att lagra våra certifikat säkert och för att göra dem tillgängliga fr�
 
 1. Från [Azure Portal](https://portal.azure.com)navigerar du till arbets ytan Azure Machine Learning.
 
-2. På sidan Översikt i arbets ytan Azure Machine Learning söker du efter namnet på **Key Vault**.
+2. På sidan Översikt i arbets ytan Azure Machine Learning söker du efter namnet på **Key Vault** .
 
     ![Kopiera nyckel valvs namn](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 
@@ -102,7 +102,7 @@ I den här självstudien skapar vi den nya enhets identiteten med hjälp av Visu
 
 2. Expandera **Azure IoT Hub** -ramen från Visual Studio Code Explorer-vyn.
 
-3. Klicka på ellipsknappen och välj **skapa IoT Edge enhet**.
+3. Klicka på ellipsknappen och välj **skapa IoT Edge enhet** .
 
 4. Ge enheten ett namn. För enkelhetens skull använder vi namnet **aaTurbofanEdgeDevice** så att det sorteras överst på listade enheter.
 
@@ -120,15 +120,15 @@ Om du vill använda avbildningen från Marketplace i en skriptad distribution m�
 
 1. Logga in på Azure-portalen.
 
-1. Välj **Alla tjänster**.
+1. Välj **Alla tjänster** .
 
-1. Skriv och välj **Marketplace**i Sök fältet.
+1. Skriv och välj **Marketplace** i Sök fältet.
 
-1. I Sök fältet i Marketplace anger och väljer du **Azure IoT Edge på Ubuntu**.
+1. I Sök fältet i Marketplace anger och väljer du **Azure IoT Edge på Ubuntu** .
 
 1. Välj länken **Kom igång** för att distribuera program mässigt.
 
-1. Välj knappen **Aktivera** och sedan **Spara**.
+1. Välj knappen **Aktivera** och sedan **Spara** .
 
     ![Aktivera program distribution för virtuell dator](media/tutorial-machine-learning-edge-05-configure-edge-device/deploy-ubuntu-vm.png)
 
@@ -152,11 +152,11 @@ Kör sedan skriptet för att skapa den virtuella datorn för din IoT Edge-enhet.
 
 3. Ange värden för varje parameter när du uppmanas till det. För prenumeration, resurs grupp och plats rekommenderar vi att du använder samma som för alla resurser i den här självstudien.
 
-    * **ID för Azure-prenumeration**: hittades i Azure Portal
-    * **Resurs grupp namn**: minnes minnes namn för att gruppera resurserna i den här kursen
-    * **Plats**: Azure-plats där den virtuella datorn kommer att skapas. Till exempel westus2 eller europanorra. Mer information finns på alla [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).
-    * **AdminUsername**: namnet på det administratörs konto som du ska använda för att logga in på den virtuella datorn
-    * **AdminPassword**: lösen ordet som ska anges för AdminUsername på den virtuella datorn
+    * **ID för Azure-prenumeration** : hittades i Azure Portal
+    * **Resurs grupp namn** : minnes minnes namn för att gruppera resurserna i den här kursen
+    * **Plats** : Azure-plats där den virtuella datorn kommer att skapas. Till exempel westus2 eller europanorra. Mer information finns på alla [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).
+    * **AdminUsername** : namnet på det administratörs konto som du ska använda för att logga in på den virtuella datorn
+    * **AdminPassword** : lösen ordet som ska anges för AdminUsername på den virtuella datorn
 
 4. För att skriptet ska kunna konfigurera den virtuella datorn måste du logga in på Azure med de autentiseringsuppgifter som är associerade med den Azure-prenumeration som du använder.
 
@@ -183,7 +183,7 @@ De följande flera avsnitten konfigurerar den virtuella Azure-dator vi skapade. 
     ssh -l <username> iotedge-<suffix>.<region>.cloudapp.azure.com
     ```
 
-2. När du uppmanas att validera värdens äkthet skriver du **Ja** och väljer **RETUR**.
+2. När du uppmanas att validera värdens äkthet skriver du **Ja** och väljer **RETUR** .
 
 3. Ange ditt lösen ord när du uppmanas till det.
 
@@ -230,13 +230,13 @@ Vi kommer att hantera löv enheten senare i självstudien. I det här avsnittet 
 
 Den IoT Edge körningen använder filen `/etc/iotedge/config.yaml` för att spara konfigurationen. Vi måste uppdatera tre delar av informationen i den här filen:
 
-* **Enhets anslutnings sträng**: anslutnings strängen från den här enhetens identitet i IoT Hub
+* **Enhets anslutnings sträng** : anslutnings strängen från den här enhetens identitet i IoT Hub
 * **Certifikat:** certifikat som ska användas för anslutningar som görs med underordnade enheter
 * **Värdnamn:** det fullständigt kvalificerade domän namnet (FQDN) för den virtuella datorns IoT Edge enhet.
 
 Den *Azure IoT Edge på Ubuntu* -avbildningen som vi använde för att skapa IoT Edge virtuella datorn levereras med ett gränssnitts skript som uppdaterar config. yaml med anslutnings strängen.
 
-1. Högerklicka på den IoT Edge enheten i Visual Studio Code och välj sedan **Kopiera enhets anslutnings sträng**.
+1. Högerklicka på den IoT Edge enheten i Visual Studio Code och välj sedan **Kopiera enhets anslutnings sträng** .
 
     ![Kopiera anslutnings sträng från Visual Studio Code](media/tutorial-machine-learning-edge-05-configure-edge-device/copy-device-connection-string-command.png)
 

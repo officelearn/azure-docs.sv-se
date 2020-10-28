@@ -1,23 +1,23 @@
 ---
 title: Övervaka delegerade resurser i stor skala
 description: Lär dig hur du effektivt använder Azure Monitor loggar på ett skalbart sätt över de kund innehavare som du hanterar.
-ms.date: 08/12/2020
+ms.date: 10/26/2020
 ms.topic: how-to
-ms.openlocfilehash: fdd0147737da47613d6b7ef1bf6005e4c03de0dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e5c98b3b62a8fbc953a29cf51ac527e5de21110
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163296"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735848"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Övervaka delegerade resurser i stor skala
 
 Som tjänst leverantör kan du ha registrerat flera kund klienter i [Azure-Lighthouse](../overview.md). Med Azure Lighthouse kan tjänst leverantörer utföra åtgärder i skala över flera klienter samtidigt, vilket gör hanterings uppgifter mer effektiva.
 
-Det här avsnittet visar hur du använder [Azure Monitor loggar](../../azure-monitor/platform/data-platform-logs.md) på ett skalbart sätt över de kund innehavare som du hanterar.
+Det här avsnittet visar hur du använder [Azure Monitor loggar](../../azure-monitor/platform/data-platform-logs.md) på ett skalbart sätt över de kund innehavare som du hanterar. Även om vi refererar till tjänst leverantörer och kunder i det här avsnittet gäller den här vägledningen även för [företag som använder Azure-Lighthouse för att hantera flera klienter](../concepts/enterprise.md).
 
-> [!TIP]
-> Även om vi refererar till tjänst leverantörer och kunder i det här avsnittet gäller den här vägledningen även för [företag som använder Azure-Lighthouse för att hantera flera klienter](../concepts/enterprise.md).
+> [!NOTE]
+> Se till att användarna i hanterings klienter har beviljats de [nödvändiga rollerna för att hantera Log Analytics arbets ytor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) på dina delegerade kund prenumerationer.
 
 ## <a name="create-log-analytics-workspaces"></a>Skapa Log Analytics arbets ytor
 
@@ -26,6 +26,9 @@ För att kunna samla in data måste du skapa Log Analytics arbets ytor. Dessa Lo
 Vi rekommenderar att du skapar dessa arbets ytor direkt i kundens klienter. På så sätt förblir deras data i sina klienter i stället för att exporteras till dina. Det möjliggör också centraliserad övervakning av resurser eller tjänster som stöds av Log Analytics, vilket ger dig mer flexibilitet för vilka typer av data du övervakar.
 
 Du kan skapa en Log Analytics arbets yta genom att använda [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md), med hjälp av [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)eller genom att använda [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
+
+> [!IMPORTANT]
+> Även om alla arbets ytor skapas i kund klienten, måste Microsoft. Insights Resource Provider också registreras på en prenumeration i hanterings klienten.
 
 ## <a name="deploy-policies-that-log-data"></a>Distribuera principer som loggar data
 

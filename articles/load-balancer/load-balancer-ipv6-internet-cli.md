@@ -9,17 +9,17 @@ keywords: IPv6, Azure Load Balancer, dubbel stack, offentlig IP, inbyggd IPv6, m
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87001581"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735919"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Skapa en offentlig belastningsutjämnare med IPv6 med Azure CLI
 
@@ -48,11 +48,11 @@ Följande steg visar hur du skapar en offentlig belastningsutjämnare med hjälp
 
 Om du vill distribuera en belastningsutjämnare skapar och konfigurerar du följande objekt:
 
-* **IP-konfiguration på klient**sidan: innehåller offentliga IP-adresser för inkommande nätverks trafik.
-* **Backend-adresspool**: innehåller nätverks gränssnitt (NIC) för de virtuella datorerna för att ta emot nätverks trafik från belastningsutjämnaren.
-* **Belastnings Utjämnings regler**: innehåller regler som mappar en offentlig port på belastningsutjämnaren till en port i backend-adresspoolen.
-* **Ingående NAT-regler**: innehåller Network Address TRANSLATION (NAT) regler som mappar en offentlig port på belastningsutjämnaren till en port för en speciell virtuell dator i backend-adresspoolen.
-* **Avsökningar**: innehåller hälso avsökningar som används för att kontrol lera tillgängligheten för virtuella dator instanser i backend-adresspoolen.
+* **IP-konfiguration på klient** sidan: innehåller offentliga IP-adresser för inkommande nätverks trafik.
+* **Backend-adresspool** : innehåller nätverks gränssnitt (NIC) för de virtuella datorerna för att ta emot nätverks trafik från belastningsutjämnaren.
+* **Belastnings Utjämnings regler** : innehåller regler som mappar en offentlig port på belastningsutjämnaren till en port i backend-adresspoolen.
+* **Ingående NAT-regler** : innehåller Network Address TRANSLATION (NAT) regler som mappar en offentlig port på belastningsutjämnaren till en port för en speciell virtuell dator i backend-adresspoolen.
+* **Avsökningar** : innehåller hälso avsökningar som används för att kontrol lera tillgängligheten för virtuella dator instanser i backend-adresspoolen.
 
 ## <a name="set-up-azure-cli"></a>Konfigurera Azure CLI
 
@@ -122,7 +122,7 @@ I det här exemplet kör du Azure CLI-verktygen i ett PowerShell-kommando fönst
     > [!IMPORTANT]
     > Belastningsutjämnaren använder domän etiketten för den offentliga IP-adressen som fullständigt kvalificerat domän namn (FQDN). Detta är en förändring från klassisk distribution som använder moln tjänst namnet som belastningsutjämnare-FQDN.
     >
-    > I det här exemplet är det fullständiga domän namnet *contoso09152016.southcentralus.cloudapp.Azure.com*.
+    > I det här exemplet är det fullständiga domän namnet *contoso09152016.southcentralus.cloudapp.Azure.com* .
 
 ## <a name="create-front-end-and-back-end-pools"></a>Skapa klient dels-och Server dels grupper
 

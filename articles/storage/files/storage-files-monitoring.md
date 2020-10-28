@@ -6,16 +6,16 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 4b2f819edd875130c57d487536691b4588dcc71f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfc554a57e99fa4ccd66b1bbeec0be46e463988f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772676"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738641"
 ---
 # <a name="monitoring-azure-files"></a>Övervaknings Azure Files
 
@@ -51,20 +51,9 @@ Mått och loggar i Azure Monitor endast stöd för Azure Resource Manager lagrin
 
 ## <a name="collection-and-routing"></a>Samling och routning
 
-Plattforms mått och aktivitets loggen samlas in automatiskt, men de kan dirigeras till andra platser med hjälp av en diagnostisk inställning. Du måste skapa en diagnostisk inställning för att samla in resurs loggar. 
+Plattforms mått och aktivitets loggen samlas in automatiskt, men de kan dirigeras till andra platser med hjälp av en diagnostisk inställning. 
 
-> [!NOTE]
-> Azure Storage loggar i Azure Monitor finns i offentlig för hands version och är tillgänglig för för hands testning i alla offentliga moln regioner. För att registrera dig i för hands versionen, se [den här sidan](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Den här för hands versionen aktiverar loggar för blobbar (som innehåller Azure Data Lake Storage Gen2), filer, köer, tabeller, Premium Storage-konton i generell användning v1 och lagrings konton för generell användning v2. Klassiska lagrings konton stöds inte.
-
-Om du vill skapa en diagnostisk inställning med hjälp av Azure Portal, Azure CLI eller PowerShell, se [skapa diagnostisk inställning för att samla in plattforms loggar och mått i Azure](../../azure-monitor/platform/diagnostic-settings.md). 
-
-Om du vill se en Azure Resource Manager mall som skapar en diagnostisk inställning, se [diagnostisk inställning för Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
-
-När du skapar en diagnostisk inställning väljer du den typ av lagring som du vill aktivera loggar för, till exempel en BLOB, kö, tabell eller fil. För Azure Files väljer du **fil**. 
-
-Om du skapar en diagnostisk inställning i Azure Portal kan du välja resursen från en lista. Om du använder PowerShell eller Azure CLI måste du använda resurs-ID: t för Azure Files slut punkten. Du hittar resurs-ID: t i Azure Portal genom att öppna sidan **Egenskaper** för ditt lagrings konto.
-
-Du måste också ange en av följande kategorier av åtgärder som du vill samla in loggar för. 
+Om du vill samla in resurs loggar måste du skapa en diagnostisk inställning. När du skapar inställningen väljer du **fil** som den typ av lagring som du vill aktivera loggar för. Ange sedan en av följande kategorier av åtgärder som du vill samla in loggar för. 
 
 | Kategori | Beskrivning |
 |:---|:---|
@@ -73,6 +62,191 @@ Du måste också ange en av följande kategorier av åtgärder som du vill samla
 | StorageDelete | Ta bort åtgärder för objekt. |
 
 Om du vill hämta en lista över SMB-och REST-åtgärder som loggas, se [lagrings loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Azure Files övervaknings data referens](storage-files-monitoring-reference.md).
+
+## <a name="creating-a-diagnostic-setting"></a>Skapa en diagnostisk inställning
+
+Du kan skapa en diagnostisk inställning med hjälp av Azure Portal, PowerShell, Azure CLI eller en Azure Resource Manager mall. 
+
+Allmän vägledning finns i [skapa diagnostisk inställning för att samla in plattforms loggar och mått i Azure](../../azure-monitor/platform/diagnostic-settings.md).
+
+### <a name="azure-portal"></a>[Azure-portalen](#tab/azure-portal)
+
+1. Logga in på Azure-portalen.
+
+2. Navigera till ditt lagringskonto.
+
+3. I avsnittet **övervakning** klickar du på **diagnostikinställningar (för hands version)** .
+
+   > [!div class="mx-imgBorder"]
+   > ![Portal – diagnostikloggar](media/storage-files-monitoring/diagnostic-logs-settings-pane.png)   
+
+4. Välj **fil** som den typ av lagring som du vill aktivera loggar för.
+
+5. Klicka på **Lägg till diagnostisk inställning** .
+
+   > [!div class="mx-imgBorder"]
+   > ![Portal – resurs loggar – Lägg till diagnostisk inställning](media/storage-files-monitoring/diagnostic-logs-settings-pane-2.png)
+
+   Sidan **diagnostikinställningar** visas.
+
+   > [!div class="mx-imgBorder"]
+   > ![Sidan resurs loggar](media/storage-files-monitoring/diagnostic-logs-page.png)
+
+6. Ange ett namn för den här resurs logg inställningen i fältet **namn** på sidan. Välj sedan vilka åtgärder du vill logga (Läs-, skriv-och borttagnings åtgärder) och var du vill att loggarna ska skickas.
+
+#### <a name="archive-logs-to-a-storage-account"></a>Arkivera loggar till ett lagrings konto
+
+1. Markera kryss rutan **arkivera till ett lagrings konto** och klicka sedan på knappen **Konfigurera** .
+
+   > [!div class="mx-imgBorder"]   
+   > ![Sidan diagnostikinställningar Arkiv Arkiv lagring](media/storage-files-monitoring/diagnostic-logs-settings-pane-archive-storage.png)
+
+2. I list rutan **lagrings konto** väljer du det lagrings konto som du vill arkivera loggarna till, klickar på **OK** -knappen och klickar sedan på knappen **Spara** .
+
+   > [!NOTE]
+   > Innan du väljer ett lagrings konto som export mål, se [arkivera Azures resurs loggar](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage) för att förstå krav på lagrings kontot.
+
+#### <a name="stream-logs-to-azure-event-hubs"></a>Strömma loggar till Azure Event Hubs
+
+1. Markera kryss rutan **strömma till en Event Hub** och klicka sedan på knappen **Konfigurera** .
+
+2. I fönstret **Välj en händelse hubb** väljer du namn område, namn och princip namn för den händelsehubben som du vill strömma loggarna till. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Händelse hubb för sidan diagnostikinställningar](media/storage-files-monitoring/diagnostic-logs-settings-pane-event-hub.png)
+
+3. Klicka på knappen **OK** och klicka sedan på knappen **Spara** .
+
+#### <a name="send-logs-to-azure-log-analytics"></a>Skicka loggar till Azure Log Analytics
+
+1. Markera kryss rutan **Skicka till Log Analytics** , Välj en Log Analytics-arbetsyta och klicka sedan på knappen **Spara** .
+
+   > [!div class="mx-imgBorder"]   
+   > ![Sid logg analys för diagnostikinställningar](media/storage-files-monitoring/diagnostic-logs-settings-pane-log-analytics.png)
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+1. Öppna ett Windows PowerShell-kommando fönster och logga in på din Azure-prenumeration med hjälp av `Connect-AzAccount` kommandot. Följ sedan anvisningarna på skärmen.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. Ange din aktiva prenumeration på prenumerationen på det lagrings konto som du vill aktivera loggning för.
+
+   ```powershell
+   Set-AzContext -SubscriptionId <subscription-id>
+   ```
+
+#### <a name="archive-logs-to-a-storage-account"></a>Arkivera loggar till ett lagrings konto
+
+Aktivera loggar med hjälp av [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell-cmdlet tillsammans med `StorageAccountId` parametern.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Ersätt `<storage-service-resource--id>` plats hållaren i det här kodfragmentet med resurs-ID för Azure File Service. Du hittar resurs-ID: t i Azure Portal genom att öppna sidan **Egenskaper** för ditt lagrings konto.
+
+Du kan använda `StorageRead` , `StorageWrite` , och `StorageDelete` för värdet för parametern **Category** .
+
+Här är ett exempel:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
+
+En beskrivning av varje parameter finns i [arkivera Azures resurs loggar via Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+
+#### <a name="stream-logs-to-an-event-hub"></a>Strömma loggar till en händelsehubb
+
+Aktivera loggar med hjälp av cmdleten [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell med `EventHubAuthorizationRuleId` parametern.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Här är ett exempel:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
+
+En beskrivning av varje parameter finns i [strömma data till Event Hubs via PowerShell-cmdletar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+
+#### <a name="send-logs-to-log-analytics"></a>Skicka loggar till Log Analytics
+
+Aktivera loggar med hjälp av cmdleten [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell med `WorkspaceId` parametern.
+
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
+
+Här är ett exempel:
+
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
+
+Mer information finns i [strömma Azure resurs loggar till Log Analytics arbets ytan i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+1. Öppna först [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), eller om du har [installerat](https://docs.microsoft.com/cli/azure/install-azure-cli) Azure CLI lokalt öppnar du ett kommando konsol program, till exempel Windows PowerShell.
+
+2. Om din identitet är associerad med fler än en prenumeration ställer du in din aktiva prenumeration på prenumerationen på det lagrings konto som du vill aktivera loggar för.
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-id>
+   ```
+
+   Ersätt `<subscription-id>` placeholder-värdet med ID: t för din prenumeration.
+
+#### <a name="archive-logs-to-a-storage-account"></a>Arkivera loggar till ett lagrings konto
+
+Aktivera loggar genom att använda kommandot [AZ Monitor Diagnostic-Settings Create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Ersätt `<storage-service-resource--id>` plats hållaren i det här kodfragmentet med resurs-ID Blob Storage-tjänsten. Du hittar resurs-ID: t i Azure Portal genom att öppna sidan **Egenskaper** för ditt lagrings konto.
+
+Du kan använda `StorageRead` , `StorageWrite` , och `StorageDelete` för värdet för parametern **Category** .
+
+Här är ett exempel:
+
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+
+En beskrivning av varje parameter finns i [arkivera resurs loggar via Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli).
+
+#### <a name="stream-logs-to-an-event-hub"></a>Strömma loggar till en händelsehubb
+
+Aktivera loggar genom att använda kommandot [AZ Monitor Diagnostic-Settings Create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Här är ett exempel:
+
+`az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
+
+En beskrivning av varje parameter finns i [strömma data till Event Hubs via Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli).
+
+#### <a name="send-logs-to-log-analytics"></a>Skicka loggar till Log Analytics
+
+Aktivera loggar genom att använda kommandot [AZ Monitor Diagnostic-Settings Create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) .
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+```
+
+Här är ett exempel:
+
+`az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
+
+ Mer information finns i [strömma Azure resurs loggar till Log Analytics arbets ytan i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+### <a name="template"></a>[Mall](#tab/template)
+
+Om du vill visa en Azure Resource Manager mall som skapar en diagnostisk inställning, se [diagnostisk inställning för Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+
+---
 
 ## <a name="analyzing-metrics"></a>Analyserar mått
 
@@ -132,7 +306,7 @@ Du kan läsa mått värden för ditt lagrings konto eller tjänsten Azure Files.
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
-### <a name="net"></a>[.NET](#tab/dotnet)
+### <a name="net"></a>[.NET](#tab/azure-portal)
 
 Azure Monitor tillhandahåller [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) för att läsa mått definition och-värden. [Exempel koden](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) visar hur du använder SDK med olika parametrar. Du måste använda `0.18.0-preview` eller en senare version för lagrings mått.
  
@@ -272,6 +446,10 @@ I följande exempel visas hur du läser mått data för måttet som stöder mult
 
 ```
 
+# <a name="template"></a>[Mall](#tab/template)
+
+Ej tillämpligt.
+
 ---
 
 ## <a name="analyzing-logs"></a>Analysera loggar
@@ -283,7 +461,7 @@ Om du vill hämta en lista över SMB-och REST-åtgärder som loggas, se [lagring
 > [!NOTE]
 > Azure Storage loggar i Azure Monitor finns i offentlig för hands version och är tillgänglig för för hands testning i alla offentliga moln regioner. För att registrera dig i för hands versionen, se [den här sidan](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Den här för hands versionen aktiverar loggar för blobbar (som innehåller Azure Data Lake Storage Gen2), filer, köer, tabeller, Premium Storage-konton i generell användning v1 och lagrings konton för generell användning v2. Klassiska lagrings konton stöds inte.
 
-Logg poster skapas endast om det finns begär Anden som görs mot tjänst slut punkten. Om ett lagrings konto till exempel har aktivitet i dess fil slut punkt men inte i dess tabell-eller Queue-slutpunkter skapas bara loggar som hör till fil tjänsten. Azure Storage loggar innehåller detaljerad information om lyckade och misslyckade förfrågningar till en lagrings tjänst. Den här informationen kan användas för att övervaka enskilda begäranden och för att diagnostisera problem med en lagringstjänst. Begär Anden loggas med bästa möjliga ansträngning.
+Logg poster skapas endast om det finns begär Anden som görs mot tjänst slut punkten. Om ett lagrings konto till exempel har aktivitet i dess fil slut punkt men inte i dess tabell-eller Queue-slutpunkter skapas bara loggar som hör till Azure File Service. Azure Storage loggar innehåller detaljerad information om lyckade och misslyckade förfrågningar till en lagrings tjänst. Den här informationen kan användas för att övervaka enskilda begäranden och för att diagnostisera problem med en lagringstjänst. Begär Anden loggas med bästa möjliga ansträngning.
 
 ### <a name="log-authenticated-requests"></a>Logga autentiserade begär Anden
 
@@ -393,11 +571,11 @@ I följande tabell visas några exempel scenarier som du kan använda för att �
 
 ### <a name="how-to-create-alerts-for-azure-files"></a>Skapa aviseringar för Azure Files
 
-1. Gå till ditt **lagrings konto** i **Azure Portal**. 
+1. Gå till ditt **lagrings konto** i **Azure Portal** . 
 
-2. Klicka på **aviseringar** och klicka sedan på **+ ny varnings regel**.
+2. Klicka på **aviseringar** och klicka sedan på **+ ny varnings regel** .
 
-3. Klicka på **Redigera resurs**, Välj **fil resurs typ** och klicka sedan på **färdig**. 
+3. Klicka på **Redigera resurs** , Välj **fil resurs typ** och klicka sedan på **färdig** . 
 
 4. Klicka på **Välj villkor** och ange följande information för aviseringen: 
 
@@ -407,7 +585,7 @@ I följande tabell visas några exempel scenarier som du kan använda för att �
 
 5. Klicka på **Välj åtgärds grupp** och Lägg till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
 
-6. Fyll i **aviserings informationen** som **aviserings regelns namn**, **Beskrivning**och **allvarlighets grad**.
+6. Fyll i **aviserings informationen** som **aviserings regelns namn** , **Beskrivning** och **allvarlighets grad** .
 
 7. Klicka på **skapa aviserings regel** för att skapa aviseringen.
 
@@ -416,69 +594,69 @@ I följande tabell visas några exempel scenarier som du kan använda för att �
 
 ### <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Så här skapar du en avisering om en fil resurs är begränsad
 
-1. Gå till ditt **lagrings konto** i **Azure Portal**.
-2. I avsnittet **övervakning** klickar du på **aviseringar**och klickar sedan på **+ ny varnings regel**.
-3. Klicka på **Redigera resurs**, Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig**. Om lagrings kontots namn till exempel är `contoso` väljer du `contoso/file` resursen.
+1. Gå till ditt **lagrings konto** i **Azure Portal** .
+2. I avsnittet **övervakning** klickar du på **aviseringar** och klickar sedan på **+ ny varnings regel** .
+3. Klicka på **Redigera resurs** , Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig** . Om lagrings kontots namn till exempel är `contoso` väljer du `contoso/file` resursen.
 4. Klicka på **Välj villkor** för att lägga till ett villkor.
 5. Du kommer att se en lista över signaler som stöds för lagrings kontot. Välj måttet **transaktioner** .
-6. På bladet **Konfigurera signal logik** klickar du på list rutan **Dimensions namn** och väljer **svarstyp**.
+6. På bladet **Konfigurera signal logik** klickar du på list rutan **Dimensions namn** och väljer **svarstyp** .
 7. Klicka på list rutan **Dimensions värden** och välj **SUCCESSWITHTHROTTLING** (för SMB) eller **ClientThrottlingError** (för rest).
 
    > [!NOTE]
-   > Om dimension svärdet SuccessWithThrottling eller ClientThrottlingError inte visas innebär det att resursen inte har begränsats. Lägg till dimension svärdet genom att klicka på **Lägg till anpassat värde** bredvid List rutan **Dimensions värden** , Skriv **SuccessWithThrottling** eller **ClientThrottlingError**, klicka på **OK** och upprepa steg #7.
+   > Om dimension svärdet SuccessWithThrottling eller ClientThrottlingError inte visas innebär det att resursen inte har begränsats. Lägg till dimension svärdet genom att klicka på **Lägg till anpassat värde** bredvid List rutan **Dimensions värden** , Skriv **SuccessWithThrottling** eller **ClientThrottlingError** , klicka på **OK** och upprepa steg #7.
 
-8. Klicka på list rutan **Dimensions namn** och välj **fil resurs**.
+8. Klicka på list rutan **Dimensions namn** och välj **fil resurs** .
 9. Klicka på list rutan **Dimensions värden** och välj den eller de fil resurser som du vill Avisera om.
 
    > [!NOTE]
-   > Om fil resursen är en standard fil resurs väljer du **alla aktuella och framtida värden**. List rutan med dimensions värden visar inte fil resurserna eftersom det inte finns några tillgängliga fil resurser per resurs. Begränsnings varningar för standard fil resurser utlöses om någon fil resurs på lagrings kontot är begränsad och aviseringen inte kommer att identifiera vilken fil resurs som har begränsats. Eftersom per resurs-mått inte är tillgängliga för standard fil resurser, är rekommendationen att ha en fil resurs per lagrings konto.
+   > Om fil resursen är en standard fil resurs väljer du **alla aktuella och framtida värden** . List rutan med dimensions värden visar inte fil resurserna eftersom det inte finns några tillgängliga fil resurser per resurs. Begränsnings varningar för standard fil resurser utlöses om någon fil resurs på lagrings kontot är begränsad och aviseringen inte kommer att identifiera vilken fil resurs som har begränsats. Eftersom per resurs-mått inte är tillgängliga för standard fil resurser, är rekommendationen att ha en fil resurs per lagrings konto.
 
-10. Definiera **aviserings parametrarna** (tröskelvärde, Operator, agg regerings precision och frekvens för utvärderingen) och klicka på **Slutför**.
+10. Definiera **aviserings parametrarna** (tröskelvärde, Operator, agg regerings precision och frekvens för utvärderingen) och klicka på **Slutför** .
 
     > [!TIP]
     > Om du använder ett statiskt tröskelvärde kan mått diagrammet hjälpa till att fastställa ett rimligt tröskelvärde om fil resursen för närvarande begränsas. Om du använder ett dynamiskt tröskelvärde visar mått diagrammet de beräknade tröskelvärdena baserat på aktuella data.
 
 11. Klicka på **Välj åtgärds grupp** för att lägga till en **Åtgärds grupp** (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-12. Fyll i **aviserings informationen** som **aviserings regelns namn**, * * beskrivning och **allvarlighets grad**.
+12. Fyll i **aviserings informationen** som **aviserings regelns namn** , * * beskrivning och **allvarlighets grad** .
 13. Klicka på **skapa aviserings regel** för att skapa aviseringen.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Så här skapar du en avisering om storleken på Azure-filresursen är 80% av kapaciteten
 
-1. Gå till ditt **lagrings konto** i **Azure Portal**.
-2. I avsnittet **övervakning** klickar du på **aviseringar** och klickar sedan på **+ ny varnings regel**.
-3. Klicka på **Redigera resurs**, Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig**. Om lagrings kontots namn till exempel är `contoso` väljer du `contoso/file` resursen.
+1. Gå till ditt **lagrings konto** i **Azure Portal** .
+2. I avsnittet **övervakning** klickar du på **aviseringar** och klickar sedan på **+ ny varnings regel** .
+3. Klicka på **Redigera resurs** , Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig** . Om lagrings kontots namn till exempel är `contoso` väljer du `contoso/file` resursen.
 4. Klicka på **Välj villkor** för att lägga till ett villkor.
 5. Du ser en lista över signaler som stöds för lagrings kontot genom att välja **fil kapacitets** mått.
-6. På bladet **Konfigurera signal logik** klickar du på list rutan **Dimensions namn** och väljer **fil resurs**.
+6. På bladet **Konfigurera signal logik** klickar du på list rutan **Dimensions namn** och väljer **fil resurs** .
 7. Klicka på list rutan **Dimensions värden** och välj den eller de fil resurser som du vill Avisera om.
 
    > [!NOTE]
-   > Om fil resursen är en standard fil resurs väljer du **alla aktuella och framtida värden**. List rutan med dimensions värden visar inte fil resurserna eftersom det inte finns några tillgängliga fil resurser per resurs. Aviseringar för standard fil resurser baseras på alla fil resurser i lagrings kontot. Eftersom per resurs-mått inte är tillgängliga för standard fil resurser, är rekommendationen att ha en fil resurs per lagrings konto.
+   > Om fil resursen är en standard fil resurs väljer du **alla aktuella och framtida värden** . List rutan med dimensions värden visar inte fil resurserna eftersom det inte finns några tillgängliga fil resurser per resurs. Aviseringar för standard fil resurser baseras på alla fil resurser i lagrings kontot. Eftersom per resurs-mått inte är tillgängliga för standard fil resurser, är rekommendationen att ha en fil resurs per lagrings konto.
 
 8. Ange **tröskelvärdet** i byte. Om fil resursens storlek exempelvis är 100 TiB och du vill få en avisering när fil resurs storleken är 80% av kapaciteten, är tröskelvärdet i byte 87960930222080.
-9. Definiera resten av **aviserings parametrarna** (sammansättnings precision och utvärderings frekvens) och klicka på **Slutför**.
+9. Definiera resten av **aviserings parametrarna** (sammansättnings precision och utvärderings frekvens) och klicka på **Slutför** .
 10. Klicka på Välj åtgärds grupp för att lägga till en åtgärds grupp (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-11. Fyll i **aviserings informationen** som **aviserings regelns namn**, * * beskrivning och **allvarlighets grad**.
+11. Fyll i **aviserings informationen** som **aviserings regelns namn** , * * beskrivning och **allvarlighets grad** .
 12. Klicka på **skapa aviserings regel** för att skapa aviseringen.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Så här skapar du en avisering om utgående Azure-filresurs har överskridit 500 GiB per dag
 
-1. Gå till ditt **lagrings konto** i **Azure Portal**.
-2. I avsnittet övervakning klickar du på **aviseringar** och klickar sedan på **+ ny varnings regel**.
-3. Klicka på **Redigera resurs**, Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig**. Om lagrings konto namnet till exempel är contoso väljer du Contoso/File-resursen.
+1. Gå till ditt **lagrings konto** i **Azure Portal** .
+2. I avsnittet övervakning klickar du på **aviseringar** och klickar sedan på **+ ny varnings regel** .
+3. Klicka på **Redigera resurs** , Välj **fil resurs typ** för lagrings kontot och klicka sedan på **färdig** . Om lagrings konto namnet till exempel är contoso väljer du Contoso/File-resursen.
 4. Klicka på **Välj villkor** för att lägga till ett villkor.
 5. Du kommer att se en lista över signaler som stöds för lagrings kontot och välja **utgående** mått.
-6. På bladet **Konfigurera signal logik** klickar du på list rutan **Dimensions namn** och väljer **fil resurs**.
+6. På bladet **Konfigurera signal logik** klickar du på list rutan **Dimensions namn** och väljer **fil resurs** .
 7. Klicka på list rutan **Dimensions värden** och välj den eller de fil resurser som du vill Avisera om.
 
    > [!NOTE]
-   > Om fil resursen är en standard fil resurs väljer du **alla aktuella och framtida värden**. List rutan med dimensions värden visar inte fil resurserna eftersom det inte finns några tillgängliga fil resurser per resurs. Aviseringar för standard fil resurser baseras på alla fil resurser i lagrings kontot. Eftersom per resurs-mått inte är tillgängliga för standard fil resurser, är rekommendationen att ha en fil resurs per lagrings konto.
+   > Om fil resursen är en standard fil resurs väljer du **alla aktuella och framtida värden** . List rutan med dimensions värden visar inte fil resurserna eftersom det inte finns några tillgängliga fil resurser per resurs. Aviseringar för standard fil resurser baseras på alla fil resurser i lagrings kontot. Eftersom per resurs-mått inte är tillgängliga för standard fil resurser, är rekommendationen att ha en fil resurs per lagrings konto.
 
 8. Ange **536870912000** byte för tröskel värde. 
-9. Klicka på list rutan **agg regerings granularitet** och välj **24 timmar**.
-10. Välj **utvärderings frekvens** och **Klicka på Slutför**.
+9. Klicka på list rutan **agg regerings granularitet** och välj **24 timmar** .
+10. Välj **utvärderings frekvens** och **Klicka på Slutför** .
 11. Klicka på **Välj åtgärds grupp** för att lägga till en **Åtgärds grupp** (e-post, SMS osv.) till aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
-12. Fyll i **aviserings informationen** som **aviserings regelns namn**, * * beskrivning och **allvarlighets grad**.
+12. Fyll i **aviserings informationen** som **aviserings regelns namn** , * * beskrivning och **allvarlighets grad** .
 13. Klicka på **skapa aviserings regel** för att skapa aviseringen.
 
 ## <a name="next-steps"></a>Nästa steg

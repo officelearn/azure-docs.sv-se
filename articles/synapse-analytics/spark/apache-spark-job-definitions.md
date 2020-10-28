@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 04/15/2020
-ms.openlocfilehash: 143713649afd7f9e42f517713b6b2365ee1605a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: f942525f1360a134f58f18e0ec76a84b0ceee50b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260282"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738189"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Självstudie: skapa Apache Spark jobb definition i Synapse Studio
 
@@ -28,7 +28,7 @@ Den här självstudien omfattar följande uppgifter:
 > - Skicka in en Apache Spark jobb definition som ett batch-jobb
 > - Lägg till en Apache Spark jobb definition i pipeline
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
@@ -43,11 +43,11 @@ I det här avsnittet skapar du en Apache Spark jobb definition för PySpark (pyt
 
 1. Öppna [Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. Du kan gå till [exempelfiler för att skapa Apache Spark jobb definitioner](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) för att hämta **exempelfilerna för python.zip**, sedan packa upp det komprimerade paketet och extrahera **WORDCOUNT.py** -och **shakespeare.txt** -filerna. 
+2. Du kan gå till [exempelfiler för att skapa Apache Spark jobb definitioner](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) för att hämta **exempelfilerna för python.zip** , sedan packa upp det komprimerade paketet och extrahera **WORDCOUNT.py** -och **shakespeare.txt** -filerna. 
 
      ![Exempelfiler](./media/apache-spark-job-definitions/sample-files.png)
 
-3. Välj **Data**   ->  **länkade**data   ->  **Azure Data Lake Storage Gen2**och ladda upp **WORDCOUNT.py**   och **shakespeare.txt** i ADLS Gen2 fil systemet. 
+3. Välj **Data**  ->  **länkade** data  ->  **Azure Data Lake Storage Gen2** och ladda upp **WORDCOUNT.py** och **shakespeare.txt** i ADLS Gen2 fil systemet. 
 
      ![överför python-fil](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -85,15 +85,15 @@ I det här avsnittet skapar du en Apache Spark jobb definition för Apache Spark
 
  1. Öppna [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. Du kan gå till [exempelfiler för att skapa Apache Spark jobb definitioner](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) för att hämta **exempelfiler för scala.zip**, sedan packa upp det komprimerade paketet och extrahera filerna **WORDCOUNT. jar** och **shakespeare.txt** . 
+ 2. Du kan gå till [exempelfiler för att skapa Apache Spark jobb definitioner](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) för att hämta **exempelfiler för scala.zip** , sedan packa upp det komprimerade paketet och extrahera filerna **WORDCOUNT. jar** och **shakespeare.txt** . 
  
      ![Scala för exempel filer](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. Välj **Data**   ->  **länkade**data   ->  **Azure Data Lake Storage Gen2**och ladda upp **WORDCOUNT. jar**   och **shakespeare.txt** i ADLS Gen2 fil systemet.
+ 3. Välj **Data**  ->  **länkade** data  ->  **Azure Data Lake Storage Gen2** och ladda upp **WORDCOUNT. jar** och **shakespeare.txt** i ADLS Gen2 fil systemet.
  
      ![Förbered Scala-struktur](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Välj **utveckla** hubb, Välj ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. (Exempel bilden är samma som steg 4 i **skapa en Apache Spark jobb definition (python) för PySpark**.)
+ 4. Välj **utveckla** hubb, Välj ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. (Exempel bilden är samma som steg 4 i **skapa en Apache Spark jobb definition (python) för PySpark** .)
 
  5. Välj **Spark (Scala)** i list rutan språk i den Apache Spark jobb definitionens huvud fönster.
 
@@ -125,15 +125,15 @@ I det här avsnittet skapar du en Apache Spark jobb definition för Apache Spark
 I det här avsnittet skapar du en Apache Spark jobb definition för .NET Spark (C#/F #).
  1. Öppna [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. Du kan gå till [exempelfiler för att skapa Apache Spark jobb definitioner](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) för att hämta **exempelfilerna för dotnet.zip**, sedan packa upp det komprimerade paketet och extrahera **wordcount.zip** -och **shakespeare.txt** -filerna. 
+ 2. Du kan gå till [exempelfiler för att skapa Apache Spark jobb definitioner](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) för att hämta **exempelfilerna för dotnet.zip** , sedan packa upp det komprimerade paketet och extrahera **wordcount.zip** -och **shakespeare.txt** -filerna. 
 
      ![exempel på dotNet](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. Välj **Data**   ->  **länkade**data   ->  **Azure Data Lake Storage Gen2**och ladda upp **wordcount.zip**   och **shakespeare.txt** i ADLS Gen2 fil systemet.
+ 3. Välj **Data**  ->  **länkade** data  ->  **Azure Data Lake Storage Gen2** och ladda upp **wordcount.zip** och **shakespeare.txt** i ADLS Gen2 fil systemet.
  
      ![Förbered dotNet-struktur](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Välj **utveckla** hubb, Välj ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. (Exempel bilden är samma som steg 4 i **skapa en Apache Spark jobb definition (python) för PySpark**.)
+ 4. Välj **utveckla** hubb, Välj ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. (Exempel bilden är samma som steg 4 i **skapa en Apache Spark jobb definition (python) för PySpark** .)
 
  5. Välj **.net Spark (C#/f #)** från List rutan språk i fönstret för Apache Spark jobb definitions huvud.
 
@@ -177,7 +177,7 @@ När du har skapat en Apache Spark jobb definition kan du skicka den till en Apa
 
 ### <a name="scenario-2-view-apache-spark-job-running-progress"></a>Scenario 2: Visa Apache Spark jobb som kör förlopp
 
- 1. Välj **övervaka**och välj alternativet **Apache Spark program** . Du kan hitta det skickade Apache Spark programmet.
+ 1. Välj **övervaka** och välj alternativet **Apache Spark program** . Du kan hitta det skickade Apache Spark programmet.
 
      ![Visa Spark-program](./media/apache-spark-job-definitions/view-spark-application.png)
 
@@ -187,7 +187,7 @@ När du har skapat en Apache Spark jobb definition kan du skicka den till en Apa
 
 ### <a name="scenario-3-check-output-file"></a>Scenario 3: kontrol lera utdatafilen
 
- 1. Välj **Data**  ->  **länkade**data  ->  **Azure Data Lake Storage Gen2** (hozhaobdbj), öppna mappen **result** som du skapade tidigare. du kan gå till mappen result och kontrol lera om utdata har genererats.
+ 1. Välj **Data**  ->  **länkade** data  ->  **Azure Data Lake Storage Gen2** (hozhaobdbj), öppna mappen **result** som du skapade tidigare. du kan gå till mappen result och kontrol lera om utdata har genererats.
 
      ![Visa utdatafil](./media/apache-spark-job-definitions/view-output-file.png)
 
@@ -197,7 +197,7 @@ I det här avsnittet lägger du till en Apache Spark jobb definition i pipeline.
 
  1. Öppna en befintlig Apache Spark jobb definition.
 
- 2. Välj ikonen längst upp till höger i Apache Spark jobb definition, Välj **befintlig pipeline**eller **ny pipeline**. Mer information hittar du på pipeline-sidan.
+ 2. Välj ikonen längst upp till höger i Apache Spark jobb definition, Välj **befintlig pipeline** eller **ny pipeline** . Mer information hittar du på pipeline-sidan.
 
      ![Lägg till i pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 

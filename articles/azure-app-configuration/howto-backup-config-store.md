@@ -6,16 +6,16 @@ author: avanigupta
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074863"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737087"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Säkerhetskopiera konfigurations Arkiv för appar automatiskt
 
@@ -62,7 +62,7 @@ az group create --name $resourceGroupName --location westus
 ## <a name="create-app-configuration-stores"></a>Skapa konfigurations lager för appar
 
 Skapa dina primära och sekundära konfigurations lager för appar i olika regioner.
-Ersätt  `<primary_appconfig_name>` och `<secondary_appconfig_name>` med unika namn för dina konfigurations lager. Varje Arkiv namn måste vara unikt eftersom det används som ett DNS-namn.
+Ersätt `<primary_appconfig_name>` och `<secondary_appconfig_name>` med unika namn för dina konfigurations lager. Varje Arkiv namn måste vara unikt eftersom det används som ett DNS-namn.
 
 ```azurecli-interactive
 primaryAppConfigName="<primary_appconfig_name>"
@@ -213,7 +213,7 @@ För att testa att allt fungerar kan du skapa, uppdatera eller ta bort ett nycke
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-Du har utlöst händelsen. Under en liten stund skickar Event Grid händelse aviseringen till kön. *Efter nästa schemalagda körning av funktionen*kan du Visa konfigurations inställningarna i den sekundära lagrings platsen för att se om det innehåller det uppdaterade nyckel värdet från det primära lagret.
+Du har utlöst händelsen. Under en liten stund skickar Event Grid händelse aviseringen till kön. *Efter nästa schemalagda körning av funktionen* kan du Visa konfigurations inställningarna i den sekundära lagrings platsen för att se om det innehåller det uppdaterade nyckel värdet från det primära lagret.
 
 > [!NOTE]
 > Du kan [utlösa din funktion manuellt](../azure-functions/functions-manually-run-non-http.md) under testningen och fel sökningen utan att vänta på schemalagd timer-utlösare.

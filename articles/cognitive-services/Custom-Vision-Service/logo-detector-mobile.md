@@ -10,13 +10,13 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b56824e386709bd330339f1f6acfd2812e040de
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: d7d66e247c6a6240bd6fde08612b8eb770bd3b92
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150928"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737543"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudie: identifiera Azure-tjänstens logo typer i kamera bilder
 
@@ -56,7 +56,7 @@ När du har laddat upp träningsbilderna väljer du den första på skärmen. Ta
 
 ![Logotyptaggning på Custom Vision-webbplatsen](media/azure-logo-tutorial/tag-logos.png)
 
-Appen är konfigurerad för att fungera med specifika taggsträngar. Definitionerna finns i filen *Source\VisualProvision\Services\Recognition\RecognitionService.cs*:
+Appen är konfigurerad för att fungera med specifika taggsträngar. Definitionerna finns i filen *Source\VisualProvision\Services\Recognition\RecognitionService.cs* :
 
 [!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
@@ -84,11 +84,11 @@ Kopiera slut punkts **-** URL: en och resultatvärdet till lämpliga fält i *So
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
-Resultatet får formen av en **PredictionResult**-instans, som innehåller en lista över **förutsägelseinstanser**. En **förutsägelse** innehåller en identifierad tagg och dess avgränsningsfältsplats i bilden.
+Resultatet får formen av en **PredictionResult** -instans, som innehåller en lista över **förutsägelseinstanser** . En **förutsägelse** innehåller en identifierad tagg och dess avgränsningsfältsplats i bilden.
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
-Om du vill lära dig mer om hur appen hanterar dessa data börjar du med metoden **GetResourcesAsync**. Den här metoden definieras i filen *Source/VisualProvision/Services/Recognition/RecognitionService.cs*.  
+Om du vill lära dig mer om hur appen hanterar dessa data börjar du med metoden **GetResourcesAsync** . Den här metoden definieras i filen *Source/VisualProvision/Services/Recognition/RecognitionService.cs* .  
 
 ## <a name="add-computer-vision"></a>Lägga till Visuellt innehåll
 
@@ -132,7 +132,7 @@ Vid slutförande bör du se följande JSON-utdata, däribland nödvändiga auten
 }
 ```
 
-Anteckna värdena `clientId` och `tenantId`. Lägg till dem i rätt fält i filen *Source\VisualProvision\AppSettings.cs*.
+Anteckna värdena `clientId` och `tenantId`. Lägg till dem i rätt fält i filen *Source\VisualProvision\AppSettings.cs* .
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
@@ -146,15 +146,15 @@ Nu har du gett appen åtkomst till:
 
 Följ dessa steg om du vill köra appen:
 
-1. I Visual Studio Solution Explorer väljer du antingen projektet **VisualProvision.Android** eller projektet **VisualProvision.iOS**. Välj en motsvarande emulator eller ansluten mobil enhet från den nedrullningsbara menyn på huvudverktygsfältet. Kör sedan appen.
+1. I Visual Studio Solution Explorer väljer du antingen projektet **VisualProvision.Android** eller projektet **VisualProvision.iOS** . Välj en motsvarande emulator eller ansluten mobil enhet från den nedrullningsbara menyn på huvudverktygsfältet. Kör sedan appen.
 
     > [!NOTE]
     > Du behöver en MacOS-enhet för att köra en iOS-emulator.
 
-1. På den första skärmen anger du klient-ID för tjänstens huvudnamn, klientorganisations-ID och lösenord. Välj knappen **Logga in**.
+1. På den första skärmen anger du klient-ID för tjänstens huvudnamn, klientorganisations-ID och lösenord. Välj knappen **Logga in** .
 
     > [!NOTE]
-    > På vissa emulatorer har knappen **Logga in** kanske inte aktiverats i det här steget. Om det här händer stoppar du appen, öppnar filen *Source/VisualProvision/Pages/LoginPage.xaml*, letar rätt på det `Button`-element som är märkt **LOGIN BUTTON** (Inloggningsknapp), tar bort följande rad och kör sedan appen igen.
+    > På vissa emulatorer har knappen **Logga in** kanske inte aktiverats i det här steget. Om det här händer stoppar du appen, öppnar filen *Source/VisualProvision/Pages/LoginPage.xaml* , letar rätt på det `Button`-element som är märkt **LOGIN BUTTON** (Inloggningsknapp), tar bort följande rad och kör sedan appen igen.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```
@@ -176,7 +176,7 @@ Följ dessa steg om du vill köra appen:
 
 Om du har följt alla steg i det här scenariot och använt appen för att distribuera Azure-tjänster till ditt konto går du till [Azure-portalen](https://ms.portal.azure.com/). Där avbryter du de tjänster som du inte vill använda.
 
-Om du planerar att skapa egna objektidentifieringsprojekt med Custom Vision kan det vara bra att ta bort det logotypidentifieringsprojekt som du skapade i den här självstudien. En kostnads fri prenumeration på Custom Vision tillåter endast två projekt. För att ta bort logotypidentifieringsprojektet går du till [Custom Vision-webbplatsen](https://customvision.ai), öppnar **Projekt** och väljer papperskorgsikonen under **Mitt nya projekt**.
+Om du planerar att skapa egna objektidentifieringsprojekt med Custom Vision kan det vara bra att ta bort det logotypidentifieringsprojekt som du skapade i den här självstudien. En kostnads fri prenumeration på Custom Vision tillåter endast två projekt. För att ta bort logotypidentifieringsprojektet går du till [Custom Vision-webbplatsen](https://customvision.ai), öppnar **Projekt** och väljer papperskorgsikonen under **Mitt nya projekt** .
 
 ## <a name="next-steps"></a>Nästa steg
 

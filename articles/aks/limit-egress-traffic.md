@@ -5,14 +5,14 @@ services: container-service
 ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurecli
 author: palma21
-ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe6907ac659b94494472a327ff0b47e630ed89a0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570384"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735570"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Styra utgående trafik för klusternoder i Azure Kubernetes service (AKS)
 
@@ -29,17 +29,17 @@ AKS utgående beroenden är nästan helt definierade med FQDN, som inte har stat
 Som standard har AKS-kluster obegränsad utgående Internet åtkomst. Den här nivån av nätverks åtkomst tillåter noder och tjänster som du kör för att få åtkomst till externa resurser efter behov. Om du vill begränsa utgångs trafik måste ett begränsat antal portar och adresser vara tillgängliga för att upprätthålla felfria kluster underhålls uppgifter. Den enklaste lösningen för att skydda utgående adresser är att använda en brand Väggs enhet som kan styra utgående trafik baserat på domän namn. Azure-brandväggen kan till exempel begränsa utgående HTTP-och HTTPS-trafik baserat på målets FQDN. Du kan också konfigurera önskade brand Väggs-och säkerhets regler för att tillåta dessa obligatoriska portar och adresser.
 
 > [!IMPORTANT]
-> Det här dokumentet beskriver bara hur du låser trafiken som lämnar AKS-undernätet. AKS har som standard inga ingress-krav.  Det går inte att blockera **intern under näts trafik** med hjälp av nätverks säkerhets grupper (NSG: er) och brand väggar. Använd [***nätverks principer***][network-policy]för att styra och blockera trafiken i klustret.
+> Det här dokumentet beskriver bara hur du låser trafiken som lämnar AKS-undernätet. AKS har som standard inga ingress-krav.  Det går inte att blockera **intern under näts trafik** med hjälp av nätverks säkerhets grupper (NSG: er) och brand väggar. Om du vill styra och blockera trafiken i klustret använder du [ * *_nätverks principer_* _][network-policy].
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>Nödvändiga utgående nätverks regler och FQDN för AKS-kluster
 
 Följande nätverks-och FQDN/applikations regler krävs för ett AKS-kluster. du kan använda dem om du vill konfigurera en annan lösning än Azure-brandväggen.
 
-* IP-adress beroenden är för trafik som inte är HTTP/S (både TCP-och UDP-trafik)
+_ IP-adress beroenden är för trafik som inte är HTTP/S (både TCP-och UDP-trafik)
 * FQDN HTTP/HTTPS-slutpunkter kan placeras i brand Väggs enheten.
 * HTTP/HTTPS-slutpunkter med jokertecken är beroenden som kan variera med ditt AKS-kluster baserat på ett antal kvalificerare.
 * AKS använder en åtkomst kontroll för att mata in FQDN som en miljö variabel för alla distributioner under Kube-system och Gatekeeper-system, som säkerställer all system kommunikation mellan noder och API-servern använder API-serverns FQDN och inte IP-adressen för API-servern. 
-* Om du har en app eller lösning som behöver kommunicera med API-servern måste du lägga till **ytterligare** en nätverks regel för att tillåta *TCP-kommunikation till port 443 i din API-servers IP*.
+* Om du har en app eller lösning som behöver kommunicera med API-servern måste du lägga till **ytterligare** en nätverks regel för att tillåta *TCP-kommunikation till port 443 i din API-servers IP* .
 * Vid sällsynta tillfällen, om det finns en underhålls åtgärd kan din API-servers IP-adress ändras. Planerade underhålls åtgärder som kan ändra API-serverns IP-adress förmedlas alltid i förväg.
 
 

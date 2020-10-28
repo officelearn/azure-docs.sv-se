@@ -3,13 +3,13 @@ title: Bygg avbildning med inbyggd molnbaserad Buildpack
 description: Använd kommandot AZ ACR Pack build för att bygga en behållar avbildning från en app och skicka till Azure Container Registry, utan att använda en Dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
-ms.custom: devx-track-js
-ms.openlocfilehash: cad7d5c066dd8c8a7468833cb67e6085f067417a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 264fc7314c78088ebfefb9ddb8edbe38fa16581a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262118"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736628"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Bygga och skicka en avbildning från en app med hjälp av en inbyggd Cloud-Buildpack
 
@@ -85,7 +85,7 @@ När avbildningen har skapats kan du köra den med Docker, om du har den install
 az acr login --name myregistry
 ```
 
-Kör avbildningen och ersätt din avbildnings tag för *RunId*:
+Kör avbildningen och ersätt din avbildnings tag för *RunId* :
 
 ```console
 docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid

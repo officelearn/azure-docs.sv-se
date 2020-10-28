@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279076"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737848"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Använda lagrade procedurer i Synapse SQL
 
@@ -24,6 +24,9 @@ Tips för att implementera lagrade procedurer i Synapse SQL-pool för utveckling
 ## <a name="what-to-expect"></a>Vad du kan förvänta dig
 
 Synapse SQL stöder många av de T-SQL-funktioner som används i SQL Server. Det är viktigt att det finns skalbara funktioner som du kan använda för att maximera prestandan för din lösning.
+
+> [!NOTE]
+> I procedur texten kan du bara använda de funktioner som stöds i Synapse SQL-arbetsytan. Läs [den här artikeln](overview-features.md) för att identifiera objekt, instruktion som kan användas i lagrade procedurer. I exemplen i de här artiklarna används allmänna funktioner som är tillgängliga både i Server lös och allokerat ytdiagram.
 
 För att upprätthålla skalning och prestanda i SQL-poolen finns det också vissa funktioner och funktioner som har beteende skillnader och andra som inte stöds.
 

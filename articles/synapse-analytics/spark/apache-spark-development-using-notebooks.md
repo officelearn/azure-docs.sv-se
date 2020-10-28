@@ -6,16 +6,16 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 05/01/2020
+ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d0063594309dc7a1c12c61b6dd18fec1d93f1082
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893092"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738761"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Skapa, utveckla och underhålla antecknings böcker för Synapse Studio (för hands version) i Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du använder antecknings böcker i Azure Synapse
 
 ## <a name="create-a-notebook"></a>Skapa en notebook-fil
 
-Det finns två sätt att skapa en antecknings bok. Du kan skapa en ny antecknings bok eller importera en befintlig antecknings bok till en Azure Synapse-arbetsyta från **Object Explorer**. Bärbara Azure Synapse Studio-datorer kan känna igen standard Jupyter Notebook IPYNB-filer.
+Det finns två sätt att skapa en antecknings bok. Du kan skapa en ny antecknings bok eller importera en befintlig antecknings bok till en Azure Synapse-arbetsyta från **Object Explorer** . Bärbara Azure Synapse Studio-datorer kan känna igen standard Jupyter Notebook IPYNB-filer.
 
 ![Skapa import-anteckningsbok](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
@@ -44,11 +44,11 @@ Antecknings böcker består av celler, som är enskilda kodblock eller text som 
 
 Det finns flera sätt att lägga till en ny cell i din bärbara dator.
 
-1. Expandera knappen uppe till vänster **+ cell** och välj **Lägg till kod cell** eller **Lägg till text cell**.
+1. Expandera knappen uppe till vänster **+ cell** och välj **Lägg till kod cell** eller **Lägg till text cell** .
 
     ![Lägg till cell-med-cell-knapp](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
-2. Hovra över utrymmet mellan två celler och välj **Lägg till kod** eller **Lägg till text**.
+2. Hovra över utrymmet mellan två celler och välj **Lägg till kod** eller **Lägg till text** .
 
     ![Lägg till cell-mellan-blank steg](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
@@ -142,7 +142,7 @@ Du kan också använda [kortkommandon under kommando läge](#shortcut-keys-under
 
 ### <a name="delete-a-cell"></a>Ta bort en cell
 
-Om du vill ta bort en cell väljer du ellipserna (...) för att komma åt menyn ytterligare cell åtgärder längst till höger och väljer sedan **ta bort cell**. 
+Om du vill ta bort en cell väljer du ellipserna (...) för att komma åt menyn ytterligare cell åtgärder längst till höger och väljer sedan **ta bort cell** . 
 
 Du kan också använda [kortkommandon under kommando läge](#shortcut-keys-under-command-mode). Tryck på **d, d** för att ta bort den aktuella cellen.
   
@@ -167,12 +167,12 @@ Du kan köra kod cellerna i din bärbara dator separat eller alla på en gång. 
 
 Det finns flera sätt att köra koden i en cell.
 
-1. Hovra över den cell som du vill köra och välj knappen **Kör cell** eller tryck på **CTRL + RETUR**.
+1. Hovra över den cell som du vill köra och välj knappen **Kör cell** eller tryck på **CTRL + RETUR** .
 
    ![Kör-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
 
 
-2. Om du vill komma åt menyn ytterligare cell åtgärder längst till höger väljer du ellipserna (**...**). Välj sedan **Kör cell**.
+2. Om du vill komma åt menyn ytterligare cell åtgärder längst till höger väljer du ellipserna ( **...** ). Välj sedan **Kör cell** .
 
    ![Kör-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
    
@@ -186,7 +186,7 @@ Välj knappen **Kör alla** för att köra alla celler i den aktuella anteckning
 
 ### <a name="run-all-cells-above-or-below"></a>Kör alla celler ovanför eller under
 
-Om du vill komma åt menyn ytterligare cell åtgärder längst till höger väljer du ellipserna (**...**). Välj sedan **Kör celler ovan** för att köra alla celler ovanför den aktuella i sekvensen. Välj **Kör celler nedan** om du vill köra alla celler under den aktuella sekvensen.
+Om du vill komma åt menyn ytterligare cell åtgärder längst till höger väljer du ellipserna ( **...** ). Välj sedan **Kör celler ovan** för att köra alla celler ovanför den aktuella i sekvensen. Välj **Kör celler nedan** om du vill köra alla celler under den aktuella sekvensen.
 
    ![Run-cellernas över-eller-under](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
@@ -211,7 +211,7 @@ Antalet aktiviteter per jobb eller steg hjälper dig att identifiera parallell n
 
 ### <a name="spark-session-config"></a>Konfiguration av Spark-session
 
-Du kan ange tids längd, antal och storlek på körningar för att ge den aktuella Spark-sessionen i **Konfigurera session**. Starta om Spark-sessionen för att konfigurations ändringarna ska börja gälla. Alla cachelagrade Notebook-variabler rensas.
+Du kan ange tids längd, antal och storlek på körningar för att ge den aktuella Spark-sessionen i **Konfigurera session** . Starta om Spark-sessionen för att konfigurations ändringarna ska börja gälla. Alla cachelagrade Notebook-variabler rensas.
 
 [![session-hantering](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
@@ -275,7 +275,7 @@ Du kan komma åt data i det primära lagrings kontot direkt. Du behöver inte an
 
 ### <a name="produce-rendered-table-view"></a>Producera åter givnings tabell visning
 
-En vy med tabell resultat tillhandahålls med möjligheten att skapa ett stapeldiagram, linje diagram, cirkel diagram, punkt diagram och ytdiagram. Du kan visualisera dina data utan att behöva skriva kod. Diagrammen kan anpassas i **diagram alternativen**. 
+En vy med tabell resultat tillhandahålls med möjligheten att skapa ett stapeldiagram, linje diagram, cirkel diagram, punkt diagram och ytdiagram. Du kan visualisera dina data utan att behöva skriva kod. Diagrammen kan anpassas i **diagram alternativen** . 
 
 Utdata från **%% SQL** Magic-kommandon visas som standard i vyn renderad tabell. Du kan anropa <code>display(df)</code> Spark DataFrames, Pandas DataFrames, list eller elastiska distribuerade data uppsättningar (RDD) för att producera den åter givnings tabellen.
 
@@ -294,9 +294,9 @@ Du kan använda <code>display(df, summary = True)</code> för att kontrol lera s
 
 ### <a name="render-html-or-interactive-libraries"></a>Återge HTML eller interaktiva bibliotek
 
-Du kan rendera HTML-kod, inklusive Java Script, CSS, D3 eller interaktiva bibliotek, t. ex. **bokeh**, med hjälp av **displayHTML ()**.
+Du kan rendera HTML-kod, inklusive Java Script, CSS, D3 eller interaktiva bibliotek, t. ex. **bokeh** , med hjälp av **displayHTML ()** .
 
-Följande bild är ett exempel på hur du ritar glyfer över en karta med **bokeh**.
+Följande bild är ett exempel på hur du ritar glyfer över en karta med **bokeh** .
 
    ![bokeh – exempel](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
    
@@ -357,7 +357,7 @@ Tillgängliga rad Magic: [% lsmagic](https://ipython.readthedocs.io/en/stable/in
 Tillgängliga cell Magic: [%% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeIt](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% Capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% WriteFile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% SQL](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% Spark](#use-multiple-languages), [%% csharp](#use-multiple-languages)
 
 
-## <a name="orchestrate-notebook"></a>Dirigera antecknings bok
+## <a name="integrate-a-notebook"></a>Integrera en bärbar dator
 
 ### <a name="add-a-notebook-to-a-pipeline"></a>Lägga till en antecknings bok i en pipeline
 
@@ -399,7 +399,7 @@ I likhet med Jupyter-anteckningsböcker har Azure Synapse Studio-anteckningsboka
 
 Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse Notebooks.
 
-| Action |Genvägar till Synapse Studio-anteckningsbok  |
+| Åtgärd |Genvägar till Synapse Studio-anteckningsbok  |
 |--|--|
 |Kör den aktuella cellen och välj nedan | SKIFT + RETUR |
 |Kör den aktuella cellen och infoga den nedan | ALT + RETUR |
@@ -418,7 +418,7 @@ Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse
 
 Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse Notebooks i redigerings läge.
 
-| Action |Genvägar till Synapse Studio-anteckningsbok  |
+| Åtgärd |Genvägar till Synapse Studio-anteckningsbok  |
 |--|--|
 |Flytta markören uppåt | Upp |
 |Flytta markören nedåt|Ned|

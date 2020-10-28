@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: georgewallace
 ms.author: gwallace
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
-ms.custom: mvc
-ms.openlocfilehash: eedd796e3223c6cbcd0844cc4e814a35172d6c7e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3082f30f46a1e450a9ac42958163894c014de66d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078535"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737203"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Skapa ett privat kluster i Azure Red Hat OpenShift 4
 
@@ -192,7 +192,7 @@ az aro create \
 När du har kört `az aro create` kommandot tar det vanligt vis cirka 35 minuter att skapa ett kluster.
 
 >[!IMPORTANT]
-> Om du väljer att ange en anpassad domän, till exempel **foo.example.com**, blir OpenShift-konsolen tillgänglig på en URL, till exempel `https://console-openshift-console.apps.foo.example.com` , i stället för den inbyggda domänen `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
+> Om du väljer att ange en anpassad domän, till exempel **foo.example.com** , blir OpenShift-konsolen tillgänglig på en URL, till exempel `https://console-openshift-console.apps.foo.example.com` , i stället för den inbyggda domänen `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
 >
 > Som standard använder OpenShift självsignerade certifikat för alla vägar som skapas på `*.apps.<random>.<location>.aroapp.io` .  Om du väljer Anpassad DNS måste du efter att ha anslutit till klustret följa OpenShift-dokumentationen för att [Konfigurera en anpassad certifikat utfärdare för din](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) ingångs kontroll och [anpassad ca för din API-Server](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 
@@ -233,7 +233,7 @@ Starta konsol-URL: en i en webbläsare och logga in med `kubeadmin` autentiserin
 
 ## <a name="install-the-openshift-cli"></a>Installera OpenShift CLI
 
-När du är inloggad i OpenShift-webbkonsolen klickar du på **?** längst upp till höger och sedan på **kommando rads verktyg**. Ladda ned den version som är lämplig för din dator.
+När du är inloggad i OpenShift-webbkonsolen klickar du på **?** längst upp till höger och sedan på **kommando rads verktyg** . Ladda ned den version som är lämplig för din dator.
 
 ![Inloggnings skärm för Azure Red Hat OpenShift](media/aro4-download-cli.png)
 

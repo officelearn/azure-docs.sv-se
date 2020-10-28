@@ -3,13 +3,13 @@ title: Snabb start – skicka händelser till Event Grid
 description: I den här snabb starten aktiverar du Event Grid händelser för behållar registret och skickar sedan container image push och ta bort händelser till ett exempel program.
 ms.topic: article
 ms.date: 08/23/2018
-ms.custom: seodec18
-ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 3e9e9a7d6016f53225c1b2f31fb8eef91e202c7a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78403233"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736846"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Snabb start: skicka händelser från privat container Registry till Event Grid
 
@@ -19,7 +19,7 @@ När du har slutfört stegen i den här artikeln visas händelser som skickas fr
 
 ![Webbläsaren återger exempel webb programmet med tre mottagna händelser][sample-app-01]
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto][azure-account] innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto][azure-account] innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -206,7 +206,7 @@ Grattis! Om du ser `ImagePushed` -och- `ImageDeleted` händelserna skickar regis
 
 När du är klar med de resurser som du skapade i den här snabb starten kan du ta bort dem med följande Azure CLI-kommando. När du tar bort en resurs grupp tas alla resurser som den innehåller bort permanent.
 
-**Varning**! den här åtgärden kan inte ångras. Se till att du inte längre behöver någon av resurserna i gruppen innan du kör kommandot.
+**Varning** ! den här åtgärden kan inte ångras. Se till att du inte längre behöver någon av resurserna i gruppen innan du kör kommandot.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

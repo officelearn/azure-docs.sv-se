@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3c2b2ce5bd9af60d6d1fd4ac066681ee8473521
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4100640fd619d9d971ac1c7083eedef8e2125fc3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249458"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738253"
 ---
 # <a name="azure-synapse-workspace-managed-identity-preview"></a>Azure Synapse-arbetsytan hanterad identitet (för hands version)
 
@@ -32,7 +32,7 @@ En systemtilldelad hanterad identitet skapas för din Azure Synapse-arbetsyta n�
 >[!NOTE]
 >Den här arbets ytans hanterade identitet kallas hanterad identitet genom resten av det här dokumentet.
 
-I Azure Synapse används den hanterade identiteten för att dirigera pipeliner. Den hanterade identitets livs cykeln är direkt knuten till Azure dataSynapses-arbetsytan. Om du tar bort Azure dataSynapses-arbetsytan rensas även den hanterade identiteten.
+I Azure Synapse används den hanterade identiteten för att integrera pipeliner. Den hanterade identitets livs cykeln är direkt knuten till Azure dataSynapses-arbetsytan. Om du tar bort Azure dataSynapses-arbetsytan rensas även den hanterade identiteten.
 
 Arbets ytans hanterade identitet måste ha behörighet att utföra åtgärder i pipelinen. Du kan använda objekt-ID: t eller din Azure Synapse-arbetsyta för att hitta den hanterade identiteten när du beviljar behörigheter.
 
@@ -48,11 +48,11 @@ Starta **Azure Synapse Studio** och välj fliken **Hantera** i det vänstra navi
 
 ![Skapa länkad tjänst 1](./media/synapse-workspace-managed-identity/workspace-managed-identity-2.png)
 
-I fönstret **ny länkad tjänst** skriver du *Azure Data Lake Storage Gen2*. Välj resurs typen **Azure Data Lake Storage Gen2** i listan nedan och välj **Fortsätt**.
+I fönstret **ny länkad tjänst** skriver du *Azure Data Lake Storage Gen2* . Välj resurs typen **Azure Data Lake Storage Gen2** i listan nedan och välj **Fortsätt** .
 
 ![Skapa länkad tjänst 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
 
-I nästa fönster väljer du **hanterad identitet** för **autentiseringsmetod**. Du ser **namnet** och **objekt-ID: t**för den hanterade identiteten.
+I nästa fönster väljer du **hanterad identitet** för **autentiseringsmetod** . Du ser **namnet** och **objekt-ID: t** för den hanterade identiteten.
 
 ![Skapa länkad tjänst 3](./media/synapse-workspace-managed-identity/workspace-managed-identity-4.png)
 

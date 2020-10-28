@@ -8,12 +8,13 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+- devx-track-azurecli
+ms.openlocfilehash: 7efcff5709995898a6ec950dfea6450f7e0dd48d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490755"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736803"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-plan
 
@@ -47,14 +48,14 @@ I Premium-planen kan du låta appen alltid vara klar på ett angivet antal insta
 > [!NOTE]
 > Varje Premium-plan har alltid minst en aktiv (fakturerad) instans.
 
-Du kan konfigurera antalet alltid färdiga instanser i Azure Portal genom att välja **Funktionsapp**, gå till fliken **plattforms funktioner** och välja alternativen för **skala ut** . I redigerings fönstret för Function-appen är alltid färdiga instanser speciella för den appen.
+Du kan konfigurera antalet alltid färdiga instanser i Azure Portal genom att välja **Funktionsapp** , gå till fliken **plattforms funktioner** och välja alternativen för **skala ut** . I redigerings fönstret för Function-appen är alltid färdiga instanser speciella för den appen.
 
 ![Inställningar för elastisk skalning](./media/functions-premium-plan/scale-out.png)
 
 Du kan också konfigurera alltid färdiga instanser för en app med Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="pre-warmed-instances"></a>Förvärmade instanser
@@ -68,7 +69,7 @@ Så snart den första utlösaren kommer in blir de fem alltid färdiga instanser
 Du kan ändra antalet förvärmade instanser för en app med hjälp av Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="maximum-instances-for-an-app"></a>Maximalt antal instanser för en app
@@ -99,7 +100,7 @@ När du skapar planen finns det två inställningar för schema storlek: det min
 
 Om din app kräver instanser utöver de alltid färdiga instanserna, kan den fortsätta att skala ut tills antalet instanser träffar den maximala burst-gränsen.  Du debiteras för instanser utöver din plan storlek bara när de körs och tilldelas dig, per sekund.  Vi kommer att göra bästa möjliga för att skala din app till den definierade Max gränsen.
 
-Du kan konfigurera plan storlek och Max belopp i Azure Portal genom att välja alternativen för **skala ut** i planen eller en Function-app som distribueras till den planen (under **plattforms funktioner**).
+Du kan konfigurera plan storlek och Max belopp i Azure Portal genom att välja alternativen för **skala ut** i planen eller en Function-app som distribueras till den planen (under **plattforms funktioner** ).
 
 Du kan också öka den maximala burst-gränsen från Azure CLI:
 
@@ -122,9 +123,9 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 
 ### <a name="available-instance-skus"></a>Tillgängliga instanser SKU: er
 
-När du skapar eller skalar planen kan du välja mellan tre instans storlekar.  Du debiteras för det totala antalet kärnor och minne som har allokerats, per sekund som varje instans allokeras till dig.  Din app kan automatiskt skala ut till flera instanser efter behov.  
+När du skapar eller skalar planen kan du välja mellan tre instans storlekar.  Du debiteras för det totala antalet kärnor och minne som har allokerats, per sekund som varje instans allokeras till dig.  Din app kan automatiskt skala ut till flera instanser efter behov.
 
-|SKU|Kärnor|Minne|Storage|
+|SKU|Kärnor|Minne|Lagring|
 |--|--|--|--|
 |EP1|1|3,5 GB|GB|
 |EP2|2|7GB|GB|

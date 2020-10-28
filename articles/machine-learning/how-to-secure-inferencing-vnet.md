@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
-ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: eb7439bc84eaa4bfba58be1059a19ddadfc6a93e
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
+ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496020"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735475"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning inferencing-miljö med virtuella nätverk
 
@@ -68,7 +68,7 @@ Använd följande steg för att lägga till AKS i ett virtuellt nätverk till di
 
 1. Välj __härlednings kluster__ från mitten och välj sedan __+__ .
 
-1. I dialog rutan __nytt kluster__ för __överbelastnings__kluster väljer du __Avancerat__ under nätverks konfiguration.
+1. I dialog rutan __nytt kluster__ för __överbelastnings__ kluster väljer du __Avancerat__ under nätverks konfiguration.
 
 1. Utför följande åtgärder för att konfigurera beräknings resursen för att använda ett virtuellt nätverk:
 
@@ -119,8 +119,8 @@ När processen har skapats kan du köra en härledning eller modell bedömning i
 
 Det finns två metoder för att isolera trafik till och från AKS-klustret till det virtuella nätverket:
 
-* __Privat AKS-kluster__: den här metoden använder Azures privata länk för att skydda kommunikationen med klustret för distribution/hantering.
-* __Intern AKS-belastningsutjämnare__: den här metoden konfigurerar slut punkten för dina distributioner till AKS för att använda en privat IP-adress i det virtuella nätverket.
+* __Privat AKS-kluster__ : den här metoden använder Azures privata länk för att skydda kommunikationen med klustret för distribution/hantering.
+* __Intern AKS-belastningsutjämnare__ : den här metoden konfigurerar slut punkten för dina distributioner till AKS för att använda en privat IP-adress i det virtuella nätverket.
 
 > [!WARNING]
 > Den interna belastningsutjämnaren fungerar inte med ett AKS-kluster som använder Kubernetes. Om du vill använda en intern belastningsutjämnare och ett privat AKS-kluster samtidigt konfigurerar du ditt privata AKS-kluster med Azure Container Network Interface (CNI). Mer information finns i [Konfigurera Azure cni-nätverk i Azure Kubernetes-tjänsten](../aks/configure-azure-cni.md).
@@ -138,7 +138,7 @@ När du har skapat det privata AKS-klustret [ansluter du klustret till det virtu
 
 Som standard använder AKS-distributioner en [offentlig belastningsutjämnare](../aks/load-balancer-standard.md). I det här avsnittet får du lära dig hur du konfigurerar AKS till att använda en intern belastningsutjämnare. En intern (eller privat) belastningsutjämnare används där endast privata IP-adresser tillåts som klient del. Interna belastnings utjämning används för att belastningsutjämna trafik i ett virtuellt nätverk
 
-En privat belastningsutjämnare är aktive rad genom att konfigurera AKS för att använda en _intern belastningsutjämnare_. 
+En privat belastningsutjämnare är aktive rad genom att konfigurera AKS för att använda en _intern belastningsutjämnare_ . 
 
 #### <a name="network-contributor-role"></a>Rollen nätverks deltagare
 
@@ -147,7 +147,7 @@ En privat belastningsutjämnare är aktive rad genom att konfigurera AKS för at
 >
 > Använd följande steg för att lägga till identiteten som en nätverks deltagare:
 
-1. Använd följande Azure CLI-kommandon för att hitta tjänstens huvud namn eller hanterat identitets-ID för AKS. Ersätt `<aks-cluster-name>` med namnet på klustret. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller AKS-klustret_:
+1. Använd följande Azure CLI-kommandon för att hitta tjänstens huvud namn eller hanterat identitets-ID för AKS. Ersätt `<aks-cluster-name>` med namnet på klustret. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller AKS-klustret_ :
 
     ```azurecli-interactive
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
@@ -159,7 +159,7 @@ En privat belastningsutjämnare är aktive rad genom att konfigurera AKS för at
     az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
     ```
 
-1. Använd följande kommando för att hitta ID: t för den resurs grupp som innehåller ditt virtuella nätverk. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller det virtuella nätverket_:
+1. Använd följande kommando för att hitta ID: t för den resurs grupp som innehåller ditt virtuella nätverk. Ersätt `<resource-group-name>` med namnet på den resurs grupp som _innehåller det virtuella nätverket_ :
 
     ```azurecli-interactive
     az group show -n <resource-group-name> --query id

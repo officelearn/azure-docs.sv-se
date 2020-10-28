@@ -7,14 +7,14 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: fdfa8c767757aa17983a28d0d586698551326fe4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545335"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735972"
 ---
-# <a name="create-an-azure-cache-for-redis-using-an-arm-template"></a>Skapa en Azure-cache för Redis med en ARM-mall
+# <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>Snabb start: skapa en Azure-cache för Redis med en ARM-mall
 
 Lär dig hur du skapar en Azure Resource Manager mall (ARM-mall) som distribuerar en Azure-cache för Redis. Cachen kan användas med ett befintligt lagrings konto för att behålla diagnostikdata. Du lär dig också hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Diagnostiska inställningar delas för närvarande för alla cacheminnen i samma region för en prenumeration. Att uppdatera en cache i regionen påverkar alla andra cacheminnen i regionen.
 

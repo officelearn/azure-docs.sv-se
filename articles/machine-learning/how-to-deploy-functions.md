@@ -10,13 +10,13 @@ author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
-ms.custom: how-to, racking-python
-ms.openlocfilehash: cc5bc5b2c9f78854909b965487f7b4299f3a1579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, racking-python, devx-track-azurecli
+ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567459"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736562"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuera en maskin inlärnings modell till Azure Functions (för hands version)
 
@@ -47,7 +47,7 @@ Med Azure Machine Learning kan du skapa Docker-avbildningar från tränade maski
 
 Innan du distribuerar måste du definiera vad som behövs för att köra modellen som en webb tjänst. I följande lista beskrivs de kärn objekt som behövs för en-distribution:
 
-* Ett __Entry-skript__. Det här skriptet accepterar begär Anden, visar begäran med hjälp av modellen och returnerar resultatet.
+* Ett __Entry-skript__ . Det här skriptet accepterar begär Anden, visar begäran med hjälp av modellen och returnerar resultatet.
 
     > [!IMPORTANT]
     > Start skriptet är bara för din modell. den måste förstå formatet på inkommande begär ande data, formatet på de data som förväntas av din modell och formatet på de data som returneras till klienter.
@@ -58,9 +58,9 @@ Innan du distribuerar måste du definiera vad som behövs för att köra modelle
 
 Mer information om Entry-skript finns i [definiera bedömnings kod](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script)
 
-* **Beroenden**, till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
+* **Beroenden** , till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
 
-Dessa entiteter kapslas in i en konfiguration för en __härledning__. Inferenskonfigurationen refererar till startskriptet och andra beroenden.
+Dessa entiteter kapslas in i en konfiguration för en __härledning__ . Inferenskonfigurationen refererar till startskriptet och andra beroenden.
 
 > [!IMPORTANT]
 > När du skapar en konfigurations konfiguration för användning med Azure Functions måste du använda ett [miljö](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) objekt. Observera att om du definierar en anpassad miljö måste du lägga till azureml-defaults med version >= 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. I följande exempel visas hur du skapar ett miljö objekt och använder det med en konfigurations konfiguration:
@@ -84,7 +84,7 @@ Mer information om miljöer finns i [skapa och hantera miljöer för utbildning 
 Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> När du distribuerar till Functions behöver du inte skapa en __distributions konfiguration__.
+> När du distribuerar till Functions behöver du inte skapa en __distributions konfiguration__ .
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Installera SDK Preview-paketet för functions-stöd
 
@@ -144,7 +144,7 @@ När `show_output=True` visas utdata från Docker-build-processen. När processe
     }
     ```
 
-    Spara värdet för __användar namn__ och ett av __lösen orden__.
+    Spara värdet för __användar namn__ och ett av __lösen orden__ .
 
 1. Om du inte redan har en resurs grupp eller App Service-plan för att distribuera tjänsten visar följande kommandon hur du skapar båda:
 

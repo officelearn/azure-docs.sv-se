@@ -3,13 +3,13 @@ title: Referens för Java-utvecklare för Azure Functions
 description: Lär dig hur du utvecklar funktioner med Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.custom: devx-track-java
-ms.openlocfilehash: 2dfd00484e84f4b2c31e52392df43bb07a800f73
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: fcacfd96ece68424c876b0349ceb49d3eaabb598
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519630"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736700"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java Developer Guide
 
@@ -17,7 +17,7 @@ Den här guiden innehåller detaljerad information som hjälper dig att utveckla
 
 Som Java-utvecklare, om du är nybörjare på Azure Functions, bör du först läsa någon av följande artiklar:
 
-| Komma igång | Begrepp| 
+| Kom igång | Begrepp| 
 | -- | -- |  
 | <ul><li>[Java-funktion med Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[Java/maven-funktion med Terminal/kommando-prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Java-funktion med Gradle](functions-create-first-java-gradle.md)</li><li>[Java-funktion med Sol förmörkelse](functions-create-maven-eclipse.md)</li><li>[Java-funktion med IntelliJ idé](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Utvecklarguide](functions-reference.md)</li><li>[Värdalternativ](functions-scale.md)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li></ul> |
 
@@ -45,7 +45,7 @@ I artikel länkarna ovan visas hur du skapar dina första funktioner med hjälp 
 
 ### <a name="project-scaffolding"></a>Project-ramverk
 
-Om du föredrar kommando rads utveckling från terminalen är det enklaste sättet att Autogenerera Java-baserade funktions projekt att använda `Apache Maven` archetypes. Java maven-archetype för Azure Functions publiceras _i följande_:_artifactId_: [com. Microsoft. Azure: Azure-Functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+Om du föredrar kommando rads utveckling från terminalen är det enklaste sättet att Autogenerera Java-baserade funktions projekt att använda `Apache Maven` archetypes. Java maven-archetype för Azure Functions publiceras _i följande_ : _artifactId_ : [com. Microsoft. Azure: Azure-Functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
 Följande kommando genererar ett nytt Java-funktions projekt med hjälp av den här archetype:
 

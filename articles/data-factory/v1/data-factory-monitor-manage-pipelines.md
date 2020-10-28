@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4473df318f65c0e0097aed298d0be57e3bca382b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73666967"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636943"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Övervaka och hantera Azure Data Factory pipelines med hjälp av Azure Portal och PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du övervakar, hanterar och felsöker dina pipel
 > Hanterings programmet för övervakning & ger bättre stöd för övervakning och hantering av datapipeliner och fel sökning av eventuella problem. Mer information om hur du använder programmet finns i [övervaka och hantera data Factory pipelines med hjälp av appen övervakning och hantering](data-factory-monitor-manage-app.md). 
 
 > [!IMPORTANT]
-> Azure Data Factory version 1 använder nu den nya [Azure Monitor aviserings infrastrukturen](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Den gamla aviserings infrastrukturen är föråldrad. Därför fungerar inte dina befintliga aviseringar som kon figurer ATS för data fabriker av version 1. Dina befintliga aviseringar för v1-datafabriker migreras inte automatiskt. Du måste återskapa de här aviseringarna på den nya aviserings infrastrukturen. Logga in på Azure Portal och välj **övervaka** för att skapa nya aviseringar för mått (till exempel misslyckade körningar eller lyckade körningar) för dina data fabriker för version 1.
+> Azure Data Factory version 1 använder nu den nya [Azure Monitor aviserings infrastrukturen](../../azure-monitor/platform/alerts-metric.md). Den gamla aviserings infrastrukturen är föråldrad. Därför fungerar inte dina befintliga aviseringar som kon figurer ATS för data fabriker av version 1. Dina befintliga aviseringar för v1-datafabriker migreras inte automatiskt. Du måste återskapa de här aviseringarna på den nya aviserings infrastrukturen. Logga in på Azure Portal och välj **övervaka** för att skapa nya aviseringar för mått (till exempel misslyckade körningar eller lyckade körningar) för dina data fabriker för version 1.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -79,7 +79,7 @@ Du kan zooma in, zooma ut, zooma in, zooma till 100%, låsa diagrammets layout o
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Visa status för varje aktivitet i en pipeline
 Du kan visa det aktuella tillståndet för en aktivitet genom att visa status för alla data uppsättningar som skapas av aktiviteten.
 
-Genom att dubbelklicka på **OutputBlobTable** i **diagrammet**kan du se alla segment som produceras av olika aktivitets körningar inuti en pipeline. Du kan se att kopierings aktiviteten har lyckats under de senaste åtta timmarna och gav sektorerna statusen **klar** .  
+Genom att dubbelklicka på **OutputBlobTable** i **diagrammet** kan du se alla segment som produceras av olika aktivitets körningar inuti en pipeline. Du kan se att kopierings aktiviteten har lyckats under de senaste åtta timmarna och gav sektorerna statusen **klar** .  
 
 ![Status för pipelinen](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
@@ -163,9 +163,9 @@ När du har distribuerat en data fabrik och pipelinen har en giltig aktiv period
 
 Flödet för data uppsättnings överföring i Data Factory är följande: väntar-> pågående/pågående (validering)-> klart/misslyckade.
 
-Sektorn startar i ett **vänte** läge, vilket väntar på att villkor ska uppfyllas innan den körs. Sedan startar aktiviteten och sektorn hamnar **i ett pågående** tillstånd. Aktivitets körningen kan lyckas eller Miss lyckas. Sektorn har marker ATS som **klar** eller **misslyckad**, baserat på resultatet av körningen.
+Sektorn startar i ett **vänte** läge, vilket väntar på att villkor ska uppfyllas innan den körs. Sedan startar aktiviteten och sektorn hamnar **i ett pågående** tillstånd. Aktivitets körningen kan lyckas eller Miss lyckas. Sektorn har marker ATS som **klar** eller **misslyckad** , baserat på resultatet av körningen.
 
-Du kan återställa sektorn så att den går tillbaka från det **färdiga** eller **misslyckade** läget till **vänte** läge. Du kan också markera sektor tillstånd att **hoppa över**, vilket förhindrar att aktiviteten körs och inte bearbetar sektorn.
+Du kan återställa sektorn så att den går tillbaka från det **färdiga** eller **misslyckade** läget till **vänte** läge. Du kan också markera sektor tillstånd att **hoppa över** , vilket förhindrar att aktiviteten körs och inte bearbetar sektorn.
 
 ## <a name="pause-and-resume-pipelines"></a>Pausa och återuppta pipeliner
 Du kan hantera dina pipelines med hjälp av Azure PowerShell. Du kan till exempel pausa och återuppta pipeliner genom att köra Azure PowerShell-cmdletar. 
@@ -205,7 +205,7 @@ Azure Data Factory innehåller omfattande funktioner som du kan använda för at
 Om aktivitets körningen Miss lyckas i en pipeline, är data uppsättningen som skapas av pipelinen i ett fel tillstånd på grund av felet. Du kan felsöka och felsöka fel i Azure Data Factory med hjälp av följande metoder.
 
 #### <a name="use-the-azure-portal-to-debug-an-error"></a>Felsöka ett fel med hjälp av Azure Portal
-1. På bladet **tabell** klickar du på det problem segment som har **statusen** inställt på **misslyckad**.
+1. På bladet **tabell** klickar du på det problem segment som har **statusen** inställt på **misslyckad** .
 
    ![Tabell blad med problem sektor](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 2. På bladet **data sektor** klickar du på aktivitets körningen som misslyckades.
@@ -216,8 +216,8 @@ Om aktivitets körningen Miss lyckas i en pipeline, är data uppsättningen som 
    ![Bladet körnings information för aktivitet med fel](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Felsöka ett fel med PowerShell
-1. Starta **PowerShell**.
-2. Kör kommandot **Get-AzDataFactorySlice** för att se sektorerna och deras status. Du bör se en sektor med statusen **misslyckades**.        
+1. Starta **PowerShell** .
+2. Kör kommandot **Get-AzDataFactorySlice** för att se sektorerna och deras status. Du bör se en sektor med statusen **misslyckades** .        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -288,7 +288,7 @@ Om sektorn inte kunde verifieras på grund av ett princip fel (till exempel om d
 ![Åtgärda fel och validera](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Använda Azure PowerShell
-Du kan köra om ett problem med cmdleten **set-AzDataFactorySliceStatus** . Se avsnittet [set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) för syntax och annan information om cmdleten.
+Du kan köra om ett problem med cmdleten **set-AzDataFactorySliceStatus** . Se avsnittet [set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) för syntax och annan information om cmdleten.
 
 **Exempel:**
 
@@ -309,7 +309,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Skapa en ny avisering](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  Definiera **varnings villkoret**. (Se till att välja **data fabriker** i fältet **Filtrera efter resurs typ** .) Du kan också ange värden för **dimensioner**.
+3.  Definiera **varnings villkoret** . (Se till att välja **data fabriker** i fältet **Filtrera efter resurs typ** .) Du kan också ange värden för **dimensioner** .
 
     ![Definiera aviserings villkoret – Välj mål](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 
@@ -317,11 +317,11 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Definiera aviserings villkoret – Lägg till aviserings logik](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
 
-4.  Definiera **aviserings informationen**.
+4.  Definiera **aviserings informationen** .
 
     ![Definiera aviserings informationen](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
 
-5.  Definiera **Åtgärds gruppen**.
+5.  Definiera **Åtgärds gruppen** .
 
     ![Definiera åtgärds gruppen – Skapa en ny åtgärds grupp](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1d524e34623d5fde3d6f22afbdd63ce95699fe6f
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 52ecc1f7de2afb83d3f37ddae6b1b618a8a8e34d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494489"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636025"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -26,16 +26,16 @@ Den här artikeln ger en översikt över de API: er som är tillgängliga och me
 
 API: er för kontroll plan är [arm](../azure-resource-manager/management/overview.md) -API: er som används för att hantera din Azure Digital-instansen som helhet, så att de täcker åtgärder som att skapa eller ta bort hela instansen. Du kan också använda dessa för att skapa och ta bort slut punkter.
 
-Den mest aktuella API-versionen för kontroll plan för den offentliga för hands versionen är _**2020-10-31**_.
+Den mest aktuella API-versionen för kontroll plan för den offentliga för hands versionen är _**2020-10-31**_ .
 
 Använda API: er för kontroll plan:
 * Du kan anropa API: erna direkt genom att referera till de senaste Swagger i [mappen Control plan Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Den här lagrings platsen innehåller också en mapp med exempel som visar användningen.
 * Du kan för närvarande komma åt SDK: er för kontroll-API: er i...
   - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([källa](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([referens [genereras automatiskt]](/dotnet/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-dotnet-preview))
-  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([källa](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([referens [automatiskt genererad]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))
+  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([källa](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31)) ([referens [automatiskt genererad]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))
   - [Java Script](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([källa](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
-  - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([källa](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins))
-  - [Kör](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins)
+  - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([källa](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
+  - [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) ([källa](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
 
 Du kan också öva på att kontrol lera plan-API: er genom att interagera med Azure Digitals sammanflätar via [Azure Portal](https://portal.azure.com) och [CLI](how-to-use-cli.md).
 
@@ -47,7 +47,7 @@ Data Plans-API: erna är Azure Digitals dubbla API: er som används för att han
 * **Fråga** – kategorin fråga gör det möjligt [för utvecklare att hitta uppsättningar digitala delar i det dubbla diagrammet](how-to-query-graph.md) mellan relationer.
 * **Händelse vägar** – kategorin händelse vägar innehåller API: er för att [dirigera data](concepts-route-events.md)genom systemet och till underordnade tjänster.
 
-Den mest aktuella data planet API-versionen för den offentliga för hands versionen är _**2020-10-31**_.
+Den mest aktuella data planet API-versionen för den offentliga för hands versionen är _**2020-10-31**_ .
 
 Använda data Plans-API: er:
 * Du kan anropa API: erna direkt, efter...
@@ -80,7 +80,7 @@ Azure Digitals .NET (C#) SDK är en del av Azure SDK för .NET. Det är öppen k
 
 Om du vill använda SDK inkluderar du NuGet-paketet **Azure. DigitalTwins. Core** med ditt projekt. Du kommer också att behöva den senaste versionen av **Azure. Identity** -paketet.
 
-* I Visual Studio kan du lägga till paket med NuGet Package Manager (nås via *verktyg > NuGet package manager > hantera NuGet-paket för lösningen*). 
+* I Visual Studio kan du lägga till paket med NuGet Package Manager (nås via *verktyg > NuGet package manager > hantera NuGet-paket för lösningen* ). 
 * Med kommando rads verktyget .NET kan du köra:
 
     ```cmd/sh
@@ -275,7 +275,7 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 ## <a name="general-apisdk-usage-notes"></a>Allmän information om API/SDK-användning
 
 > [!NOTE]
-> Observera att Azure Digital-dubbla är för närvarande inte stöder **CORS (Cross-Origin resurs delning)**. Mer information om påverkan och lösnings strategier finns i avsnittet om [*resurs delning mellan ursprung (CORS)*](concepts-security.md#cross-origin-resource-sharing-cors) i *begrepp: säkerhet för Azure Digitals dubbla lösningar*.
+> Observera att Azure Digital-dubbla är för närvarande inte stöder **CORS (Cross-Origin resurs delning)** . Mer information om påverkan och lösnings strategier finns i avsnittet om [*resurs delning mellan ursprung (CORS)*](concepts-security.md#cross-origin-resource-sharing-cors) i *begrepp: säkerhet för Azure Digitals dubbla lösningar* .
 
 Följande lista innehåller ytterligare information och allmänna rikt linjer för att använda API: er och SDK: er.
 

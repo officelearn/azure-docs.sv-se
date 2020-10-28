@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/26/2020
 ms.author: lle
-ms.openlocfilehash: c85e27cedfbcebe7060dfed2f96fc53aea9838c9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 3598db409e5493737753a8a1b03de168af5c664b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629401"
+ms.locfileid: "92637198"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
 
@@ -183,7 +183,7 @@ Från felet nedan kan du tydligt se sammansättnings *systemet ValueTuple.* Det 
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
-Mer information om GAC finns i [den här artikeln](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+Mer information om GAC finns i [den här artikeln](/dotnet/framework/app-domains/gac).
 
 
 ### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Så här granskar du nyckel för lokalt installerad IR som saknas
@@ -468,7 +468,7 @@ Följande är det förväntade svaret:
 
 > [!NOTE] 
 > Synpunkter på proxy:
-> *    Kontrol lera om proxyservern måste placeras i listan Betrodda mottagare. Om så är fallet ser du till att [dessa domäner](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) finns i listan Betrodda mottagare.
+> *    Kontrol lera om proxyservern måste placeras i listan Betrodda mottagare. Om så är fallet ser du till att [dessa domäner](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) finns i listan Betrodda mottagare.
 > *    Kontrol lera om TLS/SSL-certifikatet "wu2.frontend.clouddatahub.net/" är betrott på proxyservern.
 > *    Om du använder Active Directory autentisering på proxyn ändrar du tjänst kontot till det användar konto som har åtkomst till proxyn som "Integration Runtime tjänst".
 
@@ -632,7 +632,7 @@ Så här avgör du om du påverkas:
 - Du påverkas inte om du definierar brand Väggs regler baserat på FQDN-namn med hjälp av metoden som beskrivs i det här dokumentet: [brand Väggs konfiguration och inställningar för att konfigurera för IP-adress](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
 - Du kommer dock att påverkas om du uttryckligen aktiverar listan över tillåtna för utgående IP-adresser i företags brand väggen.
 
-Åtgärd som ska vidtas om du påverkas: meddela nätverks infrastrukturens team att du vill uppdatera nätverks konfigurationen så att den använder de senaste Data Factory IP-adresserna senast den 8 november 2020.  Hämta de senaste IP-adresserna genom att gå till [service Tags IP-intervall nedladdnings länk](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+Åtgärd som ska vidtas om du påverkas: meddela nätverks infrastrukturens team att du vill uppdatera nätverks konfigurationen så att den använder de senaste Data Factory IP-adresserna senast den 8 november 2020.  Hämta de senaste IP-adresserna genom att gå till [service Tags IP-intervall nedladdnings länk](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ##### <a name="scenario-2-outbound-communication-from-self-hosted-integration-runtime-running-on-an-azure-vm-inside-customer-managed-azure-virtual-network"></a>Scenario 2: utgående kommunikation från egen värd Integration Runtime som körs på en virtuell Azure-dator i ett kund hanterat Azure Virtual Network
 Så här avgör du om du påverkas:
@@ -641,14 +641,14 @@ Så här avgör du om du påverkas:
  ![Mål kontroll](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
 - Du kommer dock att påverkas om du uttryckligen aktiverar listan över tillåtna för utgående IP-adresser i NSG-regler på det virtuella Azure-nätverket.
 
-Åtgärd som ska vidtas om du påverkas: meddela din nätverks infrastrukturs team att uppdatera NSG-regler i din Azure Virtual Network-konfiguration för att använda de senaste Data Factory IP-adresserna senast den 8 november 2020.  Hämta de senaste IP-adresserna genom att gå till [service Tags IP-intervall nedladdnings länk](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+Åtgärd som ska vidtas om du påverkas: meddela din nätverks infrastrukturs team att uppdatera NSG-regler i din Azure Virtual Network-konfiguration för att använda de senaste Data Factory IP-adresserna senast den 8 november 2020.  Hämta de senaste IP-adresserna genom att gå till [service Tags IP-intervall nedladdnings länk](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ##### <a name="scenario-3-outbound-communication-from-ssis-integration-runtime-in-customer-managed-azure-virtual-network"></a>Scenario 3: utgående kommunikation från SSIS Integration Runtime i kundens hanterade Azure Virtual Network
 - Kontrol lera om du har utgående NSG-regler i ditt privata nätverk som innehåller SSIS Integration Runtime. Om det inte finns några utgående begränsningar påverkas ingen påverkan.
 - Om du har regler för utgående trafik kontrollerar du om du använder service tag eller inte. Om du använder service tag-koden behöver du inte ändra eller lägga till något som nya IP-adressintervall är under befintligt service tag.
 - Du kommer dock att påverkas om du uttryckligen aktiverar listan över tillåtna för utgående IP-adresser på din NSG-regel på det virtuella Azure-nätverket.
 
-Åtgärd som ska vidtas om du påverkas: meddela din nätverks infrastrukturs team att uppdatera NSG-regler i din Azure Virtual Network-konfiguration för att använda de senaste Data Factory IP-adresserna senast den 8 november 2020.  Hämta de senaste IP-adresserna genom att gå till [service Tags IP-intervall nedladdnings länk](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+Åtgärd som ska vidtas om du påverkas: meddela din nätverks infrastrukturs team att uppdatera NSG-regler i din Azure Virtual Network-konfiguration för att använda de senaste Data Factory IP-adresserna senast den 8 november 2020.  Hämta de senaste IP-adresserna genom att gå till [service Tags IP-intervall nedladdnings länk](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ### <a name="could-not-establish-trust-relationship-for-the-ssltls-secure-channel"></a>Det gick inte att upprätta en förtroende relation för den säkra SSLTLS-kanalen 
 
@@ -709,7 +709,7 @@ Om du behöver hjälp med fel sökning kan du prova följande resurser:
 *  [Data Factory blogg](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory funktions begär Anden](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure-videor](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Sidan Microsoft Q&en fråga](/answers/topics/azure-data-factory.html)
 *  [Stack Overflow-forum för Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter-information om Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Prestanda guide för att mappa data flöden](concepts-data-flow-performance.md)

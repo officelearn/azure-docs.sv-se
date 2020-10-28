@@ -7,17 +7,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042600"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636416"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Gemensamt data modell format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-COMMON data service-systemet (common data Model) gör det möjligt för data och dess innebörd att enkelt delas mellan program och affärs processer. Mer information finns i Översikt över [common data Model](https://docs.microsoft.com/common-data-model/) .
+COMMON data service-systemet (common data Model) gör det möjligt för data och dess innebörd att enkelt delas mellan program och affärs processer. Mer information finns i Översikt över [common data Model](/common-data-model/) .
 
 I Azure Data Factory kan användare omvandla data från common data service entiteter i både model.jsi och manifest form som lagras i [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) med hjälp av mappnings data flöden. Du kan också sinka data i common data service-format med common data service-entitetsreferenser som kommer att använda dina data i CSV-eller Parquet-format i partitionerade mappar. 
 
@@ -35,21 +35,21 @@ Den gemensamma data modellen är tillgänglig som en [infogad data uppsättning]
 
 I tabellen nedan visas de egenskaper som stöds av en common data service-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** .
 
-| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | Formatet måste vara `cdm` | ja | `cdm` | format |
+| Format | Formatet måste vara `cdm` | yes | `cdm` | format |
 | Format för metadata | Där enhets referensen till data finns. Om du använder common data service version 1,0 väljer du manifest. Om du använder en common data service-version före 1,0 väljer du model.jspå. | Ja | `'manifest'` eller `'model'` | manifestType |
-| Rot plats: behållare | Behållarens namn på mappen common data service | ja | Sträng | Fil Systems |
-| Rot plats: mappsökväg | Rotmappens plats för mappen common data service | ja | Sträng | folderPath |
+| Rot plats: behållare | Behållarens namn på mappen common data service | yes | Sträng | Fil Systems |
+| Rot plats: mappsökväg | Rotmappens plats för mappen common data service | yes | Sträng | folderPath |
 | Manifest fil: enhets Sök väg | Mappsökväg för entiteten i rotmappen | nej | Sträng | entityPath |
-| Manifest fil: manifest namn | Manifest filens namn. Standardvärdet är ' default '  | Inga | Sträng | manifestName |
+| Manifest fil: manifest namn | Manifest filens namn. Standardvärdet är ' default '  | Nej | Sträng | manifestName |
 | Filtrera efter senast ändrad | Välj att filtrera filer baserat på när de senast ändrades | nej | Timestamp | modifiedAfter <br> modifiedBefore | 
 | Länkad schema tjänst | Den länkade tjänsten där sökkorpus finns | Ja, om du använder manifest | `'adlsgen2'` eller `'github'` | corpusStore | 
 | Enhets referens behållare | Containerns sökkorpus finns i | Ja, om du använder manifest och sökkorpus i ADLS Gen2 | Sträng | adlsgen2_fileSystem |
 | Enhets referens databas | GitHub-lagringsplatsnamn | Ja, om du använder manifest och sökkorpus i GitHub | Sträng | github_repository |
 | Enhets referens gren | Gren för GitHub-lagringsplats | Ja, om du använder manifest och sökkorpus i GitHub | Sträng |  github_branch |
 | Sökkorpus-mapp | sökkorpus rot plats | Ja, om du använder manifest | Sträng | corpusPath |
-| Sökkorpus-entitet | Sökväg till entitetsreferens | ja | Sträng | entitetsrelation |
+| Sökkorpus-entitet | Sökväg till entitetsreferens | yes | Sträng | entitetsrelation |
 | Det gick inte att hitta några filer | Om värdet är true uppstår ett fel inte om inga filer hittas | nej | `true` eller `false` | ignoreNoFilesFound |
 
 Om den enhets definition som du vill använda i din käll omvandling finns i samma katalog som din datamapp, kan du avmarkera kryss rutan Använd entitet från sökkorpus och bara skriva in entiteten för entiteten som du vill använda som enhets referens.
@@ -114,19 +114,19 @@ source(output(
 
 I tabellen nedan visas de egenskaper som stöds av en common data service-mottagare. Du kan redigera dessa egenskaper på fliken **Inställningar** .
 
-| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Format | Formatet måste vara `cdm` | ja | `cdm` | format |
-| Rot plats: behållare | Behållarens namn på mappen common data service | ja | Sträng | Fil Systems |
-| Rot plats: mappsökväg | Rotmappens plats för mappen common data service | ja | Sträng | folderPath |
+| Format | Formatet måste vara `cdm` | yes | `cdm` | format |
+| Rot plats: behållare | Behållarens namn på mappen common data service | yes | Sträng | Fil Systems |
+| Rot plats: mappsökväg | Rotmappens plats för mappen common data service | yes | Sträng | folderPath |
 | Manifest fil: enhets Sök väg | Mappsökväg för entiteten i rotmappen | nej | Sträng | entityPath |
-| Manifest fil: manifest namn | Manifest filens namn. Standardvärdet är ' default ' | Inga | Sträng | manifestName |
-| Länkad schema tjänst | Den länkade tjänsten där sökkorpus finns | ja | `'adlsgen2'` eller `'github'` | corpusStore | 
+| Manifest fil: manifest namn | Manifest filens namn. Standardvärdet är ' default ' | Nej | Sträng | manifestName |
+| Länkad schema tjänst | Den länkade tjänsten där sökkorpus finns | yes | `'adlsgen2'` eller `'github'` | corpusStore | 
 | Enhets referens behållare | Containerns sökkorpus finns i | Ja, om sökkorpus i ADLS Gen2 | Sträng | adlsgen2_fileSystem |
 | Enhets referens databas | GitHub-lagringsplatsnamn | Ja, om sökkorpus i GitHub | Sträng | github_repository |
 | Enhets referens gren | Gren för GitHub-lagringsplats | Ja, om sökkorpus i GitHub | Sträng |  github_branch |
-| Sökkorpus-mapp | sökkorpus rot plats | ja | Sträng | corpusPath |
-| Sökkorpus-entitet | Sökväg till entitetsreferens | ja | Sträng | entitetsrelation |
+| Sökkorpus-mapp | sökkorpus rot plats | yes | Sträng | corpusPath |
+| Sökkorpus-entitet | Sökväg till entitetsreferens | yes | Sträng | entitetsrelation |
 | Sökväg till partition | Plats där partitionen skrivs | nej | Sträng | partitionPath |
 | Rensa mappen | Om målmappen rensas innan den skrivs | nej | `true` eller `false` | truncate |
 | Format typ | Välj att ange Parquet-format | nej | `parquet` om det anges | under format |

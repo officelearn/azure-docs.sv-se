@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 6eaf00679566aa8dfb7a90db95228349c81fcfec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a6fc68ddcb86c7ba768f59519cfb4273d381fab
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983406"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637708"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 
@@ -40,11 +40,11 @@ Den här självstudien visar hur du utför följande uppgifter:
 > * Starta en pipelinekörning
 > * Övervaka pipelinen och aktivitetskörningar
 
-I den här självstudiekursen används .NET SDK. Du kan använda andra metoder för att interagera med Azure Data Factory. För Data Factory snabb starter, se [fem minuters snabb starter](/azure/data-factory/quickstart-create-data-factory-portal).
+I den här självstudiekursen används .NET SDK. Du kan använda andra metoder för att interagera med Azure Data Factory. För Data Factory snabb starter, se [fem minuters snabb starter](./quickstart-create-data-factory-portal.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure Storage konto. Du använder Blob Storage som käll data lager. Om du inte har ett Azure Storage-konto kan du läsa [skapa ett lagrings konto](../storage/common/storage-account-create.md).
 * Azure Storage Explorer. Information om hur du installerar det här verktyget finns [Azure Storage Explorer](https://storageexplorer.com/).
@@ -54,32 +54,32 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 En lista över Azure-regioner där Data Factory för närvarande är tillgänglig finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Data lager och beräkningar kan finnas i andra regioner. Butikerna innehåller Azure Storage och Azure SQL Database. Beräkningarna inkluderar HDInsight, som Data Factory använder.
 
-Skapa ett program enligt beskrivningen i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tilldela programmet till **deltagar** rollen genom att följa anvisningarna i samma artikel. Du behöver flera värden för senare delar av den här självstudien, till exempel **program-ID** och **katalog (klient)-ID**.
+Skapa ett program enligt beskrivningen i [skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tilldela programmet till **deltagar** rollen genom att följa anvisningarna i samma artikel. Du behöver flera värden för senare delar av den här självstudien, till exempel **program-ID** och **katalog (klient)-ID** .
 
 ### <a name="create-a-blob-table"></a>Skapa en BLOB-tabell
 
-1. Öppna en textredigerare. Kopiera följande text och spara den lokalt som *input.txt*.
+1. Öppna en textredigerare. Kopiera följande text och spara den lokalt som *input.txt* .
 
    ```
    Ethel|Berg
    Tamika|Walsh
    ```
 
-1. Öppna Azure Storage Explorer. Expandera ditt lagrings konto. Högerklicka på **Blobcontainrar** och välj **Skapa blobcontainer**.
+1. Öppna Azure Storage Explorer. Expandera ditt lagrings konto. Högerklicka på **Blobcontainrar** och välj **Skapa blobcontainer** .
 1. Namnge den nya behållaren *adfv2branch* och välj **Ladda upp** för att lägga till *input.txt* -filen i behållaren.
 
 ## <a name="create-visual-studio-project"></a>Skapa Visual Studio-projekt<a name="create-visual-studio-project"></a>
 
 Skapa ett C# .NET-konsol program:
 
-1. Starta Visual Studio och välj **skapa ett nytt projekt**.
-1. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)** för C# och väljer **sedan nästa**.
-1. Ge projektet namnet *ADFv2BranchTutorial*.
-1. Välj **.NET version 4.5.2** eller senare och välj sedan **skapa**.
+1. Starta Visual Studio och välj **skapa ett nytt projekt** .
+1. I **skapa ett nytt projekt** väljer du **konsol program (.NET Framework)** för C# och väljer **sedan nästa** .
+1. Ge projektet namnet *ADFv2BranchTutorial* .
+1. Välj **.NET version 4.5.2** eller senare och välj sedan **skapa** .
 
 ### <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-1. Välj **verktyg**  >  **NuGet Package Manager**  >  **Package**Manager-konsolen.
+1. Välj **verktyg**  >  **NuGet Package Manager**  >  **Package** Manager-konsolen.
 1. Kör följande kommandon i **Package Manager Console** för att installera paket. Mer information finns i [Microsoft. Azure. Management. DataFactory NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) .
 
    ```powershell
@@ -211,7 +211,7 @@ I det här avsnittet skapar du två data uppsättningar, en för källan och en 
 
 ### <a name="create-a-dataset-for-a-source-azure-blob"></a>Skapa en data uppsättning för en Azure Blob-källa
 
-Lägg till en metod som skapar en *Azure Blob-datauppsättning*. Mer information om vilka egenskaper och information som stöds finns i [Egenskaper för Azure Blob-datauppsättningar](connector-azure-blob-storage.md#dataset-properties).
+Lägg till en metod som skapar en *Azure Blob-datauppsättning* . Mer information om vilka egenskaper och information som stöds finns i [Egenskaper för Azure Blob-datauppsättningar](connector-azure-blob-storage.md#dataset-properties).
 
 Lägg till en `SourceBlobDatasetDefinition` metod i din *program.cs* -fil:
 
@@ -234,9 +234,9 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 }
 ```
 
-Du definierar en datauppsättning som representerar källdata i Azure Blob. Denna BLOB-datauppsättning refererar till den Azure Storage länkade tjänsten som stöds i föregående steg. BLOB-datauppsättningen beskriver platsen för blobben att kopiera från: *FolderPath* och *filename*.
+Du definierar en datauppsättning som representerar källdata i Azure Blob. Denna BLOB-datauppsättning refererar till den Azure Storage länkade tjänsten som stöds i föregående steg. BLOB-datauppsättningen beskriver platsen för blobben att kopiera från: *FolderPath* och *filename* .
 
-Observera att parametrarna för *FolderPath*används. `sourceBlobContainer` är namnet på parametern och uttrycket ersätts med värdena som skickas i pipeline-körningen. Syntaxen för att definiera parametrar är `@pipeline().parameters.<parameterName>`
+Observera att parametrarna för *FolderPath* används. `sourceBlobContainer` är namnet på parametern och uttrycket ersätts med värdena som skickas i pipeline-körningen. Syntaxen för att definiera parametrar är `@pipeline().parameters.<parameterName>`
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Skapa en data uppsättning för en mottagar Azure-Blob
 
@@ -308,7 +308,7 @@ För att utlösa utskicket av ett e-postmeddelande använder du [Logic Apps](../
 
 ### <a name="success-email-workflow"></a>Lyckat e-postarbetsflöde
 
-Skapa ett Logic Apps-arbetsflöde med namnet *CopySuccessEmail*i [Azure Portal](https://portal.azure.com). Definiera arbets flödes utlösaren som `When an HTTP request is received` . För begärandeutlösaren fyller du i `Request Body JSON Schema` med följande JSON:
+Skapa ett Logic Apps-arbetsflöde med namnet *CopySuccessEmail* i [Azure Portal](https://portal.azure.com). Definiera arbets flödes utlösaren som `When an HTTP request is received` . För begärandeutlösaren fyller du i `Request Body JSON Schema` med följande JSON:
 
 ```json
 {
@@ -344,7 +344,7 @@ När du har sparat arbets flödet kopierar du och sparar värdet **http post URL
 
 ## <a name="fail-email-workflow"></a>Arbetsflöde för e-postmeddelande om misslyckad kopiering
 
-Klona **CopySuccessEmail** som ett annat Logic Apps arbets flöde med namnet *CopyFailEmail*. `Request Body JSON schema` är samma i begärandeutlösaren. Ändra formatet för ditt e-postmeddelande som `Subject` för att skapa ett e-postmeddelande om att kopieringen misslyckats. Här är ett exempel:
+Klona **CopySuccessEmail** som ett annat Logic Apps arbets flöde med namnet *CopyFailEmail* . `Request Body JSON schema` är samma i begärandeutlösaren. Ändra formatet för ditt e-postmeddelande som `Subject` för att skapa ett e-postmeddelande om att kopieringen misslyckats. Här är ett exempel:
 
 ![Logic App Designer – arbets flöde för misslyckad e-post](media/tutorial-control-flow/fail-email-workflow.png)
 
@@ -610,7 +610,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=**_"
   }
 }
 Creating dataset SourceStorageDataset...
@@ -753,7 +753,7 @@ Press any key to exit...
 Du har följande uppgifter i den här självstudien:
 
 > [!div class="checklist"]
-> * Skapa en datafabrik
+> _ Skapa en data fabrik
 > * Skapa en länkad Azure Storage-tjänst
 > * Skapa en Azure Blob-datauppsättning
 > * Skapa en pipeline som innehåller en kopieringsaktivitet och en webbaktivitet

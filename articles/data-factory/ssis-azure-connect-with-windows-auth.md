@@ -10,25 +10,25 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 5dd8e483751010a6090e0ec415c40d381e978fd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14d016f0deba518f16908492b4fae020b2dcc58c
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84118815"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637555"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Komma åt datalager och filresurser med Windows-autentisering från SSIS-paket i Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Du kan använda Windows-autentisering för att komma åt data lager, till exempel SQL-servrar, fil resurser, Azure Files osv. från SSIS-paket som körs på din Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF). Dina data lager kan finnas lokalt, som finns på Azure Virtual Machines (VM) eller som körs i Azure som hanterade tjänster. Om de är lokalt måste du ansluta till din Azure-SSIS IR till en Virtual Network (Microsoft Azure Virtual Network) som är ansluten till ditt lokala nätverk, se [ansluta Azure-SSIS IR till en Microsoft Azure Virtual Network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Det finns fyra metoder för att komma åt data lager med Windows-autentisering från SSIS-paket som körs på din Azure-SSIS IR:
+Du kan använda Windows-autentisering för att komma åt data lager, till exempel SQL-servrar, fil resurser, Azure Files osv. från SSIS-paket som körs på din Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF). Dina data lager kan finnas lokalt, som finns på Azure Virtual Machines (VM) eller som körs i Azure som hanterade tjänster. Om de är lokalt måste du ansluta till din Azure-SSIS IR till en Virtual Network (Microsoft Azure Virtual Network) som är ansluten till ditt lokala nätverk, se [ansluta Azure-SSIS IR till en Microsoft Azure Virtual Network](./join-azure-ssis-integration-runtime-virtual-network.md). Det finns fyra metoder för att komma åt data lager med Windows-autentisering från SSIS-paket som körs på din Azure-SSIS IR:
 
 | Anslutningsmetod | Gällande omfattning | Installations steg | Åtkomst metod i paket | Antal autentiseringsuppgifter och anslutna resurser | Typ av anslutna resurser | 
 |---|---|---|---|---|---|
-| Konfigurera en körnings kontext på aktivitets nivå | Aktivitet per kör SSIS-paket | Konfigurera **Windows-autentiseringsmetoden** för att ställa in en "körning/kör som"-kontext när du kör SSIS-paket som kör SSIS-paket aktiviteter i ADF-pipeline.<br/><br/> Mer information finns i [Konfigurera körning av SSIS-paket-aktivitet](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity). | Åtkomst till resurser direkt i paket via UNC-sökväg, till exempel om du använder fil resurser eller Azure Files: `\\YourFileShareServerName\YourFolderName` eller `\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Stöd endast för en autentiseringsuppgift för alla anslutna resurser | -Fil resurser lokalt/virtuella Azure-datorer<br/><br/> – Azure Files finns i [använda en Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> -SQL-servrar lokalt/virtuella Azure-datorer med Windows-autentisering<br/><br/> -Andra resurser med Windows-autentisering |
-| Konfigurera en körnings kontext på katalog nivå | Per Azure-SSIS IR, men åsidosätts när du konfigurerar en körnings kontext på aktivitets nivå (se ovan) | Kör `catalog.set_execution_credential` den lagrade proceduren SSISDB för att konfigurera en kontext för körning/körning som.<br/><br/> Mer information finns i resten av den här artikeln nedan. | Åtkomst till resurser direkt i paket via UNC-sökväg, till exempel om du använder fil resurser eller Azure Files: `\\YourFileShareServerName\YourFolderName` eller `\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Stöd endast för en autentiseringsuppgift för alla anslutna resurser | -Fil resurser lokalt/virtuella Azure-datorer<br/><br/> – Azure Files finns i [använda en Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> -SQL-servrar lokalt/virtuella Azure-datorer med Windows-autentisering<br/><br/> -Andra resurser med Windows-autentisering |
-| Spara autentiseringsuppgifter via `cmdkey` kommando | Per Azure-SSIS IR, men åsidosätts när du konfigurerar en aktivitet/katalog nivå körnings kontext (se ovan) | Kör `cmdkey` kommandot i ett anpassat installations skript ( `main.cmd` ) när du konfigurerar Azure-SSIS IR, t. ex. om du använder fil resurser eller Azure Files: `cmdkey /add:YourFileShareServerName /user:YourDomainName\YourUsername /pass:YourPassword` eller `cmdkey /add:YourAzureStorageAccountName.file.core.windows.net /user:azure\YourAzureStorageAccountName /pass:YourAccessKey` .<br/><br/> Mer information finns i [Anpassa installations programmet för Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). | Åtkomst till resurser direkt i paket via UNC-sökväg, till exempel om du använder fil resurser eller Azure Files: `\\YourFileShareServerName\YourFolderName` eller `\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Stöd för flera uppsättningar av autentiseringsuppgifter för olika anslutna resurser | -Fil resurser lokalt/virtuella Azure-datorer<br/><br/> – Azure Files finns i [använda en Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) <br/><br/> -SQL-servrar lokalt/virtuella Azure-datorer med Windows-autentisering<br/><br/> -Andra resurser med Windows-autentisering |
-| Montera enheter i paketets körnings tid (icke-permanent) | Per paket | Kör `net use` kommandot i aktiviteten Kör process som läggs till i början av kontroll flödet i dina paket, till exempel `net use D: \\YourFileShareServerName\YourFolderName` | Åtkomst till fil resurser via mappade enheter | Stöd för flera enheter för olika fil resurser | -Fil resurser lokalt/virtuella Azure-datorer<br/><br/> – Azure Files finns i [använda en Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) |
+| Konfigurera en körnings kontext på aktivitets nivå | Aktivitet per kör SSIS-paket | Konfigurera **Windows-autentiseringsmetoden** för att ställa in en "körning/kör som"-kontext när du kör SSIS-paket som kör SSIS-paket aktiviteter i ADF-pipeline.<br/><br/> Mer information finns i [Konfigurera körning av SSIS-paket-aktivitet](./how-to-invoke-ssis-package-ssis-activity.md). | Åtkomst till resurser direkt i paket via UNC-sökväg, till exempel om du använder fil resurser eller Azure Files: `\\YourFileShareServerName\YourFolderName` eller `\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Stöd endast för en autentiseringsuppgift för alla anslutna resurser | -Fil resurser lokalt/virtuella Azure-datorer<br/><br/> – Azure Files finns i [använda en Azure-filresurs](../storage/files/storage-how-to-use-files-windows.md) <br/><br/> -SQL-servrar lokalt/virtuella Azure-datorer med Windows-autentisering<br/><br/> -Andra resurser med Windows-autentisering |
+| Konfigurera en körnings kontext på katalog nivå | Per Azure-SSIS IR, men åsidosätts när du konfigurerar en körnings kontext på aktivitets nivå (se ovan) | Kör `catalog.set_execution_credential` den lagrade proceduren SSISDB för att konfigurera en kontext för körning/körning som.<br/><br/> Mer information finns i resten av den här artikeln nedan. | Åtkomst till resurser direkt i paket via UNC-sökväg, till exempel om du använder fil resurser eller Azure Files: `\\YourFileShareServerName\YourFolderName` eller `\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Stöd endast för en autentiseringsuppgift för alla anslutna resurser | -Fil resurser lokalt/virtuella Azure-datorer<br/><br/> – Azure Files finns i [använda en Azure-filresurs](../storage/files/storage-how-to-use-files-windows.md) <br/><br/> -SQL-servrar lokalt/virtuella Azure-datorer med Windows-autentisering<br/><br/> -Andra resurser med Windows-autentisering |
+| Spara autentiseringsuppgifter via `cmdkey` kommando | Per Azure-SSIS IR, men åsidosätts när du konfigurerar en aktivitet/katalog nivå körnings kontext (se ovan) | Kör `cmdkey` kommandot i ett anpassat installations skript ( `main.cmd` ) när du konfigurerar Azure-SSIS IR, t. ex. om du använder fil resurser eller Azure Files: `cmdkey /add:YourFileShareServerName /user:YourDomainName\YourUsername /pass:YourPassword` eller `cmdkey /add:YourAzureStorageAccountName.file.core.windows.net /user:azure\YourAzureStorageAccountName /pass:YourAccessKey` .<br/><br/> Mer information finns i [Anpassa installations programmet för Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md). | Åtkomst till resurser direkt i paket via UNC-sökväg, till exempel om du använder fil resurser eller Azure Files: `\\YourFileShareServerName\YourFolderName` eller `\\YourAzureStorageAccountName.file.core.windows.net\YourFolderName` | Stöd för flera uppsättningar av autentiseringsuppgifter för olika anslutna resurser | -Fil resurser lokalt/virtuella Azure-datorer<br/><br/> – Azure Files finns i [använda en Azure-filresurs](../storage/files/storage-how-to-use-files-windows.md) <br/><br/> -SQL-servrar lokalt/virtuella Azure-datorer med Windows-autentisering<br/><br/> -Andra resurser med Windows-autentisering |
+| Montera enheter i paketets körnings tid (icke-permanent) | Per paket | Kör `net use` kommandot i aktiviteten Kör process som läggs till i början av kontroll flödet i dina paket, till exempel `net use D: \\YourFileShareServerName\YourFolderName` | Åtkomst till fil resurser via mappade enheter | Stöd för flera enheter för olika fil resurser | -Fil resurser lokalt/virtuella Azure-datorer<br/><br/> – Azure Files finns i [använda en Azure-filresurs](../storage/files/storage-how-to-use-files-windows.md) |
 |||||||
 
 > [!WARNING]
@@ -44,7 +44,7 @@ När du använder Windows-autentisering i ett SSIS-paket kan du bara använda en
 
 Gör så här för att ange domänautentiseringsuppgifter som tillåter att paket använder Windows-autentisering för att komma åt data lager lokalt:
 
-1. Med SQL Server Management Studio (SSMS) eller något annat verktyg ansluter du till SQL Database/SQL-hanterad instans som är värd för SSISDB. Mer information finns i [ansluta till SSISDB i Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Med SQL Server Management Studio (SSMS) eller något annat verktyg ansluter du till SQL Database/SQL-hanterad instans som är värd för SSISDB. Mer information finns i [ansluta till SSISDB i Azure](/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Öppna ett frågefönster med SSISDB som den aktuella databasen.
 
@@ -60,7 +60,7 @@ Gör så här för att ange domänautentiseringsuppgifter som tillåter att pake
 
 Gör så här om du vill visa de aktiva domänautentiseringsuppgifter:
 
-1. Med SSMS eller något annat verktyg ansluter du till SQL Database/SQL-hanterad instans som är värd för SSISDB. Mer information finns i [ansluta till SSISDB i Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Med SSMS eller något annat verktyg ansluter du till SQL Database/SQL-hanterad instans som är värd för SSISDB. Mer information finns i [ansluta till SSISDB i Azure](/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Öppna ett frågefönster med SSISDB som den aktuella databasen.
 
@@ -75,7 +75,7 @@ Gör så här om du vill visa de aktiva domänautentiseringsuppgifter:
 ### <a name="clear-domain-credentials"></a>Rensa domänautentiseringsuppgifter
 Om du vill rensa och ta bort de autentiseringsuppgifter som du angav enligt beskrivningen i den här artikeln gör du följande:
 
-1. Med SSMS eller något annat verktyg ansluter du till SQL Database/SQL-hanterad instans som är värd för SSISDB. Mer information finns i [ansluta till SSISDB i Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Med SSMS eller något annat verktyg ansluter du till SQL Database/SQL-hanterad instans som är värd för SSISDB. Mer information finns i [ansluta till SSISDB i Azure](/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Öppna ett frågefönster med SSISDB som den aktuella databasen.
 
@@ -99,15 +99,15 @@ Om du vill kontrol lera om du kan ansluta till en SQL Server lokalt, gör du fö
 
 3. Från SSMS kontrollerar du om du kan ansluta till SQL Server lokalt.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Om du vill komma åt en SQL Server lokalt från paket som körs i Azure gör du följande:
 
 1.  I Konfigurationshanteraren för SQL Server aktiverar du TCP/IP-protokollet.
 
-2. Tillåt åtkomst via Windows-brandväggen. Mer information finns i [Konfigurera Windows-brandväggen för att få åtkomst till SQL Server](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access).
+2. Tillåt åtkomst via Windows-brandväggen. Mer information finns i [Konfigurera Windows-brandväggen för att få åtkomst till SQL Server](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access).
 
-3. Anslut din Azure-SSIS IR till en Microsoft Azure Virtual Network som är ansluten till SQL Server lokalt.  Mer information finns i [koppla Azure-SSIS IR till en Microsoft Azure Virtual Network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+3. Anslut din Azure-SSIS IR till en Microsoft Azure Virtual Network som är ansluten till SQL Server lokalt.  Mer information finns i [koppla Azure-SSIS IR till en Microsoft Azure Virtual Network](./join-azure-ssis-integration-runtime-virtual-network.md).
 
 4. Använd `catalog.set_execution_credential` den lagrade proceduren SSISDB för att ange autentiseringsuppgifter enligt beskrivningen i den här artikeln.
 
@@ -126,13 +126,13 @@ Om du vill kontrol lera om du kan ansluta till en fil resurs lokalt gör du föl
 
 3. Kontrol lera om katalog listan returneras för fil resursen lokalt.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Gör så här för att få åtkomst till en fil resurs lokalt från paket som körs i Azure:
 
 1. Tillåt åtkomst via Windows-brandväggen.
 
-2. Anslut Azure-SSIS IR till en Microsoft Azure Virtual Network som är ansluten till fil resursen lokalt.  Mer information finns i [koppla Azure-SSIS IR till en Microsoft Azure Virtual Network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+2. Anslut Azure-SSIS IR till en Microsoft Azure Virtual Network som är ansluten till fil resursen lokalt.  Mer information finns i [koppla Azure-SSIS IR till en Microsoft Azure Virtual Network](./join-azure-ssis-integration-runtime-virtual-network.md).
 
 3. Använd `catalog.set_execution_credential` den lagrade proceduren SSISDB för att ange autentiseringsuppgifter enligt beskrivningen i den här artikeln.
 
@@ -140,7 +140,7 @@ Gör så här för att få åtkomst till en fil resurs lokalt från paket som k�
 
 Gör så här för att få åtkomst till en fil resurs på en virtuell Azure-dator från paket som körs i Azure:
 
-1. Med SSMS eller något annat verktyg ansluter du till SQL Database/SQL-hanterad instans som är värd för SSISDB. Mer information finns i [ansluta till SSISDB i Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Med SSMS eller något annat verktyg ansluter du till SQL Database/SQL-hanterad instans som är värd för SSISDB. Mer information finns i [ansluta till SSISDB i Azure](/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Öppna ett frågefönster med SSISDB som den aktuella databasen.
 
@@ -156,7 +156,7 @@ Mer information om Azure Files finns i [Azure Files](https://azure.microsoft.com
 
 Gör så här för att få åtkomst till en fil resurs i Azure Files från paket som körs i Azure:
 
-1. Med SSMS eller något annat verktyg ansluter du till SQL Database/SQL-hanterad instans som är värd för SSISDB. Mer information finns i [ansluta till SSISDB i Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. Med SSMS eller något annat verktyg ansluter du till SQL Database/SQL-hanterad instans som är värd för SSISDB. Mer information finns i [ansluta till SSISDB i Azure](/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. Öppna ett frågefönster med SSISDB som den aktuella databasen.
 
@@ -168,6 +168,6 @@ Gör så här för att få åtkomst till en fil resurs i Azure Files från paket
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Distribuera dina paket. Mer information finns i [distribuera ett SSIS-projekt till Azure med SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms).
-- Kör dina paket. Mer information finns i [köra SSIS-paket i Azure med SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms).
-- Schemalägg dina paket. Mer information finns i [Schemalägga SSIS-paket i Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).
+- Distribuera dina paket. Mer information finns i [distribuera ett SSIS-projekt till Azure med SSMS](/sql/integration-services/ssis-quickstart-deploy-ssms).
+- Kör dina paket. Mer information finns i [köra SSIS-paket i Azure med SSMS](/sql/integration-services/ssis-quickstart-run-ssms).
+- Schemalägg dina paket. Mer information finns i [Schemalägga SSIS-paket i Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).

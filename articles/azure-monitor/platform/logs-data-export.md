@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 7183a9c75c78a973b53a9c8c065d62c592b13151
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441116"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637351"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics arbets ytans data export i Azure Monitor (förhands granskning)
 Med Log Analytics data export för arbets yta i Azure Monitor kan du kontinuerligt exportera data från valda tabeller i din Log Analytics arbets yta till ett Azure Storage-konto eller Azure-Event Hubs som det samlas in. Den här artikeln innehåller information om den här funktionen och hur du konfigurerar data export i dina arbets ytor.
@@ -36,6 +36,7 @@ Log Analytics data export för arbets ytan exporterar kontinuerligt data från e
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
 - Konfigurationen kan för närvarande endast utföras med CLI-eller REST-begäranden. Du kan inte använda Azure Portal eller PowerShell.
+- ```--export-all-tables```Alternativet i CLI och rest stöds inte och kommer att tas bort. Du bör ange listan över tabeller i export regler uttryckligen.
 - Tabeller som stöds är för närvarande begränsade i avsnittet [tabeller som stöds](#supported-tables) nedan. Om data export regeln innehåller en tabell som inte stöds kommer åtgärden att lyckas, men inga data exporteras för tabellen. Om data export regeln innehåller en tabell som inte finns, kommer den inte att fungera med felet ```Table <tableName> does not exist in the workspace.```
 - Din Log Analytics arbets yta kan finnas i vilken region som helst, förutom följande:
   - Schweiz, norra
@@ -63,9 +64,9 @@ Det finns för närvarande inga ytterligare avgifter för data export funktionen
 ## <a name="export-destinations"></a>Exportera mål
 
 ### <a name="storage-account"></a>Lagringskonto
-Data skickas till lagrings konton varje timme. Konfigurationen för data export skapar en behållare för varje tabell i lagrings kontot med namnet *am-* följt av namnet på tabellen. Tabellen *SecurityEvent* skulle till exempel skickas till en behållare med namnet *am-SecurityEvent*.
+Data skickas till lagrings konton varje timme. Konfigurationen för data export skapar en behållare för varje tabell i lagrings kontot med namnet *am-* följt av namnet på tabellen. Tabellen *SecurityEvent* skulle till exempel skickas till en behållare med namnet *am-SecurityEvent* .
 
-Lagrings kontots BLOB-sökväg är *WorkspaceResourceId =/Subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.jspå*. Eftersom bifogade blobbar är begränsade till 50 000 skrivningar i lagringen kan antalet exporterade blobbar utökas om antalet tillägg är högt. Namngivnings mönstret för blobbar i sådana fall är PT1H_ #. JSON, där # är det stegvisa antalet blobar.
+Lagrings kontots BLOB-sökväg är *WorkspaceResourceId =/Subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.jspå* . Eftersom bifogade blobbar är begränsade till 50 000 skrivningar i lagringen kan antalet exporterade blobbar utökas om antalet tillägg är högt. Namngivnings mönstret för blobbar i sådana fall är PT1H_ #. JSON, där # är det stegvisa antalet blobar.
 
 Data formatet lagrings konto är [JSON-linjer](diagnostic-logs-append-blobs.md). Det innebär att varje post avgränsas med en ny rad, utan matris för yttre poster och inga kommatecken mellan JSON-poster. 
 
@@ -74,7 +75,7 @@ Data formatet lagrings konto är [JSON-linjer](diagnostic-logs-append-blobs.md).
 Log Analytics data export kan skriva till att lägga till blobar till oföränderliga lagrings konton när tidsbaserade bevarande principer har inställningen *allowProtectedAppendWrites* aktive rad. Detta gör det möjligt att skriva nya block till en append-BLOB, samtidigt som oföränderlighets skydd och efterlevnad upprätthålls. Se [Tillåt skyddade bifogade BLOB-skrivningar](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 ### <a name="event-hub"></a>Händelsehubb
-Data skickas till händelsehubben i nära real tid när den når Azure Monitor. En Event Hub skapas för varje datatyp som du exporterar med namnet *am –* följt av namnet på tabellen. Tabellen *SecurityEvent* skulle till exempel skickas till en Event Hub med namnet ' *am-SecurityEvent*'. Om du vill att exporterade data ska uppnå en speciell händelsehubben, eller om du har en tabell med ett namn som överskrider tecken gränsen på 47, kan du ange ett eget namn på händelsehubben och exportera alla tabeller till den.
+Data skickas till händelsehubben i nära real tid när den når Azure Monitor. En Event Hub skapas för varje datatyp som du exporterar med namnet *am –* följt av namnet på tabellen. Tabellen *SecurityEvent* skulle till exempel skickas till en Event Hub med namnet ' *am-SecurityEvent* '. Om du vill att exporterade data ska uppnå en viss händelsehubben, eller om du har en tabell med ett namn som överskrider tecken gränsen på 47, kan du ange ett eget namn på händelsehubben och exportera alla data för definierade tabeller till den.
 
 Volymen för exporterade data ökar ofta med tiden och skalningen av Event Hub måste ökas för att hantera större överföringshastigheter och undvika begränsnings scenarier och data fördröjning. Du bör använda funktionen för automatisk ökning i Event Hubs för att automatiskt skala upp och öka antalet data flödes enheter och uppfylla användnings behoven. Mer information finns i [skala upp Azure Event Hubs data flödes enheter automatiskt](../../event-hubs/event-hubs-auto-inflate.md) .
 
@@ -98,7 +99,7 @@ Följande Azure-adressresurs måste vara registrerad för din prenumeration för
 
 - Microsoft. Insights
 
-Den här resurs leverantören är antagligen redan registrerad för de flesta Azure Monitor användare. För att verifiera går du till **prenumerationer** i Azure Portal. Välj din prenumeration och klicka sedan på **resurs leverantörer** i avsnittet **Inställningar** på menyn. Leta upp **Microsoft. Insights**. Om dess status är **registrerad**är den redan registrerad. Annars klickar du på **Registrera** för att registrera den.
+Den här resurs leverantören är antagligen redan registrerad för de flesta Azure Monitor användare. För att verifiera går du till **prenumerationer** i Azure Portal. Välj din prenumeration och klicka sedan på **resurs leverantörer** i avsnittet **Inställningar** på menyn. Leta upp **Microsoft. Insights** . Om dess status är **registrerad** är den redan registrerad. Annars klickar du på **Registrera** för att registrera den.
 
 Du kan också använda någon av de tillgängliga metoderna för att registrera en resurs leverantör enligt beskrivningen i [Azure Resource providers och-typer](../../azure-resource-manager/management/resource-providers-and-types.md). Följande är ett exempel kommando som använder PowerShell:
 
@@ -107,13 +108,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ```
 
 ### <a name="allow-trusted-microsoft-services"></a>Tillåt betrodda Microsoft-tjänster
-Om du har konfigurerat ditt lagrings konto för att tillåta åtkomst från valda nätverk måste du lägga till ett undantag för att tillåta Azure Monitor att skriva till kontot. Från **brand väggar och virtuella nätverk** för ditt lagrings konto väljer **du Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot**.
+Om du har konfigurerat ditt lagrings konto för att tillåta åtkomst från valda nätverk måste du lägga till ett undantag för att tillåta Azure Monitor att skriva till kontot. Från **brand väggar och virtuella nätverk** för ditt lagrings konto väljer **du Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** .
 
 [![Lagrings kontots brand väggar och virtuella nätverk](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 
 ### <a name="create-or-update-data-export-rule"></a>Skapa eller uppdatera data export regel
-En data export regel definierar data som ska exporteras från alla tabeller eller en viss uppsättning tabeller till ett enda mål. Skapa flera regler om du behöver skicka till flera mål.
+En data export regel definierar data som ska exporteras för en uppsättning tabeller till ett enda mål. Du kan skapa en regel för varje mål.
+
+Använd följande CLI-kommando för att visa tabeller i din arbets yta. Den kan hjälpa dig att kopiera de tabeller som du vill ha och ta med i data export regeln.
+```azurecli
+az monitor log-analytics workspace table list -resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
+```
 
 Använd följande kommando för att skapa en data export regel till ett lagrings konto med hjälp av CLI.
 
@@ -142,8 +148,8 @@ Bröd texten i begäran anger mål för tabellen. Följande är en exempel text 
             "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name"
         },
         "tablenames": [
-"table1",
-    "table2" 
+            "table1",
+            "table2" 
         ],
         "enable": true
     }
@@ -165,9 +171,26 @@ Följande är en exempel text för REST-begäran för en Event Hub.
         "enable": true
     }
 }
-
 ```
 
+Följande är en exempel text för REST-begäran för en Event Hub där Event Hub-namn anges. I det här fallet skickas alla exporterade data till den här händelsehubben.
+
+```json
+{
+    "properties": {
+        "destination": {
+            "resourceId": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/Microsoft.EventHub/namespaces/eventhub-namespaces-name",
+            "metaData": {
+                "EventHubName": "eventhub-name"
+        },
+        "tablenames": [
+            "table1",
+            "table2"
+        ],
+        "enable": true
+    }
+}
+```
 
 ## <a name="view-data-export-configuration"></a>Visa data export konfiguration
 Använd följande kommando för att visa konfigurationen av en data export regel med hjälp av CLI.

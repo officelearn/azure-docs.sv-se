@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b7324115c880fb1ee4d5a1730a3b84a289cee4b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55582fb8c4fc80ab005a01ec015035963404e639
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89490147"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637419"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-formerly-sql-data-warehouse-using-azure-data-factory"></a>Kopiera data till och från Azure Synapse Analytics (tidigare SQL Data Warehouse) med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -37,7 +37,7 @@ Du kan kopiera data **från Azure Synapse Analytics** till följande data lager:
 
 [!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
 
-Du kan kopiera data från följande data lager **till Azure Synapse Analytics**:
+Du kan kopiera data från följande data lager **till Azure Synapse Analytics** :
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
@@ -47,16 +47,16 @@ Du kan kopiera data från följande data lager **till Azure Synapse Analytics**:
 ## <a name="supported-authentication-type"></a>Autentiseringstyp som stöds
 Azure Synapse Analytics Connector stöder grundläggande autentisering.
 
-## <a name="getting-started"></a>Komma igång
+## <a name="getting-started"></a>Kom igång
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från en Azure Synapse-analys med hjälp av olika verktyg/API: er.
 
-Det enklaste sättet att skapa en pipeline som kopierar data till/från Azure Synapse Analytics är att använda guiden Kopiera data. Se [självstudie: Läs in data i Synapse Analytics med Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
+Det enklaste sättet att skapa en pipeline som kopierar data till/från Azure Synapse Analytics är att använda guiden Kopiera data. Se [självstudie: Läs in data i Synapse Analytics med Data Factory](../load-azure-sql-data-warehouse.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio** , **Azure PowerShell** , **Azure Resource Manager mall** , .net- **API** och **REST API** . Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
-1. Skapa en **data fabrik**. En data fabrik kan innehålla en eller flera pipeliner. 
+1. Skapa en **data fabrik** . En data fabrik kan innehålla en eller flera pipeliner. 
 2. Skapa **länkade tjänster** för att länka indata och utdata från data lager till din data fabrik. Om du till exempel kopierar data från en Azure Blob Storage till en Azure Synapse-analys, skapar du två länkade tjänster för att länka ditt Azure Storage-konto och Azure Synapse-analys till din data fabrik. För länkade tjänst egenskaper som är speciella för Azure Synapse Analytics, se avsnittet [länkade tjänst egenskaper](#linked-service-properties) . 
 3. Skapa data **uppsättningar** som representerar indata och utdata för kopierings åtgärden. I exemplet som nämns i det sista steget skapar du en data uppsättning för att ange BLOB-behållaren och mappen som innehåller indata. Du kan också skapa en annan data uppsättning för att ange tabellen i Azure Synapse Analytics som innehåller data som kopieras från blob-lagringen. För data uppsättnings egenskaper som är speciella för Azure Synapse Analytics, se avsnittet [Egenskaper för data mängd](#dataset-properties) .
 4. Skapa en **pipeline** med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata. I exemplet ovan använder du BlobSource som källa och SqlDWSink som mottagare för kopierings aktiviteten. På samma sätt använder du SqlDWSource och BlobSink i kopierings aktiviteten om du kopierar från Azure Synapse Analytics till Azure Blob Storage. Information om kopiera aktivitets egenskaper som är speciella för Azure Synapse Analytics finns i avsnittet [Kopiera aktivitets egenskaper](#copy-activity-properties) . Om du vill ha mer information om hur du använder ett data lager som källa eller mottagare klickar du på länken i föregående avsnitt för ditt data lager.
@@ -74,7 +74,7 @@ Följande tabell innehåller en beskrivning av JSON-element som är speciella f�
 | Begär |Ange information som krävs för att ansluta till Azure Synapse Analytics-instansen för egenskapen connectionString. Endast grundläggande autentisering stöds. |Ja |
 
 > [!IMPORTANT]
-> Konfigurera [Azure SQL Database-brandväggen](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) och databas servern så att [Azure-tjänster får åtkomst till servern](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Om du kopierar data till Azure Synapse Analytics från utanför Azure, inklusive från lokala data källor med Data Factory Gateway, konfigurerar du också lämpligt IP-adressintervall för datorn som skickar data till Azure Synapse Analytics.
+> Konfigurera [Azure SQL Database-brandväggen](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure) och databas servern så att [Azure-tjänster får åtkomst till servern](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure). Om du kopierar data till Azure Synapse Analytics från utanför Azure, inklusive från lokala data källor med Data Factory Gateway, konfigurerar du också lämpligt IP-adressintervall för datorn som skickar data till Azure Synapse Analytics.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
@@ -94,13 +94,13 @@ En fullständig lista över avsnitt & egenskaper som är tillgängliga för att 
 De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten varierar beroende på varje aktivitets typ. För kopierings aktivitet varierar de beroende på typerna av källor och mottagare.
 
 ### <a name="sqldwsource"></a>SqlDWSource
-När källan är av typen **SqlDWSource**finns följande egenskaper i avsnittet **typeProperties** :
+När källan är av typen **SqlDWSource** finns följande egenskaper i avsnittet **typeProperties** :
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. |Inga |
-| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. Den sista SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Inga |
-| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |Inga |
+| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. |Nej |
+| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. Den sista SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
+| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |Nej |
 
 Om **sqlReaderQuery** har angetts för SqlDWSource kör kopierings aktiviteten den här frågan mot Azure Synapse Analytics-källan för att hämta data.
 
@@ -144,15 +144,15 @@ GO
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. Mer information finns i [avsnittet repeterbarhet](#repeatability-during-copy). |Ett frågeuttryck. |Inga |
-| allowPolyBase |Anger om PolyBase ska användas (när det är tillämpligt) i stället för BULKINSERT-mekanismen. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i Azure Synapse Analytics.** Se [använda PolyBase för att läsa in data i avsnittet om Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) för begränsningar och information. |Sant <br/>False (standard) |Inga |
-| polyBaseSettings |En grupp egenskaper som kan anges när **allowPolybase** -egenskapen har angetts till **True**. |&nbsp; |Inga |
-| rejectValue |Anger antalet rader eller procent av rader som kan avvisas innan frågan Miss lyckas. <br/><br/>Läs mer om polybases avvisnings alternativ i avsnittet **arguments** i avsnittet [skapa en extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . |0 (standard), 1, 2,... |Inga |
-| rejectType |Anger om alternativet rejectValue anges som ett litteralt värde eller i procent. |Värde (standard), procent |Inga |
+| sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. Mer information finns i [avsnittet repeterbarhet](#repeatability-during-copy). |Ett frågeuttryck. |Nej |
+| allowPolyBase |Anger om PolyBase ska användas (när det är tillämpligt) i stället för BULKINSERT-mekanismen. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i Azure Synapse Analytics.** Se [använda PolyBase för att läsa in data i avsnittet om Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) för begränsningar och information. |Sant <br/>False (standard) |Nej |
+| polyBaseSettings |En grupp egenskaper som kan anges när **allowPolybase** -egenskapen har angetts till **True** . |&nbsp; |Nej |
+| rejectValue |Anger antalet rader eller procent av rader som kan avvisas innan frågan Miss lyckas. <br/><br/>Läs mer om polybases avvisnings alternativ i avsnittet **arguments** i avsnittet [skapa en extern tabell (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql) . |0 (standard), 1, 2,... |Nej |
+| rejectType |Anger om alternativet rejectValue anges som ett litteralt värde eller i procent. |Värde (standard), procent |Nej |
 | rejectSampleValue |Anger det antal rader som ska hämtas innan PolyBase beräknar om procent andelen avvisade rader. |1, 2,... |Ja, om **rejectType** är **procent** |
-| useTypeDefault |Anger hur du ska hantera saknade värden i avgränsade textfiler när PolyBase hämtar data från text filen.<br/><br/>Lär dig mer om den här egenskapen från avsnittet argument i [Skapa externt fil format (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |Sant, falskt (standard) |Inga |
+| useTypeDefault |Anger hur du ska hantera saknade värden i avgränsade textfiler när PolyBase hämtar data från text filen.<br/><br/>Lär dig mer om den här egenskapen från avsnittet argument i [Skapa externt fil format (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql). |Sant, falskt (standard) |Nej |
 | writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize |Heltal (antal rader) |Nej (standard: 10000) |
-| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |tidsintervall<br/><br/> Exempel: "00:30:00" (30 minuter). |Inga |
+| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |tidsintervall<br/><br/> Exempel: "00:30:00" (30 minuter). |Nej |
 
 #### <a name="sqldwsink-example"></a>SqlDWSink-exempel
 
@@ -164,9 +164,9 @@ GO
 ```
 
 ## <a name="use-polybase-to-load-data-into-azure-synapse-analytics"></a>Använd PolyBase för att läsa in data i Azure Synapse Analytics
-Användningen av **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** är ett effektivt sätt att läsa in stora mängder data i Azure Synapse Analytics med högt data flöde. Du kan se en stor ökning i data flödet genom att använda PolyBase i stället för standard mekanismen för BULKINSERT. Se [referens nummer för kopierings prestanda](data-factory-copy-activity-performance.md#performance-reference) med detaljerad jämförelse. För en genom gång med ett användnings fall läser du [läsa in 1 TB i Azure Synapse Analytics under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Användningen av **[PolyBase](/sql/relational-databases/polybase/polybase-guide)** är ett effektivt sätt att läsa in stora mängder data i Azure Synapse Analytics med högt data flöde. Du kan se en stor ökning i data flödet genom att använda PolyBase i stället för standard mekanismen för BULKINSERT. Se [referens nummer för kopierings prestanda](data-factory-copy-activity-performance.md#performance-reference) med detaljerad jämförelse. För en genom gång med ett användnings fall läser du [läsa in 1 TB i Azure Synapse Analytics under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
-* Om dina källdata finns i **Azure Blob eller Azure Data Lake Store**och formatet är kompatibelt med PolyBase kan du kopiera direkt till Azure Synapse Analytics med PolyBase. Mer information finns i **[direkt kopiering med PolyBase](#direct-copy-using-polybase)** .
+* Om dina källdata finns i **Azure Blob eller Azure Data Lake Store** och formatet är kompatibelt med PolyBase kan du kopiera direkt till Azure Synapse Analytics med PolyBase. Mer information finns i **[direkt kopiering med PolyBase](#direct-copy-using-polybase)** .
 * Om käll data lagret och formatet inte ursprungligen stöds av PolyBase kan du använda funktionen **[mellanlagrad kopia med PolyBase](#staged-copy-using-polybase)** i stället. Det ger dig också bättre data flöde genom att automatiskt konvertera data till PolyBase-kompatibelt format och lagra data i Azure Blob Storage. Den läser sedan in data i Azure Synapse Analytics.
 
 Ställ in `allowPolyBase` egenskapen på **True** enligt följande exempel för Azure Data Factory att använda PolyBase för att kopiera data till Azure Synapse Analytics. När du anger allowPolyBase till true kan du ange PolyBase-egenskaper med hjälp av `polyBaseSettings` egenskaps gruppen. i avsnittet [SqlDWSink](#sqldwsink) finns mer information om egenskaper som du kan använda med polyBaseSettings.
@@ -189,18 +189,18 @@ Ställ in `allowPolyBase` egenskapen på **True** enligt följande exempel för 
 Azure Synapse Analytics PolyBase stöder direkt Azure blob och Azure Data Lake Store (med tjänstens huvud namn) som källa och med särskilda fil formats krav. Om dina källdata uppfyller de kriterier som beskrivs i det här avsnittet kan du kopiera från käll data lagret direkt till Azure Synapse Analytics med PolyBase. Annars kan du använda [mellanlagrad kopia med PolyBase](#staged-copy-using-polybase).
 
 > [!TIP]
-> Om du vill kopiera data från Data Lake Store till Azure Synapse Analytics effektivt kan du läsa mer från [Azure Data Factory gör det ännu enklare och bekvämt att få insikter från data när du använder data Lake Store med Azure Synapse Analytics](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
+> Om du vill kopiera data från Data Lake Store till Azure Synapse Analytics effektivt kan du läsa mer från [Azure Data Factory gör det ännu enklare och bekvämt att få insikter från data när du använder data Lake Store med Azure Synapse Analytics](/archive/blogs/azuredatalake/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse).
 
 Om kraven inte uppfylls kontrollerar Azure Data Factory inställningarna och återgår automatiskt till BULKINSERT-mekanismen för data förflyttning.
 
-1. **Länkad källa** är av typen: **AzureStorage** eller **AzureDataLakeStore med autentisering av tjänstens huvud namn**.
-2. **Data uppsättningen för indata** är av typen: **AzureBlob** eller **AzureDataLakeStore**, och format typen under `type` egenskaper är **OrcFormat**, **ParquetFormat**eller **textformat** med följande konfigurationer:
+1. **Länkad källa** är av typen: **AzureStorage** eller **AzureDataLakeStore med autentisering av tjänstens huvud namn** .
+2. **Data uppsättningen för indata** är av typen: **AzureBlob** eller **AzureDataLakeStore** , och format typen under `type` egenskaper är **OrcFormat** , **ParquetFormat** eller **textformat** med följande konfigurationer:
 
-   1. `rowDelimiter` måste vara **\n**.
-   2. `nullValue` är inställt på **tom sträng** ("") eller `treatEmptyAsNull` har angetts till **Sant**.
-   3. `encodingName` anges till **UTF-8**, **vilket är standardvärdet** .
+   1. `rowDelimiter` måste vara **\n** .
+   2. `nullValue` är inställt på **tom sträng** ("") eller `treatEmptyAsNull` har angetts till **Sant** .
+   3. `encodingName` anges till **UTF-8** , **vilket är standardvärdet** .
    4. `escapeChar`, `quoteChar` ,, `firstRowAsHeader` och `skipLineCount` har inte angetts.
-   5. `compression` kan vara **Ingen komprimering**, **gzip**eller **DEFLATE**.
+   5. `compression` kan vara **Ingen komprimering** , **gzip** eller **DEFLATE** .
 
       ```JSON
       "typeProperties": {
@@ -220,7 +220,7 @@ Om kraven inte uppfylls kontrollerar Azure Data Factory inställningarna och åt
       ```
 
 3. Det finns ingen `skipHeaderLineCount` inställning under **BlobSource** eller **AzureDataLakeStore** för kopierings aktiviteten i pipelinen.
-4. Det finns ingen `sliceIdentifierColumnName` inställning under **SqlDWSink** för kopierings aktiviteten i pipelinen. (PolyBase garanterar att alla data uppdateras eller ingenting uppdateras i en enda körning. För att uppnå **repeterbarhet**kan du använda `sqlWriterCleanupScript` ).
+4. Det finns ingen `sliceIdentifierColumnName` inställning under **SqlDWSink** för kopierings aktiviteten i pipelinen. (PolyBase garanterar att alla data uppdateras eller ingenting uppdateras i en enda körning. För att uppnå **repeterbarhet** kan du använda `sqlWriterCleanupScript` ).
 5. Det finns inget som `columnMapping` används i den associerade kopierings aktiviteten.
 
 ### <a name="staged-copy-using-polybase"></a>Mellanlagrad kopia med PolyBase
@@ -260,7 +260,7 @@ Om du vill använda den här funktionen skapar du en [Azure Storage länkad tjä
 Följande avsnitt innehåller ytterligare metod tips för de som nämns i [metod tips för Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
 ### <a name="required-database-permission"></a>Nödvändig databas behörighet
-Om du vill använda PolyBase kräver det att den användare som används för att läsa in data i Azure Synapse Analytics har [behörigheten "kontroll"](https://msdn.microsoft.com/library/ms191291.aspx) för mål databasen. Ett sätt att uppnå detta är att lägga till den användaren som medlem i rollen "db_owner". Lär dig hur du gör det genom att följa [det här avsnittet](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+Om du vill använda PolyBase kräver det att den användare som används för att läsa in data i Azure Synapse Analytics har [behörigheten "kontroll"](/sql/relational-databases/security/permissions-database-engine) för mål databasen. Ett sätt att uppnå detta är att lägga till den användaren som medlem i rollen "db_owner". Lär dig hur du gör det genom att följa [det här avsnittet](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 ### <a name="row-size-and-data-type-limitation"></a>Begränsning av rad storlek och data typ
 PolyBase-inläsningar är begränsade till inläsning av rader som är mindre än **1 MB** och inte kan läsas in på VARCHR (max), nvarchar (max) eller varbinary (max). Läs [här](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
@@ -268,7 +268,7 @@ PolyBase-inläsningar är begränsade till inläsning av rader som är mindre ä
 Om du har källdata med en storlek som är större än 1 MB, kanske du vill dela upp käll tabellerna lodrätt i flera små där den största rad storleken för var och en av dem inte överskrider gränsen. De mindre tabellerna kan sedan läsas in med PolyBase och sammanfogas tillsammans i Azure Synapse Analytics.
 
 ### <a name="azure-synapse-analytics-resource-class"></a>Resurs klass för Azure Synapse Analytics
-För att uppnå bästa möjliga data flöde bör du överväga att tilldela större resurs klass till den användare som används för att läsa in data i Azure Synapse Analytics via PolyBase. Lär dig hur du gör detta genom att följa [exemplet på Ändra en användar resurs klass](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).
+För att uppnå bästa möjliga data flöde bör du överväga att tilldela större resurs klass till den användare som används för att läsa in data i Azure Synapse Analytics via PolyBase. Lär dig hur du gör detta genom att följa [exemplet på Ändra en användar resurs klass](../../synapse-analytics/sql-data-warehouse/resource-classes-for-workload-management.md).
 
 ### <a name="tablename-in-azure-synapse-analytics"></a>tableName i Azure Synapse Analytics
 Följande tabell innehåller exempel på hur du anger egenskapen **TableName** i datauppsättnings-JSON för olika kombinationer av schema-och tabell namn.
@@ -340,7 +340,7 @@ Som anges i artikeln [data förflyttnings aktiviteter](data-factory-data-movemen
 
 När du flyttar data till & från Azure Synapse Analytics används följande mappningar från SQL-typ till .NET-typ och vice versa.
 
-Mappningen är samma som [SQL Server data typs mappning för ADO.net](https://msdn.microsoft.com/library/cc716729.aspx).
+Mappningen är samma som [SQL Server data typs mappning för ADO.net](/dotnet/framework/data/adonet/sql-server-data-type-mappings).
 
 | SQL Server typ av databas motor | .NET Framework typ |
 | --- | --- |
@@ -511,7 +511,7 @@ Data skrivs till en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsö
 
 **Kopiera aktivitet i en pipeline med SqlDWSource och BlobSink:**
 
-Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **SqlDWSource** och **mottagar** typ är inställd på **BlobSink**. SQL-frågan som angetts för egenskapen **SqlReaderQuery** väljer data under den senaste timmen som ska kopieras.
+Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **SqlDWSource** och **mottagar** typ är inställd på **BlobSink** . SQL-frågan som angetts för egenskapen **SqlReaderQuery** väljer data under den senaste timmen som ska kopieras.
 
 ```JSON
 {
@@ -695,7 +695,7 @@ Exemplet kopierar data till en tabell med namnet "min tabell" i Azure Synapse An
 ```
 **Kopiera aktivitet i en pipeline med BlobSource och SqlDWSink:**
 
-Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **BlobSource** och **mottagar** typ är inställd på **SqlDWSink**.
+Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **BlobSource** och **mottagar** typ är inställd på **SqlDWSink** .
 
 ```JSON
 {
@@ -744,7 +744,7 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
   }
 }
 ```
-En genom gång finns i se [load 1 TB i Azure Synapse Analytics under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md) och [läsa in data med Azure Data Factory](../../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) artikel i Azure Synapse Analytics-dokumentationen.
+En genom gång finns i se [load 1 TB i Azure Synapse Analytics under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md) och [läsa in data med Azure Data Factory](../load-azure-sql-data-warehouse.md) artikel i Azure Synapse Analytics-dokumentationen.
 
 ## <a name="performance-and-tuning"></a>Prestanda och justering
 Se [Kopiera aktivitets prestanda & justerings guide](data-factory-copy-activity-performance.md) för att lära dig mer om viktiga faktorer som påverkar prestanda för data förflyttning (kopierings aktivitet) i Azure Data Factory och olika sätt att optimera den.

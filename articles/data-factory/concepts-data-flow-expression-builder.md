@@ -7,18 +7,18 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531051"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635379"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Bygg uttryck i data flöde för mappning
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-I mappnings data flödet anges många omvandlings egenskaper som uttryck. Dessa uttryck består av kolumn värden, parametrar, funktioner, operatorer och litteraler som utvärderar till data typen Spark vid körning. Kart data flöden har en särskild erfarenhet som syftar till att hjälpa dig att skapa dessa uttryck som kallas **uttrycks verktyg**. Att använda  [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) -kod komplettering för markering, syntaxkontroll och autokomplettering är att uttrycks verktyget är utformat för att göra det enkelt att skapa data flöden. Den här artikeln förklarar hur du använder uttrycks verktyget för att effektivt bygga affärs logiken.
+I mappnings data flödet anges många omvandlings egenskaper som uttryck. Dessa uttryck består av kolumn värden, parametrar, funktioner, operatorer och litteraler som utvärderar till data typen Spark vid körning. Kart data flöden har en särskild erfarenhet som syftar till att hjälpa dig att skapa dessa uttryck som kallas **uttrycks verktyg** . Att använda  [IntelliSense](/visualstudio/ide/using-intellisense) -kod komplettering för markering, syntaxkontroll och autokomplettering är att uttrycks verktyget är utformat för att göra det enkelt att skapa data flöden. Den här artikeln förklarar hur du använder uttrycks verktyget för att effektivt bygga affärs logiken.
 
 ![Uttrycks verktyg](media/data-flow/expresion-builder.png "Uttrycksverktyget")
 
@@ -32,7 +32,7 @@ I vissa transformeringar som [filter](data-flow-filter.md), öppnar uttrycks ver
 
 ![Rutan blå uttryck](media/data-flow/expressionbox.png "Uttrycksverktyget")
 
-När du refererar till kolumner i en matchande eller Group by-villkor kan ett uttryck extrahera värden från kolumner. Om du vill skapa ett uttryck väljer du **beräknad kolumn**.
+När du refererar till kolumner i en matchande eller Group by-villkor kan ett uttryck extrahera värden från kolumner. Om du vill skapa ett uttryck väljer du **beräknad kolumn** .
 
 ![Alternativ för beräknad kolumn](media/data-flow/computedcolumn.png "Uttrycksverktyget")
 

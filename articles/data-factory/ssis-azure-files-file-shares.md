@@ -8,12 +8,12 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 36660854b9a7ae13431545392ef551694b48e97c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2b95e0de642dc17865643ec569e7220fe5581b2
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82628920"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637504"
 ---
 # <a name="open-and-save-files-on-premises-and-in-azure-with-ssis-packages-deployed-in-azure"></a>Öppna och spara filer lokalt och i Azure med SSIS-paket som distribueras i Azure
 
@@ -33,7 +33,7 @@ Om du vill fortsätta att använda lokala **fil resurser** när du lyfter och fl
 
 2. Anslut de lokala fil resurserna till ett virtuellt Azure-nätverk.
 
-3. Anslut Azure-SSIS IR till samma virtuella nätverk. Mer information finns i [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+3. Anslut Azure-SSIS IR till samma virtuella nätverk. Mer information finns i [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](./join-azure-ssis-integration-runtime-virtual-network.md).
 
 4. Anslut Azure-SSIS IR till lokala fil resurser i samma virtuella nätverk genom att ställa in autentiseringsuppgifter som använder Windows-autentisering. Mer information finns i [ansluta till data och fil resurser med Windows-autentisering](ssis-azure-connect-with-windows-auth.md).
 
@@ -51,6 +51,6 @@ Om du vill använda **Azure Files** när du lyfter och flyttar paket som använd
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Distribuera dina paket. Mer information finns i [distribuera ett SSIS-projekt till Azure med SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms).
-- Kör dina paket. Mer information finns i [köra SSIS-paket i Azure med SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms).
-- Schemalägg dina paket. Mer information finns i [Schemalägga SSIS-paket i Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).
+- Distribuera dina paket. Mer information finns i [distribuera ett SSIS-projekt till Azure med SSMS](/sql/integration-services/ssis-quickstart-deploy-ssms).
+- Kör dina paket. Mer information finns i [köra SSIS-paket i Azure med SSMS](/sql/integration-services/ssis-quickstart-run-ssms).
+- Schemalägg dina paket. Mer information finns i [Schemalägga SSIS-paket i Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).

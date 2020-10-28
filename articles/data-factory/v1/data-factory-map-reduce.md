@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 98e352024ceea322f09947baf1bc759459a2af19
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 089a2e6a0b90c1682e2ebdd146626c93cec35f77
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359976"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636858"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Anropa MapReduce-program från Data Factory
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -26,8 +26,8 @@ ms.locfileid: "92359976"
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
 > * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 > * [Spark-aktivitet](data-factory-spark.md)
-> * [Azure Machine Learning Studio (klassisk) batch execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md)
+> * [Batch-körningsaktivitet i Azure Machine Learning Studio (klassisk)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Uppdateringsresursaktivitet i Azure Machine Learning Studio (klassisk)](data-factory-azure-ml-update-resource-activity.md)
 > * [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
 > * [Anpassad .NET-aktivitet](data-factory-use-custom-activities.md)
@@ -49,7 +49,7 @@ Se [gris](data-factory-pig-activity.md) och [Hive](data-factory-hive-activity.md
 ## <a name="json-for-hdinsight-mapreduce-activity"></a>JSON för HDInsight MapReduce-aktivitet
 I JSON-definitionen för HDInsight-aktiviteten: 
 
-1. Ange **typen** av **aktivitet** till **HDInsight**.
+1. Ange **typen** av **aktivitet** till **HDInsight** .
 2. Ange namnet på klassen för egenskapen **className** .
 3. Ange sökvägen till JAR-filen inklusive fil namnet för egenskapen **jarFilePath** .
 4. Ange den länkade tjänst som refererar till den Azure-Blob Storage som innehåller JAR-filen för egenskapen **jarLinkedService** .   
@@ -183,7 +183,7 @@ Pipelinen i det här exemplet har endast en aktivitet av typen: HDInsightMapRedu
 
 | Egenskap | Kommentarer |
 |:--- |:--- |
-| typ |Typen måste anges till **HDInsightMapReduce**. |
+| typ |Typen måste anges till **HDInsightMapReduce** . |
 | className |Namnet på klassen är: **WORDCOUNT** |
 | jarFilePath |Sökväg till jar-filen som innehåller klassen. Om du kopierar eller klistrar in följande kod ska du inte glömma att ändra namnet på klustret. |
 | jarLinkedService |Azure Storage länkad tjänst som innehåller jar-filen. Den här länkade tjänsten refererar till det lagrings utrymme som är associerat med HDInsight-klustret. |
@@ -235,14 +235,14 @@ Pipelinen i det här exemplet har endast en aktivitet av typen: HDInsightMapRedu
 ## <a name="run-spark-programs"></a>Köra Spark-program
 Du kan använda MapReduce-aktiviteten för att köra Spark-program i ditt HDInsight Spark-kluster. Mer information finns i [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) (Anropa Spark-program från Azure Data Factory).  
 
-[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
 [cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [adfgetstartedmonitoring]:data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines 
 
-[Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[Developer Reference]: /previous-versions/azure/dn834987(v=azure.100)
 [Azure Portal]: https://portal.azure.com
 
 ## <a name="see-also"></a>Se även
@@ -251,4 +251,3 @@ Du kan använda MapReduce-aktiviteten för att köra Spark-program i ditt HDInsi
 * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 * [Anropa Spark-program](data-factory-spark.md)
 * [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)
-

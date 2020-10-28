@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276681"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635328"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurera Azure-SSIS Integration Runtime för hög prestanda
 
@@ -118,11 +118,11 @@ Y-axeln är antalet paket som har slutfört körningen inom en timme. Observera 
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** justerar skalbarheten för integration Runtime. Data flödet för integration runtime är proportionellt mot **AzureSSISNodeNumber**. Ange **AzureSSISNodeNumber** till ett litet värde först, övervaka data flödet för integrerings körningen och justera sedan värdet för ditt scenario. Information om hur du konfigurerar om antalet arbets noder finns i [hantera en Azure-SSIS integration runtime](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** justerar skalbarheten för integration Runtime. Data flödet för integration runtime är proportionellt mot **AzureSSISNodeNumber** . Ange **AzureSSISNodeNumber** till ett litet värde först, övervaka data flödet för integrerings körningen och justera sedan värdet för ditt scenario. Information om hur du konfigurerar om antalet arbets noder finns i [hantera en Azure-SSIS integration runtime](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Om du redan använder en kraftfull arbetsnode för att köra paket kan du öka det totala data flödet för integrerings körningen genom att öka **AzureSSISMaxParallelExecutionsPerNode** . Om du vill öka Max värdet måste du använda Azure PowerShell för att uppdatera **AzureSSISMaxParallelExecutionsPerNode**. Du kan uppskatta lämpligt värde baserat på kostnaden för ditt paket och följande konfigurationer för arbetsnoderna. Mer information finns i [allmänna storlekar för virtuella datorer](../virtual-machines/windows/sizes-general.md).
+Om du redan använder en kraftfull arbetsnode för att köra paket kan du öka det totala data flödet för integrerings körningen genom att öka **AzureSSISMaxParallelExecutionsPerNode** . Om du vill öka Max värdet måste du använda Azure PowerShell för att uppdatera **AzureSSISMaxParallelExecutionsPerNode** . Du kan uppskatta lämpligt värde baserat på kostnaden för ditt paket och följande konfigurationer för arbetsnoderna. Mer information finns i [allmänna storlekar för virtuella datorer](../virtual-machines/sizes-general.md).
 
 | Storlek             | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Maximalt antal nätverkskort/förväntade nätverksprestanda (Mbit/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -161,7 +161,7 @@ Här följer rikt linjerna för att ange rätt värde för egenskapen **AzureSSI
 
 -   Välj en mer kraftfull databas, till exempel S3, om loggnings nivån är inställd på verbose. Enligt vår inofficiella interna testning kan pris nivån S3 stödja SSIS-paket körning med 2 noder, 128 parallella räknare och utförlig loggnings nivå.
 
-Du kan också justera pris nivån för databasen baserat på användnings informationen för DTU ( [databas transaktions enhet](../sql-database/sql-database-what-is-a-dtu.md) ) som är tillgänglig på Azure Portal.
+Du kan också justera pris nivån för databasen baserat på användnings informationen för DTU ( [databas transaktions enhet](../azure-sql/database/service-tiers-dtu.md) ) som är tillgänglig på Azure Portal.
 
 ## <a name="design-for-high-performance"></a>Design för hög prestanda
 Att utforma ett SSIS-paket som ska köras på Azure skiljer sig från att utforma ett paket för lokal körning. I stället för att kombinera flera oberoende uppgifter i samma paket, separera dem till flera paket för mer effektiv körning i Azure-SSIS IR. Skapa en paket körning för varje paket, så att de inte behöver vänta på att de ska slutföras. Den här metoden ger fördelarna med skalbarheten för Azure-SSIS integration Runtime och förbättrar det totala data flödet.

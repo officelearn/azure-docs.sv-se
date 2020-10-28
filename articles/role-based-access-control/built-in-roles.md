@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 09/22/2020
+ms.date: 10/23/2020
 ms.custom: generated
-ms.openlocfilehash: 8db16ba415e609827f6b775840f153489702ecca
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 28de993f51b13e973edb0e42f138217cd35ab8dd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370567"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636705"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda roller i Azure
 
@@ -91,8 +91,8 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 > | [Rollen Azure Kubernetes service Contributor](#azure-kubernetes-service-contributor-role) | Ger åtkomst till läsa och skriva Azure Kubernetes service-kluster | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
 > | [RBAC-administratör för Azure Kubernetes-tjänsten](#azure-kubernetes-service-rbac-admin) | Gör att du kan hantera alla resurser under kluster/namn område, förutom att uppdatera eller ta bort resurs kvoter och namn områden. | 3498e952-d568-435e-9b2c-8d77e338d7f7 |
 > | [Azure Kubernetes service RBAC-kluster administratör](#azure-kubernetes-service-rbac-cluster-admin) | Gör att du kan hantera alla resurser i klustret. | b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b |
-> | [RBAC-läsare för Azure Kubernetes service](#azure-kubernetes-service-rbac-reader) | Gör att du kan visa alla resurser i kluster/namn område, förutom hemligheter. | 7f6c6a51-bcf8-42ba-9220-52d62157d7db |
-> | [RBAC-skrivare för Azure Kubernetes service](#azure-kubernetes-service-rbac-writer) | Låter dig uppdatera allt i kluster/namn område, förutom resurs kvoter, namn områden, Pod säkerhets principer, certifikat signerings begär Anden, (kluster) roller och roll bindningar (kluster). | a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb |
+> | [RBAC-läsare för Azure Kubernetes service](#azure-kubernetes-service-rbac-reader) | Tillåter skrivskyddad åtkomst för att se de flesta objekt i ett namn område. Den tillåter inte visning av roller eller roll bindningar. Med den här rollen kan du inte Visa hemligheter, eftersom läsning av innehållet i hemligheter ger åtkomst till ServiceAccount-autentiseringsuppgifter i namn området, vilket skulle tillåta API-åtkomst som valfri ServiceAccount i namn området (en form av behörighets eskalering). Om du använder den här rollen i kluster omfång får du åtkomst över alla namn områden. | 7f6c6a51-bcf8-42ba-9220-52d62157d7db |
+> | [RBAC-skrivare för Azure Kubernetes service](#azure-kubernetes-service-rbac-writer) | Tillåter Läs-/skriv åtkomst till de flesta objekt i ett namn område. Med den här rollen kan du inte Visa eller ändra roller eller roll bindningar. Den här rollen ger dock åtkomst till hemligheter och kör poddar som valfri ServiceAccount i namn området, så att den kan användas för att få åtkomst nivåer för API: er för alla ServiceAccount i namn området. Om du använder den här rollen i kluster omfång får du åtkomst över alla namn områden. | a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb |
 > | **Databaser** |  |  |
 > | [Cosmos DB konto läsar roll](#cosmos-db-account-reader-role) | Kan läsa Azure Cosmos DB konto data. Se [DocumentDB Account Contributor](#documentdb-account-contributor) för att hantera Azure Cosmos DB-konton. | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | [Cosmos DB operatör](#cosmos-db-operator) | Låter dig hantera Azure Cosmos DB konton, men inte komma åt data i dem. Förhindrar åtkomst till konto nycklar och anslutnings strängar. | 230815da-be43-4aae-9cb4-875f7bd000aa |
@@ -121,7 +121,7 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 > | [Cognitive Services deltagare](#cognitive-services-contributor) | Gör att du kan skapa, läsa, uppdatera, ta bort och hantera nycklar för Cognitive Services. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
 > | [Cognitive Services data läsare (förhands granskning)](#cognitive-services-data-reader-preview) | Gör att du kan läsa Cognitive Services data. | b59867f0-fa02-499b-be73-45a86b5b3e1c |
 > | [Cognitive Services användare](#cognitive-services-user) | Gör att du kan läsa och Visa nycklar för Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
-> | **Mixed Reality** |  |  |
+> | **Mixad verklighet** |  |  |
 > | [Administratör för fjärrrendering](#remote-rendering-administrator) | Ger användaren funktioner för konvertering, hantering av sessioner, åter givning och diagnostik för Azure-fjärrrendering | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
 > | [Fjärran sluten klient](#remote-rendering-client) | Ger användaren funktioner för att hantera sessioner, åter givning och diagnostik för Azure fjärrrendering. | d39065c4-c120-43c9-ab0a-63eed9795f0a |
 > | [Konto deltagare för spatiala ankare](#spatial-anchors-account-contributor) | Låter dig hantera spatiala ankare i ditt konto, men ta inte bort dem | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
@@ -1154,7 +1154,7 @@ Låter dig hantera Traffic Manager profiler, men låter dig inte kontrol lera ve
 }
 ```
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagring
 
 
 ### <a name="avere-contributor"></a>Aver deltagare
@@ -2579,7 +2579,7 @@ Läs och Visa Azure Storage köer och köa meddelanden. Information om vilka åt
 }
 ```
 
-## <a name="web"></a>Webb
+## <a name="web"></a>Webben
 
 
 ### <a name="azure-maps-data-reader"></a>Azure Maps data läsare
@@ -2786,7 +2786,7 @@ Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till
 }
 ```
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Containrar
 
 
 ### <a name="acrdelete"></a>AcrDelete
@@ -3274,7 +3274,7 @@ Gör att du kan hantera alla resurser i klustret. [Läs mer](../aks/manage-azure
 
 ### <a name="azure-kubernetes-service-rbac-reader"></a>RBAC-läsare för Azure Kubernetes service
 
-Gör att du kan visa alla resurser i kluster/namn område, förutom hemligheter. [Läs mer](../aks/manage-azure-rbac.md)
+Tillåter skrivskyddad åtkomst för att se de flesta objekt i ett namn område. Den tillåter inte visning av roller eller roll bindningar. Med den här rollen kan du inte Visa hemligheter, eftersom läsning av innehållet i hemligheter ger åtkomst till ServiceAccount-autentiseringsuppgifter i namn området, vilket skulle tillåta API-åtkomst som valfri ServiceAccount i namn området (en form av behörighets eskalering). Om du använder den här rollen i kluster omfång får du åtkomst över alla namn områden. [Läs mer](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärder | Beskrivning |
@@ -3286,22 +3286,47 @@ Gör att du kan visa alla resurser i kluster/namn område, förutom hemligheter.
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/Read | Hämtar listan över prenumerationer. |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterUserCredential/Action | Visa en lista över clusterUser-autentiseringsuppgiften för ett hanterat kluster |
 > | **NotActions** |  |
 > | *inget* |  |
 > | **DataActions** |  |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/*/Read |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Apps/controllerrevisions/Read | Läser controllerrevisions |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Apps/daemonsets/Read | Läser daemonsets |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Apps/Deployments/Read | Läser distributioner |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Apps/replicasets/Read | Läser replicasets |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Apps/statefulsets/Read | Läser statefulsets |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/autoscaling/horizontalpodautoscalers/Read | Läser horizontalpodautoscalers |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/batch/cronjobs/Read | Läser cronjobs |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/batch/Jobs/Read | Läser jobb |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/configmaps/Read | Läser configmaps |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/endpoints/Read | Läser slut punkter |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/events.K8s.io/Events/Read | Läser händelser |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Events/Read | Läser händelser |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Extensions/daemonsets/Read | Läser daemonsets |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Extensions/Deployments/Read | Läser distributioner |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Extensions/ingresses/Read | Läser inträngande |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Extensions/networkpolicies/Read | Läser networkpolicies |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Extensions/replicasets/Read | Läser replicasets |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/limitranges/Read | Läser limitranges |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Namespaces/Read | Läser namn områden |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Networking.K8s.io/ingresses/Read | Läser inträngande |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Networking.K8s.io/networkpolicies/Read | Läser networkpolicies |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/persistentvolumeclaims/Read | Läser persistentvolumeclaims |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Pods/Read | Läser poddar |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/policy/poddisruptionbudgets/Read | Läser poddisruptionbudgets |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/replicationcontrollers/Read | Läser replicationcontrollers |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/replicationcontrollers/Read | Läser replicationcontrollers |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/resourcequotas/Read | Läser resourcequotas |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/serviceaccounts/Read | Läser serviceaccounts |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Services/Read | Läser tjänster |
 > | **NotDataActions** |  |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/RBAC.Authorization.K8s.io/*/Read |  |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/RBAC.Authorization.K8s.io/*/Write |  |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Secrets/* |  |
+> | *inget* |  |
 
 ```json
 {
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you view all resources in cluster/namespace, except secrets.",
+  "description": "Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation). Applying this role at cluster scope will give access across all namespaces.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/7f6c6a51-bcf8-42ba-9220-52d62157d7db",
   "name": "7f6c6a51-bcf8-42ba-9220-52d62157d7db",
   "permissions": [
@@ -3313,18 +3338,41 @@ Gör att du kan visa alla resurser i kluster/namn område, förutom hemligheter.
         "Microsoft.Resources/subscriptions/operationresults/read",
         "Microsoft.Resources/subscriptions/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Support/*",
-        "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action"
+        "Microsoft.Support/*"
       ],
       "notActions": [],
       "dataActions": [
-        "Microsoft.ContainerService/managedClusters/*/read"
+        "Microsoft.ContainerService/managedClusters/apps/controllerrevisions/read",
+        "Microsoft.ContainerService/managedClusters/apps/daemonsets/read",
+        "Microsoft.ContainerService/managedClusters/apps/deployments/read",
+        "Microsoft.ContainerService/managedClusters/apps/replicasets/read",
+        "Microsoft.ContainerService/managedClusters/apps/statefulsets/read",
+        "Microsoft.ContainerService/managedClusters/autoscaling/horizontalpodautoscalers/read",
+        "Microsoft.ContainerService/managedClusters/batch/cronjobs/read",
+        "Microsoft.ContainerService/managedClusters/batch/jobs/read",
+        "Microsoft.ContainerService/managedClusters/configmaps/read",
+        "Microsoft.ContainerService/managedClusters/endpoints/read",
+        "Microsoft.ContainerService/managedClusters/events.k8s.io/events/read",
+        "Microsoft.ContainerService/managedClusters/events/read",
+        "Microsoft.ContainerService/managedClusters/extensions/daemonsets/read",
+        "Microsoft.ContainerService/managedClusters/extensions/deployments/read",
+        "Microsoft.ContainerService/managedClusters/extensions/ingresses/read",
+        "Microsoft.ContainerService/managedClusters/extensions/networkpolicies/read",
+        "Microsoft.ContainerService/managedClusters/extensions/replicasets/read",
+        "Microsoft.ContainerService/managedClusters/limitranges/read",
+        "Microsoft.ContainerService/managedClusters/namespaces/read",
+        "Microsoft.ContainerService/managedClusters/networking.k8s.io/ingresses/read",
+        "Microsoft.ContainerService/managedClusters/networking.k8s.io/networkpolicies/read",
+        "Microsoft.ContainerService/managedClusters/persistentvolumeclaims/read",
+        "Microsoft.ContainerService/managedClusters/pods/read",
+        "Microsoft.ContainerService/managedClusters/policy/poddisruptionbudgets/read",
+        "Microsoft.ContainerService/managedClusters/replicationcontrollers/read",
+        "Microsoft.ContainerService/managedClusters/replicationcontrollers/read",
+        "Microsoft.ContainerService/managedClusters/resourcequotas/read",
+        "Microsoft.ContainerService/managedClusters/serviceaccounts/read",
+        "Microsoft.ContainerService/managedClusters/services/read"
       ],
-      "notDataActions": [
-        "Microsoft.ContainerService/managedClusters/rbac.authorization.k8s.io/*/read",
-        "Microsoft.ContainerService/managedClusters/rbac.authorization.k8s.io/*/write",
-        "Microsoft.ContainerService/managedClusters/secrets/*"
-      ]
+      "notDataActions": []
     }
   ],
   "roleName": "Azure Kubernetes Service RBAC Reader",
@@ -3335,7 +3383,7 @@ Gör att du kan visa alla resurser i kluster/namn område, förutom hemligheter.
 
 ### <a name="azure-kubernetes-service-rbac-writer"></a>RBAC-skrivare för Azure Kubernetes service
 
-Låter dig uppdatera allt i kluster/namn område, förutom resurs kvoter, namn områden, Pod säkerhets principer, certifikat signerings begär Anden, (kluster) roller och roll bindningar (kluster). [Läs mer](../aks/manage-azure-rbac.md)
+Tillåter Läs-/skriv åtkomst till de flesta objekt i ett namn område. Med den här rollen kan du inte Visa eller ändra roller eller roll bindningar. Den här rollen ger dock åtkomst till hemligheter och kör poddar som valfri ServiceAccount i namn området, så att den kan användas för att få åtkomst nivåer för API: er för alla ServiceAccount i namn området. Om du använder den här rollen i kluster omfång får du åtkomst över alla namn områden. [Läs mer](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Åtgärder | Beskrivning |
@@ -3347,26 +3395,48 @@ Låter dig uppdatera allt i kluster/namn område, förutom resurs kvoter, namn o
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/Read | Hämtar listan över prenumerationer. |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterUserCredential/Action | Visa en lista över clusterUser-autentiseringsuppgiften för ett hanterat kluster |
 > | **NotActions** |  |
 > | *inget* |  |
 > | **DataActions** |  |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/*/Read |  |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/*/Write |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Apps/controllerrevisions/Read | Läser controllerrevisions |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Apps/daemonsets/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Apps/Deployments/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Apps/replicasets/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Apps/statefulsets/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/autoscaling/horizontalpodautoscalers/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/batch/cronjobs/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/batch/Jobs/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/configmaps/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/endpoints/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/events.K8s.io/Events/Read | Läser händelser |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Events/Read | Läser händelser |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Extensions/daemonsets/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Extensions/Deployments/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Extensions/ingresses/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Extensions/networkpolicies/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Extensions/replicasets/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/limitranges/Read | Läser limitranges |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Namespaces/Read | Läser namn områden |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Networking.K8s.io/ingresses/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Networking.K8s.io/networkpolicies/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/persistentvolumeclaims/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Pods/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/policy/poddisruptionbudgets/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/replicationcontrollers/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/replicationcontrollers/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/resourcequotas/Read | Läser resourcequotas |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Secrets/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/serviceaccounts/* |  |
+> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Services/* |  |
 > | **NotDataActions** |  |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/RBAC.Authorization.K8s.io/*/Read |  |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/RBAC.Authorization.K8s.io/*/Write |  |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Namespaces/Write | Skriver namn områden |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/resourcequotas/Write | Skriver resourcequotas |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/certificates.K8s.io/certificatesigningrequests/Write | Skriver certificatesigningrequests |
-> | [Microsoft. container service](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/policy/podsecuritypolicies/Write | Skriver podsecuritypolicies |
+> | *inget* |  |
 
 ```json
 {
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you update everything in cluster/namespace, except resource quotas, namespaces, pod security policies, certificate signing requests, (cluster)roles and (cluster)role bindings.",
+  "description": "Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. Applying this role at cluster scope will give access across all namespaces.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb",
   "name": "a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb",
   "permissions": [
@@ -3378,22 +3448,42 @@ Låter dig uppdatera allt i kluster/namn område, förutom resurs kvoter, namn o
         "Microsoft.Resources/subscriptions/operationresults/read",
         "Microsoft.Resources/subscriptions/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Support/*",
-        "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action"
+        "Microsoft.Support/*"
       ],
       "notActions": [],
       "dataActions": [
-        "Microsoft.ContainerService/managedClusters/*/read",
-        "Microsoft.ContainerService/managedClusters/*/write"
+        "Microsoft.ContainerService/managedClusters/apps/controllerrevisions/read",
+        "Microsoft.ContainerService/managedClusters/apps/daemonsets/*",
+        "Microsoft.ContainerService/managedClusters/apps/deployments/*",
+        "Microsoft.ContainerService/managedClusters/apps/replicasets/*",
+        "Microsoft.ContainerService/managedClusters/apps/statefulsets/*",
+        "Microsoft.ContainerService/managedClusters/autoscaling/horizontalpodautoscalers/*",
+        "Microsoft.ContainerService/managedClusters/batch/cronjobs/*",
+        "Microsoft.ContainerService/managedClusters/batch/jobs/*",
+        "Microsoft.ContainerService/managedClusters/configmaps/*",
+        "Microsoft.ContainerService/managedClusters/endpoints/*",
+        "Microsoft.ContainerService/managedClusters/events.k8s.io/events/read",
+        "Microsoft.ContainerService/managedClusters/events/read",
+        "Microsoft.ContainerService/managedClusters/extensions/daemonsets/*",
+        "Microsoft.ContainerService/managedClusters/extensions/deployments/*",
+        "Microsoft.ContainerService/managedClusters/extensions/ingresses/*",
+        "Microsoft.ContainerService/managedClusters/extensions/networkpolicies/*",
+        "Microsoft.ContainerService/managedClusters/extensions/replicasets/*",
+        "Microsoft.ContainerService/managedClusters/limitranges/read",
+        "Microsoft.ContainerService/managedClusters/namespaces/read",
+        "Microsoft.ContainerService/managedClusters/networking.k8s.io/ingresses/*",
+        "Microsoft.ContainerService/managedClusters/networking.k8s.io/networkpolicies/*",
+        "Microsoft.ContainerService/managedClusters/persistentvolumeclaims/*",
+        "Microsoft.ContainerService/managedClusters/pods/*",
+        "Microsoft.ContainerService/managedClusters/policy/poddisruptionbudgets/*",
+        "Microsoft.ContainerService/managedClusters/replicationcontrollers/*",
+        "Microsoft.ContainerService/managedClusters/replicationcontrollers/*",
+        "Microsoft.ContainerService/managedClusters/resourcequotas/read",
+        "Microsoft.ContainerService/managedClusters/secrets/*",
+        "Microsoft.ContainerService/managedClusters/serviceaccounts/*",
+        "Microsoft.ContainerService/managedClusters/services/*"
       ],
-      "notDataActions": [
-        "Microsoft.ContainerService/managedClusters/rbac.authorization.k8s.io/*/read",
-        "Microsoft.ContainerService/managedClusters/rbac.authorization.k8s.io/*/write",
-        "Microsoft.ContainerService/managedClusters/namespaces/write",
-        "Microsoft.ContainerService/managedClusters/resourcequotas/write",
-        "Microsoft.ContainerService/managedClusters/certificates.k8s.io/certificatesigningrequests/write",
-        "Microsoft.ContainerService/managedClusters/policy/podsecuritypolicies/write"
-      ]
+      "notDataActions": []
     }
   ],
   "roleName": "Azure Kubernetes Service RBAC Writer",
@@ -3691,10 +3781,8 @@ Gör att du kan hantera SQL-databaser, men inte åtkomst till dem. Du kan inte h
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/securityAlertPolicies/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/vulnerabilityAssessments/* |  |
-> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/auditingPolicies/* | Redigera gransknings principer |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/auditingSettings/* | Redigera gransknings inställningar |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/auditRecords/Read | Hämta databasens BLOB audit-poster |
-> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/connectionPolicies/* | Redigera anslutnings principer |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/currentSensitivityLabels/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/dataMaskingPolicies/* | Redigera data masknings principer |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/extendedAuditingSettings/* |  |
@@ -3744,10 +3832,8 @@ Gör att du kan hantera SQL-databaser, men inte åtkomst till dem. Du kan inte h
         "Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/*",
         "Microsoft.Sql/managedInstances/securityAlertPolicies/*",
         "Microsoft.Sql/managedInstances/vulnerabilityAssessments/*",
-        "Microsoft.Sql/servers/databases/auditingPolicies/*",
         "Microsoft.Sql/servers/databases/auditingSettings/*",
         "Microsoft.Sql/servers/databases/auditRecords/read",
-        "Microsoft.Sql/servers/databases/connectionPolicies/*",
         "Microsoft.Sql/servers/databases/currentSensitivityLabels/*",
         "Microsoft.Sql/servers/databases/dataMaskingPolicies/*",
         "Microsoft.Sql/servers/databases/extendedAuditingSettings/*",
@@ -3794,7 +3880,8 @@ Låter dig hantera SQL-hanterade instanser och nödvändig nätverks konfigurati
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)-/Metrics/Read | Läs mått |
 > | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)-/metricDefinitions/Read | Läs mått definitioner |
 > | **NotActions** |  |
-> | *inget* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/azureADOnlyAuthentications/Delete | Tar bort en enskild hanterad server Azure Active Directory endast autentiseringscertifikat |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/azureADOnlyAuthentications/Write | Lägger till eller uppdaterar en bestämd hanterad server-Azure Active Directory endast ett Authentication-objekt |
 > | **DataActions** |  |
 > | *inget* |  |
 > | **NotDataActions** |  |
@@ -3827,7 +3914,10 @@ Låter dig hantera SQL-hanterade instanser och nödvändig nätverks konfigurati
         "Microsoft.Insights/metrics/read",
         "Microsoft.Insights/metricDefinitions/read"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/delete",
+        "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/write"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -3861,13 +3951,10 @@ Gör att du kan hantera säkerhetsrelaterade principer för SQL-servrar och data
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/securityAlertPolicies/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/databases/transparentDataEncryption/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/vulnerabilityAssessments/* |  |
-> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/auditingPolicies/* | Skapa och hantera principer för SQL Server-granskning |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/auditingSettings/* | Skapa och hantera gransknings inställning för SQL Server |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/extendedAuditingSettings/Read | Hämta information om den utökade gransknings principen för Server-blob som kon figurer ATS på en viss server |
-> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/auditingPolicies/* | Skapa och hantera gransknings principer för SQL Server-databaser |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/auditingSettings/* | Skapa och hantera gransknings inställningar för SQL Server-databasen |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/auditRecords/Read | Hämta databasens BLOB audit-poster |
-> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/connectionPolicies/* | Skapa och hantera anslutnings principer för SQL Server-databaser |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/currentSensitivityLabels/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/dataMaskingPolicies/* | Skapa och hantera data masknings principer för SQL Server-databas |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/extendedAuditingSettings/Read | Hämta information om den utökade blobb gransknings principen som kon figurer ATS för en viss databas |
@@ -3889,8 +3976,9 @@ Gör att du kan hantera säkerhetsrelaterade principer för SQL-servrar och data
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/securityAlertPolicies/* | Skapa och hantera SQL Server-principer för säkerhets avisering |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/vulnerabilityAssessments/* |  |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
-> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/administrators/Read | Hämtar ett enskilt Azure Active Directory administratörs objekt |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/azureADOnlyAuthentications/* |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/Read | Returnera listan över hanterade instanser eller hämtar egenskaperna för den angivna hanterade instansen. |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/azureADOnlyAuthentications/* |  |
 > | **NotActions** |  |
 > | *inget* |  |
 > | **DataActions** |  |
@@ -3925,13 +4013,10 @@ Gör att du kan hantera säkerhetsrelaterade principer för SQL-servrar och data
         "Microsoft.Sql/managedInstances/securityAlertPolicies/*",
         "Microsoft.Sql/managedInstances/databases/transparentDataEncryption/*",
         "Microsoft.Sql/managedInstances/vulnerabilityAssessments/*",
-        "Microsoft.Sql/servers/auditingPolicies/*",
         "Microsoft.Sql/servers/auditingSettings/*",
         "Microsoft.Sql/servers/extendedAuditingSettings/read",
-        "Microsoft.Sql/servers/databases/auditingPolicies/*",
         "Microsoft.Sql/servers/databases/auditingSettings/*",
         "Microsoft.Sql/servers/databases/auditRecords/read",
-        "Microsoft.Sql/servers/databases/connectionPolicies/*",
         "Microsoft.Sql/servers/databases/currentSensitivityLabels/*",
         "Microsoft.Sql/servers/databases/dataMaskingPolicies/*",
         "Microsoft.Sql/servers/databases/extendedAuditingSettings/read",
@@ -3953,8 +4038,9 @@ Gör att du kan hantera säkerhetsrelaterade principer för SQL-servrar och data
         "Microsoft.Sql/servers/securityAlertPolicies/*",
         "Microsoft.Sql/servers/vulnerabilityAssessments/*",
         "Microsoft.Support/*",
-        "Microsoft.Sql/servers/administrators/read",
-        "Microsoft.Sql/servers/azureADOnlyAuthentications/*"
+        "Microsoft.Sql/servers/azureADOnlyAuthentications/*",
+        "Microsoft.Sql/managedInstances/read",
+        "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -3993,12 +4079,9 @@ Gör att du kan hantera SQL-servrar och databaser, men inte åtkomst till dem oc
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/securityAlertPolicies/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/vulnerabilityAssessments/* |  |
-> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/auditingPolicies/* | Redigera principer för SQL Server-granskning |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/auditingSettings/* | Redigera gransknings inställningar för SQL Server |
-> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/auditingPolicies/* | Redigera gransknings principer för SQL Server-databasen |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/auditingSettings/* | Redigera gransknings inställningar för SQL Server-databasen |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/auditRecords/Read | Hämta databasens BLOB audit-poster |
-> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/connectionPolicies/* | Redigera anslutnings principer för SQL Server-databas |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/currentSensitivityLabels/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/dataMaskingPolicies/* | Redigera data masknings principer för SQL Server-databas |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/servers/databases/extendedAuditingSettings/* |  |
@@ -4051,12 +4134,9 @@ Gör att du kan hantera SQL-servrar och databaser, men inte åtkomst till dem oc
         "Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/*",
         "Microsoft.Sql/managedInstances/securityAlertPolicies/*",
         "Microsoft.Sql/managedInstances/vulnerabilityAssessments/*",
-        "Microsoft.Sql/servers/auditingPolicies/*",
         "Microsoft.Sql/servers/auditingSettings/*",
-        "Microsoft.Sql/servers/databases/auditingPolicies/*",
         "Microsoft.Sql/servers/databases/auditingSettings/*",
         "Microsoft.Sql/servers/databases/auditRecords/read",
-        "Microsoft.Sql/servers/databases/connectionPolicies/*",
         "Microsoft.Sql/servers/databases/currentSensitivityLabels/*",
         "Microsoft.Sql/servers/databases/dataMaskingPolicies/*",
         "Microsoft.Sql/servers/databases/extendedAuditingSettings/*",
@@ -5470,7 +5550,7 @@ Låter dig hantera Azure Stack-registreringar.
 > [!div class="mx-tableFixed"]
 > | Åtgärder | Beskrivning |
 > | --- | --- |
-> | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/Read |  |
+> | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/Read | Hämta egenskaperna för en Azure Stack Edge-prenumeration |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Products/*/Action |  |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Products/Read | Hämtar egenskaperna för en Azure Stack Marketplace-produkt |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Read | Hämtar egenskaperna för en Azure Stack registrering |
@@ -6246,6 +6326,7 @@ Azure Sentinel Reader [Läs mer](../sentinel/roles.md)
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/*/Read |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/Action | Kontrol lera auktorisering och licens för användare |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/Indicators/Query/Action | Fråga Threat Intelligence-indikatorer |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/queryIndicators/Action | Fråga Threat Intelligence-indikatorer |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/Analytics/Query/Action | Sök med ny motor. |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/*/Read | Visa Log Analytics-data |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/LinkedServices/Read | Hämta länkade tjänster för den aktuella arbets ytan. |
@@ -6281,6 +6362,7 @@ Azure Sentinel Reader [Läs mer](../sentinel/roles.md)
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.SecurityInsights/threatIntelligence/indicators/query/action",
+        "Microsoft.SecurityInsights/threatIntelligence/queryIndicators/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
@@ -7879,7 +7961,7 @@ Kan läsa, skriva, ta bort och återställa Azure-anslutna datorer.
 > | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Read | Läs alla Azure Arc-datorer |
 > | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Write | Skriver en Azure Arc-dator |
 > | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Delete | Tar bort en Azure Arc-dator |
-> | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/reconnect/Action | Återansluter en Azure Arc-dator |
+> | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/reconnect/Action |  |
 > | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/Machines/Extensions/Write | Installerar eller uppdaterar ett Azure Arc-tillägg |
 > | [Microsoft. HybridCompute](resource-provider-operations.md#microsofthybridcompute)/*/Read |  |
 > | **NotActions** |  |
@@ -9127,7 +9209,7 @@ Låter dig hantera Taggar i entiteter utan att ge åtkomst till själva entitete
 }
 ```
 
-## <a name="other"></a>Övrigt
+## <a name="other"></a>Annat
 
 
 ### <a name="biztalk-contributor"></a>BizTalk-deltagare

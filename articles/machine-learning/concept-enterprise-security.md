@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fef41a177f653dc67835897a48d734400a37a0d0
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496000"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637096"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -111,7 +111,7 @@ Du kan också aktivera Azures privata länk för din arbets yta. Med privat län
 ## <a name="data-encryption"></a>Datakryptering
 
 > [!IMPORTANT]
-> För produktions klass kryptering under __utbildningen__rekommenderar Microsoft att du använder Azure Machine Learning beräknings kluster. Microsoft rekommenderar att du använder Azure Kubernetes-tjänsten för kryptering av produktions klass under __härledningen__.
+> För produktions klass kryptering under __utbildningen__ rekommenderar Microsoft att du använder Azure Machine Learning beräknings kluster. Microsoft rekommenderar att du använder Azure Kubernetes-tjänsten för kryptering av produktions klass under __härledningen__ .
 >
 > Azure Machine Learning beräknings instans är en utvecklings-/test miljö. När du använder den rekommenderar vi att du lagrar dina filer, till exempel antecknings böcker och skript, i en fil resurs. Dina data ska lagras i ett data lager.
 
@@ -158,12 +158,7 @@ Om du vill aktivera etablering av en Cosmos DB instans i din prenumeration med K
         > [!NOTE]
         > Den här Key Vault-instansen kan vara annorlunda än nyckel valvet som skapas av Azure Machine Learning när du etablerar arbets ytan. Om du vill använda samma Key Vault-instans för arbets ytan skickar du samma nyckel valv medan du konfigurerar arbets ytan med hjälp av [parametern key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Den här Cosmos DB-instansen skapas i en Microsoft-hanterad resurs grupp i din prenumeration, tillsammans med de resurser som krävs. Den hanterade resurs gruppen har namnet i formatet `<AML Workspace Resource Group Name><GUID>` . Om din Azure Machine Learning-arbetsyta använder en privat slut punkt skapas även ett virtuellt nätverk för Cosmos DB-instansen. Det här virtuella nätverket används för att skydda kommunikationen mellan Cosmos DB och Azure Machine Learning.
-
-> [!IMPORTANT]
-> * Ta inte bort resurs gruppen som innehåller den här Cosmos DB-instansen eller någon av de resurser som skapas automatiskt i den här gruppen. Om du behöver ta bort resurs gruppen, Cosmos DB instans osv., måste du ta bort arbets ytan Azure Machine Learning som använder den. Resurs gruppen, Cosmos DB instansen och andra automatiskt skapade resurser tas bort när den associerade arbets ytan tas bort.
-> * [__Standardenheterna för programbegäran__](../cosmos-db/request-units.md) för Cosmos DB-kontot anges till __8000__. Det finns inte stöd för att ändra det här värdet.
-> * Du kan inte ange ditt eget VNet för användning med Cosmos DB-instansen som skapas. Du kan inte heller ändra det virtuella nätverket. Du kan till exempel inte ändra det IP-adressintervall som används.
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Om du behöver __Rotera eller återkalla__ din nyckel kan du när som helst göra det. När du roterar en nyckel börjar Cosmos DB att använda den nya nyckeln (senaste versionen) för att kryptera data i vila. När du återkallar (inaktiverar) en nyckel tar Cosmos DB hand om misslyckade begär Anden. Det tar vanligt vis en timme för rotationen eller återkallning att vara effektiv.
 
@@ -261,7 +256,7 @@ Du kanske också vill kryptera [diagnostikinformation som loggats från den dist
 
 ### <a name="metrics"></a>Mått
 
-Du kan använda Azure Monitor mått för att visa och övervaka mått för arbets ytan Azure Machine Learning. I [Azure Portal](https://portal.azure.com)väljer du din arbets yta och väljer sedan **mått**:
+Du kan använda Azure Monitor mått för att visa och övervaka mått för arbets ytan Azure Machine Learning. I [Azure Portal](https://portal.azure.com)väljer du din arbets yta och väljer sedan **mått** :
 
 [![Skärm bild som visar exempel mått för en arbets yta](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 
@@ -371,8 +366,8 @@ Här är information:
 
 [Azure policy](/azure/governance/policy) är ett styrnings verktyg som gör att du kan se till att Azure-resurserna är kompatibla med dina principer. Med Azure Machine Learning kan du tilldela följande principer:
 
-* **Kundhanterad nyckel**: granska eller Använd om arbets ytor måste använda en kundhanterad nyckel.
-* **Privat länk**: granska om arbets ytor använder en privat slut punkt för att kommunicera med ett virtuellt nätverk.
+* **Kundhanterad nyckel** : granska eller Använd om arbets ytor måste använda en kundhanterad nyckel.
+* **Privat länk** : granska om arbets ytor använder en privat slut punkt för att kommunicera med ett virtuellt nätverk.
 
 Mer information om Azure Policy finns i Azure Policy- [dokumentationen](/azure/governance/policy/overview).
 

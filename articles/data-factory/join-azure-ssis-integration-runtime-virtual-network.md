@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 6f502374996f01363ad27ff10dff3b34964a3474
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0e9c669f2994e896205762c5f3f4df1b5fe214ae
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220762"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637232"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure SSIS-integreringskörning till ett virtuellt nätverk
 
@@ -49,7 +49,7 @@ Genom att [Konfigurera en Azure-SQL Server Integration Services (SSIS) integreri
 
 ## <a name="access-to-on-premises-data-stores"></a>Åtkomst till lokala data lager
 
-Om dina SSIS-paket har åtkomst till lokala data lager kan du ansluta dina Azure-SSIS IR till ett virtuellt nätverk som är anslutet till det lokala nätverket. Eller så kan du konfigurera och hantera en egen värd-IR som proxy för din Azure-SSIS IR. Mer information finns i [Konfigurera en egen värd-IR som en proxy för en Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis). 
+Om dina SSIS-paket har åtkomst till lokala data lager kan du ansluta dina Azure-SSIS IR till ett virtuellt nätverk som är anslutet till det lokala nätverket. Eller så kan du konfigurera och hantera en egen värd-IR som proxy för din Azure-SSIS IR. Mer information finns i [Konfigurera en egen värd-IR som en proxy för en Azure-SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md). 
 
 Kom ihåg följande viktiga punkter när du ansluter till din Azure-SSIS IR till ett virtuellt nätverk: 
 
@@ -73,7 +73,7 @@ Om SSIS-paketen har åtkomst till Azure-resurser som har stöd för [tjänst slu
 
 ## <a name="access-to-data-sources-protected-by-ip-firewall-rule"></a>Åtkomst till data källor som skyddas av regel för IP-brandvägg
 
-Om dina SSIS-paket har åtkomst till data lager/resurser som endast tillåter specifika statiska offentliga IP-adresser och du vill skydda åtkomsten till dessa resurser från Azure-SSIS IR, kan du ta med dina egna [offentliga IP-adresser](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address) för Azure-SSIS IR samtidigt som du ansluter till ett virtuellt nätverk och sedan lägga till en IP-brandväggsregel till de relevanta resurserna för att tillåta åtkomst från dessa IP-adresser.
+Om dina SSIS-paket har åtkomst till data lager/resurser som endast tillåter specifika statiska offentliga IP-adresser och du vill skydda åtkomsten till dessa resurser från Azure-SSIS IR, kan du ta med dina egna [offentliga IP-adresser](../virtual-network/virtual-network-public-ip-address.md) för Azure-SSIS IR samtidigt som du ansluter till ett virtuellt nätverk och sedan lägga till en IP-brandväggsregel till de relevanta resurserna för att tillåta åtkomst från dessa IP-adresser.
 
 I samtliga fall kan det virtuella nätverket bara distribueras via Azure Resource Manager distributions modell.
 
@@ -99,7 +99,7 @@ Konfigurera ditt virtuella nätverk så att det uppfyller följande krav:
 
 - Se till att det virtuella nätverkets resurs grupp (eller resurs gruppen offentliga IP-adresser "om du tar med egna offentliga IP-adresser) kan skapa och ta bort vissa Azure-nätverks resurser. Mer information finns i [Konfigurera resurs gruppen](#resource-group). 
 
-- Om du anpassar din Azure-SSIS IR enligt beskrivningen i [anpassad installation för Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup), kommer dina Azure-SSIS IR-noder att få privata IP-adresser från ett fördefinierat intervall 172.16.0.0 till 172.31.255.255. Se därför till att de privata IP-adressintervall för dina virtuella eller lokala nätverk inte kolliderar med det här intervallet.
+- Om du anpassar din Azure-SSIS IR enligt beskrivningen i [anpassad installation för Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md), kommer dina Azure-SSIS IR-noder att få privata IP-adresser från ett fördefinierat intervall 172.16.0.0 till 172.31.255.255. Se därför till att de privata IP-adressintervall för dina virtuella eller lokala nätverk inte kolliderar med det här intervallet.
 
 Det här diagrammet visar de anslutningar som krävs för din Azure-SSIS IR:
 
@@ -111,7 +111,7 @@ Den användare som skapar Azure-SSIS IR måste ha följande behörigheter:
 
 - Om du ansluter din SSIS-IR till ett Azure Resource Manager virtuellt nätverk har du två alternativ:
 
-  - Använd den inbyggda rollen nätverks deltagare. Den här rollen ingår i _Microsoft. Network/ \* _ permission, som har en mycket större omfattning än vad som behövs.
+  - Använd den inbyggda rollen nätverks deltagare. Den här rollen ingår i _Microsoft. Network/ \*_ permission, som har en mycket större omfattning än vad som behövs.
 
   - Skapa en anpassad roll som endast innehåller nödvändig _Microsoft. Network/virtualNetworks/ \* /Join/Action-_ behörighet. Om du även vill ta med dina egna offentliga IP-adresser för Azure-SSIS IR när du ansluter till den till ett Azure Resource Manager virtuellt nätverk, kan du även ta med _Microsoft. Network/publicIPAddresses/*/Join/Action-_ behörighet i rollen.
 
@@ -133,7 +133,7 @@ Om du vill använda egna statiska offentliga IP-adresser för Azure-SSIS IR samt
 
 - Exakt två oanvända som inte redan är kopplade till andra Azure-resurser bör tillhandahållas. Den extra som används när vi uppgraderar Azure-SSIS IR regelbundet. Observera att en offentlig IP-adress inte kan delas mellan din aktiva Azure-SSIS IRs.
 
-- De bör båda vara statiska av standard typ. Se [SKU: er för offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) för mer information.
+- De bör båda vara statiska av standard typ. Se [SKU: er för offentlig IP-adress](../virtual-network/public-ip-addresses.md#sku) för mer information.
 
 - De bör båda ha ett DNS-namn. Om du inte har angett något DNS-namn när du skapar dem kan du göra det på Azure Portal.
 
@@ -151,7 +151,7 @@ En rekommenderad metod är nedan:
 Mer information finns i [namn matchning som använder din egen DNS-Server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). 
 
 > [!NOTE]
-> Använd ett fullständigt kvalificerat domän namn (FQDN) för ditt privata värdnamn (till exempel använda `<your_private_server>.contoso.com` i stället för `<your_private_server>` ). Alternativt kan du använda en anpassad standard installation på din Azure-SSIS IR för att automatiskt lägga till ett eget DNS-suffix (till exempel `contoso.com` ) till ett icke-kvalificerat domän namn för en domän och omvandla det till ett fullständigt domän namn innan det används i DNS-frågor, se [vanliga anpassade installations exempel](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup#standard-custom-setup-samples). 
+> Använd ett fullständigt kvalificerat domän namn (FQDN) för ditt privata värdnamn (till exempel använda `<your_private_server>.contoso.com` i stället för `<your_private_server>` ). Alternativt kan du använda en anpassad standard installation på din Azure-SSIS IR för att automatiskt lägga till ett eget DNS-suffix (till exempel `contoso.com` ) till ett icke-kvalificerat domän namn för en domän och omvandla det till ett fullständigt domän namn innan det används i DNS-frågor, se [vanliga anpassade installations exempel](./how-to-configure-azure-ssis-ir-custom-setup.md#standard-custom-setup-samples). 
 
 ### <a name="set-up-an-nsg"></a><a name="nsg"></a> Konfigurera en NSG
 Om du behöver implementera en NSG för under nätet som används av din Azure-SSIS IR ska du tillåta inkommande och utgående trafik via följande portar: 
@@ -160,23 +160,23 @@ Om du behöver implementera en NSG för under nätet som används av din Azure-S
 
 | Riktning | Transport protokoll | Källa | Källportintervall | Mål | Målportintervall | Kommentarer |
 |---|---|---|---|---|---|---|
-| Inbound (Inkommande) | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (om du ansluter IR till ett virtuellt Resource Manager-nätverk) <br/><br/>10100, 20100, 30100 (om du ansluter IR till ett klassiskt virtuellt nätverk)| Den Data Factory tjänsten använder dessa portar för att kommunicera med noderna i ditt Azure-SSIS IR i det virtuella nätverket. <br/><br/> Oavsett om du skapar en NSG på under näts nivå konfigurerar Data Factory alltid en NSG på nivån för nätverkskorten (NIC) som är anslutna till de virtuella datorer som är värdar för Azure-SSIS IR. Det är bara inkommande trafik från Data Factory IP-adresser på de angivna portarna som tillåts av NSG på NÄTVERKSKORTs nivå. Även om du öppnar de här portarna till Internet trafik på under näts nivån blockeras trafik från IP-adresser som inte Data Factory IP-adresser på NÄTVERKSKORTs nivån. |
-| Inbound (Inkommande) | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | Valfritt Den här regeln krävs endast när Microsoft Support ber kunden öppna för avancerad fel sökning och kan stängas direkt efter fel sökningen. **CorpNetSaw** service tag tillåter endast säker åtkomst till arbets stationer på Microsofts företags nätverk för att använda fjärr skrivbord. Och den här tjänst tag gen kan inte väljas från portalen och är bara tillgänglig via Azure PowerShell eller Azure CLI. <br/><br/> På NÄTVERKSKORTs nivå NSG är port 3389 öppen som standard och vi låter dig kontrol lera port 3389 på under näts nivån NSG, medan Azure-SSIS IR har otillåten port 3389 utgående som standard i Windows-brandväggens regel på varje IR-nod för skydd. |
+| Inkommande | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (om du ansluter IR till ett virtuellt Resource Manager-nätverk) <br/><br/>10100, 20100, 30100 (om du ansluter IR till ett klassiskt virtuellt nätverk)| Den Data Factory tjänsten använder dessa portar för att kommunicera med noderna i ditt Azure-SSIS IR i det virtuella nätverket. <br/><br/> Oavsett om du skapar en NSG på under näts nivå konfigurerar Data Factory alltid en NSG på nivån för nätverkskorten (NIC) som är anslutna till de virtuella datorer som är värdar för Azure-SSIS IR. Det är bara inkommande trafik från Data Factory IP-adresser på de angivna portarna som tillåts av NSG på NÄTVERKSKORTs nivå. Även om du öppnar de här portarna till Internet trafik på under näts nivån blockeras trafik från IP-adresser som inte Data Factory IP-adresser på NÄTVERKSKORTs nivån. |
+| Inkommande | TCP | CorpNetSaw | * | VirtualNetwork | 3389 | Valfritt Den här regeln krävs endast när Microsoft Support ber kunden öppna för avancerad fel sökning och kan stängas direkt efter fel sökningen. **CorpNetSaw** service tag tillåter endast säker åtkomst till arbets stationer på Microsofts företags nätverk för att använda fjärr skrivbord. Och den här tjänst tag gen kan inte väljas från portalen och är bara tillgänglig via Azure PowerShell eller Azure CLI. <br/><br/> På NÄTVERKSKORTs nivå NSG är port 3389 öppen som standard och vi låter dig kontrol lera port 3389 på under näts nivån NSG, medan Azure-SSIS IR har otillåten port 3389 utgående som standard i Windows-brandväggens regel på varje IR-nod för skydd. |
 ||||||||
 
 -   **Utgående krav för Azure-SSIS IR**
 
 | Riktning | Transport protokoll | Källa | Källportintervall | Mål | Målportintervall | Kommentarer |
 |---|---|---|---|---|---|---|
-| Outbound (Utgående) | TCP | VirtualNetwork | * | AzureCloud | 443 | Noderna i Azure-SSIS IR i det virtuella nätverket använder den här porten för att få åtkomst till Azure-tjänster, till exempel Azure Storage och Azure-Event Hubs. |
-| Outbound (Utgående) | TCP | VirtualNetwork | * | Internet | 80 | Valfritt Noderna i Azure-SSIS IR i det virtuella nätverket Använd den här porten för att hämta en lista över återkallade certifikat från Internet. Om du blockerar den här trafiken kan du få nedgradering av prestanda när du startar IR och förlorar möjlighet att kontrol lera listan över återkallade certifikat för certifikat användning. Om du vill begränsa destinationen till vissa FQDN ytterligare kan du läsa avsnittet **använda Azure ExpressRoute eller UDR** .|
-| Outbound (Utgående) | TCP | VirtualNetwork | * | SQL | 1433, 11000-11999 | Valfritt Den här regeln krävs bara när noderna i Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som finns på servern. Om din server anslutnings princip är inställd på **proxy** i stället för **omdirigering**krävs bara port 1433. <br/><br/> Den här utgående säkerhets regeln gäller inte för en SSISDB som hanteras av din SQL-hanterade instans i det virtuella nätverket eller SQL Database som kon figurer ATS med privat slut punkt. |
-| Outbound (Utgående) | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | Valfritt Den här regeln krävs bara när noderna i Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som hanteras av din SQL-hanterade instans i det virtuella nätverket eller SQL Database som kon figurer ATS med privat slut punkt. Om din server anslutnings princip är inställd på **proxy** i stället för **omdirigering**krävs bara port 1433. |
-| Outbound (Utgående) | TCP | VirtualNetwork | * | Storage | 445 | Valfritt Den här regeln krävs bara när du vill köra SSIS-paketet som lagras i Azure Files. |
+| Utgående | TCP | VirtualNetwork | * | AzureCloud | 443 | Noderna i Azure-SSIS IR i det virtuella nätverket använder den här porten för att få åtkomst till Azure-tjänster, till exempel Azure Storage och Azure-Event Hubs. |
+| Utgående | TCP | VirtualNetwork | * | Internet | 80 | Valfritt Noderna i Azure-SSIS IR i det virtuella nätverket Använd den här porten för att hämta en lista över återkallade certifikat från Internet. Om du blockerar den här trafiken kan du få nedgradering av prestanda när du startar IR och förlorar möjlighet att kontrol lera listan över återkallade certifikat för certifikat användning. Om du vill begränsa destinationen till vissa FQDN ytterligare kan du läsa avsnittet **använda Azure ExpressRoute eller UDR** .|
+| Utgående | TCP | VirtualNetwork | * | SQL | 1433, 11000-11999 | Valfritt Den här regeln krävs bara när noderna i Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som finns på servern. Om din server anslutnings princip är inställd på **proxy** i stället för **omdirigering** krävs bara port 1433. <br/><br/> Den här utgående säkerhets regeln gäller inte för en SSISDB som hanteras av din SQL-hanterade instans i det virtuella nätverket eller SQL Database som kon figurer ATS med privat slut punkt. |
+| Utgående | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | Valfritt Den här regeln krävs bara när noderna i Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som hanteras av din SQL-hanterade instans i det virtuella nätverket eller SQL Database som kon figurer ATS med privat slut punkt. Om din server anslutnings princip är inställd på **proxy** i stället för **omdirigering** krävs bara port 1433. |
+| Utgående | TCP | VirtualNetwork | * | Lagring | 445 | Valfritt Den här regeln krävs bara när du vill köra SSIS-paketet som lagras i Azure Files. |
 ||||||||
 
 ### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a> Använd Azure ExpressRoute eller UDR
-Om du vill kontrol lera utgående trafik från Azure-SSIS IR kan du dirigera trafik som initierats från Azure-SSIS IR till lokal brand Väggs enhet via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) Force-tunnlar (annonsera en BGP-väg, 0.0.0.0/0, till det virtuella nätverket) eller till en virtuell nätverks installation (NVA) som brand vägg eller [Azure-brandvägg](https://docs.microsoft.com/azure/firewall/) via [UDR](../virtual-network/virtual-networks-udr-overview.md). 
+Om du vill kontrol lera utgående trafik från Azure-SSIS IR kan du dirigera trafik som initierats från Azure-SSIS IR till lokal brand Väggs enhet via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) Force-tunnlar (annonsera en BGP-väg, 0.0.0.0/0, till det virtuella nätverket) eller till en virtuell nätverks installation (NVA) som brand vägg eller [Azure-brandvägg](../firewall/index.yml) via [UDR](../virtual-network/virtual-networks-udr-overview.md). 
 
 ![NVA-scenario för Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir-nva.png)
 
@@ -184,9 +184,9 @@ Du måste göra något av följande för att hela scenariot ska fungera
    -   Inkommande trafik mellan Azure Batch hanterings tjänster och Azure-SSIS IR kan inte dirigeras via brand Väggs enheten.
    -   Brand Väggs apparaten måste tillåta utgående trafik som krävs av Azure-SSIS IR.
 
-Inkommande trafik mellan Azure Batch hanterings tjänster och Azure-SSIS IR kan inte dirigeras till brand Väggs enheten annars kommer trafiken att brytas på grund av problem med asymmetrisk routning. Vägar måste definieras för inkommande trafik så att trafiken kan svara på samma sätt som den kom fram. Du kan definiera en speciell UDR för att dirigera trafik mellan Azure Batch hanterings tjänster och Azure-SSIS IR med nästa hopp typ som **Internet**.
+Inkommande trafik mellan Azure Batch hanterings tjänster och Azure-SSIS IR kan inte dirigeras till brand Väggs enheten annars kommer trafiken att brytas på grund av problem med asymmetrisk routning. Vägar måste definieras för inkommande trafik så att trafiken kan svara på samma sätt som den kom fram. Du kan definiera en speciell UDR för att dirigera trafik mellan Azure Batch hanterings tjänster och Azure-SSIS IR med nästa hopp typ som **Internet** .
 
-Om din Azure-SSIS IR till exempel finns på `UK South` och du vill kontrol lera utgående trafik via Azure-brandväggen, så skulle du först hämta en lista med IP-intervall med service tag `BatchNodeManagement.UKSouth` från service tagns [IP-intervall nedladdnings länk](https://www.microsoft.com/download/details.aspx?id=56519) eller [service tag Discovery-API](https://aka.ms/discoveryapi). Använd sedan följande UDR av relaterade IP-adressintervall med nästa hopp typ som **Internet** tillsammans med vägen 0.0.0.0/0 med nästa hopp typ som **virtuell**installation.
+Om din Azure-SSIS IR till exempel finns på `UK South` och du vill kontrol lera utgående trafik via Azure-brandväggen, så skulle du först hämta en lista med IP-intervall med service tag `BatchNodeManagement.UKSouth` från service tagns [IP-intervall nedladdnings länk](https://www.microsoft.com/download/details.aspx?id=56519) eller [service tag Discovery-API](../virtual-network/service-tags-overview.md#service-tags-on-premises). Använd sedan följande UDR av relaterade IP-adressintervall med nästa hopp typ som **Internet** tillsammans med vägen 0.0.0.0/0 med nästa hopp typ som **virtuell** installation.
 
 ![Azure Batch inställningar för UDR](media/join-azure-ssis-integration-runtime-virtual-network/azurebatch-udr-settings.png)
 
@@ -269,10 +269,10 @@ För att brand Väggs enheten ska kunna tillåta utgående trafik måste du till
 > [!NOTE]
 > Om du konfigurerar Virtual Network tjänst slut punkter i ditt undernät för Azure SQL och Storage kommer trafiken mellan Azure-SSIS IR och Azure SQL i samma region \ Azure Storage i samma region eller i den kopplade regionen att dirigeras till Microsoft Azure stamnät nätverket direkt i stället för brand Väggs enheten.
 
-Om du inte behöver ha möjlighet att inspektera utgående trafik i Azure-SSIS IR kan du bara använda Route för att tvinga all trafik till nästa hopp typ **Internet**:
+Om du inte behöver ha möjlighet att inspektera utgående trafik i Azure-SSIS IR kan du bara använda Route för att tvinga all trafik till nästa hopp typ **Internet** :
 
 -   I ett Azure ExpressRoute-scenario kan du använda en router med värdet 0.0.0.0/0 med nästa hopp typ som **Internet** på det undernät som är värd för Azure-SSIS IR. 
--   I ett NVA-scenario kan du ändra den befintliga 0.0.0.0/0-vägen som används på det undernät som är värd för Azure-SSIS IR från nästa hopp typ som **virtuell** installation till **Internet**.
+-   I ett NVA-scenario kan du ändra den befintliga 0.0.0.0/0-vägen som används på det undernät som är värd för Azure-SSIS IR från nästa hopp typ som **virtuell** installation till **Internet** .
 
 ![Lägg till en väg](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
 
@@ -282,9 +282,9 @@ Om du inte behöver ha möjlighet att inspektera utgående trafik i Azure-SSIS I
 ### <a name="set-up-the-resource-group"></a><a name="resource-group"></a> Konfigurera resurs gruppen
 
 Azure-SSIS IR måste skapa vissa nätverks resurser i samma resurs grupp som det virtuella nätverket. Dessa resurser omfattar:
-- En Azure Load Balancer med namnet * \<Guid> -azurebatch-cloudserviceloadbalancer*.
-- En offentlig Azure-IP-adress med namnet * \<Guid> -azurebatch-cloudservicepublicip*.
-- En nätverks säkerhets grupp med namnet * \<Guid> -azurebatch-cloudservicenetworksecuritygroup*. 
+- En Azure Load Balancer med namnet *\<Guid> -azurebatch-cloudserviceloadbalancer* .
+- En offentlig Azure-IP-adress med namnet *\<Guid> -azurebatch-cloudservicepublicip* .
+- En nätverks säkerhets grupp med namnet *\<Guid> -azurebatch-cloudservicenetworksecuritygroup* . 
 
 > [!NOTE]
 > Du kan nu ta med egna statiska offentliga IP-adresser för Azure-SSIS IR. I det här scenariot skapar vi bara Azure Load Balancer och nätverks säkerhets gruppen under samma resurs grupp som dina statiska offentliga IP-adresser i stället för det virtuella nätverket.
@@ -306,7 +306,7 @@ Se till att resurs kvoten för din prenumeration är tillräckligt för de tre n
  
   Just nu skapas en offentlig IP-adress automatiskt när Azure-SSIS IR ansluter till ett virtuellt nätverk. Vi har en NSG på NIC-nivå för att bara tillåta Azure Batch hanterings tjänster för inkommande – Anslut till din Azure-SSIS IR. Du kan också ange en NSG på under näts nivå för inkommande skydd.
 
-  Om du inte vill att någon offentlig IP-adress ska exponeras bör du överväga att [Konfigurera en lokal IR as-proxy för din Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis) istället för att ansluta till din Azure-SSIS IR till ett virtuellt nätverk, om detta gäller för ditt scenario.
+  Om du inte vill att någon offentlig IP-adress ska exponeras bör du överväga att [Konfigurera en lokal IR as-proxy för din Azure-SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md) istället för att ansluta till din Azure-SSIS IR till ett virtuellt nätverk, om detta gäller för ditt scenario.
  
 - Kan jag lägga till den offentliga IP-adressen för mina Azure-SSIS IR i brand väggens lista över tillåtna data källor?
 
@@ -315,7 +315,7 @@ Se till att resurs kvoten för din prenumeration är tillräckligt för de tre n
   - Om din data källa finns lokalt, efter att du har anslutit ett virtuellt nätverk till ditt lokala nätverk och anslutit din Azure-SSIS IR till det virtuella nätverkets undernät, kan du sedan lägga till det privata IP-adressintervallet för det under nätet i brand väggens lista över tillåtna användare för din data källa.
   - Om data källan är en Azure-tjänst som stöder tjänst slut punkter för virtuella nätverk kan du konfigurera en tjänst slut punkt för virtuellt nätverk i det virtuella nätverkets undernät och ansluta din Azure-SSIS IR till det under nätet. Du kan sedan lägga till en virtuell nätverks regel med det under nätet i brand väggen för din data källa.
   - Om data källan är en moln tjänst som inte kommer från Azure kan du använda en UDR för att dirigera utgående trafik från din Azure-SSIS IR till en NVA/Azure-brandvägg via en statisk offentlig IP-adress. Du kan sedan lägga till den statiska offentliga IP-adressen för din NVA/Azure-brandvägg i brand väggens lista över tillåtna för din data källa.
-  - Om inget av ovanstående alternativ motsvarar dina behov kan du överväga att [Konfigurera en lokal IR as-proxy för din Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis). Du kan sedan lägga till den statiska offentliga IP-adressen för den dator som är värd för IR till brand väggens lista över tillåtna webbplatser för din data källa.
+  - Om inget av ovanstående alternativ motsvarar dina behov kan du överväga att [Konfigurera en lokal IR as-proxy för din Azure-SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md). Du kan sedan lägga till den statiska offentliga IP-adressen för den dator som är värd för IR till brand väggens lista över tillåtna webbplatser för din data källa.
 
 - Varför måste jag ange två statiska offentliga adresser om jag vill ta med mig för Azure-SSIS IR?
 
@@ -340,23 +340,23 @@ Använd portalen för att konfigurera ett Azure Resource Manager virtuellt nätv
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
-1. Välj **fler tjänster**. Filtrera och välj **virtuella nätverk**. 
+1. Välj **fler tjänster** . Filtrera och välj **virtuella nätverk** . 
 
 1. Filtrera efter och välj ditt virtuella nätverk i listan. 
 
-1. På sidan **virtuellt nätverk** väljer du **Egenskaper**. 
+1. På sidan **virtuellt nätverk** väljer du **Egenskaper** . 
 
 1. Välj kopierings knappen för **resurs-ID** för att kopiera resurs-ID för det virtuella nätverket till Urklipp. Spara ID: t från Urklipp i OneNote eller en fil. 
 
-1. På den vänstra menyn väljer du **undernät**. Se till att antalet tillgängliga adresser är större än noderna i Azure-SSIS IR. 
+1. På den vänstra menyn väljer du **undernät** . Se till att antalet tillgängliga adresser är större än noderna i Azure-SSIS IR. 
 
 1. Verifiera att Azure Batch-providern är registrerad i Azure-prenumerationen som har det virtuella nätverket. Eller registrera Azure Batch-providern. Om du redan har ett Azure Batch konto i din prenumeration registreras din prenumeration för Azure Batch. (Om du skapar Azure-SSIS IR i Data Factory Portal registreras Azure Batch-providern automatiskt åt dig.) 
 
-   1. I Azure Portal väljer du **prenumerationer**på den vänstra menyn. 
+   1. I Azure Portal väljer du **prenumerationer** på den vänstra menyn. 
 
    1. Välj din prenumeration. 
 
-   1. Välj **resurs leverantörer**till vänster och bekräfta att **Microsoft.BatCH** är en registrerad Provider. 
+   1. Välj **resurs leverantörer** till vänster och bekräfta att **Microsoft.BatCH** är en registrerad Provider. 
 
    ![Bekräftelse av status registrerad](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
@@ -370,17 +370,17 @@ Använd portalen för att konfigurera ett klassiskt virtuellt nätverk innan du 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
-1. Välj **fler tjänster**. Filtrera och välj **virtuella nätverk (klassisk)**. 
+1. Välj **fler tjänster** . Filtrera och välj **virtuella nätverk (klassisk)** . 
 
 1. Filtrera efter och välj ditt virtuella nätverk i listan. 
 
-1. På sidan **virtuellt nätverk (klassisk)** väljer du **Egenskaper**. 
+1. På sidan **virtuellt nätverk (klassisk)** väljer du **Egenskaper** . 
 
    ![Klassiskt virtuellt nätverks resurs-ID](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 
 1. Välj kopierings knappen för **resurs-ID** för att kopiera resurs-ID för det klassiska nätverket till Urklipp. Spara ID: t från Urklipp i OneNote eller en fil. 
 
-1. På den vänstra menyn väljer du **undernät**. Se till att antalet tillgängliga adresser är större än noderna i Azure-SSIS IR. 
+1. På den vänstra menyn väljer du **undernät** . Se till att antalet tillgängliga adresser är större än noderna i Azure-SSIS IR. 
 
    ![Antal tillgängliga adresser i det virtuella nätverket](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
 
@@ -390,9 +390,9 @@ Använd portalen för att konfigurera ett klassiskt virtuellt nätverk innan du 
 
        ![Knapparna "åtkomst kontroll" och "Lägg till"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-   1. Välj **Lägg till rolltilldelning**.
+   1. Välj **Lägg till rolltilldelning** .
 
-   1. På sidan **Lägg till roll tilldelning** för **roll**väljer du **klassisk virtuell dator deltagare**. I rutan **Välj** klistrar du in **ddbf3205-c6bd-46ae-8127-60eb93363864**och väljer sedan **Microsoft Azure Batch** i listan med Sök resultat. 
+   1. På sidan **Lägg till roll tilldelning** för **roll** väljer du **klassisk virtuell dator deltagare** . I rutan **Välj** klistrar du in **ddbf3205-c6bd-46ae-8127-60eb93363864** och väljer sedan **Microsoft Azure Batch** i listan med Sök resultat. 
 
        ![Sök resultat på sidan Lägg till roll tilldelning](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
 
@@ -406,11 +406,11 @@ Använd portalen för att konfigurera ett klassiskt virtuellt nätverk innan du 
 
 1. Verifiera att Azure Batch-providern är registrerad i Azure-prenumerationen som har det virtuella nätverket. Eller registrera Azure Batch-providern. Om du redan har ett Azure Batch konto i din prenumeration registreras din prenumeration för Azure Batch. (Om du skapar Azure-SSIS IR i Data Factory Portal registreras Azure Batch-providern automatiskt åt dig.) 
 
-   1. I Azure Portal väljer du **prenumerationer**på den vänstra menyn. 
+   1. I Azure Portal väljer du **prenumerationer** på den vänstra menyn. 
 
    1. Välj din prenumeration. 
 
-   1. Välj **resurs leverantörer**till vänster och bekräfta att **Microsoft.BatCH** är en registrerad Provider. 
+   1. Välj **resurs leverantörer** till vänster och bekräfta att **Microsoft.BatCH** är en registrerad Provider. 
 
    ![Bekräftelse av status registrerad](media/join-azure-ssis-integration-runtime-virtual-network/batch-registered-confirmation.png)
 
@@ -422,7 +422,7 @@ När du har konfigurerat ditt Azure Resource Manager virtuella nätverk eller et
 
 1. Starta Microsoft Edge eller Google Chrome. För närvarande stöder endast dessa webbläsare Data Factory användar gränssnitt. 
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **data fabriker**på den vänstra menyn. Om du inte ser **data fabriker** på menyn väljer du **fler tjänster**och i avsnittet **information + analys** väljer du **data fabriker**. 
+1. I [Azure Portal](https://portal.azure.com)väljer du **data fabriker** på den vänstra menyn. Om du inte ser **data fabriker** på menyn väljer du **fler tjänster** och i avsnittet **information + analys** väljer du **data fabriker** . 
 
    ![Lista över data fabriker](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
@@ -430,7 +430,7 @@ När du har konfigurerat ditt Azure Resource Manager virtuella nätverk eller et
 
    ![Datafabrikens startsida](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 
-1. I Data Factory användar gränssnitt växlar du till fliken **Redigera** , väljer **anslutningar**och växlar till fliken **integrerings körningar** . 
+1. I Data Factory användar gränssnitt växlar du till fliken **Redigera** , väljer **anslutningar** och växlar till fliken **integrerings körningar** . 
 
    ![Fliken "integrerings körningar"](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
 
@@ -448,29 +448,29 @@ När du har konfigurerat ditt Azure Resource Manager virtuella nätverk eller et
 
    1. Markera kryss rutan **Välj ett VNet för Azure-SSIS integration runtime att ansluta, Tillåt ADF att skapa vissa nätverks resurser och om du vill ta med egna statiska offentliga IP-adresser** . 
 
-   1. För **prenumeration**väljer du den Azure-prenumeration som har ditt virtuella nätverk.
+   1. För **prenumeration** väljer du den Azure-prenumeration som har ditt virtuella nätverk.
 
-   1. För **plats**är samma plats för integrerings körningen markerad.
+   1. För **plats** är samma plats för integrerings körningen markerad.
 
-   1. I **typ**väljer du typ av virtuellt nätverk: klassisk eller Azure Resource Manager. Vi rekommenderar att du väljer ett Azure Resource Manager virtuellt nätverk, eftersom klassiska virtuella nätverk snart kommer att bli föråldrade.
+   1. I **typ** väljer du typ av virtuellt nätverk: klassisk eller Azure Resource Manager. Vi rekommenderar att du väljer ett Azure Resource Manager virtuellt nätverk, eftersom klassiska virtuella nätverk snart kommer att bli föråldrade.
 
-   1. För **VNet-namn**väljer du namnet på ditt virtuella nätverk. Det bör vara samma som används för SQL Database med tjänst slut punkter för virtuella nätverk eller SQL-hanterad instans med privat slut punkt som värd för SSISDB. Eller bör vara samma som den som är ansluten till ditt lokala nätverk. Annars kan det vara ett virtuellt nätverk för att ta med egna statiska offentliga IP-adresser för Azure-SSIS IR.
+   1. För **VNet-namn** väljer du namnet på ditt virtuella nätverk. Det bör vara samma som används för SQL Database med tjänst slut punkter för virtuella nätverk eller SQL-hanterad instans med privat slut punkt som värd för SSISDB. Eller bör vara samma som den som är ansluten till ditt lokala nätverk. Annars kan det vara ett virtuellt nätverk för att ta med egna statiska offentliga IP-adresser för Azure-SSIS IR.
 
-   1. För **under näts namn**väljer du namnet på under nätet för ditt virtuella nätverk. Det bör vara samma som används för SQL Database med tjänst slut punkter för virtuella nätverk som värd för SSISDB. Eller bör vara ett annat undernät än det som används för SQL-hanterad instans med privat slut punkt som värd för SSISDB. Annars kan det vara vilket undernät som helst för att ta med egna statiska IP-adresser för Azure-SSIS IR.
+   1. För **under näts namn** väljer du namnet på under nätet för ditt virtuella nätverk. Det bör vara samma som används för SQL Database med tjänst slut punkter för virtuella nätverk som värd för SSISDB. Eller bör vara ett annat undernät än det som används för SQL-hanterad instans med privat slut punkt som värd för SSISDB. Annars kan det vara vilket undernät som helst för att ta med egna statiska IP-adresser för Azure-SSIS IR.
 
    1. Markera kryss rutan **Lägg till statiska offentliga IP-adresser för din Azure-SSIS integration runtime** för att välja om du vill ta med egna statiska IP-adresser för Azure-SSIS IR, så att du kan tillåta dem i brand väggen för dina data källor.
 
       Om du markerar kryss rutan utför du följande steg.
 
-      1. För **första statiska offentliga IP-adress**väljer du den första statiska offentliga IP-adress som [uppfyller kraven](#publicIP) för din Azure-SSIS IR. Om du inte har några, klickar du på **Skapa ny** länk för att skapa statiska offentliga IP-adresser på Azure Portal och klickar sedan på uppdatera-knappen här, så att du kan välja dem.
+      1. För **första statiska offentliga IP-adress** väljer du den första statiska offentliga IP-adress som [uppfyller kraven](#publicIP) för din Azure-SSIS IR. Om du inte har några, klickar du på **Skapa ny** länk för att skapa statiska offentliga IP-adresser på Azure Portal och klickar sedan på uppdatera-knappen här, så att du kan välja dem.
       
-      1. För **andra statiska offentliga IP-adresser**väljer du den andra statiska offentliga IP-adress som [uppfyller kraven](#publicIP) för din Azure-SSIS IR. Om du inte har några, klickar du på **Skapa ny** länk för att skapa statiska offentliga IP-adresser på Azure Portal och klickar sedan på uppdatera-knappen här, så att du kan välja dem.
+      1. För **andra statiska offentliga IP-adresser** väljer du den andra statiska offentliga IP-adress som [uppfyller kraven](#publicIP) för din Azure-SSIS IR. Om du inte har några, klickar du på **Skapa ny** länk för att skapa statiska offentliga IP-adresser på Azure Portal och klickar sedan på uppdatera-knappen här, så att du kan välja dem.
 
-   1. Välj **VNet-validering**. Om verifieringen lyckas väljer du **Fortsätt**. 
+   1. Välj **VNet-validering** . Om verifieringen lyckas väljer du **Fortsätt** . 
 
    ![Avancerade inställningar med ett virtuellt nätverk](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
 
-1. I avsnittet **Sammanfattning** granskar du alla inställningar för din Azure-SSIS IR. Välj sedan **Uppdatera**.
+1. I avsnittet **Sammanfattning** granskar du alla inställningar för din Azure-SSIS IR. Välj sedan **Uppdatera** .
 
 1. Starta din Azure-SSIS IR genom att välja **Start** -knappen i kolumnen **åtgärder** för din Azure-SSIS IR. Det tar cirka 20 till 30 minuter att starta Azure-SSIS IR som ansluter till ett virtuellt nätverk. 
 
@@ -601,7 +601,7 @@ Det här kommandot tar 20 till 30 minuter att slutföra.
 
 Mer information om Azure-SSIS IR finns i följande artiklar: 
 - [Azure-SSIS IR](concepts-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln innehåller allmän begreppsmässig information om IRs, inklusive Azure-SSIS IR. 
-- [Självstudie: Distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här självstudien innehåller stegvisa instruktioner för att skapa din Azure-SSIS IR. Den använder Azure SQL Database som värd för SSIS-katalogen. 
+- [Självstudie: Distribuera SSIS-paket till Azure](./tutorial-deploy-ssis-packages-azure.md). Den här självstudien innehåller stegvisa instruktioner för att skapa din Azure-SSIS IR. Den använder Azure SQL Database som värd för SSIS-katalogen. 
 - [Skapa en Azure-SSIS IR](create-azure-ssis-integration-runtime.md). Den här artikeln expanderar i självstudien. Det ger instruktioner om hur du använder Azure SQL Database med tjänst slut punkter för virtuella nätverk eller SQL-hanterad instans i ett virtuellt nätverk som värd för SSIS-katalogen. Det visar hur du ansluter Azure-SSIS IR till ett virtuellt nätverk. 
 - [Övervaka en Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln visar hur du hämtar information om din Azure-SSIS IR. Den innehåller status beskrivningar för den returnerade informationen. 
 - [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort Azure-SSIS IR. Det visar också hur du kan skala ut Azure-SSIS IR genom att lägga till noder.

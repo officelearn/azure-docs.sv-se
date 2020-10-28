@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.author: metan
-ms.openlocfilehash: ddae4a99964e438c003fe0ff0db91c5808fa7631
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: metang
+ms.openlocfilehash: 31c1ef8d75b4c12e4dd6a360852feb27857ac412
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761115"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636552"
 ---
 # <a name="how-to-store-user-preferences"></a>Så här lagrar du användar inställningar
 
-Den här artikeln visar hur du lagrar användarens GRÄNSSNITTs inställningar, formellt känt som **användar inställningar**, via alternativen [-Preferences](./reference.md#options) och [-onPreferencesChanged](./reference.md#options) avancerad läsare SDK.
+Den här artikeln visar hur du lagrar användarens GRÄNSSNITTs inställningar, formellt känt som **användar inställningar** , via alternativen [-Preferences](./reference.md#options) och [-onPreferencesChanged](./reference.md#options) avancerad läsare SDK.
 
-När SDK-alternativet [CookiePolicy](./reference.md#cookiepolicy-options) är inställt på *aktive rad*lagrar det fördjupade läsar programmet **användar inställningarna** (text storlek, temafärg, teckensnitt och så vidare) i cookies, som är lokala för en specifik webbläsare och enhet. Varje gången användaren startar den fördjupade läsaren på samma webbläsare och enhet öppnas den med användarens inställningar från den senaste sessionen på den enheten. Men om användaren öppnar den fördjupade läsaren på en annan webbläsare eller enhet konfigureras inställningarna från början med standardinställningarna för avancerad läsare och användaren måste ange sina inställningar igen och så vidare för varje enhet de använder. `-preferences` `-onPreferencesChanged` SDK-alternativen för och avancerad läsare är ett sätt för program att växla till en användares inställningar i olika webbläsare och enheter, så att användaren får en enhetlig upplevelse oavsett var de använder programmet.
+När SDK-alternativet [CookiePolicy](./reference.md#cookiepolicy-options) är inställt på *aktive rad* lagrar det fördjupade läsar programmet **användar inställningarna** (text storlek, temafärg, teckensnitt och så vidare) i cookies, som är lokala för en specifik webbläsare och enhet. Varje gången användaren startar den fördjupade läsaren på samma webbläsare och enhet öppnas den med användarens inställningar från den senaste sessionen på den enheten. Men om användaren öppnar den fördjupade läsaren på en annan webbläsare eller enhet konfigureras inställningarna från början med standardinställningarna för avancerad läsare och användaren måste ange sina inställningar igen och så vidare för varje enhet de använder. `-preferences` `-onPreferencesChanged` SDK-alternativen för och avancerad läsare är ett sätt för program att växla till en användares inställningar i olika webbläsare och enheter, så att användaren får en enhetlig upplevelse oavsett var de använder programmet.
 
 Först, genom att tillhandahålla `-onPreferencesChanged` SDK-alternativet för motringning när du startar programmet för avancerad läsare, skickar den fördjupade läsaren en `-preferences` sträng tillbaka till värd programmet varje gång användaren ändrar sina inställningar under den fördjupade läsaren. Värd programmet ansvarar sedan för att lagra användar inställningarna i det egna systemet. När samma användare startar den fördjupade läsaren igen, kan värd programmet hämta användarens inställningar från lagringen och ange dem som `-preferences` sträng-SDK-alternativ när du startar ett fördjupat läsar program, så att användarens inställningar återställs.
 

@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 039afdafdccbefe03b5b366a89256409fda482e9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 37eac4acab7232e44f94e852b1c04c5549447b09
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368867"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637691"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 
@@ -49,7 +49,7 @@ Mappning av data flöden är visuellt utformad med data transformationer i Azure
 
 ### <a name="wrangling-data-flows"></a>Datatransformering data flöden
 
-Med datatransformering data flöden i Azure Data Factory kan du göra kod fria data förberedelser i moln skala upprepade gånger. Datatransformering data flöden integreras med [Power Query online](https://docs.microsoft.com/power-query/) och gör Power Query M-funktioner tillgängliga för data datatransformering i moln skala via Spark-körning. Mer information finns i [datatransformering data flöden](wrangling-data-flow-overview.md).
+Med datatransformering data flöden i Azure Data Factory kan du göra kod fria data förberedelser i moln skala upprepade gånger. Datatransformering data flöden integreras med [Power Query online](/power-query/) och gör Power Query M-funktioner tillgängliga för data datatransformering i moln skala via Spark-körning. Mer information finns i [datatransformering data flöden](wrangling-data-flow-overview.md).
 
 ## <a name="external-transformations"></a>Externa omvandlingar
 
@@ -103,8 +103,8 @@ Du kan skapa en anpassad aktivitet som kör R-skript i ditt HDInsight-kluster me
 ### <a name="compute-environments"></a>Beräknings miljöer
 Du skapar en länkad tjänst för beräknings miljön och använder sedan den länkade tjänsten när du definierar en Transformations aktivitet. Det finns två typer av beräknings miljöer som stöds av Data Factory. 
 
-- **På begäran**: i det här fallet hanteras dator miljön fullständigt av Data Factory. Den skapas automatiskt av Data Factory tjänsten innan ett jobb skickas för att bearbeta data och tas bort när jobbet har slutförts. Du kan konfigurera och kontrol lera detaljerade inställningar för beräknings miljön på begäran för jobb körning, kluster hantering och start åtgärder. 
-- **Ta**med dig: i det här fallet kan du registrera din egen dator miljö (till exempel HDInsight-kluster) som en länkad tjänst i Data Factory. Dator miljön hanteras av dig och den Data Factory tjänsten använder den för att köra aktiviteterna. 
+- **På begäran** : i det här fallet hanteras dator miljön fullständigt av Data Factory. Den skapas automatiskt av Data Factory tjänsten innan ett jobb skickas för att bearbeta data och tas bort när jobbet har slutförts. Du kan konfigurera och kontrol lera detaljerade inställningar för beräknings miljön på begäran för jobb körning, kluster hantering och start åtgärder. 
+- **Ta** med dig: i det här fallet kan du registrera din egen dator miljö (till exempel HDInsight-kluster) som en länkad tjänst i Data Factory. Dator miljön hanteras av dig och den Data Factory tjänsten använder den för att köra aktiviteterna. 
 
 Se artikeln om att beräkna [länkade tjänster](compute-linked-services.md) för att lära dig mer om beräknings tjänster som stöds av Data Factory. 
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ce40d1a46a6448e678a8a86812d08e9013310d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28169e43d0e6949a16cc56c7e7d5d91d6db1ef57
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086916"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636926"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Kopiera eller flytta data enkelt med Azure Data Factory kopiera guiden
 > [!NOTE]
@@ -62,7 +62,7 @@ I exemplet använder SQL-frågan `Text.Format` funktionen och `WindowStart` vari
 ![Validera uttryck](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrering av data i en Azure Blob-mapp
-Du kan använda variabler i mappsökvägen för att kopiera data från en mapp som fastställs vid körning baserat på [Systemvariabler](data-factory-functions-variables.md#data-factory-system-variables). Variabler som stöds är: **{Year**}, **{Month}**, **{Day}**, **{Hour}**, **{Minute}** och **{Custom}**. Exempel: inputfolder/{year}/{month}/{Day}.
+Du kan använda variabler i mappsökvägen för att kopiera data från en mapp som fastställs vid körning baserat på [Systemvariabler](data-factory-functions-variables.md#data-factory-system-variables). Variabler som stöds är: **{Year** }, **{Month}** , **{Day}** , **{Hour}** , **{Minute}** och **{Custom}** . Exempel: inputfolder/{year}/{month}/{Day}.
 
 Anta att du har inmatade mappar i följande format:
 
@@ -73,11 +73,11 @@ Anta att du har inmatade mappar i följande format:
 ...
 ```
 
-Klicka på knappen **Bläddra** för **filen eller mappen**, bläddra till någon av dessa mappar (till exempel 2016->03->01->02) och klicka på **Välj**. Du bör se `2016/03/01/02` i text rutan. Ersätt nu **2016** med **{Year}**, **03** med **{Month}**, **01** med **{Day}** och **02** med **{Hour}** och tryck på TABB. Du bör se List rutor för att välja formatet för dessa fyra variabler:
+Klicka på knappen **Bläddra** för **filen eller mappen** , bläddra till någon av dessa mappar (till exempel 2016->03->01->02) och klicka på **Välj** . Du bör se `2016/03/01/02` i text rutan. Ersätt nu **2016** med **{Year}** , **03** med **{Month}** , **01** med **{Day}** och **02** med **{Hour}** och tryck på TABB. Du bör se List rutor för att välja formatet för dessa fyra variabler:
 
 ![Använda systemvariabler](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Som du ser i följande skärm bild kan du också använda en **anpassad** variabel och alla [format strängar som stöds](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Använd **bläddringsknappen** först om du vill välja en mapp med den strukturen. Ersätt sedan ett värde med **{Custom}** och tryck på TABB för att se text rutan där du kan skriva format strängen.     
+Som du ser i följande skärm bild kan du också använda en **anpassad** variabel och alla [format strängar som stöds](/dotnet/standard/base-types/custom-date-and-time-format-strings). Använd **bläddringsknappen** först om du vill välja en mapp med den strukturen. Ersätt sedan ett värde med **{Custom}** och tryck på TABB för att se text rutan där du kan skriva format strängen.     
 
 ![Använda anpassad variabel](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
@@ -95,4 +95,3 @@ En enstaka kopierings åtgärd gör det möjligt att flytta data från en källa
 
 ## <a name="next-steps"></a>Nästa steg
 En snabb genom gång av hur du använder Data Factory kopierings guiden för att skapa en pipeline med kopierings aktivitet finns i [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).
-

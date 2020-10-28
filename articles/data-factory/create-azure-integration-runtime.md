@@ -10,12 +10,12 @@ ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9615dc358b1c5bed0e48c07c2571ccce05fcdf2e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84659705"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637215"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Så här skapar och konfigurerar du Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -41,27 +41,27 @@ Integration Runtime kan skapas med PowerShell-cmdleten **set-AzDataFactoryV2Inte
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
-För Azure IR måste typen anges som **hanterad**. Du behöver inte ange beräknings information eftersom den hanteras helt elastiskt i molnet. Ange beräknings information som Node-storlek och antal noder när du vill skapa Azure-SSIS IR. Mer information finns i [skapa och konfigurera Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
+För Azure IR måste typen anges som **hanterad** . Du behöver inte ange beräknings information eftersom den hanteras helt elastiskt i molnet. Ange beräknings information som Node-storlek och antal noder när du vill skapa Azure-SSIS IR. Mer information finns i [skapa och konfigurera Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
 
 Du kan konfigurera en befintlig Azure IR att ändra dess plats med hjälp av Set-AzDataFactoryV2IntegrationRuntime PowerShell-cmdleten. Mer information om platsen för en Azure IR finns i [Introduktion till integration runtime](concepts-integration-runtime.md).
 
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Skapa en Azure IR via Azure Data Factory användar gränssnitt
 Använd följande steg för att skapa en Azure IR med hjälp av Azure Data Factory UI.
 
-1. På sidan för att **komma igång** i Azure Data Factory UI väljer du [fliken Hantera](https://docs.microsoft.com/azure/data-factory/author-management-hub) i rutan längst till vänster.
+1. På sidan för att **komma igång** i Azure Data Factory UI väljer du [fliken Hantera](./author-management-hub.md) i rutan längst till vänster.
 
    ![Knappen Hantera start sida](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Välj **integrerings körningar** i den vänstra rutan och välj sedan **+ ny**.
+1. Välj **integrerings körningar** i den vänstra rutan och välj sedan **+ ny** .
 
    ![Skapa Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. På sidan **installation av integration runtime** väljer du **Azure, egen värd**och väljer sedan **Fortsätt**. 
+1. På sidan **installation av integration runtime** väljer du **Azure, egen värd** och väljer sedan **Fortsätt** . 
 
-1. På följande sida väljer du **Azure** för att skapa en Azure IR och väljer sedan **Fortsätt**.
+1. På följande sida väljer du **Azure** för att skapa en Azure IR och väljer sedan **Fortsätt** .
    ![Skapa Integration Runtime](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
-1. Ange ett namn för din Azure IR och välj **skapa**.
+1. Ange ett namn för din Azure IR och välj **skapa** .
    ![Skapa en Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
 1. Ett popup-meddelande visas när skapandet har slutförts. På sidan **integrerings körningar** ser du till att du ser den nyligen skapade IR-filen i listan.
@@ -92,4 +92,3 @@ Se följande artiklar om hur du skapar andra typer av integrerings körningar:
 
 - [Skapa Integration Runtime med egen värd](create-self-hosted-integration-runtime.md)
 - [Skapa Azure SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)
- 

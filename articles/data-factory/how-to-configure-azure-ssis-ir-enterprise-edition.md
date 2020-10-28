@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 55a49ac13cdfd3f6157ae7495403f76056e734ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be49d56d301c23791777f4d89e8c6c6fd35d7035
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86184109"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636314"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Etablera Enterprise Edition för Azure-SSIS Integration Runtime
 
@@ -38,7 +38,7 @@ Vissa av dessa funktioner kräver att du installerar ytterligare komponenter fö
 | Oracle-kopplingar | Anslutnings hanteraren, källan och målet i Oracle förinstalleras på Azure-SSIS IR Enterprise Edition. Du måste också installera OCI-drivrutinen (Oracle Call Interface). om det behövs konfigurerar du TNS (Oracle Transport Network substrat) på Azure-SSIS IR. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md). |
 | Teradata-kopplingar | Du måste installera Teradata-anslutnings hanteraren,-källan och-målet, samt TPT-API: et (Teradata Parallel deporter) och Teradata ODBC-drivrutinen, på Azure-SSIS IR Enterprise Edition. Mer information finns i [Anpassad konfiguration för Azure-SSIS integreringskörning](how-to-configure-azure-ssis-ir-custom-setup.md). |
 | SAP BW anslutningar | SAP BW anslutnings hanteraren, källa och mål har förinstallerats på Azure-SSIS IR Enterprise Edition. Du måste också installera SAP BW driv rutinen på Azure-SSIS IR. Dessa anslutningar stöder SAP BW 7,0 eller tidigare versioner. Om du vill ansluta till senare versioner av SAP BW eller andra SAP-produkter kan du köpa och installera SAP-anslutningar från tredjeparts-ISV: er på Azure-SSIS IR. Mer information om hur du installerar ytterligare komponenter finns i [anpassad installation för Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md). |
-| Analysis Services-komponenter               | Målet för data utvinnings modellens utbildnings mål, dimensions bearbetnings målet och partitionens bearbetnings mål, samt transformeringen för data utvinnings frågor, förinstalleras på Azure-SSIS IR Enterprise Edition. Alla dessa komponenter stöder SQL Server Analysis Services (SSAS), men det är bara partitionen som bearbetar målet som stöder Azure Analysis Services (AAS). För att ansluta till SSAS måste du också [Konfigurera autentiseringsuppgifter för Windows-autentisering i SSISDB](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Förutom dessa komponenter är Analysis Services köra DDL-aktivitet, Analysis Services bearbetnings aktiviteten och uppgiften data utvinnings fråga också förinstallerad på Azure-SSIS IR standard/Enterprise Edition. |
+| Analysis Services-komponenter               | Målet för data utvinnings modellens utbildnings mål, dimensions bearbetnings målet och partitionens bearbetnings mål, samt transformeringen för data utvinnings frågor, förinstalleras på Azure-SSIS IR Enterprise Edition. Alla dessa komponenter stöder SQL Server Analysis Services (SSAS), men det är bara partitionen som bearbetar målet som stöder Azure Analysis Services (AAS). För att ansluta till SSAS måste du också [Konfigurera autentiseringsuppgifter för Windows-autentisering i SSISDB](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Förutom dessa komponenter är Analysis Services köra DDL-aktivitet, Analysis Services bearbetnings aktiviteten och uppgiften data utvinnings fråga också förinstallerad på Azure-SSIS IR standard/Enterprise Edition. |
 | Nedtransformeringar av fuzzy-gruppering och fuzzy-uppslag  | Transformeringarna för fuzzy-gruppering och fuzzy-uppslag förinstalleras på Azure-SSIS IR Enterprise Edition. Dessa komponenter stöder både SQL Server och Azure SQL Database för lagring av referens data. |
 | Transformeringar av villkors extrahering och terms ökning | Transformeringarna av termen extrahering och terms ökning är förinstallerade på Azure-SSIS IR Enterprise Edition. Dessa komponenter stöder både SQL Server och Azure SQL Database för lagring av referens data. |
 

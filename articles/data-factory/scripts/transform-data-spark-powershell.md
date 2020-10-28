@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
-ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3af38f4cae53807c7268f00017f02f1325116fb6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74932052"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637062"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell-skript – transformera data i molnet med hjälp av Azure Data Factory
 
@@ -25,8 +25,8 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline som transformerar d
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Krav
-* **Azure Storage konto**. Skapa ett Python-skript och en indatafil och överför dem till Azure Storage. Spark-programmets utdata lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
+## <a name="prerequisites"></a>Förutsättningar
+* **Azure Storage konto** . Skapa ett Python-skript och en indatafil och överför dem till Azure Storage. Spark-programmets utdata lagras på det här lagringskontot. Spark-klustret på begäran använder samma lagringskonto som den primära lagringen.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Överföra Python-skriptet till ditt Blob Storage-konto
 1. Skapa en python-fil med namnet **WordCount_Spark. py** med följande innehåll: 
@@ -54,11 +54,11 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline som transformerar d
     if __name__ == "__main__":
         main()
     ```
-2. Ersätt ** &lt; storageAccountName &gt; ** med namnet på ditt Azure Storage-konto. Spara sedan filen. 
+2. Ersätt **&lt; storageAccountName &gt;** med namnet på ditt Azure Storage-konto. Spara sedan filen. 
 3. Skapa en container med namnet **adftutorial** i Azure Blob Storage om den inte finns. 
-4. Skapa en mapp med namnet **spark**.
-5. Skapa en undermapp med namnet **script** under mappen **spark**. 
-6. Överför filen **WordCount_Spark.py** till undermappen **script**. 
+4. Skapa en mapp med namnet **spark** .
+5. Skapa en undermapp med namnet **script** under mappen **spark** . 
+6. Överför filen **WordCount_Spark.py** till undermappen **script** . 
 
 
 ### <a name="upload-the-input-file"></a>Överföra indatafilen
@@ -89,7 +89,7 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 I det här skriptet används följande kommandon:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Skapa en datafabrik. |
@@ -102,6 +102,6 @@ I det här skriptet används följande kommandon:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
+Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/).
 
 Ytterligare Azure Data Factory PowerShell-skript exempel finns i [Azure Data Factory PowerShell-exempel](../samples-powershell.md).

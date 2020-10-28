@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
-ms.author: metan
-ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: metang
+ms.openlocfilehash: f2f5c8193454a3b7fa6be1cea7a1236b613d6c8f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761557"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636535"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Avancerad läsares Java Script SDK-referens (v 1.1)
 
@@ -314,7 +314,7 @@ Innehåller egenskaper som konfigurerar vissa beteenden för den fördjupade lä
 | onExit | Funktion | Körs när den fördjupade läsaren avslutas. |
 | allowFullscreen | Boolesk | Möjligheten att växla helskärm (Standardvärdet är sant). |
 | hideExitButton | Boolesk | Huruvida fördjupad läsares avslutnings knapp pil (standard är falskt). Detta bör bara vara sant om det finns en alternativ mekanism för att avsluta den fördjupade läsaren (t. ex. ett mobilt verktygsfälts bakre pil). |
-| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Inställning för avancerad läsares cookie-användning (Standardvärdet är *CookiePolicy. Disable*). Det är värd programmets ansvar för att erhålla nödvändiga användar medgivande i enlighet med EU: s policy för cookie-kompatibilitet. Se [alternativ för cookie-princip](#cookiepolicy-options). |
+| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Inställning för avancerad läsares cookie-användning (Standardvärdet är *CookiePolicy. Disable* ). Det är värd programmets ansvar för att erhålla nödvändiga användar medgivande i enlighet med EU: s policy för cookie-kompatibilitet. Se [alternativ för cookie-princip](#cookiepolicy-options). |
 | disableFirstRun | Boolesk | Inaktivera den första körnings upplevelsen. |
 | readAloudOptions | [ReadAloudOptions](#readaloudoptions) | Alternativ för att konfigurera Läs högt. |
 | translationOptions | [TranslationOptions](#translationoptions) | Alternativ för att konfigurera översättning. |
@@ -487,7 +487,7 @@ Values available: "Calibri", "Sitka", "ComicSans"
 enum CookiePolicy { Disable, Enable }
 ```
 
-**Inställningarna i listan nedan är endast i informations syfte**. Den fördjupade läsaren lagrar sina inställningar eller användar inställningar i cookies. Med det här *cookiePolicy* -alternativet **inaktive ras** användningen av cookies som standard för att efterleva EU: s bestämmelser om cookie-efterlevnad. Om du vill återaktivera cookies och återställa standard funktionerna för användar inställningarna för avancerad läsare måste du se till att din webbplats eller ditt program får rätt medgivande från användaren för att aktivera cookies. Om du sedan vill återaktivera cookies i den fördjupade läsaren måste du uttryckligen ange alternativet *cookiePolicy* till *cookiePolicy. enable* när du startar den fördjupade läsaren. I tabellen nedan beskrivs vilka inställningar som fördjupar läsaren lagrar i sin cookie när alternativet *cookiePolicy* är aktiverat.
+**Inställningarna i listan nedan är endast i informations syfte** . Den fördjupade läsaren lagrar sina inställningar eller användar inställningar i cookies. Med det här *cookiePolicy* -alternativet **inaktive ras** användningen av cookies som standard för att efterleva EU: s bestämmelser om cookie-efterlevnad. Om du vill återaktivera cookies och återställa standard funktionerna för användar inställningarna för avancerad läsare måste du se till att din webbplats eller ditt program får rätt medgivande från användaren för att aktivera cookies. Om du sedan vill återaktivera cookies i den fördjupade läsaren måste du uttryckligen ange alternativet *cookiePolicy* till *cookiePolicy. enable* när du startar den fördjupade läsaren. I tabellen nedan beskrivs vilka inställningar som fördjupar läsaren lagrar i sin cookie när alternativet *cookiePolicy* är aktiverat.
 
 #### <a name="settings-parameters"></a>Inställnings parametrar
 

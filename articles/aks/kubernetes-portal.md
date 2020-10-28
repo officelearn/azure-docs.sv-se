@@ -2,16 +2,14 @@
 title: Få åtkomst till Kubernetes-resurser från Azure Portal (för hands version)
 description: Lär dig hur du interagerar med Kubernetes-resurser för att hantera ett Azure Kubernetes service (AKS)-kluster från Azure Portal.
 services: container-service
-author: laurenhughes
 ms.topic: article
 ms.date: 09/21/2020
-ms.author: lahugh
-ms.openlocfilehash: ce51e76829c19def1c1603b1a88592d1e683ccae
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ae617615a8ba83e311a416581fb41d3cb6ca1b05
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070647"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635617"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Få åtkomst till Kubernetes-resurser från Azure Portal (för hands version)
 
@@ -62,7 +60,7 @@ Vyn Kubernetes innehåller även en YAML-redigerare. En inbyggd YAML-redigerare 
 
 :::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="Kubernetes Pod-information som visas i Azure Portal.":::
 
-När du har redigerat YAML tillämpas ändringarna genom att välja **Granska + Spara**, bekräfta ändringarna och sedan Spara igen.
+När du har redigerat YAML tillämpas ändringarna genom att välja **Granska + Spara** , bekräfta ändringarna och sedan Spara igen.
 
 >[!WARNING]
 > Att utföra direkta produktions ändringar via användar gränssnittet eller CLI rekommenderas inte. du bör utnyttja [bästa metoder för kontinuerlig integrering (CI) och kontinuerlig distribution (CD)](kubernetes-action.md). Hanterings funktionerna i Azure Portal-Kubernetes och YAML-redigeraren är utformade för att lära sig och sätta igång nya distributioner i en utvecklings-och testnings inställning.

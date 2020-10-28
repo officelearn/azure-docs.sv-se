@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 3f3dd5898518a9788a7079ab903b6f88b9f82989
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d5e20b1fc0ce32eae8dc2888fdda982f0de95d90
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371213"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636654"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory 
 
@@ -24,10 +24,10 @@ ms.locfileid: "92371213"
 
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
 
-- **Data flöde**: kör ett [data flöde](concepts-data-flow-overview.md) i en hanterad Azure Compute-miljö.  
-- **Data förflyttning**: kopiera data mellan data lager i offentliga nätverk och data lager i privata nätverk (lokalt eller virtuellt privat nätverk). Den ger stöd åt inbyggda anslutningsappar, konvertering av format, kolumnmappning och bättre och skalbar dataöverföring.
-- **Aktivitets sändning**: sändnings-och övervaknings omvandlings aktiviteter som körs på en mängd olika beräknings tjänster, till exempel Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server med mera.
-- **SSIS paketkörning**: Internt köra SQL Server Integration Services-paket (SSIS) i en hanterad Azure-beräkningsmiljö.
+- **Data flöde** : kör ett [data flöde](concepts-data-flow-overview.md) i en hanterad Azure Compute-miljö.  
+- **Data förflyttning** : kopiera data mellan data lager i offentliga nätverk och data lager i privata nätverk (lokalt eller virtuellt privat nätverk). Den ger stöd åt inbyggda anslutningsappar, konvertering av format, kolumnmappning och bättre och skalbar dataöverföring.
+- **Aktivitets sändning** : sändnings-och övervaknings omvandlings aktiviteter som körs på en mängd olika beräknings tjänster, till exempel Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server med mera.
+- **SSIS paketkörning** : Internt köra SQL Server Integration Services-paket (SSIS) i en hanterad Azure-beräkningsmiljö.
 
 I Data Factory definierar en aktivitet åtgärden som ska utföras. En länkad tjänst definierar ett datalager som mål eller en beräkningstjänst. Integration Runtime utgör bryggan mellan aktiviteten och länkade tjänster.  Det refereras av den länkade tjänsten eller aktiviteten och tillhandahåller den beräknings miljö där aktiviteten antingen körs eller skickas från. På så sätt kan aktiviteten utföras i regionen som är den närmaste möjliga till måldatalagret eller beräkningstjänsten på det bästa sättet samtidigt som den uppfyller säkerhets- och efterlevnadsbehoven.
 
@@ -113,7 +113,7 @@ Om du vill ha mer information läser du artikeln om hur du skapar och konfigurer
 
 Mer information om Azure-SSIS runtime finns i följande artiklar: 
 
-- [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL Database som värd för SSIS-katalogen. 
+- [Självstudie: distribuera SSIS-paket till Azure](./tutorial-deploy-ssis-packages-azure.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL Database som värd för SSIS-katalogen. 
 - [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln expanderar i självstudien och innehåller instruktioner om hur du använder SQL-hanterad instans och ansluter till IR till ett virtuellt nätverk. 
 - [Övervaka en Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln visar hur du hämtar information om en Azure-SSIS IR och innehåller beskrivningar av statusar i den returnerade informationen. 
 - [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort en Azure-SSIS IR. Den också visar hur du skalar ut Azure-SSIS IR genom att lägga till fler noder i IR. 
@@ -180,9 +180,9 @@ I följande diagram visas platsinställningar för Data Factory och dess Integra
 
 För kopieringsaktiviteten kräver den länkade tjänster-källa och länkade tjänster-mottagare för att definiera dataflödets riktning. Följande logik används till att bestämma vilken Integration Runtime-instans som används för att utföra kopieringen: 
 
-- **Kopiera mellan två moln data källor**: när de länkade tjänsterna källa och mottagare använder Azure IR, använder ADF den regionala Azure IR om du har angett, eller automatiskt bestämmer en plats för Azure IR om du väljer automatcha IR (standard) enligt beskrivningen i avsnittet [integration runtime location](#integration-runtime-location) .
-- **Kopiera mellan molndatalager och datakälla i privat nätverk**: om den länkade källtjänsten eller den länkade mottagartjänsten pekar på en IR med egen värd körs kopieringsaktiviteten på den Integration Runtime med egen värd.
-- **Kopiera mellan två data källor i privat nätverk**: både den länkade källan och mottagar tjänsten måste peka på samma instans av integration Runtime och att integration runtime används för att köra kopierings aktiviteten.
+- **Kopiera mellan två moln data källor** : när de länkade tjänsterna källa och mottagare använder Azure IR, använder ADF den regionala Azure IR om du har angett, eller automatiskt bestämmer en plats för Azure IR om du väljer automatcha IR (standard) enligt beskrivningen i avsnittet [integration runtime location](#integration-runtime-location) .
+- **Kopiera mellan molndatalager och datakälla i privat nätverk** : om den länkade källtjänsten eller den länkade mottagartjänsten pekar på en IR med egen värd körs kopieringsaktiviteten på den Integration Runtime med egen värd.
+- **Kopiera mellan två data källor i privat nätverk** : både den länkade källan och mottagar tjänsten måste peka på samma instans av integration Runtime och att integration runtime används för att köra kopierings aktiviteten.
 
 ### <a name="lookup-and-getmetadata-activity"></a>Lookup och GetMetadata-aktivitet
 
@@ -202,4 +202,4 @@ Se följande artiklar:
 
 - [Skapa Azure integration runtime](create-azure-integration-runtime.md)
 - [Skapa Integration Runtime med egen värd](create-self-hosted-integration-runtime.md)
-- [Skapa en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln expanderar i självstudien och innehåller instruktioner om hur du använder SQL-hanterad instans och ansluter till IR till ett virtuellt nätverk. 
+- [Skapa en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln expanderar i självstudien och innehåller instruktioner om hur du använder SQL-hanterad instans och ansluter till IR till ett virtuellt nätverk.

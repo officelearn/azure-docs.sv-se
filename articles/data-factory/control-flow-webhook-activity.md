@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417886"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634988"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Webhook-aktivitet i Azure Data Factory
 
@@ -60,10 +60,10 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 **metodsignatur** | REST API metod för mål slut punkten. | Sträng. Den typ som stöds är "POST". | Ja |
 **adresser** | Mål slut punkten och sökvägen. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Ja |
 **sidhuvud** | Huvuden som skickas till begäran. Här är ett exempel som anger språk och typ på en begäran: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Ja. En `Content-Type` rubrik som `"headers":{ "Content-Type":"application/json"}` är obligatorisk. |
-**brödtext** | Representerar den nytto last som skickas till slut punkten. | Giltigt JSON eller ett uttryck med **resultType** -värdet för JSON. Se [nytto Last schema för begäran](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) om schemat för nytto lasten för begäran. | Ja |
-**anspråksautentisering** | Autentiseringsmetoden som används för att anropa slut punkten. De typer som stöds är "grundläggande" och "ClientCertificate". Mer information finns i [Autentisering](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Om autentisering inte krävs utelämnar du den här egenskapen. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Inga |
-**standardvärde** | Hur länge aktiviteten väntar på att återanropet som anges av **callBackUri** ska anropas. Standardvärdet är 10 minuter ("00:10:00"). Värdena har formatet TimeSpan *d*. *HH*:*mm*:*SS*. | Sträng | Inga |
-**Rapportera status vid motringning** | Låter en användare rapportera den misslyckade statusen för en webhook-aktivitet. | Boolesk | Inga |
+**brödtext** | Representerar den nytto last som skickas till slut punkten. | Giltigt JSON eller ett uttryck med **resultType** -värdet för JSON. Se [nytto Last schema för begäran](./control-flow-web-activity.md#request-payload-schema) om schemat för nytto lasten för begäran. | Ja |
+**anspråksautentisering** | Autentiseringsmetoden som används för att anropa slut punkten. De typer som stöds är "grundläggande" och "ClientCertificate". Mer information finns i [Autentisering](./control-flow-web-activity.md#authentication). Om autentisering inte krävs utelämnar du den här egenskapen. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Nej |
+**standardvärde** | Hur länge aktiviteten väntar på att återanropet som anges av **callBackUri** ska anropas. Standardvärdet är 10 minuter ("00:10:00"). Värdena har formatet TimeSpan *d* . *HH* : *mm* : *SS* . | Sträng | Nej |
+**Rapportera status vid motringning** | Låter en användare rapportera den misslyckade statusen för en webhook-aktivitet. | Boolesk | Nej |
 
 ## <a name="authentication"></a>Autentisering
 
@@ -99,7 +99,7 @@ Ange det Base64-kodade innehållet i en PFX-fil och ett lösen ord.
 
 ### <a name="managed-identity"></a>Hanterad identitet
 
-Använd Data Factory: s hanterade identitet för att ange den resurs-URI som åtkomsttoken begärs för. Använd för att anropa Azure Resource Management-API: et `https://management.azure.com/` . Mer information om hur hanterade identiteter fungerar finns i [Översikt över hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/overview).
+Använd Data Factory: s hanterade identitet för att ange den resurs-URI som åtkomsttoken begärs för. Använd för att anropa Azure Resource Management-API: et `https://management.azure.com/` . Mer information om hur hanterade identiteter fungerar finns i [Översikt över hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -119,7 +119,7 @@ Webhook-aktiviteten Miss lyckas när anropet till den anpassade slut punkten Mis
 
 För varje REST API-anrop har klienten nått tids gränsen om slut punkten inte svarar inom en minut. Det här är en standard metod för HTTP-användning. För att åtgärda det här problemet implementerar du ett 202-mönster. I det aktuella fallet returnerar slut punkten 202 (accepterad) och klient avsökningarna.
 
-Tids gränsen på en minut på begäran har inget att göra med aktivitetens tids gräns. Den senare används för att vänta på återanropet som anges av **callbackUri**.
+Tids gränsen på en minut på begäran har inget att göra med aktivitetens tids gräns. Den senare används för att vänta på återanropet som anges av **callbackUri** .
 
 Texten som skickas tillbaka till återanrops-URI: n måste vara giltig JSON. Ange `Content-Type` sidhuvudet till `application/json` .
 

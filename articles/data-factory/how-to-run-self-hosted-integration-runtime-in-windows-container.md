@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: d6f292ff89a70de90e6b86f19f73de26963d997f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7035da173102e59aec9c643381bad701d6facf38
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927583"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634546"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Köra Self-Hosted Integration Runtime i Windows-behållare
 
@@ -26,7 +26,7 @@ Den här artikeln beskriver hur du kör Self-Hosted Integration Runtime i Window
 Azure Data Factory levererar stöd för Self-Hosted Integration Runtime officiella Windows-behållare. Du kan hämta Docker build-källkoden och kombinera processen för att skapa och köra den i din egen kontinuerliga leverans pipeline. 
 
 ## <a name="prerequisites"></a>Förutsättningar 
-- [Krav för Windows-behållare](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/system-requirements)
+- [Krav för Windows-behållare](/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker version 2,3 och senare 
 - Self-Hosted Integration Runtime version 4.11.7512.1 och senare 
 ## <a name="get-started"></a>Kom igång 
@@ -61,7 +61,5 @@ För närvarande stöder vi inte följande funktioner när du kör Self-Hosted I
 - Automatisk uppdatering 
 
 ### <a name="next-steps"></a>Nästa steg
-- Granska [integration runtime-koncept i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
-- Lär dig hur du [skapar en integration runtime med egen värd i Azure Portal](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
-
-
+- Granska [integration runtime-koncept i Azure Data Factory](./concepts-integration-runtime.md).
+- Lär dig hur du [skapar en integration runtime med egen värd i Azure Portal](./create-self-hosted-integration-runtime.md).

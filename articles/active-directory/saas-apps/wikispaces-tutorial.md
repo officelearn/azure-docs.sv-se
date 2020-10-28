@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: f48e9f039917fbd7f4437b8a0d3b81e65a0f9b62
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f62e746a189a14838227a40be3bca9d05553a642
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520293"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635804"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Självstudie: Azure Active Directory integrering med Wikispaces
 
@@ -49,11 +49,11 @@ Om du vill konfigurera integreringen av Wikispaces i Azure AD måste du lägga t
 
 **Utför följande steg för att lägga till Wikispaces från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory** -ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Om du vill konfigurera integreringen av Wikispaces i Azure AD måste du lägga t
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök skriver du **Wikispaces**, väljer **Wikispaces** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **Wikispaces** , väljer **Wikispaces** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
      ![Wikispaces i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Wikispaces baserat på en test användare som kallas **Britta Simon**.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Wikispaces baserat på en test användare som kallas **Britta Simon** .
 För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Wikispaces upprättas.
 
 Om du vill konfigurera och testa enkel inloggning med Wikispaces i Azure AD måste du slutföra följande Bygg stenar:
@@ -85,7 +85,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Utför följande steg för att konfigurera enkel inloggning med Wikispaces i Azure AD:
 
-1. Välj **enkel inloggning**på sidan **Wikispaces** Application Integration i [Azure Portal](https://portal.azure.com/).
+1. Välj **enkel inloggning** på sidan **Wikispaces** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -93,7 +93,7 @@ Utför följande steg för att konfigurera enkel inloggning med Wikispaces i Azu
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration** .
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -130,7 +130,7 @@ Om du vill konfigurera enkel inloggning på **Wikispaces** sida måste du skicka
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory** , välj **Users** och sedan **Alla användare** .
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
@@ -142,31 +142,31 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon** .
   
     b. I fältet **användar namn** brittasimon@yourcompanydomain.extension . Till exempel BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Klicka på **Skapa**.
+    d. Klicka på **Skapa** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Wikispaces.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Wikispaces**.
+1. I Azure Portal väljer du **företags program** , väljer **alla program** och väljer sedan **Wikispaces** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **Wikispaces**.
+2. I listan program väljer du **Wikispaces** .
 
     ![Wikispaces-länken i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper** .
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning** .
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
@@ -174,7 +174,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela** .
 
 ### <a name="create-wikispaces-test-user"></a>Skapa Wikispaces test användare
 
@@ -184,21 +184,21 @@ För att Azure AD-användare ska kunna logga in på Wikispaces måste de tillhan
 
 1. Logga in på din **Wikispaces** -företags webbplats som administratör.
 
-2. Gå till **medlemmar**.
+2. Gå till **medlemmar** .
    
     ![Medlemmar](./media/wikispaces-tutorial/ic787193.png "Medlemmar")
 
-3. Klicka på **Bjud in personer**.
+3. Klicka på **Bjud in personer** .
    
-    ![Bjud in personer](./media/wikispaces-tutorial/ic787194.png "Bjud in personer")
+    ![Skärm bild som visar sidan medlemmar där du kan välja bjuda in personer.](./media/wikispaces-tutorial/ic787194.png "Bjud in personer")
 
 4. I avsnittet **Bjud in personer** utför du följande steg:
    
-    ![Bjud in personer](./media/wikispaces-tutorial/ic787208.png "Bjud in personer")
+    ![Skärm bild som visar avsnittet Bjud in personer där du kan ange användar data.](./media/wikispaces-tutorial/ic787208.png "Bjud in personer")
    
     a. Ange **användar namn eller e-postadress** för ett giltigt Azure AD-konto som du vill etablera i de relaterade text rutorna.
    
-    b. Klicka på **Skicka**.  
+    b. Klicka på **Skicka** .  
       
     > [!NOTE]
     > Azure Active Directory konto innehavaren får ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktivt.

@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.author: metan
+ms.author: metang
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ac23ad66cadc553095ff869b665a6bba2fba6f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac7bca305b0c23cceb00f97f426b3f68fbea91b3
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262288"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636450"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Självstudie: starta den fördjupade läsaren (Node.js)
 
-I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett Node.js webb program som startar den fördjupade läsaren. I den här guiden får du lära dig att:
+I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett Node.js webb program som startar den fördjupade läsaren. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa en Node.js-webbapp med Express
@@ -30,9 +30,9 @@ I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren �
 > * Ange språket för gränssnittet för avancerad läsare
 > * Starta den fördjupade läsaren med matematik innehåll
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
 * [Node.js](https://nodejs.org/) och [garn](https://yarnpkg.com)
@@ -69,7 +69,7 @@ ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-När du har dessa värden skapar du en ny fil med namnet _. kuvert_och klistrar in följande kod i den och anger dina egna egenskaps värden ovan. Lägg inte till citat tecken eller tecknen "{" och "}".
+När du har dessa värden skapar du en ny fil med namnet _. kuvert_ och klistrar in följande kod i den och anger dina egna egenskaps värden ovan. Lägg inte till citat tecken eller tecknen "{" och "}".
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -133,14 +133,14 @@ module.exports = router;
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Starta den fördjupade läsaren med exempel innehåll
 
-1. Öppna _views\layout.pug_och Lägg till följande kod under `head` taggen innan `body` taggen. Dessa `script` taggar läser in SDK-och jQuery för [Avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) .
+1. Öppna _views\layout.pug_ och Lägg till följande kod under `head` taggen innan `body` taggen. Dessa `script` taggar läser in SDK-och jQuery för [Avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) .
 
     ```pug
     script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
-2. Öppna _views\index.pug_och ersätt innehållet med följande kod. Den här koden fyller sidan med visst exempel innehåll och lägger till en knapp som startar den fördjupade läsaren.
+2. Öppna _views\index.pug_ och ersätt innehållet med följande kod. Den här koden fyller sidan med visst exempel innehåll och lägger till en knapp som startar den fördjupade läsaren.
 
     ```pug
     extends layout
@@ -211,13 +211,13 @@ Den fördjupade läsaren har stöd för många olika språk. Du kan ange språke
     });
     ```
 
-3. Navigera till _http://localhost:3000_ igen. Du bör se den spanska texten på sidan och när du klickar på **Avancerad läsare**visas den även i den fördjupade läsaren.
+3. Navigera till _http://localhost:3000_ igen. Du bör se den spanska texten på sidan och när du klickar på **Avancerad läsare** visas den även i den fördjupade läsaren.
 
 ## <a name="specify-the-language-of-the-immersive-reader-interface"></a>Ange språket för gränssnittet för avancerad läsare
 
 Som standard matchar språket i gränssnittet för avancerad läsare webbläsarens språk inställningar. Du kan också ange språket för gränssnittet för avancerad läsare med följande kod.
 
-1. I _views\index.pug_ersätter du anropet till `ImmersiveReader.launchAsync(token, subdomain, content)` med koden nedan.
+1. I _views\index.pug_ ersätter du anropet till `ImmersiveReader.launchAsync(token, subdomain, content)` med koden nedan.
 
     ```javascript
     const options = {

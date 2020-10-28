@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 34265552122c1f8d1bcbbcfe95948683a5750a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531011"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788092"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd python och AI för att generera sökbart innehåll från Azure-blobbar
 
@@ -32,7 +32,7 @@ Den här självstudien använder python och [Sök REST-API: er](/rest/api/search
 
 Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Anaconda 3,7](https://www.anaconda.com/distribution/#download-section)
@@ -45,7 +45,7 @@ Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt kont
 
 1. Öppna den här [OneDrive-mappen](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) och klicka på **Ladda ned** i det övre vänstra hörnet för att kopiera filerna till datorn. 
 
-1. Högerklicka på zip-filen och välj **extrahera alla**. Det finns 14 filer av olika typer. Du använder 7 för den här övningen.
+1. Högerklicka på zip-filen och välj **extrahera alla** . Det finns 14 filer av olika typer. Du använder 7 för den här övningen.
 
 ## <a name="1---create-services"></a>1 – skapa tjänster
 
@@ -55,7 +55,7 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 ### <a name="start-with-azure-storage"></a>Börja med Azure Storage
 
-1. [Logga](https://portal.azure.com/) in på Azure Portal och klicka på **+ skapa resurs**.
+1. [Logga](https://portal.azure.com/) in på Azure Portal och klicka på **+ skapa resurs** .
 
 1. Sök efter *lagrings konto* och välj Microsofts erbjudande för lagrings konto.
 
@@ -63,13 +63,13 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 1. På fliken grundläggande måste följande objekt vara obligatoriska. Acceptera standardvärdena för allt annat.
 
-   + **Resursgrupp**. Välj en befintlig eller skapa en ny, men Använd samma grupp för alla tjänster så att du kan hantera dem tillsammans.
+   + **Resursgrupp** . Välj en befintlig eller skapa en ny, men Använd samma grupp för alla tjänster så att du kan hantera dem tillsammans.
 
-   + **Namn på lagringskonto**. Om du tror att du kan ha flera resurser av samma typ, använder du namnet på disambiguate efter typ och region, till exempel *blobstoragewestus*. 
+   + **Namn på lagringskonto** . Om du tror att du kan ha flera resurser av samma typ, använder du namnet på disambiguate efter typ och region, till exempel *blobstoragewestus* . 
 
-   + **Plats**. Om möjligt väljer du samma plats som används för Azure Kognitiv sökning och Cognitive Services. Med en enda plats annulleras bandbredds avgifter.
+   + **Plats** . Om möjligt väljer du samma plats som används för Azure Kognitiv sökning och Cognitive Services. Med en enda plats annulleras bandbredds avgifter.
 
-   + **Typ av konto**. Välj standard, *StorageV2 (generell användning v2)*.
+   + **Typ av konto** . Välj standard, *StorageV2 (generell användning v2)* .
 
 1. Klicka på **Granska + skapa** för att skapa tjänsten.
 
@@ -77,7 +77,7 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 1. Klicka på **blobs** -tjänsten.
 
-1. Klicka på **+ container** för att skapa en behållare och ge den namnet *kugg hjuls-search-demo*.
+1. Klicka på **+ container** för att skapa en behållare och ge den namnet *kugg hjuls-search-demo* .
 
 1. Välj *kugg hjuls-search-demo* och klicka sedan på **Ladda upp** för att öppna mappen där du sparade nedladdnings filerna. Välj alla icke-bildfiler. Du bör ha 7 filer. Klicka på **OK** för att ladda upp.
 
@@ -113,11 +113,11 @@ Som med Azure Blob Storage kan du ägna en stund åt att samla in åtkomst nycke
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta namnet på din Sök tjänst på sidan **Översikt över** Sök tjänsten. Du kan bekräfta tjänst namnet genom att granska slut punkts-URL: en. Om slut punkts-URL: en var `https://mydemo.search.windows.net` , är tjänstens namn `mydemo` .
 
-2. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. I **Inställningar**  >  **nycklar** , hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
    Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
-   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Skapa lagrings konto" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Skapa lagrings konto" border="false":::
 
 Alla begär Anden kräver en API-nyckel i rubriken för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende per begäran mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -194,7 +194,7 @@ På sidan för Sök tjänstens instrument panel i Azure Portal kontrollerar du a
 
 ### <a name="step-2-create-a-skillset"></a>Steg 2: skapa en färdigheter
 
-I det här steget ska du definiera en uppsättning med anriknings steg som ska tillämpas på dina data. Du kallar varje berikande steg för en *kunskap*, och uppsättningen med berikande steg för en *kunskapsuppsättning*. I den här självstudien används [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) för färdigheter:
+I det här steget ska du definiera en uppsättning med anriknings steg som ska tillämpas på dina data. Du kallar varje berikande steg för en *kunskap* , och uppsättningen med berikande steg för en *kunskapsuppsättning* . I den här självstudien används [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) för färdigheter:
 
 + [Enhets igenkänning](cognitive-search-skill-entity-recognition.md) för extrahering av namn på organisationer från innehåll i BLOB-behållaren.
 
@@ -545,7 +545,7 @@ Slutligen har du lärt dig hur du testar resultaten och återställer systemet f
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 

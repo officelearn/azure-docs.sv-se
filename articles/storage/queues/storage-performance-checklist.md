@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9aadf7d9cd27763cafb878d0b35d13a140a304
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f6e10d3e5b33a07c223a3913bba0b220df2ff64
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89008411"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787388"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Check lista för prestanda och skalbarhet för Queue Storage
 
@@ -52,7 +52,7 @@ Den här artikeln ordnar beprövade metoder för prestanda i en check lista som 
 
 Om ditt program närmar sig eller överskrider något av skalbarhets målen kan det uppstå ökad transaktions fördröjning eller begränsning. När Azure Storage begränsar ditt program börjar tjänsten returnera 503 (servern är upptagen) eller 500 (åtgärds tids gräns) fel koder. Att undvika dessa fel genom att ligga kvar i gränserna för skalbarhets målen är en viktig del i att förbättra programmets prestanda.
 
-Mer information om skalbarhets mål för Kötjänst finns i [Azure Storage skalbarhets-och prestanda mål](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Mer information om skalbarhets mål för Kötjänst finns i [Azure Storage skalbarhets-och prestanda mål](./scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Maximalt antal lagrings konton
 
@@ -128,7 +128,7 @@ Ange anslutnings gränsen innan du öppnar några anslutningar.
 
 Information om andra programmeringsspråk finns i språk dokumentationen för att fastställa hur du ställer in anslutnings gränsen.  
 
-Mer information finns i blogg inlägget [webb tjänster: samtidiga anslutningar](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Mer information finns i blogg inlägget [webb tjänster: samtidiga anslutningar](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Öka det minsta antalet trådar
 
@@ -146,7 +146,7 @@ Parallellitet kan vara bra för prestanda, var noga med att använda obegränsad
 
 ## <a name="client-libraries-and-tools"></a>Klient bibliotek och verktyg
 
-Använd alltid de senaste klient biblioteken och verktygen från Microsoft för bästa prestanda. Azure Storage klient bibliotek är tillgängliga för flera olika språk. Azure Storage stöder också PowerShell och Azure CLI. Microsoft utvecklar aktivt dessa klient bibliotek och verktyg med prestanda i åtanke, håller dem uppdaterade med de senaste service versionerna och ser till att de hanterar många av de beprövade prestanda metoderna internt. Mer information finns i [referens dokumentationen för Azure Storage](/azure/storage/#reference).
+Använd alltid de senaste klient biblioteken och verktygen från Microsoft för bästa prestanda. Azure Storage klient bibliotek är tillgängliga för flera olika språk. Azure Storage stöder också PowerShell och Azure CLI. Microsoft utvecklar aktivt dessa klient bibliotek och verktyg med prestanda i åtanke, håller dem uppdaterade med de senaste service versionerna och ser till att de hanterar många av de beprövade prestanda metoderna internt. Mer information finns i [referens dokumentationen för Azure Storage](./reference.md).
 
 ## <a name="handle-service-errors"></a>Hantera tjänst fel
 

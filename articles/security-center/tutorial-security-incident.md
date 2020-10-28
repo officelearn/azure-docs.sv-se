@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359007"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787167"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Självstudie: prioritering, undersöka och reagera på säkerhets aviseringar
 Security Center kontinuerligt analyserar dina hybrid moln arbets belastningar med avancerad analys och hot information för att varna dig om potentiellt skadliga aktiviteter i dina moln resurser. Du kan också integrera aviseringar från andra säkerhets produkter och tjänster i Security Center. När en avisering har Aktiver ATS krävs Swift-åtgärd för att undersöka och åtgärda potentiella säkerhets problem. 
@@ -31,9 +31,9 @@ I den här självstudien får du lära dig hur man:
 > * Undersök en säkerhets avisering för att fastställa rotor saken
 > * Reagera på en säkerhets avisering och minimera den rotor saken
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill gå igenom de funktioner som beskrivs i den här självstudien måste du ha Azure Defender aktiverat. Du kan testa Azure Defender utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabb start [Kom igång med Security Center](security-center-get-started.md) hjälper dig att uppgradera.
 
 
@@ -49,7 +49,7 @@ Använd den här sidan om du vill granska aktiva säkerhets aviseringar i din mi
 När du sorterar säkerhets aviseringar prioriterar du aviseringar baserat på aviseringens allvarlighets grad genom att adressera aviseringar med högre allvarlighets grad först. Vill du veta mer om aviserings allvarlighets grad i [hur är aviseringar klassificerade?](security-center-alerts-overview.md#how-are-alerts-classified).
 
 > [!TIP]
-> Du kan ansluta Azure Security Center till de populäraste SIEM-lösningarna, inklusive Azure Sentinel och använda aviseringar från det verktyg du väljer. Läs mer i [Exportera aviseringar till en Siem](continuous-export.md).
+> Du kan ansluta Azure Security Center till de populäraste SIEM-lösningarna, inklusive Azure Sentinel och använda aviseringar från det verktyg du väljer. Läs mer i [Stream-aviseringar till en Siem, Soar eller IT Service Management-lösning](export-to-siem.md).
 
 
 ## <a name="investigate-a-security-alert"></a>Undersök en säkerhets avisering
@@ -87,14 +87,14 @@ När du har undersökt en avisering och förstår dess omfattning kan du svara p
 1.  Använd avsnittet **Utlös automatiserat svar** för att utlösa en Logic app med automatiserade svars steg.
 1.  Om den identifierade aktiviteten *inte är* skadlig kan du ignorera framtida aviseringar av den här typen med hjälp av avsnittet **utelämna liknande aviseringar** .
 
-1.  När du har slutfört undersökningen i aviseringen och svarat på lämpligt sätt ändrar du statusen till **avstängt**.
+1.  När du har slutfört undersökningen i aviseringen och svarat på lämpligt sätt ändrar du statusen till **avstängt** .
 
     :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Sidan säkerhets aviseringar":::
 
     Aviseringen tas bort från huvud aviserings listan. Du kan använda filtret från sidan aviserings lista om du vill visa alla aviseringar **med statusen** avvisad.
 
 1.  Vi rekommenderar att du ger feedback om aviseringen till Microsoft:
-    1. Markera aviseringen som **användbar** eller **inte användbar**.
+    1. Markera aviseringen som **användbar** eller **inte användbar** .
     1. Välj en orsak och Lägg till en kommentar.
 
         :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Sidan säkerhets aviseringar":::
@@ -108,11 +108,11 @@ De andra snabbstarterna och självstudierna i den här samlingen bygger på den 
 
 Om du inte planerar att fortsätta eller vill inaktivera någon av dessa funktioner:
 
-1. Gå tillbaka till Security Center huvud menyn och välj **priser och inställningar**.
+1. Gå tillbaka till Security Center huvud menyn och välj **priser och inställningar** .
 1. Välj relevant prenumeration.
-1. Om du vill nedgradera väljer du **Azure Defender av**.
-1. Om du vill inaktivera automatisk etablering öppnar du sidan **data insamling** och ställer in **Automatisk etablering** till **av**.
-4. Välj **Spara**.
+1. Om du vill nedgradera väljer du **Azure Defender av** .
+1. Om du vill inaktivera automatisk etablering öppnar du sidan **data insamling** och ställer in **Automatisk etablering** till **av** .
+4. Välj **Spara** .
 
 >[!NOTE]
 > Om du inaktiverar automatisk etablering tas inte Log Analytics agenten bort från virtuella Azure-datorer som redan har agenten. Inaktivering av automatisk etablering begränsar säkerhetsövervakningen för dina resurser.

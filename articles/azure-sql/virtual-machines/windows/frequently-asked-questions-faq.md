@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567000"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786504"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Vanliga frågor och svar om SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > SQL Server på virtuella Azure-datorer, inklusive de som distribueras från anpassade generaliserade avbildningar, bör [registreras med den virtuella SQL-resurs leverantören](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) för att uppfylla kraven för efterlevnad och för att använda valfria funktioner som automatiserad uppdatering och automatisk säkerhets kopiering. Med resurs leverantören kan du också [Ange licens typ](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) för varje SQL Server VM.
+   > SQL Server på virtuella Azure-datorer, inklusive de som distribueras från anpassade generaliserade avbildningar, bör [registreras med den virtuella SQL-resurs leverantören](./sql-vm-resource-provider-register.md?tabs=azure-cli%252cbash) för att uppfylla kraven för efterlevnad och för att använda valfria funktioner som automatiserad uppdatering och automatisk säkerhets kopiering. Med resurs leverantören kan du också [Ange licens typ](./licensing-model-azure-hybrid-benefit-ahb-change.md?tabs=azure-portal) för varje SQL Server VM.
 
 1. **Kan jag använda min egen virtuella hård disk för att distribuera ett SQL Server VM?**
 
@@ -145,11 +145,11 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
  
    Ja, så länge som SQL Server VM distribuerades i det offentliga molnet med Resource Manager-modellen och inte den klassiska modellen. Alla andra kunder kan registrera sig för den nya SQL Server VM resurs leverantören. Men endast kunder med [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) -förmånen kan använda sin egen licens genom att aktivera [Azure Hybrid-förmån (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) på en SQL Server VM. 
 
-1. **Vad händer med resurs leverantörs resursen (_Microsoft. SqlVirtualMachine_) om den virtuella dator resursen flyttas eller tas bort?** 
+1. **Vad händer med resurs leverantörs resursen ( _Microsoft. SqlVirtualMachine_ ) om den virtuella dator resursen flyttas eller tas bort?** 
 
    När resursen Microsoft. Compute/VirtualMachine släpps eller flyttas, meddelas den associerade Microsoft. SqlVirtualMachine-resursen för att asynkront replikera åtgärden.
 
-1. **Vad händer med den virtuella datorn om resurs leverantörs resursen (_Microsoft. SqlVirtualMachine_) tas bort?**
+1. **Vad händer med den virtuella datorn om resurs leverantörs resursen ( _Microsoft. SqlVirtualMachine_ ) tas bort?**
 
     Resursen Microsoft. Compute/VirtualMachine påverkas inte när resursen Microsoft. SqlVirtualMachine släpps. Licensierings ändringarna kommer dock att återställas till den ursprungliga avbildnings källan. 
 
@@ -169,13 +169,13 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Kan jag avinstallera standardinstansen av SQL Server?**
 
-   Ja, men det finns vissa överväganden. Först kan SQL Server-kopplad fakturering fortsätta att inträffa beroende på licens modellen för den virtuella datorn. För det andra, enligt vad som anges i föregående svar, finns det funktioner som förlitar sig på [SQL Server IaaS agent-tillägg](sql-server-iaas-agent-extension-automate-management.md). Om du avinstallerar standard instansen utan att ta bort IaaS-tillägget, fortsätter tillägget att söka efter standard instansen och kan generera händelse logg fel. Felen är från följande två källor: **Microsoft SQL Server hantering av autentiseringsuppgifter** och **Microsoft SQL Server IaaS-agenten**. Ett av felen kan vara något av liknar följande:
+   Ja, men det finns vissa överväganden. Först kan SQL Server-kopplad fakturering fortsätta att inträffa beroende på licens modellen för den virtuella datorn. För det andra, enligt vad som anges i föregående svar, finns det funktioner som förlitar sig på [SQL Server IaaS agent-tillägg](sql-server-iaas-agent-extension-automate-management.md). Om du avinstallerar standard instansen utan att ta bort IaaS-tillägget, fortsätter tillägget att söka efter standard instansen och kan generera händelse logg fel. Felen är från följande två källor: **Microsoft SQL Server hantering av autentiseringsuppgifter** och **Microsoft SQL Server IaaS-agenten** . Ett av felen kan vara något av liknar följande:
 
       Ett nätverksrelaterat eller instansspecifikt fel uppstod när en anslutning upprättades till SQL Server. Servern hittades inte eller var inte tillgänglig.
 
    Om du väljer att avinstallera standard instansen avinstallerar du även [SQL Server IaaS agent Extension](sql-server-iaas-agent-extension-automate-management.md) . 
 
-1. **Kan jag använda en namngiven instans av SQL Server med IaaS-tillägget**?
+1. **Kan jag använda en namngiven instans av SQL Server med IaaS-tillägget** ?
    
    Ja, om den namngivna instansen är den enda instansen på SQL Server, och om den ursprungliga standard instansen [avinstallerades korrekt](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). Om det inte finns någon standard instans och det finns flera namngivna instanser på en enda SQL Server VM, kommer SQL Server IaaS agent-tillägget inte att installeras. 
 
@@ -210,7 +210,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Kan jag uppgradera min SQL Server 2008/2008 R2-instans när den har registrerats med SQL Server VM Resource Provider?**
 
-   Ja. Du kan använda installations medier för att uppgradera versionen och versionen av SQL Server och sedan kan du uppgradera ditt [SQL IaaS-tillägg](sql-vm-resource-provider-register.md#management-modes)) från _ingen agent_ till _full_. På så sätt får du till gång till alla fördelar med SQL IaaS-tillägget, till exempel portal hantering, automatiserade säkerhets kopieringar och automatiserad uppdatering. 
+   Ja. Du kan använda installations medier för att uppgradera versionen och versionen av SQL Server och sedan kan du uppgradera ditt [SQL IaaS-tillägg](sql-vm-resource-provider-register.md#management-modes)) från _ingen agent_ till _full_ . På så sätt får du till gång till alla fördelar med SQL IaaS-tillägget, till exempel portal hantering, automatiserade säkerhets kopieringar och automatiserad uppdatering. 
 
 1. **Hur kan jag få kostnadsfria utökade säkerhetsuppdateringar för mina SQL Server 2008- och SQL Server 2008 R2-instanser vars support har nått slutet?**
 
@@ -241,7 +241,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 ## <a name="resources"></a>Resurser
 
-**Virtuella Windows-datorer**:
+**Virtuella Windows-datorer** :
 
 * [Översikt över SQL Server på en virtuell Windows-dator](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Etablera SQL Server på en virtuell Windows-dator](create-sql-vm-portal.md)
@@ -250,9 +250,9 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 * [Metod tips för prestanda för SQL Server på Azure Virtual Machines](performance-guidelines-best-practices.md)
 * [Program mönster och utvecklings strategier för SQL Server på Azure Virtual Machines](application-patterns-development-strategies.md)
 
-**Virtuella Linux-datorer**:
+**Virtuella Linux-datorer** :
 
 * [Översikt över SQL Server på en virtuell Linux-dator](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Etablera SQL Server på en virtuell Linux-dator](../linux/sql-vm-create-portal-quickstart.md)
 * [Vanliga frågor och svar (Linux)](../linux/frequently-asked-questions-faq.md)
-* [SQL Server på Linux dokumentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server på Linux dokumentation](/sql/linux/sql-server-linux-overview)

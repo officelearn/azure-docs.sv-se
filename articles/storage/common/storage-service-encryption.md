@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f56da93d0ea0f346e73b34990d8ec4c222bb8813
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488579"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785790"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage-kryptering av vilande data
 
@@ -38,7 +38,7 @@ Information om kryptering och nyckel hantering för Azure Managed disks finns i 
 
 Data i ett nytt lagrings konto krypteras med Microsoft-hanterade nycklar som standard. Du kan fortsätta att förlita dig på Microsoft-hanterade nycklar för kryptering av dina data, eller så kan du hantera kryptering med dina egna nycklar. Om du väljer att hantera kryptering med dina egna nycklar har du två alternativ. Du kan använda båda typerna av nyckel hantering eller båda:
 
-- Du kan ange en *kundhanterad nyckel* som ska användas för att kryptera och dekryptera data i Blob Storage och i Azure Files. <sup>1, 2</sup> Kundhanterade nycklar måste lagras i Azure Key Vault eller Azure Key Vault-hanterad maskin varu säkerhets modell (HSM) (för hands version). Mer information om Kundhanterade nycklar finns i [använda Kundhanterade nycklar för Azure Storage kryptering](encryption-customer-managed-keys.md).
+- Du kan ange en *kundhanterad nyckel* som ska användas för att kryptera och dekryptera data i Blob Storage och i Azure Files. <sup>1, 2</sup> Kundhanterade nycklar måste lagras i Azure Key Vault eller Azure Key Vault-hanterad maskin varu säkerhets modell (HSM) (för hands version). Mer information om Kundhanterade nycklar finns i [använda Kundhanterade nycklar för Azure Storage kryptering](./customer-managed-keys-overview.md).
 - Du kan ange en *anpassad nyckel* för Blob Storage-åtgärder. En klient som gör en Läs-eller skrivbegäran mot Blob Storage kan inkludera en krypterings nyckel på begäran om detaljerad kontroll över hur BLOB-data krypteras och dekrypteras. Mer information om kundspecifika nycklar finns i [Ange en krypterings nyckel på en begäran till Blob Storage](../blobs/encryption-customer-provided-keys.md).
 
 I följande tabell jämförs nyckel hanterings alternativ för Azure Storage kryptering.
@@ -101,8 +101,8 @@ När en krypterings omfattning är inaktive rad debiteras du inte längre. Inakt
 
 Om krypterings omfattningen är skyddad med Kundhanterade nycklar för Azure Key Vault kan du också ta bort den associerade nyckeln i nyckel valvet för att inaktivera krypterings omfånget. Tänk på att Kundhanterade nycklar i Azure Key Vault skyddas av mjuk borttagnings-och tömnings skydd, och en borttagen nyckel omfattas av det beteende som definierats för dessa egenskaper. Mer information finns i något av följande avsnitt i Azure Key Vault-dokumentationen:
 
-- [Använda mjuk borttagning med PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [Använda mjuk borttagning med CLI](../../key-vault/general/soft-delete-cli.md)
+- [Använda mjuk borttagning med PowerShell](../../key-vault/general/key-vault-recovery.md)
+- [Använda mjuk borttagning med CLI](../../key-vault/general/key-vault-recovery.md)
 
 > [!NOTE]
 > Det går inte att ta bort en krypterings omfattning.

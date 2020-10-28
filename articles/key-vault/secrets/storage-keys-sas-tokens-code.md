@@ -9,12 +9,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6072c71fa675bd203e94f3f42814a1183b12ae8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d2d28a525f38aad3f48e439992a23abde0b7718
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597977"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786079"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Skapa SAS-definition och hämta token för signaturer för delad åtkomst i kod
 
@@ -23,7 +23,7 @@ Du kan hantera ditt lagrings konto med SAS-token (signatur för delad åtkomst) 
 > [!NOTE]
 > Vi rekommenderar att du använder [rollbaserad Access Control (RBAC)](../../storage/common/storage-auth-aad.md) för att skydda ditt lagrings konto för överlägsen säkerhet och enkel användning över autentisering med delad nyckel.
 
-Den här artikeln innehåller exempel på .NET-kod som skapar en SAS-definition och hämtar SAS-token. Se vårt [ShareLink](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/) -exempel för fullständig information, inklusive den genererade klienten för Key Vault hanterade lagrings konton. Information om hur du skapar och lagrar SAS-token finns i [Hantera lagrings konto nycklar med Key Vault och Azure CLI](overview-storage-keys.md) eller [Hantera lagrings konto nycklar med Key Vault och Azure PowerShell](overview-storage-keys-powershell.md).
+Den här artikeln innehåller exempel på .NET-kod som skapar en SAS-definition och hämtar SAS-token. Se vårt [ShareLink](/samples/azure/azure-sdk-for-net/share-link/) -exempel för fullständig information, inklusive den genererade klienten för Key Vault hanterade lagrings konton. Information om hur du skapar och lagrar SAS-token finns i [Hantera lagrings konto nycklar med Key Vault och Azure CLI](overview-storage-keys.md) eller [Hantera lagrings konto nycklar med Key Vault och Azure PowerShell](overview-storage-keys-powershell.md).
 
 ## <a name="code-samples"></a>Kodexempel
 
@@ -41,7 +41,7 @@ När SAS-definitionen har skapats kan du hämta SAS-token som hemligheter med hj
 
 Om signaturens token för delad åtkomst håller på att gå ut kan du hämta samma hemlighet igen för att skapa en ny.
 
-Information om hur du använder hämtade från Key Vault SAS-token för att få åtkomst till Azure Storage Services finns i [använda en konto säkerhets Association för att få åtkomst till BLOB service](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)
+Information om hur du använder hämtade från Key Vault SAS-token för att få åtkomst till Azure Storage Services finns i [använda en konto säkerhets Association för att få åtkomst till BLOB service](../../storage/common/storage-account-sas-create-dotnet.md#use-an-account-sas-from-a-client)
 
 > [!NOTE]
 > Appen måste vara beredd att uppdatera SAS om den får en 403 från lagrings utrymmet så att du kan hantera det fall där en nyckel har komprometterats och du behöver rotera dem snabbare än den normala rotations perioden. 

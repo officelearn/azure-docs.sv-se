@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443467"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787150"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrera befintliga databaser för att skala ut
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -72,7 +72,7 @@ För en modell med en enda klient organisation skapar du en **list mappning** Sh
 
 ![List mappning][1]
 
-Modellen för flera innehavare tilldelar flera klienter till en enskild databas (och du kan distribuera grupper av klienter i flera databaser). Använd den här modellen när du förväntar dig att varje klient ska ha små data behov. I den här modellen tilldelar du ett antal klienter till en databas med hjälp av **intervall mappning**.
+Modellen för flera innehavare tilldelar flera klienter till en enskild databas (och du kan distribuera grupper av klienter i flera databaser). Använd den här modellen när du förväntar dig att varje klient ska ha små data behov. I den här modellen tilldelar du ett antal klienter till en databas med hjälp av **intervall mappning** .
 
 ![Intervall mappning][2]
 
@@ -168,7 +168,7 @@ Information om vanliga mönster för dataarkitekturen i SaaS-databasprogram (Sof
 
 ## <a name="questions-and-feature-requests"></a>Frågor och funktions begär Anden
 
-Om du har frågor kan du använda [sidan Microsoft Q&en fråga för SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html) och för funktions förfrågningar kan du lägga till dem i den [SQL Database feedback-forumet](https://feedback.azure.com/forums/217321-sql-database/).
+Om du har frågor kan du använda [sidan Microsoft Q&en fråga för SQL Database](/answers/topics/azure-sql-database.html) och för funktions förfrågningar kan du lägga till dem i den [SQL Database feedback-forumet](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

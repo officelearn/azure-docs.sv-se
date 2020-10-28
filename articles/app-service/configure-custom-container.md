@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar en anpassad behållare i Azure App Ser
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 5b1bf9b205fc1eb90c6eeae3a101def764381213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264583"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787065"
 ---
-# <a name="configure-a-custom-container-for-azure-app-service"></a>Konfigurera en anpassad behållare för Azure App Service
+# <a name="configure-a-custom-container-for-azure-app-service"></a>Konfigurera en anpassad container för Azure App Service
 
 Den här artikeln visar hur du konfigurerar en anpassad behållare som ska köras på Azure App Service.
 
@@ -212,7 +212,7 @@ Det finns flera sätt att komma åt Docker-loggar:
 
 ### <a name="in-azure-portal"></a>I Azure Portal
 
-Docker-loggar visas i portalen på sidan **behållar inställningar** i din app. Loggarna trunkeras, men du kan ladda ned alla loggar genom att klicka på **Hämta**. 
+Docker-loggar visas i portalen på sidan **behållar inställningar** i din app. Loggarna trunkeras, men du kan ladda ned alla loggar genom att klicka på **Hämta** . 
 
 ### <a name="from-the-kudu-console"></a>Från kudu-konsolen
 
@@ -272,7 +272,7 @@ Processorerna kan vara multicore-eller hyperthreading-processorer. Information o
 
 ## <a name="customize-health-ping-behavior"></a>Anpassa ping-beteende för hälsa
 
-App Service anser att en behållare har startats när behållaren startar och svarar på en HTTP-ping. Hälso ping-begäran behållar rubriken `User-Agent= "App Service Hyper-V Container Availability Check"` . Om behållaren startar men inte svarar på ett ping efter en viss tid, App Service loggar en händelse i Docker-loggen, vilket säger att behållaren inte startades. 
+App Service anser att en behållare har startats när behållaren startar och svarar på en HTTP-ping. Hälso-ping-begäran innehåller rubriken `User-Agent= "App Service Hyper-V Container Availability Check"` . Om behållaren startar men inte svarar på ett ping efter en viss tid, App Service loggar en händelse i Docker-loggen, vilket säger att behållaren inte startades. 
 
 Om ditt program är resurs intensivt kanske behållaren inte svarar på HTTP-ping i tid. Om du vill kontrol lera åtgärderna när HTTP-pingar inte fungerar anger du `CONTAINER_AVAILABILITY_CHECK_MODE` appens inställning. Du kan ställa in den via [Cloud Shell](https://shell.azure.com). I bash:
 

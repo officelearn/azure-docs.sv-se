@@ -2,18 +2,18 @@
 title: Snabb start – Azure Key Vault klient bibliotek för Java
 description: Innehåller format och innehålls kriterier för att skriva snabb starter för klient bibliotek i Azure SDK.
 author: msmbaldwin
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 87d7bbaa40226e02726b92cf7f7705c8028149f7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f4008b43c487f9dd1c8cfe5e5b67a250ff849daf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019638"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786215"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>Snabb start: Azure Key Vault hemligt klient bibliotek för Java
 
@@ -37,7 +37,7 @@ Den här snabb starten förutsätter att du kör [Azure CLI](/cli/azure/install-
 
 ## <a name="setting-up"></a>Konfigurera
 
-Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](/java/api/overview/azure/identity-readme)
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 

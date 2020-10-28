@@ -9,18 +9,18 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 37e56caa8242709214265af0e1fc03c3853300f1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 971f0cd74d7ccc6e2b0d8049a4441ba3d465b70a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488800"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787677"
 ---
-# <a name="azure-storage-analytics-logging"></a>Azure Storage Analytics-loggning
+# <a name="azure-storage-analytics-logging"></a>Analysloggning i Azure Storage
 
 Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäranden till en lagringstjänst. Den här informationen kan användas för att övervaka enskilda begäranden och för att diagnostisera problem med en lagringstjänst. Begär Anden loggas med bästa möjliga ansträngning.
 
- Lagringsanalysloggning är inte aktiverat som standard för ditt lagringskonto. Du kan aktivera det i [Azure Portal](https://portal.azure.com/); Mer information finns i [övervaka ett lagrings konto i Azure Portal](/azure/storage/storage-monitor-storage-account). Du kan också aktivera Lagringsanalys program mässigt via REST API eller klient biblioteket. Använd egenskaperna [Hämta BLOB service](/rest/api/storageservices/Blob-Service-REST-API), [Hämta egenskaper för Queue Service](/rest/api/storageservices/Get-Queue-Service-Properties)och [Hämta tabell tjänst egenskaper](/rest/api/storageservices/Get-Table-Service-Properties) för att aktivera Lagringsanalys för varje tjänst.
+ Lagringsanalysloggning är inte aktiverat som standard för ditt lagringskonto. Du kan aktivera det i [Azure Portal](https://portal.azure.com/); Mer information finns i [övervaka ett lagrings konto i Azure Portal](./storage-monitor-storage-account.md). Du kan också aktivera Lagringsanalys program mässigt via REST API eller klient biblioteket. Använd egenskaperna [Hämta BLOB service](/rest/api/storageservices/Blob-Service-REST-API), [Hämta egenskaper för Queue Service](/rest/api/storageservices/Get-Queue-Service-Properties)och [Hämta tabell tjänst egenskaper](/rest/api/storageservices/Get-Table-Service-Properties) för att aktivera Lagringsanalys för varje tjänst.
 
  Logg poster skapas endast om det finns begär Anden som görs mot tjänst slut punkten. Om ett lagrings konto till exempel har aktivitet i dess BLOB-slutpunkt men inte i dess tabell-eller Queue-slutpunkter, skapas bara loggar som rör Blob Service.
 
@@ -77,7 +77,7 @@ Med de flesta verktyg för lagrings surfning kan du visa metadata för blobbar. 
  }  
  ```  
 
-Information om hur du registrerar blobbar program mässigt finns i [räkna upp BLOB-resurser](https://msdn.microsoft.com/library/azure/hh452233.aspx) och [Ange och hämta egenskaper och metadata för BLOB-resurser](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
+Information om hur du registrerar blobbar program mässigt finns i [räkna upp BLOB-resurser](/rest/api/storageservices/Enumerating-Blob-Resources) och [Ange och hämta egenskaper och metadata för BLOB-resurser](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources).  
 
 ### <a name="log-naming-conventions"></a>Logg namngivnings konventioner
 
@@ -131,7 +131,7 @@ Du kan aktivera lagrings loggning med Azure Portal-, PowerShell-och lagrings-SDK
 
 ### <a name="enable-storage-logging-using-the-azure-portal"></a>Aktivera lagrings loggning med hjälp av Azure Portal  
 
-I Azure Portal använder du bladet **diagnostikinställningar (klassisk)** för att kontrol lera lagrings loggning, som är tillgängligt från avsnittet **övervakning (klassisk)** i **meny bladet**för ett lagrings konto.
+I Azure Portal använder du bladet **diagnostikinställningar (klassisk)** för att kontrol lera lagrings loggning, som är tillgängligt från avsnittet **övervakning (klassisk)** i **meny bladet** för ett lagrings konto.
 
 Du kan ange de lagrings tjänster som du vill logga och kvarhållningsperioden (i dagar) för de loggade data.  
 
@@ -139,7 +139,7 @@ Du kan ange de lagrings tjänster som du vill logga och kvarhållningsperioden (
 
  Du kan använda PowerShell på din lokala dator för att konfigurera lagrings loggning i ditt lagrings konto med hjälp av Azure PowerShell cmdlet **Get-AzStorageServiceLoggingProperty** för att hämta de aktuella inställningarna och cmdleten **set-AzStorageServiceLoggingProperty** för att ändra de aktuella inställningarna.  
 
- De cmdletar som styr lagrings loggningen använder en **LoggingOperations** -parameter som är en sträng som innehåller en kommaavgränsad lista över begär ande typer som ska loggas. De tre möjliga typerna av begäran är **läsa**, **skriva**och **ta bort**. Om du vill stänga av loggning använder du värdet **none** för parametern **LoggingOperations** .  
+ De cmdletar som styr lagrings loggningen använder en **LoggingOperations** -parameter som är en sträng som innehåller en kommaavgränsad lista över begär ande typer som ska loggas. De tre möjliga typerna av begäran är **läsa** , **skriva** och **ta bort** . Om du vill stänga av loggning använder du värdet **none** för parametern **LoggingOperations** .  
 
  Följande kommando växlar vid loggning för läsnings-, skriv-och borttagnings begär anden i Kötjänst i ditt standard lagrings konto med kvarhållning inställt på fem dagar:  
 
@@ -153,7 +153,7 @@ Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,w
 Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
- Information om hur du konfigurerar Azure PowerShell-cmdletar så att de fungerar med din Azure-prenumeration och hur du väljer det standard lagrings konto som ska användas finns i: [så här installerar och konfigurerar du Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+ Information om hur du konfigurerar Azure PowerShell-cmdletar så att de fungerar med din Azure-prenumeration och hur du väljer det standard lagrings konto som ska användas finns i: [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).  
 
 ### <a name="enable-storage-logging-programmatically"></a>Aktivera lagrings loggning program mässigt  
 
@@ -179,9 +179,9 @@ queueClient.SetServiceProperties(serviceProperties);
 ---
 
 
- Mer information om hur du använder ett .NET-språk för att konfigurera lagrings loggning finns i [referens för lagrings klient bibliotek](https://msdn.microsoft.com/library/azure/dn261237.aspx).  
+ Mer information om hur du använder ett .NET-språk för att konfigurera lagrings loggning finns i [referens för lagrings klient bibliotek](/previous-versions/azure/dn261237(v=azure.100)).  
 
- Allmän information om hur du konfigurerar lagrings loggning med hjälp av REST API finns i [Aktivera och konfigurera Lagringsanalys](https://msdn.microsoft.com/library/azure/hh360996.aspx).  
+ Allmän information om hur du konfigurerar lagrings loggning med hjälp av REST API finns i [Aktivera och konfigurera Lagringsanalys](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
 ## <a name="download-storage-logging-log-data"></a>Hämta logg data för lagrings loggning
 
@@ -204,7 +204,7 @@ I följande exempel visas hur du kan hämta logg data för Queue Service för ti
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Mer information om hur du hämtar vissa filer finns i [Hämta vissa filer](/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
+Mer information om hur du hämtar vissa filer finns i [Hämta vissa filer](./storage-use-azcopy-blobs.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#download-specific-files).
 
 När du har hämtat dina loggdata kan du se logg posterna i filerna. Loggfilerna använder ett avgränsat text format som många logg läsnings verktyg kan parsa (mer information finns i hand boken [övervakning, diagnostisering och fel sökning Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Olika verktyg har olika funktioner för formatering, filtrering, sortering och AD söker efter innehållet i dina loggfiler. Mer information om logg fils format och innehåll för lagrings loggning finns i [Lagringsanalys logg format](/rest/api/storageservices/storage-analytics-log-format) och [Lagringsanalys loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

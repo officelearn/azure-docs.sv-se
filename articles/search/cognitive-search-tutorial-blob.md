@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.openlocfilehash: 99d477bb9e8291721022e276c5933ec0ef7f1e37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84defa0704c44bb0ed4564195725f7dd1c42312c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936018"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788068"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd REST och AI för att generera sökbart innehåll från Azure-blobbar
 
@@ -30,7 +30,7 @@ I den här självstudien används Postman och [Sök REST-API: er](/rest/api/sear
 
 Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Skrivbordsappen Postman](https://www.getpostman.com/)
@@ -43,7 +43,7 @@ Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt kont
 
 1. Öppna den här [OneDrive-mappen](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) och klicka på **Ladda ned** i det övre vänstra hörnet för att kopiera filerna till datorn. 
 
-1. Högerklicka på zip-filen och välj **extrahera alla**. Det finns 14 filer av olika typer. Du använder 7 för den här övningen.
+1. Högerklicka på zip-filen och välj **extrahera alla** . Det finns 14 filer av olika typer. Du använder 7 för den här övningen.
 
 ## <a name="1---create-services"></a>1 – skapa tjänster
 
@@ -53,7 +53,7 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 ### <a name="start-with-azure-storage"></a>Börja med Azure Storage
 
-1. [Logga](https://portal.azure.com/) in på Azure Portal och klicka på **+ skapa resurs**.
+1. [Logga](https://portal.azure.com/) in på Azure Portal och klicka på **+ skapa resurs** .
 
 1. Sök efter *lagrings konto* och välj Microsofts erbjudande för lagrings konto.
 
@@ -61,13 +61,13 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 1. På fliken grundläggande måste följande objekt vara obligatoriska. Acceptera standardvärdena för allt annat.
 
-   + **Resursgrupp**. Välj en befintlig eller skapa en ny, men Använd samma grupp för alla tjänster så att du kan hantera dem tillsammans.
+   + **Resursgrupp** . Välj en befintlig eller skapa en ny, men Använd samma grupp för alla tjänster så att du kan hantera dem tillsammans.
 
-   + **Namn på lagringskonto**. Om du tror att du kan ha flera resurser av samma typ, använder du namnet på disambiguate efter typ och region, till exempel *blobstoragewestus*. 
+   + **Namn på lagringskonto** . Om du tror att du kan ha flera resurser av samma typ, använder du namnet på disambiguate efter typ och region, till exempel *blobstoragewestus* . 
 
-   + **Plats**. Om möjligt väljer du samma plats som används för Azure Kognitiv sökning och Cognitive Services. Med en enda plats annulleras bandbredds avgifter.
+   + **Plats** . Om möjligt väljer du samma plats som används för Azure Kognitiv sökning och Cognitive Services. Med en enda plats annulleras bandbredds avgifter.
 
-   + **Typ av konto**. Välj standard, *StorageV2 (generell användning v2)*.
+   + **Typ av konto** . Välj standard, *StorageV2 (generell användning v2)* .
 
 1. Klicka på **Granska + skapa** för att skapa tjänsten.
 
@@ -75,7 +75,7 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 1. Klicka på **blobs** -tjänsten.
 
-1. Klicka på **+ container** för att skapa en behållare och ge den namnet *kugg hjuls-search-demo*.
+1. Klicka på **+ container** för att skapa en behållare och ge den namnet *kugg hjuls-search-demo* .
 
 1. Välj *kugg hjuls-search-demo* och klicka sedan på **Ladda upp** för att öppna mappen där du sparade nedladdnings filerna. Välj alla icke-bildfiler. Du bör ha 7 filer. Klicka på **OK** för att ladda upp.
 
@@ -111,11 +111,11 @@ Som med Azure Blob Storage kan du ägna en stund åt att samla in åtkomst nycke
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta namnet på din Sök tjänst på sidan **Översikt över** Sök tjänsten. Du kan bekräfta tjänst namnet genom att granska slut punkts-URL: en. Om slut punkts-URL: en var `https://mydemo.search.windows.net` , är tjänstens namn `mydemo` .
 
-2. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. I **Inställningar**  >  **nycklar** , hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
    Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
 
-   ![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-javascript/service-name-and-keys.png)
 
 Alla begär Anden kräver en API-nyckel i rubriken för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende per begäran mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -123,7 +123,7 @@ Alla begär Anden kräver en API-nyckel i rubriken för varje begäran som skick
 
 Starta Postman och konfigurera en HTTP-begäran. Om du inte känner till det här verktyget kan du läsa [utforska Azure KOGNITIV sökning REST-API: er med Postman](search-get-started-postman.md).
 
-De metoder för begäran som används i den här självstudien är **post**, **placeras**och **hämtas**. Du använder metoderna för att göra fyra API-anrop till din Sök tjänst: skapa en data källa, en färdigheter, ett index och en indexerare.
+De metoder för begäran som används i den här självstudien är **post** , **placeras** och **hämtas** . Du använder metoderna för att göra fyra API-anrop till din Sök tjänst: skapa en data källa, en färdigheter, ett index och en indexerare.
 
 I sidhuvud anger du "Content-Type" till `application/json` och anger `api-key` admin-API-nyckeln för din Azure kognitiv sökning-tjänst. När du har angett rubrikerna kan du använda dem för varje begäran i den här övningen.
 
@@ -143,7 +143,7 @@ Ett [data käll objekt](/rest/api/searchservice/create-data-source) ger anslutni
    https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2020-06-30
    ```
 
-1. I **brödtext**i begäran kopierar du följande JSON-definition och ersätter `connectionString` med den faktiska anslutningen av ditt lagrings konto. 
+1. I **brödtext** i begäran kopierar du följande JSON-definition och ersätter `connectionString` med den faktiska anslutningen av ditt lagrings konto. 
 
    Kom ihåg att även redigera behållar namnet. Vi föreslog "kugg hjuls-search-demo" för behållar namnet i ett tidigare steg.
 
@@ -173,11 +173,11 @@ Ett [färdigheter-objekt](/rest/api/searchservice/create-skillset) är en uppsä
     https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-sd?api-version=2020-06-30
     ```
 
-1. I begär ande **texten**kopierar du JSON-definitionen nedan. Den här färdigheter består av följande inbyggda kunskaper.
+1. I begär ande **texten** kopierar du JSON-definitionen nedan. Den här färdigheter består av följande inbyggda kunskaper.
 
    | Kvalifikation                 | Beskrivning    |
    |-----------------------|----------------|
-   | [Igenkänning av enhet](cognitive-search-skill-entity-recognition.md) | Extraherar namn på personer, organisationer och platser från innehållet i BLOB-behållaren. |
+   | [Enhets igenkänning](cognitive-search-skill-entity-recognition.md) | Extraherar namn på personer, organisationer och platser från innehållet i BLOB-behållaren. |
    | [Språkidentifiering](cognitive-search-skill-language-detection.md) | Identifierar innehållets språk. |
    | [Textuppdelning](cognitive-search-skill-textsplit.md)  | Delar upp stort innehåll i mindre segment innan nyckel fras extraherings kunskapen anropas. Extrahering av nyckelfraser accepterar indata på 50 000 tecken eller mindre. Några av exempelfilerna måste delas upp för att rymmas inom gränsen. |
    | [Extrahering av diskussionsämne](cognitive-search-skill-keyphrases.md) | Hämtar de viktigaste huvud fraserna. |
@@ -258,7 +258,7 @@ Ett [index](/rest/api/searchservice/create-index) ger det schema som används f�
    https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2020-06-30
    ```
 
-1. I **brödtext**i begäran kopierar du följande JSON-definition. I `content` fältet lagras själva dokumentet. Ytterligare fält för `languageCode` , `keyPhrases` och `organizations` representerar ny information (fält och värden) som skapats av färdigheter.
+1. I **brödtext** i begäran kopierar du följande JSON-definition. I `content` fältet lagras själva dokumentet. Ytterligare fält för `languageCode` , `keyPhrases` och `organizations` representerar ny information (fält och värden) som skapats av färdigheter.
 
     ```json
     {
@@ -342,7 +342,7 @@ En [indexerare](/rest/api/searchservice/create-indexer) driver pipelinen. De tre
    https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2020-06-30
    ```
 
-1. I begär ande **texten**kopierar du JSON-definitionen nedan. Observera fält mappnings elementen. dessa mappningar är viktiga eftersom de definierar data flödet. 
+1. I begär ande **texten** kopierar du JSON-definitionen nedan. Observera fält mappnings elementen. dessa mappningar är viktiga eftersom de definierar data flödet. 
 
    `fieldMappings`Bearbetas före färdigheter, vilket skickar innehåll från data källan till mål fälten i ett index. Du använder fält mappningar för att skicka befintligt, oförändrat innehåll till indexet. Om fält namn och typer är desamma i båda ändar, krävs ingen mappning.
 
@@ -516,7 +516,7 @@ Slutligen lärde du dig att testa resultat och återställa systemet för ytterl
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 

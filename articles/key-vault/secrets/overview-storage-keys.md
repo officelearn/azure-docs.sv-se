@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b4a8c445548c711c2ad76c2d983acaec11ca7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612191"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786283"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Hantera lagrings konto nycklar med Key Vault och Azure CLI
 
@@ -32,13 +32,13 @@ Tänk på följande när du använder funktionen för hanterad lagrings konto ny
 
 Vi rekommenderar att du använder Azure Storage-integrering med Azure Active Directory (Azure AD), Microsofts molnbaserade identitets-och åtkomst hanterings tjänst. Azure AD-integrering är tillgänglig för [Azure-blobbar och köer](../../storage/common/storage-auth-aad.md)och ger OAuth2-tokenbaserad åtkomst till Azure Storage (precis som Azure Key Vault).
 
-Med Azure AD kan du autentisera klient programmet med hjälp av ett program eller en användar identitet, i stället för autentiseringsuppgifterna för lagrings kontot. Du kan använda en [hanterad Azure AD-identitet](/azure/active-directory/managed-identities-azure-resources/) när du kör på Azure. Hanterade identiteter tar bort behovet av klientautentisering och lagrar autentiseringsuppgifter i eller med ditt program.
+Med Azure AD kan du autentisera klient programmet med hjälp av ett program eller en användar identitet, i stället för autentiseringsuppgifterna för lagrings kontot. Du kan använda en [hanterad Azure AD-identitet](../../active-directory/managed-identities-azure-resources/index.yml) när du kör på Azure. Hanterade identiteter tar bort behovet av klientautentisering och lagrar autentiseringsuppgifter i eller med ditt program.
 
 Azure AD använder rollbaserad åtkomst kontroll (RBAC) för att hantera auktorisering, som också stöds av Key Vault.
 
 ## <a name="service-principal-application-id"></a>Program-ID för tjänstens huvud namn
 
-En Azure AD-klient tillhandahåller varje registrerat program med ett [huvud namn för tjänsten](/azure/active-directory/develop/developer-glossary#service-principal-object). Tjänstens huvud namn fungerar som program-ID, som används vid konfiguration av auktorisering för åtkomst till andra Azure-resurser via RBAC.
+En Azure AD-klient tillhandahåller varje registrerat program med ett [huvud namn för tjänsten](../../active-directory/develop/developer-glossary.md#service-principal-object). Tjänstens huvud namn fungerar som program-ID, som används vid konfiguration av auktorisering för åtkomst till andra Azure-resurser via RBAC.
 
 Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klienter. Key Vault registreras under samma program-ID i varje Azure-moln.
 
@@ -46,14 +46,14 @@ Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klie
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure, offentlig | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Övrigt  | Alla | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Annat  | Alla | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här guiden måste du först göra följande:
 
 - [Installera Azure CLI](/cli/azure/install-azure-cli).
-- [Skapa ett nyckel valv](quick-create-cli.md)
+- [Skapa ett nyckelvalv](quick-create-cli.md)
 - [Skapa ett Azure Storage-konto](../../storage/common/storage-account-create.md?tabs=azure-cli). Lagrings konto namnet får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken.
       
 ## <a name="manage-storage-account-keys"></a>Hantera lagrings konto nycklar
@@ -163,6 +163,6 @@ Utdata från det här kommandot visar din SAS-definitions sträng som `value` .
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [nycklar, hemligheter och certifikat](https://docs.microsoft.com/rest/api/keyvault/).
-- Läs artiklarna i [Azure Key Vault teamets blogg](https://blogs.technet.microsoft.com/kv/).
-- Se [AZ Storage](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest) Reference Documentation.
+- Läs mer om [nycklar, hemligheter och certifikat](/rest/api/keyvault/).
+- Läs artiklarna i [Azure Key Vault teamets blogg](/archive/blogs/kv/).
+- Se [AZ Storage](/cli/azure/keyvault/storage?view=azure-cli-latest) Reference Documentation.

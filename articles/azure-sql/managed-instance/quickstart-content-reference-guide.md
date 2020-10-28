@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 7c7268aa361c77f1d466ab7a58b74aa91090dc4b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae2f2b8b9b6f3bc934321b13dcefeff46e43b089
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84708577"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788170"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Komma igång med Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,16 +44,16 @@ Som ett första steg måste du skapa din första SQL-hanterade instans med nätv
   > - Du kan även använda ExpressRoute- eller plats-till-plats-anslutning från ditt lokala nätverk, men dessa metoder ligger utanför det område som behandlas i de här snabbstarterna.
   > - Om du ändrar kvarhållningsperioden från 0 (obegränsad kvarhållning) till ett annat värde, Observera att kvarhållning endast kommer att gälla för loggar som skrivits efter att kvarhållning har ändrats (loggar som skrivits under perioden när kvarhållning hade värdet obegränsat bevaras, även efter att kvarhållning har Aktiver ATS).
 
-Som ett alternativ till manuell generering av SQL-hanterad instans kan du använda [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell med Resource Manager-mall](scripts/create-powershell-azure-resource-manager-template.md)eller [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) för att skapa skript och automatisera processen.
+Som ett alternativ till manuell generering av SQL-hanterad instans kan du använda [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell med Resource Manager-mall](scripts/create-powershell-azure-resource-manager-template.md)eller [Azure CLI](/cli/azure/sql/mi#az-sql-mi-create) för att skapa skript och automatisera processen.
 
 ### <a name="migrate-your-databases"></a>Migrera dina databaser
 
-När du har skapat en SQL-hanterad instans och konfigurerat åtkomst kan du börja migrera dina SQL Server-databaser. Migreringen kan gå sönder om du har funktioner som inte stöds i käll databasen som du vill migrera. För att undvika fel och kontrol lera kompatibiliteten kan du använda [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) för att analysera dina databaser på SQL Server och hitta eventuella problem som kan blockera migrering till en SQL-hanterad instans, till exempel förekomst av [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) eller flera loggfiler. Om du löser problemen är dina databaser klara att migreras till SQL-hanterad instans. [Database experimentation Assistant](/sql/dea/database-experimentation-assistant-overview) är ett annat användbart verktyg som kan registrera din arbets belastning på SQL Server och spela upp det på en SQL-hanterad instans så att du kan avgöra om du migrerar till en SQL-hanterad instans.
+När du har skapat en SQL-hanterad instans och konfigurerat åtkomst kan du börja migrera dina SQL Server-databaser. Migreringen kan gå sönder om du har funktioner som inte stöds i käll databasen som du vill migrera. För att undvika fel och kontrol lera kompatibiliteten kan du använda [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) för att analysera dina databaser på SQL Server och hitta eventuella problem som kan blockera migrering till en SQL-hanterad instans, till exempel förekomst av [FILESTREAM](/sql/relational-databases/blob/filestream-sql-server) eller flera loggfiler. Om du löser problemen är dina databaser klara att migreras till SQL-hanterad instans. [Database experimentation Assistant](/sql/dea/database-experimentation-assistant-overview) är ett annat användbart verktyg som kan registrera din arbets belastning på SQL Server och spela upp det på en SQL-hanterad instans så att du kan avgöra om du migrerar till en SQL-hanterad instans.
 
 När du är säker på att du kan migrera databasen till en SQL-hanterad instans kan du använda de inbyggda SQL Server återställnings funktionerna för att återställa en databas till en SQL-hanterad instans från en `.bak` fil. Du kan använda den här metoden för att migrera databaser från SQL Server databas motor som är installerade lokalt eller Azure Virtual Machines. En snabb start finns i [återställa från en säkerhets kopia till en SQL-hanterad instans](restore-sample-database-quickstart.md). I den här snabbstarten återställer du från en `.bak`-fil som lagras i Azures bloblagring med hjälp av Transact-SQL-kommandot `RESTORE`.
 
 > [!TIP]
-> Mer information om användning av Transact-SQL-kommandot `BACKUP` för att skapa en säkerhetskopia av din databas i Azures bloblagring finns i [SQL Server-säkerhetskopiering till URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
+> Mer information om användning av Transact-SQL-kommandot `BACKUP` för att skapa en säkerhetskopia av din databas i Azures bloblagring finns i [SQL Server-säkerhetskopiering till URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
 Med de här snabb starterna kan du snabbt skapa, konfigurera och återställa en säkerhets kopia av databasen till en SQL-hanterad instans. I vissa fall behöver du anpassa eller automatisera distributionen av SQL-hanterad instans och nödvändig nätverks miljö. De här scenarierna beskrivs nedan.
 
@@ -72,7 +72,7 @@ Tidigare angivna snabb starter gör att du snabbt kan skapa en SQL-hanterad inst
 För att du ska kunna migrera produktions databasen eller till och med utvecklings-och test databaser som du vill använda för en viss prestandatest måste du dock överväga att använda vissa ytterligare metoder, till exempel:
 
 - Prestandatest – du bör mäta bas linje prestanda måtten på din käll SQL Servers instans och jämföra dem med prestanda måtten på den mål SQL-hanterade instans där du har migrerat databasen. Läs mer om [bästa praxis för jämförelse av prestanda](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Online-migrering – med den inbyggda `RESTORE` beskrivningen i den här artikeln måste du vänta på att databaserna ska återställas (och kopieras till Azure Blob Storage om de inte redan finns där). Detta leder till viss avbrottstid för ditt program, särskilt för större databaser. Om du vill flytta produktionsdatabasen använder du [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) för att migrera din databas med minimal avbrottstid. DMS utför detta genom att stegvis skicka de ändringar som gjorts i käll databasen till den SQL-hanterade instans databas som återställs. På så sätt kan du snabbt växla ditt program från källa till mål databas med minimal stillestånds tid.
+- Online-migrering – med den inbyggda `RESTORE` beskrivningen i den här artikeln måste du vänta på att databaserna ska återställas (och kopieras till Azure Blob Storage om de inte redan finns där). Detta leder till viss avbrottstid för ditt program, särskilt för större databaser. Om du vill flytta produktionsdatabasen använder du [Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%252fazure%252fsql-database%252ftoc.json) för att migrera din databas med minimal avbrottstid. DMS utför detta genom att stegvis skicka de ändringar som gjorts i käll databasen till den SQL-hanterade instans databas som återställs. På så sätt kan du snabbt växla ditt program från källa till mål databas med minimal stillestånds tid.
 
 Läs mer om den [rekommenderade migreringsprocessen](migrate-to-instance-from-sql-server.md).
 

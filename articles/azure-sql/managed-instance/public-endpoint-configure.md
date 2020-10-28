@@ -10,17 +10,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: f3708885759a6a353742fe89b4454b39496aeeab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73fa4d4988c7a036dc1d2eb7dc81c3c1c5d77026
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619992"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788289"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Konfigurera offentlig slut punkt i Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-En offentlig slut punkt för en [hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) ger data åtkomst till din hanterade instans utanför det [virtuella nätverket](../../virtual-network/virtual-networks-overview.md). Du kan komma åt din hanterade instans från Azure-tjänster med flera innehavare, t. ex. Power BI, Azure App Service eller ett lokalt nätverk. Genom att använda den offentliga slut punkten på en hanterad instans behöver du inte använda ett VPN, vilket kan hjälpa till att undvika problem med VPN-dataflöde.
+En offentlig slut punkt för en [hanterad instans](./sql-managed-instance-paas-overview.md) ger data åtkomst till din hanterade instans utanför det [virtuella nätverket](../../virtual-network/virtual-networks-overview.md). Du kan komma åt din hanterade instans från Azure-tjänster med flera innehavare, t. ex. Power BI, Azure App Service eller ett lokalt nätverk. Genom att använda den offentliga slut punkten på en hanterad instans behöver du inte använda ett VPN, vilket kan hjälpa till att undvika problem med VPN-dataflöde.
 
 I den här artikeln får du lära dig att:
 
@@ -112,7 +112,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Hämtning av den offentliga slut punkts anslutnings strängen för hanterad instans
 
 1. Gå till konfigurations sidan för hanterade instanser som har Aktiver ATS för den offentliga slut punkten. Välj fliken **anslutnings strängar** under **inställnings** konfigurationen.
-1. Observera att värd namnet för den offentliga slut punkten anges i formatet <mi_name>. **Public**. <dns_zone>. Database.Windows.net och att porten som används för anslutningen är 3342.
+1. Observera att värd namnet för den offentliga slut punkten anges i formatet <mi_name>. **Public** . <dns_zone>. Database.Windows.net och att porten som används för anslutningen är 3342.
 
     ![Skärm bild som visar anslutnings strängar för dina offentliga och privata slut punkter.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

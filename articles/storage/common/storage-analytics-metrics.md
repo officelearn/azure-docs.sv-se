@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: ef38e36ce1d2c7968e3eb7079270626629523334
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f1ab2be598a24a2448fed44742733633a8e0fc8f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518743"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787609"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure-lagringsanalys mått (klassisk)
 
@@ -23,11 +23,11 @@ Azure Storage använder Lagringsanalys-lösningen för att lagra mått som inneh
 - Diagnostisera problem med begär Anden som görs mot lagrings tjänsten.
 - Förbättra prestanda för program som använder en tjänst.
 
- Lagringsanalys mått är aktiverade som standard för nya lagrings konton. Du kan konfigurera mått i [Azure Portal](https://portal.azure.com/). Mer information finns i [övervaka ett lagrings konto i Azure Portal](/azure/storage/storage-monitor-storage-account). Du kan också aktivera Lagringsanalys program mässigt via REST API eller klient biblioteket. Använd åtgärderna ange tjänst egenskaper för att aktivera Lagringsanalys för varje tjänst.  
+ Lagringsanalys mått är aktiverade som standard för nya lagrings konton. Du kan konfigurera mått i [Azure Portal](https://portal.azure.com/). Mer information finns i [övervaka ett lagrings konto i Azure Portal](./storage-monitor-storage-account.md). Du kan också aktivera Lagringsanalys program mässigt via REST API eller klient biblioteket. Använd åtgärderna ange tjänst egenskaper för att aktivera Lagringsanalys för varje tjänst.  
 
 > [!NOTE]
 > Lagringsanalys mått är tillgängliga för Azure Blob Storage, Azure Queue Storage, Azure Table Storage och Azure Files.
-> Lagringsanalys mått är nu klassiska mått. Vi rekommenderar att du använder [lagrings mått i Azure Monitor](monitor-storage.md) i stället för Lagringsanalys mått.
+> Lagringsanalys mått är nu klassiska mått. Vi rekommenderar att du använder [lagrings mått i Azure Monitor](../blobs/monitor-blob-storage.md) i stället för Lagringsanalys mått.
 
 ## <a name="transaction-metrics"></a>Transaktionsmått  
  En robust uppsättning data registreras i timmar eller minuter för varje lagrings tjänst och begärd API-åtgärd, vilket omfattar ingångs-och utgångs-, tillgänglighets-, fel-och kategoriserade förfrågningar i procent. En fullständig lista över transaktions information finns i [schemat för Lagringsanalys Metrics Table](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
@@ -45,9 +45,9 @@ Azure Storage använder Lagringsanalys-lösningen för att lagra mått som inneh
 
  Kapacitets data registreras dagligen för lagrings kontots BLOB service och två tabell enheter skrivs. En entitet ger statistik för användar data, och den andra innehåller statistik om `$logs` BLOB-behållaren som används av Lagringsanalys. Tabellen *$MetricsCapacityBlob* innehåller följande statistik:  
 
-- **Kapacitet**: mängden lagrings utrymme som används av lagrings kontots BLOB service, i byte.  
-- **ContainerCount**: antalet BLOB-behållare i lagrings kontots BLOB service.  
-- **ObjectCount**: antalet allokerade och icke allokerade block eller sid-blobar i lagrings kontots BLOB service.  
+- **Kapacitet** : mängden lagrings utrymme som används av lagrings kontots BLOB service, i byte.  
+- **ContainerCount** : antalet BLOB-behållare i lagrings kontots BLOB service.  
+- **ObjectCount** : antalet allokerade och icke allokerade block eller sid-blobar i lagrings kontots BLOB service.  
 
   Mer information om kapacitets mått finns i [Lagringsanalys Metrics Table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
 
@@ -71,10 +71,10 @@ Följ dessa steg om du vill aktivera mått i [Azure Portal](https://portal.azure
 
 1. Gå till ditt lagringskonto.
 1. Välj **diagnostikinställningar (klassisk)** i meny fönstret.
-1. Kontrol lera att **status** är inställt **på on**.
+1. Kontrol lera att **status** är inställt **på on** .
 1. Välj mått för de tjänster som du vill övervaka.
 1. Ange en bevarande princip för att ange hur länge mått och loggdata ska sparas.
-1. Välj **Spara**.
+1. Välj **Spara** .
 
 [Azure Portal](https://portal.azure.com) kan för närvarande inte konfigurera minut mått i ditt lagrings konto. Du måste aktivera minut mått med hjälp av PowerShell eller program mässigt.
 
@@ -83,12 +83,12 @@ Du kan använda PowerShell på din lokala dator för att konfigurera lagrings m�
 
 De cmdletar som styr lagrings måtten använder följande parametrar:  
 
-* **ServiceType**: möjliga värden är **BLOB**, **kö**, **tabell**och **fil**.
-* **MetricsType**: möjliga värden är **timme** och **minut**.  
-* **MetricsLevel**: möjliga värden är:
-   * **Ingen**: stänger av övervakning.
-   * **Tjänst**: samlar in mått som ingångs-och utgångs-, tillgänglighets-, fördröjnings-och procent andelar, som sammanställs för BLOB-, kö-, tabell-och fil tjänster.
-   * **ServiceAndApi**: förutom tjänste måtten samlas samma uppsättning mått för varje lagrings åtgärd i Azure Storage tjänst-API: et.
+* **ServiceType** : möjliga värden är **BLOB** , **kö** , **tabell** och **fil** .
+* **MetricsType** : möjliga värden är **timme** och **minut** .  
+* **MetricsLevel** : möjliga värden är:
+   * **Ingen** : stänger av övervakning.
+   * **Tjänst** : samlar in mått som ingångs-och utgångs-, tillgänglighets-, fördröjnings-och procent andelar, som sammanställs för BLOB-, kö-, tabell-och fil tjänster.
+   * **ServiceAndApi** : förutom tjänste måtten samlas samma uppsättning mått för varje lagrings åtgärd i Azure Storage tjänst-API: et.
 
 Följande kommando växlar till exempel på minut mått för Blob-tjänsten i ditt lagrings konto med kvarhållningsperioden inställd på fem dagar: 
 
@@ -112,12 +112,12 @@ Följande kommando hämtar den aktuella mått nivån per timme och bevarande dag
 Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
-Information om hur du konfigurerar Azure PowerShell-cmdletar så att de fungerar med din Azure-prenumeration och hur du väljer det standard lagrings konto som ska användas finns i [Installera och konfigurera Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+Information om hur du konfigurerar Azure PowerShell-cmdletar så att de fungerar med din Azure-prenumeration och hur du väljer det standard lagrings konto som ska användas finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/).  
 
 ## <a name="enable-storage-metrics-programmatically"></a>Aktivera lagrings mått program mässigt  
 Förutom att använda Azure Portal eller Azure PowerShell-cmdletar för att kontrol lera lagrings måtten kan du också använda en av Azure Storage API: erna. Om du till exempel använder ett .NET-språk kan du använda Azure Storage klient biblioteket.  
 
-Klasserna **CloudBlobClient**, **CloudQueueClient**, **CloudTableClient**och **CloudFileClient** har metoder som **SetServiceProperties** och **SetServicePropertiesAsync** som tar ett **ServiceProperties** -objekt som en parameter. Du kan använda **ServiceProperties** -objektet för att konfigurera lagrings mått. Följande C#-kodfragment visar t. ex. hur du ändrar mått nivån och bevarande dagar för varje timmes mått i kö:  
+Klasserna **CloudBlobClient** , **CloudQueueClient** , **CloudTableClient** och **CloudFileClient** har metoder som **SetServiceProperties** och **SetServicePropertiesAsync** som tar ett **ServiceProperties** -objekt som en parameter. Du kan använda **ServiceProperties** -objektet för att konfigurera lagrings mått. Följande C#-kodfragment visar t. ex. hur du ändrar mått nivån och bevarande dagar för varje timmes mått i kö:  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -130,7 +130,7 @@ serviceProperties.HourMetrics.RetentionDays = 10;
 queueClient.SetServiceProperties(serviceProperties);  
 ```  
 
-Mer information om hur du använder ett .NET-språk för att konfigurera lagrings mått finns i [Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/mt347887.aspx).  
+Mer information om hur du använder ett .NET-språk för att konfigurera lagrings mått finns i [Azure Storage klient bibliotek för .net](/dotnet/api/overview/azure/storage).  
 
 Allmän information om hur du konfigurerar lagrings mått med hjälp av REST API finns i [Aktivera och konfigurera Lagringsanalys](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
@@ -140,13 +140,13 @@ När du har konfigurerat Lagringsanalys mått för att övervaka ditt lagrings k
 1. Gå till ditt lagrings konto i [Azure Portal](https://portal.azure.com).
 1. Välj **mått (klassisk)** i meny fönstret för den tjänst vars mått du vill visa.
 1. Välj det diagram som du vill konfigurera.
-1. I fönstret **Redigera diagram** väljer du **tidsintervall**, **diagram typ**och de mått som du vill ska visas i diagrammet.
+1. I fönstret **Redigera diagram** väljer du **tidsintervall** , **diagram typ** och de mått som du vill ska visas i diagrammet.
 
 I avsnittet **övervakning (klassisk)** i ditt lagrings kontos meny fönster i Azure Portal kan du konfigurera [aviserings regler](#metrics-alerts). Du kan till exempel skicka e-postaviseringar för att meddela dig när ett visst mått når ett visst värde.
 
-Om du vill hämta måtten för långsiktig lagring eller analysera dem lokalt måste du använda ett verktyg eller skriva kod för att läsa tabellerna. Du måste ladda ned minut måtten för analys. Tabellerna visas inte om du visar alla tabeller i ditt lagrings konto, men du kan komma åt dem direkt efter namn. Många verktyg för lagrings surfning är medvetna om dessa tabeller och gör att du kan visa dem direkt. En lista över tillgängliga verktyg finns i [Azure Storage klient verktyg](/azure/storage/storage-explorers).
+Om du vill hämta måtten för långsiktig lagring eller analysera dem lokalt måste du använda ett verktyg eller skriva kod för att läsa tabellerna. Du måste ladda ned minut måtten för analys. Tabellerna visas inte om du visar alla tabeller i ditt lagrings konto, men du kan komma åt dem direkt efter namn. Många verktyg för lagrings surfning är medvetna om dessa tabeller och gör att du kan visa dem direkt. En lista över tillgängliga verktyg finns i [Azure Storage klient verktyg](./storage-explorers.md).
 
-|Mått|Tabell namn|Anteckningar| 
+|Mått|Tabell namn|Kommentarer| 
 |-|-|-|  
 |Tim mått|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|I tidigare versioner än den 15 augusti 2013 var de här tabellerna kända som:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> Mått för fil tjänsten är tillgängliga från och med version 5 april 2015.|  
 |Minut mått|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Kan endast aktive ras med hjälp av PowerShell eller program mässigt.<br /><br /> Mått för fil tjänsten är tillgängliga från och med version 5 april 2015.|  
@@ -163,13 +163,13 @@ Fullständig information om scheman för dessa tabeller finns i [Lagringsanalys 
 
 I det här exemplet på minut mått data använder partitionsnyckel tiden vid minut upplösning. Rad nyckeln identifierar den typ av information som lagras i raden. Informationen består av åtkomst typen och typen av begäran:  
 
--   Åtkomst typen är antingen **användare** eller **system**, där **användaren** refererar till alla användar förfrågningar till lagrings tjänsten och **systemet** refererar till begär Anden som görs av Lagringsanalys.  
--   Typen av begäran är antingen **alla**, i så fall är det en sammanfattnings rad, eller så identifierar den det specifika API: t, till exempel **QueryEntity** eller **UpdateEntity**.  
+-   Åtkomst typen är antingen **användare** eller **system** , där **användaren** refererar till alla användar förfrågningar till lagrings tjänsten och **systemet** refererar till begär Anden som görs av Lagringsanalys.  
+-   Typen av begäran är antingen **alla** , i så fall är det en sammanfattnings rad, eller så identifierar den det specifika API: t, till exempel **QueryEntity** eller **UpdateEntity** .  
 
 I det här exempel data visas alla poster för en enda minut (från 11:10:00), så antalet **QueryEntities** -begäranden plus antalet **QueryEntity** -begäranden plus antalet **UpdateEntity** -begäranden lägger till upp till sju. Den här summan visas på raden **användare: alla** . På samma sätt kan du härleda den genomsnittliga svars tiden från slut punkt till slut punkt 104,4286 för **användaren: all** rad genom att beräkna ((143,8 * 5) + 3 + 9)/7.  
 
 ## <a name="metrics-alerts"></a>Mått varningar
-Överväg att konfigurera aviseringar i [Azure Portal](https://portal.azure.com) så att du automatiskt får ett meddelande om viktiga förändringar i hur dina lagrings tjänster fungerar. Om du använder ett Storage Explorer-verktyg för att hämta data i ett avgränsat format kan du använda Microsoft Excel för att analysera data. En lista över tillgängliga Storage Explorer-verktyg finns i [Azure Storage klient verktyg](/azure/storage/storage-explorers). Du kan konfigurera aviseringar i fönstret **avisering (klassisk)** som är tillgängligt under **övervakning (klassisk)** i meny fönstret lagrings konto.
+Överväg att konfigurera aviseringar i [Azure Portal](https://portal.azure.com) så att du automatiskt får ett meddelande om viktiga förändringar i hur dina lagrings tjänster fungerar. Om du använder ett Storage Explorer-verktyg för att hämta data i ett avgränsat format kan du använda Microsoft Excel för att analysera data. En lista över tillgängliga Storage Explorer-verktyg finns i [Azure Storage klient verktyg](./storage-explorers.md). Du kan konfigurera aviseringar i fönstret **avisering (klassisk)** som är tillgängligt under **övervakning (klassisk)** i meny fönstret lagrings konto.
 
 > [!IMPORTANT]
 > Det kan finnas en fördröjning mellan en lagrings händelse och när motsvarande tim-eller minut mått data registreras. Om det gäller minut mått kan flera minuters data skrivas samtidigt. Det här problemet kan leda till transaktioner från tidigare minuter som sammanställs i transaktionen för den aktuella minuten. När det här problemet inträffar kanske aviserings tjänsten inte har alla tillgängliga mått data för det konfigurerade aviserings intervallet, vilket kan leda till att aviseringar uppstår oväntade.

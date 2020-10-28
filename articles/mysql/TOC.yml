@@ -474,6 +474,10 @@
               href: flexible-server/concepts-audit-logs.md
             - name: Mått
               href: flexible-server/concepts-monitoring.md
+        - name: Replikering
+          items:
+            - name: Skrivskyddade repliker
+              href: flexible-server/concepts-read-replicas.md
     - name: Anvisningar
       items:
         - name: Hantera en server
@@ -536,6 +540,16 @@
               items:
                 - name: Azure Portal
                   href: flexible-server/how-to-configure-audit-logs-portal.md
+        - name: Starta om servern
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-restart-server-portal.md
+        - name: Replikering
+          items:
+            - name: Skapa skrivskyddade repliker på Azure-portalen
+              href: flexible-server/how-to-read-replicas-portal.md
+            - name: Skapa skrivskyddade repliker i Azure CLI
+              href: flexible-server/how-to-read-replicas-cli.md
         - name: Felsöka
           items:
             - name: Anslutningsfel

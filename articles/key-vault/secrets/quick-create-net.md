@@ -7,13 +7,13 @@ ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 8d60c604ecde8607c0da8a125108e13683bdf6c8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 20974367b9d4b75bb9746cd065bc7490011f37ad
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058547"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786164"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Snabb start: Azure Key Vault hemligt klient bibliotek för .NET (SDK v4)
 
@@ -31,7 +31,7 @@ Den här snabb starten använder `dotnet` och Azure CLI
 
 ## <a name="setup"></a>Installation
 
-Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
+Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](/dotnet/api/overview/azure/identity-readme#authenticate-the-client&preserve-view=true).
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -122,7 +122,7 @@ Med Azure Key Vault hemliga klient biblioteket för .NET kan du hantera hemlighe
 
 ### <a name="add-directives"></a>Lägg till direktiv
 
-Lägg till följande direktiv överst i *program.cs*:
+Lägg till följande direktiv överst i *program.cs* :
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=directives)]
 
@@ -149,7 +149,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValueText
+(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValue | ConvertFrom-SecureString -AsPlainText
 ```
 
 ### <a name="retrieve-a-secret"></a>Hämta en hemlighet
@@ -177,7 +177,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValueText
+(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValue | ConvertFrom-SecureString -AsPlainText
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser

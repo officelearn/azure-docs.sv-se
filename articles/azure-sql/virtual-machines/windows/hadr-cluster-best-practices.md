@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1a2c4364337083be005c550a8859079cd3bb1218
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b385d6dfb5beba481ad92403d69f5d0988f3bce3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167958"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786436"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Metod tips för klusterkonfiguration (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,7 +56,7 @@ Konfigurera en Azure-delad disk som disk vittne.
 Information om hur du kommer igång finns i [Konfigurera ett disk vittne](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Operativ system som stöds**: alla   
+**Operativ system som stöds** : alla   
 
 
 ### <a name="cloud-witness"></a>Molnvittne
@@ -66,7 +66,7 @@ Ett moln vittne är en typ av ett kvorum för redundanskluster som använder Mic
 Information om hur du kommer igång finns i [Konfigurera ett moln vittne](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
 
 
-**Operativ system som stöds**: Windows Server 2016 och senare   
+**Operativ system som stöds** : Windows Server 2016 och senare   
 
 
 ### <a name="file-share-witness"></a>Filresursvittne
@@ -78,9 +78,9 @@ Om du ska använda en Azure-filresurs kan du montera den med samma process som a
 Information om hur du kommer igång finns i [Konfigurera ett fil resurs vittne](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Operativ system som stöds**: Windows Server 2012 och senare   
+**Operativ system som stöds** : Windows Server 2012 och senare   
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningsmöjlighet
 
 I en traditionell lokal nätverks miljö verkar en instans av en SQL Server-redundanskluster vara en enda instans av SQL Server som körs på en enda dator. Eftersom växlings kluster instansen växlar över från nod till nod, tillhandahåller det virtuella nätverks namnet (VNN) för instansen en enhetlig anslutnings punkt och gör det möjligt för program att ansluta till den SQL Server-instansen utan att veta vilken nod som för närvarande är aktiv. När en redundansväxling inträffar registreras det virtuella nätverks namnet på den nya aktiva noden när den har startats. Den här processen är transparent för den klient eller det program som ansluter till SQL Server, och detta minimerar stillestånds tiden som klienten eller program upplever vid ett haveri. På samma sätt använder tillgänglighets gruppens lyssnare en VNN för att dirigera trafik till lämplig replik. 
 
@@ -89,7 +89,7 @@ Använd en VNN med Azure Load Balancer eller ett distribuerat nätverks namn (DN
 
 I följande tabell jämförs HADR-anslutnings support: 
 
-| |**Namn på virtuellt nätverk (VNN)**  |**Namn på distribuerat nätverk (DNN)**  |
+| |**Virtual Network namn (VNN)**  |**Distribuerat nätverks namn (DNN)**  |
 |---------|---------|---------|
 |**Lägsta version av operativsystemet**| Alla | Windows Server 2016 |
 |**Lägsta SQL Server-version** |Alla |SQL Server 2019 CU2 (för FCI)<br/> SQL Server 2019 CU8 (för AG)|
@@ -104,9 +104,9 @@ Det finns en liten växlings fördröjning när du använder belastningsutjämna
 
 För att komma igång, lär dig hur du konfigurerar Azure Load Balancer för [kluster instans för växling vid fel](failover-cluster-instance-vnn-azure-load-balancer-configure.md) eller en [tillgänglighets grupp](availability-group-vnn-azure-load-balancer-configure.md)
 
-**Operativ system som stöds**: alla   
-**SQL-version som stöds**: alla   
-**Hadr lösning som stöds**: kluster instans för växling vid fel och tillgänglighets grupp   
+**Operativ system som stöds** : alla   
+**SQL-version som stöds** : alla   
+**Hadr lösning som stöds** : kluster instans för växling vid fel och tillgänglighets grupp   
 
 
 ### <a name="distributed-network-name-dnn"></a>Namn på distribuerat nätverk (DNN)
@@ -124,9 +124,9 @@ De flesta SQL Server funktioner fungerar transparent med FCI och tillgänglighet
 
 För att komma igång, lär dig att konfigurera en distribuerad nätverks namn resurs för [en instans av ett redundanskluster](failover-cluster-instance-distributed-network-name-dnn-configure.md) eller en [tillgänglighets grupp](availability-group-distributed-network-name-dnn-listener-configure.md)
 
-**Operativ system som stöds**: Windows Server 2016 och senare   
-**SQL-version som stöds**: SQL Server 2019 CU2 (FCI) och SQL Server 2019 CU8 (AG)   
-**Hadr lösning som stöds**: kluster instans för växling vid fel och tillgänglighets grupp   
+**Operativ system som stöds** : Windows Server 2016 och senare   
+**SQL-version som stöds** : SQL Server 2019 CU2 (FCI) och SQL Server 2019 CU8 (AG)   
+**Hadr lösning som stöds** : kluster instans för växling vid fel och tillgänglighets grupp   
 
 
 ## <a name="limitations"></a>Begränsningar
@@ -135,7 +135,7 @@ Tänk på följande begränsningar när du arbetar med FCI-eller tillgänglighet
 
 ### <a name="msdtc"></a>MSDTC 
 
-Azure Virtual Machines stöder Microsoft koordinator för distribuerad transaktion (MSDTC) på Windows Server 2019 med lagring på klusterdelade volymer (CSV) och [Azure standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) eller på SQL Server virtuella datorer som använder Azure delade diskar. 
+Azure Virtual Machines stöder Microsoft koordinator för distribuerad transaktion (MSDTC) på Windows Server 2019 med lagring på klusterdelade volymer (CSV) och [Azure standard Load Balancer](../../../load-balancer/load-balancer-overview.md) eller på SQL Server virtuella datorer som använder Azure delade diskar. 
 
 I Azure Virtual Machines stöds inte MSDTC för Windows Server 2016 eller tidigare med klustrade delade volymer på grund av följande:
 
@@ -145,5 +145,4 @@ I Azure Virtual Machines stöds inte MSDTC för Windows Server 2016 eller tidiga
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har fastställt lämpliga metod tips för din lösning, kom igång genom att [förbereda din SQL Server VM för FCI](failover-cluster-instance-prepare-vm.md) eller genom att skapa din tillgänglighets grupp med hjälp av [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](availability-group-az-cli-configure.md)eller [Azures snabb starts mallar](availability-group-quickstart-template-configure.md). 
-
+När du har fastställt lämpliga metod tips för din lösning, kom igång genom att [förbereda din SQL Server VM för FCI](failover-cluster-instance-prepare-vm.md) eller genom att skapa din tillgänglighets grupp med hjälp av [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](./availability-group-az-commandline-configure.md)eller [Azures snabb starts mallar](availability-group-quickstart-template-configure.md).

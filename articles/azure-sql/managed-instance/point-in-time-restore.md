@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 9b4d0fadf157ce1eef6821ccbc32f5725aea611f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31be497d017cb60de6f46d7657889c9c1fabef4a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616524"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788357"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Återställa en databas i en Azure SQL-hanterad instans till en tidigare tidpunkt
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,8 +46,8 @@ I följande tabell visas tidpunkter för återställnings scenarier för SQL-han
 
 |           |Återställ befintlig databas till samma instans av SQL-hanterad instans| Återställa en befintlig databas till en annan SQL-hanterad instans|Återställ utelämnad databas till samma SQL-hanterade instans|Återställ utelämnad databas till en annan SQL-hanterad instans|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure Portal**| Ja|Inga |Ja|Inga|
-|**Azure CLI**|Ja |Ja |Inga|Inga|
+|**Azure-portalen**| Ja|Nej |Ja|Nej|
+|**Azure CLI**|Ja |Ja |Nej|Nej|
 |**PowerShell**| Ja|Ja |Ja|Ja|
 
 ## <a name="restore-an-existing-database"></a>Återställa en befintlig databas
@@ -67,7 +67,7 @@ I följande tabell visas tidpunkter för återställnings scenarier för SQL-han
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Om du inte redan har Azure PowerShell installerat, se [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Om du inte redan har Azure PowerShell installerat, se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
 Om du vill återställa-databasen med hjälp av PowerShell anger du värdena för parametrarna i följande kommando. Kör sedan kommandot:
 
@@ -106,7 +106,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceName $targetInstanceName 
 ```
 
-Mer information finns i [restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
+Mer information finns i [restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -128,7 +128,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-En detaljerad förklaring av tillgängliga parametrar finns i [CLI-dokumentationen för att återställa en databas i en SQL-hanterad instans](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+En detaljerad förklaring av tillgängliga parametrar finns i [CLI-dokumentationen för att återställa en databas i en SQL-hanterad instans](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
 
 ---
 
@@ -139,7 +139,7 @@ Du kan återställa en borttagen databas med hjälp av PowerShell eller Azure Po
 ### <a name="portal"></a>Portalen 
 
 
-Om du vill återställa en hanterad databas med Azure Portal öppnar du översikts sidan SQL-hanterad instans och väljer **borttagna databaser**. Välj en borttagen databas som du vill återställa och skriv namnet på den nya databasen som ska skapas med data som återställs från säkerhets kopian.
+Om du vill återställa en hanterad databas med Azure Portal öppnar du översikts sidan SQL-hanterad instans och väljer **borttagna databaser** . Välj en borttagen databas som du vill återställa och skriv namnet på den nya databasen som ska skapas med data som återställs från säkerhets kopian.
 
   ![Skärm bild av Återställ borttagen Azure SQL-instans databas](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -205,13 +205,13 @@ DROP DATABASE WorldWideImporters;
 
 Använd någon av följande metoder för att ansluta till din databas i SQL-hanterad instans:
 
-- [SSMS/Azure Data Studio via en virtuell Azure-dator](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Punkt-till-plats](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Offentlig slutpunkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [SSMS/Azure Data Studio via en virtuell Azure-dator](./connect-vm-instance-configure.md)
+- [Punkt-till-plats](./point-to-site-p2s-configure.md)
+- [Offentlig slutpunkt](./public-endpoint-configure.md)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-I Azure Portal väljer du databasen från SQL-hanterad instans och väljer sedan **ta bort**.
+I Azure Portal väljer du databasen från SQL-hanterad instans och väljer sedan **ta bort** .
 
    ![Ta bort en databas med hjälp av Azure Portal](./media/point-in-time-restore/delete-database-from-mi.png)
 
@@ -247,9 +247,9 @@ ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 
 Använd någon av följande metoder för att ansluta till din databas i SQL-hanterad instans:
 
-- [Virtuell Azure-dator](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [Punkt-till-plats](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Offentlig slutpunkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Virtuell Azure-dator](./connect-vm-instance-configure.md)
+- [Punkt-till-plats](./point-to-site-p2s-configure.md)
+- [Offentlig slutpunkt](./public-endpoint-configure.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 46eee878ba8cf1d12edf262241d5df8ef8ccc82f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 423fd0f91de3e936e2920d57e5bc606bb86a2437
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442941"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786725"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Kom igång med Elastic Database verktyg
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -98,23 +98,23 @@ Följ dessa steg om du vill hämta och köra exemplet:
 Grattis! Du har skapat och kört ditt första shardade-program genom att använda Elastic Database verktyg på SQL Database. Använd Visual Studio eller SQL Server Management Studio för att ansluta till databasen och ta en titt på Shards som exemplet skapade. Du kommer att märka nya exempel på Shard-databaser och en Shard Map Manager-databas som exemplet har skapat.
 
 > [!IMPORTANT]
-> Vi rekommenderar att du alltid använder den senaste versionen av Management Studio så att du förblir synkroniserad med uppdateringar till Azure och SQL Database. [Uppdatera SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Vi rekommenderar att du alltid använder den senaste versionen av Management Studio så att du förblir synkroniserad med uppdateringar till Azure och SQL Database. [Uppdatera SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## <a name="key-pieces-of-the-code-sample"></a>Huvud delar av kod exemplet
 
-* **Hantera Shards-och Shard Maps**: koden visar hur du arbetar med Shards, intervall och mappningar i *ShardManagementUtils.cs* -filen. Mer information finns i [skala ut databaser med Shard Map Manager](https://go.microsoft.com/?linkid=9862595).  
+* **Hantera Shards-och Shard Maps** : koden visar hur du arbetar med Shards, intervall och mappningar i *ShardManagementUtils.cs* -filen. Mer information finns i [skala ut databaser med Shard Map Manager](https://go.microsoft.com/?linkid=9862595).  
 
-* **Data beroende routning**: routning av transaktioner till rätt Shard visas i *DataDependentRoutingSample.cs* -filen. Mer information finns i [data beroende routning](https://go.microsoft.com/?linkid=9862596).
+* **Data beroende routning** : routning av transaktioner till rätt Shard visas i *DataDependentRoutingSample.cs* -filen. Mer information finns i [data beroende routning](https://go.microsoft.com/?linkid=9862596).
 
-* **Fråga över flera Shards**: frågor över Shards illustreras i *MultiShardQuerySample.cs* -filen. Mer information finns i [multi-Shard-frågor](https://go.microsoft.com/?linkid=9862597).
+* **Fråga över flera Shards** : frågor över Shards illustreras i *MultiShardQuerySample.cs* -filen. Mer information finns i [multi-Shard-frågor](https://go.microsoft.com/?linkid=9862597).
 
-* **Lägger till Tom Shards**: upprepnings tillägg av ny tom Shards utförs av koden i *CreateShardSample.cs* -filen. Mer information finns i [skala ut databaser med Shard Map Manager](https://go.microsoft.com/?linkid=9862595).
+* **Lägger till Tom Shards** : upprepnings tillägg av ny tom Shards utförs av koden i *CreateShardSample.cs* -filen. Mer information finns i [skala ut databaser med Shard Map Manager](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Andra elastiska skalnings åtgärder
 
-* Dela **en befintlig Shard**: funktionen för att dela Shards tillhandahålls av verktyget Dela och slå samman. Mer information finns i [Flytta data mellan utskalade moln databaser](elastic-scale-overview-split-and-merge.md).
+* Dela **en befintlig Shard** : funktionen för att dela Shards tillhandahålls av verktyget Dela och slå samman. Mer information finns i [Flytta data mellan utskalade moln databaser](elastic-scale-overview-split-and-merge.md).
 
-* **Sammanfogar befintliga Shards**: Shard-sammanslagningar utförs också med hjälp av verktyget för att dela och slå samman. Mer information finns i [Flytta data mellan utskalade moln databaser](elastic-scale-overview-split-and-merge.md).
+* **Sammanfogar befintliga Shards** : Shard-sammanslagningar utförs också med hjälp av verktyget för att dela och slå samman. Mer information finns i [Flytta data mellan utskalade moln databaser](elastic-scale-overview-split-and-merge.md).
 
 ## <a name="cost"></a>Kostnad
 
@@ -134,7 +134,7 @@ Mer information om Elastic Database-verktyg finns i följande artiklar:
   * [Shard Elastiskhet i Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blogg: [meddelande om elastisk skalning](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
 * Kanal 9: [Översikt över elastisk skalning](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Diskussions forum: [Microsoft Q&en fråge sida för Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
+* Diskussions forum: [Microsoft Q&en fråge sida för Azure SQL Database](/answers/topics/azure-sql-database.html)
 * För att mäta prestanda: [prestanda räknare för Shard Map Manager](elastic-database-client-library.md)
 
 <!--Anchors-->

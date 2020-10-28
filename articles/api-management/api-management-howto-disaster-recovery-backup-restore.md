@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 0eb38dbb01e1e7d820159a5085b262dae3c04e8f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1a1e9c394f3665845b1f2bbbd605322b43f5f25d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075339"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787235"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Så här implementerar du haveriberedskap med hjälp av säkerhetskopiering och återställning i Azure API Management
 
@@ -61,28 +61,28 @@ Alla aktiviteter som du gör på resurser som använder Azure Resource Manager m
     > [!NOTE]
     > Om Azure Active Directory standard katalogen inte är synlig för ditt konto, kontakta administratören för Azure-prenumerationen för att ge de behörigheter som krävs för ditt konto.
 
-3. Klicka på **Ny programregistrering**.
+3. Klicka på **Ny programregistrering** .
 
     Fönstret **skapa** visas till höger. Det är här som du anger information om AAD-appen.
 
 4. Ange ett namn på programmet.
-5. För program typ väljer du **intern**.
-6. Ange en plats hållares URL, till exempel `http://resources` för **omdirigerings-URI**, eftersom det är ett obligatoriskt fält, men värdet används inte senare. Klicka i kryss rutan för att spara programmet.
-7. Klicka på **Skapa**.
+5. För program typ väljer du **intern** .
+6. Ange en plats hållares URL, till exempel `http://resources` för **omdirigerings-URI** , eftersom det är ett obligatoriskt fält, men värdet används inte senare. Klicka i kryss rutan för att spara programmet.
+7. Klicka på **Skapa** .
 
 ### <a name="add-an-application"></a>Lägga till ett program
 
-1. När programmet har skapats klickar du på **API-behörigheter**.
-2. Klicka på **+ Lägg till en behörighet**.
-4. Tryck på **Välj Microsoft API: er**.
-5. Välj **Azure Service Management**.
-6. Tryck på **Välj**.
+1. När programmet har skapats klickar du på **API-behörigheter** .
+2. Klicka på **+ Lägg till en behörighet** .
+4. Tryck på **Välj Microsoft API: er** .
+5. Välj **Azure Service Management** .
+6. Tryck på **Välj** .
 
     ![Lägga till behörigheter](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. Klicka på **delegerade behörigheter** bredvid det nyligen tillagda programmet, markera kryss rutan för **åtkomst till Azure Service Management (för hands version)**.
-8. Tryck på **Välj**.
-9. Klicka på **bevilja behörigheter**.
+7. Klicka på **delegerade behörigheter** bredvid det nyligen tillagda programmet, markera kryss rutan för **åtkomst till Azure Service Management (för hands version)** .
+8. Tryck på **Välj** .
+9. Klicka på **bevilja behörigheter** .
 
 ### <a name="configuring-your-app"></a>Konfigurera din app
 
@@ -115,7 +115,7 @@ namespace GetTokenResourceManagerRequests
 
 Ersätt `{tenant id}` , `{application id}` och `{redirect uri}` Använd följande instruktioner:
 
-1. Ersätt `{tenant id}` med klient-ID: t för det Azure Active Directory program som du har skapat. Du kan komma åt ID: t genom att klicka på **Appregistreringar**  ->  **slut punkter**.
+1. Ersätt `{tenant id}` med klient-ID: t för det Azure Active Directory program som du har skapat. Du kan komma åt ID: t genom att klicka på **Appregistreringar**  ->  **slut punkter** .
 
     ![Slutpunkter][api-management-endpoint]
 
@@ -152,7 +152,7 @@ där:
 -   `subscriptionId` -ID för den prenumeration som innehåller den API Management-tjänst som du försöker säkerhetskopiera
 -   `resourceGroupName` – namnet på resurs gruppen för din Azure API Management-tjänst
 -   `serviceName` – namnet på den API Management tjänst som du skapar en säkerhets kopia av som anges när den skapas
--   `api-version` -Ersätt med `2018-06-01-preview`
+-   `api-version` -Ersätt med `2019-12-01`
 
 I bröd texten i begäran anger du namnet på Azure Storage-kontot, åtkomst nyckeln, namn på BLOB container och säkerhets kopians namn:
 
@@ -171,10 +171,10 @@ Backup är en tids krävande åtgärd som kan ta mer än en minut att slutföra.
 
 #### <a name="constraints-when-making-backup-or-restore-request"></a>Begränsningar när du gör en säkerhets kopierings-eller återställnings förfrågan
 
--   Den **behållare** som anges i begär ande texten **måste finnas**.
+-   Den **behållare** som anges i begär ande texten **måste finnas** .
 -   När säkerhets kopiering pågår, **Undvik hanterings ändringar i tjänsten** , till exempel SKU-uppgradering eller nedgradering, ändring i domän namn med mera.
 -   Återställning av en **säkerhets kopia garanteras endast i 30 dagar** sedan den skapades.
--   **Ändringar** som görs i tjänst konfigurationen (till exempel API: er, principer och utvecklarens Portal utseende) medan säkerhets kopieringen pågår **kan uteslutas från säkerhets kopian och kommer att gå förlorade**.
+-   **Ändringar** som görs i tjänst konfigurationen (till exempel API: er, principer och utvecklarens Portal utseende) medan säkerhets kopieringen pågår **kan uteslutas från säkerhets kopian och kommer att gå förlorade** .
 -   **Tillåt** åtkomst från kontroll planet till Azure Storage konto om [brand väggen][azure-storage-ip-firewall] är aktive rad. Kunden bör öppna uppsättningen [Azure API Management Control plan-IP-adresser][control-plane-ip-address] på deras lagrings konto för att säkerhetskopiera eller återställa från. Detta beror på att begär Anden Azure Storage inte SNATed till en offentlig IP-adress från beräknings > (kontroll plan för Azure API Management). Lagrings förfrågan mellan regioner kommer att vara SNATed.
 
 #### <a name="what-is-not-backed-up"></a>Vad säkerhets kopie ras inte
@@ -202,7 +202,7 @@ där:
 -   `subscriptionId` -ID för den prenumeration som innehåller API Management tjänsten som du återställer en säkerhets kopia till
 -   `resourceGroupName` – namnet på den resurs grupp som innehåller Azure API Management-tjänsten som du återställer en säkerhets kopia till
 -   `serviceName` – namnet på API Managements tjänsten som återställs till angivet när den skapades
--   `api-version` -Ersätt med `2018-06-01-preview`
+-   `api-version` -Ersätt med `api-version=2019-12-01`
 
 Ange platsen för säkerhets kopian i bröd texten i begäran. Det innebär att du kan lägga till namnet på Azure Storage-kontot, åtkomst nyckeln, namnet på BLOB-behållaren och namnet på säkerhets kopian:
 
@@ -222,7 +222,7 @@ Restore är en tids krävande åtgärd som kan ta upp till 30 minuter att slutf�
 > [!IMPORTANT]
 > **SKU: n** för den tjänst som återställs till **måste matcha** SKU: n för den säkerhetskopierade tjänsten som återställs.
 >
-> **Ändringar** som gjorts i tjänst konfigurationen (till exempel API: er, principer, utvecklings portalens utseende) medan återställnings åtgärden pågår **kan skrivas över**.
+> **Ändringar** som gjorts i tjänst konfigurationen (till exempel API: er, principer, utvecklings portalens utseende) medan återställnings åtgärden pågår **kan skrivas över** .
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 

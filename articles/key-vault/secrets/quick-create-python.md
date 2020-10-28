@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 5e40a3f6e6f30926d8ea70d235f3b44e87ea55fc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7fe5b8da0b6dfa69d04a5ad152aa34a8686d854f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746051"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786113"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Snabb start: Azure Key Vault hemligt klient bibliotek för python
 
@@ -24,14 +24,14 @@ Kom igång med klient biblioteket Azure Key Vault Secret för python. Följ steg
 ## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7 + eller 3.5.3 +](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
+- [Python 2.7 + eller 3.5.3 +](/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 Den här snabb starten förutsätter att du kör [Azure CLI](/cli/azure/install-azure-cli) i ett Linux-terminalfönster.
 
 
 ## <a name="set-up-your-local-environment"></a>Konfigurera din lokala miljö
-Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
+Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](/java/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 

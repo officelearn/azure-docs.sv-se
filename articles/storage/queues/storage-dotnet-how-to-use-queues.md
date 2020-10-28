@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855930"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787473"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
 
@@ -71,7 +71,7 @@ Du måste referera till följande fyra paket i projektet för att slutföra den 
 
 Du kan använda NuGet för att hämta paketen. Följ de här stegen:
 
-1. Högerklicka på ditt projekt i **Solution Explorer**och välj **Hantera NuGet-paket**.
+1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket** .
 1. Välj **Bläddra**
 1. Sök online efter "Azure. Storage. Queues" och välj **Installera** för att installera lagrings klient biblioteket och dess beroenden. Detta kommer också att installera Azure. Storage. common och Azure. Core-bibliotek, som är beroenden av kösystemet.
 1. Sök online efter "System.Configuration.ConfigurationManager" och välj **Installera** för att installera Configuration Manager.
@@ -86,7 +86,7 @@ Du måste referera till följande tre paket i projektet för att slutföra den h
 
 Du kan använda NuGet för att hämta paketen. Följ de här stegen:
 
-1. Högerklicka på ditt projekt i **Solution Explorer**och välj **Hantera NuGet-paket**.
+1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket** .
 1. Välj **Bläddra**
 1. Sök online efter "Microsoft. Azure. Storage. Queue" och välj **Installera** för att installera lagrings klient biblioteket och dess beroenden. Detta kommer också att installera Microsoft. Azure. Storage. common-biblioteket, vilket är ett beroende av Queue-biblioteket.
 1. Sök online efter "Microsoft.Azure.ConfigurationManager" och välj **Installera** för att installera Azure-Configuration Manager.
@@ -114,7 +114,7 @@ Exempelkoden måste autentisera åtkomsten till lagringskontot. När du vill aut
 1. Navigera till [Azure Portal](https://portal.azure.com).
 2. Leta rätt på ditt lagringskonto.
 3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten. Åtkomstnycklarna för kontot visas, samt den fullständiga anslutningssträngen för varje nyckel.
-4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att klicka på **Kopiera**. Du lägger till strängvärdet för anslutningen till en miljövariabel i nästa steg.
+4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att klicka på **Kopiera** . Du lägger till strängvärdet för anslutningen till en miljövariabel i nästa steg.
 
     ![Skärmbild som visar hur man kopierar en anslutningssträng från Azure-portalen](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
@@ -349,7 +349,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Använda Async-Await-mönstret med vanliga Queue Storage-API:er
 
-Det här exemplet illustrerar hur du använder Async-Await-mönstret med vanliga Queue Storage-API:er. Exemplet anropar den asynkrona versionen av var och en av de angivna metoderna, vilket du ser på *Async*-suffixet för varje metod. När en async-metod används pausar async-await-mönstret den lokala körningen tills anropet har slutförts. Detta gör att den aktuella tråden kan arbeta med annat, vilket innebär att flaskhalsar kan undvikas samtidigt som programmets svarstider förbättras. Mer information om hur du använder Async-Await-mönstret i .NET finns i [Async och Await (C# och Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+Det här exemplet illustrerar hur du använder Async-Await-mönstret med vanliga Queue Storage-API:er. Exemplet anropar den asynkrona versionen av var och en av de angivna metoderna, vilket du ser på *Async* -suffixet för varje metod. När en async-metod används pausar async-await-mönstret den lokala körningen tills anropet har slutförts. Detta gör att den aktuella tråden kan arbeta med annat, vilket innebär att flaskhalsar kan undvikas samtidigt som programmets svarstider förbättras. Mer information om hur du använder Async-Await-mönstret i .NET finns i [Async och Await (C# och Visual Basic)](/previous-versions/hh191443(v=vs.140))
 
 # <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
 
@@ -489,10 +489,10 @@ queue.Delete();
 Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagringsuppgifter.
 
 - Fullständig information om tillgängliga API:er finns i referensdokumentationen för kötjänsten:
-  - [Storage-klientbibliotek för .NET-referens](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [Referens för REST-API](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Storage-klientbibliotek för .NET-referens](/dotnet/api/overview/azure/storage)
+  - [Referens för REST-API](/rest/api/storageservices/)
 - Visa fler funktionsguider och lär dig mer om andra alternativ för att lagra data i Azure.
-  - [Kom igång med Azure Table Storage med hjälp av .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) om du vill lagra strukturerade data.
-  - [Kom igång med Azure Blob Storage med hjälp av .NET](../blobs/storage-dotnet-how-to-use-blobs.md) om du vill lagra ostrukturerade data.
+  - [Kom igång med Azure Table Storage med hjälp av .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) om du vill lagra strukturerade data.
+  - [Kom igång med Azure Blob Storage med hjälp av .NET](../blobs/storage-quickstart-blobs-dotnet.md) om du vill lagra ostrukturerade data.
   - [Anslut till SQL Database med hjälp av .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) för att lagra relationsdata.
 - Lär dig hur du förenklar koden du skriver så att den fungerar med Azure Storage genom att använda [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

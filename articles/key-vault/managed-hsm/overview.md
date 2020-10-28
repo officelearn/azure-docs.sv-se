@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d2d5d6ad23f5e6a2cac2dc97904154d5912573b0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91320565"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787932"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>Vad är Azure Key Vault hanterad HSM (för hands version)?
 
@@ -24,21 +24,21 @@ Azure Key Vault hanterad HSM är en fullständigt hanterad moln tjänst med hög
 
 ### <a name="fully-managed-highly-available-single-tenant-hsm-as-a-service"></a>Fullständigt hanterad HSM med enkel klient som en tjänst
 
-- **Fullständigt hanterad**: HSM-etablering, konfiguration, uppdatering och underhåll hanteras av tjänsten. 
+- **Fullständigt hanterad** : HSM-etablering, konfiguration, uppdatering och underhåll hanteras av tjänsten. 
 - **Hög tillgänglighet och zon elastisk** (där tillgänglighets zoner stöds): varje HSM-kluster består av flera HSM-partitioner som sträcker sig över minst två tillgänglighets zoner. Om maskin varan Miss lyckas migreras katalogpartitionerna för ditt HSM-kluster automatiskt till felfria noder.
-- **Enskild klient**: varje hanterad HSM-instans är dedikerad till en enda kund och består av ett kluster med flera HSM-partitioner. Varje HSM-kluster använder en separat kundspecifik säkerhets domän som kryptografiskt isolerar varje kunds HSM-kluster.
+- **Enskild klient** : varje hanterad HSM-instans är dedikerad till en enda kund och består av ett kluster med flera HSM-partitioner. Varje HSM-kluster använder en separat kundspecifik säkerhets domän som kryptografiskt isolerar varje kunds HSM-kluster.
 
 
 ### <a name="access-control-enhanced-data-protection--compliance"></a>Åtkomst kontroll, förbättrat data skydd & efterlevnad
 
-- **Centraliserad nyckel hantering**: hantera viktiga, höga nycklar i hela organisationen på ett och samma ställe. Med detaljerad behörighet per nyckel kontrollerar du åtkomsten till varje nyckel i principen "minst privilegie rad åtkomst".
-- **Isolerad åtkomst kontroll**: HANTERAd HSM-åtkomst kontroll modell gör att dedicerade HSM-kluster administratörer har fullständig kontroll över HSM: er som även hanterings gruppen, prenumerationen eller resurs gruppen administratörer inte kan åsidosätta.
-- **Fips 140-2 nivå 3-verifierade HSM: er**: skydda dina data och uppfyller kraven för efterlevnad med FIPS ((Federal Information Protection standard)) 140-2 nivå 3, verifierade HSM: er. Hanterade HSM: er använder Marvell LiquidSecurity HSM-kort.
-- **Övervaka och granska**: fullständigt integrerat med Azure Monitor. Hämta fullständiga loggar för all aktivitet via Azure Monitor. Använd Azure Log Analytics för analys och aviseringar.
+- **Centraliserad nyckel hantering** : hantera viktiga, höga nycklar i hela organisationen på ett och samma ställe. Med detaljerad behörighet per nyckel kontrollerar du åtkomsten till varje nyckel i principen "minst privilegie rad åtkomst".
+- **Isolerad åtkomst kontroll** : HANTERAd HSM-åtkomst kontroll modell gör att dedicerade HSM-kluster administratörer har fullständig kontroll över HSM: er som även hanterings gruppen, prenumerationen eller resurs gruppen administratörer inte kan åsidosätta.
+- **Fips 140-2 nivå 3-verifierade HSM: er** : skydda dina data och uppfyller kraven för efterlevnad med FIPS ((Federal Information Protection standard)) 140-2 nivå 3, verifierade HSM: er. Hanterade HSM: er använder Marvell LiquidSecurity HSM-kort.
+- **Övervaka och granska** : fullständigt integrerat med Azure Monitor. Hämta fullständiga loggar för all aktivitet via Azure Monitor. Använd Azure Log Analytics för analys och aviseringar.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integrerat med Azure och Microsoft PaaS/SaaS-tjänster 
 
-- Generera (eller importera med [BYOK](hsm-protected-keys-byok.md)) nycklar och Använd dem för att kryptera dina data i andra Azure-tjänster, till exempel [Azure Storage](../../storage/common/encryption-customer-managed-keys.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md)och [Azure information Protection](/azure/information-protection/byok-price-restrictions).
+- Generera (eller importera med [BYOK](hsm-protected-keys-byok.md)) nycklar och Använd dem för att kryptera dina data i andra Azure-tjänster, till exempel [Azure Storage](../../storage/common/customer-managed-keys-overview.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md)och [Azure information Protection](/azure/information-protection/byok-price-restrictions).
 
 ### <a name="uses-same-api-and-management-interfaces-as-key-vault"></a>Använder samma API och hanterings gränssnitt som Key Vault
 

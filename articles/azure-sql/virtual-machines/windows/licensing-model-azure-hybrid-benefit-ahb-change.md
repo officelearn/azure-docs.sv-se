@@ -13,18 +13,18 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b09d808201d58b571b2fe5ceb2e228d4e1c21d11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28ab0a158507e3f29ecfdc026203d92d71877633
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316961"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786521"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Ändra licensmodellen för en virtuell SQL-dator i Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-Den här artikeln beskriver hur du ändrar licens modellen för en SQL Server virtuell dator (VM) i Azure med hjälp av den nya SQL Server VM Resource providern **Microsoft. SqlVirtualMachine**.
+Den här artikeln beskriver hur du ändrar licens modellen för en SQL Server virtuell dator (VM) i Azure med hjälp av den nya SQL Server VM Resource providern **Microsoft. SqlVirtualMachine** .
 
 Det finns tre licens modeller för en virtuell dator som är värd för SQL Server: betala per användning, Azure Hybrid-förmån (AHB) och haveri beredskap (DR). Du kan ändra licens modellen för dina SQL Server VM med hjälp av Azure Portal, Azure CLI eller PowerShell. 
 
@@ -49,7 +49,7 @@ Licens typen för SQL Server kan konfigureras när den virtuella datorn är etab
 Att ändra licensierings modellen för SQL Server VM har följande krav: 
 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
-- En [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrerad med [resurs leverantören för SQL-VM](sql-vm-resource-provider-register.md).
+- En [SQL Server VM](./create-sql-vm-portal.md) registrerad med [resurs leverantören för SQL-VM](sql-vm-resource-provider-register.md).
 - [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) är ett krav för att använda [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
@@ -62,7 +62,7 @@ Att ändra licensierings modellen för SQL Server VM har följande krav:
 Du kan ändra licens modellen direkt från portalen: 
 
 1. Öppna [Azure Portal](https://portal.azure.com) och öppna [resursen SQL Virtual Machines](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) för din SQL Server VM. 
-1. Välj **Konfigurera** under **Inställningar**. 
+1. Välj **Konfigurera** under **Inställningar** . 
 1. Välj alternativet **Azure Hybrid-förmån** och markera kryss rutan för att bekräfta att du har en SQL Server-licens med Software Assurance. 
 1. Välj **Använd** längst ned på sidan **Konfigurera** . 
 
@@ -83,7 +83,7 @@ Du kan använda Azure CLI för att ändra din licens modell.
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 ```
 
-**Betala per**användning: 
+**Betala per** användning: 
 
 ```azurecli-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
@@ -180,5 +180,3 @@ Mer information finns i följande artiklar:
 * [Vanliga frågor och svar om SQL Server på en virtuell Windows-dator](frequently-asked-questions-faq.md)
 * [Pris vägledning för SQL Server på en virtuell Windows-dator](pricing-guidance.md)
 * [Viktig information för SQL Server på en virtuell Windows-dator](../../database/doc-changes-updates-release-notes.md)
-
-

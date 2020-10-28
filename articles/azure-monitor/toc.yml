@@ -556,8 +556,6 @@
               href: platform/alerts-managing-smart-groups.md
             - name: Hantera tillstånd för aviseringar och smarta grupper
               href: platform/alerts-managing-alert-states.md
-            - name: Hantera aviseringar från andra övervakningstjänster
-              href: platform/alerts-managing-nagios-zabbix-scom.md
         - name: Aviserings-API
           href: platform/api-alerts.md
         - name: Felsöka aviseringar
@@ -576,8 +574,6 @@
               href: platform/itsmc-service-manager-script.md
             - name: Åtgärda problem med ServiceNow ITSM-synkronisering
               href: platform/itsmc-resync-servicenow.md
-        - name: Lösning för aviseringshantering
-          href: platform/alert-management-solution.md
         - name: Migrera klassiska aviseringsregler
           items:
             - name: Om klassiska aviseringar
@@ -1138,6 +1134,8 @@
               href: insights/vmware.md
             - name: Wire Data-lösning
               href: insights/wire-data.md
+            - name: Lösning för aviseringshantering
+              href: platform/alert-management-solution.md
     - name: Arbetsböcker
       items:
         - name: Översikt

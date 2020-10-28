@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ad5fa271e3abfaf0c7ee4884881262773a9ad485
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946084"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741495"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (python)
 
@@ -80,14 +80,14 @@ I den här snabb starten använder du en exempel IoT-lösning i python för att 
 1. Öppna filen *registry_manager_pnp_sample. py* och granska koden. Det här exemplet visar hur du använder klassen **IoTHubRegistryManager** för att interagera med din IoT plug and Play-enhet.
 
 > [!NOTE]
-> Dessa tjänst exempel använder klassen **IoTHubRegistryManager** från den **IoT Hub tjänst klienten**. Mer information om API: er, inklusive digitala dubbla API: er, finns i [service Developer-guiden](concepts-developer-guide-service.md).
+> Dessa tjänst exempel använder klassen **IoTHubRegistryManager** från den **IoT Hub tjänst klienten** . Mer information om API: er, inklusive digitala dubbla API: er, finns i [service Developer-guiden](concepts-developer-guide-service.md).
 
 ### <a name="get-the-device-twin"></a>Hämta enheten med dubbla
 
 I [Konfigurera din miljö för iot plug and Play snabb starter och självstudier](set-up-environment.md) som du har skapat två miljövariabler för att konfigurera exemplet för att ansluta till din IoT-hubb och-enhet:
 
-* **IOTHUB_CONNECTION_STRING**: den IoT Hub-anslutningssträng som du antecknade tidigare.
-* **IOTHUB_DEVICE_ID**: `"my-pnp-device"` .
+* **IOTHUB_CONNECTION_STRING** : den IoT Hub-anslutningssträng som du antecknade tidigare.
+* **IOTHUB_DEVICE_ID** : `"my-pnp-device"` .
 
 Använd följande kommando i **service-** terminalen för att köra det här exemplet:
 
@@ -107,7 +107,7 @@ The Model ID for this device is:
 dtmi:com:example:Thermostat;1
 ```
 
-I följande kodfragment visas exempel koden från *registry_manager_pnp_sample. py*:
+I följande kodfragment visas exempel koden från *registry_manager_pnp_sample. py* :
 
 ```python
     # Create IoTHubRegistryManager

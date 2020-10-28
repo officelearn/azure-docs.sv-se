@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: 661147769d8ae845066e912a84118c9fd3f93486
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: dd5d05ff6ed2368308f90f61ea0a6f107e43acd7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674921"
+ms.locfileid: "92740778"
 ---
 # <a name="weather-partner-integration"></a>Väderpartnerintegration
 
@@ -180,7 +180,7 @@ Anslutningens Docker bör ha möjlighet att skicka uppdateringar för metadata. 
 
 ## <a name="weather-data-telemetry-specifications"></a>Specifikationer för väder data (telemetri)
 
-Väder data mappas till ett kanoniskt meddelande som skickas till en Azure Event Hub för bearbetning. Azure EventHub är en tjänst som gör det möjligt att använda real tids data (telemetri) från anslutna enheter och program. Om du vill skicka väder data till FarmBeats måste du skapa en klient som skickar meddelanden till en Event Hub i FarmBeats. Om du vill veta mer om att skicka telemetri kan du läsa [Skicka telemetri till en Event Hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+Väder data mappas till ett kanoniskt meddelande som skickas till en Azure Event Hub för bearbetning. Azure Event Hubs är en tjänst som gör att du kan mata in real tids data (telemetri) från anslutna enheter och program. Om du vill skicka väder data till FarmBeats måste du skapa en klient som skickar meddelanden till en Event Hub i FarmBeats. Om du vill veta mer om att skicka telemetri kan du läsa [Skicka telemetri till en Event Hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 Här är ett exempel på en python-kod som skickar telemetri som en klient till en angiven Event Hub.
 

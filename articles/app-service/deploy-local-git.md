@@ -5,19 +5,19 @@ ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
-ms.custom: seodec18
-ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 9650633e1eaffdb588b3a31cd5a2f305c36e7a25
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77153000"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741301"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure App Service
 
 Den här instruktions guiden visar hur du distribuerar appen till [Azure App Service](overview.md) från en git-lagringsplats på den lokala datorn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följ stegen i den här instruktions guiden:
 
@@ -100,26 +100,26 @@ Om ditt konto har de behörigheter som krävs kan du konfigurera Azure-pipeliner
 
 Så här aktiverar du lokal Git-distribution för din app med Azure-pipeliner (för hands version):
 
-1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **app Services**. 
+1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **app Services** . 
 
 1. Välj din Azure App Service-app och välj **Deployment Center** på den vänstra menyn.
    
-1. På sidan **distributions Center** väljer du **lokal git**och väljer sedan **Fortsätt**. 
+1. På sidan **distributions Center** väljer du **lokal git** och väljer sedan **Fortsätt** . 
    
    ![Välj lokal git och välj sedan Fortsätt](media/app-service-deploy-local-git/portal-enable.png)
    
-1. På sidan **build Provider** väljer du **Azure-pipelines (för hands version)** och väljer sedan **Fortsätt**. 
+1. På sidan **build Provider** väljer du **Azure-pipelines (för hands version)** och väljer sedan **Fortsätt** . 
    
    ![Välj Azure-pipeliner (för hands version) och välj sedan Fortsätt.](media/app-service-deploy-local-git/pipeline-builds.png)
 
-1. Konfigurera en ny Azure DevOps-organisation på sidan **Konfigurera** , eller ange en befintlig organisation och välj sedan **Fortsätt**.
+1. Konfigurera en ny Azure DevOps-organisation på sidan **Konfigurera** , eller ange en befintlig organisation och välj sedan **Fortsätt** .
    
    > [!NOTE]
    > Om din befintliga Azure DevOps-organisation inte finns med i listan kan du behöva länka den till din Azure-prenumeration. Mer information finns i [definiera din pipeline för CD-version](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd).
    
-1. Beroende på din App Service plan [pris nivå](https://azure.microsoft.com/pricing/details/app-service/plans/)kan du se sidan **distribuera till mellanlagringsplats** . Välj om du vill [Aktivera distributions platser](deploy-staging-slots.md)och välj sedan **Fortsätt**.
+1. Beroende på din App Service plan [pris nivå](https://azure.microsoft.com/pricing/details/app-service/plans/)kan du se sidan **distribuera till mellanlagringsplats** . Välj om du vill [Aktivera distributions platser](deploy-staging-slots.md)och välj sedan **Fortsätt** .
    
-1. På sidan **Sammanfattning** granskar du inställningarna och väljer sedan **Slutför**.
+1. På sidan **Sammanfattning** granskar du inställningarna och väljer sedan **Slutför** .
    
 1. När Azure-pipeline är klar kopierar du URL: en för git-lagringsplatsen från sidan **distributions Center** som ska användas i nästa steg. 
    
@@ -151,8 +151,8 @@ Följande vanliga fel meddelanden kan visas när du använder Git för att publi
 |`Couldn't resolve host 'hostname'`|Adress informationen för fjärran slutet av Azure är felaktig.|Använd `git remote -v` kommandot för att lista alla fjärranslutna, tillsammans med tillhör ande URL. Kontrol lera att URL: en för "Azure"-fjärrplatsen är korrekt. Om det behövs tar du bort och återskapar denna fjärr anslutning med rätt URL.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|Du har inte angett någon gren under `git push` eller så har du inte angett `push.default` värdet i `.gitconfig` .|Kör `git push` igen och ange huvud grenen: `git push azure master` .|
 |`src refspec [branchname] does not match any.`|Du försökte skicka till en annan gren än Master på Azure-fjärrplatsen.|Kör `git push` igen och ange huvud grenen: `git push azure master` .|
-|`RPC failed; result=22, HTTP code = 5xx.`|Det här felet kan inträffa om du försöker skicka en stor git-lagringsplats via HTTPS.|Ändra git-konfigurationen på den lokala datorn så att den blir `postBuffer` större. Exempel: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|Du har distribuerat en Node.js-app med en _package.jspå_ en fil som anger ytterligare nödvändiga moduler.|Granska `npm ERR!` fel meddelandena före det här felet för mer information om felet. Följande är kända orsaker till det här felet och motsvarande `npm ERR!` meddelanden:<br /><br />**Felaktig package.jspå fil**: `npm ERR! Couldn't read dependencies.`<br /><br />**Den ursprungliga modulen har ingen binär distribution för Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />eller <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`RPC failed; result=22, HTTP code = 5xx.`|Det här felet kan inträffa om du försöker skicka en stor git-lagringsplats via HTTPS.|Ändra git-konfigurationen på den lokala datorn så att den blir `postBuffer` större. Till exempel `git config --global http.postBuffer 524288000`.|
+|`Error - Changes committed to remote repository but your web app not updated.`|Du har distribuerat en Node.js-app med en _package.jspå_ en fil som anger ytterligare nödvändiga moduler.|Granska `npm ERR!` fel meddelandena före det här felet för mer information om felet. Följande är kända orsaker till det här felet och motsvarande `npm ERR!` meddelanden:<br /><br />**Felaktig package.jspå fil** : `npm ERR! Couldn't read dependencies.`<br /><br />**Den ursprungliga modulen har ingen binär distribution för Windows** :<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />eller <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

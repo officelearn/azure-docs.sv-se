@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: a1d89def944529235a0141d7e700049f15d1d0a7
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 8eb042b214ba1e4aea1eda1c65996d55ddde216e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424975"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741879"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden
 
@@ -25,12 +25,12 @@ Lär dig hur du autentiserar till din Azure Machine Learning-arbetsyta och model
 
 I allmänhet finns det två typer av autentisering som du kan använda med Azure Machine Learning:
 
-* __Interaktiv__: du använder ditt konto i Azure Active Directory för att antingen autentisera dig direkt eller hämta en token som används för autentisering. Interaktiv autentisering används vid experimentering och iterativ utveckling. Eller var du vill kontrol lera åtkomsten till resurser (till exempel en webb tjänst) per användare.
-* __Tjänstens huvud namn__: du skapar ett tjänst huvud namns konto i Azure Active Directory och använder det för att autentisera eller hämta en token. Ett huvud namn för tjänsten används när du behöver en automatiserad process för att autentisera till tjänsten utan att det krävs några åtgärder från användaren. Till exempel ett kontinuerligt integrerings-och distributions skript som tågen och testar en modell varje gång inlärnings koden ändras. Du kan också använda ett huvud namn för tjänsten för att hämta en token för att autentisera till en webb tjänst, om du inte vill kräva att slutanvändaren av tjänsten kan autentisera sig. Eller där autentiseringen av slutanvändare inte utförs direkt med Azure Active Directory.
+* __Interaktiv__ : du använder ditt konto i Azure Active Directory för att antingen autentisera dig direkt eller hämta en token som används för autentisering. Interaktiv autentisering används vid experimentering och iterativ utveckling. Eller var du vill kontrol lera åtkomsten till resurser (till exempel en webb tjänst) per användare.
+* __Tjänstens huvud namn__ : du skapar ett tjänst huvud namns konto i Azure Active Directory och använder det för att autentisera eller hämta en token. Ett huvud namn för tjänsten används när du behöver en automatiserad process för att autentisera till tjänsten utan att det krävs några åtgärder från användaren. Till exempel ett kontinuerligt integrerings-och distributions skript som tågen och testar en modell varje gång inlärnings koden ändras. Du kan också använda ett huvud namn för tjänsten för att hämta en token för att autentisera till en webb tjänst, om du inte vill kräva att slutanvändaren av tjänsten kan autentisera sig. Eller där autentiseringen av slutanvändare inte utförs direkt med Azure Active Directory.
 
 Oavsett vilken autentiseringstyp som används, används Azure rollbaserad åtkomst kontroll (Azure RBAC) för att begränsa den åtkomst nivå som tillåts för resurserna. Till exempel behöver ett konto som används för att hämta åtkomsttoken för en distribuerad modell bara Läs behörighet till arbets ytan. Mer information om Azure RBAC finns i [Hantera åtkomst till Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa en [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 * [Konfigurera utvecklings miljön](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning Notebook VM](concept-azure-machine-learning-architecture.md#compute-instance) med SDK redan installerad.
@@ -285,8 +285,8 @@ Används `token_response["accessToken"]` för att hämta auth-token. I [REST API
 
 Modell distributioner som skapats av Azure Machine Learning tillhandahålla två autentiseringsmetoder:
 
-* **nyckelbaserad**: en statisk nyckel används för att autentisera till webb tjänsten.
-* **tokenbaserad**: en tillfällig token måste hämtas från arbets ytan och användas för att autentisera till webb tjänsten. Denna token upphör att gälla efter en viss tids period och måste uppdateras för att fortsätta arbeta med webb tjänsten.
+* **nyckelbaserad** : en statisk nyckel används för att autentisera till webb tjänsten.
+* **tokenbaserad** : en tillfällig token måste hämtas från arbets ytan och användas för att autentisera till webb tjänsten. Denna token upphör att gälla efter en viss tids period och måste uppdateras för att fortsätta arbeta med webb tjänsten.
 
     > [!NOTE]
     > Tokenbaserad autentisering är endast tillgängligt när du distribuerar till Azure Kubernetes-tjänsten.
@@ -319,7 +319,7 @@ aci_service = Model.deploy(workspace=ws,
 aci_service.wait_for_deployment(True)
 ```
 
-Använd för att hämta auth-nycklarna `aci_service.get_keys()` . Om du vill återskapa en nyckel använder du `regen_key()` funktionen och skickar antingen **primär** eller **sekundär**.
+Använd för att hämta auth-nycklarna `aci_service.get_keys()` . Om du vill återskapa en nyckel använder du `regen_key()` funktionen och skickar antingen **primär** eller **sekundär** .
 
 ```python
 aci_service.regen_key("Primary")
@@ -335,7 +335,7 @@ När du aktiverar token-autentisering för en webb tjänst måste användarna pr
 
 * Token-autentisering **inaktive ras som standard** när du distribuerar till Azure Kubernetes-tjänsten.
 * Token-autentisering **stöds inte** när du distribuerar till Azure Container instances.
-* Token **-autentisering kan inte användas på samma gång som nyckelbaserad autentisering**.
+* Token **-autentisering kan inte användas på samma gång som nyckelbaserad autentisering** .
 
 Om du vill kontrol lera token-autentisering använder `token_auth_enabled` du parametern när du skapar eller uppdaterar en-distribution:
 

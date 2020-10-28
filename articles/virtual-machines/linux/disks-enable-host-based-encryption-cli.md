@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: ff56654981ef69648b1fa7ad11a8681c887289f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 6b523ac306feef2e4c82b3739096b26158c55fc3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816974"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741742"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Använd Azure CLI för att aktivera kryptering från slut punkt till slut punkt med kryptering på värd
 
@@ -187,7 +187,7 @@ az vmss show -n $vmssName \
 
 Äldre VM-storlekar stöds inte. Du hittar listan över virtuella dator storlekar som stöds genom att antingen:
 
-Anropar [resurs-SKU API](/rest/api/compute/resourceskus/list) och kontrollerar att `EncryptionAtHostSupported` funktionen har angetts till **Sant**.
+Anropar [resurs-SKU API](/rest/api/compute/resourceskus/list) och kontrollerar att `EncryptionAtHostSupported` funktionen har angetts till **Sant** .
 
 ```json
     {

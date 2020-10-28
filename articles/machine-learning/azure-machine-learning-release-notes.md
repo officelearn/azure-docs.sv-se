@@ -9,18 +9,50 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: f490038e6257829e63b1b28591d17eee76e17eb4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6e18599e83a301ecda94525949f9f4cd077085a2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92139366"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742020"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
 I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) -referens.
 
 Se [listan över kända problem](resource-known-issues.md) för att lära dig om kända buggar och lösningar.
+
+## <a name="2020-10-26"></a>2020-10-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1170"></a>Azure Machine Learning SDK för python v-1.17.0
++ **nya exempel**
+  + Det finns en ny community-driven databas med exempel på https://github.com/Azure/azureml-examples
++ **Fel korrigeringar och förbättringar**
+  + **azureml-automl-core**
+    + Ett problem har åtgärd ATS där get_output kan utlösa en XGBoostError.
+  + **azureml-automl-runtime**
+    + Tid/kalender-baserade funktioner som skapats av AutoML kommer nu att ha prefixet.
+    + Fast en IndexError som inträffar under utbildning av StackEnsemble för klassificering av data uppsättningar med ett stort antal klasser och under sampling aktive rad.
+    + Ett problem har åtgärd ATS där VotingRegressor förutsägelser kan vara felaktigt efter omanpassning av modellen.
+  + **azureml-core**
+    + Ytterligare information som lagts till om relationen mellan AKS distributions konfiguration och Azure Kubernetes service-koncept.
+    + Kunden kan använda Linked service SDK för att länka Synapse-arbetsytan till AML-arbetsytan. CRUD stöds.
+    + Stöd för miljöns klient etiketter. Användaren kan etikettera miljöer och referera dem efter etikett.
+  + **azureml-dataprep**
+    + Bättre fel meddelande vid användning av Spark med Scala 2,12 som inte stöds.
+  + **azureml – förklara-modell**
+    + Azureml-förklaring – modell paketet är officiellt inaktuellt
+  + **azureml-mlflow**
+    + Löst ett fel i mlflow. projects. Run to azureml Server del där det slutliga status inte hanterades korrekt.
+  + **azureml-pipeline-core**
+    + Lägg till stöd för att skapa, lista och hämta pipeline-schema baserat på en pipeline-slutpunkt.
+    +  Bättre dokumentation av PipelineData.as_dataset med ett ogiltigt användnings exempel – om du använder PipelineData.as_dataset felaktigt kommer det att resultera i att en ValueException genereras
+    + Ändrade antecknings boken för HyperDriveStep-pipelinen för att registrera den bästa modellen i en PipelineStep direkt efter HyperDriveStep-körningen.
+  + **azureml-pipeline-steps**
+    + Ändrade antecknings boken för HyperDriveStep-pipelinen för att registrera den bästa modellen i en PipelineStep direkt efter HyperDriveStep-körningen.
+  + **azureml-train-automl-client**
+    + Ett problem har åtgärd ATS där get_output kan utlösa en XGBoostError.
+
 
 ## <a name="2020-10-12"></a>2020-10-12
 
@@ -76,7 +108,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
     +  Fast pipeline-problem med `OutputFileDatasetConfig` var systemet kan sluta svara när `register_on_complete` anropas med `name` parametern angivet till ett redan befintligt data uppsättnings namn.
   + **azureml-pipeline-steps**
     + Tog bort inaktuella antecknings böcker för databricks.
-  + **azureml – tensorboard**
+  + **azureml-tensorboard**
     + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
   + **azureml-train-automl-runtime**
     + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla
@@ -179,7 +211,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
   + Ny landnings sida för komma igång 
   
 + **Förhandsgranskningsfunktioner**
-    + Samla in funktion i antecknings böcker. Med funktionen [samla in](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview)   kan användarna nu enkelt rensa antecknings böcker med, samla in använder en automatiserad beroende analys av din bärbara dator, vilket säkerställer att den nödvändiga koden behålls, men tar bort eventuella irrelevanta delar.
+    + Samla in funktion i antecknings böcker. Med funktionen [samla in](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#clean-your-notebook-preview) kan användarna nu enkelt rensa antecknings böcker med, samla in använder en automatiserad beroende analys av din bärbara dator, vilket säkerställer att den nödvändiga koden behålls, men tar bort eventuella irrelevanta delar.
 
 + **Fel korrigeringar och förbättringar**
   + Förbättrad hastighet och tillförlitlighet
@@ -347,7 +379,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
   + **azureml-pipeline-steps**
     + Dok uppdateringar av azureml-pipeline – steg.
     +  Stöd har lagts till i ParallelRunConfig `load_yaml()` för att användare ska kunna definiera miljöer infogade i resten av konfigurationen eller i en separat fil
-  + **azureml-träna-automl-client**.
+  + **azureml-träna-automl-client** .
     + Har tagit bort möjligheten att ange `enable_cache` som en del av AutoMLConfig
   + **azureml-train-automl-runtime**
     + Begränsad tillgänglighet för multi-nodeed, multi-GPU distribuerade funktionalisering med BERT har lagts till.
@@ -889,7 +921,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
   + **azureml-pipeline-steps**
     + Har flyttat `AutoMLStep` till `azureml-pipeline-steps` paketet. Föråldrade `AutoMLStep` i `azureml-train-automl-runtime` .
     + Exempel på dokumentation som lagts till för data uppsättning som PythonScriptStep-indata
-  + **azureml – tensorboard**
+  + **azureml-tensorboard**
     + uppdaterade azureml-tensorboard för att stödja tensorflow 2,0
     + Visa rätt port nummer när du använder en anpassad Tensorboard-port på en beräknings instans
   + **azureml-train-automl-client**
@@ -1129,7 +1161,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     + När du anropar `to_pandas_dataframe` en etikettad data uppsättning med alternativet Hämta kan du nu ange om du vill skriva över befintliga filer eller inte.
     + När du anropar `keep_columns` eller `drop_columns` som resulterar i en tids serie, etikett eller bild kolumn som släpps, tas även motsvarande funktioner bort för data uppsättningen.
     + Åtgärdade ett problem med pytorch-inläsaren för objekt identifiering.
-  + **azureml-contrib-interpret**
+  + **azureml-contrib-tolka**
     + Widgeten förklarings instrument panel togs bort från azureml-contrib-tolka, ändrade paket för att referera till den nya i interpret_community
     + Uppdaterad version av tolka-community till 0.2.0
   + **azureml-core**
@@ -1880,7 +1912,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
   + **azureml-pipeline-steps**
     + DBFS data lager stöds nu för indata och utdata i DatabricksStep.
     + Uppdaterad dokumentation för Azure Batch steg med avseende på indata/utdata.
-    + I AzureBatchStep ändrades *delete_batch_job_after_finish* standardvärdet till *Sant*.
+    + I AzureBatchStep ändrades *delete_batch_job_after_finish* standardvärdet till *Sant* .
   + **azureml-telemetry**
     +  Flytta azureml-contrib-opendataset till azureml-opendataset.
     + Tillåt att öppna data uppsättnings klasser registreras på Azure Machine Learning arbets yta och utnyttja funktionerna för AML-datauppsättning sömlöst.
@@ -1912,7 +1944,7 @@ I samband med den här versionen stöds följande webbläsare: Chrome, Firefox, 
 
 + **Nya funktioner**
   + **azureml-opendatasets**
-    + **azureml-contrib-OpenData uppsättningar** är nu tillgängliga som **azureml-opendataset**. Det gamla paketet kan fortfarande fungera, men vi rekommenderar att du använder **azureml-OpenData uppsättningar** för att flytta framåt för bättre funktioner och förbättringar.
+    + **azureml-contrib-OpenData uppsättningar** är nu tillgängliga som **azureml-opendataset** . Det gamla paketet kan fortfarande fungera, men vi rekommenderar att du använder **azureml-OpenData uppsättningar** för att flytta framåt för bättre funktioner och förbättringar.
     + Med det nya paketet kan du registrera öppna data uppsättningar som data uppsättning i Azure Machine Learning arbets ytan och utnyttja de funktioner som data uppsättningen erbjuder.
     + Den innehåller också befintliga funktioner som att använda öppna data uppsättningar som Pandas/SPARK-dataframes och plats anslutningar för en viss data uppsättning som väder.
 
@@ -2031,7 +2063,7 @@ Azure Machine Learning SDK för python v-1.0.30 har släppts.
 
 + **Nya funktioner**
   + Azure Machine Learning SDK stöder nu python 3,7.
-  + Azure Machine Learning DNN-uppskattningar har nu inbyggt stöd för flera versioner. Till exempel `TensorFlow`   kan en uppskattning nu acceptera en `framework_version` parameter och användarna kan ange version 1,10 eller 1,12. Om du vill ha en lista över de versioner som stöds av din aktuella SDK-version, kan `get_supported_versions()` du anropa den önskade Ramverks klassen (till exempel `TensorFlow.get_supported_versions()` ).
+  + Azure Machine Learning DNN-uppskattningar har nu inbyggt stöd för flera versioner. Till exempel `TensorFlow` kan en uppskattning nu acceptera en `framework_version` parameter och användarna kan ange version 1,10 eller 1,12. Om du vill ha en lista över de versioner som stöds av din aktuella SDK-version, kan `get_supported_versions()` du anropa den önskade Ramverks klassen (till exempel `TensorFlow.get_supported_versions()` ).
   En lista över de versioner som stöds av den senaste SDK-versionen finns i [dokumentationen för DNN-uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py&preserve-view=true).
 
 ## <a name="2019-03-25"></a>2019-03-25

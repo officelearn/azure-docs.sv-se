@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 823f5f90bc1a72b1df87ee21e37cf39fed0b2340
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 452259015cf78234aa6a96194342de20db9a3724
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486165"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740881"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Etablera data flöde för autoskalning på databas eller behållare i Azure Cosmos DB-SQL API
 
@@ -29,11 +29,11 @@ Om du använder ett annat API, se [API för MongoDB](how-to-provision-throughput
 
 1. Gå till ditt Azure Cosmos DB-konto och öppna fliken **datautforskaren** .
 
-1. Välj **ny behållare.** Ange ett namn för din databas, behållare och en partitionsnyckel. Under **data flöde**väljer du alternativet **autoskalning** och anger det [maximala data flöde (ru/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) som du vill att databasen eller behållaren ska skalas till.
+1. Välj **ny behållare.** Ange ett namn för din databas, behållare och en partitionsnyckel. Under **data flöde** väljer du alternativet **autoskalning** och anger det [maximala data flöde (ru/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) som du vill att databasen eller behållaren ska skalas till.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Skapa en behållare och konfigurera autoskalning av allokerat data flöde":::
 
-1. Välj **OK**.
+1. Välj **OK** .
 
 Om du vill etablera autoskalning på den delade data flödes databasen väljer du **data flödes alternativet etablera databas** när du skapar en ny databas. 
 
@@ -48,7 +48,7 @@ Om du vill etablera autoskalning på den delade data flödes databasen väljer d
 
 1. Välj **skalning och inställningar** för din behållare eller **skala** för din databas.
 
-1. Under **skala**väljer du alternativet för **autoskalning** och **Spara**.
+1. Under **skala** väljer du alternativet för **autoskalning** och **Spara** .
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Skapa en behållare och konfigurera autoskalning av allokerat data flöde":::
 

@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: 76e5ab49e354faac085be533fed1ff16c0315a5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 1b2773b1d860126748e0dd05134d778073478d9f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816838"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741677"
 ---
 # <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>Använd Azure CLI för att aktivera dubbel kryptering i vila för hanterade diskar
 
@@ -27,7 +27,7 @@ Azure-disklagring stöder dubbel kryptering i vila för hanterade diskar. Grundl
 
 Installera den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) och logga in på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index).
 
-## <a name="getting-started"></a>Komma igång
+## <a name="getting-started"></a>Kom igång
 
 1. Skapa en instans av Azure Key Vault och krypterings nyckel.
 

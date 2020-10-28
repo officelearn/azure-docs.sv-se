@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: fa01c4a595a08ffdba56d777128431946540eee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: c8228086eb67478d80aa041004e0da3eed71f896
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372679"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741798"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Aktivera Azure Disk Encryption med Azure AD på virtuella Linux-datorer (tidigare version)
 
@@ -148,7 +148,7 @@ I följande tabell visas parametrar för Resource Manager-mallar för befintliga
 | AADClientSecret | Klient hemlighet för Azure AD-programmet som har behörighet att skriva hemligheter till ditt nyckel valv. |
 | keyVaultName | Namnet på nyckel valvet som nyckeln ska överföras till. Du kan hämta den med hjälp av Azure CLI-kommandot `az keyvault show --name "MySecureVault" --query KVresourceGroup` . |
 |  keyEncryptionKeyURL | URL till den nyckel krypterings nyckel som används för att kryptera den genererade nyckeln. Den här parametern är valfri om du väljer **nokek** i list rutan **UseExistingKek** . Om du väljer **KEK** i list rutan **UseExistingKek** måste du ange värdet _keyEncryptionKeyURL_ . |
-| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden som stöds är _OS_ eller _alla_. (Se Linux-distributioner som stöds och deras versioner för operativ system och data diskar i avsnittet krav ovan.) |
+| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden som stöds är _OS_ eller _alla_ . (Se Linux-distributioner som stöds och deras versioner för operativ system och data diskar i avsnittet krav ovan.) |
 | sequenceVersion | Sekvens-version av BitLocker-åtgärden. Öka det här versions numret varje gång en disk krypterings åtgärd utförs på samma virtuella dator. |
 | vmName | Namnet på den virtuella dator som krypterings åtgärden ska utföras på. |
 | lösenfras | Skriv en stark lösen fras som data krypterings nyckel. |
@@ -180,7 +180,7 @@ Om du vill använda alternativet EncryptFormatAll använder du befintliga Azure 
 
 1. Du kan till exempel använda [Resource Manager-mallen för att kryptera en virtuell Linux IaaS-dator som körs](https://github.com/vermashi/azure-quickstart-templates/tree/encrypt-format-running-linux-vm/201-encrypt-running-linux-vm). 
 2. Välj **distribuera till Azure** i Azure snabb starts mal len.
-3. Ändra fältet **EncryptionOperation** från **EnableEncryption** till **EnableEncryptionFormatAl**.
+3. Ändra fältet **EncryptionOperation** från **EnableEncryption** till **EnableEncryptionFormatAl** .
 4. Välj prenumeration, resurs grupp, plats för resurs grupp, andra parametrar, juridiska villkor och avtal. Välj **skapa** för att aktivera kryptering på den befintliga eller aktiva virtuella IaaS-datorn.
 
 
@@ -341,7 +341,7 @@ Du kan inaktivera kryptering med hjälp av Azure PowerShell, Azure CLI eller en 
          az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
 - **Inaktivera kryptering med en Resource Manager-mall:** Om du vill inaktivera kryptering använder du [inaktivera kryptering på en virtuell Linux](https://aka.ms/decrypt-linuxvm) -mall för virtuella datorer.
-     1. Välj **distribuera till Azure**.
+     1. Välj **distribuera till Azure** .
      2. Välj prenumeration, resurs grupp, plats, virtuell dator, juridiska villkor och avtal.
      3. Välj **köp** för att inaktivera disk kryptering på en virtuell Windows-dator som körs. 
 

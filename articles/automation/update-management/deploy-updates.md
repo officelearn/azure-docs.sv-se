@@ -3,14 +3,14 @@ title: Så här skapar du uppdaterings distributioner för Azure Automation Uppd
 description: Den här artikeln beskriver hur du schemalägger uppdaterings distributioner och granskar deras status.
 services: automation
 ms.subservice: update-management
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d6594e1cdd7925a4287cf9edbfd5324b427338f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 41ccecfb844f11a0d234271bcddc1851d3c02fda
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637606"
+ms.locfileid: "92742287"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Så här distribuerar du uppdateringar och granskar resultat
 
@@ -75,9 +75,6 @@ Utför följande steg för att schemalägga en ny uppdaterings distribution. Ber
 
    > [!NOTE]
    > Du kan inte ange uppdateringar som har ersatts av med i uppdaterings distributionen.
-
-   > [!IMPORTANT]
-   > För Red Hat Enterprise visas även kernel-uppgraderingar som paket i YUM. Om du inte utesluter uppdateringar som inkluderar kernel-uppgraderingar kommer Uppdateringshantering att tillämpa dessa uppdateringar.
 
 9. Välj **schema inställningar** . Starttiden är som standard 30 minuter efter den aktuella tiden. Du kan ange starttiden till helst från 10 minuter i framtiden.
 

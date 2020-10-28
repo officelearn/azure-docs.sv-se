@@ -9,13 +9,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp
-ms.openlocfilehash: e537bb74655bce5c8438e22fb9b990b72eab73d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 77845a91ed2d185c0fe05e2f40e53b2edf3d1ca7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336691"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741394"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Självstudie: Använd en hanterad identitet för att ansluta Key Vault till en Azure-webbapp med .NET
 
@@ -23,7 +23,7 @@ Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra hemli
 
 I den här självstudien används en hanterad identitet för att autentisera en Azure-webbapp med en Azure Key Vault. Även om stegen använder [Azure Key Vault v4-klient biblioteket för .net](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) och [Azure CLI](/cli/azure/get-started-with-azure-cli), gäller samma grundläggande principer när du använder det utvecklings språk du väljer, Azure PowerShell och/eller Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -95,7 +95,7 @@ git commit -m "first commit"
 
 ### <a name="configure-a-deployment-user"></a>Konfigurera en distributionsanvändare
 
-FTP och lokal git kan distribueras till en Azure-webbapp med hjälp av en *distributions användare*. När du har konfigurerat din distributions användare kan du använda den för alla dina Azure-distributioner. Ditt användar namn och lösen ord för distribution på konto nivå skiljer sig från dina autentiseringsuppgifter för Azure-prenumerationen. 
+FTP och lokal git kan distribueras till en Azure-webbapp med hjälp av en *distributions användare* . När du har konfigurerat din distributions användare kan du använda den för alla dina Azure-distributioner. Ditt användar namn och lösen ord för distribution på konto nivå skiljer sig från dina autentiseringsuppgifter för Azure-prenumerationen. 
 
 Konfigurera distributions användaren genom att köra kommandot [AZ webapp Deployment User set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Välj ett användar namn och lösen ord som följer dessa rikt linjer: 
 
@@ -173,7 +173,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 
 URL för fjärransluten Git visas i egenskapen `deploymentLocalGitUrl` med formatet `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Spara den här URL: en när du behöver den senare.
 
-Bläddra till appen som precis skapades. Ersätt _ &lt; ditt-webapp-namn>_ med ditt app-namn.
+Bläddra till appen som precis skapades. Ersätt _&lt; ditt-webapp-namn>_ med ditt app-namn.
 
 ```bash
 https://<your-webapp-name>.azurewebsites.net
@@ -323,7 +323,7 @@ git push azure master
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Innan du såg **Hello World**bör du nu se värdet för din hemlighet som visas: **lyckades!**
+Innan du såg **Hello World** bör du nu se värdet för din hemlighet som visas: **lyckades!**
 
 ## <a name="next-steps"></a>Nästa steg
 

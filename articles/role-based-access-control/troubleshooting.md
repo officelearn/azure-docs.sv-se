@@ -14,13 +14,13 @@ ms.topic: troubleshooting
 ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: seohack1
-ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: seohack1, devx-track-azurecli
+ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368238"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741074"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -51,7 +51,7 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Problem med Azure Role-tilldelningar
 
-- Om du inte kan lägga till en roll tilldelning i Azure Portal på **åtkomst kontroll (IAM)** eftersom alternativet **Lägg**till  >  **roll tilldelning** är inaktiverat eller om du får behörighets felet "klienten med objekt-ID har inte behörighet att utföra åtgärden", kontrol lera att du är inloggad med en användare som har `Microsoft.Authorization/roleAssignments/write` behörighet som [ägare](built-in-roles.md#owner) eller [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) i den omfattning som du försöker tilldela rollen.
+- Om du inte kan lägga till en roll tilldelning i Azure Portal på **åtkomst kontroll (IAM)** eftersom alternativet **Lägg** till  >  **roll tilldelning** är inaktiverat eller om du får behörighets felet "klienten med objekt-ID har inte behörighet att utföra åtgärden", kontrol lera att du är inloggad med en användare som har `Microsoft.Authorization/roleAssignments/write` behörighet som [ägare](built-in-roles.md#owner) eller [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) i den omfattning som du försöker tilldela rollen.
 - Om du använder ett huvud namn för tjänsten för att tilldela roller kan du få fel meddelandet "otillräcklig behörighet för att slutföra åtgärden". Anta till exempel att du har ett huvud namn för tjänsten som har tilldelats ägar rollen och du försöker skapa följande roll tilldelning som tjänstens huvud namn med Azure CLI:
 
     ```azurecli
@@ -120,7 +120,7 @@ Om du nyligen har bjudit in en användare när du skapade en roll tilldelning, k
 
 Men om detta säkerhets objekt inte är en nyligen inbjuden användare kan det vara ett borttaget säkerhets objekt. Om du tilldelar en roll till ett säkerhets objekt och sedan tar bort säkerhetsobjektet utan att först ta bort roll tilldelningen visas säkerhets objekt listan som **identitet inte hittas** och en **okänd** typ.
 
-Om du anger den här roll tilldelningen med Azure PowerShell kan du se att en tom `DisplayName` och en `ObjectType` uppsättning är **okänd**. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returnerar till exempel en roll tilldelning som liknar följande utdata:
+Om du anger den här roll tilldelningen med Azure PowerShell kan du se att en tom `DisplayName` och en `ObjectType` uppsättning är **okänd** . [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returnerar till exempel en roll tilldelning som liknar följande utdata:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -222,14 +222,14 @@ På liknande sätt som Web Apps kräver vissa funktioner på bladet virtuell dat
 
 Virtuella datorer är relaterade till domän namn, virtuella nätverk, lagrings konton och varnings regler.
 
-De här objekten kräver **Skriv** åtkomst till den **virtuella datorn**:
+De här objekten kräver **Skriv** åtkomst till den **virtuella datorn** :
 
 * Slutpunkter  
 * IP-adresser  
 * Diskar  
 * Tillägg  
 
-Dessa kräver **Skriv** behörighet till både den **virtuella datorn**och **resurs gruppen** (tillsammans med domän namnet) som den finns i:  
+Dessa kräver **Skriv** behörighet till både den **virtuella datorn** och **resurs gruppen** (tillsammans med domän namnet) som den finns i:  
 
 * Tillgänglighetsuppsättning  
 * Belastningsutjämnad uppsättning  
@@ -239,7 +239,7 @@ Om du inte kan komma åt någon av dessa paneler kan du be administratören om d
 
 ## <a name="azure-functions-and-write-access"></a>Azure Functions-och skriv åtkomst
 
-Vissa funktioner i [Azure Functions](../azure-functions/functions-overview.md) kräver skriv åtkomst. Om en användare till exempel har tilldelats rollen [läsare](built-in-roles.md#reader) kan de inte Visa funktionerna i en Function-app. Portalen visar **(ingen åtkomst)**.
+Vissa funktioner i [Azure Functions](../azure-functions/functions-overview.md) kräver skriv åtkomst. Om en användare till exempel har tilldelats rollen [läsare](built-in-roles.md#reader) kan de inte Visa funktionerna i en Function-app. Portalen visar **(ingen åtkomst)** .
 
 ![Function-appar ingen åtkomst](./media/troubleshooting/functionapps-noaccess.png)
 

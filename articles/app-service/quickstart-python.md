@@ -3,21 +3,21 @@ title: 'Snabb start: skapa en python-app'
 description: Kom igång med Azure App Service genom att distribuera din första python-app till en Linux-behållare i App Service.
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: 8a0cce6dd68513380759319c378d15aeb0e029c3
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 8f48f31cdaaa555e0a8f6f0fd4756bb61a9f417d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813193"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741094"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
 I den här snabb starten distribuerar du en python-webbapp till [app service på Linux](overview.md#app-service-on-linux), Azures mycket skalbara, självkorrigerande webb värd tjänst. Du använder det lokala [Azures kommando rads gränssnitt (CLI)](/cli/azure/install-azure-cli) på en Mac-, Linux-eller Windows-dator för att distribuera ett prov med antingen flaska eller django-ramverk. Webbappen som du konfigurerar använder en kostnads fri App Service nivå, så du debiteras inte några kostnader i samband med den här artikeln.
 
 > [!TIP]
-> Om du föredrar att använda Visual Studio Code i stället följer du vår **[Visual Studio code App Service snabb start](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
+> Om du föredrar att använda Visual Studio Code i stället följer du vår **[Visual Studio code App Service snabb start](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .
 
 ## <a name="set-up-your-initial-environment"></a>Konfigurera din inledande miljö
 
@@ -114,9 +114,9 @@ Exemplet innehåller en Framework-speciell kod som Azure App Service känner ige
     flask run
     ```
     
-    Som standard förutsätter servern att appens inmatnings modul är i *app.py*, som används i exemplet. (Om du använder ett annat Modulnamn anger du `FLASK_APP` miljövariabeln till det namnet.)
+    Som standard förutsätter servern att appens inmatnings modul är i *app.py* , som används i exemplet. (Om du använder ett annat Modulnamn anger du `FLASK_APP` miljövariabeln till det namnet.)
 
-1. Öppna en webbläsare och gå till exempel appen på `http://localhost:5000/` . Appen visar meddelandet **Hej, World!**.
+1. Öppna en webbläsare och gå till exempel appen på `http://localhost:5000/` . Appen visar meddelandet **Hej, World!** .
 
     ![Kör en exempel-python-app lokalt](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
@@ -138,7 +138,7 @@ Exemplet innehåller en Framework-speciell kod som Azure App Service känner ige
     python manage.py runserver
     ```
 
-1. Öppna en webbläsare och gå till exempel appen på `http://localhost:8000/` . Appen visar meddelandet **Hej, World!**.
+1. Öppna en webbläsare och gå till exempel appen på `http://localhost:8000/` . Appen visar meddelandet **Hej, World!** .
 
     ![Kör en exempel-python-app lokalt](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
@@ -149,7 +149,7 @@ Exemplet innehåller en Framework-speciell kod som Azure App Service känner ige
 
 ## <a name="deploy-the-sample"></a>Distribuera exemplet
 
-Distribuera koden i din lokala mapp (*python-dok-Hello-World*) med hjälp av `az webapp up` kommandot:
+Distribuera koden i din lokala mapp ( *python-dok-Hello-World* ) med hjälp av `az webapp up` kommandot:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
@@ -157,7 +157,7 @@ az webapp up --sku F1 --name <app-name>
 
 - Om `az` kommandot inte känns igen kontrollerar du att Azure CLI är installerat enligt beskrivningen i [Konfigurera din första miljö](#set-up-your-initial-environment).
 - Om `webapp` kommandot inte känns igen, eftersom din Azure CLI-version är 2.0.80 eller högre. Om inte, [installerar du den senaste versionen](/cli/azure/install-azure-cli).
-- Ersätt `<app_name>` med ett namn som är unikt för alla Azure (*giltiga tecken är `a-z` , `0-9` och `-` *). Ett utmärkt mönster är att använda en kombination av företagets namn och en app-ID.
+- Ersätt `<app_name>` med ett namn som är unikt för alla Azure ( *giltiga tecken är `a-z` , `0-9` och `-`* ). Ett utmärkt mönster är att använda en kombination av företagets namn och en app-ID.
 - `--sku F1`Argumentet skapar webb programmet på den kostnads fria pris nivån. Utelämna det här argumentet om du vill använda en snabbare Premium-nivå, vilket innebär en timkostnad.
 - Du kan också inkludera argumentet `--location <location-name>` där `<location_name>` är en tillgänglig Azure-region. Du kan hämta en lista över tillåtna regioner för ditt Azure-konto genom att köra [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) kommandot.
 - Om du ser felet "Det gick inte att automatiskt identifiera körnings stacken för appen" måste du kontrol lera att du kör kommandot i mappen *python-dok-Hello-World* (kolv) eller *python-django-Hello-* folder (django) som innehåller *requirements.txt* -filen. (Mer information finns i [Felsöka problem med automatisk identifiering med AZ webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
@@ -244,7 +244,7 @@ Tryck på **CTRL** + **C** i terminalen om du vill stoppa logg strömningen när
 
 ## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 
-Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> för att hantera den app som du skapade. Sök efter och välj **app Services**.
+Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> för att hantera den app som du skapade. Sök efter och välj **app Services** .
 
 ![Navigera till App Services i Azure Portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
 

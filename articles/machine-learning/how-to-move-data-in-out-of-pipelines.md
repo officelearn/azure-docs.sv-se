@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: a1bd93931f8a94f598952b28fc3db23d33e5783f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 195c334500c8c540d819e949353b34bea65b3d4f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329779"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741903"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Flytta data till och mellan olika steg i ML-pipelinen (Python)
 
@@ -40,7 +40,7 @@ Den här artikeln visar hur du kan:
 
 Du behöver:
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 - [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)eller åtkomst till [Azure Machine Learning Studio](https://ml.azure.com/).
 
@@ -101,6 +101,9 @@ train_step = PythonScriptStep(
 )
 ```
 
+> [!NOTE]
+> Du måste ersätta värdena för alla dessa argument (det vill säga,,, `"train_data"` `"train.py"` `cluster` och `iris_dataset` ) med dina egna data. Ovanstående fragment visar bara formuläret för anropet och ingår inte i ett Microsoft-exempel. 
+
 Du kan också använda metoder som `random_split()` och `take_sample()` för att skapa flera indata eller minska mängden data som skickas till pipeline-steget:
 
 ```python
@@ -150,6 +153,9 @@ ws = run.experiment.workspace
 ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 ```
 
+> [!NOTE]
+> Föregående kodfragment visar form av anrop och ingår inte i ett Microsoft-exempel. Du måste ersätta de olika argumenten med värden från ditt eget projekt.
+
 ## <a name="use-pipelinedata-for-intermediate-data"></a>Använd `PipelineData` för mellanliggande data
 
 `Dataset`Objekt representerar beständiga data, och [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) -objekt används för temporära data som är utdata från pipeline-steg. Eftersom livs längd för ett `PipelineData` objekt är längre än ett enda pipeline-steg, definierar du dem i definitions skriptet för pipelinen. När du skapar ett `PipelineData` objekt måste du ange ett namn och ett data lager där data ska finnas. Skicka dina `PipelineData` objekt till din `PythonScriptStep` användning med _både_ -och- `arguments` `outputs` argumenten:
@@ -175,6 +181,9 @@ Du kan välja att skapa ett `PipelineData` objekt med ett åtkomst läge som ger
 ```python
 PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
 ```
+
+> [!NOTE]
+> Föregående kodfragment visar form av anrop och ingår inte i ett Microsoft-exempel. Du måste ersätta de olika argumenten med värden från ditt eget projekt.
 
 > [!TIP]
 > En förbättrad upplevelse för att skicka mellanliggande data mellan pipeline-steg är tillgänglig i den offentliga för hands versions klassen [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . Ett kod exempel som använder `OutputFileDatasetConfig` finns i så här [skapar du en pipeline för två steg ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
@@ -226,6 +235,9 @@ pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 ```
 
 Värdet för `PipelineData` indata är sökvägen till föregående utdata. 
+
+> [!NOTE]
+> Föregående kodfragment visar form av anrop och ingår inte i ett Microsoft-exempel. Du måste ersätta de olika argumenten med värden från ditt eget projekt.
 
 > [!TIP]
 > En förbättrad upplevelse för att skicka mellanliggande data mellan pipeline-steg är tillgänglig i den offentliga för hands versions klassen [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . Ett kod exempel som använder `OutputFileDatasetConfig` finns i så här [skapar du en pipeline för två steg ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).

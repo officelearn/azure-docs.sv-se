@@ -3,13 +3,13 @@ title: Självstudie – ACR uppgift för flera steg
 description: I den här självstudien får du lära dig hur du konfigurerar en Azure Container Registry aktivitet för att automatiskt utlösa ett arbets flöde för flera steg för att skapa, köra och push-behållar avbildningar i molnet när du allokerar käll koden till en git-lagringsplats.
 ms.topic: tutorial
 ms.date: 05/09/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 6ba3b276c68885a0811ee445d965c486f158d193
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78402302"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739597"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Självstudie: köra ett arbets flöde för flera steg i molnet när du genomför käll koden
 
@@ -316,7 +316,7 @@ Den här aktiviteten i flera steg gör följande:
 
 ### <a name="task-command"></a>Uppgifts kommando
 
-Använd de variabler som definierats ovan för att skapa uppgiften genom att köra följande [AZ ACR uppgift Create][az-acr-task-create] -kommando. Ersätt namnet på registret för *mycontainerregistrydate*.
+Använd de variabler som definierats ovan för att skapa uppgiften genom att köra följande [AZ ACR uppgift Create][az-acr-task-create] -kommando. Ersätt namnet på registret för *mycontainerregistrydate* .
 
 ```azurecli-interactive
 az acr task create \

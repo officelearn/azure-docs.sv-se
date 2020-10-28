@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: dc8aa50c5c4ecb5e4b56a7e49453c266dad28818
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 4b0e54c434f68a8a26f49b6ba0c1010e93d36ad6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678105"
+ms.locfileid: "92739887"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Distribuera Azure Monitor för SAP-lösningar med Azure Portal
 
@@ -54,7 +54,7 @@ Logga in på Azure-portalen på https://portal.azure.com
 
 4. Ange namnet på den databas klient som du vill använda. Du kan välja vilken klient som helst, men vi rekommenderar att du använder **SYSTEMDB** eftersom det möjliggör en bredare matris av övervaknings områden. 
 
-5. Mata in det SQL-portnummer som är associerat med din HANA-databas. Port numret ska vara i formatet **[3]**  +  **[instance #]**  +  **[13]** eller **[3]**  +  **[instans #]**  +  **[15]** . Till exempel 30013 eller 30015. 
+5. Mata in det SQL-portnummer som är associerat med din HANA-databas. Port numret måste ha formatet **[3]**  +  **[instance #]**  +  **[13]** . Till exempel 30013. 
 
 6. Ange det databas användar namn som du vill använda. Se till att databas användaren har tilldelats de **övervaknings** -och **katalog Läs** rollerna. 
 

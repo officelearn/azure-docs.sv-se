@@ -748,8 +748,6 @@
           href: connector-troubleshoot-guide.md
         - name: Dataflöden
           href: data-flow-troubleshoot-guide.md
-        - name: Kopiera data-verktyg
-          href: copy-data-tool-troubleshoot-guide.md
         - name: Lokal Integration Runtime
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Azure-SSIS Integration Runtime
@@ -783,7 +781,7 @@
     - name: Blogg
       href: 'https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#'
     - name: Ställ en fråga – frågesida på Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
+      href: /answers/topics/azure-data-factory.html
     - name: Ställ en fråga – Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Begär en funktion

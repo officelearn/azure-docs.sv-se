@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 10/26/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 3b091fb66172fad85b604d8eb621f1bebb750a46
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366028"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740168"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft Identity Platform
 
@@ -32,7 +32,8 @@ I följande avsnitt får du lära dig hur en resurs kan verifiera och använda a
 
 > [!IMPORTANT]
 > Åtkomsttoken skapas baserat på token för token, vilket *innebär det program* som äger omfattningarna i token.  Det här är en resurs inställning `accessTokenAcceptedVersion` i [appens manifest](reference-app-manifest.md#manifest-reference) så att `2` en klient som anropar en v 1.0-slutpunkt kan ta emot en v 2.0-åtkomsttoken.  På samma sätt är det anledningen till att ändra de [valfria anspråken](active-directory-optional-claims.md) för åtkomsttoken för din klient ändrar inte den åtkomsttoken som tas emot när en token begärs för `user.read` , som ägs av resursen.
-> Av samma anledning kan du, när du testar ditt klient program med ett personligt konto (t. ex. hotmail.com eller outlook.com), se till att åtkomsttoken som tas emot av klienten är en ogenomskinlig sträng. Detta beror på att den resurs som används har begärt att äldre MSA-biljetter (Microsoft-konto) ska vara krypterade och inte kan tolkas av klienten.
+>
+> Av samma anledning kommer du att se att den åtkomsttoken som tas emot av klienten är en ogenomskinlig sträng, samtidigt som du testar ditt klient program med ett Microsoft API som stöder personligt konto (till exempel hotmail.com eller outlook.com). Detta beror på att resursen som används har krypterade tokens och inte kan tolkas av klienten.  Detta är förväntat och bör inte vara ett problem för appen-klient program bör aldrig ha ett beroende på formatet för åtkomsttoken. 
 
 ## <a name="sample-tokens"></a>Exempel-token
 
@@ -103,7 +104,7 @@ Anspråk finns bara om det finns ett värde för att fylla det. Därför bör ap
 | `wids` | Matris med [RoleTemplateID](../roles/permissions-reference.md#role-template-ids) -GUID | Anger de roller för klient organisationen som tilldelats den här användaren, från avsnittet av roller som finns på [sidan administratörs roller](../roles/permissions-reference.md#role-template-ids).  Detta anspråk har kon figurer ATS per program, via `groupMembershipClaims` egenskapen för [applikations manifestet](reference-app-manifest.md).  Inställningen "alla" eller "DirectoryRole" krävs.  Kanske inte finns i token som erhållits via det implicita flödet på grund av frågor om token-längd. |
 | `groups` | JSON-matris med GUID | Tillhandahåller objekt-ID: n som representerar ämnets grupp medlemskap. Dessa värden är unika (se objekt-ID) och kan användas på ett säkert sätt för att hantera åtkomst, t. ex. för att tvinga behörighet att få åtkomst till en resurs. Grupperna som ingår i gruppen grupper har kon figurer ATS per tillämpning via `groupMembershipClaims` [program Manifestets](reference-app-manifest.md)egenskap. Värdet null utesluter alla grupper, värdet "SecurityGroup" kommer bara att innehålla Active Directory medlemskap i säkerhets grupper och värdet "alla" omfattar både säkerhets grupper och Microsoft 365 distributions listor. <br><br>I `hasgroups` anspråket nedan finns mer information om hur du använder `groups` anspråk med implicit beviljande. <br>För andra flöden, om antalet grupper som användaren finns över en gräns (150 för SAML, 200 för JWT), läggs ett överbelastnings anspråk till i anspråks källorna som pekar på Microsoft Graph slut punkten som innehåller listan över grupper för användaren. |
 | `hasgroups` | Boolesk | Om det finns en sådan måste `true` användaren vara i minst en grupp. Används i stället för `groups` anspråket för JWTs i implicita bidrags flöden om det fullständiga grupp kravet skulle utöka URI-fragmentet över gränserna för URL-längd (för närvarande 6 eller flera grupper). Anger att klienten ska använda Microsoft Graph API för att fastställa användarens grupper ( `https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects` ). |
-| `groups:src1` | JSON-objekt | För Tokenbegäran som inte är begränsade (se `hasgroups` ovan) men fortfarande är för stora för token kommer en länk till listan över fullständiga grupper för användaren att inkluderas. För JWTs som ett distribuerat anspråk för SAML som ett nytt anspråk i stället för `groups` anspråket. <br><br>**Exempel-JWT-värde**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
+| `groups:src1` | JSON-objekt | För Tokenbegäran som inte är begränsade (se `hasgroups` ovan) men fortfarande är för stora för token kommer en länk till listan över fullständiga grupper för användaren att inkluderas. För JWTs som ett distribuerat anspråk för SAML som ett nytt anspråk i stället för `groups` anspråket. <br><br>**Exempel-JWT-värde** : <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
 | `sub` | Sträng | Den huvudprincip som token förutsätter information för, t. ex. användaren av en app. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Den kan användas för att utföra verifierings kontroller på ett säkert sätt, till exempel när token används för att få åtkomst till en resurs och kan användas som en nyckel i databas tabeller. Eftersom ämnet alltid finns i de tokens som Azure AD utfärdar rekommenderar vi att du använder det här värdet i ett system för generell behörighet. Ämnet är dock unikt för ett visst program-ID. Om en enskild användare loggar in i två olika appar med två olika klient-ID: er, kommer dessa appar att få två olika värden för ämnes anspråket. Detta kan vara något behov av, beroende på dina krav på arkitektur och sekretess. Se även `oid` anspråket (som förblir detsamma i alla appar i en klient). |
 | `oid` | Sträng, ett GUID | Det oföränderliga ID: t för ett objekt i Microsoft Identity Platform, i det här fallet ett användar konto. Det kan också användas för att utföra verifierings kontroller på ett säkert sätt och som en nyckel i databas tabeller. Det här ID: t identifierar unikt användaren för alla program – två olika program som loggar in på samma användare får samma värde i `oid` anspråket. Detta `oid` kan användas när du skapar frågor till Microsoft onlinetjänster, till exempel Microsoft Graph. Microsoft Graph returnerar detta ID som `id` egenskap för ett angivet [användar konto](/graph/api/resources/user). Eftersom `oid` tillåter flera appar att korrelera användare `profile` krävs omfånget för att ta emot detta anspråk. Observera att om en enskild användare finns i flera klienter, kommer användaren att innehålla ett annat objekt-ID i varje klient – de betraktas som olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. |
 | `tid` | Sträng, ett GUID | Representerar den Azure AD-klient som användaren är från. För arbets-och skol konton är GUID det oåterkalleliga klient-ID: t för den organisation som användaren tillhör. För personliga konton är värdet `9188040d-6c67-4c5b-b112-36a304b66dad` . `profile`Omfånget krävs för att kunna ta emot detta anspråk. |
@@ -177,7 +178,7 @@ Vi tillhandahåller bibliotek och kod exempel som visar hur du hanterar verifier
 
 ### <a name="validating-the-signature"></a>Verifiera signaturen
 
-En JWT innehåller tre segment, som avgränsas med `.` specialtecknet. Det första segmentet kallas **sidhuvud**, det andra som **bröd texten**och det tredje som **signaturen**. Du kan använda signatur segmentet för att verifiera tokens äkthet så att den kan vara betrodd av din app.
+En JWT innehåller tre segment, som avgränsas med `.` specialtecknet. Det första segmentet kallas **sidhuvud** , det andra som **bröd texten** och det tredje som **signaturen** . Du kan använda signatur segmentet för att verifiera tokens äkthet så att den kan vara betrodd av din app.
 
 Token som utfärdas av Azure AD är signerade med algoritmer för asymmetrisk kryptering i bransch standard, till exempel RS256. Huvud-i-JWT-filen innehåller information om nyckeln och krypterings metoden som används för att signera token:
 

@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/05/2020
-ms.openlocfilehash: 7573abbbee479bfb0d1710beba3b95d084a5e657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: a5db3935ae445ee7dcf8129eb1d4c75fcb64302f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898884"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739230"
 ---
 # <a name="apply-transformation-module"></a>Använd omvandlings modul
 
 I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
-Använd den här modulen för att ändra en data uppsättning som baseras på en tidigare beräknad omvandling.
+Använd den här modulen för att ändra en data uppsättning som baseras på en tidigare beräknad omvandling. Den här modulen är nödvändig i om du behöver uppdatera transformeringar i härlednings pipeliner.
 
 Om du till exempel använde z-poängen för att normalisera dina utbildnings data med hjälp av modulen **normalisera data** , skulle du vilja använda det z-Poäng värde som har beräknats för utbildning under bedömnings fasen. I Azure Machine Learning kan du spara normaliserings metoden som en transformering och sedan använda **tillämpa omvandling** för att tillämpa z-poängen i indata innan du påsöker.
 
@@ -46,7 +46,14 @@ Med designern kan du spara data transformationer som data **uppsättningar** så
   
 1. Anslut data uppsättningens utdata från den önskade modulen till den högra Indataporten för modulen **Använd omvandling** .
   
-1. Om du vill tillämpa en omvandling på den nya data uppsättningen kör du pipelinen.  
+1. Om du vill tillämpa en omvandling på den nya data uppsättningen skickar du pipelinen.  
+
+> [!IMPORTANT]
+> För att se till att den uppdaterade omvandlingen i utbildnings pipeliner också är genomförbar i härlednings pipeliner, måste du följa stegen nedan varje gång det finns en uppdaterad transformering i utbildnings pipelinen:
+> 1. I pipeline för utbildning registrerar du utdata för [kolumnen Välj kolumner](select-columns-transform.md) som en data uppsättning.
+> ![Registrera data uppsättning för modulens utdata](media/module/select-columns-transform-register-dataset.png)
+> 1. Ta bort **TD-** modulen i härlednings pipelinen och ersätt den med den registrerade data uppsättningen i föregående steg.
+> ![Ersätt TD-modul](media/module/replace-tranformation-directory.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

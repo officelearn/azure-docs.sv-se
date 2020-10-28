@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27ffc176fc890d90e4201069ec1728eed69d4011
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85bbdff2f7e67434a3e21aaf51af96c1e851eb0d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826660"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740177"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -32,7 +32,7 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
 - Du behöver inte längre hantera lokala administratörs konton.
 - Med Azure RBAC kan du ge rätt åtkomst till virtuella datorer baserat på behov och ta bort den när den inte längre behövs.
 - Innan du tillåter åtkomst till en virtuell dator kan villkorlig åtkomst för Azure AD framtvinga ytterligare krav som: 
-   - Multifaktorautentisering
+   - Multi-Factor Authentication
    - Kontroll av inloggnings risker
 - Automatisera och skala Azure AD-anslutning för virtuella Azure Windows-datorer som ingår i dina VDI-distributioner.
 
@@ -81,12 +81,12 @@ Du kan aktivera Azure AD-inloggning för Windows Server 2019 Data Center eller W
 
 Så här skapar du en Windows Server 2019 datacenter-VM i Azure med Azure AD-inloggning: 
 
-1. Logga in på [Azure Portal](https://portal.azure.com)med ett konto som har åtkomst till att skapa virtuella datorer och välj **+ skapa en resurs**.
+1. Logga in på [Azure Portal](https://portal.azure.com)med ett konto som har åtkomst till att skapa virtuella datorer och välj **+ skapa en resurs** .
 1. Skriv **Windows Server** i Sök i Sök fältet i Marketplace.
    1. Klicka på **Windows Server** och välj **Windows Server 2019 Data Center** i list rutan Välj en program varu plan.
-   1. Klicka på **skapa**.
-1. På fliken "hantering" aktiverar du alternativet att **Logga in med AAD-autentiseringsuppgifter (för hands version)** under avsnittet Azure Active Directory från till **på**.
-1. Se till att **systemtilldelad hanterad identitet** under avsnittet identitet är inställt **på on**. Den här åtgärden ska ske automatiskt när du aktiverar inloggning med autentiseringsuppgifter för Azure AD.
+   1. Klicka på **skapa** .
+1. På fliken "hantering" aktiverar du alternativet att **Logga in med AAD-autentiseringsuppgifter (för hands version)** under avsnittet Azure Active Directory från till **på** .
+1. Se till att **systemtilldelad hanterad identitet** under avsnittet identitet är inställt **på on** . Den här åtgärden ska ske automatiskt när du aktiverar inloggning med autentiseringsuppgifter för Azure AD.
 1. Gå igenom resten av upplevelsen med att skapa en virtuell dator. Under för hands versionen måste du skapa ett administratörs användar namn och lösen ord för den virtuella datorn.
 
 ![Logga in med Azure AD-autentiseringsuppgifter skapa en virtuell dator](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
@@ -146,8 +146,8 @@ az vm extension set \
 
 Nu när du har skapat den virtuella datorn måste du konfigurera en Azure RBAC-princip för att fastställa vem som kan logga in på den virtuella datorn. Två Azure-roller används för att auktorisera VM-inloggning:
 
-- **Administratörs inloggning för virtuell dator**: användare med den här rollen som tilldelas kan logga in på en virtuell Azure-dator med administratörs behörighet.
-- **Användar inloggning för virtuell dator**: användare med den här rollen tilldelad kan logga in på en virtuell Azure-dator med vanliga användar behörigheter.
+- **Administratörs inloggning för virtuell dator** : användare med den här rollen som tilldelas kan logga in på en virtuell Azure-dator med administratörs behörighet.
+- **Användar inloggning för virtuell dator** : användare med den här rollen tilldelad kan logga in på en virtuell Azure-dator med vanliga användar behörigheter.
 
 > [!NOTE]
 > Om du vill att en användare ska kunna logga in på den virtuella datorn via RDP måste du tilldela antingen rollen Administratörs inloggning för virtuell dator eller användar inloggning för virtuell dator. En Azure-användare med rollen ägare eller deltagare som har tilldelats en virtuell dator har inte automatiskt behörighet att logga in på den virtuella datorn via RDP. Detta är att tillhandahålla granskad åtskillnad mellan den uppsättning personer som kontrollerar virtuella datorer och den uppsättning personer som kan komma åt virtuella datorer.
@@ -163,10 +163,10 @@ Konfigurera roll tilldelningar för dina Azure AD-aktiverade Windows Server 2019
 
 1. Gå till översikts sidan för den aktuella virtuella datorn
 1. Välj **åtkomst kontroll (IAM)** från meny alternativen
-1. Välj **Lägg till**, **Lägg till roll tilldelning** för att öppna fönstret Lägg till roll tilldelning.
-1. I list rutan **roll** väljer du en roll som **Administratörs inloggning för virtuell** dator eller **användar inloggning för virtuell dator**.
-1. Välj en användare, grupp, tjänstens huvud namn eller hanterad identitet i fältet **Välj** . Om du inte ser säkerhetsobjekt i listan kan du ange visningsnamn, e-postadresser och objektidentifierare i rutan**Välj** om du vill söka i katalogen.
-1. Välj **Spara**för att tilldela rollen.
+1. Välj **Lägg till** , **Lägg till roll tilldelning** för att öppna fönstret Lägg till roll tilldelning.
+1. I list rutan **roll** väljer du en roll som **Administratörs inloggning för virtuell** dator eller **användar inloggning för virtuell dator** .
+1. Välj en användare, grupp, tjänstens huvud namn eller hanterad identitet i fältet **Välj** . Om du inte ser säkerhetsobjekt i listan kan du ange visningsnamn, e-postadresser och objektidentifierare i rutan **Välj** om du vill söka i katalogen.
+1. Välj **Spara** för att tilldela rollen.
 
 Efter en liten stund tilldelas säkerhets objekt rollen i det valda omfånget.
 
@@ -214,7 +214,7 @@ Logga in på din virtuella Windows Server 2019-dator med hjälp av Azure AD:
 
 1. Gå till översikts sidan för den virtuella dator som har Aktiver ATS med Azure AD-inloggning.
 1. Välj **Anslut** för att öppna bladet Anslut till virtuell dator.
-1. Välj **Hämta RDP-fil**.
+1. Välj **Hämta RDP-fil** .
 1. Välj **Öppna** för att starta anslutning till fjärrskrivbord-klienten.
 1. Välj **Anslut** för att starta dialog rutan Windows-inloggning.
 1. Logga in med dina autentiseringsuppgifter för Azure AD.

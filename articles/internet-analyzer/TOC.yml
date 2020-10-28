@@ -25,13 +25,13 @@
     - name: Internet Analyzer-felsökning
       href: troubleshoot.md
     - name: Internet Analyzer CLI-referens
-      href: 'https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest'
+      href: /cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blogg
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Frågesida på Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Förhandsversion – serviceavtal
       href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
     - name: SLA

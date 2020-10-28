@@ -6,13 +6,13 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 1cb86f77a6ffcbb0fb45b3a57b57de531822f2b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: c7900341cfcda52dafcb269b833f5ad8dd0f55b7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742612"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739753"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybridanslutningar med Azure App Service
 
@@ -56,15 +56,15 @@ Saker som du inte kan göra med Hybridanslutningar inkluderar:
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Lägga till och skapa Hybridanslutningar i din app ##
 
-Om du vill skapa en hybrid anslutning går du till [Azure Portal][portal] och väljer din app. Välj **nätverk**  >  **Konfigurera hybrid anslutnings slut punkter**. Här kan du se de Hybridanslutningar som har kon figurer ATS för din app.  
+Om du vill skapa en hybrid anslutning går du till [Azure Portal][portal] och väljer din app. Välj **nätverk**  >  **Konfigurera hybrid anslutnings slut punkter** . Här kan du se de Hybridanslutningar som har kon figurer ATS för din app.  
 
 ![Skärm bild av hybrid anslutnings lista][2]
 
-Om du vill lägga till en ny hybrid anslutning väljer du **[+] Lägg till hybrid anslutning**.  Du ser en lista över de Hybridanslutningar som du redan har skapat. Om du vill lägga till en eller flera av dem i din app väljer du de som du vill använda och väljer sedan **Lägg till vald hybrid anslutning**.  
+Om du vill lägga till en ny hybrid anslutning väljer du **[+] Lägg till hybrid anslutning** .  Du ser en lista över de Hybridanslutningar som du redan har skapat. Om du vill lägga till en eller flera av dem i din app väljer du de som du vill använda och väljer sedan **Lägg till vald hybrid anslutning** .  
 
 ![Skärm bild av hybrid anslutnings portalen][3]
 
-Om du vill skapa en ny hybrid anslutning väljer du **Skapa ny hybrid anslutning**. Ange: 
+Om du vill skapa en ny hybrid anslutning väljer du **Skapa ny hybrid anslutning** . Ange: 
 
 - Namn på Hybrid anslutning.
 - Slut punkts namn.
@@ -75,7 +75,7 @@ Om du vill skapa en ny hybrid anslutning väljer du **Skapa ny hybrid anslutning
 
 Varje hybrid anslutning är kopplad till ett Service Bus-namnområde och varje Service Bus-namnrymd finns i en Azure-region. Det är viktigt att du försöker använda ett Service Bus-namnområde i samma region som din app, för att undvika en fördröjning i nätverket.
 
-Om du vill ta bort din hybrid anslutning från appen högerklickar du på den och väljer **Koppla från**.  
+Om du vill ta bort din hybrid anslutning från appen högerklickar du på den och väljer **Koppla från** .  
 
 När du har lagt till en hybrid anslutning i din app kan du se information om den genom att välja den. 
 
@@ -113,7 +113,7 @@ Förutom att det finns ett App Service plan SKU-krav finns det ytterligare kostn
 
 ## <a name="hybrid-connection-manager"></a>Hybridanslutningshanteraren ##
 
-Den Hybridanslutningar funktionen kräver en Relay-Agent i nätverket som är värd för Hybrid anslutnings slut punkten. Den Relay-agenten kallas för Hybridanslutningshanteraren (HCM). Om du vill ladda ned HCM från din app i [Azure Portal][portal]väljer du **nätverk**  >  **Konfigurera hybrid anslutnings slut punkter**.  
+Den Hybridanslutningar funktionen kräver en Relay-Agent i nätverket som är värd för Hybrid anslutnings slut punkten. Den Relay-agenten kallas för Hybridanslutningshanteraren (HCM). Om du vill ladda ned HCM från din app i [Azure Portal][portal]väljer du **nätverk**  >  **Konfigurera hybrid anslutnings slut punkter** .  
 
 Verktyget körs på Windows Server 2012 och senare. HCM körs som en tjänst och ansluter utgående till Azure Relay på port 443.  
 
@@ -126,7 +126,7 @@ När du startar HCM-ANVÄNDARGRÄNSSNITTET är det första du ser en tabell med 
 Så här lägger du till en eller flera Hybridanslutningar till din HCM:
 
 1. Starta HCM-ANVÄNDARGRÄNSSNITTET.
-2. Välj **Konfigurera en annan hybrid anslutning**.
+2. Välj **Konfigurera en annan hybrid anslutning** .
 ![Skärm bild av konfigurera nya Hybridanslutningar][8]
 
 1. Logga in med ditt Azure-konto för att få din Hybridanslutningar tillgänglig med dina prenumerationer. HCM fortsätter inte att använda ditt Azure-konto utöver det. 
@@ -134,7 +134,7 @@ Så här lägger du till en eller flera Hybridanslutningar till din HCM:
 1. Välj den Hybridanslutningar som du vill att HCM ska vidarebefordra.
 ![Skärm bild av Hybridanslutningar][9]
 
-1. Välj **Spara**.
+1. Välj **Spara** .
 
 Nu kan du se Hybridanslutningar du har lagt till. Du kan också välja den konfigurerade hybrid anslutningen för att se information.
 
@@ -160,7 +160,7 @@ Om du vill att någon utanför din prenumeration ska vara värd för en HCM-inst
 
 ![Lägg till en hybrid anslutning manuellt][11]
 
-### <a name="upgrade"></a>Uppgradera ###
+### <a name="upgrade"></a>Upgrade ###
 
 Det finns periodiska uppdateringar av Hybridanslutningshanteraren för att åtgärda problem eller tillhandahålla förbättringar. När uppgraderingar publiceras visas en popup-meny i HCM-ANVÄNDARGRÄNSSNITTET. Om du använder uppgraderingen tillämpas ändringarna och du kan starta om HCM. 
 
@@ -201,7 +201,7 @@ Alla som har `Reader` åtkomst till reläet kan _Se_ hybrid anslutningen vid fö
 
 ## <a name="troubleshooting"></a>Felsökning ##
 
-Statusen "ansluten" innebär att minst en HCM har kon figurer ATS med hybrid anslutningen och att den kan komma åt Azure. Om statusen för din hybrid anslutning inte är **ansluten**konfigureras inte din hybrid anslutning på någon HCM som har åtkomst till Azure.
+Statusen "ansluten" innebär att minst en HCM har kon figurer ATS med hybrid anslutningen och att den kan komma åt Azure. Om statusen för din hybrid anslutning inte är **ansluten** konfigureras inte din hybrid anslutning på någon HCM som har åtkomst till Azure.
 
 Den primära orsaken till att klienterna inte kan ansluta till slut punkten beror på att slut punkten angavs med en IP-adress i stället för ett DNS-namn. Om din app inte kan komma åt den önskade slut punkten och du använde en IP-adress, byter du till att använda ett DNS-namn som är giltigt på den värd där HCM körs. Kontrol lera också att DNS-namnet matchas korrekt på den värd där HCM körs. Bekräfta att det finns en anslutning från värden där HCM körs till hybrid anslutningens slut punkt.  
 

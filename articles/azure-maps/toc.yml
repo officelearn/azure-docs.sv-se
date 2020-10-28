@@ -359,9 +359,9 @@
     - name: 'SDK:er för Azure IoT'
       items:
         - name: 'SDK:er för IoT-tjänster'
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks
         - name: 'SDK:er för IoT-enheter'
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks
     - name: Användningsvillkor för Azure Maps
       href: 'https://azure.microsoft.com/support/legal/'
     - name: Azure Maps-prissättning

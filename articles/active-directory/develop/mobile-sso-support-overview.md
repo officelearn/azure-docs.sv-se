@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 27a58fc66de31fef272ab2f2c2bfaa9896a07d4b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210161"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740156"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Stöd för enkel inloggning och skydds principer för appar i mobilappar som du utvecklar
 
@@ -47,7 +47,7 @@ Om du använder [ADAL-biblioteket](../azuread-dev/active-directory-authenticatio
 
 För iOS-program har vi en [snabb start](quickstart-v2-ios.md) som visar hur du konfigurerar inloggningar med hjälp av MSAL, samt [vägledning för att konfigurera MSAL för olika SSO-scenarier](single-sign-on-macos-ios.md).
 
-För Android-program har vi en [snabb start](quickstart-v2-android.md) som visar hur du konfigurerar inloggningar med hjälp av MSAL och rikt linjer för att använda [Brokered Authentication](brokered-auth.md) eller [auktoriserings agenter](authorization-agents.md).
+För Android-program har vi en [snabb start](quickstart-v2-android.md) som visar hur du konfigurerar inloggningar med hjälp av MSAL och vägledning för [hur du aktiverar enkel inloggning mellan appar på Android med MSAL](msal-android-single-sign-on.md).
 
 ### <a name="use-the-system-web-browser"></a>Använda system webbläsare
 

@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: aba28e867f5fdb7bfaa917547f60565c39e382dd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: d3e856256e02e2c1914aeec493a87ffe992bbf13
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977773"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740313"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Azure Disk Encryption-scenarier på virtuella Linux-datorer
 
@@ -201,7 +201,7 @@ I följande tabell visas parametrar för Resource Manager-mallar för befintliga
 | keyVaultName | Namnet på nyckel valvet som krypterings nyckeln ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` eller Azure CLI- `az keyvault list --resource-group "MyKeyVaultResourceGroupName"` kommandot.|
 | keyVaultResourceGroup | Namnet på den resurs grupp som innehåller nyckel valvet. |
 |  keyEncryptionKeyURL | URL till den nyckel krypterings nyckel som används för att kryptera krypterings nyckeln. Den här parametern är valfri om du väljer **nokek** i list rutan UseExistingKek. Om du väljer **KEK** i list rutan UseExistingKek måste du ange värdet _keyEncryptionKeyURL_ . |
-| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_, _data_och _alla_. 
+| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_ , _data_ och _alla_ . 
 | forceUpdateTag | Skicka ett unikt värde som ett GUID varje gång åtgärden måste tvingas köras. |
 | location | Platser för alla resurser. |
 

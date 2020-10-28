@@ -3,13 +3,13 @@ title: Självstudie – utlöser avbildnings skapande med uppdatering av privat 
 description: I den här självstudien konfigurerar du en Azure Container Registry aktivitet för att automatiskt utlösa behållar avbildnings avbildningar i molnet när en bas avbildning i ett annat privat Azure Container Registry uppdateras.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 09b795981c1afe497e6adbb14f4f62d45293f0e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 7dda7c54c51c31e750083f302ca558ff7ef548ee
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271010"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739554"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Självstudie: automatisera behållar avbildningen skapas när en bas avbildning uppdateras i ett annat privat behållar register 
 
@@ -30,7 +30,7 @@ I de här självstudierna har du
 
 Om du vill använda Azure CLI lokalt måste du ha Azure CLI-versionen **2.0.68** eller senare installerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="complete-the-previous-tutorials"></a>Slutför de tidigare självstudierna
 
@@ -78,7 +78,7 @@ I den här självstudien skapar din ACR-uppgift och pushar en program behållar 
 
 ## <a name="build-the-base-image"></a>Skapa basavbildningen
 
-Börja med att skapa en bas avbildning med en *snabb uppgift*för ACR uppgifter med hjälp av [AZ ACR build][az-acr-build]. Enligt beskrivningen i den [första självstudien](container-registry-tutorial-quick-task.md) i serien skapar denna process inte bara avbildningen, utan skickar den även till containerregistret om den lyckas. I det här exemplet skickas avbildningen till bas avbildnings registret.
+Börja med att skapa en bas avbildning med en *snabb uppgift* för ACR uppgifter med hjälp av [AZ ACR build][az-acr-build]. Enligt beskrivningen i den [första självstudien](container-registry-tutorial-quick-task.md) i serien skapar denna process inte bara avbildningen, utan skickar den även till containerregistret om den lyckas. I det här exemplet skickas avbildningen till bas avbildnings registret.
 
 ```azurecli-interactive
 az acr build --registry $BASE_ACR --image baseimages/node:9-alpine --file Dockerfile-base .

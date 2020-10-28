@@ -1,7 +1,6 @@
 ---
-title: Övervaknings data referens | Microsoft Docs
-titleSuffix: Azure Machine Learning
-description: Lär dig mer om de data och resurser som samlats in för Azure Machine Learning och är tillgängliga i Azure Monitor. Azure Monitor samlar in och hämtar data om din Azure Machine Learning arbets yta och gör att du kan visa mått, ställa in aviseringar och analysera loggade data.
+title: Övervaka Azure Machine Learning data referens | Microsoft Docs
+description: Viktiga referens material krävs när du övervakar Azure Machine Learning. Lär dig mer om de data och resurser som samlats in för Azure Machine Learning och är tillgängliga i Azure Monitor. Azure Monitor samlar in och hämtar data om din Azure Machine Learning arbets yta och gör att du kan visa mått, ställa in aviseringar och analysera loggade data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +8,127 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 04/27/2020
-ms.openlocfilehash: 405b0aa051d0d1142d7dd4ccbf2bca4ef9cc3545
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/02/2020
+ms.openlocfilehash: edd2b3e02c1a768b1f18a62faaf9b59539b92774
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650590"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739139"
 ---
-# <a name="azure-machine-learning-monitoring-data-reference"></a>Data referens för Azure Machine Learning-övervakning
+# <a name="monitoring-azure-machine-learning-data-reference"></a>Övervaka data referens för Azure Machine Learning
 
 Lär dig mer om de data och resurser som samlats in av Azure Monitor från arbets ytan Azure Machine Learning. Mer information om hur du samlar in och analyserar övervaknings data finns i [övervaknings Azure Machine Learning](monitor-azure-machine-learning.md) .
 
+## <a name="metrics"></a>Mått
+
+I det här avsnittet visas alla automatiskt insamlade plattforms mått som samlas in för Azure Machine Learning. Resurs leverantören för dessa mått är [Microsoft. MachineLearningServices/arbets ytor](/azure/azure-monitor/platform/metrics-supported#microsoftmachinelearningservicesworkspaces).
+
+**Modell**
+
+| Mått | Enhet | Beskrivning |
+| ----- | ----- | ----- |
+| Modell distributionen misslyckades | Antal | Antalet modell distributioner som misslyckades. |
+| Modell distribution har startat | Antal | Antalet modell distributioner som har startats. |
+| Modell distributionen lyckades | Antal | Antalet modell distributioner som har slutförts. |
+| Modell registreringen misslyckades | Antal | Antalet modell registreringar som misslyckades. |
+| Modell registreringen har slutförts | Antal | Antalet modell registreringar som har slutförts. |
+
+**Kvot**
+
+Kvot information gäller endast för Azure Machine Learning beräkning.
+
+| Mått | Enhet | Beskrivning |
+| ----- | ----- | ----- |
+| Aktiva kärnor | Antal | Antalet aktiva beräknings kärnor. |
+| Aktiva noder | Antal | Antalet aktiva noder. |
+| Inaktiva kärnor | Antal | Antalet inaktiva beräknings kärnor. |
+| Inaktiva noder | Antal | Antalet inaktiva Compute-noder. |
+| Lämnar kärnor | Antal | Antalet lämnar kärnor. |
+| Lämnar noder | Antal | Antalet noder som lämnar. |
+| Blockerade kärnor | Antal | Antalet blockerade kärnor. |
+| Misslyckade noder | Antal | Antalet noder som har åsidosatts. |
+| Kvot användning i procent | Procent | Procent andelen kvot som används. |
+| Totalt antal kärnor | Antal | Totalt antal kärnor. |
+| Totalt antal noder | Antal | Totalt antal noder. |
+| Oanvändbara kärnor | Antal | Antalet oanvändbara kärnor. |
+| Oanvändbara noder | Antal | Antalet oanvändbara noder. |
+
+**Resurs**
+
+| Mått | Enhet | Beskrivning |
+| ----- | ----- | ----- |
+| CpuUtilization | Procent | Hur mycket processor användnings procent som används för en viss nod under en körning/ett jobb. Det här måttet publiceras bara när ett jobb körs på en nod. Ett jobb kan använda en eller flera noder. Det här måttet publiceras per nod. |
+| GpuUtilization | Procent | Hur mycket GPU-minne som utnyttjades för en viss nod under en körning/ett jobb. En nod kan ha en eller flera GPU: er. Det här måttet publiceras per GPU per nod. |
+
+**Kör**
+
+Information om utbildning körs.
+
+| Mått | Enhet | Beskrivning |
+| ----- | ----- | ----- |
+| Slutförda körningar | Antal | Antalet slutförda körningar. |
+| Misslyckade körningar | Antal | Antalet misslyckade körningar. |
+| Startade körningar | Antal | Antalet startade körningar. |
+
+## <a name="metric-dimensions"></a>Mått dimensioner
+
+Mer information om vilka mått dimensioner som finns i [flerdimensionella mått](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+
+Azure Machine Learning har följande dimensioner kopplade till sina mått.
+
+| Dimension | Beskrivning |
+| ---- | ---- |
+| Klusternamn | Namnet på beräknings instansen. Tillgängligt för alla kvot mått. |
+| Namn på virtuell dator familj | Namnet på den VM-serie som används av klustret. Tillgängligt för kvot användning i procent. |
+| VM-prioritet | Den virtuella datorns prioritet. Tillgängligt för kvot användning i procent.
+| CreatedTime | Endast tillgängligt för CpuUtilization och GpuUtilization. |
+| DeviceId | ID för enheten (GPU). Endast tillgängligt för GpuUtilization. |
+| NodeId | ID för noden som skapades där jobbet körs. Endast tillgängligt för CpuUtilization och GpuUtilization. |
+| RunId | ID för körning/jobb. Endast tillgängligt för CpuUtilization och GpuUtilization. |
+| ComputeType | Den beräknings typ som används för körningen. Endast tillgängligt för slutförda körningar, misslyckade körningar och startade körningar. |
+| PipelineStepType | Den typ av [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) som används i körningen. Endast tillgängligt för slutförda körningar, misslyckade körningar och startade körningar. |
+| PublishedPipelineId | ID för den publicerade pipelinen som används i körningen. Endast tillgängligt för slutförda körningar, misslyckade körningar och startade körningar. |
+| RunType | Typ av körning. Endast tillgängligt för slutförda körningar, misslyckade körningar och startade körningar. |
+
+Giltiga värden för dimensionen RunType är:
+
+| Värde | Beskrivning |
+| ----- | ----- |
+| Experiment | Icke-pipeline körs. |
+| PipelineRun | En pipeline-körning som är överordnad en StepRun. |
+| StepRun | En körning för en pipeline-åtgärd. |
+| ReusedStepRun | En körning för ett pipeline-steg som återanvänder en tidigare körning. |
+
+## <a name="activity-log"></a>Aktivitetslogg
+
+I följande tabell visas de åtgärder som är relaterade till Azure Machine Learning som kan skapas i aktivitets loggen.
+
+| Åtgärd | Beskrivning |
+|:---|:---|
+| Skapar eller uppdaterar en Machine Learning arbets yta | En arbets yta har skapats eller uppdaterats |
+| CheckComputeNameAvailability | Kontrol lera om ett beräknings namn redan används |
+| Skapar eller uppdaterar beräknings resurserna | En beräknings resurs har skapats eller uppdaterats |
+| Tar bort beräknings resurserna | En beräknings resurs har tagits bort |
+| Visa en lista över hemligheter | På åtgärd som har listats hemligheter för en Machine Learning arbets yta |
+
 ## <a name="resource-logs"></a>Resursloggar
 
-I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar när de samlas in i Azure Monitor loggar eller Azure Storage.
+I det här avsnittet visas de typer av resurs loggar som du kan samla in för Azure Machine Learning arbets ytan.
+
+Resource Provider och typ: [Microsoft. MachineLearningServices/Workspace](/azure/azure-monitor/platform/resource-logs-categories#microsoftmachinelearningservicesworkspaces).
+
+| Kategori | Visningsnamn |
+| ----- | ----- |
+| AmlComputeClusterEvent | AmlComputeClusterEvent |
+| AmlComputeClusterNodeEvent | AmlComputeClusterNodeEvent |
+| AmlComputeCpuGpuUtilization | AmlComputeCpuGpuUtilization |
+| AmlComputeJobEvent | AmlComputeJobEvent |
+| AmlRunStatusChangedEvent | AmlRunStatusChangedEvent |
+
+## <a name="schemas"></a>Scheman
+
+Följande scheman används i Azure Machine Learning
 
 ### <a name="amlcomputejobevents-table"></a>AmlComputeJobEvents-tabell
 
@@ -42,8 +147,8 @@ I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar 
 | ResourceGroupName | Namnet på resurs gruppen |
 | JobName | Jobbets namn |
 | ClusterId | ID för klustret |
-| Typ | Typ av jobb händelse, t. ex. JobSubmitted, JobRunning, JobFailed, JobSucceeded, osv. |
-| ExecutionState | Status för jobbet (körningen), t. ex. i kö, körs, lyckades, misslyckades |
+| Typ | Typ av jobb händelse. Till exempel JobSubmitted, JobRunning, JobFailed, JobSucceeded. |
+| ExecutionState | Status för jobbet (körningen). Till exempel i kö, körs, lyckades, misslyckades |
 | ErrorDetails | Information om jobbfel |
 | CreationApiVersion | API-version som används för att skapa jobbet |
 | ClusterResourceGroupName | Resurs grupps namn för klustret |
@@ -109,7 +214,7 @@ I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar 
 | VmSize | Nodens VM-storlek |
 | VmFamilyName | VM-serien som noden tillhör |
 | VmPriority | Prioritet för noden som skapade dedikerad/LowPriority |
-| Publisher | Utgivare av VM-avbildningen, t. ex. Microsoft-dsvm |
+| Publisher | Utgivare av VM-avbildningen. Till exempel Microsoft-dsvm |
 | Erbjudande | Erbjudande som är associerat med skapande av virtuell dator |
 | Sku | SKU för den nod/VM som skapats |
 | Version | Versionen av avbildningen som används när nod/VM skapas |
@@ -122,91 +227,6 @@ I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar 
 | StartTaskEndTime | Tid när uppgiften som tilldelats till en nod slutade |
 | TotalE2ETimeInSeconds | Noden total tid var aktiv |
 
-### <a name="metrics"></a>Mått
-
-I följande tabeller visas de plattforms mått som samlas in för Azure Machine Learning alla mått lagras i namn området **Azure Machine Learning-arbetsyta**.
-
-**Modell**
-
-| Mått | Enhet | Beskrivning |
-| ----- | ----- | ----- |
-| Modell distributionen misslyckades | Antal | Antalet modell distributioner som misslyckades. |
-| Modell distribution har startat | Antal | Antalet modell distributioner som har startats. |
-| Modell distributionen lyckades | Antal | Antalet modell distributioner som har slutförts. |
-| Modell registreringen misslyckades | Antal | Antalet modell registreringar som misslyckades. |
-| Modell registreringen har slutförts | Antal | Antalet modell registreringar som har slutförts. |
-
-**Kvot**
-
-Kvot information gäller endast för Azure Machine Learning beräkning.
-
-| Mått | Enhet | Beskrivning |
-| ----- | ----- | ----- |
-| Aktiva kärnor | Antal | Antalet aktiva beräknings kärnor. |
-| Aktiva noder | Antal | Antalet aktiva noder. |
-| Inaktiva kärnor | Antal | Antalet inaktiva beräknings kärnor. |
-| Inaktiva noder | Antal | Antalet inaktiva Compute-noder. |
-| Lämnar kärnor | Antal | Antalet lämnar kärnor. |
-| Lämnar noder | Antal | Antalet noder som lämnar. |
-| Blockerade kärnor | Antal | Antalet blockerade kärnor. |
-| Misslyckade noder | Antal | Antalet noder som har åsidosatts. |
-| Kvot användning i procent | Procent | Procent andelen kvot som används. |
-| Totalt antal kärnor | Antal | Totalt antal kärnor. |
-| Totalt antal noder | Antal | Totalt antal noder. |
-| Oanvändbara kärnor | Antal | Antalet oanvändbara kärnor. |
-| Oanvändbara noder | Antal | Antalet oanvändbara noder. |
-
-Följande är dimensioner som kan användas för att filtrera kvot mått:
-
-| Dimension | Mått som är tillgängliga med | Beskrivning |
-| ---- | ---- | ---- |
-| Klusternamn | Alla kvot mått | Namnet på beräknings instansen. |
-| Namn på virtuell dator familj | Kvot användning i procent | Namnet på den VM-serie som används av klustret. |
-| VM-prioritet | Kvot användning i procent | Den virtuella datorns prioritet.
-
-**Resurs**
-
-| Mått | Enhet | Beskrivning |
-| ----- | ----- | ----- |
-| CpuUtilization | Procent | Hur mycket processor användnings procent som används för en viss nod under en körning/ett jobb. Det här måttet publiceras bara när ett jobb körs på en nod. Ett jobb kan använda en eller flera noder. Det här måttet publiceras per nod. |
-| GpuUtilization | Procent | Hur mycket GPU-minne som utnyttjades för en viss nod under en körning/ett jobb. En nod kan ha en eller flera GPU: er. Det här måttet publiceras per GPU per nod. |
-
-Följande är dimensioner som kan användas för att filtrera resurs mått:
-
-| Dimension | Beskrivning |
-| ----- | ----- |
-| CreatedTime | |
-| DeviceId | ID för enheten (GPU). Endast tillgängligt för GpuUtilization. |
-| NodeId | ID för noden som skapades där jobbet körs. |
-| RunId | ID för körning/jobb. |
-
-**Fungerar**
-
-Information om utbildning körs.
-
-| Mått | Enhet | Beskrivning |
-| ----- | ----- | ----- |
-| Slutförda körningar | Antal | Antalet slutförda körningar. |
-| Misslyckade körningar | Antal | Antalet misslyckade körningar. |
-| Startade körningar | Antal | Antalet startade körningar. |
-
-Följande är dimensioner som kan användas för att filtrera körnings mått:
-
-| Dimension | Beskrivning |
-| ---- | ---- |
-| ComputeType | Den beräknings typ som används för körningen. |
-| PipelineStepType | Den typ av [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) som används i körningen. |
-| PublishedPipelineId | ID för den publicerade pipelinen som används i körningen. |
-| RunType | Typ av körning. |
-
-Giltiga värden för dimensionen RunType är:
-
-| Värde | Beskrivning |
-| ----- | ----- |
-| Experiment | Icke-pipeline körs. |
-| PipelineRun | En pipeline-körning som är överordnad en StepRun. |
-| StepRun | En körning för en pipeline-åtgärd. |
-| ReusedStepRun | En körning för ett pipeline-steg som återanvänder en tidigare körning. |
 
 ## <a name="see-also"></a>Se även
 

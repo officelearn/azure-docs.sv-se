@@ -3,13 +3,13 @@ title: Självstudie – bygge för snabb behållar avbildning
 description: I den här självstudien lär du dig att skapa en avbildning av en dockercontainer i Azure med Azure Container Registry Tasks (ACR Tasks) och sedan distribuera den till Azure Container Instances.
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 43d2c277fe3297c7e5ee55046118add352853640
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259492"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739543"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Självstudier: Skapa och distribuera containeravbildningar i molnet med Azure Container Registry-uppgifter
 
@@ -32,7 +32,7 @@ I kommande självstudier får du lära dig att använda i ACR Tasks för automat
 
 Om du vill använda Azure CLI lokalt, måste du ha Azure CLI version **2.0.46** eller senare installerat och vara inloggad med [az-inloggningen][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="github-account"></a>GitHub-konto
 
@@ -87,7 +87,7 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Nu när du har ett register kan du använda ACR Tasks till att skapa en containeravbildning från exempelkoden. Utför kommandot [az acr build][az-acr-build] för att utföra en *snabbuppgift*:
+Nu när du har ett register kan du använda ACR Tasks till att skapa en containeravbildning från exempelkoden. Utför kommandot [az acr build][az-acr-build] för att utföra en *snabbuppgift* :
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -203,7 +203,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-Argumentet `--role` i föregående kommando konfigurerar huvudnamnet för tjänsten med rollen *acrpull*, vilket endast ger den hämtningsåtkomst till registret. Om du vill bevilja både sändnings- och hämtningsåtkomst ändrar du argumentet `--role` till *acrpush*.
+Argumentet `--role` i föregående kommando konfigurerar huvudnamnet för tjänsten med rollen *acrpull* , vilket endast ger den hämtningsåtkomst till registret. Om du vill bevilja både sändnings- och hämtningsåtkomst ändrar du argumentet `--role` till *acrpush* .
 
 Därefter lagrar du *appId* för tjänstens huvudnamn i valvet, vilket är det **användarnamn** du skickar till Azure Container Registry för autentisering:
 
@@ -217,8 +217,8 @@ az keyvault secret set \
 
 Du har skapat ett Azure Key Vault och lagrat två hemligheter i det:
 
-* `$ACR_NAME-pull-usr`: ID för tjänstens huvudnamn som ska användas som containerregistrets **användarnamn**.
-* `$ACR_NAME-pull-pwd`: Lösenord för tjänstens huvudnamn som ska användas som containerregistrets **lösenord**.
+* `$ACR_NAME-pull-usr`: ID för tjänstens huvudnamn som ska användas som containerregistrets **användarnamn** .
+* `$ACR_NAME-pull-pwd`: Lösenord för tjänstens huvudnamn som ska användas som containerregistrets **lösenord** .
 
 Nu kan du referera till dessa hemligheter efter namn när du eller dina program och tjänster hämtar avbildningar från registret.
 

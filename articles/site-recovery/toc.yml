@@ -48,22 +48,6 @@
           href: tutorial-dr-drill-azure.md
         - name: Redundansväxla till Azure
           href: vmware-azure-tutorial-failover-failback.md
-    - name: Haveriberedskap för Azure VMware Solution till Azure
-      items:
-        - name: Förbereda Azure
-          href: avs-tutorial-prepare-azure.md
-        - name: Förbereda Azure VMware Solution
-          href: avs-tutorial-prepare-avs.md
-        - name: Konfigurera replikering
-          href: avs-tutorial-replication.md
-        - name: Köra ett programåterställningstest
-          href: avs-tutorial-dr-drill-azure.md
-        - name: Redundansväxla till Azure
-          href: avs-tutorial-failover.md
-        - name: Skydda virtuella datorer på nytt
-          href: avs-tutorial-reprotect.md
-        - name: Redundansväxla från Azure
-          href: avs-tutorial-failback.md
     - name: Haveriberedskap för virtuell Hyper-V-dator till Azure
       items:
         - name: Förbereda Azure
@@ -164,7 +148,7 @@
       href: recovery-plan-overview.md
     - name: Om migrering till Azure
       href: migrate-overview.md
-    - name: Om rollbaserad åtkomstkontroll i Azure med Site Recovery
+    - name: Om rollbaserad åtkomstkontroll med Site Recovery
       href: site-recovery-role-based-linked-access-control.md
     - name: Om haveriberedskap till en sekundär lokal plats
       items:
@@ -176,6 +160,10 @@
           href: hyper-v-vmm-secondary-support-matrix.md
         - name: Arkitektur för virtuell Hyper-V-dator till en sekundär plats
           href: hyper-v-vmm-architecture.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
 - name: Instruktionsguider
   items:
     - name: Azure-till-Azure-haveriberedskap
@@ -276,7 +264,7 @@
               href: vmware-azure-enable-replication.md
             - name: Undanta diskar från replikering
               href: vmware-azure-exclude-disk.md
-            - name: Genomgång – Konfigurera replikering med flera klientorganisationer och CSP för virtuella VMware-datorer
+            - name: Genomgång – Konfigurera replikering med flera klienter och CSP för virtuella VMWare-datorer
               href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: Köra redundans och återställning efter fel
           items:

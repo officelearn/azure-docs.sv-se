@@ -8,13 +8,13 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 07/28/2020
-ms.custom: subject-armqs
-ms.openlocfilehash: 3b21353c7e5338c78b9d56e79ac5da3fa7e9af84
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 7d93bd757a39247302a6bc09009a1a814425c32f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687594"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745364"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Snabbstart: Skapa en budget med en ARM-mall
 
@@ -22,7 +22,7 @@ Budgetar i Cost Management hjälper dig att planera och öka organisationsansvar
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure** . Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
 
@@ -84,27 +84,27 @@ En Azure-resurs har definierats i mallen:
 
    :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Resource Manager-mall, Skapa budget, distribuera portal]" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
    
-    * **Prenumeration**: välj en Azure-prenumeration.
-    * **Resursgrupp**: om det behövs väljer du en befintlig resursgrupp eller **skapar en ny**.
-    * **Region**: välj en Azure-region. Välj till exempel **USA, centrala**.
-    * **Budgetnamn**: ange ett namn på budgeten. Det ska vara unikt inom sin resursgrupp. Endast alfanumeriska tecken, understreck och bindestreck får användas.
-    * **Belopp**: ange den totala kostnaden att spåra med budgeten.
-    * **Tidsenhet**: Ange tiden som omfattas av en budget. Tillåtna värden är månadsvis, kvartalsvis eller varje år. Budgeten återställs i slutet av tidsenheten.
-    * **Startdatum**: Ange startdatumet med den första dagen i månaden i formatet ÅÅÅÅ-MM-DD. Ett startdatum får i framtiden inte ligga längre bort än tre månader från i dag. Du kan ange ett tidigare startdatum med tidsintervallperioden.
-    * **Slutdatum**: ange slutdatumet för budgeten i formatet ÅÅÅÅ-MM-DD. 
-    * **Första tröskel**: ange ett tröskelvärde för den första aviseringen. Ett meddelande skickas när kostnaden överskrider tröskeln. Det är alltid procent och måste vara mellan 0 och 1000.
-    * **Andra tröskel**: ange ett tröskelvärde för den andra aviseringen. Ett meddelande skickas när kostnaden överskrider tröskeln. Det är alltid procent och måste vara mellan 0 och 1000.
+    * **Prenumeration** : välj en Azure-prenumeration.
+    * **Resursgrupp** : om det behövs väljer du en befintlig resursgrupp eller **skapar en ny** .
+    * **Region** : välj en Azure-region. Välj till exempel **USA, centrala** .
+    * **Budgetnamn** : ange ett namn på budgeten. Det ska vara unikt inom sin resursgrupp. Endast alfanumeriska tecken, understreck och bindestreck får användas.
+    * **Belopp** : ange den totala kostnaden att spåra med budgeten.
+    * **Tidsenhet** : Ange tiden som omfattas av en budget. Tillåtna värden är månadsvis, kvartalsvis eller varje år. Budgeten återställs i slutet av tidsenheten.
+    * **Startdatum** : Ange startdatumet med den första dagen i månaden i formatet ÅÅÅÅ-MM-DD. Ett startdatum får i framtiden inte ligga längre bort än tre månader från i dag. Du kan ange ett tidigare startdatum med tidsintervallperioden.
+    * **Slutdatum** : ange slutdatumet för budgeten i formatet ÅÅÅÅ-MM-DD. 
+    * **Första tröskel** : ange ett tröskelvärde för den första aviseringen. Ett meddelande skickas när kostnaden överskrider tröskeln. Det är alltid procent och måste vara mellan 0 och 1000.
+    * **Andra tröskel** : ange ett tröskelvärde för den andra aviseringen. Ett meddelande skickas när kostnaden överskrider tröskeln. Det är alltid procent och måste vara mellan 0 och 1000.
     * **Kontaktroller** anger listan över kontaktroller för att skicka budgetmeddelandet när tröskelvärdet har överskridits. Standardvärden är ägare, deltagare och läsare. Förväntat format är `["Owner","Contributor","Reader"]`.
-    * **Kontakt-e-post**: ange en lista med e-postadresser som budgetaviseringen ska skickas till när tröskelvärdet överskrids. Förväntat format är `["user1@domain.com","user2@domain.com"]`.
+    * **Kontakt-e-post** : ange en lista med e-postadresser som budgetaviseringen ska skickas till när tröskelvärdet överskrids. Förväntat format är `["user1@domain.com","user2@domain.com"]`.
     * **Kontaktgrupper** anger en lista över resurs-ID:er för åtgärdsgrupper, som fullständiga resurs-URI:er, för att skicka budgetmeddelandet när tröskelvärdet har överskridits. Den accepterar matris med strängar. Förväntat format är `["action group resource ID1","action group resource ID2"]`. Om du inte vill använda åtgärdsgrupper anger du `[]`.
-    * **Värden för resursgruppsfiler**: ange en lista med resursgruppsnamn som ska filtreras. Förväntat format är `["Resource Group Name1","Resource Group Name2"]`. Om du inte vill använda ett filter anger du `[]`. 
-    * **Värden för mätarkategorifilter**: ange en lista med mätarkategorier i Azure-tjänsten. Förväntat format är `["Meter Category1","Meter Category2"]`. Om du inte vill använda ett filter anger du `[]`.
+    * **Värden för resursgruppsfiler** : ange en lista med resursgruppsnamn som ska filtreras. Förväntat format är `["Resource Group Name1","Resource Group Name2"]`. Om du inte vill använda ett filter anger du `[]`. 
+    * **Värden för mätarkategorifilter** : ange en lista med mätarkategorier i Azure-tjänsten. Förväntat format är `["Meter Category1","Meter Category2"]`. Om du inte vill använda ett filter anger du `[]`.
    
 3. Beroende på typen av Azure-prenumeration gör du något av följande:
-   - Välj **Granska + skapa**.
-   - Granska villkoren, välj **Jag godkänner villkoren ovan** och sedan **Köp**.
+   - Välj **Granska + skapa** .
+   - Granska villkoren, välj **Jag godkänner villkoren ovan** och sedan **Köp** .
 
-4. Om du valde **Granska och skapa** verifieras mallen. Välj **Skapa**.  
+4. Om du valde **Granska och skapa** verifieras mallen. Välj **Skapa** .  
 
    ![Resource Manager-mall, budget, distribuera portalmeddelande](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 
@@ -112,7 +112,7 @@ Azure-portalen används för att distribuera mallen. Utöver Azure-portalen kan 
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
-Du kan använda Azure-portalen för att kontrollera att budgeten har skapats genom att gå till **Kostnadshantering + fakturering** > välja en omfattning > **Budgetar**. Du kan också använda följande Azure CLI- eller Azure PowerShell-skript för att visa budgeten.
+Du kan använda Azure-portalen för att kontrollera att budgeten har skapats genom att gå till **Kostnadshantering + fakturering** > välja en omfattning > **Budgetar** . Du kan också använda följande Azure CLI- eller Azure PowerShell-skript för att visa budgeten.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -134,7 +134,7 @@ När du inte längre behöver en budget tar du bort den med någon av följande 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Gå till **Kostnadshantering + fakturering** > välj ett faktureringsomfång > **Budgetar** > välj en budget > välj sedan **Ta bort budget**.
+Gå till **Kostnadshantering + fakturering** > välj ett faktureringsomfång > **Budgetar** > välj en budget > välj sedan **Ta bort budget** .
 
 ### <a name="command-line"></a>Kommandorad
 

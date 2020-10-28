@@ -3,25 +3,25 @@ title: Aktivera Azure-prenumerationer och -konton
 description: Aktivera åtkomst med Azure Resource Manager-API:er för nya och befintliga konton och lös vanliga kontoproblem.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 52ac239369f2998a3a8eac9c400512ac845a0c49
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: b1b7ea7467be107bd1af9daf0869c77ff0b94c70
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131436"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537361"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktivera Azure-prenumerationer och konton med Cloudyn
 
 Genom att lägga till eller uppdatera dina Azure Resource Manager-autentiseringsuppgifter kan Cloudyn identifiera alla konton och prenumerationer i din Azure-klientorganisation. Om du även har Azure Diagnostics-tillägg aktiverat på dina virtuella datorer kan Cloudyn samla in utökade mått som CPU och minne. Den här artikeln beskriver hur du aktiverar åtkomst med Azure Resource Manager-API:er för nya och befintliga konton. Här beskrivs även hur du löser vanliga kontoproblem.
 
-Cloudyn har ingen åtkomst till flertalet av dina Azure-prenumerationsdata när prenumerationen är _inaktiverad_. Du måste redigera _inaktiverade_ konton så att Cloudyn kan komma åt dem.
+Cloudyn har ingen åtkomst till flertalet av dina Azure-prenumerationsdata när prenumerationen är _inaktiverad_ . Du måste redigera _inaktiverade_ konton så att Cloudyn kan komma åt dem.
 
 [!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
@@ -41,7 +41,7 @@ Om ditt konto har tilldelats rollen **Deltagare** har du inte tillräcklig behö
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Azure Active Directory** i Azure Portal.
 3. Välj **Användarinställningar** i Azure Active Directory.
-4. Kontrollera alternativet **Appregistreringar**.
+4. Kontrollera alternativet **Appregistreringar** .
     - Om det är inställt på **Ja** kan användare som inte är administratörer registrera AD-appar. Den här inställningen innebär att alla användare i Azure AD-klientorganisationen kan registrera en app.  
     ![välj Appregistreringar i användarinställningarna](./media/activate-subs-accounts/app-register.png)
     - Om alternativet **Appregistreringar** är inställt på **Nej** kan bara administratörsanvändare i klientorganisationen registrera Azure Active Directory-appar. Klientadministratören måste registrera CloudynCollector-programmet.
@@ -53,13 +53,13 @@ När du lägger till en prenumeration till en kontouppdatering beviljar du åtko
 
 ### <a name="add-a-new-account-subscription"></a>Lägga till ett nytt konto (prenumeration)
 
-1. Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Molnkonton**.
-2. Klicka på **Lägg till nytt konto** så visas rutan **Lägg till nytt konto**. Ange informationen som krävs.  
+1. Klicka på kugghjulssymbolen uppe till höger i Cloudyn-portalen och välj **Molnkonton** .
+2. Klicka på **Lägg till nytt konto** så visas rutan **Lägg till nytt konto** . Ange informationen som krävs.  
     ![ange den information som krävs i rutan Lägg till nytt konto](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Uppdatera en prenumeration
 
-1. Om du vill uppdatera en _inaktiverad_ prenumeration som redan finns i Cloudyn går du till Kontohantering och klickar på pennsymbolen för redigering till höger om överordnad _klientorganisations-GUID_. Prenumerationerna är grupperade under en överordnad klientorganisation, så undvik att aktivera prenumerationer individuellt.
+1. Om du vill uppdatera en _inaktiverad_ prenumeration som redan finns i Cloudyn går du till Kontohantering och klickar på pennsymbolen för redigering till höger om överordnad _klientorganisations-GUID_ . Prenumerationerna är grupperade under en överordnad klientorganisation, så undvik att aktivera prenumerationer individuellt.
     ![välj ditt klient-ID i rutan Identifiera prenumerationer på nytt](./media/activate-subs-accounts/existing-sub.png)
 2. Ange klient-ID om det behövs. Om du inte vet klient-ID kan du söka efter det genom att göra följande:
     1. Logga in på [Azure-portalen](https://portal.azure.com).
@@ -68,11 +68,11 @@ När du lägger till en prenumeration till en kontouppdatering beviljar du åtko
     4. Kopiera katalog-ID GUID. Det här värdet är ditt klientorganisations-ID.
     Mer information finns i [Hämta klient-ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 3. Välj pris-ID om det behövs. Om du inte vet pris-ID kan du söka efter det genom att göra följande.
-    1. Uppe till höger i Azure Portal klickar du på din användarinformation och klickar sedan på **Visa min faktura**.
-    2. Under **Faktureringskonto** klickar du på **Prenumerationer**.
+    1. Uppe till höger i Azure Portal klickar du på din användarinformation och klickar sedan på **Visa min faktura** .
+    2. Under **Faktureringskonto** klickar du på **Prenumerationer** .
     3. Under **Mina prenumerationer** väljer du prenumerationen.
-    4. Ditt pris-ID visas under **ID för erbjudande**. Kopiera ID för erbjudande för prenumerationen.
-4. I rutan Lägg till nytt konto (eller Redigera prenumeration) klickar du på **Spara** (eller **Nästa**). Du omdirigeras till Azure Portal.
+    4. Ditt pris-ID visas under **ID för erbjudande** . Kopiera ID för erbjudande för prenumerationen.
+4. I rutan Lägg till nytt konto (eller Redigera prenumeration) klickar du på **Spara** (eller **Nästa** ). Du omdirigeras till Azure Portal.
 5. Logga in på portalen. Klicka på **Acceptera** för att ge Cloudyn åtkomst till ditt Azure-konto.
 
     Du omdirigeras till sidan Kontohantering i Cloudyn och din prenumeration uppdateras med **aktiv** kontostatus. En grön bockmarkering bör visas under Resource Manager-kolumnen.
@@ -87,7 +87,7 @@ Titta på videon [Connecting to Azure Resource Manager with Cloudyn](https://you
 
 När du använder Cloudyn-portalen första gången kan du se följande meddelanden, om du har ett Enterprise-avtal eller är en molnlösningsleverantör:
 
-- *The specified API key is not a top level enrollment key* (Den angivna API-nyckeln är inte en registreringsnyckel på toppnivå) visas i **installationsguiden för Cloudyn**.
+- *The specified API key is not a top level enrollment key* (Den angivna API-nyckeln är inte en registreringsnyckel på toppnivå) visas i **installationsguiden för Cloudyn** .
 - *Direct Enrollment – No* (Direktregistrering – nej) visas i Enterprise-avtalsportalen.
 - *No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account* (Inga användningsdata hittades för de senaste 30 dagarna. Kontakta återförsäljaren för att kontrollera om pålägg har aktiverats för ditt Azure-konto) visas i Cloudyn-portalen.
 
@@ -96,7 +96,7 @@ Föregående meddelanden indikerar att du har köpt ett Azure Enterprise-avtal g
 Så här löser du problemen:
 
 1. Återförsäljaren måste aktivera _pålägg_ för ditt konto. Mer information finns i [guiden för indirekt kundregistrering](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. Du genererar Azure-nyckeln för Enterprise-avtal för användning med Cloudyn. Instruktioner finns i [Registrera ett Azure Enterprise-avtal och visa kostnadsdata](./quick-register-ea.md).
+2. Du genererar Azure-nyckeln för Enterprise-avtal för användning med Cloudyn.
 
 Innan du kan generera API-nyckeln för Azures Enterprise-avtal för att konfigurera Cloudyn, måste du aktivera fakturerings-API:n för Azure genom att följa anvisningarna i:
 

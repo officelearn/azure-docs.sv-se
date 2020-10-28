@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078931"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674325"
 ---
 # <a name="sensor-partner-integration"></a>Sensorpartnerintegration
 
@@ -48,7 +48,7 @@ API: erna innehåller Swagger teknisk dokumentation. Mer information om API: er 
 
 FarmBeats använder Microsoft Azure Active Directory autentisering.Azure App Service tillhandahåller stöd för inbyggd autentisering och auktorisering.
 
-Mer information finns i [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
+Mer information finns i [Azure Active Directory](../../app-service/overview-authentication-authorization.md).
 
 FarmBeats Datahub använder Bearer-autentisering, som behöver följande autentiseringsuppgifter:
    - Klient-ID
@@ -126,10 +126,10 @@ JSON är ett gemensamt språk oberoende data format som ger en enkel text repres
 
 FarmBeats Datahub har följande API: er som gör det möjligt för enhets partner att skapa och hantera metadata för enheter eller sensorer.
 
-- /**DeviceModel**: DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som antingen är gateway eller nod.
-- /**Enhet**: enheten motsvarar en fysisk enhet som finns i Server gruppen.
-- /**SensorModel**: SensorModel motsvarar sensorns metadata, till exempel tillverkaren, typen av sensor, som är antingen analog eller digital och sensor måttet, till exempel omgivnings temperatur och tryck.
-- /**Sensor**: sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.
+- /**DeviceModel** : DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som antingen är gateway eller nod.
+- /**Enhet** : enheten motsvarar en fysisk enhet som finns i Server gruppen.
+- /**SensorModel** : SensorModel motsvarar sensorns metadata, till exempel tillverkaren, typen av sensor, som är antingen analog eller digital och sensor måttet, till exempel omgivnings temperatur och tryck.
+- /**Sensor** : sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.
 
   DeviceModel | Beskrivning |
   --- | ---
@@ -144,7 +144,7 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
   DeviceModelId  |ID för associerad enhets modell. |
   HardwareId   |Unikt ID för enheten, till exempel en MAC-adress.  |
   ReportingInterval |Rapport intervall i sekunder. |
-  Location    |Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter). |
+  Plats    |Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter). |
   ParentDeviceId | ID för den överordnade enhet som enheten är ansluten till. Om en nod till exempel är ansluten till en gateway har noden parentDeviceID som gateway. |
   Namn  | Namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på enhets partner sidan. Om enhetens namn är användardefinierat på enhets partner sidan, ska samma användardefinierade namn spridas till FarmBeats.  |
   Beskrivning  | Ange en meningsfull beskrivning.  |
@@ -166,7 +166,7 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
   **Mäta**  | **Beskrivning** |
   HardwareId  | Unikt ID för sensorn som anges av tillverkaren.
   SensorModelId  | ID för associerad sensor modell.
-  Location  | Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
+  Plats  | Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
   Port > namn  |Namn och typ för den port som sensorn är ansluten till på enheten. Det måste vara samma namn som definieras i enhets modellen.
   DeviceId  | ID för den enhet som sensorn är ansluten till.
   Namn  | Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.
@@ -201,7 +201,7 @@ Telemetri-data mappas till ett kanoniskt meddelande som publiceras på Azure Eve
 
 ## <a name="send-telemetry-data-to-farmbeats"></a>Skicka telemetridata till FarmBeats
 
-Om du vill skicka telemetridata till FarmBeats skapar du en klient som skickar meddelanden till en Event Hub i FarmBeats. Mer information om telemetridata finns i [Skicka telemetri till en Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+Om du vill skicka telemetridata till FarmBeats skapar du en klient som skickar meddelanden till en Event Hub i FarmBeats. Mer information om telemetridata finns i [Skicka telemetri till en Event Hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 Här är ett exempel på en python-kod som skickar telemetri som en klient till en angiven Event Hub.
 
@@ -324,7 +324,7 @@ Med enhets partner kan kunderna redigera FarmBeats-integrerings inställningarna
 
 ## <a name="view-the-last-telemetry-sent"></a>Visa senaste telemetri som skickats
 
-Enhets partner kan göra det möjligt för kunder att Visa tidsstämpeln för den senaste telemetri som har skickats, som finns under **telemetri som skickas**. Detta är den tid då den senaste Telemetrin skickades till FarmBeats.
+Enhets partner kan göra det möjligt för kunder att Visa tidsstämpeln för den senaste telemetri som har skickats, som finns under **telemetri som skickas** . Detta är den tid då den senaste Telemetrin skickades till FarmBeats.
 
 ## <a name="troubleshooting-and-error-management"></a>Fel sökning och fel hantering
 

@@ -9,25 +9,25 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
-ms.openlocfilehash: aa74489a962708a1d3d5e6835f684e5cb8fc548b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a4d9fb9f803a497e84fa189d9a89c2d9097bb70
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444352"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675060"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Skapa Azure AD-gästanvändare och ange som Azure AD-administratör
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> Den här artikeln är i **offentlig för hands version**.
+> Den här artikeln är i **offentlig för hands version** .
 
-Gäst användare i Azure Active Directory (Azure AD) är användare som har importer ATS till den aktuella Azure AD från andra Azure Active Directory-kataloger eller utanför den. Gäst användare kan till exempel inkludera användare från andra Azure Active-kataloger eller från konton som * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*eller * \@ gmail.com*. Den här artikeln visar hur du skapar en Azure AD-gäst användare och anger att användaren är en Azure AD-administratör för den logiska Azure SQL-servern, utan att gäst användaren behöver ingå i en grupp i Azure AD.
+Gäst användare i Azure Active Directory (Azure AD) är användare som har importer ATS till den aktuella Azure AD från andra Azure Active Directory-kataloger eller utanför den. Gäst användare kan till exempel inkludera användare från andra Azure Active-kataloger eller från konton som *\@ Outlook.com* , *\@ hotmail.com* , *\@ Live.com* eller *\@ gmail.com* . Den här artikeln visar hur du skapar en Azure AD-gäst användare och anger att användaren är en Azure AD-administratör för den logiska Azure SQL-servern, utan att gäst användaren behöver ingå i en grupp i Azure AD.
 
 ## <a name="feature-description"></a>Funktionsbeskrivning
 
-Den här funktionen lyfter den aktuella begränsningen som endast tillåter gäst användare att ansluta till Azure SQL Database, SQL-hanterad instans eller Azure Synapse Analytics när de är medlemmar i en grupp som skapats i Azure AD. Gruppen måste mappas till en användare manuellt med instruktionen [create User (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) i en specifik databas. När en databas användare har skapats för den Azure AD-grupp som innehåller gäst användaren, kan gäst användaren logga in på databasen med hjälp av Azure Active Directory med MFA-autentisering. Som en del av den här **offentliga för hands versionen**kan gäst användare skapas och ansluta direkt till SQL Database, SQL-hanterad instans eller Azure-Synapse utan kravet på att lägga till dem i en Azure AD-grupp först och sedan skapa en databas användare för den Azure AD-gruppen.
+Den här funktionen lyfter den aktuella begränsningen som endast tillåter gäst användare att ansluta till Azure SQL Database, SQL-hanterad instans eller Azure Synapse Analytics när de är medlemmar i en grupp som skapats i Azure AD. Gruppen måste mappas till en användare manuellt med instruktionen [create User (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) i en specifik databas. När en databas användare har skapats för den Azure AD-grupp som innehåller gäst användaren, kan gäst användaren logga in på databasen med hjälp av Azure Active Directory med MFA-autentisering. Som en del av den här **offentliga för hands versionen** kan gäst användare skapas och ansluta direkt till SQL Database, SQL-hanterad instans eller Azure-Synapse utan kravet på att lägga till dem i en Azure AD-grupp först och sedan skapa en databas användare för den Azure AD-gruppen.
 
 Som en del av den här funktionen har du också möjlighet att ställa in Azure AD-gäst användaren direkt som en AD-administratör för den logiska Azure SQL-servern. De befintliga funktionerna där gäst användaren kan vara en del av en Azure AD-grupp och gruppen kan sedan anges som Azure AD-administratör för den logiska Azure SQL-servern påverkas inte. Gäst användare i databasen som ingår i en Azure AD-grupp påverkas inte heller av den här ändringen.
 
@@ -59,12 +59,12 @@ Följ dessa steg om du vill skapa en databas användare med hjälp av en Azure A
     SELECT * FROM sys.database_principals
     ```
 
-1. Koppla från och logga in i databasen som gäst användare som `user1@gmail.com` använder [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) med autentiseringsmetoden **Azure Active Directory-Universal med MFA**. Mer information finns i [använda Multi-factor Azure Active Directory-autentisering](authentication-mfa-ssms-overview.md).
+1. Koppla från och logga in i databasen som gäst användare som `user1@gmail.com` använder [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) med autentiseringsmetoden **Azure Active Directory-Universal med MFA** . Mer information finns i [använda Multi-factor Azure Active Directory-autentisering](authentication-mfa-ssms-overview.md).
 
 ### <a name="create-guest-user-in-sql-managed-instance"></a>Skapa gäst användare i SQL-hanterad instans
 
 > [!NOTE]
-> SQL-hanterad instans stöder inloggningar för Azure AD-användare, samt Azure AD-inneslutna databas användare. Stegen nedan visar hur du skapar en inloggning och användare för en Azure AD-gäst användare i SQL-hanterad instans. Du kan också välja att skapa en [innesluten databas användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) i SQL-hanterad instans med hjälp av metoden i avsnittet [skapa gäst användare i SQL Database och Azure-Synapse](#create-guest-user-in-sql-database-and-azure-synapse) .
+> SQL-hanterad instans stöder inloggningar för Azure AD-användare, samt Azure AD-inneslutna databas användare. Stegen nedan visar hur du skapar en inloggning och användare för en Azure AD-gäst användare i SQL-hanterad instans. Du kan också välja att skapa en [innesluten databas användare](/sql/relational-databases/security/contained-database-users-making-your-database-portable) i SQL-hanterad instans med hjälp av metoden i avsnittet [skapa gäst användare i SQL Database och Azure-Synapse](#create-guest-user-in-sql-database-and-azure-synapse) .
 
 1. Se till att gäst användaren (till exempel `user1@gmail.com` ) redan har lagts till i din Azure AD och att en Azure AD-administratör har ställts in för SQL-hanterad instans Server. Det krävs en Azure AD-administratör för att Azure Active Directory autentisering.
 
@@ -90,7 +90,7 @@ Följ dessa steg om du vill skapa en databas användare med hjälp av en Azure A
 
 1. Det bör nu vara en databas användare som skapats för gäst användaren `user1@gmail.com` .
 
-1. Koppla från och logga in i databasen som gäst användare som `user1@gmail.com` använder [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) med autentiseringsmetoden **Azure Active Directory-Universal med MFA**. Mer information finns i [använda Multi-factor Azure Active Directory-autentisering](authentication-mfa-ssms-overview.md).
+1. Koppla från och logga in i databasen som gäst användare som `user1@gmail.com` använder [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) med autentiseringsmetoden **Azure Active Directory-Universal med MFA** . Mer information finns i [använda Multi-factor Azure Active Directory-autentisering](authentication-mfa-ssms-overview.md).
 
 ## <a name="setting-a-guest-user-as-an-azure-ad-admin"></a>Ange en gäst användare som en Azure AD-administratör
 
@@ -110,13 +110,13 @@ Följ dessa steg om du vill ange en Azure AD-gäst användare som Azure AD-admin
     Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName <ResourceGroupName> -ServerName <ServerName> -DisplayName <DisplayNameOfGuestUser>
     ```
 
-    Du kan också använda Azure CLI-kommandot [AZ SQL Server AD-admin](https://docs.microsoft.com/cli/azure/sql/server/ad-admin) för att ange gäst användaren som en Azure AD-administratör för din logiska Azure SQL-Server.
+    Du kan också använda Azure CLI-kommandot [AZ SQL Server AD-admin](/cli/azure/sql/server/ad-admin) för att ange gäst användaren som en Azure AD-administratör för din logiska Azure SQL-Server.
 
 ### <a name="set-azure-ad-admin-for-sql-managed-instance"></a>Ange Azure AD-administratör för SQL-hanterad instans
 
 1. Se till att gäst användaren (till exempel `user1@gmail.com` ) redan har lagts till i Azure AD.
 
-1. Gå till [Azure Portal](https://portal.azure.com)och gå till din **Azure Active Directory** -resurs. Gå till fönstret **användare** under **Hantera**. Välj gäst användare och registrera `Object ID` . 
+1. Gå till [Azure Portal](https://portal.azure.com)och gå till din **Azure Active Directory** -resurs. Gå till fönstret **användare** under **Hantera** . Välj gäst användare och registrera `Object ID` . 
 
 1. Kör följande PowerShell-kommando för att lägga till gäst användaren som Azure AD-administratör för din SQL-hanterade instans:
 
@@ -129,11 +129,11 @@ Följ dessa steg om du vill ange en Azure AD-gäst användare som Azure AD-admin
     Set-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName <ResourceGroupName> -InstanceName "<ManagedInstanceName>" -DisplayName <DisplayNameOfGuestUser> -ObjectId <AADObjectIDOfGuestUser>
     ```
 
-    Du kan också använda Azure CLI-kommandot [AZ SQL mi AD-admin](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin) för att ange gäst användaren som en Azure AD-administratör för din SQL-hanterade instans.
+    Du kan också använda Azure CLI-kommandot [AZ SQL mi AD-admin](/cli/azure/sql/mi/ad-admin) för att ange gäst användaren som en Azure AD-administratör för din SQL-hanterade instans.
 
 ## <a name="limitations"></a>Begränsningar
 
-Det finns en begränsning på Azure Portal som förhindrar att du väljer en Azure AD-gäst användare som Azure AD-administratör för SQL-hanterad instans. För gäst konton utanför Azure AD, till exempel * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*eller * \@ gmail.com*, visar AD admin-väljaren dessa konton, men de är nedtonade och kan inte väljas. Använd de PowerShell- [eller CLI-kommandon](#setting-a-guest-user-as-an-azure-ad-admin) som visas ovan för att ange Azure AD-administratören. Alternativt kan en Azure AD-grupp som innehåller gäst användaren anges som Azure AD-administratör för SQL-hanterad instans.
+Det finns en begränsning på Azure Portal som förhindrar att du väljer en Azure AD-gäst användare som Azure AD-administratör för SQL-hanterad instans. För gäst konton utanför Azure AD, till exempel *\@ Outlook.com* , *\@ hotmail.com* , *\@ Live.com* eller *\@ gmail.com* , visar AD admin-väljaren dessa konton, men de är nedtonade och kan inte väljas. Använd de PowerShell- [eller CLI-kommandon](#setting-a-guest-user-as-an-azure-ad-admin) som visas ovan för att ange Azure AD-administratören. Alternativt kan en Azure AD-grupp som innehåller gäst användaren anges som Azure AD-administratör för SQL-hanterad instans.
 
 Den här funktionen aktive ras för SQL-hanterad instans innan den här funktionen blir allmänt tillgänglig.
 
@@ -141,4 +141,4 @@ Den här funktionen aktive ras för SQL-hanterad instans innan den här funktion
 
 - [Konfigurera och hantera Azure AD-autentisering med Azure SQL](authentication-aad-configure.md)
 - [Använda Multi-Factor Azure Active Directory-autentisering](authentication-mfa-ssms-overview.md)
-- [Skapa användare (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
+- [Skapa användare (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql)

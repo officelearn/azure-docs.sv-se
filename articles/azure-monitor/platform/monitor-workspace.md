@@ -6,17 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: d6c29cb41d38e5473a9b24dbc89fd99d3e19c16f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638337"
+ms.locfileid: "92674755"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Övervaka hälsan för Log Analytics arbets ytan i Azure Monitor
 För att upprätthålla prestanda och tillgänglighet för din Log Analytics-arbetsyta i Azure Monitor måste du kunna identifiera eventuella problem som uppstår i proaktivt. Den här artikeln beskriver hur du övervakar hälso tillståndet för din Log Analytics-arbetsyta med hjälp av data i [Åtgärds](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) tabellen. Den här tabellen ingår i varje Log Analytics arbets yta och innehåller fel och varningar som inträffar i din arbets yta. Du bör regelbundet granska dessa data och skapa aviseringar för att proaktivt meddelas när det finns viktiga incidenter på arbets ytan.
 
 ## <a name="_logoperation-function"></a>_LogOperation funktion
+
 Azure Monitor loggar skickar information om eventuella problem till [Åtgärds](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) tabellen på arbets ytan där problemet uppstod. Systemfunktionen **_LogOperation** baseras på **Åtgärds** tabellen och innehåller en förenklad uppsättning information för analys och avisering.
 
 ## <a name="columns"></a>Kolumner
@@ -36,6 +37,7 @@ Funktionen **_LogOperation** returnerar kolumnerna i följande tabell.
 
 
 ## <a name="categories"></a>Kategorier
+
 I följande tabell beskrivs kategorierna från _LogOperation-funktionen. 
 
 | Kategori | Beskrivning |

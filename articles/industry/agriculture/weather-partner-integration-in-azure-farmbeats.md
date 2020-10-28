@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 661147769d8ae845066e912a84118c9fd3f93486
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497003"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674921"
 ---
 # <a name="weather-partner-integration"></a>Väderpartnerintegration
 
@@ -28,7 +28,7 @@ En väder partner måste tillhandahålla en Docker-avbildning/ett program (med s
 - Kundspecifika API-nycklar/autentiseringsuppgifter för att komma åt data från väder partnerns system
 - Information om VM-SKU (partners kan ge detta om deras Docker har särskilda krav på virtuella datorer, annars kan kunder välja mellan stödda VM-SKU: er i Azure)
 
-Med hjälp av ovanstående Docker-information registrerar kunden en väder partner i sin FarmBeats-instans. Mer information om hur kunder kan använda Docker för att mata in väder data i FarmBeats finns i hand boken för att [Hämta väder data](https://docs.microsoft.com/azure/industry/agriculture/get-weather-data-from-weather-partner)
+Med hjälp av ovanstående Docker-information registrerar kunden en väder partner i sin FarmBeats-instans. Mer information om hur kunder kan använda Docker för att mata in väder data i FarmBeats finns i hand boken för att [Hämta väder data](./get-weather-data-from-weather-partner.md)
 
 ## <a name="connector-docker-development"></a>Ansluta Docker-utveckling
 
@@ -71,9 +71,9 @@ För att kunderna ska kunna autentisera med API: er för partner sidan under Doc
    }
 }
 ```
-API-tjänsten serialiserar den här dikteringen och lagrar den i ett nyckel [valv](https://docs.microsoft.com/azure/key-vault/basic-concepts).
+API-tjänsten serialiserar den här dikteringen och lagrar den i ett nyckel [valv](../../key-vault/general/basic-concepts.md).
 
-[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) används för att dirigera väder jobb och snurra resurser för att köra Docker-koden. Det ger också en mekanism för att skicka data säkert till den virtuella dator där Docker-jobbet körs. API-autentiseringsuppgifterna, som nu lagras på ett säkert sätt i nyckel valvet, läses som säkra strängar från nyckel valvet och blir tillgängliga som utökade egenskaper i arbets katalogen i Docker-behållaren som activity.jspå (sökvägen till filen är "/mnt/working_dir/activity.jspå") Docker-koden kan läsa autentiseringsuppgifterna från den här filen under körnings tid för att få åtkomst till API: er för partner sidan för kundens räkning. Autentiseringsuppgifterna är tillgängliga i filen enligt följande:
+[Azure Data Factory](../../data-factory/introduction.md) används för att dirigera väder jobb och snurra resurser för att köra Docker-koden. Det ger också en mekanism för att skicka data säkert till den virtuella dator där Docker-jobbet körs. API-autentiseringsuppgifterna, som nu lagras på ett säkert sätt i nyckel valvet, läses som säkra strängar från nyckel valvet och blir tillgängliga som utökade egenskaper i arbets katalogen i Docker-behållaren som activity.jspå (sökvägen till filen är "/mnt/working_dir/activity.jspå") Docker-koden kan läsa autentiseringsuppgifterna från den här filen under körnings tid för att få åtkomst till API: er för partner sidan för kundens räkning. Autentiseringsuppgifterna är tillgängliga i filen enligt följande:
 
 ```json
 { 
@@ -89,7 +89,7 @@ FarmBeats-lib tillhandahåller hjälp funktioner som gör det möjligt för part
 
 Filens livs längd är bara under Docker-kod körningen och kommer att tas bort när Docker-körningen har slutförts.
 
-Mer information om hur ADF-pipelines och aktiviteter fungerar finns i [https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping](https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping) .
+Mer information om hur ADF-pipelines och aktiviteter fungerar finns i [https://docs.microsoft.com/azure/data-factory/copy-activity-schema-and-type-mapping](../../data-factory/copy-activity-schema-and-type-mapping.md) .
 
 **Rubriker för HTTP-begäran**
 
@@ -107,7 +107,7 @@ JSON är ett gemensamt språk oberoende data format som ger en enkel text repres
 
 ## <a name="docker-specifications"></a>Docker-specifikationer
 
-Docker-programmet måste ha två komponenter: **bootstrap** och **Jobs**. Det kan finnas mer än ett jobb.
+Docker-programmet måste ha två komponenter: **bootstrap** och **Jobs** . Det kan finnas mer än ett jobb.
 
 ### <a name="bootstrap"></a>Bootstrap
 
@@ -123,8 +123,8 @@ Följande metadata skapas som en del av den här processen.
  > [!NOTE]
  > **Observera** att om du uppdaterar bootstrap_manifest.jspå filen som anges i [referens implementeringen](https://github.com/azurefarmbeats/noaa_docker), behöver du inte skapa nedanstående metadata eftersom Start programmet skapar samma baserat på manifest filen.
 
-- /**WeatherDataModel**: en WeatherDataModel är en modell som representerar väder data och som motsvarar olika data uppsättningar som tillhandahålls av källan. Till exempel kan en DailyForecastSimpleModel tillhandahålla genomsnittlig temperatur, fuktighet och fällning en gång om dagen medan en DailyForecastAdvancedModel kan ge mycket mer information om varje timme. Du kan skapa valfritt antal WeatherDataModels.
-- /**JobType**: FarmBeats har ett utöknings Bart jobb hanterings system. Som en väder data leverantör har du olika data uppsättningar/API: er (till exempel GetDailyForecasts) – du kan aktivera dem i FarmBeats som JobType. När en JobType har skapats kan en kund utlösa jobb av den typen för att få väder data för deras plats/intresse grupp (se JobType och jobb-API: er i [FarmBeats Swagger](https://aka.ms/farmbeatsswagger)).
+- /**WeatherDataModel** : en WeatherDataModel är en modell som representerar väder data och som motsvarar olika data uppsättningar som tillhandahålls av källan. Till exempel kan en DailyForecastSimpleModel tillhandahålla genomsnittlig temperatur, fuktighet och fällning en gång om dagen medan en DailyForecastAdvancedModel kan ge mycket mer information om varje timme. Du kan skapa valfritt antal WeatherDataModels.
+- /**JobType** : FarmBeats har ett utöknings Bart jobb hanterings system. Som en väder data leverantör har du olika data uppsättningar/API: er (till exempel GetDailyForecasts) – du kan aktivera dem i FarmBeats som JobType. När en JobType har skapats kan en kund utlösa jobb av den typen för att få väder data för deras plats/intresse grupp (se JobType och jobb-API: er i [FarmBeats Swagger](https://aka.ms/farmbeatsswagger)).
 
 ### <a name="jobs"></a>Jobb
 
@@ -180,7 +180,7 @@ Anslutningens Docker bör ha möjlighet att skicka uppdateringar för metadata. 
 
 ## <a name="weather-data-telemetry-specifications"></a>Specifikationer för väder data (telemetri)
 
-Väder data mappas till ett kanoniskt meddelande som skickas till en Azure Event Hub för bearbetning. Azure EventHub är en tjänst som gör det möjligt att använda real tids data (telemetri) från anslutna enheter och program. Om du vill skicka väder data till FarmBeats måste du skapa en klient som skickar meddelanden till en Event Hub i FarmBeats. Om du vill veta mer om att skicka telemetri kan du läsa [Skicka telemetri till en Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+Väder data mappas till ett kanoniskt meddelande som skickas till en Azure Event Hub för bearbetning. Azure EventHub är en tjänst som gör det möjligt att använda real tids data (telemetri) från anslutna enheter och program. Om du vill skicka väder data till FarmBeats måste du skapa en klient som skickar meddelanden till en Event Hub i FarmBeats. Om du vill veta mer om att skicka telemetri kan du läsa [Skicka telemetri till en Event Hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 Här är ett exempel på en python-kod som skickar telemetri som en klient till en angiven Event Hub.
 

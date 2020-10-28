@@ -1,18 +1,18 @@
 ---
 title: Koncept – integrera en Azure VMware-lösning distribution i en hubb och eker-arkitektur
-description: Lär dig mer om rekommendationer för att integrera en Azure VMware-lösnings distribution i en befintlig eller ny hubb och eker-arkitektur på Azure.
+description: Lär dig mer om att integrera en Azure VMware-distribution i en hubb och eker-arkitektur på Azure.
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 66c6cc4841b4b36775fda89b29dc588100c3ad87
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/26/2020
+ms.openlocfilehash: 93c11ad9253fe78e1935da7b40e7251788f1f037
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058479"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674693"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrera Azure VMware-lösningen i en hubb och eker-arkitektur
 
-I den här artikeln ger vi rekommendationer för att integrera en Azure VMware-lösnings distribution i en befintlig eller ny [hubb och eker-arkitektur](/azure/architecture/reference-architectures/hybrid-networking/shared-services) på Azure. 
+Den här artikeln innehåller rekommendationer för att integrera en Azure VMware-distribution av VMware-lösningen i en befintlig eller ny [hubb och eker-arkitektur](/azure/architecture/reference-architectures/hybrid-networking/shared-services) på Azure. 
 
 
 NAV-och eker-scenariot förutsätter en hybrid moln miljö med arbets belastningar på:
@@ -46,7 +46,7 @@ Arkitekturen har följande huvud komponenter:
 
 
   > [!NOTE]
-  > **Överväganden för S2S VPN:** För produktions distributioner av Azure VMware-lösningar stöds inte Azure S2S VPN på grund av nätverks krav för VMware HCX. Det kan dock användas för en PoC-distribution.
+  > **Överväganden för S2S VPN:** För produktions distributioner av Azure VMware-lösningar stöds inte Azure S2S VPN på grund av nätverks krav för VMware HCX. Du kan dock använda den för en PoC-distribution.
 
 
 -   **Hubb virtuellt nätverk:** Fungerar som central punkt för anslutningen till ditt lokala nätverk och Azure VMware-lösningens privata moln.
@@ -81,9 +81,9 @@ Du hittar mer information om nätverks-och anslutnings metoder för Azure VMware
 
 ### <a name="traffic-segmentation"></a>Trafik segmentering
 
-[Azure Firewall](../firewall/index.yml) är den centrala delen av topologin hubb och eker, distribuerad på det virtuella hubb nätverket. Använd Azure-brandväggen eller en annan virtuell Azure-installation som stöds av virtuella nätverk för att upprätta trafik regler och segmentera kommunikationen mellan olika ekrar och arbets belastningar för Azure VMware-lösningar.
+[Azure-brandväggen](../firewall/index.yml) är den centrala delen av hubb och eker-topologin som distribueras på det virtuella hubb nätverket. Använd Azure-brandväggen eller en annan virtuell Azure-installation som stöds av virtuella nätverk för att upprätta trafik regler och segmentera kommunikationen mellan olika ekrar och arbets belastningar för Azure VMware-lösningar.
 
-Skapa routningstabeller för att dirigera trafiken till Azure-brandväggen.  För de eker-virtuella nätverken skapar du en väg som anger standard vägen till det interna gränssnittet i Azure Firewall, på det här sättet när en arbets belastning i Virtual Network måste komma åt Azure VMware-lösningens adress utrymme. brand väggen kan utvärdera den och tillämpa motsvarande trafik regel för att antingen tillåta eller neka den.  
+Skapa routningstabeller för att dirigera trafiken till Azure-brandväggen.  För de virtuella eker-nätverken skapar du en väg som anger standard vägen till det interna gränssnittet i Azure-brandväggen. På så sätt kan brand väggen, när en arbets belastning i Virtual Network behöver komma åt Azure VMware-lösningens adress utrymme, utvärdera det och tillämpa motsvarande trafik regel för att antingen tillåta eller neka den.  
 
 :::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Azure VMware-lösning hubb och eker-integrering" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
 
@@ -91,27 +91,27 @@ Skapa routningstabeller för att dirigera trafiken till Azure-brandväggen.  Fö
 > [!IMPORTANT]
 > En väg med adressprefixet 0.0.0.0/0 i **GatewaySubnet** -inställningen stöds inte.
 
-Ange vägar för vissa nätverk i motsvarande routningstabell. Till exempel kan vägar för att uppnå Azure VMware lösnings hantering och arbets belastningar IP-prefix från eker-arbetsbelastningar och vice versa.
+Ange vägar för vissa nätverk i motsvarande routningstabell. Till exempel kan vägar för att uppnå Azure VMware lösnings hantering och arbets belastningar IP-prefix från eker-arbetsbelastningar och tvärtom.
 
 :::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Azure VMware-lösning hubb och eker-integrering" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
 
 En andra nivå av trafik segmentering som använder nätverks säkerhets grupper i ekrar och hubben för att skapa en mer detaljerad trafik princip.
 
 > [!NOTE]
-> **Trafik från lokal till Azure VMware-lösning:** Trafik mellan lokala arbets belastningar, antingen vSphere-baserade eller andra, aktive ras av Global Reach, men trafiken går inte via Azure-brandväggen på hubben. I det här scenariot måste du implementera trafik segments metoder antingen lokalt eller i Azure VMware-lösning.
+> **Trafik från lokal till Azure VMware-lösning:** Trafik mellan lokala arbets belastningar, antingen vSphere-baserade eller andra, aktive ras av Global Reach, men trafiken går inte via Azure-brandväggen på hubben. I det här scenariot måste du implementera mekanismer för trafik segmentering, antingen lokalt eller i Azure VMware-lösning.
 
 ### <a name="application-gateway"></a>Application Gateway
 
 Azure Application Gateway v1 och v2 har testats med webbappar som körs på virtuella datorer i Azure VMware-lösningen som en backend-pool. Application Gateway är för närvarande den enda metoden som stöds för att exponera webbappar som körs på virtuella datorer i Azure VMware-lösningen till Internet. Det kan också exponera appar till interna användare på ett säkert sätt.
 
-Mer information och krav hittar du i artikeln om Azure VMware-lösningar på [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md) .
+Mer information och krav hittar du i artikeln om Azure VMware Solution-Special på [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md) .
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false":::
 
 
 ### <a name="jump-box-and-azure-bastion"></a>Hopp Box och Azure-skydds
 
-Få åtkomst till Azure VMware-lösningen miljö med hopp Box, som är en virtuell Windows 10-eller Windows Server-dator som har distribuerats i det delade tjänst under nätet i det virtuella Hubbs nätverket.
+Få åtkomst till Azure VMwares lösnings miljö med en hopp ruta, som är en virtuell Windows 10-eller Windows Server-dator som har distribuerats i det delade tjänst under nätet i det virtuella hubb nätverket.
 
 >[!IMPORTANT]
 >Azure skydds är den tjänst som rekommenderas för att ansluta till hopp rutan för att förhindra att Azure VMware-lösningen exponeras för Internet. Du kan inte använda Azure-skydds för att ansluta till virtuella Azure VMware-lösningar eftersom de inte är Azure IaaS-objekt.  
@@ -137,11 +137,11 @@ Det bästa sättet är att kombinera båda för att tillhandahålla tillförlitl
 
 Som en allmän rekommendation använder du den befintliga Azure DNS-infrastrukturen (i det här fallet Active Directory-integrerad DNS) som distribueras till minst två virtuella Azure-datorer som distribuerats i det virtuella Hubbs nätverket och konfigureras i de virtuella eker-nätverken för att använda dessa Azure DNS-servrar i DNS-inställningarna.
 
-Azure Privat DNS kan fortfarande användas där Azure Privat DNS-zonen är länkad till de virtuella nätverken, och DNS-servrar används som hybrid lösningar med villkorlig vidarebefordran till lokal/Azure VMware-lösning som kör DNS och utnyttjar kund Azure Privat DNS-infrastruktur.
+Du kan använda Azure Privat DNS, där Azure Privat DNS Zone länkar till det virtuella nätverket.  DNS-servrarna används som hybrid lösningar med villkorlig vidarebefordran till lokal eller Azure VMware-lösning som kör DNS och utnyttjar kund Azure Privat DNS-infrastrukturen. 
 
 Det finns flera saker att tänka på för Azure DNS privata zoner:
 
-* Automatisk registrering måste vara aktiverat för att Azure DNS ska kunna hantera livs cykeln för DNS-poster för de virtuella datorer som distribueras i ekrar virtuella nätverk.
+* Automatisk registrering måste vara aktiverat för att Azure DNS ska kunna hantera DNS-postens livs cykel automatiskt för de virtuella datorer som distribueras i ekrar virtuella nätverk.
 * Det maximala antalet privata DNS-zoner som ett virtuellt nätverk kan länkas till med autoregistrering aktiverat är bara ett.
 * Det maximala antalet privata DNS-zoner som ett virtuellt nätverk kan länkas till är 1000 utan att autoregistrering aktive ras.
 
@@ -149,7 +149,7 @@ Lokala och Azure VMware Solution-servrar kan konfigureras med villkorliga vidare
 
 ## <a name="identity-considerations"></a>Identitets överväganden
 
-För identitets syfte är det bästa sättet att distribuera minst en AD-domänkontrollant på hubben med hjälp av det delade tjänst under nätet, helst två av dem i zon-distribuerat eller en tillgänglighets uppsättning för virtuella datorer. Se [Azure Architecture Center](/azure/architecture/reference-architectures/identity/adds-extend-domain) för att utöka din lokala AD-domän till Azure.
+För identitets syfte är det bästa sättet att distribuera minst en AD-domänkontrollant på hubben. Använd två undernät för delade tjänster i zon-distribuerad mode eller en tillgänglighets uppsättning för virtuella datorer. Se [Azure Architecture Center](/azure/architecture/reference-architectures/identity/adds-extend-domain) för att utöka din lokala AD-domän till Azure.
 
 Dessutom kan du distribuera en annan domänkontrollant på Azure VMware-lösningen för att agera som identitet och DNS-källa i vSphere-miljön.
 

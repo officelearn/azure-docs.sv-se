@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 66008012dd9b3eb6000e96f251d18cf14a9c8dc1
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: ee1753932018d0ea3a627ff2a6c7b85dc0a65de1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495240"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674852"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklings miljö för Azure Machine Learning
 
@@ -43,7 +43,7 @@ Den här artikeln innehåller också ytterligare användnings tips för följand
 
 ### <a name="local-and-dsvm-only-create-a-workspace-configuration-file"></a><a id="workspace"></a> (Endast lokal och DSVM) Skapa en konfigurations fil för arbets ytor
 
-Konfigurations filen för arbets ytan är en JSON-fil som talar om för SDK hur du kommunicerar med din Azure Machine Learning-arbetsyta. Filen heter *config.jspå*och har följande format:
+Konfigurations filen för arbets ytan är en JSON-fil som talar om för SDK hur du kommunicerar med din Azure Machine Learning-arbetsyta. Filen heter *config.jspå* och har följande format:
 
 ```json
 {
@@ -53,7 +53,7 @@ Konfigurations filen för arbets ytan är en JSON-fil som talar om för SDK hur 
 }
 ```
 
-Den här JSON-filen måste finnas i katalog strukturen som innehåller dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog.
+Den här JSON-filen måste finnas i katalog strukturen som innehåller dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml* eller i en överordnad katalog.
 
 Använd-metoden för att använda den här filen från din kod [`Workspace.from_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) . Den här koden läser in informationen från filen och ansluter till din arbets yta.
 
@@ -61,13 +61,13 @@ Skapa en konfigurations fil för arbets ytor på något av följande sätt:
 
 * Azure Portal
 
-    **Hämta filen**: i [Azure Portal](https://ms.portal.azure.com)väljer du  **Hämta config.jspå** från **översikts** avsnittet på din arbets yta.
+    **Hämta filen** : i [Azure Portal](https://ms.portal.azure.com)väljer du  **Hämta config.jspå** från **översikts** avsnittet på din arbets yta.
 
     ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
 * Azure Machine Learning python SDK
 
-    Skapa ett skript för att ansluta till din Azure Machine Learning-arbetsyta och Använd [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) metoden för att generera filen och spara den som *. azureml/config.jspå*. Se till att ersätta `subscription_id` , `resource_group` och `workspace_name` med din egen.
+    Skapa ett skript för att ansluta till din Azure Machine Learning-arbetsyta och Använd [`write_config`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) metoden för att generera filen och spara den som *. azureml/config.jspå* . Se till att ersätta `subscription_id` , `resource_group` och `workspace_name` med din egen.
 
     ```python
     from azureml.core import Workspace
@@ -122,7 +122,10 @@ När du kör en lokal Jupyter Notebook server rekommenderar vi att du skapar en 
 
 Se [Azure Machine Learning Notebooks-lagringsplatsen](https://github.com/Azure/MachineLearningNotebooks) för att komma igång med Azure Machine Learning-och Jupyter-anteckningsböcker.
 
-### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio-koden
+> [!NOTE]
+> Du hittar en community-driven databas med exempel på https://github.com/Azure/azureml-examples .
+
+### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio-kod
 
 Så här använder du Visual Studio Code för utveckling:
 
@@ -240,7 +243,7 @@ Vänta tills klustret körs innan du fortsätter.
 
 När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) för att bifoga lämpligt Azure Machine Learning SDK-paket till klustret. För automatisk ML hoppar du till [avsnittet SDK för Databricks med automatiserad maskin inlärning](#sdk-for-databricks-with-automated-machine-learning).
 
-1. Högerklicka på den aktuella arbetsyte-mappen där du vill lagra biblioteket. Välj **skapa**  >  **bibliotek**.
+1. Högerklicka på den aktuella arbetsyte-mappen där du vill lagra biblioteket. Välj **skapa**  >  **bibliotek** .
 
 1. Välj följande alternativ (ingen annan SDK-installation stöds)
 
@@ -251,15 +254,15 @@ När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/u
    > [!Warning]
    > Inga andra SDK-tillägg kan installeras. Välj bara alternativet [ `databricks` ].
 
-   * Välj inte **Anslut automatiskt till alla kluster**.
+   * Välj inte **Anslut automatiskt till alla kluster** .
    * Välj  **Anslut** bredvid klustrets namn.
 
-1. Övervaka fel tills status ändras till **kopplat**, vilket kan ta flera minuter.  Om det här steget Miss lyckas:
+1. Övervaka fel tills status ändras till **kopplat** , vilket kan ta flera minuter.  Om det här steget Miss lyckas:
 
    Försök att starta om klustret genom att:
-   1. Välj **kluster**i den vänstra rutan.
+   1. Välj **kluster** i den vänstra rutan.
    1. I tabellen väljer du ditt kluster namn.
-   1. På fliken **bibliotek** väljer du **starta om**.
+   1. På fliken **bibliotek** väljer du **starta om** .
 
    Tänk också på följande:
    + När du använder Azure Databricks lägger du till följande parametrar i AutoML config:

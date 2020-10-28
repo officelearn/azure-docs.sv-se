@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
-ms.custom: aaddev
-ms.openlocfilehash: ab072fa53d3ecc3f856b6765acfb8c19da3ff298
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: aaddev devx-track-js
+ms.openlocfilehash: 327280c193c3c2fb829e468bccfc352f35edfdb5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442260"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673502"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Använd Microsoft Authentication Library för Java Script för att arbeta med Azure AD B2C
 
@@ -32,7 +32,7 @@ Följande avsnitt visar hur du:
 - Stöd inloggning i ett enda webb-program (SPA) och anrop till *det* skyddade webb-API: et
 - Aktivera stöd för lösen ords återställning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte redan har gjort det skapar du en [Azure AD B2C-klient](../../active-directory-b2c/tutorial-create-tenant.md).
 
@@ -56,7 +56,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="step-3-configure-authentication"></a>Steg 3: Konfigurera autentisering
 
-1. Öppna filen `config.json` i exemplet.
+1. Öppna *config.js* filen i exemplet.
 
 2. Konfigurera exemplet med de programautentiseringsuppgifter som du fick tidigare när du registrerade ditt program. Ändra följande rader med kod genom att ersätta värdena med klient organisationens namn, klient-ID och princip namn.
 
@@ -169,7 +169,7 @@ Följande steg förutsätter att du redan har följt stegen i avsnittet föregå
 
 ### <a name="step-2-catch-and-handle-authentication-errors-in-your-login-method"></a>Steg 2: fånga och hantera autentiseringsfel i inloggnings metoden
 
-När användaren väljer **glömt lösen ord**, genererar programmet ett fel som du bör fånga i din kod och sedan hanterar genom att presentera lämpligt användar flöde. I det här fallet `b2c_1_reset` flödet för lösen ords återställning.
+När användaren väljer **glömt lösen ord** , genererar programmet ett fel som du bör fånga i din kod och sedan hanterar genom att presentera lämpligt användar flöde. I det här fallet `b2c_1_reset` flödet för lösen ords återställning.
 
 1. Utöka din inloggnings metod enligt följande:
 

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: ab057e1328efbff294faa1d68f2a27c5a1f03ade
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98f2a8fb0ce48dab0e1e5f7610d73d55526969eb
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577517"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675101"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurera en failover-grupp för Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,7 +40,7 @@ Skapa gruppen redundans och Lägg till en enda databas i den med hjälp av Azure
 
 Skapa din grupp för redundans och Lägg till din enda databas i den med hjälp av Azure Portal.
 
-1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster** och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
 1. Välj den databas som du vill lägga till i gruppen redundans.
 1. Välj namnet på servern under **Server namn** för att öppna inställningarna för servern.
 
@@ -50,9 +50,9 @@ Skapa din grupp för redundans och Lägg till din enda databas i den med hjälp 
 
    ![Lägg till ny redundans grupp](./media/auto-failover-group-configure/sqldb-add-new-failover-group.png)
 
-1. På sidan **redundans** anger eller väljer du de värden som krävs och väljer sedan **skapa**.
+1. På sidan **redundans** anger eller väljer du de värden som krävs och väljer sedan **skapa** .
 
-   - **Databaser i gruppen**: Välj den databas som du vill lägga till i gruppen för redundans. Om du lägger till databasen i gruppen för växling vid fel startas automatiskt processen för geo-replikering.
+   - **Databaser i gruppen** : Välj den databas som du vill lägga till i gruppen för redundans. Om du lägger till databasen i gruppen för växling vid fel startas automatiskt processen för geo-replikering.
 
    ![Lägg till SQL Database i gruppen redundans](./media/auto-failover-group-configure/add-sqldb-to-failover-group.png)
 
@@ -115,7 +115,7 @@ Testa redundans för din failover-grupp med hjälp av Azure Portal eller PowerSh
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal.
 
-1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan "Azure SQL" i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster** och skriver sedan "Azure SQL" i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
 1. Välj den databas som du vill lägga till i gruppen redundans.
 
    ![Öppna Server för enskild databas](./media/auto-failover-group-configure/open-sql-db-server.png)
@@ -210,7 +210,7 @@ Skapa gruppen redundans för den elastiska poolen med hjälp av Azure Portal ell
 
 Skapa din failover-grupp och Lägg till den elastiska poolen i den med hjälp av Azure Portal.
 
-1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan "Azure SQL" i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster** och skriver sedan "Azure SQL" i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
 1. Välj den elastiska pool som du vill lägga till i gruppen redundans.
 1. I **översikts** fönstret väljer du namnet på servern under **Server namn** för att öppna inställningarna för servern.
   
@@ -220,7 +220,7 @@ Skapa din failover-grupp och Lägg till den elastiska poolen i den med hjälp av
 
    ![Lägg till ny redundans grupp](./media/auto-failover-group-configure/sqldb-add-new-failover-group.png)
 
-1. På sidan **redundans** anger eller väljer du de värden som krävs och väljer sedan **skapa**. Skapa antingen en ny sekundär server eller Välj en befintlig sekundär server.
+1. På sidan **redundans** anger eller väljer du de värden som krävs och väljer sedan **skapa** . Skapa antingen en ny sekundär server eller Välj en befintlig sekundär server.
 
 1. Välj **databaser i gruppen** och välj sedan den elastiska pool som du vill lägga till i gruppen redundans. Om det inte redan finns en elastisk pool på den sekundära servern visas en varning om att du måste skapa en elastisk pool på den sekundära servern. Välj varningen och välj sedan **OK** för att skapa den elastiska poolen på den sekundära servern.
 
@@ -282,7 +282,7 @@ Testa redundansväxlingen av den elastiska poolen med hjälp av Azure Portal ell
 
 Redundansväxla din redundansväxling till den sekundära servern och växla sedan tillbaka med Azure Portal.
 
-1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan "Azure SQL" i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster** och skriver sedan "Azure SQL" i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
 1. Välj den elastiska pool som du vill lägga till i gruppen redundans.
 1. I **översikts** fönstret väljer du namnet på servern under **Server namn** för att öppna inställningarna för servern.
 
@@ -371,11 +371,11 @@ Om du inte har konfigurerat [ExpressRoute](../../expressroute/expressroute-howto
 Skapa den primära virtuella Nätverksgatewayen med hjälp av Azure Portal.
 
 1. I [Azure Portal](https://portal.azure.com)går du till din resurs grupp och väljer den **virtuella nätverks** resursen för din primära hanterade instans.
-1. Välj **undernät** under **Inställningar** och välj sedan för att lägga till ett nytt **Gateway-undernät**. Låt standardvärdena vara kvar.
+1. Välj **undernät** under **Inställningar** och välj sedan för att lägga till ett nytt **Gateway-undernät** . Låt standardvärdena vara kvar.
 
    ![Lägg till gateway för primär hanterad instans](./media/auto-failover-group-configure/add-subnet-gateway-primary-vnet.png)
 
-1. När du har skapat en gateway för undernät väljer du **skapa en resurs** i det vänstra navigerings fönstret och skriver sedan `Virtual network gateway` i sökrutan. Välj den **virtuella nätverks-Gateway** -resurs som publicerats av **Microsoft**.
+1. När du har skapat en gateway för undernät väljer du **skapa en resurs** i det vänstra navigerings fönstret och skriver sedan `Virtual network gateway` i sökrutan. Välj den **virtuella nätverks-Gateway** -resurs som publicerats av **Microsoft** .
 
    ![Skapa en ny virtuell nätverksgateway](./media/auto-failover-group-configure/create-virtual-network-gateway.png)
 
@@ -388,12 +388,12 @@ Skapa den primära virtuella Nätverksgatewayen med hjälp av Azure Portal.
     | **Prenumeration** |  Den prenumeration där din primära hanterade instans är. |
     | **Namn** | Namnet på den virtuella Nätverksgatewayen. |
     | **Region** | Den region där din primära hanterade instans är. |
-    | **Typ av Gateway** | Välj **VPN**. |
+    | **Typ av Gateway** | Välj **VPN** . |
     | **VPN-typ** | Välj **Route-baserad** |
     | **SKU**| Lämna standardvärdet `VpnGw1` . |
     | **Plats**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket är.   |
     | **Virtuellt nätverk**| Välj det virtuella nätverket för din sekundära hanterade instans. |
-    | **Offentlig IP-adress**| Välj **Skapa ny**. |
+    | **Offentlig IP-adress**| Välj **Skapa ny** . |
     | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress. |
     | &nbsp; | &nbsp; |
 
@@ -450,12 +450,12 @@ I följande tabell visas de värden som krävs för gatewayen för den sekundär
    | **Prenumeration** |  Prenumerationen där den sekundära hanterade instansen är. |
    | **Namn** | Namnet på din virtuella nätverksgateway, till exempel `secondary-mi-gateway` . |
    | **Region** | Den region där den sekundära hanterade instansen är. |
-   | **Typ av Gateway** | Välj **VPN**. |
+   | **Typ av Gateway** | Välj **VPN** . |
    | **VPN-typ** | Välj **Route-baserad** |
    | **SKU**| Lämna standardvärdet `VpnGw1` . |
    | **Plats**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket är.   |
    | **Virtuellt nätverk**| Välj det virtuella nätverk som skapades i avsnitt 2, till exempel `vnet-sql-mi-secondary` . |
-   | **Offentlig IP-adress**| Välj **Skapa ny**. |
+   | **Offentlig IP-adress**| Välj **Skapa ny** . |
    | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress, till exempel `secondary-gateway-IP` . |
    | &nbsp; | &nbsp; |
 
@@ -509,15 +509,15 @@ Skapa anslutningar mellan de två gatewayerna med hjälp av Azure Portal.
 1. Välj **skapa en resurs** från [Azure Portal](https://portal.azure.com).
 1. Skriv `connection` i sökrutan och tryck sedan på RETUR för att söka, som tar dig till **anslutnings** resursen som publicerats av Microsoft.
 1. Välj **skapa** för att skapa din anslutning.
-1. På fliken **grundläggande** inställningar väljer du följande värden och väljer sedan **OK**.
-    1. Välj `VNet-to-VNet` för **anslutnings typen**.
+1. På fliken **grundläggande** inställningar väljer du följande värden och väljer sedan **OK** .
+    1. Välj `VNet-to-VNet` för **anslutnings typen** .
     1. Välj din prenumeration från listrutan.
     1. Välj resurs grupp för din hanterade instans i list rutan.
     1. Välj platsen för din primära hanterade instans i list rutan.
-1. På fliken **Inställningar** väljer eller anger du följande värden och väljer sedan **OK**:
-    1. Välj den primära Nätverksgatewayen för den **första virtuella Nätverksgatewayen**, till exempel `Primary-Gateway` .  
-    1. Välj den sekundära Nätverksgatewayen för den **andra virtuella Nätverksgatewayen**, till exempel `Secondary-Gateway` .
-    1. Markera kryss rutan bredvid **upprätta dubbelriktad anslutning**.
+1. På fliken **Inställningar** väljer eller anger du följande värden och väljer sedan **OK** :
+    1. Välj den primära Nätverksgatewayen för den **första virtuella Nätverksgatewayen** , till exempel `Primary-Gateway` .  
+    1. Välj den sekundära Nätverksgatewayen för den **andra virtuella Nätverksgatewayen** , till exempel `Secondary-Gateway` .
+    1. Markera kryss rutan bredvid **upprätta dubbelriktad anslutning** .
     1. Lämna antingen standard namnet för primär anslutning eller Byt namn på det till önskat värde.
     1. Ange en **delad nyckel (PSK)** för anslutningen, till exempel `mi1m2psk` .
 
@@ -564,9 +564,9 @@ Skapa gruppen redundans för dina hanterade instanser med hjälp av Azure Portal
 
 Skapa gruppen redundans för dina SQL-hanterade instanser med hjälp av Azure Portal.
 
-1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
+1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster** och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster.
 1. Välj den primära hanterade instans som du vill lägga till i gruppen redundans.  
-1. Under **Inställningar**navigerar du till **instans grupper för redundans** och väljer sedan att **lägga till grupp** för att öppna sidan **instans redundans grupp** .
+1. Under **Inställningar** navigerar du till **instans grupper för redundans** och väljer sedan att **lägga till grupp** för att öppna sidan **instans redundans grupp** .
 
    ![Lägg till en grupp för redundans](./media/auto-failover-group-configure/add-failover-group.png)
 
@@ -665,7 +665,7 @@ Med hjälp av en privat länk kan du associera en logisk server med en speciell 
 
 Gör så här om du vill använda en privat länk med din failover-grupp:
 
-1. Se till att dina primära och sekundära servrar finns i en [kopplad region](/azure/best-practices-availability-paired-regions). 
+1. Se till att dina primära och sekundära servrar finns i en [kopplad region](../../best-practices-availability-paired-regions.md). 
 1. Skapa det virtuella nätverket och under nätet i varje region som värd för privata slut punkter för primära och sekundära servrar, så att de har icke-överlappande IP-adressutrymme. Till exempel är det primära virtuella nätverks adress intervallet 10.0.0.0/16 och det sekundära virtuella nätverks adress intervallet 10.0.0.1/16 överlappar. Mer information om adress intervall för virtuella nätverk finns i bloggen [utforma virtuella Azure-nätverk](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/).
 1. Skapa en [privat slut punkt och Azure privat DNS zon för den primära servern](../../private-link/create-private-endpoint-portal.md#create-a-private-endpoint). 
 1. Skapa även en privat slut punkt för den sekundära servern, men den här gången väljer du att återanvända samma Privat DNS zon som skapades för den primära servern. 

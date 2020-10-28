@@ -3,18 +3,18 @@ title: Koncept – identitet och åtkomst
 description: Lär dig mer om identitets-och åtkomst koncepten i Azure VMware-lösningen
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7127109801d92d2177f6edac3efcaf76ddf217e6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88750586"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674648"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Identitets koncept för Azure VMware-lösning
 
-En vCenter-Server och NSX-T-hanterare tillhandahålls när ett privat moln distribueras. Du använder vCenter för att hantera arbets belastningar för virtuella datorer och NSX-T-hanterare för att utöka det privata molnets program varu definitions nätverk.
+När du distribuerar ett privat moln får vCenter-servern och NSX-T-hanteraren tillhandahållits. Du använder vCenter för att hantera arbets belastningar för virtuella datorer (VM). Du använder NSX-T Manager för att utöka det privata molnets program varu definitions nätverk.
 
-Åtkomst-och identitets hantering använder CloudAdmin grupp behörigheter för vCenter-och begränsade administratörs rättigheter för NSX-T Manager. Den här principen säkerställer att din privata moln plattform kan uppgraderas automatiskt. Detta levererar de senaste funktionerna och korrigeringarna regelbundet. Mer information om uppgraderingar av privata moln finns i [artikeln om uppgraderingar av privata moln][concepts-upgrades] .
+Åtkomst-och identitets hantering använder CloudAdmin grupp behörigheter för vCenter-och begränsade administratörs rättigheter för NSX-T Manager. Det garanterar att din privata moln plattform uppgraderas automatiskt med de senaste funktionerna och korrigeringarna.  Mer information finns i [artikeln om uppgraderingar av privata moln][concepts-upgrades].
 
 ## <a name="vcenter-access-and-identity"></a>vCenter-åtkomst och identitet
 
@@ -49,7 +49,7 @@ Behörigheterna CloudAdmin och CloudGlobalAdmin visas i tabellen nedan.
 
 ## <a name="nsx-t-manager-access-and-identity"></a>NSX-T-hanterarens åtkomst och identitet
 
-Du kommer åt NSX-T-hanteraren med hjälp av kontot "administratör". Det kontot har fullständig behörighet och gör att du kan skapa och hantera T1-routrar, logiska växlar och alla tjänster. De fullständiga privilegierna i NSX-T ger också till gång till NSX-T t0-routern. En ändring i t0-routern kan resultera i försämrade nätverks prestanda eller förlust av åtkomst till ett privat moln. För att uppfylla support kraven måste du öppna en supportbegäran i Azure Portal för att begära ändringar i din NSX-T t0-router.
+Använd kontot "administratör" för att få åtkomst till NSX-T Manager. Den har fullständig behörighet och låter dig skapa och hantera T1-routrar, logiska växlar och alla tjänster. Behörigheten ger dig åtkomst till NSX-T t0-routern. En ändring i t0-routern kan resultera i försämrade nätverks prestanda eller ingen åtkomst till privata moln. Öppna en supportbegäran i Azure Portal för att begära ändringar i din NSX-T t0-router.
   
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 292374bcce90da042dc6bd672feaad3750759aa9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536580"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674518"
 ---
 # <a name="azure-farmbeats-apis"></a>Azure FarmBeats-API: er
 
@@ -143,23 +143,23 @@ I det här exemplet har det obligatoriska fältet "namn" inte angetts i nytto la
 
 Azure FarmBeats-API: er kan nås av en användare eller en app-registrering i Azure Active Directory. Följ dessa steg om du vill skapa en app-registrering i Azure Active Directory:
 
-1. Gå till [Azure Portal](https://portal.azure.com)och välj **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering**. Du kan också använda ett befintligt konto.
+1. Gå till [Azure Portal](https://portal.azure.com)och välj **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering** . Du kan också använda ett befintligt konto.
 2. För ett nytt konto gör du följande:
 
     - Ange ett namn.
-    - Välj **konton endast i den här organisations katalogen (en enda klient)**.
+    - Välj **konton endast i den här organisations katalogen (en enda klient)** .
     - Använd standardvärdena i resten av fälten.
     - Välj **Register** (Registrera).
 
 3. Gör följande i **översikts** fönstret ny och befintlig app Registration:
 
-    - Avbilda **klient-ID och klient** **-ID**.
-    - Gå till **certifikat och hemligheter** för att generera en ny klient hemlighet och avbilda **klient hemligheten**.
-    - Gå tillbaka till **Översikt**och välj länken bredvid **hantera program i den lokala katalogen**.
-    - Gå till **Egenskaper** för att avbilda **objekt-ID: t**.
+    - Avbilda **klient-ID och klient** **-ID** .
+    - Gå till **certifikat och hemligheter** för att generera en ny klient hemlighet och avbilda **klient hemligheten** .
+    - Gå tillbaka till **Översikt** och välj länken bredvid **hantera program i den lokala katalogen** .
+    - Gå till **Egenskaper** för att avbilda **objekt-ID: t** .
 
 4. Gå till din Datahub-Swagger (https:// <yourdatahub> . azurewebsites.net/swagger/index.html) och gör följande:
-    - Gå till **RoleAssignment-API: et**.
+    - Gå till **RoleAssignment-API: et** .
     - Utför ett inlägg för att skapa ett **RoleAssignment** -objekt för det **objekt-ID** som du nyss skapade.
  
 ```json
@@ -172,7 +172,7 @@ Azure FarmBeats-API: er kan nås av en användare eller en app-registrering i Az
 ```
 
   > [!NOTE]
-  > Mer information om hur du lägger till användare och Active Directory registrering finns i [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+  > Mer information om hur du lägger till användare och Active Directory registrering finns i [Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 När du har slutfört de föregående stegen kan registreringen av appen (klienten) anropa Azure FarmBeats-API: erna genom att använda en åtkomsttoken via Bearer-autentisering.
 

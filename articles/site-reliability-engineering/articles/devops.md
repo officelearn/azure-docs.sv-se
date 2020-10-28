@@ -8,12 +8,12 @@ ms.service: site-reliability-engineering
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: 3d0698f2780a4ccc41eedbde70fddea1766c5f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62872443c386c45d9821053dc901ad8e0055b74f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090337"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674271"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>Vanliga frågor och svar: Vad är relationen mellan SRE och DevOps?
 
@@ -50,7 +50,7 @@ Om vi använder den här definitionen av SRE från [platsens Tillförlitlighets 
 
 sedan är det enkelt att säga ordet för SRE är "tillförlitlighet". Att ha det i mitten av namnet ger också några utmärkta bevis för detta anspråk.
 
-Om vi använder den här definitionen av DevOps från [Azure DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/):
+Om vi använder den här definitionen av DevOps från [Azure DevOps Resource Center](/azure/devops/learn/):
 
 > DevOps är en union av människor, processer och produkter för kontinuerlig värdeleverans till våra slutanvändare.
 
@@ -78,6 +78,6 @@ Svaret på den här frågan är en Emphatic "Ja!".
 
 Vi hoppas att de tidigare svaren ger någon uppfattning om hur de två drifts metoderna överlappar och, om de inte överlappar, hur de kan komplettera i fokus. Organisationer med en etablerad DevOps-praxis kan experimentera med SRE-praxis på en liten skala (till exempel testa SLIs och SLO: erna) utan att du behöver göra något för att skapa SRE-positioner eller team. Det här är ett ganska vanligt SREt införande mönster.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-Vill du veta mer om hur du lär dig mer om platsens tillförlitlighet eller DevOps? Kolla på vår [webbplats för Tillförlitlighets teknik](../index.yml) och [Azure DevOps Resource Center](https://docs.microsoft.com/azure/devops/learn/).
+Vill du veta mer om hur du lär dig mer om platsens tillförlitlighet eller DevOps? Kolla på vår [webbplats för Tillförlitlighets teknik](../index.yml) och [Azure DevOps Resource Center](/azure/devops/learn/).

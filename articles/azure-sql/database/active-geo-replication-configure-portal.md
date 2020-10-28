@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 5ddc79721355924f125acedd7420cab5f487c065
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71c73fec4f559b34b097556243617636acd77480
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445038"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673264"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Självstudie: Konfigurera aktiv geo-replikering och redundans i Azure Portal (Azure SQL Database)
 
@@ -35,7 +35,7 @@ Om du vill konfigurera aktiv geo-replikering med hjälp av Azure Portal behöver
 * En databas i Azure SQL Database: den primära databasen som du vill replikera till en annan geografisk region.
 
 > [!Note]
-> När du använder Azure Portal kan du bara skapa en sekundär databas inom samma prenumeration som den primära. Om det krävs en sekundär databas i en annan prenumeration använder du [create database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) eller [Alter Database Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> När du använder Azure Portal kan du bara skapa en sekundär databas inom samma prenumeration som den primära. Om det krävs en sekundär databas i en annan prenumeration använder du [create database REST API](/rest/api/sql/databases/createorupdate) eller [Alter Database Transact-SQL API](/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Lägg till en sekundär databas
 
@@ -50,7 +50,7 @@ När den sekundära har skapats och dirigerats påbörjar data replikeringen fr�
 > Om partner databasen redan finns (till exempel som ett resultat av en tidigare geo-replikeringsrelation) Miss lyckas kommandot.
 
 1. I [Azure Portal](https://portal.azure.com)bläddrar du till den databas som du vill konfigurera för geo-replikering.
-2. På sidan SQL Database väljer du **geo-replikering**och väljer sedan den region där du vill skapa den sekundära databasen. Du kan välja en annan region än den region som är värd för den primära databasen, men vi rekommenderar den [kopplade regionen](../../best-practices-availability-paired-regions.md).
+2. På sidan SQL Database väljer du **geo-replikering** och väljer sedan den region där du vill skapa den sekundära databasen. Du kan välja en annan region än den region som är värd för den primära databasen, men vi rekommenderar den [kopplade regionen](../../best-practices-availability-paired-regions.md).
 
     ![Konfigurera geo-replikering](./media/active-geo-replication-configure-portal/configure-geo-replication.png)
 3. Välj eller konfigurera server och pris nivå för den sekundära databasen.
@@ -70,8 +70,8 @@ När den sekundära har skapats och dirigerats påbörjar data replikeringen fr�
 Den sekundära databasen kan växlas till den primära.  
 
 1. I [Azure Portal](https://portal.azure.com)bläddrar du till den primära databasen i partnerskapet för geo-replikering.
-2. På bladet SQL Database väljer du **alla inställningar**  >  **geo-replikering**.
-3. I listan **sekundära** väljer du den databas som du vill bli den nya primära och klickar på **Framtvinga redundans**.
+2. På bladet SQL Database väljer du **alla inställningar**  >  **geo-replikering** .
+3. I listan **sekundära** väljer du den databas som du vill bli den nya primära och klickar på **Framtvinga redundans** .
 
     ![redundans](./media/active-geo-replication-configure-portal/secondaries.png)
 4. Klicka på **Ja** för att starta redundansväxlingen.
@@ -88,9 +88,9 @@ Det finns en kort period under vilken båda databaserna inte är tillgängliga (
 Den här åtgärden avslutar replikeringen till den sekundära databasen permanent och ändrar rollen för den sekundära till en vanlig Läs-och skriv databas. Om anslutningen till den sekundära databasen bryts, lyckas kommandot men den sekundära blir inte skrivskyddad förrän anslutningen har återställts.  
 
 1. I [Azure Portal](https://portal.azure.com)bläddrar du till den primära databasen i partnerskapet för geo-replikering.
-2. På SQL Database-sidan väljer du **geo-replikering**.
+2. På SQL Database-sidan väljer du **geo-replikering** .
 3. I listan **sekundära** väljer du den databas som du vill ta bort från partnerskapet för geo-replikering.
-4. Klicka på **stoppa replikering**.
+4. Klicka på **stoppa replikering** .
 
     ![Ta bort sekundär](./media/active-geo-replication-configure-portal/remove-secondary.png)
 5. Ett bekräftelse fönster öppnas. Klicka på **Ja** om du vill ta bort databasen från partnerskapet för geo-replikering. (Ange den som en skrivskyddad databas som inte tillhör någon replikering.)

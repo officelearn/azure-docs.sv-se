@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3cc8495f673c8b428aa9e6ace2747a70c5b0847
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6107ffea4fe4d615a42973ab1b231ca9f6b5241f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88556359"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674959"
 ---
 # <a name="msix-app-attach-glossary"></a>Ord lista för MSIX-appen
 
@@ -25,7 +25,7 @@ En MSIX-behållare är där MSIX-appar körs. Läs mer i MSIX- [behållare](/win
 
 ## <a name="msix-application"></a>MSIX-program 
 
-Ett program som lagras i en MSIX-fil.
+Ett program som är lagrat i en. MSIX-fil.
 
 ## <a name="msix-package"></a>MSIX-paket 
 
@@ -35,13 +35,17 @@ Ett MSIX-paket är en MSIX-fil eller ett program.
 
 En MSIX-resurs är en nätverks resurs som innehåller expanderade MSIX-paket. MSIX-resurser stöder SMB 3 eller senare. Programmen hämtas stegvis från den här MSIX-resursen utan att du behöver flytta programfiler till system enheten.
 
+## <a name="msix-image"></a>MSIX-bild
+
+En MSIX-avbildning är en VHD-, VHDx-eller CIM-fil som innehåller en eller flera MSIX-paketerade program. Varje program levereras i MSIX-avbildningen med hjälp av MSIXMGR-verktyget.
+
 ## <a name="repackage"></a>Paketera om
 
 Ompackningen tar ett icke-MSIX program och konverterar det till MSIX med hjälp av MSIX packnings verktyg (MPT). Mer information finns i [Översikt över MSIX packning Tool](/windows/msix/packaging-tool/tool-overview).
 
-## <a name="expand"></a>Visa
+## <a name="expand-an-msix-package"></a>Expandera ett MSIX-paket
 
-Expandering av MSIX-paket är en process med flera steg. Det tar MSIX-filen och infogar dess innehåll i en VHD-eller CIM-fil. 
+Att expandera ett MSIX-paket är en process i flera steg. Expansion tar MSIX-filen och placerar innehållet i en VHD (x) eller CIM-fil. 
 
 Expandera ett MSIX-paket:
 
@@ -63,11 +67,11 @@ Att ladda upp ett MSIX-paket innebär att ladda upp den virtuella hård disken (
 
 I Windows Virtual Desktop sker uppladdningen en gång per MSIX-resurs. När du har laddat upp ett paket kan alla lagringspooler i samma prenumeration referera till den.
 
-## <a name="publish-an-msix-package"></a>Publicera ett MSIX-paket
+## <a name="add-an-msix-package"></a>Lägg till ett MSIX-paket
 
-Publicera ett MSIX-paket i en virtuell Windows-dator för att länka det till en fjärran sluten app eller skriv bord.
+I virtuella Windows-skrivbord länkar du till ett MSIX-paket till en adresspool.
 
-## <a name="assign-an-msix-package"></a>Tilldela ett MSIX-paket 
+## <a name="publish-an-msix-package"></a>Publicera ett MSIX-paket 
 
 I Windows Virtual Desktop måste ett publicerat MSIX-paket tilldelas till en Active Directory-domän tjänst (AD DS) eller Azure Active Directory (Azure AD) användare eller användar grupp.
 
@@ -118,4 +122,3 @@ Följande tabell är en prestanda jämförelse mellan VHD-och CimFS. De här tal
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill veta mer om MSIX app Attach kan du kolla vår [Översikt](what-is-app-attach.md) och [vanliga frågor och svar](app-attach-faq.md). Annars kan du komma igång med [Konfigurera appen Anslut](app-attach.md).
-

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 92a0c7fd3733b5e27c34c6fd0fe157bfb466a0fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 317b530fbaa34ca5689bb505126892e4eba06bd9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444896"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674798"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Konfigurera och hantera Azure SQL Database säkerhet för geo-återställning eller redundans
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ I den här artikeln beskrivs autentiseringskrav för att konfigurera och kontrol
 
 ## <a name="disaster-recovery-with-contained-users"></a>Haveri beredskap med inneslutna användare
 
-Till skillnad från traditionella användare, som måste mappas till inloggningar i huvud databasen, hanteras en innesluten användare fullständigt av själva databasen. Detta har två fördelar. I katastrof återställnings scenariot kan användarna fortsätta att ansluta till den nya primära databasen eller databasen återskapas med geo-återställning utan ytterligare konfiguration, eftersom databasen hanterar användarna. Det finns även potentiella skalbarhet och prestanda för delar av den här konfigurationen från ett inloggnings perspektiv. Mer information finns i [Användare av oberoende databas – göra databasen portabel](https://msdn.microsoft.com/library/ff929188.aspx).
+Till skillnad från traditionella användare, som måste mappas till inloggningar i huvud databasen, hanteras en innesluten användare fullständigt av själva databasen. Detta har två fördelar. I katastrof återställnings scenariot kan användarna fortsätta att ansluta till den nya primära databasen eller databasen återskapas med geo-återställning utan ytterligare konfiguration, eftersom databasen hanterar användarna. Det finns även potentiella skalbarhet och prestanda för delar av den här konfigurationen från ett inloggnings perspektiv. Mer information finns i [Användare av oberoende databas – göra databasen portabel](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 
 Den främsta kompromissen är att hanteringen av haveri beredskap i stor skala är mer utmanande. Om du har flera databaser som använder samma inloggning, kan det vara en negation av fördelarna med inneslutna användare om du behåller de autentiseringsuppgifter som finns i befintliga användare i flera databaser. Principen för lösen ords rotation kräver till exempel att ändringar görs konsekvent i flera databaser i stället för att ändra lösen ordet till inloggningen en gång i huvud databasen. Om du har flera databaser som använder samma användar namn och lösen ord rekommenderar vi inte att du använder inkluderade användare.
 
@@ -34,7 +34,7 @@ Den främsta kompromissen är att hanteringen av haveri beredskap i stor skala �
 Om du använder inloggningar och användare (i stället för att inkluderade användare) måste du vidta ytterligare åtgärder för att säkerställa att samma inloggningar finns i huvud databasen. I följande avsnitt beskrivs de steg som beskrivs och ytterligare överväganden.
 
   >[!NOTE]
-  > Du kan också använda Azure Active Directory (AAD)-inloggningar för att hantera dina databaser. Mer information finns i [Azure SQL-inloggningar och användare](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+  > Du kan också använda Azure Active Directory (AAD)-inloggningar för att hantera dina databaser. Mer information finns i [Azure SQL-inloggningar och användare](./logins-create-manage.md).
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Konfigurera användar åtkomst till en sekundär eller återställd databas
 
@@ -82,7 +82,7 @@ WHERE [type_desc] = 'SQL_USER'
 ```
 
 > [!NOTE]
-> **INFORMATION_SCHEMA** -och **sys** -användare har *Null* -sid och **gäst** -sid är **0x00**. **Dbo** -sid kan starta med *0x01060000000001648000000000048454*, om databasens skapare var Server administratören i stället för en medlem i **DBManager**.
+> **INFORMATION_SCHEMA** -och **sys** -användare har *Null* -sid och **gäst** -sid är **0x00** . **Dbo** -sid kan starta med *0x01060000000001648000000000048454* , om databasens skapare var Server administratören i stället för en medlem i **DBManager** .
 
 #### <a name="3-create-the-logins-on-the-target-server"></a>3. skapa inloggningar på mål servern
 
@@ -106,7 +106,7 @@ SID = <desired login SID>
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om hur du hanterar databas åtkomst och inloggningar finns i [SQL Database säkerhet: Hantera databas åtkomst och inloggnings säkerhet](logins-create-manage.md).
-* Mer information om inneslutna databas användare finns i [inneslutna databas användare – göra databasen portabel](https://msdn.microsoft.com/library/ff929188.aspx).
+* Mer information om inneslutna databas användare finns i [inneslutna databas användare – göra databasen portabel](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 * Mer information om aktiv geo-replikering finns i [aktiv geo-replikering](active-geo-replication-overview.md).
 * Mer information om grupper för automatisk redundans finns i [grupper för automatisk redundans](auto-failover-group-overview.md).
 * Information om hur du använder geo-återställning finns i [geo-återställning](recovery-using-backups.md#geo-restore)

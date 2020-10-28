@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 711d1cfccb6cdfe4a2fcb48a8ada7b33f744c317
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d0242ceec62db6548d91e5e58c21981a4f0246a0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479093"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672510"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Anslutnings arkitektur för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "92479093"
 Den här artikeln förklarar arkitekturen i olika komponenter som dirigerar nätverks trafik till en server i Azure SQL Database-eller Azure Synapse-analys. Den förklarar också olika anslutnings principer och hur de påverkar klienter som ansluter från Azure och klienter som ansluter utanför Azure.
 
 > [!IMPORTANT]
-> Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser**. Se [anslutnings arkitekturen för en hanterad instans](../managed-instance/connectivity-architecture-overview.md).
+> Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser** . Se [anslutnings arkitekturen för en hanterad instans](../managed-instance/connectivity-architecture-overview.md).
 
 ## <a name="connectivity-architecture"></a>Anslutningsarkitektur
 
@@ -51,7 +51,7 @@ Servrar i SQL Database och Azure Synapse stöder följande tre alternativ för s
 
 - **Standard:** Detta är anslutnings principen som används på alla servrar när den har skapats, såvida du inte uttryckligen ändrar anslutnings principen till antingen `Proxy` eller `Redirect` . Standard principen är `Redirect` för alla klient anslutningar som har sitt ursprung i Azure (till exempel från en virtuell Azure-dator) och `Proxy` för alla klient anslutningar som kommer från utsidan (till exempel anslutningar från din lokala arbets Station).
 
-Vi rekommenderar starkt `Redirect` anslutnings principen över `Proxy` anslutnings principen för den lägsta svars tiden och det högsta data flödet. Du måste dock uppfylla de ytterligare kraven för att tillåta nätverks trafik enligt beskrivningen ovan. Om klienten är en virtuell Azure-dator kan du göra detta med hjälp av nätverks säkerhets grupper (NSG) med [service märken](../../virtual-network/security-overview.md#service-tags). Om klienten ansluter från en lokal arbets Station kan du behöva arbeta med nätverks administratören för att tillåta nätverks trafik via företags brand väggen.
+Vi rekommenderar starkt `Redirect` anslutnings principen över `Proxy` anslutnings principen för den lägsta svars tiden och det högsta data flödet. Du måste dock uppfylla de ytterligare kraven för att tillåta nätverks trafik enligt beskrivningen ovan. Om klienten är en virtuell Azure-dator kan du göra detta med hjälp av nätverks säkerhets grupper (NSG) med [service märken](../../virtual-network/network-security-groups-overview.md#service-tags). Om klienten ansluter från en lokal arbets Station kan du behöva arbeta med nätverks administratören för att tillåta nätverks trafik via företags brand väggen.
 
 ## <a name="connectivity-from-within-azure"></a>Anslutning inifrån Azure
 
@@ -66,7 +66,7 @@ Om du ansluter från en plats utanför Azure har anslutningarna som standard en 
 ![Diagram som visar hur TCP-sessionen upprättas via Azure SQL Database gateway och alla efterföljande paket flöden via gatewayen.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Öppna även TCP-portarna 1434 och 14000-14999 för att aktivera [anslutning med DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Öppna även TCP-portarna 1434 och 14000-14999 för att aktivera [anslutning med DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 ## <a name="gateway-ip-addresses"></a>IP-adresser för gateway
 
@@ -124,6 +124,6 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du ändrar Azure SQL Database anslutnings princip för en server finns i avsnittet om att ansluta [-princip](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- Information om hur du ändrar Azure SQL Database anslutnings princip för en server finns i avsnittet om att ansluta [-princip](/cli/azure/sql/server/conn-policy).
 - Information om hur du Azure SQL Database anslutnings beteende för klienter som använder ADO.NET 4,5 eller en senare version finns i [portar bortom 1433 för ADO.NET 4,5](adonet-v12-develop-direct-route-ports.md).
 - Allmän översikts information om program utveckling finns i [Översikt över SQL Database program utveckling](develop-overview.md).

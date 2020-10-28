@@ -11,17 +11,17 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev
-ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: 05258e201c65138e53e861f0631eb33e08c9c199
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87027095"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673593"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrera en JavaScript-app med en sida från implicit beviljande till auth Code Flow
 
-Microsoft Authentication Library för Java Script (MSAL.js) v 2.0 ger stöd för kod flödet för auktorisering med PKCE och CORS till en Enkels Ides program på Microsoft Identity Platform. Följ stegen i avsnitten nedan för att migrera ditt MSAL.js 1. x-program med hjälp av implicit beviljande till MSAL.js 2.0 + (hädanefter *2. x*) och flödet för auth-koden.
+Microsoft Authentication Library för Java Script (MSAL.js) v 2.0 ger stöd för kod flödet för auktorisering med PKCE och CORS till en Enkels Ides program på Microsoft Identity Platform. Följ stegen i avsnitten nedan för att migrera ditt MSAL.js 1. x-program med hjälp av implicit beviljande till MSAL.js 2.0 + (hädanefter *2. x* ) och flödet för auth-koden.
 
 MSAL.js 2. x ökar med MSAL.js 1. x genom att stödja auktoriseringskod i webbläsaren i stället för det implicita tilldelnings flödet. MSAL.js 2. x stöder **inte** det implicita flödet.
 
@@ -30,7 +30,7 @@ MSAL.js 2. x ökar med MSAL.js 1. x genom att stödja auktoriseringskod i webbl�
 Om du vill uppdatera ditt program till MSAL.js 2. x och auth Code Flow finns det tre primära steg:
 
 1. Ändra dina omdirigerings-URI: er för [program registrering](#switch-redirect-uris-to-spa-platform) från **webb** plattformen till **en program plattform med enkel sida** .
-1. Uppdatera [koden](#switch-redirect-uris-to-spa-platform) från MSAL.js 1. x till **2. x**.
+1. Uppdatera [koden](#switch-redirect-uris-to-spa-platform) från MSAL.js 1. x till **2. x** .
 1. Inaktivera det [implicita bidraget](#disable-implicit-grant-settings) i din app-registrering när alla program som delar registreringen har uppdaterats till MSAL.js 2. x och kod flödet för autentisering.
 
 I följande avsnitt beskrivs varje steg i ytterligare information.
@@ -42,11 +42,11 @@ Om du vill fortsätta att använda din befintliga App-registrering för dina pro
 Följ de här stegen för app-registreringar som är konfigurerade med omdirigerings-URI: er för **webb** plattform:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Azure Active Directory** klient.
-1. I **Appregistreringar**väljer du ditt program och sedan **autentisering**.
-1. I panelen **webb** plattform under **omdirigerings-URI**väljer du varnings banderollen som anger att du bör migrera dina URI: er.
+1. I **Appregistreringar** väljer du ditt program och sedan **autentisering** .
+1. I panelen **webb** plattform under **omdirigerings-URI** väljer du varnings banderollen som anger att du bör migrera dina URI: er.
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Varnings banderoll för implicit flöde på webbappens panel i Azure Portal":::
-1. Välj *bara* de omdirigerings-URI: er vars program kommer att använda MSAL.js 2. x och välj sedan **Konfigurera**.
+1. Välj *bara* de omdirigerings-URI: er vars program kommer att använda MSAL.js 2. x och välj sedan **Konfigurera** .
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Varnings banderoll för implicit flöde på webbappens panel i Azure Portal":::
 

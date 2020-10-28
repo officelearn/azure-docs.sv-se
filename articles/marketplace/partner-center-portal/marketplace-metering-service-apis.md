@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d4c1005d300a5b326ff2f41d9fa3838dbb1c7552
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e29aeb7570ad6daba9d6fc652291471fa246bf0a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278019"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674629"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API: er för avläsning av Marketplace
 
@@ -34,7 +34,7 @@ Det går bara att generera en användnings händelse för varje timme i en kalen
 
 Det går bara att generera en användnings händelse för varje timme i en kalender dag per resurs. Om fler än en enhet används i en timme ackumulerar du alla enheter som förbrukas i timmen och genererar dem sedan i en enda händelse. Användnings händelser kan bara genereras under de senaste 24 timmarna. Om du genererar en användnings händelse när som helst mellan 8:00 och 8:59:59 (och godkänns) och skickar ytterligare en händelse för samma dag mellan 8:00 och 8:59:59, avvisas den som en dubblett.
 
-**Publicera**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**Publicera** : `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
@@ -67,7 +67,7 @@ Det går bara att generera en användnings händelse för varje timme i en kalen
 >[!NOTE]
 >`resourceId` har en annan betydelse för SaaS-appen och för en hanterad app som avger anpassad mätare. 
 
-För Azure Application hanterade appar är planeringen som finns `resourceId` `resourceUsageId` under `billingDetails` i det hanterade metadata-objektet. Ett exempel skript för att hämta det finns i [använda Azure-Managed Identities-token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+För Azure Application hanterade appar planeraren `resourceId` är den hanterade appen `resource group Id` . Ett exempel skript för att hämta det finns i [använda Azure-Managed Identities-token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 För SaaS `resourceId` -erbjudanden är prenumerations-ID: t för SaaS. Mer information om SaaS-prenumerationer finns i [lista prenumerationer](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 
@@ -191,7 +191,7 @@ Med event API för batch-användning kan du generera användnings händelser fö
 >[!NOTE]
 >`resourceId` har en annan betydelse för SaaS-appen och för en hanterad app som avger anpassad mätare. 
 
-För Azure Application hanterade appar är planeringen som finns `resourceId` `resourceUsageId` under `billingDetails` i det hanterade metadata-objektet. Ett exempel skript för att hämta det finns i [använda Azure-Managed Identities-token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+För Azure Application hanterade appar planeraren `resourceId` är den hanterade appen `resource group Id` . Ett exempel skript för att hämta det finns i [använda Azure-Managed Identities-token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
 För SaaS `resourceId` -erbjudanden är prenumerations-ID: t för SaaS. Mer information om SaaS-prenumerationer finns i [lista prenumerationer](./pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
 

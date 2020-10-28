@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: 38e4839a41ad8e58e575e552e877303a5105ff36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443673"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674763"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ansluta till SQL Database med C och C++
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Se till att du har följande objekt:
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * [Visual Studio](https://www.visualstudio.com/downloads/). Du måste installera C++-språk komponenterna för att kunna skapa och köra det här exemplet.
-* [Visual Studio Linux-utveckling](https://docs.microsoft.com/cpp/linux/?view=vs-2019). Om du utvecklar på Linux måste du också installera Visual Studio Linux-tillägget.
+* [Visual Studio Linux-utveckling](/cpp/linux/?view=vs-2019). Om du utvecklar på Linux måste du också installera Visual Studio Linux-tillägget.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Azure SQL Database och SQL Server på virtuella datorer
 
@@ -39,7 +39,7 @@ Azure har för närvarande två alternativ för att vara värd för SQL Server-a
 
 ## <a name="data-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>Data åtkomst tekniker: ODBC och OLE DB
 
-Anslutning till Azure SQL Database är inte något annat och det finns för närvarande två sätt att ansluta till databaser: ODBC (Open Database Connectivity) och OLE DB (objekt länkning och databas inbäddning). Under de senaste åren har Microsoft justerats med [ODBC för intern Relations data åtkomst](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC är relativt enkelt och också mycket snabbare än OLE DB. Den enda villkoret här är att ODBC använder ett gammalt C-format-API.
+Anslutning till Azure SQL Database är inte något annat och det finns för närvarande två sätt att ansluta till databaser: ODBC (Open Database Connectivity) och OLE DB (objekt länkning och databas inbäddning). Under de senaste åren har Microsoft justerats med [ODBC för intern Relations data åtkomst](/archive/blogs/sqlnativeclient/microsoft-is-aligning-with-odbc-for-native-relational-data-access). ODBC är relativt enkelt och också mycket snabbare än OLE DB. Den enda villkoret här är att ODBC använder ett gammalt C-format-API.
 
 ## <a name="step-1--creating-your-azure-sql-database"></a><a id="Create"></a>Steg 1: skapa din Azure SQL Database
 
@@ -143,7 +143,7 @@ Du kan hitta GetStarted-lösningen som innehåller alla exempel i den här artik
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs [översikten över SQL Database utveckling](develop-overview.md)
-* Mer information om [ODBC API-referensen](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
+* Mer information om [ODBC API-referensen](/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

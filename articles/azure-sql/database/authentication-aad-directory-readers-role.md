@@ -9,19 +9,19 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 0f9b6e0250acb53899ab0443a62db7c9cc51f992
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2374b1fb7f355b336c713a8a3240eacc8b1f188c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370108"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675078"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Katalog läsar roll i Azure Active Directory för Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> Den här funktionen i den här artikeln finns i **offentlig för hands version**.
+> Den här funktionen i den här artikeln finns i **offentlig för hands version** .
 
 Azure Active Directory (Azure AD) har introducerat [med moln grupper för att hantera roll tilldelningar i Azure Active Directory (för hands version)](../../active-directory/roles/groups-concept.md). Detta gör att Azure AD-roller kan tilldelas till grupper.
 
@@ -31,7 +31,7 @@ Rollen **katalog läsare** är nödvändig för att:
 
 - Skapa Azure AD-inloggningar för SQL-hanterad instans
 - Personifiera Azure AD-användare i Azure SQL
-- Migrera SQL Server användare som använder Windows-autentisering till SQL-hanterad instans med Azure AD-autentisering (med kommandot [Alter User (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) )
+- Migrera SQL Server användare som använder Windows-autentisering till SQL-hanterad instans med Azure AD-autentisering (med kommandot [Alter User (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration) )
 - Ändra Azure AD-administratören för SQL-hanterad instans
 - Tillåt [tjänst huvud namn (program)](authentication-aad-service-principal.md) för att skapa Azure AD-användare i Azure SQL
 
@@ -45,7 +45,7 @@ Det krävs inte att tilldela rollen **katalog läsare** till Server identiteten 
 
 ## <a name="granting-the-directory-readers-role-to-an-azure-ad-group"></a>Bevilja katalog läsare rollen till en Azure AD-grupp
 
-För närvarande kan du skapa en Azure AD-grupp och tilldela [**katalog läsar**](../../active-directory/roles/permissions-reference.md#directory-readers) behörighet till gruppen för närvarande [i en](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) **offentlig för hands version**. [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) Detta ger åtkomst till Azure AD-Graph API för medlemmar i den här gruppen. Dessutom tillåts Azure AD-användare som är ägare av den här gruppen att tilldela nya medlemmar för den här gruppen, inklusive identiteter för logiska Azure SQL-servrar.
+För närvarande kan du skapa en Azure AD-grupp och tilldela [**katalog läsar**](../../active-directory/roles/permissions-reference.md#directory-readers) behörighet till gruppen för närvarande [i en](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) **offentlig för hands version** . [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) Detta ger åtkomst till Azure AD-Graph API för medlemmar i den här gruppen. Dessutom tillåts Azure AD-användare som är ägare av den här gruppen att tilldela nya medlemmar för den här gruppen, inklusive identiteter för logiska Azure SQL-servrar.
 
 Den här lösningen kräver fortfarande en användare med hög behörighet (global administratör eller privilegie rad roll administratör) för att skapa en grupp och tilldela användare en gång, men Azure AD-gruppägare kommer att kunna tilldela ytterligare medlemmar som går framåt. Detta eliminerar behovet av att involvera en användare med hög behörighet i framtiden för att konfigurera alla SQL-databaser, SQL-hanterade instanser eller Azure Synapse-servrar i sin Azure AD-klient.
 

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf2b7a72b76c3ea028580a642a6a9f634c162edb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 011b50449f0a02b128bc000535f93e1809fd9777
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369734"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673888"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Tilldela Azure-resurs roller i Privileged Identity Management
 
@@ -39,13 +39,13 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan hante
 
 Följ dessa steg om du vill göra en användare tillgänglig för en Azure-resurs roll.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som är medlem i rollen [privilegie rad roll administratör](../roles/permissions-reference.md#privileged-role-administrator) .
+1. Logga in på [Azure Portal](https://portal.azure.com/) med administratörs behörighet för ägare eller användar åtkomst.
 
     Information om hur du beviljar en annan administratörs åtkomst till att hantera Privileged Identity Management finns i [bevilja åtkomst till andra administratörer för att hantera Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
-1. Öppna **Azure AD Privileged Identity Management**.
+1. Öppna **Azure AD Privileged Identity Management** .
 
-1. Välj **Azure-resurser**.
+1. Välj **Azure-resurser** .
 
 1. Använd resurs filtret för att hitta de hanterade resurser som du letar efter.
 
@@ -53,7 +53,7 @@ Följ dessa steg om du vill göra en användare tillgänglig för en Azure-resur
 
 1. Välj den resurs som du vill hantera för att öppna resurs översikts sidan.
 
-1. Under **Hantera**väljer du **roller** för att se listan över roller för Azure-resurser.
+1. Under **Hantera** väljer du **roller** för att se listan över roller för Azure-resurser.
 
     ![Roller för Azure-resurser](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
@@ -63,15 +63,15 @@ Följ dessa steg om du vill göra en användare tillgänglig för en Azure-resur
 
     ![Nytt tilldelnings fönster](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
-1. Välj en roll som du vill tilldela och klicka sedan på **Välj**.
+1. Välj en roll som du vill tilldela och klicka sedan på **Välj** .
 
     Fönstret **Välj en medlem eller grupp** öppnas.
 
-1. Välj en medlem eller grupp som du vill tilldela rollen och klicka sedan på **Välj**.
+1. Välj en medlem eller grupp som du vill tilldela rollen och klicka sedan på **Välj** .
 
     ![Välj en medlem eller grupp fönster](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-1. På fliken **Inställningar** går du till listan **tilldelnings typ** och väljer **kvalificerad** eller **aktiv**.
+1. På fliken **Inställningar** går du till listan **tilldelnings typ** och väljer **kvalificerad** eller **aktiv** .
 
     ![Fönstret medlemskaps inställningar](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
@@ -83,7 +83,7 @@ Följ dessa steg om du vill göra en användare tillgänglig för en Azure-resur
 
 1. Om du vill ange en varaktighet för en tilldelning ändrar du Start-och slutdatum och tider.
 
-1. När du är färdig väljer du **tilldela**.
+1. När du är färdig väljer du **tilldela** .
 
 1. När den nya roll tilldelningen har skapats visas ett status meddelande.
 
@@ -93,13 +93,13 @@ Följ dessa steg om du vill göra en användare tillgänglig för en Azure-resur
 
 Följ dessa steg om du vill uppdatera eller ta bort en befintlig roll tilldelning.
 
-1. Öppna **Azure AD Privileged Identity Management**.
+1. Öppna **Azure AD Privileged Identity Management** .
 
-1. Välj **Azure-resurser**.
+1. Välj **Azure-resurser** .
 
 1. Välj den resurs som du vill hantera för att öppna dess översikts sida.
 
-1. Under **Hantera**väljer du **roller** för att se listan över roller för Azure-resurser.
+1. Under **Hantera** väljer du **roller** för att se listan över roller för Azure-resurser.
 
     ![Azure-resurs roller – Välj roll](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 

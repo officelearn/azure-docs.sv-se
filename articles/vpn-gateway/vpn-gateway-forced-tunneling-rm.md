@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e9444291c40ef504a674ee18351ba581695d1dd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00f98a5086b9a9bf21054138cf01d26a550338da
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394526"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673843"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Konfigurera framtvingad tunneling med distributionsmodellen Azure Resource Manager
 
@@ -53,6 +53,7 @@ Tvingad tunnel trafik i Azure konfigureras via användardefinierade vägar för 
 * Den här proceduren använder användardefinierade vägar (UDR) för att skapa en routningstabell för att lägga till en standard väg och sedan associera routningstabellen till dina VNet-undernät för att aktivera Tvingad tunnel trafik på dessa undernät.
 * Tvingad tunnel trafik måste vara kopplad till ett VNet som har en Route-baserad VPN-gateway. Du måste ange en "standard webbplats" bland de lokala lokala platserna som är anslutna till det virtuella nätverket. Dessutom måste den lokala VPN-enheten konfigureras med 0.0.0.0/0 som trafik väljare. 
 * ExpressRoute-Tvingad tunnel trafik har inte kon figurer ATS via den här mekanismen, utan är i stället aktive rad genom att annonsera en standard väg via ExpressRoute BGP-peering-sessioner. Mer information finns i ExpressRoute- [dokumentationen](https://azure.microsoft.com/documentation/services/expressroute/).
+* När både VPN Gateway-och ExpressRoute-Gateway distribueras i samma VNet behövs inte längre UDR (User-Defined routing) som ExpressRoute Gateway meddelar att "standard webbplats" är inställt på VNet.
 
 ## <a name="configuration-overview"></a>Översikt över konfiguration
 

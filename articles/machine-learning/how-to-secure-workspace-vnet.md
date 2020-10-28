@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 3001b8829660f2891cb051269026bf7100a8f938
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461011"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672864"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Skydda en Azure Machine Learning arbets yta med virtuella nätverk
 
@@ -37,7 +37,7 @@ I den här artikeln får du lära dig hur du aktiverar följande arbets ytor res
 > - Azure Key Vault
 > - Azure Container Registry
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Läs artikeln [Översikt över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
@@ -74,23 +74,28 @@ Använd följande steg för att använda ett Azure Storage-konto för arbets yta
 
    [![Lagrings utrymmet som är kopplat till arbets ytan Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. På sidan Storage Service-konto väljer du __brand väggar och virtuella nätverk__.
+1. På sidan Storage Service-konto väljer du __brand väggar och virtuella nätverk__ .
 
    ![Avsnittet "brand väggar och virtuella nätverk" på sidan Azure Storage i Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
 1. På sidan __brand väggar och virtuella nätverk__ utför du följande åtgärder:
-    1. Välj __Valda nätverk__.
-    1. Under __virtuella nätverk__väljer du länken __Lägg till befintligt virtuellt nätverk__ . Den här åtgärden lägger till det virtuella nätverk där din beräkning finns (se steg 1).
+    1. Välj __Valda nätverk__ .
+    1. Under __virtuella nätverk__ väljer du länken __Lägg till befintligt virtuellt nätverk__ . Den här åtgärden lägger till det virtuella nätverk där din beräkning finns (se steg 1).
 
         > [!IMPORTANT]
         > Lagrings kontot måste finnas i samma virtuella nätverk och undernät som de beräknings instanser eller kluster som används för utbildning eller härledning.
 
-    1. Markera kryss rutan __Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot__ .
+    1. Markera kryss rutan __Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot__ . Detta ger inte alla Azure-tjänster åtkomst till ditt lagrings konto.
+    
+        * Resurser för vissa tjänster som har **registrerats i din prenumeration** kan komma åt lagrings kontot **i samma prenumeration** för Select-åtgärder. Skriv till exempel loggar eller skapar säkerhets kopior.
+        * Resurser i vissa tjänster kan beviljas uttrycklig åtkomst till ditt lagrings konto genom att __tilldela en Azure-roll__ till sin systemtilldelade hanterade identitet.
+
+        Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../storage/common/storage-network-security.md#trusted-microsoft-services).
 
     > [!IMPORTANT]
     > När du arbetar med Azure Machine Learning SDK måste utvecklings miljön kunna ansluta till Azure Storage-kontot. När lagrings kontot finns i ett virtuellt nätverk måste brand väggen tillåta åtkomst från utvecklings miljöns IP-adress.
     >
-    > Om du vill aktivera åtkomst till lagrings kontot går du till __brand väggarna och de virtuella nätverken__ för lagrings kontot *från en webbläsare på utvecklings klienten*. Använd sedan kryss rutan __Lägg till din klient-IP-adress__ för att lägga till KLIENTens IP-adress i __adress intervallet__. Du kan också använda fältet __adress intervall__ för att manuellt ange IP-adressen för utvecklings miljön. När IP-adressen för klienten har lagts till kan den komma åt lagrings kontot med hjälp av SDK.
+    > Om du vill aktivera åtkomst till lagrings kontot går du till __brand väggarna och de virtuella nätverken__ för lagrings kontot *från en webbläsare på utvecklings klienten* . Använd sedan kryss rutan __Lägg till din klient-IP-adress__ för att lägga till KLIENTens IP-adress i __adress intervallet__ . Du kan också använda fältet __adress intervall__ för att manuellt ange IP-adressen för utvecklings miljön. När IP-adressen för klienten har lagts till kan den komma åt lagrings kontot med hjälp av SDK.
 
    [![Fönstret "brand väggar och virtuella nätverk" i Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -170,12 +175,12 @@ Använd följande steg för att använda Azure Machine Learning experiment funkt
 
 1. Gå till den Key Vault som är kopplad till arbets ytan.
 
-1. På sidan __Key Vault__ väljer du __nätverk__i det vänstra fönstret.
+1. På sidan __Key Vault__ väljer du __nätverk__ i det vänstra fönstret.
 
 1. Utför följande åtgärder på fliken __brand väggar och virtuella nätverk__ :
-    1. Under __Tillåt åtkomst från__väljer du __privat slut punkt och valda nätverk__.
-    1. Under __virtuella nätverk__väljer du __Lägg till befintliga virtuella nätverk__ för att lägga till det virtuella nätverk där din experiment beräkning finns.
-    1. Under __Tillåt betrodda Microsoft-tjänster att kringgå den här brand väggen? väljer du__ __Ja__.
+    1. Under __Tillåt åtkomst från__ väljer du __privat slut punkt och valda nätverk__ .
+    1. Under __virtuella nätverk__ väljer du __Lägg till befintliga virtuella nätverk__ för att lägga till det virtuella nätverk där din experiment beräkning finns.
+    1. Under __Tillåt betrodda Microsoft-tjänster att kringgå den här brand väggen? väljer du__ __Ja__ .
 
    [![Avsnittet "brand väggar och virtuella nätverk" i fönstret Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 

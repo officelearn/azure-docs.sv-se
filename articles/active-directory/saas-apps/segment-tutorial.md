@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 1fa8f6f0382312951905476ad6fee06e180c6f35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85428f682b5a5e179b5c501982749611131c6aed
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543158"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674427"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-segment"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med segment
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig hur du integrerar segment med Azure A
 * Gör det möjligt för användarna att logga in automatiskt till segment med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -42,7 +42,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 * Segment stöder **SP-och IDP** -INITIERAd SSO
 * Segmentet stöder **just-in-Time** User-etablering
 
-* När du har konfigurerat ett segment kan du framtvinga kontroll över sessioner, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat ett segment kan du framtvinga kontroll över sessioner, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-segment-from-the-gallery"></a>Lägga till segment från galleriet
 
@@ -50,15 +50,15 @@ Om du vill konfigurera integreringen av segment i Azure AD måste du lägga till
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. Navigera till **företags program** och välj sedan **alla program** .
+1. Välj **nytt program** om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** skriver du **segment** i sökrutan.
 1. Välj **segment** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-segment"></a>Konfigurera och testa enkel inloggning med Azure AD för segment
 
-Konfigurera och testa Azure AD SSO med segment med en test användare som kallas **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i segment.
+Konfigurera och testa Azure AD SSO med segment med en test användare som kallas **B. Simon** . För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i segment.
 
 Om du vill konfigurera och testa Azure AD SSO med segment, slutför du följande Bygg stenar:
 
@@ -73,8 +73,8 @@ Om du vill konfigurera och testa Azure AD SSO med segment, slutför du följande
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan **segment** program integration och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan **segment** program integration och letar upp avsnittet **Hantera** och väljer **enkel inloggning** .
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML** .
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
@@ -85,7 +85,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. Skriv en URL i text rutan **svars-URL** med följande mönster: `https://segment-prod.auth0.com/login/callback?connection=<CUSTOMER_VALUE>`
 
-1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP** -initierat läge:
 
     I rutan **Inloggnings-URL** anger du följande URL: `https://app.segment.com`
 
@@ -104,25 +104,25 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** , väljer **användare** och väljer sedan **alla användare** .
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
-   1. Klicka på **Skapa**.
+   1. I **Namn** -fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord** .
+   1. Klicka på **Skapa** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till segment.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **segment**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program** .
+1. I listan program väljer du **segment** .
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper** .
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Välj **Lägg till användare** och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
@@ -134,11 +134,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. I ett nytt webbläsarfönster loggar du in på företags webbplatsen för segmentet som administratör.
 
-1. Klicka på **ikonen Inställningar** och rulla ned till **autentisering** och klicka på **anslutningar**.
+1. Klicka på **ikonen Inställningar** och rulla ned till **autentisering** och klicka på **anslutningar** .
 
     ![Segment konfiguration](./media/segment-tutorial/segment1.PNG)
 
-1. Klicka på **Lägg till ny anslutning**.
+1. Klicka på **Lägg till ny anslutning** .
 
     ![Segment konfiguration](./media/segment-tutorial/segment2.PNG)
 
@@ -154,7 +154,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     b. Kopiera värdet för * * * *-mål gruppen * * * * och klistra in det i rutan **identifiera URL** i dialog rutan för den **grundläggande SAML-konfigurationen** i Azure Portal.
 
-    c. Klicka på **Nästa**.
+    c. Klicka på **Nästa** .
 
     ![Segment konfiguration](./media/segment-tutorial/segment5.PNG)
 
@@ -162,7 +162,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Öppna den nedladdade **certifikat (base64)** från Azure Portal i anteckningar och klistra in innehållet i text rutan för **offentligt certifikat** .
 
-1. Klicka på **Konfigurera anslutning**.
+1. Klicka på **Konfigurera anslutning** .
 
 ### <a name="create-segment-test-user"></a>Skapa segment test användare
 
@@ -172,19 +172,18 @@ I det här avsnittet skapas en användare som heter B. Simon i segment. Segmente
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen segment i åtkomst panelen, bör du loggas in automatiskt på det segment som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen segment i åtkomst panelen, bör du loggas in automatiskt på det segment som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](./tutorial-list.md)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova segment med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Så här skyddar du segment med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Så här skyddar du segment med avancerad synlighet och kontroller](/cloud-app-security/proxy-intro-aad)

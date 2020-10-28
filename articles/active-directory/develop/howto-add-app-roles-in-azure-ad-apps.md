@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: be5cb1c1e6ff428b3c4d4305c915e07d3880839c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c29e1e3fd42702e0eb02531f995c550738839a9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258395"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673709"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 
@@ -37,9 +37,9 @@ Dessa program roller definieras i [Azure Portal](https://portal.azure.com) i pro
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält.
 1. I listan **Favoriter** eller **alla kataloger** väljer du den Active Directory klient organisation där du vill registrera programmet.
-1. I Azure Portal söker du efter och väljer **Azure Active Directory**.
+1. I Azure Portal söker du efter och väljer **Azure Active Directory** .
 1. I fönstret  **Azure Active Directory** väljer du **Appregistreringar** för att visa en lista över alla dina program.
-1. Välj det program som du vill definiera app-roller i. Välj sedan **manifest**.
+1. Välj det program som du vill definiera app-roller i. Välj sedan **manifest** .
 1. Redigera appens manifest genom att hitta `appRoles` inställningen och lägga till alla dina program roller.
 
      > [!NOTE]
@@ -76,7 +76,7 @@ I följande exempel visas den `appRoles` som du kan tilldela till `users` .
 > [!NOTE]
 >`displayName`Får innehålla blank steg.
 
-Du kan definiera app-roller som mål `users` , `applications` eller båda. När det är tillgängligt för `applications` visas app-roller som program behörigheter under **hantera** avsnitt > **API-behörigheter > lägg till en behörighet > mina API: er > Välj en API > program behörigheter**. I följande exempel visas en app-roll som är riktad mot en `Application` .
+Du kan definiera app-roller som mål `users` , `applications` eller båda. När det är tillgängligt för `applications` visas app-roller som program behörigheter under **hantera** avsnitt > **API-behörigheter > lägg till en behörighet > mina API: er > Välj en API > program behörigheter** . I följande exempel visas en app-roll som är riktad mot en `Application` .
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -126,7 +126,7 @@ När de användare som är tilldelade till de olika app-rollerna loggar in i pro
 ## <a name="next-steps"></a>Nästa steg
 
 - [Lägg till auktorisering med hjälp av app-roller & roller anspråk till en ASP.NET Core webbapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Implementera auktorisering i dina program med Microsoft Identity Platform (video)](https://www.youtube.com/watch?v=LRoc-na27l0)
+- [Implementera auktorisering i dina program med Microsoft Identity Platform (video)](https://www.youtube.com/watch?v=HdBSBSbgYQQ)
 - [Azure Active Directory, nu med grupp anspråk och program roller](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory-appmanifest](./reference-app-manifest.md)
 - [Azure AD-åtkomsttoken](access-tokens.md)

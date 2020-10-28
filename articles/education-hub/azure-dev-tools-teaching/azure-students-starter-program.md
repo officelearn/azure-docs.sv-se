@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: c581eb79a158dcb2645bcb9fd830a4f83dba1e0d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87f44c1529055458f341fa6c4c5285560d878d2d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87102261"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674966"
 ---
 # <a name="azure-for-students-starter"></a>Microsoft Azure for Students Starter
 
@@ -37,4 +37,4 @@ Det krävs inget kredit kort för erbjudandet om Start programmet för Azure fö
 - [Få hjälp med inloggnings fel](troubleshoot-login.md)
 - [Hämta program vara (Azure för studenter starter)](download-software.md)
 - [Program för Azure för studenter](azure-students-program.md)
-- [Microsoft Learn: en kostnads fri online learning-plattform](https://docs.microsoft.com/learn/)
+- [Microsoft Learn: en kostnads fri online learning-plattform](/learn/)

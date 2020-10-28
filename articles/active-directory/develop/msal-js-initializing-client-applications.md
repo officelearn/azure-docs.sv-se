@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 5af5d3a88262792f4b32e2ce3d8143ac680f083a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: ea8629e53ec793b4a63c817b6ec83278a2d23871
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87027044"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674082"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initiera klient program med hjälp av MSAL.js
 
@@ -37,9 +37,9 @@ När du har registrerat din app behöver du några eller alla följande värden 
 | Värde | Krävs | Beskrivning |
 |:----- | :------: | :---------- |
 | Program-ID (klient) | Krävs | Ett GUID som unikt identifierar ditt program i Microsoft Identity Platform. |
-| Myndighet | Valfritt | Identitets leverantörens URL ( *instansen*) och *inloggnings mål gruppen* för ditt program. Instansen och inloggnings mål gruppen, när de sammanfogas, utgör *utfärdaren*. |
-| Katalog-ID (klient) | Valfritt | Ange detta om du skapar ett branschspecifika program enbart för din organisation, vilket ofta kallas ett program för en *klient*. |
-| Omdirigerings-URI | Valfritt | Om du skapar en webbapp anger i vilken `redirectUri` identitet leverantören (Microsoft Identity Platform) ska returnera de säkerhetstoken som den har utfärdat. |
+| Myndighet | Valfri | Identitets leverantörens URL ( *instansen* ) och *inloggnings mål gruppen* för ditt program. Instansen och inloggnings mål gruppen, när de sammanfogas, utgör *utfärdaren* . |
+| Katalog-ID (klient) | Valfri | Ange detta om du skapar ett branschspecifika program enbart för din organisation, vilket ofta kallas ett program för en *klient* . |
+| Omdirigerings-URI | Valfri | Om du skapar en webbapp anger i vilken `redirectUri` identitet leverantören (Microsoft Identity Platform) ska returnera de säkerhetstoken som den har utfärdat. |
 
 ## <a name="initialize-msaljs-2x-apps"></a>Initiera MSAL.js 2. x-appar
 

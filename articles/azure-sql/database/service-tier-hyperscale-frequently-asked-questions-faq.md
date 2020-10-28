@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488974"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780197"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Vanliga frågor och svar om Azure SQL Database storskalig
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -136,7 +136,7 @@ Nej.
 
 ### <a name="how-many-read-scale-out-replicas-are-supported"></a>Hur många Läs skalbara repliker som stöds
 
-De storskaliga databaserna skapas med en skalbar replik (två repliker inklusive primär) som standard. Du kan skala antalet skrivskyddade repliker mellan 0 och 4 med hjälp av [Azure Portal](https://portal.azure.com) eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+De storskaliga databaserna skapas med en skalbar replik (två repliker inklusive primär) som standard. Du kan skala antalet skrivskyddade repliker mellan 0 och 4 med hjälp av [Azure Portal](https://portal.azure.com) eller [REST API](/rest/api/sql/databases/createorupdate).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-replicas"></a>För hög tillgänglighet måste jag etablera ytterligare beräknings repliker
 
@@ -198,7 +198,7 @@ Ja, inklusive rad-, sid-och columnstore-komprimering.
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>Om jag har en stor tabell, blir mina tabell data spridda över flera datafiler
 
-Ja. Data sidorna som är kopplade till en specifik tabell kan ingå i flera datafiler, som är en del av samma filgrupp. SQL Server använder en [proportionell fyllnings strategi](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) för att distribuera data över datafiler.
+Ja. Data sidorna som är kopplade till en specifik tabell kan ingå i flera datafiler, som är en del av samma filgrupp. SQL Server använder en [proportionell fyllnings strategi](/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) för att distribuera data över datafiler.
 
 ## <a name="data-migration-questions"></a>Frågor om datamigrering
 
@@ -231,9 +231,9 @@ Hög skalning kan förbruka 100 MB/s av nya/ändrade data, men den tid som behö
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>Kan jag läsa data från Blob Storage och göra en snabb belastning (t. ex. PolyBase i Azure Synapse Analytics)
 
-Du kan låta ett klient program läsa data från Azure Storage och läsa in data inläsning i en storskalig databas (precis som du kan med andra databaser i Azure SQL Database). PolyBase stöds för närvarande inte i Azure SQL Database. Som ett alternativ till att ge en snabb belastning kan du använda [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)eller använda ett Spark-jobb i [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) med [Spark-anslutaren för SQL](spark-connector.md). Spark-anslutningen till SQL stöder Mass infogning.
+Du kan låta ett klient program läsa data från Azure Storage och läsa in data inläsning i en storskalig databas (precis som du kan med andra databaser i Azure SQL Database). PolyBase stöds för närvarande inte i Azure SQL Database. Som ett alternativ till att ge en snabb belastning kan du använda [Azure Data Factory](../../data-factory/index.yml)eller använda ett Spark-jobb i [Azure Databricks](/azure/azure-databricks/) med [Spark-anslutaren för SQL](spark-connector.md). Spark-anslutningen till SQL stöder Mass infogning.
 
-Du kan också massredigera Läs data från Azure Blob Store med BULK INSERT eller OpenRowSet: [exempel på Mass åtkomst till data i Azure Blob Storage](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+Du kan också massredigera Läs data från Azure Blob Store med BULK INSERT eller OpenRowSet: [exempel på Mass åtkomst till data i Azure Blob Storage](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 Enkel återställning eller Mass loggnings modell stöds inte i storskaliga versioner. Fullständig återställnings modell krävs för att tillhandahålla hög tillgänglighet och återställning av tidpunkter. Skalnings logg arkitekturen ger dock bättre data inmatnings hastighet jämfört med andra Azure SQL Database tjänst nivåer.
 
@@ -277,7 +277,7 @@ Nej. Säkerhets kopior hanteras av underlag rings systemet och utnyttjar lagring
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Kan jag utföra geo-återställning med en storskalig databas
 
-Ja. Geo-återställning stöds fullt ut. Till skillnad från vid återställning av tidpunkt kräver geo-återställning en åtgärd för data storlek. Datafiler kopieras parallellt, så varaktigheten för den här åtgärden beror främst på storleken på den största filen i databasen, i stället för den totala databas storleken. Geo-Restore-tiden blir betydligt kortare om databasen återställs i Azure-regionen som är [kopplad](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) till käll databasens region.
+Ja. Geo-återställning stöds fullt ut. Till skillnad från vid återställning av tidpunkt kräver geo-återställning en åtgärd för data storlek. Datafiler kopieras parallellt, så varaktigheten för den här åtgärden beror främst på storleken på den största filen i databasen, i stället för den totala databas storleken. Geo-Restore-tiden blir betydligt kortare om databasen återställs i Azure-regionen som är [kopplad](../../best-practices-availability-paired-regions.md) till käll databasens region.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Kan jag konfigurera geo-replikering med storskalig databas
 
@@ -357,7 +357,7 @@ Nej. Endast den primära beräknings repliken tar emot Läs-/skriv förfrågning
 
 ### <a name="how-many-secondary-compute-replicas-can-i-provision"></a>Hur många sekundära beräknings repliker kan jag etablera
 
-Vi skapar en sekundär replik för storskaliga databaser som standard. Om du vill justera antalet repliker kan du göra det med hjälp av [Azure Portal](https://portal.azure.com) eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Vi skapar en sekundär replik för storskaliga databaser som standard. Om du vill justera antalet repliker kan du göra det med hjälp av [Azure Portal](https://portal.azure.com) eller [REST API](/rest/api/sql/databases/createorupdate).
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Hur gör jag för att ansluta till dessa sekundära beräknings repliker
 

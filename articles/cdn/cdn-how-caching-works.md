@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86201799"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778627"
 ---
 # <a name="how-caching-works"></a>Så här fungerar cachelagring
 
@@ -65,7 +65,7 @@ Två rubriker kan användas för att definiera cache-aktualitet: `Cache-Control`
 ## <a name="cache-directive-headers"></a>Cache – direktiv rubriker
 
 > [!IMPORTANT]
-> Som standard ignorerar en Azure CDN-slutpunkt som är optimerad för DSA cache-direktiv-rubriker och kringgår cachelagring. För **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai** -profiler kan du justera hur en Azure CDN-slutpunkt behandlar dessa huvuden med hjälp av [CDN caching-regler](cdn-caching-rules.md) för att aktivera cachelagring. För **Azure CDN Premium från Verizon** -profiler, använder du [regel motorn](cdn-rules-engine.md) för att aktivera cachelagring.
+> Som standard ignorerar en Azure CDN-slutpunkt som är optimerad för DSA cache-direktiv-rubriker och kringgår cachelagring. För **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai** -profiler kan du justera hur en Azure CDN-slutpunkt behandlar dessa huvuden med hjälp av [CDN caching-regler](cdn-caching-rules.md) för att aktivera cachelagring. För **Azure CDN Premium från Verizon** -profiler, använder du [regel motorn](./cdn-verizon-premium-rules-engine.md) för att aktivera cachelagring.
 
 Azure CDN stöder följande HTTP-cache – direktiv-rubriker, som definierar cache-varaktighet och cache-delning.
 
@@ -76,7 +76,7 @@ Azure CDN stöder följande HTTP-cache – direktiv-rubriker, som definierar cac
 - När det används i ett HTTP-svar från klienten till CDN-POP:
      - **Azure CDN Standard/Premium från Verizon** och **Azure CDN Standard från Microsoft** stöder alla `Cache-Control` direktiv.
      - **Azure CDN Standard från Akamai** stöder endast följande `Cache-Control` direktiv. alla andra ignoreras:
-         - `max-age`: Ett cacheminne kan lagra innehållet i angivet antal sekunder. Exempelvis `Cache-Control: max-age=5`. Detta direktiv anger den maximala tid som innehållet anses vara färskt.
+         - `max-age`: Ett cacheminne kan lagra innehållet i angivet antal sekunder. Till exempel `Cache-Control: max-age=5`. Detta direktiv anger den maximala tid som innehållet anses vara färskt.
          - `no-cache`: Cachelagra innehållet, men verifiera innehållet varje gång innan det levereras från cachen. Motsvarar `Cache-Control: max-age=0` .
          - `no-store`: Cachelagra aldrig innehållet. Ta bort innehåll om det har lagrats tidigare.
 
@@ -98,14 +98,14 @@ När cachen är inaktuell används HTTP cache-verifierare för att jämföra den
 
 **ETag**
 - **Azure CDN Standard/Premium från Verizon** stöder `ETag` som standard, medan **Azure CDN standard från Microsoft** och **Azure CDN Standard från Akamai** inte.
-- `ETag` definierar en sträng som är unik för varje fil och version av en fil. Exempelvis `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
+- `ETag` definierar en sträng som är unik för varje fil och version av en fil. Till exempel `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introducerades i HTTP 1,1 och är mer aktuell än `Last-Modified` . Användbart när det senaste ändrings datumet är svårt att fastställa.
 - Stöder både stark verifiering och svag verifiering. Azure CDN stöder dock endast stark verifiering. För stark validering måste de två resurs representationerna vara byte-till-byte identiska. 
-- En cache verifierar en fil som använder `ETag` genom att skicka ett `If-None-Match` huvud med en eller flera `ETag` verifierare i begäran. Exempelvis `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Om serverns version matchar en `ETag` verifierare i listan, skickar den status kod 304 (inte ändrad) i sitt svar. Om versionen skiljer sig från varandra svarar servern med status kod 200 (OK) och den uppdaterade resursen.
+- En cache verifierar en fil som använder `ETag` genom att skicka ett `If-None-Match` huvud med en eller flera `ETag` verifierare i begäran. Till exempel `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Om serverns version matchar en `ETag` verifierare i listan, skickar den status kod 304 (inte ändrad) i sitt svar. Om versionen skiljer sig från varandra svarar servern med status kod 200 (OK) och den uppdaterade resursen.
 
 **Senast ändrad:**
 - För **Azure CDN Standard/Premium från Verizon** `Last-Modified` används om `ETag` inte ingår i http-svaret. 
-- Anger det datum och den tid som ursprungs servern har fastställt att resursen senast ändrades. Exempelvis `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
+- Anger det datum och den tid som ursprungs servern har fastställt att resursen senast ändrades. Till exempel `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - En cache verifierar en fil med hjälp `Last-Modified` av genom att skicka ett `If-Modified-Since` huvud med ett datum och en tid i begäran. Ursprungs servern jämför det datumet med `Last-Modified` rubriken för den senaste resursen. Om resursen inte har ändrats sedan den angivna tiden, returnerar servern status kod 304 (inte ändrad) i sitt svar. Om resursen har ändrats returnerar servern status kod 200 (OK) och den uppdaterade resursen.
 
 ## <a name="determining-which-files-can-be-cached"></a>Avgöra vilka filer som kan cachelagras
@@ -126,17 +126,14 @@ I följande tabell beskrivs hur du aktiverar standardvärdet för cachelagring a
 
 |    | Microsoft: allmän webb leverans | Verizon: allmän webb leverans | Verizon: DSA | Akamai: allmän webb leverans | Akamai: DSA | Akamai: stor fil nedladdning | Akamai: allmän eller VOD medie direkt uppspelning |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Respektera ursprung**       | Ja    | Ja   | Inga   | Ja    | Inga   | Ja   | Ja    |
+| **Respektera ursprung**       | Ja    | Ja   | Nej   | Ja    | Nej   | Ja   | Ja    |
 | **Varaktighet för CDN-cache** | 2 dagar |7 dagar | Inget | 7 dagar | Inget | 1 dag | 1 år |
 
-Förfallet **ursprung**: anger om det ska gå att använda cache-direktiv-huvuden som stöds, om de finns i http-svaret från ursprungs servern.
+Förfallet **ursprung** : anger om det ska gå att använda cache-direktiv-huvuden som stöds, om de finns i http-svaret från ursprungs servern.
 
-**Varaktighet för CDN-cache**: anger hur lång tid en resurs cachelagras på Azure CDN. Men om förfallet **ursprung** är ja och http-svaret från ursprungs servern innehåller rubriken cache-direktiv `Expires` eller `Cache-Control: max-age` , Azure CDN använder det varaktighets värde som anges av rubriken i stället. 
+**Varaktighet för CDN-cache** : anger hur lång tid en resurs cachelagras på Azure CDN. Men om förfallet **ursprung** är ja och http-svaret från ursprungs servern innehåller rubriken cache-direktiv `Expires` eller `Cache-Control: max-age` , Azure CDN använder det varaktighets värde som anges av rubriken i stället. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hur du anpassar och åsidosätter standardvärdet för cachelagring i CDN via regler för cachelagring finns i [styra Azure CDN cachelagring med regler för cachelagring](cdn-caching-rules.md). 
 - Information om hur du använder frågesträngar för att styra cachelagring av funktioner finns i [kontroll Azure CDN cachelagring med frågesträngar](cdn-query-string.md).
-
-
-

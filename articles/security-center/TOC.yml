@@ -14,9 +14,17 @@
           href: security-center-services.md
         - name: Funktioner för Azure PaaS-resurser
           href: features-paas.md
-    - name: Vad är nytt i Security Center?
-      displayName: release notes
-      href: release-notes.md
+    - name: Nyheter
+      items:
+        - name: Viktig information
+          displayName: changelog
+          href: release-notes.md
+        - name: Viktiga kommande ändringar
+          displayName: 'release notes, changelog'
+          href: upcoming-changes.md
+        - name: Arkiverad viktig information (äldre än sex månader)
+          displayName: changelog
+          href: release-notes-archive.md
     - name: Grunderna i Security Center
       items:
         - name: Security Centers översiktssida
@@ -217,8 +225,13 @@
         - name: Anpassa informationsskyddsprincipen
           href: security-center-info-protection-policy.md
     - name: Använda Azure Defender för containerregister
-      displayName: 'ACR, registry, images'
-      href: defender-for-container-registries-usage.md
+      items:
+        - name: Sök igenom dina registeravbildningar efter sårbarheter
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md
+        - name: Inaktivera specifika sårbarhetsresultat för avbildningar
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md#disable-specific-findings-preview
     - name: Exportera aviseringar och rekommendationer
       items:
         - name: 'Exportera till en SIEM, SOAR eller ITSM'
@@ -272,8 +285,6 @@
           href: faq-vms.md
         - name: Befintliga Azure Log Analytics-användare
           href: faq-azure-monitor-logs.md
-    - name: Arkiv med nyheter i Security Center
-      href: release-notes-archive.md
     - name: Blogg om Azure-översikt
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Utvärdering av slutpunktsskydd och rekommendationer

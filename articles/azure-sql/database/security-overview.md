@@ -12,23 +12,23 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: bb9e17a4befcdcf1a322734c6cc5d75d653f23e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1485f06af2bb3c4912df3e34cb23c409b7db3dc2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676136"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780367"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>En översikt över säkerhets funktioner för Azure SQL Database och SQL-hanterad instans
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Den här artikeln beskriver grunderna för att skydda data nivån för ett program med hjälp av [Azure SQL Database](sql-database-paas-overview.md) och [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md). Säkerhets strategin som beskrivs följer efter det skiktade försvars fördjupet, som visas i bilden nedan, och som rör sig från utsidan i:
+Den här artikeln beskriver grunderna för att skydda data nivån för ett program med hjälp av [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md)och [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Säkerhets strategin som beskrivs följer efter det skiktade försvars fördjupet, som visas i bilden nedan, och som rör sig från utsidan i:
 
 ![Diagram över försvar i lager – djupgående. Kund information anges i lager av nätverks säkerhet, åtkomst hantering och hot och informations skydd.](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-Microsoft Azure SQL Database-och SQL-hanterad instans tillhandahåller en Relations databas tjänst för moln-och företags program. För att skydda kund information, förhindrar brand väggar nätverks åtkomst till servern förrän åtkomst uttryckligen beviljas baserat på IP-adress eller trafik ursprung i Azures virtuella nätverk.
+Microsoft Azure SQL Database, SQL-hanterad instans och Azure Synapse Analytics tillhandahåller en Relations databas tjänst för moln-och företags program. För att skydda kund information, förhindrar brand väggar nätverks åtkomst till servern förrän åtkomst uttryckligen beviljas baserat på IP-adress eller trafik ursprung i Azures virtuella nätverk.
 
 ### <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
 
@@ -36,7 +36,7 @@ Regler för IP-brandvägg ger åtkomst till databaser baserat på den ursprungli
 
 ### <a name="virtual-network-firewall-rules"></a>Brandväggsregler för virtuella nätverk
 
-[Tjänst slut punkter i virtuella nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md) utökar din virtuella nätverks anslutning via Azures stamnät och aktiverar Azure SQL Database för att identifiera det virtuella nätverkets undernät som trafiken kommer från. Om du vill tillåta att trafik når Azure SQL Database använder du SQL [-tjänstens Taggar](../../virtual-network/security-overview.md) för att tillåta utgående trafik via nätverks säkerhets grupper.
+[Tjänst slut punkter i virtuella nätverk](../../virtual-network/virtual-network-service-endpoints-overview.md) utökar din virtuella nätverks anslutning via Azures stamnät och aktiverar Azure SQL Database för att identifiera det virtuella nätverkets undernät som trafiken kommer från. Om du vill tillåta att trafik når Azure SQL Database använder du SQL [-tjänstens Taggar](../../virtual-network/network-security-groups-overview.md) för att tillåta utgående trafik via nätverks säkerhets grupper.
 
 [Regler för virtuella nätverk](vnet-service-endpoint-rule-overview.md) gör det möjligt för Azure SQL Database att endast acceptera kommunikation som skickas från valda undernät i ett virtuellt nätverk.
 
@@ -99,7 +99,7 @@ Avancerat skydd analyserar dina loggar för att identifiera onormalt beteende oc
 
 SQL Database, SQL-hanterad instans och Azure Synapse Analytics säkra kund data genom att kryptera data i rörelse med [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-SQL Database, SQL-hanterad instans och Azure Synapse Force Encryption (SSL/TLS) hela tiden för alla anslutningar. Detta säkerställer att alla data krypteras "under överföring" mellan klienten och servern oavsett inställningen för **kryptering** eller **TrustServerCertificate** i anslutnings strängen.
+SQL Database, SQL-hanterad instans och Azure Synapse Analytics Genomdriv kryptering (SSL/TLS) hela tiden för alla anslutningar. Detta säkerställer att alla data krypteras "under överföring" mellan klienten och servern oavsett inställningen för **kryptering** eller **TrustServerCertificate** i anslutnings strängen.
 
 Som bästa praxis rekommenderar vi att du i anslutnings strängen som används av programmet anger en krypterad anslutning och _**inte**_ litar på Server certifikatet. Detta tvingar ditt program att verifiera Server certifikatet och förhindrar därför att ditt program är sårbart för människor i mellan typ attacker.
 

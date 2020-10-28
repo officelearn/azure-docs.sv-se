@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 816f64f9987abbdcd49de93b3bc218ec1606d9f3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 91be1c51639aa3ae8acbf0c37f5c4a8174b5a592
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461659"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779449"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -19,7 +19,7 @@ Svar på vanliga frågor om Azure VMware-lösningen.
 
 #### <a name="what-is-azure-vmware-solution"></a>Vad är Azure VMware Solution?
 
-Eftersom företag eftersträvar IT-modernisering strategier för att förbättra flexibiliteten i verksamheten, minska kostnaderna och påskynda innovationen, har hybrid moln plattformarna uppfyllts som viktigare för kunders digitala omvandling. Azure VMware-lösningen kombinerar VMwares SDDC-programvara (Software Defined Data Center) med Microsoft Azure globalt moln tjänst eko system. Azure VMware-lösningen hanteras för att uppfylla kraven på prestanda, tillgänglighet, säkerhet och efterlevnad.
+Eftersom företag eftersträvar IT-modernisering strategier för att förbättra flexibiliteten i verksamheten, minska kostnaderna och påskynda innovationen, har hybrid moln plattformarna uppfyllts som viktigare för kunders digitala omvandling. Azure VMware-lösningen kombinerar VMwares Software-Defined Data Center-programvara (SDDC) med Microsoft Azure globalt moln tjänst eko system. Azure VMware-lösningen hanteras för att uppfylla kraven på prestanda, tillgänglighet, säkerhet och efterlevnad.
 
 ## <a name="azure-vmware-solution-service"></a>Azure VMware Solution service
 
@@ -49,7 +49,7 @@ Ja. Migrering av virtuella datorer och vMotion kan användas för att flytta vir
 
 #### <a name="is-a-specific-version-of-vsphere-required-in-on-premises-environments"></a>Krävs en speciell version av vSphere i lokala miljöer?
 
-Eftersom alla moln miljöer levereras med VMware HCX, vSphere 5,5 eller senare i lokala miljöer för vMotion.
+Alla moln miljöer levereras med VMware HCX, vSphere 5,5 eller senare i lokala miljöer för vMotion.
 
 #### <a name="what-does-the-change-control-process-look-like"></a>Vad ser processen för ändrings kontroll ut?
 
@@ -68,7 +68,7 @@ Microsoft och Red Hat delar ett integrerat, Samplacerat support team som tillhan
 VMware HCX Enterprise Edition (EE) är tillgänglig med Azure VMware-lösningen som en *förhands gransknings* funktion/tjänst. Även om VMware HCX EE för Azure VMware-lösningen är i för hands version, är det en kostnads fri funktion/tjänst och omfattas av förhands gransknings tjänstens allmänna villkor. När VMware HCX EE-tjänsten går till GA får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan stänga av eller avanmäla tjänsten.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Kan virtuella datorer i Azure VMware-lösningen hanteras av VMRC?
-Ja, förutsatt att det system som är installerat på kan komma åt det privata molnet vCenter och använder offentliga DNS (så att det kan matcha ESXi-värdnamn).
+Ja, förutsatt att det system som är installerat på kan komma åt det privata molnet vCenter och använder offentlig DNS för att matcha ESXi-värdnamn.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Finns det särskilda instruktioner för att installera och använda VMRC med virtuella Azure VMware-lösningar?
 Nej, Använd de [instruktioner som tillhandahålls av VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) och uppfylla de VM-krav som anges i dessa instruktioner. 
@@ -102,7 +102,7 @@ Varje ESXi-värd har två virtuellt San-diskgroups med en kapacitets nivå på 1
 
 #### <a name="how-much-network-bandwidth-is-available-in-each-esxi-host"></a>Hur mycket nätverks bandbredd finns på varje ESXi-värd?
 
-Varje ESXi-värd är en Azure VMware-lösning som är konfigurerad med 4 25 Gbit/s nätverkskort, med två nätverkskort som har allokerats för ESXi system trafik och två nätverkskort som har allokerats för arbets belastnings trafik. 
+Varje ESXi-värd i Azure VMware-lösningen konfigureras med 4 25 Gbit/s nätverkskort, två nätverkskort som har allokerats för ESXi system trafik och två nätverkskort som har allokerats för arbets belastnings trafik. 
 
 #### <a name="is-data-stored-on-the-vsan-datastores-encrypted-at-rest"></a>Är data lagrade på virtuellt San-datalager krypterade i vila?
 
@@ -116,9 +116,9 @@ Så långt vi vet så bör alla säkerhets kopierings lösningar som använder V
 
 Som de här säkerhets kopierings lösningarna installeras och hanteras av kunderna kan de kontakta respektive ISV för support. 
 
-#### <a name="what-is-the-correct-storage-policy-for-the-dedup-setup"></a>Vad är rätt lagrings princip för Deduplicerings konfigurationen?
+#### <a name="what-is-the-correct-storage-policy-for-the-dedupe-setup"></a>Vad är rätt lagrings princip för avinstallationen av undupe?
 
-Använd *thin_provision* lagrings princip för din VM-mall.  Standardvärdet är *thick_provision*.
+Använd *thin_provision* lagrings princip för din VM-mall.  Standardvärdet är *thick_provision* .
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>Loggar SNMP-infrastrukturen delade?
 
@@ -130,13 +130,13 @@ Nej.
 
 Nej, värdar och kluster för privata moln är dedikerade och raderas på ett säkert sätt före och efter användning.
 
-#### <a name="what-are-the-minimum-and-maximum-number-of-hosts-per-cluster"></a>Vilka är det lägsta och högsta antalet värdar per kluster?
+#### <a name="what-are-the-minimum-and-the-maximum-number-of-hosts-per-cluster"></a>Vad är det minsta och högsta antalet värdar per kluster?
 
 Kluster kan skalas mellan 3-och 16 ESXi-värdar. Utvärderings kluster är begränsade till tre värdar.
 
 #### <a name="can-i-scale-my-private-cloud-clusters"></a>Kan jag skala mina privata moln kluster?
 
-Ja, klustren skalas mellan det lägsta och högsta antalet ESXi-värdar. Utvärderings kluster är begränsade till tre värdar.
+Ja, klustren skalas mellan minimi-och Max antalet ESXi-värdar. Utvärderings kluster är begränsade till tre värdar.
 
 #### <a name="what-are-trial-clusters"></a>Vad är utvärderings kluster?
 
@@ -154,7 +154,7 @@ Privata moln använder vSphere 6,7, virtuellt San 6,7, VMware HCX och version 2,
 
 #### <a name="do-private-clouds-use-vmware-nsx"></a>Använder privata moln VMware-NSX?
 
-Ja, NSX-T 2,5 används för program vara som definierats i Azure VMware-lösningar privata moln.
+Ja, NSX-T 2,5 används för det programdefinierade nätverket i Azure VMware-lösning privata moln.
 
 #### <a name="can-i-use-vmware-nsx-v-in-a-private-cloud"></a>Kan jag använda VMware NSX-V i ett privat moln?
 
@@ -166,13 +166,13 @@ Nej, du behöver inte använda NSX lokalt.
 
 #### <a name="what-is-the-upgrade-and-update-schedule-for-vmware-software-in-a-private-cloud"></a>Vad är uppgraderings-och uppdaterings schema för VMware-programvara i ett privat moln?
 
-Uppgraderingarna av det privata molnet för program varu paketet görs för att hålla program varan i en version av den senaste versionen av program varu paketet från VMware. Program varu versionerna för det privata molnet kan skilja sig från de senaste versionerna av de enskilda program varu komponenterna (ESXi, NSX-T, vCenter, virtuellt SAN).
+Uppgraderingarna av det privata molnet för program varu paketet görs för att hålla program varan i en version av den senaste versionen av program varu paket från VMware. Program varu versionerna för det privata molnet kan skilja sig från de senaste versionerna av de enskilda program varu komponenterna (ESXi, NSX-T, vCenter, virtuellt SAN).
 
 #### <a name="how-often-will-the-private-cloud-software-stack-be-updated"></a>Hur ofta uppdateras program stacken för privata moln?
 
 Program varan för det privata molnet uppgraderas enligt ett schema som spårar program varu paketets version från VMware. Det privata molnet kräver ingen stillestånds tid för uppgraderingar.
 
-## <a name="connectivity"></a>Anslutningar
+## <a name="connectivity"></a>Anslutningsmöjlighet
 
 #### <a name="what-network-ip-address-planning-is-required-to-incorporate-private-clouds-with-on-premises-environments"></a>Vilken nätverks-IP-adress planering krävs för att inkludera privata moln med lokala miljöer?
 
@@ -228,7 +228,7 @@ Allmänna frågor om prissättning finns på [prissättnings](https://azure.micr
 
 #### <a name="who-supports-azure-vmware-solution"></a>Vem stöder Azure VMware-lösningen?
 
-Support för Azure VMware-lösningen levereras av Microsoft. Du kan skicka in en [support förfrågan](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Microsoft ger support för Azure VMware-lösningen. Du kan skicka in en [support förfrågan](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Vilka konton behöver jag för att skapa ett privat moln I Azure VMware-lösningen?
 
@@ -239,10 +239,10 @@ Du behöver ett Azure-konto i en Azure-prenumeration.
 * Du behöver ett [Azure-Enterprise-avtal (EA)](../cost-management-billing/manage/ea-portal-agreements.md) med Microsoft.
 * Du behöver ett Azure-konto i en Azure-prenumeration.
 
-Innan du skapar en Azure VMware-lösnings resurs måste du skicka in ett support ärende om du vill att dina noder ska tilldelas. Det tar upp till fem arbets dagar att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process.
+Innan du skapar en Azure VMware-lösnings resurs måste du skicka in ett support ärende för att allokera noderna. Det tar upp till fem arbets dagar att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process.
 
 
-1. I Azure Portal, under **Hjälp + Support**, skapa en **[ny supportbegäran](https://rc.portal.azure.com/#create/Microsoft.Support)** och ange följande information för biljetten:
+1. I Azure Portal, under **Hjälp + Support** , skapa en **[ny supportbegäran](https://rc.portal.azure.com/#create/Microsoft.Support)** och ange följande information för biljetten:
    - **Typ av problem:** Produkt
    - **Prenumeration:** Välj din prenumeration
    - **Tjänst:** Alla tjänster > Azure VMware-lösning
@@ -272,9 +272,9 @@ Innan du skapar en Azure VMware-lösnings resurs måste du skicka in ett support
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   ```
+   `"
 
-   Ytterligare sätt att registrera resurs leverantören finns i [Azure Resource providers och-typer](../azure-resource-manager/management/resource-providers-and-types.md).
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=21069522

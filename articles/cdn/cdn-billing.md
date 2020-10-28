@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: bd6b4831b29a99ed6694f75e64202f339385b7ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191160"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779177"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Så här fungerar fakturering för Azure CDN
 
@@ -38,7 +38,7 @@ En fakturerings region är ett geografiskt område som används för att avgöra
 
 - Zon 5: Indien
 
-Information om hur du använder POP-regioner finns [Azure CDN pop-platser efter region](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). En POP som finns i Mexiko är till exempel i Nordamerika region och ingår därför i zon 1. 
+Information om hur du använder POP-regioner finns [Azure CDN pop-platser efter region](./cdn-pop-locations.md). En POP som finns i Mexiko är till exempel i Nordamerika region och ingår därför i zon 1. 
 
 Information om Azure CDN priser finns i [Content Delivery Network prissättning](https://azure.microsoft.com/pricing/details/cdn/).
 
@@ -48,7 +48,7 @@ Azure CDN fakturerings region baseras på platsen för käll servern som leverer
 Exempel: om en användare som finns i Mexiko utfärdar en begäran och denna begäran betjänas av en server som finns i ett USA POP på grund av peering-eller trafik förhållanden, är fakturerings regionen USA.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>Vad är en fakturerbar Azure CDN transaktion?
-Alla HTTP (S)-förfrågningar som avslutas vid CDN är en fakturerbar händelse som innehåller alla svars typer: lyckades, misslyckades eller annat. Olika svar kan dock generera olika trafik mängder. Till exempel, *304 har inte ändrats* och andra skrivskyddade svar genererar lite trafik eftersom de är ett litet huvud svar. på samma sätt är fel svar (till exempel *404 som inte hittas*) fakturerbara men kostar en låg kostnad på grund av den stora nytto lasten.
+Alla HTTP (S)-förfrågningar som avslutas vid CDN är en fakturerbar händelse som innehåller alla svars typer: lyckades, misslyckades eller annat. Olika svar kan dock generera olika trafik mängder. Till exempel, *304 har inte ändrats* och andra skrivskyddade svar genererar lite trafik eftersom de är ett litet huvud svar. på samma sätt är fel svar (till exempel *404 som inte hittas* ) fakturerbara men kostar en låg kostnad på grund av den stora nytto lasten.
 
 ## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Vilka andra Azure-kostnader är associerade med Azure CDN använda?
 Om du använder Azure CDN uppstår även några användnings kostnader för de tjänster som används som ursprung för dina objekt. Dessa kostnader är vanligt vis en liten del av den totala förbruknings kostnaden för CDN.
@@ -66,7 +66,7 @@ Om du använder Azure Blob Storage som ursprung för ditt innehåll, kommer du �
 
 Mer information om Azure Storage fakturering finns i [förstå Azure Storage fakturering – bandbredd, transaktioner och kapacitet](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-Om du använder *värdbaserad tjänst leverans*debiteras du följande:
+Om du använder *värdbaserad tjänst leverans* debiteras du följande:
 
 - Azure Compute Time: de beräknings instanser som fungerar som ursprung.
 
@@ -94,7 +94,7 @@ Om du använder någon av följande Azure-tjänster som ditt CDN-ursprung kommer
 - Azure Media Services
 - Azure Virtual Machines
 - Virtual Network
-- Lastbalanserare
+- Load Balancer
 - Application Gateway
 - Azure DNS
 - ExpressRoute
@@ -119,4 +119,4 @@ Om du använder någon av följande Azure-tjänster som ditt CDN-ursprung kommer
 - Azure Cache for Redis
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Hur gör jag för att hantera mina kostnader effektivt?
-Ange det längsta TTL-värdet som är möjligt för ditt innehåll. 
+Ange det längsta TTL-värdet som är möjligt för ditt innehåll.

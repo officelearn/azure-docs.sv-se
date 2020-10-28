@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 13d4587a80cbbe66e18eb1bec8f3154221ac62b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43b4bcaee447d84efa088e84340ccfc717fe2777
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192563"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778318"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella POP IP-listan för Azure CDN
 
 ## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella Verizon POP IP-listan för Azure CDN
 
-Du kan använda REST API för att hämta en uppsättning IP-adresser för Verizons Point of Presence (POP)-servrar. Dessa POP-servrar utför förfrågningar till ursprungs servrar som är associerade med Azure Content Delivery Network-slutpunkter (CDN) i en Verizon-profil (**Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**). Observera att den här uppsättningen IP-adresser skiljer sig från de IP-adresser som en klient kan se när de gör förfrågningar till pop. 
+Du kan använda REST API för att hämta en uppsättning IP-adresser för Verizons Point of Presence (POP)-servrar. Dessa POP-servrar utför förfrågningar till ursprungs servrar som är associerade med Azure Content Delivery Network-slutpunkter (CDN) i en Verizon-profil ( **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** ). Observera att den här uppsättningen IP-adresser skiljer sig från de IP-adresser som en klient kan se när de gör förfrågningar till pop. 
 
-Syntaxen för REST API-åtgärden för att hämta POP-listan finns i [Edge Nodes-List](https://docs.microsoft.com/rest/api/cdn/edgenodes/list).
+Syntaxen för REST API-åtgärden för att hämta POP-listan finns i [Edge Nodes-List](/rest/api/cdn/edgenodes/list).
 
 ## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella listan med Microsoft POP IP-adresser för Azure CDN
 
@@ -48,4 +48,4 @@ Av säkerhets synpunkt kan du använda den här IP-listan för att genomdriva at
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om REST API finns i [Azure CDN REST API](https://docs.microsoft.com/rest/api/cdn/).
+Information om REST API finns i [Azure CDN REST API](/rest/api/cdn/).

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 04/16/2019
-ms.openlocfilehash: 208793d3ba8c3463abe892b368beb41d4b79f214
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7f2f060f32cf3bf92660a2e8b75a45b7ec76b82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617459"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779772"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Innehålls referens för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -64,7 +64,7 @@ I den här artikeln hittar du en innehålls referens till olika guider, skript o
 
 - [Manuell inställning](../database/performance-guidance.md)
 - [Använda DMV:er för att övervaka prestanda](../database/monitoring-with-dmvs.md)
-- [Använd Query Store för att övervaka prestanda](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [Använd Query Store för att övervaka prestanda](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Felsöka prestanda med Intelligent Insights](../database/intelligent-insights-troubleshoot-performance.md)
 - [Använd loggen för Intelligent Insights diagnostik](../database/intelligent-insights-use-diagnostics-log.md)
 - [Övervaka In-Memory OLTP-utrymme](../in-memory-oltp-monitor-space.md)

@@ -13,7 +13,7 @@
       href: invite-users.md
 - name: Självstudier
   items:
-    - name: Anslut till Azure
+    - name: Skapa ett nytt konto som är anslutet till Azure
       href: connect-to-azure.md
     - name: Använda Video Indexer-API
       href: video-indexer-use-apis.md

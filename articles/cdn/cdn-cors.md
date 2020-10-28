@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7edf790e526329dd285d03a31137a26220e52ee
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85921164"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778939"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Använda Azure CDN med CORS
 ## <a name="what-is-cors"></a>Vad är CORS?
@@ -69,13 +69,13 @@ På Azure CDN Standard från Microsoft kan du skapa en regel i [standard regel m
 ![Regel exempel med standard regel motor](./media/cdn-cors/cdn-standard-cors.png)
 
 > [!TIP]
-> Du kan lägga till ytterligare åtgärder i regeln för att ändra ytterligare svarshuvuden, till exempel **Access-Control-Allow-Methods**.
+> Du kan lägga till ytterligare åtgärder i regeln för att ändra ytterligare svarshuvuden, till exempel **Access-Control-Allow-Methods** .
 > 
 
-På **Azure CDN Standard från Akamai**är den enda mekanismen att tillåta för flera ursprung utan att använda jokertecken för att använda [cachelagring av frågesträngar](cdn-query-string.md). Aktivera inställningen för frågesträngen för CDN-slutpunkten och Använd sedan en unik frågesträng för begär Anden från varje tillåten domän. Detta leder till att CDN cachelagrar ett separat objekt för varje unik frågesträng. Den här metoden är inte idealisk, men eftersom det leder till att flera kopior av samma fil cachelagras i CDN.  
+På **Azure CDN Standard från Akamai** är den enda mekanismen att tillåta för flera ursprung utan att använda jokertecken för att använda [cachelagring av frågesträngar](cdn-query-string.md). Aktivera inställningen för frågesträngen för CDN-slutpunkten och Använd sedan en unik frågesträng för begär Anden från varje tillåten domän. Detta leder till att CDN cachelagrar ett separat objekt för varje unik frågesträng. Den här metoden är inte idealisk, men eftersom det leder till att flera kopior av samma fil cachelagras i CDN.  
 
 ### <a name="azure-cdn-premium-from-verizon"></a>Azure CDN Premium från Verizon
-Med hjälp av Verizon Premium Rules-motorn måste du [skapa en regel](cdn-rules-engine.md) för att kontrol lera **käll** rubriken på begäran.  Om det är ett giltigt ursprung anger din regel **Access-Control-Allow-Origin-** huvudet med ursprunget i begäran.  Om det ursprung som anges i **ursprungs** huvudet inte är tillåtet, ska regeln utesluta rubriken **Access-Control-Allow-Origin** , som gör att webbläsaren avvisar begäran. 
+Med hjälp av Verizon Premium Rules-motorn måste du [skapa en regel](./cdn-verizon-premium-rules-engine.md) för att kontrol lera **käll** rubriken på begäran.  Om det är ett giltigt ursprung anger din regel **Access-Control-Allow-Origin-** huvudet med ursprunget i begäran.  Om det ursprung som anges i **ursprungs** huvudet inte är tillåtet, ska regeln utesluta rubriken **Access-Control-Allow-Origin** , som gör att webbläsaren avvisar begäran. 
 
 Det finns två sätt att göra detta med Premium Rules-motorn. I båda fallen ignoreras rubriken för **Access-Control-Allow-Origin** från filens ursprungs Server och CDN: s regel motor hanterar de tillåtna CORS-ursprungen fullständigt.
 
@@ -91,7 +91,7 @@ https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.co
 > 
 > 
 
-Om det reguljära uttrycket matchar, kommer din regel att ersätta **Access-Control-Allow-Origin** -huvudet (om det finns) från ursprunget med det ursprung som skickade begäran.  Du kan också lägga till ytterligare CORS-rubriker, till exempel **Access-Control-Allow-Methods**.
+Om det reguljära uttrycket matchar, kommer din regel att ersätta **Access-Control-Allow-Origin** -huvudet (om det finns) från ursprunget med det ursprung som skickade begäran.  Du kan också lägga till ytterligare CORS-rubriker, till exempel **Access-Control-Allow-Methods** .
 
 ![Regel exempel med reguljärt uttryck](./media/cdn-cors/cdn-cors-regex.png)
 
@@ -103,7 +103,4 @@ I stället för reguljära uttryck kan du i stället skapa en separat regel för
 > [!TIP]
 > I exemplet ovan talar användningen av jokertecknet * till att regel motorn matchar både HTTP och HTTPS.
 > 
-> 
-
-
-
+>

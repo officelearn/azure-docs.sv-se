@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 65b3d5a29028214a52e6b26430472394c91c6f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81c92b6ef5bdf89391364bc238f55200eb3679f6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887066"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778162"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Övervaka hälsotillståndet för dina Azure CDN-resurser
   
-Azure CDN Resource Health är en del av [Azures resurs hälsa](../resource-health/resource-health-overview.md).  Du kan använda Azure Resource Health för att övervaka hälso tillståndet för CDN-resurser och få instruktioner som kan åtgärdas för att felsöka problem.
+Azure CDN Resource Health är en del av [Azures resurs hälsa](../service-health/resource-health-overview.md).  Du kan använda Azure Resource Health för att övervaka hälso tillståndet för CDN-resurser och få instruktioner som kan åtgärdas för att felsöka problem.
 
 >[!IMPORTANT] 
 >Azure CDN resurs hälsa för närvarande endast för hälso tillstånd för globala CDN-leverans-och API-funktioner.  Azure CDN resurs hälsa verifierar inte enskilda CDN-slutpunkter.
@@ -38,7 +38,7 @@ Azure CDN Resource Health är en del av [Azures resurs hälsa](../resource-healt
 
     ![Knappen Inställningar](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. Klicka på **resurs hälsa**under *support + fel sökning*.
+3. Klicka på **resurs hälsa** under *support + fel sökning* .
 
     ![CDN-resurs hälsa](./media/cdn-resource-health/cdn-resource-health3.png)
 
@@ -51,7 +51,7 @@ Azure CDN Resource Health är en del av [Azures resurs hälsa](../resource-healt
 
 Status som är relaterade till Azure CDN resurs hälsa kan hittas nedan.
 
-|Meddelande | Rekommenderad åtgärd |
+|Meddelande | Rekommenderad åtgärd |
 |---|---|
 |Du kan ha stoppat, tagit bort eller felaktigt konfigurerat en eller flera CDN-slutpunkter | Du kan ha stoppat, tagit bort eller felaktigt konfigurerat en eller flera CDN-slutpunkter.|
 |CDN-hanteringstjänsten är tyvärr inte tillgänglig just nu | Kom tillbaka hit för status uppdateringar; Kontakta supporten om problemet kvarstår efter den förväntade lösnings tiden.|
@@ -62,6 +62,6 @@ Vi har tyvärr problem med några av våra CDN-leverantörer | Kom tillbaka hit 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Läs en översikt över Azure Resource Health](../resource-health/resource-health-overview.md)
+- [Läs en översikt över Azure Resource Health](../service-health/resource-health-overview.md)
 - [Felsök problem med CDN-komprimering](./cdn-troubleshoot-compression.md)
 - [Felsök problem med 404-fel](./cdn-troubleshoot-endpoint.md)

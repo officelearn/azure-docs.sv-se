@@ -59,13 +59,13 @@
         - name: Rollbaserad åtkomstkontroll
           displayName: rbac
           href: role-based-access-control.md
+        - name: Stöd för Azure-princip
+          href: policy.md
         - name: Säkerhetskontroller av Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Säkerhetsbaslinje
           href: security-baseline.md
-        - name: Stöd för Azure-princip
-          href: policy.md
     - name: Analys med Azure Synapse Link
       items:
         - name: Azure Synapse Link för Cosmos DB
@@ -202,11 +202,14 @@
           href: templates-samples-sql.md
     - name: Begrepp
       items:
-        - name: Modelldokumentdata
-          displayName: document
-          href: modeling-data.md
-        - name: Partitionering
+        - name: Modellering och partitionering
           items:
+            - name: Modelldokumentdata
+              displayName: document
+              href: modeling-data.md
+            - name: Modellering och partitionering – ett verkligt exempel
+              displayName: 'model, partition, example'
+              href: how-to-model-partition-example.md
             - name: Syntetisk partitionsnyckel
               href: synthetic-partition-keys.md
         - name: SQL-fråga
@@ -631,13 +634,13 @@
           items:
             - name: Etablerat dataflöde
               items:
-                - name: Etablera standarddataflöde (manuellt) på en container
+                - name: Etablera standarddataflöde (manuellt) – container
                   displayName: 'request units, RUs, RU, collection level'
                   href: how-to-provision-container-throughput.md
-                - name: Etablera standarddataflöde (manuellt) på en databas
+                - name: Etablera standarddataflöde (manuellt) – databas
                   displayName: 'request units, RUs, RU, shared throughput, database level'
                   href: how-to-provision-database-throughput.md
-                - name: Etablera dataflöde med autoskalning på en databas eller container
+                - name: Etablera dataflöde med autoskalning – databas eller container
                   displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
                   href: how-to-provision-autoscale-throughput.md
                 - name: Beräkna RU/s med Cosmos Capacity Planner
@@ -657,9 +660,6 @@
               href: large-partition-keys.md
             - name: Fråga en container
               href: how-to-query-container.md
-            - name: Datamodellering och partitionering – ett verkligt exempel
-              displayName: 'model, partition, example'
-              href: how-to-model-partition-example.md
             - name: Migrera till partitionerade containrar
               href: migrate-containers-partitioned-to-nonpartitioned.md
             - name: Ställ in TTL (Time To Live)
@@ -1179,8 +1179,6 @@
       items:
         - name: Svarsrubriker
           href: gremlin-headers.md
-        - name: Begränsningar
-          href: gremlin-limits.md
         - name: REST-resursprovider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Resource Manager-mall
@@ -1235,7 +1233,7 @@
       items:
         - name: VANLIGA FRÅGOR OCH SVAR
           href: table-api-faq.md
-    - name: Anvisningar
+    - name: Instruktionsguider
       items:
         - name: Skapa appar med tabell-API
           href: table-support.md

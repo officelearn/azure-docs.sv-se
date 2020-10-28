@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 66e0ac622479d38d2e2a3cbf499bb7900251571d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12cf4b029424bbbdb7449e6e1d04684ed485ef97
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359399"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779024"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -36,7 +36,7 @@ Några viktiga attribut i den anpassade HTTPS-funktionen är:
 
 - Komplett certifikathantering finns tillgänglig: All anskaffning och hantering av certifikat hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan de upphör att gälla, vilket tar bort risken för avbrott i tjänsten på grund av ett certifikat upphör att gälla.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > - Aktivera HTTPS-protokollet på din anpassade domän.
 > - Använda ett CDN-hanterat certifikat 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 > - Verifiera domänen
 > - Inaktivera HTTPS-protokollet på din anpassade domän.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
@@ -68,9 +68,9 @@ När du använder ett CDN-hanterat certifikat kan du aktivera HTTPS med några f
 
 Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
-1. Gå till [Azure Portal](https://portal.azure.com) för att hitta ett certifikat som hanteras av din Azure CDN. Sök efter och välj **CDN-profiler**. 
+1. Gå till [Azure Portal](https://portal.azure.com) för att hitta ett certifikat som hanteras av din Azure CDN. Sök efter och välj **CDN-profiler** . 
 
-2. Välj din **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai**, **Azure CDN Standard från Verizon**eller **Azure CDN Premium från Verizon** -profilen.
+2. Välj din **Azure CDN Standard från Microsoft** , **Azure CDN Standard från Akamai** , **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** -profilen.
 
 3. I listan med CDN-slutpunkter väljer du slutpunkten som innehåller din anpassade domän.
 
@@ -84,7 +84,7 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
     Sidan **Anpassad domän** visas.
 
-5. Under certifikathanteringstyp väljer du **CDN-hanterat**.
+5. Under certifikathanteringstyp väljer du **CDN-hanterat** .
 
 6. Välj **På** för att aktivera HTTPS.
 
@@ -99,7 +99,7 @@ Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 > Det här alternativet är endast tillgängligt med **Azure CDN från Microsoft** och **Azure CDN från Verizon** -profiler. 
 >
  
-Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure CDN använder denna säkerhetsmekanism för att hämta certifikatet, och det krävs några ytterligare steg. När du skapar ditt TLS/SSL-certifikat måste du skapa det med en tillåten certifikat utfärdare (CA). Om du använder en icke-tillåten certifikatutfärdare kan din begäran avvisas. En lista över tillåtna ca: er finns i [tillåtna certifikat utfärdare för att aktivera anpassad https på Azure CDN](cdn-troubleshoot-allowed-ca.md). För **Azure CDN från Verizon**godkänns alla giltiga ca: er. 
+Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en integrering med Azure Key Vault där du kan lagra certifikaten säkert. Azure CDN använder denna säkerhetsmekanism för att hämta certifikatet, och det krävs några ytterligare steg. När du skapar ditt TLS/SSL-certifikat måste du skapa det med en tillåten certifikat utfärdare (CA). Om du använder en icke-tillåten certifikatutfärdare kan din begäran avvisas. En lista över tillåtna ca: er finns i [tillåtna certifikat utfärdare för att aktivera anpassad https på Azure CDN](cdn-troubleshoot-allowed-ca.md). För **Azure CDN från Verizon** godkänns alla giltiga ca: er. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Förbered ditt Azure Key Vault-konto och certifikat
  
@@ -128,15 +128,15 @@ Ge Azure CDN behörighet att komma åt certifikaten (hemligheterna) på ditt Azu
 
     ![Skapa en ny åtkomstprincip](./media/cdn-custom-ssl/cdn-new-access-policy.png)
 
-2. I **Välj huvudkonto** söker du efter **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** och väljer **Microsoft.Azure.Cdn**. Klicka på **Välj**.
+2. I **Välj huvudkonto** söker du efter **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** och väljer **Microsoft.Azure.Cdn** . Klicka på **Välj** .
 
     ![Åtkomstprincipinställningar](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. Välj **certifikat behörigheter**och markera sedan kryss rutorna för **Hämta** och **lista** så att CDN kan utföra dessa behörigheter för att hämta och lista certifikaten.
+3. Välj **certifikat behörigheter** och markera sedan kryss rutorna för **Hämta** och **lista** så att CDN kan utföra dessa behörigheter för att hämta och lista certifikaten.
 
-4. Välj **hemliga behörigheter**och markera sedan kryss rutorna för **Hämta** och **lista** så att CDN kan utföra dessa behörigheter för att hämta och lista hemligheterna.
+4. Välj **hemliga behörigheter** och markera sedan kryss rutorna för **Hämta** och **lista** så att CDN kan utföra dessa behörigheter för att hämta och lista hemligheterna.
 
-5. Välj **OK**. 
+5. Välj **OK** . 
 
     Azure CDN har nu åtkomst till nyckelvalvet och certifikaten (hemligheterna) som lagras i nyckelvalvet.
  
@@ -148,7 +148,7 @@ Ge Azure CDN behörighet att komma åt certifikaten (hemligheterna) på ditt Azu
 
     Sidan **Anpassad domän** visas.
 
-3. Under Certifikathanteringstyp väljer du **Använd mitt eget certifikat**. 
+3. Under Certifikathanteringstyp väljer du **Använd mitt eget certifikat** . 
 
     ![Konfigurera ditt certifikat](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
 
@@ -182,7 +182,7 @@ CNAME-posten ska ha följande format, där *Namn* är namnet på din anpassade d
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
-Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
+Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](./cdn-map-content-to-custom-domain.md).
 
 Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och skapar ett dedikerat certifikat för domännamnet. DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
 
@@ -194,7 +194,7 @@ Det tar vanligt vis några timmar att validera automatiskt. Om du inte ser din d
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Den anpassade domänen har inte mappats till CDN-slutpunkten
 
 >[!NOTE]
->Om du använder **Azure CDN från Akamai**bör följande CNAME konfigureras för att aktivera automatisk domän validering. "_acme-Challenge. &lt; anpassat domän &gt; -värdnamn-> CNAME-> &lt; anpassat domän-värdnamn &gt; . AK-Acme-Challenge.azureedge.net "
+>Om du använder **Azure CDN från Akamai** bör följande CNAME konfigureras för att aktivera automatisk domän validering. "_acme-Challenge. &lt; anpassat domän &gt; -värdnamn-> CNAME-> &lt; anpassat domän-värdnamn &gt; . AK-Acme-Challenge.azureedge.net "
 
 Om posten CNAME innehåller cdnverify-underdomänen följer du resten av anvisningarna i det här steget.
 
@@ -262,9 +262,9 @@ I föregående steg aktiverade du HTTPS-protokollet på en anpassad domän. Om d
 
 ### <a name="disable-the-https-feature"></a>Inaktivera HTTPS-funktionen 
 
-1. Sök efter och välj **CDN-profiler**i [Azure Portal](https://portal.azure.com). 
+1. Sök efter och välj **CDN-profiler** i [Azure Portal](https://portal.azure.com). 
 
-2. Välj din **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**eller **Azure CDN Premium från Verizon** -profilen.
+2. Välj din **Azure CDN Standard från Microsoft** , **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon** -profilen.
 
 3. I listan över slut punkter väljer du slut punkten som innehåller din anpassade domän.
 
@@ -272,7 +272,7 @@ I föregående steg aktiverade du HTTPS-protokollet på en anpassad domän. Om d
 
     ![Lista med anpassade domäner](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
 
-5. Välj **inaktivera** om du vill inaktivera https och välj sedan **Använd**.
+5. Välj **inaktivera** om du vill inaktivera https och välj sedan **Använd** .
 
     ![Dialogrutan Anpassad HTTPS](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
@@ -337,4 +337,3 @@ Gå vidare till nästa kurs om du vill lära dig hur du konfigurerar cachelagrin
 
 > [!div class="nextstepaction"]
 > [Självstudie: Konfigurera Azures CDN-cachelagringsregler](cdn-caching-rules-tutorial.md)
-

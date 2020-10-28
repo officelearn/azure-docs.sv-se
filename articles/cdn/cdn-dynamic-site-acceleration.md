@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: bae131c086e8fbf062015ee27c563bb988731cad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5387fdc224cd77ee5273767df5033a51dc27608c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84888544"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778871"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Acceleration av dynamisk webbplats via Azure CDN
 
@@ -27,12 +27,12 @@ Med nedbrytning av sociala medier, elektroniskt handels-och webbanpassade webbpl
 
 Standard funktioner för Content Delivery Network (CDN) inkluderar möjligheten att cachelagra filer närmare slutanvändare för att påskynda leveransen av statiska filer. Men med dynamiska webb program går det inte att cachelagra innehållet i gräns platser eftersom servern genererar innehållet som svar på användar beteendet. Att påskynda leveransen av sådant innehåll är mer komplex än vanlig Edge-cachelagring och kräver en komplett lösning som finjusterar varje element längs hela data Sök vägen från start till leverans. Med Azure CDN optimering av dynamisk webbplats acceleration (DSA) är prestandan för webb sidor med dynamiskt innehåll Mätbart bättre.
 
-**Azure CDN från Akamai** och **Azure CDN från Verizon** erbjuder båda DSA-optimering via menyn **optimerad för** när du skapar en slut punkt. Den dynamiska webbplats accelerationen från Microsoft erbjuds via [Azures frontend-tjänst](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+**Azure CDN från Akamai** och **Azure CDN från Verizon** erbjuder båda DSA-optimering via menyn **optimerad för** när du skapar en slut punkt. Den dynamiska webbplats accelerationen från Microsoft erbjuds via [Azures frontend-tjänst](../frontdoor/front-door-overview.md).
 
 > [!Important]
 > För **Azure CDN från Akamai** -profiler, kan du ändra optimeringen för en CDN-slutpunkt när den har skapats.
 >   
-> För **Azure CDN från Verizon**-profiler kan du inte ändra optimeringen av en CDN-slutpunkt när den väl har skapats.
+> För **Azure CDN från Verizon** -profiler kan du inte ändra optimeringen av en CDN-slutpunkt när den väl har skapats.
 
 ## <a name="cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files"></a>Konfiguration av CDN-slutpunkt för att påskynda leverans av dynamiska filer
 
@@ -40,21 +40,21 @@ Om du vill konfigurera en CDN-slutpunkt för att optimera leverans av dynamiska 
 
 **Konfigurera en CDN-slutpunkt för DSA-optimering med hjälp av Azure Portal:**
 
-1. På sidan **CDN-profil** väljer du **slut punkt**.
+1. På sidan **CDN-profil** väljer du **slut punkt** .
 
    ![Lägg till en ny CDN-slutpunkt](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
 
    Fönstret **Lägg till slutpunkt** visas.
 
-2. Under **optimerad för**väljer du **dynamisk webbplats acceleration**.
+2. Under **optimerad för** väljer du **dynamisk webbplats acceleration** .
 
     ![Skapa en ny CDN-slutpunkt med DSA](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
-3. För **avsöknings Sök väg**anger du en giltig sökväg till en fil.
+3. För **avsöknings Sök väg** anger du en giltig sökväg till en fil.
 
     Avsöknings Sök vägen är en funktion som är speciell för DSA och en giltig sökväg krävs för att kunna skapas. DSA använder en liten *avsöknings Sök vägs* fil som placerats på ursprungs servern för att optimera konfigurationen för nätverks routning för CDN. För avsöknings Sök vägs filen kan du ladda ned och ladda upp exempel filen till din webbplats eller använda en befintlig till gång på ditt ursprung som är cirka 10 KB stor.
 
-4. Ange andra obligatoriska slut punkts alternativ (mer information finns i [skapa en ny CDN-slutpunkt](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)) och välj sedan **Lägg till**.
+4. Ange andra obligatoriska slut punkts alternativ (mer information finns i [skapa en ny CDN-slutpunkt](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)) och välj sedan **Lägg till** .
 
    När CDN-slutpunkten har skapats tillämpar den DSA-optimeringar för alla filer som matchar vissa villkor. 
 
@@ -63,11 +63,11 @@ Om du vill konfigurera en CDN-slutpunkt för att optimera leverans av dynamiska 
 
 1. På sidan **CDN-profil** väljer du den slut punkt som du vill ändra.
 
-2. Välj **optimering**i det vänstra fönstret. 
+2. Välj **optimering** i det vänstra fönstret. 
 
    Sidan **optimering** visas.
 
-3. Under **optimerad för**väljer du **dynamisk webbplats acceleration**och väljer sedan **Spara**.
+3. Under **optimerad för** väljer du **dynamisk webbplats acceleration** och väljer sedan **Spara** .
 
 > [!Note]
 > DSA debiteras extra kostnader. Mer information finns i [Content Delivery Network prissättning](https://azure.microsoft.com/pricing/details/cdn/).
@@ -109,9 +109,9 @@ TCP *långsam start* är en algoritm för TCP-protokollet som förhindrar överb
 
 1. Övervakning av hälsa och bandbredd används för att mäta bandbredden för anslutningar mellan Edge PoP-servrar.
     
-2. Mått delas mellan Edge PoP-servrar så att varje server är medveten om nätverks förhållandena och Server hälsan för de andra pop-servrarna runt dem.  
+2. Mått delas mellan Edge PoP-servrar så att varje server är medveten om nätverks förhållandena och Server hälsan för de andra pop-servrarna runt dem.  
     
-3. CDN Edge-servrarna gör antaganden om vissa överförings parametrar, till exempel vad den optimala fönster storleken ska vara när den kommunicerar med andra CDN Edge-servrar i närheten. Det här steget innebär att den inledande storleken på överbelastnings fönstret kan ökas om hälso tillståndet för anslutningen mellan CDN Edge-servrarna kan hantera data överföringar med högre paket.  
+3. CDN Edge-servrarna gör antaganden om vissa överförings parametrar, till exempel vad den optimala fönster storleken ska vara när den kommunicerar med andra CDN Edge-servrar i närheten. Det här steget innebär att den inledande storleken på överbelastnings fönstret kan ökas om hälso tillståndet för anslutningen mellan CDN Edge-servrarna kan hantera data överföringar med högre paket.  
 
 #### <a name="leveraging-persistent-connections"></a>Använda beständiga anslutningar
 
@@ -157,7 +157,7 @@ För **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai*
 
 För att få åtkomst till regler för cachelagring:
 
-1. På sidan **CDN-profil** under Inställningar väljer du **regler för cachelagring**.  
+1. På sidan **CDN-profil** under Inställningar väljer du **regler för cachelagring** .  
     
     ![Knappen CDN-cachelagringsregler](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -165,17 +165,17 @@ För att få åtkomst till regler för cachelagring:
 
 2. Skapa en global eller anpassad regel för cachelagring för att aktivera cachelagring för din DSA-slutpunkt. 
 
-För **Azure CDN Premium från Verizon** -profiler aktiverar du cachelagring för vissa DSA-slutpunkter med hjälp av [regel motorn](cdn-rules-engine.md). Alla regler som skapas påverkar bara de slut punkter i din profil som är optimerade för DSA. 
+För **Azure CDN Premium från Verizon** -profiler aktiverar du cachelagring för vissa DSA-slutpunkter med hjälp av [regel motorn](./cdn-verizon-premium-rules-engine.md). Alla regler som skapas påverkar bara de slut punkter i din profil som är optimerade för DSA. 
 
 För att komma åt regel motorn:
     
-1. På sidan **CDN-profil** väljer du **Hantera**.  
+1. På sidan **CDN-profil** väljer du **Hantera** .  
     
     ![Knappen Hantera CDN-profil](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     Hanterings portalen för CDN öppnas.
 
-2. Välj **och**på hanterings portalen för CDN och välj sedan **regel motor**. 
+2. Välj **och** på hanterings portalen för CDN och välj sedan **regel motor** . 
 
     ![Regel motor för DSA](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
 
@@ -183,7 +183,4 @@ För att komma åt regel motorn:
 
 Du kan också använda två CDN-slutpunkter: en slut punkt som är optimerad med DSA för att leverera dynamiska till gångar och en annan slut punkt som är optimerad med en statisk optimerings typ, t. ex. allmän webb leverans, för att leverera till gångar Ändra webb sidans webb adresser så att de länkar direkt till till gången på den CDN-slutpunkt som du planerar att använda. 
 
-Exempel: `mydynamic.azureedge.net/index.html` är en dynamisk sida och läses in från DSA-slutpunkten.HTML-sidan hänvisar till flera statiska till gångar, till exempel JavaScript-bibliotek eller avbildningar som läses in från den statiska CDN-slutpunkten, till exempel `mystatic.azureedge.net/banner.jpg` och `mystatic.azureedge.net/scripts.js` . 
-
-
-
+Exempel: `mydynamic.azureedge.net/index.html` är en dynamisk sida och läses in från DSA-slutpunkten.  HTML-sidan hänvisar till flera statiska till gångar, till exempel JavaScript-bibliotek eller avbildningar som läses in från den statiska CDN-slutpunkten, till exempel `mystatic.azureedge.net/banner.jpg` och `mystatic.azureedge.net/scripts.js` .

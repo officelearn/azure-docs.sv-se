@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: ril
-ms.openlocfilehash: 698b1c7734882ea7f11114476b5e9a7f36a23a0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4ed04185da251d9042f6b54a192d0e49ef20ede
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192626"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778540"
 ---
 # <a name="http2-support-in-azure-cdn"></a>Stöd för HTTP/2 i Azure CDN
 
@@ -57,7 +57,7 @@ Alla större webbläsare har implementerat HTTP/2-stöd i sina aktuella versione
 
 HTTP/2-stöd är för närvarande aktivt för alla Azure CDN profiler. Ingen ytterligare åtgärd krävs från kunderna.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Om du vill se fördelarna med HTTP/2 i praktiken kan du läsa [den här demon från Akamai](https://http2.akamai.com/demo).
 
@@ -67,4 +67,4 @@ Om du vill veta mer om HTTP/2 kan du besöka följande resurser:
 *   [Vanliga frågor och svar om HTTP/2](https://http2.github.io/faq/)
 *   [Akamai HTTP/2-information](https://http2.akamai.com/)
 
-Mer information om tillgängliga funktioner i Azure CDN finns i [Översikt över Azure CDN](https://azure.microsoft.com/documentation/articles/cdn-overview/).
+Mer information om tillgängliga funktioner i Azure CDN finns i [Översikt över Azure CDN](./cdn-overview.md).

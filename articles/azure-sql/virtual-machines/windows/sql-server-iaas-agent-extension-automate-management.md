@@ -16,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: df3e2ae2737aa8bfedd0e8d7daa9d42771f1937b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad1b68242e7cb8eba885c78ab62572d257198d01
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570348"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779721"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatisera hanterings uppgifter på virtuella Azure-datorer med hjälp av tillägget SQL Server IaaS-agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,7 +31,7 @@ SQL Server IaaS Agent-tillägget (SqlIaasExtension) körs på virtuella Azure-da
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-För att visa den klassiska versionen av den här artikeln, se [SQL Server IaaS agent Extension för SQL Server virtuella datorer (klassisk)](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
+För att visa den klassiska versionen av den här artikeln, se [SQL Server IaaS agent Extension för SQL Server virtuella datorer (klassisk)](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension).
 
 
 ## <a name="supported-services"></a>Tjänster som stöds
@@ -51,7 +51,7 @@ När SQL Server IaaS agent-tillägget är installerat och körs, blir administra
 ## <a name="prerequisites"></a>Förutsättningar
 Här följer kraven för att använda SQL Server IaaS agent Extension på den virtuella datorn:
 
-**Operativ system**:
+**Operativ system** :
 
 * Windows Server 2008 R2
 * Windows Server 2012
@@ -59,7 +59,7 @@ Här följer kraven för att använda SQL Server IaaS agent Extension på den vi
 * Windows Server 2016
 * Windows Server 2019 
 
-**SQL Server version**:
+**SQL Server version** :
 
 * SQL Server 2008 
 * SQL Server 2008 R2
@@ -69,7 +69,7 @@ Här följer kraven för att använda SQL Server IaaS agent Extension på den vi
 * SQL Server 2017
 * SQL Server 2019
 
-**Azure PowerShell**:
+**Azure PowerShell** :
 
 * [Hämta och konfigurera de senaste Azure PowerShell-kommandona](/powershell/azure/)
 
@@ -101,7 +101,7 @@ Följ dessa steg om du vill använda en namngiven instans av SQL Server:
 
 
 ## <a name="get-the-status-of-the-sql-server-iaas-extension"></a>Hämta status för SQL Server IaaS-tillägget
-Ett sätt att kontrol lera att tillägget är installerat är att Visa agent statusen i Azure Portal. Välj **alla inställningar** i fönstret virtuell dator och välj sedan **tillägg**. Du bör se **SqlIaasExtension** -tillägget som visas.
+Ett sätt att kontrol lera att tillägget är installerat är att Visa agent statusen i Azure Portal. Välj **alla inställningar** i fönstret virtuell dator och välj sedan **tillägg** . Du bör se **SqlIaasExtension** -tillägget som visas.
 
 ![Status för SQL Server IaaS agent extension i Azure Portal](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-portal.png)
 
@@ -120,7 +120,7 @@ Föregående kommando bekräftar att agenten är installerad och innehåller all
    ```
 
 ## <a name="removal"></a>Borttagning
-I Azure Portal kan du avinstallera tillägget genom att välja ellipsen i fönstret **tillägg** i egenskaperna för den virtuella datorn. Välj sedan **Ta bort**.
+I Azure Portal kan du avinstallera tillägget genom att välja ellipsen i fönstret **tillägg** i egenskaperna för den virtuella datorn. Välj sedan **Ta bort** .
 
 ![Avinstallera SQL Server IaaS agent extension i Azure Portal](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-uninstall.png)
 

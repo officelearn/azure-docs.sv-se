@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: ca74c5f54cfb513f4611fafc40d34378707ff949
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0612445d0a1bfa10182eb8ce827001d0856f4d9b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746497"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777915"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Snabb start: skapa en mall för Azure CDN profil och slut punkts ARM
 
@@ -46,7 +46,7 @@ Den här mallen har kon figurer ATS för att skapa en:
 
 En Azure-resurs har definierats i mallen:
 
-* **[Microsoft. CDN/profiler](https://docs.microsoft.com/azure/templates/microsoft.cdn/profiles)**
+* **[Microsoft. CDN/profiler](/azure/templates/microsoft.cdn/profiles)**
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -107,7 +107,7 @@ När de inte längre behövs kan du använda kommandot [AZ Group Delete](/cli/az
 
 ### <a name="powershell"></a>PowerShell
 
-När de inte längre behövs kan du använda kommandot [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) för att ta bort resurs gruppen och alla resurser som ingår i.
+När de inte längre behövs kan du använda kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) för att ta bort resurs gruppen och alla resurser som ingår i.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupCDN

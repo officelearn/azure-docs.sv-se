@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 0710f2f31510ae299fafe89dc1798f40e325e8b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c7e4ff05307452da67c37b23bf492db8855e2ef
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192585"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778378"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimera Azure CDN för typen av innehålls leverans
 
@@ -39,7 +39,7 @@ Den här artikeln innehåller en översikt över olika optimerings funktioner oc
 * [Allmän webb leverans](#general-web-delivery). Den här optimeringen används också för medie direkt uppspelning och stor fil hämtning.
 
 > [!NOTE]
-> Den dynamiska webbplats accelerationen från Microsoft erbjuds via [Azures frontend-tjänst](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+> Den dynamiska webbplats accelerationen från Microsoft erbjuds via [Azures frontend-tjänst](../frontdoor/front-door-overview.md).
 
 **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** -profiler stöder följande optimeringar:
 
@@ -70,7 +70,7 @@ När du skapar en CDN-slutpunkt väljer du en optimerings typ som bäst matchar 
 
     ![Slut punkts val](./media/cdn-optimization-overview/01_Akamai.png)
 
-2. Under Inställningar väljer du **optimering**. Välj sedan en typ från List rutan **optimerad för** .
+2. Under Inställningar väljer du **optimering** . Välj sedan en typ från List rutan **optimerad för** .
 
     ![Optimering och typ val](./media/cdn-optimization-overview/02_Select.png)
 
@@ -95,7 +95,7 @@ Medie direkt uppspelning är tids känsligt, eftersom paket som kommer sent på 
 
 Det här scenariot är vanligt för Azure Media service-kunder. När du använder Azure Media Services får du en enda slut punkt för direkt uppspelning som kan användas för både Live-och on-demand-direktuppspelning. I det här scenariot behöver kunderna inte växla till en annan slut punkt när de ändras från Live till strömning på begäran. Optimering av generell medie direkt uppspelning stöder den här typen av scenario.
 
-För **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**och **Azure CDN Premium från Verizon**, använder du den allmänna optimerings typen för webb leverans för att leverera allmänt direktuppspelande medie innehåll.
+För **Azure CDN Standard från Microsoft** , **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** , använder du den allmänna optimerings typen för webb leverans för att leverera allmänt direktuppspelande medie innehåll.
 
 Mer information om optimering av medie direkt uppspelning finns i [optimering av medie direkt uppspelning](cdn-media-streaming-optimization.md).
 
@@ -103,7 +103,7 @@ Mer information om optimering av medie direkt uppspelning finns i [optimering av
 
 Video-on-demand-optimering av medie direkt uppspelning förbättrar innehåll på begäran. Använd det här alternativet om du använder en slut punkt för direkt uppspelning av video på begäran.
 
-För **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**och **Azure CDN Premium från Verizon** -profiler, använder du den allmänna webb leverans optimerings typen för att leverera innehåll på begäran strömmande media.
+För **Azure CDN Standard från Microsoft** , **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** -profiler, använder du den allmänna webb leverans optimerings typen för att leverera innehåll på begäran strömmande media.
 
 Mer information om optimering av medie direkt uppspelning finns i [optimering av medie direkt uppspelning](cdn-media-streaming-optimization.md).
 
@@ -115,22 +115,19 @@ Mer information om optimering av medie direkt uppspelning finns i [optimering av
 
 För **Azure CDN Standard från Akamai** -profiler optimeras stora fil hämtningar för innehåll som är större än 10 MB. Om den genomsnittliga fil storleken är mindre än 10 MB använder du allmän webb leverans. Om dina genomsnittliga fil storlekar är konsekvent större än 10 MB, kan det vara mer effektivt att skapa en separat slut punkt för stora filer. Till exempel är inbyggd program vara eller program uppdateringar vanligt vis stora filer. För att leverera filer som är större än 1,8 GB krävs den stora optimeringen av fil hämtning.
 
-För **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon**och **Azure CDN Premium från Verizon** -profiler, använder du den allmänna optimerings typen för webb leverans för att leverera innehåll med stor fil hämtning. Det finns ingen begränsning för fil hämtnings storlek.
+För **Azure CDN Standard från Microsoft** , **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** -profiler, använder du den allmänna optimerings typen för webb leverans för att leverera innehåll med stor fil hämtning. Det finns ingen begränsning för fil hämtnings storlek.
 
 Mer information om optimering av stora filer finns i [optimering av stora filer](cdn-large-file-optimization.md).
 
 ### <a name="dynamic-site-acceleration"></a>Acceleration av dynamisk webbplats
 
- Tjänsten för dynamisk webbplats acceleration (DSA) är tillgänglig för **Azure CDN Standard från Akamai**, **Azure CDN Standard från Verizon**och **Azure CDN Premium från Verizon** -profiler. Den här optimeringen innebär en ytterligare avgift att använda. Mer information finns i [Content Delivery Network prissättning](https://azure.microsoft.com/pricing/details/cdn/).
+ Tjänsten för dynamisk webbplats acceleration (DSA) är tillgänglig för **Azure CDN Standard från Akamai** , **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** -profiler. Den här optimeringen innebär en ytterligare avgift att använda. Mer information finns i [Content Delivery Network prissättning](https://azure.microsoft.com/pricing/details/cdn/).
 
 > [!NOTE]
-> Den dynamiska webbplats accelerationen från Microsoft erbjuds via [Azures frontend-tjänst](https://docs.microsoft.com/azure/frontdoor/front-door-overview) , som är en global [anycast](https://en.wikipedia.org/wiki/Anycast) -tjänst som utnyttjar Microsofts privata globala nätverk för att leverera dina app-arbetsbelastningar.
+> Den dynamiska webbplats accelerationen från Microsoft erbjuds via [Azures frontend-tjänst](../frontdoor/front-door-overview.md) , som är en global [anycast](https://en.wikipedia.org/wiki/Anycast) -tjänst som utnyttjar Microsofts privata globala nätverk för att leverera dina app-arbetsbelastningar.
 
 DSA innehåller olika metoder som drar svars tid och prestanda för dynamiskt innehåll. Tekniker inkluderar Routning och nätverks optimering, TCP-optimering med mera. 
 
 Du kan använda den här optimeringen för att påskynda en webbapp som innehåller många svar som inte kan cachelagras. Exempel är Sök resultat, check transaktioner eller real tids data. Du kan fortsätta att använda Core Azure CDN caching-funktioner för statiska data. 
 
 Mer information om acceleration för dynamiska platser finns i [acceleration av dynamisk webbplats](cdn-dynamic-site-acceleration.md).
-
-
-

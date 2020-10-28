@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: c1302822715a37ef1b85007130067ac02a8fd17a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e58c1177fb3c4d241a3efe1759b3900abbd04ca1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887581"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778395"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Migrera en Azure CDN profil från standard Verizon till Premium Verizon
 
@@ -42,7 +42,7 @@ Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du 
 
 **Azure CDN Premium från Verizon** -profiler har följande ytterligare funktioner:
 - [Token-autentisering](cdn-token-auth.md): tillåter användare att hämta och använda en token för att hämta säkra resurser.
-- [Regel motor](cdn-rules-engine.md): gör det möjligt att anpassa hur HTTP-begäranden hanteras.
+- [Regel motor](./cdn-verizon-premium-rules-engine.md): gör det möjligt att anpassa hur HTTP-begäranden hanteras.
 - Avancerade analys verktyg:
    - [Detaljerad HTTP-analys](cdn-advanced-http-reports.md)
    - [Kant prestanda analys](cdn-edge-performance.md)
@@ -50,5 +50,4 @@ Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om regel motorn i [Azure CDN regel motor referens](cdn-rules-engine-reference.md).
-
+Läs mer om regel motorn i [Azure CDN regel motor referens](./cdn-verizon-premium-rules-engine-reference.md).

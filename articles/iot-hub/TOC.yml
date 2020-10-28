@@ -317,16 +317,10 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: Använda Azure CLI
               href: iot-hub-configure-file-upload-cli.md
-        - name: Mått i Azure Monitor
-          href: iot-hub-metrics.md
-        - name: Konfigurera diagnostikloggar
-          href: iot-hub-monitor-resource-health.md
         - name: Skydda din hubb med ett X.509-certifikat
           href: iot-hub-security-x509-get-started.md
         - name: Uppgradera en IoT-hubb
           href: iot-hub-upgrade.md
-        - name: Aktivera meddelandespårning
-          href: iot-hub-distributed-tracing.md
         - name: Konfigurera IP-filtrering
           href: iot-hub-ip-filtering.md
         - name: Hantera åtkomst till offentligt nätverk
@@ -339,6 +333,16 @@
               href: iot-hub-automatic-device-management-cli.md
         - name: Massimportera och -exportera IoT-enheter
           href: iot-hub-bulk-identity-mgmt.md
+    - name: Övervaka
+      items:
+        - name: Övervaka IoT Hub
+          href: monitor-iot-hub.md
+        - name: Övervaka datareferens
+          href: monitor-iot-hub-reference.md
+        - name: Aktivera meddelandespårning
+          href: iot-hub-distributed-tracing.md
+        - name: Tjänst- och resurshälsa för IoT Hub
+          href: iot-hub-azure-service-health-integration.md
     - name: Använda riktiga enheter
       items:
         - name: Använda en onlinesimulator

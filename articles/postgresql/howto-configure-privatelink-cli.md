@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 297190a99f9231cd07cffe1364202a1acbe75323
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 780ce6bed230ebbcf2a603962afc711fb9ab7f11
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490007"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777936"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Skapa och hantera en privat länk för Azure Database for PostgreSQL-enskild server med CLI
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Skapa en Virtual Network med [AZ Network VNet Create](/cli/azure/network/vnet). I det här exemplet skapas en standard Virtual Network med namnet *myVirtualNetwork* med ett undernät med namnet *undernät*:
+Skapa en Virtual Network med [AZ Network VNet Create](/cli/azure/network/vnet). I det här exemplet skapas en standard Virtual Network med namnet *myVirtualNetwork* med ett undernät med namnet *undernät* :
 
 ```azurecli-interactive
 az network vnet create \
@@ -60,7 +60,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn 
-Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm*: 
+Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm* : 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -70,7 +70,7 @@ az vm create \
  Observera den offentliga IP-adressen för den virtuella datorn. Du kommer att använda den här adressen när du ansluter till den virtuella datorn från Internet i nästa steg.
 
 ## <a name="create-an-azure-database-for-postgresql---single-server"></a>Skapa en Azure Database for PostgreSQL-enskild server 
-Skapa en Azure Database for PostgreSQL med kommandot AZ postgres Server Create. Kom ihåg att namnet på din PostgreSQL-Server måste vara unikt i Azure, så Ersätt plats hållarens värde inom hakparenteser med ditt eget unika värde: 
+Skapa en Azure Database for PostgreSQL med kommandot AZ postgres Server Create. Kom ihåg att namnet på din PostgreSQL-Server måste vara unikt i Azure, så Ersätt placeholder-värdet med dina egna unika värden som du använde ovan: 
 
 ```azurecli-interactive
 # Create a server in the resource group 
@@ -132,11 +132,11 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 Anslut till VM- *myVm* från Internet på följande sätt:
 
-1. I portalens sökfältet anger du *myVm*.
+1. I portalens sökfältet anger du *myVm* .
 
-1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
+1. Välj knappen **Anslut** . När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn** .
 
-1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil (*. RDP*) och laddar ned den till datorn.
+1. Välj **Hämta RDP-fil** . Azure skapar en Remote Desktop Protocol-fil ( *. RDP* ) och laddar ned den till datorn.
 
 1. Öppna den *nedladdade RDP* -filen.
 
@@ -145,9 +145,9 @@ Anslut till VM- *myVm* från Internet på följande sätt:
     1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
 
         > [!NOTE]
-        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto** för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
-1. Välj **OK**.
+1. Välj **OK** .
 
 1. Du kan få en certifikatvarning under inloggningen. Välj **Ja** eller **Fortsätt** om du får en certifikatvarning.
 
@@ -155,7 +155,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 ## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Få åtkomst till PostgreSQL-servern privat från den virtuella datorn
 
-1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
+1. Öppna PowerShell i fjärr skrivbordet för *myVM* .
 
 2. Ange  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
@@ -170,15 +170,15 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 3. Testa anslutningen till den privata länken för PostgreSQL-servern med valfri tillgänglig klient. I exemplet nedan har jag använt [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15) för att utföra åtgärden.
 
-4. I **ny anslutning**anger eller väljer du den här informationen:
+4. I **ny anslutning** anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Servertyp| Välj **postgresql**.|
+    | Servertyp| Välj **postgresql** .|
     | Servernamn| Välj *mydemopostgresserver.privatelink.postgres.Database.Azure.com* |
     | Användarnamn | Ange användar namn som username@servername anges när postgresql-servern skapas. |
     |Lösenord |Ange ett lösen ord som angavs när PostgreSQL-servern skapades. |
-    |SSL|Välj **obligatoriskt**.|
+    |SSL|Välj **obligatoriskt** .|
     ||
 
 5. Välj Anslut.

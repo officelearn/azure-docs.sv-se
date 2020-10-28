@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5b6fe2b2704f101a7775b7eb700375105b0a9eca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6061de0a330518baaa829a9a1c8a05f196d68dcb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81259892"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777851"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Självstudie – Använda lagringsblobar via en anpassad Azure CDN-domän och HTTPS
 
 När du har integrerat ditt Azure-lagringskonto med Azure Content Delivery Network (CDN) kan du lägga till en anpassad domän och aktivera HTTPS på domänen för din anpassade lagringsslutpunkt. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan utföra stegen i den här självstudien måste du först integrera ditt Azure-lagringskonto med Azure CDN. Mer information finns i [Snabbstart: Integrera ett Azure-lagringskonto med Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
@@ -37,7 +37,7 @@ När du skapar en CDN-slutpunkt i din profil ingår som standard slutpunktens na
 Genom att använda HTTPS-protokollet för din anpassade domän kan du se till att data levereras säkert på internet via TLS/SSL-kryptering. När webbläsaren är ansluten till en webbplats via HTTPS valideras webbplatsens säkerhetscertifikat och verifierar att det är utfärdat av en giltig certifikatutfärdare. Om du vill konfigurera HTTPS för din domän följer du instruktionerna i den här självstudien: [Konfigurera HTTPS för en anpassad Azure CDN-domän](cdn-custom-ssl.md).
 
 ## <a name="shared-access-signatures"></a>Signaturer för delad åtkomst
-Om din slutpunkt för bloblagring är konfigurerad att inte tillåta anonym läsåtkomst bör du tillhandahålla en [SAS-token (signatur för delad åtkomst)](cdn-sas-storage-support.md) i varje förfrågan du gör till den anpassade domänen. Som standard tillåter inte slutpunkter för bloblagring anonym läsåtkomst. Mer information om SAS finns i [Hantera anonym läsåtkomst till containrar och blobar](../storage/blobs/storage-manage-access-to-resources.md).
+Om din slutpunkt för bloblagring är konfigurerad att inte tillåta anonym läsåtkomst bör du tillhandahålla en [SAS-token (signatur för delad åtkomst)](cdn-sas-storage-support.md) i varje förfrågan du gör till den anpassade domänen. Som standard tillåter inte slutpunkter för bloblagring anonym läsåtkomst. Mer information om SAS finns i [Hantera anonym läsåtkomst till containrar och blobar](../storage/blobs/anonymous-read-access-configure.md).
 
 Azure CDN ignorerar eventuella begränsningar som läggs till i SAS-token. Alla SAS-token har till exempel en giltighetstid, vilket innebär att innehåll fortfarande nås med en utgången SAS-token tills innehållet tas bort från POP-servrarna (point of presence) i CDN. Du kan styra hur länge data cachelagras i Azure CDN genom att ställa in cache-svarshuvudet. Mer information finns i [Hantera giltighetstid för Azure-lagringsblobar i Azure CDN](cdn-manage-expiration-of-blob-content.md).
 
@@ -61,7 +61,3 @@ Om du till exempel ha ett lagringskonto i USA som används via Azure CDN och nå
 
 ## <a name="next-steps"></a>Nästa steg
 [Självstudie: Konfigurera Azures CDN-cachelagringsregler](cdn-caching-rules-tutorial.md)
-
-
-
-

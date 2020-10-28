@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8119c56c26ed32db136064d93775d21a71f238f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887709"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778652"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analysera gränsnodsprestanda i Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -55,7 +55,7 @@ Den här instrument panelen består av:
     ![Knappen Hantera för CDN-profil bladet](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Hanterings portalen för CDN öppnas.
-2. Hovra över fliken **analys** och hovra över den utfällbara **prestanda analysen** .  Klicka på **instrument panelen**.
+2. Hovra över fliken **analys** och hovra över den utfällbara **prestanda analysen** .  Klicka på **instrument panelen** .
    
     Instrument panelen Edge Node Analytics visas.
 
@@ -84,7 +84,7 @@ Syftet med dessa mått är att se om cache-effektiviteten kan förbättras. De f
   * Lägre drifts kostnader.
 * Förbättrad acceleration av data leveranser eftersom fler förfrågningar kommer att betjänas direkt från CDN.
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | --- | --- |
 | Cache-effektivitet |Anger procent andelen data som har överförts från cachen. Måttet mäter när en cachelagrad version av det begärda innehållet betjänades direkt från CDN (Edge-servrar) till beställare (t. ex. webbläsare) |
 | Träff hastighet |Anger procent andelen begär Anden som har hanterats från cachen. Måttet mäter när en cachelagrad version av det begärda innehållet betjänades direkt från CDN (Edge-servrar) till beställare (t. ex. webbläsare). |
@@ -102,7 +102,7 @@ Syftet med dessa mått är att ge insikter om följande kostnader för styckning
 > 
 > 
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | --- | --- |
 | Byte ut för byte ut |Anger det genomsnittliga antalet byte som överförs för varje begäran som hanteras från CDN (Edge-servrar) till beställaren (t. ex. webbläsare). |
 | Ingen byte hastighet för cache-konfiguration |Anger procent andelen trafik som hanteras från CDN (Edge-servrar) till beställaren (t. ex. webbläsare) som inte kommer att cachelagras på grund av funktionen för att kringgå cache. |
@@ -114,7 +114,7 @@ Syftet med dessa mått är att ge insikter om följande kostnader för styckning
 #### <a name="performance-metrics"></a>Prestandamått
 Syftet med dessa mått är att spåra den totala CDN-prestandan för din trafik.
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | --- | --- |
 | Överföringshastighet |Anger genomsnitts takten som innehållet överfördes från CDN till en beställare. |
 | Varaktighet |Visar genomsnitts tiden, i millisekunder, som tog att leverera en till gång till en beställare (t. ex. webbläsare). |
@@ -126,7 +126,7 @@ Syftet med dessa mått är att spåra den totala CDN-prestandan för din trafik.
 #### <a name="secure-traffic-metrics"></a>Skydda trafik mått
 Syftet med dessa mått är att spåra CDN-prestanda för HTTPS-trafik.
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | --- | --- |
 | Säker cache-effektivitet |Anger procent andelen data som överförts för HTTPS-begäranden som har hanterats från cachen. Måttet mäter när en cachelagrad version av det begärda innehållet betjänades direkt från CDN (Edge-servrar) till beställare (t. ex. webbläsare) över HTTPS. |
 | Säker överföringshastighet |Anger den genomsnittliga frekvens med vilken innehåll överfördes från CDN (Edge-servrar) till beställare (t. ex. webb servrar) över HTTPS. |
@@ -143,7 +143,7 @@ Varje rapport i den här modulen innehåller ett diagram och statistik över ban
     ![Knappen Hantera för CDN-profil bladet](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Hanterings portalen för CDN öppnas.
-2. Hovra över fliken **analys** och hovra över den utfällbara **prestanda analysen** .  Klicka på ett **stort http-objekt**.
+2. Hovra över fliken **analys** och hovra över den utfällbara **prestanda analysen** .  Klicka på ett **stort http-objekt** .
    
     Skärmen Edge nod analys rapporter visas.
 
@@ -186,6 +186,5 @@ Varje rapport i den här modulen innehåller ett diagram och statistik över ban
 ## <a name="see-also"></a>Se även
 * [Översikt över Azure CDN](cdn-overview.md)
 * [Real tids statistik i Microsoft Azure CDN](cdn-real-time-stats.md)
-* [Åsidosätta standard-HTTP-beteendet med hjälp av regel motorn](cdn-rules-engine.md)
+* [Åsidosätta standard-HTTP-beteendet med hjälp av regel motorn](./cdn-verizon-premium-rules-engine.md)
 * [Avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
-

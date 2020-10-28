@@ -161,6 +161,8 @@
       href: ../../service-bus-messaging/security-baseline.md
     - name: Baslinje för Service Fabric
       href: ../../service-fabric/security-baseline.md
+    - name: Baslinje för Site Recovery
+      href: ../../site-recovery/security-baseline.md
     - name: Baslinje för Stream Analytics
       href: ../../stream-analytics/security-baseline.md
     - name: Synapse Analytics-säkerhetsbaslinje

@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: 44ab6822039ef2a26ffafc2824bed249825e2daa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0c8170947b59b3d40a388642dac3df772238197
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88783825"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778335"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Vad är CDN på Azure?
 Ett nätverk för innehållsleverans (CDN, Content Delivery Network) är ett distribuerat nätverk av servrar som effektivt kan leverera webbinnehåll till användare. CDN ' lagrar cachelagrat innehåll på Edge-servrar i Point-of-Presence-platser (POP) som är nära slutanvändare, för att minimera svars tiden. 
@@ -38,7 +38,7 @@ En lista över aktuella CDN-nodplatser finns i [POP-platser för Azure CDN](cdn-
 ## <a name="how-it-works"></a>Så här fungerar det
 ![Översikt över CDN](./media/cdn-overview/cdn-overview.png)
 
-1. En användare (Alice) begär en fil (även kallad till gång) genom att använda en URL med ett särskilt domän namn, till exempel _ &lt; slut &gt; punkts namn_. azureedge.net. Det här namnet kan vara slutpunktens värdnamn eller en anpassad domän. DNS omdirigerar begäran till den bästa tillgängliga POP-platsen, som vanligtvis är den POP-plats som är geografiskt närmast användaren.
+1. En användare (Alice) begär en fil (även kallad till gång) genom att använda en URL med ett särskilt domän namn, till exempel _&lt; slut &gt; punkts namn_ . azureedge.net. Det här namnet kan vara slutpunktens värdnamn eller en anpassad domän. DNS omdirigerar begäran till den bästa tillgängliga POP-platsen, som vanligtvis är den POP-plats som är geografiskt närmast användaren.
     
 2. Om filen inte finns i cachelagringen i någon edge-server på POP-platsen begär POP filen från ursprungsservern. Ursprungsservern kan vara en Azure-webbapp, en Azure-molntjänst, ett Azure Storage-konto eller en offentligt tillgänglig webbserver.
    
@@ -59,7 +59,7 @@ Varje Azure-prenumeration har standardgränser för följande resurser:
  - Antalet slutpunkter som kan skapas i en CDN-profil. 
  - Antal anpassade domäner som kan mappas till en slutpunkt.
 
-Mer information om CDN-prenumerationsbegränsningar finns i [CDN limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) (CDN-begränsningar).
+Mer information om CDN-prenumerationsbegränsningar finns i [CDN limits](../azure-resource-manager/management/azure-subscription-service-limits.md) (CDN-begränsningar).
     
 ## <a name="azure-cdn-features"></a>Funktioner i Azure CDN
 Azure CDN erbjuder följande huvudfunktioner:

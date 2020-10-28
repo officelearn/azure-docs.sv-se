@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84886064"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779330"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analysera förbrukningsstatistik med avancerade HTTP-rapporter i Azure CDN
 ## <a name="overview"></a>Översikt
@@ -33,7 +33,7 @@ Det här dokumentet beskriver avancerad HTTP-rapportering i Microsoft Azure CDN.
     ![Knappen Hantera för CDN-profil bladet](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     Hanterings portalen för CDN öppnas.
-2. Hovra över fliken **analys** och hovra sedan över de **avancerade http-rapporter** som utfälls.  Klicka på **http stor plattform**.
+2. Hovra över fliken **analys** och hovra sedan över de **avancerade http-rapporter** som utfälls.  Klicka på **http stor plattform** .
    
     ![Hanterings Portal för CDN – menyn avancerade rapporter](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
@@ -202,6 +202,5 @@ Direkt under stapeldiagrammet visas följande information för de översta 250 b
 ## <a name="see-also"></a>Se även
 * [Översikt över Azure CDN](cdn-overview.md)
 * [Real tids statistik i Microsoft Azure CDN](cdn-real-time-stats.md)
-* [Åsidosätta standard-HTTP-beteendet med hjälp av regel motorn](cdn-rules-engine.md)
+* [Åsidosätta standard-HTTP-beteendet med hjälp av regel motorn](./cdn-verizon-premium-rules-engine.md)
 * [Analysera Edge-prestanda](cdn-edge-performance.md)
-

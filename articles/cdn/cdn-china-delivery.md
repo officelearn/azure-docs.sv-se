@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: fa144c7ebd68e6f5dd192fca83dc6f306d7b8d63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 599ec041837460c30b4655531b822eab5f0eafa3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81254112"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778922"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Kina, innehålls leverans med Azure CDN
 
@@ -40,7 +40,7 @@ Azure CDN global och Azure CDN Kina har följande funktioner:
 
      - Fyra pris nivåer: Microsoft standard, Verizon standard, Verizon Premium och Akamai standard
 
-     - [Dokumentation](https://docs.microsoft.com/azure/cdn/)
+     - [Dokumentation](./index.yml)
 
 - Azure CDN Kina:
 
@@ -63,7 +63,4 @@ Mer information om Azure CDN Kina finns i:
 
 - [Använd Azure-Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
 
-- [Tillgänglighet för Azure-tjänster i Kina](https://docs.microsoft.com/azure/china/concepts-service-availability)
-
-
-
+- [Tillgänglighet för Azure-tjänster i Kina](/azure/china/concepts-service-availability)

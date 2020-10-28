@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 43527e8e5860e0bbfc50643210156be943d2f174
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48b74a5507eb4a1d48b7bf70133e476a30fe8169
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85985198"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779959"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optimera prestanda genom att använda minnes intern teknik i Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Minnes intern teknik kan förbättra prestandan för dessa arbets belastningar g
 
 Azure SQL Database och Azure SQL-hanterad instans har följande inbyggda minnes tekniker:
 
-- *[InMemory OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* ökar antalet transaktioner per sekund och minskar svars tiden för transaktions bearbetning. Scenarier som har nytta av In-Memory OLTP är: transaktions bearbetning med stora data flöden, till exempel handel och spel, data inmatning från händelser eller IoT-enheter, cachelagring, data inläsning och temporära tabell-och tabell variabel scenarier.
+- *[InMemory OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* ökar antalet transaktioner per sekund och minskar svars tiden för transaktions bearbetning. Scenarier som har nytta av In-Memory OLTP är: transaktions bearbetning med stora data flöden, till exempel handel och spel, data inmatning från händelser eller IoT-enheter, cachelagring, data inläsning och temporära tabell-och tabell variabel scenarier.
 - *Grupperade columnstore-index* minskar dina lagrings utrymmen (upp till 10 gånger) och förbättrar prestanda för rapporterings-och analys frågor. Du kan använda det med fakta tabeller i dina datamarter för att få plats med mer data i databasen och förbättra prestandan. Du kan också använda den med historiska data i den operativa databasen för att arkivera och kunna skicka frågor till upp till 10 gånger mer data.
 - *Grupperade columnstore-index* för HTAP hjälper dig att få insikter i real tid i ditt företag genom att fråga den operativa databasen direkt, utan att behöva köra en dyr process för extrahering, transformering och inläsning (ETL) och vänta tills data lagret har fyllts i. Grupperade columnstore-index möjliggör snabb körning av analys frågor på OLTP-databasen, samtidigt som påverkan på drift belastningen minskar.
 - Med *minnesoptimerade grupperade columnstore-index* för HTAP kan du utföra snabb transaktions bearbetning och *samtidigt* köra analys frågor snabbt på samma data.
@@ -93,7 +93,7 @@ En snabb introduktion på In-Memory OLTP: [snabb start 1: In-Memory OLTP-teknik 
 Djupgående videor om teknikerna:
 
 - [Minnes intern OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (som innehåller en demonstration av prestanda fördelarna och steg för att återskapa dessa resultat själv)
-- [InMemory OLTP-videor: vad det är och när/hur den används](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [InMemory OLTP-videor: vad det är och när/hur den används](/archive/blogs/sqlserverstorageengine/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it)
 
 Det finns ett programmerings sätt för att förstå om en specifik databas stöder In-Memory OLTP. Du kan köra följande Transact-SQL-fråga:
 
@@ -101,7 +101,7 @@ Det finns ett programmerings sätt för att förstå om en specifik databas stö
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
-Om frågan returnerar **1**, stöds In-Memory OLTP i den här databasen. Följande frågor identifierar alla objekt som måste tas bort innan en databas kan nedgraderas till Generell användning, standard eller Basic:
+Om frågan returnerar **1** , stöds In-Memory OLTP i den här databasen. Följande frågor identifierar alla objekt som måste tas bort innan en databas kan nedgraderas till Generell användning, standard eller Basic:
 
 ```sql
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Data storlek och lagrings hölje för In-Memory OLTP
 
-In-Memory OLTP innehåller minnesoptimerade tabeller som används för att lagra användar data. De här tabellerna krävs för att få plats i minnet. Eftersom du hanterar minne direkt i SQL Database har vi begreppet en kvot för användar data. Den här idén kallas för *minnes intern OLTP-lagring*.
+In-Memory OLTP innehåller minnesoptimerade tabeller som används för att lagra användar data. De här tabellerna krävs för att få plats i minnet. Eftersom du hanterar minne direkt i SQL Database har vi begreppet en kvot för användar data. Den här idén kallas för *minnes intern OLTP-lagring* .
 
 Varje pris nivå för en enskild databas som stöds och varje pris nivå för elastisk pool innehåller en viss mängd In-Memory OLTP-lagring.
 
@@ -149,7 +149,7 @@ Men nedgradering av nivån kan påverka databasen negativt. Påverkan är särsk
 
 Innan du nedgradera databasen till Generell användning, standard eller Basic, tar du bort alla minnesoptimerade tabeller och tabell typer, samt alla internt kompilerade T-SQL-moduler.
 
-Att *skala upp resurser i affärskritisk nivå*: data i minnesoptimerade tabeller måste rymmas i den In-Memory OLTP-lagring som är kopplad till nivån för databasen eller den hanterade instansen eller den är tillgänglig i den elastiska poolen. Om du försöker skala ned nivån eller flytta databasen till en pool som inte har tillräckligt med tillgänglig In-Memory OLTP-lagring, Miss lyckas åtgärden.
+Att *skala upp resurser i affärskritisk nivå* : data i minnesoptimerade tabeller måste rymmas i den In-Memory OLTP-lagring som är kopplad till nivån för databasen eller den hanterade instansen eller den är tillgänglig i den elastiska poolen. Om du försöker skala ned nivån eller flytta databasen till en pool som inte har tillräckligt med tillgänglig In-Memory OLTP-lagring, Miss lyckas åtgärden.
 
 ## <a name="in-memory-columnstore"></a>Minnes intern columnstore
 
@@ -164,13 +164,13 @@ Det finns två typer av columnstore-modeller som du kan använda för att organi
 
 Djupgående video om tekniken:
 
-- [Columnstore-index: videor in-memory Analytics från antändning 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Columnstore-index: videor in-memory Analytics från antändning 2016](/archive/blogs/sqlserverstorageengine/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Data storlek och lagring för columnstore-index
 
 Columnstore-index krävs inte för att få plats i minnet. Därför är den enda gränsen för index storleken den maximala övergripande databas storleken, som dokumenteras i den [DTU-baserade inköps modellen](database/service-tiers-dtu.md) och [vCore-baserade inköps modell](database/service-tiers-vcore.md) artiklar.
 
-När du använder grupperade columnstore-index används kolumn komprimering för bas tabellens lagring. Den här komprimeringen kan avsevärt minska lagrings utrymmet för dina användar data, vilket innebär att du kan få mer data i databasen. Och komprimeringen kan öka ytterligare med [kolumn lagrings komprimering](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression). Mängden komprimering som du kan uppnå beror på data typen, men 10 gånger komprimeringen är inte ovanligt.
+När du använder grupperade columnstore-index används kolumn komprimering för bas tabellens lagring. Den här komprimeringen kan avsevärt minska lagrings utrymmet för dina användar data, vilket innebär att du kan få mer data i databasen. Och komprimeringen kan öka ytterligare med [kolumn lagrings komprimering](/sql/relational-databases/data-compression/data-compression#using-columnstore-and-columnstore-archive-compression). Mängden komprimering som du kan uppnå beror på data typen, men 10 gånger komprimeringen är inte ovanligt.
 
 Om du till exempel har en databas med en maximal storlek på 1 terabyte (TB) och du uppnår 10 gånger komprimeringen med hjälp av columnstore-index, kan du anpassa totalt 10 TB användar data i databasen.
 
@@ -189,7 +189,7 @@ Om du har ett **grupperat** columnstore-index blir hela tabellen otillgänglig e
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabb start 1: In-Memory OLTP-teknik för snabbare T-SQL-prestanda](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Snabb start 1: In-Memory OLTP-teknik för snabbare T-SQL-prestanda](/sql/relational-databases/in-memory-oltp/survey-of-initial-areas-in-in-memory-oltp)
 - [Använda In-Memory OLTP i ett befintligt Azure SQL-program](in-memory-oltp-configure.md)
 - [Övervaka In-Memory OLTP-lagring](in-memory-oltp-monitor-space.md) för In-Memory OLTP
 - [Testa funktioner i minnet](in-memory-sample.md)
@@ -200,18 +200,18 @@ Om du har ett **grupperat** columnstore-index blir hela tabellen otillgänglig e
 
 - [Lär dig hur kvorum dubblerar nyckel databasens arbets belastning och sänker DTU med 70% med In-Memory OLTP i SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 - [Blogg inlägg i Memory OLTP](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
-- [Lär dig mer om In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
-- [Lär dig mer om columnstore-index](https://msdn.microsoft.com/library/gg492088.aspx)
-- [Lär dig mer om operativa analyser i real tid](https://msdn.microsoft.com/library/dn817827.aspx)
-- Se [vanliga arbets belastnings mönster och överväganden vid migrering](https://msdn.microsoft.com/library/dn673538.aspx) (som beskriver arbets belastnings mönster där In-Memory OLTP ofta ger avsevärda prestanda vinster)
+- [Lär dig mer om In-Memory OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
+- [Lär dig mer om columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [Lär dig mer om operativa analyser i real tid](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
+- Se [vanliga arbets belastnings mönster och överväganden vid migrering](/previous-versions/dn673538(v=msdn.10)) (som beskriver arbets belastnings mönster där In-Memory OLTP ofta ger avsevärda prestanda vinster)
 
 ### <a name="application-design"></a>Programdesign
 
-- [Minnes intern OLTP (minnes intern optimering)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [Minnes intern OLTP (minnes intern optimering)](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 - [Använda In-Memory OLTP i ett befintligt Azure SQL-program](in-memory-oltp-configure.md)
 
 ### <a name="tools"></a>Verktyg
 
-- [Azure Portal](https://portal.azure.com/)
-- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Azure-portalen](https://portal.azure.com/)
+- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)
+- [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt)

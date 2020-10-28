@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: 6beaee98e78e79c48270801f5696e4e487b0a2c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5807d38e22d8cecf40b5ad4262f9e4662b77ec4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84883708"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779143"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Hantera Azure CDN caching-princip i Azure Media Services
 Azure Media Services tillhandahåller HTTP-baserad anpassad direkt uppspelning och progressiv nedladdning. HTTP-baserad strömning är mycket skalbar med fördelarna med cachelagring i proxy-och CDN-lager samt cachelagring på klient sidan. Slut punkter för direkt uppspelning tillhandahåller generella strömnings funktioner och även konfiguration för HTTP-cache-huvuden. Slut punkter för direkt uppspelning anger HTTP-cache-Control: max-ålder och Expires-huvuden. Du kan få mer information om HTTP-cacheposter från [w3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
@@ -40,10 +40,9 @@ Du kan använda Azure Portal-eller Azure Media Services-API: er för att konfigu
 
 1. Information om hur du konfigurerar cacheposter med hjälp av Azure Portal finns i avsnittet [Hantera slut punkter för direkt uppspelning](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) konfigurera slut punkten för direkt uppspelning.
 2. Azure Media Services REST API, [StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl).
-3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl-egenskaper](https://go.microsoft.com/fwlink/?LinkId=615302).
+3. Azure Media Services .NET SDK, [StreamingEndpointCacheControl-egenskaper](/dotnet/api/microsoft.windowsazure.mediaservices.client.streamingendpointcachecontrol).
 
 ## <a name="cache-configuration-precedence-order"></a>Prioritetsordning för cache-konfiguration
 1. Azure Media Services konfigurerade cache-värdet åsidosätter standardvärdet.
 2. Om det inte finns någon manuell konfiguration gäller standardvärdena.
 3. Som standard gäller 2 sekunders cache-huvuden för Live streaming-manifestet (spelnings lista) oavsett om Azure Media eller Azure Storage konfiguration och åsidosätter det här värdet inte är tillgängligt.
-

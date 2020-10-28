@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: e9092e9564fadb07311b151948656bc6cd007323
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: a707cde306006aef685c22cf1a9f9332449ee1c9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951731"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778234"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN täckning per tunnelbane linje 
 > [!div class="op_single_selector"]
@@ -49,4 +49,4 @@ Den här artikeln innehåller en lista över aktuella Metros som innehåller POP
 
 
 ## <a name="next-steps"></a>Nästa steg
-* För att få de senaste IP-adresserna för vit listning, se [API för Azure CDN Edge-noder](https://docs.microsoft.com/rest/api/cdn/edgenodes).
+* För att få de senaste IP-adresserna för vit listning, se [API för Azure CDN Edge-noder](/rest/api/cdn/edgenodes).

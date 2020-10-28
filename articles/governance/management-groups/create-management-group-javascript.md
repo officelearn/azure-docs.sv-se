@@ -3,13 +3,13 @@ title: 'Snabb start: skapa en hanterings grupp med Java Script'
 description: I den här snabb starten använder du Java Script för att skapa en hanterings grupp för att organisera resurserna i en resurspool.
 ms.date: 09/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7a234a6619eafd650451ae5d6bce37388c824f33
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: devx-track-js
+ms.openlocfilehash: 965e4b8f81a26cab8f6e34cab3e51d6a97f5a6a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91604682"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676222"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Snabb start: skapa en hanterings grupp med Java Script
 
@@ -90,7 +90,7 @@ Om du vill aktivera Java Script för att fråga Azure Resource Graph måste milj
    node index.js --groupID "<NEW_MG_GROUP_ID>" --displayName "<NEW_MG_FRIENDLY_NAME>"
    ```
 
-   Se till att ersätta varje `<>` plats hållare med _hanterings gruppens ID_ och _eget namn för hanterings gruppen_.
+   Se till att ersätta varje `<>` plats hållare med _hanterings gruppens ID_ och _eget namn för hanterings gruppen_ .
 
    När skriptet försöker autentisera visas ett meddelande som liknar följande meddelande i terminalen:
 

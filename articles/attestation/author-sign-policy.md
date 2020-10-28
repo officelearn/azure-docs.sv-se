@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a3afb12ac831d87b03d0bb16d1b7ef553f1bb906
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8ffdcd0615913649e80b20f6873d005f4ad4410
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90006827"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675985"
 ---
 # <a name="how-to-author-and-sign-an-attestation-policy"></a>Så här skapar och signerar du en policy för attestering
 
@@ -36,7 +36,7 @@ issuancerules
  
 En princip fil har tre segment, som du ser ovan:
 
-- **version**: versionen är versions numret för den grammatik som följs. 
+- **version** : versionen är versions numret för den grammatik som följs. 
 
     ```
     version=MajorVersion.MinorVersion   
@@ -44,9 +44,9 @@ En princip fil har tre segment, som du ser ovan:
 
     För närvarande är den enda version som stöds version 1,0.
 
-- **authorizationrules**: en samling anspråks regler som ska kontrol leras först, för att avgöra om Azure-attesteringen bör fortsätta till **issuancerules**. Anspråks reglerna gäller i den ordning som de definieras.
+- **authorizationrules** : en samling anspråks regler som ska kontrol leras först, för att avgöra om Azure-attesteringen bör fortsätta till **issuancerules** . Anspråks reglerna gäller i den ordning som de definieras.
 
-- **issuancerules**: en samling anspråks regler som kommer att utvärderas för att lägga till ytterligare information till attesterings resultatet enligt vad som definieras i principen. Anspråks reglerna gäller i den ordning som de är definierade och är också valfria.
+- **issuancerules** : en samling anspråks regler som kommer att utvärderas för att lägga till ytterligare information till attesterings resultatet enligt vad som definieras i principen. Anspråks reglerna gäller i den ordning som de är definierade och är också valfria.
 
 Mer information finns i [anspråk och anspråks regler](claim-rule-grammar.md) .
    
@@ -54,7 +54,7 @@ Mer information finns i [anspråk och anspråks regler](claim-rule-grammar.md) .
 
 1. Skapa en ny fil.
 1. Lägg till version i filen.
-1. Lägg till avsnitt för **authorizationrules** och **issuancerules**.
+1. Lägg till avsnitt för **authorizationrules** och **issuancerules** .
 
   ```
   version=1.0;
@@ -84,9 +84,9 @@ Mer information finns i [anspråk och anspråks regler](claim-rule-grammar.md) .
   };
   ```
 
-  Om den inkommande anspråks uppsättningen innehåller ett anspråk som matchar typ, värde och utfärdare, kommer åtgärden Tillåt () att instruera princip motorn att bearbeta **issuancerules**.
+  Om den inkommande anspråks uppsättningen innehåller ett anspråk som matchar typ, värde och utfärdare, kommer åtgärden Tillåt () att instruera princip motorn att bearbeta **issuancerules** .
   
-5. Lägg till anspråks regler i **issuancerules**.
+5. Lägg till anspråks regler i **issuancerules** .
 
   ```
   version=1.0;
@@ -128,8 +128,8 @@ När du har skapat en princip fil, för att överföra en princip i JWS-format, 
      ```
 
 2. Valfritt Signera principen. Azure-attestering stöder följande algoritmer:
-     - **Ingen**: Signera inte princip nytto lasten.
-     - **RS256**: algoritm som stöds för att signera principens nytto Last
+     - **Ingen** : Signera inte princip nytto lasten.
+     - **RS256** : algoritm som stöds för att signera principens nytto Last
 
 3. Ladda upp JWS och validera principen.
      - Om princip filen är fri från syntaxfel godkänns princip filen av tjänsten.
@@ -172,4 +172,4 @@ print(encoded.decode('utf-8'))
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera Azure-attestering med PowerShell](quickstart-powershell.md)
-- [Intyga en SGX-enklaven med hjälp av kod exempel](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)
+- [Intyga en SGX-enklaven med hjälp av kod exempel](/samples/browse/?expanded=azure&terms=attestation)

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
-ms.openlocfilehash: dbdb6a255fdf0214103a0011f25b0a6d25014e69
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ec569781a6318062810358c2c5e17ba71efc4f71
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89299158"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676008"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Snabb start: skapa en Traffic Manager profil med en ARM-mall
 
@@ -21,7 +21,7 @@ I den här snabb starten beskrivs hur du använder en Azure Resource Manager mal
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure** . Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-traffic-manager-external-endpoint%2Fazuredeploy.json)
 
@@ -43,7 +43,7 @@ Du hittar fler mallar som är relaterade till Azure Traffic Manager i [Azure sna
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-1. Välj **prova** från följande kodblock för att öppna Azure Cloud Shell och följ sedan anvisningarna för att logga in på Azure. 
+1. Välj **prova** från följande kodblock för att öppna Azure Cloud Shell och följ sedan anvisningarna för att logga in på Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -62,11 +62,11 @@ Du hittar fler mallar som är relaterade till Azure Traffic Manager i [Azure sna
 
 1. Kopiera PowerShell-skriptet genom att välja **Kopiera** från föregående kodblock.
 
-1. Högerklicka på fönstret Shell-konsol och välj sedan **Klistra in**.
+1. Högerklicka på fönstret Shell-konsol och välj sedan **Klistra in** .
 
 1. Ange värdena.
 
-    Mallen för distribution skapar en profil med två externa slut punkter. **Endpoint1** använder en mål slut punkt på *w<span>WW. Microsoft</span>. com* med platsen i **Nord Europa**. **Endpoint2** använder en mål slut punkt av *d<span>OCS. Microsoft</span>. com* med platsen i **södra centrala USA**. 
+    Mallen för distribution skapar en profil med två externa slut punkter. **Endpoint1** använder en mål slut punkt `www.microsoft.com` med platsen i **Nord Europa** . **Endpoint2** använder en mål slut punkt med `docs.microsoft.com` platsen i **södra centrala USA** .
 
     Resurs gruppens namn är projekt namnet med **RG** tillagt.
 
@@ -87,21 +87,23 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
     Get-AzTrafficManagerProfile -Name ExternalEndpointExample -ResourceGroupName $resourceGroupName | Select RelativeDnsName
     ```
 
-    Kopiera värdet **RelativeDnsName** . DNS-namnet för din Traffic Manager-profil är *<* relativednsname *>. trafficmanager.net*. 
+    Kopiera värdet **RelativeDnsName** . DNS-namnet för din Traffic Manager-profil är `<relativednsname>.trafficmanager.net` .
 
-1. Från en lokal PowerShell kör du följande kommando genom att ersätta variabeln **{relativeDNSname}** med *<* relativeDNSname *>. trafficmanager.net*.
+1. Från en lokal PowerShell kör du följande kommando genom att ersätta **{relativeDNSname}** -variabeln med `<relativednsname>.trafficmanager.net` .
 
     ```powershell
     Resolve-DnsName -Name {relativeDNSname} | Select-Object NameHost | Select -First 1
     ```
-    Du bör få en NameHost av antingen *w<span>WW. Microsoft</span>. com* eller *d<span>OCS. Microsoft</span>. com* beroende på vilken region som är närmast dig.
 
-1. Du kan kontrol lera om du kan matcha den andra slut punkten genom att inaktivera slut punkten för målet som du fick i det sista steget. Ersätt **{endpointName}** med antingen **endpoint1** eller **endpoint2** för att inaktivera målet för *w<span>WW. Microsoft</span>. com* eller *d<span>OCS. Microsoft</span>. com* .
+    Du bör få en NameHost av antingen `www.microsoft.com` eller `docs.microsoft.com` beroende på vilken region som är närmast dig.
+
+1. Du kan kontrol lera om du kan matcha den andra slut punkten genom att inaktivera slut punkten för målet som du fick i det sista steget. Ersätt **{endpointName}** med antingen **endpoint1** eller **endpoint2** för att inaktivera målet för `www.microsoft.com` respektive `docs.microsoft.com` .
 
     ```azurepowershell-interactive
     Disable-AzTrafficManagerEndpoint -Name {endpointName} -Type ExternalEndpoints -ProfileName ExternalEndpointExample -ResourceGroupName $resourceGroupName -Force
     ```
-1. Kör kommandot från steg 2 igen i en lokal PowerShell. Den här gången bör du hämta de andra NameHost för den andra slut punkten. 
+
+1. Kör kommandot från steg 2 igen i en lokal PowerShell. Den här gången bör du hämta de andra NameHost för den andra slut punkten.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -115,8 +117,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en:
-* Traffic Manager-profil
+I den här snabbstarten skapade du en Traffic Manager-profil.
 
 Om du vill veta mer om att dirigera trafik kan du gå vidare till Traffic Manager-självstudierna.
 

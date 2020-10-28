@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 14b4e7217b6e902023e5e82f8dbd404e43b36ef0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973130"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676165"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrera till Read v3. x OCR-behållare
 
@@ -29,21 +29,11 @@ Om du använder version 2 av Visuellt innehåll Read OCR-behållare använder du
 
 ## <a name="api-changes"></a>API-ändringar
 
-Read v3. x-behållare använder version 3 av API för visuellt innehåll och har följande slut punkter:
-
-#### <a name="version-31-preview"></a>[Version 3,1 – för hands version](#tab/version-3-1)
+Read v 3.1-behållaren använder version 3 av API för visuellt innehåll och har följande slut punkter:
 
 * `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
-
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
-
-* `/vision/v3.0/read/analyzeResults/{operationId}`
-* `/vision/v3.0/read/analyze`
-* `/vision/v3.0/read/syncAnalyze`
-
----
 
 Mer information om hur du uppdaterar dina program för att använda version 3 av molnbaserad Read API finns i [migreringsguiden för visuellt innehåll v3-REST API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) . Den här informationen gäller även för behållaren. Observera att Sync-åtgärder endast stöds i behållare.
 
@@ -53,8 +43,7 @@ Kraven och rekommendationerna baseras på benchmarks med en enda begäran per se
 
 |Container  |Minimum | Rekommenderas  |
 |---------|---------|------|
-|Läs 3,0 – för hands version     | 8 kärnor, 16 GB minne         | 8 kärnor, 24 GB minne
-|Läs 3,1 – för hands version | 8 kärnor, 16 GB minne         | 8 kärnor, 24 GB minne
+|Läs 3,1 – för hands version | 8 kärnor, 16 GB minne         | 8 kärnor, 24 GB minne |
 
 Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
 

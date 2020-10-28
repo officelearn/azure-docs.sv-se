@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335542"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735059"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -95,7 +95,7 @@ New Supported Version List
 
 Du kan använda en lägre version som är äldre än eller senare i `kubectl` förhållande till din *Kube-apiserver-* version, som är konsekvent med [Kubernetes-Supportens princip för kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
 
-Om din *Kube-apiserver* till exempel är på *1,17*, kan du använda versioner *1,16* till *1,18* av `kubectl` med *Kube-apiserver*.
+Om din *Kube-apiserver* till exempel är på *1,17* , kan du använda versioner *1,16* till *1,18* av `kubectl` med *Kube-apiserver* .
 
 För att installera eller uppdatera din version av `kubectl` , kör `az aks install-cli` .
 
@@ -121,7 +121,7 @@ Vissa korrigerings versioner kan hoppas över eller att distributionen accelerer
 
 ## <a name="azure-portal-and-cli-versions"></a>Azure Portal-och CLI-versioner
 
-När du distribuerar ett AKS-kluster i portalen eller med Azure CLI, är klustret standardvärdet för den lägre versionen av N-1 och den senaste korrigeringen. Om AKS till exempel stöder *1.17. a*, *1.17. b*, *1.16. c*, *1.16. d*, *1.15. e*, och *1.15. f*, är den valda standard versionen *1.16. c*.
+När du distribuerar ett AKS-kluster i portalen eller med Azure CLI, är klustret standardvärdet för den lägre versionen av N-1 och den senaste korrigeringen. Om AKS till exempel stöder *1.17. a* , *1.17. b* , *1.16. c* , *1.16. d* , *1.15. e* , och *1.15. f* , är den valda standard versionen *1.16. c* .
 
 Om du vill ta reda på vilka versioner som för närvarande är tillgängliga för din prenumeration och region använder du kommandot [AZ AKS get-versions][az-aks-get-versions] . I följande exempel visas tillgängliga Kubernetes-versioner för regionen *östra* :
 
@@ -135,13 +135,14 @@ Den senaste versions historiken finns [här](https://en.wikipedia.org/wiki/Kuber
 
 |  K8s-version | Överordnad version  | AKS för hands version  | AKS GA  | Uttjänta |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | Sep-19-19  | Jan 2019   | Mar 2020  | 1,19 GA | 
+| 1.16  | Sep-19-19  | Jan 2019   | Mar 2020  | Jan 2021 * | 
 | 1,17  | Dec-09-19  | Jan 2019   | Jul 2020  | 1,20 GA | 
 | 1,18  | Mar – 23-20  | Maj 2020   | Aug 2020  | 1,21 GA | 
 | 1,19  | Aug – 04-20  | Sep 2020   | Nov 2020  | 1,22 GA | 
 | 1,20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1,23 GA | 
+\* På grund av jul säsongs AKS utökar livs längden 1,16 från november 2020 till och med januari 2021. Läs mer [här](https://github.com/Azure/AKS/releases/tag/2020-10-12)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **Hur ofta ska jag förvänta mig att uppgradera Kubernetes-versioner för att stanna kvar i supporten?**
 
@@ -176,7 +177,7 @@ Kontroll planet måste vara inom ett fönster med versioner från alla noder i p
 
 När du uppgraderar ett AKS-kluster som stöds kan Kubernetes minor-versioner inte hoppas över. Till exempel tillåts uppgraderingar mellan *1.12. x*  ->  *1.13. x* eller *1.13. x*  ->  *1.14. x* , men *1.12.* x  ->  *1.14. x* är inte.
 
-Uppgradera från *1.12. x*  ->  *1.14. x*genom att först uppgradera från *1.12.* x  ->  *1.13. x*och sedan uppgradera från *1.13. x*  ->  *1.14. x*.
+Uppgradera från *1.12. x*  ->  *1.14. x* genom att först uppgradera från *1.12.* x  ->  *1.13. x* och sedan uppgradera från *1.13. x*  ->  *1.14. x* .
 
 Det går bara att hoppa över flera versioner när du uppgraderar från en version som inte stöds tillbaka till en version som stöds. Du kan t. ex. uppgradera från en *1.10. x* --> en 1.15 som stöds *. x* kan slutföras.
 

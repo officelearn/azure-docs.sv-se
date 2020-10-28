@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 893ea607b322c2f9b2d8a4e8b5b087e21c476d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f28d8f82796f54002312514b1a34e3dd8b666a3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497179"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675259"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Azure CLI-exempel för Azure SQL Database-och SQL-hanterad instans 
  
@@ -73,7 +73,7 @@ Följande tabell innehåller länkar till exempel på Azure CLI-skript för Azur
 | [Konfigurera en failover-grupp för SQL-hanterad instans](../../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md) | Skapar två instanser av SQL-hanterad instans, lägger till dem i en grupp för redundans och testar sedan redundans från den primära SQL-hanterade instansen till den sekundära SQL-hanterade instansen. |
 |||
 
-Fler exempel på SQL-hanterade instanser finns i [skapa](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/), [Uppdatera](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/), [flytta en databas](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/)och [arbeta med](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) skript.
+Fler exempel på SQL-hanterade instanser finns i [skapa](/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli), [Uppdatera](/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli), [flytta en databas](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance)och [arbeta med](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) skript.
 
 Läs mer om [Azure CLI API för SQL-hanterad instans](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances).
 

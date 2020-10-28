@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 10/22/2020
 ms.author: aahi
 keywords: lokal, Docker, behållare, Kubernetes
-ms.openlocfilehash: cf0ea6339de1ba6aca93a1a71990515d296f2e3a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999691"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677457"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services-behållare
 
@@ -45,12 +45,12 @@ Cognitive Services resurser är tillgängliga på [Microsoft Azure](https://azur
 
 ## <a name="features-and-benefits"></a>Funktioner och fördelar
 
-- **Oåterkallelig infrastruktur**: Aktivera DevOps Teams för att utnyttja en konsekvent och tillförlitlig uppsättning kända system parametrar, samtidigt som du kan anpassa för att ändra. Behållare ger flexibiliteten att pivotera i ett förutsägbart eko system och undvika konfigurations avvikelser.
-- **Kontroll över data**: Välj var dina data ska bearbetas av Cognitive Services. Detta kan vara viktigt om du inte kan skicka data till molnet men behöver åtkomst till API:er för Cognitive Services. Stöd för konsekvens i hybrid miljöer – över data, hantering, identitet och säkerhet.
-- **Kontroll över modell uppdateringar**: flexibilitet vid versions hantering och uppdatering av modeller som distribuerats i deras lösningar.
-- **Portabel arkitektur**: gör det möjligt att skapa en bärbar program arkitektur som kan distribueras på Azure, lokalt och på gränsen. Behållare kan distribueras direkt till [Azure Kubernetes-tjänsten](../aks/index.yml), [Azure Container instances](../container-instances/index.yml)eller till ett [Kubernetes](https://kubernetes.io/) -kluster som distribuerats till [Azure Stack](/azure-stack/operator). Mer information finns i [distribuera Kubernetes till Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **Högt data flöde/låg latens**: ge kunderna möjlighet att skala för höga krav på data flöden och låg latens genom att aktivera Cognitive Services att köra fysiskt nära sin program logik och data. Behållare omfattar inte Cap-transaktioner per sekund (TPS) och kan göras för att skala upp och ut för att hantera efter frågan om du anger de nödvändiga maskin varu resurserna.
-- **Skalbarhet**: med den ständigt växande populariteten av skapa behållare och behållar Dirigerings program, till exempel Kubernetes; skalbarhet är i det tekniska förskottet i Forefront. Genom att bygga vidare på en skalbar kluster bas kan program utveckling tillgodose hög tillgänglighet.
+- **Oåterkallelig infrastruktur** : Aktivera DevOps Teams för att utnyttja en konsekvent och tillförlitlig uppsättning kända system parametrar, samtidigt som du kan anpassa för att ändra. Behållare ger flexibiliteten att pivotera i ett förutsägbart eko system och undvika konfigurations avvikelser.
+- **Kontroll över data** : Välj var dina data ska bearbetas av Cognitive Services. Detta kan vara viktigt om du inte kan skicka data till molnet men behöver åtkomst till API:er för Cognitive Services. Stöd för konsekvens i hybrid miljöer – över data, hantering, identitet och säkerhet.
+- **Kontroll över modell uppdateringar** : flexibilitet vid versions hantering och uppdatering av modeller som distribuerats i deras lösningar.
+- **Portabel arkitektur** : gör det möjligt att skapa en bärbar program arkitektur som kan distribueras på Azure, lokalt och på gränsen. Behållare kan distribueras direkt till [Azure Kubernetes-tjänsten](../aks/index.yml), [Azure Container instances](../container-instances/index.yml)eller till ett [Kubernetes](https://kubernetes.io/) -kluster som distribuerats till [Azure Stack](/azure-stack/operator). Mer information finns i [distribuera Kubernetes till Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+- **Högt data flöde/låg latens** : ge kunderna möjlighet att skala för höga krav på data flöden och låg latens genom att aktivera Cognitive Services att köra fysiskt nära sin program logik och data. Behållare omfattar inte Cap-transaktioner per sekund (TPS) och kan göras för att skala upp och ut för att hantera efter frågan om du anger de nödvändiga maskin varu resurserna.
+- **Skalbarhet** : med den ständigt växande populariteten av skapa behållare och behållar Dirigerings program, till exempel Kubernetes; skalbarhet är i det tekniska förskottet i Forefront. Genom att bygga vidare på en skalbar kluster bas kan program utveckling tillgodose hög tillgänglighet.
 
 ## <a name="containers-in-azure-cognitive-services"></a>Behållare i Azure Cognitive Services
 
@@ -58,19 +58,19 @@ Azure Cognitive Services-behållare innehåller följande uppsättning Docker-be
 
 | Tjänst | Pris nivå som stöds | Container | Beskrivning |
 |--|--|--|--|
-| [Avvikelse detektor][ad-containers] | F0, S0 | **Avvikelser-detektor** ([bild](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst][request-access] |
-| [Visuellt innehåll][cv-containers] | F0, S1 | **Läs** OCR ([bild](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Med Read OCR-behållaren kan du extrahera utskrift och handskriven text från bilder och dokument med stöd för JPEG-, PNG-, BMP-, PDF-och TIFF-filformat. Mer information finns i [Read API-dokumentationen](./computer-vision/concept-recognizing-text.md).<br>[Begär åtkomst][request-access] |
+| [Avvikelse detektor][ad-containers] | F0, S0 | **Avvikelser-detektor** ( [bild](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Med API: t för avvikelse identifiering kan du övervaka och identifiera avvikelser i dina Time Series-data med Machine Learning.<br>[Begär åtkomst][request-access] |
+| [Visuellt innehåll][cv-containers] | F0, S1 | **Läs** OCR ( [bild](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Med Read OCR-behållaren kan du extrahera utskrift och handskriven text från bilder och dokument med stöd för JPEG-, PNG-, BMP-, PDF-och TIFF-filformat. Mer information finns i [Read API-dokumentationen](./computer-vision/concept-recognizing-text.md).<br>[Begär åtkomst][request-access] |
 | [Ansiktsigenkänning][fa-containers] | F0, S0 | **Ansiktsigenkänning** | Identifierar människo ansikten i bilder och identifierar attribut, inklusive ansikts landmärken (till exempel näsaer och ögon), kön, ålder och andra maskin förväntade ansikts funktioner. Förutom identifiering kan FACET kontrol lera om två ansikten i samma bild eller olika bilder är desamma genom att använda en säkerhets poäng, eller jämföra ansikten mot en databas för att se om det redan finns ett liknande eller identiskt ansikte. Det kan också organisera liknande ansikten i grupper med hjälp av delade visuella egenskaper. |
 | [Formulär igenkänning][fr-containers] | F0, S0 | **Formigenkänning** | Forms förståelse använder Machine Learning-teknik för att identifiera och extrahera nyckel/värde-par och tabeller från formulär. |
-| [LUIS][lu-containers] | F0, S0 | **Luis** ([bild](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Läser in en utbildad eller publicerad Language Understanding modell, som även kallas LUIS-app, i en Docker-behållare och ger åtkomst till frågans förutsägelser från behållarens API-slutpunkter. Du kan samla in frågeuttryck från behållaren och överföra tillbaka dem till Luis- [portalen](https://www.luis.ai) för att förbättra appens förutsägelse noggrannhet. |
-| [Speech Service API][sp-containers-stt] | F0, S0 | **Tal till text** ([bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Transkriberar kontinuerlig realtidsöversättning av tal till text. |
-| [Speech Service API][sp-containers-cstt] | F0, S0 | **Custom Speech-till-text** ([bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Översätter kontinuerlig real tids tal till text med hjälp av en anpassad modell. |
-| [Speech Service API][sp-containers-tts] | F0, S0 | **Text till tal** ([bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | Konverterar text till naturligt tal. |
-| [Speech Service API][sp-containers-ctts] | F0, S0 | **Anpassad text till tal** ([bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech)) | Konverterar text till naturligt ljuds tal med hjälp av en anpassad modell. |
-| [Speech Service API][sp-containers-ntts] | F0, S0 | **Neurala text till tal** ([bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech)) | Konverterar text till naturligt ljuds tal med djup neurala nätverks teknik, vilket ger mer naturliga syntetiskt syntetiskt tal. |
-| [Textanalys][ta-containers-keyphrase] | F0, S | **Extrahering av diskussionsämne** ([bild](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extraherar viktiga fraser för att identifiera huvud punkterna. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”. |
-| [Textanalys][ta-containers-language] | F0, S | **Språkidentifiering** ([bild](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | För upp till 120 språk identifierar det språk som indatamängden är skrivet i och rapporterar en enda språkkod för varje dokument som skickas på begäran. Språkkoden paras med poäng som anger styrkan hos poängen. |
-| [Textanalys][ta-containers-sentiment] | F0, S | **Attitydanalys v3** ([bild](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyserar rå text för LED trådar om positiv eller negativ sentiment. Den här versionen av sentiment-analys returnerar sentiment etiketter (till exempel *positivt* eller *negativt*) för varje dokument och mening i det. |
+| [LUIS][lu-containers] | F0, S0 | **Luis** ( [bild](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Läser in en utbildad eller publicerad Language Understanding modell, som även kallas LUIS-app, i en Docker-behållare och ger åtkomst till frågans förutsägelser från behållarens API-slutpunkter. Du kan samla in frågeuttryck från behållaren och överföra tillbaka dem till Luis- [portalen](https://www.luis.ai) för att förbättra appens förutsägelse noggrannhet. |
+| [Speech Service API][sp-containers-stt] | F0, S0 | **Tal till text** ( [bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Transkriberar kontinuerlig realtidsöversättning av tal till text. |
+| [Speech Service API][sp-containers-cstt] | F0, S0 | **Custom Speech-till-text** ( [bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Översätter kontinuerlig real tids tal till text med hjälp av en anpassad modell. |
+| [Speech Service API][sp-containers-tts] | F0, S0 | **Text till tal** ( [bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | Konverterar text till naturligt tal. |
+| [Speech Service API][sp-containers-ctts] | F0, S0 | **Anpassad text till tal** ( [bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech)) | Konverterar text till naturligt ljuds tal med hjälp av en anpassad modell. |
+| [Speech Service API][sp-containers-ntts] | F0, S0 | **Neurala text till tal** ( [bild](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech)) | Konverterar text till naturligt ljuds tal med djup neurala nätverks teknik, vilket ger mer naturliga syntetiskt syntetiskt tal. |
+| [Textanalys][ta-containers-keyphrase] | F0, S | **Extrahering av diskussionsämne** ( [bild](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extraherar viktiga fraser för att identifiera huvud punkterna. Exempel: För den inmatade texten ”Maten var härlig och personalen var underbar” returnerar API:et de huvudsakliga diskussionsämnena: ”mat” och ”underbar personal”. |
+| [Textanalys][ta-containers-language] | F0, S | **Språkidentifiering** ( [bild](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | För upp till 120 språk identifierar det språk som indatamängden är skrivet i och rapporterar en enda språkkod för varje dokument som skickas på begäran. Språkkoden paras med poäng som anger styrkan hos poängen. |
+| [Textanalys][ta-containers-sentiment] | F0, S | **Attitydanalys v3** ( [bild](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyserar rå text för LED trådar om positiv eller negativ sentiment. Den här versionen av sentiment-analys returnerar sentiment etiketter (till exempel *positivt* eller *negativt* ) för varje dokument och mening i det. |
 | [Textanalys][ta-containers-health] | F0, S | **Textanalys för hälsa** | Extrahera och märk medicinsk information från ostrukturerad klinisk text. |
 | [Rumslig analys][spa-containers] | S0 | **Rums analys** | Analyserar direktuppspelad video i real tid för att förstå spatiala relationer mellan människor, deras rörelse och interaktioner med objekt i fysiska miljöer. |
 
@@ -95,11 +95,11 @@ Azure Cognitive Services-behållare är offentligt tillgängliga via din Azure-p
 
 Du måste uppfylla följande krav innan du använder Azure Cognitive Services-behållare:
 
-**Docker-motorn**: du måste ha Docker-motorn installerad lokalt. Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms)och [Windows](https://docs.docker.com/docker-for-windows/). I Windows måste Docker konfigureras för att stödja Linux-behållare. Docker-behållare kan också distribueras direkt till [Azure Kubernetes-tjänsten](../aks/index.yml) eller [Azure Container instances](../container-instances/index.yml).
+**Docker-motorn** : du måste ha Docker-motorn installerad lokalt. Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms)och [Windows](https://docs.docker.com/docker-for-windows/). I Windows måste Docker konfigureras för att stödja Linux-behållare. Docker-behållare kan också distribueras direkt till [Azure Kubernetes-tjänsten](../aks/index.yml) eller [Azure Container instances](../container-instances/index.yml).
 
 Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure.
 
-**Bekant med Microsoft container Registry och Docker**: du bör ha grundläggande kunskaper om både Microsoft container Registry-och Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar samt kunskaper om grundläggande `docker` kommandon.
+**Bekant med Microsoft container Registry och Docker** : du bör ha grundläggande kunskaper om både Microsoft container Registry-och Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar samt kunskaper om grundläggande `docker` kommandon.
 
 En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).
 

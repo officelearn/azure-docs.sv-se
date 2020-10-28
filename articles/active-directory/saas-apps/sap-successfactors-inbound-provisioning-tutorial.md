@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: e305795f4f45a0ea858eb8d74880aedca8ec538d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57afbe2ebdde7755eec659f56e402315a60ec7d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979838"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676611"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Självstudie: konfigurera SAP-SuccessFactors för att Active Directory användar etablering 
 Syftet med den här självstudien är att visa de steg som du måste utföra för att etablera användare från SuccessFactors personal Central till Active Directory (AD) och Azure AD, med valfri Skriv åtgärd e-postadress till SuccessFactors. 
@@ -95,32 +95,32 @@ Arbeta med ditt SuccessFactors-administratörs team eller implementerings partne
 ### <a name="create-an-api-permissions-role"></a>Skapa en roll för API-behörigheter
 
 * Logga in på SAP SuccessFactors med ett användar konto som har åtkomst till administrations centret.
-* Sök efter *Hantera behörighets roller*och välj **Hantera behörighets roller** från Sök resultaten.
+* Sök efter *Hantera behörighets roller* och välj **Hantera behörighets roller** från Sök resultaten.
   ![Hantera behörighets roller](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* I listan behörighets roll klickar du på **Skapa ny**.
+* I listan behörighets roll klickar du på **Skapa ny** .
   > [!div class="mx-imgBorder"]
   > ![Skapa ny behörighets roll](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
 * Lägg till ett **roll namn** och en **Beskrivning** för den nya behörighets rollen. Namnet och beskrivningen ska ange att rollen är för API-användnings behörigheter.
   > [!div class="mx-imgBorder"]
   > ![Information om behörighets roll](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* Under behörighets inställningar klickar du på **behörighet...** och bläddrar sedan ned behörighets listan och klickar på **Hantera integrerings verktyg**. Markera kryss rutan om **du vill tillåta administratörs åtkomst till OData-API via grundläggande autentisering**.
+* Under behörighets inställningar klickar du på **behörighet...** och bläddrar sedan ned behörighets listan och klickar på **Hantera integrerings verktyg** . Markera kryss rutan om **du vill tillåta administratörs åtkomst till OData-API via grundläggande autentisering** .
   > [!div class="mx-imgBorder"]
   > ![Hantera integrerings verktyg](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Rulla nedåt i samma ruta och välj **medarbetares centrala API**. Lägg till behörigheter som visas nedan för att läsa med ODATA API och redigera med ODATA API. Välj alternativet Redigera om du planerar att använda samma konto för SuccessFactors-scenariot för tillbakaskrivning. 
+* Rulla nedåt i samma ruta och välj **medarbetares centrala API** . Lägg till behörigheter som visas nedan för att läsa med ODATA API och redigera med ODATA API. Välj alternativet Redigera om du planerar att använda samma konto för SuccessFactors-scenariot för tillbakaskrivning. 
   > [!div class="mx-imgBorder"]
   > ![Läs Skriv behörighet](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
   >[!NOTE]
   >En fullständig lista över attribut som hämtas av den här etablerings appen finns i referens för [SuccessFactors-attribut](../app-provisioning/sap-successfactors-attribute-reference.md)
 
-* Klicka på **färdig**. Klicka på **Spara ändringar**.
+* Klicka på **färdig** . Klicka på **Spara ändringar** .
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Skapa en behörighets grupp för API-användaren
 
-* I SuccessFactors administrations Center söker du efter *Hantera behörighets grupper*och väljer **Hantera behörighets grupper** från Sök resultaten.
+* I SuccessFactors administrations Center söker du efter *Hantera behörighets grupper* och väljer **Hantera behörighets grupper** från Sök resultaten.
   > [!div class="mx-imgBorder"]
   > ![Hantera behörighets grupper](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* I fönstret Hantera behörighets grupper klickar du på **Skapa nytt**.
+* I fönstret Hantera behörighets grupper klickar du på **Skapa nytt** .
   > [!div class="mx-imgBorder"]
   > ![Lägg till ny grupp](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
 * Lägg till ett grupp namn för den nya gruppen. Grupp namnet ska indikera att gruppen är för API-användare.
@@ -133,16 +133,16 @@ Arbeta med ditt SuccessFactors-administratörs team eller implementerings partne
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Bevilja behörighets rollen till behörighets gruppen
 
-* I SuccessFactors administrations Center kan du söka efter *Hantera behörighets roller*och sedan välja **Hantera behörighets roller** från Sök resultaten.
-* I **listan behörighets roll**väljer du den roll som du har skapat för behörigheter för API-användning.
-* Under **tilldela den här rollen till... klickar du**på **Lägg till...** -knapp.
+* I SuccessFactors administrations Center kan du söka efter *Hantera behörighets roller* och sedan välja **Hantera behörighets roller** från Sök resultaten.
+* I **listan behörighets roll** väljer du den roll som du har skapat för behörigheter för API-användning.
+* Under **tilldela den här rollen till... klickar du** på **Lägg till...** -knapp.
 * Välj **behörighets grupp...** från den nedrullningsbara menyn och klicka sedan på **Välj...** för att öppna fönstret grupper för att söka efter och välja den grupp som skapades ovan. 
   > [!div class="mx-imgBorder"]
   > ![Lägg till behörighets grupp](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
 * Granska behörighets rollen bevilja behörighets gruppen. 
   > [!div class="mx-imgBorder"]
   > ![Behörighets roll och grupp information](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Klicka på **Spara ändringar**.
+* Klicka på **Spara ändringar** .
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>Konfigurera användar etablering från SuccessFactors till Active Directory
 
@@ -162,11 +162,11 @@ Det här avsnittet innehåller steg för användar konto etablering från Succes
 
 2. I det vänstra navigerings fältet väljer du **Azure Active Directory**
 
-3. Välj **företags program**och sedan **alla program**.
+3. Välj **företags program** och sedan **alla program** .
 
-4. Välj **Lägg till ett program**och välj kategorin **alla** .
+4. Välj **Lägg till ett program** och välj kategorin **alla** .
 
-5. Sök efter **SuccessFactors för att Active Directory användar etablering**och Lägg till den appen från galleriet.
+5. Sök efter **SuccessFactors för att Active Directory användar etablering** och Lägg till den appen från galleriet.
 
 6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**
 
@@ -182,7 +182,7 @@ Det här avsnittet innehåller steg för användar konto etablering från Succes
 För att etablera till Active Directory lokalt måste etablerings agenten installeras på en server som har .NET 4.7.1 + Framework och nätverks åtkomst till önskad Active Directory domän (er).
 
 > [!TIP]
-> Du kan kontrol lera versionen av .NET Framework på servern med hjälp av anvisningarna [här](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
+> Du kan kontrol lera versionen av .NET Framework på servern med hjälp av anvisningarna [här](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > Om inte .NET 4.7.1 eller senare är installerat på servern kan du ladda ned den [här](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
 Överför de hämtade agent installations programmet till Server värden och följ stegen nedan för att slutföra Agent konfigurationen.
@@ -247,7 +247,7 @@ I det här steget upprättar vi anslutningen till SuccessFactors och Active Dire
 
    * **Administratörs lösen ord –** Ange lösen ordet för SuccessFactors-API-användarkontot. 
 
-   * **Klient-URL –** Ange namnet på SuccessFactors OData API Services-slutpunkten. Ange bara värd namnet för servern utan http eller https. Det här värdet bör se ut så här: **<API-server-name>. SuccessFactors.com**.
+   * **Klient-URL –** Ange namnet på SuccessFactors OData API Services-slutpunkten. Ange bara värd namnet för servern utan http eller https. Det här värdet bör se ut så här: **<API-server-name>. SuccessFactors.com** .
 
    * **Active Directory skog –** "Namnet på din Active Directory domän, som registrerat hos agenten. Använd List rutan för att välja mål domän för etablering. Det här värdet är vanligt vis en sträng som: *contoso.com*
 
@@ -258,7 +258,7 @@ I det här steget upprättar vi anslutningen till SuccessFactors och Active Dire
 
    * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
     > [!NOTE]
-    > Azure AD Provisioning-tjänsten skickar e-postavisering om etablerings jobbet hamnar i [karantän](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) .
+    > Azure AD Provisioning-tjänsten skickar e-postavisering om etablerings jobbet hamnar i [karantän](../app-provisioning/application-provisioning-quarantine-status.md) .
 
    * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas, kontrol lera att SuccessFactors-autentiseringsuppgifterna och de AD-autentiseringsuppgifter som kon figurer ATS på Agent installationen är giltiga.
     >[!div class="mx-imgBorder"]
@@ -270,7 +270,7 @@ I det här steget upprättar vi anslutningen till SuccessFactors och Active Dire
 
 I det här avsnittet ska du konfigurera hur användar data flödar från SuccessFactors till Active Directory.
 
-1. På fliken etablering under **mappningar**klickar du på **Synkronisera SuccessFactors-användare till lokalt Active Directory**.
+1. På fliken etablering under **mappningar** klickar du på **Synkronisera SuccessFactors-användare till lokalt Active Directory** .
 
 1. I fältet **käll objekt omfånget** kan du välja vilka uppsättningar av användare i SuccessFactors som ska ligga inom omfånget för etablering till AD genom att definiera en uppsättning attributbaserade filter. Standard omfånget är "alla användare i SuccessFactors". Exempel filter:
 
@@ -340,9 +340,9 @@ När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings t
 > [!TIP]
 > Som standard när du aktiverar etablerings tjänsten kommer den att initiera etablerings åtgärder för alla användare i omfånget. Om det uppstår fel i mappnings-eller SuccessFactors-data, kan etablerings jobbet Miss Miss sen och gå in i karantäns tillstånd. För att undvika detta rekommenderar vi att du konfigurerar **käll objekt omfångs** filter och testar dina mappningar av attribut med några test användare innan du startar den fullständiga synkroniseringen för alla användare. När du har kontrollerat att mappningarna fungerar och ger dig önskade resultat kan du antingen ta bort filtret eller gradvis expandera det så att det innehåller fler användare.
 
-1. På fliken **etablering** ställer du in **etablerings status** på **på**.
+1. På fliken **etablering** ställer du in **etablerings status** på **på** .
 
-2. Klicka på **Spara**.
+2. Klicka på **Spara** .
 
 3. Den här åtgärden startar den inledande synkroniseringen, vilket kan ta ett variabelt antal timmar beroende på hur många användare som finns i SuccessFactors-klienten. Du kan kontrol lera förlopps indikatorn för att följa synkroniseringens förlopp. 
 

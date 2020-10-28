@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: e5a7984cd868e7fbac08ec80f92fe28ad13d84e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a76e4007965c263671554bbcd937dbf3b4b0a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308103"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676207"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Skapa ett Internet Analyzer-test med CLI (för hands version)
 
@@ -37,7 +37,7 @@ Internet Analyzer CLI exponerar följande typer av resurser:
 
 ## <a name="profile-and-test-creation"></a>Profil-och test skapande
 1. Få till gång till Internet Analyzer Preview genom att följa **Hur gör jag för att delta i för hands versionen?** instruktioner från [vanliga frågor och svar om Azure Internet Analyzer](internet-analyzer-faq.md).
-2. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 3. Kör `login` kommandot för att starta en CLI-session:
     ```azurecli-interactive
     az login
@@ -50,9 +50,9 @@ Internet Analyzer CLI exponerar följande typer av resurser:
 
 5. Välj ditt prenumerations-ID som har beviljats åtkomst till den offentliga Internet Analyzer-förhands granskningen.
 
-    När du har loggat in visas en lista över prenumerationer som är associerade med ditt Azure-konto. Prenumerations informationen med `isDefault: true` är den aktuella aktiverade prenumerationen när du har loggat in. Om du vill välja en annan prenumeration använder du kommandot [AZ Account set](https://docs.microsoft.com/cli/azure/account#az-account-set) med det PRENUMERATIONS-ID som du vill växla till. Mer information om val av prenumeration finns i [använda flera Azure-prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    När du har loggat in visas en lista över prenumerationer som är associerade med ditt Azure-konto. Prenumerations informationen med `isDefault: true` är den aktuella aktiverade prenumerationen när du har loggat in. Om du vill välja en annan prenumeration använder du kommandot [AZ Account set](/cli/azure/account#az-account-set) med det PRENUMERATIONS-ID som du vill växla till. Mer information om val av prenumeration finns i [använda flera Azure-prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
-    Det finns några olika sätt att logga in som inte är interaktiva. Läs mer i [Logga in med Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Det finns några olika sätt att logga in som inte är interaktiva. Läs mer i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 6. **[Valfritt]** Skapa en ny Azure-resurs grupp:
     ```azurecli-interactive
@@ -132,6 +132,6 @@ Internet Analyzer CLI exponerar följande typer av resurser:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Bläddra i [Internet Analyzer CLI-referensen](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) för en fullständig lista över kommandon och användnings exempel som stöds.
+* Bläddra i [Internet Analyzer CLI-referensen](/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) för en fullständig lista över kommandon och användnings exempel som stöds.
 * Läs [vanliga frågor och svar om Internet Analyzer](internet-analyzer-faq.md).
-* Lär dig mer om att bädda in [Internet Analyzer-klienten](internet-analyzer-embed-client.md) och skapa en [anpassad slut punkt](internet-analyzer-custom-endpoint.md). 
+* Lär dig mer om att bädda in [Internet Analyzer-klienten](internet-analyzer-embed-client.md) och skapa en [anpassad slut punkt](internet-analyzer-custom-endpoint.md).

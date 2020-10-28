@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 10/05/2020
-ms.openlocfilehash: be40cd4a0bef43d81c792fd10508014f5b886fba
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: dc6d083efd1d39d96f9df995fe5e7e4bcc95abff
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124194"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675308"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -30,7 +30,7 @@ Databas säkerhets kopieringar är en viktig del av en affärs kontinuitet och k
 
 ### <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
 
-Både SQL Database-och SQL-hanterad instans använder SQL Server teknik för att skapa [fullständiga säkerhets kopior](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) varje vecka, [differentiella säkerhets kopior](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) var 12-24 timme och [säkerhets kopieringar av transaktions loggar](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) var 5 till 10 minuter. Frekvensen för säkerhets kopiering av transaktions loggar baseras på beräknings storlek och mängden databas aktivitet.
+Både SQL Database-och SQL-hanterad instans använder SQL Server teknik för att skapa [fullständiga säkerhets kopior](/sql/relational-databases/backup-restore/full-database-backups-sql-server) varje vecka, [differentiella säkerhets kopior](/sql/relational-databases/backup-restore/differential-backups-sql-server) var 12-24 timme och [säkerhets kopieringar av transaktions loggar](/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) var 5 till 10 minuter. Frekvensen för säkerhets kopiering av transaktions loggar baseras på beräknings storlek och mängden databas aktivitet.
 
 När du återställer en databas fastställer tjänsten vilka säkerhets kopior av fullständig, differentiell och transaktions logg som måste återställas.
 
@@ -56,7 +56,7 @@ För en SQL Database kan du konfigurera redundans för säkerhets kopiering när
 
 Du kan använda de här säkerhetskopiorna för att:
 
-- **Återställning av den befintliga databasen**  -  vid en viss tidpunkt [Återställ en befintlig databas till en tidpunkt som tidigare varit](recovery-using-backups.md#point-in-time-restore) inom kvarhållningsperioden med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller REST API. För SQL Database skapar den här åtgärden en ny databas på samma server som den ursprungliga databasen, men använder ett annat namn för att undvika att skriva över den ursprungliga databasen. När återställningen är klar kan du ta bort den ursprungliga databasen. Alternativt kan du [byta namn](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) på både den ursprungliga databasen och byta namn på den återställda databasen till det ursprungliga databas namnet. På samma sätt skapar den här åtgärden en kopia av databasen på samma eller en annan hanterad instans i samma prenumeration och samma region för SQL-hanterad instans.
+- **Återställning av den befintliga databasen**  -  vid en viss tidpunkt [Återställ en befintlig databas till en tidpunkt som tidigare varit](recovery-using-backups.md#point-in-time-restore) inom kvarhållningsperioden med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller REST API. För SQL Database skapar den här åtgärden en ny databas på samma server som den ursprungliga databasen, men använder ett annat namn för att undvika att skriva över den ursprungliga databasen. När återställningen är klar kan du ta bort den ursprungliga databasen. Alternativt kan du [byta namn](/sql/relational-databases/databases/rename-a-database) på både den ursprungliga databasen och byta namn på den återställda databasen till det ursprungliga databas namnet. På samma sätt skapar den här åtgärden en kopia av databasen på samma eller en annan hanterad instans i samma prenumeration och samma region för SQL-hanterad instans.
 - **Återställning av borttagen tidpunkt för borttagen databas**  -  [Återställ en borttagen databas till tiden för borttagning](recovery-using-backups.md#deleted-database-restore) eller till någon tidpunkt inom kvarhållningsperioden. Den borttagna databasen kan bara återställas på samma server eller hanterade instans där den ursprungliga databasen skapades. När du tar bort en databas tar tjänsten en slutgiltig säkerhets kopia av transaktions loggen innan den tas bort, för att förhindra data förlust.
 - **Geo-återställning**  -  [Återställ en databas till en annan geografisk region](recovery-using-backups.md#geo-restore). Med geo-återställning kan du återställa från en geografisk katastrof när du inte kan komma åt databasen eller säkerhets kopiorna i den primära regionen. Den skapar en ny databas på en befintlig server eller hanterad instans, i valfri Azure-region.
    > [!IMPORTANT]
@@ -72,11 +72,11 @@ Du kan prova att säkerhetskopiera konfigurationen och återställnings åtgärd
 
 | Åtgärd | Azure Portal | Azure PowerShell |
 |---|---|---|
-| **Ändra kvarhållning av säkerhets kopior** | [SQL Database](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL-hanterad instans](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL Database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL-hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **Ändra kvarhållning av säkerhets kopior** | [SQL Database](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL-hanterad instans](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL Database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL-hanterad instans](/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **Ändra långsiktig kvarhållning av säkerhets kopior** | [SQL Database](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL-hanterad instans-saknas  | [SQL Database](long-term-backup-retention-configure.md)<br/>[SQL-hanterad instans](../managed-instance/long-term-backup-retention-configure.md)  |
-| **Återställa en databas från en tidpunkt** | [SQL Database](recovery-using-backups.md#point-in-time-restore)<br>[SQL-hanterad instans](../managed-instance/point-in-time-restore.md) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL-hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **Återställa en borttagen databas** | [SQL Database](recovery-using-backups.md)<br>[SQL-hanterad instans](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL-hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **Återställa en databas från Azure Blob Storage** | SQL Database-saknas <br/>SQL-hanterad instans-saknas  | SQL Database-saknas <br/>[SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| **Återställa en databas från en tidpunkt** | [SQL Database](recovery-using-backups.md#point-in-time-restore)<br>[SQL-hanterad instans](../managed-instance/point-in-time-restore.md) | [SQL Database](/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL-hanterad instans](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **Återställa en borttagen databas** | [SQL Database](recovery-using-backups.md)<br>[SQL-hanterad instans](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL Database](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL-hanterad instans](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Återställa en databas från Azure Blob Storage** | SQL Database-saknas <br/>SQL-hanterad instans-saknas  | SQL Database-saknas <br/>[SQL-hanterad instans](../managed-instance/restore-sample-database-quickstart.md) |
 
 ## <a name="backup-scheduling"></a>Schemalägg säkerhets kopiering
 
@@ -115,7 +115,7 @@ Lagrings förbrukningen för säkerhets kopiering upp till den maximala data sto
 
 - Minska [lagrings perioden för säkerhets kopior](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) till det minimum som krävs för dina behov.
 - Undvik att utföra stora Skriv åtgärder, till exempel indexera återskapare, oftare än du behöver.
-- För stora data inläsnings åtgärder bör du överväga att använda [grupperade columnstore-index](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) och följande relaterade [metod tips](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)och/eller minska antalet icke-grupperade index.
+- För stora data inläsnings åtgärder bör du överväga att använda [grupperade columnstore-index](/sql/relational-databases/indexes/columnstore-indexes-overview) och följande relaterade [metod tips](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)och/eller minska antalet icke-grupperade index.
 - På den Generell användning tjänst nivån är den allokerade data lagringen billigare än priset för lagring av säkerhets kopior. Om du har kontinuerligt höga kostnader för säkerhets kopierings lagring kan du överväga att öka lagrings utrymmet för säkerhets kopieringen.
 - Använd TempDB i stället för permanenta tabeller i program logiken för att lagra tillfälliga resultat och/eller tillfälliga data.
 - Använd lokalt redundant lagring av säkerhets kopior när det är möjligt (till exempel dev/test-miljöer)
@@ -190,9 +190,9 @@ Mer information om priser för säkerhets kopierings lagring Azure SQL Database 
 
 ### <a name="monitor-costs"></a>Övervaka kostnader
 
-Om du vill förstå kostnader för säkerhets kopierings lagring går du till **Cost Management + fakturering** i Azure Portal, väljer **Cost Management**och väljer sedan **kostnads analys**. Välj önskad prenumeration som **omfång**och filtrera sedan efter den tids period och tjänst som du är intresse rad av.
+Om du vill förstå kostnader för säkerhets kopierings lagring går du till **Cost Management + fakturering** i Azure Portal, väljer **Cost Management** och väljer sedan **kostnads analys** . Välj önskad prenumeration som **omfång** och filtrera sedan efter den tids period och tjänst som du är intresse rad av.
 
-Lägg till ett filter för **tjänst namn**och välj sedan **SQL-databas** i list rutan. Använd filtret under **kategori för mätning** för att välja fakturerings räknare för din tjänst. För en enskild databas eller en Elastic Database-pool väljer du **Single/elastisk pool PITR backup Storage**. För en hanterad instans väljer du **mi PITR backup Storage**. Under kategorierna för **lagring** och **beräkning** kan intresserar dig också, men de är inte kopplade till reserv lagrings kostnader.
+Lägg till ett filter för **tjänst namn** och välj sedan **SQL-databas** i list rutan. Använd filtret under **kategori för mätning** för att välja fakturerings räknare för din tjänst. För en enskild databas eller en Elastic Database-pool väljer du **Single/elastisk pool PITR backup Storage** . För en hanterad instans väljer du **mi PITR backup Storage** . Under kategorierna för **lagring** och **beräkning** kan intresserar dig också, men de är inte kopplade till reserv lagrings kostnader.
 
 ![Kostnads analys för lagring av säkerhets kopior](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -249,7 +249,7 @@ Om du vill ändra kvarhållning av PITR för aktiva databaser med hjälp av Azur
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell AzureRM-modulen stöds fortfarande av SQL Database-och SQL-hanterad instans, men all framtida utveckling är för AZ. SQL-modulen. Mer information finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen är i stort sett identiska med de i AzureRm-modulerna.
+> PowerShell AzureRM-modulen stöds fortfarande av SQL Database-och SQL-hanterad instans, men all framtida utveckling är för AZ. SQL-modulen. Mer information finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen är i stort sett identiska med de i AzureRm-modulerna.
 
 #### <a name="sql-database"></a>[SQL Database](#tab/single-database)
 
@@ -333,7 +333,7 @@ Status kod: 200
 }
 ```
 
-Mer information finns i [kvarhållning av säkerhets kopior REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+Mer information finns i [kvarhållning av säkerhets kopior REST API](/rest/api/sql/backupshorttermretentionpolicies).
 
 #### <a name="sample-request"></a>Exempel förfrågan
 
@@ -366,7 +366,7 @@ Status kod: 200
 }
 ```
 
-Mer information finns i [kvarhållning av säkerhets kopior REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+Mer information finns i [kvarhållning av säkerhets kopior REST API](/rest/api/sql/backupshorttermretentionpolicies).
 
 ## <a name="configure-backup-storage-redundancy"></a>Konfigurera redundans för lagring av säkerhets kopior
 
@@ -403,7 +403,7 @@ Om du vill konfigurera redundans för säkerhets kopierings lagring när du skap
 New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database03" -Edition "GeneralPurpose" -Vcore 2 -ComputeGeneration "Gen5" -BackupStorageRedundancy Geo
 ```
 
-Mer information finns på [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase).
+Mer information finns på [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 
 Du kan använda parametern-BackupStorageRedundancy för att uppdatera redundansen för säkerhets kopierings lagringen för en befintlig databas. Möjliga värden är geo, Zone och Local.
 Observera att det kan ta upp till 48 timmar innan ändringarna tillämpas på databasen. Om du växlar från Geo-redundant lagring till lokal eller zon redundant lagring inaktive ras geo Restore. 
@@ -413,7 +413,7 @@ Observera att det kan ta upp till 48 timmar innan ändringarna tillämpas på da
 Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01" -ServerName "Server01" -BackupStorageRedundancy Zone
 ```
 
-Mer information finns på [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
+Mer information finns på [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)
 
 > [!NOTE]
 > Om du vill använda-BackupStorageRedundancy-parametern med databas återställning, databas kopia eller skapa sekundära åtgärder använder du Azure PowerShell version AZ. SQL 2.11.0. 
@@ -427,13 +427,13 @@ För att konfigurera redundans för säkerhets kopiering när du skapar en hante
 New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Location westcentralus -AdministratorCredential (Get-Credential) -SubnetId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup01/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name" -LicenseType LicenseIncluded -StorageSizeInGB 1024 -VCore 16 -Edition "GeneralPurpose" -ComputeGeneration Gen4 -BackupStorageRedundancy Geo
 ```
 
-Mer information finns på [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance).
+Mer information finns på [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance).
 
 ---
 
 ## <a name="use-azure-policy-to-enforce-backup-storage-redundancy"></a>Använd Azure Policy för att framtvinga redundans av säkerhets kopiering
 
-Om du har data placering krav som kräver att du behåller alla dina data i en enda Azure-region, kanske du vill framtvinga en zon redundant eller lokalt redundant säkerhets kopiering för din SQL Database eller hanterad instans med Azure Policy. Azure Policy är en tjänst som du kan använda för att skapa, tilldela och hantera principer som tillämpar regler på Azure-resurser. Azure Policy hjälper dig att hålla resurserna kompatibla med företagets standarder och service nivå avtal. Mer information finns i [Översikt över Azure policy](https://docs.microsoft.com/azure/governance/policy/overview). 
+Om du har data placering krav som kräver att du behåller alla dina data i en enda Azure-region, kanske du vill framtvinga en zon redundant eller lokalt redundant säkerhets kopiering för din SQL Database eller hanterad instans med Azure Policy. Azure Policy är en tjänst som du kan använda för att skapa, tilldela och hantera principer som tillämpar regler på Azure-resurser. Azure Policy hjälper dig att hålla resurserna kompatibla med företagets standarder och service nivå avtal. Mer information finns i [Översikt över Azure policy](../../governance/policy/overview.md). 
 
 ### <a name="built-in-backup-storage-redundancy-policies"></a>Inbyggda redundans principer för lagring av säkerhets kopior 
 
@@ -443,14 +443,14 @@ Följande nya inbyggda principer läggs till, som kan tilldelas på prenumeratio
 
 [SQL-hanterade instanser bör undvika att använda GRS backup redundans](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
 
-En fullständig lista över inbyggda princip definitioner för SQL Database och hanterad instans finns [här](https://docs.microsoft.com/azure/azure-sql/database/policy-reference).
+En fullständig lista över inbyggda princip definitioner för SQL Database och hanterad instans finns [här](./policy-reference.md).
 
 För att genomdriva krav på data placering på organisations nivå kan dessa principer tilldelas till en prenumeration. När de har tilldelats en prenumerations nivå kommer användare i den angivna prenumerationen inte att kunna skapa en databas eller en hanterad instans med Geo-redundant lagring av säkerhets kopior via Azure Portal eller Azure PowerShell. 
 
 > [!IMPORTANT]
-> Azure-principer tillämpas inte när du skapar en databas via T-SQL. Om du vill genomdriva data placering när du skapar en databas med T-SQL [använder du "lokal" eller "zon" som indata till BACKUP_STORAGE_REDUNDANCY parameter i Create Database-instruktionen](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
+> Azure-principer tillämpas inte när du skapar en databas via T-SQL. Om du vill genomdriva data placering när du skapar en databas med T-SQL [använder du "lokal" eller "zon" som indata till BACKUP_STORAGE_REDUNDANCY parameter i Create Database-instruktionen](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
 
-Lär dig hur du tilldelar principer med hjälp av [Azure Portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) eller [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)
+Lär dig hur du tilldelar principer med hjälp av [Azure Portal](../../governance/policy/assign-policy-portal.md) eller [Azure PowerShell](../../governance/policy/assign-policy-powershell.md)
 
 
 ## <a name="next-steps"></a>Nästa steg

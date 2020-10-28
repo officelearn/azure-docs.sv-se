@@ -3,13 +3,13 @@ title: Övervaka ett nytt Azure Kubernetes service-kluster (AKS) | Microsoft Doc
 description: Lär dig hur du aktiverar övervakning för ett nytt Azure Kubernetes service-kluster (AKS) med Azure Monitor for containers-prenumeration.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.custom: devx-track-terraform
-ms.openlocfilehash: 7706df4f457167f5bb4d17f1d506594615364380
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: 19c4a88cee8776136593b041e94dd14c7c9c28d6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320331"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735079"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Aktivera övervakning av ett nytt Azure Kubernetes service-kluster (AKS)
 
@@ -34,12 +34,12 @@ Om du [distribuerar ett nytt AKS-kluster med terraform](/azure/developer/terrafo
 >[!NOTE]
 >Om du väljer att använda terraform måste du köra terraform Azure RM-providerns version 1.17.0 eller senare.
 
-Om du vill lägga till Azure Monitor för behållare i arbets ytan går du till [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) och slutför profilen genom att inkludera [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) och ange **oms_agent**. 
+Om du vill lägga till Azure Monitor för behållare i arbets ytan går du till [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) och slutför profilen genom att inkludera [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) och ange **oms_agent** . 
 
 När du har aktiverat övervakning och alla konfigurations aktiviteter har slutförts kan du övervaka klustrets prestanda på något av två sätt:
 
 * Direkt i AKS-klustret genom att välja **hälsa** i det vänstra fönstret.
-* Genom att välja panelen **övervaka behållar insikter** på kluster sidan AKS för det valda klustret. I Azure Monitor i det vänstra fönstret väljer du **hälsa**. 
+* Genom att välja panelen **övervaka behållar insikter** på kluster sidan AKS för det valda klustret. I Azure Monitor i det vänstra fönstret väljer du **hälsa** . 
 
   ![Alternativ för att välja Azure Monitor för behållare i AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 

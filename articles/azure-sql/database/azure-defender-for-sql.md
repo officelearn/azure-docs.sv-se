@@ -12,12 +12,12 @@ manager: rkarlin
 author: memildin
 ms.reviewer: vanto
 ms.date: 09/21/2020
-ms.openlocfilehash: d567876e0210c025fa34c5b82791eafe4cdff561
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d147303df43c4f86843df518c71316e6a97b6671
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372161"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678075"
 ---
 # <a name="azure-defender-for-sql"></a>Azure Defender för SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -31,7 +31,7 @@ Azure Defender innehåller en uppsättning avancerade SQL-säkerhetsfunktioner, 
 - [Sårbarhets bedömning](sql-vulnerability-assessment.md) är en tjänst som är enkel att konfigurera som kan upptäcka, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter. Den ger insyn i ditt säkerhets tillstånd och innehåller åtgärder som kan vidtas för att lösa säkerhets problem och förbättra din databas Fortifications.
 - [Advanced Threat Protection](threat-detection-overview.md) identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja din databas. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhets aviseringar om potentiella sårbarheter, Azure SQL-injektering och avvikande databas åtkomst mönster. Advanced Threat Protection-aviseringar ger detaljerad information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minska risken.
 
-Aktivera Azure Defender för SQL en gång för att aktivera alla dessa inkluderade funktioner. Med ett klick kan du aktivera Azure Defender för alla databaser på [servern](logical-servers.md) i Azure eller i din SQL-hanterade instans. Aktivering eller hantering av Azure Defender-inställningar kräver att du tillhöra rollen [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) eller någon av databas-eller Server administratörs rollerna.
+Du kan aktivera alla de här funktionerna genom att aktivera Azure Defender for SQL en enda gång. Med ett klick kan du aktivera Azure Defender för alla databaser på [servern](logical-servers.md) i Azure eller i din SQL-hanterade instans. Aktivering eller hantering av Azure Defender-inställningar kräver att du tillhöra rollen [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) eller någon av databas-eller Server administratörs rollerna.
 
 Mer information om priser för Azure Defender för SQL finns på [sidan med Azure Security Center priser](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -62,10 +62,10 @@ Om du vill åsidosätta Azure Defender-inställningarna för en viss databas mar
 
 När kryss rutan är markerad kan du konfigurera de relevanta inställningarna för den här databasen.
 
-Azure Defender för SQL-inställningar för servern eller den hanterade instansen kan också nås från fönstret Azure Defender Database. Klicka på **Inställningar** i huvud fönstret i Azure Defender och klicka sedan på **Visa Azure Defender för SQL Server-inställningar**.
+Azure Defender för SQL-inställningar för servern eller den hanterade instansen kan också nås från fönstret Azure Defender Database. Klicka på **Inställningar** i huvud fönstret i Azure Defender och klicka sedan på **Visa Azure Defender för SQL Server-inställningar** .
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [sårbarhets bedömning](sql-vulnerability-assessment.md)
 - Läs mer om [Avancerat skydd](threat-detection-configure.md)
-- Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Läs mer om [Azure Security Center](../../security-center/security-center-introduction.md)

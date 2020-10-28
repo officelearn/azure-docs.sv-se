@@ -7,16 +7,16 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 10/25/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: anpassad syn, bild igenkänning, app för bild igenkänning, bild analys, program vara för bild igenkänning
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 6583086c4b64c50f0cbef1fc12b7f4dc9e36be1f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a76f9cdd30fbdb5696149f57901dfc7e1b60e673
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91321074"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678281"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-client-library"></a>Snabb start: skapa ett bild klassificerings projekt med Custom Vision klient biblioteket
 

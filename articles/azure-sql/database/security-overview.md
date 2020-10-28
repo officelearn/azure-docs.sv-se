@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
-ms.date: 09/21/2020
-ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: bb9e17a4befcdcf1a322734c6cc5d75d653f23e6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321432"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676136"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>En översikt över säkerhets funktioner för Azure SQL Database och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -41,7 +41,7 @@ Regler för IP-brandvägg ger åtkomst till databaser baserat på den ursprungli
 [Regler för virtuella nätverk](vnet-service-endpoint-rule-overview.md) gör det möjligt för Azure SQL Database att endast acceptera kommunikation som skickas från valda undernät i ett virtuellt nätverk.
 
 > [!NOTE]
-> Kontroll av åtkomst med brand Väggs regler gäller *inte* för **SQL-hanterad instans**. Mer information om nätverks konfigurationen som behövs finns i [ansluta till en hanterad instans](../managed-instance/connect-application-instance.md)
+> Kontroll av åtkomst med brand Väggs regler gäller *inte* för **SQL-hanterad instans** . Mer information om nätverks konfigurationen som behövs finns i [ansluta till en hanterad instans](../managed-instance/connect-application-instance.md)
 
 ## <a name="access-management"></a>Åtkomsthantering
 
@@ -52,11 +52,11 @@ Regler för IP-brandvägg ger åtkomst till databaser baserat på den ursprungli
 
 Autentisering är en process för att bevisa att användaren är den som han eller hon ansöker. Azure SQL Database-och SQL-hanterade instanser stöder två typer av autentisering:
 
-- **SQL-autentisering**:
+- **SQL-autentisering** :
 
     SQL-autentisering syftar på autentisering av en användare vid anslutning till Azure SQL Database eller Azure SQL-hanterad instans med hjälp av användar namn och lösen ord. Du måste ange en inloggning med ett användar namn och lösen ord för **Server administratören** när servern skapas. Med dessa autentiseringsuppgifter kan en **Server administratör** autentisera till valfri databas på servern eller instansen som databas ägare. Efter det kan ytterligare SQL-inloggningar och användare skapas av Server administratören, vilket gör det möjligt för användare att ansluta med användar namn och lösen ord.
 
-- **Azure Active Directory autentisering**:
+- **Azure Active Directory autentisering** :
 
     Azure Active Directory autentisering är en mekanism för att ansluta till [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) och [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure Active Directory (Azure AD). Med Azure AD-autentisering kan administratörer centralt hantera identiteter och behörigheter för databas användare tillsammans med andra Azure-tjänster på en central plats. Detta inkluderar minimering av lösen ords lagring och möjliggör centraliserade principer för lösen ords rotation.
 
@@ -65,7 +65,7 @@ Autentisering är en process för att bevisa att användaren är den som han ell
     Ytterligare alternativ för Azure AD-autentisering är tillgängliga [Active Directory Universal-autentisering för SQL Server Management Studio](authentication-mfa-ssms-overview.md) anslutningar inklusive [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) och [villkorlig åtkomst](conditional-access-configure.md).
 
 > [!IMPORTANT]
-> Hantering av databaser och servrar i Azure styrs av ditt användar kontos roll tilldelningar för portalen. Mer information om den här artikeln finns i [rollbaserad åtkomst kontroll i Azure Portal](../../role-based-access-control/overview.md). Kontroll av åtkomst med brand Väggs regler gäller *inte* för **SQL-hanterad instans**. I följande artikel om hur [du ansluter till en hanterad instans](../managed-instance/connect-application-instance.md) finns mer information om nätverks konfigurationen som behövs.
+> Hantering av databaser och servrar i Azure styrs av ditt användar kontos roll tilldelningar för portalen. Mer information om den här artikeln finns i [rollbaserad åtkomst kontroll i Azure Portal](../../role-based-access-control/overview.md). Kontroll av åtkomst med brand Väggs regler gäller *inte* för **SQL-hanterad instans** . I följande artikel om hur [du ansluter till en hanterad instans](../managed-instance/connect-application-instance.md) finns mer information om nätverks konfigurationen som behövs.
 
 ## <a name="authorization"></a>Auktorisering
 
@@ -97,13 +97,13 @@ Avancerat skydd analyserar dina loggar för att identifiera onormalt beteende oc
 
 ### <a name="transport-layer-security-encryption-in-transit"></a>Transport Layer Security (kryptering under överföring)
 
-SQL Database och SQL-hanterad instans säkra kunddata genom att kryptera data i rörelse med [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+SQL Database, SQL-hanterad instans och Azure Synapse Analytics säkra kund data genom att kryptera data i rörelse med [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-SQL Database och SQL-hanterad instans upprätthåller kryptering (SSL/TLS) hela tiden för alla anslutningar. Detta säkerställer att alla data krypteras "under överföring" mellan klienten och servern oavsett inställningen för **kryptering** eller **TrustServerCertificate** i anslutnings strängen.
+SQL Database, SQL-hanterad instans och Azure Synapse Force Encryption (SSL/TLS) hela tiden för alla anslutningar. Detta säkerställer att alla data krypteras "under överföring" mellan klienten och servern oavsett inställningen för **kryptering** eller **TrustServerCertificate** i anslutnings strängen.
 
 Som bästa praxis rekommenderar vi att du i anslutnings strängen som används av programmet anger en krypterad anslutning och _**inte**_ litar på Server certifikatet. Detta tvingar ditt program att verifiera Server certifikatet och förhindrar därför att ditt program är sårbart för människor i mellan typ attacker.
 
-Till exempel när du använder ADO.NET-drivrutinen utförs detta via  **kryptera = True** och **TrustServerCertificate = false**. Om du får anslutnings strängen från Azure Portal har den rätt inställningar.
+Till exempel när du använder ADO.NET-drivrutinen utförs detta via  **kryptera = True** och **TrustServerCertificate = false** . Om du får anslutnings strängen från Azure Portal har den rätt inställningar.
 
 > [!IMPORTANT]
 > Observera att vissa driv rutiner som inte kommer från Microsoft kanske inte använder TLS som standard eller som förlitar sig på en äldre version av TLS (<1,2) för att fungera. I det här fallet tillåter servern fortfarande att du ansluter till din databas. Vi rekommenderar dock att du utvärderar säkerhets riskerna med att tillåta att driv rutiner och program ansluter till SQL Database, särskilt om du lagrar känsliga data.
@@ -112,7 +112,7 @@ Till exempel när du använder ADO.NET-drivrutinen utförs detta via  **kryptera
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Transparent datakryptering (kryptering vid vila)
 
-[Transparent datakryptering (TDE) för Azure SQL Database och SQL-hanterad instans](transparent-data-encryption-tde-overview.md) lägger till ett säkerhets lager som hjälper till att skydda data i vila från obehörig eller offline-åtkomst till RAW-filer eller säkerhets kopior. Vanliga scenarier är stöld av data Center eller osäkert omhändertagande av maskin vara eller medium, till exempel disk enheter och säkerhets kopierings band.TDE krypterar hela databasen med en AES-krypteringsalgoritm, som inte kräver att programutvecklare gör några ändringar i befintliga program.
+[Transparent data kryptering (TDE) för SQL Database, SQL-hanterad instans och Azure Synapse Analytics](transparent-data-encryption-tde-overview.md) lägger till ett säkerhets lager som hjälper till att skydda data i vila från obehörig eller offline-åtkomst till RAW-filer eller säkerhets kopior. Vanliga scenarier är stöld av data Center eller osäkert omhändertagande av maskin vara eller medium, till exempel disk enheter och säkerhets kopierings band.TDE krypterar hela databasen med en AES-krypteringsalgoritm, som inte kräver att programutvecklare gör några ändringar i befintliga program.
 
 I Azure krypteras alla nyligen skapade databaser som standard och databas krypterings nyckeln skyddas av ett inbyggt Server certifikat.  Certifikat underhåll och-rotation hanteras av tjänsten och kräver inga indata från användaren. Kunder som föredrar att ta kontroll över krypterings nycklarna kan hantera nycklarna i [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md).
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 0261c495ad08000f9041390658e0f19954b71669
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 124c8fca569365a4b892dc325518f45c7f98900c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517029"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675919"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Självstudie: skapa en app för bearbetning av formulär med AI Builder
 
@@ -23,7 +23,7 @@ ms.locfileid: "92517029"
 > [!NOTE]
 > Det här projektet är också tillgängligt som en [Microsoft Learn modul](https://docs.microsoft.com/learn/modules/get-started-with-form-processing/).
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa en AI-modell för formulär bearbetning
@@ -40,10 +40,10 @@ I den här guiden får du lära dig att:
 ## <a name="create-a-form-processing-project"></a>Skapa ett formulär bearbetnings projekt
 
 1. Gå till [Power Apps](https://make.powerapps.com/) eller [Power](https://flow.microsoft.com/signin)Apps och logga in med ditt organisations konto.
-1. I den vänstra rutan väljer du **AI Builder**  >  **build**.
+1. I den vänstra rutan väljer du **AI Builder**  >  **build** .
 1. Välj **bearbetnings** kort för formuläret.
 1. Ange ett namn för din modell.
-1. Välj **Skapa**.
+1. Välj **Skapa** .
 
 ## <a name="upload-and-analyze-documents"></a>Ladda upp och analysera dokument
 
@@ -61,15 +61,15 @@ På sidan **Lägg till dokument** måste du tillhandahålla exempel dokument fö
 
 ### <a name="upload-your-documents"></a>Ladda upp dina dokument
 
-1. Välj **Lägg till dokument**, välj minst fem dokument och välj sedan **Ladda upp**.
-1. När uppladdningen är klar väljer du **Stäng**.
-1. Välj sedan **analysera**.
+1. Välj **Lägg till dokument** , välj minst fem dokument och välj sedan **Ladda upp** .
+1. När uppladdningen är klar väljer du **Stäng** .
+1. Välj sedan **analysera** .
 
 > [!NOTE] 
 > När du har laddat upp dessa dokument kan du fortfarande ta bort några av dokumenten eller ladda upp fler.
 
 > [!div class="mx-imgBorder"]
-> ![Sidan Lägg till dokument](./media/tutorial-ai-builder/add-documents-page.png)
+> ![Skärm bild som visar knappen Lägg till dokument.](./media/tutorial-ai-builder/add-documents-page.png)
 
 ### <a name="analyze-your-documents"></a>Analysera dina dokument
 
@@ -89,8 +89,8 @@ På sidan Val av fält väljer du de fält som är viktiga för dig:
 
     När du klickar på ett identifierat fält visas följande information:
 
-    - **Fält namn**: namnet på etiketten för det identifierade fältet.
-    - **Fält värde**: värdet för det identifierade fältet.
+    - **Fält namn** : namnet på etiketten för det identifierade fältet.
+    - **Fält värde** : värdet för det identifierade fältet.
 
 > [!div class="mx-imgBorder"]
 > ![taggnings sida](./media/tutorial-ai-builder/select-fields-page.png)
@@ -105,12 +105,12 @@ Om fältet som du vill använda etiketten inte identifierades automatiskt av mod
 
     > [!div class="mx-imgBorder"]
     > ![Sidan utbildning](./media/tutorial-ai-builder/summary-train-page.png)
-1. När inlärningen är klar väljer du **Gå till informationssidan** i på skärmen **Träningen är klar**.
+1. När inlärningen är klar väljer du **Gå till informationssidan** i på skärmen **Träningen är klar** .
 ## <a name="quick-test-your-model"></a>Snabbtesta din modell
 
 På informationssidan kan du testa din modell innan du publicerar eller använder den:
 
-1. På informationssidan väljer du **Snabbtest**.
+1. På informationssidan väljer du **Snabbtest** .
 2. Du kan antingen dra och släppa ett dokument eller välja **Ladda upp från min enhet** för att ladda upp test filen. Snabbtestet bör bara ta några sekunder innan resultatet visas.
 3. Du kan välja **börja** om för att köra ett annat test eller **stänga** om du är klar.
 
@@ -120,7 +120,7 @@ Om du får dåliga resultat eller låga förtroende poäng för vissa fält kan 
 
 - Träna med att använda formulär med olika värden i varje fält.
 - Träna med en större uppsättning utbildnings dokument. Det fler dokument som du taggar, desto mer AI-verktyg kommer att lära sig att identifiera fälten bättre.
-- Du kan optimera PDF-filer genom att bara välja vissa sidor att träna med. Använd alternativet **Skriv**ut  >  **till PDF** för att markera vissa sidor i dokumentet.
+- Du kan optimera PDF-filer genom att bara välja vissa sidor att träna med. Använd alternativet **Skriv** ut  >  **till PDF** för att markera vissa sidor i dokumentet.
 
 ## <a name="publish-your-model"></a>Publicera din modell
 

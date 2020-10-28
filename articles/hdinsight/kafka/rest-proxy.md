@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: a99c6412650cac565414817c91752ae85b8ad37d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8447eae4ea7234a7f47219cc81441650121b84ae
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539606"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676180"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagera med Apache Kafka kluster i Azure HDInsight med hjälp av en REST-proxy
 
-Med Kafka REST proxy kan du interagera med ditt Kafka-kluster via en REST API över HTTP. Den här åtgärden innebär att dina Kafka-klienter kan vara utanför det virtuella nätverket. Klienter kan göra enkla HTTP-anrop till Kafka-klustret i stället för att förlita dig på Kafka-bibliotek. I den här artikeln visas hur du skapar ett Kafka-kluster med REST proxy. Innehåller också en exempel kod som visar hur du gör anrop till REST-proxy.
+Med Kafka REST proxy kan du interagera med ditt Kafka-kluster via en REST API över HTTPS. Den här åtgärden innebär att dina Kafka-klienter kan vara utanför det virtuella nätverket. Klienter kan göra enkla, säkra HTTPS-anrop till Kafka-klustret, i stället för att förlita dig på Kafka-bibliotek. I den här artikeln visas hur du skapar ett Kafka-kluster med REST proxy. Innehåller också en exempel kod som visar hur du gör anrop till REST-proxy.
 
 ## <a name="rest-api-reference"></a>Referens för REST-API
 
@@ -37,7 +37,7 @@ När du skapar ett HDInsight Kafka-kluster med REST proxy skapas en ny offentlig
 
 Åtkomst till Kafka REST proxy hanteras med Azure Active Directory säkerhets grupper. När du skapar Kafka-klustret anger du Azure AD-säkerhetsgruppen med REST Endpoint Access. Kafka-klienter som behöver åtkomst till REST-proxyn ska registreras till den här gruppen av grupp ägaren. Grupp ägaren kan registreras via portalen eller via PowerShell.
 
-Klient program bör hämta en OAuth-token för REST-slut punkts begär Anden. Token används för att verifiera medlemskap i säkerhets grupper. Hitta ett [exempel på klient program](#client-application-sample) nedan som visar hur du skaffar en OAuth-token. Klient programmet skickar OAuth-token i HTTP-begäran till REST-proxyn.
+Klient program bör hämta en OAuth-token för REST-slut punkts begär Anden. Token används för att verifiera medlemskap i säkerhets grupper. Hitta ett [exempel på klient program](#client-application-sample) nedan som visar hur du skaffar en OAuth-token. Klient programmet skickar OAuth-token i HTTPS-begäran till REST-proxyn.
 
 > [!NOTE]
 > Mer information om AAD-säkerhetsgrupper finns i [Hantera app-och resurs åtkomst med hjälp av Azure Active Directory grupper](../../active-directory/fundamentals/active-directory-manage-groups.md). Mer information om hur OAuth-token fungerar finns i [ge åtkomst till Azure Active Directory webb program med hjälp av OAuth 2,0 kod tilldelnings flödet](../../active-directory/azuread-dev/v1-protocols-oauth-code.md).

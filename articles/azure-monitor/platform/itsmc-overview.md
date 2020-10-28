@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: f47a23a3b95975d98d3825bc5b14ed0522102a0c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 344e15d3c15474fc8959b120f86bb86f22217ef6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547647"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677009"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 
@@ -65,7 +65,7 @@ Innan du kan skapa en anslutning måste du lägga till ITSM-anslutningsprogram-l
    >[!NOTE]
    >Som en del av den pågående över gången från Microsoft Operations Management Suite (OMS) till Azure Monitor, kallas OMS-arbetsytor nu Log Analytics arbets ytor.
 
-5. Klicka på **Skapa** .
+5. Klicka på **OK** .
 
 När lösnings resursen har distribuerats visas ett meddelande längst upp till höger i fönstret.
 
@@ -122,28 +122,29 @@ Med åtgärds grupper får du ett modulärt och återanvändbart sätt att utlö
 
 Följ dessa steg:
 
-1. Klicka på  **övervaka** i Azure Portal.
-2. I den vänstra rutan klickar du på  **Åtgärds grupper** . Fönstret **Lägg till åtgärds grupp** visas.
+1. Klicka på  **aviseringar** i Azure Portal.
+2. I den översta rutan klickar du på  **Hantera åtgärder** . Fönstret **Lägg till åtgärds grupp** visas.
 
     ![Åtgärdsgrupper](media/itsmc-overview/action-groups.png)
 
-3. Ange **namn** och **ShortName** för åtgärds gruppen. Välj den **resurs grupp** och **prenumeration** där du vill skapa en åtgärds grupp.
+3. Välj den **prenumeration** och **resurs grupp** där du vill skapa en åtgärds grupp. Ange ett **namn** och **visnings namn** för åtgärds gruppen. Klicka på **Nästa: meddelanden** .
 
     ![Information om åtgärds grupper](media/itsmc-overview/action-groups-details.png)
 
-4. I listan åtgärder väljer du **ITSM** på den nedrullningsbara menyn för **Åtgärds typ** . Ange ett **namn** för åtgärden och klicka på **Redigera information** .
-5. Välj den **prenumeration** där Log Analytics arbets ytan finns. Välj **anslutnings** namnet (ditt ITSM-anslutningsprogram namn) följt av namnet på din arbets yta. Till exempel "MyITSMMConnector (min arbets yta)".
+4. Klicka på kapsla i meddelande listan **: åtgärder** .
+5. I listan åtgärder väljer du **ITSM** på den nedrullningsbara menyn för **Åtgärds typ** . Ange ett **namn** för åtgärden och klicka på pennan som representerar **redigerings information** .
+6. Välj den **prenumeration** där Log Analytics arbets ytan finns. Välj **anslutnings** namnet (ditt ITSM-anslutningsprogram namn) följt av namnet på din arbets yta. Till exempel "MyITSMMConnector (min arbets yta)".
 
     ![ITSM åtgärds information](media/itsmc-overview/itsm-action-details.png)
 
-6. Välj typ av **arbets objekt** på den nedrullningsbara menyn.
+7. Välj typ av **arbets objekt** på den nedrullningsbara menyn.
 
-7. Om du vill fylla i fält fälten med fasta värden bör du markera kryss rutan för Använd anpassad mall. annars väljer du att använda en befintlig [mall](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) i list rutan och fyller i mal fälten med fasta värden.
+8. Om du vill fylla i fält fälten med fasta värden bör du markera kryss rutan för Använd anpassad mall. annars väljer du att använda en befintlig [mall](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) i list rutan och fyller i mal fälten med fasta värden.
 
-8. Genom att markera kryss rutan **skapa enskilda arbets objekt för varje konfigurations** objekt varje konfigurations objekt kommer att ha sitt eget arbets objekt. Det innebär att det kommer att finnas ett arbets objekt per konfigurations objekt och det kommer att uppdateras enligt de aviseringar som kommer att skapas.
+9. Genom att markera kryss rutan **skapa enskilda arbets objekt för varje konfigurations** objekt varje konfigurations objekt kommer att ha sitt eget arbets objekt. Det innebär att det kommer att finnas ett arbets objekt per konfigurations objekt och det kommer att uppdateras enligt de aviseringar som kommer att skapas.
 Om du avmarkerar kryss rutan **skapa enskilda arbets objekt för varje konfigurations objekt** varje avisering kommer att skapa ett nytt arbets objekt, vilket innebär att det kan finnas mer än en avisering per konfigurations objekt.
 
-9. Klicka på **OK** .
+10. Klicka på **OK** .
 
 När du skapar/redigerar en regel för Azure-avisering använder du en åtgärds grupp som har en ITSM-åtgärd. När aviseringen utlöses skapas/uppdateras arbets objekt i ITSM-verktyget.
 
@@ -162,7 +163,7 @@ Beroende på din konfiguration när du konfigurerar en anslutning kan ITSM Conne
 
 Incident-och ändrings begär ande data kan visualiseras med hjälp av ITSM-anslutningsprogram instrument panelen i lösningen.
 
-![Log Analytics skärm](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
+![Skärm bild som visar ITSM-anslutningsprogram-instrumentpanelen.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 Instrument panelen innehåller också information om anslutnings status som kan användas som utgångs punkt för att analysera eventuella problem med anslutningarna.
 

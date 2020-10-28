@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ea5995dbd6397c37f88c302754bc7ac1e5ef089
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e9b27224058b41e34995fc0ea8104301c426ea9a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478277"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676068"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -79,6 +79,7 @@ I det här avsnittet hittar du dokument om PowerBI-integrering i SAP-datakällor
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 10/26/2020: ändringar av vissa tabeller för Azure Premium Storage-konfigurationen för att klargöra jämfört med burst-genomströmning i [SAP HANA konfigurationer för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 10/22/2020: ändra i [ha för SAP NW på virtuella Azure-datorer på SLES för SAP-program](./high-availability-guide-suse.md), [ha för SAP NW på virtuella Azure-datorer på SLES med ANF](./high-availability-guide-suse-netapp-files.md), [ha för SAP NW på virtuella Azure-datorer på RHEL för SAP-program](./high-availability-guide-rhel.md) och ha för SAP NW på virtuella Azure-datorer på [RHEL med ANF](./high-availability-guide-rhel-netapp-files.md) för att justera rekommendationen för net.IPv4.tcp_keepalive_time  
 - 10/16/2020: ändra i/ [ha för IBM DB2-LUW på virtuella Azure-datorer på SLES med pacemaker](./dbms-guide-ha-ibm.md), [ha för SAP NW på virtuella Azure-datorer på RHEL för SAP-program](./high-availability-guide-rhel.md), [ha för IBM DB2 LUW på virtuella Azure-datorer på RHEL](./high-availability-guide-rhel-ibm-db2-luw.md), [ha för SAP NW på](./high-availability-guide-rhel-multi-sid.md)virtuella Azure-datorer på RHEL [med](./high-availability-guide-rhel-netapp-files.md)RHEL, ha [för SAP NW på virtuella Azure-datorer på SLES för SAP-program,](./high-availability-guide-suse.md)ha för SAP-NNW [på virtuella Azure-datorer på SLES multi-sid-guide,](./high-availability-guide-suse-multi-sid.md)ha [för SAP NW på virtuella Azure-datorer på SLES med ANF för SAP-program,](./high-availability-guide-suse-netapp-files.md)ha för NFS [på virtuella Azure-](./high-availability-guide-suse-nfs.md)datorer på SLES, ha till SAP HANA [på SLES](./sap-hana-high-availability.md)för virtuella Azure-datorer med [ANF](./sap-hana-high-availability-netapp-files-red-hat.md) SAP HANA , [Ha av SAP HANA på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-rhel.md), [SAP HANA Scale-Out-HSR med pacemaker på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [förbereda Azure-infrastrukturen för SAP ASCS/SCS med WSFC och delad disk](./sap-high-availability-infrastructure-wsfc-shared-disk.md), [multi-sid ha guide för SAP ASCS/SCS med WSFC och Azure Shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) och [multi-sid ha hand bok för SAP ASCS/SCS](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) med WSFC och delad disk för att lägga till en instruktion som flytande IP inte stöds i belastnings utjämning 
 - 10/16/2020: lägga till dokumentation för att kontrol lera lagrings ögonblicks bilder av HANA-stora instanser i [säkerhets kopiering och återställning av SAP HANA på Hana stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)

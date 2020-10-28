@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
 ms.author: barclayn
-ms.openlocfilehash: 64ff2a2a7ad6f07aac959422eadec7f24b210d88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505868"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677321"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Använd Azure Active Directory (Azure AD) identitets styrning för att granska och ta bort externa användare som inte längre har resurs åtkomst
 
@@ -67,11 +67,11 @@ När granskningen är klar visas en översikt över svaret som anges av varje ex
 
 ## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>Inaktivera och ta bort externa identiteter med åtkomst granskningar för Azure AD (för hands version)
 
-Förutom alternativet att ta bort oönskade externa identiteter från resurser som grupper eller program, kan åtkomst granskningar i Azure AD blockera externa identiteter från att logga in till klienten och ta bort externa identiteter från din klient organisation efter 30 dagar.
+Förutom alternativet att ta bort oönskade externa identiteter från resurser som grupper eller program, kan åtkomst granskningar i Azure AD blockera externa identiteter från att logga in till klienten och ta bort externa identiteter från din klient organisation efter 30 dagar. När du **har valt blockera användare från att logga in i 30 dagar tar du bort användaren från klienten** , granskningen förblir i läget "tillämpar" i 30 dagar. Under den här perioden går det inte att visa eller konfigurera inställningar, resultat, granskare eller gransknings loggar under den aktuella granskningen. 
 
 ![vid slut för ande inställningar](media/access-reviews-external-users/upon-completion-settings.png)
 
-När du skapar en ny åtkomst granskning, i avsnittet "vid slut för ande inställningar", för **åtgärd som ska gälla för nekade användare** kan du definiera **Blockera användare från inloggning i 30 dagar och sedan ta bort användare från klienten**.
+När du skapar en ny åtkomst granskning, i avsnittet "vid slut för ande inställningar", för **åtgärd som ska gälla för nekade användare** kan du definiera **Blockera användare från inloggning i 30 dagar och sedan ta bort användare från klienten** .
 Den här inställningen, som för närvarande finns i för hands version, gör att du kan identifiera, blockera och ta bort externa identiteter från din Azure AD-klient. Externa identiteter som granskas och nekas fortsatt åtkomst av granskaren kommer att blockeras och tas bort, oavsett resurs åtkomst eller grupp medlemskap. Den här inställningen används bäst som ett sista steg när du har verifierat att de externa användarna i granskning inte längre har resurs åtkomst och kan tas bort från din klient organisation eller om du vill se till att de tas bort, oavsett deras ständiga åtkomst. Funktionen "inaktivera och ta bort" blockerar den externa användaren först, vilket gör att du kan logga in på din klient organisation och få åtkomst till resurser. Resurs åtkomsten återkallas inte i det här steget, och om du vill skapa en instans av den externa användaren kan du konfigurera om möjligheten att logga in. Vid inga ytterligare åtgärder tas en blockerad extern identitet bort från katalogen efter 30 dagar, vilket tar bort kontot och deras åtkomst.
 
 ## <a name="next-steps"></a>Nästa steg

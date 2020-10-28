@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: eb3acc9b30b9016ae33f223911cc01cbf8daea47
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 6aa08f91a9289984d15beac5fb215d112a5558da
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999111"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676042"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuera en modell med en anpassad Docker-bas avbildning
 
@@ -41,7 +41,7 @@ Det här dokumentet är uppdelat i två delar:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure Machine Learning arbets grupp. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
+* En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -54,12 +54,12 @@ Informationen i det här avsnittet förutsätter att du använder en Azure Conta
 
 * Kommer du att använda Azure Container Registry som skapats för arbets ytan Azure Machine Learning eller en fristående Azure Container Registry?
 
-    När du använder avbildningar som lagras i __behållar registret för arbets ytan__behöver du inte autentisera till registret. Autentiseringen hanteras av arbets ytan.
+    När du använder avbildningar som lagras i __behållar registret för arbets ytan__ behöver du inte autentisera till registret. Autentiseringen hanteras av arbets ytan.
 
     > [!WARNING]
     > Azure Container Registry för din arbets yta __skapas första gången du tränar eller distribuerar en modell__ med hjälp av arbets ytan. Om du har skapat en ny arbets yta, men inte tränat eller skapat någon modell, så finns det inga Azure Container Registry för arbets ytan.
 
-    När du använder avbildningar som lagras i ett __fristående behållar register__måste du konfigurera ett huvud namn för tjänsten som har minst Läs behörighet. Du anger sedan tjänstens huvud namns-ID (username) och lösen ord för alla som använder avbildningar från registret. Undantaget är om du gör att behållar registret är offentligt tillgängligt.
+    När du använder avbildningar som lagras i ett __fristående behållar register__ måste du konfigurera ett huvud namn för tjänsten som har minst Läs behörighet. Du anger sedan tjänstens huvud namns-ID (username) och lösen ord för alla som använder avbildningar från registret. Undantaget är om du gör att behållar registret är offentligt tillgängligt.
 
     Information om hur du skapar en privat Azure Container Registry finns i [skapa ett privat container Registry](/azure/container-registry/container-registry-get-started-azure-cli).
 
@@ -197,14 +197,14 @@ Mer information om hur du överför befintliga avbildningar till en Azure Contai
 
 Om du vill använda en anpassad avbildning behöver du följande information:
 
-* __Avbildningens namn__. Till exempel `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` är sökvägen till en enkel Docker-avbildning från Microsoft.
+* __Avbildningens namn__ . Till exempel `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` är sökvägen till en enkel Docker-avbildning från Microsoft.
 
     > [!IMPORTANT]
     > För anpassade avbildningar som du har skapat, se till att ta med alla Taggar som användes med avbildningen. Om din bild till exempel skapades med en speciell tagg, till exempel `:v1` . Om du inte använde en speciell tagg när du skapade avbildningen användes en-tagg `:latest` .
 
-* Om avbildningen finns i ett __privat lager__behöver du följande information:
+* Om avbildningen finns i ett __privat lager__ behöver du följande information:
 
-    * Register __adressen__. Exempelvis `myregistry.azureecr.io`.
+    * Register __adressen__ . Till exempel `myregistry.azureecr.io`.
     * Ett __användar namn__ och __lösen ord__ för tjänstens huvud namn som har Läs behörighet till registret.
 
     Om du inte har den här informationen kan du prata med administratören för den Azure Container Registry som innehåller din avbildning.
@@ -231,7 +231,7 @@ Mer information finns i [Azure Machine Learning containers](https://github.com/A
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Använd en avbildning med Azure Machine Learning SDK
 
-Om du vill använda en avbildning som lagras i **Azure Container Registry för din arbets yta**, eller ett **behållar register som är offentligt tillgängligt**, anger [du följande](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) miljöattribut:
+Om du vill använda en avbildning som lagras i **Azure Container Registry för din arbets yta** , eller ett **behållar register som är offentligt tillgängligt** , anger [du följande](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) miljöattribut:
 
 + `docker.enabled=True`
 + `docker.base_image`: Ange till registret och sökvägen till avbildningen.

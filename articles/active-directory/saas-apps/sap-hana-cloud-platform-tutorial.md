@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: c2738e1a6168440adee79ebaa599a313600153a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be3634ea051c99acf7b706da266179c93a1be861
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546771"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Självstudie: Azure Active Directory integration med SAP Cloud Platform
 
@@ -27,17 +27,17 @@ Integrering av SAP Cloud Platform med Azure AD ger dig följande fördelar:
 * Du kan låta dina användare automatiskt loggas in på SAP Cloud Platform (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med SAP Cloud Platform så behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * SAP Cloud Platform-prenumeration med enkel inloggning aktiverad
 
-När du har slutfört den här självstudien så kommer de Azure AD-användare som du har tilldelat till SAP Cloud Platform att kunna använda enkel inloggning i programmet med [Introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du har slutfört den här självstudien så kommer de Azure AD-användare som du har tilldelat till SAP Cloud Platform att kunna använda enkel inloggning i programmet med [Introduktion till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 >[!IMPORTANT]
 >Du måste distribuera ditt eget program eller prenumerera på ett program på ditt SAP Cloud Platform-konto för att testa enkel inloggning. I den här självstudien distribueras ett program i kontot.
@@ -47,7 +47,7 @@ När du har slutfört den här självstudien så kommer de Azure AD-användare s
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* SAP Cloud Platform stöder **SP**-initierad enkel inloggning
+* SAP Cloud Platform stöder **SP** -initierad enkel inloggning
 
 ## <a name="adding-sap-cloud-platform-from-the-gallery"></a>Lägga till SAP Cloud Platform från galleriet
 
@@ -55,11 +55,11 @@ Om du vill konfigurera integreringen av SAP Cloud Platform i Azure AD så måste
 
 **Lägg till SAP Cloud Platform från galleriet genom utföra följande steg:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory** -ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -67,13 +67,13 @@ Om du vill konfigurera integreringen av SAP Cloud Platform i Azure AD så måste
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **SAP Cloud Platform**, väljer **SAP Cloud Platform** från resultatpanelen och klicka sedan på **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **SAP Cloud Platform** , väljer **SAP Cloud Platform** från resultatpanelen och klicka sedan på **Lägg till** för att lägga till programmet.
 
      ![SAP Cloud Platform i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet får du konfigurera och testa enkel inloggning i Azure AD med SAP Cloud Platform baserat på testanvändaren **Britta Simon**.
+I det här avsnittet får du konfigurera och testa enkel inloggning i Azure AD med SAP Cloud Platform baserat på testanvändaren **Britta Simon** .
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SAP Cloud Platform upprättas.
 
 Om du vill konfigurera och testa enkel inloggning i Azure AD med SAP Cloud Platform så måste du slutföra följande byggblock:
@@ -91,7 +91,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Konfigurera enkel inloggning i Azure AD med SAP Cloud Platform genom att utföra följande steg:
 
-1. I [Azure-portalen](https://portal.azure.com/), på **SAP Cloud Platform**-programintegreringssidan, väljer du **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/), på **SAP Cloud Platform** -programintegreringssidan, väljer du **enkel inloggning** .
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -99,7 +99,7 @@ Konfigurera enkel inloggning i Azure AD med SAP Cloud Platform genom att utföra
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration** .
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -107,7 +107,7 @@ Konfigurera enkel inloggning i Azure AD med SAP Cloud Platform genom att utföra
 
     ![Information om SAP Cloud Platform och URL:er för enkel inloggning](common/sp-identifier-reply.png)
 
-    a. I textrutan **inloggning på URL:en**, skriver du in den URL som används av dina användare för att logga in på ditt **SAP Cloud Platform**-program. Det är den kontospecifika URL:en för en skyddad resurs i ditt SAP Cloud Platform-program. URL:en är baserad på följande mönster: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    a. I textrutan **inloggning på URL:en** , skriver du in den URL som används av dina användare för att logga in på ditt **SAP Cloud Platform** -program. Det är den kontospecifika URL:en för en skyddad resurs i ditt SAP Cloud Platform-program. URL:en är baserad på följande mönster: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
     >[!NOTE]
     >Det här är URL:en i ditt SAP Cloud Platform-program som kräver att användaren autentiseras.
@@ -116,7 +116,7 @@ Konfigurera enkel inloggning i Azure AD med SAP Cloud Platform genom att utföra
     - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
     - `https://<subdomain>.hana.ondemand.com/<instancename>`
 
-    b. I **identifierare**-textrutan så anger du din SAP Cloud Platforms typ, en URL med en av följande mönster: 
+    b. I **identifierare** -textrutan så anger du din SAP Cloud Platforms typ, en URL med en av följande mönster: 
 
     - `https://hanatrial.ondemand.com/<instancename>`
     - `https://hana.ondemand.com/<instancename>`
@@ -144,39 +144,39 @@ Konfigurera enkel inloggning i Azure AD med SAP Cloud Platform genom att utföra
 
 1. I ett annat webbläsarfönster, loggar du in på SAP Cloud Platform Cockpit på `https://account.<landscape host>.ondemand.com/cockpit`(till exempel: https://account.hanatrial.ondemand.com/cockpit).
 
-2. Klicka på **Förtroende**-fliken.
+2. Klicka på **Förtroende** -fliken.
    
     ![Förtroende](./media/sap-hana-cloud-platform-tutorial/ic790800.png "Förtroende")
 
-3. I avsnittet förtroendehantering under **Lokal tjänstleverantör**, utför du följande steg:
+3. I avsnittet förtroendehantering under **Lokal tjänstleverantör** , utför du följande steg:
 
     ![Förtroende hantering](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Förtroende hantering")
    
-    a. Klicka på **Redigera**.
+    a. Klicka på **Redigera** .
 
-    b. Som **Konfigurationstyp**, väljer du **Anpassad**.
+    b. Som **Konfigurationstyp** , väljer du **Anpassad** .
 
-    c. Som **Namn på lokal leverantör**, lämna standardvärdet. Kopiera det här värdet och klistra in det i fältet **Identifierare** i Azure AD-konfigurationen för SAP Cloud Platform.
+    c. Som **Namn på lokal leverantör** , lämna standardvärdet. Kopiera det här värdet och klistra in det i fältet **Identifierare** i Azure AD-konfigurationen för SAP Cloud Platform.
 
-    d. Generera en **Signeringsnyckel** och ett **Signeringscertifikat**-nyckelpar genom att klicka på **Generera nyckelpar**.
+    d. Generera en **Signeringsnyckel** och ett **Signeringscertifikat** -nyckelpar genom att klicka på **Generera nyckelpar** .
 
-    e. Som **Huvudsaklig spridning** så väljer du **Inaktiverad**.
+    e. Som **Huvudsaklig spridning** så väljer du **Inaktiverad** .
 
-    f. Som **Tvinga autentisering** så väljer du **Inaktiverad**.
+    f. Som **Tvinga autentisering** så väljer du **Inaktiverad** .
 
-    ex. Klicka på **Spara**.
+    ex. Klicka på **Spara** .
 
 4. När du har sparat inställningarna för **Lokal tjänstleverantör** så utför du följande för att hämta svars-URL:en:
    
     ![Hämta metadata](./media/sap-hana-cloud-platform-tutorial/ic793930.png "Hämta metadata")
 
-    a. Hämta SAP Cloud Platform-metadatafilen genom att klicka på **Hämta metadata**.
+    a. Hämta SAP Cloud Platform-metadatafilen genom att klicka på **Hämta metadata** .
 
-    b. Öppna den hämtade XML-filen för SAP Cloud Platform-metadata och hitta sedan taggen **ns3:AssertionConsumerService**.
+    b. Öppna den hämtade XML-filen för SAP Cloud Platform-metadata och hitta sedan taggen **ns3:AssertionConsumerService** .
  
     c. Kopiera värdet för attributet **Plats** och klistra in det i fältet **Svars-URL** i Azure AD-konfigurationen för SAP Cloud Platform.
 
-5. Klicka på fliken **Betrodd identitetsprovider** och sedan på **Lägg till betrodd identitetsprovider**.
+5. Klicka på fliken **Betrodd identitetsprovider** och sedan på **Lägg till betrodd identitetsprovider** .
    
     ![Förtroende hantering](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Förtroende hantering")
    
@@ -185,17 +185,17 @@ Konfigurera enkel inloggning i Azure AD med SAP Cloud Platform genom att utföra
     > 
     > 
 
-6. Klicka på **Allmänt**-fliken och sedan på **Bläddra** för att överföra den hämtade metadatafilen.
+6. Klicka på **Allmänt** -fliken och sedan på **Bläddra** för att överföra den hämtade metadatafilen.
     
     ![Förtroende hantering](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Förtroende hantering")
     
     >[!NOTE]
-    >När du har överfört metadatafilen så fylls värdena för **URL för enkel inloggning**, **URL för enkel utloggning** och **Signeringscertifikat** i automatiskt.
+    >När du har överfört metadatafilen så fylls värdena för **URL för enkel inloggning** , **URL för enkel utloggning** och **Signeringscertifikat** i automatiskt.
     > 
      
-7. Klicka på fliken **Attribut**.
+7. Klicka på fliken **Attribut** .
 
-8. På **Attribut**-fliken, utför du följande steg:
+8. På **Attribut** -fliken, utför du följande steg:
     
     ![Attribut](./media/sap-hana-cloud-platform-tutorial/ic790804.png "Attribut") 
 
@@ -221,7 +221,7 @@ Som ett valfritt steg så kan du konfigurera försäkransbaserade grupper för d
 
 Med grupper på SAP Cloud Platform så kan du dynamiskt tilldela en eller flera användare till en eller flera roller i dina SAP Cloud Platform-program, baserat på värden för attribut i SAML 2.0-försäkran. 
 
-Om försäkran till exempel innehåller attributet ”*contract=temporary*” så kan du vilja att alla berörda användare läggs till i gruppen ”*TEMPORARY*”. Gruppen ”*TEMPORARY*” kan innehålla en eller flera roller från en eller flera program som distribueras i ditt SAP Cloud Platform-konto.
+Om försäkran till exempel innehåller attributet ” *contract=temporary* ” så kan du vilja att alla berörda användare läggs till i gruppen ” *TEMPORARY* ”. Gruppen ” *TEMPORARY* ” kan innehålla en eller flera roller från en eller flera program som distribueras i ditt SAP Cloud Platform-konto.
  
 Använd försäkransbaserade grupper när du vill tilldela många användare samtidigt till en eller flera roller av program i ditt SAP Cloud Platform-konto. Om du bara vill tilldela en enskild eller ett litet antal användare till specifika roller så rekommenderar vi att du tilldelar dem direkt i fliken **Auktoriseringar** i SAP Cloud Platform-cockpiten.
 
@@ -229,7 +229,7 @@ Använd försäkransbaserade grupper när du vill tilldela många användare sam
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory** , välj **Users** och sedan **Alla användare** .
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
@@ -241,32 +241,32 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon** .
   
     b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Klicka på **Skapa**.
+    d. Klicka på **Skapa** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure genom att bevilja henne åtkomst till SAP Cloud Platform.
 
-1. I Azure-portalen så väljer du **Företagsprogram**, **Alla program** och därefter **SAP Cloud Platform**.
+1. I Azure-portalen så väljer du **Företagsprogram** , **Alla program** och därefter **SAP Cloud Platform** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I programlistan, skriver och väljer du **SAP Cloud Platform**.
+2. I programlistan, skriver och väljer du **SAP Cloud Platform** .
 
     ![SAP Cloud Platform-länken i programlistan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper** .
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning** .
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
@@ -274,7 +274,7 @@ I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure ge
 
 6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela** .
 
 ### <a name="create-sap-cloud-platform-test-user"></a>Skapa SAP Cloud Platform-testanvändare
 
@@ -282,13 +282,13 @@ För att låta Azure AD-användare logga in till SAP Cloud Platform så måste d
 
 **Om du vill tilldela en roll till en användare så utför du följande steg:**
 
-1. Logga in på din **SAP Cloud Platform**-cockpit.
+1. Logga in på din **SAP Cloud Platform** -cockpit.
 
 2. Utför följande:
    
     ![Auktoriseringar](./media/sap-hana-cloud-platform-tutorial/ic790805.png "Auktoriseringar")
    
-    a. Klicka på **Auktorisering**.
+    a. Klicka på **Auktorisering** .
 
     b. Klicka på fliken **användare** .
 
@@ -296,19 +296,18 @@ För att låta Azure AD-användare logga in till SAP Cloud Platform så måste d
 
     d. Klicka på **Tilldela** för att tilldela användaren till en roll.
 
-    e. Klicka på **Spara**.
+    e. Klicka på **Spara** .
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på SAP Cloud Platform-panelen i åtkomstpanelen så bör du automatiskt loggas in på den SAP Cloud Platform som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på SAP Cloud Platform-panelen i åtkomstpanelen så bör du automatiskt loggas in på den SAP Cloud Platform som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

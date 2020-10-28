@@ -3,15 +3,15 @@ title: Testa Azure Functions
 description: Skapa automatiserade tester för en C#-funktion i Visual Studio och JavaScript-funktionen i VS Code
 author: craigshoemaker
 ms.topic: conceptual
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: e0abfc9be0031f899071d6e5e22274481ba76e10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ff70c14310dd81a051ac27c1d6d59bb3d1deb7b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212889"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677602"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -37,9 +37,9 @@ I följande exempel beskrivs hur du skapar en C# Function-app i Visual Studio oc
 Om du vill konfigurera din miljö skapar du en funktion och testar appen. Följande steg hjälper dig att skapa appar och funktioner som krävs för att stödja testerna:
 
 1. [Skapa en ny Functions-app](./functions-create-first-azure-function.md) och **namnge den-funktionen**
-2. [Skapa en HTTP-funktion från mallen](./functions-create-first-azure-function.md) och ge den namnet **MyHttpTrigger**.
-3. [Skapa en timer-funktion från mallen](./functions-create-scheduled-function.md) och ge den namnet **MyTimerTrigger**.
-4. [Skapa en testapp för xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) i lösningen och ge den namnet **functions. tests**.
+2. [Skapa en HTTP-funktion från mallen](./functions-create-first-azure-function.md) och ge den namnet **MyHttpTrigger** .
+3. [Skapa en timer-funktion från mallen](./functions-create-scheduled-function.md) och ge den namnet **MyTimerTrigger** .
+4. [Skapa en testapp för xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) i lösningen och ge den namnet **functions. tests** .
 5. Använd NuGet för att lägga till en referens från testappen till [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Referera till *Functions* -appen](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) från *functions. tests* -appen.
 
@@ -107,11 +107,11 @@ namespace Functions.Tests
 
 `ListLogger`Klassen implementerar följande medlemmar enligt `ILogger` gränssnittet:
 
-- **BeginScope**: omfattningar lägger till kontext i loggningen. I det här fallet pekar testet precis på den statiska instansen i `NullScope` klassen för att testet ska fungera.
+- **BeginScope** : omfattningar lägger till kontext i loggningen. I det här fallet pekar testet precis på den statiska instansen i `NullScope` klassen för att testet ska fungera.
 
-- **IsEnabled**: standardvärdet `false` har angetts.
+- **IsEnabled** : standardvärdet `false` har angetts.
 
-- **Log**: den här metoden använder funktionen tillhandahållen `formatter` för att formatera meddelandet och lägger sedan till den resulterande texten i `Logs` samlingen.
+- **Log** : den här metoden använder funktionen tillhandahållen `formatter` för att formatera meddelandet och lägger sedan till den resulterande texten i `Logs` samlingen.
 
 `Logs`Samlingen är en instans av `List<string>` och initieras i konstruktorn.
 
@@ -193,13 +193,13 @@ namespace Functions.Tests
 
 `TestFactory`Klassen implementerar följande medlemmar:
 
-- **Data**: den här egenskapen returnerar en [IEnumerable](/dotnet/api/system.collections.ienumerable) -samling med exempel data. Nyckel värdes paren representerar värden som skickas till en frågesträng.
+- **Data** : den här egenskapen returnerar en [IEnumerable](/dotnet/api/system.collections.ienumerable) -samling med exempel data. Nyckel värdes paren representerar värden som skickas till en frågesträng.
 
-- **CreateDictionary**: den här metoden accepterar ett nyckel/värde-par som argument och returnerar en ny som `Dictionary` används för att skapa `QueryCollection` för att representera frågesträngs värden.
+- **CreateDictionary** : den här metoden accepterar ett nyckel/värde-par som argument och returnerar en ny som `Dictionary` används för att skapa `QueryCollection` för att representera frågesträngs värden.
 
-- **CreateHttpRequest**: den här metoden skapar en http-begäran som initieras med de aktuella frågesträngs parametrarna.
+- **CreateHttpRequest** : den här metoden skapar en http-begäran som initieras med de aktuella frågesträngs parametrarna.
 
-- **CreateLogger**: den här metoden returnerar en loggnings klass som används för testning baserat på loggnings typ. `ListLogger`Håller reda på loggade meddelanden som är tillgängliga för utvärdering i tester.
+- **CreateLogger** : den här metoden returnerar en loggnings klass som används för testning baserat på loggnings typ. `ListLogger`Håller reda på loggade meddelanden som är tillgängliga för utvärdering i tester.
 
 Slutligen skapar du en ny klass i *functions. testar* projektet med namnet **FunctionsTests.cs** och anger följande kod:
 
@@ -245,23 +245,23 @@ namespace Functions.Tests
 
 De medlemmar som implementeras i den här klassen är:
 
-- **Http_trigger_should_return_known_string**: det här testet skapar en begäran med frågesträng svärdet för `name=Bill` en http-funktion och kontrollerar att det förväntade svaret returneras.
+- **Http_trigger_should_return_known_string** : det här testet skapar en begäran med frågesträng svärdet för `name=Bill` en http-funktion och kontrollerar att det förväntade svaret returneras.
 
-- **Http_trigger_should_return_string_from_member_data**: det här testet använder xUnit-attribut för att tillhandahålla exempel data till http-funktionen.
+- **Http_trigger_should_return_string_from_member_data** : det här testet använder xUnit-attribut för att tillhandahålla exempel data till http-funktionen.
 
-- **Timer_should_log_message**: det här testet skapar en instans av `ListLogger` och skickar den till en timer-funktion. När funktionen har körts, kontrol leras loggen för att se till att det förväntade meddelandet finns.
+- **Timer_should_log_message** : det här testet skapar en instans av `ListLogger` och skickar den till en timer-funktion. När funktionen har körts, kontrol leras loggen för att se till att det förväntade meddelandet finns.
 
 Om du vill komma åt program inställningarna i dina tester kan du använda [system. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
 ### <a name="run-tests"></a>Köra tester
 
-Kör testerna genom att gå till **test Utforskaren** och klicka på **Kör alla**.
+Kör testerna genom att gå till **test Utforskaren** och klicka på **Kör alla** .
 
 ![Testa Azure Functions med C# i Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### <a name="debug-tests"></a>Felsök tester
 
-Om du vill felsöka testerna anger du en Bryt punkt för ett test, navigerar till **test Utforskaren** och klickar på **Kör > Felsök senaste körning**.
+Om du vill felsöka testerna anger du en Bryt punkt för ett test, navigerar till **test Utforskaren** och klickar på **Kör > Felsök senaste körning** .
 
 ## <a name="javascript-in-vs-code"></a>Java Script i VS Code
 
@@ -295,7 +295,7 @@ Uppdatera nu _package.jspå_ för att ersätta det befintliga test kommandot med
 
 När projektet har initierats kan du skapa de moduler som används för att köra automatiserade tester. Börja med att skapa en ny mapp med namnet *test* som ska innehålla stödmodulerna.
 
-Lägg till en ny fil i mappen *testning* , ge den namnet **defaultContext.js**och Lägg till följande kod:
+Lägg till en ny fil i mappen *testning* , ge den namnet **defaultContext.js** och Lägg till följande kod:
 
 ```javascript
 module.exports = {
@@ -305,7 +305,7 @@ module.exports = {
 
 Den här modulen är en blå *logg* funktion som representerar standard körnings kontexten.
 
-Lägg sedan till en ny fil, namnge den **defaultTimer.js**och Lägg till följande kod:
+Lägg sedan till en ny fil, namnge den **defaultTimer.js** och Lägg till följande kod:
 
 ```javascript
 module.exports = {
@@ -315,7 +315,7 @@ module.exports = {
 
 Den här modulen implementerar `IsPastDue` egenskapen att stå som en falsk timer-instans. Tidsinställda konfigurationer som NCRONTAB-uttryck krävs inte här eftersom test-nätet bara anropar funktionen direkt för att testa resultatet.
 
-Använd sedan tillägget VS Code Functions för att [skapa en ny JavaScript-HTTP-funktion](/azure/developer/javascript/tutorial-vscode-serverless-node-01) och ge den namnet *HttpTrigger*. När funktionen har skapats lägger du till en ny fil i samma mapp med namnet **index.test.js**och lägger till följande kod:
+Använd sedan tillägget VS Code Functions för att [skapa en ny JavaScript-HTTP-funktion](/azure/developer/javascript/tutorial-vscode-serverless-node-01) och ge den namnet *HttpTrigger* . När funktionen har skapats lägger du till en ny fil i samma mapp med namnet **index.test.js** och lägger till följande kod:
 
 ```javascript
 const httpFunction = require('./index');
@@ -336,7 +336,7 @@ test('Http trigger should return known text', async () => {
 
 HTTP-funktionen från mallen returnerar en sträng med namnet "Hello" som är sammanfogat med det namn som anges i frågesträngen. Det här testet skapar en falsk instans av en begäran och skickar den till HTTP-funktionen. Testet kontrollerar att *logg* metoden anropas en gång och den returnerade texten motsvarar "Hello Bill".
 
-Sedan använder du tillägget VS Code Functions för att skapa en ny JavaScript-timer och ge den namnet *TimerTrigger*. När funktionen har skapats lägger du till en ny fil i samma mapp med namnet **index.test.js**och lägger till följande kod:
+Sedan använder du tillägget VS Code Functions för att skapa en ny JavaScript-timer och ge den namnet *TimerTrigger* . När funktionen har skapats lägger du till en ny fil i samma mapp med namnet **index.test.js** och lägger till följande kod:
 
 ```javascript
 const timerFunction = require('./index');
@@ -379,7 +379,7 @@ Om du vill felsöka dina tester lägger du till följande konfiguration i *launc
 }
 ```
 
-Ange sedan en Bryt punkt i testet och tryck på **F5**.
+Ange sedan en Bryt punkt i testet och tryck på **F5** .
 
 ## <a name="next-steps"></a>Nästa steg
 

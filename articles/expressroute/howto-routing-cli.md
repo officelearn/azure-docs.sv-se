@@ -7,20 +7,20 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/09/2020
 ms.author: duau
-ms.custom: seodec18
-ms.openlocfilehash: 292f50877fe40127e5aea95e395109bc76e1f75d
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 7a482e268137946222f1c8b427424598bd78f935
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940879"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735095"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Självstudie: skapa och ändra peering för en ExpressRoute-krets med CLI
 
 Den här självstudien visar hur du skapar och hanterar konfiguration/peering av routning för en ExpressRoute-krets i distributions modellen för Resource Manager med CLI. Du kan också kontrol lera status, uppdatera eller ta bort och avetablera peer-kopplingar för en ExpressRoute-krets. Om du vill använda en annan metod för att arbeta med din krets väljer du en artikel i följande lista:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
 > * [Offentlig peering](about-public-peering.md)
@@ -29,7 +29,7 @@ Den här självstudien visar hur du skapar och hanterar konfiguration/peering av
 > * [PowerShell (klassisk)](expressroute-howto-routing-classic.md)
 > 
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > - Konfigurera, uppdatera och ta bort Microsoft-peering för en krets
 > - Konfigurera, uppdatera och ta bort Azures privata peering för en krets

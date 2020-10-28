@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 74926411b659cf5973b03b2caca58d7666803f9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f916fdcf632cc369d1fb7e2faefad6dddafd1e15
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444529"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677250"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Skriv granskning till ett lagrings konto bakom VNet och brand vägg
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -41,16 +41,16 @@ Följande förutsättningar måste vara uppfyllda för att granskning ska kunna 
 >
 > * Ett allmänt-syfte v2-lagrings konto. Om du har ett allmänt v1-eller Blob Storage-konto [uppgraderar du till ett allmänt lagrings konto](../../storage/common/storage-account-upgrade.md). Mer information finns i [typer av lagrings konton](../../storage/common/storage-account-overview.md#types-of-storage-accounts).
 > * Lagrings kontot måste finnas i samma prenumeration och på samma plats som den [logiska SQL-servern](logical-servers.md).
-> * Det Azure Storage kontot kräver `Allow trusted Microsoft services to access this storage account` . Ange detta på lagrings kontots **brand väggar och virtuella nätverk**.
+> * Det Azure Storage kontot kräver `Allow trusted Microsoft services to access this storage account` . Ange detta på lagrings kontots **brand väggar och virtuella nätverk** .
 > * Du måste ha `Microsoft.Authorization/roleAssignments/write` behörighet för det valda lagrings kontot. Mer information finns i [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="configure-in-azure-portal"></a>Konfigurera i Azure Portal
 
 Anslut till [Azure Portal](https://portal.azure.com) med din prenumeration. Navigera till resurs gruppen och servern.
 
-1. Klicka på **granskning** under säkerhets rubriken. Välj **på**.
+1. Klicka på **granskning** under säkerhets rubriken. Välj **på** .
 
-2. Välj **lagring**. Välj det lagrings konto där loggarna ska sparas. Lagrings kontot måste uppfylla kraven som [anges i krav](#prerequisites).
+2. Välj **lagring** . Välj det lagrings konto där loggarna ska sparas. Lagrings kontot måste uppfylla kraven som [anges i krav](#prerequisites).
 
 3. **Information om öppen lagring**
 
@@ -61,7 +61,7 @@ Anslut till [Azure Portal](https://portal.azure.com) med din prenumeration. Navi
   >
   >Om du inte ser det här meddelandet finns inte lagrings kontot bakom ett VNet.
 
-4. Välj antalet dagar för kvarhållningsperioden. Klicka sedan på **OK**. Loggar som är äldre än kvarhållningsperioden tas bort.
+4. Välj antalet dagar för kvarhållningsperioden. Klicka sedan på **OK** . Loggar som är äldre än kvarhållningsperioden tas bort.
 
 5. Välj **Spara** på gransknings inställningarna.
 
@@ -93,7 +93,7 @@ Konfigurera SQL audit för att skriva händelser till ett lagrings konto bakom e
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**REST API**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+   [**REST API**](/rest/api/sql/servers/createorupdate):
 
    Exempel förfrågan
 
@@ -117,12 +117,12 @@ Konfigurera SQL audit för att skriva händelser till ett lagrings konto bakom e
    }
    ```
 
-2. Öppna [Azure-portalen](https://portal.azure.com). Navigera till ditt lagringskonto. Leta upp **Access Control (IAM)** och klicka på **Lägg till roll tilldelning**. Tilldela Azure-rollen **Storage BLOB data Contributor** till den server som är värd för den databas som du registrerade med Azure Active Directory (Azure AD) som i föregående steg.
+2. Öppna [Azure-portalen](https://portal.azure.com). Navigera till ditt lagringskonto. Leta upp **Access Control (IAM)** och klicka på **Lägg till roll tilldelning** . Tilldela Azure-rollen **Storage BLOB data Contributor** till den server som är värd för den databas som du registrerade med Azure Active Directory (Azure AD) som i föregående steg.
 
    > [!NOTE]
    > Endast medlemmar med ägar behörighet kan utföra det här steget. För olika inbyggda Azure-roller, se [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md).
 
-3. Konfigurera [serverns BLOB Auditing-princip](/rest/api/sql/server%20auditing%20settings/createorupdate)utan att ange en *storageAccountAccessKey*:
+3. Konfigurera [serverns BLOB Auditing-princip](/rest/api/sql/server%20auditing%20settings/createorupdate)utan att ange en *storageAccountAccessKey* :
 
    Exempel förfrågan
 

@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d9882f23096e19435566323de4d0ebaf7c0af3ef
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b08013e9d015d3c987c0032761bebccd4b57ec72
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331931"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678025"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Översikt över Azure-FarmBeats (för hands version)
 
 Azure FarmBeats är ett affärs-till-affärs erbjudande som är tillgängligt på Azure Marketplace. Det möjliggör agg regering av jordbruks data uppsättningar mellan leverantörer. Med Azure FarmBeats kan du bygga artificiell intelligens (AI) eller Machine Learning-modeller (ML) baserat på säkrade data uppsättningar. Med hjälp av Azure FarmBeats kan jordbrukets företag fokusera på kärn värde – lägger till i stället för den avskilda kraftigt avlyftningen av data teknik.
 
 > [!NOTE]
-> Azure FarmBeats är för närvarande en offentlig för hands version. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats tillhandahålls utan service nivå avtal. Använd support [forum för Azure FarmBeats](https://aka.ms/farmbeatssupport) för support.
+> Azure FarmBeats är för närvarande en offentlig för hands version. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats tillhandahålls utan service nivå avtal. Använd support [forum för Azure FarmBeats](/answers/topics/azure-farmbeats.html) för support.
 
 ![Taktslag i projekt grupp](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 
@@ -66,7 +66,7 @@ En administratör kan lägga till flera partner som data leverantörer i Azure F
 Azure FarmBeats erbjuds utan extra kostnad och du betalar bara för de Azure-resurser som du använder. Du kan använda nedanstående resurser för att få mer information om erbjudandet:
 
 - Håll dig informerad om de senaste Azure FarmBeats-nyheterna genom att gå till vår [Azure FarmBeats-blogg](https://aka.ms/farmbeatsblog).
-- Sök efter hjälp genom att publicera en fråga i vårt [Azure FarmBeats support-forum](https://aka.ms/farmbeatssupport).
+- Sök efter hjälp genom att publicera en fråga i vårt [Azure FarmBeats support-forum](/answers/topics/azure-farmbeats.html).
 - Ge feedback genom att publicera eller rösta på en funktions idé i vårt [Azure FarmBeats feedback-forum](https://aka.ms/farmbeatsfeedback).
 
 ## <a name="next-steps"></a>Nästa steg

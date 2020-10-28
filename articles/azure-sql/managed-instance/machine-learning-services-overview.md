@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: d7a3c86f3d9cf083a8746f753b8c5287c774a93e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb584d999d48c7d29420db26daebf592790af2b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263275"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676823"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services i Azure SQL-hanterad instans (för hands version)
 
@@ -54,21 +54,29 @@ Denna begränsade offentliga för hands version omfattas av [villkoren för för
 
 Om du är intresse rad av att delta i för hands versions programmet och accepterar dessa villkor kan du begära registrering genom att skapa ett support ärende för Azure på [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
 
+1. På sidan **skapa ett support ärende** klickar du på **skapa en incident** .
+
+1. På sidan **Hjälp + Support** klickar du på **ny supportbegäran** om du vill skapa ett nytt ärende.
+
 1. Välj följande alternativ:
    - Typ av problem – **teknisk**
    - Prenumeration – *Välj din prenumeration*
-   - Tjänst **SQL Database Hanterad instans**
+   - Tjänst- **SQL-hanterad instans**
+   - Resurs – *Välj din hanterade instans*
    - Sammanfattning – *Ange en kort beskrivning av din begäran*
    - Problem typ- **Machine Learning Services för SQL-hanterad instans (för hands version)**
    - Underordnat problem – **andra problem eller frågor om hur**
 
-1. Klicka på **Nästa: lösningar**.
+1. Klicka på **Nästa: lösningar** .
 
-1. Läs informationen om förhands granskningen och klicka sedan på **information**.
+1. Läs informationen om förhands granskningen och klicka sedan på **Nästa: information** .
 
-1. I **Beskrivning**anger du information om din begäran, inklusive den logiska serverns namn, region och PRENUMERATIONS-ID som du vill registrera i förhands granskningen. Ange andra uppgifter efter behov.
+1. På den här sidan:
+   - För frågan **försöker du registrera dig för för hands versionen?** Välj **Ja** . 
+   - För **Beskrivning** anger du information om din begäran, inklusive det logiska Server namn, den region och det PRENUMERATIONS-ID som du vill registrera i förhands granskningen. Ange andra uppgifter efter behov.
+   - Välj önskad kontakt metod. 
 
-1. När du är klar klickar du på **Nästa: granska + skapa**och klicka sedan på **skapa**.
+1. När du är klar klickar du på **Nästa: granska + skapa** och klicka sedan på **skapa** .
 
 När du har registrerat dig i programmet introducerar Microsoft dig och aktiverar Machine Learning Services för din befintliga eller nya databas.
 

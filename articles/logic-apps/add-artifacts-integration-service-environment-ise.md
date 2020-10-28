@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 147247c663311cfb3e05a986c6fb2bffbb41158b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269751"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675213"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Lägg till resurser i integrerings tjänst miljön (ISE) i Azure Logic Apps
 
@@ -34,7 +34,7 @@ När du har skapat en [integrerings tjänst miljö (ISE)](../logic-apps/connect-
 
 Följ dessa steg om du vill skapa Logi Kap par som körs i integrerings tjänst miljön (ISE):
 
-1. Leta upp och öppna din ISE, om den inte redan är öppen. Från menyn ISE, under **Inställningar**, väljer du **Logic Apps**  >  **Lägg till**.
+1. Leta upp och öppna din ISE, om den inte redan är öppen. Från menyn ISE, under **Inställningar** , väljer du **Logic Apps**  >  **Lägg till** .
 
    ![Lägg till ny Logic app i ISE](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
@@ -47,10 +47,10 @@ Följ dessa steg om du vill skapa Logi Kap par som körs i integrerings tjänst 
    | **Namn** | Ja | Namnet på den Logic app som ska skapas |
    | **Prenumeration** | Ja | Namnet på den Azure-prenumeration som ska användas |
    | **Resursgrupp** | Ja | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
-   | **Plats** | Ja | Under **integrerings tjänst miljöer**väljer du den ISE som ska användas, om det inte redan har valts. <p><p> **Viktigt**: om du vill använda dina Logi Kap par med ett integrations konto måste båda använda samma ISE. |
+   | **Plats** | Ja | Under **integrerings tjänst miljöer** väljer du den ISE som ska användas, om det inte redan har valts. <p><p> **Viktigt** : om du vill använda dina Logi Kap par med ett integrations konto måste båda använda samma ISE. |
    ||||
 
-1. När du är färdig väljer du **Skapa**.
+1. När du är färdig väljer du **Skapa** .
 
 1. Fortsätt [att skapa din Logic app på vanligt sätt](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -66,7 +66,7 @@ Utifrån den [ISE-SKU](../logic-apps/connect-virtual-network-vnet-isolated-envir
 
 Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
 
-1. Leta upp och öppna din ISE, om den inte redan är öppen. Från menyn ISE, under **Inställningar**, väljer du **integrerings konton**  >  **Lägg till**.
+1. Leta upp och öppna din ISE, om den inte redan är öppen. Från menyn ISE, under **Inställningar** , väljer du **integrerings konton**  >  **Lägg till** .
 
    ![Lägg till nytt integrations konto i ISE](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
@@ -80,10 +80,10 @@ Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
    | **Prenumeration** | Ja | Namnet på den Azure-prenumeration som du vill använda |
    | **Resursgrupp** | Ja | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
    | **Prisnivå** | Ja | Den pris nivå som ska användas för integrations kontot |
-   | **Plats** | Ja | Under **integrerings tjänst miljöer**väljer du samma ISE som dina Logi Kap par använder, om de inte redan har valts. <p><p> **Viktigt**: om du vill använda ditt integrations konto med Logic Apps måste båda använda samma ISE. |
+   | **Plats** | Ja | Under **integrerings tjänst miljöer** väljer du samma ISE som dina Logi Kap par använder, om de inte redan har valts. <p><p> **Viktigt** : om du vill använda ditt integrations konto med Logic Apps måste båda använda samma ISE. |
    ||||
 
-1. När du är färdig väljer du **Skapa**.
+1. När du är färdig väljer du **Skapa** .
 
 1. [Länka din Logic app till ditt integrations konto på vanligt sätt](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
@@ -95,13 +95,27 @@ Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
 
 ## <a name="add-ise-connectors"></a>Lägg till ISE-anslutningar
 
-Microsoft-hanterade anslutningar som blir tillgängliga efter att du har skapat din ISE visas inte automatiskt i anslutnings väljaren i Logic App Designer. Innan du kan använda dessa ISE-kopplingar måste du manuellt lägga till och distribuera dessa anslutningar till ISE så att de visas i Logic App Designer.
+När du har skapat din ISE visas inte hanterade ISE-kopplingar automatiskt i anslutnings väljaren i Logic App Designer. Innan du kan använda dessa ISE-kopplingar måste du manuellt lägga till och distribuera dessa anslutningar till ISE så att de visas i Logic App Designer.
 
-1. På menyn ISE väljer du **hanterade anslutningar**under **Inställningar**. Välj **Lägg till**i verktygsfältet.
+> [!IMPORTANT]
+> Hanterade ISE-anslutningar stöder för närvarande inte [taggar](../azure-resource-manager/management/tag-support.md). Om du ställer in en princip som kräver taggning kan försök att lägga till ISE-anslutningar Miss förorsakat av ett fel som liknar detta exempel:
+> 
+> ```json
+> {
+>    "error": { 
+>       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+>       "message": "The tags are not supported in the managed API 'azureblob'."
+>    }
+> }
+> ```
+> 
+> För att lägga till ISE-anslutningar måste du antingen inaktivera eller ta bort principen. 
+
+1. På menyn ISE väljer du **hanterade anslutningar** under **Inställningar** . Välj **Lägg till** i verktygsfältet.
 
    ![Visa hanterade anslutningar](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. Öppna listan **Sök koppling** i fönstret **Lägg till en ny hanterad koppling** . Välj den ISE-anslutning som du vill använda men som inte har distribuerats i ISE. Välj **Skapa**.
+1. Öppna listan **Sök koppling** i fönstret **Lägg till en ny hanterad koppling** . Välj den ISE-anslutning som du vill använda men som inte har distribuerats i ISE. Välj **Skapa** .
 
    ![Välj den ISE-anslutning som du vill distribuera i din ISE](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
@@ -113,17 +127,17 @@ Microsoft-hanterade anslutningar som blir tillgängliga efter att du har skapat 
 
 Om du vill använda anpassade anslutningar i ISE skapar du de anpassade anslutningarna direkt inuti din ISE.
 
-1. Leta upp och öppna din ISE, om den inte redan är öppen. I menyn ISE väljer du **Settings** **anpassade anslutningar**  >  **Lägg till**under Inställningar.
+1. Leta upp och öppna din ISE, om den inte redan är öppen. I menyn ISE väljer du **Settings** **anpassade anslutningar**  >  **Lägg till** under Inställningar.
 
    ![Skapa anpassad anslutningsapp](./media/add-artifacts-integration-service-environment-ise/add-custom-connector-to-ise.png)
 
 1. Ange namnet, Azure-prenumerationen och Azure-resurs gruppen (ny eller befintlig) som ska användas för din anpassade anslutning.
 
-1. I listan **plats** i avsnittet **integrerings tjänst miljöer** väljer du samma ISE som din Logi Kap par använder och väljer **skapa**, till exempel:
+1. I listan **plats** i avsnittet **integrerings tjänst miljöer** väljer du samma ISE som din Logi Kap par använder och väljer **skapa** , till exempel:
 
    ![Skärm bild som visar fönstret "skapa Logic Apps anpassad koppling" med exempel information valt.](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
-1. Välj din nya anpassade anslutning och välj sedan **Redigera**, till exempel:
+1. Välj din nya anpassade anslutning och välj sedan **Redigera** , till exempel:
 
    ![Välj och redigera anpassad anslutning](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 

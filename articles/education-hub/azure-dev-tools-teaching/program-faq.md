@@ -7,12 +7,12 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: d52dd19667da005de54bbf9b4d30207976511c7d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89567817"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675699"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Vanliga frågor och svar om Education Hub
 
@@ -46,7 +46,7 @@ Din prenumeration på Azure för studenter ger dig till gång till vissa verktyg
 
 ### <a name="what-is-microsoft-learn"></a>Vad är Microsoft Learn?
 
-[Microsoft Learn](https://docs.microsoft.com/learn/) är en kostnads fri online learning-plattform som gör det möjligt att lära dig Azure-tekniker i din egen takt. Inlärnings Sök vägar kombinerar moduler som gör att du kan börja med grunderna och sedan gå vidare till avancerade metoder som åtgärdar verkliga utmaningar.
+[Microsoft Learn](/learn/) är en kostnads fri online learning-plattform som gör det möjligt att lära dig Azure-tekniker i din egen takt. Inlärnings Sök vägar kombinerar moduler som gör att du kan börja med grunderna och sedan gå vidare till avancerade metoder som åtgärdar verkliga utmaningar.
 
 ### <a name="can-azure-for-students-be-used-for-production-or-only-for-development"></a>Kan Azure för studenter användas för produktion eller endast för utveckling?
 
@@ -97,7 +97,7 @@ Du kan ladda ned den här program varan i [Education Hub](https://ms.portal.azur
 
 ### <a name="what-is-microsoft-learn"></a>Vad är Microsoft Learn?
 
-[Microsoft Learn](https://docs.microsoft.com/learn/) är en kostnads fri, online utbildnings plattform som hjälper dig att lära dig Azure-tekniker i din egen takt. Inlärnings vägar kombinerar moduler som gör att du kan börja med grunderna och sedan gå vidare till avancerade metoder som åtgärdar verkliga utmaningar.
+[Microsoft Learn](/learn/) är en kostnads fri, online utbildnings plattform som hjälper dig att lära dig Azure-tekniker i din egen takt. Inlärnings vägar kombinerar moduler som gör att du kan börja med grunderna och sedan gå vidare till avancerade metoder som åtgärdar verkliga utmaningar.
 
 ## <a name="azure-academic-grant"></a>Azure akademiska bidrag
 
@@ -183,7 +183,7 @@ SQL Server Web<br>
 System Center<br>
 Azure DevOps Server (tidigare Visual Studio Team Foundation Server)<br>
 Microsoft Visio<br>
-Visual Studio-koden<br>
+Visuell Studio-kod<br>
 Visual Studio Community<br>
 Visual Studio Enterprise<br>
 Visual Studio för Mac<br>
@@ -252,8 +252,8 @@ Kontakta prenumerations administratören om du fortfarande inte kan logga in. [K
 
 ### <a name="how-do-i-find-my-subscriber-id"></a>Hur gör jag för att hittar du mitt prenumerations-ID?
 
-- **Första gången du registrerar i programmet**: ditt PRENUMERATIONS-ID är i e-postmeddelandets välkomst meddelande som du får.
-- **Om du har förnyat din prenumeration**: ditt PRENUMERATIONS-ID finns i e-postmeddelandet om att prenumerations administratören har tagit emot.
+- **Första gången du registrerar i programmet** : ditt PRENUMERATIONS-ID är i e-postmeddelandets välkomst meddelande som du får.
+- **Om du har förnyat din prenumeration** : ditt PRENUMERATIONS-ID finns i e-postmeddelandet om att prenumerations administratören har tagit emot.
 
 Ditt prenumerations-ID finns också i Visual Studio Subscription-portalen. När du har loggat in tittar du under **min prenumeration** på sidan **mitt konto** .
 
@@ -282,7 +282,7 @@ Om du inte får de här e-postpåminnelserna och är bekymrade om att prenumerat
 
 Du kan också gå till [sidan Azure dev tools for läros-renew](https://portal.azureforeducation.microsoft.com/)och slutföra förnyelse processen.
 
-Om du vill kontrol lera prenumerationens förfallo datum går du till [Azure dev tools för att gå till hanterings portalen för undervisning](https://azureforeducation.microsoft.com/account/Subscriptions)och titta under **prenumerationer**.
+Om du vill kontrol lera prenumerationens förfallo datum går du till [Azure dev tools för att gå till hanterings portalen för undervisning](https://azureforeducation.microsoft.com/account/Subscriptions)och titta under **prenumerationer** .
 
 ### <a name="what-if-i-need-more-help"></a>Vad gör jag om jag behöver mer hjälp?
 

@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3c941139b12fdf19bf1080b4dddecb8ab761568
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89457999"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676130"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Viktig information om Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ För verktygs förbättringar kontrollerar du att rätt version är installerad 
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="oct-2020"></a>Okt 2020
+
+| Förbättringar av tjänsten | Information |
+| --- | --- |
+|**Infogade T-SQL infogade Table-Valued funktioner (förhands granskning)**|I den här versionen kan du nu skapa infogade tabell värdes funktioner med Transact-SQL och fråga resultaten på samma sätt som en tabell. Den här funktionen är för närvarande en för hands version och kommer att stödjas i verktyg i GA. Mer information finns i [skapa funktion (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest).|
+|**MERGE-kommando (förhands granskning)**|Nu kan du köra INSERT-, Update-eller Delete-åtgärder på en mål tabell från resultatet av en koppling med en käll tabell. Du kan till exempel synkronisera två tabeller genom att infoga, uppdatera eller ta bort rader i en tabell baserat på skillnader som finns i den andra tabellen.  Kontrol lera [sammanslagning](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) för mer information.|
 
 ## <a name="aug-2020"></a>Aug 2020
 
@@ -173,7 +180,7 @@ För verktygs förbättringar kontrollerar du att rätt version är installerad 
 
 | Dokumentations förbättringar | Information |
 | --- | --- |
-|ingen | |
+|inget | |
 | | |
 
 ## <a name="december-2018"></a>December 2018

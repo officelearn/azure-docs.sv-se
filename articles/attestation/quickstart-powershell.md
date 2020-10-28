@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d25cdce2670de64fecc8590a2f5f833c10d2df69
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6050dd43b91299cd776d1121d7398f46e95bc096
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316008"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678202"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Snabb start: Konfigurera Azure-attestering med Azure PowerShell
 
@@ -231,4 +231,4 @@ Mer information om cmdletarna och dess parametrar finns i PowerShell- [cmdletar 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Så här skapar och signerar du en policy för attestering](author-sign-policy.md)
-- [Intyga en SGX-enklaven med hjälp av kod exempel](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)
+- [Intyga en SGX-enklaven med hjälp av kod exempel](/samples/browse/?expanded=azure&terms=attestation)

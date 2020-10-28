@@ -4,12 +4,12 @@ description: Installera runtime och SDK, och skapa ett lokalt utvecklingskluster
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f8639287ea65347319cb438a5ff6e8c96c8279e1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 39ed4a394a54112c03145c0d481e5459ecbf6d8b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168417"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675276"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -17,9 +17,9 @@ ms.locfileid: "92168417"
 > * [Linux](service-fabric-get-started-linux.md)
 > * [Mac OS X](service-fabric-get-started-mac.md)
 
-Om du vill distribuera och köra (Azure Service Fabric-program) [Service-Fabric-Application-model.md] på din Linux-utvecklings dator, installerar du Runtime och common SDK. Du kan även installera SDK:er för Java- och .NET Core-utveckling. 
+För att kunna skapa och köra [Azure Service Fabric-program](service-fabric-application-model.md) på en Linux-utvecklingsdator måste du installera runtime och SDK. Du kan även installera SDK:er för Java- och .NET Core-utveckling. 
 
-Stegen i den här artikeln förutsätter att du installerar internt i Linux eller använder (Service Fabric Onebox behållaravbildningen behållar avbildning) [ https://hub.docker.com/_/microsoft-service-fabric-onebox ], dvs `mcr.microsoft.com/service-fabric/onebox:u18` .
+I den här artikeln förutsätter vi att du installerar internt i Linux eller använder [Service Fabric Onebox behållaravbildningen-behållar avbildningen](https://hub.docker.com/_/microsoft-service-fabric-onebox), t. ex. `mcr.microsoft.com/service-fabric/onebox:u18` .
 
 Du kan hantera Service Fabric entiteter som finns i molnet eller lokalt med Azure Service Fabric kommando rads gränssnitt (CLI). Information om hur du installerar kommandoradsgränssnittet finns i [Konfigurera Service Fabric CLI](./service-fabric-cli.md).
 
@@ -298,21 +298,21 @@ Du kan installera Eclipse-pluginprogrammet för Service Fabric i Eclipse IDE fö
 > 
 > I Ubuntu rekommenderar vi att du installerar direkt från Eclipses webbplats i stället för att använda ett installationspaket (`apt` eller `apt-get`). På så sätt kan du vara säker på att du får den senaste versionen av Eclipse. Du kan installera Eclipse IDE för Java-utvecklare eller för Java EE-utvecklare.
 
-1. I Eclipse kontrollerar du att Eclipse Neon eller senare och Buildship version 2.2.1 eller senare är installerade. Kontrol lera de installerade komponenternas versioner genom att välja **Hjälp**  >  **om**  >  **installations information**för Sol förmörkelse. Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update].
+1. I Eclipse kontrollerar du att Eclipse Neon eller senare och Buildship version 2.2.1 eller senare är installerade. Kontrol lera de installerade komponenternas versioner genom att välja **Hjälp**  >  **om**  >  **installations information** för Sol förmörkelse. Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update].
 
-2. Installera Service Fabric plugin-programmet genom att välja **Hjälp**  >  **installera ny program vara**.
+2. Installera Service Fabric plugin-programmet genom att välja **Hjälp**  >  **installera ny program vara** .
 
-3. I rutan **arbeta med** anger du **https: \/ /dl.Microsoft.com/Eclipse**.
+3. I rutan **arbeta med** anger du **https: \/ /dl.Microsoft.com/Eclipse** .
 
-4. Välj **Lägg till**.
+4. Välj **Lägg till** .
 
     ![Sidan Tillgänglig programvara][sf-eclipse-plugin]
 
-5. Välj **ServiceFabric**-plugin-programmet och välj sedan **Nästa**.
+5. Välj **ServiceFabric** -plugin-programmet och välj sedan **Nästa** .
 
 6. Utför följande installationssteg. Acceptera sedan licensavtalet.
 
-Om du redan har Service Fabric Eclipse-plugin-programmet installerat kontrollerar du att du har den senaste versionen. Kontrol lera genom att välja **Hjälp**  >  **om**  >  **installations information**för Sol förmörkelse. Sök sedan efter Service Fabric i listan över installerade plugin-program. Välj **Uppdatera** om det finns en nyare version.
+Om du redan har Service Fabric Eclipse-plugin-programmet installerat kontrollerar du att du har den senaste versionen. Kontrol lera genom att välja **Hjälp**  >  **om**  >  **installations information** för Sol förmörkelse. Sök sedan efter Service Fabric i listan över installerade plugin-program. Välj **Uppdatera** om det finns en nyare version.
 
 Mer information finns i [Service Fabric-plugin-program för utveckling av Java-program i Eclipse](service-fabric-get-started-eclipse.md).
 

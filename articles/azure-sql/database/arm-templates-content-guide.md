@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 48a2c00f7ff487def13e9872c4f43a3ca36809ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5202145af6f60f34bdce57aa94f4fec92a8b227f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444643"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677262"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Azure Resource Manager mallar för Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,7 +39,7 @@ Följande tabell innehåller länkar till Azure Resource Manager-mallar för Azu
 | [Azure-webbapp med SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | Det här exemplet skapar en kostnads fri Azure-webbapp och en databas i Azure SQL Database på tjänst nivån "Basic".|
 | [Azure-webbapp och Redis Cache med SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Den här mallen skapar en webbapp, Redis Cache och databas i samma resurs grupp och skapar två anslutnings strängar i webbappen för-databasen och Redis Cache.|
 | [Importera data från Blob Storage med hjälp av ADF v2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Den här Azure Resource Manager-mallen skapar en instans av Azure Data Factory v2 som kopierar data från Azure Blob Storage till SQL Database.|
-| [HDInsight-kluster med en databas](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Med den här mallen kan du skapa ett HDInsight-kluster, en logisk SQL-Server, en databas och två tabeller. Den här mallen används av [artikeln Använd Sqoop med Hadoop i HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop). |
+| [HDInsight-kluster med en databas](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Med den här mallen kan du skapa ett HDInsight-kluster, en logisk SQL-Server, en databas och två tabeller. Den här mallen används av [artikeln Använd Sqoop med Hadoop i HDInsight](../../hdinsight/hadoop/hdinsight-use-sqoop.md). |
 | [Azure-logikapp som kör en SQL-lagrad procedur enligt ett schema](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Med den här mallen kan du skapa en logisk app som kör en lagrad SQL-procedur enligt schemat. Argument för proceduren kan placeras i brödtexten i mallen.|
 
 ## <a name="azure-sql-managed-instance"></a>[Hanterad Azure SQL-instans](#tab/managed-instance)
@@ -54,4 +54,3 @@ Följande tabell innehåller länkar till Azure Resource Manager mallar för Azu
 | [SQL-hanterad instans med en virtuell dator](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Den här distributionen skapar ett virtuellt Azure-nätverk med två undernät `ManagedInstance` och `Management` . SQL-hanterad instans kommer att distribueras i `ManagedInstance` under nätet. En virtuell dator med den senaste versionen av SQL Server Management Studio (SSMS) kommer att distribueras i `Management` under nätet. |
 
 ---
-

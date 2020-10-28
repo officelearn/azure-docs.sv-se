@@ -4,15 +4,15 @@ description: Förstå Azure File Sync lokala proxy-och brand Väggs inställning
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/24/2019
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e4f011d9286a0685f1b091b930155db969407423
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69fdfea6768a895db1f85df4c2936936a2ffd3f5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903722"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675779"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, vilket möjliggör synkronisering av flera platser och moln nivåer. En lokal server måste därför vara ansluten till Internet. En IT-administratör måste bestämma den bästa sökvägen för att servern ska kunna komma åt Azure Cloud Services.
@@ -121,6 +121,8 @@ För affärs kontinuitet och haveri beredskap (BCDR) kan du ha angett Azure-filr
 | Offentliga | Asien, östra | https: \/ /eastasia01.AFS.Azure.net<br>https: \/ /kailani11.One.Microsoft.com | Sydostasien | https: \/ /TM-eastasia01.AFS.Azure.net<br>https: \/ /TM-kailani11.One.Microsoft.com |
 | Offentliga | East US | https: \/ /eastus01.AFS.Azure.net<br>https: \/ /kailani1.One.Microsoft.com | USA, västra | https: \/ /TM-eastus01.AFS.Azure.net<br>https: \/ /TM-kailani1.One.Microsoft.com |
 | Offentliga | USA, östra 2 | https: \/ /eastus201.AFS.Azure.net<br>https: \/ /Kailani-ess.One.Microsoft.com | Central US | https: \/ /TM-eastus201.AFS.Azure.net<br>https: \/ /TM-Kailani-ess.One.Microsoft.com |
+| Offentliga | Tyskland, norra | https: \/ /germanynorth01.AFS.Azure.net | Tyskland, västra centrala | https: \/ /TM-germanywestcentral01.AFS.Azure.net |
+| Offentliga | Tyskland, västra centrala | https: \/ /germanywestcentral01.AFS.Azure.net | Tyskland, norra | https: \/ /TM-germanynorth01.AFS.Azure.net |
 | Offentliga | Japan, östra | https: \/ /japaneast01.AFS.Azure.net | Japan, västra | https: \/ /TM-japaneast01.AFS.Azure.net |
 | Offentliga | Japan, västra | https: \/ /japanwest01.AFS.Azure.net | Japan, östra | https: \/ /TM-japanwest01.AFS.Azure.net |
 | Offentliga | Sydkorea, centrala | https: \/ /koreacentral01.AFS.Azure.net/ | Sydkorea, södra | https: \/ /TM-koreacentral01.AFS.Azure.net/ |

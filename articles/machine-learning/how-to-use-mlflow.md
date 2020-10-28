@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3fb177afa804788632f22d24bbd376d64cbe1c9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a81e60e3bb7a1b0f34a29ccd9cebf3d82279027e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250699"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676650"
 ---
 # <a name="track-experiment-runs-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Spåra experiment körningar och distribuera ML-modeller med MLflow och Azure Machine Learning (för hands version)
 
@@ -353,13 +353,16 @@ Om du inte planerar att använda de loggade måtten och artefakterna i din arbet
 
 1. Välj den resursgrupp i listan som du har skapat.
 
-1. Välj **Ta bort resursgrupp**.
+1. Välj **Ta bort resursgrupp** .
 
-1. Ange resursgruppsnamnet. Välj sedan **Ta bort**.
+1. Ange resursgruppsnamnet. Välj sedan **Ta bort** .
 
 ## <a name="example-notebooks"></a>Exempelnotebook-filer
 
 [MLflow med Azure ml-anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) demonstrerar och utökar begrepp som presenteras i den här artikeln.
+
+> [!NOTE]
+> En community-driven databas med exempel som använder mlflow finns på https://github.com/Azure/azureml-examples .
 
 ## <a name="next-steps"></a>Nästa steg
 

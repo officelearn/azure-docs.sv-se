@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9be94183fc34c2dbee3503d21e2e643d5296a82b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461132"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677419"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Kom igång med hjälte-exemplet för grupp Chat
 
@@ -56,13 +56,13 @@ När du trycker på knappen &quot;starta en chatt":::
 
 Komponenter för den huvudsakliga Chat-skärmen:
 
-- **Huvud chatt-områden**: det här är den centrala chatten där användarna kan skicka och ta emot meddelanden. Om du vill skicka meddelanden kan du använda ingångs fältet och trycka på RETUR (eller använda knappen Skicka). Chat-meddelanden som tas emot kategoriseras av avsändaren med rätt namn och emoji. Du ser två typer av meddelanden i chattområdet: 1) om du skriver meddelanden när en användare skriver och 2) skickade och lästa meddelanden för meddelanden.
-- **Rubrik**: det är här som användaren ser titeln på chatt-tråden och kontrollerna för att växla mellan list rutorna för deltagare och inställningar, och en lämna-knapp för att avsluta chatt-sessionen.
-- **Sido fältet**: här visas deltagare och inställnings information när de växlas med hjälp av kontrollerna i sidhuvudet. Sido fältet deltagare innehåller en lista över deltagare i chatten och en länk för att bjuda in deltagare till chatten. I sid List rutan inställningar kan du konfigurera titeln för chatten. 
+- **Huvud chatt-områden** : det här är den centrala chatten där användarna kan skicka och ta emot meddelanden. Om du vill skicka meddelanden kan du använda ingångs fältet och trycka på RETUR (eller använda knappen Skicka). Chat-meddelanden som tas emot kategoriseras av avsändaren med rätt namn och emoji. Du ser två typer av meddelanden i chattområdet: 1) om du skriver meddelanden när en användare skriver och 2) skickade och lästa meddelanden för meddelanden.
+- **Rubrik** : det är här som användaren ser titeln på chatt-tråden och kontrollerna för att växla mellan list rutorna för deltagare och inställningar, och en lämna-knapp för att avsluta chatt-sessionen.
+- **Sido fältet** : här visas deltagare och inställnings information när de växlas med hjälp av kontrollerna i sidhuvudet. Sido fältet deltagare innehåller en lista över deltagare i chatten och en länk för att bjuda in deltagare till chatten. I sid List rutan inställningar kan du konfigurera titeln för chatten. 
 
 Nedan hittar du mer information om förutsättningar och steg för att konfigurera exemplet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Skapa ett Azure-konto med en aktiv prenumeration. Mer information finns i [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js (8.11.2 och senare)](https://nodejs.org/en/download/)
@@ -81,7 +81,7 @@ Du kan testa exemplet lokalt genom att öppna flera webbläsare med URL: en för
 ## <a name="before-running-the-sample-for-the-first-time"></a>Innan du kör exemplet för första gången
 
 1. Öppna en instans av PowerShell, Windows Terminal, kommando tolken eller motsvarande och navigera till den katalog som du vill klona exemplet till.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 3. Hämta `Connection String` från Azure Portal. Mer information om anslutnings strängar finns i [skapa en Azure-kommunikations resurser](../quickstarts/create-communication-resource.md)
 4. När du `Connection String` har lagt till lägger du till anslutnings strängen i **chatten/appsettings.js** filen som finns under mappen chatt. Mata in anslutnings strängen i variabeln: `ResourceConnectionString` .
 

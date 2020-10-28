@@ -5,7 +5,7 @@ description: Den här artikeln visar hur du använder ett R-skript med Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
-ms.custom: sqldbrb=2 
+ms.custom: sqldbrb=2
 ms.devlang: python
 ms.topic: quickstart
 author: garyericson
@@ -14,12 +14,12 @@ ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3a939c816cac44ed85802ecfa591564effc1ee73
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 62f1015bc945b5c01f719d7e96e6446c49ac8b8a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328844"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675151"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Snabb start: Använd R med Azure SQL Database Machine Learning Services (för hands version) för att fråga en databas 
 
@@ -33,7 +33,7 @@ I den här snabb starten använder du R med Azure SQL Database Machine Learning 
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - En [Azure SQL Database](single-database-create-quickstart.md)
-- [Machine Learning Services](machine-learning-services-overview.md) med R aktiverat.
+- [Machine Learning Services](../managed-instance/machine-learning-services-overview.md) med R aktiverat.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 > [!IMPORTANT]
@@ -45,11 +45,11 @@ Machine Learning Services med R är en funktion i Azure SQL Database som använd
 
 Hämta anslutnings informationen du behöver för att ansluta till databasen i Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Gå till sidan **SQL-databaser**  eller **SQL-hanterade instanser** .
 
-3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för en databas i Azure SQL Database eller det fullständigt kvalificerade Server namnet bredvid **värd** för en hanterad instans i Azure SQL-hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
+3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för en databas i Azure SQL Database eller det fullständigt kvalificerade Server namnet bredvid **värd** för en hanterad instans i Azure SQL-hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera** .
 
 ## <a name="create-code-to-query-your-database"></a>Skapa en kod för att fråga databasen
 
@@ -57,7 +57,7 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen i A
 
    Om du behöver hjälp med att ansluta, se [snabb start: använda SQL Server Management Studio för att ansluta och fråga en databas i Azure SQL Database](connect-query-ssms.md).
 
-1. Skicka det fullständiga R-skriptet till den [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) lagrade proceduren.
+1. Skicka det fullständiga R-skriptet till den [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) lagrade proceduren.
 
    Skriptet skickas genom `@script` argumentet. Allting i `@script` argumentet måste vara en giltig R-kod.
    
@@ -76,12 +76,12 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen i A
 
 ## <a name="run-the-code"></a>Kör koden
 
-1. Kör den lagrade proceduren [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) .
+1. Kör den lagrade proceduren [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) .
 
 1. Kontrol lera att de 20 främsta kategorierna/produkt raderna returneras i fönstret **meddelanden** .
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Utforma din första databas i Azure SQL Database](design-first-database-tutorial.md)
-- [Azure SQL Database Machine Learning Services (med R)](machine-learning-services-overview.md)
-- [Skapa och kör enkla R-skript i Azure SQL Database Machine Learning Services (förhands granskning)](r-script-create-quickstart.md)
+- [Azure SQL Database Machine Learning Services (med R)](../managed-instance/machine-learning-services-overview.md)
+- [Skapa och kör enkla R-skript i Azure SQL Database Machine Learning Services (förhands granskning)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context)

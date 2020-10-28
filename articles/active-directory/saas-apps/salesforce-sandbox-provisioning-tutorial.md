@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 38fac23b3fdc5820a7a407a4a7d89d0064cf8e93
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: cc094376ed6d5a183b65a598ca9d0a55670be70e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101791"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676727"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce-Sandbox för automatisk användar etablering
 
@@ -33,7 +33,7 @@ Det scenario som beskrivs i självstudien förutsätter att du redan har följan
 
 Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare eller grupper i Azure AD som behöver åtkomst till din Salesforce Sandbox-app. När du har gjort det här beslutet kan du tilldela dessa användare till din Salesforce Sandbox-app genom att följa instruktionerna i [tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare eller grupper i Azure AD som behöver åtkomst till din Salesforce Sandbox-app. När du har gjort det här beslutet kan du tilldela dessa användare till din Salesforce Sandbox-app genom att följa instruktionerna i [tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Viktiga tips för att tilldela användare till Salesforce Sandbox
 
@@ -61,7 +61,7 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 1. Välj din instans av Salesforce Sandbox och välj sedan fliken **etablering** .
 
-1. Ange **Etableringsläge** som **Automatiskt**.
+1. Ange **Etableringsläge** som **Automatiskt** .
 
     ![Skärm bild som visar sidan för sandbox-etablering för Salesforce, med etablerings läget inställt på automatiskt och andra värden som du kan ange.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
@@ -71,11 +71,11 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
    
     b. I text rutan **Administratörs lösen ord** skriver du lösen ordet för det här kontot.
 
-1. Öppna en ny flik och logga in på samma Salesforce Sandbox-administratörskonto för att få en säkerhetstoken för Salesforce. Klicka på ditt namn i det övre högra hörnet på sidan och klicka sedan på **Inställningar**.
+1. Öppna en ny flik och logga in på samma Salesforce Sandbox-administratörskonto för att få en säkerhetstoken för Salesforce. Klicka på ditt namn i det övre högra hörnet på sidan och klicka sedan på **Inställningar** .
 
      ![Skärm bild som visar länken Inställningar valda.](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Aktivera automatisk användar etablering")
 
-1. I det vänstra navigerings fönstret klickar du på **Mina personliga uppgifter** för att expandera det relaterade avsnittet och klicka sedan på **Återställ min säkerhetstoken**.
+1. I det vänstra navigerings fönstret klickar du på **Mina personliga uppgifter** för att expandera det relaterade avsnittet och klicka sedan på **Återställ min säkerhetstoken** .
   
     ![Skärm bild som visar Återställ min säkerhetstoken som valts från min personliga information.](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Aktivera automatisk användar etablering")
 
@@ -109,4 +109,4 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 * [Hantera användarkontoetablering för Enterprise-appar](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)
+* [Konfigurera enkel inloggning](./salesforce-sandbox-tutorial.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 8f23f9763d25d5edfebd0e4cff7f3b7772ef1554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf43875be0088f9f9c8c8f209f97c8443bd305bb
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543373"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676600"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Självstudie: Azure Active Directory integrering med ScreenSteps
 
@@ -27,10 +27,10 @@ Genom att integrera ScreenSteps med Azure AD får du följande fördelar:
 * Du kan göra det möjligt för användarna att logga in automatiskt till ScreenSteps (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med ScreenSteps behöver du följande objekt:
 
@@ -49,11 +49,11 @@ Om du vill konfigurera integreringen av ScreenSteps i Azure AD måste du lägga 
 
 **Utför följande steg för att lägga till ScreenSteps från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory** -ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Om du vill konfigurera integreringen av ScreenSteps i Azure AD måste du lägga 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök skriver du **ScreenSteps**, väljer **ScreenSteps** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **ScreenSteps** , väljer **ScreenSteps** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
      ![ScreenSteps i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med ScreenSteps baserat på en test användare som kallas **Britta Simon**.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med ScreenSteps baserat på en test användare som kallas **Britta Simon** .
 För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i ScreenSteps upprättas.
 
 Om du vill konfigurera och testa enkel inloggning med ScreenSteps i Azure AD måste du slutföra följande Bygg stenar:
@@ -85,7 +85,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Utför följande steg för att konfigurera enkel inloggning med ScreenSteps i Azure AD:
 
-1. Välj **enkel inloggning**på sidan **ScreenSteps** Application Integration i [Azure Portal](https://portal.azure.com/).
+1. Välj **enkel inloggning** på sidan **ScreenSteps** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -93,7 +93,7 @@ Utför följande steg för att konfigurera enkel inloggning med ScreenSteps i Az
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration** .
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -106,7 +106,7 @@ Utför följande steg för att konfigurera enkel inloggning med ScreenSteps i Az
     > [!NOTE]
     > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska Sign-On-URL, som beskrivs senare i den här självstudien.
 
-5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat** , klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
@@ -124,15 +124,15 @@ Utför följande steg för att konfigurera enkel inloggning med ScreenSteps i Az
 
 1. Logga in på din ScreenSteps-företags webbplats som administratör i ett annat webbläsarfönster.
 
-1. Klicka på **konto inställningar**.
+1. Klicka på **konto inställningar** .
 
-    ![Kontohantering](./media/screensteps-tutorial/ic778523.png "Kontohantering")
+    ![Konto hantering](./media/screensteps-tutorial/ic778523.png "Kontohantering")
 
-1. Klicka på **enkel inloggning**.
+1. Klicka på **enkel inloggning** .
 
     ![Fjärrautentisering](./media/screensteps-tutorial/ic778524.png "Fjärrautentisering")
 
-1. Klicka på **skapa slut punkt för enkel inloggning**.
+1. Klicka på **skapa slut punkt för enkel inloggning** .
 
     ![Fjärrautentisering](./media/screensteps-tutorial/ic778525.png "Fjärrautentisering")
 
@@ -142,9 +142,9 @@ Utför följande steg för att konfigurera enkel inloggning med ScreenSteps i Az
 
     a. Skriv en rubrik i text rutan **rubrik** .
 
-    b. Välj **SAML**i listan **läge** .
+    b. Välj **SAML** i listan **läge** .
 
-    c. Klicka på **Skapa**.
+    c. Klicka på **Skapa** .
 
 1. **Redigera** den nya slut punkten.
 
@@ -154,7 +154,7 @@ Utför följande steg för att konfigurera enkel inloggning med ScreenSteps i Az
 
     ![Fjärrautentiseringens slut punkt](./media/screensteps-tutorial/ic778527.png "Fjärrautentiseringens slut punkt")
 
-    a. Klicka på **överför ny SAML-certifikatfil**och ladda sedan upp certifikatet, som du har laddat ned från Azure Portal.
+    a. Klicka på **överför ny SAML-certifikatfil** och ladda sedan upp certifikatet, som du har laddat ned från Azure Portal.
 
     b. Klistra in **inloggnings-URL** -värde, som du har kopierat från Azure Portal till text rutan för **fjärrinloggnings-URL** .
 
@@ -162,19 +162,19 @@ Utför följande steg för att konfigurera enkel inloggning med ScreenSteps i Az
 
     d. Välj en **grupp** för att tilldela användare när de är etablerade.
 
-    e. Klicka på **Uppdatera**.
+    e. Klicka på **Uppdatera** .
 
     f. Kopiera **URL: en för SAML-konsumenten** till Urklipp och klistra in i text rutan för **inloggnings-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-    ex. Gå tillbaka till **slut punkten redigera enkel inloggning**.
+    ex. Gå tillbaka till **slut punkten redigera enkel inloggning** .
 
-    h. Klicka på knappen **Använd som standard för konto** om du vill använda den här slut punkten för alla användare som loggar in på ScreenSteps. Alternativt kan du klicka på knappen **Lägg till i webbplats** om du vill använda den här slut punkten för vissa platser i **ScreenSteps**.
+    h. Klicka på knappen **Använd som standard för konto** om du vill använda den här slut punkten för alla användare som loggar in på ScreenSteps. Alternativt kan du klicka på knappen **Lägg till i webbplats** om du vill använda den här slut punkten för vissa platser i **ScreenSteps** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory** , välj **Users** och sedan **Alla användare** .
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
@@ -186,32 +186,32 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon** .
   
     b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Klicka på **Skapa**.
+    d. Klicka på **Skapa** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till ScreenSteps.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **ScreenSteps**.
+1. I Azure Portal väljer du **företags program** , väljer **alla program** och väljer sedan **ScreenSteps** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **ScreenSteps**.
+2. I listan program väljer du **ScreenSteps** .
 
     ![ScreenSteps-länken i program listan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper** .
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning** .
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
@@ -219,22 +219,22 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela** .
 
 ### <a name="create-screensteps-test-user"></a>Skapa ScreenSteps test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i ScreenSteps. Arbeta med [ScreenSteps-klientens support team](https://www.screensteps.com/contact)   för att lägga till användare i ScreenSteps-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i ScreenSteps. Arbeta med [ScreenSteps-klientens support team](https://www.screensteps.com/contact) för att lägga till användare i ScreenSteps-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen ScreenSteps på åtkomst panelen, bör du loggas in automatiskt på den ScreenSteps som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen ScreenSteps på åtkomst panelen, bör du loggas in automatiskt på den ScreenSteps som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.custom: devx-track-ansible
-ms.openlocfilehash: 8e34f73f1c403e3a7d21c6c30844f8b9073b3113
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-ansible, devx-track-azurecli
+ms.openlocfilehash: dd967ad08b628f9073edfe548033f7e97845d047
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87373580"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735112"
 ---
 # <a name="post-deployment-tasks"></a>Uppgifter efter distribution
 
@@ -30,7 +30,7 @@ När du har distribuerat ett OpenShift-kluster kan du konfigurera ytterligare ob
 
 Om du vill använda Azure Active Directory för autentisering måste du först skapa en Azure AD App-registrering. Den här processen omfattar två steg: att skapa appens registrering och konfigurera behörigheter.
 
-### <a name="create-an-app-registration"></a>Skapa en app-registrering
+### <a name="create-an-app-registration"></a>Skapa en appregistrering
 
 De här stegen använder Azure CLI för att skapa appens registrering och GUI (portal) för att ange behörigheterna. För att kunna skapa registrerings appen behöver du följande fem delar av informationen:
 
@@ -70,19 +70,19 @@ Anteckna den appId-egenskap som returnerades från kommandot för ett senare ste
 
 I Azure-portalen:
 
-1. Välj **Azure Active Directory**  >  **app-registrering**.
+1. Välj **Azure Active Directory**  >  **app-registrering** .
 2. Sök efter din registrering av appen (till exempel OCPAzureAD).
 3. Klicka på appens registrering i resultatet.
-4. Under **Inställningar**väljer du **nödvändiga behörigheter**.
-5. Under **nödvändiga behörigheter**väljer du **Lägg till**.
+4. Under **Inställningar** väljer du **nödvändiga behörigheter** .
+5. Under **nödvändiga behörigheter** väljer du **Lägg till** .
 
    ![Registrera appar](media/openshift-post-deployment/app-registration.png)
 
-6. Klicka på steg 1: Välj API och klicka sedan på **Windows Azure Active Directory (Microsoft. Azure. ActiveDirectory)**. Klicka på **Välj** längst ned.
+6. Klicka på steg 1: Välj API och klicka sedan på **Windows Azure Active Directory (Microsoft. Azure. ActiveDirectory)** . Klicka på **Välj** längst ned.
 
    ![Välj API för app-registrering](media/openshift-post-deployment/app-registration-select-api.png)
 
-7. I steg 2: Välj behörigheter väljer du **Logga in och Läs användar profil** under **delegerade behörigheter**och klickar sedan på **Välj**.
+7. I steg 2: Välj behörigheter väljer du **Logga in och Läs användar profil** under **delegerade behörigheter** och klickar sedan på **Välj** .
 
    ![Åtkomst till app-registrering](media/openshift-post-deployment/app-registration-access.png)
 

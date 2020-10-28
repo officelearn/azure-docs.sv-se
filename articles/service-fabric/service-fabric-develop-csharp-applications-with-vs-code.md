@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 1d7478e6b81ef2c53ca6194197336e91d3ff250b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fbd523a38b3c4860316e45b8b7c03a17de19499
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75614531"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678332"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Utveckla C# Service Fabric-program med Visual Studio Code
 
@@ -18,7 +18,7 @@ ms.locfileid: "75614531"
 
 Den här artikeln visar hur du skapar, distribuerar och felsöker ett .NET Core Service Fabric-program med Visual Studio Code.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan har installerat VS Code, Service Fabric Reliable Services tillägget för VS Code och eventuella beroenden som krävs för utvecklings miljön. Läs mer i [komma igång](./service-fabric-get-started-vs-code.md#prerequisites).
 
@@ -34,7 +34,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-st
 ## <a name="open-the-application-in-vs-code"></a>Öppna programmet i VS Code
 
 ### <a name="windows"></a>Windows
-Högerklicka på VS Code-ikonen på Start-menyn och välj **Kör som administratör**. Om du vill koppla fel sökaren till dina tjänster måste du köra VS Code som administratör.
+Högerklicka på VS Code-ikonen på Start-menyn och välj **Kör som administratör** . Om du vill koppla fel sökaren till dina tjänster måste du köra VS Code som administratör.
 
 ### <a name="linux"></a>Linux
 Använd terminalen och navigera till sökvägen/service-fabric-dotnet-core-getting-started/Services/CounterService från katalogen som programmet klonades till lokalt.
@@ -57,7 +57,7 @@ Programmet bör nu visas i din VS Code-arbetsyta.
 ## <a name="deploy-the-application-to-the-local-cluster"></a>Distribuera programmet till det lokala klustret
 När du har skapat programmet kan du distribuera det till det lokala klustret. 
 
-1. Välj **kommandot Service Fabric: distribuera program (localhost)** från **kommando paletten**. Utdata från installations processen skickas till den integrerade terminalen.
+1. Välj **kommandot Service Fabric: distribuera program (localhost)** från **kommando paletten** . Utdata från installations processen skickas till den integrerade terminalen.
 
    ![Distribuera program kommando i VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
@@ -74,7 +74,7 @@ Förutom att distribuera programmet till det lokala klustret kan du också publi
 
 1. Se till att du har skapat ditt program med hjälp av anvisningarna ovan. Uppdatera den genererade konfigurations filen `Cloud.json` med information om det fjärrkluster som du vill publicera till.
 
-2. Välj **kommandot Service Fabric: publicera program**från **kommando paletten**. Utdata från installations processen skickas till den integrerade terminalen.
+2. Välj **kommandot Service Fabric: publicera program** från **kommando paletten** . Utdata från installations processen skickas till den integrerade terminalen.
 
    ![Kommandot Publicera program i VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
@@ -91,7 +91,7 @@ Utför följande steg för att ange en Bryt punkt och fel sökning:
 
 2. Välj **.net Core Attach** från fel söknings konfigurations menyn.
 
-   ![Fel söknings ikon i VS Code-arbetsyta](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
+   ![Skärm bild som visar .NET Core Attach valt i fel söknings konfigurations menyn.](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
 3. Öppna Service Fabric Explorer i en webbläsare: http: \/ /localhost: 19080/Explorer. Klicka på **program** och öka detalj nivån för att avgöra vilken primär nod som CounterService körs på. I bilden nedanför den primära noden för CounterService är Node 0.
 

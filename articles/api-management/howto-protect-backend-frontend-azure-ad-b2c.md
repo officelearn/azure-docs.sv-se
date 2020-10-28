@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
-ms.custom: fasttrack-new
-ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-new, devx-track-js
+ms.openlocfilehash: aa3bce73d2a91538dff0fdeb9e0eb814d878459a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86253702"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676021"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Skydda SPA-backend med OAuth 2,0, Azure Active Directory B2C och Azure API Management
 
@@ -180,7 +180,7 @@ Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsn
    > Nu ska funktions-API: et inte kunna anropas från någon annan stans än via API Management eller din adress.
    
 ## <a name="import-the-function-app-definition"></a>Importera Function-appens definition
-1. Öppna *bladet API Management*och öppna sedan *instansen*.
+1. Öppna *bladet API Management* och öppna sedan *instansen* .
 1. Välj bladet API: er från API Management avsnittet i din instans.
 1. I fönstret Lägg till ett nytt API väljer du Funktionsapp och väljer sedan fullständig längst upp i popup-fönstret.
 1. Klicka på Bläddra, Välj den app som du är värd för API: et i och klicka på Välj.

@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: a69332f1534e32a85ce084289dd00533612cc282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eedc3dc1422d4eb6dcce80766077e8056f8509cf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327569"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678041"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ SQL Database och SQL-hanterad instans tillhandahåller också flera funktioner f
 
 - Med [temporära tabeller](../temporal-tables.md) kan du återställa radversioner från valfri tidpunkt.
 - [Inbyggda automatiserade säkerhets kopieringar](automated-backups-overview.md) och [tidpunkts återställning](recovery-using-backups.md#point-in-time-restore) gör att du kan återställa slutförda databaser till en viss tidpunkt inom den konfigurerade kvarhållningsperioden upp till 35 dagar.
-- Du kan [återställa en borttagen databas](recovery-using-backups.md#deleted-database-restore) till den tidpunkt då den togs bort om **servern inte har tagits bort**.
+- Du kan [återställa en borttagen databas](recovery-using-backups.md#deleted-database-restore) till den tidpunkt då den togs bort om **servern inte har tagits bort** .
 - [Långsiktig kvarhållning av säkerhets kopior](long-term-retention-overview.md) gör att du kan behålla säkerhets kopiorna upp till 10 år. Detta är en begränsad offentlig för hands version för SQL-hanterad instans
 - [Aktiv geo-replikering](active-geo-replication-overview.md) gör att du kan skapa läsbara repliker och manuellt redundansväxla till en replik i händelse av ett Data Center avbrott eller program uppgradering.
 - Med [gruppen automatisk redundans](auto-failover-group-overview.md#terminology-and-capabilities) kan programmet automatiskt återställas i händelse av ett Data Center avbrott.
@@ -65,12 +65,12 @@ Om den högsta kvarhållningsperioden för kvarhållning av säkerhets kopior f�
 
 |                                              | Geo-replikering | Redundansgrupper  |
 |:---------------------------------------------| :-------------- | :----------------|
-| **Automatisk redundans**                          |     Inga          |      Ja         |
-| **Redundansväxla flera databaser samtidigt**  |     Inga          |      Ja         |
-| **Användaren måste uppdatera anslutningssträngen efter redundansväxlingen**      |     Ja         |      Inga          |
-| **Stöd för SQL Managed Instance**                   |     Inga          |      Ja         |
-| **Kan vara i samma region som den primära**             |     Ja         |      Inga          |
-| **Flera repliker**                            |     Ja         |      Inga          |
+| **Automatisk redundans**                          |     Nej          |      Ja         |
+| **Redundansväxla flera databaser samtidigt**  |     Nej          |      Ja         |
+| **Användaren måste uppdatera anslutningssträngen efter redundansväxlingen**      |     Ja         |      Nej          |
+| **Stöd för SQL Managed Instance**                   |     Nej          |      Ja         |
+| **Kan vara i samma region som den primära**             |     Ja         |      Nej          |
+| **Flera repliker**                            |     Ja         |      Nej          |
 | **Stöd för lässkalning**                          |     Ja         |      Ja         |
 
 
@@ -141,7 +141,7 @@ Efter återställningen från endera återställningsmetod måste du utföra fö
 
 - Omdirigera klienter och klient program till den nya servern och den återställda databasen.
 - Se till att det finns tillräckligt med regler för IP-brandvägg på server nivå för att användarna ska kunna ansluta eller använda [brand väggar på databas nivå](firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) för att aktivera lämpliga regler.
-- Se till att lämpliga inloggningar och behörigheter på huvud databas nivå är på plats (eller Använd [inneslutna användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
+- Se till att lämpliga inloggningar och behörigheter på huvud databas nivå är på plats (eller Använd [inneslutna användare](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 - Konfigurera granskningen efter behov.
 - Konfigurera aviseringar efter behov.
 

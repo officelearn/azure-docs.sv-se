@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 271d3c0ca44c500a6fd8ee50ed5f1698e46cd511
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1bee00261cd96f61a39389f31a52109f4e64b5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510274"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675816"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
 
@@ -46,13 +46,13 @@ Följ de här stegen:
 
       b. Välj den **app-registrering** som skapades som en del av din FarmBeats-distribution. Det får samma namn som din FarmBeats-Datahub.
 
-      c. Välj **exponera ett API** > Välj **Lägg till ett klient program** och ange **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** och kontrol lera **auktoriserat omfång**. Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan:
+      c. Välj **exponera ett API** > Välj **Lägg till ett klient program** och ange **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** och kontrol lera **auktoriserat omfång** . Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan:
 
 3. Öppna Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet av Azure Portal.
 
     ![Azure Portal verktygsfält](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-4. Se till att miljön är inställd på **PowerShell**. Som standard är den inställd på bash.
+4. Se till att miljön är inställd på **PowerShell** . Som standard är den inställd på bash.
 
     ![Inställning för PowerShell-verktygsfält](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -70,7 +70,7 @@ Följ de här stegen:
 
 7. Kör följande kommando. Detta laddar ned ett skript till din Hem Katalog.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive 
 
     wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
@@ -84,7 +84,7 @@ Följ de här stegen:
 
     ```
 
-9. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**.
+9. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt** , klient-ID, **klient-ID** , **klient hemlighet** och EventHub **-** **anslutningssträng** .
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Skapa metadata för enhet eller sensor
@@ -96,10 +96,10 @@ Följ de här stegen:
  > [!NOTE]
  > Som partner har du bara åtkomst till att läsa, skapa och uppdatera metadata. **borttagnings alternativet är begränsat till partnern.**
 
-- /**DeviceModel**: DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som är antingen en gateway eller en nod.
-- /**Enhet**: enheten motsvarar en fysisk enhet som finns i Server gruppen.
-- /**SensorModel**: SensorModel motsvarar sensorns metadata, till exempel tillverkaren, typen av sensor, som är antingen analog eller digital, och sensor måttet, till exempel omgivande temperatur och tryck.
-- /**Sensor**: sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.
+- /**DeviceModel** : DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som är antingen en gateway eller en nod.
+- /**Enhet** : enheten motsvarar en fysisk enhet som finns i Server gruppen.
+- /**SensorModel** : SensorModel motsvarar sensorns metadata, till exempel tillverkaren, typen av sensor, som är antingen analog eller digital, och sensor måttet, till exempel omgivande temperatur och tryck.
+- /**Sensor** : sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.
 
 
 |        DeviceModel   |  Förslag   |
@@ -192,9 +192,9 @@ access_token = token_response.get('access_token')
 
 Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-anrop till FarmBeats Datahub:
 
-- **Innehålls typ**: Application/JSON
-- **Auktorisering**: bearer <Access-Token>
-- **Acceptera**: Application/JSON
+- **Innehålls typ** : Application/JSON
+- **Auktorisering** : bearer <Access-Token>
+- **Acceptera** : Application/JSON
 
 ### <a name="input-payload-to-create-metadata"></a>Ange nytto last för att skapa metadata
 
@@ -336,7 +336,7 @@ Nu när du har skapat enheterna och sensorer i FarmBeats kan du skicka de associ
 
 ### <a name="create-a-telemetry-client"></a>Skapa en telemetri-klient
 
-Du måste skicka Telemetrin till Azure-Event Hubs för bearbetning. Azure Event Hubs är en tjänst som gör att du kan mata in real tids data (telemetri) från anslutna enheter och program. Om du vill skicka telemetridata till FarmBeats skapar du en klient som skickar meddelanden till en Event Hub i FarmBeats. Mer information om hur du skickar telemetri finns i [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+Du måste skicka Telemetrin till Azure-Event Hubs för bearbetning. Azure Event Hubs är en tjänst som gör att du kan mata in real tids data (telemetri) från anslutna enheter och program. Om du vill skicka telemetridata till FarmBeats skapar du en klient som skickar meddelanden till en Event Hub i FarmBeats. Mer information om hur du skickar telemetri finns i [Azure Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>Skicka ett meddelande om telemetri som klienten
 
@@ -431,9 +431,9 @@ Här är ett exempel på ett telemetri-meddelande:
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Det går inte att Visa telemetridata efter att du har matat in historiska/strömmande data från sensorer
 
-**Symptom**: enheter eller sensorer distribueras och du har skapat enheter/sensorer på FarmBeats och inmatad telemetri till EventHub, men du kan inte hämta eller Visa telemetridata på FarmBeats.
+**Symptom** : enheter eller sensorer distribueras och du har skapat enheter/sensorer på FarmBeats och inmatad telemetri till EventHub, men du kan inte hämta eller Visa telemetridata på FarmBeats.
 
-**Korrigerande åtgärd**:
+**Korrigerande åtgärd** :
 
 1. Se till att du har utfört lämplig partner registrering – du kan kontrol lera detta genom att gå till Datahub-Swagger, navigera till/partner API, göra en get-och kontrol lera om partnern är registrerad. Annars följer du [stegen här](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) för att lägga till partner.
 

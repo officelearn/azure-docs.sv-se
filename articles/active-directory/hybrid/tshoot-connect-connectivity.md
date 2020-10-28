@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: efca190f3dad1c0a323aa56ffd68b8b2597b5862
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 56e9820c5e3a750a35b7271b86750df00eb4784e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370227"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677063"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Felsöka Azure AD-anslutning
 Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker anslutnings problem. De här problemen visas förmodligen i en miljö med en proxyserver.
@@ -52,9 +52,17 @@ I dessa URL: er är följande tabell det absoluta minimala alternativet för att
 | \*.windows.net |HTTPS/443 |Används för att logga in på Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Används för MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Används för att konfigurera Azure AD-katalogen och importera/exportera data. |
+| \*. crl3.digicert.com |HTTP/80 |Används för att verifiera certifikat. |
+| \*. crl4.digicert.com |HTTP/80 |Används för att verifiera certifikat. |
+| \*. ocsp.digicert.com |HTTP/80 |Används för att verifiera certifikat. |
+| \*. www.d-trust.net |HTTP/80 |Används för att verifiera certifikat. |
+| \*. root-c3-ca2-2009.ocsp.d-trust.net |HTTP/80 |Används för att verifiera certifikat. |
+| \*. crl.microsoft.com |HTTP/80 |Används för att verifiera certifikat. |
+| \*. oneocsp.microsoft.com |HTTP/80 |Används för att verifiera certifikat. |
+| \*. ocsp.msocsp.com |HTTP/80 |Används för att verifiera certifikat. |
 
 ## <a name="errors-in-the-wizard"></a>Fel i guiden
-Installations guiden använder två olika säkerhets kontexter. På sidan **Anslut till Azure AD**använder den för tillfället inloggade användare. På sidan **Konfigurera**ändras det till det [konto som kör tjänsten för Synkroniseringsmotorn](reference-connect-accounts-permissions.md#adsync-service-account). Om det uppstår ett problem visas det förmodligen redan på sidan **Anslut till Azure AD** i guiden eftersom proxykonfigurationen är global.
+Installations guiden använder två olika säkerhets kontexter. På sidan **Anslut till Azure AD** använder den för tillfället inloggade användare. På sidan **Konfigurera** ändras det till det [konto som kör tjänsten för Synkroniseringsmotorn](reference-connect-accounts-permissions.md#adsync-service-account). Om det uppstår ett problem visas det förmodligen redan på sidan **Anslut till Azure AD** i guiden eftersom proxykonfigurationen är global.
 
 Följande problem är de vanligaste felen som du stöter på i installations guiden.
 
@@ -87,7 +95,7 @@ PowerShell använder konfigurationen i machine.config för att kontakta proxyn. 
 
 Om proxyservern har kon figurer ATS korrekt bör du få status: ![ skärm bild som visar statusen slutförd när proxyservern har kon figurer ATS korrekt.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-Om du **inte kan ansluta till fjärrservern**försöker PowerShell att göra ett direkt anrop utan att använda proxyn eller så är DNS inte korrekt konfigurerat. Kontrol lera att **machine.config** -filen är korrekt konfigurerad.
+Om du **inte kan ansluta till fjärrservern** försöker PowerShell att göra ett direkt anrop utan att använda proxyn eller så är DNS inte korrekt konfigurerat. Kontrol lera att **machine.config** -filen är korrekt konfigurerad.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
 Om proxyservern inte är korrekt konfigurerad får du ett fel meddelande: ![ proxy200 ](./media/tshoot-connect-connectivity/invokewebrequest403.png)
@@ -109,7 +117,7 @@ Om du har följt alla dessa föregående steg och fortfarande inte kan ansluta k
 * Slut punkterna adminwebservice och provisioningapi är identifierings slut punkter och används för att hitta den faktiska slut punkten som ska användas. Dessa slut punkter skiljer sig åt beroende på din region.
 
 ### <a name="reference-proxy-logs"></a>Referenser för proxy
-Här är en dumpning från en faktisk proxy-logg och sidan installations guide från den plats där den togs (dubbla poster till samma slut punkt har tagits bort). Det här avsnittet kan användas som referens för dina egna proxy-och nätverks loggar. De faktiska slut punkterna kan vara olika i din miljö (särskilt dessa URL: er i *kursiv stil*).
+Här är en dumpning från en faktisk proxy-logg och sidan installations guide från den plats där den togs (dubbla poster till samma slut punkt har tagits bort). Det här avsnittet kan användas som referens för dina egna proxy-och nätverks loggar. De faktiska slut punkterna kan vara olika i din miljö (särskilt dessa URL: er i *kursiv stil* ).
 
 **Anslut till Azure AD**
 
@@ -117,26 +125,26 @@ Här är en dumpning från en faktisk proxy-logg och sidan installations guide f
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect://*bba800-Anchor*. microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect:// *bba800-Anchor* . microsoftonline.com:443 |
 | 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |connect://*bwsc02-Relay*. microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect:// *bwsc02-Relay* . microsoftonline.com:443 |
 
 **I**
 
 | Tid | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |connect://*bba800-Anchor*. microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect:// *bba800-Anchor* . microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba900-Anchor*. microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect:// *bba900-Anchor* . microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba800-Anchor*. microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect:// *bba800-Anchor* . microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |connect://*bwsc02-Relay*. microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect:// *bwsc02-Relay* . microsoftonline.com:443 |
 
 **Inledande synkronisering**
 
@@ -144,8 +152,8 @@ Här är en dumpning från en faktisk proxy-logg och sidan installations guide f
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba900-Anchor*. microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba800-Anchor*. microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect:// *bba900-Anchor* . microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect:// *bba800-Anchor* . microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Autentiseringsfel
 I det här avsnittet beskrivs fel som kan returneras från ADAL (det autentiseringspaket som används av Azure AD Connect) och PowerShell. Fel förklaringen bör hjälpa dig att förstå dina nästa steg.
@@ -219,7 +227,7 @@ Autentiseringen lyckades. Det gick inte att hämta företags information från A
 Autentiseringen lyckades. Det gick inte att hämta domän information från Azure AD.
 
 ### <a name="unspecified-authentication-failure"></a>Ospecificerat autentiseringsfel
-Visas som ett oväntat fel i installations guiden. Kan inträffa om du försöker använda ett **Microsoft-konto** i stället för ett **skol-eller organisations konto**.
+Visas som ett oväntat fel i installations guiden. Kan inträffa om du försöker använda ett **Microsoft-konto** i stället för ett **skol-eller organisations konto** .
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Fel söknings steg för tidigare versioner.
 Med versioner som börjar med build Number 1.1.105.0 (lanserades februari 2016) drogs inloggnings assistenten tillbaka. Det här avsnittet och konfigurationen ska inte längre krävas, utan behålls som referens.

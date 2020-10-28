@@ -2,17 +2,24 @@
 title: Distribuera till Azure (knapp)
 description: Använd knappen för att distribuera Azure Resource Manager mallar från en GitHub-lagringsplats.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079451"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675399"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Använd en distributions knapp för att distribuera mallar från GitHub-lagringsplatsen
 
-Den här artikeln beskriver hur du använder knappen **distribuera till Azure** för att distribuera mallar från en GitHub-lagringsplats. Du kan lägga till knappen direkt i README.md-filen i din GitHub-lagringsplats eller på en webb sida som hänvisar till lagrings platsen. Den här metoden stöder endast resurs grupp nivå distribution.
+Den här artikeln beskriver hur du använder knappen **distribuera till Azure** för att distribuera mallar från en GitHub-lagringsplats. Du kan lägga till knappen direkt i README.md-filen i din GitHub-lagringsplats. Du kan också lägga till knappen till en webb sida som refererar till lagrings platsen.
+
+Distributions omfånget bestäms av schemat för mallen. Mer information finns i:
+
+* [resurs grupper](deploy-to-resource-group.md)
+* [prenumerationer](deploy-to-subscription.md)
+* [hanterings grupper](deploy-to-management-group.md)
+* [klienter](deploy-to-tenant.md).
 
 ## <a name="use-common-image"></a>Använd gemensam avbildning
 
@@ -28,7 +35,7 @@ Bilden visas som:
 
 ## <a name="create-url-for-deploying-template"></a>Skapa URL för distribution av mall
 
-Om du vill skapa en URL för mallen börjar du med den råa URL: en till mallen i din lagrings platsen. Om du vill se den råa URL: en väljer du **RAW**.
+Om du vill skapa en URL för mallen börjar du med den råa URL: en till mallen i din lagrings platsen. Om du vill se den råa URL: en väljer du **RAW** .
 
 :::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="Välj RAW":::
 
@@ -38,7 +45,7 @@ URL: en har följande format:
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Sedan kodas URL-adressen. Du kan använda en online-kodare eller köra ett kommando. I följande PowerShell-exempel visas hur du kodar ett värde i URL-adressen.
+Konvertera sedan URL: en till ett URL-kodat värde. Du kan använda en online-kodare eller köra ett kommando. I följande PowerShell-exempel visas hur du kodar ett värde i URL-adressen.
 
 ```powershell
 [uri]::EscapeDataString($url)

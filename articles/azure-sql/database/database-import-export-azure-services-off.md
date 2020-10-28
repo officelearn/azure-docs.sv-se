@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: 9b34a2435486a905923e783153ccae97628193a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be966a651df0c896ac7e1973d7783bb7fb686be3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443747"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676494"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importera eller exportera en Azure SQL Database utan att ge Azure-tjänster åtkomst till servern
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,30 +46,30 @@ Följande steg visar hur du ansluter till den virtuella datorn via en fjärr skr
 
    ![Skärm bild som visar en översikts sida för virtuell dator med knappen Anslut.](./media/database-import-export-azure-services-off/vm.png)  
 
-2. Välj **Anslut**.
+2. Välj **Anslut** .
 
    En Remote Desktop Protocol fil (. RDP-fil) visas med den offentliga IP-adressen och port numret för den virtuella datorn.
 
    ![RDP-formulär](./media/database-import-export-azure-services-off/rdp.png)  
 
-3. Välj **Hämta RDP-fil**.
+3. Välj **Hämta RDP-fil** .
 
    > [!NOTE]
    > Du kan också använda SSH för att ansluta till din virtuella dator.
 
 4. Stäng formuläret **Anslut till virtuell dator** .
 5. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn.
-6. När du uppmanas väljer du **Anslut**. På en Mac-dator behöver du en RDP-klient som denna [Fjärrskrivbordsklient](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) från Mac App Store.
+6. När du uppmanas väljer du **Anslut** . På en Mac-dator behöver du en RDP-klient som denna [Fjärrskrivbordsklient](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) från Mac App Store.
 
-7. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn och välj sedan **OK**.
+7. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn och välj sedan **OK** .
 
 8. Du kan få en certifikatvarning under inloggningen. Välj **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 
 ## <a name="install-sqlpackage"></a>Installera SqlPackage
 
-[Hämta och installera den senaste versionen av SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+[Hämta och installera den senaste versionen av SqlPackage](/sql/tools/sqlpackage-download).
 
-Mer information finns i [SqlPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage).
+Mer information finns i [SqlPackage.exe](/sql/tools/sqlpackage).
 
 ## <a name="create-a-firewall-rule-to-allow-the-vm-access-to-the-database"></a>Skapa en brand Väggs regel för att tillåta VM-åtkomst till databasen
 
@@ -77,7 +77,7 @@ Lägg till den virtuella datorns offentliga IP-adress i serverns brand vägg.
 
 Följande steg skapar en IP-brandväggsregel på server nivå för den virtuella datorns offentliga IP-adress och möjliggör anslutning från den virtuella datorn.
 
-1. Välj **SQL-databaser** på den vänstra menyn och välj sedan databasen på sidan SQL- **databaser** . Översikts sidan för databasen öppnas och visar det fullständigt kvalificerade Server namnet (till exempel **servername.Database.Windows.net**) och alternativ för ytterligare konfiguration.
+1. Välj **SQL-databaser** på den vänstra menyn och välj sedan databasen på sidan SQL- **databaser** . Översikts sidan för databasen öppnas och visar det fullständigt kvalificerade Server namnet (till exempel **servername.Database.Windows.net** ) och alternativ för ytterligare konfiguration.
 
 2. Kopiera det här fullständigt kvalificerade Server namnet som ska användas när du ansluter till servern och dess databaser.
 
@@ -89,15 +89,15 @@ Följande steg skapar en IP-brandväggsregel på server nivå för den virtuella
 
 4. Välj **Lägg till klient-IP** i verktygsfältet för att lägga till den virtuella datorns offentliga IP-adress till en ny regel för IP-brandvägg på server nivå. Med en IP-brandväggsregel på servernivå kan du öppna port 1433 för en enskild IP-adress eller för ett IP-adressintervall.
 
-5. Välj **Spara**. En regel för IP-brandvägg på server nivå skapas för den virtuella datorns offentliga IP-adress som öppnar port 1433 på servern.
+5. Välj **Spara** . En regel för IP-brandvägg på server nivå skapas för den virtuella datorns offentliga IP-adress som öppnar port 1433 på servern.
 
-6. Stäng sidan **Brandväggsinställningar**.
+6. Stäng sidan **Brandväggsinställningar** .
 
 ## <a name="export-a-database-using-sqlpackage"></a>Exportera en databas med SqlPackage
 
-Om du vill exportera en Azure SQL Database med hjälp av kommando rads verktyget [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) , se [Exportera parametrar och egenskaper](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). SqlPackage-verktyget levereras med de senaste versionerna av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt), eller så kan du ladda ned den senaste versionen av [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+Om du vill exportera en Azure SQL Database med hjälp av kommando rads verktyget [SqlPackage](/sql/tools/sqlpackage) , se [Exportera parametrar och egenskaper](/sql/tools/sqlpackage#export-parameters-and-properties). SqlPackage-verktyget levereras med de senaste versionerna av [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt), eller så kan du ladda ned den senaste versionen av [SqlPackage](/sql/tools/sqlpackage-download).
 
-Vi rekommenderar att du använder SqlPackage-verktyget för skalning och prestanda i de flesta produktions miljöer. En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (på engelska).
+Vi rekommenderar att du använder SqlPackage-verktyget för skalning och prestanda i de flesta produktions miljöer. En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files) (på engelska).
 
 Det här exemplet visar hur du exporterar en databas med hjälp av SqlPackage.exe med Active Directory Universal Authentication. Ersätt med värden som är speciella för din miljö.
 
@@ -107,9 +107,9 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=<servername>.da
 
 ## <a name="import-a-database-using-sqlpackage"></a>Importera en databas med SqlPackage
 
-Om du vill importera en SQL Server-databas med hjälp av kommando rads verktyget [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) , se [import parametrar och egenskaper](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage har den senaste [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). Du kan också hämta den senaste versionen av [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+Om du vill importera en SQL Server-databas med hjälp av kommando rads verktyget [SqlPackage](/sql/tools/sqlpackage) , se [import parametrar och egenskaper](/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage har den senaste [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt). Du kan också hämta den senaste versionen av [SqlPackage](/sql/tools/sqlpackage-download).
 
-För skalning och prestanda rekommenderar vi att du använder SqlPackage i de flesta produktions miljöer snarare än att använda Azure Portal. En SQL Server kund expert team blogg om hur du migrerar med hjälp av `BACPAC` filer finns i [migrera från SQL Server till Azure SQL Database använda BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+För skalning och prestanda rekommenderar vi att du använder SqlPackage i de flesta produktions miljöer snarare än att använda Azure Portal. En SQL Server kund expert team blogg om hur du migrerar med hjälp av `BACPAC` filer finns i [migrera från SQL Server till Azure SQL Database använda BACPAC-filer](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files).
 
 Följande SqlPackage-kommando importerar **AdventureWorks2017** -databasen från lokal lagring till en Azure SQL Database. Den skapar en ny databas med namnet **myMigratedDatabase** med en **Premium** service-nivå och ett **P6** -tjänst mål. Ändra värdena efter behov för din miljö.
 
@@ -141,11 +141,11 @@ För att få bästa möjliga prestanda kan du prova följande strategier:
 
 ## <a name="store-the-imported-or-exported-bacpac-file"></a>Lagra importerade eller exporterade. BACPAC-fil
 
-Det. BACPAC-filen kan lagras i [Azure-blobbar](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)eller [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+Det. BACPAC-filen kan lagras i [Azure-blobbar](../../storage/blobs/storage-blobs-overview.md)eller [Azure Files](../../storage/files/storage-files-introduction.md).
 
 Använd Azure Files om du vill uppnå bästa prestanda. SqlPackage fungerar med fil systemet så att det kan komma åt Azure Files direkt.
 
-Om du vill minska kostnaderna använder du Azure-blobbar som är mindre än en Premium Azure-filresurs. Du måste dock kopiera [. BACPAC-filen](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) mellan blobben och det lokala fil systemet före import-eller export åtgärden. Det innebär att processen tar längre tid.
+Om du vill minska kostnaderna använder du Azure-blobbar som är mindre än en Premium Azure-filresurs. Du måste dock kopiera [. BACPAC-filen](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) mellan blobben och det lokala fil systemet före import-eller export åtgärden. Det innebär att processen tar längre tid.
 
 För att ladda upp eller ladda ned. BACPAC-filer finns i [överföra data med AzCopy och Blob Storage](../../storage/common/storage-use-azcopy-blobs.md)och [överföra data med AzCopy och fil lagring](../../storage/common/storage-use-azcopy-files.md).
 
@@ -156,4 +156,4 @@ Beroende på din miljö kan du behöva [konfigurera Azure Storage brand väggar 
 - Information om hur du ansluter till och frågar en importerad SQL Database finns i [snabb start: Azure SQL Database: använd SQL Server Management Studio för att ansluta och fråga efter data](connect-query-ssms.md).
 - En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407) (på engelska).
 - En beskrivning av hela processen för migrering av SQL Server databasen, inklusive prestanda rekommendationer, finns i [SQL Server Database migration till Azure SQL Database](migrate-to-database-from-sql-server.md).
-- Information om hur du hanterar och delar lagrings nycklar och signaturer för delad åtkomst på ett säkert sätt finns i [Azure Storage Security guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
+- Information om hur du hanterar och delar lagrings nycklar och signaturer för delad åtkomst på ett säkert sätt finns i [Azure Storage Security guide](../../storage/blobs/security-recommendations.md).

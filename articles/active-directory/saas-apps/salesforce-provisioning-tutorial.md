@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: e22511717b6a86f9e0cf53986152c4d6bab68780
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a18984c441f5fe47f6ffd54cccff8c37cb57a038
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101774"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676740"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce för automatisk användar etablering
 
@@ -31,13 +31,13 @@ Det scenario som beskrivs i självstudien förutsätter att du redan har följan
 > [!IMPORTANT]
 > Om du använder ett Salesforce.com utvärderings konto kan du inte konfigurera automatisk användar etablering. Utvärderings kontona har inte den nödvändiga API-åtkomsten aktiverat förrän de har köpts. Du kan komma runt den här begränsningen genom att använda ett kostnads fritt [utvecklare](https://developer.salesforce.com/signup) för att slutföra den här kursen.
 
-Om du använder en sandbox-miljö med en Salesforce-miljö kan du läsa [självstudien för Salesforce-integrering](https://go.microsoft.com/fwLink/?LinkID=521879).
+Om du använder en sandbox-miljö med en Salesforce-miljö kan du läsa [självstudien för Salesforce-integrering](./salesforce-sandbox-tutorial.md).
 
 ## <a name="assigning-users-to-salesforce"></a>Tilldela användare till Salesforce
 
 Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare eller grupper i Azure AD som behöver åtkomst till din Salesforce-app. När du har gjort det här beslutet kan du tilldela dessa användare till din Salesforce-app genom att följa instruktionerna i [tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare eller grupper i Azure AD som behöver åtkomst till din Salesforce-app. När du har gjort det här beslutet kan du tilldela dessa användare till din Salesforce-app genom att följa instruktionerna i [tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-salesforce"></a>Viktiga tips för att tilldela användare till Salesforce
 
@@ -65,7 +65,7 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 3. Välj din instans av Salesforce och välj sedan fliken **etablering** .
 
-4. Ange **Etableringsläge** som **Automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt** .
 
     ![Skärm bild som visar sidan för Salesforce-etablering med etablerings läget inställt på automatiskt och andra värden som du kan ange.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
@@ -75,11 +75,11 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
     b. I text rutan **Administratörs lösen ord** skriver du lösen ordet för det här kontot.
 
-6. Om du vill hämta din Salesforce-säkerhetstoken öppnar du en ny flik och loggar in på samma Salesforce-administratörskonto. Klicka på ditt namn i det övre högra hörnet på sidan och klicka sedan på **Inställningar**.
+6. Om du vill hämta din Salesforce-säkerhetstoken öppnar du en ny flik och loggar in på samma Salesforce-administratörskonto. Klicka på ditt namn i det övre högra hörnet på sidan och klicka sedan på **Inställningar** .
 
     ![Skärm bild som visar länken Inställningar valda.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Aktivera automatisk användar etablering")
 
-7. I det vänstra navigerings fönstret klickar du på **Mina personliga uppgifter** för att expandera det relaterade avsnittet och klicka sedan på **Återställ min säkerhetstoken**.
+7. I det vänstra navigerings fönstret klickar du på **Mina personliga uppgifter** för att expandera det relaterade avsnittet och klicka sedan på **Återställ min säkerhetstoken** .
   
     ![Skärm bild som visar Återställ min säkerhetstoken som valts från min personliga information.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Aktivera automatisk användar etablering")
 
@@ -122,7 +122,7 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 * Azure AD Provisioning-tjänsten har stöd för etablering av språk, språk och tidszon för en användare. Attributen finns i standardattributen mappningar men har inte något standardattribut. Se till att du väljer standardattributet källa och att källattributet är i det format som förväntas av SalesForce. Till exempel är localeSidKey för engelska (USA) en_US. Läs de rikt linjer som finns [här](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) för att fastställa rätt localeSidKey-format. Du hittar languageLocaleKey-formaten [här](https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5). Förutom att se till att formatet är korrekt kan du behöva se till att språket är aktiverat för dina användare enligt beskrivningen [här](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5). 
 * **SalesforceLicenseLimitExceeded:** Det gick inte att skapa användaren i mål programmet eftersom det inte finns några tillgängliga licenser för den här användaren. Du kan antingen köpa ytterligare licenser för mål programmet eller granska användar tilldelningarna och mappnings konfigurationen för attribut för att säkerställa att rätt användare tilldelas rätt attribut.
 * **SalesforceDuplicateUserName:** Det går inte att tillhandahålla användaren eftersom den har ett Salesforce.com-användarnamn som är duplicerat i en annan Salesforce.com-klient.I Salesforce.com måste värdena för attributet username vara unika för alla Salesforce.com-klienter.Som standard blir användarens userPrincipalName i Azure Active Directory sitt "username" i Salesforce.com.Du har två alternativ.Ett alternativ är att söka efter och byta namn på användaren med dubbletten UserName i den andra Salesforce.com-klienten, om du administrerar den andra klienten också.Det andra alternativet är att ta bort åtkomst från Azure Active Directory användare till den Salesforce.com-klient som katalogen är integrerad med. Vi kommer att försöka utföra åtgärden på nytt vid nästa synkroniseringsförsök. 
-* **SalesforceRequiredFieldMissing:** Salesforce kräver att vissa attribut finns på användaren för att kunna skapa eller uppdatera användaren. Användaren saknar ett av de attribut som krävs. Se till att attributen, till exempel e-post och alias, är ifyllda för alla användare som du vill ska vara etablerade i Salesforce. Du kan begränsa användare som inte har dessa attribut genom att använda [attributbaserade definitions filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* **SalesforceRequiredFieldMissing:** Salesforce kräver att vissa attribut finns på användaren för att kunna skapa eller uppdatera användaren. Användaren saknar ett av de attribut som krävs. Se till att attributen, till exempel e-post och alias, är ifyllda för alla användare som du vill ska vara etablerade i Salesforce. Du kan begränsa användare som inte har dessa attribut genom att använda [attributbaserade definitions filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 * Mappningen av standardattributet för etablering till Salesforce innehåller SingleAppRoleAssignments-uttrycket för att mappa appRoleAssignments i Azure AD till PROFILENAME i Salesforce. Se till att användarna inte har flera roll tilldelningar i Azure AD eftersom attributet mappning bara stöder etablering av en roll. 
 * Salesforce kräver att e-postuppdateringar godkänns manuellt innan de ändras. Därför kan du se flera poster i etablerings loggarna för att uppdatera användarens e-post (tills e-poständringen har godkänts).
 
@@ -131,4 +131,4 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 * [Hantera användarkontoetablering för Enterprise-appar](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)
+* [Konfigurera enkel inloggning](./salesforce-tutorial.md)

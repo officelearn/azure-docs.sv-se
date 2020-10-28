@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fffb83fe680572c2448323a61b767a401c9a4834
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7393c36099795bbc989ae4b690100284d53f08e5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323714"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678381"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Effekt analys med Application Insights
 
-Påverkan analyserar hur inläsnings tider och andra egenskaper påverkar konverterings takten för olika delar av din app. För att göra det mer exakt, upptäcks hur **någon dimension** i **vyn sid visning**, **Anpassad händelse**eller **begäran** påverkar användningen av en annan **sidvy** eller **Anpassad händelse**. 
+Påverkan analyserar hur inläsnings tider och andra egenskaper påverkar konverterings takten för olika delar av din app. För att göra det mer exakt, upptäcks hur **någon dimension** i **vyn sid visning** , **Anpassad händelse** eller **begäran** påverkar användningen av en annan **sidvy** eller **Anpassad händelse** . 
 
 ![Verktyget effekt](./media/usage-impact/0001-impact.png)
 
@@ -36,10 +36,10 @@ Men att analysera prestanda är bara en del av Påverkanens funktioner. Eftersom
 
 Om du vill börja besvara frågor med verktyget effekt väljer du en inledande sidvy, en anpassad händelse eller en begäran.
 
-![Verktyget effekt](./media/usage-impact/0002-dropdown.png)
+![Skärm bild som visar var du kan välja en inledande sidvy, anpassad händelse eller begäran.](./media/usage-impact/0002-dropdown.png)
 
 1. Välj en sidvy från List rutan **för sid visning** .
-2. Lämna **analysera hur** List rutan i standard valet av **varaktighet** (i den här kontextens **varaktighet** är ett alias för **sid inläsnings tid**.)
+2. Lämna **analysera hur** List rutan i standard valet av **varaktighet** (i den här kontextens **varaktighet** är ett alias för **sid inläsnings tid** .)
 3. För att **påverkar användningen av** List rutan väljer du en anpassad händelse. Den här händelsen ska motsvara ett UI-element i sid visningen som du valde i steg 1.
 
 ![Skärm bild av resultat](./media/usage-impact/0003-results.png)
@@ -65,18 +65,18 @@ Verktyget effekt är i taket beroende av [korrelationskoefficienten till Pearson
 
 Den grundläggande fördelningen av hur påverkan analys fungerar är följande:
 
-Låt _A_ = vyn huvud sid visning/anpassad händelse/begäran som du väljer i den första List rutan. (**För sid visning**).
+Låt _A_ = vyn huvud sid visning/anpassad händelse/begäran som du väljer i den första List rutan. ( **För sid visning** ).
 
-Låt _B_ = den sekundära sid visningen/anpassade händelsen som du väljer (**påverkar användningen av**).
+Låt _B_ = den sekundära sid visningen/anpassade händelsen som du väljer ( **påverkar användningen av** ).
 
-Påverkan ser ut som ett exempel på alla sessioner från användare i det valda tidsintervallet. För varje session söker den efter varje förekomst av _A_.
+Påverkan ser ut som ett exempel på alla sessioner från användare i det valda tidsintervallet. För varje session söker den efter varje förekomst av _A_ .
 
 Sessioner delas sedan upp i två olika typer av _undersessioner_ baserat på ett av två villkor:
 
-- En konverterad undersession består av en session som slutar med ett _B_ _-evenemang och omfattar alla händelser_ som inträffar före _B_.
-- En avkonverterad undersession inträffar när alla _en_inträffar utan en Terminal _B_.
+- En konverterad undersession består av en session som slutar med ett _B_ _-evenemang och omfattar alla händelser_ som inträffar före _B_ .
+- En avkonverterad undersession inträffar när alla _en_ inträffar utan en Terminal _B_ .
 
-Hur påverkan beräknas i slut ändan beroende på om vi analyserar av mått eller dimension. För mått är alla _en_under session genomsnitts värde. För dimensioner är värdet för varje _A_ till _1/N_ till värdet som tilldelats _B_ där _N_ är numret på _en_av undersessionerna.
+Hur påverkan beräknas i slut ändan beroende på om vi analyserar av mått eller dimension. För mått är alla _en_ under session genomsnitts värde. För dimensioner är värdet för varje _A_ till _1/N_ till värdet som tilldelats _B_ där _N_ är numret på _en_ av undersessionerna.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284089"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677717"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Skapa och hantera blobbar i Azure Blob Storage med Azure Logic Apps
 
@@ -27,13 +27,13 @@ Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../lo
 
 <a name="blob-storage-limits"></a>
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 
-* Som standard kan Azure Blob Storage-åtgärder läsa eller skriva filer som är *50 MB eller mindre*. För att hantera filer som är större än 50 MB men upp till 1024 MB, stöder Azure Blob Storage-åtgärder [meddelande segment](../logic-apps/logic-apps-handle-large-messages.md). Åtgärden **Hämta BLOB-innehåll** använder implicit segment.
+* Som standard kan Azure Blob Storage-åtgärder läsa eller skriva filer som är *50 MB eller mindre* . För att hantera filer som är större än 50 MB men upp till 1024 MB, stöder Azure Blob Storage-åtgärder [meddelande segment](../logic-apps/logic-apps-handle-large-messages.md). Åtgärden **Hämta BLOB-innehåll** använder implicit segment.
 
 * Azure Blob Storage-utlösare stöder inte segment. När du begär fil innehåll väljer utlösare endast filer som är 50 MB eller mindre. Följ det här mönstret om du vill hämta filer som är större än 50 MB:
 
-  * Använd en Azure Blob Storage-utlösare som returnerar fil egenskaper, till exempel **när en BLOB läggs till eller ändras (endast egenskaper)**.
+  * Använd en Azure Blob Storage-utlösare som returnerar fil egenskaper, till exempel **när en BLOB läggs till eller ändras (endast egenskaper)** .
 
   * Följ utlösaren med åtgärden Azure Blob Storage **Hämta BLOB-innehåll** , som läser den fullständiga filen och som implicit använder segment.
 
@@ -73,7 +73,7 @@ Det här exemplet visar hur du kan starta ett Logic app-arbetsflöde med **när 
 
    3. Välj intervall och frekvens för hur ofta du vill att utlösaren ska söka efter ändringar i mappen.
 
-4. När du är klar väljer du **Spara**i verktygsfältet designer.
+4. När du är klar väljer du **Spara** i verktygsfältet designer.
 
 5. Fortsätt nu att lägga till en eller flera åtgärder i din Logic app för de uppgifter som du vill utföra med utlösnings resultaten.
 
@@ -85,11 +85,11 @@ I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-
 
 1. Öppna din Logic app i Logic App Designer i [Azure Portal](https://portal.azure.com) eller Visual Studio. I det här exemplet används Azure Portal.
 
-2. I Logic App Designer går du till utlösaren eller åtgärden och väljer **nytt steg**.
+2. I Logic App Designer går du till utlösaren eller åtgärden och väljer **nytt steg** .
 
    ![Lägg till nytt steg i Logic app-arbetsflöde](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. Välj plus tecknet ( **+** ) som visas och välj **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. Välj plus tecknet ( **+** ) som visas och välj **Lägg till en åtgärd** .
 
 3. I rutan Sök anger du "Azure Blob" som filter. Välj den åtgärd du vill använda i listan åtgärder.
 
@@ -108,7 +108,7 @@ Eller, om anslutningen redan finns, anger du den information som krävs för åt
 
    2. Sök efter och välj den fil som du vill använda baserat på blobens **ID-** nummer. Du kan hitta detta **ID-** nummer i blobens metadata som returneras av den tidigare beskrivna Blob Storage-utlösaren.
 
-5. När du är klar väljer du **Spara**i verktygsfältet designer.
+5. När du är klar väljer du **Spara** i verktygsfältet designer.
 Om du vill testa din Logic-App kontrollerar du att den valda mappen innehåller en blob.
 
 I det här exemplet hämtas endast innehållet för en blob. Om du vill visa innehållet lägger du till en annan åtgärd som skapar en fil med bloben med hjälp av en annan koppling. Lägg till exempel till en OneDrive-åtgärd som skapar en fil baserat på BLOB-innehållet.
@@ -183,9 +183,9 @@ För att ge Microsoft-betrodda tjänster åtkomst till ett lagrings konto via en
 
 Följ dessa allmänna steg om du vill ställa in undantag och hanterad identitets support:
 
-1. Välj **brand väggar och virtuella nätverk**på ditt lagrings konto under **Inställningar**. Under **Tillåt åtkomst från**väljer du alternativet **valda nätverk** så att de relaterade inställningarna visas.
+1. Välj **brand väggar och virtuella nätverk** på ditt lagrings konto under **Inställningar** . Under **Tillåt åtkomst från** väljer du alternativet **valda nätverk** så att de relaterade inställningarna visas.
 
-1. Under **undantag**väljer **du Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot**och väljer sedan **Spara**.
+1. Under **undantag** väljer **du Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** och väljer sedan **Spara** .
 
    ![Välj undantag som tillåter Microsoft-betrodda tjänster](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
 
@@ -202,9 +202,8 @@ Följ dessa allmänna steg om du vill ställa in undantag och hanterad identitet
 
 ### <a name="access-storage-accounts-through-azure-api-management"></a>Åtkomst till lagrings konton via Azure API Management
 
-Om du använder en dedikerad nivå för [API Management](../api-management/api-management-key-concepts.md)kan du följa lagrings-API: et genom att använda API Management och tillåta de senares IP-adresser genom brand väggen. I princip lägger du till det virtuella Azure-nätverket som används av API Management i lagrings kontots brand Väggs inställning. Du kan sedan använda antingen åtgärden API Management eller HTTP-åtgärden för att anropa API: erna för Azure Storage. Men om du väljer det här alternativet måste du hantera autentiseringsprocessen själv. Mer information finns i [enkel arkitektur för företags integrering](https://aka.ms/aisarch).
+Om du använder en dedikerad nivå för [API Management](../api-management/api-management-key-concepts.md)kan du följa lagrings-API: et genom att använda API Management och tillåta de senares IP-adresser genom brand väggen. I princip lägger du till det virtuella Azure-nätverket som används av API Management i lagrings kontots brand Väggs inställning. Du kan sedan använda antingen åtgärden API Management eller HTTP-åtgärden för att anropa API: erna för Azure Storage. Men om du väljer det här alternativet måste du hantera autentiseringsprocessen själv. Mer information finns i [enkel arkitektur för företags integrering](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
-

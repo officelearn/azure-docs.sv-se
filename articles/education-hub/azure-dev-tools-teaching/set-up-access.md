@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: 83ae2fdea2ffe586a626f8a45cba74a22c07ae7b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3151da4375c440bec44523711448149f51440d5c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87102226"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676539"
 ---
 # <a name="setting-up-access-for-azure-dev-tools"></a>Konfigurera åtkomst för Azure dev tools
 
@@ -30,7 +30,7 @@ Om du vill begära åtkomst till din Visual Studio Subscription kan du göra det
 ## <a name="for-students-faculty-and-administrators"></a>För studenter, lärare och administratörer
 Studences till gång till Azure dev tools via [Education Hub](https://aka.ms/devtoolsforteaching).
 
-Studenter och lärare kan få till gång till alla fördelar med hämtning av program vara via Education Hub. Education Hub har skapats i Azure Portal och ger dina studenter enkel åtkomst till hela katalogen med program vara, samt till gång till hela [Microsoft Learn](https://docs.microsoft.com/learn/) katalogen.
+Studenter och lärare kan få till gång till alla fördelar med hämtning av program vara via Education Hub. Education Hub har skapats i Azure Portal och ger dina studenter enkel åtkomst till hela katalogen med program vara, samt till gång till hela [Microsoft Learn](/learn/) katalogen.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Hantera elev konton](manage-students.md)

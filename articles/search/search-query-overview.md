@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 0c05db39e02a6bc2a7fa5d62b8b891626eb0d241
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537726"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675805"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Frågetyper och sammansättning i Azure Kognitiv sökning
 
@@ -59,9 +59,9 @@ Om du har följt den här [snabb starten för att skapa hotell demonstrations in
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Hur Query-åtgärder aktive ras av indexet
 
-Index design och fråge design är nära kopplade i Azure Kognitiv sökning. Ett viktigt faktum att känna sig fram är att *index schemat*, med attribut på varje fält, bestämmer vilken typ av fråga som du kan skapa. 
+Index design och fråge design är nära kopplade i Azure Kognitiv sökning. Ett viktigt faktum att känna sig fram är att *index schemat* , med attribut på varje fält, bestämmer vilken typ av fråga som du kan skapa. 
 
-Indexattribut i ett fält ange tillåtna åtgärder – om ett fält är *sökbart* i indexet, kan *hämtas* i resultat, *sorterbart*, *filtrerat*och så vidare. I exempel frågans sträng `"$orderby": "Rating"` fungerar endast eftersom fältet klassificering är markerat som *sorterbart* i index schemat. 
+Indexattribut i ett fält ange tillåtna åtgärder – om ett fält är *sökbart* i indexet, kan *hämtas* i resultat, *sorterbart* , *filtrerat* och så vidare. I exempel frågans sträng `"$orderby": "Rating"` fungerar endast eftersom fältet klassificering är markerat som *sorterbart* i index schemat. 
 
 ![Index definition för hotellet-exemplet](./media/search-query-overview/hotel-sample-index-definition.png "Index definition för hotellet-exemplet")
 
@@ -78,8 +78,8 @@ Nödvändiga element i en förfrågan innehåller följande komponenter:
 
 + Samling av tjänst slut punkt och index dokument, uttryckt som en URL som innehåller fasta och användardefinierade komponenter: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + **`api-version`** (Endast REST) är nödvändigt eftersom mer än en version av API: n är tillgänglig hela tiden. 
-+ **`api-key`**, autentiseras begäran av en fråge-eller admin-API-nyckel.
-+ **`queryType`**, antingen enkel eller fullständig, som kan utelämnas om du använder den inbyggda enkla standard syntaxen.
++ **`api-key`** , autentiseras begäran av en fråge-eller admin-API-nyckel.
++ **`queryType`** , antingen enkel eller fullständig, som kan utelämnas om du använder den inbyggda enkla standard syntaxen.
 + **`search`** eller **`filter`** ger matchnings villkor, som kan anges om du vill utföra en tom sökning. Båda typerna av frågor beskrivs i termer av den enkla parsern, men även avancerade frågor kräver Sök parametern för att skicka komplexa frågeuttryck.
 
 Alla andra Sök parametrar är valfria. En fullständig lista över attribut finns i [skapa index (rest)](/rest/api/searchservice/create-index). En närmare titt på hur parametrar används under bearbetningen finns i [hur full texts ökning fungerar i Azure kognitiv sökning](search-lucene-query-architecture.md).
@@ -92,7 +92,7 @@ I följande tabell visas de API: er och verktyg baserade metoder för att skicka
 |-------------|-------------|
 | [Sökutforskaren (portal)](search-explorer.md) | Innehåller ett sökfält och alternativ för val av index och API-version. Resultat returneras som JSON-dokument. Rekommenderas för undersökning, testning och validering. <br/>[Läs mer.](search-get-started-portal.md#query-index) | 
 | [Postman eller andra REST-verktyg](search-get-started-postman.md) | Webb test verktyg är ett utmärkt alternativ för att utforma REST-anrop. REST API stöder varje möjlig åtgärd i Azure Kognitiv sökning. I den här artikeln får du lära dig hur du ställer in en HTTP-begärans huvud och brödtext för att skicka förfrågningar till Azure Kognitiv sökning.  |
-| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient) | Klient som kan användas för att skicka frågor till ett Azure Kognitiv sökning-index.  <br/>[Läs mer.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Klient som kan användas för att skicka frågor till ett Azure Kognitiv sökning-index.  <br/>[Läs mer.](search-howto-dotnet-sdk.md)  |
 | [Sök dokument (REST API)](/rest/api/searchservice/search-documents) | Hämta eller publicera metoder för ett index med hjälp av frågeparametrar för ytterligare indata.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Välj en parser: enkel | fullständig
@@ -159,7 +159,7 @@ Du kan lära dig mer om sid öknings resultat i artikeln [så här hittar du sid
 ### <a name="ordering-results"></a>Ordna resultaten
 När du tar emot resultat för en Sök fråga kan du begära att Azure Kognitiv sökning hanterar resultaten sorterade efter värden i ett särskilt fält. Som standard beställer Azure Kognitiv sökning Sök resultaten baserat på rangordningen för varje dokuments Sök resultat, som härleds från [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Om du vill att Azure Kognitiv sökning returnerar dina resultat sorterade efter ett annat värde än Sök poängen kan du använda **`orderby`** Sök parametern. Du kan ange värdet för **`orderby`** parametern för att inkludera fält namn och anrop till [** `geo.distance()` funktionen**](query-odata-filter-orderby-syntax.md) för geospatiala värden. Varje uttryck kan följas av `asc` för att indikera att resultat begärs i stigande ordning och **`desc`** för att indikera att resultat begärs i fallande ordning. Standardinställningen är stigande ordning.
+Om du vill att Azure Kognitiv sökning returnerar dina resultat sorterade efter ett annat värde än Sök poängen kan du använda **`orderby`** Sök parametern. Du kan ange värdet för **`orderby`** parametern för att inkludera fält namn och anrop till [**`geo.distance()` funktionen**](query-odata-filter-orderby-syntax.md) för geospatiala värden. Varje uttryck kan följas av `asc` för att indikera att resultat begärs i stigande ordning och **`desc`** för att indikera att resultat begärs i fallande ordning. Standardinställningen är stigande ordning.
 
 
 ### <a name="hit-highlighting"></a>Träffmarkering

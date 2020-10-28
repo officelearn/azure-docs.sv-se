@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: a3382f93990612b0ab34eb0848cbf3d6577c44ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a9a8f3fe7422468ff2c8886dff7415322cf70f0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087942"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676873"
 ---
 # <a name="how-to-manually-fix-servicenow-sync-problems"></a>Åtgärda ServiceNow-synkroniseringsproblem manuellt
 
@@ -23,16 +23,16 @@ Använd följande synkroniseringsprocess för att återaktivera anslutningen och
 
 1. Sök efter lösningen i den översta sökbanderollen och välj sedan de relevanta lösningarna
 
-    ![Ny anslutning](media/itsmc-resync-servicenow/solution-search-8bit.png)
+    ![Skärm bild som visar den översta sökbanderollen och var du väljer de relevanta lösningarna.](media/itsmc-resync-servicenow/solution-search-8bit.png)
 
 1. I lösnings skärmen väljer du "Markera alla" i prenumerations filtret och filtrerar sedan efter "ServiceDesk"
 
-    ![Ny anslutning](media/itsmc-resync-servicenow/solutions-list-8bit.png)
+    ![Skärm bild som visar var du väljer Markera alla och var du vill filtrera efter ServiceDesk.](media/itsmc-resync-servicenow/solutions-list-8bit.png)
 
 1. Välj lösning för din ITSM-anslutning.
 1. Välj ITSM-anslutning i den vänstra banderollen.
 
-    ![Ny anslutning](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
+    ![Skärm bild som visar var du väljer ITSM-anslutningar.](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
 
 1. Välj varje koppling i listan. 
     1. Klicka på kopplingens namn för att konfigurera det
@@ -42,7 +42,7 @@ Använd följande synkroniseringsprocess för att återaktivera anslutningen och
 
     1. Klicka på synkronisera
 
-       ![Ny anslutning](media/itsmc-resync-servicenow/resync-8bit2.png)
+       ![Skärm bild som visar knappen Synkronisera.](media/itsmc-resync-servicenow/resync-8bit2.png)
 
     1. Klicka på Spara
 
@@ -50,6 +50,6 @@ Använd följande synkroniseringsprocess för att återaktivera anslutningen och
 
 f.    Granska meddelandena för att se om processen slutfördes utan framgång 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Läs mer om [IT-tjänstens hanterings anslutningar](itsmc-connections.md)

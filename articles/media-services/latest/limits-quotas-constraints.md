@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: b1836b1d0dc69a2a0b186a54974895eb0d8cd91a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6ca7a444f2a3d4babe220548edb10bd37784be7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265498"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678121"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Azure Media Services kvoter och begränsningar
@@ -32,7 +32,7 @@ Den här artikeln innehåller några av de vanligaste Microsoft Azure Media Serv
 
 | Resurs | Standardgräns |
 | --- | --- |
-| [Media Services konton](media-services-account-concept.md) i en enda prenumeration | 25 (fast) |
+| [Media Services konton](media-services-account-concept.md) i en enda prenumeration | 100 (fast) |
 
 ## <a name="asset-limits"></a>Till gångs gränser
 
@@ -90,7 +90,7 @@ Eventuella jobb poster i ditt konto som är äldre än 90 dagar tas bort automat
 
 | Resurs | Standardgräns |
 | --- | --- |
-| [Slut punkter för direkt uppspelning](streaming-endpoint-concept.md) (stoppad eller igång) per Media Services konto|2 |
+| [Slut punkter för direkt uppspelning](streaming-endpoint-concept.md) (stoppad eller igång) per Media Services konto | 2 |
 | Premium enheter för strömning | 10 |
 | [Filter för dynamiskt manifest](filters-dynamic-manifest-overview.md)|100|
 | [Strömmande principer](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
@@ -102,9 +102,9 @@ Eventuella jobb poster i ditt konto som är äldre än 90 dagar tas bort automat
 
 ## <a name="protection-limits"></a>Skydds gränser
 
-| Resurs | Standardgräns | 
-| --- | --- | 
-| Alternativ per [innehålls nyckel princip](content-key-policy-concept.md) |30 | 
+| Resurs | Standardgräns |
+| --- | --- |
+| Alternativ per [innehålls nyckel princip](content-key-policy-concept.md) |30 |
 | Licenser per månad för varje DRM-typ på Media Services Key Delivery Service per konto|1,000,000|
 
 ## <a name="support-ticket"></a>Support ärende

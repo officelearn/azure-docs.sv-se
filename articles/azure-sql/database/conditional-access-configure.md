@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: ad80f68c1ab3b3583c5a22de49b77211571f345e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ba0c53b9d0b9791364f532d999d86c74fa21177
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443977"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678059"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Villkorlig åtkomst med Azure SQL Database-och Azure Synapse-analys
 
@@ -37,21 +37,21 @@ Följande steg visar hur du konfigurerar Azure SQL Database, SQL-hanterad instan
 > [!NOTE]
 > I exemplet nedan används Azure SQL Database, men du bör välja lämplig produkt som du vill konfigurera villkorlig åtkomst för.
 
-1. Logga in på Azure Portal, Välj **Azure Active Directory**och välj sedan **villkorlig åtkomst**. Mer information finns i [teknisk referens för Azure Active Directory villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
+1. Logga in på Azure Portal, Välj **Azure Active Directory** och välj sedan **villkorlig åtkomst** . Mer information finns i [teknisk referens för Azure Active Directory villkorlig åtkomst](../../active-directory/conditional-access/concept-conditional-access-conditions.md).  
    ![Bladet för villkorlig åtkomst](./media/conditional-access-configure/conditional-access-blade.png)
 
-2. I bladet **villkorlig åtkomst – principer** , klickar du på **ny princip**, anger ett namn och klickar sedan på **Konfigurera regler**.  
-3. Under **tilldelningar**väljer **du användare och grupper**, markerar **Välj användare och grupper**och väljer sedan användaren eller gruppen för villkorlig åtkomst. Klicka på **Välj**och sedan på **Slutför** för att godkänna ditt val.  
+2. I bladet **villkorlig åtkomst – principer** , klickar du på **ny princip** , anger ett namn och klickar sedan på **Konfigurera regler** .  
+3. Under **tilldelningar** väljer **du användare och grupper** , markerar **Välj användare och grupper** och väljer sedan användaren eller gruppen för villkorlig åtkomst. Klicka på **Välj** och sedan på **Slutför** för att godkänna ditt val.  
    ![Välj användare och grupper](./media/conditional-access-configure/select-users-and-groups.png)  
 
-4. Välj **molnappar**och klicka på **Välj appar**. Du ser alla appar som är tillgängliga för villkorlig åtkomst. Välj **Azure SQL Database**, klicka på **Välj**längst ned på sidan och klicka sedan på **färdig**.  
+4. Välj **molnappar** och klicka på **Välj appar** . Du ser alla appar som är tillgängliga för villkorlig åtkomst. Välj **Azure SQL Database** , klicka på **Välj** längst ned på sidan och klicka sedan på **färdig** .  
    ![Välj SQL Database](./media/conditional-access-configure/select-sql-database.png)  
    Om du inte hittar **Azure SQL Database** som anges i följande tredje skärm bild, utför du följande steg:
    - Anslut till databasen i Azure SQL Database genom att använda SSMS med ett administratörs konto för Azure AD.  
    - Kör `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER` .  
    - Logga in på Azure AD och kontrol lera att Azure SQL Database, SQL-hanterad instans eller Azure-Synapse visas i programmen i Azure AD-instansen.  
 
-5. Välj **åtkomst kontroller**, Välj **bevilja**och kontrol lera den princip som du vill använda. I det här exemplet väljer vi **Kräv Multi-Factor Authentication**.  
+5. Välj **åtkomst kontroller** , Välj **bevilja** och kontrol lera den princip som du vill använda. I det här exemplet väljer vi **Kräv Multi-Factor Authentication** .  
    ![Välj bevilja åtkomst](./media/conditional-access-configure/grant-access.png)  
 
 ## <a name="summary"></a>Sammanfattning

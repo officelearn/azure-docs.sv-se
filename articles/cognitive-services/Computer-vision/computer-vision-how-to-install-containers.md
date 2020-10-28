@@ -1,23 +1,23 @@
 ---
 title: Installera Läs OCR Docker-behållare från Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Använd de Läs OCR Docker-behållare från Visuellt innehåll för att extrahera text från bilder och douments lokalt.
+description: Använd de Läs OCR Docker-behållare från Visuellt innehåll för att extrahera text från bilder och dokument, lokalt.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/22/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: lokal, OCR, Docker, container
-ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07440b99d887ee6cb4b6d505ed7fb79f4c12c784
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536383"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677213"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Installera Läs OCR Docker-behållare (förhands granskning) 
 
@@ -27,10 +27,12 @@ Med containrar kan du köra API:erna för Visuellt innehåll i din egen miljö. 
 
 Med *Read* OCR-behållaren kan du extrahera utskrift och handskriven text från bilder och dokument med stöd för JPEG-, PNG-, BMP-, PDF-och TIFF-filformat. Mer information finns i [Read API-dokumentationen](concept-recognizing-text.md#read-api).
 
-## <a name="read-3x-containers"></a>Läsa 3. x-behållare
-Det finns två versioner av de 3. x-behållare som är tillgängliga i för hands versionen. Båda versionerna ger ytterligare precision och funktioner jämfört med den tidigare behållaren.
+## <a name="read-31-container"></a>Läsa 3,1-behållare
 
-Behållaren Read 3,0-Preview tillhandahåller:
+> [!NOTE]
+> Behållaren Read 3,0-Preview är föråldrad. 
+
+Behållaren Read 3,1-Preview tillhandahåller:
 * Nya modeller för förbättrad noggrannhet.
 * Stöd för flera språk i samma dokument
 * Stöd för: nederländska, engelska, franska, tyska, italienska, portugisiska och spanska.
@@ -38,14 +40,11 @@ Behållaren Read 3,0-Preview tillhandahåller:
 * Stöd för större dokument och bilder.
 * Förtroende poängen från 0 till 1.
 * Stöd för dokument med både utskrift och handskriven text
-
-Behållaren Read 3,1-Preview ger samma fördelar som v 3.0 – för hands version, med ytterligare funktioner:
-
 * Stöd för förenklad kinesiska och japanska.
 * Tillförlitlighets Poäng och etiketter för utskrift och handskriven text. 
 * Möjlighet att extrahera text från endast valda sidor i ett dokument.
 
-När du överväger vilken container version som ska användas noterar du att v 3.1 – för hands versionen är i ett tidigare läge för för hands versionen. Om du använder läsa 2,0-behållare idag kan du läsa mer om ändringar i de nya versionerna i [migreringsguiden](read-container-migration-guide.md) .
+Om du använder läsa 2,0-behållare idag kan du läsa mer om ändringar i de nya versionerna i [migreringsguiden](read-container-migration-guide.md) .
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -53,11 +52,11 @@ Du måste uppfylla följande krav innan du använder behållarna:
 
 |Krävs|Syfte|
 |--|--|
-|Docker-motorn| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
+|Docker-motorn| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows** måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
 |Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker` kommandon.| 
-|Visuellt innehåll resurs |För att du ska kunna använda behållaren måste du ha:<br><br>En Azure **visuellt innehåll** -resurs och den tillhör ande API-nyckeln slut punkts-URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren.<br><br>**{Api_key}**: en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}**: slut punkten enligt vad som anges på sidan **Översikt**|
+|Visuellt innehåll resurs |För att du ska kunna använda behållaren måste du ha:<br><br>En Azure **visuellt innehåll** -resurs och den tillhör ande API-nyckeln slut punkts-URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren.<br><br>**{Api_key}** : en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : slut punkten enligt vad som anges på sidan **Översikt**|
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar.
 
 ## <a name="request-approval-to-run-the-container"></a>Begär godkännande för att köra behållaren
 
@@ -93,7 +92,6 @@ Behållar avbildningar för läsning är tillgängliga.
 | Container | Container Registry/namn på lagrings plats/avbildning |
 |-----------|------------|
 | Läs 2,0 – för hands version | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Läs 3,0 – för hands version | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
 | Läs 3,1 – för hands version | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
 Använd [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) kommandot för att ladda ned en behållar avbildning.
@@ -104,12 +102,6 @@ Använd [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
-```
-
-# <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
-
-```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview
 ```
 
 # <a name="version-20-preview"></a>[Version 2,0 – för hands version](#tab/version-2)
@@ -152,24 +144,6 @@ Det här kommandot:
 * Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
 * Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
 
-# <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-
-```
-
-Det här kommandot:
-
-* Kör Läs containern från behållar avbildningen.
-* Allokerar 8 processor kärnor och 18 GB minne.
-* Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
-* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
-
 # <a name="version-20-preview"></a>[Version 2,0 – för hands version](#tab/version-2)
 
 ```bash
@@ -195,7 +169,7 @@ Fler [exempel](./computer-vision-resource-container-config.md#example-docker-run
 > [!IMPORTANT]
 > `Eula`Alternativen, `Billing` och `ApiKey` måste anges för att köra behållaren, annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
-Om du behöver högre data flöde (till exempel när du bearbetar filer på flera sidor) bör du överväga att distribuera flera v 3.0-eller v 3.1-behållare [i ett Kubernetes-kluster](deploy-computer-vision-on-premises.md)med hjälp av [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-create) och [Azure Queue](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
+Om du behöver högre data flöde (till exempel när du bearbetar filer på flera sidor) bör du överväga att distribuera flera behållare [i ett Kubernetes-kluster](deploy-computer-vision-on-premises.md)med hjälp av [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-create) och [Azure Queue](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
 
 Om du använder Azure Storage för att lagra avbildningar för bearbetning kan du skapa en [anslutnings sträng](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string) som ska användas när du anropar behållaren.
 
@@ -219,10 +193,6 @@ Containern innehåller REST-baserade slutpunkts-API:er för frågeförutsägelse
 
 Använd värden, `http://localhost:5000`, för container-API:er. Du kan visa Swagger-sökvägen på: `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
 
-# <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
-
-Använd värden, `http://localhost:5000`, för container-API:er. Du kan visa Swagger-sökvägen på: `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json` .
-
 # <a name="version-20-preview"></a>[Version 2,0 – för hands version](#tab/version-2)
 
 Använd värden, `http://localhost:5000`, för container-API:er. Du kan visa Swagger-sökvägen på: `http://localhost:5000/swagger/vision-v2.0-preview-read/swagger.json` .
@@ -237,7 +207,7 @@ Använd värden, `http://localhost:5000`, för container-API:er. Du kan visa Swa
 Du kan använda- `POST /vision/v3.1/read/analyze` och `GET /vision/v3.1/read/operations/{operationId}` -åtgärderna i samförstånd för att läsa en avbildning asynkront, på liknande sätt som visuellt innehåll tjänsten använder motsvarande rest-åtgärder. Metoden asynkron POST returnerar en `operationId` som används som identifierare till HTTP GET-begäran.
 
 
-I Swagger-ANVÄNDARGRÄNSSNITTET väljer du alternativet `asyncBatchAnalyze` för att expandera det i webbläsaren. Välj sedan **testa den**  >  **Välj fil**. I det här exemplet ska vi använda följande bild:
+I Swagger-ANVÄNDARGRÄNSSNITTET väljer du alternativet `asyncBatchAnalyze` för att expandera det i webbläsaren. Välj sedan **testa den**  >  **Välj fil** . I det här exemplet ska vi använda följande bild:
 
 ![tabbar eller blank steg](media/tabs-vs-spaces.png)
 
@@ -310,80 +280,11 @@ När det asynkrona inlägget har körts returneras en status kod för **HTTP 202
 }
 ```
 
-# <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
-
-Du kan använda- `POST /vision/v3.0/read/analyze` och `GET /vision/v3.0/read/operations/{operationId}` -åtgärderna i samförstånd för att läsa en avbildning asynkront, på liknande sätt som visuellt innehåll tjänsten använder motsvarande rest-åtgärder. Metoden asynkron POST returnerar en `operationId` som används som identifierare till HTTP GET-begäran.
-
-I Swagger-ANVÄNDARGRÄNSSNITTET väljer du alternativet `asyncBatchAnalyze` för att expandera det i webbläsaren. Välj sedan **testa den**  >  **Välj fil**. I det här exemplet ska vi använda följande bild:
-
-![tabbar eller blank steg](media/tabs-vs-spaces.png)
-
-När det asynkrona inlägget har körts returneras en status kod för **HTTP 202** . Som en del av svaret finns ett `operation-location` huvud som innehåller slut punkten för resultatet.
-
-```http
- content-length: 0
- date: Fri, 04 Sep 2020 16:23:01 GMT
- operation-location: http://localhost:5000/vision/v3.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
- server: Kestrel
-```
-
-`operation-location`Är den fullständigt kvalificerade URL: en och nås via en HTTP Get. Här är JSON-svaret från att köra `operation-location` URL: en från föregående bild:
-
-```json
-{
-  "status": "succeeded",
-  "createdDateTime": "2020-09-02T10:24:49Z",
-  "lastUpdatedDateTime": "2020-09-02T10:24:50Z",
-  "analyzeResult": {
-    "version": "3.0.0",
-    "readResults": [
-      {
-        "page": 1,
-        "angle": 2.12,
-        "width": 502,
-        "height": 252,
-        "unit": "pixel",
-        "language": "",
-        "lines": [
-          {
-            "boundingBox": [58, 42, 314, 59, 311, 123, 56, 121],
-            "text": "Tabs vs",
-            "words": [
-              {
-                "boundingBox": [85, 45, 242, 62, 241, 122, 83, 123],
-                "text": "Tabs",
-                "confidence": 0.981
-              },
-              {
-                "boundingBox": [258, 64, 314, 72, 314, 123, 256, 123],
-                "text": "vs",
-                "confidence": 0.958
-              }
-            ]
-          },
-          {
-            "boundingBox": [286, 171, 415, 165, 417, 197, 287, 201],
-            "text": "paces",
-            "words": [
-              {
-                "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
-                "text": "paces",
-                "confidence": 0.918
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
 # <a name="version-20-preview"></a>[Version 2,0 – för hands version](#tab/version-2)
 
 Du kan använda- `POST /vision/v2.0/read/core/asyncBatchAnalyze` och `GET /vision/v2.0/read/operations/{operationId}` -åtgärderna i samförstånd för att läsa en avbildning asynkront, på liknande sätt som visuellt innehåll tjänsten använder motsvarande rest-åtgärder. Metoden asynkron POST returnerar en `operationId` som används som identifierare till HTTP GET-begäran.
 
-I Swagger-ANVÄNDARGRÄNSSNITTET väljer du alternativet `asyncBatchAnalyze` för att expandera det i webbläsaren. Välj sedan **testa den**  >  **Välj fil**. I det här exemplet ska vi använda följande bild:
+I Swagger-ANVÄNDARGRÄNSSNITTET väljer du alternativet `asyncBatchAnalyze` för att expandera det i webbläsaren. Välj sedan **testa den**  >  **Välj fil** . I det här exemplet ska vi använda följande bild:
 
 ![tabbar eller blank steg](media/tabs-vs-spaces.png)
 
@@ -452,10 +353,6 @@ Du kan använda följande åtgärd för att synkront läsa en avbildning.
 # <a name="version-31-preview"></a>[Version 3,1 – för hands version](#tab/version-3-1)
 
 `POST /vision/v3.1/read/syncAnalyze` 
-
-# <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
-
-`POST /vision/v3.0/read/syncAnalyze`
 
 # <a name="version-20-preview"></a>[Version 2,0 – för hands version](#tab/version-2)
 

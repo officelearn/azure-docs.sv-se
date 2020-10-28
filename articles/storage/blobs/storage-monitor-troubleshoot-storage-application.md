@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5deece615e9d7de1e71e33164560c1c26212ec08
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83652156"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676788"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Övervaka och felsöka ett molnlagringsprogram
 
@@ -37,13 +37,13 @@ Logga in på [Azure Portal](https://portal.azure.com)
 
 ## <a name="turn-on-logging-and-metrics"></a>Aktivera loggning och mått
 
-På menyn till vänster väljer du **Resursgrupper**, **myResourceGroup** och sedan ditt lagringskonto i resurslistan.
+På menyn till vänster väljer du **Resursgrupper** , **myResourceGroup** och sedan ditt lagringskonto i resurslistan.
 
-Under **Diagnostikinställningar (klassisk)** anger du **Status** till **På**. Kontrollera att alla alternativ under **Blobegenskaper** är aktiverade.
+Under **Diagnostikinställningar (klassisk)** anger du **Status** till **På** . Kontrollera att alla alternativ under **Blobegenskaper** är aktiverade.
 
 När du är klar klickar du på **Spara**
 
-![Fönstret Diagnostik](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
+![Skärm bild som visar avsnittet som innehåller konfigurations inställningarna för att aktivera loggning och mått.](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>Aktivera aviseringar
 
@@ -51,9 +51,9 @@ E-postadministratörer kan använda aviseringar för att utlösa en webhook när
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Navigera till lagringskontot i Azure Portal
 
-Under avsnittet **Övervakning** väljer du **Aviseringar (klassisk)**.
+Under avsnittet **Övervakning** väljer du **Aviseringar (klassisk)** .
 
-Välj **Lägg till måttavisering (klassisk)** och slutför formuläret **Lägg till regel** genom att fylla i nödvändig information. Från listrutan **Mått** väljer du `SASClientOtherError`. För att tillåta att aviseringen utlöses vid det första felet går du till listrutan **Villkor** och väljer **Större än eller lika med**.
+Välj **Lägg till måttavisering (klassisk)** och slutför formuläret **Lägg till regel** genom att fylla i nödvändig information. Från listrutan **Mått** väljer du `SASClientOtherError`. För att tillåta att aviseringen utlöses vid det första felet går du till listrutan **Villkor** och väljer **Större än eller lika med** .
 
 ![Fönstret Diagnostik](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
@@ -89,15 +89,15 @@ I det här scenariot använder du [Microsoft Message Analyzer](https://technet.m
 
 Ladda ned [Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) och installera programmet.
 
-Starta programmet **och välj**  >  **Öppna**  >  **från andra fil källor**.
+Starta programmet **och välj**  >  **Öppna**  >  **från andra fil källor** .
 
-I dialogrutan **File Selector** (Filväljaren) väljer du **+ Add Azure Connection** (Lägg till Azure-anslutning). Ange **namnet på ditt lagringskonto** och **kontonyckeln** och klicka sedan på **OK**.
+I dialogrutan **File Selector** (Filväljaren) väljer du **+ Add Azure Connection** (Lägg till Azure-anslutning). Ange **namnet på ditt lagringskonto** och **kontonyckeln** och klicka sedan på **OK** .
 
 ![Microsoft Message Analyzer – Dialogrutan för Azure Storage-anslutning](media/storage-monitor-troubleshoot-storage-application/figure3.png)
 
-När du är ansluten expanderar du containrarna i lagringsträdvyn så att loggblobarna visas. Markera den senaste loggen och klicka på **OK**.
+När du är ansluten expanderar du containrarna i lagringsträdvyn så att loggblobarna visas. Markera den senaste loggen och klicka på **OK** .
 
-![Microsoft Message Analyzer – Dialogrutan för Azure Storage-anslutning](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Skärm bild som visar Microsoft Message Analyzer och markerar den valda logg filen.](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
 I dialogrutan **New Session** (Ny session) klickar du på **Start** för att visa loggen.
 
@@ -105,7 +105,7 @@ När loggen har öppnats kan du se lagringshändelserna. Som du ser på följand
 
 ![Microsoft Message Analyzer – Visa händelser](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är ett annat verktyg som du kan använda för att interagera med dina lagringskonton, till exempel **$logs**-containern och de loggar som finns i containern.
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är ett annat verktyg som du kan använda för att interagera med dina lagringskonton, till exempel **$logs** -containern och de loggar som finns i containern.
 
 ## <a name="next-steps"></a>Nästa steg
 

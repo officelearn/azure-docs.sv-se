@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 40c851e5ff5fc83ccf6b6d67e319bb97bd860bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 140d95aeb7baf4b342044bc178d108239236229b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669111"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677675"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Kör SQL Server VM på en dedikerad Azure-värd 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,15 +30,14 @@ Den [dedikerade Azure-värden](/azure/virtual-machines/windows/dedicated-hosts) 
 
 ## <a name="limitations"></a>Begränsningar
 
-- Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
-- Följande VM-serien stöds: DSv3 och ESv3. 
+- Alla VM-serier stöds inte på dedikerade värdar och tillgänglighet för VM-serien varierar beroende på region. Mer information finns i [Översikt över Azure-dedikerade värdar](../../../virtual-machines/dedicated-hosts.md).
 
 ## <a name="licensing"></a>Licensiering
 
 Du kan välja mellan två olika licensierings alternativ när du placerar SQL Server VM på en dedikerad Azure-värd. 
 
-  - **SQL VM-licensiering**: Detta är det befintliga licensierings alternativet, där du betalar för varje SQL Server VM-licens individuellt. 
-  - **Dedikerad värd licensiering**: den nya licensierings modellen som är tillgänglig för den dedikerade Azure-värden, där SQL Server licenser paketeras och betalas för på värdnivå. 
+  - **SQL VM-licensiering** : Detta är det befintliga licensierings alternativet, där du betalar för varje SQL Server VM-licens individuellt. 
+  - **Dedikerad värd licensiering** : den nya licensierings modellen som är tillgänglig för den dedikerade Azure-värden, där SQL Server licenser paketeras och betalas för på värdnivå. 
 
 
 Alternativ på värdnivå för att använda befintliga SQL Server-licenser: 
@@ -65,7 +64,7 @@ En av fördelarna med en dedikerad värd är obegränsad virtualisering. Du kan 
 
 Eftersom eftersom det är din värd, är du berättigad att ställa in virtualiseringen med 1:2-förhållandet. 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 **F: Hur fungerar Azure Hybrid-förmån för Windows Server/SQL Server-licenser på en särskild Azure-värd?**
 

@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 2fdaaf153f242a25e1ad9d8f926d6ac77d285df2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444903"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675132"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Skapa aviseringar för Azure SQL Database och Azure Synapse Analytics med hjälp av Azure Portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -45,7 +45,7 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av
 * [Azure-portalen](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Ett kommando rads gränssnitt (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
-* [REST-API:et för Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [REST-API:et för Azure Monitor](/rest/api/monitor/alertrules)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Skapa en varnings regel för ett mått med Azure Portal
 
@@ -57,14 +57,14 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av
 3. Klicka på knappen **ny varnings regel** för att öppna sidan **Skapa regel** .
   ![Skapa regel](./media/alerts-insights-configure-portal/create-rule.png)
 
-4. I avsnittet **villkor** klickar du på **Lägg till**.
+4. I avsnittet **villkor** klickar du på **Lägg till** .
   ![Definiera villkor](./media/alerts-insights-configure-portal/create-rule.png)
 5. På sidan **Konfigurera signal logik** väljer du en signal.
   ![Välj signal](./media/alerts-insights-configure-portal/select-signal.png)
-6. När du har valt en signal, till exempel **processor procent**, visas sidan **Konfigurera signal logik** .
+6. När du har valt en signal, till exempel **processor procent** , visas sidan **Konfigurera signal logik** .
   ![Konfigurera signallogiken](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. På den här sidan konfigurerar du den tröskel typ, operatör, sammansättnings typ, tröskel värde, sammansättnings precision och utvärderings frekvens. Klicka sedan på **färdig**.
-8. I **Skapa regel**väljer du en befintlig **Åtgärds grupp** eller skapar en ny grupp. Med en åtgärds grupp kan du definiera vilken åtgärd som ska vidtas när ett varnings tillstånd inträffar.
+7. På den här sidan konfigurerar du den tröskel typ, operatör, sammansättnings typ, tröskel värde, sammansättnings precision och utvärderings frekvens. Klicka sedan på **färdig** .
+8. I **Skapa regel** väljer du en befintlig **Åtgärds grupp** eller skapar en ny grupp. Med en åtgärds grupp kan du definiera vilken åtgärd som ska vidtas när ett varnings tillstånd inträffar.
   ![Definiera åtgärds grupp](./media/alerts-insights-configure-portal/action-group.png)
 
 9. Definiera ett namn för regeln, ange en valfri beskrivning, Välj en allvarlighets grad för regeln, Välj om du vill aktivera regeln när regeln skapas och klicka sedan på **Skapa regel avisering** för att skapa mått regel aviseringen.

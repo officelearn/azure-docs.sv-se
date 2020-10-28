@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c64112e30bdaf0da2218177bd2737c3ebe688b0c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627235"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675286"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Dessutom tillhandahåller grupper för automatisk redundans skrivskyddade och sk
 
 När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar databaser på en server eller hanterad instans i automatisk redundans. Du kan hantera gruppen för automatisk redundans med:
 
-- [Azure Portal](geo-distributed-application-configure-tutorial.md)
+- [Azure-portalen](geo-distributed-application-configure-tutorial.md)
 - [Azure CLI: redundans grupp](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: redundans grupp](scripts/add-database-to-failover-group-powershell.md)
 - [REST API: grupp växling vid fel](/rest/api/sql/failovergroups).
@@ -243,7 +243,7 @@ Eftersom varje instans är isolerad i sitt eget VNet måste dubbelriktad trafik 
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Skapa en redundansgrupp mellan hanterade instanser i olika prenumerationer
 
-Du kan skapa en grupp för redundans mellan SQL-hanterade instanser i två olika prenumerationer, så länge prenumerationerna är kopplade till samma [Azure Active Directory-klient](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). När du använder PowerShell API kan du göra det genom att ange `PartnerSubscriptionId` parametern för den sekundära SQL-hanterade instansen. När du använder REST API kan varje instans-ID som ingår i `properties.managedInstancePairs` parametern ha sitt eget subscriptionID.
+Du kan skapa en grupp för redundans mellan SQL-hanterade instanser i två olika prenumerationer, så länge prenumerationerna är kopplade till samma [Azure Active Directory-klient](../../active-directory/fundamentals/active-directory-whatis.md#terminology). När du använder PowerShell API kan du göra det genom att ange `PartnerSubscriptionId` parametern för den sekundära SQL-hanterade instansen. När du använder REST API kan varje instans-ID som ingår i `properties.managedInstancePairs` parametern ha sitt eget subscriptionID.
   
 > [!IMPORTANT]
 > Azure Portal har inte stöd för att skapa redundans grupper över olika prenumerationer. För de befintliga grupperna för växling vid fel i olika prenumerationer och/eller resurs grupper kan redundansväxlingen också inte initieras manuellt via portalen från den primära SQL-hanterade instansen. Starta från den geo-sekundära instansen i stället.
@@ -341,8 +341,8 @@ Om din affärs kontinuitets plan kräver redundans med hjälp av grupper med aut
 1. [Skapa en offentlig IP-adress](../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 2. [Skapa en offentlig belastningsutjämnare](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) och tilldela den till den offentliga IP-adressen.
 3. [Skapa ett virtuellt nätverk och de virtuella datorerna](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) för dina klient dels komponenter
-4. [Skapa en nätverks säkerhets grupp](../../virtual-network/security-overview.md) och konfigurera inkommande anslutningar.
-5. Se till att de utgående anslutningarna är öppna för att Azure SQL Database med hjälp av SQL [-tjänst tag gen](../../virtual-network/security-overview.md#service-tags).
+4. [Skapa en nätverks säkerhets grupp](../../virtual-network/network-security-groups-overview.md) och konfigurera inkommande anslutningar.
+5. Se till att de utgående anslutningarna är öppna för att Azure SQL Database med hjälp av SQL [-tjänst tag gen](../../virtual-network/network-security-groups-overview.md#service-tags).
 6. Skapa en [SQL Database brand Väggs regel](firewall-configure.md) som tillåter inkommande trafik från den offentliga IP-adressen som du skapar i steg 1.
 
 Mer information om hur du konfigurerar utgående åtkomst och vilken IP-adress som ska användas i brand Väggs reglerna finns i [utgående anslutningar för belastningsutjämnare](../../load-balancer/load-balancer-outbound-connections.md).
@@ -362,7 +362,7 @@ När du ställer in en redundans grupp mellan primära och sekundära SQL-hanter
 - De virtuella nätverk som används av instanserna av SQL-hanterad instans måste anslutas via en [VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Se till att inga brandväggsregler blockerar portarna 5022 eller 11000–11999 när två virtuella nätverk ansluter via ett lokalt nätverk. Global VNet-peering stöds med den begränsning som beskrivs i Obs!
 
    > [!IMPORTANT]
-   > [Den 9/22/2020 vi presenterade global peering för virtuella nätverk för nyligen skapade virtuella kluster](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Det innebär att global virtuell nätverks-peering stöds för SQL-hanterade instanser som skapats i tomma undernät efter meddelandets datum, även för alla efterföljande hanterade instanser som skapats i dessa undernät. För alla andra SQL-hanterade instanser är peering-stödet begränsat till nätverken i samma region på grund av [begränsningarna i den globala virtuella nätverks-peeringen](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se även det relevanta avsnittet i artikeln [vanliga frågor och svar om Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) för mer information. 
+   > [Den 9/22/2020 vi presenterade global peering för virtuella nätverk för nyligen skapade virtuella kluster](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Det innebär att global virtuell nätverks-peering stöds för SQL-hanterade instanser som skapats i tomma undernät efter meddelandets datum, även för alla efterföljande hanterade instanser som skapats i dessa undernät. För alla andra SQL-hanterade instanser är peering-stödet begränsat till nätverken i samma region på grund av [begränsningarna i den globala virtuella nätverks-peeringen](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se även det relevanta avsnittet i artikeln [vanliga frågor och svar om Azure Virtual Networks](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) för mer information. 
 
 - De två SQL Managed instance-virtuella nätverk kan inte ha överlappande IP-adresser.
 - Du måste konfigurera dina nätverkssäkerhetsgrupper (NSG) så att portarna 5022 och intervallet 11000–12000 är öppna för inkommande och utgående anslutningar från den andra hanterade instansens undernät. Det här görs för att tillåta replikeringstrafik mellan instanserna.
@@ -406,7 +406,7 @@ Tänk på följande begränsningar:
 
 ## <a name="programmatically-managing-failover-groups"></a>Hantera failover-grupper program mässigt
 
-Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replikering också hanteras program mässigt med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/). Dessa API: er kräver användning av resurs grupper och stöd för rollbaserad säkerhet (RBAC). För ytterligare information om hur du implementerar åtkomst roller, se [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md).
+Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replikering också hanteras program mässigt med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](/rest/api/sql/) och [Azure PowerShell-cmdletar](/powershell/azure/). Dessa API: er kräver användning av resurs grupper och stöd för rollbaserad säkerhet (RBAC). För ytterligare information om hur du implementerar åtkomst roller, se [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Hantera SQL Database redundans
 
@@ -435,13 +435,13 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 | API | Beskrivning |
 | --- | --- |
-| [Skapa eller uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Skapar eller uppdaterar en failover-grupp |
-| [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Tar bort en failover-grupp från servern |
-| [Redundansväxling (planerad)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Utlöser redundans från den aktuella primära servern till den sekundära servern med fullständig datasynkronisering.|
-| [Framtvinga redundans Tillåt data förlust](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Utlöser redundans från den aktuella primära servern till den sekundära servern utan att synkronisera data. Den här åtgärden kan leda till data förlust. |
-| [Hämta redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Hämtar en failover-grupps konfiguration. |
-| [Visa lista över grupper efter fel per server](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Visar en lista över failover-grupper på en server. |
-| [Uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Uppdaterar konfigurationen för en redundanskonfiguration. |
+| [Skapa eller uppdatera redundans grupp](/rest/api/sql/failovergroups/createorupdate) | Skapar eller uppdaterar en failover-grupp |
+| [Ta bort redundans grupp](/rest/api/sql/failovergroups/delete) | Tar bort en failover-grupp från servern |
+| [Redundansväxling (planerad)](/rest/api/sql/failovergroups/failover) | Utlöser redundans från den aktuella primära servern till den sekundära servern med fullständig datasynkronisering.|
+| [Framtvinga redundans Tillåt data förlust](/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Utlöser redundans från den aktuella primära servern till den sekundära servern utan att synkronisera data. Den här åtgärden kan leda till data förlust. |
+| [Hämta redundans grupp](/rest/api/sql/failovergroups/get) | Hämtar en failover-grupps konfiguration. |
+| [Visa lista över grupper efter fel per server](/rest/api/sql/failovergroups/listbyserver) | Visar en lista över failover-grupper på en server. |
+| [Uppdatera redundans grupp](/rest/api/sql/failovergroups/update) | Uppdaterar konfigurationen för en redundanskonfiguration. |
 
 ---
 
@@ -473,12 +473,12 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 | API | Beskrivning |
 | --- | --- |
-| [Skapa eller uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Skapar eller uppdaterar en konfiguration för redundans gruppen |
-| [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Tar bort en redundans-grupp från instansen |
-| [Redundansväxling (planerad)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Utlöser redundans från den aktuella primära instansen till den här instansen med fullständig datasynkronisering. |
-| [Framtvinga redundans Tillåt data förlust](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Utlöser redundans från den aktuella primära instansen till den sekundära instansen utan att synkronisera data. Den här åtgärden kan leda till data förlust. |
-| [Hämta redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | hämtar en failover-grupps konfiguration. |
-| [Visa lista över redundanskluster – lista efter plats](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Visar en lista över failover-grupper på en plats. |
+| [Skapa eller uppdatera redundans grupp](/rest/api/sql/instancefailovergroups/createorupdate) | Skapar eller uppdaterar en konfiguration för redundans gruppen |
+| [Ta bort redundans grupp](/rest/api/sql/instancefailovergroups/delete) | Tar bort en redundans-grupp från instansen |
+| [Redundansväxling (planerad)](/rest/api/sql/instancefailovergroups/failover) | Utlöser redundans från den aktuella primära instansen till den här instansen med fullständig datasynkronisering. |
+| [Framtvinga redundans Tillåt data förlust](/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Utlöser redundans från den aktuella primära instansen till den sekundära instansen utan att synkronisera data. Den här åtgärden kan leda till data förlust. |
+| [Hämta redundans grupp](/rest/api/sql/instancefailovergroups/get) | hämtar en failover-grupps konfiguration. |
+| [Visa lista över redundanskluster – lista efter plats](/rest/api/sql/instancefailovergroups/listbylocation) | Visar en lista över failover-grupper på en plats. |
 
 ---
 

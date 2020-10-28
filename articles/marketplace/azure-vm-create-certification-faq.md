@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 14360ab7668248f39c8ad0916eb964ffe11f7959
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331302"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677906"
 ---
 # <a name="vm-certification-troubleshooting"></a>Felsökning av VM-certifiering
 
@@ -37,6 +37,9 @@ Felet uppstår när du använder en bas avbildning som tillhör en annan utgivar
 > [!Note]
 > Om du använder en Linux-avbildning som inte tas från Azure Marketplace kan du förskjuta den första partitionen med 2048 KB. På så sätt kan du använda det oformaterade utrymmet för att lägga till ny fakturerings information och låta Azure fortsätta att publicera den virtuella datorn på Azure Marketplace.  
 
+> [!Note]
+> Om du använder en Linux-avbildningsfil som inte tas från Marketplace kan du förskjuta den första partitionen med 2048 KB. På så sätt kan du använda det oformaterade utrymmet för att lägga till ny fakturerings information och låta Azure fortsätta att publicera den virtuella datorn på Marketplace.  
+
 ## <a name="vm-extension-failure"></a>Problem med VM-tillägg
 
 Kontrol lera om avbildningen har stöd för VM-tillägg.
@@ -44,18 +47,18 @@ Kontrol lera om avbildningen har stöd för VM-tillägg.
 Gör så här för att aktivera VM-tillägg:
 
 1. Välj din virtuella Linux-dator.
-1. Gå till **diagnostikinställningar**.
-1. Aktivera bas-matriser genom att uppdatera **lagrings kontot**.
-1. Välj **Spara**.
+1. Gå till **diagnostikinställningar** .
+1. Aktivera bas-matriser genom att uppdatera **lagrings kontot** .
+1. Välj **Spara** .
 
    ![Aktivera övervakning på gästnivå](./media/create-vm/vm-certification-issues-solutions-1.png)
 
 Kontrol lera att de virtuella dator tilläggen är korrekt aktiverade genom att göra följande:
 
-1. I den virtuella datorn väljer du fliken **VM-tillägg** och kontrollerar sedan statusen för **Linux Diagnostics-tillägget**.
+1. I den virtuella datorn väljer du fliken **VM-tillägg** och kontrollerar sedan statusen för **Linux Diagnostics-tillägget** .
 1. 
-    * Om statusen är *etableringen slutförd*är testerna för tilläggen klara.  
-    * Om statusen är *etableringen*misslyckades test väskan för tillägg och du måste ange den strikta flaggan.
+    * Om statusen är *etableringen slutförd* är testerna för tilläggen klara.  
+    * Om statusen är *etableringen* misslyckades test väskan för tillägg och du måste ange den strikta flaggan.
 
       ![Skärm bild som visar att etableringen har slutförts](./media/create-vm/vm-certification-issues-solutions-2.png)
 
@@ -120,8 +123,8 @@ I följande tabell visas vanliga fel som påträffas vid körning av föregåend
 |---|---|---|---|
 |1|Test fall för Linux-agentens version|Den lägsta Linux-agentens version är 2.2.41 eller senare. Detta krav har varit obligatoriskt sedan den 1 maj 2020.|Uppdatera Linux-agentens version och bör vara 2,241 eller senare. Mer information finns på sidan med [versions uppdateringar för Linux-agenten](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Test väska för bash-historik|Du får ett fel meddelande om storleken på bash-historiken i den skickade avbildningen är större än 1 KB. Storleken är begränsad till 1 KB för att säkerställa att all potentiellt känslig information inte samlas in i din bash-historik fil.|Lös problemet genom att montera den virtuella hård disken till någon annan fungerande virtuell dator och göra eventuella ändringar (till exempel ta bort historikfilerna *. bash* ) för att minska storleken till mindre än eller lika med 1 KB.|
-|3|Nödvändigt test fall för kernel-parameter|Du får det här felet när värdet för- **konsolen** inte är inställt på **ttyS0**. Kontrol lera genom att köra följande kommando:<br>`cat /proc/cmdline`|Ange värdet för- **konsolen** till **ttyS0**och skicka begäran på nytt.|
-|4|Test fall för ClientAlive-intervall|Om verktygs resultatet ger dig ett misslyckat resultat för det här test fallet finns det ett olämpligt värde för **ClientAliveInterval**.|Ange värdet för **ClientAliveInterval** till mindre än eller lika med 235 och skicka sedan begäran igen.|
+|3|Nödvändigt test fall för kernel-parameter|Du får det här felet när värdet för- **konsolen** inte är inställt på **ttyS0** . Kontrol lera genom att köra följande kommando:<br>`cat /proc/cmdline`|Ange värdet för- **konsolen** till **ttyS0** och skicka begäran på nytt.|
+|4|Test fall för ClientAlive-intervall|Om verktygs resultatet ger dig ett misslyckat resultat för det här test fallet finns det ett olämpligt värde för **ClientAliveInterval** .|Ange värdet för **ClientAliveInterval** till mindre än eller lika med 235 och skicka sedan begäran igen.|
 
 ### <a name="windows-test-cases"></a>Windows-testfall
 
@@ -148,7 +151,7 @@ I följande tabell visas de Windows-testfall där verktygs uppsättningen ska k�
 |17|Trådlös LAN-tjänst|Tjänsten Wireless LAN. Den här server funktionen stöds inte ännu. Programmet bör inte vara beroende av den här funktionen.|
 |
 
-Om du kommer över eventuella problem med föregående test fall, se kolumnen **Beskrivning** i tabellen för lösningen. Kontakta support teamet om du behöver mer information.
+Om du kommer över eventuella problem med föregående test fall, se kolumnen **Beskrivning** i tabellen för lösningen. Kontakta support teamet om du behöver mer information. 
 
 ## <a name="data-disk-size-verification"></a>Verifiering av data disk storlek
 
@@ -181,7 +184,7 @@ Eftersom de virtuella datorerna tillåter åtkomst till det underliggande operat
 
 För att förhindra en potentiell attack som är relaterad till WannaCry virus, se till att alla Windows-avbildningar har uppdaterats med den senaste korrigeringen.
 
-Om du vill kontrol lera den Windows Server-version som har korrigerats för OS-informationen och den lägsta version som den kommer att stödja, se följande tabell:
+Om du vill kontrol lera den Windows Server-version som har korrigerats för OS-informationen och den lägsta version som den kommer att stödja, se följande tabell: 
 
 Avbildnings fil versionen kan verifieras från `C:\windows\system32\drivers\srv.sys` eller `srv2.sys` .
 
@@ -205,13 +208,13 @@ Uppdatera kärnan med en godkänd version och skicka begäran på nytt. Du hitta
 
 Om avbildningen inte är installerad med någon av följande kernel-versioner uppdaterar du den med rätt korrigeringar. Begär det godkännande som krävs från support teamet efter att avbildningen har uppdaterats med de här korrigeringarna:
 
-- CVE – 2019-11477
-- CVE – 2019-11478
+- CVE – 2019-11477 
+- CVE – 2019-11478 
 - CVE – 2019-11479
 
 |OS-familj|Version|Kernel|
 |---|---|---|
-|Ubuntu|14,04 LTS|4.4.0 – 151|
+|Ubuntu|14,04 LTS|4.4.0 – 151| 
 ||14,04 LTS|4.15.0-1049-*-Azure|
 ||16,04 LTS|4.15.0 – 1049|
 ||18,04 LTS|4.18.0 – 1023|
@@ -242,7 +245,7 @@ Om avbildningen inte är installerad med någon av följande kernel-versioner up
 ||SLES15|4.12.14-5.30.1 (kernel-Azure)|
 ||SLES15 för SAP|4.12.14-5.30.1 (kernel-Azure)|
 ||SLES15SP1|4.12.14-5.30.1 (kernel-Azure)|
-|Oracle|6,10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3
+|Oracle|6,10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3 
 ||7.0 – 7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK följer RHEL ovan|
 ||7,6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
 |Core-stabila 2079.6.0|4.19.43*|
@@ -267,13 +270,22 @@ Om du kommer över problem med nekad åtkomst när du kör test fallen på den v
 
 Kontrol lera om rätt åtkomst är aktive rad för det konto som självtest-fall körs på. Om åtkomst inte är aktive rad kan du köra test fallen. Om du inte vill aktivera åtkomst kan du dela resultatet av självtesten med support teamet.
 
-## <a name="download-failure"></a>Nedladdnings problem
+Om du vill skicka in din begäran med SSH-inaktive rad avbildning för certifierings processen följer du stegen nedan.
 
+1. Kör Azure Toolkit på din avbildning. (Hämta det [senaste verktyget](https://aka.ms/AzureCertificationTestTool)
+
+2. Skapa ett [support ärende](https://aka.ms/marketplacepublishersupport), bifoga verktygs rapporten och ange erbjudande information – erbjudandets namn, utgivar namn, plan-ID/SKU och version.
+
+3. Skicka in din certifikatbegäran igen.
+
+
+## <a name="download-failure"></a>Nedladdnings problem
+    
 I följande tabell finns några problem som kan uppstå när du hämtar den virtuella dator avbildningen med hjälp av en URL för signatur för delad åtkomst (SAS).
 
 |Scenario|Fel|Orsak|Lösning|
 |---|---|---|---|
-|1|Blobben hittades inte|Den virtuella hård disken kan antingen tas bort eller flyttas från den angivna platsen.||
+|1|Blobben hittades inte|Den virtuella hård disken kan antingen tas bort eller flyttas från den angivna platsen.|| 
 |2|BLOB som används|Den virtuella hård disken används av en annan intern process.|Den virtuella hård disken ska vara i ett använt tillstånd när du laddar ned den med hjälp av en SAS-URL.|
 |3|Ogiltig SAS-URL|Den tillhör ande SAS-URL: en för den virtuella hård disken är felaktig.|Hämta rätt SAS-URL.|
 |4|Ogiltig signatur|Den tillhör ande SAS-URL: en för den virtuella hård disken är felaktig.|Hämta rätt SAS-URL.|
@@ -288,13 +300,98 @@ När du skickar den virtuella hård disken måste du se till att den första 204
 >[!NOTE]
 >* För vissa särskilda bilder, till exempel de som skapats ovanpå Azure Windows Base-avbildningar som tagits från Azure Marketplace, kontrollerar vi om det finns en fakturerings etikett och ignorerar MB-partitionen om fakturerings tag gen är närvarande och matchar våra interna tillgängliga värden.
 
+
+## <a name="steps-for-creating-first-mb-2048-kb-partition-only-for-linux-on-an-empty-vhd"></a>Steg för att skapa den första MB-partitionen (2048 KB) (endast för Linux) på en tom virtuell hård disk
+
+Steg 1: skapa valfri typ av virtuell dator (exempel: Ubuntu,% OS osv.). Fyll i de obligatoriska fälten och klicka på "Nästa: diskar>" \
+![Nästa: disks-kommando](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+Steg 2: skapa en icke-hanterad disk för den virtuella datorn.
+![Skapa en icke-hanterad disk](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+Observera att du kan gå med standardvärden eller ange ett värde för fält som NIC, NSG och offentlig IP-adress.
+
+Steg 3: när du har skapat den virtuella datorn klickar du på "diskar" som finns på den vänstra sidan, som du ser nedan ![ Klicka på "diskar"](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+Steg 4: Anslut den virtuella hård disken som data disk till den virtuella datorn ovan för att skapa en partitionstabell enligt nedan.
+![Anslut din virtuella hård disk](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+Klicka på Lägg till DataDisk-> befintlig BLOB-> bläddra ditt lagrings konto för virtuella hård diskar – > container-> Välj VHD-> Klicka på OK enligt nedan \
+![Välj virtuell hård disk](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+Din virtuella hård disk kommer att läggas till som data disk LUN 0 och starta om den virtuella datorn när disken har lagts till
+
+Steg 5: när du startar om den virtuella datorn loggar du in på den virtuella datorn med hjälp av SparaTillFil (eller någon annan klient) och kör kommandot "sudo-i" för att få rot åtkomst.
+
+![Logga in på den virtuella datorn](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+Steg 6: Följ stegen nedan för att skapa en partition på din virtuella hård disk.
+
+a) Skriv kommandot fdisk/dev/SDB
+
+b) om du vill visa listan över befintliga partitioner från din virtuella hård disk skriver du p
+
+c) Skriv d för att ta bort alla befintliga partitioner som är tillgängliga i din virtuella hård disk (du kan hoppa över det här steget om det inte behövs) ![ ta bort alla befintliga partitioner](./media/create-vm/vm-certification-issues-solutions-21.png)
+
+d) Skriv n om du vill skapa en ny partition och välj p för (primär partition).
+
+e) ange 2048 som "första sektor"-värdet och du kan lämna "sista sektorn" eftersom det kommer att ta standardvärdet. Observera att alla data kommer att raderas till 2048 KB.
+           
+>[!NOTE]
+>* Observera att när du skapar partitionen som ovan kommer alla befintliga data att raderas till 2048 KB, och därför bör du säkerhetskopiera den virtuella hård disken innan du kör kommandot ovan.
+
+Se efter i skärm bilden nedan för din referens.
+![Raderade data](./media/create-vm/vm-certification-issues-solutions-22.png)
+
+f) Skriv w för att bekräfta skapandet av partitionen. 
+
+![Skapa partition](./media/create-vm/vm-certification-issues-solutions-23.png)
+
+g) du kan kontrol lera partitionstabellen genom att köra kommandot n fdisk/dev/SDB och skriva p. sedan kan du se som nedan. partitionen skapas med 2048 offset-värde. 
+
+ ![2048 förskjutning](./media/create-vm/vm-certification-issues-solutions-24.png)
+
+Steg 7: koppla från den virtuella hård disken från den virtuella datorn och ta bort den virtuella datorn.
+
+         
+## <a name="steps-for-creating-first-mb-2048-kb-partition-only-for-linux-by-moving-the-existing-data-on-vhd"></a>Steg för att skapa den första MB-partitionen (2048 KB) (endast för Linux) genom att flytta befintliga data på den virtuella hård disken
+
+Steg 1: skapa valfri typ av virtuell dator (exempel: Ubuntu,% OS osv.). Fyll i de obligatoriska fälten och klicka på "Nästa: diskar>" \
+![Klicka på Nästa: diskar>](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+Steg 2: skapa en icke-hanterad disk för den virtuella datorn.
+![Skapa en icke-hanterad disk](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+Observera att du kan gå med standardvärden eller ange ett värde för fält som NIC, NSG och offentlig IP-adress.
+
+Steg 3: när du har skapat den virtuella datorn klickar du på "diskar" som finns på den vänstra sidan, som du ser nedan ![ Klicka på "diskar"](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+Steg 4: Anslut den virtuella hård disken som data disk till den virtuella datorn ovan för att skapa en partitionstabell enligt nedan.
+![Partitionstabell](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+Klicka på Lägg till DataDisk-> befintlig BLOB-> bläddra ditt lagrings konto för virtuella hård diskar – > container-> Välj VHD-> Klicka på OK enligt nedan \
+![Välj virtuell hård disk](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+Din virtuella hård disk kommer att läggas till som data disk LUN 0 och starta om den virtuella datorn när disken har lagts till
+
+Steg 5: när du startar om den virtuella datorn loggar du in på den virtuella datorn med hjälp av SparaTillFil och kör kommandot "sudo-i" för att få rot åtkomst. \
+![Logga in efter omstart](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+Steg 6: Excute kommandot ECHO ' + 1M ' | sfdisk--move-data/dev/SDC-N 1 ![ Kör kommando](./media/create-vm/vm-certification-issues-solutions-25.png)
+
+>[!NOTE]
+>* Observera att kommandot ovan kan ta längre tid att slutföra, beroende på diskens storlek
+
+Steg 7: koppla från den virtuella hård disken från den virtuella datorn och ta bort den virtuella datorn.
+
+
 ## <a name="default-credentials"></a>Standardautentiseringsuppgifter
 
 Se alltid till att standardautentiseringsuppgifterna inte skickas med den skickade virtuella hård disken. Om du lägger till standardautentiseringsuppgifter blir den virtuella hård disken mer sårbar för säkerhetshot. Skapa i stället dina egna autentiseringsuppgifter när du skickar den virtuella hård disken.
   
 ## <a name="datadisk-mapped-incorrectly"></a>DataDisk mappas felaktigt
 
-När en begäran skickas med flera data diskar, men deras ordning inte är i följd, betraktas detta som ett mappnings problem. Om det till exempel finns tre data diskar, måste nummer ordningen vara *0, 1, 2*. En annan ordning behandlas som ett mappnings problem.
+När en begäran skickas med flera data diskar, men deras ordning inte är i följd, betraktas detta som ett mappnings problem. Om det till exempel finns tre data diskar, måste nummer ordningen vara *0, 1, 2* . En annan ordning behandlas som ett mappnings problem.
 
 Skicka begäran igen med korrekt ordningsföljd av data diskar.
 
@@ -306,11 +403,11 @@ När en avbildning skapas, kan den mappas till eller tilldelas fel OS-etikett. O
 
 Om alla avbildningar som tas från Azure Marketplace ska återanvändas måste det virtuella operativ systemet vara generaliserat.
 
-* För **Linux**generaliserar följande process en virtuell Linux-dator och distribuerar den igen som en separat virtuell dator.
+* För **Linux** generaliserar följande process en virtuell Linux-dator och distribuerar den igen som en separat virtuell dator.
 
   I SSH-fönstret anger du följande kommando: `sudo waagent -deprovision+user`
 
-* För **Windows**generaliserar du Windows-avbildningar med hjälp av `sysreptool` .
+* För **Windows** generaliserar du Windows-avbildningar med hjälp av `sysreptool` .
 
 Mer information om det här verktyget finns i [Översikt över system förberedelse (Sysprep)]( https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
@@ -326,7 +423,7 @@ Använd följande tabell för lösningar på fel som är relaterade till data di
 
 ## <a name="remote-access-issue"></a>Problem med fjärråtkomst
 
-Om alternativet Remote Desktop Protocol (RDP) inte är aktiverat för Windows-avbildningen visas det här felet.
+Om alternativet Remote Desktop Protocol (RDP) inte är aktiverat för Windows-avbildningen visas det här felet. 
 
 Aktivera RDP-åtkomst för Windows-avbildningar innan du skickar dem.
 
@@ -404,36 +501,36 @@ För att tillhandahålla en fast VM-avbildning som ersätter en VM-avbildning so
 För att slutföra de här stegen måste du förbereda de tekniska till gångarna för den VM-avbildning som du vill lägga till. Mer information finns i [skapa en virtuell dator med en godkänd bas](azure-vm-create-using-approved-base.md) eller [skapa en virtuell dator med hjälp av en egen avbildning](azure-vm-create-using-own-image.md)och [Generera en SAS-URI för din VM-avbildning](azure-vm-get-sas-uri.md).
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På den vänstra navigerings menyn väljer du **kommersiell Marketplace**-  >  **Översikt**.
+2. På den vänstra navigerings menyn väljer du **kommersiell Marketplace** -  >  **Översikt** .
 3. I kolumnen **erbjudande alias** väljer du erbjudandet.
 4. På fliken **plan översikt** i kolumnen **namn** väljer du den plan som du vill lägga till den virtuella datorn i.
-5. På fliken **teknisk konfiguration** , under **VM-avbildningar** , väljer du **+ Lägg till avbildning av virtuell dator**.
+5. På fliken **teknisk konfiguration** , under **VM-avbildningar** , väljer du **+ Lägg till avbildning av virtuell dator** .
 
 > [!NOTE]
 > Du kan bara lägga till en avbildning av en virtuell dator till en plan i taget. Om du vill lägga till flera VM-avbildningar publicerar du den första Live-avbildningen innan du lägger till nästa avbildning av virtuella datorer.
 
 6. I rutorna som visas anger du en ny disk version och avbildningen av den virtuella datorn.
-7. Välj **Spara utkast**.
+7. Välj **Spara utkast** .
 
 Fortsätt med nästa avsnitt nedan för att ta bort den virtuella dator avbildningen med säkerhets risken.
 
 #### <a name="remove-the-vm-image-with-the-security-vulnerability-or-exploit"></a>Ta bort den virtuella dator avbildningen med säkerhets sårbarhet eller sårbarhet
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På den vänstra navigerings menyn väljer du **kommersiell Marketplace**-  >  **Översikt**.
+2. På den vänstra navigerings menyn väljer du **kommersiell Marketplace** -  >  **Översikt** .
 3. I kolumnen **erbjudande alias** väljer du erbjudandet.
 4. På fliken **plan översikt** i kolumnen **namn** väljer du den plan med den virtuella dator som du vill ta bort.
-5. På fliken **teknisk konfiguration** , under **VM-avbildningar** , bredvid den VM-avbildning som du vill ta bort, väljer du **ta bort avbildning av virtuell dator**.
-6. I dialog rutan som visas väljer du **Fortsätt**.
-7. Välj **Spara utkast**.
+5. På fliken **teknisk konfiguration** , under **VM-avbildningar** , bredvid den VM-avbildning som du vill ta bort, väljer du **ta bort avbildning av virtuell dator** .
+6. I dialog rutan som visas väljer du **Fortsätt** .
+7. Välj **Spara utkast** .
 
 Fortsätt med nästa avsnitt nedan för att publicera om erbjudandet.
 
 #### <a name="republish-the-offer"></a>Publicera om erbjudandet
 
-1. Välj **Granska och publicera**.
+1. Välj **Granska och publicera** .
 2. Om du behöver ange någon information till certifierings teamet lägger du till den i rutan **kommentarer för certifiering** .
-3. Välj **Publicera**.
+3. Välj **Publicera** .
 
 Information om hur du slutför publicerings processen finns i [Granska och publicera erbjudanden](review-publish-offer.md).
 

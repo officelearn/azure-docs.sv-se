@@ -10,24 +10,24 @@ ms.topic: quickstart
 ms.devlang: java
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 829a106a643c10626a65855152375c349cd76f9a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d00caa91e7b6a19edbb6ac2d38fcea1e2a0d5f05
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87833597"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676855"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Använda Java och JDBC med Azure SQL Database
 
-Det här avsnittet visar hur du skapar ett exempel program som använder Java och [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) för att lagra och hämta information i [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/).
+Det här avsnittet visar hur du skapar ett exempel program som använder Java och [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) för att lagra och hämta information i [Azure SQL Database](/azure/sql-database/).
 
 JDBC är standard Java-API: et för att ansluta till traditionella Relations databaser.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto. Om du inte har någon kan du [få en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) eller [Azure CLI](/cli/azure/install-azure-cli). Vi rekommenderar Azure Cloud Shell så att du loggas in automatiskt och har åtkomst till alla verktyg du behöver.
-- En [Java Development Kit](https://aka.ms/azure-jdks)som stöds, version 8 (ingår i Azure Cloud Shell).
+- [Azure Cloud Shell](../../cloud-shell/quickstart.md) eller [Azure CLI](/cli/azure/install-azure-cli). Vi rekommenderar Azure Cloud Shell så att du loggas in automatiskt och har åtkomst till alla verktyg du behöver.
+- En [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support)som stöds, version 8 (ingår i Azure Cloud Shell).
 - Verktyget [Apache maven](https://maven.apache.org/) build.
 
 ## <a name="prepare-the-working-environment"></a>Förbered arbets miljön
@@ -69,7 +69,7 @@ az group create \
 Det första vi ska skapa är en hanterad Azure SQL Database-Server.
 
 > [!NOTE]
-> Du kan läsa mer detaljerad information om hur du skapar Azure SQL Database servrar i [snabb start: skapa en Azure SQL Database enkel databas](/azure/sql-database/sql-database-single-database-get-started).
+> Du kan läsa mer detaljerad information om hur du skapar Azure SQL Database servrar i [snabb start: skapa en Azure SQL Database enkel databas](./single-database-create-quickstart.md).
 
 Kör följande kommando i [Azure Cloud Shell](https://shell.azure.com/):
 
@@ -498,4 +498,4 @@ az group delete \
 
 - [Utforma din första databas i Azure SQL Database](design-first-database-tutorial.md)  
 - [Microsoft JDBC-drivrutin för SQL Server](https://github.com/microsoft/mssql-jdbc)  
-- [Rapportera problem/ställ frågor](https://github.com/microsoft/mssql-jdbc/issues)  
+- [Rapportera problem/ställ frågor](https://github.com/microsoft/mssql-jdbc/issues)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b3fa2996edf5882cc02eeee92bcc3114bcd33348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a2a0c94dc4691c17eebe235055015a2853bacb4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273423"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677585"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Självstudie: konfigurera SAP Cloud Platform Identity Authentication för automatisk användar etablering
 
@@ -50,22 +50,22 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 ## <a name="setup-sap-cloud-platform-identity-authentication-for-provisioning"></a>Konfigurera SAP Cloud Platform Identity Authentication för etablering
 
-1. Logga in på din [SAP Cloud Platform Identity Authentication-konsol](https://sapmsftintegration.accounts.ondemand.com/admin). Navigera till **användare & auktoriseringar > administratörer**.
+1. Logga in på din [SAP Cloud Platform Identity Authentication-konsol](https://sapmsftintegration.accounts.ondemand.com/admin). Navigera till **användare & auktoriseringar > administratörer** .
 
     ![SAP Cloud Platform Identity Authentication admin-konsol](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/adminconsole.png)
 
 2.  Tryck på knappen **+ Lägg till** i den vänstra panelen för att lägga till en ny administratör i listan. Välj **Lägg till system** och ange namnet på systemet.   
 
 > [!NOTE]
-> Administratörs-användaren i SAP Cloud Platform Platform Identity Authentication måste vara av typen **system**. Att skapa en normal administratörs användare kan leda till *obehöriga* fel under etableringen.   
+> Administratörs-användaren i SAP Cloud Platform Platform Identity Authentication måste vara av typen **system** . Att skapa en normal administratörs användare kan leda till *obehöriga* fel under etableringen.   
 
-3.  Under Konfigurera auktoriseringar växlar du till växlings knappen mot **Hantera användare** och **hantera grupper**.
+3.  Under Konfigurera auktoriseringar växlar du till växlings knappen mot **Hantera användare** och **hantera grupper** .
 
     ![SAP Cloud Platform Identity Authentication Add SCIM](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/configurationauth.png)
 
-4. Du får ett e-postmeddelande om att aktivera ditt konto och ange ett lösen ord för **SAP Cloud Platform Identity Authentication Service**.
+4. Du får ett e-postmeddelande om att aktivera ditt konto och ange ett lösen ord för **SAP Cloud Platform Identity Authentication Service** .
 
-4.  Kopiera **användar-ID** och **lösen ord**. Dessa värden anges i fälten admin användar namn och administratörs lösen ord på fliken etablering i SAP Cloud Platform Identity Authentication Application i Azure Portal.
+4.  Kopiera **användar-ID** och **lösen ord** . Dessa värden anges i fälten admin användar namn och administratörs lösen ord på fliken etablering i SAP Cloud Platform Identity Authentication Application i Azure Portal.
 
 ## <a name="add-sap-cloud-platform-identity-authentication-from-the-gallery"></a>Lägg till SAP Cloud Platform Identity Authentication från galleriet
 
@@ -73,11 +73,11 @@ Innan du konfigurerar SAP Cloud Platform Identity Authentication för automatisk
 
 **Utför följande steg för att lägga till SAP Cloud Platform Identity Authentication från Azure AD Application Gallery:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)**.
+1. Välj **Azure Active Directory** i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **företags program** och välj sedan **alla program** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -85,7 +85,7 @@ Innan du konfigurerar SAP Cloud Platform Identity Authentication för automatisk
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du **SAP Cloud Platform Identity Authentication**, väljer **SAP Cloud Platform Identity Authentication** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **SAP Cloud Platform Identity Authentication** , väljer **SAP Cloud Platform Identity Authentication** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![SAP Cloud Platform Identity Authentication i resultatlistan](common/search-new-app.png)
 
@@ -94,37 +94,37 @@ Innan du konfigurerar SAP Cloud Platform Identity Authentication för automatisk
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i SAP Cloud Platform Identity Authentication baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för SAP Cloud Platform Identity Authentication genom att följa anvisningarna i [själv studie kursen SAP Cloud Platform Identity Authentication-inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för SAP Cloud Platform Identity Authentication genom att följa anvisningarna i [själv studie kursen SAP Cloud Platform Identity Authentication-inloggning](./sap-hana-cloud-platform-identity-authentication-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
 
 ### <a name="to-configure-automatic-user-provisioning-for-sap-cloud-platform-identity-authentication-in-azure-ad"></a>Konfigurera automatisk användar etablering för SAP Cloud Platform Identity Authentication i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram** och sedan **Alla program** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I programlistan väljer du **SAP Cloud Platform Identity Authentication**.
+2. I programlistan väljer du **SAP Cloud Platform Identity Authentication** .
 
     ![Länken för SAP Cloud Platform Identity Authentication i programlistan](common/all-applications.png)
 
-3. Välj fliken **Etablering**.
+3. Välj fliken **Etablering** .
 
     ![Skärm bild av alternativen för att hantera med etablerings alternativet.](common/provisioning.png)
 
-4. Ange **Etableringsläge** som **Automatiskt**.
+4. Ange **Etableringsläge** som **Automatiskt** .
 
     ![Skärm bild av list rutan etablerings läge med det automatiska alternativet inringat.](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , inmatat `https://<tenantID>.accounts.ondemand.com/service/scim ` i **klient-URL**. Mata in värdena för **användar-ID** och **lösen ord** som hämtades tidigare i **Administratörs användar namn** och **Administratörs lösen ord** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till SAP Cloud Platform Identity Authentication. Om anslutningen Miss lyckas kontrollerar du att ditt SAP Cloud Platform Identity Authentication-konto har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** , inmatat `https://<tenantID>.accounts.ondemand.com/service/scim ` i **klient-URL** . Mata in värdena för **användar-ID** och **lösen ord** som hämtades tidigare i **Administratörs användar namn** och **Administratörs lösen ord** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till SAP Cloud Platform Identity Authentication. Om anslutningen Miss lyckas kontrollerar du att ditt SAP Cloud Platform Identity Authentication-konto har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/testconnection.png)
 
-6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
+6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår** .
 
     ![E-postavisering](common/provisioning-notification-email.png)
 
-7. Klicka på **Spara**.
+7. Klicka på **Spara** .
 
-8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till SAP Cloud Platform Identity Authentication**.
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till SAP Cloud Platform Identity Authentication** .
 
     ![SAP Cloud Platform Identity Authentication User-mappningar](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/mapping.png)
 
@@ -142,7 +142,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etableringsomfång](common/provisioning-scope.png)
 
-13. När du är redo att etablera klickar du på **Spara**.
+13. När du är redo att etablera klickar du på **Spara** .
 
     ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
@@ -162,4 +162,3 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
-

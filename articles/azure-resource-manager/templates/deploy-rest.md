@@ -2,50 +2,50 @@
 title: Distribuera resurser med REST API och mall
 description: Använd Azure Resource Manager-och Resource Manager-REST API för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 17ea7da3e0b581ed60d2db97d350a70d5250ef28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: d1c8a365153007d3337d922bc163ba3767eeddc9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079493"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675411"
 ---
-# <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Distribuera resurser med ARM-mallar och Resource Manager-REST API
+# <a name="deploy-resources-with-arm-templates-and-azure-resource-manager-rest-api"></a>Distribuera resurser med ARM-mallar och Azure Resource Manager REST API
 
-Den här artikeln förklarar hur du använder Resource Manager-REST API med Azure Resource Manager ARM-mallar för att distribuera dina resurser till Azure.
+Den här artikeln förklarar hur du använder Azure Resource Manager REST API med Azure Resource Manager mallar (ARM-mallar) för att distribuera dina resurser till Azure.
 
 Du kan antingen inkludera din mall i begär ande texten eller länka till en fil. När du använder en fil kan det vara en lokal fil eller en extern fil som är tillgänglig via en URI. När din mall finns i ett lagrings konto kan du begränsa åtkomsten till mallen och tillhandahålla en SAS-token (signatur för delad åtkomst) under distributionen.
 
 ## <a name="deployment-scope"></a>Distributions omfång
 
-Du kan rikta din distribution till en hanterings grupp, en Azure-prenumeration eller en resurs grupp. I de flesta fall ska du rikta distributioner till en resurs grupp. Använd hanterings grupper eller prenumerations distributioner för att tillämpa principer och roll tilldelningar i det angivna omfånget. Du kan också använda prenumerations distributioner för att skapa en resurs grupp och distribuera resurser till den. Beroende på distributionens omfattning använder du olika kommandon.
+Du kan rikta din distribution till en resurs grupp, Azure-prenumeration, hanterings grupp eller klient organisation. Beroende på distributionens omfattning använder du olika kommandon.
 
-* Använd [distributioner – skapa](/rest/api/resources/deployments/createorupdate)för att distribuera till en **resurs grupp**. Begäran skickas till:
+* Använd [distributioner – skapa](/rest/api/resources/deployments/createorupdate)för att distribuera till en **resurs grupp** . Begäran skickas till:
 
   ```HTTP
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
   ```
 
-* Om du vill distribuera till en **prenumeration**använder du [distributioner – skapa vid prenumerations omfång](/rest/api/resources/deployments/createorupdateatsubscriptionscope). Begäran skickas till:
+* Om du vill distribuera till en **prenumeration** använder du [distributioner – skapa vid prenumerations omfång](/rest/api/resources/deployments/createorupdateatsubscriptionscope). Begäran skickas till:
 
   ```HTTP
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
   ```
 
   Mer information om distributioner på prenumerations nivå finns i [skapa resurs grupper och resurser på prenumerations nivå](deploy-to-subscription.md).
 
-* Om du vill distribuera till en **hanterings grupp**använder du [distributioner – skapa i hanterings gruppens omfång](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). Begäran skickas till:
+* Om du vill distribuera till en **hanterings grupp** använder du [distributioner – skapa i hanterings gruppens omfång](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). Begäran skickas till:
 
   ```HTTP
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
   ```
 
   Mer information om distributioner på hanterings grupp nivå finns i [Skapa resurser på hanterings grupps nivå](deploy-to-management-group.md).
 
-* Om du vill distribuera till en **klient**använder du [distributioner – skapa eller uppdatera på klientens omfång](/rest/api/resources/deployments/createorupdateattenantscope). Begäran skickas till:
+* Om du vill distribuera till en **klient** använder du [distributioner – skapa eller uppdatera på klientens omfång](/rest/api/resources/deployments/createorupdateattenantscope). Begäran skickas till:
 
   ```HTTP
-  PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+  PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
   ```
 
   Mer information om distributioner på klient nivå finns i [Skapa resurser på klient nivå](deploy-to-tenant.md).
@@ -56,10 +56,10 @@ I exemplen i den här artikeln används resurs grupps distributioner.
 
 1. Ange [vanliga parametrar och rubriker](/rest/api/azure/), inklusive autentiseringstoken.
 
-1. Om du inte har en befintlig resurs grupp skapar du en resurs grupp. Ange ditt prenumerations-ID, namnet på den nya resurs gruppen och den plats som du behöver för din lösning. Mer information finns i [skapa en resurs grupp](/rest/api/resources/resourcegroups/createorupdate).
+1. Om du distribuerar till en resurs grupp som inte finns skapar du resurs gruppen. Ange ditt prenumerations-ID, namnet på den nya resurs gruppen och den plats som du behöver för din lösning. Mer information finns i [skapa en resurs grupp](/rest/api/resources/resourcegroups/createorupdate).
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2019-10-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2020-06-01
    ```
 
    Med en begär ande text som:
@@ -81,9 +81,9 @@ I exemplen i den här artikeln används resurs grupps distributioner.
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-10-01
    ```
 
-   I begär ande texten anger du en länk till mallen och parameter filen. Mer information om parameter filen finns i [create Resource Manager parameter File](parameter-files.md).
+   I begär ande texten anger du en länk till mallen och parameter filen. Mer information om parameterfilen finns i [Skapa en parameterfil för Resource Manager](parameter-files.md).
 
-   Observera att **läget** är inställt på **stegvis**. Om du vill köra en fullständig distribution anger du att **läget** ska **slutföras**. Var försiktig när du använder det fullständiga läget eftersom du oavsiktligt kan ta bort resurser som inte finns i din mall.
+   Observera att **läget** är inställt på **stegvis** . Om du vill köra en fullständig distribution anger du att **läget** ska **slutföras** . Var försiktig när du använder det fullständiga läget eftersom du oavsiktligt kan ta bort resurser som inte finns i din mall.
 
    ```json
    {

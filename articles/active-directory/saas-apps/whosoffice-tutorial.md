@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 811ba2398b5245be74fd991611ea6a631e0e2b5b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 021497fa7766b7eecfa935d4186ecc98edef8d61
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519198"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633696"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whosoffice"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med WhosOffice
 
@@ -51,15 +51,15 @@ Om du vill konfigurera integreringen av WhosOffice i Azure AD måste du lägga t
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. Navigera till **företags program** och välj sedan **alla program** .
+1. Välj **nytt program** om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** , skriver du **WhosOffice** i sökrutan.
 1. Välj **WhosOffice** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-whosoffice"></a>Konfigurera och testa enkel inloggning med Azure AD för WhosOffice
 
-Konfigurera och testa Azure AD SSO med WhosOffice med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i WhosOffice.
+Konfigurera och testa Azure AD SSO med WhosOffice med hjälp av en test användare som heter **B. Simon** . För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i WhosOffice.
 
 Om du vill konfigurera och testa Azure AD SSO med WhosOffice, slutför du följande Bygg stenar:
 
@@ -74,8 +74,8 @@ Om du vill konfigurera och testa Azure AD SSO med WhosOffice, slutför du följa
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **WhosOffice** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **WhosOffice** , letar upp avsnittet **Hantera** och väljer **enkel inloggning** .
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML** .
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
@@ -84,7 +84,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     Skriv en URL i text rutan **svars-URL** med följande mönster:  `https://<SUBDOMAIN>.my.whosoffice.com/int/azure/consume.aspx`
 
-1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP** -initierat läge:
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<SUBDOMAIN>.my.whosoffice.com/int/azure`
 
@@ -103,25 +103,25 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** , väljer **användare** och väljer sedan **alla användare** .
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I **Namn** -fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
-   1. Klicka på **Skapa**.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord** .
+   1. Klicka på **Skapa** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till WhosOffice.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **WhosOffice**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program** .
+1. I listan program väljer du **WhosOffice** .
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper** .
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Välj **Lägg till användare** och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
@@ -133,37 +133,37 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Logga in på WhosOffice-webbplatsen som administratör i ett annat webbläsarfönster.
 
-1. Klicka på **Inställningar** och välj **företag**.
+1. Klicka på **Inställningar** och välj **företag** .
 
-    ![WhosOffice-konfiguration](./media/whosoffice-tutorial/configuration1.png)
+    ![Skärm bild som visar företag som valts från inställningar.](./media/whosoffice-tutorial/configuration1.png)
 
-1. Klicka på **appar/integrationer**.
+1. Klicka på **appar/integrationer** .
 
-    ![WhosOffice-konfiguration](./media/whosoffice-tutorial/configuration2.png)
+    ![Skärm bild som visar appar/integreringar som valts från företags inställningar.](./media/whosoffice-tutorial/configuration2.png)
 
-1. Välj **Microsoft Azure** från List rutan Provider och klicka på **Aktivera login Provider**.
+1. Välj **Microsoft Azure** från List rutan Provider och klicka på **Aktivera login Provider** .
 
-    ![WhosOffice-konfiguration](./media/whosoffice-tutorial/configuration3.png)
+    ![Skärm bild som visar aktivering av login-provider som valts för Microsoft Azure.](./media/whosoffice-tutorial/configuration3.png)
 
 1. Ladda upp den hämtade filen med federationsmetadata från Azure Portal genom att klicka på **överförings** alternativet.
     
-    ![WhosOffice-konfiguration](./media/whosoffice-tutorial/configuration4.png)
+    ![Skärm bild som visar överförings alternativet för en meta-datafil.](./media/whosoffice-tutorial/configuration4.png)
 
 ### <a name="create-whosoffice-test-user"></a>Skapa WhosOffice test användare
 
 1. Logga in på WhosOffice-webbplatsen som administratör i ett annat webbläsarfönster.
 
-1. Klicka på **Inställningar** och välj **användare**.
+1. Klicka på **Inställningar** och välj **användare** .
 
-    ![WhosOffice-konfiguration](./media/whosoffice-tutorial/user1.png)
+    ![Skärm bild som visar användare som valts från inställningar.](./media/whosoffice-tutorial/user1.png)
 
-1. Välj **Skapa ny användare**.
+1. Välj **Skapa ny användare** .
 
-    ![WhosOffice-konfiguration](./media/whosoffice-tutorial/user2.png)
+    ![Skärm bild som visar skapa ny användare vald.](./media/whosoffice-tutorial/user2.png)
 
 1. Ange nödvändig information om användaren enligt organisationens krav.
 
-    ![WhosOffice-konfiguration](./media/whosoffice-tutorial/user3.png)
+    ![Skärm bild som visar dialog rutan ny användare där du kan ange användar data.](./media/whosoffice-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testa SSO 
 

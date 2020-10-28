@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: fd1a25e3fae49feb731cd1b472c99da679eee4f4
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 733a5c899e72809d979dfeeb60e4157c0d587bcf
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495681"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633713"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Skapa och hantera Azure Machine Learning arbets ytor 
 
@@ -26,7 +26,7 @@ När du behöver ändra eller krav på Automation-höjning kan du också skapa o
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 * Om du använder python SDK [installerar du SDK: n](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
@@ -80,13 +80,13 @@ Mer information finns i [SDK-referens för arbets yta](https://docs.microsoft.co
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för din Azure-prenumeration. 
 
-1. I det övre vänstra hörnet av Azure Portal väljer du **+ skapa en resurs**.
+1. I det övre vänstra hörnet av Azure Portal väljer du **+ skapa en resurs** .
 
       ![Skapa en ny resurs](./media/how-to-manage-workspace/create-workspace.gif)
 
-1. Använd Sök fältet för att hitta **Machine Learning**.
+1. Använd Sök fältet för att hitta **Machine Learning** .
 
-1. Välj **Machine Learning**.
+1. Välj **Machine Learning** .
 
 1. I fönstret **Machine Learning** väljer du **skapa** för att börja.
 
@@ -94,23 +94,23 @@ Mer information finns i [SDK-referens för arbets yta](https://docs.microsoft.co
 
    Fält|Beskrivning 
    ---|---
-   Namn på arbetsyta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS**. Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra. Namnet på arbets ytan är Skift läges okänsligt.
+   Namn på arbetsyta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS** . Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra. Namnet på arbets ytan är Skift läges okänsligt.
    Prenumeration |Välj den Azure-prenumeration som du vill använda.
-   Resursgrupp | Använd en befintlig resursgrupp i din prenumeration eller ange ett namn för att skapa en ny resursgrupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AML-dokument**. Du behöver *deltagar* -eller *ägar* rollen för att använda en befintlig resurs grupp.  Mer information om åtkomst finns i [Hantera åtkomst till en Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
+   Resursgrupp | Använd en befintlig resursgrupp i din prenumeration eller ange ett namn för att skapa en ny resursgrupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AML-dokument** . Du behöver *deltagar* -eller *ägar* rollen för att använda en befintlig resurs grupp.  Mer information om åtkomst finns i [Hantera åtkomst till en Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
    Region | Välj den Azure-region som är närmast dina användare och data resurserna för att skapa din arbets yta.
 
     ![Konfigurera din arbets yta](./media/how-to-manage-workspace/create-workspace-form.png)
 
-1. När du är klar med konfigurationen av arbets ytan väljer du **Granska + skapa**. Du kan också använda avsnitten [nätverk](#networking) och [Avancerat](#advanced) för att konfigurera fler inställningar för arbets ytan.
+1. När du är klar med konfigurationen av arbets ytan väljer du **Granska + skapa** . Du kan också använda avsnitten [nätverk](#networking) och [Avancerat](#advanced) för att konfigurera fler inställningar för arbets ytan.
 
-1. Granska inställningarna och gör eventuella ytterligare ändringar eller korrigeringar. När du är nöjd med inställningarna väljer du **skapa**.
+1. Granska inställningarna och gör eventuella ytterligare ändringar eller korrigeringar. När du är nöjd med inställningarna väljer du **skapa** .
 
    > [!Warning] 
    > Det kan ta flera minuter att skapa din arbets yta i molnet.
 
    När processen är klar visas ett meddelande om lyckad distribution. 
  
- 1. Om du vill visa den nya arbets ytan väljer du **gå till resurs**.
+ 1. Om du vill visa den nya arbets ytan väljer du **gå till resurs** .
  
 ---
 
@@ -126,7 +126,7 @@ Azure Machine Learning python SDK tillhandahåller klassen [PrivateEndpointConfi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Standard nätverks konfigurationen är att använda en __offentlig slut punkt__som är tillgänglig på det offentliga Internet. Om du vill begränsa åtkomsten till din arbets yta till en Azure-Virtual Network du har skapat, kan du i stället välja __privat slut punkt__ (för hands version) som __anslutnings metod__och sedan använda __+ Lägg__ till för att konfigurera slut punkten.   
+1. Standard nätverks konfigurationen är att använda en __offentlig slut punkt__ som är tillgänglig på det offentliga Internet. Om du vill begränsa åtkomsten till din arbets yta till en Azure-Virtual Network du har skapat, kan du i stället välja __privat slut punkt__ (för hands version) som __anslutnings metod__ och sedan använda __+ Lägg__ till för att konfigurera slut punkten.   
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Val av privat slut punkt":::  
 
@@ -134,7 +134,7 @@ Azure Machine Learning python SDK tillhandahåller klassen [PrivateEndpointConfi
 
    :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Val av privat slut punkt":::   
 
-1. När du är färdig med konfigurationen av nätverk kan du välja __Granska + skapa__eller gå vidare till den valfria __avancerade__ konfigurationen.
+1. När du är färdig med konfigurationen av nätverk kan du välja __Granska + skapa__ eller gå vidare till den valfria __avancerade__ konfigurationen.
 
 ---
 
@@ -147,8 +147,8 @@ Azure Machine Learning python SDK tillhandahåller klassen [PrivateEndpointConfi
 När du skapar en privat slut punkt skapas en ny Privat DNS zon med namnet __privatelink.API.azureml.MS__ . Innehåller en länk till det virtuella nätverket. Om du skapar flera arbets ytor med privata slut punkter i samma resurs grupp, kan endast det virtuella nätverket för den första privata slut punkten läggas till i DNS-zonen. Använd följande steg för att lägga till poster för de virtuella nätverk som används av ytterligare arbets ytor/privata slut punkter:
 
 1. I [Azure Portal](https://portal.azure.com)väljer du den resurs grupp som innehåller arbets ytan. Välj sedan Privat DNS zon resurs med namnet __privatelink.API.azureml.MS__
-2. I __inställningarna__väljer du __virtuella nätverks länkar__.
-3. Välj __Lägg till__. På sidan __Lägg till virtuell nätverks länk__ anger du ett unikt __länk namn__och väljer sedan det __virtuella nätverk__ som ska läggas till. Välj __OK__ för att lägga till nätverks länken.
+2. I __inställningarna__ väljer du __virtuella nätverks länkar__ .
+3. Välj __Lägg till__ . På sidan __Lägg till virtuell nätverks länk__ anger du ett unikt __länk namn__ och väljer sedan det __virtuella nätverk__ som ska läggas till. Välj __OK__ för att lägga till nätverks länken.
 
 Mer information finns i [Azures DNS-konfiguration för privat slut punkt](/azure/private-link/private-endpoint-dns).
 
@@ -167,7 +167,11 @@ Om du vill begränsa de data som Microsoft samlar in på din arbets yta väljer 
 
 #### <a name="use-your-own-key"></a>Använd din egen nyckel
 
-Du kan ange din egen nyckel för data kryptering. Om du gör det skapas Azure Cosmos DB-instansen som lagrar mått och metadata i din Azure-prenumeration. Använd följande steg för att ange din egen nyckel:
+Du kan ange din egen nyckel för data kryptering. Om du gör det skapas Azure Cosmos DB-instansen som lagrar mått och metadata i din Azure-prenumeration.
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
+
+Använd följande steg för att ange din egen nyckel:
 
 > [!IMPORTANT]  
 > Innan du följer de här stegen måste du först utföra följande åtgärder:   
@@ -201,7 +205,7 @@ from azureml.core import Workspace
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Välj __Kundhanterade nycklar__och välj sedan __knappen Klicka för att välja nyckel__.
+1. Välj __Kundhanterade nycklar__ och välj sedan __knappen Klicka för att välja nyckel__ .
 
     :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Val av privat slut punkt":::
 
@@ -231,7 +235,7 @@ Om du planerar att använda kod i din lokala miljö som hänvisar till den här 
 
 ---
 
-Placera filen i katalog strukturen med dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog. När du skapar en beräknings instans läggs den här filen till i rätt katalog på den virtuella datorn åt dig.
+Placera filen i katalog strukturen med dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml* eller i en överordnad katalog. När du skapar en beräknings instans läggs den här filen till i rätt katalog på den virtuella datorn åt dig.
 
 
 ## <a name="find-a-workspace"></a><a name="view"></a>Hitta en arbets yta
@@ -252,9 +256,9 @@ Workspace.list('<subscription-id>')
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. I det övre Sök fältet skriver du **Machine Learning**.  
+1. I det övre Sök fältet skriver du **Machine Learning** .  
 
-1. Välj **Machine Learning**.
+1. Välj **Machine Learning** .
 
    ![Sök efter Azure Machine Learning arbets yta](./media/how-to-manage-workspace/find-workspaces.png)
 

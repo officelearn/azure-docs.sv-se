@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: d0dd7f71c21e223203fb0e695ba3139eaea0aa81
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c456c7eb31e1e8e66aa3276a0cb5f6f8b39efa9a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368833"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631758"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Uppdatera Azure Machine Learning Studio-modeller (klassiska) med uppdatering av resurs aktivitet
 
@@ -26,8 +26,8 @@ ms.locfileid: "92368833"
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
 > * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 > * [Spark-aktivitet](data-factory-spark.md)
-> * [Azure Machine Learning Studio (klassisk) batch execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md)
+> * [Batch-körningsaktivitet i Azure Machine Learning Studio (klassisk)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Uppdateringsresursaktivitet i Azure Machine Learning Studio (klassisk)](data-factory-azure-ml-update-resource-activity.md)
 > * [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
 > * [Anpassad .NET-aktivitet](data-factory-use-custom-activities.md)
@@ -42,9 +42,9 @@ Den här artikeln kompletterar huvud artikeln Azure Data Factory-Azure Machine L
 Med tiden måste förutsägande modeller i de Azure Machine Learning Studio (klassiska) bedömnings experimenten återskapas med hjälp av nya data uppsättningar för indata. När du är färdig med omträningen vill du uppdatera bedömnings-webbtjänsten med den retränade ML-modellen. De vanligaste stegen för att aktivera omtrainering och uppdatering av Studio (klassiska) modeller via webb tjänster är:
 
 1. Skapa ett experiment i [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net).
-2. När du är nöjd med modellen använder du Azure Machine Learning Studio (klassisk) för att publicera webb tjänster för både **utbildnings experimentet** och poängsättningen/**förutsägande experiment**.
+2. När du är nöjd med modellen använder du Azure Machine Learning Studio (klassisk) för att publicera webb tjänster för både **utbildnings experimentet** och poängsättningen/ **förutsägande experiment** .
 
-I följande tabell beskrivs de webb tjänster som används i det här exemplet.  Mer information finns i avsnittet [omträna Azure Machine Learning Studio (klassiska) modeller program mässigt](../../machine-learning/studio/retrain-machine-learning-model.md) .
+I följande tabell beskrivs de webb tjänster som används i det här exemplet.  Mer information finns i avsnittet [omträna Azure Machine Learning Studio (klassiska) modeller program mässigt](../../machine-learning/classic/retrain-machine-learning-model.md) .
 
 - **Utbildning-webbtjänst** – tar emot utbildnings data och genererar utbildade modeller. Resultatet av omträningen är en. ilearner-fil i en Azure Blob Storage. **Standard slut punkten** skapas automatiskt åt dig när du publicerar övnings experimentet som en webb tjänst. Du kan skapa fler slut punkter, men exemplet använder bara standard slut punkten.
 - **Bedömnings webb tjänst** – tar emot omärkta data exempel och gör förutsägelser. Resultatet av förutsägelsen kan ha olika former, till exempel en CSV-fil eller rader i Azure SQL Database, beroende på hur experimentet är. Standard slut punkten skapas automatiskt åt dig när du publicerar ett förutsägelse experiment som en webb tjänst. 
@@ -53,12 +53,12 @@ Följande bild illustrerar förhållandet mellan utbildning och poäng slut punk
 
 ![Webbtjänster](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-Du kan anropa **utbildnings webb tjänsten** med hjälp av den **Azure Machine Learning Studio (klassiska) batch execution Activity**. Att anropa en utbildnings webb tjänst är detsamma som att anropa en Azure Machine Learning Studio (klassisk) webb tjänst (en webb tjänst för bedömning) för poängsättnings data. Föregående avsnitt beskriver hur du anropar en Azure Machine Learning Studio (klassisk) webb tjänst från en Azure Data Factory pipeline i detalj. 
+Du kan anropa **utbildnings webb tjänsten** med hjälp av den **Azure Machine Learning Studio (klassiska) batch execution Activity** . Att anropa en utbildnings webb tjänst är detsamma som att anropa en Azure Machine Learning Studio (klassisk) webb tjänst (en webb tjänst för bedömning) för poängsättnings data. Föregående avsnitt beskriver hur du anropar en Azure Machine Learning Studio (klassisk) webb tjänst från en Azure Data Factory pipeline i detalj. 
 
 Du kan anropa **bedömnings webb tjänsten** med hjälp av den **Azure Machine Learning Studio (klassisk) uppdatera resurs aktiviteten** för att uppdatera webb tjänsten med den nyligen utbildade modellen. I följande exempel finns länkade tjänst definitioner: 
 
 ## <a name="scoring-web-service-is-a-classic-web-service"></a>Webb tjänsten poängsättning är en klassisk webb tjänst
-Om bedömnings webb tjänsten är en **klassisk webb tjänst**skapar du den andra **icke-standard-och uppdaterings bara slut punkten** med hjälp av Azure Portal. Se artikeln [skapa slut punkter](../../machine-learning/studio/create-endpoint.md) för steg. När du har skapat den uppdaterings bara slut punkten som inte är standard, utför följande steg:
+Om bedömnings webb tjänsten är en **klassisk webb tjänst** skapar du den andra **icke-standard-och uppdaterings bara slut punkten** med hjälp av Azure Portal. Se artikeln [skapa slut punkter](../../machine-learning/classic/create-endpoint.md) för steg. När du har skapat den uppdaterings bara slut punkten som inte är standard, utför följande steg:
 
 * Klicka på **batch-körning** för att hämta URI-värdet för **mlEndpoint** JSON-egenskapen.
 * Klicka på **Uppdatera resurs** länk för att hämta URI-värdet för **updateResourceEndpoint** JSON-egenskapen. API-nyckeln finns på slut punkts sidan (i det nedre högra hörnet).
@@ -208,7 +208,7 @@ Följande JSON-kodfragment definierar en Studio (klassisk) länkad tjänst som p
 }
 ```
 
-I **Azure Machine Learning Studio (klassisk)** gör du följande för att hämta värden för **mlEndpoint** och **apiKey**:
+I **Azure Machine Learning Studio (klassisk)** gör du följande för att hämta värden för **mlEndpoint** och **apiKey** :
 
 1. Klicka på **webb tjänster** på den vänstra menyn.
 2. Klicka på **webb tjänsten utbildning** i listan med webb tjänster.
@@ -260,7 +260,7 @@ Uppdaterings resurs aktiviteten i Studio (klassisk) genererar inga utdata. Azure
 ```
 
 ### <a name="pipeline"></a>Pipeline
-Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateResource**. Den Azure Machine Learning Studio (klassiska) batch-körningen använder tränings data som indata och skapar en iLearner-fil som utdata. Aktiviteten anropar webb tjänsten utbildning (inlärnings experiment som visas som en webb tjänst) med indata och tar emot ilearner-filen från webb tjänsten. PlaceholderBlob är bara en data uppsättning för en dummy-datauppsättning som krävs av Azure Data Factorys tjänsten för att köra pipelinen.
+Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateResource** . Den Azure Machine Learning Studio (klassiska) batch-körningen använder tränings data som indata och skapar en iLearner-fil som utdata. Aktiviteten anropar webb tjänsten utbildning (inlärnings experiment som visas som en webb tjänst) med indata och tar emot ilearner-filen från webb tjänsten. PlaceholderBlob är bara en data uppsättning för en dummy-datauppsättning som krävs av Azure Data Factorys tjänsten för att köra pipelinen.
 
 ![Pipeline-diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 

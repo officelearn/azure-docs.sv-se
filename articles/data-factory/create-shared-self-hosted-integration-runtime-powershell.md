@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 28836d0b1109952d8cf81c66b44b1f98d9b770bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8734247a913bdf6a44a9156f6f87705b618f7228
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136056"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632897"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Skapa en delad integration runtime med egen värd i Azure Data Factory
 
@@ -55,9 +55,9 @@ För att skapa en delad IR med egen värd med Azure PowerShell kan du utföra f�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar. 
+- **Azure-prenumeration** . Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar. 
 
-- **Azure PowerShell**. Följ instruktionerna i [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Du använder PowerShell för att köra ett skript för att skapa en integration runtime med egen värd som kan delas med andra data fabriker. 
+- **Azure PowerShell** . Följ instruktionerna i [installera Azure PowerShell på Windows med PowerShellGet](/powershell/azure/install-az-ps). Du använder PowerShell för att köra ett skript för att skapa en integration runtime med egen värd som kan delas med andra data fabriker. 
 
 > [!NOTE]  
 > Om du vill ha en lista över Azure-regioner där Data Factory för närvarande är tillgängligt väljer du de regioner som intresserar dig för  [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -66,7 +66,7 @@ För att skapa en delad IR med egen värd med Azure PowerShell kan du utföra f�
 
 1. Starta Windows PowerShell ISE.
 
-1. Skapa variabler. Kopiera och klistra in följande skript. Ersätt variablerna, till exempel **SubscriptionName** och **ResourceGroupName**, med faktiska värden: 
+1. Skapa variabler. Kopiera och klistra in följande skript. Ersätt variablerna, till exempel **SubscriptionName** och **ResourceGroupName** , med faktiska värden: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -99,7 +99,7 @@ För att skapa en delad IR med egen värd med Azure PowerShell kan du utföra f�
     > [!NOTE]  
     > Det här är valfritt. Hoppa över det här steget om du redan har en data fabrik. 
 
-    Skapa en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) med kommandot [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resurs grupp med namnet `myResourceGroup` på WestEurope-platsen: 
+    Skapa en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resurs grupp med namnet `myResourceGroup` på WestEurope-platsen: 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -155,7 +155,7 @@ Svaret innehåller en autentiseringsnyckel för den här integration runtime med
 #### <a name="create-another-data-factory"></a>Skapa en annan data fabrik
 
 > [!NOTE]  
-> Det här är valfritt. Hoppa över det här steget om du redan har den data fabrik som du vill dela med. Men för att lägga till eller ta bort roll tilldelningar till andra data fabriker måste du ha `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörighet, till exempel [administratör för användar åtkomst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) eller [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
+> Det här är valfritt. Hoppa över det här steget om du redan har den data fabrik som du vill dela med. Men för att lägga till eller ta bort roll tilldelningar till andra data fabriker måste du ha `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörighet, till exempel [administratör för användar åtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) eller [ägare](../role-based-access-control/built-in-roles.md#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -216,6 +216,6 @@ Remove-AzDataFactoryV2IntegrationRuntime `
 
 ### <a name="next-steps"></a>Nästa steg
 
-- Granska [integration runtime-koncept i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
+- Granska [integration runtime-koncept i Azure Data Factory](./concepts-integration-runtime.md).
 
-- Lär dig hur du [skapar en integration runtime med egen värd i Azure Portal](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+- Lär dig hur du [skapar en integration runtime med egen värd i Azure Portal](./create-self-hosted-integration-runtime.md).

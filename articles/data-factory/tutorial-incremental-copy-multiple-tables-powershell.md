@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: d32c4da4604307bca406f7f5d5e5a94b69efe7ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be98ff2a31e3216088fb9197fab477d9b1088f26
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541840"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634104"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Läs in data stegvis från flera tabeller i SQL Server till Azure SQL Database med PowerShell
 
@@ -42,15 +42,15 @@ I den här självstudiekursen får du göra följande:
 ## <a name="overview"></a>Översikt
 Här är några viktiga steg för att skapa den här lösningen: 
 
-1. **Markera vattenstämpelkolumnen**.
+1. **Markera vattenstämpelkolumnen** .
 
     Välj en kolumn för varje tabell i käll data lagret, som du kan använda för att identifiera de nya eller uppdaterade posterna för varje körning. Vanligtvis ökar data i den markerade kolumnen (till exempel last_modify_time elle ID) när rader skapas eller uppdateras. Det maximala värdet i den här kolumnen används som vattenstämpel.
 
-2. **Förbered datalagringen för att lagra värdet för vattenstämpeln**.
+2. **Förbered datalagringen för att lagra värdet för vattenstämpeln** .
 
     I den här självstudien lagrar du storleksgränsen i en SQL-databas.
 
-3. **Skapa en pipeline med följande aktiviteter**:
+3. **Skapa en pipeline med följande aktiviteter** :
     
     a. Skapa en ForEach-aktivitet som upprepas över en lista med namn på källtabeller och som skickas som en parameter till pipelinen. För varje källtabell anropas följande aktiviteter som utför deltainläsningen för tabellen.
 
@@ -67,16 +67,16 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* **SQL Server**. Du använder en SQL Server databas som käll data lager i den här självstudien. 
-* **Azure SQL Database**. Du använder en databas i Azure SQL Database som data lager för mottagare. Om du inte har en SQL-databas kan du läsa [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för steg för att skapa en. 
+* **SQL Server** . Du använder en SQL Server databas som käll data lager i den här självstudien. 
+* **Azure SQL Database** . Du använder en databas i Azure SQL Database som data lager för mottagare. Om du inte har en SQL-databas kan du läsa [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för steg för att skapa en. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Skapa källtabeller i din SQL Server-databas
 
-1. Öppna [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)och Anslut till SQL Server-databasen.
+1. Öppna [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) eller [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)och Anslut till SQL Server-databasen.
 
-2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga**.
+2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga** .
 
 3. Kör följande SQL-kommando mot databasen för att skapa tabeller med namnen `customer_table` och `project_table`:
 
@@ -113,9 +113,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Skapa mål tabeller i din Azure SQL Database
 
-1. Öppna [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)och Anslut till SQL Server-databasen.
+1. Öppna [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) eller [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)och Anslut till SQL Server-databasen.
 
-2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga**.
+2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga** .
 
 3. Kör följande SQL-kommando mot databasen för att skapa tabeller med namnen `customer_table` och `project_table`:  
 
@@ -283,7 +283,7 @@ Observera följande punkter:
 
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna deltagare eller ägare, eller vara administratör för Azure-prenumerationen.
 
-* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Data lag ren (Azure Storage, SQL Database, SQL-hanterad instans osv.) och beräkningarna (Azure HDInsight osv.) som används av data fabriken kan finnas i andra regioner.
+* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory** : [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Data lag ren (Azure Storage, SQL Database, SQL-hanterad instans osv.) och beräkningarna (Azure HDInsight osv.) som används av data fabriken kan finnas i andra regioner.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -814,21 +814,21 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. Den **förgrund
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Välj **Alla tjänster**, sök med nyckelordet *Datafabriker* och välj **Datafabriker**. 
+2. Välj **Alla tjänster** , sök med nyckelordet *Datafabriker* och välj **Datafabriker** . 
 
-3. Sök efter din datafabrik i listan med datafabriker och välj den så att du öppnar sidan **Datafabrik**. 
+3. Sök efter din datafabrik i listan med datafabriker och välj den så att du öppnar sidan **Datafabrik** . 
 
 4. På sidan **data fabrik** väljer du **Redigera & övervakare** för att starta Azure Data Factory på en separat flik.
 
 5. På sidan **nu sätter vi igång** väljer du **övervaka** till vänster. 
 ![Skärm bild som visar sidan för att komma igång med Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
-6. Du kan se alla pipelinekörningar och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades**. Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar**. Om det uppstod ett fel ser du en länk i kolumnen **Fel**.
+6. Du kan se alla pipelinekörningar och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades** . Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar** . Om det uppstod ett fel ser du en länk i kolumnen **Fel** .
 
     ![Skärm bild som visar pipeline-körningar för en data fabrik, inklusive din pipeline.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. När du väljer länken i kolumnen **åtgärder** visas alla aktivitets körningar för pipelinen. 
 
-8. Om du vill gå tillbaka till vyn **pipeline-körningar** väljer du **alla pipeline-körningar**. 
+8. Om du vill gå tillbaka till vyn **pipeline-körningar** väljer du **alla pipeline-körningar** . 
 
 ## <a name="review-the-results"></a>Granska resultaten
 
@@ -907,7 +907,7 @@ VALUES
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
-2. Övervaka pipelinekörningarna genom att följa anvisningarna i avsnittet [Övervaka pipelinen](#monitor-the-pipeline). När status för pipelinen **pågår**, ser du en annan åtgärds länk under **åtgärder** för att avbryta pipeline-körningen. 
+2. Övervaka pipelinekörningarna genom att följa anvisningarna i avsnittet [Övervaka pipelinen](#monitor-the-pipeline). När status för pipelinen **pågår** , ser du en annan åtgärds länk under **åtgärder** för att avbryta pipeline-körningen. 
 
 3. Välj **Uppdatera** om du vill uppdatera listan tills pipelinekörningen lyckas. 
 
@@ -994,5 +994,3 @@ Fortsätt till följande självstudie och lär dig att transformera data med ett
 
 > [!div class="nextstepaction"]
 >[Läs in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsteknik](tutorial-incremental-copy-change-tracking-feature-powershell.md)
-
-

@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 9b331ccee183ec101cf3449f12b4f656a1325819
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c817194bbe0e4cf211992920bad9deb40bf05f4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84118100"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632217"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Felsöka paket körning i SSIS integration runtime
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller de vanligaste fel som kan uppstå när du kör SQL
 
 Använd Azure Data Factory Portal för att kontrol lera utdata från körnings aktiviteten för SSIS-paketet. I utdata ingår körnings resultat, fel meddelanden och åtgärds-ID. Mer information finns i [övervaka pipelinen](how-to-invoke-ssis-package-ssis-activity.md#monitor-the-pipeline).
 
-Använd SSIS-katalogen (SSISDB) för att kontrol lera informations loggarna för körningen. Mer information finns i [övervaka paket som körs och andra åtgärder](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017).
+Använd SSIS-katalogen (SSISDB) för att kontrol lera informations loggarna för körningen. Mer information finns i [övervaka paket som körs och andra åtgärder](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017).
 
 ## <a name="common-errors-causes-and-solutions"></a>Vanliga fel, orsaker och lösningar
 
@@ -56,7 +56,7 @@ Den potentiella orsaken är att ADO.NET-providern som används i paketet inte ä
 
 ### <a name="error-message-the-connection--is-not-found"></a>Fel meddelande: "anslutningen"... hittades inte "
 
-Ett känt problem i äldre versioner av SQL Server Management Studio (SSMS) kan orsaka det här felet. Om paketet innehåller en anpassad komponent (till exempel SSIS Azure Feature Pack eller partnerkomponenter) som inte är installerad på den dator där SSMS används för att utföra distributionen, tar SSMS bort komponenten och orsakar felet. Uppgradera [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) till den senaste versionen där problemet är korrigerat.
+Ett känt problem i äldre versioner av SQL Server Management Studio (SSMS) kan orsaka det här felet. Om paketet innehåller en anpassad komponent (till exempel SSIS Azure Feature Pack eller partnerkomponenter) som inte är installerad på den dator där SSMS används för att utföra distributionen, tar SSMS bort komponenten och orsakar felet. Uppgradera [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) till den senaste versionen där problemet är korrigerat.
 
 ### <a name="error-messagessis-executor-exit-code--1073741819"></a>Fel meddelande: "SSIS utförar avslutning Code:-1073741819".
 
@@ -91,17 +91,17 @@ Det här felet innebär att den lokala disken används i SSIS-noden för integra
 Det här felet uppstår när paket körningen inte kan hitta en fil på den lokala disken i SSIS integration Runtime. Försök med följande åtgärder:
 * Använd inte den absoluta sökvägen i paketet som körs i SSIS integration Runtime. Använd den aktuella körnings arbets katalogen (.) eller Temp-mappen (% TEMP%) i stället.
 * Om du behöver spara några filer på SSIS-noderna för integration runtime förbereder du filerna enligt beskrivningen i [Anpassa installationen](how-to-configure-azure-ssis-ir-custom-setup.md). Alla filer i arbets katalogen kommer att rensas när körningen har slutförts.
-* Använd Azure Files i stället för att lagra filen i SSIS integration runtime-noden. Mer information finns i [använda Azure-filresurser](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-files-file-shares?view=sql-server-2017#use-azure-file-shares).
+* Använd Azure Files i stället för att lagra filen i SSIS integration runtime-noden. Mer information finns i [använda Azure-filresurser](/sql/integration-services/lift-shift/ssis-azure-files-file-shares?view=sql-server-2017#use-azure-file-shares).
 
 ### <a name="error-message-the-database-ssisdb-has-reached-its-size-quota"></a>Fel meddelande: "databasen SSISDB har nått sin storleks kvot"
 
 En möjlig orsak är att SSISDB-databasen som skapades i Azure SQL Database eller i SQL-hanterad instans har nått sin kvot. Försök med följande åtgärder:
-* Överväg att öka antalet DTU:er för din databas. Du hittar mer information i [SQL Database gränser för en logisk server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+* Överväg att öka antalet DTU:er för din databas. Du hittar mer information i [SQL Database gränser för en logisk server](../azure-sql/database/resource-limits-logical-server.md).
 * Kontrollera om ditt paket skulle generera många loggar. I så fall kan du konfigurera ett elastiskt jobb så att dessa loggar rensas. Mer information finns i [Rensa SSISDB-loggar med Azure Elastic Database-jobb](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md).
 
 ### <a name="error-message-the-request-limit-for-the-database-is--and-has-been-reached"></a>Fel meddelande: "gränsen för begäran för databasen är... och har nåtts. "
 
-Om många paket körs parallellt i SSIS-integrerings körningen kan det här felet inträffa eftersom SSISDB har nått sin gräns för begäran. Överväg att öka DTC-SSISDB för att lösa problemet. Du hittar mer information i [SQL Database gränser för en logisk server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+Om många paket körs parallellt i SSIS-integrerings körningen kan det här felet inträffa eftersom SSISDB har nått sin gräns för begäran. Överväg att öka DTC-SSISDB för att lösa problemet. Du hittar mer information i [SQL Database gränser för en logisk server](../azure-sql/database/resource-limits-logical-server.md).
 
 ### <a name="error-message-ssis-operation-failed-with-unexpected-operation-status-"></a>Fel meddelande: "SSIS-åtgärden misslyckades med oväntad åtgärds status:..."
 
@@ -113,7 +113,7 @@ Felet orsakas oftast av ett tillfälligt problem, så försök att köra paket k
 
 ### <a name="error-message-there-is-no-active-worker"></a>Fel meddelande: "det finns ingen aktiv arbets rutin".
 
-Det här felet innebär vanligt vis att SSIS integration Runtime har en felaktig status. Kontrol lera Azure Portal för status och detaljerade fel. Mer information finns i [Azure-SSIS integration runtime](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime).
+Det här felet innebär vanligt vis att SSIS integration Runtime har en felaktig status. Kontrol lera Azure Portal för status och detaljerade fel. Mer information finns i [Azure-SSIS integration runtime](./monitor-integration-runtime.md#azure-ssis-integration-runtime).
 
 ### <a name="error-message-your-integration-runtime-cannot-be-upgraded-and-will-eventually-stop-working-since-we-cannot-access-the-azure-blob-container-you-provided-for-custom-setup"></a>Fel meddelande: "det går inte att uppgradera integrerings körningen och upphör att fungera, eftersom det inte går att komma åt Azure Blob-behållaren som du angav för anpassad installation."
 
@@ -123,16 +123,16 @@ Felet uppstår när SSIS-integrerings körningen inte kan komma åt lagrings utr
 
 En möjlig orsak är att användar namnet eller lösen ordet med Azure Multi-Factor Authentication aktiverat har kon figurer ATS för Azure Analysis Services autentisering. Den här autentiseringen stöds inte i integrerings körningen för SSIS. Försök att använda ett huvud namn för tjänsten för Azure Analysis Services autentisering:
 
-1. Förbered ett huvud namn för tjänsten enligt beskrivningen i [Automation med tjänstens huvud namn](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal).
-2. I anslutnings hanteraren konfigurerar du **Använd ett särskilt användar namn och lösen ord**: ange **AppID** som användar namn och **clientSecret** som lösen ord.
+1. Förbered ett huvud namn för tjänsten enligt beskrivningen i [Automation med tjänstens huvud namn](../analysis-services/analysis-services-service-principal.md).
+2. I anslutnings hanteraren konfigurerar du **Använd ett särskilt användar namn och lösen ord** : ange **AppID** som användar namn och **clientSecret** som lösen ord.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Fel meddelande: "ADONET-källan kunde inte hämta anslutningen {GUID} med följande fel meddelande: inloggningen misslyckades för användarens NT AUTHORITY\ANONYMOUS-inloggning" "när en hanterad identitet används
 
-Se till att du inte konfigurerar autentiseringsmetoden för anslutnings hanteraren som **Active Directory** lösenordsautentisering när parametern *ConnectUsingManagedIdentity* är **True**. Du kan konfigurera den som **SQL-autentisering** i stället, vilket ignoreras om *ConnectUsingManagedIdentity* har angetts.
+Se till att du inte konfigurerar autentiseringsmetoden för anslutnings hanteraren som **Active Directory** lösenordsautentisering när parametern *ConnectUsingManagedIdentity* är **True** . Du kan konfigurera den som **SQL-autentisering** i stället, vilket ignoreras om *ConnectUsingManagedIdentity* har angetts.
 
 ### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>Fel meddelande: "0xC020801F vid..., OData-Källa [...]: det går inte att hämta en hanterad anslutning från kör tids anslutnings hanteraren"
 
-En möjlig orsak är att Transport Layer Security (TLS) inte är aktiverat i SSIS integration runtime som krävs av din OData-källa. Du kan aktivera TLS i SSIS integration runtime genom att använda anpassa installationen. Mer information finns på [det går inte att ansluta Project Online OData från SSIS](https://docs.microsoft.com/office365/troubleshoot/cant-connect-project-online-odata-from-ssis) och [Anpassa installationen för integrerings körningen för Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
+En möjlig orsak är att Transport Layer Security (TLS) inte är aktiverat i SSIS integration runtime som krävs av din OData-källa. Du kan aktivera TLS i SSIS integration runtime genom att använda anpassa installationen. Mer information finns på [det går inte att ansluta Project Online OData från SSIS](/office365/troubleshoot/cant-connect-project-online-odata-from-ssis) och [Anpassa installationen för integrerings körningen för Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 ### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>Fel meddelande: "begär mellanlagrings uppgift med åtgärds-GUID... misslyckades eftersom fel: det gick inte att skicka mellanlagrings åtgärd med fel meddelande: Microsoft. SqlServer. IntegrationServices. AisAgentCore. AisAgentException: det gick inte att läsa in dataproxy.
 
@@ -154,7 +154,7 @@ En möjlig orsak är att Self-Hosted integration runtime inte har installerats e
 
 * Möjlig orsak och rekommenderad åtgärd:
   * Om det också finns ett varnings meddelande om att komponenten inte stöder användning av anslutnings hanteraren med värdet true i ConnectByProxy i körnings loggen, innebär det att en anslutnings hanterare används på en komponent som inte har stöd för "ConnectByProxy" än. De komponenter som stöds finns i [konfigurera Self-Hosted IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-connect-by-proxy)
-  * Du kan hitta körnings loggen i [SSMS-rapporten](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) eller i den loggfil som du angav i SSIS-paketets körnings aktivitet.
+  * Du kan hitta körnings loggen i [SSMS-rapporten](/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) eller i den loggfil som du angav i SSIS-paketets körnings aktivitet.
   * vNet kan också användas för att komma åt lokala data som ett alternativ. Mer information finns i delta i en [Azure-SSIS integration runtime till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md)
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Fel meddelande: "status för mellanlagring av aktivitet: misslyckades. Fel vid mellanlagring: felkod: 2906, ErrorMessage: det gick inte att köra paketet., utdata: {"OperationErrorMessages": "SSIS utförar slutkod:-1. \ n", "LogLocation": "... \\ SSISTelemetry \\ ExecutionLog \\ ... "," effectiveIntegrationRuntime ":"... "," executionDuration ":...," durationInQueue ": {" integrationRuntimeQueue ":...}}"
@@ -165,7 +165,7 @@ Kontrol lera att Visual C++ runtime är installerat på Self-Hosted integration 
 
 * Möjlig orsak och rekommenderad åtgärd:
   * ADF-lagrad procedur aktivitet eller söknings aktivitet används för att utlösa körning av SSIS-paket. T-SQL-kommandot kan nå ett tillfälligt problem och utlösa omkörningen vilket skulle orsaka flera paket körningar.
-  * Använd ExecuteSSISPackage-aktivitet i stället för att se till att paket körningen inte körs igen om inte antalet nya försök i aktiviteten. Information finns på [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+  * Använd ExecuteSSISPackage-aktivitet i stället för att se till att paket körningen inte körs igen om inte antalet nya försök i aktiviteten. Information finns på [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](./how-to-invoke-ssis-package-ssis-activity.md)
   * Förfina t-SQL-kommandot för att kunna köra igen genom att kontrol lera om en körning redan har utlösts
 
 ### <a name="package-execution-takes-too-long"></a>Paket körningen tar för lång tid
@@ -187,7 +187,7 @@ Försök med följande åtgärder:
 
 * Se till att integration runtime för SSIS finns i samma region som data källan och målet.
 
-* Ange loggnings nivå för paket körning till **prestanda** för att samla in varaktighets information för varje komponent i körningen. Mer information finns i [loggning av integrerings tjänster (SSIS)](https://docs.microsoft.com/sql/integration-services/performance/integration-services-ssis-logging).
+* Ange loggnings nivå för paket körning till **prestanda** för att samla in varaktighets information för varje komponent i körningen. Mer information finns i [loggning av integrerings tjänster (SSIS)](/sql/integration-services/performance/integration-services-ssis-logging).
 
 * Kontrol lera prestanda för IR-nod i Azure Portal:
   * Information om hur du övervakar SSIS integration runtime finns i [Azure-SSIS integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).

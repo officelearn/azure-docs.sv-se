@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 6b79b2722438403e29851d3a87929ddc67eef727
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123757"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632812"
 ---
 # <a name="managed-identity-for-data-factory"></a>Hanterad identitet för Data Factory
 
@@ -39,9 +39,9 @@ Hanterad identitet för Data Factory fördelar följande funktioner:
 
 Hanterad identitet för Data Factory genereras på följande sätt:
 
-- När du skapar Data Factory via **Azure Portal eller PowerShell**skapas alltid hanterad identitet automatiskt.
-- När du skapar Data Factory via **SDK**skapas hanterad identitet endast om du anger "identitet = New FactoryIdentity ()" i objektet Factory för att skapa. Se exempel i [.net snabb start – skapa data fabrik](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- När du skapar Data Factory via **REST API**skapas hanterad identitet endast om du anger avsnittet "identitet" i begär ande texten. Se exempel i [rest-snabb start – skapa data fabrik](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- När du skapar Data Factory via **Azure Portal eller PowerShell** skapas alltid hanterad identitet automatiskt.
+- När du skapar Data Factory via **SDK** skapas hanterad identitet endast om du anger "identitet = New FactoryIdentity ()" i objektet Factory för att skapa. Se exempel i [.net snabb start – skapa data fabrik](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- När du skapar Data Factory via **REST API** skapas hanterad identitet endast om du anger avsnittet "identitet" i begär ande texten. Se exempel i [rest-snabb start – skapa data fabrik](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
 Om du hittar din data fabrik inte har en hanterad identitet som är kopplad till följande [Hämta hanterad identitets](#retrieve-managed-identity) instruktion kan du uttryckligen generera en genom att uppdatera data fabriken med identitets initieraren program mässigt:
 
@@ -79,7 +79,7 @@ Anropa nedanstående API med avsnittet "Identity" i begär ande texten:
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**Brödtext i begäran**: Lägg till "identitet": {"typ": "SystemAssigned"}.
+**Brödtext i begäran** : Lägg till "identitet": {"typ": "SystemAssigned"}.
 
 ```json
 {
@@ -92,7 +92,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Svar**: hanterad identitet skapas automatiskt och avsnittet "Identity" fylls i.
+**Svar** : hanterad identitet skapas automatiskt och avsnittet "Identity" fylls i.
 
 ```json
 {
@@ -117,7 +117,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Skapa hanterad identitet med hjälp av en Azure Resource Manager mall
 
-**Mall**: Lägg till "identitet": {"typ": "SystemAssigned"}.
+**Mall** : Lägg till "identitet": {"typ": "SystemAssigned"}.
 
 ```json
 {
@@ -201,7 +201,7 @@ Anropa nedanstående API i begäran:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**Svar**: du får svar som visas i exemplet nedan. Avsnittet "identitet" fylls i på motsvarande sätt.
+**Svar** : du får svar som visas i exemplet nedan. Avsnittet "identitet" fylls i på motsvarande sätt.
 
 ```json
 {
@@ -252,4 +252,4 @@ Se följande avsnitt som introducerar när och hur du använder Data Factory-han
 - [Lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md)
 - [Kopiera data från/till Azure Data Lake Store med hanterade identiteter för Azure-resurser autentisering](connector-azure-data-lake-store.md)
 
-Mer bakgrunds information om hanterade identiteter för Azure-resurser finns i [Översikt över Managed identiteter för Azure](/azure/active-directory/managed-identities-azure-resources/overview) -resurser, vilken Data Factory-hanterad identitet baseras på. 
+Mer bakgrunds information om hanterade identiteter för Azure-resurser finns i [Översikt över Managed identiteter för Azure](../active-directory/managed-identities-azure-resources/overview.md) -resurser, vilken Data Factory-hanterad identitet baseras på.

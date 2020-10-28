@@ -7,15 +7,14 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 4e9ea34317951ecd9d3b6649ce42ffcf2f476d03
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6fff19498e9ca70991d3190165df70a48136f502
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149229"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631146"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introduktion till Azure App Service-miljöer #
- 
 ## <a name="overview"></a>Översikt ##
 
 Azure App Service-miljön är en funktion i Azure App Service som ger en helt isolerad och dedikerad miljö där du kan köra App Service-appar säkert på hög nivå. Den här funktionen kan vara värd för:
@@ -24,7 +23,7 @@ Azure App Service-miljön är en funktion i Azure App Service som ger en helt is
 * Linux-webbappar 
 * Docker-containrar
 * Mobilappar
-* Funktioner
+* Functions
 
 App Service-miljöer (ASE) är lämpliga för programarbetsbelastningar som kräver:
 
@@ -32,7 +31,7 @@ App Service-miljöer (ASE) är lämpliga för programarbetsbelastningar som krä
 * Isolering och säker nätverksåtkomst.
 * Hög minnesanvändning.
 
-Kunderna kan skapa flera ASE-miljöer inom en enda Azure-region eller över flera Azure-regioner. Den här flexibiliteten gör ASE-miljöer perfekta för vågrätt skalning av tillståndslösa programnivåer med stöd för höga RPS-arbetsbelastningar.
+Kunderna kan skapa flera ASE-miljöer inom en enda Azure-region eller över flera Azure-regioner. Den här flexibiliteten gör ASE perfekt för horisontell skalning av tillstånds lösa program nivåer i stöd för arbets belastningar med hög begär Anden per sekund (RPS).
 
 ASE värd program från endast en kund och gör det i någon av deras virtuella nätverk. Kunderna har detaljerad kontroll över inkommande och utgående programnätverkstrafik. Programmen kan upprätta säkra anslutningar med hög hastighet över VPN till lokala företagsresurser.
 

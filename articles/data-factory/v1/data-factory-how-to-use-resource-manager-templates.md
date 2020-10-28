@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e94445a6cb16eacb496daedbec21379928a4dafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5df2f9cd0a47e5a89d7ff2eb12aefe593cae7a8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194466"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631486"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Använda mallar för att skapa Azure Data Factory entiteter
 > [!NOTE]
@@ -228,7 +228,7 @@ I [definiera pipeliner](data-factory-create-pipelines.md#pipeline-json) finns me
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Parametriserad Data Factory mall
-Metod tips för hur du använder parametrar finns i [metod tips för att skapa Azure Resource Manager mallar](../../azure-resource-manager/resource-manager-template-best-practices.md). I allmänhet bör parameter användningen minimeras, särskilt om variabler kan användas i stället. Ange endast parametrar i följande scenarier:
+Metod tips för hur du använder parametrar finns i [metod tips för att skapa Azure Resource Manager mallar](../../azure-resource-manager/templates/template-best-practices.md). I allmänhet bör parameter användningen minimeras, särskilt om variabler kan användas i stället. Ange endast parametrar i följande scenarier:
 
 * Inställningarna varierar beroende på miljö (exempel: utveckling, testning och produktion)
 * Hemligheter (till exempel lösen ord)

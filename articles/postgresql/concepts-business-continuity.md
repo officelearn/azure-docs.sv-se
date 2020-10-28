@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 5fb82c6098352076307f71eee022074a247e3cd9
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939876"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629348"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Översikt över affärs kontinuitet med Azure Database for PostgreSQL-enskild server
 
@@ -29,9 +29,9 @@ I följande tabell jämförs RTO och återställnings punkt i ett typiskt scenar
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Återställning till tidpunkt från säkerhetskopia | Alla återställnings punkter inom kvarhållningsperioden | Alla återställnings punkter inom kvarhållningsperioden | Alla återställnings punkter inom kvarhållningsperioden |
 | Geo-återställning från geo-replikerade säkerhets kopieringar | Stöds inte | RTO – varierar <br/>Återställnings < 1 h | RTO – varierar <br/>Återställnings < 1 h |
-| Skrivskyddade repliker | RTO – minuter <br/>Återställnings < 5 min * | RTO – minuter <br/>Återställnings < 5 min *| RTO – minuter <br/>Återställnings < 5 min *|
+| Skrivskyddade repliker | RTO-minuter * <br/>Återställnings < 5 min * | RTO-minuter * <br/>Återställnings < 5 min *| RTO-minuter * <br/>Återställnings < 5 min *|
 
-\* Återställningen kan vara högre i vissa fall, beroende på olika faktorer, inklusive primär databasens arbets belastning och svars tid mellan regioner. 
+\* RTO och återställningen kan vara mycket högre i vissa fall, beroende på olika faktorer, inklusive primär databasens arbets belastning och svars tid mellan regioner. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Återställa en server efter ett användar-eller program fel
 
@@ -58,7 +58,7 @@ Funktionen geo-Restore återställer servern med geo-redundanta säkerhets kopie
 ## <a name="cross-region-read-replicas"></a>Läs repliker i flera regioner
 Du kan använda en oberoende region för att läsa och förbättra verksamhets kontinuiteten och Disaster Recovery-planeringen. Läs repliker uppdateras asynkront med hjälp av PostgreSQL-teknik för fysisk replikering. Lär dig mer om Läs repliker, tillgängliga regioner och hur du växlar över från [artikeln Läs repliker](concepts-read-replicas.md). 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 ### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Var lagrar Azure Database for PostgreSQL kund information?
 Som standard flyttar Azure Database for PostgreSQL eller lagrar inte kund information från den region som den distribueras i. Kunder kan dock välja att aktivera [geo-redundanta säkerhets kopieringar](concepts-backup.md#backup-redundancy-options) eller skapa en [skrivskyddad replik i flera regioner](concepts-read-replicas.md#cross-region-replication) för att lagra data i en annan region.
 

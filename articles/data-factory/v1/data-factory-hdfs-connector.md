@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e3f158bb4e8208d00fdfbc44b4afaf067183b6d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f22d5ddd35d5d0cba48f0d236b28fabae02a966a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087324"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631605"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Flytta data från en lokal HDFS med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -44,12 +44,12 @@ Data Factory tjänsten stöder anslutning till lokal HDFS med hjälp av Data Man
 
 Även om du kan installera gateway på samma lokala dator eller den virtuella Azure-datorn som HDFS, rekommenderar vi att du installerar gatewayen på en separat dator/Azure IaaS VM. Att ha en gateway på en annan dator minskar resurs konkurrens och förbättrar prestandan. När du installerar gatewayen på en separat dator ska datorn kunna komma åt datorn med HDFS.
 
-## <a name="getting-started"></a>Komma igång
+## <a name="getting-started"></a>Kom igång
 Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från en HDFS-källa med hjälp av olika verktyg/API: er.
 
-Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
+Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera** . Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, **.NET API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure Portal** , **Visual Studio** , **Azure PowerShell** , **Azure Resource Manager mall** , **.NET API** och **REST API** . Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
 
@@ -72,7 +72,7 @@ En länkad tjänst länkar ett data lager till en data fabrik. Du skapar en län
 | userName |Användar namn för Windows-autentisering. För Kerberos-autentisering anger du `<username>@<domain>.com` . |Ja (för Windows-autentisering) |
 | password |Lösen ord för Windows-autentisering. |Ja (för Windows-autentisering) |
 | gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till HDFS. |Ja |
-| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) utdata från autentiseringsuppgifterna för åtkomst. |Inga |
+| encryptedCredential |[New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) utdata från autentiseringsuppgifterna för åtkomst. |Nej |
 
 ### <a name="using-anonymous-authentication"></a>Använda anonym autentisering
 
@@ -120,10 +120,10 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning och i
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | folderPath |Sökväg till mappen. Exempel: `myfolder`<br/><br/>Använd escape-tecknet "\" för specialtecken i strängen. Exempel: för folder\subfolder, anger du \\ \\ undermappen mapp och för d:\samplefolder, anger du d: \\ \\ samplefolder.<br/><br/>Du kan kombinera den här egenskapen med **partitionby kolumndefinitionerna** för att ha mappsökvägar baserat på sektors start/slutdatum-gånger. |Ja |
-| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: <br/><br/>`Data.<Guid>.txt` (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Inga |
-| partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath, fil namn för Time Series-data. Exempel: folderPath-parameter för varje timme med data. |Inga |
-| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |Inga |
-| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
+| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: <br/><br/>`Data.<Guid>.txt` (till exempel:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nej |
+| partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath, fil namn för Time Series-data. Exempel: folderPath-parameter för varje timme med data. |Nej |
+| format | Följande format typer **stöds: text** format, **JsonFormat** , **AvroFormat** , **OrcFormat** , **ParquetFormat** . Ange egenskapen **Type** under format till något av dessa värden. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet format](data-factory-supported-file-and-compression-formats.md#parquet-format) -avsnitt. <br><br> Om du vill **Kopiera filer som är** mellan filbaserade butiker (binär kopia), hoppar du över avsnittet format i definitionerna för in-och utdata-datauppsättningar. |Nej |
+| komprimering | Ange typ och nivå för komprimeringen för data. De typer som stöds är: **gzip** , **DEFLATE** , **BZip2** och **ZipDeflate** . De nivåer som stöds är: **optimalt** och **snabbast** . Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 > [!NOTE]
 > Det går inte att använda filename och fileFilter samtidigt.
@@ -170,7 +170,7 @@ För kopierings aktiviteten, när källan är av typen **FileSystemSource** , fi
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant, falskt (standard) |Inga |
+| rekursiva |Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. |Sant, falskt (standard) |Nej |
 
 ## <a name="supported-file-and-compression-formats"></a>Fil- och komprimeringsformat som stöds
 Se [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikel om information.
@@ -308,7 +308,7 @@ Data skrivs till en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsö
 
 **En kopierings aktivitet i en pipeline med fil system källa och blob-mottagare:**
 
-Pipelinen innehåller en kopierings aktivitet som är konfigurerad för att använda dessa data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **FileSystemSource** och **mottagar** typ är inställd på **BlobSink**. SQL-frågan som anges för egenskapen **fråga** väljer data under den senaste timmen som ska kopieras.
+Pipelinen innehåller en kopierings aktivitet som är konfigurerad för att använda dessa data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **FileSystemSource** och **mottagar** typ är inställd på **BlobSink** . SQL-frågan som anges för egenskapen **fråga** väljer data under den senaste timmen som ska kopieras.
 
 ```JSON
 {
@@ -457,7 +457,7 @@ Det finns två alternativ för att konfigurera den lokala miljön så att den an
     C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
     ```
 
-2.  Upprätta förtroende från Windows-domän till Kerberos-sfär. [Password] är lösen ordet för det primära **KRBTGT/REALM. COM- \@ AD.com**.
+2.  Upprätta förtroende från Windows-domän till Kerberos-sfär. [Password] är lösen ordet för det primära **KRBTGT/REALM. COM- \@ AD.com** .
 
     ```cmd
     C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
@@ -467,7 +467,7 @@ Det finns två alternativ för att konfigurera den lokala miljön så att den an
 
     1. Gå till Serverhanteraren > grupprincip hantering > domän > grupprincip objekt > standard princip eller aktiv domän princip och redigera.
 
-    2. I popup-fönstret **redigeraren Grupprinciphantering** går du till dator konfiguration > principer > Windows-inställningar > säkerhets inställningar > lokala principer > säkerhets alternativ och konfigurerar **nätverks säkerhet: Konfigurera krypterings typer som tillåts för Kerberos**.
+    2. I popup-fönstret **redigeraren Grupprinciphantering** går du till dator konfiguration > principer > Windows-inställningar > säkerhets inställningar > lokala principer > säkerhets alternativ och konfigurerar **nätverks säkerhet: Konfigurera krypterings typer som tillåts för Kerberos** .
 
     3. Välj den krypteringsalgoritm som du vill använda när du ansluter till KDC. Vanligt vis kan du bara välja alla alternativ.
 
@@ -481,9 +481,9 @@ Det finns två alternativ för att konfigurera den lokala miljön så att den an
 
 4.  Skapa mappningen mellan domän kontot och Kerberos-huvudobjektet för att använda Kerberos-huvudobjektet i Windows-domänen.
 
-    1. Starta administrations verktygen > **Active Directory användare och datorer**.
+    1. Starta administrations verktygen > **Active Directory användare och datorer** .
 
-    2. Konfigurera avancerade funktioner genom att klicka på **Visa**  >  **avancerade funktioner**.
+    2. Konfigurera avancerade funktioner genom att klicka på **Visa**  >  **avancerade funktioner** .
 
     3. Leta upp det konto som du vill skapa mappningar för och högerklicka för att visa **namn mappningar** > Klicka på fliken **Kerberos-namn** .
 

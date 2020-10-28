@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: a6faac66edaaf047f5ba025e94a1522c2313f9ed
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c21b4d746d763f41f4360cf93f67939bcd6dc49f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546678"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632693"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure privat länk för Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Med hjälp av en privat Azure-länk kan du ansluta till olika PaaS-distributioner (Platform as a Service) i Azure via en privat slut punkt. En privat slut punkt är en privat IP-adress inom ett särskilt virtuellt nätverk och undernät. En lista över PaaS-distributioner som stöder funktionen för privat länk finns i [dokumentationen för privat länk](https://docs.microsoft.com/azure/private-link/). 
+Med hjälp av en privat Azure-länk kan du ansluta till olika PaaS-distributioner (Platform as a Service) i Azure via en privat slut punkt. En privat slut punkt är en privat IP-adress inom ett särskilt virtuellt nätverk och undernät. En lista över PaaS-distributioner som stöder funktionen för privat länk finns i [dokumentationen för privat länk](../private-link/index.yml). 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>Säker kommunikation mellan kund nätverk och Azure Data Factory 
 Du kan konfigurera ett virtuellt Azure-nätverk som en logisk representation av ditt nätverk i molnet. Detta ger följande fördelar:
@@ -67,7 +67,7 @@ Att aktivera tjänsten för privata Länkar för var och en av de föregående k
 > När du skapar en länkad tjänst ser du till att dina autentiseringsuppgifter lagras i ett Azure Key Vault. Annars fungerar inte autentiseringsuppgifterna när du aktiverar privat länk i Azure Data Factory.
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Konfigurera en privat länk för Azure Data Factory
-Du kan skapa privata slut punkter med hjälp av [Azure Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+Du kan skapa privata slut punkter med hjälp av [Azure Portal](../private-link/create-private-endpoint-portal.md).
 
 Du kan också gå till Azure Data Factory i Azure Portal och skapa en privat slut punkt, som du ser här:
 
@@ -89,4 +89,3 @@ Om du vill blockera offentlig åtkomst till Azure Data Factory och bara tillåta
 - [Skapa en data fabrik med hjälp av Azure Data Factory gränssnittet](quickstart-create-data-factory-portal.md)
 - [Introduktion till Azure Data Factory](introduction.md)
 - [Visuell redigering i Azure Data Factory](author-visually.md)
-

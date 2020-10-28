@@ -10,12 +10,12 @@ author: linda33wj
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 6f0a1509a97d2d860b43146ffaf69bb241105910
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc10017da8561cda09658ec9380cc82095f3ef94
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194634"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632240"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Använd PowerShell för att skapa en Data Factory-pipeline för att kopiera data från SQL Server till Azure
 
@@ -25,11 +25,11 @@ Det här exemplet på PowerShell-skriptet skapar en pipeline i Azure Data Factor
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- **SQL Server**. Du använder en SQL Server databas som **käll** data lager i det här exemplet.
-- **Azure Storage konto**. Du använder Azure Blob Storage som data lager för **destination/mottagare** i det här exemplet. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
-- **Integration runtime med egen värd**. Ladda ned MSI-filen från [Download Center](https://www.microsoft.com/download/details.aspx?id=39717) och kör den för att installera en lokal integration runtime på din dator.  
+- **SQL Server** . Du använder en SQL Server databas som **käll** data lager i det här exemplet.
+- **Azure Storage konto** . Du använder Azure Blob Storage som data lager för **destination/mottagare** i det här exemplet. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
+- **Integration runtime med egen värd** . Ladda ned MSI-filen från [Download Center](https://www.microsoft.com/download/details.aspx?id=39717) och kör den för att installera en lokal integration runtime på din dator.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Skapa exempel databas i SQL Server
 1. I SQL Server-databasen skapar du en tabell med namnet **EMP** med hjälp av följande SQL-skript:
@@ -77,7 +77,7 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 I det här skriptet används följande kommandon:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Skapa en datafabrik. |
@@ -92,6 +92,6 @@ I det här skriptet används följande kommandon:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
+Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/).
 
 Ytterligare Azure Data Factory PowerShell-skript exempel finns i [Azure Data Factory PowerShell-exempel](../samples-powershell.md).

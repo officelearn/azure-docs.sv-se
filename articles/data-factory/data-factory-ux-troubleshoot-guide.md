@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: 9f23155df6d9e63448b35974c331bf78c3e5f90c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bd0421a74679ff0c9498540d722a74ebf3d58af
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426238"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632575"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Felsöka problem med Azure Data Factory UX
 
@@ -42,7 +42,7 @@ ADF UX använder webbläsarens cookies för att spara användarsessionen och akt
 
 #### <a name="only-allow-adf-ux-to-use-cookies"></a>Tillåt endast att ADF-UX använder cookies
 Om du inte vill tillåta alla cookies kan du välja att bara tillåta ADF-UX:
-1. Besök **Chrome://settings/cookies**.
+1. Besök **Chrome://settings/cookies** .
 1. Välj alternativet **Lägg till** under **platser som alltid kan använda cookies** 
 
     ![Lägg till ADF-UX till tillåtna platser i Chrome](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png)
@@ -63,7 +63,7 @@ Om du inte vill tillåta alla cookies kan du välja att bara tillåta ADF-UX:
 
 Om du inte vill tillåta alla cookies kan du välja att bara tillåta ADF-UX:
 
-1. Besök **Edge://Settings/Content/cookies**.
+1. Besök **Edge://Settings/Content/cookies** .
 1. Under avsnittet **Tillåt** väljer du **Lägg till** och Lägg till **ADF.Azure.com** -plats. 
 
     ![Lägg till ADF-UX till tillåtna platser i Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
@@ -71,17 +71,17 @@ Om du inte vill tillåta alla cookies kan du välja att bara tillåta ADF-UX:
 
 ## <a name="connection-failed-on-adf-ux"></a>Anslutningen misslyckades på ADF-UX
 
-Ibland ser du "anslutningen misslyckades" fel på ADF-UX som liknar skärm bilden nedan efter att ha klickat på **Testa anslutning**, för **hands version**osv.
+Ibland ser du "anslutningen misslyckades" fel på ADF-UX som liknar skärm bilden nedan efter att ha klickat på **Testa anslutning** , för **hands version** osv.
 
 ![Anslutningen misslyckades](media/data-factory-ux-troubleshoot-guide/connection-failed.png)
 
 I så fall kan du först testa samma åtgärd med InPrivate-bläddringsläge i webbläsaren.
 
-Om det fortfarande inte fungerar går du till webbläsaren och trycker på F12 för att öppna **utvecklarverktyg**. Gå till fliken **nätverk** , markera **inaktivera cache**, försök utföra åtgärden igen och leta upp den misslyckade begäran (i rött).
+Om det fortfarande inte fungerar går du till webbläsaren och trycker på F12 för att öppna **utvecklarverktyg** . Gå till fliken **nätverk** , markera **inaktivera cache** , försök utföra åtgärden igen och leta upp den misslyckade begäran (i rött).
 
 ![Misslyckad begäran](media/data-factory-ux-troubleshoot-guide/failed-request.png)
 
-Leta sedan upp **värd namnet** (i det här fallet **Dpnortheurope.svc.DataFactory.Azure.com**) från **begär ande-URL:** en för den misslyckade begäran.
+Leta sedan upp **värd namnet** (i det här fallet **Dpnortheurope.svc.DataFactory.Azure.com** ) från **begär ande-URL:** en för den misslyckade begäran.
 
 Skriv **värd namnet** direkt i webbläsarens Adress fält. Om du ser 404 i webbläsaren innebär det vanligt vis att din klient sida är OK och att problemet är på sidan för ADF-tjänsten. File a Support Ticket med **aktivitets-ID: t** från fel meddelandet i ADF-UX.
 
@@ -91,7 +91,7 @@ Om inte, eller om du ser liknande fel nedan i webbläsaren, innebär detta vanli
 
 ![Fel på klient Sidan](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
 
-Öppna **kommando tolken** och skriv **nslookup-dpnortheurope.svc.DataFactory.Azure.com**. Ett normalt svar bör se ut så här:
+Öppna **kommando tolken** och skriv **nslookup-dpnortheurope.svc.DataFactory.Azure.com** . Ett normalt svar bör se ut så här:
 
 ![Kommando svar 1](media/data-factory-ux-troubleshoot-guide/command-response-1.png)
 
@@ -120,4 +120,4 @@ Om du vill ha mer fel söknings hjälp kan du prova följande resurser:
 * [Stack Overflow forum för Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter-information om Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Azure-videor](https://azure.microsoft.com/resources/videos/index/)
-* [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+* [Sidan Microsoft Q&en fråga](/answers/topics/azure-data-factory.html)

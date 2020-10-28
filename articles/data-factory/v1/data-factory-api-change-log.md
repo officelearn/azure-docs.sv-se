@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: b7936fcd1e4a629a813c4266920f6c34a15cf9b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e468007e0e5ea849ac4d7f945b0aaf6377e580
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438950"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633815"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory-.NET API-ändrings logg
 > [!NOTE]
@@ -29,52 +29,52 @@ Den här artikeln innehåller information om ändringar i Azure Data Factory SDK
 Funktions tillägg:
 
 * Följande länkade tjänst typer har lagts till:
-  * [OnPremisesMongoDbLinkedService](https://msdn.microsoft.com/library/mt765129.aspx)
-  * [AmazonRedshiftLinkedService](https://msdn.microsoft.com/library/mt765121.aspx)
-  * [AwsAccessKeyLinkedService](https://msdn.microsoft.com/library/mt765144.aspx)
+  * [OnPremisesMongoDbLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.onpremisesmongodblinkedservice)
+  * [AmazonRedshiftLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.amazonredshiftlinkedservice)
+  * [AwsAccessKeyLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.awsaccesskeylinkedservice)
 * Följande typer av data uppsättningar har lagts till:
-  * [MongoDbCollectionDataset](https://msdn.microsoft.com/library/mt765145.aspx)
-  * [AmazonS3Dataset](https://msdn.microsoft.com/library/mt765112.aspx)
+  * [MongoDbCollectionDataset](/dotnet/api/microsoft.azure.management.datafactories.models.mongodbcollectiondataset)
+  * [AmazonS3Dataset](/dotnet/api/microsoft.azure.management.datafactories.models.amazons3dataset)
 * Följande kopierings käll typer har lagts till:
-  * [MongoDbSource](https://msdn.microsoft.com/library/mt765123.aspx)
+  * [MongoDbSource](/dotnet/api/microsoft.azure.management.datafactories.models.mongodbsource)
 
 ## <a name="version-4100"></a>Version 4.10.0
 * Följande valfria egenskaper har lagts till i text rutan:
-  * [SkipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
-  * [FirstRowAsHeader](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.firstrowasheader.aspx)
-  * [TreatEmptyAsNull](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
+  * [SkipLineCount](/dotnet/api/microsoft.azure.management.datafactories.models.textformat)
+  * [FirstRowAsHeader](/dotnet/api/microsoft.azure.management.datafactories.models.textformat)
+  * [TreatEmptyAsNull](/dotnet/api/microsoft.azure.management.datafactories.models.textformat)
 * Följande länkade tjänst typer har lagts till:
-  * [OnPremisesCassandraLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandralinkedservice.aspx)
-  * [SalesforceLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.salesforcelinkedservice.aspx)
+  * [OnPremisesCassandraLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.onpremisescassandralinkedservice)
+  * [SalesforceLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.salesforcelinkedservice)
 * Följande typer av data uppsättningar har lagts till:
-  * [OnPremisesCassandraTableDataset](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandratabledataset.aspx)
+  * [OnPremisesCassandraTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.onpremisescassandratabledataset)
 * Följande kopierings käll typer har lagts till:
-  * [CassandraSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.cassandrasource.aspx)
-* Lägg till egenskapen [WebServiceInputs](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azuremlbatchexecutionactivity.webserviceinputs.aspx) i AzureMLBatchExecutionActivity
+  * [CassandraSource](/dotnet/api/microsoft.azure.management.datafactories.models.cassandrasource)
+* Lägg till egenskapen [WebServiceInputs](/dotnet/api/microsoft.azure.management.datafactories.models.azuremlbatchexecutionactivity) i AzureMLBatchExecutionActivity
   * Aktivera överföring av flera webb tjänst indata till ett Azure Machine Learning experiment
 
 ## <a name="version-491"></a>Version 4.9.1
 ### <a name="bug-fix"></a>Fel korrigering
-* Föråldrad WebApi-baserad autentisering för [WebLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.weblinkedservice.authenticationtype.aspx).
+* Föråldrad WebApi-baserad autentisering för [WebLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.weblinkedservice).
 
 ## <a name="version-490"></a>Version 4.9.0
 ### <a name="feature-additions"></a>Funktions tillägg
-* Lägg till [EnableStaging](https://msdn.microsoft.com/library/mt767916.aspx) -och [StagingSettings](https://msdn.microsoft.com/library/mt767918.aspx) -egenskaper till CopyActivity. Se [mellanlagrad kopia](data-factory-copy-activity-performance.md#staged-copy) för information om funktionen.
+* Lägg till [EnableStaging](/dotnet/api/microsoft.azure.management.datafactories.models.copyactivity) -och [StagingSettings](/dotnet/api/microsoft.azure.management.datafactories.models.stagingsettings) -egenskaper till CopyActivity. Se [mellanlagrad kopia](data-factory-copy-activity-performance.md#staged-copy) för information om funktionen.
 
 ### <a name="bug-fix"></a>Fel korrigering
-* Introducera en överlagring av [ActivityWindowOperationExtensions. list](https://msdn.microsoft.com/library/mt767915.aspx) -metoden, som tar en [ActivityWindowsByActivityListParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.activitywindowsbyactivitylistparameters.aspx) -instans.
-* Markera [WriteBatchSize](https://msdn.microsoft.com/library/dn884293.aspx) och [WriteBatchTimeout](https://msdn.microsoft.com/library/dn884245.aspx) som valfritt i CopySink.
+* Introducera en överlagring av [ActivityWindowOperationExtensions. list](/dotnet/api/microsoft.azure.management.datafactories.activitywindowoperationsextensions) -metoden, som tar en [ActivityWindowsByActivityListParameters](/dotnet/api/microsoft.azure.management.datafactories.models.activitywindowsbyactivitylistparameters) -instans.
+* Markera [WriteBatchSize](/dotnet/api/microsoft.azure.management.datafactories.models.copysink) och [WriteBatchTimeout](/dotnet/api/microsoft.azure.management.datafactories.models.copysink) som valfritt i CopySink.
 
 ## <a name="version-480"></a>Version 4.8.0
 ### <a name="feature-additions"></a>Funktions tillägg
 * Följande valfria egenskaper har lagts till för att kopiera aktivitets typen för att möjliggöra justering av kopierings prestanda:
-  * [ParallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
-  * [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
+  * [ParallelCopies](/dotnet/api/microsoft.azure.management.datafactories.models.copyactivity)
+  * [CloudDataMovementUnits](/dotnet/api/microsoft.azure.management.datafactories.models.copyactivity)
 
 ## <a name="version-470"></a>Version 4.7.0
 ### <a name="feature-additions"></a>Funktions tillägg
-* Ny StorageFormat typ av [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) har lagts till för att kopiera filer i optimerade rad kolumner (Orc).
-* Lägg till [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) -och PolyBaseSettings-egenskaper till SqlDWSink.
+* Ny StorageFormat typ av [OrcFormat](/dotnet/api/microsoft.azure.management.datafactories.models.orcformat) har lagts till för att kopiera filer i optimerade rad kolumner (Orc).
+* Lägg till [AllowPolyBase](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) -och PolyBaseSettings-egenskaper till SqlDWSink.
   * Gör det möjligt att använda PolyBase för att kopiera data till Azure Synapse Analytics (tidigare SQL Data Warehouse).
 
 ## <a name="version-461"></a>Version 4.6.1
@@ -84,55 +84,55 @@ Funktions tillägg:
 
 ## <a name="version-460"></a>Version 4.6.0
 ### <a name="feature-additions"></a>Funktions tillägg
-* Följande egenskaper har lagts till i [PipelineProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties_properties.aspx):
-  * [PipelineMode](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.pipelinemode.aspx)
-  * [ExpirationTime](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.expirationtime.aspx)
-  * [Datauppsättningar](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
-* Följande egenskaper har lagts till i [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx):
-  * [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
-* En ny [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) typ av [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) har lagts till för att definiera data uppsättningar vars data är i JSON-format.
+* Följande egenskaper har lagts till i [PipelineProperties](/dotnet/api/microsoft.azure.management.datafactories.models.pipelineproperties):
+  * [PipelineMode](/dotnet/api/microsoft.azure.management.datafactories.models.pipelineproperties)
+  * [ExpirationTime](/dotnet/api/microsoft.azure.management.datafactories.models.pipelineproperties)
+  * [Datauppsättningar](/dotnet/api/microsoft.azure.management.datafactories.models.pipelineproperties)
+* Följande egenskaper har lagts till i [PipelineRuntimeInfo](/dotnet/api/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo):
+  * [PipelineState](/dotnet/api/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo)
+* En ny [StorageFormat](/dotnet/api/microsoft.azure.management.datafactories.models.storageformat) typ av [JsonFormat](/dotnet/api/microsoft.azure.management.datafactories.models.jsonformat) har lagts till för att definiera data uppsättningar vars data är i JSON-format.
 
 ## <a name="version-450"></a>Version 4.5.0
 ### <a name="feature-additions"></a>Funktions tillägg
-* Har lagt till [list åtgärder för aktivitets fönstret](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.activitywindowoperationsextensions.aspx).
+* Har lagt till [list åtgärder för aktivitets fönstret](/dotnet/api/microsoft.azure.management.datafactories.activitywindowoperationsextensions).
   * Metoder för att hämta aktivitets fönster med filter baserade på entitetstyper (det vill säga data fabriker, data uppsättningar, pipeliner och aktiviteter) har lagts till.
 * Följande länkade tjänst typer har lagts till:
-  * [ODataLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odatalinkedservice.aspx), [WebLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.weblinkedservice.aspx)
+  * [ODataLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.odatalinkedservice), [WebLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.weblinkedservice)
 * Följande typer av data uppsättningar har lagts till:
-  * [ODataResourceDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odataresourcedataset.aspx), [WebTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.webtabledataset.aspx)
+  * [ODataResourceDataset](/dotnet/api/microsoft.azure.management.datafactories.models.odataresourcedataset), [WebTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.webtabledataset)
 * Följande kopierings käll typer har lagts till:     
-  * [Webbkälla](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
+  * [Webbkälla](/dotnet/api/microsoft.azure.management.datafactories.models.websource)
 
 ## <a name="version-440"></a>Version 4.4.0
 ### <a name="feature-additions"></a>Funktions tillägg
 * Följande länkad tjänst typ har lagts till som data källor och mottagare för kopierings aktiviteter:
-  * [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). Information och exempel finns i [Azure Storage SAS-länkade tjänster](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) .
+  * [AzureStorageSasLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice). Information och exempel finns i [Azure Storage SAS-länkade tjänster](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) .
 
 ## <a name="version-430"></a>Version 4.3.0
 ### <a name="feature-additions"></a>Funktions tillägg
 * Följande länkade tjänst typer jag lagts till som data källor för kopierings aktiviteter:
-  * [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Se [Flytta data från HDFS med hjälp av Data Factory](data-factory-hdfs-connector.md) för konceptuell information och exempel.
-  * [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Se [Flytta data från ODBC-datalager med hjälp av Azure Data Factory](data-factory-odbc-connector.md) för konceptuell information och exempel.
+  * [HdfsLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.hdfslinkedservice). Se [Flytta data från HDFS med hjälp av Data Factory](data-factory-hdfs-connector.md) för konceptuell information och exempel.
+  * [OnPremisesOdbcLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice). Se [Flytta data från ODBC-datalager med hjälp av Azure Data Factory](data-factory-odbc-connector.md) för konceptuell information och exempel.
 
 ## <a name="version-420"></a>Version 4.2.0
 ### <a name="feature-additions"></a>Funktions tillägg
-* Följande nya aktivitets typ har lagts till: [AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx). Mer information om aktiviteten finns i [Uppdatera Azure ml-modeller med hjälp av aktiviteten uppdatera resurs](data-factory-azure-ml-batch-execution-activity.md).
-* En ny valfri egenskap [updateResourceEndpoint](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.updateresourceendpoint.aspx) har lagts till i [AzureMLLinkedService-klassen](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.aspx).
-* Egenskaperna [LongRunningOperationInitialTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationinitialtimeout.aspx) och [LongRunningOperationRetryTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationretrytimeout.aspx) har lagts till i klassen [klassen datafactorymanagementclient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.aspx) .
+* Följande nya aktivitets typ har lagts till: [AzureMLUpdateResourceActivity](/dotnet/api/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity). Mer information om aktiviteten finns i [Uppdatera Azure ml-modeller med hjälp av aktiviteten uppdatera resurs](data-factory-azure-ml-batch-execution-activity.md).
+* En ny valfri egenskap [updateResourceEndpoint](/dotnet/api/microsoft.azure.management.datafactories.models.azuremllinkedservice) har lagts till i [AzureMLLinkedService-klassen](/dotnet/api/microsoft.azure.management.datafactories.models.azuremllinkedservice).
+* Egenskaperna [LongRunningOperationInitialTimeout](/dotnet/api/microsoft.azure.management.datafactories.datafactorymanagementclient) och [LongRunningOperationRetryTimeout](/dotnet/api/microsoft.azure.management.datafactories.datafactorymanagementclient) har lagts till i klassen [klassen datafactorymanagementclient](/dotnet/api/microsoft.azure.management.datafactories.datafactorymanagementclient) .
 * Tillåt konfiguration av tids gränser för klient anrop till tjänsten Data Factory.
 
 ## <a name="version-410"></a>Version 4.1.0
 ### <a name="feature-additions"></a>Funktions tillägg
 * Följande länkade tjänst typer har lagts till:
-  * [AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
-  * [AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
+  * [AzureDataLakeStoreLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice)
+  * [AzureDataLakeAnalyticsLinkedService](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice)
 * Följande aktivitets typer har lagts till:
-  * [DataLakeAnalyticsUSQLActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datalakeanalyticsusqlactivity.aspx)
+  * [DataLakeAnalyticsUSQLActivity](/dotnet/api/microsoft.azure.management.datafactories.models.datalakeanalyticsusqlactivity)
 * Följande typer av data uppsättningar har lagts till:
-  * [AzureDataLakeStoreDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoredataset.aspx)
+  * [AzureDataLakeStoreDataset](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakestoredataset)
 * Följande käll-och mottagar typer för kopierings aktiviteten har lagts till:
-  * [AzureDataLakeStoreSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresource.aspx)
-  * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
+  * [AzureDataLakeStoreSource](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakestoresource)
+  * [AzureDataLakeStoreSink](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakestoresink)
 
 ## <a name="version-401"></a>Version 4.0.1
 ### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
@@ -140,12 +140,12 @@ Följande klasser har bytt namn. De nya namnen är de ursprungliga namnen för k
 
 | Namn i 4.0.0 | Namn i 4.0.1 |
 |:--- |:--- |
-| AzureSqlDataWarehouseDataset |[AzureSqlDataWarehouseTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuresqldatawarehousetabledataset.aspx) |
-| AzureSqlDataset |[AzureSqlTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuresqltabledataset.aspx) |
-| AzureDataset |[AzureTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuretabledataset.aspx) |
-| OracleDataset |[OracleTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.oracletabledataset.aspx) |
-| RelationalDataset |[RelationalTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.relationaltabledataset.aspx) |
-| SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
+| AzureSqlDataWarehouseDataset |[AzureSqlDataWarehouseTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.azuresqldatawarehousetabledataset) |
+| AzureSqlDataset |[AzureSqlTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.azuresqltabledataset) |
+| AzureDataset |[AzureTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.azuretabledataset) |
+| OracleDataset |[OracleTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.oracletabledataset) |
+| RelationalDataset |[RelationalTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.relationaltabledataset) |
+| SqlServerDataset |[SqlServerTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.sqlservertabledataset) |
 
 ## <a name="version-400"></a>Version 4.0.0
 ### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
@@ -153,15 +153,15 @@ Följande klasser har bytt namn. De nya namnen är de ursprungliga namnen för k
 
 | Gammalt namn | Nytt namn |
 |:--- |:--- |
-| ITableOperations |[IDatasetOperations](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.idatasetoperations.aspx) |
-| Tabell |[Datamängd](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |
-| TableProperties |[DatasetProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetproperties.aspx) |
-| TableTypeProprerties |[DatasetTypeProperties](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasettypeproperties.aspx) |
-| TableCreateOrUpdateParameters |[DatasetCreateOrUpdateParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdateparameters.aspx) |
-| TableCreateOrUpdateResponse |[DatasetCreateOrUpdateResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdateresponse.aspx) |
-| TableGetResponse |[DatasetGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetgetresponse.aspx) |
-| TableListResponse |[DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
-| CreateOrUpdateWithRawJsonContentParameters |[DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) |
+| ITableOperations |[IDatasetOperations](/dotnet/api/microsoft.azure.management.datafactories.idatasetoperations) |
+| Tabeller |[Data uppsättning](/dotnet/api/microsoft.azure.management.datafactories.models.dataset) |
+| TableProperties |[DatasetProperties](/dotnet/api/microsoft.azure.management.datafactories.models.datasetproperties) |
+| TableTypeProprerties |[DatasetTypeProperties](/dotnet/api/microsoft.azure.management.datafactories.models.datasettypeproperties) |
+| TableCreateOrUpdateParameters |[DatasetCreateOrUpdateParameters](/dotnet/api/microsoft.azure.management.datafactories.models.datasetcreateorupdateparameters) |
+| TableCreateOrUpdateResponse |[DatasetCreateOrUpdateResponse](/dotnet/api/microsoft.azure.management.datafactories.models.datasetcreateorupdateresponse) |
+| TableGetResponse |[DatasetGetResponse](/dotnet/api/microsoft.azure.management.datafactories.models.datasetgetresponse) |
+| TableListResponse |[DatasetListResponse](/dotnet/api/microsoft.azure.management.datafactories.models.datasetlistresponse) |
+| CreateOrUpdateWithRawJsonContentParameters |[DatasetCreateOrUpdateWithRawJsonContentParameters](/dotnet/api/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters) |
 
 * **List** metoderna returnerar växlade resultat nu. Om svaret innehåller en icke-tom **Nextlink** -egenskap måste klient programmet fortsätta att hämta nästa sida tills alla sidor har returnerats.  Här är ett exempel:
 
@@ -181,5 +181,5 @@ Följande klasser har bytt namn. De nya namnen är de ursprungliga namnen för k
 * **List** pipeline API returnerar bara sammanfattningen av en pipeline i stället för fullständig information. Till exempel innehåller aktiviteter i en pipeline-Sammanfattning endast namn och typ.
 
 ### <a name="feature-additions"></a>Funktions tillägg
-* [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) -klassen stöder två nya egenskaper, **SliceIdentifierColumnName** och **SqlWriterCleanupScript**, för att stödja Idempotenta-kopiering till Azure Azure Synapse Analytics. Mer information om de här egenskaperna finns i artikeln om [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md) .
-* Vi har nu stöd för att köra lagrade procedurer mot Azure SQL Database och Azure Synapse Analytics-källor som en del av kopierings aktiviteten. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) -och [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) -klasserna har följande egenskaper: **SqlReaderStoredProcedureName** och **StoredProcedureParameters**. Mer information om dessa egenskaper finns i artiklarna [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) och [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) på Azure.com.  
+* [SqlDWSink](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) -klassen stöder två nya egenskaper, **SliceIdentifierColumnName** och **SqlWriterCleanupScript** , för att stödja Idempotenta-kopiering till Azure Azure Synapse Analytics. Mer information om de här egenskaperna finns i artikeln om [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md) .
+* Vi har nu stöd för att köra lagrade procedurer mot Azure SQL Database och Azure Synapse Analytics-källor som en del av kopierings aktiviteten. [SqlSource](/dotnet/api/microsoft.azure.management.datafactories.models.sqlsource) -och [SqlDWSource](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsource) -klasserna har följande egenskaper: **SqlReaderStoredProcedureName** och **StoredProcedureParameters** . Mer information om dessa egenskaper finns i artiklarna [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) och [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) på Azure.com.

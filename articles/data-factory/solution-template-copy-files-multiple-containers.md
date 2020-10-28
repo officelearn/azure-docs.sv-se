@@ -11,36 +11,38 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 73560c49e10ab96c934d4dd3cea9395093a26420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82629056"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629433"
 ---
-# <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Kopiera filer från flera behållare med Azure Data Factory
+# <a name="copy-multiple-folders-with-azure-data-factory"></a>Kopiera flera mappar med Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Den här artikeln beskriver en lösnings mall som du kan använda för att kopiera filer från flera behållare mellan fil arkiv. Du kan till exempel använda den för att migrera data Lake från AWS S3 till Azure Data Lake Store. Eller så kan du använda mallen för att replikera allt från ett Azure Blob Storage-konto till ett annat.
+Den här artikeln beskriver en lösnings mall som du kan använda flera kopierings aktiviteter för att kopiera behållare eller mappar mellan filbaserade butiker, där varje kopierings aktivitet ska kopiera en enskild behållare eller mapp. 
 
 > [!NOTE]
 > Om du vill kopiera filer från en enda behållare är det mer effektivt att använda [Kopiera data-verktyget](copy-data-tool.md) för att skapa en pipeline med en enda kopierings aktivitet. Mallen i den här artikeln är mer än du behöver för det enkla scenariot.
 
 ## <a name="about-this-solution-template"></a>Om den här lösnings mal len
 
-Den här mallen räknar upp behållarna från din käll lagrings lagring. Den kopierar sedan dessa behållare till mål lagret.
+Den här mallen räknar upp mappar från en specifik överordnad mapp i din käll lagrings lagring. Sedan kopieras varje mapp till mål lagret.
 
 Mallen innehåller tre aktiviteter:
-- **GetMetaData** genomsöker ditt käll lagrings lager och hämtar behållar listan.
-- Med **början hämtar du** behållar listan från **getMetaData** -aktiviteten och itererar sedan över listan och överför varje behållare till kopierings aktiviteten.
-- **Kopiera** kopierar varje behållare från käll lagrings lagret till mål arkivet.
+- **GetMetaData** genomsöker ditt käll lagrings lager och hämtar undermappen från en specifik överordnad mapp.
+- Med **början får du** undermapplistan från **getMetaData** -aktiviteten och itererar sedan över listan och skickar varje mapp till kopierings aktiviteten.
+- **Kopiera** kopierar varje mapp från käll lagrings lagret till mål arkivet.
 
 Mallen definierar följande parametrar:
-- *SourceFileFolder* är mappsökvägen till data käll arkivet där du kan hämta en lista över behållarna. Sökvägen är rot katalogen, som innehåller flera behållar-mappar. Standardvärdet för den här parametern är `sourcefolder` .
-- *SourceFileDirectory* är sökvägen till undermappen under rot katalogen i data käll arkivet. Standardvärdet för den här parametern är `subfolder` .
-- *DestinationFileFolder* är sökvägen till mappen där filerna kopieras till i mål arkivet. Standardvärdet för den här parametern är `destinationfolder` .
-- *DestinationFileDirectory* är sökvägen till undermappen där filerna kopieras till i mål arkivet. Standardvärdet för den här parametern är `subfolder` .
+- *SourceFileFolder* är en del av sökvägen till den överordnade mappen för data käll arkivet: *SourceFileFolder/SourceFileDirectory* , där du kan hämta en lista över undermapparna. 
+- *SourceFileDirectory* är en del av sökvägen till den överordnade mappen för data käll arkivet: *SourceFileFolder/SourceFileDirectory* , där du kan hämta en lista över undermapparna. 
+- *DestinationFileFolder* är en del av sökvägen till den överordnade mappen: *DestinationFileFolder/DestinationFileDirectory* där filerna ska kopieras till mål lagret. 
+- *DestinationFileDirectory* är en del av sökvägen till den överordnade mappen: *DestinationFileFolder/DestinationFileDirectory* där filerna ska kopieras till mål lagret. 
+
+Om du vill kopiera flera behållare under rot-mappar mellan lagrings lager, kan du mata in alla fyra parametrarna som */* . Genom att göra det kommer du att replikera allt mellan lagrings lager.
 
 ## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 
@@ -52,7 +54,7 @@ Mallen definierar följande parametrar:
 
     ![Skapa en ny anslutning till målet](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
-3. Välj **Använd den här mallen**.
+3. Välj **Använd den här mallen** .
 
     ![Använd den här mallen](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
@@ -60,7 +62,7 @@ Mallen definierar följande parametrar:
 
     ![Visa pipelinen](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Välj **Felsök**, ange **parametrarna**och välj sedan **Slutför**.
+5. Välj **Felsök** , ange **parametrarna** och välj sedan **Slutför** .
 
     ![Köra en pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 

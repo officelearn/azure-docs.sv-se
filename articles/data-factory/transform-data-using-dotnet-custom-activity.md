@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 0332b9aab0db456ed4517c09e541bee1b9884d04
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e84f7a2ee8c2f7a57ce1734ad3392a217d6de5fe
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369003"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632115"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 
@@ -36,7 +36,7 @@ Om du vill flytta data till/från ett data lager som Data Factory inte stöder, 
 Se följande artiklar om du är nybörjare på Azure Batch-tjänsten:
 
 * [Azure Batch grunderna](../batch/batch-technical-overview.md) för en översikt över Azure Batchs tjänsten.
-* [New-AzBatchAccount-](/powershell/module/az.batch/New-azBatchAccount) cmdlet för att skapa ett Azure Batch konto (eller) [Azure Portal](../batch/batch-account-create-portal.md) för att skapa Azure Batch-kontot med hjälp av Azure Portal. Detaljerade anvisningar om hur du använder cmdleten finns i [använda PowerShell för att hantera Azure Batch konto](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) artikel.
+* [New-AzBatchAccount-](/powershell/module/az.batch/New-azBatchAccount) cmdlet för att skapa ett Azure Batch konto (eller) [Azure Portal](../batch/batch-account-create-portal.md) för att skapa Azure Batch-kontot med hjälp av Azure Portal. Detaljerade anvisningar om hur du använder cmdleten finns i [använda PowerShell för att hantera Azure Batch konto](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) artikel.
 * [New-AzBatchPool-](/powershell/module/az.batch/New-AzBatchPool) cmdlet för att skapa en Azure Batch-pool.
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch länkad tjänst
@@ -104,7 +104,7 @@ I följande tabell beskrivs namn och beskrivningar av egenskaper som är unika f
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | Namn på aktiviteten i pipelinen     | Ja      |
 | description           | Text som beskriver vad aktiviteten gör.  | Nej       |
-| typ                  | För anpassad aktivitet är aktivitets typen **anpassad**. | Ja      |
+| typ                  | För anpassad aktivitet är aktivitets typen **anpassad** . | Ja      |
 | linkedServiceName     | Länkad tjänst till Azure Batch. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .  | Ja      |
 | command               | Kommando för det anpassade program som ska köras. Om programmet redan är tillgängligt i noden Azure Batch pool kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot som `cmd /c dir` är inbyggt i Windows batch pool-noden. | Ja      |
 | resourceLinkedService | Azure Storage länkad tjänst till lagrings kontot där det anpassade programmet lagras | Inga &#42;       |
@@ -310,7 +310,7 @@ Du kan skicka anpassade värden från koden i en anpassad aktivitet tillbaka til
 
 ## <a name="retrieve-securestring-outputs"></a>Hämta SecureString-utdata
 
-Känsliga egenskaps värden som anges som typ *SecureString*, som du ser i några av exemplen i den här artikeln, maskeras ut i fliken övervakning i Data Factory användar gränssnitt.  I faktisk pipeline-körning serialiseras dock egenskapen *SecureString* som JSON i `activity.json` filen som oformaterad text. Exempel:
+Känsliga egenskaps värden som anges som typ *SecureString* , som du ser i några av exemplen i den här artikeln, maskeras ut i fliken övervakning i Data Factory användar gränssnitt.  I faktisk pipeline-körning serialiseras dock egenskapen *SecureString* som JSON i `activity.json` filen som oformaterad text. Exempel:
 
 ```json
 "extendedProperties": {
@@ -342,7 +342,7 @@ I följande tabell beskrivs skillnaderna mellan den anpassade aktiviteten Data F
 |Så här definieras anpassad logik      |Genom att tillhandahålla en körbar fil      |Genom att implementera en .NET-DLL      |
 |Körnings miljö för den anpassade logiken      |Windows eller Linux      |Windows (.NET Framework 4.5.2)      |
 |Kör skript      |Stöder körning av skript direkt (till exempel "cmd/c ECHO Hello World" på Windows VM)      |Kräver implementering i .NET-DLL      |
-|Data mängd krävs      |Valfritt      |Krävs för att kedja aktiviteter och skicka information      |
+|Data mängd krävs      |Valfri      |Krävs för att kedja aktiviteter och skicka information      |
 |Skicka information från aktivitet till anpassad logik      |Genom ReferenceObjects (LinkedServices och data uppsättningar) och ExtendedProperties (anpassade egenskaper)      |Via ExtendedProperties (anpassade egenskaper), indata och utdata för data uppsättningar      |
 |Hämta information i anpassad logik      |Parsar activity.jspå, linkedServices.jspå och datasets.jslagrade i samma mapp som den körbara filen      |Via .NET SDK (.NET Frame 4.5.2)      |
 |Loggning      |Skriver direkt till STDOUT      |Implementera loggar i .NET-DLL      |
@@ -356,7 +356,7 @@ Om du har en befintlig .NET-kod skriven för en version 1 (anpassad) DotNet-akti
   - NuGet-paketet Microsoft. Azure. Management. DataFactories krävs inte längre.
   - Kompilera din kod, överför den körbara filen och dess beroenden till Azure Storage och definiera sökvägen i `folderPath` egenskapen.
 
-Ett fullständigt exempel på hur end-to-end-DLL och pipeline-exemplet som beskrivs i artikeln Data Factory version 1 [använder anpassade aktiviteter i en Azure Data Factory pipelinen](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) kan skrivas om som en Data Factory anpassad aktivitet, se [Data Factory anpassad aktivitets exempel](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
+Ett fullständigt exempel på hur end-to-end-DLL och pipeline-exemplet som beskrivs i artikeln Data Factory version 1 [använder anpassade aktiviteter i en Azure Data Factory pipelinen](./v1/data-factory-use-custom-activities.md) kan skrivas om som en Data Factory anpassad aktivitet, se [Data Factory anpassad aktivitets exempel](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Automatisk skalning av Azure Batch
 
@@ -376,7 +376,7 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 Se [automatisk skalning av Compute-noder i en Azure Batch pool](../batch/batch-automatic-scaling.md) för mer information.
 
-Om poolen använder standard- [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)kan batch-tjänsten ta 15-30 minuter att förbereda den virtuella datorn innan den anpassade aktiviteten körs. Om poolen använder en annan autoScaleEvaluationInterval kan batch-tjänsten ta autoScaleEvaluationInterval + 10 minuter.
+Om poolen använder standard- [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale)kan batch-tjänsten ta 15-30 minuter att förbereda den virtuella datorn innan den anpassade aktiviteten körs. Om poolen använder en annan autoScaleEvaluationInterval kan batch-tjänsten ta autoScaleEvaluationInterval + 10 minuter.
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar som förklarar hur du omformar data på andra sätt:

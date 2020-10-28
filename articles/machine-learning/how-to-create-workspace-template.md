@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 1978cfe6ea117a0d30df938c9e4ba1aeb48314fc
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057849"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631060"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
@@ -28,14 +28,14 @@ Mer information finns i [distribuera ett program med Azure Resource Manager-mall
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+* En **Azure-prenumeration** . Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Om du vill använda en mall från en CLI behöver du antingen [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 * Vissa scenarier kräver att du öppnar ett support ärende. De här scenarierna är:
 
     * __Privat länk aktive rad arbets yta med en kundhanterad nyckel (CMK)__
-    * __Azure Container Registry för arbets ytan bakom ditt virtuella nätverk__
+    * __Azure Container Registry för arbetsytan bakom ditt virtuella nätverk__
 
     Mer information finns i [Hantera och öka kvoter](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
@@ -59,7 +59,7 @@ Exempel mal len har två **obligatoriska** parametrar:
 
     Mallen kommer att använda den plats du väljer för de flesta resurser. Undantaget är Application Insights tjänst, som inte är tillgänglig på alla platser som de andra tjänsterna är. Om du väljer en plats där den inte är tillgänglig kommer tjänsten att skapas på platsen södra centrala USA.
 
-* **WorkspaceName**, som är det egna namnet på arbets ytan Azure Machine Learning.
+* **WorkspaceName** , som är det egna namnet på arbets ytan Azure Machine Learning.
 
     > [!NOTE]
     > Namnet på arbets ytan är Skift läges okänsligt.
@@ -161,9 +161,11 @@ New-AzResourceGroupDeployment `
 
 Följande exempel-mall visar hur du skapar en arbets yta med tre inställningar:
 
-* Aktivera inställningar för hög konfidentialitet för arbets ytan
-* Aktivera kryptering för arbets ytan
-* Använder en befintlig Azure Key Vault för att hämta Kundhanterade nycklar
+* Aktivera inställningar för hög konfidentialitet för arbets ytan. Detta skapar en ny Cosmos DB-instans.
+* Aktivera kryptering för arbets ytan.
+* Använder en befintlig Azure Key Vault för att hämta Kundhanterade nycklar. Kundhanterade nycklar används för att skapa en ny Cosmos DB-instans för arbets ytan.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > När en arbets yta har skapats kan du inte ändra inställningarna för konfidentiella data, kryptering, nyckel valv-ID eller nyckel identifierare. Om du vill ändra dessa värden måste du skapa en ny arbets yta med de nya värdena.
@@ -217,7 +219,7 @@ Använd följande steg __för att hämta värdena__ för `cmk_keyvault` (ID för
 
 Om du vill aktivera användning av kund hanterade nycklar anger du följande parametrar när du distribuerar mallen:
 
-* **encryption_status** till **aktive rad**.
+* **encryption_status** till **aktive rad** .
 * **cmk_keyvault** till `cmk_keyvault` värdet som hämtades i föregående steg.
 * **resource_cmk_uri** till `resource_cmk_uri` värdet som hämtades i föregående steg.
 
@@ -252,7 +254,7 @@ New-AzResourceGroupDeployment `
 
 När du använder en kundhanterad nyckel skapar Azure Machine Learning en sekundär resurs grupp som innehåller Cosmos DB-instansen. Mer information finns i avsnittet om [kryptering i rest-Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
 
-En ytterligare konfiguration som du kan tillhandahålla för dina data är att ställa in **confidential_data** parametern på **True**. Gör så här:
+En ytterligare konfiguration som du kan tillhandahålla för dina data är att ställa in **confidential_data** parametern på **True** . Gör så här:
 
 * Startar kryptering av den lokala virtuella datorn för Azure Machine Learning beräknings kluster, förutsatt att du inte har skapat några tidigare kluster i din prenumeration. Om du tidigare har skapat ett kluster i prenumerationen öppnar du ett support ärende för att ha kryptering av den virtuella hård disken som är aktive rad för dina beräknings kluster.
 * Rensar upp den lokala Scratch-disken mellan körningar.
@@ -547,8 +549,8 @@ New-AzResourceGroupDeployment `
    * Region: Välj den Azure-region där resurserna ska skapas.
    * Namn på arbets yta: namnet som ska användas för Azure Machine Learning arbets ytan som ska skapas. Arbets ytans namn måste innehålla mellan 3 och 33 tecken. Det får bara innehålla alfanumeriska tecken och "-".
    * Plats: Välj den plats där resurserna ska skapas.
-1. Välj __Granska + skapa__.
-1. På skärmen __Granska + skapa__ godkänner du de angivna villkoren och väljer __skapa__.
+1. Välj __Granska + skapa__ .
+1. På skärmen __Granska + skapa__ godkänner du de angivna villkoren och väljer __skapa__ .
 
 Mer information finns i [distribuera resurser från en anpassad mall](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -653,7 +655,7 @@ För att undvika det här problemet rekommenderar vi en av följande metoder:
 
 ### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Virtuellt nätverk som inte är länkat till en privat DNS-zon
 
-När du skapar en arbets yta med en privat slut punkt skapar mallen en Privat DNS zon med namnet __privatelink.API.azureml.MS__. En __virtuell nätverks länk__ läggs automatiskt till i den här privata DNS-zonen. Länken läggs bara till för den första arbets ytan och den privata slut punkten som du skapar i en resurs grupp. Om du skapar ett annat virtuellt nätverk och en arbets yta med en privat slut punkt i samma resurs grupp, kan det andra virtuella nätverket inte läggas till i den privata DNS-zonen.
+När du skapar en arbets yta med en privat slut punkt skapar mallen en Privat DNS zon med namnet __privatelink.API.azureml.MS__ . En __virtuell nätverks länk__ läggs automatiskt till i den här privata DNS-zonen. Länken läggs bara till för den första arbets ytan och den privata slut punkten som du skapar i en resurs grupp. Om du skapar ett annat virtuellt nätverk och en arbets yta med en privat slut punkt i samma resurs grupp, kan det andra virtuella nätverket inte läggas till i den privata DNS-zonen.
 
 Om du vill visa de virtuella nätverks länkar som redan finns för den privata DNS-zonen använder du följande Azure CLI-kommando:
 

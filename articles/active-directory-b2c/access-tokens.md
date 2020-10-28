@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 10/26/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b6adb06f22013e68987f3315d52e3594fba63907
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 937041bbb48f112e2c8ed7d222dc7c7ef7ea8d81
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309015"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631401"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Begära en åtkomsttoken i Azure Active Directory B2C
 
@@ -34,9 +34,9 @@ Den här artikeln beskriver hur du begär en åtkomsttoken för en webbapp och e
 
 ## <a name="scopes"></a>Omfattningar
 
-Med hjälp av omfång kan du hantera behörigheter för skyddade resurser. När en åtkomsttoken begärs måste klientprogrammet ange önskade behörigheter i **scope**-parametern för begäran. Om du till exempel vill ange **omfångsvärdet** `read` för API:et med ett **app-ID med URI:n** `https://contoso.onmicrosoft.com/api`, är omfånget `https://contoso.onmicrosoft.com/api/read`.
+Med hjälp av omfång kan du hantera behörigheter för skyddade resurser. När en åtkomsttoken begärs måste klientprogrammet ange önskade behörigheter i **scope** -parametern för begäran. Om du till exempel vill ange **omfångsvärdet** `read` för API:et med ett **app-ID med URI:n** `https://contoso.onmicrosoft.com/api`, är omfånget `https://contoso.onmicrosoft.com/api/read`.
 
-Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Till exempel kan användare av webb-API:et ha både läs- och skrivbehörighet, eller så har användare av webb-API:et kanske bara läsbehörighet. Om du vill hämta flera behörigheter i samma begäran kan du lägga till flera poster i samma **scope**-parameter i begäran, avgränsade med blanksteg.
+Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Till exempel kan användare av webb-API:et ha både läs- och skrivbehörighet, eller så har användare av webb-API:et kanske bara läsbehörighet. Om du vill hämta flera behörigheter i samma begäran kan du lägga till flera poster i samma **scope** -parameter i begäran, avgränsade med blanksteg.
 
 I följande exempel visas omfång som är avkodade i en URL:
 
@@ -50,7 +50,7 @@ I följande exempel visas omfång som är kodade i en URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Om du begär fler omfång än vad ditt klientprogram beviljas, lyckas anropet om minst en behörighet beviljas. **SCP**-anspråket i den resulterande åtkomsttoken innehåller endast de behörigheter som beviljades. 
+Om du begär fler omfång än vad ditt klientprogram beviljas, lyckas anropet om minst en behörighet beviljas. **SCP** -anspråket i den resulterande åtkomsttoken innehåller endast de behörigheter som beviljades. 
 
 ### <a name="openid-connect-scopes"></a>OpenID Connect-omfång
 
@@ -60,7 +60,7 @@ OpenID Connect-standarden anger flera särskilda omfångsvärden. Följande omf�
 - **offline_access** – Begär en uppdateringstoken via [auktoriseringskodflöden](authorization-code-flow.md).
 - **00000000-0000-0000-0000-000000000000** – med hjälp av klient-ID som omfånget anger att appen behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.
 
-Om parametern **response_type** i en `/authorize`-begäran innehåller `token`, måste **scope**-parametern innehålla minst ett annat resursomfång än `openid` och `offline_access` som kommer att beviljas. Annars misslyckas `/authorize`-begäran.
+Om parametern **response_type** i en `/authorize`-begäran innehåller `token`, måste **scope** -parametern innehålla minst ett annat resursomfång än `openid` och `offline_access` som kommer att beviljas. Annars misslyckas `/authorize`-begäran.
 
 ## <a name="request-a-token"></a>Begära en token
 
@@ -74,7 +74,7 @@ I följande exempel ersätter du dessa värden:
 - `<redirect-uri>` – **Omdirigerings-URI:n** som du angav när du registrerade klientprogrammet.
 
 ```http
-GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
+GET https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms

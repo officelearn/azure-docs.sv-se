@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 70acacb9bacddaf403b79e11b460333c67641aae
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202216"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631282"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -40,9 +40,10 @@ Se [pris](https://azure.microsoft.com/pricing/details/expressroute/) information
 
 Nej. Du kan köpa en VPN-anslutning för valfri hastighet från din tjänst leverantör. Anslutningen till Azure är dock begränsad till den ExpressRoute krets bandbredd som du köper.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Har jag möjlighet att överföra upp till högre hastigheter om jag betalar för en ExpressRoute-krets för en specifik bandbredd om det behövs?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Har jag möjlighet att använda mer än min upphandlade bandbredd om jag betalar för en ExpressRoute-krets för en specifik bandbredd?
 
-Ja. ExpressRoute-kretsar har kon figurer ATS så att du kan överföra upp till två gånger till en bandbredds gräns som du har tilldelat utan extra kostnad. Kontakta tjänst leverantören för att se om de stöder den här funktionen. Detta är inte en längre tids period och är inte garanterad.  Om trafiken flödar genom en ExpressRoute-Gateway, är bandbredden för SKU: n fast och inte burstbar.
+Ja, du kan använda upp till två gånger bandbredds gränsen som du har upprättat genom att använda den tillgängliga bandbredden på den sekundära anslutningen av ExpressRoute-kretsen. Den inbyggda redundansen av kretsen konfigureras med hjälp av primära och sekundära anslutningar, var och en av de upphandlade bandbredderna till två Microsoft Enterprise Edge-routrar (msee). Bandbredden som är tillgänglig via den sekundära anslutningen kan användas för ytterligare trafik om det behövs. Eftersom den sekundära anslutningen är avsedd för redundans, är den inte garanterad och bör inte användas för ytterligare trafik under en varaktig tids period. Mer information om hur du använder både anslutningar för att överföra trafik finns [här](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending).
+Om du endast planerar att använda din primära anslutning för att överföra trafik, är bandbredden för anslutningen fast och om du försöker överprenumerera på den, vilket leder till ökade paket. Om trafiken flödar genom en ExpressRoute-Gateway, är bandbredden för SKU: n fast och inte burstbar.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Kan jag använda samma privata nätverks anslutning med virtuella nätverk och andra Azure-tjänster samtidigt?
 
@@ -91,7 +92,7 @@ Om din ExpressRoute-krets är aktive rad för Microsoft-peering för Azure kan d
 * Offentliga Azure-IP-adresser för IaaS (Virtual Machines, Virtual Network gatewayer, belastnings utjämning osv.)  
 * De flesta andra Azure-tjänster stöds också. Kontrol lera direkt med den tjänst som du vill använda för att verifiera stödet.
 
-**Stöds ej:**
+**Stöds inte:**
 
 * CDN
 * Azure Front Door

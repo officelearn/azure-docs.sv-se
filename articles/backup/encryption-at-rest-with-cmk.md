@@ -3,12 +3,12 @@ title: Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 description: Lär dig hur Azure Backup kan kryptera dina säkerhetskopierade data med Kundhanterade nycklar (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e3eea4b5f44203b68c1263c0fb3ae843cabbe72
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378295"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895995"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 
@@ -25,15 +25,15 @@ I den här artikeln beskrivs följande:
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- Med den här funktionen kan du **bara kryptera nya Recovery Services-valv**. Det finns inte stöd för alla valv som innehåller befintliga objekt som är registrerade eller försökte registreras.
+- Med den här funktionen kan du **bara kryptera nya Recovery Services-valv** . Det finns inte stöd för alla valv som innehåller befintliga objekt som är registrerade eller försökte registreras.
 
 - När den har Aktiver ATS för ett Recovery Services valv kan inte kryptering med Kundhanterade nycklar återställas till med hjälp av plattforms hanterade nycklar (standard). Du kan ändra krypterings nycklarna enligt dina krav.
 
-- Den här funktionen **stöder för närvarande inte säkerhets kopiering med mars-agenten**och du kanske inte kan använda ett CMK-krypterat valv för samma. MARS-agenten använder en kryptering baserad på användar lösen fras. Den här funktionen stöder inte heller säkerhets kopiering av klassiska virtuella datorer.
+- Den här funktionen **stöder för närvarande inte säkerhets kopiering med mars-agenten** och du kanske inte kan använda ett CMK-krypterat valv för samma. MARS-agenten använder en kryptering baserad på användar lösen fras. Den här funktionen stöder inte heller säkerhets kopiering av klassiska virtuella datorer.
 
 - Den här funktionen är inte relaterad till [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), som använder gästkod kryptering av en virtuell dators diskar med BitLocker (för Windows) och DM-Crypt (för Linux)
 
-- Recovery Services-valvet kan bara krypteras med nycklar som lagras i en Azure Key Vault, som finns i **samma region**. Nycklar måste också vara **RSA 2048-nycklar** enbart och ska vara i **aktiverat** läge.
+- Recovery Services-valvet kan bara krypteras med nycklar som lagras i en Azure Key Vault, som finns i **samma region** . Nycklar måste också vara **RSA 2048-nycklar** enbart och ska vara i **aktiverat** läge.
 
 - Det finns för närvarande inte stöd för att flytta CMK-krypterade Recovery Services valv över resurs grupper och prenumerationer.
 
@@ -66,7 +66,7 @@ Azure Backup använder systemtilldelad hanterad identitet för att autentisera R
 
     ![Identitets inställningar](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Ändra **statusen** till **på** och välj **Spara**.
+1. Ändra **statusen** till **på** och välj **Spara** .
 
 1. Ett objekt-ID genereras, vilket är den systemtilldelade hanterade identiteten för valvet.
 
@@ -74,11 +74,11 @@ Azure Backup använder systemtilldelad hanterad identitet för att autentisera R
 
 Du måste nu tillåta Recovery Services-valvet att få åtkomst till Azure Key Vault som innehåller krypterings nyckeln. Detta görs genom att tillåta att Recovery Services valvets hanterade identitet får åtkomst till Key Vault.
 
-1. Gå till dina Azure Key Vault-> **åtkomst principer**. Fortsätt till **+ Lägg till åtkomst principer**.
+1. Gå till dina Azure Key Vault-> **åtkomst principer** . Fortsätt till **+ Lägg till åtkomst principer** .
 
     ![Lägg till åtkomst principer](./media/encryption-at-rest-with-cmk/access-policies.png)
 
-1. Under **nyckel behörigheter**väljer du **Hämta**, **lista**, **packa upp nyckel** och **packa upp nyckel** åtgärder. Detta anger de åtgärder på nyckeln som ska tillåtas.
+1. Under **nyckel behörigheter** väljer du **Hämta** , **lista** , **packa upp nyckel** och **packa upp nyckel** åtgärder. Detta anger de åtgärder på nyckeln som ska tillåtas.
 
     ![Tilldela nyckel behörigheter](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
@@ -94,7 +94,7 @@ Du måste nu tillåta Recovery Services-valvet att få åtkomst till Azure Key V
 
 Du måste **Aktivera mjuk borttagning och tömning av skydd** på Azure Key Vault som lagrar din krypterings nyckel. Du kan göra detta från Azure Key Vault användar gränssnittet som visas nedan. (Du kan också ange dessa egenskaper när du skapar Key Vault). Läs mer om dessa Key Vaults egenskaper [här](../key-vault/general/soft-delete-overview.md).
 
-![Aktivera mjuk borttagning och rensnings skydd](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
+![Aktivera mjuk borttagning eller rensningsskydd](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
 Du kan också aktivera mjuk borttagning och rensning av skydd via PowerShell med hjälp av stegen nedan:
 
@@ -148,7 +148,7 @@ Så här tilldelar du nyckeln:
 
     ![Krypteringsinställningar](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Välj **Uppdatera** under **krypterings inställningar**.
+1. Välj **Uppdatera** under **krypterings inställningar** .
 
 1. I fönstret krypterings inställningar väljer du **Använd din egen nyckel** och fortsätter att ange nyckeln på något av följande sätt. **Kontrol lera att den nyckel som du vill använda är en RSA 2048-nyckel, som är i ett aktiverat läge.**
 
@@ -160,9 +160,9 @@ Så här tilldelar du nyckeln:
 
         ![Välj nyckel från Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Välj **Spara**.
+1. Välj **Spara** .
 
-1. **Spårnings förlopp för uppdatering av krypterings nyckel:** Du kan följa förloppet för nyckel tilldelningen med hjälp av **aktivitets loggen** i Recovery Services valvet. Statusen bör snart ändras till **lyckades**. Ditt valv kommer nu att kryptera alla data med den angivna nyckeln som KEK.
+1. **Spårnings förlopp för uppdatering av krypterings nyckel:** Du kan följa förloppet för nyckel tilldelningen med hjälp av **aktivitets loggen** i Recovery Services valvet. Statusen bör snart ändras till **lyckades** . Ditt valv kommer nu att kryptera alla data med den angivna nyckeln som KEK.
 
     ![Spåra förloppet med aktivitets loggen](./media/encryption-at-rest-with-cmk/activity-log.png)
 
@@ -184,7 +184,6 @@ Innan du fortsätter att konfigurera skyddet rekommenderar vi starkt att du ser 
 >[!IMPORTANT]
 > Innan du fortsätter att konfigurera skydd måste **du ha** slutfört följande steg:
 >
->1. Aktiverade din prenumeration för att använda Kundhanterade nycklar för ditt säkerhets kopierings valv.
 >1. Säkerhets kopierings valvet har skapats
 >1. Aktiverade den systemtilldelade säkerhets kopierings valvets tilldelade hanterade identitet
 >1. Tilldelade behörigheter till säkerhets kopierings valvet för att få åtkomst till krypterings nycklar från din Key Vault
@@ -193,7 +192,7 @@ Innan du fortsätter att konfigurera skyddet rekommenderar vi starkt att du ser 
 >
 >Om alla ovanstående steg har bekräftats fortsätter du med att konfigurera säkerhets kopieringen.
 
-Processen för att konfigurera och utföra säkerhets kopieringar till ett Recovery Services valv som är krypterade med Kundhanterade nycklar är samma som för ett valv som använder plattforms hanterade nycklar, utan **ändringar i upplevelsen**. Detta gäller även för [säkerhets kopiering av virtuella Azure-datorer](./quick-backup-vm-portal.md) samt säkerhets kopiering av arbets belastningar som körs i en virtuell dator (till exempel [SAP HANA](./tutorial-backup-sap-hana-db.md) [SQL Server](./tutorial-sql-backup.md) databaser).
+Processen för att konfigurera och utföra säkerhets kopieringar till ett Recovery Services valv som är krypterade med Kundhanterade nycklar är samma som för ett valv som använder plattforms hanterade nycklar, utan **ändringar i upplevelsen** . Detta gäller även för [säkerhets kopiering av virtuella Azure-datorer](./quick-backup-vm-portal.md) samt säkerhets kopiering av arbets belastningar som körs i en virtuell dator (till exempel [SAP HANA](./tutorial-backup-sap-hana-db.md) [SQL Server](./tutorial-sql-backup.md) databaser).
 
 ## <a name="restoring-data-from-backup"></a>Återställa data från säkerhets kopia
 
@@ -215,7 +214,7 @@ Du kan kryptera den återställda disken/virtuella datorn när återställningen
 
 Disk krypterings uppsättningen anges under krypterings inställningar i återställnings fönstret, som du ser nedan:
 
-1. I **kryptera disk (er) med din nyckel**väljer du **Ja**.
+1. I **kryptera disk (er) med din nyckel** väljer du **Ja** .
 
 1. Välj den DES som du vill använda för de återställda diskarna i list rutan. **Se till att du har åtkomst till DES.**
 

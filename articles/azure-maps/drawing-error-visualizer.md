@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99821e51364eb9ffd75cda291c526c3c0b8c8f0e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86524751"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895859"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Använda Azure Maps ritnings fel visualiserare
 
-Ritnings fel Visualiseraren är ett fristående webb program som visar [varningar från ritnings paket och fel som](drawing-conversion-error-codes.md) upptäckts under konverterings processen. Webb programmet för fel visualiserare består av en statisk sida som du kan använda utan att ansluta till Internet.  Du kan använda fel Visualiseraren för att åtgärda fel och varningar i enlighet med [kraven för ritnings paket](drawing-requirements.md). [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/conversion) returnerar bara ett svar med en länk till fel visualiseraren endast när ett fel upptäcks.
+Ritnings fel Visualiseraren är ett fristående webb program som visar [varningar från ritnings paket och fel som](drawing-conversion-error-codes.md) upptäckts under konverterings processen. Webb programmet för fel visualiserare består av en statisk sida som du kan använda utan att ansluta till Internet.  Du kan använda fel Visualiseraren för att åtgärda fel och varningar i enlighet med [kraven för ritnings paket](drawing-requirements.md). [Azure Maps Conversion API](/rest/api/maps/conversion) returnerar bara ett svar med en länk till fel visualiseraren endast när ett fel upptäcks.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan ladda ned ritnings fel Visualiseraren måste du:
 
@@ -58,8 +58,8 @@ I den här självstudien används [Postman](https://www.postman.com/) -programme
 
 I det hämtade zippade paketet från `diagnosticPackageLocation` länken hittar du två filer.
 
-* _VisualizationTool.zip_: innehåller käll koden, mediet och webb sidan för ritnings fel visualiseraren.
-* _ConversionWarningsAndErrors.jspå_: innehåller en formaterad lista med varningar, fel och ytterligare information som används av fel visualiseraren för ritning.
+* _VisualizationTool.zip_ : innehåller käll koden, mediet och webb sidan för ritnings fel visualiseraren.
+* _ConversionWarningsAndErrors.jspå_ : innehåller en formaterad lista med varningar, fel och ytterligare information som används av fel visualiseraren för ritning.
 
 Zippa upp _VisualizationTool.zip_ -mappen. Den innehåller följande objekt:
 
@@ -90,7 +90,7 @@ När _ConversionWarningsAndErrors.js_ när filen har lästs in visas en lista ö
 
 ## <a name="next-steps"></a>Nästa steg
 
-När ditt [Draw-paket uppfyller kraven](drawing-requirements.md)kan du använda [tjänsten Azure Maps data uppsättning](https://docs.microsoft.com/rest/api/maps/conversion) för att konvertera ritnings paketet till en data uppsättning. Sedan kan du använda webb modulen inomhus Maps för att utveckla ditt program. Läs mer i följande artiklar:
+När ditt [Draw-paket uppfyller kraven](drawing-requirements.md)kan du använda [tjänsten Azure Maps data uppsättning](/rest/api/maps/conversion) för att konvertera ritnings paketet till en data uppsättning. Sedan kan du använda webb modulen inomhus Maps för att utveckla ditt program. Läs mer i följande artiklar:
 
 > [!div class="nextstepaction"]
 > [Fel koder för ritnings konvertering](drawing-conversion-error-codes.md)

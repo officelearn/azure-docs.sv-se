@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a43e3e2fa9ad77e11f82ff38a144a1de3add78
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361542"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895944"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Fel och varningar vid ritningskonvertering
 
-Med [tjänsten Azure Maps Conversion](https://docs.microsoft.com/rest/api/maps/conversion) kan du konvertera uppladdade ritnings paket till kart data. Ritnings paketen måste följa [kraven för ritnings paketet](drawing-requirements.md). Om ett eller flera krav inte uppfylls kommer konverterings tjänsten att returnera fel eller varningar. Den här artikeln innehåller konverterings fel och varnings koder, med rekommendationer om hur du löser dem. Den innehåller också några exempel på ritningar som kan orsaka att konverterings tjänsten returnerar dessa koder.
+Med [tjänsten Azure Maps Conversion](/rest/api/maps/conversion) kan du konvertera uppladdade ritnings paket till kart data. Ritnings paketen måste följa [kraven för ritnings paketet](drawing-requirements.md). Om ett eller flera krav inte uppfylls kommer konverterings tjänsten att returnera fel eller varningar. Den här artikeln innehåller konverterings fel och varnings koder, med rekommendationer om hur du löser dem. Den innehåller också några exempel på ritningar som kan orsaka att konverterings tjänsten returnerar dessa koder.
 
 Konverterings tjänsten kommer att lyckas om det finns några konverterings varningar. Vi rekommenderar dock att du granskar och åtgärdar alla varningar. En varning innebär att en del av konverteringen ignorerades eller automatiskt åtgärdades. Om du inte löser varningarna kan det leda till fel i senare processer.
 
@@ -159,7 +159,7 @@ Utför följande åtgärder för att åtgärda en **automaticRepairPerformed** -
 
 #### <a name="how-to-fix-redundantattribution"></a>*Så här åtgärdar du redundantAttribution*
 
-Om du vill åtgärda en **redundantAttribution* varning tar du bort överflödiga eller motstridiga objekt egenskaper.
+Om du vill åtgärda en * *redundantAttribution* varning tar du bort överflödiga eller motstridiga objekt egenskaper.
 
 ### <a name="manifestwarning"></a>**manifestWarning**
 
@@ -175,7 +175,7 @@ En **manifestWarning** inträffar när manifestet innehåller unitProperties-ell
 
 #### <a name="how-to-fix-manifestwarning"></a>*Så här åtgärdar du manifestWarning*
 
-Om du vill åtgärda en **manifestWarning**tar du bort det oanvända `unitProperties` `zoneProperties` objektet eller objektet från manifestet eller lägger till en enhet/zon-etikett till ritningen så att egenskaps-objektet används under konverteringen.
+Om du vill åtgärda en **manifestWarning** tar du bort det oanvända `unitProperties` `zoneProperties` objektet eller objektet från manifestet eller lägger till en enhet/zon-etikett till ritningen så att egenskaps-objektet används under konverteringen.
 
 ## <a name="wall-warnings"></a>Vägg varningar
 
@@ -267,7 +267,7 @@ Följande bild visar en zon som inte innehåller en etikett.
 
 #### <a name="how-to-fix-zonewarning"></a>*Så här åtgärdar du zoneWarning*
 
-Kontrol lera att varje zon har en enda etikett för att åtgärda ett **zoneWarning**.
+Kontrol lera att varje zon har en enda etikett för att åtgärda ett **zoneWarning** .
 
 ## <a name="label-warnings"></a>Etikett varningar
 
@@ -291,7 +291,7 @@ Följande bild visar en etikett som finns i två zoner.
 
 #### <a name="how-to-fix-labelwarning"></a>*Så här åtgärdar du labelWarning*
 
-För att åtgärda en **labelWarning**, se till att:
+För att åtgärda en **labelWarning** , se till att:
 
 * Alla enhets etiketter är inuti enheter.
 * Alla zon etiketter är inuti zoner.
@@ -311,7 +311,7 @@ Ett **invalidArchiveFormat** -fel uppstår också om zip-arkivet är tomt.
 
 Om du vill åtgärda ett **invalidArchiveFormat** -fel kontrollerar du att:
 
-* Namnet på Arkiv filen slutar med _. zip_.
+* Namnet på Arkiv filen slutar med _. zip_ .
 * Ditt ZIP-arkiv innehåller data.
 * Du kan öppna ditt ZIP-arkiv.
 
@@ -347,7 +347,7 @@ En **dwgError** när ritnings paketet innehåller ett problem med en eller flera
 
 #### <a name="how-to-fix-dwgerror"></a>*Så här åtgärdar du dwgError*
 
-Om du vill åtgärda en **dwgError**kan du kontrol _manifest.js_ lera att:
+Om du vill åtgärda en **dwgError** kan du kontrol _manifest.js_ lera att:
 
 * Alla DWG-filer i ditt ZIP-arkiv är giltiga AutoCAD DWG-format ritningar, öppna var och en i AutoCAD. Ta bort eller åtgärda alla ogiltiga ritningar.
 * Listan med DWG-filer i _manifest.jspå_  matchar DWG-filerna i zip-arkivet.

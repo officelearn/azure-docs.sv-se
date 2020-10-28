@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 360fc4af688e393bb8639ee773f0bf0de603a425
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69c5b9d15c0ba3c7c8b6b01643beac1905c404ad
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83598390"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895876"
 ---
 # <a name="creator-long-running-operation-api"></a>API för skapare Long-Running åtgärd
 
-Vissa API i Azure Maps använda ett [asynkront Request-Reply-mönster](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). Med det här mönstret kan Azure Maps tillhandahålla tjänster med hög tillgänglighet och hög tillgänglighet. I den här artikeln förklaras Azure Map: s speciella implementering av asynkron bakgrunds bearbetning med lång körning.
+Vissa API i Azure Maps använda ett [asynkront Request-Reply-mönster](/azure/architecture/patterns/async-request-reply). Med det här mönstret kan Azure Maps tillhandahålla tjänster med hög tillgänglighet och hög tillgänglighet. I den här artikeln förklaras Azure Map: s speciella implementering av asynkron bakgrunds bearbetning med lång körning.
 
 ## <a name="submitting-a-request"></a>Skicka en begäran
 

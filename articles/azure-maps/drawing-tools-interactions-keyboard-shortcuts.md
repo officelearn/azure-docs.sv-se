@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 429baa4d5dc85476192758e4500f4c1f14610e6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b609a21348222150faf5fb828f2cc38ca6658f5d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089317"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895825"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Interaktions typer och kortkommandon i modulen rit verktyg
 
@@ -135,7 +135,7 @@ När ritnings hanteraren är i `draw-circle` läget kan du utföra följande åt
 
 Rit verktygen stöder kortkommandon. Dessa kortkommandon fungerar när kartan är i fokus.
 
-| Tangent      | Action                            |
+| Nyckel      | Åtgärd                            |
 |----------|-----------------------------------|
 | `C` | Slutför alla ritningar som pågår och ställer in ritnings läget på inaktiv. Fokus flyttas till ett kart element på översta nivån.  |
 | `Escape` | Avbryter alla ritningar som pågår och ställer in ritnings läget på inaktivt. Fokus flyttas till ett kart element på översta nivån.  |
@@ -146,7 +146,7 @@ Rit verktygen stöder kortkommandon. Dessa kortkommandon fungerar när kartan ä
 Läs mer om klasserna i modulen rit verktyg:
 
 > [!div class="nextstepaction"]
-> [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Drawing Manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Verktygsfältet Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Verktygsfältet Rita](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

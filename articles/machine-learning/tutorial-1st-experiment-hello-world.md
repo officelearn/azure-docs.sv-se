@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 980347c658c65a0c08dfc50c08f50741fb9a00fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afc851be08e6708efc0138dc45931cda147c67c1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372552"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895893"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Självstudie: kör en "Hello World!" Python-skript (del 2 av 4)
 
@@ -24,7 +24,7 @@ I den här självstudien får du lära dig hur du använder Azure Machine Learni
 
 Den här självstudien är *del 2 i en själv studie serie i fyra delar* där du får lära dig grunderna i Azure Machine Learning och fullständiga jobbbaserade Machine Learning-uppgifter i Azure. Den här självstudien bygger på det arbete som du avslutade i [del 1: Konfigurera din lokala dator för Azure Machine Learning](tutorial-1st-experiment-sdk-setup-local.md).
 
-I de här självstudierna får du:
+I den här självstudien kommer vi att:
 
 > [!div class="checklist"]
 > * Skapa och kör en "Hello World!" Python-skript lokalt.
@@ -33,7 +33,7 @@ I de här självstudierna får du:
 > * Skicka in och kör "Hello World!" över.
 > * Visa kodens utdata i molnet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slut för ande av [del 1](tutorial-1st-experiment-sdk-setup-local.md) om du inte redan har en Azure Machine Learning-arbetsyta.
 - Introduktions kunskap om python-språket och Machine Learning-arbetsflöden.
@@ -142,6 +142,9 @@ Kör ditt kontroll skript, som i sin tur körs `hello.py` på det beräknings kl
 ```bash
 python 03-run-hello.py
 ```
+
+> [!TIP]
+> Om du kör den här koden får du ett fel meddelande om att du inte har åtkomst till prenumerationen. mer information om autentiseringsalternativ finns i [ansluta till en arbets yta](how-to-manage-workspace.md?tab=python#connect-multi-tenant) .
 
 ## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Övervaka din kod i molnet med hjälp av Studio
 

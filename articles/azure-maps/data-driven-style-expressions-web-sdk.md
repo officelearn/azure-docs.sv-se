@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f27f7532d074428fafe74e4a453628f5c61d2b8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311384"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895978"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Uttryck för data drivna format (webb-SDK)
 
@@ -475,13 +475,13 @@ Färg uttryck gör det enklare att skapa och ändra färg värden.
 
 | Uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | color | Skapar ett färg värde från *röda*, *gröna*och *blå* komponenter som måste vara mellan `0` och och `255` en alpha-komponent i `1` . Om någon komponent är utanför intervallet är uttrycket ett fel. |
-| `['rgba', number, number, number, number]` | color | Skapar ett färg värde från *röda*, *gröna*, *blå* komponenter som måste vara mellan `0` och och `255` en alpha-komponent inom ett intervall av `0` och `1` . Om någon komponent är utanför intervallet är uttrycket ett fel. |
-| `['to-rgba']` | \[Number, Number, Number, Number\] | Returnerar en matris med fyra element som innehåller indatamängdens *röda*, *gröna*, *blå*och *alpha* -komponenter i den ordningen. |
+| `['rgb', number, number, number]` | color | Skapar ett färg värde från *röda* , *gröna* och *blå* komponenter som måste vara mellan `0` och och `255` en alpha-komponent i `1` . Om någon komponent är utanför intervallet är uttrycket ett fel. |
+| `['rgba', number, number, number, number]` | color | Skapar ett färg värde från *röda* , *gröna* , *blå* komponenter som måste vara mellan `0` och och `255` en alpha-komponent inom ett intervall av `0` och `1` . Om någon komponent är utanför intervallet är uttrycket ett fel. |
+| `['to-rgba']` | \[Number, Number, Number, Number\] | Returnerar en matris med fyra element som innehåller indatamängdens *röda* , *gröna* , *blå* och *alpha* -komponenter i den ordningen. |
 
 **Exempel**
 
-I följande exempel skapas ett RGB-färgvärde som har ett *rött* värde av `255` och de *gröna* och *blå* värdena som beräknas genom att multipliceras `2.5` med `temperature` egenskapens värde. När temperaturen ändras ändras färgen till olika nyanser av *rött*.
+I följande exempel skapas ett RGB-färgvärde som har ett *rött* värde av `255` och de *gröna* och *blå* värdena som beräknas genom att multipliceras `2.5` med `temperature` egenskapens värde. När temperaturen ändras ändras färgen till olika nyanser av *rött* .
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -647,7 +647,7 @@ Särskilda uttryck som endast gäller för specifika lager.
 
 ### <a name="heat-map-density-expression"></a>Uttryck för termisk kart täthet
 
-Ett termiskt kart Täthets uttryck hämtar värdet för värme kartan för varje pixel i ett värme kart skikt och definieras som `['heatmap-density']` . Det här värdet är ett tal mellan `0` och `1` . Den används i kombination med ett `interpolation` eller- `step` uttryck för att definiera färg toningen som används för att färga värme kartan. Det här uttrycket kan bara användas i [färg alternativet](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) för värme kart skiktet.
+Ett termiskt kart Täthets uttryck hämtar värdet för värme kartan för varje pixel i ett värme kart skikt och definieras som `['heatmap-density']` . Det här värdet är ett tal mellan `0` och `1` . Den används i kombination med ett `interpolation` eller- `step` uttryck för att definiera färg toningen som används för att färga värme kartan. Det här uttrycket kan bara användas i [färg alternativet](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) för värme kart skiktet.
 
 > [!TIP]
 > Färgen vid index 0, i ett interpolation-uttryck eller standard färgen för en steg färg definierar färgen för det utrymme där det inte finns några data. Färgen vid index 0 kan användas för att definiera en bakgrunds färg. Många föredrar att ange det här värdet som transparent eller en halv genomskinlig svart.
@@ -954,16 +954,16 @@ I följande artiklar finns fler kod exempel som implementerar uttryck:
 Läs mer om de lager alternativ som stöder uttryck:
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
+> [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+> [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)
+> [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)

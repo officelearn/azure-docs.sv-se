@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: e7c3f2f50d9ac1fb1731f70f7b442ab4a2e44425
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088932"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896063"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Snabb start: skapa en front dörr med en ARM-mall
 
@@ -27,7 +27,7 @@ I den här snabb starten beskrivs hur du använder en Azure Resource Manager mal
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure** . Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-front-door-create-basic%2Fazuredeploy.json)
 
@@ -40,7 +40,7 @@ Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar v
 
 Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-front-door-create-basic).
 
-I den här snabb starten skapar du en konfiguration med en front dörr med en enda server del och en enda standard Sök väg som matchar "/*". 
+I den här snabb starten skapar du en konfiguration med en front dörr med en enda server del och en enda standard Sök vägs matchning `/*` .
 
 :::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
 
@@ -50,7 +50,7 @@ En Azure-resurs har definierats i mallen:
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-1. Välj **prova** från följande kodblock för att öppna Azure Cloud Shell och följ sedan anvisningarna för att logga in på Azure. 
+1. Välj **prova** från följande kodblock för att öppna Azure Cloud Shell och följ sedan anvisningarna för att logga in på Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -69,11 +69,11 @@ En Azure-resurs har definierats i mallen:
 
 1. Kopiera PowerShell-skriptet genom att välja **Kopiera** från föregående kodblock.
 
-1. Högerklicka på fönstret Shell-konsol och välj sedan **Klistra in**.
+1. Högerklicka på fönstret Shell-konsol och välj sedan **Klistra in** .
 
 1. Ange värdena.
 
-    Mallen för distribution skapar en frontend-dörr med en enda server del. I det här exemplet * <span>Microsoft.</span> com* används som **backendAddress**.
+    Mallen för distribution skapar en frontend-dörr med en enda server del. I det här exemplet `microsoft.com` används som **backendAddress** .
 
     Resurs gruppens namn är projekt namnet med **RG** tillagt.
 
@@ -110,8 +110,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en:
-* Front Door
+I den här snabb starten har du skapat en front dörr.
 
 Om du vill lära dig hur du lägger till en anpassad domän i din frontend-guide kan du fortsätta till självstudierna för front dörren.
 

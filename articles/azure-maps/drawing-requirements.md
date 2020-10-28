@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 1f25aadf716b7768b6122a4fb165466aef7f8a16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c3e46bf386e70cbe35d96728ede896d6bf0dc7d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053400"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895842"
 ---
 # <a name="drawing-package-requirements"></a>Krav för ritningspaket
 
-Du kan konvertera överförda ritnings paket till kart data med hjälp av [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion). I den här artikeln beskrivs kraven för ritnings paket för konverterings-API: et. Om du vill visa ett exempel paket kan du hämta exempel [ritnings paketet](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+Du kan konvertera överförda ritnings paket till kart data med hjälp av [Azure Maps Conversion service](/rest/api/maps/conversion). I den här artikeln beskrivs kraven för ritnings paket för konverterings-API: et. Om du vill visa ett exempel paket kan du hämta exempel [ritnings paketet](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -25,7 +25,7 @@ Ritnings paketet innehåller ritningar som sparats i DWG-format, vilket är det 
 
 Du kan välja valfri CAD-programvara för att skapa ritningarna i ritnings paketet.  
 
-[Tjänsten Azure Maps Conversion](https://docs.microsoft.com/rest/api/maps/conversion) konverterar ritnings paketet till kart data. Konverterings tjänsten fungerar med fil formatet AutoCAD DWG. `AC1032` är den interna format versionen för DWG-filerna, och det är en bra idé att välja `AC1032` för den interna DWG-versionen av fil formatet.  
+[Tjänsten Azure Maps Conversion](/rest/api/maps/conversion) konverterar ritnings paketet till kart data. Konverterings tjänsten fungerar med fil formatet AutoCAD DWG. `AC1032` är den interna format versionen för DWG-filerna, och det är en bra idé att välja `AC1032` för den interna DWG-versionen av fil formatet.  
 
 ## <a name="glossary-of-terms"></a>Ordlista
 
@@ -36,7 +36,7 @@ Här är några termer och definitioner som är viktiga när du läser den här 
 | Skikt | Ett AutoCAD DWG-lager.|
 | Nivå | Ett del i en byggnad med en angiven höjning. Till exempel en byggnads golv. |
 | XREF  |En fil i AutoCAD DWG-filformat (. dwg) som är kopplad till den primära ritningen som en extern referens.  |
-| Funktion | Ett objekt som kombinerar en geometri med ytterligare metadatainformation. |
+| Visning av aktuellt objekt | Ett objekt som kombinerar en geometri med ytterligare metadatainformation. |
 | Funktions klasser | En gemensam skiss för funktioner. Till exempel är en *enhet* en funktions klass och ett *kontor* är en funktion. |
 
 ## <a name="drawing-package-structure"></a>Ritnings paketets struktur
@@ -50,13 +50,13 @@ Du kan organisera DWG-filerna på valfritt sätt i mappen, men manifest filen m�
 
 ## <a name="dwg-files-requirements"></a>Krav för DWG-filer
 
-En enskild DWG-fil krävs för varje nivå i anläggningen. Nivåns data måste finnas i en enskild DWG-fil. Alla externa referenser (_xrefs_) måste vara kopplade till den överordnade ritningen. Dessutom är varje DWG-fil:
+En enskild DWG-fil krävs för varje nivå i anläggningen. Nivåns data måste finnas i en enskild DWG-fil. Alla externa referenser ( _xrefs_ ) måste vara kopplade till den överordnade ritningen. Dessutom är varje DWG-fil:
 
-* Måste definiera de _yttre_ och _enhets_ lagren. Du kan också definiera följande valfria lager: _vägg_, _dörr_, _UnitLabel_, _zon_och _ZoneLabel_.
+* Måste definiera de _yttre_ och _enhets_ lagren. Du kan också definiera följande valfria lager: _vägg_ , _dörr_ , _UnitLabel_ , _zon_ och _ZoneLabel_ .
 * Får inte innehålla funktioner från flera nivåer.
 * Får inte innehålla funktioner från flera anläggningar.
 
-[Tjänsten Azure Maps Conversion](https://docs.microsoft.com/rest/api/maps/conversion) kan extrahera följande funktions klasser från en DWG-fil:
+[Tjänsten Azure Maps Conversion](/rest/api/maps/conversion) kan extrahera följande funktions klasser från en DWG-fil:
 
 * Nivåer
 * Enheter
@@ -73,11 +73,11 @@ DWG-lager måste också följa följande kriterier:
 
 * Ritningarnas ursprung för alla DWG-filer måste anpassas till samma latitud och longitud.
 * Varje nivå måste ha samma orientering som de andra nivåerna.
-* Automatisk överlappande polygoner repare ras automatiskt och [tjänsten Azure Maps Conversion](https://docs.microsoft.com/rest/api/maps/conversion) genererar en varning. Du bör kontrol lera de reparerade resultaten manuellt, eftersom de kanske inte matchar de förväntade resultaten.
+* Automatisk överlappande polygoner repare ras automatiskt och [tjänsten Azure Maps Conversion](/rest/api/maps/conversion) genererar en varning. Du bör kontrol lera de reparerade resultaten manuellt, eftersom de kanske inte matchar de förväntade resultaten.
 
 Alla lager enheter måste vara en av följande typer: linje, polylinje, polygon, cirkelformad båge, cirkel eller text (enskild linje). Andra typer av enheter ignoreras.
 
-I följande tabell beskrivs de entitetstyper som stöds och funktioner som stöds för varje skikt. Om ett lager innehåller enhets typer som inte stöds, ignorerar [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) dessa entiteter.  
+I följande tabell beskrivs de entitetstyper som stöds och funktioner som stöds för varje skikt. Om ett lager innehåller enhets typer som inte stöds, ignorerar [Azure Maps Conversion service](/rest/api/maps/conversion) dessa entiteter.  
 
 | Skikt | Entitetstyper | Funktioner |
 | :----- | :-------------------| :-------
@@ -168,11 +168,11 @@ Du kan se ett exempel på ZoneLabel-lagret i [exempel ritnings paketet](https://
 
 ## <a name="manifest-file-requirements"></a>Manifest fil krav
 
-Zip-mappen måste innehålla en manifest fil på rot nivån i katalogen och filen måste ha namnet **manifest.jspå**. Den beskriver DWG-filerna för att tillåta att [Azure Maps konverterings tjänsten](https://docs.microsoft.com/rest/api/maps/conversion) tolkar sitt innehåll. Endast de filer som identifieras av manifestet matas in. Filer som finns i zip-mappen, men som inte anges korrekt i manifestet, ignoreras.
+Zip-mappen måste innehålla en manifest fil på rot nivån i katalogen och filen måste ha namnet **manifest.jspå** . Den beskriver DWG-filerna för att tillåta att [Azure Maps konverterings tjänsten](/rest/api/maps/conversion) tolkar sitt innehåll. Endast de filer som identifieras av manifestet matas in. Filer som finns i zip-mappen, men som inte anges korrekt i manifestet, ignoreras.
 
 Fil Sök vägarna i `buildingLevels` objekt i manifest filen måste vara relativa till roten i zip-mappen. DWG-filnamnet måste exakt matcha namnet på anläggnings nivån. Till exempel är en DWG-fil för nivån "Basement" "Basement. DWG". En DWG-fil för nivå 2 heter som "level_2. DWG." Använd ett under streck om ditt nivå namn har ett blank steg.
 
-Även om det finns krav när du använder manifest objekt krävs inte alla objekt. I följande tabell visas de obligatoriska och valfria objekten för version 1,1 av [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion).
+Även om det finns krav när du använder manifest objekt krävs inte alla objekt. I följande tabell visas de obligatoriska och valfria objekten för version 1,1 av [Azure Maps Conversion service](/rest/api/maps/conversion).
 
 | Objekt | Krävs | Beskrivning |
 | :----- | :------- | :------- |
@@ -404,7 +404,7 @@ Följande är en exempel manifest fil för exempel ritnings paketet. Om du vill 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När ditt Drawing-paket uppfyller kraven kan du använda [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/conversion) för att konvertera paketet till en karta-datauppsättning. Sedan kan du använda data uppsättningen för att generera en insamlad karta med hjälp av modulen inomhus Maps.
+När ditt Drawing-paket uppfyller kraven kan du använda [Azure Maps Conversion service](/rest/api/maps/conversion) för att konvertera paketet till en karta-datauppsättning. Sedan kan du använda data uppsättningen för att generera en insamlad karta med hjälp av modulen inomhus Maps.
 
 > [!div class="nextstepaction"]
 >[Skapare för inomhus Maps](creator-indoor-maps.md)

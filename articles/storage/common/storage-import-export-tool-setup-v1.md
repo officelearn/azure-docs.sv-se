@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e03601bc929354a69e7f9027db5ac9b7697c3c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9b69cef5741ab609b72f6c2c34e3aa50b45648
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054083"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782084"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Konfigurera Azure import/export-verktyget v1
 Verktyget Microsoft Azure Import/Export är verktyget för förberedelse och reparation av enheter som du kan använda med tjänsten Microsoft Azure Import/Export. Du kan använda verktyget för följande funktioner:  
@@ -249,8 +249,8 @@ Examples:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förbereda hårddiskar för ett importjobb](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [För hands Visa enhets användning för ett export jobb](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [Granska jobbstatus med kopiera loggfiler](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Reparera ett importjobb](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Reparera ett exportjobb](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Förbereda hårddiskar för ett importjobb](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+* [För hands Visa enhets användning för ett export jobb](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1)   
+* [Granska jobbstatus med kopiera loggfiler](./storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Reparera ett importjobb](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Reparera ett exportjobb](./storage-import-export-tool-repairing-an-export-job-v1.md)

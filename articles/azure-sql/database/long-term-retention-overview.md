@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: 83d3bb78ef27af377b0a8c5edf75f658a0ca93e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8250fc39fe58168ddc13b7bcf5c040b57d5e92fb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450224"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782628"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Långsiktig kvarhållning – Azure SQL Database och Azure SQL-hanterad instans
 
@@ -26,7 +26,7 @@ Många program har regler, efterlevnad eller andra affärs behov som kräver att
 Lång tids kvarhållning kan aktive ras för Azure SQL Database och är i begränsad offentlig för hands version för Azure SQL-hanterad instans. Den här artikeln innehåller en konceptuell översikt över långsiktig kvarhållning. Information om hur du konfigurerar långsiktig kvarhållning finns i [konfigurera Azure SQL Database LTR](long-term-backup-retention-configure.md) och [Konfigurera Azure SQL Managed instance LTR](../managed-instance/long-term-backup-retention-configure.md). 
 
 > [!NOTE]
-> Du kan använda SQL Agent-jobb för att schemalägga [säkerhets kopiering av skrivskyddade databaser](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) som ett alternativ till vä-hö över 35 dagar.
+> Du kan använda SQL Agent-jobb för att schemalägga [säkerhets kopiering av skrivskyddade databaser](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) som ett alternativ till vä-hö över 35 dagar.
 
 
 ## <a name="how-long-term-retention-works"></a>Så här fungerar långsiktig kvarhållning
@@ -36,7 +36,7 @@ Långsiktig kvarhållning av säkerhets kopior (brv) utnyttjar de fullständiga 
 Om du vill aktivera vä-hö kan du definiera en princip med en kombination av fyra parametrar: veckovis kvarhållning av säkerhets kopior (W), månatlig kvarhållning av säkerhets kopior (M), årlig kvarhållning av säkerhets kopior (Y) och vecka på år (WeekOfYear). Om du anger a kommer en säkerhets kopia varje vecka att kopieras till långsiktig lagring. Om du anger M kommer den första säkerhets kopian av varje månad att kopieras till långsiktig lagring. Om du anger Y kopieras en säkerhets kopia under den vecka som anges av WeekOfYear till långsiktig lagring. Om den angivna WeekOfYear infaller efter att principen har kon figurer ATS skapas den första säkerhets kopian för LTR under följande år. Varje säkerhets kopia sparas i långtids lagringen enligt de princip parametrar som konfigureras när säkerhets kopian för LTR skapas.
 
 > [!NOTE]
-> Alla ändringar i LTR-principen gäller endast för framtida säkerhets kopieringar. Om till exempel veckovis kvarhållning av säkerhets kopior (W), månatlig kvarhållning av säkerhets kopior (M) eller årlig kvarhållning av säkerhets kopior (Y) ändras, kommer den nya inställningen för kvarhållning endast att gälla för nya säkerhets kopior. Kvarhållning av befintliga säkerhets kopior kommer inte att ändras. Om din avsikt är att ta bort gamla LTR-säkerhetskopieringar innan deras kvarhållningsperiod går ut, måste du [ta bort säkerhets kopiorna manuellt](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups).
+> Alla ändringar i LTR-principen gäller endast för framtida säkerhets kopieringar. Om till exempel veckovis kvarhållning av säkerhets kopior (W), månatlig kvarhållning av säkerhets kopior (M) eller årlig kvarhållning av säkerhets kopior (Y) ändras, kommer den nya inställningen för kvarhållning endast att gälla för nya säkerhets kopior. Kvarhållning av befintliga säkerhets kopior kommer inte att ändras. Om din avsikt är att ta bort gamla LTR-säkerhetskopieringar innan deras kvarhållningsperiod går ut, måste du [ta bort säkerhets kopiorna manuellt](./long-term-backup-retention-configure.md#delete-ltr-backups).
 > 
 
 Exempel på LTR-principen:
@@ -84,7 +84,7 @@ Användning av långsiktig kvarhållning av säkerhets kopior med Azure SQL Mana
 - **Begränsad offentlig för hands version** – den här för hands versionen är endast tillgänglig för EA-och CSP-prenumerationer och har begränsad tillgänglighet.  
 - [**Endast PowerShell**](../managed-instance/long-term-backup-retention-configure.md) – det finns för närvarande inget stöd för Azure Portal. VÄ-hö måste vara aktive rad med PowerShell. 
 
-Om du vill begära registrering skapar du ett [support ärende för Azure](https://azure.microsoft.com/support/create-ticket/). Välj tekniskt problem för tjänsten Välj SQL-hanterad instans och för problem typen väljer du **säkerhets kopiering, återställning och affärs kontinuitet/långsiktig kvarhållning av säkerhets kopior**. I din begäran kan du ange det tillstånd som du vill ska registreras i begränsad offentlig för hands version av LTR för SQL-hanterad instans.
+Om du vill begära registrering skapar du ett [support ärende för Azure](https://azure.microsoft.com/support/create-ticket/). Välj tekniskt problem för tjänsten Välj SQL-hanterad instans och för problem typen väljer du **säkerhets kopiering, återställning och affärs kontinuitet/långsiktig kvarhållning av säkerhets kopior** . I din begäran kan du ange det tillstånd som du vill ska registreras i begränsad offentlig för hands version av LTR för SQL-hanterad instans.
 
 ## <a name="configure-long-term-backup-retention"></a>Konfigurera långsiktig kvarhållning av säkerhetskopior
 
@@ -99,4 +99,3 @@ Om du vill återställa en databas från den lokala lagrings platsen kan du väl
 ## <a name="next-steps"></a>Nästa steg
 
 Eftersom säkerhets kopiering av databasen skyddar data från oavsiktlig skada eller borttagning, är de en viktig del av all affärs kontinuitet och katastrof återställnings strategi. Mer information om andra SQL Database lösningar för företags kontinuitet finns i [Översikt över affärs kontinuitet](business-continuity-high-availability-disaster-recover-hadr-overview.md).
- 

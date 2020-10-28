@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 72d50cadcc9b0f913c66f00ebc16d5e12a39de70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d87c5d162b96209c0ce3d3276dc518f42373590f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619108"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780820"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Resurs begränsningar för elastiska pooler med inköps modellen DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Den här artikeln innehåller detaljerade resurs gränser för databaser i Azure
 
 För Azure SQL Database elastiska pooler visar följande tabeller de resurser som är tillgängliga på varje tjänst nivå och beräknings storlek. Du kan ange tjänst nivå, beräknings storlek och lagrings belopp med:
 
-* [Azure Portal](elastic-pool-manage.md#azure-portal)
+* [Azure-portalen](elastic-pool-manage.md#azure-portal)
 * [PowerShell](elastic-pool-manage.md#powershell)
 * [Azure CLI](elastic-pool-manage.md#azure-cli)
 * [REST API](elastic-pool-manage.md#rest-api).
@@ -154,7 +154,7 @@ För samma antal DTU: er kan resurser som tillhandahålls till en elastisk pool 
 Om alla DTU:er för en elastisk pool används får varje databas i poolen lika många resurser för att bearbeta frågor. SQL Database-tjänsten tillhandahåller rättvis resursdelning mellan databaser genom att tilldela lika mycket beräkningstid till dem. En rättvis resursdelning i elastiska pooler tillämpas utöver den mängd resurser som varje databas är garanterad om det minsta antalet DTU:er per databas har angetts till ett annat värde än noll.
 
 > [!NOTE]
-> För `tempdb` gränser, se [tempdb-gränser](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> För `tempdb` gränser, se [tempdb-gränser](/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ### <a name="database-properties-for-pooled-databases"></a>Databas egenskaper för databaser i pooler
 
@@ -164,7 +164,7 @@ I följande tabell beskrivs egenskaperna för databaser i pooler.
 |:--- |:--- |
 | Maximalt antal eDTU:er per databas |Det högsta antalet eDTU:er som en databas i poolen kan använda, om de är tillgängliga beroende på användningen av andra databaser i poolen. Det högsta antalet eDTU:er per databas utgör ingen resursgaranti för en databas. Den här inställningen är en global inställning som gäller för alla databaser i poolen. Ange ett högsta antal eDTU:er per databas som är tillräckligt högt för att hantera toppar i databasanvändningen. En viss grad av övertilldelning är att förvänta eftersom poolen normalt arbetar efter ett mönster med frekvent och lågfrekvent användning av databaser där inte alla databaser har aktivitetstoppar samtidigt. Anta exempelvis att toppanvändningen per databas är 20 eDTU:er och att endast 20 % av de 100 databaserna i poolen har hög belastning samtidigt. Om det högsta antalet eDTU:er per databas har angetts till 20 eDTU:er är det rimligt att övertilldela poolen med 5 gånger så mycket och ange eDTU:erna per pool till 400. |
 | Minimalt antal eDTU:er per databas |Det minsta antalet eDTU:er som en databas i poolen är garanterad. Den här inställningen är en global inställning som gäller för alla databaser i poolen. Det minsta antalet eDTU:er per databas kan anges till 0, vilket även är standardvärdet. Den här egenskapen anges till ett värde mellan 0 och den genomsnittliga eDTU-användningen per databas. Produkten av antalet databaser i poolen och det minsta antalet eDTU:er per databas får inte överskrida antalet eDTU:er per pool. Om en pool till exempel har 20 databaser och det minsta antalet eDTU:er per databas har angetts till 10 eDTU:er så måste antalet eDTU:er per pool vara minst 200 eDTU:er. |
-| Maximalt lagrings utrymme per databas |Maximal databas storlek som har angetts av användaren för en databas i en pool. Men poolerade databaser delar allokerat lagrings utrymme för pooler. Även om den totala maximala lagrings utrymmet *per databas* har angetts till att vara större än det totala tillgängliga lagrings *utrymmet för poolen*, kan det totala utrymmet som faktiskt används av alla databaser inte överskrida gränsen för tillgängliga pooler.  Maximal databasstorlek avser den maximala storleken för datafilerna och omfattar inte utrymmet som används av loggfiler. |
+| Maximalt lagrings utrymme per databas |Maximal databas storlek som har angetts av användaren för en databas i en pool. Men poolerade databaser delar allokerat lagrings utrymme för pooler. Även om den totala maximala lagrings utrymmet *per databas* har angetts till att vara större än det totala tillgängliga lagrings *utrymmet för poolen* , kan det totala utrymmet som faktiskt används av alla databaser inte överskrida gränsen för tillgängliga pooler.  Maximal databasstorlek avser den maximala storleken för datafilerna och omfattar inte utrymmet som används av loggfiler. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg

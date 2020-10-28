@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: bdb021bc0247972fa29975c62bc9214e3b474e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996838"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782458"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Övervaka hanterings åtgärder för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,7 +46,7 @@ I följande tabell jämförs övervaknings alternativ för hanterings åtgärder
 | Alternativ | Kvarhållning | Har stöd för Avbryt | Skapa | Uppdatera | Ta bort | Avbryt | Steg |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Distributioner av resurs grupper | Oändlig<sup>1</sup> | Nr<sup>2</sup> | Synliga | Synliga | Inte synlig | Synliga | Inte synlig |
-| Aktivitetslogg | 90 dagar | Inga | Synliga | Synliga | Synliga | Synliga |  Inte synlig |
+| Aktivitetslogg | 90 dagar | Nej | Synliga | Synliga | Synliga | Synliga |  Inte synlig |
 | API för hanterade instans åtgärder | 24 timmar | [Ja](management-operations-cancel.md) | Synliga | Synliga | Synliga | Synliga | Synliga |
 |  |  |  |  |  |  |  | |
 
@@ -62,9 +62,9 @@ Detta är API: erna:
 
 | Kommando | Beskrivning |
 | --- | --- |
-|[Hanterade instans åtgärder – Hämta](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Hämtar en hanterings åtgärd på en hanterad instans.|
-|[Hanterade instans åtgärder – Avbryt](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Avbryter den asynkrona åtgärden på den hanterade instansen.|
-|[Hanterade instans åtgärder – lista efter hanterad instans](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Hämtar en lista över åtgärder som utförts på den hanterade instansen.|
+|[Hanterade instans åtgärder – Hämta](/rest/api/sql/managedinstanceoperations/get)|Hämtar en hanterings åtgärd på en hanterad instans.|
+|[Hanterade instans åtgärder – Avbryt](/rest/api/sql/managedinstanceoperations/cancel)|Avbryter den asynkrona åtgärden på den hanterade instansen.|
+|[Hanterade instans åtgärder – lista efter hanterad instans](/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Hämtar en lista över åtgärder som utförts på den hanterade instansen.|
 
 > [!NOTE]
 > Använd API version 2020-02-02 för att se åtgärden Skapa i hanterade instanser i listan över åtgärder. Det här är standard versionen som används i Azure Portal och de senaste PowerShell-och Azure CLI-paketen.
@@ -98,7 +98,7 @@ $managementOperations = Get-AzSqlInstanceOperation `
     -ManagedInstanceName $managedInstance  -ResourceGroupName $resourceGroup
 ```
 
-Detaljerade kommando förklaringar finns i [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation).
+Detaljerade kommando förklaringar finns i [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -108,7 +108,7 @@ I AZ SQL mi op-listan hämtas en lista över åtgärder som utförs på den hant
 az sql mi op list -g yourResourceGroupName --mi yourInstanceName 
 ```
 
-Detaljerade kommando förklaringar finns i [AZ SQL mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Detaljerade kommando förklaringar finns i [AZ SQL mi op](/cli/azure/sql/mi/op).
 
 ---
 

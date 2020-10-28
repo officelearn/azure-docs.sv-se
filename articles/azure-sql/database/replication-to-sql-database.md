@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 079d187f66cf77585121198df06cabafc454fea1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ff1d485ab4c0662ae8a9d754ce67b1446b76fcc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362137"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780962"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replikering till Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "91362137"
 Du kan konfigurera en Azure SQL Database som push-prenumerant i en enkelriktad transaktionell eller ögonblicks bilds replikeringstopologi.
 
 > [!NOTE]
-> I den här artikeln beskrivs användningen [av Transaktionsreplikering](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL Database. Den är inte relaterad till [aktiv geo-replikering](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication), en Azure SQL Database funktion som gör att du kan skapa kompletta läsbara repliker av enskilda databaser.
+> I den här artikeln beskrivs användningen [av Transaktionsreplikering](/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL Database. Den är inte relaterad till [aktiv geo-replikering](./active-geo-replication-overview.md), en Azure SQL Database funktion som gör att du kan skapa kompletta läsbara repliker av enskilda databaser.
 
 ## <a name="supported-configurations"></a>Konfigurationer som stöds
   
@@ -50,16 +50,16 @@ Om du vill använda alla funktioner i Azure SQL Database måste du använda de s
 
 ### <a name="types-of-replication"></a>Typer av replikering
 
-Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
+Det finns olika [typer av replikering](/sql/relational-databases/replication/types-of-replication):
 
 | Replikering | Azure SQL Database | Hanterad Azure SQL-instans |
 | :----| :------------- | :--------------- |
-| [**Standard transaktion**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Ja | 
-| [**Ögonblicksbild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Ja|
-| [**Sammanfoga replikering**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Inga | Inga|
-| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Inga | Inga|
-| [**Dubbelriktad**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Inga | Ja|
-| [**Uppdaterings bara prenumerationer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Inga | Inga|
+| [**Standard transaktion**](/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Ja | 
+| [**Ögonblicksbild**](/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Ja|
+| [**Sammanfoga replikering**](/sql/relational-databases/replication/merge/merge-replication) | Nej | Nej|
+| [**Peer-to-peer**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nej | Nej|
+| [**Dubbelriktad**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nej | Ja|
+| [**Uppdaterings bara prenumerationer**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nej | Nej|
 | &nbsp; | &nbsp; | &nbsp; |
 
   
@@ -126,14 +126,14 @@ Följande alternativ stöds inte för Azure SQL Database prenumerationer:
 
 Skapa en publikation och en utgivarinitierad prenumeration. Mer information finns i:
   
-- [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Skapa en push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) med hjälp av Server namnet som prenumerant (till exempel **N'azuresqldbdns. Database. Windows. net**) och Azure SQL Database namn som mål databas (till exempel **AdventureWorks**).  
+- [Skapa en publikation](/sql/relational-databases/replication/publish/create-a-publication)
+- [Skapa en push-prenumeration](/sql/relational-databases/replication/create-a-push-subscription/) med hjälp av Server namnet som prenumerant (till exempel **N'azuresqldbdns. Database. Windows. net** ) och Azure SQL Database namn som mål databas (till exempel **AdventureWorks** ).  
 
 ## <a name="see-also"></a>Se även  
 
 - [Transaktionsreplikering](../managed-instance/replication-transactional-overview.md)
-- [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Skapa en push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Typer av replikering](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Övervakning (replikering)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Initiera en prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Skapa en publikation](/sql/relational-databases/replication/publish/create-a-publication)
+- [Skapa en push-prenumeration](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Typer av replikering](/sql/relational-databases/replication/types-of-replication)
+- [Övervakning (replikering)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Initiera en prenumeration](/sql/relational-databases/replication/initialize-a-subscription)

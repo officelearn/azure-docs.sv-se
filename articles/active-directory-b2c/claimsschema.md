@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201369"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781727"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -92,7 +92,7 @@ Elementet **datatype** stöder följande värden:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Name | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden är: OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden är: OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Ja | Namnet på anspråks typen som ska användas. |
 
 I följande exempel, när ett identitets Miljös ramverk interagerar med en SAML2-identitetsprovider **eller ett** förlitande parts program, mappas kravet till `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` , med OpenIdConnect och OAuth2, anspråket mappas till `family_name` .
@@ -109,7 +109,7 @@ I följande exempel, när ett identitets Miljös ramverk interagerar med en SAML
 </ClaimType>
 ```
 
-Det innebär att JWT-token som utfärdas av Azure AD B2C, genererar i `family_name` stället för efter **surname**namn på claimType-namn.
+Det innebär att JWT-token som utfärdas av Azure AD B2C, genererar i `family_name` stället för efter **surname** namn på claimType-namn.
 
 ```json
 {
@@ -128,7 +128,7 @@ Det innebär att JWT-token som utfärdas av Azure AD B2C, genererar i `family_na
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | `Type` | Ja | Typ av anspråks mask. Möjliga värden: `Simple` eller `Regex` . `Simple`Värdet anger att en enkel textmask används för den inledande delen av ett sträng anspråk. `Regex`Värdet anger att ett reguljärt uttryck används för sträng anspråket som helhet.  Om `Regex` värdet har angetts måste även ett valfritt attribut definieras med det reguljära uttrycket som ska användas. |
-| `Regex` | Inga | Om **`Type`** är inställt på `Regex` anger du det reguljära uttrycket som ska användas.
+| `Regex` | Nej | Om **`Type`** är inställt på `Regex` anger du det reguljära uttrycket som ska användas.
 
 I följande exempel konfigureras ett **telefonnummer för telefonnummer** till `Simple` masken:
 
@@ -167,7 +167,7 @@ I ramverket med identitets upplevelsen återges bara den första bokstaven i e-p
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| MergeBehavior | Inga | Den metod som används för att sammanfoga uppräknings värden med en ClaimType i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append` , `Prepend` , eller `ReplaceAll` . `Append`Värdet är en samling data som ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend`Värdet är en samling data som ska läggas till före den samling som anges i den överordnade principen. `ReplaceAll`Värdet är en samling data som anges i den överordnade principen som ska ignoreras. |
+| MergeBehavior | Nej | Den metod som används för att sammanfoga uppräknings värden med en ClaimType i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append` , `Prepend` , eller `ReplaceAll` . `Append`Värdet är en samling data som ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend`Värdet är en samling data som ska läggas till före den samling som anges i den överordnade principen. `ReplaceAll`Värdet är en samling data som anges i den överordnade principen som ska ignoreras. |
 
 **Begränsnings** elementet innehåller följande element:
 
@@ -186,7 +186,7 @@ I ramverket med identitets upplevelsen återges bara den första bokstaven i e-p
 | --------- | -------- | ----------- |
 | Text | Ja | Den visnings sträng som visas för användaren i användar gränssnittet för det här alternativet. |
 |Värde | Ja | Anspråks värde som är associerat med att välja det här alternativet. |
-| SelectByDefault | Inga | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
+| SelectByDefault | Nej | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
 
 I följande exempel konfigureras List rutan för en **stad** med ett standardvärde som är inställt på `New York` :
 
@@ -214,7 +214,7 @@ List rutan stad med ett standardvärde som är inställt på New York:
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Reguljärt uttryck | Ja | Det reguljära uttrycket som anspråk av den här typen måste matcha för att vara giltigt. |
-| HelpText | Inga | Ett fel meddelande för användare om den reguljära uttrycks kontrollen Miss lyckas. |
+| HelpText | Nej | Ett fel meddelande för användare om den reguljära uttrycks kontrollen Miss lyckas. |
 
 I följande exempel konfigureras ett **e-** postanspråk med text verifiering och hjälp text i reguljärt uttryck:
 
@@ -228,7 +228,7 @@ I följande exempel konfigureras ett **e-** postanspråk med text verifiering oc
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
     </Restriction>
  </ClaimType>
 ```
@@ -250,7 +250,7 @@ Azure AD B2C stöder flera olika typer av användarindata, till exempel en text 
 |DropdownSingleSelect |`string` |Listruta för enkel markering. Anspråks värde är det valda värdet.|
 |E-postmeddelande | `string` |E-postfält. |
 |Stycke | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Ett fält som endast visar text i en stycke-tagg. |
-|lösenordsinställning | `string` |Text rutan lösen ord.|
+|Lösenord | `string` |Text rutan lösen ord.|
 |RadioSingleSelect |`string` | Samling alternativ knappar. Anspråks värde är det valda värdet.|
 |ReadOnly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Skrivskyddad text ruta. |
 |TextBox |`boolean`, `int`, `string` |Text ruta med en rad. |
@@ -284,12 +284,12 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>EmailBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
   </Restriction>
 </ClaimType>
 ```
 
-#### <a name="password"></a>lösenordsinställning
+#### <a name="password"></a>Lösenord
 
 **Användarens** Indatatyp används för att registrera ett lösen ord som anges av användaren.
 

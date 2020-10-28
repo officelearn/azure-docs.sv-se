@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 09/16/2020
-ms.openlocfilehash: 2792a93748600d71c37972058c8e496928543c9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 947d842860452425f8b30fbdaf9558c2a94a89a2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330714"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781217"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skala elastiska pool resurser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du skalar beräknings-och lagrings resurserna so
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Ändra beräknings resurser (virtuella kärnor eller DTU: er)
 
-När du först har valt antalet virtuella kärnor eller eDTU: er kan du skala upp eller ned en elastisk pool dynamiskt baserat på den faktiska upplevelsen med hjälp av [Azure Portal](elastic-pool-manage.md#azure-portal), [POWERSHELL](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)eller [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+När du först har valt antalet virtuella kärnor eller eDTU: er kan du skala upp eller ned en elastisk pool dynamiskt baserat på den faktiska upplevelsen med hjälp av [Azure Portal](elastic-pool-manage.md#azure-portal), [POWERSHELL](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)eller [REST API](/rest/api/sql/elasticpools/update).
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Effekt av att ändra tjänst nivå eller skala om beräknings storlek
 
@@ -57,7 +57,7 @@ Beräknad svars tid för att ändra tjänst nivån, skala beräknings storleken 
 >
 > - Om du ändrar tjänst nivån eller skalnings beräkning för en elastisk pool, bör summering av utrymmet som används i alla databaser i poolen användas för att beräkna uppskattningen.
 > - Om du flyttar en databas till/från en elastisk pool, påverkar endast det utrymme som används av databasen svars tiden, inte det utrymme som används av den elastiska poolen.
-> - För standard-och Generell användning elastiska pooler kommer svars tiden för att flytta en databas in i/ut ur en elastisk pool eller mellan elastiska pooler att vara proportionerlig till databasens storlek om den elastiska poolen använder en Premium File Share ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction))-lagring. Ta reda på om en pool använder PFS-lagring genom att köra följande fråga i kontexten för en databas i poolen. Om värdet i kolumnen flervärdesattribut är `PremiumFileStorage` eller `PremiumFileStorage-ZRS` , använder poolen PFS-lagring.
+> - För standard-och Generell användning elastiska pooler kommer svars tiden för att flytta en databas in i/ut ur en elastisk pool eller mellan elastiska pooler att vara proportionerlig till databasens storlek om den elastiska poolen använder en Premium File Share ([PFS](../../storage/files/storage-files-introduction.md))-lagring. Ta reda på om en pool använder PFS-lagring genom att köra följande fråga i kontexten för en databas i poolen. Om värdet i kolumnen flervärdesattribut är `PremiumFileStorage` eller `PremiumFileStorage-ZRS` , använder poolen PFS-lagring.
 
 ```sql
 SELECT s.file_id,
@@ -69,7 +69,7 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
 
 > [!TIP]
-> Information om hur du övervakar pågående åtgärder finns i: [Hantera åtgärder med hjälp av SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Hantera åtgärder med CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) och [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Information om hur du övervakar pågående åtgärder finns i: [Hantera åtgärder med hjälp av SQL REST API](/rest/api/sql/operations/list), [Hantera åtgärder med CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) och [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Ytterligare överväganden vid ändring av tjänst nivå eller skalning av beräknings storlek
 
@@ -100,7 +100,7 @@ Du debiteras för varje timme som det finns en databas med den högsta tjänst n
 ### <a name="dtu-based-purchasing-model"></a>DTU-baserad inköps modell
 
 - EDTU-priset för en elastisk pool omfattar en viss mängd lagring utan extra kostnad. Extra lagring utöver den mängd som ingår kan tillhandahållas för ytterligare kostnad upp till den maximala storleks gränsen i steg om 250 GB upp till 1 TB och sedan i steg om 256 GB utöver 1 TB. För inkluderade lagrings mängder och Max storleks gränser, se [elastisk pool: lagrings storlekar och beräknings storlekar](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
-- Extra lagrings utrymme för en elastisk pool kan tillhandahållas genom att öka den maximala storleken med hjälp av [Azure Portal](elastic-pool-manage.md#azure-portal), [POWERSHELL](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)eller [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+- Extra lagrings utrymme för en elastisk pool kan tillhandahållas genom att öka den maximala storleken med hjälp av [Azure Portal](elastic-pool-manage.md#azure-portal), [POWERSHELL](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)eller [REST API](/rest/api/sql/elasticpools/update).
 - Priset för extra lagring för en elastisk pool är det extra lagrings beloppet multiplicerat med det extra lagrings enhets priset för tjänst nivån. Mer information om priset för extra lagring finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]

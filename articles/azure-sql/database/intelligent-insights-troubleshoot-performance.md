@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 80f5d6033429c40f468d525a088bcc72bdc3375b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4837b905f4e65b5513f1dbf693af9815b5696a4a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450303"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782968"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Felsök prestanda problem med Azure SQL Database och Azure SQL-hanterade instanser med Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Den här sidan innehåller information om prestanda problem för Azure SQL Database och Azure SQL-hanterade instanser i [intelligent Insights](intelligent-insights-overview.md) resurs loggen. Mått och resurs loggar kan strömmas till [Azure Monitor loggar](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
+Den här sidan innehåller information om prestanda problem för Azure SQL Database och Azure SQL-hanterade instanser i [intelligent Insights](intelligent-insights-overview.md) resurs loggen. Mått och resurs loggar kan strömmas till [Azure Monitor loggar](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
 
 > [!NOTE]
 > En snabb prestanda fel söknings guide med hjälp av Intelligent Insights finns i det [rekommenderade fel söknings flödet](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) i det här dokumentet.
@@ -74,7 +74,7 @@ I diagnostikloggar visas frågor om hash-värden för frågor som påverkar proc
 
 Om du har nått gränserna för tillgängliga sessioner kan du optimera dina program genom att minska antalet inloggningar som görs i databasen. Om du inte kan minska antalet inloggningar från dina program till databasen kan du öka pris nivån för din databas prenumeration. Du kan också dela upp och flytta databasen till flera databaser för en mer bal anse rad arbets belastnings distribution.
 
-Mer information om hur du löser sessionsgränser finns i [Hantera gränserna för maximala inloggningar](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Se [Översikt över resurs begränsningar på en server](resource-limits-logical-server.md) för information om begränsningar på Server-och prenumerations nivåer.
+Mer information om hur du löser sessionsgränser finns i [Hantera gränserna för maximala inloggningar](/archive/blogs/latam/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins). Se [Översikt över resurs begränsningar på en server](resource-limits-logical-server.md) för information om begränsningar på Server-och prenumerations nivåer.
 
 ## <a name="workload-increase"></a>Ökad arbets belastning
 
@@ -118,7 +118,7 @@ Ytterligare fel söknings förslag finns i [minnes beviljande meditation: mystis
 
 Det här prestanda mönstret indikerar försämring i den aktuella databas prestandan där överdriven databas låsning upptäcks jämfört med den senaste sju dagars prestanda bas linjen.
 
-I modern RDBMS är låsning nödvändig för att implementera multitrådade system där prestanda maximeras genom att köra flera samtidiga arbetare och parallella databas transaktioner där det är möjligt. Låsning i det här sammanhanget syftar på den inbyggda Access-mekanismen där endast en enskild transaktion kan komma åt de rader, sidor, tabeller och filer som krävs och inte konkurrerar med en annan transaktion för resurser. När den transaktion som låste resurserna för användning görs med, släpps låset på dessa resurser, vilket gör att andra transaktioner kan komma åt nödvändiga resurser. Mer information om att låsa finns i [Lås i databas motorn](https://msdn.microsoft.com/library/ms190615.aspx).
+I modern RDBMS är låsning nödvändig för att implementera multitrådade system där prestanda maximeras genom att köra flera samtidiga arbetare och parallella databas transaktioner där det är möjligt. Låsning i det här sammanhanget syftar på den inbyggda Access-mekanismen där endast en enskild transaktion kan komma åt de rader, sidor, tabeller och filer som krävs och inte konkurrerar med en annan transaktion för resurser. När den transaktion som låste resurserna för användning görs med, släpps låset på dessa resurser, vilket gör att andra transaktioner kan komma åt nödvändiga resurser. Mer information om att låsa finns i [Lås i databas motorn](/previous-versions/sql/sql-server-2008-r2/ms190615(v=sql.105)).
 
 Om transaktioner som körs av SQL-motorn väntar på längre tids perioder för att få åtkomst till resurser som är låsta för användning, kan den här vänte tiden leda till att prestandan för arbets belastningen går långsammare.
 
@@ -144,7 +144,7 @@ Konfigurations alternativet för MAXDOP används för att styra hur många proce
 
 I Diagnostic-loggen visas fråga-hashar som är relaterade till frågor för vilka körnings tiden ökar, eftersom de har blivit parallella än vad de hade. Loggen utvärderar även CXP vänte tider. Den här tiden representerar tiden som en enskild organisatör/koordinator tråd (tråd 0) väntar på att alla andra trådar ska slutföras innan resultaten slås samman och flyttas framåt. Dessutom utvärderar diagnostikloggar de vänte tider som de dåligt presterande frågorna väntade i körnings övergripande. Du kan använda den här informationen som grund för fel sökning.
 
-Börja med att optimera eller förenkla komplexa frågor. Bra tillvägagångs sätt är att dela upp långa batch-jobb i mindre. Se dessutom till att du har skapat index som stöd för dina frågor. Du kan också manuellt framtvinga den högsta graden av parallellitet (MAXDOP) för en fråga som har flaggats som en dålig utförande. Information om hur du konfigurerar den här åtgärden med hjälp av T-SQL finns i [Konfigurera konfigurations alternativet för MAXDOP-servern](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+Börja med att optimera eller förenkla komplexa frågor. Bra tillvägagångs sätt är att dela upp långa batch-jobb i mindre. Se dessutom till att du har skapat index som stöd för dina frågor. Du kan också manuellt framtvinga den högsta graden av parallellitet (MAXDOP) för en fråga som har flaggats som en dålig utförande. Information om hur du konfigurerar den här åtgärden med hjälp av T-SQL finns i [Konfigurera konfigurations alternativet för MAXDOP-servern](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Om du anger MAXDOP till noll (0) som standardvärde anger du att databasen kan använda alla tillgängliga processor kärnor för att parallellisera trådar för att köra en enskild fråga. Ange MAXDOP till en (1) anger att endast en kärna kan användas för en enda fråga. I praktiska termer innebär detta att parallellitet är inaktiverat. Beroende på varje fall, tillgängliga kärnor i databasen och information om diagnostikinformation, kan du finjustera alternativet MAXDOP till antalet kärnor som används för parallell frågekörning och som kan lösa problemet i ditt fall.
 
@@ -196,7 +196,7 @@ I diagnostikloggar visas frågans hashar för de frågor som identifierats för 
 
 Detta prestanda mönster indikerar att en ny fråga identifieras som fungerar dåligt och som påverkar arbets belastnings prestandan jämfört med prestanda bas linjen för sju dagar.
 
-Det kan ibland vara en utmaning att skriva en egen körnings fråga. Mer information om hur du skriver frågor finns i [skriva SQL-frågor](https://msdn.microsoft.com/library/bb264565.aspx). Information om hur du optimerar befintliga frågor finns i [justering av frågor](https://msdn.microsoft.com/library/ms176005.aspx).
+Det kan ibland vara en utmaning att skriva en egen körnings fråga. Mer information om hur du skriver frågor finns i [skriva SQL-frågor](/previous-versions/sql/sql-server-2005/express-administrator/bb264565(v=sql.90)). Information om hur du optimerar befintliga frågor finns i [justering av frågor](/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105)).
 
 ### <a name="troubleshooting"></a>Felsökning
 
@@ -210,7 +210,7 @@ I Diagnostic-loggen visas information upp till två nya processor krävande frå
 
 Det här identifierade prestanda mönstret indikerar en försämring av arbets belastnings prestanda där dåliga frågor identifieras jämfört med den senaste sju dagars arbets belastnings bas linjen.
 
-I det här fallet kan systemet inte klassificera de dåligt utförda frågorna under någon annan standard prestanda kategori, men det identifierade den väntande statistik som är ansvarig för regressionen. Därför anses det som frågor med *ökad wait-statistik*, där den väntande statistik som är ansvarig för regressionen också exponeras.
+I det här fallet kan systemet inte klassificera de dåligt utförda frågorna under någon annan standard prestanda kategori, men det identifierade den väntande statistik som är ansvarig för regressionen. Därför anses det som frågor med *ökad wait-statistik* , där den väntande statistik som är ansvarig för regressionen också exponeras.
 
 ### <a name="troubleshooting"></a>Felsökning
 
@@ -218,7 +218,7 @@ I Diagnostic-loggen visas information om ökad information om vänte tid och fr�
 
 Eftersom systemet inte kunde identifiera rotor saken för de dåliga frågorna är diagnostikinformation en bra utgångs punkt för manuell fel sökning. Du kan optimera prestanda för dessa frågor. En bra idé är att bara hämta de data du behöver använda och för att förenkla och dela upp komplexa frågor i mindre.
 
-Mer information om hur du optimerar prestanda för frågor finns i [fråga justering](https://msdn.microsoft.com/library/ms176005.aspx).
+Mer information om hur du optimerar prestanda för frågor finns i [fråga justering](/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105)).
 
 ## <a name="tempdb-contention"></a>TempDB-konkurrens
 
@@ -230,7 +230,7 @@ Det här identifierade prestanda mönstret indikerar ett databas prestanda tills
 
 I diagnostik-loggen visas information om tempDB-konkurrens. Du kan använda informationen som utgångs punkt för fel sökning. Det finns två saker du kan göra för att minska den här typen av konkurrens och öka data flödet för den övergripande arbets belastningen: du kan sluta använda de tillfälliga tabellerna. Du kan också använda minnesoptimerade tabeller.
 
-Mer information finns i [Introduktion till minnesoptimerade tabeller](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables).
+Mer information finns i [Introduktion till minnesoptimerade tabeller](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables).
 
 ## <a name="elastic-pool-dtu-shortage"></a>DTU-underskott för elastisk pool
 
@@ -260,7 +260,7 @@ Det här identifierade prestanda mönstret kombinerar tre olika fall av plan reg
 
 Det nya plan Regressions villkoret refererar till ett tillstånd där databas motorn börjar köra en ny frågeplan för frågekörningen som inte är lika effektiv som den gamla planen. Det gamla plan Regressions villkoret avser tillståndet när databas motorn växlar från att använda en ny, mer effektiv plan till den gamla planen, vilket inte är lika effektivt som den nya planen. De befintliga planerna ändrade arbets belastnings regressionen syftar på det tillstånd i vilket de gamla och nya planerna ständigt alternerar, med saldot som går mer mot den låga presterande planen.
 
-Mer information om plan regressioner finns i [Vad är plan regression i SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/).
+Mer information om plan regressioner finns i [Vad är plan regression i SQL Server?](/archive/blogs/sqlserverstorageengine/what-is-plan-regression-in-sql-server).
 
 ### <a name="troubleshooting"></a>Felsökning
 
@@ -268,7 +268,7 @@ I Diagnostic-loggen visas frågans hash-värden, bra plan-ID, dåligt plan-ID oc
 
 Du kan analysera vilken plan som fungerar bättre för dina speciella frågor som du kan identifiera med de angivna hashvärdet. När du har fastställt vilka planer som fungerar bättre för dina frågor kan du framtvinga det manuellt.
 
-Mer information finns i [Lär dig hur SQL Server förhindrar plan regressioner](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
+Mer information finns i [Lär dig hur SQL Server förhindrar plan regressioner](/archive/blogs/sqlserverstorageengine/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions).
 
 > [!TIP]
 > Visste du att den inbyggda intelligens-funktionen kan hantera de bästa körnings planerna för dina databaser automatiskt?
@@ -287,7 +287,7 @@ Konfigurations ändringar i databasen kan ställas in för varje enskild databas
 
 I diagnostik-loggen visas de konfigurations ändringar som gjorts nyligen och som gjorde att prestanda försämringen jämförs med föregående sju dagars arbets belastnings beteende. Du kan återställa konfigurations ändringarna till föregående värden. Du kan också justera värde efter värde tills den önskade prestanda nivån har uppnåtts. Du kan kopiera konfigurations värden för databas omfattning från en liknande databas med tillfredsställande prestanda. Om du inte kan felsöka prestandan återställer du standardvärdena och försöker finjustera från den här bas linjen.
 
-Mer information om hur du optimerar en databas-och T-SQL-syntax vid ändring av konfigurationen finns i [Alter Database-scoped Configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
+Mer information om hur du optimerar en databas-och T-SQL-syntax vid ändring av konfigurationen finns i [Alter Database-scoped Configuration (Transact-SQL)](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).
 
 ## <a name="slow-client"></a>Långsam klient
 
@@ -326,11 +326,11 @@ Kom åt Intelligent Insights via Azure Portal genom att gå till Azure SQL-analy
 > [!TIP]
 > Välj flödesschemat för att ladda ned en PDF-version.
 
-Intelligent Insights behöver vanligt vis en timmes tid för att utföra rotor Saks analysen av prestanda problemet. Om du inte kan hitta ditt problem i Intelligent Insights och det är viktigt för dig, kan du använda Frågearkivet för att manuellt identifiera rotor saken till prestanda problemet. (Vanligt vis är de här problemen mindre än en timme gammal.) Mer information finns i [övervaka prestanda med hjälp av Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent Insights behöver vanligt vis en timmes tid för att utföra rotor Saks analysen av prestanda problemet. Om du inte kan hitta ditt problem i Intelligent Insights och det är viktigt för dig, kan du använda Frågearkivet för att manuellt identifiera rotor saken till prestanda problemet. (Vanligt vis är de här problemen mindre än en timme gammal.) Mer information finns i [övervaka prestanda med hjälp av Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig [intelligent Insights](intelligent-insights-overview.md) begrepp.
 - Använd [loggen intelligent Insights prestanda diagnos](intelligent-insights-use-diagnostics-log.md).
-- Övervaka med hjälp av [Azure SQL-analys](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Övervaka med hjälp av [Azure SQL-analys](../../azure-monitor/insights/azure-sql.md).
 - Lär dig att [samla in och använda loggdata från dina Azure-resurser](../../azure-monitor/platform/platform-logs-overview.md).

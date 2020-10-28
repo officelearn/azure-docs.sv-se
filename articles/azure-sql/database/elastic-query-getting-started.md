@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: 10be0fc28b53d114a8ff87f01980513ce1759dec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 586dad7439cc57ed2c863ee5f6692e12f7a78c50
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443304"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781234"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Rapport över utskalade moln databaser (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Här kommer du att skapa en Shard Map Manager tillsammans med flera Shards, föl
 1. Skapa och kör exempel programmet för att **komma igång med Elastic Database verktyg** genom att följa stegen i artikel avsnittet [Hämta och köra exempel appen](elastic-scale-get-started.md#download-and-run-the-sample-app-1). När du har slutfört alla steg visas följande kommando tolk:
 
     ![kommando tolk][1]
-2. Skriv "1" i kommando fönstret och tryck på **RETUR**. Detta skapar Shard Map Manager och lägger till två Shards på servern. Skriv "3" och tryck på **RETUR**; Upprepa åtgärden fyra gånger. Detta infogar exempel data rader i din Shards.
+2. Skriv "1" i kommando fönstret och tryck på **RETUR** . Detta skapar Shard Map Manager och lägger till två Shards på servern. Skriv "3" och tryck på **RETUR** ; Upprepa åtgärden fyra gånger. Detta infogar exempel data rader i din Shards.
 3. [Azure Portal](https://portal.azure.com) ska visa tre nya databaser på servern:
 
    ![Visual Studio-bekräftelse][2]
@@ -121,13 +121,13 @@ Du kommer att märka att frågan sammanställer resultat från alla Shards och g
 
 1. Starta Excel 2013.
 2. Navigera till menyfliksområdet **data** .
-3. Klicka på **från andra källor** och klicka på **från SQL Server**.
+3. Klicka på **från andra källor** och klicka på **från SQL Server** .
 
    ![Excel-import från andra källor][5]
-4. I **guiden data anslutning** anger du Server namnet och inloggnings uppgifterna. Klicka på **Nästa**.
-5. Välj den **databas som innehåller de data du vill använda**i dialog rutan och välj **ElasticDBQuery** -databasen.
-6. Välj tabellen **kunder** i listvyn och klicka på **Nästa**. Klicka sedan på **Slutför**.
-7. I formuläret **Importera data** under **Välj hur du vill visa data i din arbets bok väljer du** **tabell** och klickar på **OK**.
+4. I **guiden data anslutning** anger du Server namnet och inloggnings uppgifterna. Klicka på **Nästa** .
+5. Välj den **databas som innehåller de data du vill använda** i dialog rutan och välj **ElasticDBQuery** -databasen.
+6. Välj tabellen **kunder** i listvyn och klicka på **Nästa** . Klicka sedan på **Slutför** .
+7. I formuläret **Importera data** under **Välj hur du vill visa data i din arbets bok väljer du** **tabell** och klickar på **OK** .
 
 Alla rader från tabellen **kunder** , lagrade i olika Shards, fyller i Excel-bladet.
 
@@ -144,7 +144,7 @@ Pris information finns [SQL Database pris information](https://azure.microsoft.c
 * En lodrät partitionerings guide finns i [komma igång med kors databas fråga (lodrät partitionering)](elastic-query-getting-started-vertical.md).
 * För syntax och exempel frågor för lodrätt partitionerade data, se [fråga lodrätt partitionerade data)](elastic-query-vertical-partitioning.md)
 * För syntax och exempel frågor för vågrätt partitionerade data, se [fråga efter vågrätt partitionerade data)](elastic-query-horizontal-partitioning.md)
-* Se [SP \_ execute \_ Remote](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema med vågrät partitionering.
+* Se [SP \_ execute \_ Remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema med vågrät partitionering.
 
 
 <!--Image references-->

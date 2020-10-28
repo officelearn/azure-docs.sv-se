@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 993c0bdf1e8e29a7cff9bd1cad60bf78386b16a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b474ae184374a2c91dcba15517048556686ec35
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578231"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782237"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Kundhanterade nycklar för Azure Storage kryptering
 
@@ -65,7 +65,7 @@ Information om hur du konfigurerar Azure Storage kryptering med Kundhanterade ny
 > [!IMPORTANT]
 > Kundhanterade nycklar är beroende av hanterade identiteter för Azure-resurser, en funktion i Azure AD. Hanterade identiteter stöder för närvarande inte scenarier mellan kataloger. När du konfigurerar Kundhanterade nycklar i Azure Portal tilldelas en hanterad identitet automatiskt till ditt lagrings konto under försättsblad. Om du senare flyttar prenumerationen, resurs gruppen eller lagrings kontot från en Azure AD-katalog till en annan överförs inte den hanterade identitet som är kopplad till lagrings kontot till den nya klienten, så Kundhanterade nycklar kanske inte längre fungerar. Mer information finns i **överföra en prenumeration mellan Azure AD-kataloger** i [vanliga frågor och svar och kända problem med hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
-Azure Storage-kryptering stöder RSA-och RSA-HSM-nycklar i storlekarna 2048, 3072 och 4096. Mer information om nycklar finns **Key Vault nycklar** i [om Azure Key Vault nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Azure Storage-kryptering stöder RSA-och RSA-HSM-nycklar i storlekarna 2048, 3072 och 4096. Mer information om nycklar finns i [om nycklar](../../key-vault/keys/about-keys.md).
 
 Att använda ett nyckel valv eller en hanterad HSM har tillhör ande kostnader. Mer information finns i [Key Vault prissättning](https://azure.microsoft.com/pricing/details/key-vault/).
 
@@ -109,7 +109,7 @@ Om du vill anropa dessa åtgärder igen återställer du åtkomsten till den Kun
 
 Alla data åtgärder som inte listas i det här avsnittet kan fortsätta efter att Kundhanterade nycklar har återkallats eller att en nyckel har inaktiverats eller tagits bort.
 
-Om du vill återkalla åtkomsten till Kundhanterade nycklar använder du [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) eller [Azure CLI](storage-encryption-keys-cli.md#revoke-customer-managed-keys).
+Om du vill återkalla åtkomsten till Kundhanterade nycklar använder du [PowerShell](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys) eller [Azure CLI](./customer-managed-keys-configure-key-vault.md#revoke-customer-managed-keys).
 
 ## <a name="customer-managed-keys-for-azure-managed-disks"></a>Kundhanterade nycklar för Azure Managed disks
 

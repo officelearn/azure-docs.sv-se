@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ea3456dbd1d0942cba48c97d70982ae088d73f9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254063"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782985"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>Översikt över program utveckling – SQL Database & SQL-hanterad instans
 
@@ -27,7 +27,7 @@ Den här artikeln går igenom de grundläggande överväganden som en utvecklare
 
 Du kan använda olika [programmeringsspråk och plattformar](connect-query-content-reference-guide.md) för att ansluta och fråga Azure SQL Database. Du kan hitta [exempel program](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) som du kan använda för att ansluta till databasen.
 
-Du kan utnyttja verktyg med öppen källkod som [Cheetah](https://github.com/wunderlist/cheetah), [SQL-CLI](https://www.npmjs.com/package/sql-cli), [vs Code](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/downloads/) och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Du kan också använda API: erna Azure Portal, PowerShell och REST för att få ytterligare produktivitet.
+Du kan utnyttja verktyg med öppen källkod som [Cheetah](https://github.com/wunderlist/cheetah), [SQL-CLI](https://www.npmjs.com/package/sql-cli), [vs Code](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/downloads/) och [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms). Du kan också använda API: erna Azure Portal, PowerShell och REST för att få ytterligare produktivitet.
 
 ## <a name="authentication"></a>Autentisering
 
@@ -39,7 +39,7 @@ Lär dig mer om [att hantera databas åtkomst och inloggning](logins-create-mana
 
 I din klient för anslutningslogik åsidosätter du standardvärdet för timeout till att vara 30 sekunder. Standardvärdet på 15 sekunder är för kort för anslutningar som beror på internet.
 
-Om du använder en [anslutningspool](https://msdn.microsoft.com/library/8xx3tyca.aspx), måste du stänga anslutningen så snart programmet inte aktivt använder den och inte förbereder sig för att återanvända den.
+Om du använder en [anslutningspool](/dotnet/framework/data/adonet/sql-server-connection-pooling), måste du stänga anslutningen så snart programmet inte aktivt använder den och inte förbereder sig för att återanvända den.
 
 Undvik tids krävande transaktioner eftersom en infrastruktur eller ett anslutnings haveri kan återställa transaktionen. Om möjligt kan du dela upp transaktionen i flera mindre transaktioner och använda [batching för att förbättra prestanda](../performance-improve-use-batching.md).
 

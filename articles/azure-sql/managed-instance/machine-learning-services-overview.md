@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: 2fb584d999d48c7d29420db26daebf592790af2b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c5392c822c42c2e0ee3f6ce9edffc6229d572165
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676823"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782424"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Machine Learning Services i Azure SQL-hanterad instans (för hands version)
 
@@ -44,7 +44,7 @@ Använd Machine Learning Services med R/python-stöd i Azure SQL-hanterad instan
 
 - **Distribuera modeller och skript till produktion i lagrade procedurer** – skripten och de tränade modellerna kan användas helt enkelt genom att de bäddas in i T-SQL-lagrade procedurer. Appar som ansluter till en hanterad Azure SQL-instans kan dra nytta av förutsägelser och intelligens i dessa modeller genom att bara anropa en lagrad procedur. Du kan också använda den inbyggda T-SQL PREDICT-funktionen för att operationalisera modeller för snabba resultat i scenarier med real tids resultat i real tid.
 
-Bas distributioner av python och R ingår i Machine Learning Services. Du kan installera och använda paket och ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-lär, förutom Microsoft-paketen [revoscalepy](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-revoscalepy) och [microsoftml](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-microsoftml) för python, och [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler), [microsoftml](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml), [OLAP](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-olapr)och [sqlrutils](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-sqlrutils) för R.
+Bas distributioner av python och R ingår i Machine Learning Services. Du kan installera och använda paket och ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit-lär, förutom Microsoft-paketen [revoscalepy](/sql/advanced-analytics/python/ref-py-revoscalepy) och [microsoftml](/sql/advanced-analytics/python/ref-py-microsoftml) för python, och [RevoScaleR](/sql/advanced-analytics/r/ref-r-revoscaler), [microsoftml](/sql/advanced-analytics/r/ref-r-microsoftml), [OLAP](/sql/advanced-analytics/r/ref-r-olapr)och [sqlrutils](/sql/advanced-analytics/r/ref-r-sqlrutils) för R.
 
 <a name="signup"></a>
 
@@ -85,6 +85,6 @@ Machine Learning Services i SQL-hanterad instans är inte rekommenderat för pro
 ## <a name="next-steps"></a>Nästa steg
 
 - Se [viktiga skillnader från SQL Server Machine Learning Services](machine-learning-services-differences.md).
-- Information om hur du använder python i Machine Learning Services finns i [köra Python-skript](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
-- Information om hur du använder R i Machine Learning Services finns i [Kör R-skript](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
-- Mer information om Machine Learning på andra SQL-plattformar finns i [dokumentationen för SQL Machine Learning](https://docs.microsoft.com/sql/machine-learning/).
+- Information om hur du använder python i Machine Learning Services finns i [köra Python-skript](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
+- Information om hur du använder R i Machine Learning Services finns i [Kör R-skript](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&view=sql-server-ver15).
+- Mer information om Machine Learning på andra SQL-plattformar finns i [dokumentationen för SQL Machine Learning](/sql/machine-learning/).

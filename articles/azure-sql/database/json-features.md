@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 04/19/2020
-ms.openlocfilehash: 53428a542bb8d8d546e68f63aaf80ee40f2b0874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4258c60335a13a6c0f27588aac1c6cdb185fcf6a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450240"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782810"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database-and-azure-sql-managed-instance"></a>Komma igång med JSON-funktioner i Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -196,6 +196,4 @@ Samlingen med order som formaterats som en JSON-matris och anges som en paramete
 
 Mer information om hur du integrerar JSON i ditt program finns i följande resurser:
 
-Mer information om olika scenarier för integrering av JSON i programmet finns i demonstrationerna i den här [kanalen 9-videon](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) eller hitta ett scenario som matchar ditt användnings fall i [JSON-blogg inlägg](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/json-in-sql-server-use-cases).
-
-
+Mer information om olika scenarier för integrering av JSON i programmet finns i demonstrationerna i den här [kanalen 9-videon](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) eller hitta ett scenario som matchar ditt användnings fall i [JSON-blogg inlägg](/archive/blogs/sqlserverstorageengine/json-in-sql-server-use-cases).

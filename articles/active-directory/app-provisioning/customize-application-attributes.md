@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069882"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781489"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
 
@@ -90,7 +90,7 @@ Ett valt antal program, till exempel ServiceNow, Box och G Suite, stöder möjli
 
 ![Exempel visar ServiceNow med etablerade grupp-och användar objekt](./media/customize-application-attributes/24.png)
 
-Grupp etablering kan aktive ras eller inaktive ras genom att du väljer grupp mappningen under **mappningar**och inställningen **aktive rad** till det alternativ som du vill använda på skärmen för **Mappning av attribut** .
+Grupp etablering kan aktive ras eller inaktive ras genom att du väljer grupp mappningen under **mappningar** och inställningen **aktive rad** till det alternativ som du vill använda på skärmen för **Mappning av attribut** .
 
 De attribut som tillhandahålls som en del av grupp objekt kan anpassas på samma sätt som användar objekt, som beskrivs ovan. 
 
@@ -107,9 +107,12 @@ Program och system som stöder anpassning av attributlistan är:
 
 - Salesforce
 - ServiceNow
-- Workday
+- Workday till Active Directory/arbets dag att Azure Active Directory
+- SuccessFactors för att Active Directory/SuccessFactors till Azure Active Directory
 - Azure Active Directory ([Azure AD Graph API standardattribut](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) och anpassade katalog tillägg stöds)
 - Appar som stöder [SCIM 2,0](https://tools.ietf.org/html/rfc7643), där attribut som definierats i [kärn schemat](https://tools.ietf.org/html/rfc7643) måste läggas till
+- För att Azure Active Directory tillbakaskrivning till Workday eller SuccessFactors, stöds det att uppdaterade relevanta metadata för attribut som stöds (XPATH och JSONPath), men det finns inte stöd för att lägga till nya Workday-eller SuccessFactors-attribut utöver de som ingår i standard schemat
+
 
 > [!NOTE]
 > Redigering av listan över attribut som stöds rekommenderas endast för administratörer som har anpassat schemat för sina program och system, och som har första kunskap om hur deras egna attribut har definierats. Detta kräver ibland välbekanthet med de API: er och utvecklingsverktyg som tillhandahålls av ett program eller system.
@@ -133,16 +136,16 @@ När du redigerar listan över attribut som stöds anges följande egenskaper:
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Etablering av ett anpassat tilläggs-attribut för ett SCIM-kompatibelt program
 SCIM RFC definierar en kärn användare och ett grupp schema, samtidigt som tilläggen till schemat kan uppfylla ditt programs behov. Så här lägger du till ett anpassat attribut i ett SCIM-program:
-   1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com), Välj **företags program**, Välj ditt program och välj sedan **etablering**.
-   2. Under **mappningar**väljer du det objekt (användare eller grupp) som du vill lägga till ett anpassat attribut för.
-   3. Längst ned på sidan väljer du **Visa avancerade alternativ**.
-   4. Välj **Redigera attributlistan för APPNAME**.
-   5. Längst ned i listan attribut anger du information om det anpassade attributet i de angivna fälten. Välj sedan **Lägg till attribut**.
+   1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com), Välj **företags program** , Välj ditt program och välj sedan **etablering** .
+   2. Under **mappningar** väljer du det objekt (användare eller grupp) som du vill lägga till ett anpassat attribut för.
+   3. Längst ned på sidan väljer du **Visa avancerade alternativ** .
+   4. Välj **Redigera attributlistan för APPNAME** .
+   5. Längst ned i listan attribut anger du information om det anpassade attributet i de angivna fälten. Välj sedan **Lägg till attribut** .
 
 För SCIM-program måste attributnamnet följa mönstret som visas i exemplet nedan. Du kan anpassa "CustomExtensionName" och "CustomAttribute" enligt programmets krav, till exempel:  
  * urn: IETF: params: scim: schemas: tillägg: CustomExtensionName: 2.0: användare: CustomAttribute 
  * urn: IETF: params: scim: schemas: tillägg: 2.0: CustomExtensionName: CustomAttribute  
- * urn: IETF: params: scim: schemas: tillägg: CustomExtensionName: 2.0: User. CustomAttributeName: värde
+ * urn: IETF: params: scim: schemas: tillägg: CustomExtensionName: 2.0: användare: CustomAttributeName: värde
 
 Dessa anvisningar gäller endast för SCIM-aktiverade program. Program som ServiceNow och Salesforce är inte integrerade med Azure AD med hjälp av SCIM, och därför behövs inte det här särskilda namn området när du lägger till ett anpassat attribut.
 
@@ -174,7 +177,7 @@ Anpassade attribut kan inte vara referens attribut eller flervärdesattribut. An
        "displayName": "John Smith"
      }
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
      "CustomAttribute": "701984",
    },
    "meta": {

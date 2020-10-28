@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: c16f02922b2e815ddd4986ab07bf260b20d871ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1ec251edf384e8032a67dc66982787d17c75dbd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87826508"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781472"
 ---
 # <a name="what-are-azure-queues"></a>Vad är Azure-köer?
 
@@ -35,11 +35,11 @@ Kötjänsten består av följande komponenter:
 
 * **Lagrings konto:** All åtkomst till Azure Storage görs via ett lagrings konto. Information om kapacitet för lagrings konton finns i [skalbarhets-och prestanda mål för standard lagrings konton](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
-* **Kö:** en kö innehåller en uppsättning meddelanden. Könamnet **får** bara innehålla gemener. Mer information om namngivning av köer finns i [namngivning av köer och metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+* **Kö:** en kö innehåller en uppsättning meddelanden. Könamnet **får** bara innehålla gemener. Mer information om namngivning av köer finns i [namngivning av köer och metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
 
 * **Meddelande:** ett meddelande i valfritt format, som är upp till 64 KB. Före version 2017-07-29 är den högsta tillåtna tiden till Live sju dagar. För version 2017-07-29 eller senare kan den maximala tiden till Live vara ett positivt tal eller-1 som anger att meddelandet inte upphör att gälla. Om den här parametern utelämnas, är standardvärdet för Time-to-Live sju dagar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa ett lagringskonto](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [Skapa ett lagringskonto](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
 * [Komma igång med köer med hjälp av .NET](storage-dotnet-how-to-use-queues.md)

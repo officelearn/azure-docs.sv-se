@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 0689cea221142ec9c9bdbb18ab82fab00a3e2fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398620"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781455"
 ---
 # <a name="dynamic-data-masking"></a>Dynamisk datamaskning 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -34,7 +34,7 @@ Du ställer in en princip för dynamisk data maskering i Azure Portal genom att 
 
 ### <a name="dynamic-data-masking-permissions"></a>Behörigheter för dynamisk data maskering
 
-Dynamisk datamaskering kan konfigureras av rollerna Azure SQL Database admin, Server administratör eller [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) .
+Dynamisk datamaskering kan konfigureras av rollerna Azure SQL Database admin, Server administratör eller [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) .
 
 ### <a name="dynamic-data-masking-policy"></a>Princip för dynamisk data maskering
 
@@ -44,7 +44,7 @@ Dynamisk datamaskering kan konfigureras av rollerna Azure SQL Database admin, Se
 
 | Maskerings funktion | Maskering av logik |
 | --- | --- |
-| **Default** |**Fullständig maskering enligt data typerna för de angivna fälten**<br/><br/>• Använd XXXX eller färre XS om fältets storlek är mindre än 4 tecken för sträng data typer (nchar, ntext, nvarchar).<br/>• Använd ett nollvärde för numeriska data typer (bigint, bit, decimal, int, Money, numeric, smallint, smallmoney, tinyint, Float, Real).<br/>• Använd 01-01-1900 för datum-/tids data typer (Date, datetime2, DateTime, DateTimeOffset, smalldatetime, Time).<br/>• För SQL-variant används standardvärdet för den aktuella typen.<br/>• För XML används dokumentet \<masked/> .<br/>• Använd ett tomt värde för särskilda data typer (tidsstämpel-tabell, hierarchyid, GUID, binär, bild, varbinary spatial types). |
+| **Standard** |**Fullständig maskering enligt data typerna för de angivna fälten**<br/><br/>• Använd XXXX eller färre XS om fältets storlek är mindre än 4 tecken för sträng data typer (nchar, ntext, nvarchar).<br/>• Använd ett nollvärde för numeriska data typer (bigint, bit, decimal, int, Money, numeric, smallint, smallmoney, tinyint, Float, Real).<br/>• Använd 01-01-1900 för datum-/tids data typer (Date, datetime2, DateTime, DateTimeOffset, smalldatetime, Time).<br/>• För SQL-variant används standardvärdet för den aktuella typen.<br/>• För XML används dokumentet \<masked/> .<br/>• Använd ett tomt värde för särskilda data typer (tidsstämpel-tabell, hierarchyid, GUID, binär, bild, varbinary spatial types). |
 | **Kredit kort** |**Masknings metod som visar de sista fyra siffrorna i de angivna fälten** och lägger till en konstant sträng som ett prefix i form av ett kredit kort.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **E-post** |**Maskerings metod som visar den första bokstaven och ersätter domänen med xxx.com** med ett konstant sträng-prefix i form av en e-postadress.<br/><br/>aXX@XXXX.com |
 | **Slumptal** |**Maskerings metod, som genererar ett slumptal** enligt de valda gränserna och faktiska data typerna. Om de angivna gränserna är lika är Maskerings funktionen ett konstant nummer.<br/><br/>![Skärm bild som visar Maskerings metoden för att skapa ett slumptal.](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
@@ -60,15 +60,15 @@ DDM rekommenderar motorn att flagga vissa fält från databasen som potentiellt 
 
 ### <a name="data-masking-policies"></a>Data masknings principer
 
-- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
-- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+- [Get-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
 
 ### <a name="data-masking-rules"></a>Regler för data maskering
 
-- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
-- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
-- [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
-- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
+- [Get-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remove-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-rest-api"></a>Konfigurera dynamisk data maskning för databasen med hjälp av REST API
 
@@ -76,10 +76,10 @@ Du kan använda REST API för att hantera data masknings principer och regler pr
 
 ### <a name="data-masking-policies"></a>Data masknings principer
 
-- [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): skapar eller uppdaterar en databas data masking-princip.
-- [Get](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): hämtar en databas data masking-princip. 
+- [Skapa eller uppdatera](/rest/api/sql/datamaskingpolicies/createorupdate): skapar eller uppdaterar en databas data masking-princip.
+- [Get](/rest/api/sql/datamaskingpolicies/get): hämtar en databas data masking-princip. 
 
 ### <a name="data-masking-rules"></a>Regler för data maskering
 
-- [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate): skapar eller uppdaterar en databas data masking-regel.
-- [Lista efter databas](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase): hämtar en lista över regler för databas data maskning.
+- [Skapa eller uppdatera](/rest/api/sql/datamaskingrules/createorupdate): skapar eller uppdaterar en databas data masking-regel.
+- [Lista efter databas](/rest/api/sql/datamaskingrules/listbydatabase): hämtar en lista över regler för databas data maskning.

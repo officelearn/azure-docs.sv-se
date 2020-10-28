@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 620a5dad7966347667e0a0a50eb30d562ab700b2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: daccbd9dfb3ed628d8a3e604cbb9af4045f1ebe6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330112"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780894"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Använd geo-återställning för att återställa ett SaaS-program med flera innehavare från databas säkerhets kopior
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,7 +43,7 @@ Den här självstudien utforskar både Restore-och Repatriation-arbetsflöden. L
 
 Innan du börjar den här självstudien måste du uppfylla följande krav:
 * Distribuera Wingtip biljetter SaaS-databasen per klient-app. Om du vill distribuera på mindre än fem minuter kan du läsa [distribuera och utforska Wingtip Ticket SaaS-databas per klient program](saas-dbpertenant-get-started-deploy.md). 
-* Installera Azure PowerShell. Mer information finns i [komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Installera Azure PowerShell. Mer information finns i [komma igång med Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Introduktion till återställnings mönstret för geo-återställning
 
@@ -58,17 +58,17 @@ Haveri beredskap (DR) är ett viktigt övervägande för många program, oavsett
  * Repatriate databaser till sin ursprungliga region med minimal påverkan på klienter när avbrottet är löst.  
 
 > [!NOTE]
-> Programmet återställs till den kopplade regionen i den region där programmet har distribuerats. Mer information finns i [Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
+> Programmet återställs till den kopplade regionen i den region där programmet har distribuerats. Mer information finns i [Azure-kopplade regioner](../../best-practices-availability-paired-regions.md).   
 
 I den här självstudien används funktioner i Azure SQL Database och Azure-plattformen för att lösa dessa utmaningar:
 
-* [Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)för att reservera all nödvändig kapacitet så snabbt som möjligt. Azure Resource Manager mallar används för att etablera en spegel avbildning av de ursprungliga servrarna och elastiska pooler i återställnings regionen. En separat server och pool skapas också för etablering av nya klienter.
+* [Azure Resource Manager mallar](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)för att reservera all nödvändig kapacitet så snabbt som möjligt. Azure Resource Manager mallar används för att etablera en spegel avbildning av de ursprungliga servrarna och elastiska pooler i återställnings regionen. En separat server och pool skapas också för etablering av nya klienter.
 * [Elastic Database klient bibliotek](elastic-database-client-library.md) (EDCL) för att skapa och underhålla en klient databas katalog. Den utökade katalogen innehåller regelbundet uppdaterad pool och databas konfigurations information.
 * [Hanterings funktioner för Shard](elastic-database-recovery-manager.md) i EDCL, för att underhålla poster för plats poster i katalogen under återställnings-och Repatriation.  
 * [Geo-återställning](../../key-vault/general/disaster-recovery-guidance.md), för att återställa katalogen och klient databaserna från automatiskt underhållna geo-redundanta säkerhets kopieringar. 
-* [Asynkrona återställnings åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)som skickas i klient organisations prioritets ordning placeras i kö för varje pool av systemet och bearbetas i batchar så att poolen inte överbelastas. De här åtgärderna kan avbrytas före eller under körningen om det behövs.   
+* [Asynkrona återställnings åtgärder](../../azure-resource-manager/management/async-operations.md)som skickas i klient organisations prioritets ordning placeras i kö för varje pool av systemet och bearbetas i batchar så att poolen inte överbelastas. De här åtgärderna kan avbrytas före eller under körningen om det behövs.   
 * [Geo-replikering](active-geo-replication-overview.md), för att repatriate databaser till den ursprungliga regionen efter avbrottet. Det finns ingen data förlust och minimal påverkan på klienten när du använder geo-replikering.
-* [SQL Server-DNS-alias](../../sql-database/dns-alias-overview.md)för att tillåta katalogens synkronisering att ansluta till den aktiva katalogen oavsett dess plats.  
+* [SQL Server-DNS-alias](./dns-alias-overview.md)för att tillåta katalogens synkronisering att ansluta till den aktiva katalogen oavsett dess plats.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Hämta Disaster Recovery-skript
 
@@ -104,7 +104,7 @@ Innan du påbörjar återställnings processen granskar du det normala hälso ti
 I den här uppgiften startar du en process för att synkronisera konfigurationen av servrarna, elastiska pooler och databaser i klient katalogen. Den här informationen används senare för att konfigurera en speglad avbildnings miljö i återställnings regionen.
 
 > [!IMPORTANT]
-> För enkelhetens skull implementeras Sync-processen och andra långvariga återställnings-och Repatriation-processer i dessa exempel som lokala PowerShell-jobb eller sessioner som körs under klientens användar inloggning. De autentiseringstoken som utfärdas när du loggar in upphör att gälla efter flera timmar och jobben kommer att Miss sen. I ett produktions scenario bör långvariga processer implementeras som pålitliga Azure-tjänster av någon typ, som körs under ett huvud namn för tjänsten. Se [använda Azure PowerShell för att skapa ett huvud namn för tjänsten med ett certifikat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
+> För enkelhetens skull implementeras Sync-processen och andra långvariga återställnings-och Repatriation-processer i dessa exempel som lokala PowerShell-jobb eller sessioner som körs under klientens användar inloggning. De autentiseringstoken som utfärdas när du loggar in upphör att gälla efter flera timmar och jobben kommer att Miss sen. I ett produktions scenario bör långvariga processer implementeras som pålitliga Azure-tjänster av någon typ, som körs under ett huvud namn för tjänsten. Se [använda Azure PowerShell för att skapa ett huvud namn för tjänsten med ett certifikat](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). 
 
 1. Öppna filen. ..\Learning Modules\UserConfig.psm1 i PowerShell ISE. Ersätt `<resourcegroup>` och `<user>` på raderna 10 och 11 med det värde som används när du distribuerade appen. Spara filen.
 
@@ -180,7 +180,7 @@ Tänk dig att det finns ett avbrott i den region där programmet distribueras oc
 
     * Skriptet öppnas i ett nytt PowerShell-fönster och startar sedan en uppsättning PowerShell-jobb som körs parallellt. Dessa jobb återställer servrar, pooler och databaser till återställnings regionen.
 
-    * Återställnings regionen är den kopplade region som är kopplad till den Azure-region där du distribuerade programmet. Mer information finns i [Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * Återställnings regionen är den kopplade region som är kopplad till den Azure-region där du distribuerade programmet. Mer information finns i [Azure-kopplade regioner](../../best-practices-availability-paired-regions.md). 
 
 3. Övervaka status för återställnings processen i PowerShell-fönstret.
 
@@ -374,7 +374,7 @@ I den här självstudiekursen lärde du dig att:
 > * Använd ett DNS-alias för att göra det möjligt för ett program att ansluta till klient katalogen i utan omkonfiguration.
 > * Använd geo-replikering för att repatriate återställda databaser till deras ursprungliga region efter att ett avbrott har åtgärd ATS.
 
-Prova [haveri beredskap för ett SaaS-program med flera innehavare med hjälp av databasens vägledning för geo-replikering](../../sql-database/saas-dbpertenant-dr-geo-replication.md) för att lära dig hur du använder geo-replikering för att drastiskt minska den tid som krävs för att återställa ett storskaligt program för flera innehavare.
+Prova [haveri beredskap för ett SaaS-program med flera innehavare med hjälp av databasens vägledning för geo-replikering](./saas-dbpertenant-dr-geo-replication.md) för att lära dig hur du använder geo-replikering för att drastiskt minska den tid som krävs för att återställa ett storskaligt program för flera innehavare.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

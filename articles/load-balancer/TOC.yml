@@ -110,7 +110,7 @@
         - name: Azure Resource Manager-mall
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
           displayName: ARM
-    - name: Konfigurera TCP-tidsgräns vid inaktivitet för lastbalanserare
+    - name: Konfigurera TCP-återställning och inaktivitet
       href: load-balancer-tcp-idle-timeout.md
     - name: Konfigurera distributionsläge för Load Balancer
       href: load-balancer-distribution-mode.md

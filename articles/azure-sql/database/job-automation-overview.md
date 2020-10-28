@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/10/2020
-ms.openlocfilehash: 6b4b31ab4bc0cb1fe5bd9140870df86db6841ff3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ecd7e847a91847db8f57c640a374dc329fce7ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450355"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782951"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatisera hanteringsuppgifter med hjälp av databasjobb
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -173,13 +173,13 @@ Vissa av de SQL Agent-funktioner som är tillgängliga i SQL Server stöds inte 
 - Proxyservrar stöds inte.
 - EventLog stöds inte.
 
-Information om SQL Server Agent finns i [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+Information om SQL Server Agent finns i [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
 ## <a name="elastic-database-jobs-preview"></a>Elastic Database jobb (förhands granskning)
 
 **Elastic Database-jobb** ger möjligheten att köra ett eller flera T-SQL-skript parallellt, över ett stort antal databaser enligt ett schema eller på begäran.
 
-**Köra jobb mot en valfri kombination av databaser**: en eller flera enskilda databaser, alla databaser på en server, alla databaser i en elastisk pool eller en shardkarta med den ytterligare flexibiliteten att inkludera eller exkludera en viss databas. **Jobb kan köras över flera servrar och flera pooler och kan även köras mot databaser i olika prenumerationer.** Servrar och pooler räknas upp dynamiskt vid körning. Därför körs jobben mot alla databaser som finns i målgruppen vid tidpunkten för körningen.
+**Köra jobb mot en valfri kombination av databaser** : en eller flera enskilda databaser, alla databaser på en server, alla databaser i en elastisk pool eller en shardkarta med den ytterligare flexibiliteten att inkludera eller exkludera en viss databas. **Jobb kan köras över flera servrar och flera pooler och kan även köras mot databaser i olika prenumerationer.** Servrar och pooler räknas upp dynamiskt vid körning. Därför körs jobben mot alla databaser som finns i målgruppen vid tidpunkten för körningen.
 
 Följande bild visar en jobbagent som kör flera jobb över olika typer av målgrupper:
 
@@ -210,15 +210,15 @@ För den aktuella för hands versionen krävs en befintlig databas i Azure SQL D
 
 *Jobb databasen* behöver inte vara ny, utan bör vara ett rent, tomt, S0 eller högre tjänst mål. Det rekommenderade tjänst målet för *jobb databasen* är S1 eller högre, men det bästa valet beror på jobbets prestanda krav: antalet jobb steg, antalet jobb mål och hur ofta jobb körs. Till exempel kan en S0-databas räcka för en jobb agent som kör några jobb en timme som riktar sig mot färre än tio databaser, men att köra ett jobb varje minut kanske inte är tillräckligt snabb med en S0-databas och en högre tjänst nivå kan vara bättre.
 
-Om åtgärder mot jobb databasen är långsammare än förväntat, [övervaka](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) databas prestanda och resursutnyttjande i jobb databasen under perioder med låg belastning med Azure Portal eller [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. Om användningen av en resurs, till exempel CPU, data-i/o eller logg skrivnings metoder 100% och korreleras med perioder av låg belastning, bör du öka skala databasen till högre tjänste mål (antingen i [DTU-modellen](service-tiers-dtu.md) eller i [vCore-modellen](service-tiers-vcore.md)) tills prestanda för jobb databasen är tillräckligt bättre.
+Om åtgärder mot jobb databasen är långsammare än förväntat, [övervaka](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) databas prestanda och resursutnyttjande i jobb databasen under perioder med låg belastning med Azure Portal eller [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV. Om användningen av en resurs, till exempel CPU, data-i/o eller logg skrivnings metoder 100% och korreleras med perioder av låg belastning, bör du öka skala databasen till högre tjänste mål (antingen i [DTU-modellen](service-tiers-dtu.md) eller i [vCore-modellen](service-tiers-vcore.md)) tills prestanda för jobb databasen är tillräckligt bättre.
 
 ##### <a name="job-database-permissions"></a>Behörigheter för jobbdatabas
 
-När en jobbagent skapas så skapas ett schema, tabeller och en roll som heter *jobs_reader* i *jobbdatabasen*. Rollen skapas med följande behörigheter och är utformad för att ge administratörer mer detaljerad åtkomstkontroll för jobbövervakning:
+När en jobbagent skapas så skapas ett schema, tabeller och en roll som heter *jobs_reader* i *jobbdatabasen* . Rollen skapas med följande behörigheter och är utformad för att ge administratörer mer detaljerad åtkomstkontroll för jobbövervakning:
 
 |Rollnamn |'jobs'-schemabehörigheter |'jobs_internal'-schemabehörigheter |
 |---------|---------|---------|
-|**jobs_reader** | VÄLJ | Inget |
+|**jobs_reader** | SELECT | Inget |
 
 > [!IMPORTANT]
 > Tänk på säkerhetsaspekterna innan du beviljar åtkomst till *jobbdatabasen* som en databasadministratör. En användare som vill vålla skada och får behörigheter att skapa eller redigera jobb skulle kunna skapa eller redigera ett jobb som använder lagrade autentiseringsuppgifter för att ansluta till en databas som står under en sådan användares kontroll. Användaren skulle då kunna ta reda på lösenordet i autentiseringsuppgifterna.
@@ -233,7 +233,7 @@ En *målgrupp* definierar den uppsättning databaser som ett jobbsteg ska köras
 - **Shardkarta** – databaser för en shardkarta.
 
 > [!TIP]
-> Vid tidpunkten för jobbkörning omvärderar *dynamisk uppräkning* uppsättningen databaser i de målgrupper som inkluderar servrar eller pooler. Dynamisk uppräkning ser till att **jobb körs över alla databaser som finns i servern eller poolen vid tidpunkten för jobbkörningen**. Omvärdering av lista över databaser vid körning är särskilt användbart för scenarier där pool- eller servermedlemskap ändras ofta.
+> Vid tidpunkten för jobbkörning omvärderar *dynamisk uppräkning* uppsättningen databaser i de målgrupper som inkluderar servrar eller pooler. Dynamisk uppräkning ser till att **jobb körs över alla databaser som finns i servern eller poolen vid tidpunkten för jobbkörningen** . Omvärdering av lista över databaser vid körning är särskilt användbart för scenarier där pool- eller servermedlemskap ändras ofta.
 
 Pooler och enskilda databaser kan anges som inkluderade eller exkluderade från gruppen. På så sätt går det att skapa en målgrupp med valfri kombination av databaser. Till exempel kan du lägga till en server till en målgrupp men exkludera specifika databaser i den elastiska poolen (eller exkludera en hel elastisk pool).
 
@@ -245,7 +245,7 @@ Följande exempel visar hur olika målgruppsdefinitioner räknas upp dynamiskt n
 
 **Exempel 1** illustrerar en målgrupp som består av en lista med enskilda databaser. När ett jobbsteg körs med den här målgruppen körs åtgärden i jobbsteget i var och en av dessa databaser.<br>
 **Exempel 2** visar en mål grupp som innehåller en server som mål. När ett jobbsteg körs med den här målgruppen räknas servern upp dynamiskt för att fastställa vilken listan med databaser som för närvarande finns på servern. Åtgärden i jobbsteget körs i var och en av dessa databaser.<br>
-**Exempel 3** illustrerar en målgrupp liknande den i *exempel 2*, men en databas undantas uttryckligen. Åtgärden i jobbsteget körs *inte* i den undantagna databasen.<br>
+**Exempel 3** illustrerar en målgrupp liknande den i *exempel 2* , men en databas undantas uttryckligen. Åtgärden i jobbsteget körs *inte* i den undantagna databasen.<br>
 **Exempel 4** illustrerar en målgrupp som innehåller en elastisk pool som mål. Precis som i *exempel 2* räknas poolen upp dynamiskt när jobbet körs för att fastställa listan med databaser i poolen.
 <br><br>
 
@@ -260,7 +260,7 @@ Följande exempel visar hur olika målgruppsdefinitioner räknas upp dynamiskt n
 
 #### <a name="job"></a>Jobb
 
-Ett *jobb* är en arbetsprocess som körs enligt ett schema eller som ett engångsjobb. Jobb består att ett eller flera *jobbsteg*.
+Ett *jobb* är en arbetsprocess som körs enligt ett schema eller som ett engångsjobb. Jobb består att ett eller flera *jobbsteg* .
 
 ##### <a name="job-step"></a>Jobbsteg
 
@@ -272,7 +272,7 @@ Resultatet av stegen i ett jobb på varje måldatabas registreras i detalj, och 
 
 #### <a name="job-history"></a>Jobbhistorik
 
-Jobbkörningshistorik sparas i *jobbdatabasen*. Ett systemrensningsjobb rensar körningshistorik som är äldre än 45 dagar. Om du vill ta bort historik som är äldre än 45 dagar anropar du den lagrade proceduren **sp_purge_history** i *jobbdatabasen*.
+Jobbkörningshistorik sparas i *jobbdatabasen* . Ett systemrensningsjobb rensar körningshistorik som är äldre än 45 dagar. Om du vill ta bort historik som är äldre än 45 dagar anropar du den lagrade proceduren **sp_purge_history** i *jobbdatabasen* .
 
 ### <a name="agent-performance-capacity-and-limitations"></a>Agentprestanda, kapacitet och begränsningar
 
@@ -288,7 +288,7 @@ För att resurser inte ska överbelastas vid körning av jobb mot databaser i en
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
+- [Vad är SQL Server Agent](/sql/ssms/agent/sql-server-agent)
 - [Så skapar du och hanterar elastiska jobb](elastic-jobs-overview.md)
 - [Skapa och hantera elastiska jobb med PowerShell](elastic-jobs-powershell-create.md)
 - [Skapa och hantera elastiska jobb med Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

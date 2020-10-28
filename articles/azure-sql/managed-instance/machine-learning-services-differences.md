@@ -1,6 +1,6 @@
 ---
 title: Viktiga skillnader för Machine Learning Services (förhands granskning)
-description: I det här avsnittet beskrivs viktiga skillnader mellan Machine Learning Services i Azure SQL-hanterad instans och SQL Server Machine Learning Services.
+description: I den här artikeln beskrivs viktiga skillnader mellan Machine Learning Services i Azure SQL-hanterad instans och SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: machine-learning
@@ -11,17 +11,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
-ms.date: 05/27/2020
-ms.openlocfilehash: 9ff2de18042c466bdd8fa6c71194fff4286c820d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: adf454ac697f8cabf4256ebfc5baa5d0d1c76264
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325104"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782475"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Viktiga skillnader medllan Machine Learning Services i Azure SQL Managed Instance och SQL Server
 
-Funktionerna i [Machine Learning Services i Azure SQL-hanterad instans (för hands version)](machine-learning-services-overview.md) är nästan identiska med [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Nedan följer några viktiga skillnader.
+Funktionerna i [Machine Learning Services i Azure SQL-hanterad instans (för hands version)](machine-learning-services-overview.md) är nästan identiska med [SQL Server Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning). Nedan följer några viktiga skillnader.
 
 > [!IMPORTANT]
 > Machine Learning Services i Azure SQL Managed instance är för närvarande en offentlig för hands version. För att registrera dig, se [Registrera dig för för hands versionen](machine-learning-services-overview.md#signup).
@@ -33,13 +33,13 @@ Tjänsten har följande begränsningar i förhandsversionen:
 - Loopback-anslutningar fungerar inte (se [loopback-anslutning till SQL Server från ett python-eller R-skript](/sql/machine-learning/connect/loopback-connection)).
 - Externa resurspooler stöds inte.
 - Endast Python och R stöds. Det går inte att lägga till externa språk som Java.
-- Scenarier som använder MPI ( [Message Passing Interface](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) ) stöds inte.
+- Scenarier som använder MPI ( [Message Passing Interface](/message-passing-interface/microsoft-mpi) ) stöds inte.
 
-Om det är en SLO-uppdatering (servicenivåmål) uppdaterar du SLO och skickar en supportbegäran för att återaktivera de dedikerade resursgränserna för R/Python.
+Om du uppdaterar service nivå mål (service nivå mål) uppdaterar du service nivå mål och höjer ett support ärende för att återaktivera de dedikerade resurs gränserna för R/python.
 
 ## <a name="language-support"></a>Stöd för språk
 
-Machine Learning Services i SQL-hanterad instans och SQL Server stöd för både python-och R- [utöknings ramverket](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework). De viktigaste skillnaderna är:
+Machine Learning Services i SQL-hanterad instans och SQL Server stöd för både python-och R- [utöknings ramverket](/sql/advanced-analytics/concepts/extensibility-framework). De viktigaste skillnaderna är:
 
 - De ursprungliga versionerna av python och R skiljer sig mellan Machine Learning Services i SQL-hanterad instans och SQL Server:
 
@@ -54,32 +54,32 @@ Machine Learning Services i SQL-hanterad instans och SQL Server stöd för både
 
 Hantering av python-och R-paket fungerar annorlunda mellan SQL-hanterad instans och SQL Server. Dessa skillnader är:
 
-- Paket kan inte utföra utgående nätverks anrop. Den här begränsningen liknar [standard brand Väggs reglerna för Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) i SQL Server, men kan inte ändras i SQL-hanterad instans.
 - Det finns inget stöd för paket som är beroende av externa körningar (t. ex. Java) eller som behöver åtkomst till OS-API: er för installation eller användning.
+- Paket kan utföra utgående nätverks anrop (ändras från tidigare i förhands granskningen). Du kan ställa in rätt utgående säkerhets regler på nivån [nätverks säkerhets grupp](/azure/virtual-network/network-security-groups-overview) för att aktivera utgående nätverks anrop.
 
 Mer information om hur du hanterar python-och R-paket finns i:
 
-- [Hämta information om Python-paket](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15)
-- [Hämta information om R-paket](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15)
+- [Hämta information om Python-paket](/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
+- [Hämta information om R-paket](/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
 
 ## <a name="resource-governance"></a>Resursstyrning
 
-Det går inte att begränsa R-resurser via [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) och externa resurspooler.
+Det går inte att begränsa R-resurser via [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) och externa resurspooler.
 
-Under den allmänt tillgängliga förhandsversionen är R-resurserna inställda på maximalt 20 % av de SQL-hanterade instansresurserna och är beroende av vilken tjänstnivå du väljer. Mer information finns i [Azure SQL Database inköps modeller](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+Under den allmänt tillgängliga förhandsversionen är R-resurserna inställda på maximalt 20 % av de SQL-hanterade instansresurserna och är beroende av vilken tjänstnivå du väljer. Mer information finns i [Azure SQL Database inköps modeller](../database/purchasing-models.md).
 
 ### <a name="insufficient-memory-error"></a>Otillräckligt minnes fel
 
 Om det inte finns tillräckligt med tillgängligt minne för R får du ett felmeddelande. Vanliga fel meddelanden är:
 
-- Det gick inte att kommunicera med körningen för R-skriptet för begärande-ID: * * * * * * *. Kontrollera kraven för R-runtime
-- Ett R-skriptfel inträffade vid körning av ”sp_execute_external_script” med HRESULT 0x80004004. ... det uppstod ett externt skriptfel: "... det gick inte att allokera minne (0 MB) i C-funktionen ”R_AllocStringBuffer”
-- Ett externt skript fel har inträffat: fel: det går inte att allokera storleks vektor.
+- `Unable to communicate with the runtime for 'R' script for request id: *******. Please check the requirements of 'R' runtime`
+- `'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"`
+- `An external script error occurred: Error: cannot allocate vector of size.`
 
 Minnesanvändningen beror på hur mycket som används i R-skripten och hur många frågor som körs parallellt. Om du får felen ovan kan du lösa detta genom att skala databasen till en högre tjänstnivå.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Se översikten [Machine Learning Services i Azure SQL-hanterad instans](machine-learning-services-overview.md).
-- Information om hur du använder python i Machine Learning Services finns i [köra Python-skript](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
-- Information om hur du använder R i Machine Learning Services finns i [Kör R-skript](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).
+- Information om hur du använder python i Machine Learning Services finns i [köra Python-skript](/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
+- Information om hur du använder R i Machine Learning Services finns i [Kör R-skript](/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).

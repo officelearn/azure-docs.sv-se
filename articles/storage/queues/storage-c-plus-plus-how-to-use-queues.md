@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 6a4f8b99be564779b350bff2ab5b37f3c7ccc6f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25858ac3dc78803f59aec7e77e151dc9afcc4950
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87020990"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781676"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Så använder du Queue Storage från C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -21,7 +21,7 @@ ms.locfileid: "87020990"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Översikt
-I den här guiden får du lära dig hur du utför vanliga scenarier med Azure Queue Storage-tjänsten. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). De scenarier som beskrivs är att **Infoga**, **Granska**, **Hämta**och **ta bort** Kömeddelanden, samt **skapa och ta bort köer**.
+I den här guiden får du lära dig hur du utför vanliga scenarier med Azure Queue Storage-tjänsten. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). De scenarier som beskrivs är att **Infoga** , **Granska** , **Hämta** och **ta bort** Kömeddelanden, samt **skapa och ta bort köer** .
 
 > [!NOTE]
 > För den här guiden krävs Azure Storage-klientbiblioteket för C++ version 1.0.0 eller senare. Den rekommenderade versionen är Storage-klientbibliotek 2.2.0, som är tillgängligt via [NuGet](https://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -57,7 +57,7 @@ Lägg till följande include-instruktioner överst i C++-filen där du vill anv�
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Konfigurera en anslutnings sträng för Azure Storage
-En Azure Storage-klient använder en förvaringsanslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst av datahanteringstjänster. När du kör i ett klient program måste du ange lagrings anslutnings strängen i följande format, med namnet på ditt lagrings konto och lagrings åtkomst nyckeln för det lagrings konto som anges i [Azure Portal](https://portal.azure.com) för värdena *AccountName* och *AccountKey* . Information om lagrings konton och åtkomst nycklar finns i [om Azure Storage-konton](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen:
+En Azure Storage-klient använder en förvaringsanslutningssträng för att lagra slutpunkter och autentiseringsuppgifter för åtkomst av datahanteringstjänster. När du kör i ett klient program måste du ange lagrings anslutnings strängen i följande format, med namnet på ditt lagrings konto och lagrings åtkomst nyckeln för det lagrings konto som anges i [Azure Portal](https://portal.azure.com) för värdena *AccountName* och *AccountKey* . Information om lagrings konton och åtkomst nycklar finns i [om Azure Storage-konton](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json). Det här exemplet visar hur du kan deklarera ett statiskt fält för lagring av anslutningssträngen:
 
 ```cpp
 // Define the connection-string with your values.
@@ -76,7 +76,7 @@ Information om hur du startar Azurite finns i [använda Azurite-emulatorn för l
 Följande exempel förutsätter att du har använt någon av dessa två metoder för att hämta Azure Storage-anslutningssträngen.
 
 ## <a name="retrieve-your-connection-string"></a>Hämta anslutningssträngen
-Du kan använda **cloud_storage_account** -klassen för att representera din lagrings konto information. Du hämtar informationen om lagringskontot från Azure Storage-anslutningssträngen med hjälp av metoden **parse**.
+Du kan använda **cloud_storage_account** -klassen för att representera din lagrings konto information. Du hämtar informationen om lagringskontot från Azure Storage-anslutningssträngen med hjälp av metoden **parse** .
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -105,7 +105,7 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Så här gör du: infoga ett meddelande i en kö
-Om du vill infoga ett meddelande i en befintlig kö skapar du först ett nytt **cloud_queue_message**. Anropa sedan metoden **add_message** . En **cloud_queue_message** kan skapas antingen från en sträng eller en **byte** mat ris. Här är kod som skapar en kö (om den inte finns) och som infogar meddelandet ”Hello World”:
+Om du vill infoga ett meddelande i en befintlig kö skapar du först ett nytt **cloud_queue_message** . Anropa sedan metoden **add_message** . En **cloud_queue_message** kan skapas antingen från en sträng eller en **byte** mat ris. Här är kod som skapar en kö (om den inte finns) och som infogar meddelandet ”Hello World”:
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -172,7 +172,7 @@ std::wcout << U("Changed message content: ") << changed_message.content_as_strin
 ```
 
 ## <a name="how-to-de-queue-the-next-message"></a>Så här gör du: ta bort nästa meddelande i kön
-Koden tar bort ett meddelande från en kö i två steg. När du anropar **get_message**får du nästa meddelande i en kö. Ett meddelande som returnerades från **get_message** blir osynligt för all annan kod som läser meddelanden från den här kön. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **delete_message**. Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Dina kod anrop **delete_message** direkt efter att meddelandet har bearbetats.
+Koden tar bort ett meddelande från en kö i två steg. När du anropar **get_message** får du nästa meddelande i en kö. Ett meddelande som returnerades från **get_message** blir osynligt för all annan kod som läser meddelanden från den här kön. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **delete_message** . Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Dina kod anrop **delete_message** direkt efter att meddelandet har bearbetats.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -193,7 +193,7 @@ queue.delete_message(dequeued_message);
 ```
 
 ## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Så här gör du: Använd ytterligare alternativ för meddelanden i kön
-Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö. För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. I följande kod exempel används metoden **get_messages** för att få 20 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en **for** -slinga. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att 5 minuter startar för alla meddelanden samtidigt, så att när fem minuter har gått sedan anropet till **get_messages**visas alla meddelanden som inte har tagits bort.
+Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö. För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. I följande kod exempel används metoden **get_messages** för att få 20 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en **for** -slinga. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att 5 minuter startar för alla meddelanden samtidigt, så att när fem minuter har gått sedan anropet till **get_messages** visas alla meddelanden som inte har tagits bort.
 
 ```cpp
 // Retrieve storage account from connection-string.

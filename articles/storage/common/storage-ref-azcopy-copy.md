@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: f3d691692553a8201b3e3eccfaead82a2cbb9ca0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479705"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781744"
 ---
 # <a name="azcopy-copy"></a>azcopy kopiera
 
@@ -292,7 +292,7 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 
 **--S2S-handle-ogiltig-metadata** -sträng anger hur ogiltiga nycklar för nycklar hanteras. Tillgängliga alternativ: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (standard `ExcludeIfInvalid` ). (standard "ExcludeIfInvalid")
 
-**--S2S-konserver-Access-Tier**   Bevara åtkomst nivån under tjänst-till-tjänst-kopiering. Se [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](/azure/storage/blobs/storage-blob-storage-tiers) lag rings nivå för att säkerställa att mål lagrings kontot har stöd för att ange åtkomst nivå. I de fall då det inte finns stöd för att ange åtkomst nivå kan du använda s2sPreserveAccessTier = false för att kringgå kopiering av åtkomst nivå. (standard `true` ).  (standard "true")
+**--S2S-konserver-Access-Tier**   Bevara åtkomst nivån under tjänst-till-tjänst-kopiering. Se [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](../blobs/storage-blob-storage-tiers.md) lag rings nivå för att säkerställa att mål lagrings kontot har stöd för att ange åtkomst nivå. I de fall då det inte finns stöd för att ange åtkomst nivå kan du använda s2sPreserveAccessTier = false för att kringgå kopiering av åtkomst nivå. (standard `true` ).  (standard "true")
 
 **--S2S-bevara-egenskaper**   Behåll fullständiga egenskaper under tjänst-till-tjänst-kopiering. För AWS S3 och Azure File non-EnFile Source, returnerar List-åtgärden inte fullständiga egenskaper för objekt och filer. För att bevara fullständig egenskaper måste AzCopy skicka ytterligare en begäran per objekt eller fil. (standard sant)
 
@@ -306,4 +306,4 @@ Kopiera en delmängd av buckets med hjälp av en symbol för jokertecken (*) i B
 
 ## <a name="see-also"></a>Se även
 
-- [azcopy](storage-ref-azcopy.md)
+- [AzCopy](storage-ref-azcopy.md)

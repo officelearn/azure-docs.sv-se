@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: abb8f42e7fe4ffe6e933f466202247c73ece129a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441722"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782900"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Vad är en logisk SQL-Server i Azure SQL Database-och Azure-Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ En server i SQL Database och Azure-Synapse:
 - Är den överordnade resursen för databaser, elastiska pooler och informationslager.
 - Innehåller ett namn område för databaser, elastiska pooler och informations lager databasen
 - Är en logisk behållare med en stark livs längd – ta bort en server och tar bort dess databaser, elastiska pooler och SQK pooler
-- Deltar i [Azure rollbaserad åtkomst kontroll (Azure RBAC)](/azure/role-based-access-control/overview) -databaser, elastiska pooler och informations lager databasen i en server ärver åtkomst rättigheter från servern
+- Deltar i [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/overview.md) -databaser, elastiska pooler och informations lager databasen i en server ärver åtkomst rättigheter från servern
 - Är ett högordnat element i identiteten för databaser, elastiska pooler och informations lager databasen för Azure Resource Management-syfte (se URL-schemat för databaser och pooler)
 - Samlar resurser i en region.
 - Tillhandahåller en anslutningsslutpunkt för databasåtkomst (`<serverName>`.database.windows.net)
@@ -83,7 +83,7 @@ Om du vill hantera en befintlig databas går du till sidan **SQL-databaser** och
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
 Om du vill skapa och hantera servrar, databaser och brand väggar med Azure PowerShell använder du följande PowerShell-cmdletar. Om du behöver installera eller uppgradera PowerShell, se [installera Azure PowerShell modul](/powershell/azure/install-az-ps). Information om hur du skapar och hanterar elastiska pooler finns i [elastiska pooler](elastic-pool-overview.md).
 
@@ -96,7 +96,7 @@ Om du vill skapa och hantera servrar, databaser och brand väggar med Azure Powe
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Skapar en resurs grupp|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Skapar en server|
 |[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Returnerar information om servrar|
-|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Ändrar egenskaper för en server|
+|[Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|Ändrar egenskaper för en server|
 |[Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Tar bort en server|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Skapar en brand Väggs regel på server nivå |
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Hämtar brand Väggs regler för en server|
@@ -110,7 +110,7 @@ Om du vill skapa och hantera servrar, databaser och brand väggar med Azure Powe
 
 ## <a name="manage-servers-databases-and-firewalls-using-the-azure-cli"></a>Hantera servrar, databaser och brand väggar med hjälp av Azure CLI
 
-Använd följande [Azure cli SQL Database](/cli/azure/sql/db) -kommandon för att skapa och hantera servrar, databaser och brand väggar med [Azure CLI](/cli/azure). Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. Information om hur du skapar och hanterar elastiska pooler finns i [elastiska pooler](elastic-pool-overview.md).
+Använd följande [Azure cli SQL Database](/cli/azure/sql/db) -kommandon för att skapa och hantera servrar, databaser och brand väggar med [Azure CLI](/cli/azure). Använd [Cloud Shell](../../cloud-shell/overview.md) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. Information om hur du skapar och hanterar elastiska pooler finns i [elastiska pooler](elastic-pool-overview.md).
 
 | Cmdlet | Beskrivning |
 | --- | --- |
@@ -150,7 +150,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera servrar, databaser 
 |[SKAPA databas (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Skapar en ny databas i Azure SQL Database. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
 |[SKAPA databas (Azure-Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Skapar en ny informations lager databas i Azure-Synapse. Du måste vara ansluten till huvud databasen för att skapa en ny databas.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Ändrar databas eller elastisk pool. |
-|[ALTER DATABASE (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Ändrar en informations lager databas i Azure Synapse.|
+|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Ändrar en informations lager databas i Azure Synapse.|
 |[SLÄPP databas (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Tar bort en databas.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar utgåvan (tjänst nivån), tjänst målet (pris nivån) och namnet på den elastiska poolen, om det finns någon, för en databas. Om du är inloggad på huvud databasen för en server returneras information om alla databaser. Du måste vara ansluten till huvud databasen för Azure-Synapse.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returnerar CPU-, IO-och minnes förbrukning för en databas i Azure SQL Database. Det finns en rad för var 15: e sekund, även om det inte finns någon aktivitet i databasen.|
@@ -173,22 +173,22 @@ Använd dessa REST API begär Anden för att skapa och hantera servrar, database
 
 | Kommando | Beskrivning |
 | --- | --- |
-|[Servrar-skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Skapar eller uppdaterar en ny server.|
-|[Servrar-ta bort](https://docs.microsoft.com/rest/api/sql/servers/delete)|Tar bort en server.|
-|[Servrar-Hämta](https://docs.microsoft.com/rest/api/sql/servers/get)|Hämtar en server.|
-|[Servrar-lista](https://docs.microsoft.com/rest/api/sql/servers/list)|Returnerar en lista med servrar.|
-|[Servrar – lista efter resurs grupp](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Returnerar en lista med servrar i en resurs grupp.|
-|[Servrar-uppdatera](https://docs.microsoft.com/rest/api/sql/servers/update)|Uppdaterar en befintlig server.|
-|[Databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
-|[Databaser-ta bort](https://docs.microsoft.com/rest/api/sql/databases/delete)|Tar bort en databas.|
-|[Databaser – Hämta](https://docs.microsoft.com/rest/api/sql/databases/get)|Hämtar en databas.|
-|[Databaser – lista med elastisk pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista med databaser i en elastisk pool.|
-|[Databaser – lista efter server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returnerar en lista med databaser på en server.|
-|[Databaser – uppdatera](https://docs.microsoft.com/rest/api/sql/databases/update)|Uppdaterar en befintlig databas.|
-|[Brand Väggs regler – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Skapar eller uppdaterar en brand Väggs regel.|
-|[Brand Väggs regler – ta bort](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Tar bort en brand Väggs regel.|
-|[Brand Väggs regler – Hämta](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Hämtar en brand Väggs regel.|
-|[Brand Väggs regler – lista efter server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Returnerar en lista med brand Väggs regler.|
+|[Servrar-skapa eller uppdatera](/rest/api/sql/servers/createorupdate)|Skapar eller uppdaterar en ny server.|
+|[Servrar-ta bort](/rest/api/sql/servers/delete)|Tar bort en server.|
+|[Servrar-Hämta](/rest/api/sql/servers/get)|Hämtar en server.|
+|[Servrar-lista](/rest/api/sql/servers/list)|Returnerar en lista med servrar.|
+|[Servrar – lista efter resurs grupp](/rest/api/sql/servers/listbyresourcegroup)|Returnerar en lista med servrar i en resurs grupp.|
+|[Servrar-uppdatera](/rest/api/sql/servers/update)|Uppdaterar en befintlig server.|
+|[Databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
+|[Databaser-ta bort](/rest/api/sql/databases/delete)|Tar bort en databas.|
+|[Databaser – Hämta](/rest/api/sql/databases/get)|Hämtar en databas.|
+|[Databaser – lista med elastisk pool](/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista med databaser i en elastisk pool.|
+|[Databaser – lista efter server](/rest/api/sql/databases/listbyserver)|Returnerar en lista med databaser på en server.|
+|[Databaser – uppdatera](/rest/api/sql/databases/update)|Uppdaterar en befintlig databas.|
+|[Brand Väggs regler – skapa eller uppdatera](/rest/api/sql/firewallrules/createorupdate)|Skapar eller uppdaterar en brand Väggs regel.|
+|[Brand Väggs regler – ta bort](/rest/api/sql/firewallrules/delete)|Tar bort en brand Väggs regel.|
+|[Brand Väggs regler – Hämta](/rest/api/sql/firewallrules/get)|Hämtar en brand Väggs regel.|
+|[Brand Väggs regler – lista efter server](/rest/api/sql/firewallrules/listbyserver)|Returnerar en lista med brand Väggs regler.|
 
 ## <a name="next-steps"></a>Nästa steg
 

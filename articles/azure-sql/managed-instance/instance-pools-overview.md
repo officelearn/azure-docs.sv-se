@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 3753004b2bd9c18399655cffd594392b63c14264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab77c8cf563c315768ad1c16089d8d939c085322
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325172"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782662"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Vad är en Azure SQL-hanterad instans pool (för hands version)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Dessutom stöder instans-pooler inbyggd VNet-integrering så att du kan distribu
 
 Instans pooler ger följande fördelar:
 
-1. Möjlighet att vara värd för 2 vCore instanser. * \* Endast för instanser i instans-poolerna*.
+1. Möjlighet att vara värd för 2 vCore instanser. *\* Endast för instanser i instans-poolerna* .
 2. Tid för förutsägbar och snabb instans distribution (upp till 5 minuter).
 3. Minimal allokering av IP-adress.
 
@@ -59,9 +59,9 @@ I följande lista visas de viktigaste användnings fallen där instanser av inst
 
 ## <a name="architecture"></a>Arkitektur
 
-Instans pooler har liknande arkitektur för vanliga (*enskilda*) hanterade instanser. För att stödja [distributioner i virtuella Azure-nätverk](../../virtual-network/virtual-network-for-azure-services.md)   och för att tillhandahålla isolering och säkerhet för kunder, förlitar sig instansen på [virtuella kluster](connectivity-architecture-overview.md#high-level-connectivity-architecture). Virtuella kluster representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverks undernät.
+Instans pooler har liknande arkitektur för vanliga ( *enskilda* ) hanterade instanser. För att stödja [distributioner i virtuella Azure-nätverk](../../virtual-network/virtual-network-for-azure-services.md) och för att tillhandahålla isolering och säkerhet för kunder, förlitar sig instansen på [virtuella kluster](connectivity-architecture-overview.md#high-level-connectivity-architecture). Virtuella kluster representerar en dedikerad uppsättning isolerade virtuella datorer som distribueras i kundens virtuella nätverks undernät.
 
-Den största skillnaden mellan de två distributions modellerna är att instans pooler tillåter flera SQL Server process distributioner på samma nod för virtuella datorer, som är en resurs som styrs med hjälp av [Windows-jobbobjektet](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), medan enskilda instanser alltid är ensamma på en nod för virtuella datorer.
+Den största skillnaden mellan de två distributions modellerna är att instans pooler tillåter flera SQL Server process distributioner på samma nod för virtuella datorer, som är en resurs som styrs med hjälp av [Windows-jobbobjektet](/windows/desktop/ProcThread/job-objects), medan enskilda instanser alltid är ensamma på en nod för virtuella datorer.
 
 Följande diagram visar en instans-pool och två enskilda instanser som distribueras i samma undernät och illustrerar huvud arkitektur information för båda distributions modellerna:
 
@@ -76,7 +76,7 @@ Det finns flera resursbegränsningar för instanspooler och instanser inuti pool
 - Instans pooler är bara tillgängliga på Gen5-maskinvara.
 - Hanterade instanser i en pool har dedikerad processor och RAM-minne, så det sammanställda antalet virtuella kärnor över alla instanser måste vara mindre än eller lika med antalet virtuella kärnor som allokerats till poolen.
 - Alla [gränser på instans nivå](resource-limits.md#service-tier-characteristics) gäller för instanser som skapats i en pool.
-- Utöver gränser på instans nivå finns det också två begränsningar som gäller för *den instansen av filpool*:
+- Utöver gränser på instans nivå finns det också två begränsningar som gäller för *den instansen av filpool* :
   - Total lagrings storlek per pool (8 TB).
   - Totalt antal databaser per pool (100).
 - Det går inte att ange AAD-administratör för de instanser som distribuerats i instansen. Därför går det inte att använda AAD-autentisering.
@@ -137,8 +137,8 @@ vCore-priset för en pool debiteras oavsett hur många instanser som distribuera
 
 För beräknings priset (mätt i virtuella kärnor) är två pris alternativ tillgängliga:
 
-  1. *Licens ingår*: pris på SQL Server licenser ingår. Detta gäller för kunder som väljer att inte tillämpa befintliga SQL Server licenser med Software Assurance.
-  2. *Azure Hybrid-förmån*: ett reducerat pris som inkluderar Azure Hybrid-förmån för SQL Server. Kunder kan välja det här priset genom att använda sina befintliga SQL Server licenser med Software Assurance. Information om berättigande och annan information finns [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
+  1. *Licens ingår* : pris på SQL Server licenser ingår. Detta gäller för kunder som väljer att inte tillämpa befintliga SQL Server licenser med Software Assurance.
+  2. *Azure Hybrid-förmån* : ett reducerat pris som inkluderar Azure Hybrid-förmån för SQL Server. Kunder kan välja det här priset genom att använda sina befintliga SQL Server licenser med Software Assurance. Information om berättigande och annan information finns [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Det går inte att ange olika pris alternativ för enskilda instanser i en pool. Alla instanser i den överordnade poolen måste vara antingen på licens priset eller Azure Hybrid-förmån priset. Licens modellen för poolen kan ändras efter att poolen har skapats.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d2e50502c8c3e37c5d48359079e2e72c13feea4a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 17a29621d3d70d56745d2e51e0ce80974876a9ef
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487882"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782169"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure import/export-tjänsten: vanliga frågor och svar
 
@@ -55,13 +55,13 @@ Nej. Alla enheter som används för att importera data måste förberedas med Az
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>Måste jag utföra någon disk förberedelse när jag skapar ett export jobb?
 
-Nej. Vissa för kontroller rekommenderas. Om du vill kontrol lera antalet diskar som krävs använder du WAImportExport-verktygets PreviewExport-kommando. Mer information finns i [för hands Visa enhets användning för ett export jobb](https://msdn.microsoft.com/library/azure/dn722414.aspx). Med kommandot kan du förhandsgranska enhets användningen för de valda Blobbarna, baserat på storleken på de enheter som du kommer att använda. Kontrol lera också att du kan läsa från och skriva till den hård disk som levereras för export jobbet.
+Nej. Vissa för kontroller rekommenderas. Om du vill kontrol lera antalet diskar som krävs använder du WAImportExport-verktygets PreviewExport-kommando. Mer information finns i [för hands Visa enhets användning för ett export jobb](/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1). Med kommandot kan du förhandsgranska enhets användningen för de valda Blobbarna, baserat på storleken på de enheter som du kommer att använda. Kontrol lera också att du kan läsa från och skriva till den hård disk som levereras för export jobbet.
 
 ## <a name="importexport-jobs"></a>Import/export-jobb
 
 ### <a name="can-i-cancel-my-job"></a>Kan jag avbryta mitt jobb?
 
-Ja. Du kan avbryta ett jobb när dess status **skapas** eller **levereras**. Utanför de här stegen går det inte att avbryta jobbet och fortsätter tills det sista steget.
+Ja. Du kan avbryta ett jobb när dess status **skapas** eller **levereras** . Utanför de här stegen går det inte att avbryta jobbet och fortsätter tills det sista steget.
 
 ### <a name="how-long-can-i-view-the-status-of-completed-jobs-in-the-azure-portal"></a>Hur länge kan jag se statusen för slutförda jobb i Azure Portal?
 
@@ -132,7 +132,7 @@ Nej. Alla enheter är krypterade med BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Hur kan jag komma åt data som importeras av den här tjänsten?
 
-Använd Azure Portal eller [Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) för att få åtkomst till data under ditt Azure Storage-konto.  
+Använd Azure Portal eller [Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) för att få åtkomst till data under ditt Azure Storage-konto.  
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>När importen är klar ser mina data ut som i lagrings kontot? Är min katalog-hierarki bevarad?
 
@@ -144,7 +144,7 @@ Väggen. När du förbereder enheten kan du ange om målfiler ska skrivas över 
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>Är WAImportExport-verktyget kompatibelt med 32-bitars operativ system?
 
-Nej. WAImportExport-verktyget är bara kompatibelt med 64-bitars Windows-operativsystem. En fullständig lista över operativ system som stöds finns i [operativ system som stöds](/azure/storage/common/storage-import-export-requirements).
+Nej. WAImportExport-verktyget är bara kompatibelt med 64-bitars Windows-operativsystem. En fullständig lista över operativ system som stöds finns i [operativ system som stöds](./storage-import-export-requirements.md).
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Vad är den största Block Blob-och sid-BLOB-storlek som stöds av Azure import/export?
 

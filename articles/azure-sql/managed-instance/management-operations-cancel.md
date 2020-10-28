@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997245"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782509"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Avbryta hanterings åtgärder för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -39,13 +39,13 @@ I följande tabell sammanfattas hanterings åtgärder, oavsett om du kan säga u
 Kategori  |Åtgärd  |Avbrytbar  |Beräknad tids längd för avbrott  |
 |---------|---------|---------|---------|
 |Distribution |Skapa instans |Ja |90% av åtgärderna har slutförts på 5 minuter. |
-|Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |Inga |  |
+|Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |Nej |  |
 |Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
 |Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
 |Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
 |Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Ja |90% av åtgärderna har slutförts på 5 minuter. |
-|Ta bort |Borttagning av instans |Inga |  |
-|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |Inga |  |
+|Ta bort |Borttagning av instans |Nej |  |
+|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |Nej |  |
 
 ## <a name="cancel-management-operation"></a>Avbryt hanterings åtgärden
 
@@ -75,7 +75,7 @@ Om Cancel-begäran Miss lyckas eller om Avbryt-knappen inte är aktiv, innebär 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Om du inte redan har Azure PowerShell installerat, se [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Om du inte redan har Azure PowerShell installerat, se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
 Om du vill avbryta en hanterings åtgärd måste du ange namnet på hanterings åtgärden. Därför ska du först använda kommandot Get för att hämta åtgärds listan och sedan avbryta åtgärden.
 
@@ -93,7 +93,7 @@ foreach ($mo in $managementOperations ) {
 }
 ```
 
-Detaljerade kommando förklaringar finns i [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation) och [Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation).
+Detaljerade kommando förklaringar finns i [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation) och [Stop-AzSqlInstanceOperation](/powershell/module/az.sql/stop-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -110,13 +110,13 @@ az sql mi op cancel -g yourResourceGroupName --mi yourInstanceName -n $operation
 done
 ```
 
-Detaljerade kommando förklaringar finns i [AZ SQL mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Detaljerade kommando förklaringar finns i [AZ SQL mi op](/cli/azure/sql/mi/op).
 
 ---
 
 ## <a name="canceled-deployment-request"></a>Begäran om avbruten distribution
 
-Med API version 2020-02-02, så snart som begäran om att skapa instans godkänns, börjar instansen finnas som en resurs, oavsett förloppet för distributions processen (status för hanterade instanser är **etablering**). Om du avbryter instans distributions förfrågan (ny instans skapas), kommer den hanterade instansen att gå från **etablerings** statusen till **FailedToCreate**.
+Med API version 2020-02-02, så snart som begäran om att skapa instans godkänns, börjar instansen finnas som en resurs, oavsett förloppet för distributions processen (status för hanterade instanser är **etablering** ). Om du avbryter instans distributions förfrågan (ny instans skapas), kommer den hanterade instansen att gå från **etablerings** statusen till **FailedToCreate** .
 
 Instanser som inte kunde skapas finns fortfarande som en resurs och: 
 

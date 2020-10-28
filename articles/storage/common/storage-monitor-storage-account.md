@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 14edb8db945a9b69ba77d56cd19a4524876ede03
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bfecae4775655f732df8fd6cffea613cd39fb828
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676804"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782016"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagringskonto i Azure-portalen
 
@@ -27,7 +27,7 @@ Vi rekommenderar att du läser [Azure Monitor för lagring](../../azure-monitor/
 >
 > Azure Files stöder för närvarande Lagringsanalyss mått, men har ännu inte stöd för loggning.
 >
-> Förstklassiga prestanda Block Blob Storage-konton stöder inte lagring av analys mått, men de stöder loggning. Du kan aktivera loggning via programmering via REST API eller klient biblioteket. Överväg att använda [Azure Storage mått i Azure Monitor](storage-metrics-in-azure-monitor.md)om du vill visa mått med förstklassiga prestanda för Blob Storage-konton.
+> Förstklassiga prestanda Block Blob Storage-konton stöder inte lagring av analys mått, men de stöder loggning. Du kan aktivera loggning via programmering via REST API eller klient biblioteket. Överväg att använda [Azure Storage mått i Azure Monitor](../blobs/monitor-blob-storage.md)om du vill visa mått med förstklassiga prestanda för Blob Storage-konton.
 >
 > En djupgående guide om hur du använder Lagringsanalys och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >

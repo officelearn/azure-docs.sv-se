@@ -139,14 +139,16 @@
                   href: azure-vm-create-certification-faq.md
     - name: Konsulttjänster
       items:
-        - name: Planera ett erbjudande om konsulttjänster
-          href: consulting-services.md
-        - name: Skapa och publicera ett erbjudande om konsulttjänster
-          items:
-            - name: Krav
-              href: partner-center-portal/consulting-service-prerequisites.md
-            - name: Skapa ett konsulttjänsterbjudande
-              href: partner-center-portal/create-consulting-service-offer.md
+        - name: Planera ett konsulttjänsterbjudande
+          href: plan-consulting-service-offer.md
+        - name: Skapa ett konsulttjänsterbjudande
+          href: create-consulting-service-offer.md
+        - name: Konfigurera konsulttjänstegenskaper
+          href: create-consulting-service-offer-properties.md
+        - name: Konfigurera konsulttjänstlista
+          href: create-consulting-service-offer-listing.md
+        - name: Konfigurera priser och tillgänglighet
+          href: create-consulting-service-pricing-availability.md
     - name: Dynamics 365-erbjudanden
       items:
         - name: Planera ett Dynamics 365-erbjudande

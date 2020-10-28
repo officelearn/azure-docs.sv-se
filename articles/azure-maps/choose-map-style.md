@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: e993e3086ac63a6e9d5b8372327e35016b36239f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2d7c9e39cb3eb14a2c2c6a7b13e37f3a526184b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285170"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889807"
 ---
 # <a name="change-the-style-of-the-map"></a>Ändra formatet för kartan
 
-Kart kontrollen stöder flera olika alternativ för kart [stil](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) och [grundläggande kart stilar](supported-map-styles.md). Alla format kan anges när kart kontrollen initieras. Du kan också ställa in format med kart kontrollens `setStyle` funktion. Den här artikeln visar hur du använder de här stil alternativen för att anpassa kartans utseende. Du får också lära dig hur du implementerar format väljar kontrollen i kartan. Med format väljar kontrollen kan användaren växla mellan olika bas format.
+Kart kontrollen stöder flera olika alternativ för kart [stil](/javascript/api/azure-maps-control/atlas.styleoptions) och [grundläggande kart stilar](supported-map-styles.md). Alla format kan anges när kart kontrollen initieras. Du kan också ställa in format med kart kontrollens `setStyle` funktion. Den här artikeln visar hur du använder de här stil alternativen för att anpassa kartans utseende. Du får också lära dig hur du implementerar format väljar kontrollen i kartan. Med format väljar kontrollen kan användaren växla mellan olika bas format.
 
 ## <a name="set-map-style-options"></a>Ange alternativ för kart stil
 
-Stil alternativ kan anges under initiering av webb kontroll. Du kan också uppdatera stil alternativ genom att anropa kart kontrollens `setStyle` funktion. För att se alla tillgängliga stil alternativ, se [format alternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions).
+Stil alternativ kan anges under initiering av webb kontroll. Du kan också uppdatera stil alternativ genom att anropa kart kontrollens `setStyle` funktion. För att se alla tillgängliga stil alternativ, se [format alternativ](/javascript/api/azure-maps-control/atlas.styleoptions).
 
 ```javascript
 //Set the style options when creating the map.
@@ -82,7 +82,7 @@ Det grundläggande kart formatet kan uppdateras med hjälp av `setStyle` funktio
 map.setStyle({ style: 'satellite' });
 ```
 
-I följande kod, efter att en kart instans har lästs in, uppdateras kart formatet från `grayscale_dark` till `satellite` med hjälp av funktionen [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-) .
+I följande kod, efter att en kart instans har lästs in, uppdateras kart formatet från `grayscale_dark` till `satellite` med hjälp av funktionen [setStyle](/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-) .
 
 <br/>
 
@@ -93,7 +93,7 @@ I följande kod, efter att en kart instans har lästs in, uppdateras kart format
 
 Format väljar kontrollen är en lätt att använda-knapp med utfällbar panel som kan användas av slutanvändaren för att växla mellan grundläggande stilar.
 
-Format väljaren har två olika layoutalternativ: `icon` och `list` . Med stil Väljaren kan du också välja två olika typer av format väljare för kontroller `style` : `light` och `dark` . I det här exemplet använder format väljaren `icon` layouten och visar en urvals lista med grundläggande kart format i form av ikoner. Format kontroll väljaren innehåller följande grundläggande uppsättning format: `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]` . Mer information om stil väljar kontroll alternativ finns i [alternativ för stil kontroll](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions).
+Format väljaren har två olika layoutalternativ: `icon` och `list` . Med stil Väljaren kan du också välja två olika typer av format väljare för kontroller `style` : `light` och `dark` . I det här exemplet använder format väljaren `icon` layouten och visar en urvals lista med grundläggande kart format i form av ikoner. Format kontroll väljaren innehåller följande grundläggande uppsättning format: `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]` . Mer information om stil väljar kontroll alternativ finns i [alternativ för stil kontroll](/javascript/api/azure-maps-control/atlas.stylecontroloptions).
 
 Bilden nedan visar den stil väljar kontroll som visas i `icon` layouten.
 
@@ -118,16 +118,16 @@ Följande kod visar hur du åsidosätter standard `mapStyles` mal listan. I det 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Karta](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions)
+> [StyleOptions](/javascript/api/azure-maps-control/atlas.styleoptions)
 
 > [!div class="nextstepaction"]
-> [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol)
+> [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol)
 
 > [!div class="nextstepaction"]
-> [StyleControlOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions)
+> [StyleControlOptions](/javascript/api/azure-maps-control/atlas.stylecontroloptions)
 
 Lägg till kontroller i dina kartor:
 

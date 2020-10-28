@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa8529abf3d7eea7d413c59ce62c93c7eb6c76d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 169ad40e32f688ae20a9d02f61db161844b1254a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87309349"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890521"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Hantera Application Insights regler för smart identifiering med Azure Resource Manager-mallar
 
@@ -21,18 +21,18 @@ Den här metoden kan användas när du distribuerar nya Application Insights-res
 ## <a name="smart-detection-rule-configuration"></a>Konfiguration av Smart identifierings regel
 
 Du kan konfigurera följande inställningar för en regel för smart identifiering:
-- Om regeln är aktive rad (Standardvärdet är **True**.)
-- Om e-postmeddelanden ska skickas till användare som är kopplade till prenumerationens Rolls [övervaknings läsare](../../role-based-access-control/built-in-roles.md#monitoring-reader) och [övervaknings deltagar](../../role-based-access-control/built-in-roles.md#monitoring-contributor) roller när en identifiering hittas (Standardvärdet är **True**.)
+- Om regeln är aktive rad (Standardvärdet är **True** .)
+- Om e-postmeddelanden ska skickas till användare som är kopplade till prenumerationens Rolls [övervaknings läsare](../../role-based-access-control/built-in-roles.md#monitoring-reader) och [övervaknings deltagar](../../role-based-access-control/built-in-roles.md#monitoring-contributor) roller när en identifiering hittas (Standardvärdet är **True** .)
 - Ytterligare e-postmottagare som bör få ett meddelande när en identifiering hittas.
-    -  E-postkonfiguration är inte tillgänglig för regler för smart identifiering som är markerade som för _hands version_.
+    -  E-postkonfiguration är inte tillgänglig för regler för smart identifiering som är markerade som för _hands version_ .
 
-För att tillåta konfigurering av regel inställningarna via Azure Resource Manager är konfigurationen av Smart identifierings regeln nu tillgänglig som en inre resurs i Application Insights resurs med namnet **ProactiveDetectionConfigs**.
+För att tillåta konfigurering av regel inställningarna via Azure Resource Manager är konfigurationen av Smart identifierings regeln nu tillgänglig som en inre resurs i Application Insights resurs med namnet **ProactiveDetectionConfigs** .
 För maximal flexibilitet kan varje smart identifierings regel konfigureras med unika meddelande inställningar.
 
 ## <a name="examples"></a>Exempel
 
 Nedan visas några exempel på hur du konfigurerar inställningarna för smart detekterings regler med hjälp av Azure Resource Manager mallar.
-Alla exempel refererar till en Application Insights resurs med namnet _"Mina program"_ och till regeln för smart identifiering av långa beroende varaktigheter, som är internt med namnet _"longdependencyduration"_.
+Alla exempel refererar till en Application Insights resurs med namnet _"Mina program"_ och till regeln för smart identifiering av långa beroende varaktigheter, som är internt med namnet _"longdependencyduration"_ .
 Se till att ersätta Application Insights resurs namn och ange det interna namnet för den aktuella Smart detekterings regeln. I tabellen nedan finns en lista över motsvarande interna Azure Resource Manager namn för varje smart identifierings regel.
 
 ### <a name="disable-a-smart-detection-rule"></a>Inaktivera en regel för smart identifiering
@@ -44,7 +44,7 @@ Se till att ersätta Application Insights resurs namn och ange det interna namne
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -75,7 +75,7 @@ Se till att ersätta Application Insights resurs namn och ange det interna namne
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -106,7 +106,7 @@ Se till att ersätta Application Insights resurs namn och ange det interna namne
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -120,7 +120,7 @@ Se till att ersätta Application Insights resurs namn och ange det interna namne
           "properties": {
             "name": "longdependencyduration",
             "sendEmailsToSubscriptionOwners": true,
-            "customEmails": ['alice@contoso.com', 'bob@contoso.com'],
+            "customEmails": ["alice@contoso.com", "bob@contoso.com"],
             "enabled": true
           }
         }

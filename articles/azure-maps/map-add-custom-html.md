@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 25ed41be53c114c258e5c63437ff2b5df875af75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c4367e2a649f4e239e2dab374afc4fb867e517b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310738"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891201"
 ---
 # <a name="add-html-markers-to-the-map"></a>Lägg till HTML-markörer i kartan
 
 Den här artikeln visar hur du lägger till en anpassad HTML-fil, till exempel en bildfil, till kartan som en HTML-markör.
 
 > [!NOTE]
-> HTML-markörer ansluter inte till data källor. I stället läggs information till direkt till markören och markören läggs till i Maps- `markers` egenskapen som är en [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager).
+> HTML-markörer ansluter inte till data källor. I stället läggs information till direkt till markören och markören läggs till i Maps- `markers` egenskapen som är en [HtmlMarkerManager](/javascript/api/azure-maps-control/atlas.htmlmarkermanager).
 
 > [!IMPORTANT]
 > Till skillnad från de flesta skikt i Azure Maps-webbkontroll som använder WebGL för rendering använder HTML-markeringar traditionella DOM-element för rendering. Det gör att fler HTML-markörer som läggs till på en sida, desto fler DOM-element finns. Prestanda kan försämras efter att några hundra HTML-markörer har lagts till. För större data uppsättningar kan du antingen klustra dina data eller använda ett symbol-eller bubbeldiagram.
 
 ## <a name="add-an-html-marker"></a>Lägg till en HTML-markör
 
-[HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker) -klassen har ett standardformat. Du kan anpassa markören genom att ange färg-och text alternativen för markören. Standardformat för HTML-markören är en SVG-mall som har en- `{color}` och- `{text}` plats hållare. Ange färg och text egenskaper i alternativ för HTML-markören för en snabb anpassning. 
+[HtmlMarker](/javascript/api/azure-maps-control/atlas.htmlmarker) -klassen har ett standardformat. Du kan anpassa markören genom att ange färg-och text alternativen för markören. Standardformat för HTML-markören är en SVG-mall som har en- `{color}` och- `{text}` plats hållare. Ange färg och text egenskaper i alternativ för HTML-markören för en snabb anpassning. 
 
 Följande kod skapar en HTML-markör och anger egenskapen Color till "DodgerBlue" och egenskapen text till "10". En popup-meny är kopplad till markören och `click` händelsen används för att växla synligheten för popup-fönstret.
 
@@ -103,13 +103,13 @@ De här exemplen visar hur du lägger till musen och drar händelser till en HTM
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HtmlMarker](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HtmlMarkerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+> [HtmlMarkerOptions](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 > [!div class="nextstepaction"]
-> [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager)
+> [HtmlMarkerManager](/javascript/api/azure-maps-control/atlas.htmlmarkermanager)
 
 Fler kod exempel som kan läggas till i dina kartor finns i följande artiklar:
 

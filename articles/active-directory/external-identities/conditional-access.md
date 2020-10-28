@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47ec082daa6eee4ab593fdb5523087f9eb5b038
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eccbbb22814788aaf06fa6fd10d8c376203c1d49
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274154"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892459"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Villkorlig åtkomst för B2B-samarbets användare
 
@@ -110,5 +110,5 @@ För närvarande går det inte att använda riskfyllda inloggnings principer fö
 Se följande artiklar om Azure AD B2B-samarbete:
 
 * [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
-* [Azure AD B2B-samarbetslicensiering](licensing-guidance.md)
+* [Prissättning för Externa identiteter](external-identities-pricing.md)
 * [Vanliga frågor och svar om Azure Active Directory B2B-samarbete](faq.md)

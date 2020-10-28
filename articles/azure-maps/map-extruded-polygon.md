@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: eedbbc0126adacc2a9bdc151aa6dbc27c7ba0750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211bcbf27f3a9e885a4bc2c4e5edd27db7907edf
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310262"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890776"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Lägg till ett polygon extrusion-lager på kartan
 
-Den här artikeln visar hur du använder polygon extrusion-lagret för att återge områden i `Polygon` och `MultiPolygon` funktions Geometries som extruderade former. Azure Maps Web SDK stöder åter givning av cirkel-Geometries som definierats i det [utökade INTERjson-schemat](extend-geojson.md#circle). Dessa cirklar kan omvandlas till polygoner när de återges på kartan. Alla funktioner i Geometries kan uppdateras enkelt vid omslutning med [atlasen. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) -klass.
+Den här artikeln visar hur du använder polygon extrusion-lagret för att återge områden i `Polygon` och `MultiPolygon` funktions Geometries som extruderade former. Azure Maps Web SDK stöder åter givning av cirkel-Geometries som definierats i det [utökade INTERjson-schemat](extend-geojson.md#circle). Dessa cirklar kan omvandlas till polygoner när de återges på kartan. Alla funktioner i Geometries kan uppdateras enkelt vid omslutning med [atlasen. Shape](/javascript/api/azure-maps-control/atlas.shape) -klass.
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Använda ett polygon extrusion-lager
 
-Anslut [polygon extrusion-skiktet](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) till en data källa. Sedan läser du in den på kartan. Polygon extrusion-lagret återger områdena i en- `Polygon` och- `MultiPolygon` funktioner som extruderade former. `height`Egenskaperna och `base` för polygonens extrusion-lager definierar bas avståndet från den malda formens och höjden i **meter**. Följande kod visar hur du skapar en polygon, lägger till den i en data källa och återger den med hjälp av skikt klassen polygon extrusion.
+Anslut [polygon extrusion-skiktet](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) till en data källa. Sedan läser du in den på kartan. Polygon extrusion-lagret återger områdena i en- `Polygon` och- `MultiPolygon` funktioner som extruderade former. `height`Egenskaperna och `base` för polygonens extrusion-lager definierar bas avståndet från den malda formens och höjden i **meter** . Följande kod visar hur du skapar en polygon, lägger till den i en data källa och återger den med hjälp av skikt klassen polygon extrusion.
 
 > [!Note]
 > `base`Värdet som definieras i polygon extrusion-lagret ska vara mindre än eller lika med för `height` .
@@ -45,7 +45,7 @@ Se Penn <a href='https://codepen.io/azuremaps/pen/eYYYNox'>choropleth-kartan</a>
 
 ## <a name="add-a-circle-to-the-map"></a>Lägg till en cirkel till kartan
 
-Azure Maps använder en utökad version av det injson-schema som tillhandahåller en definition för cirklar som anges [här](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle). En extruderad cirkel kan återges på kartan genom att skapa en `point` funktion med en `subType` egenskap av `Circle` och en numrerad `Radius` egenskap som representerar radien i **meter**. Exempel:
+Azure Maps använder en utökad version av det injson-schema som tillhandahåller en definition för cirklar som anges [här](./extend-geojson.md#circle). En extruderad cirkel kan återges på kartan genom att skapa en `point` funktion med en `subType` egenskap av `Circle` och en numrerad `Radius` egenskap som representerar radien i **meter** . Till exempel:
 
 ```javascript
 {
@@ -83,10 +83,10 @@ Polygon extrusion-lagret har flera format alternativ. Här är ett verktyg för 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Polygonlasso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
+> [Polygonlasso](/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
-> [polygon extrusion-lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
+> [polygon extrusion-lager](/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
 
 Ytterligare resurser:
 

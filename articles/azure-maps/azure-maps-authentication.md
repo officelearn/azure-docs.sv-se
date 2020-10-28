@@ -10,28 +10,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ecbbb9580a9a79ae52320ea53a4831ac8ef57f8b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: dc3792b5eff1b0ba51f5d7938e52e6914660109a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678178"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889892"
 ---
 # <a name="authentication-with-azure-maps"></a>Autentisering med Azure Maps
 
-Azure Maps stöder två sätt att autentisera begär Anden: autentisering med delad nyckel och [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) . I den här artikeln beskrivs båda autentiseringsmetoderna för att hjälpa din implementering av Azure Maps-tjänster.
+Azure Maps stöder två sätt att autentisera begär Anden: autentisering med delad nyckel och [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) . I den här artikeln beskrivs båda autentiseringsmetoderna för att hjälpa din implementering av Azure Maps-tjänster.
 
 > [!NOTE]
-> För att förbättra säker kommunikation med Azure Maps stöder vi nu Transport Layer Security (TLS) 1,2 och vi drar tillbaka support för TLS 1,0 och 1,1. Om du för närvarande använder TLS 1. x kan du utvärdera din TLS 1,2-beredskap och utveckla en migrations plan med de tester som beskrivs i [lösa TLS 1,0-problemet](https://docs.microsoft.com/security/solving-tls1-problem).
+> För att förbättra säker kommunikation med Azure Maps stöder vi nu Transport Layer Security (TLS) 1,2 och vi drar tillbaka support för TLS 1,0 och 1,1. Om du för närvarande använder TLS 1. x kan du utvärdera din TLS 1,2-beredskap och utveckla en migrations plan med de tester som beskrivs i [lösa TLS 1,0-problemet](/security/solving-tls1-problem).
 
 ## <a name="shared-key-authentication"></a>Autentisering med delad nyckel
 
  Primära och sekundära nycklar genereras efter att Azure Maps kontot har skapats. Du uppmanas att använda den primära nyckeln som prenumerations nyckel när du anropar Azure Maps med autentisering med delad nyckel. Autentisering med delad nyckel skickar en nyckel som genereras av ett Azure Maps-konto till en Azure Maps-tjänst. Lägg till *prenumerations nyckeln* som en parameter till URL: en för varje begäran om att Azure Maps tjänster. Den sekundära nyckeln kan användas i scenarier som löpande nyckel ändringar.  
 
-Information om hur du visar dina nycklar i Azure Portal finns i [hantera autentisering](https://aka.ms/amauthdetails).
+Information om hur du visar dina nycklar i Azure Portal finns i [hantera autentisering](./how-to-manage-authentication.md#view-authentication-details).
 
 > [!TIP]
-> Av säkerhets skäl rekommenderar vi att du roterar mellan dina primära och sekundära nycklar. Om du vill rotera nycklar uppdaterar du appen så att den använder den sekundära nyckeln, distribuerar och trycker sedan på knappen cykel/uppdatera bredvid den primära nyckeln för att generera en ny primär nyckel. Den gamla primär nyckeln kommer att inaktive ras. Mer information om nyckel rotation finns i [konfigurera Azure Key Vault med nyckel rotation och granskning](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
+> Av säkerhets skäl rekommenderar vi att du roterar mellan dina primära och sekundära nycklar. Om du vill rotera nycklar uppdaterar du appen så att den använder den sekundära nyckeln, distribuerar och trycker sedan på knappen cykel/uppdatera bredvid den primära nyckeln för att generera en ny primär nyckel. Den gamla primär nyckeln kommer att inaktive ras. Mer information om nyckel rotation finns i [konfigurera Azure Key Vault med nyckel rotation och granskning](../key-vault/secrets/tutorial-rotation-dual.md)
 
 ## <a name="azure-ad-authentication"></a>Azure AD-autentisering
 
@@ -45,17 +45,17 @@ Azure Maps accepterar **OAuth 2,0** -åtkomsttoken för Azure AD-klienter som ä
 
 Azure Maps skapar ett *unikt ID (klient-ID)* för varje Azure Maps-konto. Du kan begära token från Azure AD när du kombinerar det här klient-ID: t med ytterligare parametrar.
 
-Mer information om hur du konfigurerar Azure AD och begär token för Azure Maps finns i [hantera autentisering i Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Mer information om hur du konfigurerar Azure AD och begär token för Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
-Allmän information om hur du autentiserar med Azure AD finns i [Vad är autentisering?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+Allmän information om hur du autentiserar med Azure AD finns i [Vad är autentisering?](../active-directory/develop/authentication-vs-authorization.md).
 
 ### <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Hanterade identiteter för Azure-resurser och Azure Maps
 
-[Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) ger Azure-tjänster med ett automatiskt hanterat program baserat säkerhets objekt som kan autentiseras med Azure AD. Med rollbaserad åtkomst kontroll i Azure (Azure RBAC) kan det hanterade identitets säkerhets objekt ha behörighet att få åtkomst till Azure Maps tjänster. Några exempel på hanterade identiteter är: Azure App Service, Azure Functions och Azure Virtual Machines. En lista över hanterade identiteter finns i [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+[Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) ger Azure-tjänster med ett automatiskt hanterat program baserat säkerhets objekt som kan autentiseras med Azure AD. Med rollbaserad åtkomst kontroll i Azure (Azure RBAC) kan det hanterade identitets säkerhets objekt ha behörighet att få åtkomst till Azure Maps tjänster. Några exempel på hanterade identiteter är: Azure App Service, Azure Functions och Azure Virtual Machines. En lista över hanterade identiteter finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### <a name="configuring-application-azure-ad-authentication"></a>Konfigurera Azure AD-autentisering för program
 
-Program kommer att autentiseras med Azure AD-klienten med hjälp av ett eller flera scenarier som stöds av Azure AD. Varje scenario för Azure AD-program representerar olika krav baserat på affärs behov. Vissa program kan kräva användar inloggnings upplevelser och andra program kan kräva en program inloggnings upplevelse. Mer information finns i [autentiserings flöden och program scenarier](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios).
+Program kommer att autentiseras med Azure AD-klienten med hjälp av ett eller flera scenarier som stöds av Azure AD. Varje scenario för Azure AD-program representerar olika krav baserat på affärs behov. Vissa program kan kräva användar inloggnings upplevelser och andra program kan kräva en program inloggnings upplevelse. Mer information finns i [autentiserings flöden och program scenarier](../active-directory/develop/authentication-flows-app-scenarios.md).
 
 När programmet har tagit emot en åtkomsttoken skickar SDK: n och/eller programmet en HTTPS-begäran med följande uppsättning obligatoriska HTTP-huvuden förutom andra REST API HTTP-huvuden:
 
@@ -76,15 +76,15 @@ x-ms-client-id: 30d7cc….9f55
 Authorization: Bearer eyJ0e….HNIVN
 ```
 
-Information om hur du visar ditt klient-ID finns i [Visa information om autentisering](https://aka.ms/amauthdetails).
+Information om hur du visar ditt klient-ID finns i [Visa information om autentisering](./how-to-manage-authentication.md#view-authentication-details).
 
 ## <a name="authorization-with-role-based-access-control"></a>Auktorisering med rollbaserad åtkomst kontroll
 
-Azure Maps stöder åtkomst till alla huvud typer för [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) , inklusive: enskilda Azure AD-användare, grupper, program, Azure-resurser och Azure Managed-identiteter. Huvud typer beviljas en uppsättning behörigheter, även kallat en roll definition. En roll definition ger behörighet att REST API åtgärder. Att tillämpa åtkomst till ett eller flera Azure Maps-konton kallas för ett omfång. När du använder ett huvud konto, en roll definition och ett omfång skapas en roll tilldelning. 
+Azure Maps stöder åtkomst till alla huvud typer för [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) , inklusive: enskilda Azure AD-användare, grupper, program, Azure-resurser och Azure Managed-identiteter. Huvud typer beviljas en uppsättning behörigheter, även kallat en roll definition. En roll definition ger behörighet att REST API åtgärder. Att tillämpa åtkomst till ett eller flera Azure Maps-konton kallas för ett omfång. När du använder ett huvud konto, en roll definition och ett omfång skapas en roll tilldelning. 
 
 I nästa avsnitt beskrivs begrepp och komponenter i Azure Maps integrering med Azure RBAC. Som en del av processen för att konfigurera ditt Azure Maps-konto är en Azure AD-katalog kopplad till Azure-prenumerationen som Azure Maps-kontot finns i. 
 
-När du konfigurerar Azure RBAC väljer du ett säkerhets objekt och tillämpar det på en roll tilldelning. Information om hur du lägger till roll tilldelningar i Azure Portal finns i [lägga till eller ta bort roll tilldelningar i Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+När du konfigurerar Azure RBAC väljer du ett säkerhets objekt och tillämpar det på en roll tilldelning. Information om hur du lägger till roll tilldelningar i Azure Portal finns i [lägga till eller ta bort roll tilldelningar i Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="picking-a-role-definition"></a>Plocka en roll definition
 
@@ -110,7 +110,7 @@ Information om hur du visar dina Azure RBAC-inställningar finns i [så här kon
 
 En aspekt av program säkerhet är att tillämpa principen om minsta behörighet. Den här principen innebär att säkerhetsobjektet endast ska beviljas åtkomst som krävs, och som inte har ytterligare åtkomst. Att skapa anpassade roll definitioner kan stödja användnings fall som kräver ytterligare granularitet för åtkomst kontroll. Om du vill skapa en anpassad roll definition kan du välja vissa data åtgärder som ska tas med eller undantas för definitionen.
 
-Definitionen av den anpassade rollen kan sedan användas i en roll tilldelning för alla säkerhets objekt. Mer information om anpassade roll definitioner för Azure finns i [Azure-anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Definitionen av den anpassade rollen kan sedan användas i en roll tilldelning för alla säkerhets objekt. Mer information om anpassade roll definitioner för Azure finns i [Azure-anpassade roller](../role-based-access-control/custom-roles.md).
 
 Här följer några exempel scenarier där anpassade roller kan förbättra program säkerheten.
 
@@ -123,7 +123,7 @@ Här följer några exempel scenarier där anpassade roller kan förbättra prog
 
 ### <a name="understanding-scope"></a>Förstå omfattning
 
-När du skapar en roll tilldelning definieras den i Azure-resursens hierarki. Högst upp i hierarkin är en [hanterings grupp](https://docs.microsoft.com/azure/governance/management-groups/overview) och den lägsta är en Azure-resurs, till exempel ett Azure Maps konto.
+När du skapar en roll tilldelning definieras den i Azure-resursens hierarki. Högst upp i hierarkin är en [hanterings grupp](../governance/management-groups/overview.md) och den lägsta är en Azure-resurs, till exempel ett Azure Maps konto.
 Genom att tilldela en roll tilldelning till en resurs grupp kan du ge åtkomst till flera Azure Maps konton eller resurser i gruppen.
 
 > [!TIP]
@@ -133,12 +133,12 @@ Genom att tilldela en roll tilldelning till en resurs grupp kan du ge åtkomst t
 
 Läs mer om Azure RBAC i
 > [!div class="nextstepaction"]
-> [Rollbaserad Azure-åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/overview)
+> [Rollbaserad Azure-åtkomstkontroll](../role-based-access-control/overview.md)
 
 Mer information om hur du autentiserar ett program med Azure AD och Azure Maps finns i
 > [!div class="nextstepaction"]
-> [Hantera autentisering i Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)
+> [Hantera autentisering i Azure Maps](./how-to-manage-authentication.md)
 
 Mer information om hur du autentiserar Azure Maps Kartkontroll med Azure AD finns i
 > [!div class="nextstepaction"]
-> [Använd Azure Maps Kartkontroll](https://aka.ms/amaadmc)
+> [Använd Azure Maps Kartkontroll](./how-to-use-map-control.md)

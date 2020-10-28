@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 09de05325ed6c85954b4661a30113562bb98ea86
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e793985f483d94238becce1e2321084e2e65a6ee
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370499"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891639"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Säkerhetsrekommendationer – en referensguide
 
 Den här artikeln innehåller de rekommendationer som du kan se i Azure Security Center. Rekommendationerna som visas i din miljö beror på vilka resurser du skyddar och din anpassade konfiguration.
 
-Security Centers rekommendationer baseras på bästa praxis. Vissa är justerade med **Azures säkerhets benchmark**, de Microsoft-baserade, Azure-/regionsspecifika rikt linjerna för säkerhet och efterlevnad metod tips baserade på vanliga ramverk för efterlevnad. [Läs mer om Azure Security Benchmark](../security/benchmarks/introduction.md).
+Rekommendationerna i Security Center är baserade på regelverk. Vissa är anpassade efter **Azure Security Benchmark** , som är Azure-specifika riktlinjer från Microsoft kring säkerhet och efterlevnad baserade på vanliga efterlevnadsramverk. [Läs mer om Azure Security Benchmark](../security/benchmarks/introduction.md).
 
 Information om hur du svarar på dessa rekommendationer finns i [åtgärda rekommendationer i Azure Security Center](security-center-remediate-recommendations.md).
 
@@ -38,7 +38,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 |----|----|----|----|----|
 |**Rekommendationer för anpassningsbar nätverks härdning bör tillämpas på virtuella datorer som är riktade mot Internet**|Azure Security Center har analyserat kommunikations mönstren för Internet trafik för de virtuella datorerna som anges nedan, och fastställde att de befintliga reglerna i NSG: er som är kopplade till dem är över-tillåtna, vilket leder till en ökad potentiell attack yta.<br>Detta inträffar vanligt vis när den här IP-adressen inte kommunicerar regelbundet med den här resursen. Alternativt har IP-adressen flaggats som skadlig genom Security Center s hot informations källor.<br>(Relaterad princip: anpassningsbara nätverks härdnings rekommendationer bör tillämpas på virtuella datorer som är riktade mot Internet)|Högt|N|Virtuell dator|
 |**All Internet trafik ska dirigeras via din distribuerade Azure-brandvägg**|Azure Security Center har identifierat att vissa av dina undernät inte skyddas med en nästa generations brand vägg. Skydda dina undernät mot potentiella hot genom att begränsa åtkomsten till dem med Azure-brandväggen eller en nästa generations brand vägg som stöds.<br>(Relaterad princip: [för hands version] all Internet trafik ska dirigeras via din distribuerade Azure-brandvägg)|Högt|N|Undernät|
-|**Alla nätverks portar bör vara begränsade på NSG som är kopplade till den virtuella datorn**|Skärp nätverks säkerhets grupperna för dina Internet-riktade virtuella datorer genom att begränsa åtkomsten till dina befintliga Tillåt-regler.<br>Den här rekommendationen utlöses när en port öppnas för *alla* källor (förutom portarna 22, 3389, 5985, 5986, 80 och 1443).<br>(Relaterad princip: åtkomst via Internet-slutpunkt ska begränsas)|Högt|N|Virtuell dator|
+|**Alla nätverks portar bör vara begränsade för nätverks säkerhets grupper som är kopplade till den virtuella datorn**|Skärp nätverks säkerhets grupperna för dina Internet-riktade virtuella datorer genom att begränsa åtkomsten till dina befintliga Tillåt-regler.<br>Den här rekommendationen utlöses när en port öppnas för *alla* källor (förutom portarna 22, 3389, 5985, 5986, 80 och 1443).<br>(Relaterad princip: alla nätverks portar bör begränsas för nätverks säkerhets grupper som är kopplade till den virtuella datorn)|Högt|N|Virtuell dator|
 |**DDoS Protection standard ska vara aktive rad**|Skydda virtuella nätverk som innehåller program med offentliga IP-adresser genom att aktivera DDoS Protection Service standard. DDoS Protection möjliggör minskning av nätverks-och protokoll attacker.<br>(Relaterad princip: DDoS Protection standard ska vara aktive rad)|Högt|N|Virtuellt nätverk|
 |**Funktionsapp bör endast vara tillgängligt via HTTPS**|Aktivera "endast HTTPS"-åtkomst för Function Apps. Användning av HTTPS garanterar serverautentisering och skyddar data i överföring från angrepp på nätverks nivå.<br>(Relaterad princip: Funktionsapp bör endast vara tillgänglig via HTTPS)|Medium|**Y**|Funktionsapp|
 |**Virtuella datorer som är riktade mot Internet bör skyddas med nätverks säkerhets grupper**|Aktivera nätverks säkerhets grupper för att kontrol lera nätverks åtkomst för dina virtuella datorer.<br>(Relaterad princip: virtuella datorer som är riktade mot Internet bör skyddas med nätverks säkerhets grupper)|Hög/medel|N|Virtuell dator|

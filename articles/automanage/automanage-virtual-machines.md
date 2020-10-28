@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 3f6786ad8b7a9a635770be378e3efd0716be2428
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a51a4a95d3580912d9b727d1580e6f278831f677
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519664"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891510"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure automanage för virtuella datorer
 
@@ -44,11 +44,13 @@ Det finns flera förutsättningar att tänka på innan du försöker aktivera Az
 - Endast Windows Server-VM
 - Virtuella datorer måste köras
 - Virtuella datorer måste finnas i en region som stöds
-- Användaren måste ha rätt behörighet
-- Virtuella datorer får inte länka till en Log Analytics-arbetsyta i en annan prenumeration
+- Användaren måste ha rätt behörigheter (se stycket nedan)
 - Automanage stöder inte sandbox-prenumerationer just nu
 
-Du måste ha **deltagar** rollen för att aktivera autohantering med ett befintligt konto för autohantering. Om du aktiverar automanage med ett nytt konto för autohantering behöver du följande behörigheter: **ägar** roll eller **deltagare** tillsammans med administratörs roller för **användar åtkomst** .
+Du måste ha **deltagar** rollen i resurs gruppen som innehåller dina virtuella datorer för att aktivera autohantering på virtuella datorer med ett befintligt konto för autohantering. Om du aktiverar automanage med ett nytt konto för autohantering behöver du följande behörigheter för din prenumeration: **ägar** roll eller **deltagare** tillsammans med administratörs roller för **användar åtkomst** . 
+
+> [!NOTE]
+> Om du vill använda automanage på en virtuell dator som är ansluten till en arbets yta i en annan prenumeration måste du ha de behörigheter som beskrivs ovan för varje prenumeration.
 
 Det är också viktigt att Observera att den automatiska hanteringen endast stöder virtuella Windows-datorer som finns i följande regioner: Västeuropa, östra USA, västra USA 2, centrala Kanada, västra centrala USA.
 
@@ -67,7 +69,7 @@ För alla dessa tjänster kommer vi automatiskt att registreras, konfigureras au
 
 I Azure Portal kan du aktivera automanage på en befintlig virtuell dator eller när du skapar en ny virtuell dator. Om du vill ha kortare steg i den här processen kan du gå till [snabb starten för virtuella datorer](quick-create-virtual-machines-portal.md).
 
-Om det är första gången du aktiverar automatisk hantering för din virtuella dator kan du söka i den Azure Portal för automatisk **hantering – metod tips för Azure virtuella datorer**. Klicka på **Aktivera på befintlig virtuell dator**, Välj de virtuella datorer som du vill publicera, klicka på **Välj**, klicka på **Aktivera**och du är klar.
+Om det är första gången du aktiverar automatisk hantering för din virtuella dator kan du söka i den Azure Portal för automatisk **hantering – metod tips för Azure virtuella datorer** . Klicka på **Aktivera på befintlig virtuell dator** , Välj de virtuella datorer som du vill publicera, klicka på **Välj** , klicka på **Aktivera** och du är klar.
 
 Den enda tid som du kan behöva interagera med den här virtuella datorn för att hantera dessa tjänster är i händelse av att vi försökte åtgärda den virtuella datorn, men det gick inte att göra det. Om vi har åtgärdat den virtuella datorn kommer vi att se till att de är kompatibla igen utan att du varnar dig.
 
@@ -105,7 +107,7 @@ Kontot för automatisk hantering är säkerhets kontexten eller den identitet un
 När du aktiverar autohantering på de virtuella datorerna i Azure Portals upplevelsen finns en avancerad listruta på bladet **Aktivera Azure VM Best Practice** som gör att du kan tilldela eller skapa det automatiska hanterings kontot manuellt.
 
 > [!NOTE]
-> Du måste ha **deltagar** rollen för att aktivera autohantering med ett befintligt konto för autohantering. Om du aktiverar automanage med ett nytt konto för autohantering behöver du följande behörigheter: **ägar** roll eller **deltagare** tillsammans med administratörs roller för **användar åtkomst** .
+> Du måste ha rollen **deltagare** i resurs gruppen som innehåller dina virtuella datorer för att aktivera autohantering på virtuella datorer med ett befintligt konto för autohantering. Om du aktiverar automanage med ett nytt konto för autohantering behöver du följande behörigheter för din prenumeration: **ägar** roll eller **deltagare** tillsammans med administratörs roller för **användar åtkomst** .
 
 
 ## <a name="status-of-vms"></a>Status för virtuella datorer
@@ -121,7 +123,7 @@ Följande information visas för varje virtuell dator i listan: namn, konfigurat
 - *Konfigurerad* – den virtuella datorn har kon figurer ATS och ingen avvikelse har upptäckts
 - *Misslyckades* – den virtuella datorn har inträffat och vi kunde inte åtgärda det
 
-Om du ser **status** som *misslyckad*kan du felsöka distributionen via resurs gruppen som den virtuella datorn finns i. Gå till **resurs grupper**, välj din resurs grupp, klicka på **distributioner** och se statusen *misslyckades* där, med fel information.
+Om du ser **status** som *misslyckad* kan du felsöka distributionen via resurs gruppen som den virtuella datorn finns i. Gå till **resurs grupper** , välj din resurs grupp, klicka på **distributioner** och se statusen *misslyckades* där, med fel information.
 
 
 ## <a name="disabling-automanage-for-vms"></a>Inaktiverar autohantering för virtuella datorer
@@ -132,7 +134,7 @@ Om du vill göra det i Azure Portal går du till sidan för att **Hantera virtue
 
 :::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Intelligenta onboard-tjänster.":::
 
-Läs noggrant igenom meddelande tjänsten i det resulterande popup-meddelandet innan du godkänner **inaktive ring**.
+Läs noggrant igenom meddelande tjänsten i det resulterande popup-meddelandet innan du godkänner **inaktive ring** .
 
 > [!NOTE]
 > Genom att inaktivera automanagement i en virtuell dator får du följande beteende:

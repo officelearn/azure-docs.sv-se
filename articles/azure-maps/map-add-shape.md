@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 74c8ba4ed1f228b9b3ba90b46c47f538d71ff409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96553e75d4b982cfe67d03961d4356a3844f253c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310466"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891005"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Lägg till ett polygon-lager till kartan
 
-Den här artikeln visar hur du återger områdena i `Polygon` och `MultiPolygon` funktions Geometries på kartan med ett polygon-lager. Azure Maps Web SDK stöder även skapande av cirkel-Geometries som definierats i det [utökade INTERjson-schemat](extend-geojson.md#circle). Dessa cirklar omvandlas till polygoner när de återges på kartan. Alla funktions Geometries kan enkelt uppdateras när de omslutits med [atlasen. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) -klass.
+Den här artikeln visar hur du återger områdena i `Polygon` och `MultiPolygon` funktions Geometries på kartan med ett polygon-lager. Azure Maps Web SDK stöder även skapande av cirkel-Geometries som definierats i det [utökade INTERjson-schemat](extend-geojson.md#circle). Dessa cirklar omvandlas till polygoner när de återges på kartan. Alla funktions Geometries kan enkelt uppdateras när de omslutits med [atlasen. Shape](/javascript/api/azure-maps-control/atlas.shape) -klass.
 
 ## <a name="use-a-polygon-layer"></a>Använda ett polygon-lager 
 
-När ett polygon-lager är anslutet till en data källa och läses in på kartan, återges ytan med `Polygon` och- `MultiPolygon` funktioner. Om du vill skapa en polygon lägger du till den i en data källa och återger den med ett polygon lager med hjälp av klassen [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer) .
+När ett polygon-lager är anslutet till en data källa och läses in på kartan, återges ytan med `Polygon` och- `MultiPolygon` funktioner. Om du vill skapa en polygon lägger du till den i en data källa och återger den med ett polygon lager med hjälp av klassen [PolygonLayer](/javascript/api/azure-maps-control/atlas.layer.polygonlayer) .
 
 ```javascript
 //Create a data source and add it to the map.
@@ -115,7 +115,7 @@ Azure Maps Web SDK konverterar dessa `Point` funktioner till `Polygon` funktione
 
 ## <a name="make-a-geometry-easy-to-update"></a>Gör en geometri lätt att uppdatera
 
-En `Shape` klass radbryter en [geometri](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry) eller [funktion](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature) och gör det enkelt att uppdatera och underhålla dessa funktioner. Om du vill instansiera en form variabel skickar du en geometri eller en uppsättning egenskaper till form-konstruktorn.
+En `Shape` klass radbryter en [geometri](/javascript/api/azure-maps-control/atlas.data.geometry) eller [funktion](/javascript/api/azure-maps-control/atlas.data.feature) och gör det enkelt att uppdatera och underhålla dessa funktioner. Om du vill instansiera en form variabel skickar du en geometri eller en uppsättning egenskaper till form-konstruktorn.
 
 ```javascript
 //Creating a shape by passing in a geometry and a object containing properties.
@@ -137,10 +137,10 @@ Följande kod exempel visar hur du omsluter ett cirkel-interjson-objekt med en S
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Polygonlasso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
+> [Polygonlasso](/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
-> [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer)
+> [PolygonLayer](/javascript/api/azure-maps-control/atlas.layer.polygonlayer)
 
 > [!div class="nextstepaction"]
 > [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)

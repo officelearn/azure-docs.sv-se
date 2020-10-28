@@ -3,14 +3,14 @@ title: Så här felsöker du Azure Monitor för behållare | Microsoft Docs
 description: Den här artikeln beskriver hur du kan felsöka och lösa problem med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: fcd799c63e4afb68d96f67d1c03016a4d3b10f34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5727702ff973523ce7ab6400c1c7748e0584acbf
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092838"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890368"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers"></a>Felsöka Azure Monitor för behållare
+# <a name="troubleshooting-azure-monitor-for-containers"></a>Felsöka Azure Monitor för containrar
 
 När du konfigurerar övervakning av ditt Azure Kubernetes service-kluster (AKS) med Azure Monitor för behållare kan du stöta på ett problem som förhindrar data insamling eller rapporterings status. I den här artikeln beskrivs några vanliga problem och fel söknings steg.
 
@@ -23,9 +23,9 @@ Under onboarding-eller uppdaterings processen görs försök att tilldela **öve
 Du kan också bevilja rollen manuellt från Azure Portalen genom att utföra följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. Skriv **Kubernetes**i listan över resurser. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Azure-Kubernetes**.
+2. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. Skriv **Kubernetes** i listan över resurser. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Azure-Kubernetes** .
 3. I listan över Kubernetes-kluster väljer du en i listan.
-2. I den vänstra menyn klickar du på **åtkomst kontroll (IAM)**.
+2. I den vänstra menyn klickar du på **åtkomst kontroll (IAM)** .
 3. Välj **+ Lägg** till för att lägga till en roll tilldelning och välj **utgivar rollen övervaknings mått** och välj **AKS** i rutan **Välj** typ för att filtrera resultaten för bara de kluster tjänstens huvud namn som definierats i prenumerationen. Välj den från listan som är speciell för klustret.
 4. Välj **Spara** för att slutföra tilldelningen av rollen.
 
@@ -86,13 +86,13 @@ Om Azure Monitor för behållare har Aktiver ATS och kon figurer ATS, men du int
 
 I tabellen nedan sammanfattas kända fel som kan uppstå när du använder Azure Monitor för behållare.
 
-| Felmeddelanden  | Action |
+| Felmeddelanden  | Åtgärd |
 | ---- | --- |
 | Fel meddelande `No data for selected filters`  | Det kan ta lite tid att upprätta övervakningsdataflödet för kluster som skapats nyligen. Tillåt minst 10 till 15 minuter innan data visas för klustret. |
 | Fel meddelande `Error retrieving data` | Även om Azure Kubernetes service-klustret konfigurerar för hälso-och prestanda övervakning upprättas en anslutning mellan klustret och Azure Log Analytics-arbetsytan. En Log Analytics arbets yta används för att lagra alla övervaknings data för klustret. Det här felet kan inträffa när din Log Analytics-arbetsyta har tagits bort. Kontrol lera att arbets ytan har tagits bort och om den var måste du aktivera övervakning av klustret igen med Azure Monitor för behållare och ange en befintlig eller skapa en ny arbets yta. Om du vill aktivera igen måste du [inaktivera](container-insights-optout.md) övervakning av klustret och [Aktivera](container-insights-enable-new-cluster.md) Azure Monitor för behållare igen. |
 | `Error retrieving data` När du har lagt till Azure Monitor för behållare via AZ AKS cli | När du aktiverar övervakning med `az aks cli` kan Azure Monitor för behållare inte distribueras korrekt. Kontrol lera om lösningen har distribuerats. Verifiera genom att gå till din Log Analytics arbets yta och se om lösningen är tillgänglig genom att välja **lösningar** i rutan till vänster. För att lösa det här problemet måste du distribuera om lösningen genom att följa anvisningarna i så här [distribuerar du Azure Monitor för behållare](container-insights-onboard.md) |
 
-För att hjälpa till att diagnostisera problemet har vi tillhandahållit ett fel söknings skript som finns [här](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/troubleshoot/TroubleshootError_nonAzureK8s.ps1).
+Vi har angett ett [fel söknings skript](https://aka.ms/troubleshooting-script)för att hjälpa till att diagnostisera problemet.
 
 ## <a name="azure-monitor-for-containers-agent-replicaset-pods-are-not-scheduled-on-non-azure-kubernetes-cluster"></a>Azure Monitor för behållare agent ReplicaSet poddar har inte schemalagts för icke-Azure Kubernetes-kluster
 
@@ -112,7 +112,7 @@ Azure Monitor for containers agent poddar använder cAdvisor-slutpunkten på Nod
 
 ## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>Icke-Azure Kubernetes-kluster visas inte i Azure Monitor för behållare
 
-Om du vill visa icke-Azure Kubernetes-kluster i Azure Monitor för behållare, krävs Läs behörighet på arbets ytan Log Analytics som stöder den här insikten och på ContainerInsights för container Insights **-lösning (*arbets yta*)**.
+Om du vill visa icke-Azure Kubernetes-kluster i Azure Monitor för behållare, krävs Läs behörighet på arbets ytan Log Analytics som stöder den här insikten och på ContainerInsights för container Insights **-lösning ( *arbets yta* )** .
 
 ## <a name="next-steps"></a>Nästa steg
 

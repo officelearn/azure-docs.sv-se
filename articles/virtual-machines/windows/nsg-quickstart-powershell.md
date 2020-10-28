@@ -1,21 +1,21 @@
 ---
 title: Öppna portar till en virtuell dator med hjälp av Azure PowerShell
-description: Lär dig hur du öppnar en port/skapar en slut punkt för din virtuella Windows-dator med hjälp av distributions läget i Azure Resource Manager och Azure PowerShell
+description: Lär dig hur du öppnar en port/skapar en slut punkt för din virtuella dator med hjälp av Azure PowerShell
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a417c271c16aabe91836f425f26c0a55e7103557
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a432ce978f6fa9e3a472cb15e9ef9241bc41004d
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973945"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891762"
 ---
-# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Så här öppnar du portar och slut punkter till en virtuell dator i Azure med hjälp av PowerShell
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-using-powershell"></a>Så här öppnar du portar och slut punkter till en virtuell dator med hjälp av PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Snabbkommandon
@@ -27,9 +27,9 @@ Logga in på ditt Azure-konto:
 Connect-AzAccount
 ```
 
-I följande exempel ersätter du parameter namn med dina egna värden. Exempel på parameter namn som ingår *myResourceGroup*, *myNetworkSecurityGroup*och *myVnet*.
+I följande exempel ersätter du parameter namn med dina egna värden. Exempel på parameter namn som ingår *myResourceGroup* , *myNetworkSecurityGroup* och *myVnet* .
 
-Skapa en regel med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRule* för att tillåta *TCP* -trafik på port *80*:
+Skapa en regel med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). I följande exempel skapas en regel med namnet *myNetworkSecurityGroupRule* för att tillåta *TCP* -trafik på port *80* :
 
 ```powershell
 $httprule = New-AzNetworkSecurityRuleConfig `
@@ -45,7 +45,7 @@ $httprule = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-Skapa sedan din nätverks säkerhets grupp med [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) och tilldela den http-regel som du nyss skapade på följande sätt. I följande exempel skapas en nätverks säkerhets grupp med namnet *myNetworkSecurityGroup*:
+Skapa sedan din nätverks säkerhets grupp med [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) och tilldela den http-regel som du nyss skapade på följande sätt. I följande exempel skapas en nätverks säkerhets grupp med namnet *myNetworkSecurityGroup* :
 
 ```powershell
 $nsg = New-AzNetworkSecurityGroup `

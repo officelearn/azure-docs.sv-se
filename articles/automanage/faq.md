@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 003f97c99de7dd4be79e820e822b6071f45ed146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ad5c2b973a74bc9fa0f6ca2f59f92a26b666e7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714971"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891473"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Vanliga frågor och svar om Azure automanage för virtuella datorer
 
 Den här artikeln innehåller svar på några av de vanligaste frågorna om [Azure automanage för virtuella datorer](automanage-virtual-machines.md).
 
-Om ditt Azure-problem inte åtgärdas i den här artikeln kan du gå till Azure-forumen på [MSDN och Stack Overflow](https://azure.microsoft.com/support/forums/). Du kan publicera ditt problem i dessa forum eller publicera på [ @AzureSupport Twitter](https://twitter.com/AzureSupport). Du kan också skicka in en support förfrågan för Azure. Om du vill skicka en supportbegäran väljer du **Hämta support**på [Sidan Support för Azure](https://azure.microsoft.com/support/options/).
+Om ditt Azure-problem inte åtgärdas i den här artikeln kan du gå till Azure-forumen på [MSDN och Stack Overflow](https://azure.microsoft.com/support/forums/). Du kan publicera ditt problem i dessa forum eller publicera på [ @AzureSupport Twitter](https://twitter.com/AzureSupport). Du kan också skicka in en support förfrågan för Azure. Om du vill skicka en supportbegäran väljer du **Hämta support** på [Sidan Support för Azure](https://azure.microsoft.com/support/options/).
 
 
 ## <a name="azure-automanage-for-virtual-machines"></a>Azure automanage för virtuella datorer
@@ -32,7 +32,6 @@ Följande är förutsättningar för att aktivera Azure automanage:
 - Virtuella datorer måste finnas i en region som stöds
 - Användaren måste ha rätt behörighet
 - Endast icke-skala uppsättning virtuella datorer
-- Virtuella datorer får inte länka till en Log Analytics-arbetsyta i en annan prenumeration
 - Automanage stöder inte sandbox-prenumerationer just nu
 
 **Vilken Azure RBAC-behörighet krävs för att aktivera autohantering?**
@@ -106,7 +105,7 @@ Nej, den automatiska hanteringen kommer inte att konfigurera om den. Vi börjar 
 
 **Varför har den virtuella datorn statusen Misslyckad i automanage-portalen?**
 
-Om du ser status som *misslyckad*kan du felsöka distributionen via resurs gruppen som den virtuella datorn finns i. Gå till **resurs grupper**, välj din resurs grupp, klicka på **distributioner** och se statusen *misslyckades* där, med fel information.
+Om du ser status som *misslyckad* kan du felsöka distributionen via resurs gruppen som den virtuella datorn finns i. Gå till **resurs grupper** , välj din resurs grupp, klicka på **distributioner** och se statusen *misslyckades* där, med fel information.
 
 **Hur kan jag få hjälp med fel sökning av autohantering?**
 

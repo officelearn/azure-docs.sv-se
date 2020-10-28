@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: ecefac68a4348eeae23860d542f949b1c7ff23a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddb8009e544ede82d1c56d112950ff247a87380c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310212"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890708"
 ---
 # <a name="get-shape-data"></a>Hämta formdata
 
-Den här artikeln visar hur du hämtar data för former som ritas på kartan. Vi använder funktionen **drawingManager. GetSource ()** i [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). Det finns olika scenarier när du vill extrahera polyjson-data för en ritad form och använda den någon annan stans.  
+Den här artikeln visar hur du hämtar data för former som ritas på kartan. Vi använder funktionen **drawingManager. GetSource ()** i [Drawing Manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). Det finns olika scenarier när du vill extrahera polyjson-data för en ritad form och använda den någon annan stans.  
 
 
 ## <a name="get-data-from-drawn-shape"></a>Hämta data från den ritade formen
@@ -54,10 +54,10 @@ Lär dig hur du använder ytterligare funktioner i modulen rit verktyg:
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Karta](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Drawing Manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Drawing Manager](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Verktygsfältet Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Verktygsfältet Rita](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

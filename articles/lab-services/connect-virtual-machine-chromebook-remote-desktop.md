@@ -6,18 +6,18 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: d2a936a6acb6491c57cb1460c83ec0253561b102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae2bc6e87f0b694e949057280233c19e0b98132c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445669"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892238"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-chromebook"></a>Ansluta till en virtuell dator med Remote Desktop Protocol på en Chromebook
 Det här avsnittet visar hur en student kan ansluta till en virtuell dator i klass rummet från en Chromebook med hjälp av RDP.
 
 ## <a name="install-microsoft-remote-desktop-on-a-chromebook"></a>Installera Microsoft Fjärrskrivbord på en Chromebook
-1. Öppna App Store på din Chromebook och Sök efter **Microsoft fjärrskrivbord**.
+1. Öppna App Store på din Chromebook och Sök efter **Microsoft fjärrskrivbord** .
 
     ![Microsoft Fjärrskrivbord](./media/how-to-use-classroom-lab/install-ms-remote-desktop-chromebook.png)
 1. Installera den senaste versionen av Microsoft Fjärrskrivbord. 
@@ -28,7 +28,7 @@ Det här avsnittet visar hur en student kan ansluta till en virtuell dator i kla
     ![Ansluta till virtuell dator](./media/how-to-use-classroom-lab/connect-vm-chromebook.png)
 
 1. Ange ditt lösen ord när du uppmanas till det.
-    ![Ansluta till virtuella datorer](./media/how-to-use-classroom-lab/password-chromebook.png)
+    ![Skärm bild som visar inloggnings skärmen där du anger ditt användar namn och lösen ord.](./media/how-to-use-classroom-lab/password-chromebook.png)
 
 
 1. Välj **Fortsätt** om du får följande varning. 

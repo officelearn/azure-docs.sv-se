@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 0621e0ecfbb91d151e3cc78d3b345ab92133695c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8121ceb68bdea9332316a9508bf6f4731e05b0ba
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310381"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890793"
 ---
 # <a name="interact-with-the-map"></a>Interagera med kartan
 
-Den här artikeln visar hur du använder [Map Events-klassen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events). Egenskaps markerings händelser på kartan och på olika lager i kartan. Du kan också markera händelser när du interagerar med en HTML-markör.
+Den här artikeln visar hur du använder [Map Events-klassen](/javascript/api/azure-maps-control/atlas.map#events). Egenskaps markerings händelser på kartan och på olika lager i kartan. Du kan också markera händelser när du interagerar med en HTML-markör.
 
 ## <a name="interact-with-the-map"></a>Interagera med kartan
 
@@ -117,4 +117,4 @@ I följande artiklar finns fullständiga kod exempel:
 > [Använda modulen Azure Maps tjänster](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Kodexempel](/samples/browse/?products=azure-maps)

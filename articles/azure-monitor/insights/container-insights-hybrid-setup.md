@@ -3,12 +3,12 @@ title: Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare |
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare för att övervaka Kubernetes-kluster som finns på Azure Stack eller annan miljö.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 2d2522118fddcebcb2ca922ed455011e394fac45
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d481af07013c0a5b4c5a381527c6f555400a2559
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994443"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890470"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare
 
@@ -16,14 +16,12 @@ Azure Monitor for containers innehåller omfattande övervaknings upplevelse fö
 
 ## <a name="supported-configurations"></a>Konfigurationer som stöds
 
-Följande konfigurationer stöds officiellt med Azure Monitor för behållare.
+Följande konfigurationer stöds officiellt med Azure Monitor för behållare. Om du har en annan version av Kubernetes och operativ system versioner skickar du ett e-postmeddelande till askcoin@microsoft.com .
 
 - Utrymmen
 
     - Kubernetes lokalt
-    
-    - AKS-motorn på Azure och Azure Stack. Mer information finns i [AKS-motorn på Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
-    
+    - AKS-motorn på Azure och Azure Stack. Mer information finns i [AKS-motorn på Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true)
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) , version 4 och högre, lokalt eller i andra moln miljöer.
 
 - Versioner av Kubernetes och support policy är samma som versioner av [AKS som stöds](../../aks/supported-kubernetes-versions.md).
@@ -110,7 +108,7 @@ För att först identifiera det fullständiga resurs-ID: t för din Log Analytic
     Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-    Kopiera värdet för **SubscriptionId**.
+    Kopiera värdet för **SubscriptionId** .
 
 2. Växla till den prenumeration som är värd för Log Analytics arbets ytan med hjälp av följande kommando:
 
@@ -124,7 +122,7 @@ För att först identifiera det fullständiga resurs-ID: t för din Log Analytic
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    I utdata letar du reda på arbets ytans namn och kopierar sedan det fullständiga resurs-ID: t för den Log Analytics arbets ytan under fält **-ID: t**.
+    I utdata letar du reda på arbets ytans namn och kopierar sedan det fullständiga resurs-ID: t för den Log Analytics arbets ytan under fält **-ID: t** .
 
 4. Kopiera och klistra in följande JSON-syntax i filen:
 
@@ -204,7 +202,7 @@ För att först identifiera det fullständiga resurs-ID: t för din Log Analytic
     }
     ```
 
-7. Redigera värdena för **workspaceResourceId** med värdet som du kopierade i steg 3 **och kopiera sedan** värdet **region** efter att du kört kommandot AZ i Azure CLI för att [övervaka logg analys arbets ytan Visa](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
+7. Redigera värdena för **workspaceResourceId** med värdet som du kopierade i steg 3 **och kopiera sedan** värdet **region** efter att du kört kommandot AZ i Azure CLI för att [övervaka logg analys arbets ytan Visa](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list&preserve-view=true).
 
 8. Spara den här filen som containerSolutionParams.jspå en lokal mapp.
 
@@ -260,13 +258,13 @@ I det här avsnittet installerar du behållarens agent för Azure Monitor för b
 
     `az monitor log-analytics workspace list --resource-group <resourceGroupName>`
 
-    I utdata letar du reda på arbets ytans namn under fält **namnet**och kopierar sedan arbetsyte-ID: t för den Log Analytics arbets ytan under fältet **Kundnr**.
+    I utdata letar du reda på arbets ytans namn under fält **namnet** och kopierar sedan arbetsyte-ID: t för den Log Analytics arbets ytan under fältet **Kundnr** .
 
 2. Kör följande kommando för att identifiera den primära nyckeln för arbets ytan:
 
     `az monitor log-analytics workspace get-shared-keys --resource-group <resourceGroupName> --workspace-name <logAnalyticsWorkspaceName>`
 
-    Leta upp primär nyckeln under fältet **primarySharedKey**i utdata och kopiera värdet.
+    Leta upp primär nyckeln under fältet **primarySharedKey** i utdata och kopiera värdet.
 
 >[!NOTE]
 >Följande kommandon gäller endast för Helm version 2. `--name`Parametern kan inte användas med Helm version 3. 
@@ -277,14 +275,14 @@ I det här avsnittet installerar du behållarens agent för Azure Monitor för b
 3. Lägg till Azure Charts-lagringsplatsen i din lokala lista genom att köra följande kommando:
 
     ```
-    helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+    helm repo add microsoft https://microsoft.github.io/charts/repo
     ````
 
 4. Installera diagrammet genom att köra följande kommando:
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
+    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> microsoft/azuremonitor-containers
     ```
 
     Om arbets ytan Log Analytics är i Azure Kina 21Vianet kör du följande kommando:
@@ -305,7 +303,7 @@ I det här avsnittet installerar du behållarens agent för Azure Monitor för b
 
 Du kan ange ett tillägg i JSON-filen för AKS-motorns kluster specifikation, även kallat API-modellen. I det här tillägget anger du den base64-kodade versionen av `WorkspaceGUID` och `WorkspaceKey` på arbets ytan Log Analytics där de insamlade övervaknings data lagras. Du kan hitta `WorkspaceGUID` och `WorkspaceKey` använda steg 1 och 2 i föregående avsnitt.
 
-API-definitioner som stöds för Azure Stack Hub-klustret finns i det här exemplet – [kubernetes-container-monitoring_existing_workspace_id_and_key.jspå](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Mer specifikt hittar du egenskapen **addons** i **kubernetesConfig**:
+API-definitioner som stöds för Azure Stack Hub-klustret finns i det här exemplet – [kubernetes-container-monitoring_existing_workspace_id_and_key.jspå](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Mer specifikt hittar du egenskapen **addons** i **kubernetesConfig** :
 
 ```json
 "orchestratorType": "Kubernetes",
@@ -351,11 +349,11 @@ Konfiguration svärdet för proxyn har följande syntax: `[protocol://][user:pas
 
 Exempelvis: `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
 
-Om du anger protokollet som **http**skapas HTTP-begäranden med hjälp av SSL/TLS-säker anslutning. Proxyservern måste ha stöd för SSL/TLS-protokoll.
+Om du anger protokollet som **http** skapas HTTP-begäranden med hjälp av SSL/TLS-säker anslutning. Proxyservern måste ha stöd för SSL/TLS-protokoll.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om det uppstår ett fel vid försök att aktivera övervakning för ditt hybrid Kubernetes-kluster, kopierar du PowerShell-skriptet [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) och sparar det i en mapp på datorn. Det här skriptet används för att identifiera och åtgärda de problem som uppstått. Problemen som är utformade för att identifiera och försöka korrigera är följande:
+Om det uppstår ett fel vid försök att aktivera övervakning för ditt hybrid Kubernetes-kluster, kopierar du PowerShell-skriptet [TroubleshootError_nonAzureK8s.ps1](https://aka.ms/troubleshoot-non-azure-k8s) och sparar det i en mapp på datorn. Det här skriptet används för att identifiera och åtgärda de problem som uppstått. Problemen som är utformade för att identifiera och försöka korrigera är följande:
 
 - Den angivna Log Analyticss arbets ytan är giltig
 - Log Analytics arbets ytan konfigureras med Azure Monitor för container lösning. Annars konfigurerar du arbets ytan.

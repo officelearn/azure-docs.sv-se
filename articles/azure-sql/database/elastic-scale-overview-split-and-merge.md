@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84047526"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793474"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Flytta data mellan utskalade molndatabaser
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -207,7 +207,7 @@ Tjänsten för delad sammanslagning innehåller tabellen **RequestStatus** i dat
 
   En procentuell uppskattning av slut för ande för åtgärden. Värdet 50 anger att åtgärden är cirka 50% slutfört.
 
-- **Information**
+- **Detaljer**
 
   Ett XML-värde som innehåller en mer detaljerad förlopps rapport. Förlopps rapporten uppdateras regelbundet när rad uppsättningar kopieras från källa till mål. I händelse av fel eller undantag innehåller den här kolumnen också mer detaljerad information om felet.
 
@@ -220,7 +220,7 @@ Tjänsten för delad sammanslagning använder Azure-diagnostik som baseras på A
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
 Om du vill aktivera övervakning och diagnostik med diagnostisk konfiguration för webb-och arbets roller som tillhandahålls av NuGet-paketet kör du följande kommandon med hjälp av Azure PowerShell:
 
@@ -244,7 +244,7 @@ Du hittar mer information om hur du konfigurerar och distribuerar diagnostikinst
 
 ## <a name="retrieve-diagnostics"></a>Hämta diagnostik
 
-Du kan enkelt komma åt diagnostiken från Visual Studio-Server Explorer i Azure-delen av Server Explorers trädet. Öppna en Visual Studio-instans och klicka på Visa i meny raden och Server Explorer. Klicka på Azure-ikonen för att ansluta till din Azure-prenumeration. Gå sedan till Azure-> lagrings-> `<your storage account>` ->-tabeller – > WADLogsTable. Mer information finns i [Server Explorer](https://msdn.microsoft.com/library/x603htbk.aspx).
+Du kan enkelt komma åt diagnostiken från Visual Studio-Server Explorer i Azure-delen av Server Explorers trädet. Öppna en Visual Studio-instans och klicka på Visa i meny raden och Server Explorer. Klicka på Azure-ikonen för att ansluta till din Azure-prenumeration. Gå sedan till Azure-> lagrings-> `<your storage account>` ->-tabeller – > WADLogsTable. Mer information finns i [Server Explorer](/previous-versions/x603htbk(v=vs.140)).
 
 ![WADLogsTable][2]
 

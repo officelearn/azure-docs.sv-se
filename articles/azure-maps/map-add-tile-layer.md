@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 8450fbd5287c88431f21753a9c88e8603455f844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3619995739c51d68b00f37ebea3a38680a6b6e7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310432"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890985"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Lägga till ett panelskikt till en karta
 
 Den här artikeln visar hur du lägger till ett panel lager på kartan. Med panel lager kan du placera bilder ovanpå Azure Maps bas kart paneler. Mer information om hur du Azure Maps i systemet finns i [zoomnings nivåer och panel rutnät](zoom-levels-and-tile-grid.md).
 
-Ett panel lager läses in i paneler från en server. Dessa bilder kan antingen förrenderas eller renderas dynamiskt. Förrenderade bilder lagras som en annan bild på en server med hjälp av en namngivnings konvention som panel lagret förstår. Dynamiskt återgivna bilder använder en tjänst för att läsa in bilderna nära real tid. Det finns tre olika namngivnings konventioner för panel tjänster som stöds av Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer) -klassen: 
+Ett panel lager läses in i paneler från en server. Dessa bilder kan antingen förrenderas eller renderas dynamiskt. Förrenderade bilder lagras som en annan bild på en server med hjälp av en namngivnings konvention som panel lagret förstår. Dynamiskt återgivna bilder använder en tjänst för att läsa in bilderna nära real tid. Det finns tre olika namngivnings konventioner för panel tjänster som stöds av Azure Maps [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) -klassen: 
 
 * X, Y, zoom notation-X är kolumnen, Y är panelens rad position i panel rutnätet och zoomningen formaterar ett värde baserat på zoomnivån.
 * Quadkey-notation – kombinerar x-, y-och zoomnings information till ett enda sträng värde. Detta sträng värde blir en unik identifierare för en enda panel.
 * Avgränsnings ruta – ange en bild i markerings rutans koordinater-format: `{west},{south},{east},{north}` . Det här formatet används ofta av [Web mappnings tjänster (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> En [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer) är ett bra sätt att visualisera stora data uppsättningar på kartan. Om du inte bara vill att ett panel lager ska genereras från en bild kan vektor data även återges som ett panel lager. Genom att återge vektor data som ett panel lager behöver kart kontrollen bara läsa in panelerna som är mindre i fil storleken än de vektor data de representerar. Den här tekniken används ofta för att återge miljon tals rader med data på kartan.
+> En [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) är ett bra sätt att visualisera stora data uppsättningar på kartan. Om du inte bara vill att ett panel lager ska genereras från en bild kan vektor data även återges som ett panel lager. Genom att återge vektor data som ett panel lager behöver kart kontrollen bara läsa in panelerna som är mindre i fil storleken än de vektor data de representerar. Den här tekniken används ofta för att återge miljon tals rader med data på kartan.
 
 Panel-URL: en som skickas till ett panel lager måste vara en http-eller HTTPS-URL till en TileJSON-resurs eller en panel-URL-mall som använder följande parametrar: 
 
@@ -74,10 +74,10 @@ Panel skikts klassen har många format alternativ. Här är ett verktyg för att
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)
+> [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
 
 > [!div class="nextstepaction"]
-> [TileLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.tilelayeroptions)
+> [TileLayerOptions](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
 Se följande artiklar för fler kod exempel som du kan lägga till i dina kartor:
 

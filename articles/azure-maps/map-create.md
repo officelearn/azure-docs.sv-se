@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 62aa8f966126d95af003478e7f43d3ccea2b48cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 833b6413cc5dfde1129075a286e5fe93a06e159f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310415"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890929"
 ---
 # <a name="create-a-map"></a>Skapa en karta
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du skapar en karta och animerar en karta.
 
 ## <a name="loading-a-map"></a>Läser in en karta
 
-Om du vill läsa in en karta skapar du en ny instans av [kart klassen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map). När kartan initieras skickar du ett DIV-element-ID för att återge kartan och skicka en uppsättning alternativ som ska användas vid inläsning av kartan. Om standard information om autentisering inte anges i `atlas` namn området måste den här informationen anges i kart alternativen vid inläsning av kartan. Kartan läser in flera resurser asynkront för prestanda. Därför kan du när du har skapat kart instansen bifoga en `ready` eller- `load` händelse till kartan och sedan lägga till ytterligare kod som samverkar med kartan till händelse hanteraren. `ready`Händelsen utlöses så snart kartan har tillräckligt med resurser för att kunna interagera med program mässigt. `load`Händelsen utlöses efter att den ursprungliga kart visningen har lästs in helt. 
+Om du vill läsa in en karta skapar du en ny instans av [kart klassen](/javascript/api/azure-maps-control/atlas.map). När kartan initieras skickar du ett DIV-element-ID för att återge kartan och skicka en uppsättning alternativ som ska användas vid inläsning av kartan. Om standard information om autentisering inte anges i `atlas` namn området måste den här informationen anges i kart alternativen vid inläsning av kartan. Kartan läser in flera resurser asynkront för prestanda. Därför kan du när du har skapat kart instansen bifoga en `ready` eller- `load` händelse till kartan och sedan lägga till ytterligare kod som samverkar med kartan till händelse hanteraren. `ready`Händelsen utlöses så snart kartan har tillräckligt med resurser för att kunna interagera med program mässigt. `load`Händelsen utlöses efter att den ursprungliga kart visningen har lästs in helt. 
 
 <br/>
 
@@ -48,10 +48,10 @@ Se Pen <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies = fa
 
 När du skapar en karta finns det flera olika typer av alternativ som kan skickas för att anpassa hur kartan fungerar enligt listan nedan.
 
-- [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions) och [CameraBoundOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraboundsoptions) används för att ange det område som kartan ska visa.
-- [ServiceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) används för att ange hur kartan ska interagera med tjänster som Power of the map.
-- [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) används för att ange att kartan ska formateras och återges.
-- [UserInteractionOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.userinteractionoptions) används för att ange hur kartan ska uppnås när användaren interagerar med kartan. 
+- [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) och [CameraBoundOptions](/javascript/api/azure-maps-control/atlas.cameraboundsoptions) används för att ange det område som kartan ska visa.
+- [ServiceOptions](/javascript/api/azure-maps-control/atlas.serviceoptions) används för att ange hur kartan ska interagera med tjänster som Power of the map.
+- [StyleOptions](/javascript/api/azure-maps-control/atlas.styleoptions) används för att ange att kartan ska formateras och återges.
+- [UserInteractionOptions](/javascript/api/azure-maps-control/atlas.userinteractionoptions) används för att ange hur kartan ska uppnås när användaren interagerar med kartan. 
 
 Dessa alternativ kan också uppdateras när kartan har lästs in med hjälp av `setCamera` funktionerna,, `setServiceOptions` `setStyle` och `setUserInteraction` . 
 
@@ -81,7 +81,7 @@ map.setCamera({
 });
 ```
 
-I följande kod skapas ett [kart objekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) och alternativen för centrum och zoomning är inställda. Kart egenskaper, till exempel Center och zoomnings nivå, ingår i [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions).
+I följande kod skapas ett [kart objekt](/javascript/api/azure-maps-control/atlas.map) och alternativen för centrum och zoomning är inställda. Kart egenskaper, till exempel Center och zoomnings nivå, ingår i [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
 
 <br/>
 
@@ -101,7 +101,7 @@ map.setCamera({
 });
 ```
 
-I följande kod skapas ett [kart objekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) via `new atlas.Map()` . Kart egenskaper som `CameraBoundsOptions` kan definieras via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) -funktionen för kart klassen. Egenskaper för gränser och utfyllnad anges med hjälp av `setCamera` .
+I följande kod skapas ett [kart objekt](/javascript/api/azure-maps-control/atlas.map) via `new atlas.Map()` . Kart egenskaper som `CameraBoundsOptions` kan definieras via [setCamera](/javascript/api/azure-maps-control/atlas.map) -funktionen för kart klassen. Egenskaper för gränser och utfyllnad anges med hjälp av `setCamera` .
 
 <br/>
 
@@ -110,7 +110,7 @@ I följande kod skapas ett [kart objekt](https://docs.microsoft.com/javascript/a
 
 ### <a name="animate-map-view"></a>Animera Map-vy
 
-När du ställer in kamera alternativ för kartan kan du också ställa in [animerings alternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.animationoptions) . De här alternativen anger vilken typ av animering och varaktighet det tar att flytta kameran.
+När du ställer in kamera alternativ för kartan kan du också ställa in [animerings alternativ](/javascript/api/azure-maps-control/atlas.animationoptions) . De här alternativen anger vilken typ av animering och varaktighet det tar att flytta kameran.
 
 ```javascript
 map.setCamera({
@@ -130,12 +130,12 @@ I följande kod skapar det första kod blocket en karta och anger kart formaten 
 
 ## <a name="request-transforms"></a>Begär transformeringar
 
-Ibland är det praktiskt att kunna ändra HTTP-begäranden som görs av kart kontrollen. Exempel:
+Ibland är det praktiskt att kunna ändra HTTP-begäranden som görs av kart kontrollen. Till exempel:
 
 - Lägg till ytterligare rubriker i panel begär Anden. Detta görs ofta för lösenordsskyddade tjänster.
 - Ändra URL: er för att köra begär Anden via en proxy-tjänst.
 
-[Tjänst alternativen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) för kartan har en `transformRequest` som kan användas för att ändra alla begär Anden som görs av kartan innan de görs. `transformRequest`Alternativet är en funktion som tar i två parametrar, en sträng-URL och en resurs typs sträng som anger vad begäran används för. Den här funktionen måste returnera ett [RequestParameters](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.requestparameters) -resultat.
+[Tjänst alternativen](/javascript/api/azure-maps-control/atlas.serviceoptions) för kartan har en `transformRequest` som kan användas för att ändra alla begär Anden som görs av kartan innan de görs. `transformRequest`Alternativet är en funktion som tar i två parametrar, en sträng-URL och en resurs typs sträng som anger vad begäran används för. Den här funktionen måste returnera ett [RequestParameters](/javascript/api/azure-maps-control/atlas.requestparameters) -resultat.
 
 ```JavaScript
 transformRequest: (url: string, resourceType: string) => RequestParameters
@@ -171,7 +171,7 @@ var map = new atlas.Map('myMap', {
 
 ## <a name="try-out-the-code"></a>Testa koden
 
-Titta på kod exemplen. Du kan redigera JavaScript-koden inuti **fliken JS** och se ändringarna i Map-vyn på **fliken resultat**. Du kan också klicka på **Redigera på CodePen**, i det övre högra hörnet och ändra koden i CodePen.
+Titta på kod exemplen. Du kan redigera JavaScript-koden inuti **fliken JS** och se ändringarna i Map-vyn på **fliken resultat** . Du kan också klicka på **Redigera på CodePen** , i det övre högra hörnet och ändra koden i CodePen.
 
 <a id="relatedReference"></a>
 
@@ -180,7 +180,7 @@ Titta på kod exemplen. Du kan redigera JavaScript-koden inuti **fliken JS** och
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Karta](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)
@@ -197,4 +197,4 @@ Se kod exempel för att lägga till funktioner i din app:
 > [Lägga till kontroller till kartan](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Kodexempel](/samples/browse/?products=azure-maps)

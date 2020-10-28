@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 06/21/2020
 ms.author: batrived
-ms.openlocfilehash: 5eb40d464fb718f0bd6dffe0d00f6420f4ea4995
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b93d7a110889192bb5be6fffa56a73758d6faa2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119012"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892323"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>Felsök anslutnings problem – Azure Event Grid
 
@@ -22,7 +22,7 @@ Den här artikeln innehåller tips för fel sökning av anslutnings problem med 
 
 Om programmet inte kan ansluta till Event Grid alls följer du stegen i det här avsnittet för att felsöka problemet.
 
-### <a name="check-if-there-is-a-service-outage"></a>Kontrol lera om det finns ett tjänst avbrott
+### <a name="check-if-theres-a-service-outage"></a>Kontrol lera om det finns ett tjänst avbrott
 
 Sök efter återställningen av Azure Event Grid tjänsten på [status webbplatsen för Azure-tjänsten](https://azure.microsoft.com/status/).
 
@@ -50,6 +50,8 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 När du arbetar med Azure måste du ibland tillåta vissa IP-adressintervall eller URL: er i företagets brand vägg eller proxy för att få åtkomst till alla Azure-tjänster som du använder eller försöker använda. Kontrol lera att trafiken tillåts på IP-adresser som används av Event Grid. För IP-adresser som används av Azure Event Grid: se [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519) och [service tag-AzureEventGrid](network-security.md#service-tags).
 
+[Azure IP-intervall och service märken – offentliga moln](https://www.microsoft.com/download/details.aspx?id=56519) dokument listar också IP-adresser **efter region** . Du kan tillåta adress intervall för **ämnets region** och den **kopplade regionen** i företagets brand vägg eller proxy. För en kopplad region för en region, se [verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner](/azure/best-practices-availability-paired-regions). 
+
 > [!NOTE]
 > Det gick inte att lägga till nya IP-adresser i AzureEventGrid service tag, även om det inte är vanligt. Det är därför klokt att göra en veckovis kontroll av tjänst taggarna.
 
@@ -63,7 +65,7 @@ Kontrol lera att den offentliga IP-adressen för den dator där programmet körs
 
 Som standard är Event Grid ämnen/domäner tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i [CIDR-notation (classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
-IP-brandväggens regler tillämpas på Event Grid ämne/domän nivå. Reglerna gäller därför för alla anslutningar från klienter som använder ett protokoll som stöds. Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Event Grid ämne/domän avvisas som förbjuden. Svaret innehåller ingen IP-regel.
+IP-brandväggens regler tillämpas på Event Grid ämne/domän nivå. Reglerna gäller därför för alla anslutningar från klienter som använder ett protokoll som stöds. Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Event Grid ämne/domän avvisas som förbjuden. Svaret nämns inte IP-regeln.
 
 Mer information finns i [Konfigurera IP-brandvägg för en Azure Event Grid ämne/domän](configure-firewall.md).
 
@@ -83,7 +85,7 @@ Aktivera diagnostikloggar för Event Grid ämne/domän [Aktivera diagnostiklogga
 
 ### <a name="check-if-the-eventgrid-topicdomain-can-be-accessed-using-only-a-private-endpoint"></a>Kontrol lera om EventGrid ämne/domän kan nås enbart med en privat slut punkt
 
-Om Event Grid ämnet/domänen är konfigurerad att vara åtkomlig enbart via privat slut punkt, kontrollerar du att klient programmet har åtkomst till avsnittet/domänen över den privata slut punkten. Bekräfta detta genom att kontrol lera om klient programmet körs i ett undernät och det finns en privat slut punkt för Event Grid ämne/domän i det under nätet.
+Om Event Grid ämnet/domänen är konfigurerad att vara åtkomlig enbart via privat slut punkt, kontrollerar du att klient programmet har åtkomst till avsnittet/domänen över den privata slut punkten. Kontrol lera att klient programmet körs i ett undernät och att det finns en privat slut punkt för Event Grid ämne/domän i det under nätet.
 
 Med [tjänsten Azure Private Link](../private-link/private-link-overview.md) kan du komma åt Azure Event Grid över en **privat slut punkt** i det virtuella nätverket. En privat slut punkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slut punkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt ansluter tjänsten till ditt VNet. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute-eller VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta nivån av granularitet i åtkomst kontroll.
 
@@ -91,7 +93,7 @@ Mer information finns i [Konfigurera privata slut punkter](configure-private-end
 
 ## <a name="troubleshoot-transient-connectivity-issues"></a>Felsök problem med tillfälliga anslutningar
 
-Om du upplever tillfälliga anslutnings problem går du igenom följande avsnitt för fel söknings tips.
+Om det uppstår tillfälliga anslutnings problem går du igenom följande avsnitt för fel söknings tips.
 
 ### <a name="run-the-command-to-check-dropped-packets"></a>Kör kommandot för att kontrol lera ignorerade paket
 

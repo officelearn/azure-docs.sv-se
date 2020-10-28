@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 68ddb5c07ffac2aad4e2dafd16301fa29f391797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0da6c614572e73a00db1087621eaca3bd790aad6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119352"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891813"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Självstudie: Felsöka distributioner av ARM-mallar
 
@@ -33,7 +33,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -43,7 +43,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 Öppna en mall som heter [skapa ett standard lagrings konto](https://azure.microsoft.com/resources/templates/101-storage-account-create/) från [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/)och konfigurera två problem med mallar.
 
-1. Från Visual Studio **Code väljer du** > **Öppna fil**.
+1. Från Visual Studio **Code väljer du** > **Öppna fil** .
 2. I **Filnamn** klistrar du in följande URL:
 
     ```url
@@ -72,9 +72,9 @@ Du bör få ett fel i gränssnittet som liknar:
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-Felmeddelandet indikerar att problemet är med **apiVersion1**.
+Felmeddelandet indikerar att problemet är med **apiVersion1** .
 
-Använd Visual Studio Code för att åtgärda problemet genom att ändra **apiVersion1** till **apiVersion**, och spara sedan mallen.
+Använd Visual Studio Code för att åtgärda problemet genom att ändra **apiVersion1** till **apiVersion** , och spara sedan mallen.
 
 ## <a name="troubleshoot-the-deployment-error"></a>Felsöka distributionsfelet
 
@@ -94,21 +94,21 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 Distributionsfelet kan hittas i Azure-portalen med följande procedur:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Öppna resursgruppen genom att välja **Resursgrupper** och sedan resursgruppens namn. Du bör se **1 Failed** (misslyckades) under **Distribution**.
+2. Öppna resursgruppen genom att välja **Resursgrupper** och sedan resursgruppens namn. Du bör se **1 Failed** (misslyckades) under **Distribution** .
 
-    ![Självstudie om att felsöka Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
-3. Välj **Felinformation**.
+    ![Skärm bild som markerar den misslyckade distributionen.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
+3. Välj **Felinformation** .
 
-    ![Självstudie om att felsöka Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
+    ![Skärm bild som markerar länken fel information.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
     Felmeddelandet är samma som det som visades tidigare:
 
-    ![Självstudie om att felsöka Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
+    ![Skärm bild som visar fel informationen.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
 Du kan även hitta felet i aktivitetsloggarna:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **övervaka**  >  **aktivitets logg**.
+2. Välj **övervaka**  >  **aktivitets logg** .
 3. Använd filtren för att hitta loggen.
 
     ![Självstudie om att felsöka Resource Manager](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
@@ -122,7 +122,7 @@ En lista över vanliga fel finns i avsnittet om att [felsöka vanliga Azure-dist
 När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen.
 
 1. Från Azure Portal väljer du **resurs grupp** på den vänstra menyn.
-2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
+2. Ange resursgruppens namn i fältet **Filtrera efter namn** .
 3. Välj resursgruppens namn.  Du bör se totalt sex resurser i resursgruppen.
 4. Välj **ta bort resurs grupp** på den översta menyn.
 

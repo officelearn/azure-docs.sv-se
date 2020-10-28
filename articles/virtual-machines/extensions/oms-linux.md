@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 1193bfe74e8b5e20d2189c143f6ca0cb09abfd49
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: fc9c5e1f5922543ea14b13e3e5b424190dbbfb7a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329652"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892218"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics-tillägg för virtuella datorer för Linux
 
@@ -32,7 +32,7 @@ Azure Monitor-loggar tillhandahåller funktioner för övervakning, avisering oc
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -110,12 +110,15 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
 | apiVersion | 2018-06-01 |
 | utgivare | Microsoft. EnterpriseCloud. Monitoring |
 | typ | OmsAgentForLinux |
-| typeHandlerVersion | 1,7 |
+| typeHandlerVersion | 1.13 |
 | workspaceId (t. ex.) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (t. ex.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
 
 
 ## <a name="template-deployment"></a>Malldistribution
+
+>[!NOTE]
+>Vissa komponenter i Log Analytics VM-tillägget levereras också i det [virtuella diagnostik-tillägget](./diagnostics-linux.md). På grund av den här arkitekturen kan konflikter uppstå om båda tilläggen instansieras i samma ARM-mall. Undvik dessa installations tids konflikter genom att använda [ `dependsOn` direktivet](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) för att se till att tilläggen installeras i tur och ordning. Tilläggen kan installeras i valfri ordning.
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallar är idealiska när du distribuerar en eller flera virtuella datorer som kräver konfiguration av distributions konfiguration, till exempel onboarding till Azure Monitor loggar. En exempel på en Resource Manager-mall som innehåller det virtuella dator tillägget Log Analytics agent finns i [Azure snabb starts galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
@@ -135,7 +138,7 @@ Följande exempel förutsätter att VM-tillägget är kapslat i den virtuella da
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -160,7 +163,7 @@ När du placerar tillägg-JSON i roten för mallen, innehåller resurs namnet en
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -173,7 +176,7 @@ När du placerar tillägg-JSON i roten för mallen, innehåller resurs namnet en
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-Azure CLI kan användas för att distribuera Log Analytics-agentens VM-tillägg till en befintlig virtuell dator. Ersätt *myWorkspaceKey* -värdet nedan med din arbetsyte nyckel och *myWorkspaceId* -värdet med ditt arbetsyte-ID. Du hittar dessa värden i Log Analytics arbets ytan i Azure Portal under *Avancerade inställningar*. 
+Azure CLI kan användas för att distribuera Log Analytics-agentens VM-tillägg till en befintlig virtuell dator. Ersätt *myWorkspaceKey* -värdet nedan med din arbetsyte nyckel och *myWorkspaceId* -värdet med ditt arbetsyte-ID. Du hittar dessa värden i Log Analytics arbets ytan i Azure Portal under *Avancerade inställningar* . 
 
 ```azurecli
 az vm extension set \
@@ -181,7 +184,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.10.1 --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
   --settings '{"workspaceId":"myWorkspaceId"}'
 ```
 

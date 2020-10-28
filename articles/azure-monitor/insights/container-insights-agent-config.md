@@ -3,12 +3,12 @@ title: Konfigurera Azure Monitor för behållare agent data insamling | Microsof
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare agent för att styra logg insamling för STDOUT/stderr och miljövariabler.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 1644e541ee873a5bb058dd9bde2b82a907a400ff
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f21b841bc129012b684d2a1c59eb72989fe9e0e0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320400"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890504"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurera agentdatainsamling för Azure Monitor för containrar
 
@@ -57,7 +57,7 @@ ConfigMaps är en global lista och det kan bara finnas en ConfigMap som tillämp
 
 Utför följande steg för att konfigurera och distribuera din ConfigMap-konfigurationsfil till klustret.
 
-1. Hämta [mallen CONFIGMAP yaml File](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) och spara den som container-AZM-MS-agentconfig. yaml. 
+1. Hämta [mallen CONFIGMAP yaml File](https://aka.ms/container-azm-ms-agentconfig) och spara den som container-AZM-MS-agentconfig. yaml. 
 
    > [!NOTE]
    > Det här steget krävs inte när du arbetar med Azure Red Hat OpenShift eftersom ConfigMap-mallen redan finns i klustret.
@@ -101,7 +101,7 @@ Fel som rör tillämpning av konfigurations ändringar är också tillgängliga 
     config::error::Exception while parsing config map for log collection/env variable settings: \nparse error on value \"$\" ($end), using defaults, please check config map for errors
     ```
 
-- Från tabellen **KubeMonAgentEvents** i din Log Analytics-arbetsyta. Data skickas varje timme med *fel* allvarlighets grad för konfigurations fel. Om det inte finns några fel innehåller posten i tabellen data med allvarlighets grad *information*som inte rapporterar några fel. Egenskapen **Tags** innehåller mer information om Pod och behållar-ID: t där felet inträffade och även den första förekomsten, senaste förekomst och antal under den senaste timmen.
+- Från tabellen **KubeMonAgentEvents** i din Log Analytics-arbetsyta. Data skickas varje timme med *fel* allvarlighets grad för konfigurations fel. Om det inte finns några fel innehåller posten i tabellen data med allvarlighets grad *information* som inte rapporterar några fel. Egenskapen **Tags** innehåller mer information om Pod och behållar-ID: t där felet inträffade och även den första förekomsten, senaste förekomst och antal under den senaste timmen.
 
 - Med Azure Red Hat OpenShift kontrollerar du omsagent-loggarna genom att söka i **ContainerLog** -tabellen för att kontrol lera om logg insamling av OpenShift-Azure-loggning är aktiverat.
 

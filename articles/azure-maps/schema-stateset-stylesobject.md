@@ -8,16 +8,16 @@ ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4b085fbc6e330d38b59fce0c494f672b00c712b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eb4e49e6c0e3f011015d40b8eca036d5218674c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85120529"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891707"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>StylesObject schema referens guide för dynamiska kartor
 
-Den här artikeln är en referens guide till JSON-schemat och syntaxen för `StylesObject` . `StylesObject`Är en `StyleObject` matris som representerar stateset-format. Använd tjänsten Azure Maps Creator [Feature State](https://docs.microsoft.com/rest/api/maps/featurestate) för att tillämpa dina stateset-format på inhämtade kart data funktioner. När du har skapat dina stateset-format och associerat dem med ingångna kart funktioner kan du använda dem för att skapa dynamiska kartor i inomhus. Mer information om hur du skapar dynamiska kartor finns i [implementera dynamisk formatering för skapare inomhus Maps](indoor-map-dynamic-styling.md).
+Den här artikeln är en referens guide till JSON-schemat och syntaxen för `StylesObject` . `StylesObject`Är en `StyleObject` matris som representerar stateset-format. Använd tjänsten Azure Maps Creator [Feature State](/rest/api/maps/featurestate) för att tillämpa dina stateset-format på inhämtade kart data funktioner. När du har skapat dina stateset-format och associerat dem med ingångna kart funktioner kan du använda dem för att skapa dynamiska kartor i inomhus. Mer information om hur du skapar dynamiska kartor finns i [implementera dynamisk formatering för skapare inomhus Maps](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>StyleObject
 
@@ -103,7 +103,7 @@ I följande JSON-exempel behåller båda intervallen sant när värdet för *til
 
 | Egenskap | Typ | Beskrivning | Krävs |
 |-----------|----------|-------------|-------------|
-| `range` | [RangeObject](#rangeobject) | [RangeObject](#rangeobject) definierar en uppsättning villkor för logiska intervall, som, om `true` , ändrar visnings färgen för *tillståndet* till den färg som anges i `color` egenskapen. Om `range` inte anges används alltid den färg som definierats i `color` egenskapen.   | Inga |
+| `range` | [RangeObject](#rangeobject) | [RangeObject](#rangeobject) definierar en uppsättning villkor för logiska intervall, som, om `true` , ändrar visnings färgen för *tillståndet* till den färg som anges i `color` egenskapen. Om `range` inte anges används alltid den färg som definierats i `color` egenskapen.   | Nej |
 | `color` | sträng | Färgen som ska användas när tillstånd svärdet hamnar inom intervallet. `color`Egenskapen är en JSON-sträng i något av följande format: <ul><li> Hexadecimala värden i HTML-format </li><li> RGB ("#ff0", "#ffff00", "RGB (255, 255, 0)")</li><li> RGBA ("RGBA (255, 255, 0, 1)")</li><li> HSL ("HSL (100, 50%, 50%)")</li><li> HSLA ("HSLA (100, 50%, 50%, 1)")</li><li> Fördefinierade HTML-färger, som gult och blått.</li></ul> | Ja |
 
 ### <a name="rangeobject"></a>RangeObject
@@ -112,10 +112,10 @@ I följande JSON-exempel behåller båda intervallen sant när värdet för *til
 
 | Egenskap | Typ | Beskrivning | Krävs |
 |-----------|----------|-------------|-------------|
-| `minimum` | double | Talet x som x ≥ `minimum` .| Inga |
-| `maximum` | double | Talet x som x ≤ `maximum` . | Inga |
-| `exclusiveMinimum` | double | Talet x som > `exclusiveMinimum` .| Inga |
-| `exclusiveMaximum` | double | Talet x som < `exclusiveMaximum` .| Inga |
+| `minimum` | double | Talet x som x ≥ `minimum` .| Nej |
+| `maximum` | double | Talet x som x ≤ `maximum` . | Nej |
+| `exclusiveMinimum` | double | Talet x som > `exclusiveMinimum` .| Nej |
+| `exclusiveMaximum` | double | Talet x som < `exclusiveMaximum` .| Nej |
 
 ### <a name="example-of-numerictypestylerule"></a>Exempel på NumericTypeStyleRule
 

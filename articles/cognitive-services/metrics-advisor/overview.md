@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 858bf042593045059c988ae1b2796b063b33bb6e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 1a57660733b7257b224c38a55059f1bf069495a0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047581"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890263"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>Vad är Metrics Advisor (för hands version)? 
 
@@ -53,16 +53,14 @@ Analysera avvikelser som har identifierats på flerdimensionella mått och gener
 Arbets flödet är enkelt: när du har registrerat dina data kan du finjustera avvikelse identifieringen och skapa konfigurationer som passar ditt scenario.
 
 1. [Skapa en Azure-resurs](../cognitive-services-apis-create-account.md) för Metrics Advisor. 
-2. Prova demonstrations webbplatsen för att se ett exempel på Metrics Advisor-instans med förkonfigurerade exempel data. 
-3. Bygg din första övervakare med hjälp av webb portalen.
+2. Bygg din första övervakare med hjälp av webb portalen.
     1. Registrera dina data
     2. Finjustera avvikelse identifiering
     3. Prenumerera på aviseringar
     4. Visa diagnostiska insikter
-1. Använd REST API för att anpassa din instans.
+3. Använd REST API för att anpassa din instans.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Prova [demonstrations webbplatsen](quickstarts/explore-demo.md).
 * Utforska en snabb start: [övervaka ditt första mått på webben](quickstarts/web-portal.md).
 * Utforska en snabb start: [Använd REST-API: er för att anpassa din lösning](quickstarts/rest-api.md).

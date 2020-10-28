@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e047f11cc243ab1a36a8c61dd1b229d9e115115
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87906004"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892493"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Självstudie: Använd PowerShell för att skicka inbjudan till Azure AD B2B Collaboration-användare
 
@@ -29,7 +29,7 @@ Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Installera den senaste AzureADPreview-modulen
 
@@ -63,7 +63,7 @@ Gör något av följande, baserat på utdata:
    Install-Module AzureADPreview
    ```
 
-Du får eventuellt en uppmaning om att installera modulen från en ej betrodd lagringsplats. Det här inträffar om du inte tidigare angett PSGallery-lagringsplatsen som en betrodd lagringsplats. Installera modulen genom att trycka på **Y**.
+Du får eventuellt en uppmaning om att installera modulen från en ej betrodd lagringsplats. Det här inträffar om du inte tidigare angett PSGallery-lagringsplatsen som en betrodd lagringsplats. Installera modulen genom att trycka på **Y** .
 
 ### <a name="get-test-email-accounts"></a>Hämta test-e-postkontona
 
@@ -71,13 +71,13 @@ Du behöver två eller flera test-e-postkonton att skicka inbjudningar till. Kon
 
 ## <a name="prepare-the-csv-file"></a>Förbered CSV-filen
 
-Skapa en CSV-fil i Microsoft Excel med listan med de inbjudnas användarnamn och e-postadresser. Se till att inkludera kolumnrubrikerna **Namn** och **InvitedUserEmailAddress**.
+Skapa en CSV-fil i Microsoft Excel med listan med de inbjudnas användarnamn och e-postadresser. Se till att inkludera kolumnrubrikerna **Namn** och **InvitedUserEmailAddress** .
 
 Du kan t.ex. skapa ett kalkylblad i följande format:
 
 ![PowerShell-utdata som visar väntande godkännande av användare](media/tutorial-bulk-invite/AddUsersExcel.png)
 
-Spara filen som **C:\BulkInvite\Invitations.csv**. 
+Spara filen som **C:\BulkInvite\Invitations.csv** . 
 
 Om du inte har Excel kan du skapa en CSV-fil i en textredigerare, t.ex. Anteckningar. Avgränsa varje värde med ett kommatecken och varje rad med ny rad. 
 
@@ -89,7 +89,7 @@ Kör följande kommando för att ansluta till klientorganisationens domän:
 Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 ```
 
-Exempelvis `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
+Till exempel `Connect-AzureAD -TenantDomain "contoso.onmicrosoft.com"`.
 
 Ange dina autentiseringsuppgifter när du uppmanas att göra det.
 
@@ -116,7 +116,7 @@ foreach ($email in $invitations)
 
 Skriptet skickar en inbjudan till e-postadresserna i filen Invitations.csv. Du bör se utdata som liknar följande för respektive användare:
 
-![PowerShell-utdata som visar väntande godkännande av användare](media/tutorial-bulk-invite/B2BBulkImport.png)
+![Skärm bild som visar PowerShell-utdata som innehåller väntande användar godkännande.](media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## <a name="verify-users-exist-in-the-directory"></a>Kontrollera att det finns användare i katalogen
 
@@ -126,7 +126,7 @@ Kontrollera att de inbjudna användarna har lagts till i Azure AD genom att kör
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Du bör se de användare som du har bjudit in i listan, med en User Principal Name (UPN) i formatet *emailaddress*#EXT # \@ *Domain*. Till exempel *lstokes_fabrikam. com # ext # \@ contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är organisationen som du skickade inbjudningarna från.
+Du bör se de användare som du har bjudit in i listan, med en User Principal Name (UPN) i formatet *emailaddress* #EXT # \@ *Domain* . Till exempel *lstokes_fabrikam. com # ext # \@ contoso.onmicrosoft.com* , där contoso.onmicrosoft.com är organisationen som du skickade inbjudningarna från.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

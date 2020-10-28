@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: c1968df19ebc62d47da77b0338d93ceb5f49f2c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cf2f4876d62572ace118562fe5760f2b4010fa5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310534"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891167"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Lägg till ett linje skikt i kartan
 
@@ -23,7 +23,7 @@ Ett linje lager kan användas för att återge `LineString` och `MultiLineString
 > [!TIP]
 > Linje lager som standard återger koordinaterna för polygoner och linjer i en data källa. För att begränsa lagret så att det bara återger lin Est ring-funktioner, anger `filter` du egenskapen för lagret till `['==', ['geometry-type'], 'LineString']` eller `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` om du även vill inkludera MultiLineString-funktioner.
 
-Följande kod visar hur du skapar en rad. Lägg till raden i en data källa och återge den sedan med ett linje lager med klassen [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer) .
+Följande kod visar hur du skapar en rad. Lägg till raden i en data källa och återge den sedan med ett linje lager med klassen [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) .
 
 ```javascript
 //Create a data source and add it to the map.
@@ -88,7 +88,7 @@ Linje skiktet har flera format alternativ. Här är ett verktyg för att testa d
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer) 
+> [LineLayer](/javascript/api/azure-maps-control/atlas.layer.linelayer) 
 
 > [!div class="nextstepaction"]
 > [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)

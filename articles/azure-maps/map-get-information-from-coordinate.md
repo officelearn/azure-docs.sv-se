@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: af31ab04653beb440655c4ab1a75946bed17c01b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31e4004379340912051204786da592fe33a5bd63
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285102"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890759"
 ---
 # <a name="get-information-from-a-coordinate"></a>Hämta information från en koordinat
 
 Den här artikeln visar hur du gör en omvänd adresss ökning som visar adressen till en klickad popup-plats.
 
-Det finns två sätt att göra en omvänd adresss ökning. Ett sätt är att fråga [Azure Maps API för omvänd adresss ökning](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) via en service-modul. Det andra sättet är att använda [API:](https://fetch.spec.whatwg.org/) et för att skapa en begäran till [Azure Maps omvänd Address Search-API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) för att hitta en adress. Båda sätten undersökts nedan.
+Det finns två sätt att göra en omvänd adresss ökning. Ett sätt är att fråga [Azure Maps API för omvänd adresss ökning](/rest/api/maps/search/getsearchaddressreverse) via en service-modul. Det andra sättet är att använda [API:](https://fetch.spec.whatwg.org/) et för att skapa en begäran till [Azure Maps omvänd Address Search-API](/rest/api/maps/search/getsearchaddressreverse) för att hitta en adress. Båda sätten undersökts nedan.
 
 ## <a name="make-a-reverse-search-request-via-service-module"></a>Gör en omvänd search-begäran via service module
 
@@ -29,15 +29,15 @@ Det finns två sätt att göra en omvänd adresss ökning. Ett sätt är att fr�
 
 I koden ovan konstruerar det första blocket ett kart objekt och anger autentiseringsmekanismen för att använda åtkomsttoken. Du kan se [skapa en karta](./map-create.md) för instruktioner.
 
-Det andra kod blocket skapar ett `TokenCredential` för att autentisera HTTP-begäranden för att Azure Maps med åtkomsttoken. Den skickar sedan `TokenCredential` till `atlas.service.MapsURL.newPipeline()` och skapar en [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline) -instans. `searchURL`Visar en URL som Azure Maps [Sök](https://docs.microsoft.com/rest/api/maps/search) åtgärder.
+Det andra kod blocket skapar ett `TokenCredential` för att autentisera HTTP-begäranden för att Azure Maps med åtkomsttoken. Den skickar sedan `TokenCredential` till `atlas.service.MapsURL.newPipeline()` och skapar en [pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) -instans. `searchURL`Visar en URL som Azure Maps [Sök](/rest/api/maps/search) åtgärder.
 
-Det tredje kod blocket uppdaterar stilen för mus markören till en pekare och skapar ett [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#open) -objekt. Du kan se [Lägg till ett popup-fönster på kartan](./map-add-popup.md) för instruktioner.
+Det tredje kod blocket uppdaterar stilen för mus markören till en pekare och skapar ett [popup](/javascript/api/azure-maps-control/atlas.popup#open) -objekt. Du kan se [Lägg till ett popup-fönster på kartan](./map-add-popup.md) för instruktioner.
 
-Det fjärde blocket kod lägger till en mus klicknings [händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events). När den utlöses skapas en Sök fråga med koordinaterna för den klickade punkten. Den använder sedan metoden [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-)för att skicka frågor till kommandot [Get search Address reversed API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) för adresserna för koordinaterna. En insamling av en interjson-funktion extraheras sedan med hjälp av `geojson.getFeatures()` metoden från svaret.
+Det fjärde blocket kod lägger till en mus klicknings [händelse lyssnare](/javascript/api/azure-maps-control/atlas.map#events). När den utlöses skapas en Sök fråga med koordinaterna för den klickade punkten. Den använder sedan metoden [getSearchAddressReverse](/javascript/api/azure-maps-rest/atlas.service.searchurl#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-)för att skicka frågor till kommandot [Get search Address reversed API](/rest/api/maps/search/getsearchaddressreverse) för adresserna för koordinaterna. En insamling av en interjson-funktion extraheras sedan med hjälp av `geojson.getFeatures()` metoden från svaret.
 
 Det femte blocket med kod konfigurerar HTML-popup-innehållet för att Visa svars adressen för den klickade koordinatens position.
 
-Ändringen av markör, popup-objektet och händelsen Klickning skapas i kartans [inläsnings händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events). Den här kod strukturen säkerställer att kartan laddas fullständigt innan du hämtar koordinaternas information.
+Ändringen av markör, popup-objektet och händelsen Klickning skapas i kartans [inläsnings händelse lyssnare](/javascript/api/azure-maps-control/atlas.map#events). Den här kod strukturen säkerställer att kartan laddas fullständigt innan du hämtar koordinaternas information.
 
 ## <a name="make-a-reverse-search-request-via-fetch-api"></a>Gör en omvänd search-begäran via Hämta API
 
@@ -48,11 +48,11 @@ Klicka på kartan för att göra en omvänd polycode-begäran för den platsen m
 
 I koden ovan konstruerar det första blocket kod ett kart objekt och ställer in autentiseringsmekanismen för att använda åtkomsttoken. Du kan se [skapa en karta](./map-create.md) för instruktioner.
 
-Det andra blocket kod uppdaterar stilen för mus markören till en visare. Den instansierar ett [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#open) -objekt. Du kan se [Lägg till ett popup-fönster på kartan](./map-add-popup.md) för instruktioner.
+Det andra blocket kod uppdaterar stilen för mus markören till en visare. Den instansierar ett [popup](/javascript/api/azure-maps-control/atlas.popup#open) -objekt. Du kan se [Lägg till ett popup-fönster på kartan](./map-add-popup.md) för instruktioner.
 
-Det tredje blocket kod lägger till en händelse lyssnare för mus klickningar. När du klickar på musen används [hämtnings-API](https://fetch.spec.whatwg.org/) : t för att fråga [Azure Maps API för omvänd adresss ökning](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) för den klickade koordinatens adress. För ett lyckat svar samlar det in adressen för den klickade platsen. Den definierar popup-innehåll och placering med hjälp av [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup#setoptions-popupoptions-) -funktionen i popup-klassen.
+Det tredje blocket kod lägger till en händelse lyssnare för mus klickningar. När du klickar på musen används [hämtnings-API](https://fetch.spec.whatwg.org/) : t för att fråga [Azure Maps API för omvänd adresss ökning](/rest/api/maps/search/getsearchaddressreverse) för den klickade koordinatens adress. För ett lyckat svar samlar det in adressen för den klickade platsen. Den definierar popup-innehåll och placering med hjälp av [setOptions](/javascript/api/azure-maps-control/atlas.popup#setoptions-popupoptions-) -funktionen i popup-klassen.
 
-Ändringen av markör, popup-objektet och händelsen Klickning skapas i kartans [inläsnings händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events). Den här kod strukturen säkerställer att kartan laddas fullständigt innan du hämtar koordinaternas information.
+Ändringen av markör, popup-objektet och händelsen Klickning skapas i kartans [inläsnings händelse lyssnare](/javascript/api/azure-maps-control/atlas.map#events). Den här kod strukturen säkerställer att kartan laddas fullständigt innan du hämtar koordinaternas information.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -62,10 +62,10 @@ Det tredje blocket kod lägger till en händelse lyssnare för mus klickningar. 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Karta](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
+> [Popup](/javascript/api/azure-maps-control/atlas.popup)
 
 I följande artiklar finns fullständiga kod exempel:
 

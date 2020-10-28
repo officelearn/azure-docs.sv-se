@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 1b947ad28283912e0ba75debd8f4471d693be888
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fe241a3fd74e1421f1bd3d39087fe776ee7b61d9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675536"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891711"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Självstudie: Azure Active Directory integrering med SAML SSO för JIRA med hjälp av resolution GmbH
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning med SAML SSO för JI
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning med SAML SSO for Jira by resolution GmbH-domäner och -URL:er](common/idp-intiated.png)
+    ![Skärm bild som visar avsnittet "Basic S A M L-konfiguration" med text rutorna "identifierare" och "svara U R L" och "Spara"-knappen markerat.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -124,37 +124,37 @@ Utför följande steg för att konfigurera enkel inloggning med SAML SSO för JI
 
 2. Hovra över kugg hjuls på höger sida och klicka på **Hantera appar** .
     
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon1.png)
+    ![Skärm bild som visar en pil som pekar på ikonen "kugg hjuls" och "hantera appar" valt i list rutan.](./media/samlssojira-tutorial/addon1.png)
 
 3. Om du omdirigeras till sidan administratörs åtkomst anger du **lösen ordet** och klickar på knappen **Bekräfta** .
 
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon2.png)
+    ![Skärm bild som visar sidan "administratörs åtkomst".](./media/samlssojira-tutorial/addon2.png)
 
 4. JIRA omdirigerar normalt dig till Atlassian Marketplace. Annars klickar du på **hitta nya appar** i den vänstra panelen. Sök efter **SAML enkel inloggning (SSO) för JIRA** och klicka på knappen **Installera** för att installera SAML-plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/store.png)
+    ![Skärm bild som visar sidan "Atlassian Marketplace for JIRA" med en pil som pekar på knappen "installera" för JIRA "S A M L Single Sign on (S S O), S A M L/S S O.](./media/samlssojira-tutorial/store.png)
 
 5. Installationen av plugin-programmet startar. När du är färdig klickar du på knappen **Stäng** .
 
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/store-2.png)
+    ![Skärm bild som visar dialog rutan "installera".](./media/samlssojira-tutorial/store-2.png)
 
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/store-3.png)
+    ![Skärm bild som visar "installerad och redo att gå!" dialog rutan med knappen Stäng markerad.](./media/samlssojira-tutorial/store-3.png)
 
 6. Klicka sedan på **Hantera** .
 
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/store-4.png)
+    ![Skärm bild som visar "S A M L enkel inloggning (S S O) JIRA, S A M L/S S O"-appen med knappen "hantera" markerad.](./media/samlssojira-tutorial/store-4.png)
     
 8. Klicka sedan på **Konfigurera** för att konfigurera det nyss installerade plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/store-5.png)
+    ![Skärm bild som visar sidan "hantera appar" med knappen "Konfigurera" vald för appen "S A M L SingleSignOn for JIRA".](./media/samlssojira-tutorial/store-5.png)
 
 9. I **konfigurations guiden för SAML SingleSignOn-plugin-programmet** klickar du på **Lägg till ny IDP** för att konfigurera Azure AD som en ny identitetsprovider.
 
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon4.png) 
+    ![Skärm bilden visar sidan "Välkommen" och knappen "Lägg till nytt I d P" markerad.](./media/samlssojira-tutorial/addon4.png) 
 
 10. På sidan **Välj SAML-identitetsprovider** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon5a.png)
+    ![Skärm bild som visar sidan "Välj din S A M L identitetsprovider" med text rutorna "I d P Type" och "name" markerade och knappen "Nästa" är markerad.](./media/samlssojira-tutorial/addon5a.png)
  
     a. Ange **Azure AD** som IdP-typ.
     
@@ -166,11 +166,11 @@ Utför följande steg för att konfigurera enkel inloggning med SAML SSO för JI
     
 11. Klicka på **Nästa** på sidan **konfiguration av identitetsprovider** .
  
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon5b.png)
+    ![Skärm bild som visar sidan "identitets leverantörs konfiguration".](./media/samlssojira-tutorial/addon5b.png)
 
 12. Utför följande steg på sidan **Importera SAML IdP-metadata** :
 
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon5c.png)
+    ![Skärm bild som visar sidan "Importera S A M L I d P metadata" med åtgärden "Välj metadata X M L File" markerat.](./media/samlssojira-tutorial/addon5c.png)
 
     a. Klicka på **XML-filen för val av metadata** och välj **XML-** filen för federationsmetadata som du laddade ned tidigare.
 
@@ -182,19 +182,19 @@ Utför följande steg för att konfigurera enkel inloggning med SAML SSO för JI
     
 13. Klicka på knappen **Nästa** på sidan **användar-ID-attribut och omvandling** .
 
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon5d.png)
+    ![Skärm bild som visar sidan "användare I D-attribut och transformering" med knappen "Nästa" vald.](./media/samlssojira-tutorial/addon5d.png)
     
 14. På sidan **skapa och uppdatera användare** klickar du på **Spara & bredvid** Spara inställningarna.
     
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon6a.png)
+    ![Skärm bild som visar sidan "skapa och uppdatera användare" med knappen "Spara & nästa" markerat.](./media/samlssojira-tutorial/addon6a.png)
     
 15. På sidan **Testa inställningarna** klickar du på **hoppa över test & konfigurerar manuellt** för att hoppa över användar testet för tillfället. Detta kommer att utföras i nästa avsnitt och kräver vissa inställningar i Azure Portal.
     
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon6b.png)
+    ![Skärm bild som visar sidan "testa dina inställningar" med knappen "hoppa över test & konfigurera manuellt" markerat.](./media/samlssojira-tutorial/addon6b.png)
     
 16. Klicka på **OK** för att hoppa över varningen.
     
-    ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon6c.png)
+    ![Skärm bild som visar varnings dialog rutan med knappen "O K" vald.](./media/samlssojira-tutorial/addon6c.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -256,15 +256,15 @@ För att Azure AD-användare ska kunna logga in på SAML SSO för JIRA med hjäl
 
 2. Hovra över kugg hjuls och välj **användar hantering** .
 
-   ![Lägga till medarbetare](./media/samlssojira-tutorial/user1.png)
+   ![Skärm bild som visar en pil som pekar på ikonen "kugg hjuls" med "användar hantering" som valts i list rutan.](./media/samlssojira-tutorial/user1.png)
 
 3. Om du omdirigeras till sidan administratörs åtkomst anger du **lösen ordet** och klickar på knappen **Bekräfta** .
 
-    ![Lägga till medarbetare](./media/samlssojira-tutorial/user2.png) 
+    ![Skärm bild som visar sidan "administratörs åtkomst" där text rutan "lösen ord" är markerad.](./media/samlssojira-tutorial/user2.png) 
 
 4. Klicka på **skapa användare** under fliken **användar hantering** .
 
-    ![Lägga till medarbetare](./media/samlssojira-tutorial/user3-new.png) 
+    ![Skärm bild som visar fliken "användar hantering" med knappen "skapa användare" vald.](./media/samlssojira-tutorial/user3-new.png) 
 
 5. Utför följande steg på dialog sidan **Skapa ny användare** . Du måste skapa användaren precis som i Azure AD:
 

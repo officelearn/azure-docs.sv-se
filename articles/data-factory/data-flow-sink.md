@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/15/2020
-ms.openlocfilehash: 5845ab6419d6914b9221df1ae1280d31aba0ae7a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 10/27/2020
+ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737525"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891397"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Omvandling av mottagare i data flöde för mappning
 
@@ -68,6 +68,10 @@ I följande videoklipp förklaras ett antal olika Sink-alternativ för text avgr
 **Schema avvikelse** : [schema avvikelse](concepts-data-flow-schema-drift.md) är möjligheten att Data Factory att internt hantera flexibla scheman i dina data flöden utan att uttryckligen definiera kolumn ändringar. Aktivera **Tillåt schema avvikelse** om du vill skriva ytterligare kolumner ovanpå vad som definieras i Datasink-dataschemat.
 
 **Verifiera schema** : om alternativet Validera schema är markerat Miss varnas data flödet om en kolumn i det inkommande käll schemat inte hittas i käll projektionen, eller om data typerna inte matchar. Använd den här inställningen för att genomdriva att källdata uppfyller kontraktet för din definierade projektion. Det är användbart i scenarier med databas källor för att signalera att kolumn namn eller typer har ändrats.
+
+**Använd tempdb:** Som standard använder Data Factory en global temporär tabell för att lagra data som en del av inläsnings processen. Du kan också avmarkera alternativet "Använd TempDB" och be i stället Data Factory att lagra den tillfälliga tabellen i en användar databas som finns i den databas som används för den här mottagaren.
+
+![TempDB](media/data-flow/tempdb.png "TempDB")
 
 ## <a name="field-mapping"></a>Fältmappning
 

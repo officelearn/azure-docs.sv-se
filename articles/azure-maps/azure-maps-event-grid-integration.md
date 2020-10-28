@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 701c94237ef5348e11b5d7fbc85d4da1f20136ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44b2cab814d4e51c4eb0c3ce3322b898f5b26414
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88036818"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889774"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagera på Azure Maps händelser med Event Grid
 
 Azure Maps integreras med Azure Event Grid, så att användarna kan skicka händelse meddelanden till andra tjänster och utlösa efterföljande processer. Syftet med den här artikeln är att hjälpa dig att konfigurera dina affärs program så att de lyssnar på Azure Maps händelser. Detta gör att användarna kan reagera på kritiska händelser på ett tillförlitligt, skalbart och säkert sätt. Användare kan till exempel skapa ett program för att uppdatera en databas, skapa en biljett och leverera ett e-postmeddelande varje gång en enhet går in på en inhägnad.
 
-Azure Event Grid är en helt hanterad tjänst för händelse dirigering som använder en publicerings prenumerations modell. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) och [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). Den kan leverera händelse aviseringar till icke-Azure-tjänster som använder Webhooks. En fullständig lista över de händelse hanterare som Event Grid stöder finns i [en introduktion till Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Azure Event Grid är en helt hanterad tjänst för händelse dirigering som använder en publicerings prenumerations modell. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](../azure-functions/functions-overview.md) och [Azure Logic Apps](../azure-functions/functions-overview.md). Den kan leverera händelse aviseringar till icke-Azure-tjänster som använder Webhooks. En fullständig lista över de händelse hanterare som Event Grid stöder finns i [en introduktion till Azure Event Grid](../event-grid/overview.md).
 
 
 ![Azure Event Grid funktionell modell](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
@@ -28,7 +28,7 @@ Azure Event Grid är en helt hanterad tjänst för händelse dirigering som anv�
 
 ## <a name="azure-maps-events-types"></a>Typer av Azure Maps händelser
 
-Event Grid använder [händelse prenumerationer](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) för att dirigera händelse meddelanden till prenumeranter. Ett Azure Maps konto avger följande händelse typer: 
+Event Grid använder [händelse prenumerationer](../event-grid/concepts.md#event-subscriptions) för att dirigera händelse meddelanden till prenumeranter. Ett Azure Maps konto avger följande händelse typer: 
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |

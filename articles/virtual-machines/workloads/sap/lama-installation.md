@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be7cfef5c7121d918c375dae216d293d9d56526b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361372"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890487"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa-anslutning för Azure
 
@@ -181,7 +181,7 @@ Skapa en ny virtuell dator med ett av de operativ system som stöds för Oracle-
 
 Oracle-databasen behöver diskar för/Oracle,/Home/oraod1 och/Home/Oracle
 
-![Oracle Database på Linux](media/lama/sap-lama-db-ora-lnx.png)
+![Diagram som visar en Oracle-databas på Linux och de diskar som behövs.](media/lama/sap-lama-db-ora-lnx.png)
 
 #### <a name="manual-deployment-for-microsoft-sql-server"></a>Manuell distribution för Microsoft SQL Server
 
@@ -274,7 +274,7 @@ Innan du startar SAP Software Provisioning Manager (SWPM) måste du montera IP-a
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-ascs -n 255.255.255.128
 ```
 
-Kör SWPM och Använd *ah1-ASCs* för *värd namnet för ASCs-instansen*.
+Kör SWPM och Använd *ah1-ASCs* för *värd namnet för ASCs-instansen* .
 
 ![Linux-logotyp.][Logo_Linux] Linux  
 Lägg till följande profil parameter i SAP host agent-profilen som finns på/usr/SAP/hostctrl/exe/host_profile. Mer information finns i SAP NOTE [2628497].
@@ -319,7 +319,7 @@ I NetApp-kontot anger kapacitets gruppen storlek och typ av diskar för varje po
 
 ![SAP LaMa NetApp-pool skapades ](media/lama/sap-lama-capacitypool-list.png)
 
-NFS-volymerna kan nu definieras. Eftersom det kommer att finnas volymer för flera system i en pool ska du välja ett namn schema som du själv förklarar. Genom att lägga till SID kan du gruppera relaterade volymer tillsammans. Följande monteringar krävs för ASCS och as-instansen: */sapmnt/ \<SID\> *, */usr/SAP/ \<SID\> *och */Home/ \<sid\> ADM*. Du behöver eventuellt */usr/SAP/trans* för den centrala transport katalogen, som minst används av alla system i ett landskap.
+NFS-volymerna kan nu definieras. Eftersom det kommer att finnas volymer för flera system i en pool ska du välja ett namn schema som du själv förklarar. Genom att lägga till SID kan du gruppera relaterade volymer tillsammans. Följande monteringar krävs för ASCS och as-instansen: */sapmnt/ \<SID\>* , */usr/SAP/ \<SID\>* och */Home/ \<sid\> ADM* . Du behöver eventuellt */usr/SAP/trans* för den centrala transport katalogen, som minst används av alla system i ett landskap.
 
 > [!NOTE]
 > Under BETA fasen måste namnet på volymerna vara unika i prenumerationen.
@@ -381,7 +381,7 @@ Lägg till ett annat virtuellt värdnamn och en IP-adress för det namn som anv�
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-db -n 255.255.255.128
 ```
 
-Kör databas instans installationen av SWPM på den virtuella program Server datorn, inte på den virtuella datorn HANA. Använd *ah1-DB* för *databas värden* i dialog *databasen för SAP-system*.
+Kör databas instans installationen av SWPM på den virtuella program Server datorn, inte på den virtuella datorn HANA. Använd *ah1-DB* för *databas värden* i dialog *databasen för SAP-system* .
 
 #### <a name="install-sap-netweaver-application-server-for-sap-hana"></a>Installera SAP NetWeaver Application Server för SAP HANA
 
@@ -417,7 +417,7 @@ Om du ställer in den manuellt måste du också skapa nya HDB userstore-poster.
 /usr/sap/AH1/hdbclient/hdbuserstore SET DEFAULT ah1-db:35041@AH1 SAPABAP1 <password>
 ```
 
-Använd *ah1-di-0* som *värd namn för Pas-instansen* i dialog rutan *primär program Server instans*.
+Använd *ah1-di-0* som *värd namn för Pas-instansen* i dialog rutan *primär program Server instans* .
 
 #### <a name="post-installation-steps-for-sap-hana"></a>Steg efter installationen för SAP HANA
 
@@ -436,7 +436,7 @@ Innan du startar SAP Software Provisioning Manager (SWPM) måste du montera IP-a
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-ascs -n 255.255.255.128
 ```
 
-Kör SWPM och Använd *AS1-ASCs* för *värd namnet för ASCs-instansen*.
+Kör SWPM och Använd *AS1-ASCs* för *värd namnet för ASCs-instansen* .
 
 #### <a name="install-sql-server"></a>Installera SQL Server
 
@@ -447,9 +447,9 @@ Du måste lägga till IP-adressen för databasens virtuella värdnamn i ett nät
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Kör databas instans installationen av SWPM på den virtuella SQL Server-datorn. Använd SAPINST_USE_HOSTNAME =*AS1-DB* för att åsidosätta det värdnamn som används för att ansluta till SQL Server. Om du har distribuerat den virtuella datorn med hjälp av Azure Resource Manager-mallen, se till att ange den katalog som används för datafilerna i databasen för att *C:\sql\data* och databas logg filen till *C:\sql\log*.
+Kör databas instans installationen av SWPM på den virtuella SQL Server-datorn. Använd SAPINST_USE_HOSTNAME = *AS1-DB* för att åsidosätta det värdnamn som används för att ansluta till SQL Server. Om du har distribuerat den virtuella datorn med hjälp av Azure Resource Manager-mallen, se till att ange den katalog som används för datafilerna i databasen för att *C:\sql\data* och databas logg filen till *C:\sql\log* .
 
-Se till att användare *NT instans\system* har åtkomst till SQL Server och har Server rollen *sysadmin*. Mer information finns i SAP NOTE [1877727] och [2562184].
+Se till att användare *NT instans\system* har åtkomst till SQL Server och har Server rollen *sysadmin* . Mer information finns i SAP NOTE [1877727] och [2562184].
 
 #### <a name="install-sap-netweaver-application-server"></a>Installera SAP NetWeaver program Server
 
@@ -460,7 +460,7 @@ Innan du startar SAP Software Provisioning Manager (SWPM) måste du montera IP-a
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di-0 -n 255.255.255.128
 ```
 
-Använd *AS1-di-0* som *värd namn för Pas-instansen* i dialog rutan *primär program Server instans*.
+Använd *AS1-di-0* som *värd namn för Pas-instansen* i dialog rutan *primär program Server instans* .
 
 ## <a name="troubleshooting"></a>Felsökning
 

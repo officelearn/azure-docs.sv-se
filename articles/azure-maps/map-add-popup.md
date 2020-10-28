@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: a67fad5d0980730eb73f4219f12eaf3a7b9ec7dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 903574a8c8696f10d9903a685bab8d12b3e6395f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310483"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891044"
 ---
 # <a name="add-a-popup-to-the-map"></a>Lägg till en popup till kartan
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du lägger till en popup-meny till en plats på en k
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Följande kod lägger till en punkt funktion, som har `name` och `description` egenskaper, till kartan med ett symbol lager. En instans av [klassen pop](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) skapas men visas inte. Mus händelser läggs till i symbol lagret för att utlösa öppning och stängning av popup-fönstret. När markör symbolen har hovrat uppdateras popup- `position` egenskapen med positionen för markören och `content` alternativet uppdateras med en del HTML som radbryts  `name` och `description` egenskaperna för punkt funktionen hovras. Popup-fönstret visas sedan på kartan med dess `open` funktion.
+Följande kod lägger till en punkt funktion, som har `name` och `description` egenskaper, till kartan med ett symbol lager. En instans av [klassen pop](/javascript/api/azure-maps-control/atlas.popup) skapas men visas inte. Mus händelser läggs till i symbol lagret för att utlösa öppning och stängning av popup-fönstret. När markör symbolen har hovrat uppdateras popup- `position` egenskapen med positionen för markören och `content` alternativet uppdateras med en del HTML som radbryts  `name` och `description` egenskaperna för punkt funktionen hovras. Popup-fönstret visas sedan på kartan med dess `open` funktion.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -279,13 +279,13 @@ Se popup- <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>händelser</a> för
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
+> [Popup](/javascript/api/azure-maps-control/atlas.popup)
 
 > [!div class="nextstepaction"]
-> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
+> [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions)
 
 > [!div class="nextstepaction"]
-> [PopupTemplate](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popuptemplate)
+> [PopupTemplate](/javascript/api/azure-maps-control/atlas.popuptemplate)
 
 Se följande fantastiska artiklar för fullständiga kod exempel:
 

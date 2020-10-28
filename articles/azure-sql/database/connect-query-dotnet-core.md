@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: f1908e243b7cb1def2eac8a1d46d5f087a25f8c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 32ea1dd2141a8df1fb495af64848f87e9f152328
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88936409"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669734"
 ---
 # <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: använda .NET Core (C#) för att fråga en databas i Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "88936409"
 I den här snabb starten använder du [.net Core](https://www.microsoft.com/net/) och C#-kod för att ansluta till en databas. Sedan kör du en Transact-SQL-instruktion för att fråga efter data.
 
 > [!TIP]
-> Följande Microsoft Learn modul hjälper dig att lära dig kostnads fritt hur du [utvecklar och konfigurerar ett ASP.NET-program som frågar en databas i Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+> Följande Microsoft Learn modul hjälper dig att lära dig kostnads fritt hur du [utvecklar och konfigurerar ett ASP.NET-program som frågar en databas i Azure SQL Database](/learn/modules/develop-app-that-queries-azure-sql/)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -51,26 +51,26 @@ För att slutföra den här snabbstarten behöver du:
 - [.NET Core för ditt operativsystem](https://www.microsoft.com/net/core).
 
 > [!NOTE]
-> Den här snabbstarten använder databasen *mySampleDatabase*. Om du vill använda en annan databas måste du ändra databasreferenserna och `SELECT`-frågan i C#-koden.
+> Den här snabbstarten använder databasen *mySampleDatabase* . Om du vill använda en annan databas måste du ändra databasreferenserna och `SELECT`-frågan i C#-koden.
 
 ## <a name="get-server-connection-information"></a>Hämta information om Server anslutning
 
 Hämta anslutnings informationen du behöver för att ansluta till databasen i Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Gå till sidan **SQL-databaser**  eller **SQL-hanterade instanser** .
 
-3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för databasen i Azure SQL Database eller det fullständigt kvalificerade Server namnet (eller IP-adressen) bredvid **värd** för en Azure SQL-hanterad instans eller SQL Server på Azure VM. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
+3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för databasen i Azure SQL Database eller det fullständigt kvalificerade Server namnet (eller IP-adressen) bredvid **värd** för en Azure SQL-hanterad instans eller SQL Server på Azure VM. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera** .
 
 > [!NOTE]
 > Anslutnings information för SQL Server på den virtuella Azure-datorn finns i [Anslut till en SQL Server instans](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
 
 ## <a name="get-adonet-connection-information-optional---sql-database-only"></a>Hämta anslutnings information för ADO.NET (valfritt-SQL Database endast)
 
-1. Gå till sidan **mySampleDatabase** och under **Inställningar** väljer du **Anslutningssträngar**.
+1. Gå till sidan **mySampleDatabase** och under **Inställningar** väljer du **Anslutningssträngar** .
 
-2. Granska den fullständiga **ADO.NET**-anslutningssträngen.
+2. Granska den fullständiga **ADO.NET** -anslutningssträngen.
 
     ![ADO.NET-anslutningssträng](./media/connect-query-dotnet-core/adonet-connection-string2.png)
 
@@ -78,13 +78,13 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen i A
   
 ## <a name="create-a-new-net-core-project"></a>Skapa ett nytt .NET Core-projekt
 
-1. Öppna en kommandotolk och skapa en mapp med namnet **sqltest**. Gå till mappen och kör detta kommando.
+1. Öppna en kommandotolk och skapa en mapp med namnet **sqltest** . Gå till mappen och kör detta kommando.
 
     ```cmd
     dotnet new console
     ```
 
-    Detta kommando skapar nya app-projektfiler, inklusive en inledande C#-kodfil (**Program.cs**), en XML-konfigurationsfil (**sqltest.csproj**) och de binärfiler som behövs.
+    Detta kommando skapar nya app-projektfiler, inklusive en inledande C#-kodfil ( **Program.cs** ), en XML-konfigurationsfil ( **sqltest.csproj** ) och de binärfiler som behövs.
 
 2. Öppna **sqltest.csproj** i ett redigeringsprogram och klistra in följande XML mellan `<Project>`-taggarna. Detta XML lägger till `System.Data.SqlClient` som ett beroende.
 
@@ -207,4 +207,4 @@ namespace sqltest
 - [Komma igång med .NET Core för Windows/Linux/macOS med hjälp av kommandoraden](/dotnet/core/tutorials/using-with-xplat-cli).
 - Lär dig hur du [ansluter och frågar Azure SQL Database eller en Azure SQL-hanterad instans med hjälp av .NET Framework och Visual Studio](connect-query-dotnet-visual-studio.md).  
 - Lär dig hur du [utformar din första databas med SSMS](design-first-database-tutorial.md) eller [utformar en databas och ansluter med C# och ADO.net](design-first-database-csharp-tutorial.md).
-- Mer information om .NET finns i [.NET-dokumentationen](https://docs.microsoft.com/dotnet/).
+- Mer information om .NET finns i [.NET-dokumentationen](/dotnet/).

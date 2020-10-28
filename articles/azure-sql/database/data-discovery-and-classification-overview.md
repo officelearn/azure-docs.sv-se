@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 6f324b1b0b5ed1882050684e7ac1c8ec4ea573dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab974b0f68e831e672329f8af5ae1cb6a5fdbd4c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886500"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672077"
 ---
 # <a name="data-discovery--classification"></a>Data Discovery & Classification
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Dina mest känsliga data kan omfatta affärs-, finans-, sjukvårds-eller personl
 - Kontrol lera åtkomst till och härdning av säkerheten för databaser som innehåller mycket känsliga data.
 
 > [!NOTE]
-> Information om SQL Server lokalt finns i avsnittet [SQL data Discovery & klassificering](https://go.microsoft.com/fwlink/?linkid=866999).
+> Information om SQL Server lokalt finns i avsnittet [SQL data Discovery & klassificering](/sql/relational-databases/security/sql-data-discovery-and-classification).
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>Vad är data identifierings & klassificering?
 
@@ -55,18 +55,18 @@ I det här avsnittet beskrivs stegen för:
 
 Klassificeringen innehåller två attribut för metadata:
 
-- **Etiketter**: huvudattributen för klassificering som används för att definiera känslighets nivån för de data som lagras i kolumnen.  
-- **Informations typer**: attribut som ger detaljerad information om den typ av data som lagras i kolumnen.
+- **Etiketter** : huvudattributen för klassificering som används för att definiera känslighets nivån för de data som lagras i kolumnen.  
+- **Informations typer** : attribut som ger detaljerad information om den typ av data som lagras i kolumnen.
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>Definiera och anpassa din klassificerings-taxonomi
 
 Data identifierings & klassificeringen innehåller en inbyggd uppsättning känslighets etiketter och en inbyggd uppsättning informations typer och identifierings logik. Du kan anpassa den här taxonomin och definiera en uppsättning och rangordning av klassificeringskonstruktioner som är specifika för din miljö.
 
-Du definierar och anpassar din klassificerings taxonomi på en central plats för hela Azure-organisationen. Den platsen finns [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), som en del av din säkerhets princip. Endast användare med administratörs behörighet för organisationens rot hanterings grupp kan utföra den här åtgärden.
+Du definierar och anpassar din klassificerings taxonomi på en central plats för hela Azure-organisationen. Den platsen finns [Azure Security Center](../../security-center/security-center-introduction.md), som en del av din säkerhets princip. Endast användare med administratörs behörighet för organisationens rot hanterings grupp kan utföra den här åtgärden.
 
 Som en del av princip hanteringen för informations skydd kan du definiera anpassade etiketter, ranka dem och koppla dem till en viss uppsättning informations typer. Du kan också lägga till egna anpassade informations typer och konfigurera dem med sträng mönster. Mönstren läggs till i identifierings logiken för att identifiera den här typen av data i dina databaser.
 
-Mer information finns i [Anpassa SQL information Protection-principen i Azure Security Center (för hands version)](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+Mer information finns i [Anpassa SQL information Protection-principen i Azure Security Center (för hands version)](../../security-center/security-center-info-protection-policy.md).
 
 När du har definierat principen för hela organisationen kan du fortsätta att klassificera enskilda databaser med hjälp av den anpassade principen.
 
@@ -91,7 +91,7 @@ När du har definierat principen för hela organisationen kan du fortsätta att 
 
    - Om du vill godkänna en rekommendation för en speciell kolumn markerar du kryss rutan i den vänstra kolumnen i relevant rad. Markera kryss rutan längst till vänster i tabell rubriken rekommendationer för att markera alla rekommendationer som godkända.
 
-   - Välj **acceptera markerade rekommendationer**för att tillämpa de valda rekommendationerna.
+   - Välj **acceptera markerade rekommendationer** för att tillämpa de valda rekommendationerna.
 
 1. Du kan också klassificera kolumner manuellt, som ett alternativ eller förutom den rekommendationbaserade klassificeringen:
 
@@ -125,7 +125,7 @@ Dessa inbyggda roller kan ändra data klassificeringen för en databas:
 - Deltagare
 - SQL-säkerhetshanteraren
 
-Lär dig mer om rollbaserade behörigheter i [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Lär dig mer om rollbaserade behörigheter i [Azure RBAC](../../role-based-access-control/overview.md).
 
 ## <a name="manage-classifications"></a><a id="manage-classification"></a>Hantera klassificeringar
 
@@ -140,42 +140,42 @@ Du kan använda T-SQL för att lägga till eller ta bort kolumn klassificeringar
 
 Information om hur du använder T-SQL för klassificeringar finns i följande referenser:
 
-- Lägga till eller uppdatera klassificeringen för en eller flera kolumner: [Lägg till känslighets klassificering](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- Ta bort klassificeringen från en eller flera kolumner: [släpp känslighets klassificering](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-- Så här visar du alla klassificeringar i databasen: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+- Lägga till eller uppdatera klassificeringen för en eller flera kolumner: [Lägg till känslighets klassificering](/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Ta bort klassificeringen från en eller flera kolumner: [släpp känslighets klassificering](/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Så här visar du alla klassificeringar i databasen: [sys.sensitivity_classifications](/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 ### <a name="use-powershell-cmdlets"></a>Använda PowerShell-cmdletar
 Hantera klassificeringar och rekommendationer för Azure SQL Database och Azure SQL-hanterad instans med hjälp av PowerShell.
 
 #### <a name="powershell-cmdlets-for-azure-sql-database"></a>PowerShell-cmdletar för Azure SQL Database
 
-- [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
-- [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
-- [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
-- [Get-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
-- [Aktivera – AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
-- [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
+- [Get-AzSqlDatabaseSensitivityClassification](/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
+- [Set-AzSqlDatabaseSensitivityClassification](/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
+- [Remove-AzSqlDatabaseSensitivityClassification](/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
+- [Get-AzSqlDatabaseSensitivityRecommendation](/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
+- [Aktivera – AzSqlDatabaSesensitivityRecommendation](/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
+- [Disable-AzSqlDatabaseSensitivityRecommendation](/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
 #### <a name="powershell-cmdlets-for-azure-sql-managed-instance"></a>PowerShell-cmdletar för Azure SQL-hanterad instans
 
-- [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
-- [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
-- [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
-- [Get-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
-- [Aktivera – AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
-- [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
+- [Get-AzSqlInstanceDatabaseSensitivityClassification](/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
+- [Set-AzSqlInstanceDatabaseSensitivityClassification](/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
+- [Remove-AzSqlInstanceDatabaseSensitivityClassification](/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
+- [Get-AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
+- [Aktivera – AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
+- [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
 ### <a name="use-the-rest-api"></a>Använd REST-API: et
 
 Du kan använda REST API för att program mässigt hantera klassificeringar och rekommendationer. Den publicerade REST API har stöd för följande åtgärder:
 
-- [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): skapar eller uppdaterar känslighets etiketten för den angivna kolumnen.
-- [Ta bort](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): tar bort känslighets etiketten för den angivna kolumnen.
-- [Inaktivera rekommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): inaktiverar känslighets rekommendationer i den angivna kolumnen.
-- [Aktivera rekommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): möjliggör känslighets rekommendationer i den angivna kolumnen. (Rekommendationer är aktiverade som standard på alla kolumner.)
-- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): hämtar känslighets etiketten för den angivna kolumnen.
-- [Lista aktuell efter databas](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): hämtar de aktuella känslighets etiketterna för den angivna databasen.
-- [Lista rekommenderas av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): hämtar de rekommenderade känslighets etiketterna för den angivna databasen.
+- [Skapa eller uppdatera](/rest/api/sql/sensitivitylabels/createorupdate): skapar eller uppdaterar känslighets etiketten för den angivna kolumnen.
+- [Ta bort](/rest/api/sql/sensitivitylabels/delete): tar bort känslighets etiketten för den angivna kolumnen.
+- [Inaktivera rekommendation](/rest/api/sql/sensitivitylabels/disablerecommendation): inaktiverar känslighets rekommendationer i den angivna kolumnen.
+- [Aktivera rekommendation](/rest/api/sql/sensitivitylabels/enablerecommendation): möjliggör känslighets rekommendationer i den angivna kolumnen. (Rekommendationer är aktiverade som standard på alla kolumner.)
+- [Get](/rest/api/sql/sensitivitylabels/get): hämtar känslighets etiketten för den angivna kolumnen.
+- [Lista aktuell efter databas](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): hämtar de aktuella känslighets etiketterna för den angivna databasen.
+- [Lista rekommenderas av databasen](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): hämtar de rekommenderade känslighets etiketterna för den angivna databasen.
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Nästa steg
 

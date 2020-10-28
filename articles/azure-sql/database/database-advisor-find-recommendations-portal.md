@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0b7aab13871f1450a3c6907b30b446869b2fefa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ad8f3e146c13e7b88752b8ef6d514346542ce26
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443891"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672265"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Hitta och Använd prestanda rekommendationer
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,12 +25,12 @@ Du kan använda Azure Portal för att hitta prestanda rekommendationer som kan o
 
 ## <a name="viewing-recommendations"></a>Visa rekommendationer
 
-Om du vill visa och tillämpa prestanda rekommendationer behöver du rätt Azure RBAC-behörighet [(rollbaserad åtkomst kontroll)](../../role-based-access-control/overview.md) i Azure. **Reader**Du måste ha behörighet för **SQL DB-deltagare** för att kunna visa rekommendationer och **ägare**, behörigheter för **SQL DB-deltagare** krävs för att utföra åtgärder. Skapa eller släpp index och Avbryt skapandet av index.
+Om du vill visa och tillämpa prestanda rekommendationer behöver du rätt Azure RBAC-behörighet [(rollbaserad åtkomst kontroll)](../../role-based-access-control/overview.md) i Azure. **Reader** Du måste ha behörighet för **SQL DB-deltagare** för att kunna visa rekommendationer och **ägare** , behörigheter för **SQL DB-deltagare** krävs för att utföra åtgärder. Skapa eller släpp index och Avbryt skapandet av index.
 
 Använd följande steg för att hitta prestanda rekommendationer på Azure Portal:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Gå till **alla Services**  >  **SQL-databaser**och välj din databas.
+2. Gå till **alla Services**  >  **SQL-databaser** och välj din databas.
 3. Gå till **prestanda rekommendation** om du vill visa tillgängliga rekommendationer för den valda databasen.
 
 Prestanda rekommendationer visas i tabellen som liknar den som visas på följande bild:
@@ -86,9 +86,9 @@ Om listan över rekommendationer innehåller objekt som du vill ta bort från li
 
 Om du vill kan du lägga tillbaka borttagna objekt till listan **rekommendationer** :
 
-1. Klicka på **Visa ignorerade**på sidan **rekommendationer** .
+1. Klicka på **Visa ignorerade** på sidan **rekommendationer** .
 2. Välj ett borttaget objekt i listan om du vill visa information om det.
-3. Du kan också klicka på **Ångra ignorera** för att lägga till indexet i huvud listan över **rekommendationer**.
+3. Du kan också klicka på **Ångra ignorera** för att lägga till indexet i huvud listan över **rekommendationer** .
 
 > [!NOTE]
 > Observera att om SQL Database [Automatisk justering](automatic-tuning-overview.md) är aktive rad och om du har avvisat en rekommendation manuellt från listan, kommer sådan rekommendation aldrig att tillämpas automatiskt. Att ta bort en rekommendation är ett praktiskt sätt för användarna att automatiskt aktivera automatisk justering i fall när det krävs att en speciell rekommendation inte bör tillämpas.
@@ -98,7 +98,7 @@ Om du vill kan du lägga tillbaka borttagna objekt till listan **rekommendatione
 
 Du kan ställa in din databas att implementera rekommendationer automatiskt. När rekommendationerna blir tillgängliga tillämpas de automatiskt. Som med alla rekommendationer som hanteras av tjänsten, om prestanda påverkan är negativ, återställs rekommendationen.
 
-1. På sidan **rekommendationer** klickar du på **Automatisera**:
+1. På sidan **rekommendationer** klickar du på **Automatisera** :
 
    ![Advisor-inställningar](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Välj åtgärder som ska automatiseras:
@@ -112,13 +112,13 @@ När du har valt önskad konfiguration klickar du på Använd.
 
 ### <a name="manually-apply-recommendations-through-t-sql"></a>Tillämpa rekommendationer manuellt via T-SQL
 
-Välj en rekommendation och klicka sedan på **Visa skript**. Kör skriptet mot databasen för att manuellt tillämpa rekommendationen.
+Välj en rekommendation och klicka sedan på **Visa skript** . Kör skriptet mot databasen för att manuellt tillämpa rekommendationen.
 
-*Index som körs manuellt övervakas och verifieras inte för prestanda som påverkas av tjänsten* , så vi rekommenderar att du övervakar dessa index när du har skapat dem för att kontrol lera att de ger prestanda vinster och justerar eller tar bort dem vid behov. Mer information om hur du skapar index finns i [create index (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Dessutom förblir manuellt tillämpade rekommendationer aktiva och visas i listan över rekommendationer för 24-48 timmar. innan systemet återkallar dem automatiskt. Om du vill ta bort en rekommendation tidigare kan du ta bort den manuellt.
+*Index som körs manuellt övervakas och verifieras inte för prestanda som påverkas av tjänsten* , så vi rekommenderar att du övervakar dessa index när du har skapat dem för att kontrol lera att de ger prestanda vinster och justerar eller tar bort dem vid behov. Mer information om hur du skapar index finns i [create index (Transact-SQL)](/sql/t-sql/statements/create-index-transact-sql). Dessutom förblir manuellt tillämpade rekommendationer aktiva och visas i listan över rekommendationer för 24-48 timmar. innan systemet återkallar dem automatiskt. Om du vill ta bort en rekommendation tidigare kan du ta bort den manuellt.
 
 ### <a name="canceling-recommendations"></a>Avbryta rekommendationer
 
-Rekommendationer som har statusen **väntar**, **verifiering**eller **lyckad** kan avbrytas. Det går inte att avbryta rekommendationer med statusen **körs** inte.
+Rekommendationer som har statusen **väntar** , **verifiering** eller **lyckad** kan avbrytas. Det går inte att avbryta rekommendationer med statusen **körs** inte.
 
 1. Välj en rekommendation i avsnittet **Justera historik** för att öppna sidan **rekommendationer** .
 2. Klicka på **Avbryt** om du vill avbryta processen med att tillämpa rekommendationen.
@@ -170,6 +170,6 @@ Azure SQL Database ger rekommendationer för att förbättra databasens prestand
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
+* [CREATE INDEX](/sql/t-sql/statements/create-index-transact-sql)
 * [Azure RBAC (rollbaserad åtkomstkontroll)](../../role-based-access-control/overview.md)

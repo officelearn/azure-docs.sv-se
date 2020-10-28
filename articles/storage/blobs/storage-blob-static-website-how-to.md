@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2359c762c9ad653ee2eed294709ad7bf6b2a31c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289879"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671104"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
 
@@ -38,15 +38,15 @@ En statisk webbplats värd är en funktion som du måste aktivera på lagrings k
 
 4. Välj **Aktivera** för att aktivera hantering av statisk webbplats för lagringskontot.
 
-5. I fältet **index dokument namn** anger du en standard index sida (till exempel: *index.html*). 
+5. I fältet **index dokument namn** anger du en standard index sida (till exempel: *index.html* ). 
 
    Standardindexsidan visas när en användare navigerar till roten för den statiska webbplatsen.  
 
-6. I fältet **fel dokument Sök väg** anger du en standard fel sida (till exempel: *404.html*). 
+6. I fältet **fel dokument Sök väg** anger du en standard fel sida (till exempel: *404.html* ). 
 
    Standardfelsidan visas när en användare försöker navigera till en sida som inte finns på den statiska webbplatsen.
 
-7. Klicka på **Spara**. Azure-portalen visar nu slutpunkten för den statiska webbplatsen. 
+7. Klicka på **Spara** . Azure-portalen visar nu slutpunkten för den statiska webbplatsen. 
 
     ![Aktivera hantering av statisk webbplats för ett lagringskonto](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -138,7 +138,7 @@ Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
 
 De här anvisningarna visar hur du överför filer med hjälp av den version av Storage Explorer som visas i Azure Portal. Du kan dock också använda den version av [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) som körs utanför Azure Portal. Du kan använda [AzCopy](../common/storage-use-azcopy-v10.md), POWERSHELL, CLI eller anpassade program som kan ladda upp filer till **$Web** behållare för ditt konto. En steg-för-steg-självstudie som laddar upp filer med hjälp av Visual Studio Code finns i [självstudie: vara värd för en statisk webbplats på Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
-1. Välj **Storage Explorer (förhandsversion)**.
+1. Välj **Storage Explorer (förhandsversion)** .
 
 2. Expandera noden **BLOB containers** och välj sedan **$Web** container.
 
@@ -151,7 +151,7 @@ De här anvisningarna visar hur du överför filer med hjälp av den version av 
    ![Kontrol lera innehålls typer](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
    >[!NOTE]
-   > Storage Explorer anger automatiskt den här egenskapen till `text/html` för vanliga tillägg som `.html` . I vissa fall måste du dock ange detta själv. Om du inte anger den här egenskapen till `text/html` uppmanas användarna att ladda ned filen i stället för att återge innehållet. Om du vill ange den här egenskapen högerklickar du på filen och klickar sedan på **Egenskaper**.
+   > Storage Explorer anger automatiskt den här egenskapen till `text/html` för vanliga tillägg som `.html` . I vissa fall måste du dock ange detta själv. Om du inte anger den här egenskapen till `text/html` uppmanas användarna att ladda ned filen i stället för att återge innehållet. Om du vill ange den här egenskapen högerklickar du på filen och klickar sedan på **Egenskaper** .
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -204,7 +204,7 @@ Du kan visa sidorna på din webbplats från en webbläsare med hjälp av den off
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-I rutan som visas bredvid sidan konto översikt för ditt lagrings konto väljer du **statisk webbplats**. URL: en för din webbplats visas i fältet **primär slut punkt** .
+I rutan som visas bredvid sidan konto översikt för ditt lagrings konto väljer du **statisk webbplats** . URL: en för din webbplats visas i fältet **primär slut punkt** .
 
 ![Mått för Azure Storage statiska webbplatser](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
@@ -249,7 +249,7 @@ När du har aktiverat mått rapporteras trafik statistik på filer i **$Web** -b
    > [!NOTE]
    > Mått data genereras genom att ansluta till olika mått-API: er. Portalen visar bara de API-medlemmar som används inom en bestämd tidsram för att endast fokusera på medlemmar som returnerar data. Det första steget är att expandera tids ramen för att säkerställa att du kan välja den nödvändiga API-medlemmen.
 
-2. Klicka på knappen tidsram, Välj en tidsram och klicka sedan på **Använd**.
+2. Klicka på knappen tidsram, Välj en tidsram och klicka sedan på **Använd** .
 
    ![Tidsintervallet för mått för Azure Storage statiska webbplatser](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
@@ -259,7 +259,7 @@ När du har aktiverat mått rapporteras trafik statistik på filer i **$Web** -b
 
 4. Välj sedan **utgående** mått.
 
-   ![Mått för Azure Storage statiska webbplatser](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Skärm bild som visar mått för Azure Storage statiska webbplatser.](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
 5. Välj **Sum** från *agg regerings* väljaren.
 

@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: e485065588fefa95868df9865f317de54e6ef020
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 3a3eb77315953c3791e09c4326af7cc3e3231a69
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628787"
+ms.locfileid: "92670045"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Självstudie: aktivera autentisering i ett program med en sida med Azure AD B2C
 
@@ -117,13 +117,13 @@ Nu när du har hämtat exemplet uppdaterar du koden med ditt Azure AD B2C klient
     };
     ```
 
-1. Öppna `authConfig.js` filen i mappen *JavaScriptSPA*
+1. Öppna *authConfig.js* -filen i mappen *JavaScriptSPA*
 1. I `msalConfig` objektet uppdaterar du:
     * `clientId` med det **program-ID (klient)** som du registrerade i ett tidigare steg
     * `authority` URI med ditt Azure AD B2C klient namn och namnet på det registrerings-/inloggnings användar flöde som du skapade som en del av förutsättningarna (till exempel *B2C_1_signupsignin1* )
-1. Öppna filen `policies.js`.
+1. Öppna *policies.js* -filen.
 1. Hitta poster för `names` och `authorities` och ersätt dem efter behov med namnen på de principer som du skapade i steg 2. Ersätt `fabrikamb2c.onmicrosoft.com` med namnet på din Azure AD B2C-klient, till exempel `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>` .
-1. Öppna filen `apiConfig.js`.
+1. Öppna *apiConfig.js* -filen.
 1. Sök efter tilldelningen för omfattningarna `b2cScopes` och ersätt URL: en med den omfattnings-URL som du skapade för webb-API: t `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]` .
 1. Hitta tilldelningen för API-URL: en `webApi` och ersätt den aktuella URL: en med URL: en där du har distribuerat ditt webb-API i steg 4, till exempel `webApi: http://localhost:5000/hello` .
 

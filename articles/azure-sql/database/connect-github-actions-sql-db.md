@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: cd08b02cb3b67ce615ffa1003ee1e4441a281c17
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 9203cebbd721b918f2514f7615712c035a0460ed
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92285142"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669754"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>Använd GitHub-åtgärder för att ansluta till Azure SQL Database
 
@@ -26,7 +26,7 @@ Du behöver följande:
 - En GitHub-lagringsplats med ett DACPAC-paket ( `Database.dacpac` ). Om du inte har ett GitHub-konto kan du [Registrera dig kostnads fritt](https://github.com/join).  
 - En Azure SQL Database.
     - [Snabb start: skapa en Azure SQL Database enskild databas](single-database-create-quickstart.md)
-    - [Så här skapar du ett DACPAC-paket från den befintliga SQL Server databasen](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+    - [Så här skapar du ett DACPAC-paket från den befintliga SQL Server databasen](/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 
 ## <a name="workflow-file-overview"></a>Översikt över arbets flödes fil
 
@@ -68,7 +68,7 @@ Utdata är ett JSON-objekt med roll tilldelningens autentiseringsuppgifter som g
 
 ## <a name="copy-the-sql-connection-string"></a>Kopiera SQL-anslutningssträngen 
 
-I Azure Portal går du till Azure SQL Database och öppnar **Inställningar**  >  **anslutnings strängar**. Exempel på **ADO.NET**-anslutningssträng. Ersätt plats hållarnas värden för `your_database` och `your_password` . Anslutnings strängen ser ut ungefär som den här typen av utdata. 
+I Azure Portal går du till Azure SQL Database och öppnar **Inställningar**  >  **anslutnings strängar** . Exempel på **ADO.NET** -anslutningssträng. Ersätt plats hållarnas värden för `your_database` och `your_password` . Anslutnings strängen ser ut ungefär som den här typen av utdata. 
 
 ```output
     Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog={your-database};Persist Security Info=False;User ID={admin-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -80,7 +80,7 @@ Du ska använda anslutnings strängen som GitHub-hemlighet.
 
 1. I [GitHub](https://github.com/)bläddrar du till din lagrings plats.
 
-1. Välj **inställningar > hemligheter > ny hemlighet**.
+1. Välj **inställningar > hemligheter > ny hemlighet** .
 
 1. Klistra in hela JSON-utdata från Azure CLI-kommandot i fältet hemligt värde. Ge hemligheten namnet `AZURE_CREDENTIALS` .
 
@@ -101,7 +101,7 @@ Du ska använda anslutnings strängen som GitHub-hemlighet.
 
 1. Gå till **åtgärder** för din GitHub-lagringsplats. 
 
-2. Välj **Konfigurera ditt arbets flöde själv**. 
+2. Välj **Konfigurera ditt arbets flöde själv** . 
 
 2. Ta bort allt efter `on:` avsnittet i arbets flödes filen. Ditt återstående arbets flöde kan till exempel se ut så här. 
 
@@ -194,4 +194,4 @@ När din Azure SQL-databas och lagrings plats inte längre behövs, rensar du de
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om Azure och GitHub-integrering](https://docs.microsoft.com/azure/developer/github/)
+> [Lär dig mer om Azure och GitHub-integrering](/azure/developer/github/)

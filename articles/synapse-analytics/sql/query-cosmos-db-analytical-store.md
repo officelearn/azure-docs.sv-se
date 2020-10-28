@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 99fcdd0232e2991acaceb6838bff0b00c6824dfb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c5fa326fa05a34ae5b51054b867a766489b85c16
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474911"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670709"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med Server lös SQL-pool i Azure Synapse Link (för hands version)
 
@@ -23,6 +23,9 @@ Synapse server utan SQL-pool (tidigare SQL på begäran) gör att du kan analyse
 För att skicka frågor till Azure Cosmos DB stöds det fullständiga [Select](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) -området via funktionen [OpenRowSet](develop-openrowset.md) , inklusive majoriteten av [SQL Functions och operatorer](overview-features.md). Du kan också lagra resultat från frågan som läser data från Azure Cosmos DB tillsammans med data i Azure Blob Storage eller Azure Data Lake Storage med hjälp av [skapa extern tabell som Välj](develop-tables-cetas.md#cetas-in-sql-on-demand). För närvarande kan du inte lagra frågeresultat för SQL-pooler för att Azure Cosmos DB med [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
 I den här artikeln får du lära dig hur du skriver en fråga med en server lös SQL-pool som kommer att fråga efter data från Azure Cosmos DB behållare som är Synapse-länk aktiverade. Du kan sedan lära dig mer om hur du skapar SQL-pooler utan server över Azure Cosmos DB behållare och ansluter dem till Power BI modeller i [den här](./tutorial-data-analyst.md) självstudien. 
+
+> [!IMPORTANT]
+> I den här självstudien används en behållare med [Azure Cosmos DB väldefinierat schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) som ger en fråga som kommer att stödjas i framtiden. Frågan som server lös SQL-poolen tillhandahåller för [Azure Cosmos DB full Fidelity schema](#full-fidelity-schema) är ett tillfälligt beteende som ändras baserat på förhands granskningen. Förlita dig inte på schemat som `OPENROWSET` funktionen tillhandahåller för full Fidelity behållare under den offentliga för hands versionen eftersom experinece kan ändras och justeras med väldefinierat schema. Kontakta [Synapse länka produkt teamet](mailto:cosmosdbsynapselink@microsoft.com) för att ge feedback.
 
 ## <a name="overview"></a>Översikt
 
@@ -253,12 +256,77 @@ Azure Cosmos DB konton av SQL-API (Core) stöder JSON-egenskapsvärde av typen N
 | Null | `any SQL type` 
 | Kapslat objekt eller matris | varchar (max) (sortering av UTF8-databas), serialiserad som JSON-text |
 
+## <a name="full-fidelity-schema"></a>Schema för fullständig åter givning
+
+Azure Cosmos DB full Fidelity schema registrerar både värden och deras bästa matchnings typer för varje egenskap i en behållare.
+`OPENROWSET` funktionen på en behållare med full Fidelity schema ger både typ och faktiskt värde i varje cell. Vi antar att följande fråga läser objekten från en behållare med schemat med fullständig åter givning:
+
+```sql
+SELECT *
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) as rows
+```
+
+Resultatet av den här frågan returnerar typer och värden formaterade som JSON-text: 
+
+| date_rep | fall | geo_id |
+| --- | --- | --- |
+| {"datum": "2020-08-13"} | {"Int32": "254"} | {"sträng": "RS"} |
+| {"datum": "2020-08-12"} | {"Int32": "235"}| {"sträng": "RS"} |
+| {"datum": "2020-08-11"} | {"Int32": "316"} | {"sträng": "RS"} |
+| {"datum": "2020-08-10"} | {"Int32": "281"} | {"sträng": "RS"} |
+| {"datum": "2020-08-09"} | {"Int32": "295"} | {"sträng": "RS"} |
+| {"sträng": "2020/08/08"} | {"Int32": "312"} | {"sträng": "RS"} |
+| {"datum": "2020-08-07"} | {"float64":"339.0"} | {"sträng": "RS"} |
+
+För varje värde kan du se vilken typ som identifieras i Cosmos DB container Item. De flesta värden för `date_rep` egenskapen innehåller `date` värden, men en del av dem lagras felaktigt som strängar i Cosmos dB. Schemat för fullständig åter givning returnerar både korrekt skrivna `date` värden och felaktigt formaterade `string` värden.
+Antalet ärenden är en information som lagras som ett `int32` värde, men det finns ett värde som anges som decimal tal. Det här värdet är av `float64` typen. Om det finns några värden som överstiger det största `int32` antalet, lagras de som `int64` typ. Alla `geo_id` värden i det här exemplet lagras som- `string` typer.
+
+> [!IMPORTANT]
+> Schemat för fullständig åter givning visar båda värdena med förväntade typer och värden med felaktigt angivna typer.
+> Du bör rensa värdena som har felaktiga typer i Azure Cosmos DB container för att kunna tillämpa corection i ett analys lager med fullständig åter givning. 
+
 Om du vill fråga Azure Cosmos DB konton i Mongo DB API-typ kan du lära dig mer om schema representationen full Fidelity i analys lagret och de utökade egenskaps namn som ska användas [här](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+
+Vid frågor om schemat för fullständig åter givning måste du uttryckligen ange SQL-typ och förväntad Cosmos DB egenskaps typ i `WITH` satsen. I följande exempel antar vi att `string` är rätt typ för `geo_id` egenskap och `int32` korrekt typ för `cases` egenskap:
+
+```sql
+SELECT geo_id, cases = SUM(cases)
+FROM OPENROWSET(
+      'CosmosDB'
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string',
+             cases INT '$.cases.int32'
+    ) as rows
+GROUP BY geo_id
+```
+
+Värden med andra typer returneras inte i `geo_id` och `cases` kolumner och frågan returnerar `NULL` värdet i dessa celler. Den här frågan refererar endast `cases` till den angivna typen i uttrycket ( `cases.int32` ). Om du har värden med andra typer ( `cases.int64` , `cases.float64` ) som representerar inte kan rensas i Cosmos DB container, måste du uttryckligen referera till dem i `WITH` satsen och kombinera resultaten. Följande fråga aggregerar både `int32` , `int64` , och `float64` lagras i `cases` kolumnen:
+
+```sql
+SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', 
+             cases_int INT '$.cases.int32',
+             cases_bigint BIGINT '$.cases.int64',
+             cases_float FLOAT '$.cases.float64'
+    ) as rows
+GROUP BY geo_id
+```
+
+I det här exemplet lagras antalet fall som `int32` , `int64` eller `float64` värden, och alla värden måste extraheras för att beräkna antalet ärenden per land. 
 
 ## <a name="known-issues"></a>Kända problem
 
 - Alias **måste** anges efter `OPENROWSET` funktion (till exempel `OPENROWSET (...) AS function_alias` ). Att utelämna alias kan orsaka anslutnings problem och Synapse SQL-slutpunkt kan vara tillfälligt otillgängligt. Det här problemet kommer att lösas i nov 2020.
-- SQL-poolen utan Server stöder för närvarande inte [Azure Cosmos DB schema med fullständig åter givning](../../cosmos-db/analytical-store-introduction.md#schema-representation). Använd endast Server lös SQL-pool för att komma åt Cosmos DB väldefinierat schema.
+- Frågan fungerar som en server lös SQL-pool för [Azure Cosmos DB full Fidelity schema](#full-fidelity-schema) är ett tillfälligt beteende som ändras baserat på förhands gransknings feedback. Förlita dig inte på schemat som `OPENROWSET` funktionen tillhandahåller under den offentliga för hands versionen eftersom frågan kan vara justerad med väldefinierat schema. Kontakta [Synapse länka produkt teamet](mailto:cosmosdbsynapselink@microsoft.com) för att ge feedback.
 
 Möjliga fel och fel söknings åtgärder visas i följande tabell:
 

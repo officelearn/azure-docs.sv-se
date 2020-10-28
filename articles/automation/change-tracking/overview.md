@@ -3,14 +3,14 @@ title: Översikt över Azure Automation Ändringsspårning och inventering
 description: I den här artikeln beskrivs funktionen Ändringsspårning och inventering, som hjälper dig att identifiera program-och Microsoft-tjänsteändringar i din miljö.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9654529723b5b69c15358be9e06db4f8cbed35e3
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210281"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670729"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Översikt över Ändringsspårning och inventering
 
@@ -48,7 +48,7 @@ Datorer som är anslutna till Log Analytics arbets ytan använder [Log Analytics
 - Rekursion för spårning av Windows-register
 - Nätverks fil system
 - Olika installations metoder
-- ***. exe** -filer som lagras i Windows
+- **_. exe_* -filer som lagras i Windows
 - Kolumnen **maximal fil storlek** och värden används inte i den aktuella implementeringen.
 - Om du försöker samla in fler än 2500 filer på en 30-minuters samlings cykel kan Ändringsspårning och inventerings prestanda försämras.
 - Om nätverks trafiken är hög kan ändrings poster ta upp till sex timmar innan de visas.
@@ -73,17 +73,19 @@ Följande adresser krävs specifikt för Ändringsspårning och inventering. Kom
 |*.blob.core.windows.net | *. blob.core.usgovcloudapi.net|
 |*.azure-automation.net | *. azure-automation.us|
 
-När du skapar säkerhets regler för nätverks grupper eller konfigurerar Azure-brandväggen för att tillåta trafik till Automation-tjänsten och Log Analytics arbets ytan, använder du [service tag-](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** och **AzureMonitor**. Detta fören klar den löpande hanteringen av dina nätverks säkerhets regler. Om du vill ansluta till Automation-tjänsten från dina virtuella Azure-datorer på ett säkert och privat sätt kan du läsa [Använd Azure privat länk](../how-to/private-link-security.md). För att hämta den aktuella service tag-koden och intervall informationen som ska ingå som en del av dina lokala brand Väggs konfigurationer, se [nedladdnings bara JSON-filer](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+När du skapar säkerhets regler för nätverks grupper eller konfigurerar Azure-brandväggen för att tillåta trafik till Automation-tjänsten och Log Analytics arbets ytan, använder du [service tag-](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** och **AzureMonitor** . Detta fören klar den löpande hanteringen av dina nätverks säkerhets regler. Om du vill ansluta till Automation-tjänsten från dina virtuella Azure-datorer på ett säkert och privat sätt kan du läsa [Använd Azure privat länk](../how-to/private-link-security.md). För att hämta den aktuella service tag-koden och intervall informationen som ska ingå som en del av dina lokala brand Väggs konfigurationer, se [nedladdnings bara JSON-filer](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering
 
-Här är hur du kan aktivera Ändringsspårning och inventering och välja datorer som ska hanteras:
+Du kan aktivera Ändringsspårning och inventering på följande sätt:
 
-* [Från en virtuell Azure-dator](enable-from-vm.md).
-* [Från att söka efter flera virtuella Azure-datorer](enable-from-portal.md).
-* [Från ett Azure Automation-konto](enable-from-automation-account.md).
-* För Arc-aktiverade servrar eller datorer som inte är Azure-datorer installerar du Log Analytics agenten från Azure Arc-aktiverade servrar med [VM-tillägget](../../azure-arc/servers/manage-vm-extensions.md) och [aktiverar sedan datorer i arbets ytan](enable-from-automation-account.md#enable-machines-in-the-workspace) för att ändringsspårning och inventering.
-* [Använda en Automation-Runbook](enable-from-runbook.md).
+- Från ditt [Automation-konto](enable-from-automation-account.md) för en eller flera Azure-datorer och datorer som inte är Azure-datorer.
+
+- Manuellt för datorer som inte är Azure-datorer, inklusive datorer eller servrar som är registrerade med [Azure Arc-aktiverade servrar](../../azure-arc/servers/overview.md). För Hybrid datorer rekommenderar vi att du installerar Log Analytics agent för Windows genom att först ansluta datorn till [Azure Arc-aktiverade servrar](../../azure-arc/servers/overview.md)och sedan använda Azure policy för att tilldela den inbyggda principen [distribuera Log Analytics agent till *Linux* eller *Windows* Azure Arc Machines](../../governance/policy/samples/built-in-policies.md#monitoring) . Om du även planerar att övervaka datorerna med Azure Monitor for VMs använder du i stället [aktivera Azure Monitor for VMS](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiativ.
+
+- För en enskild virtuell Azure-dator från [sidan virtuell dator](enable-from-vm.md) i Azure Portal. Det här scenariot är tillgängligt för virtuella Linux-och Windows-datorer.
+
+- För [flera virtuella Azure-datorer](enable-from-portal.md) genom att välja dem från sidan virtuella datorer i Azure Portal.
 
 ## <a name="tracking-file-changes"></a>Spåra fil ändringar
 
@@ -106,8 +108,8 @@ Med Ändringsspårning och inventering kan du visa innehållet i en Windows-elle
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Övervakar skript som körs vid avstängning.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Övervakar nycklar som läses in innan användaren loggar in på Windows-kontot. Nyckeln används för 32-bitars program som körs på 64-bitars datorer.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Övervakar ändringar i program inställningarna.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Övervakar snabb meny hanterare som kopplas direkt till Utforskaren i Windows och som vanligt vis körs i processen med **explorer.exe**.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Övervakar kopior av Hook-hanterare som kopplas direkt till Utforskaren i Windows och som vanligt vis körs i processen med **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Övervakar snabb meny hanterare som kopplas direkt till Utforskaren i Windows och som vanligt vis körs i processen med **explorer.exe** .
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Övervakar kopior av Hook-hanterare som kopplas direkt till Utforskaren i Windows och som vanligt vis körs i processen med **explorer.exe** .
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Övervakare för registrering av ikon överläggs hanterare.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Övervakare för ikon överläggs hanterare registrering för 32-bitars program som körs på 64-bitars datorer.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Övervakar nya plugin-program för webb läsar tillägg för Internet Explorer. Används för att få åtkomst till Document Object Model (DOM) för den aktuella sidan och för att kontrol lera navigeringen.
@@ -117,7 +119,7 @@ Med Ändringsspårning och inventering kan du visa innehållet i en Windows-elle
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Övervakar 32-bitars driv rutiner som är kopplade till wavemapper, wave1 och Wave2, MSACM. imaadpcm,. msadpcm,. msgsm610 och vidc. Liknar avsnittet [drivers] i **system.ini** -filen.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Övervakar 32-bitars driv rutiner som är kopplade till wavemapper, wave1 och Wave2, MSACM. imaadpcm,. msadpcm,. msgsm610 och vidc för 32-bitars program som körs på 64-bitars datorer. Liknar avsnittet [drivers] i **system.ini** -filen.
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Övervakar listan över kända eller ofta använda system-DLL-filer. Övervakning förhindrar att personer utnyttjar svaga program katalog behörigheter genom att släppa i trojanska hästar versioner av system-DLL: er.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Övervakar listan över paket som kan ta emot händelse meddelanden från **winlogon.exe**, den interaktiva stöd modellen för inloggning för Windows.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Övervakar listan över paket som kan ta emot händelse meddelanden från **winlogon.exe** , den interaktiva stöd modellen för inloggning för Windows.
 
 ## <a name="recursion-support"></a>Rekursion-support
 
@@ -125,7 +127,7 @@ Med Ändringsspårning och inventering kan du visa innehållet i en Windows-elle
 
 - Jokertecken krävs för att spåra flera filer.
 
-- Du kan bara använda jokertecken i det sista segmentet i en fil Sök väg, till exempel **c:\folder- \\ filen*** eller **/etc/*. conf**.
+- Du kan bara använda jokertecken i det sista segmentet i en fil Sök väg, till exempel **c:\folder- \\ filen** _ eller _ */etc/* . conf * *.
 
 - Om en miljö variabel har en ogiltig sökväg, lyckas verifieringen men sökvägen Miss lyckas under körningen.
 
@@ -160,7 +162,7 @@ Genomsnitts Log Analytics data användningen för en dator som använder Ändrin
 
 ### <a name="microsoft-service-data"></a>Microsoft-tjänstedata
 
-Standard frekvensen för insamling av Microsoft-tjänster är 30 minuter. Du kan konfigurera frekvensen med hjälp av ett skjutreglage på fliken **Microsoft-tjänster** under **Redigera inställningar**.
+Standard frekvensen för insamling av Microsoft-tjänster är 30 minuter. Du kan konfigurera frekvensen med hjälp av ett skjutreglage på fliken **Microsoft-tjänster** under **Redigera inställningar** .
 
 ![Skjutreglage för Microsoft-tjänster](./media/overview/windowservices.png)
 

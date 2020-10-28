@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: a84308ba06a38cea475fcb1bae022da16424a731
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ee906b406f5fd09fc870626f1905541a4270c66
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90033004"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670535"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation (förhandsversion)
 
@@ -73,7 +73,7 @@ Azure-attestering är det bästa valet för att intyga TEEs eftersom det ger fö
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>Support för affärs kontinuitet och haveri beredskap (BCDR)
 
-[Verksamhets kontinuitet och haveri beredskap](/azure/best-practices-availability-paired-regions) (BCDR) för Azure-attestering gör det möjligt att minska tjänst störningar som orsakas av betydande tillgänglighets problem eller katastrof händelser i en region.
+[Verksamhets kontinuitet och haveri beredskap](../best-practices-availability-paired-regions.md) (BCDR) för Azure-attestering gör det möjligt att minska tjänst störningar som orsakas av betydande tillgänglighets problem eller katastrof händelser i en region.
 
 Nedan visas de regioner som för närvarande stöds av BCDR
 - USA, östra 2 => tillsammans med centrala USA.
@@ -91,4 +91,3 @@ Kluster som distribueras i två regioner kommer att fungera oberoende under norm
 - Lär dig mer om [grundläggande koncept för Azure-attestering](basic-concepts.md)
 - [Så här skapar och signerar du en policy för attestering](author-sign-policy.md)
 - [Konfigurera Azure-attestering med PowerShell](quickstart-powershell.md)
-

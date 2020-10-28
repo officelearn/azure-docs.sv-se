@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 7a096e355e140b18bd7df010c379e31d21f90634
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f823b6d04a217328fe2e825e64906460cd9cbae9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86515061"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672484"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Snabb start: Använd Visual Studio Code för att ansluta och fråga 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,13 +45,13 @@ ms.locfileid: "86515061"
 
 ## <a name="install-visual-studio-code"></a>Installera Visual Studio Code
 
-Kontrollera att du har installerat den senaste versionen av [Visual Studio Code](https://code.visualstudio.com/Download) och har läst in [mssql-tillägget](https://aka.ms/mssql-marketplace). Anvisningar om hur du installerar MSSQL-tillägget finns i [Installera Visual Studio Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) och [MSSQL för Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
+Kontrollera att du har installerat den senaste versionen av [Visual Studio Code](https://code.visualstudio.com/Download) och har läst in [mssql-tillägget](https://aka.ms/mssql-marketplace). Anvisningar om hur du installerar MSSQL-tillägget finns i [Installera Visual Studio Code](/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) och [MSSQL för Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
 ## <a name="configure-visual-studio-code"></a>Konfigurera Visual Studio Code
 
 ### <a name="macos"></a>**macOS**
 
-För macOS måste du installera OpenSSL, som är en förutsättning för .NET Core som MSSQL-tillägget använder. Ange följande kommandon för att installera **brew** och **OpenSSL**.
+För macOS måste du installera OpenSSL, som är en förutsättning för .NET Core som MSSQL-tillägget använder. Ange följande kommandon för att installera **brew** och **OpenSSL** .
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -74,11 +74,11 @@ Ingen särskild konfiguration behövs.
 
 Hämta den anslutnings information som du behöver för att ansluta till Azure SQL Database. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Gå till sidan **SQL-databaser**  eller **SQL-hanterade instanser** .
 
-3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **server namnet** för SQL Database eller det fullständigt kvalificerade Server namnet bredvid **värd** för en SQL-hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
+3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **server namnet** för SQL Database eller det fullständigt kvalificerade Server namnet bredvid **värd** för en SQL-hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera** .
 
 ## <a name="set-language-mode-to-sql"></a>Ange språkläge till SQL
 
@@ -86,7 +86,7 @@ Ställ in språkläget på **SQL** i Visual Studio Code för att aktivera mssql-
 
 1. Öppna ett Visual Studio Code-fönster.
 
-2. Tryck på **CTRL** + **N**. En ny oformaterad textfil öppnas.
+2. Tryck på **CTRL** + **N** . En ny oformaterad textfil öppnas.
 
 3. Välj **Oformaterad text** nere till höger i statusfältet.
 
@@ -99,17 +99,17 @@ Använd Visual Studio Code för att upprätta en anslutning till servern.
 > [!IMPORTANT]
 > Kontrollera att du har din server- och inloggningsinformation till hands innan du fortsätter. Om du ändrar fokus från Visual Studio Code när du har börjat ange information om anslutningsprofilen måste du börja om med att skapa profilen.
 
-1. I Visual Studio Code trycker du på **Ctrl+Shift+P** (eller **F1**) för att öppna kommandopaletten.
+1. I Visual Studio Code trycker du på **Ctrl+Shift+P** (eller **F1** ) för att öppna kommandopaletten.
 
-2. Välj **MS SQL:Anslut** och välj **Retur**.
+2. Välj **MS SQL:Anslut** och välj **Retur** .
 
-3. Välj **Skapa anslutningsprofil**.
+3. Välj **Skapa anslutningsprofil** .
 
 4. Följ anvisningarna för att ange anslutningsegenskaper för den nya profilen. När du har angett varje värde så väljer du **Retur** för att fortsätta.
 
    | Egenskap       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Servernamn** | Fullständigt kvalificerat servernamn | Ungefär så här: **mynewserver20170313.database.windows.net**. |
+   | **Servernamn** | Fullständigt kvalificerat servernamn | Ungefär så här: **mynewserver20170313.database.windows.net** . |
    | **Databasnamn** | mySampleDatabase | Databasen du ska ansluta till. |
    | **Autentisering** | SQL-inloggning| Den här självstudien använder SQL-autentisering. |
    | **Användarnamn** | Användarnamn | Användarnamnet från det serveradministratörskonto som användes när servern skapades. |
@@ -121,7 +121,7 @@ Använd Visual Studio Code för att upprätta en anslutning till servern.
 
 ## <a name="query-data"></a>Söka i data
 
-Kör följande [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-instruktion för att fråga efter de 20 främsta produkterna per kategori.
+Kör följande [SELECT](/sql/t-sql/queries/select-transact-sql) Transact-SQL-instruktion för att fråga efter de 20 främsta produkterna per kategori.
 
 1. Klistra in följande SQL-fråga i redigeringsfönstret.
 
@@ -138,7 +138,7 @@ Kör följande [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transa
 
 ## <a name="insert-data"></a>Infoga data
 
-Kör följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-instruktion för att lägga till en ny produkt i tabellen `SalesLT.Product`.
+Kör följande [INSERT](/sql/t-sql/statements/insert-transact-sql) Transact-SQL-instruktion för att lägga till en ny produkt i tabellen `SalesLT.Product`.
 
 1. Ersätt den tidigare frågan med denna.
 
@@ -166,7 +166,7 @@ Kör följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transa
 
 ## <a name="update-data"></a>Uppdatera data
 
-Kör följande [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL-instruktion för att uppdatera den tillagda produkten.
+Kör följande [UPDATE](/sql/t-sql/queries/update-transact-sql) Transact-SQL-instruktion för att uppdatera den tillagda produkten.
 
 1. Ersätt den föregående frågan med denna:
 
@@ -180,7 +180,7 @@ Kör följande [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transa
 
 ## <a name="delete-data"></a>Ta bort data
 
-Kör följande [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) Transact-SQL-instruktion för att ta bort den nya produkten.
+Kör följande [DELETE](/sql/t-sql/statements/delete-transact-sql) Transact-SQL-instruktion för att ta bort den nya produkten.
 
 1. Ersätt den föregående frågan med denna:
 
@@ -195,4 +195,4 @@ Kör följande [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-t
 
 - Information om hur du ansluter och frågar med hjälp av SQL Server Management Studio finns i [snabb start: använd SQL Server Management Studio för att ansluta till en databas i Azure SQL Database och fråga efter data](connect-query-ssms.md).
 - Information om hur du ansluter och frågar med hjälp av Azure Portal finns i [snabb start: Använd SQL-Frågeredigeraren i Azure Portal för att ansluta och fråga efter data](connect-query-portal.md).
-- En artikel från MSDN-magazine om hur du använder Visual Studio Code finns i [Skapa en IDE-databas med MSSQL-tillägget blogginlägg](https://msdn.microsoft.com/magazine/mt809115).
+- En artikel från MSDN-magazine om hur du använder Visual Studio Code finns i [Skapa en IDE-databas med MSSQL-tillägget blogginlägg](/archive/msdn-magazine/2017/june/data-points-visual-studio-code-create-a-database-ide-with-mssql-extension).

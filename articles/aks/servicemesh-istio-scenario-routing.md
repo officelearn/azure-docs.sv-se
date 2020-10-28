@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 871a764c549de75d5a9e1449ba2e0737d38a4094
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69541ec652188bc3826b7829fbc5c182193d6ba9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83799949"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670946"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Använda intelligent Routning och Kanarie-versioner med Istio i Azure Kubernetes service (AKS)
 
@@ -39,7 +39,7 @@ Om du behöver hjälp med något av dessa objekt kan du läsa snabb starten för
 
 ## <a name="about-this-application-scenario"></a>Om det här program scenariot
 
-Exemplet på AKS röstning innehåller två röstnings alternativ (**katter** eller **hundar**) till användare. Det finns en lagrings komponent som behåller antalet röster för varje alternativ. Det finns dessutom en analys komponent som innehåller information kring de röster som omvandlas för varje alternativ.
+Exemplet på AKS röstning innehåller två röstnings alternativ ( **katter** eller **hundar** ) till användare. Det finns en lagrings komponent som behåller antalet röster för varje alternativ. Det finns dessutom en analys komponent som innehåller information kring de röster som omvandlas för varje alternativ.
 
 I det här program scenariot börjar du med att distribuera versionen `1.0` av röstnings appen och versionen `1.0` av Analytics-komponenten. Analytics-komponenten ger enkla räknare för antalet röster. Röstnings appen och analys komponenten interagerar med versionen `1.0` av Storage-komponenten, som backas upp av Redis.
 
@@ -53,7 +53,7 @@ När du är säker på att versionen `2.0` fungerar som förväntat på din delm
 
 Vi börjar med att distribuera programmet till ditt Azure Kubernetes service-kluster (AKS). Följande diagram visar vad som körs i slutet av det här avsnittet – versionen `1.0` av alla komponenter med inkommande begär Anden som servas via Istio ingress Gateway:
 
-![AKS röstnings program komponenter och routning.](media/servicemesh/istio/scenario-routing-components-01.png)
+![Diagram som visar version 1,0 av alla komponenter med inkommande begär Anden som servas via Istio ingress Gateway.](media/servicemesh/istio/scenario-routing-components-01.png)
 
 De artefakter som du måste följa tillsammans med den här artikeln finns i avsnittet [Azure-samples/AKS-röstning-app][github-azure-sample] GitHub lagrings platsen. Du kan antingen hämta artefakterna eller klona lagrings platsen på följande sätt:
 
@@ -180,7 +180,7 @@ Nu ska vi distribuera en ny version av Analytics-komponenten. Den här nya versi
 
 Följande diagram visar vad som kommer att köras i slutet av den här delen – endast versionen `1.1` av vår `voting-analytics` komponent har trafik som dirigerats från `voting-app` komponenten. Även om versionen `1.0` av vår `voting-analytics` komponent fortsätter att köras och refereras av `voting-analytics` tjänsten, tillåter Istio-proxyservrarna trafik till och från den.
 
-![AKS röstnings program komponenter och routning.](media/servicemesh/istio/scenario-routing-components-02.png)
+![Diagram som bara visar version 1,1 av röstnings analys komponenten har trafik som dirigerats från röstnings-app-komponenten.](media/servicemesh/istio/scenario-routing-components-02.png)
 
 Nu ska vi distribuera version `1.1` av `voting-analytics` komponenten. Skapa den här komponenten i `voting` namn området:
 
@@ -361,7 +361,7 @@ Följande diagram visar vad du kommer att ha i slutet av det här avsnittet.
 * Versionen `2.0` av `voting-app` komponenten, versionen `2.0` av komponenten `voting-analytics` och versionen `2.0` av komponenten kan `voting-storage` kommunicera med varandra.
 * Versionen `2.0` av `voting-app` komponenten är endast tillgänglig för användare som har en angiven funktions flagga angiven. Den här ändringen hanteras med en funktions flagga via en cookie.
 
-![AKS röstnings program komponenter och routning.](media/servicemesh/istio/scenario-routing-components-03.png)
+![Diagram som visar vad du kommer att köra i slutet av det här avsnittet.](media/servicemesh/istio/scenario-routing-components-03.png)
 
 Börja med att uppdatera Istio-destinations reglerna och de virtuella tjänsterna så att de passar dessa nya komponenter. De här uppdateringarna säkerställer att du inte dirigerar trafik felaktigt till de nya komponenterna och att användarna inte får oväntad åtkomst:
 
@@ -415,7 +415,7 @@ Antalet röstningar skiljer sig mellan versionerna av appen. Den här skillnaden
 
 När du har testat Kanarie-versionen uppdaterar du den `voting-app` virtuella tjänsten för att dirigera all trafik till version `2.0` av `voting-app` komponenten. Alla användare ser sedan versionen `2.0` av programmet, oavsett om funktions flaggan är inställd eller inte:
 
-![AKS röstnings program komponenter och routning.](media/servicemesh/istio/scenario-routing-components-04.png)
+![Diagram som visar att användarna ser version 2,0 av programmet, oavsett om funktions flaggan har angetts eller inte.](media/servicemesh/istio/scenario-routing-components-04.png)
 
 Uppdatera alla mål regler för att ta bort de versioner av de komponenter som du inte längre vill ha aktiva. Uppdatera sedan alla virtuella tjänster för att sluta referera till dessa versioner.
 

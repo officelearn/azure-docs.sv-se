@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: bbd274f6b039ef4492068d939c755ab279c2830a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 52c71e06b33ef29c2ef0628d651c7f72e41b87ff
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070000"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671884"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Självstudie: konfigurera attributet Skriv-back från Azure AD till SAP SuccessFactors
 Syftet med den här självstudien är att Visa stegen för att skriva tillbaka attribut från Azure AD till SAP SuccessFactors personal Central. 
@@ -57,11 +57,11 @@ Arbeta med ditt SuccessFactors-administratörs team eller implementerings partne
 ### <a name="create-an-api-permissions-role"></a>Skapa en roll för API-behörigheter
 
 1. Logga in på SAP SuccessFactors med ett användar konto som har åtkomst till administrations centret.
-1. Sök efter *Hantera behörighets roller*och välj **Hantera behörighets roller** från Sök resultaten.
+1. Sök efter *Hantera behörighets roller* och välj **Hantera behörighets roller** från Sök resultaten.
 
    ![Hantera behörighets roller](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
 
-1. I listan behörighets roll klickar du på **Skapa ny**.
+1. I listan behörighets roll klickar du på **Skapa ny** .
 
    > [!div class="mx-imgBorder"]
    > ![Skapa ny behörighets roll](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
@@ -71,26 +71,26 @@ Arbeta med ditt SuccessFactors-administratörs team eller implementerings partne
    > [!div class="mx-imgBorder"]
    > ![Information om behörighets roll](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
 
-1. Under behörighets inställningar klickar du på **behörighet...** och bläddrar sedan ned behörighets listan och klickar på **Hantera integrerings verktyg**. Markera kryss rutan om **du vill tillåta administratörs åtkomst till OData-API via grundläggande autentisering**.
+1. Under behörighets inställningar klickar du på **behörighet...** och bläddrar sedan ned behörighets listan och klickar på **Hantera integrerings verktyg** . Markera kryss rutan om **du vill tillåta administratörs åtkomst till OData-API via grundläggande autentisering** .
 
    > [!div class="mx-imgBorder"]
    > ![Hantera integrerings verktyg](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
 
-1. Rulla nedåt i samma ruta och välj **medarbetares centrala API**. Lägg till behörigheter som visas nedan för att läsa med ODATA API och redigera med ODATA API. Välj alternativet Redigera om du planerar att använda samma konto för Skriv-tillbaka till SuccessFactors-scenariot. 
+1. Rulla nedåt i samma ruta och välj **medarbetares centrala API** . Lägg till behörigheter som visas nedan för att läsa med ODATA API och redigera med ODATA API. Välj alternativet Redigera om du planerar att använda samma konto för Skriv-tillbaka till SuccessFactors-scenariot. 
 
    > [!div class="mx-imgBorder"]
    > ![Läs Skriv behörighet](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
-1. Klicka på **färdig**. Klicka på **Spara ändringar**.
+1. Klicka på **färdig** . Klicka på **Spara ändringar** .
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Skapa en behörighets grupp för API-användaren
 
-1. I SuccessFactors administrations Center söker du efter *Hantera behörighets grupper*och väljer **Hantera behörighets grupper** från Sök resultaten.
+1. I SuccessFactors administrations Center söker du efter *Hantera behörighets grupper* och väljer **Hantera behörighets grupper** från Sök resultaten.
 
    > [!div class="mx-imgBorder"]
    > ![Hantera behörighets grupper](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
 
-1. I fönstret Hantera behörighets grupper klickar du på **Skapa nytt**.
+1. I fönstret Hantera behörighets grupper klickar du på **Skapa nytt** .
 
    > [!div class="mx-imgBorder"]
    > ![Lägg till ny grupp](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
@@ -109,9 +109,9 @@ Arbeta med ditt SuccessFactors-administratörs team eller implementerings partne
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Bevilja behörighets rollen till behörighets gruppen
 
-1. I SuccessFactors administrations Center kan du söka efter *Hantera behörighets roller*och sedan välja **Hantera behörighets roller** från Sök resultaten.
-1. I **listan behörighets roll**väljer du den roll som du har skapat för behörigheter för API-användning.
-1. Under **tilldela den här rollen till... klickar du**på **Lägg till...** -knapp.
+1. I SuccessFactors administrations Center kan du söka efter *Hantera behörighets roller* och sedan välja **Hantera behörighets roller** från Sök resultaten.
+1. I **listan behörighets roll** väljer du den roll som du har skapat för behörigheter för API-användning.
+1. Under **tilldela den här rollen till... klickar du** på **Lägg till...** -knapp.
 1. Välj **behörighets grupp...** från den nedrullningsbara menyn och klicka sedan på **Välj...** för att öppna fönstret grupper för att söka efter och välja den grupp som skapades ovan. 
 
    > [!div class="mx-imgBorder"]
@@ -121,7 +121,7 @@ Arbeta med ditt SuccessFactors-administratörs team eller implementerings partne
    > [!div class="mx-imgBorder"]
    > ![Behörighets roll och grupp information](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
 
-1. Klicka på **Spara ändringar**.
+1. Klicka på **Spara ändringar** .
 
 ## <a name="preparing-for-successfactors-writeback"></a>Förbereder för tillbakaskrivning av SuccessFactors
 
@@ -134,34 +134,34 @@ SuccessFactors tillbakaskrivning Provisioning-appen använder vissa *kod* värde
 
 I SAP SuccessFactors är en *listruta* en konfigurerbar uppsättning alternativ som en användare kan välja mellan. De olika typerna av e-post och telefonnummer (t. ex. företag, personliga, andra) representeras med hjälp av en listruta. I det här steget kommer vi att identifiera de List rutor som kon figurer ATS i din SuccessFactors-klient för att lagra värden för e-post och telefonnummer. 
  
-1. I SuccessFactors administrations Center kan du söka efter *Hantera företags konfiguration*. 
+1. I SuccessFactors administrations Center kan du söka efter *Hantera företags konfiguration* . 
 
    > [!div class="mx-imgBorder"]
    > ![Hantera företags konfiguration](./media/sap-successfactors-inbound-provisioning/manage-business-config.png)
 
-1. Under **HRIS element**väljer du **emailInfo** och klickar på *informationen* för fältet **e-posttyp** .
+1. Under **HRIS element** väljer du **emailInfo** och klickar på *informationen* för fältet **e-posttyp** .
 
    > [!div class="mx-imgBorder"]
    > ![Hämta e-postinformation](./media/sap-successfactors-inbound-provisioning/get-email-info.png)
 
-1. På sidan information om **e-posttyp** noterar du namnet på list rutan som är kopplad till det här fältet. Som standard är det **ecEmailType**. Det kan dock vara annorlunda i din klient organisation. 
+1. På sidan information om **e-posttyp** noterar du namnet på list rutan som är kopplad till det här fältet. Som standard är det **ecEmailType** . Det kan dock vara annorlunda i din klient organisation. 
 
    > [!div class="mx-imgBorder"]
    > ![Identifiera List rutan för e-post](./media/sap-successfactors-inbound-provisioning/identify-email-picklist.png)
 
-1. Under **HRIS element**väljer du **phoneInfo** och klickar på *informationen* för fältet **telefon typ** .
+1. Under **HRIS element** väljer du **phoneInfo** och klickar på *informationen* för fältet **telefon typ** .
 
    > [!div class="mx-imgBorder"]
    > ![Hämta telefonnummer information](./media/sap-successfactors-inbound-provisioning/get-phone-info.png)
 
-1. På sidan information om **telefonnummer anger** du namnet på list rutan som är kopplad till det här fältet. Som standard är det **ecPhoneType**. Det kan dock vara annorlunda i din klient organisation. 
+1. På sidan information om **telefonnummer anger** du namnet på list rutan som är kopplad till det här fältet. Som standard är det **ecPhoneType** . Det kan dock vara annorlunda i din klient organisation. 
 
    > [!div class="mx-imgBorder"]
    > ![Identifiera telefon List rutan](./media/sap-successfactors-inbound-provisioning/identify-phone-picklist.png)
 
 ### <a name="retrieve-constant-value-for-emailtype"></a>Hämta konstant värde för emailType
 
-1. I SuccessFactors administrations Center söker du och öppnar *plock lista Center*. 
+1. I SuccessFactors administrations Center söker du och öppnar *plock lista Center* . 
 1. Använd namnet på den e-postlista som du hämtade från föregående avsnitt (t. ex. ecEmailType) för att hitta e-postlistan. 
 
    > [!div class="mx-imgBorder"]
@@ -183,11 +183,11 @@ I SAP SuccessFactors är en *listruta* en konfigurerbar uppsättning alternativ 
    > ![Hämta kod för e-posttyp](./media/sap-successfactors-inbound-provisioning/get-email-type-code.png)
 
    > [!NOTE]
-   > Ta bort kommatecknet när du kopierar över värdet. T. ex. om värdet för **alternativ-ID** är *8 448*anger du *emailType* i Azure AD till det konstanta talet *8448* (utan kommatecknet). 
+   > Ta bort kommatecknet när du kopierar över värdet. T. ex. om värdet för **alternativ-ID** är *8 448* anger du *emailType* i Azure AD till det konstanta talet *8448* (utan kommatecknet). 
 
 ### <a name="retrieve-constant-value-for-phonetype"></a>Hämta konstant värde för phoneType
 
-1. I SuccessFactors administrations Center söker du och öppnar *plock lista Center*. 
+1. I SuccessFactors administrations Center söker du och öppnar *plock lista Center* . 
 1. Använd namnet på telefon listan som du hämtade från föregående avsnitt för att hitta telefon listan. 
 
    > [!div class="mx-imgBorder"]
@@ -198,7 +198,7 @@ I SAP SuccessFactors är en *listruta* en konfigurerbar uppsättning alternativ 
    > [!div class="mx-imgBorder"]
    > ![Öppna listan över aktiva telefon typer](./media/sap-successfactors-inbound-provisioning/open-active-phone-type-picklist.png)
 
-1. På sidan telefon typs lista granskar du de olika telefon typerna som visas under **list Rute värden**.
+1. På sidan telefon typs lista granskar du de olika telefon typerna som visas under **list Rute värden** .
 
    > [!div class="mx-imgBorder"]
    > ![Granska telefon typer](./media/sap-successfactors-inbound-provisioning/review-phone-types.png)
@@ -214,7 +214,7 @@ I SAP SuccessFactors är en *listruta* en konfigurerbar uppsättning alternativ 
    > ![Hämta mobil telefon kod](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
 
    > [!NOTE]
-   > Ta bort kommatecknet när du kopierar över värdet. T. ex. om värdet för **alternativ-ID** är *10 606*anger du *cellPhoneType* i Azure AD till det konstanta talet *10606* (utan kommatecknet). 
+   > Ta bort kommatecknet när du kopierar över värdet. T. ex. om värdet för **alternativ-ID** är *10 606* anger du *cellPhoneType* i Azure AD till det konstanta talet *10606* (utan kommatecknet). 
 
 
 ## <a name="configuring-successfactors-writeback-app"></a>Konfigurera SuccessFactors tillbakaskrivning-appen
@@ -233,11 +233,11 @@ Det här avsnittet innehåller steg för
 
 2. I det vänstra navigerings fältet väljer du **Azure Active Directory**
 
-3. Välj **företags program**och sedan **alla program**.
+3. Välj **företags program** och sedan **alla program** .
 
-4. Välj **Lägg till ett program**och välj kategorin **alla** .
+4. Välj **Lägg till ett program** och välj kategorin **alla** .
 
-5. Sök efter **tillbakaskrivning av SuccessFactors**och Lägg till den appen från galleriet.
+5. Sök efter **tillbakaskrivning av SuccessFactors** och Lägg till den appen från galleriet.
 
 6. När appen har lagts till och skärmen information om appen visas väljer du **etablering**
 
@@ -253,7 +253,7 @@ Det här avsnittet innehåller steg för
 
    * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
     > [!NOTE]
-    > Azure AD Provisioning-tjänsten skickar e-postavisering om etablerings jobbet hamnar i [karantän](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) .
+    > Azure AD Provisioning-tjänsten skickar e-postavisering om etablerings jobbet hamnar i [karantän](../app-provisioning/application-provisioning-quarantine-status.md) .
 
    * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas kontrollerar du att autentiseringsuppgifterna och URL: en för SuccessFactors är giltiga.
     >[!div class="mx-imgBorder"]
@@ -265,7 +265,7 @@ Det här avsnittet innehåller steg för
 
 I det här avsnittet ska du konfigurera hur användar data flödar från SuccessFactors till Active Directory.
 
-1. På fliken etablering under **mappningar**klickar du på **etablera Azure Active Directory användare**.
+1. På fliken etablering under **mappningar** klickar du på **etablera Azure Active Directory användare** .
 
 1. I fältet **käll objekt omfånget** kan du välja vilka uppsättningar av användare i Azure AD som ska användas för att skriva tillbaka, genom att definiera en uppsättning attributbaserade filter. Standard omfånget är "alla användare i Azure AD". 
    > [!TIP]
@@ -281,8 +281,8 @@ I det här avsnittet ska du konfigurera hur användar data flödar från Success
    | 2 | e-post | e-post | Mappa e-postattributets källa. I test syfte kan du mappa userPrincipalName till e-post. |
    | 3 | 8448 | emailType | Det här konstanta värdet är det SuccessFactors-ID-värde som är kopplat till Business email. Uppdatera det här värdet för att matcha din SuccessFactors-miljö. I avsnittet [Hämta konstant värde för emailType](#retrieve-constant-value-for-emailtype) finns anvisningar för hur du anger det här värdet. |
    | 4 | true | emailIsPrimary | Använd det här attributet för att ställa in företags-e-post som primär i SuccessFactors. Om e-postmeddelandet inte är primärt, anger du den här flaggan till falsk. |
-   | 5 | userPrincipalName | [custom01 – custom15] | Med **Lägg till ny mappning**kan du välja att skriva userPrincipalName eller något Azure AD-attribut till ett anpassat attribut som är tillgängligt i SuccessFactors-användarobjektet.  |
-   | 6 | on-lokal-samAccountName | användarnamn | Med **Lägg till ny mappning**kan du välja att mappa lokalt sAMAccountName till SuccessFactors username-attribut. |
+   | 5 | userPrincipalName | [custom01 – custom15] | Med **Lägg till ny mappning** kan du välja att skriva userPrincipalName eller något Azure AD-attribut till ett anpassat attribut som är tillgängligt i SuccessFactors-användarobjektet.  |
+   | 6 | on-lokal-samAccountName | användarnamn | Med **Lägg till ny mappning** kan du välja att mappa lokalt sAMAccountName till SuccessFactors username-attribut. |
    | 7 | Enkel inloggning | loginMethod | Om SuccessFactors-klienten har kon figurer ATS för [partiell SSO](https://apps.support.sap.com/sap/support/knowledge/en/2320766)och använder Lägg till ny mappning, kan du ange loginMethod till ett konstant värde "SSO" eller "PWD". |
    | 8 | telephoneNumber | businessPhoneNumber | Använd den här mappningen för att flöda *telephoneNumber* från Azure AD till SuccessFactors Business/Work-telefonnumret. |
    | 9 | 10605 | businessPhoneType | Det här konstanta värdet är det SuccessFactors-ID-värde som är kopplat till företags telefonen. Uppdatera det här värdet för att matcha din SuccessFactors-miljö. I avsnittet [Hämta konstant värde för phoneType](#retrieve-constant-value-for-phonetype) finns anvisningar för hur du anger det här värdet. |
@@ -297,18 +297,18 @@ I det här avsnittet ska du konfigurera hur användar data flödar från Success
     >![Mappning av tillbakaskrivning av attribut](./media/sap-successfactors-inbound-provisioning/writeback-attribute-mapping.png)
 
 1. Klicka på **Spara** för att spara mappningarna. Nu ska vi uppdatera API-uttrycken JSON Path så att de använder phoneType-koderna i din SuccessFactors-instans. 
-1. Välj **visa avancerade alternativ**. 
+1. Välj **visa avancerade alternativ** . 
 
     >[!div class="mx-imgBorder"]
     >![Visa avancerade alternativ](./media/sap-successfactors-inbound-provisioning/show-advanced-options.png)
 
-1. Klicka på **Redigera attributlistan för SuccessFactors**. 
+1. Klicka på **Redigera attributlistan för SuccessFactors** . 
 
    > [!NOTE] 
    > Om alternativet **Redigera attributlistan för SuccessFactors** inte visas i Azure Portal använder du URL: en *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* för att komma åt sidan. 
 
 1. I kolumnen **API-uttryck** i den här vyn visas de JSON-sökvägar som används av anslutningen. 
-1. Uppdatera JSON Path-uttryck för företags telefon och mobil telefon för att använda ID-värdet (*businessPhoneType* och *cellPhoneType*) som motsvarar din miljö. 
+1. Uppdatera JSON Path-uttryck för företags telefon och mobil telefon för att använda ID-värdet ( *businessPhoneType* och *cellPhoneType* ) som motsvarar din miljö. 
 
     >[!div class="mx-imgBorder"]
     >![Ändra sökväg till telefon-JSON](./media/sap-successfactors-inbound-provisioning/phone-json-path-change.png)
@@ -322,11 +322,11 @@ När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings t
 > [!TIP]
 > Som standard när du aktiverar etablerings tjänsten kommer den att initiera etablerings åtgärder för alla användare i omfånget. Om det uppstår fel i mappnings-eller data problemen kan etablerings jobbet Miss Miss kan och gå in i karantäns tillstånd. För att undvika detta rekommenderar vi att du konfigurerar **käll objekt omfångs** filter och testar dina mappningar av attribut med några test användare innan du startar den fullständiga synkroniseringen för alla användare. När du har kontrollerat att mappningarna fungerar och ger dig önskade resultat kan du antingen ta bort filtret eller gradvis expandera det så att det innehåller fler användare.
 
-1. På fliken **etablering** ställer du in **etablerings status** på **på**.
+1. På fliken **etablering** ställer du in **etablerings status** på **på** .
 
-1. Välj **omfång**. Du kan välja något av följande alternativ: 
-   * **Synkronisera alla användare och grupper**: Välj det här alternativet om du planerar att skriva tillbaka mappade attribut för alla användare från Azure AD till SuccessFactors, enligt de definitions regler som definierats under **mappningar**  ->  **käll objekt omfånget**. 
-   * **Synkronisera endast tilldelade användare och grupper**: Välj det här alternativet om du planerar att skriva tillbaka mappade attribut för endast användare som du har tilldelat till **Application**det här programmet i  ->  **Manage**  ->  meny alternativet hantera**användare och grupper** i programmet. Dessa användare omfattas också av de definitions regler som definierats under **mappningar**  ->  **käll objekt omfånget**.
+1. Välj **omfång** . Du kan välja något av följande alternativ: 
+   * **Synkronisera alla användare och grupper** : Välj det här alternativet om du planerar att skriva tillbaka mappade attribut för alla användare från Azure AD till SuccessFactors, enligt de definitions regler som definierats under **mappningar**  ->  **käll objekt omfånget** . 
+   * **Synkronisera endast tilldelade användare och grupper** : Välj det här alternativet om du planerar att skriva tillbaka mappade attribut för endast användare som du har tilldelat till **Application** det här programmet i  ->  **Manage**  ->  meny alternativet hantera **användare och grupper** i programmet. Dessa användare omfattas också av de definitions regler som definierats under **mappningar**  ->  **käll objekt omfånget** .
 
    > [!div class="mx-imgBorder"]
    > ![Välj intervall för tillbakaskrivning](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
@@ -334,7 +334,7 @@ När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings t
    > [!NOTE]
    > SuccessFactors tillbakaskrivning-appen stöder inte grupp tilldelning. Endast användar tilldelning stöds. 
 
-1. Klicka på **Spara**.
+1. Klicka på **Spara** .
 
 1. Den här åtgärden startar den inledande synkroniseringen, vilket kan ta ett variabelt antal timmar beroende på hur många användare som finns i Azure AD-klienten och omfattningen som definierats för åtgärden. Du kan kontrol lera förlopps indikatorn för att följa synkroniseringens förlopp. 
 
@@ -356,4 +356,3 @@ Se avsnittet för [tillbakaskrivning av scenarier](../app-provisioning/sap-succe
 * [Lär dig hur du konfigurerar enkel inloggning mellan SuccessFactors och Azure Active Directory](successfactors-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](tutorial-list.md)
 * [Lär dig hur du exporterar och importerar dina etablerings konfigurationer](../app-provisioning/export-import-provisioning-configuration.md)
-

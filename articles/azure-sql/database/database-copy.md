@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 3aaa666ac6b7ddffcf5e0d2f5b62d26bd0f96004
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 99eea73add47b6498833de7bfd7728feb4c5c4ab
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516213"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671563"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en databas i Azure SQL Database
 
@@ -43,7 +43,7 @@ Om du använder inloggningar på servernivå för dataåtkomst och kopierar data
 
 ## <a name="copy-using-the-azure-portal"></a>Kopiera med Azure Portal
 
-Om du vill kopiera en databas med hjälp av Azure Portal öppnar du sidan för databasen och klickar sedan på **Kopiera**.
+Om du vill kopiera en databas med hjälp av Azure Portal öppnar du sidan för databasen och klickar sedan på **Kopiera** .
 
    ![Databaskopia](./media/database-copy/database-copy.png)
 
@@ -82,7 +82,7 @@ Databas kopieringen är en asynkron åtgärd, men mål databasen skapas direkt e
 
 Logga in på huvud databasen med Server Administratörs inloggning eller inloggning som skapade databasen som du vill kopiera. För att databas kopieringen ska lyckas måste inloggningar som inte är Server administratör vara medlemmar i `dbmanager` rollen. Mer information om inloggningar och anslutning till-servern finns i [Hantera inloggningar](logins-create-manage.md).
 
-Starta kopieringen av käll databasen med [create-databasen... SOM en kopia av](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) instruktionen. T-SQL-instruktionen fortsätter att köras tills databas kopierings åtgärden har slutförts.
+Starta kopieringen av käll databasen med [create-databasen... SOM en kopia av](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) instruktionen. T-SQL-instruktionen fortsätter att köras tills databas kopierings åtgärden har slutförts.
 
 > [!NOTE]
 > Om du avslutar T-SQL-instruktionen avbryts inte databas kopierings åtgärden. Avsluta åtgärden genom att släppa mål databasen.
@@ -143,13 +143,13 @@ Du kan använda stegen i avsnittet [Kopiera en SQL Database till en annan server
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Övervaka förloppet för kopierings åtgärden
 
-Övervaka kopierings processen genom att skicka frågor till vyerna [sys. databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)och [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . När kopieringen pågår är kolumnen **state_desc** i vyn sys. Databass för den nya databasen som **kopia.**
+Övervaka kopierings processen genom att skicka frågor till vyerna [sys. databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)och [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . När kopieringen pågår är kolumnen **state_desc** i vyn sys. Databass för den nya databasen som **kopia.**
 
-* Om kopieringen Miss lyckas är kolumnen **state_desc** i vyn sys. Databass för den nya databasen **misstänkt**. Kör DROP-instruktionen på den nya databasen och försök igen senare.
-* Om kopieringen lyckas anges kolumnen **state_desc** i vyn sys. Databass för den nya databasen som **online**. Kopieringen är klar och den nya databasen är en vanlig databas som kan ändras oberoende av käll databasen.
+* Om kopieringen Miss lyckas är kolumnen **state_desc** i vyn sys. Databass för den nya databasen **misstänkt** . Kör DROP-instruktionen på den nya databasen och försök igen senare.
+* Om kopieringen lyckas anges kolumnen **state_desc** i vyn sys. Databass för den nya databasen som **online** . Kopieringen är klar och den nya databasen är en vanlig databas som kan ändras oberoende av käll databasen.
 
 > [!NOTE]
-> Om du väljer att avbryta kopieringen medan den pågår kör du [Drop Database](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql) -instruktionen på den nya databasen.
+> Om du väljer att avbryta kopieringen medan den pågår kör du [Drop Database](/sql/t-sql/statements/drop-database-transact-sql) -instruktionen på den nya databasen.
 
 > [!IMPORTANT]
 > Om du behöver skapa en kopia med ett betydligt mindre tjänst mål än källan, kanske mål databasen inte har tillräckligt med resurser för att slutföra initierings processen och det kan leda till att kopieringen Miss lyckas. I det här scenariot använder du en geo-Restore-begäran för att skapa en kopia på en annan server och/eller en annan region. Mer information finns i [återställa en Azure SQL Database med hjälp av databas säkerhets kopior](recovery-using-backups.md#geo-restore) .
@@ -182,7 +182,7 @@ Om du vill se åtgärder under distributioner i resurs gruppen på portalen, må
 
 ## <a name="resolve-logins"></a>Lösa inloggningar
 
-När den nya databasen är online på mål servern använder du instruktionen [Alter User](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) för att mappa om användarna från den nya databasen till inloggningar på mål servern. Information om hur du löser överblivna användare finns i [Felsöka överblivna användare](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Se även [hur du hanterar Azure SQL Database säkerhet efter haveri beredskap](active-geo-replication-security-configure.md).
+När den nya databasen är online på mål servern använder du instruktionen [Alter User](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) för att mappa om användarna från den nya databasen till inloggningar på mål servern. Information om hur du löser överblivna användare finns i [Felsöka överblivna användare](/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Se även [hur du hanterar Azure SQL Database säkerhet efter haveri beredskap](active-geo-replication-security-configure.md).
 
 Alla användare i den nya databasen behåller de behörigheter som de hade i käll databasen. Den användare som initierade databas kopian blir databas ägaren till den nya databasen. När kopieringen är klar och innan andra användare mappas om kan bara databas ägaren logga in på den nya databasen.
 

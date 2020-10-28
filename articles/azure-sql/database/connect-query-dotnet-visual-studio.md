@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/10/2020
-ms.openlocfilehash: 30cf90f6020ecd4eb560ac0fe2886ff03c552d13
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a864b2b3e0379a8b0a1d67c97a63b3d5c52f9e58
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825572"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669709"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: använda .NET och C# i Visual Studio för att ansluta till och fråga en databas i Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ För att slutföra den här snabbstarten behöver du:
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - En databas i Azure SQL Database. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  | Action | SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
+  | Åtgärd | SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
   |:--- |:--- |:---|:---|
   | Skapa| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -55,7 +55,7 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen. Du
 
 2. Gå till sidan **SQL-databaser**  eller **SQL-hanterade instanser** .
 
-3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för en databas i Azure SQL Database eller det fullständigt kvalificerade Server namnet (eller IP-adressen) bredvid **värd** för en Azure SQL-hanterad instans eller SQL Server på Azure VM. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
+3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för en databas i Azure SQL Database eller det fullständigt kvalificerade Server namnet (eller IP-adressen) bredvid **värd** för en Azure SQL-hanterad instans eller SQL Server på Azure VM. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera** .
 
 > [!NOTE]
 > Anslutnings information för SQL Server på den virtuella Azure-datorn finns i [Anslut till en SQL Server instans](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
@@ -64,19 +64,19 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen. Du
 
 1. Skapa ett nytt projekt i Visual Studio. 
    
-1. I dialog rutan **nytt projekt** väljer du **Visual C#**, **konsol program (.NET Framework)**.
+1. I dialog rutan **nytt projekt** väljer du **Visual C#** , **konsol program (.NET Framework)** .
    
-1. Ange *sqltest* som projektnamn och välj sedan **OK**. Det nya projektet skapas. 
+1. Ange *sqltest* som projektnamn och välj sedan **OK** . Det nya projektet skapas. 
    
-1. Välj **projekt**  >  **Hantera NuGet-paket**. 
+1. Välj **projekt**  >  **Hantera NuGet-paket** . 
    
-1. I **NuGet Package Manager**väljer du fliken **Bläddra** och sedan söker du efter och väljer **Microsoft. data. SqlClient**.
+1. I **NuGet Package Manager** väljer du fliken **Bläddra** och sedan söker du efter och väljer **Microsoft. data. SqlClient** .
    
-1. På sidan **Microsoft. data. SqlClient** väljer du **Installera**. 
+1. På sidan **Microsoft. data. SqlClient** väljer du **Installera** . 
    - Välj **OK** för att fortsätta med installationen om du uppmanas att göra det. 
-   - Om ett fönster för **godkännande av licensen** visas väljer du **Jag accepterar**.
+   - Om ett fönster för **godkännande av licensen** visas väljer du **Jag accepterar** .
    
-1. När installationen har slutförts kan du stänga **NuGet-pakethanteraren**. 
+1. När installationen har slutförts kan du stänga **NuGet-pakethanteraren** . 
    
 1. Ersätt innehållet i **Program.cs** med följande kod i kodredigeraren. Ersätt värdena för `<your_server>` , `<your_username>` , `<your_password>` och `<your_database>` .
    
@@ -139,7 +139,7 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen. Du
 
 ## <a name="run-the-code"></a>Kör koden
 
-1. Om du vill köra appen väljer du **Felsök**  >  **Starta fel sökning**, eller så väljer du **Starta** i verktygsfältet eller trycker på **F5**.
+1. Om du vill köra appen väljer du **Felsök**  >  **Starta fel sökning** , eller så väljer du **Starta** i verktygsfältet eller trycker på **F5** .
 1. Kontrollera att de 20 främsta raderna för kategori/produkt från databasen returneras och stäng sedan appfönstret.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -147,11 +147,10 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen. Du
 - Lär dig hur du [ansluter och frågar en databas i Azure SQL Database med .net Core](connect-query-dotnet-core.md) på Windows/Linux/MacOS.  
 - Lär dig mer om att [Komma igång med .NET Core för Windows/Linux/macOS med hjälp av kommandoraden](/dotnet/core/tutorials/using-with-xplat-cli).
 - Lär dig hur du [utformar din första databas i Azure SQL Database genom att använda SSMS](design-first-database-tutorial.md) eller [utforma din första databas i Azure SQL Database med hjälp av .net](design-first-database-csharp-tutorial.md).
-- Mer information om .NET finns i [.NET-dokumentationen](https://docs.microsoft.com/dotnet/).
+- Mer information om .NET finns i [.NET-dokumentationen](/dotnet/).
 - Exempel på logik för omprövning: [ansluta elastiskt till Azure SQL med ADO.net][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
-
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net

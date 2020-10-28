@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eecd4220cdda471807e4b84261d7f76c31b9ba70
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824154"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672329"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Inställningar för Azure SQL-anslutning
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "91824154"
 Den här artikeln beskriver inställningar som styr anslutningen till servern för Azure SQL Database och Azure Synapse Analytics. Dessa inställningar gäller för **alla** SQL Database-och Azure Synapse-databaser som är kopplade till servern.
 
 > [!IMPORTANT]
-> Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser**.
+> Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser** .
 
 Anslutnings inställningarna är tillgängliga från skärmen **brand väggar och virtuella nätverk** , vilket visas på följande skärm bild:
 
@@ -33,14 +33,14 @@ Anslutnings inställningarna är tillgängliga från skärmen **brand väggar oc
 
 ## <a name="deny-public-network-access"></a>Neka åtkomst till offentligt nätverk
 
-Om alternativet **Neka åtkomst till offentligt nätverk** är inställt på **Ja**, tillåts bara anslutningar via privata slut punkter. När den här inställningen är **Nej** (standard) kan klienter ansluta med hjälp av antingen offentliga slut punkter (IP-baserade brand Väggs regler, VNet-baserade brand Väggs regler) eller privata slut punkter (med privat länk) enligt beskrivningen i [Översikt över nätverks åtkomst](network-access-controls-overview.md). 
+Om alternativet **Neka åtkomst till offentligt nätverk** är inställt på **Ja** , tillåts bara anslutningar via privata slut punkter. När den här inställningen är **Nej** (standard) kan klienter ansluta med hjälp av antingen offentliga slut punkter (IP-baserade brand Väggs regler, VNet-baserade brand Väggs regler) eller privata slut punkter (med privat länk) enligt beskrivningen i [Översikt över nätverks åtkomst](network-access-controls-overview.md). 
 
  ![Skärm bild av anslutning med neka offentlig nätverks åtkomst][2]
 
 Försök att ställa in **neka offentlig nätverks åtkomst** inställning till **Ja** utan att befintliga privata slut punkter på den logiska servern kommer att Miss lyckas med ett fel meddelande som liknar:  
 
 > [!NOTE]
-> Ange **neka offentlig nätverks åtkomst** till **Nej**om du vill definiera brand Väggs regler för virtuella nätverk på en logisk server som redan har kon figurer ATS med privata slut punkter.
+> Ange **neka offentlig nätverks åtkomst** till **Nej** om du vill definiera brand Väggs regler för virtuella nätverk på en logisk server som redan har kon figurer ATS med privata slut punkter.
 
 ```output
 Error 42102
@@ -48,7 +48,7 @@ Unable to set Deny Public Network Access to Yes since there is no private endpoi
 Please set up private endpoints and retry the operation. 
 ```
 
-Om alternativet **Neka åtkomst till offentliga nätverk** är inställt på **Ja**tillåts bara anslutningar via privata slut punkter och alla anslutningar via offentliga slut punkter nekas med ett fel meddelande som liknar:  
+Om alternativet **Neka åtkomst till offentliga nätverk** är inställt på **Ja** tillåts bara anslutningar via privata slut punkter och alla anslutningar via offentliga slut punkter nekas med ett fel meddelande som liknar:  
 
 ```output
 Error 47073
@@ -57,7 +57,7 @@ The public network interface on this server is not accessible.
 To connect to this server, use the Private Endpoint from inside your virtual network.
 ```
 
-Om alternativet **Neka åtkomst till offentliga nätverk** är inställt på **Ja**nekas försök att lägga till eller uppdatera brand Väggs regler med ett fel meddelande som liknar följande:
+Om alternativet **Neka åtkomst till offentliga nätverk** är inställt på **Ja** nekas försök att lägga till eller uppdatera brand Väggs regler med ett fel meddelande som liknar följande:
 
 ```output
 Error 42101
@@ -68,7 +68,7 @@ To manage server or database level firewall rules, please enable the public netw
 ## <a name="change-public-network-access-via-powershell"></a>Ändra offentlig nätverks åtkomst via PowerShell
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Följande skript kräver Azure PowerShell- [modulen](/powershell/azure/install-az-ps).
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Följande skript kräver Azure PowerShell- [modulen](/powershell/azure/install-az-ps).
 
 Följande PowerShell-skript visar hur du `Get` och `Set` den **offentliga nätverks åtkomst** egenskapen på server nivå:
 
@@ -85,7 +85,7 @@ Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group 
 ## <a name="change-public-network-access-via-cli"></a>Ändra offentlig nätverks åtkomst via CLI
 
 > [!IMPORTANT]
-> Alla skript i det här avsnittet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Alla skript i det här avsnittet kräver [Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI i ett bash-gränssnitt
 
@@ -124,7 +124,7 @@ Login failed with invalid TLS version
 ## <a name="set-minimal-tls-version-via-powershell"></a>Ange minimal TLS-version via PowerShell
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Följande skript kräver Azure PowerShell- [modulen](/powershell/azure/install-az-ps).
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Följande skript kräver Azure PowerShell- [modulen](/powershell/azure/install-az-ps).
 
 Följande PowerShell-skript visar hur du `Get` och `Set` egenskapen **minimal TLS-version** på den logiska Server nivån:
 
@@ -141,7 +141,7 @@ Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group 
 ## <a name="set-minimal-tls-version-via-azure-cli"></a>Ange minimal TLS-version via Azure CLI
 
 > [!IMPORTANT]
-> Alla skript i det här avsnittet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Alla skript i det här avsnittet kräver [Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI i ett bash-gränssnitt
 
@@ -164,7 +164,7 @@ az sql server update -n sql-server-name -g sql-server-group --set minimalTlsVers
 ## <a name="change-connection-policy-via-powershell"></a>Ändra anslutnings princip via PowerShell
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Följande skript kräver Azure PowerShell- [modulen](/powershell/azure/install-az-ps).
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Följande skript kräver Azure PowerShell- [modulen](/powershell/azure/install-az-ps).
 
 Följande PowerShell-skript visar hur du ändrar anslutnings principen med hjälp av PowerShell:
 
@@ -185,7 +185,7 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ## <a name="change-connection-policy-via-azure-cli"></a>Ändra anslutnings princip via Azure CLI
 
 > [!IMPORTANT]
-> Alla skript i det här avsnittet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> Alla skript i det här avsnittet kräver [Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI i ett bash-gränssnitt
 
@@ -223,7 +223,7 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt över hur anslutningen fungerar i Azure SQL Database finns i [anslutnings arkitektur](connectivity-architecture.md)
-- Information om hur du ändrar anslutnings principen för en server finns i avsnittet om att ansluta [-princip](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- Information om hur du ändrar anslutnings principen för en server finns i avsnittet om att ansluta [-princip](/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
 [1]: media/single-database-create-quickstart/manage-connectivity-settings.png

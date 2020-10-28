@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8019c049d830df0c2f3301a450eed60145c8eab3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02294d4832224f1c94a4c586f3dcc455255bfbbf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89570481"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670110"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Översikt över princip nycklar i Azure Active Directory B2C
 
@@ -34,13 +34,13 @@ Du kan konfigurera hemligheter och certifikat för att upprätta förtroende mel
 
 ## <a name="policy-keyset-and-keys"></a>Princip-Keys och nycklar
 
-Resursen på den översta nivån för princip nycklar i Azure AD B2C är behållaren **nyckel uppsättning** . Varje nyckel uppsättning innehåller minst en **nyckel**. En nyckel har följande attribut:
+Resursen på den översta nivån för princip nycklar i Azure AD B2C är behållaren **nyckel uppsättning** . Varje nyckel uppsättning innehåller minst en **nyckel** . En nyckel har följande attribut:
 
 | Attribut |  Krävs | Kommentarer |
 | --- | --- |--- |
 | `use` | Ja | Användning: identifierar den avsedda användningen av den offentliga nyckeln. Kryptera data `enc` eller verifiera signaturen på data `sig` .|
-| `nbf`| Inga | Datum och tid för aktivering. |
-| `exp`| Inga | Förfallo datum och-tid. |
+| `nbf`| Nej | Datum och tid för aktivering. |
+| `exp`| Nej | Förfallo datum och-tid. |
 
 Vi rekommenderar att du ställer in värdena för nyckel aktivering och förfallo datum enligt dina PKI-standarder. Du kan behöva rotera certifikaten regelbundet för säkerhets-eller princip orsaker. Du kan till exempel ha en princip för att rotera alla dina certifikat varje år.
 
@@ -58,7 +58,7 @@ Av säkerhets synpunkt kan Azure AD B2C regelbundet förnya nycklar eller direkt
 
 Om en Azure AD B2C nyckel uppsättning har flera nycklar, är det bara en av nycklarna som är aktiv i taget, baserat på följande kriterier:
 
-- Nyckel aktiveringen baseras på **aktiverings datumet**.
+- Nyckel aktiveringen baseras på **aktiverings datumet** .
   - Nycklarna sorteras efter aktiverings datum i stigande ordning. Nycklar med aktiverings datum längre fram i framtiden visas lägre i listan. Nycklar utan aktiverings datum finns längst ned i listan.
   - När aktuellt datum och tid är större än en nyckels aktiverings datum aktiverar Azure AD B2C nyckeln och slutar använda den tidigare aktiva nyckeln.
 - När den aktuella nyckelns förfallo tid har förflutit och nyckel behållaren innehåller en ny nyckel som är giltig för *inte före* och *utgångs* tid, aktive ras den nya nyckeln automatiskt.
@@ -73,11 +73,18 @@ Lägga till eller ta bort signerings-och krypterings nycklar:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
-1. På sidan Översikt, under **principer**, väljer du **Identity Experience Framework**.
+1. I Azure Portal söker du efter och väljer **Azure AD B2C** .
+1. På sidan Översikt, under **principer** , väljer du **Identity Experience Framework** .
 1. Välj **princip nycklar** 
-    1. Om du vill lägga till en ny nyckel väljer du **Lägg till**.
-    1. Om du vill ta bort en ny nyckel markerar du nyckeln och väljer sedan **ta bort**. Om du vill ta bort nyckeln skriver du namnet på den nyckel behållare som ska tas bort. Azure AD B2C tar bort nyckeln och skapar en kopia av nyckeln med suffixet. bak.
+    1. Om du vill lägga till en ny nyckel väljer du **Lägg till** .
+    1. Om du vill ta bort en ny nyckel markerar du nyckeln och väljer sedan **ta bort** . Om du vill ta bort nyckeln skriver du namnet på den nyckel behållare som ska tas bort. Azure AD B2C tar bort nyckeln och skapar en kopia av nyckeln med suffixet. bak.
+
+### <a name="replace-a-key"></a>Ersätta en nyckel
+
+Nycklarna i en nyckel uppsättning är inte utbytbara eller flyttbara. Om du behöver ändra en befintlig nyckel:
+
+- Vi rekommenderar att du lägger till en ny nyckel med **aktiverings datumet** inställt på aktuellt datum och aktuell tid. Azure AD B2C aktiverar den nya nyckeln och slutar använda den tidigare aktiva nyckeln.
+- Du kan också skapa en ny nyckel uppsättning med rätt nycklar. Uppdatera principen för att använda den nya nyckel uppsättningen och ta sedan bort den gamla nyckel uppsättningen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

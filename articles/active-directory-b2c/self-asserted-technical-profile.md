@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a4e76e3924b1b14660dce8a3b58f7dd5b2715eec
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096223"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670131"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en egen kontrollerad teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -53,7 +53,7 @@ I en självkontrollerad teknisk profil kan du använda elementen **InputClaims**
 
 ## <a name="display-claims"></a>Visa anspråk
 
-Funktionen Visa anspråk är för närvarande en för **hands version**.
+Funktionen Visa anspråk är för närvarande en för **hands version** .
 
 **DisplayClaims** -elementet innehåller en lista över anspråk som ska visas på skärmen för insamling av data från användaren. Om du vill förkonfigurera värden för visnings anspråk använder du de inloggade anspråk som tidigare beskrivits. Elementet kan också innehålla ett standardvärde.
 
@@ -114,7 +114,7 @@ Om en princip för löv som ärver den basen sedan anger `officeNumber` som ett 
 </TechnicalProfile>
 ```
 
-`age`Anspråket i bas principen visas inte längre på skärmen för användaren – det är i själva verket "dolt". Om du vill visa `age` anspråket och samla in värdet för ålder från användaren, måste du lägga till en `age` **DisplayClaim**.
+`age`Anspråket i bas principen visas inte längre på skärmen för användaren – det är i själva verket "dolt". Om du vill visa `age` anspråket och samla in värdet för ålder från användaren, måste du lägga till en `age` **DisplayClaim** .
 
 ## <a name="output-claims"></a>Utgående anspråk
 
@@ -133,10 +133,10 @@ I en självkontrollerad teknisk profil, returnerar utgående anspråks samlingen
 
 Använd utgående anspråk när:
 
-- **Anspråk är utdata genom omvandling av utgående anspråk**.
+- **Anspråk är utdata genom omvandling av utgående anspråk** .
 - **Ange ett standardvärde i ett utgående anspråk** utan att samla in data från användaren eller returnera data från den tekniska verifierings profilen. Den `LocalAccountSignUpWithLogonEmail` självkontrollerade tekniska profilen anger **SelfAsserted-ingångs** anspråk till `true` .
 - **En teknisk verifierings profil returnerar utgående anspråk** – din tekniska profil kan anropa en teknisk validerings profil som returnerar vissa anspråk. Du kanske vill bubbla upp anspråken och returnera dem till nästa steg för att dirigera i användar resan. När du till exempel loggar in med ett lokalt konto anropar den självkontrollerade tekniska profilen `SelfAsserted-LocalAccountSignin-Email` den tekniska verifierings profilen med namnet `login-NonInteractive` . Den här tekniska profilen verifierar användarens autentiseringsuppgifter och returnerar även användar profilen. Som userPrincipalName, displayName, givenName och efter namn.
-- **En visnings kontroll returnerar utgående anspråk** – din tekniska profil kan ha en referens till en [visnings kontroll](display-controls.md). Visnings kontrollen returnerar vissa anspråk, till exempel den verifierade e-postadressen. Du kanske vill bubbla upp anspråken och returnera dem till nästa steg för att dirigera i användar resan. Funktionen Visa kontroll är för närvarande en för **hands version**.
+- **En visnings kontroll returnerar utgående anspråk** – din tekniska profil kan ha en referens till en [visnings kontroll](display-controls.md). Visnings kontrollen returnerar vissa anspråk, till exempel den verifierade e-postadressen. Du kanske vill bubbla upp anspråken och returnera dem till nästa steg för att dirigera i användar resan. Funktionen Visa kontroll är för närvarande en för **hands version** .
 
 I följande exempel demonstreras användningen av en självkontrollerad teknisk profil som använder både Visa anspråk och utgående anspråk.
 
@@ -175,6 +175,14 @@ I följande exempel demonstreras användningen av en självkontrollerad teknisk 
 </TechnicalProfile>
 ```
 
+### <a name="output-claims-sign-up-or-sign-in-page"></a>Registrerings-eller inloggnings sida för utgående anspråk
+
+Observera följande när du använder ett [DataUri](contentdefinitions.md#datauri) -element för innehålls definition i en kombinerad registrerings-och inloggnings sida: anger en `unifiedssp` eller en `unifiedssd` typ av sida:
+
+- Endast användar namn och lösen ord-anspråk återges.
+- De två första utgående anspråken måste vara användar namn och lösen ord (i den här ordningen). 
+- Alla andra anspråk återges inte. för dessa anspråk måste du antingen ange `defaultValue` en teknisk profil för eller anropa ett anspråks formulär validering. 
+
 ## <a name="persist-claims"></a>Kvarhåll anspråk
 
 PersistedClaims-elementet används inte. Den självkontrollerade tekniska profilen sparar inte data till Azure AD B2C. I stället görs ett anrop till en teknisk verifierings profil som ansvarar för att spara data. Exempelvis använder registrerings principen den `LocalAccountSignUpWithLogonEmail` självkontrollerade tekniska profilen för att samla in den nya användar profilen. Den `LocalAccountSignUpWithLogonEmail` tekniska profilen anropar verifieringens tekniska profil för att skapa kontot i Azure AD B2C.
@@ -203,7 +211,7 @@ Du kan också anropa en REST API teknisk profil med din affärs logik, skriva ö
 | Setting. forgotPasswordLinkLocation <sup>2</sup>| Nej| Visar länken Glömt lösen ord. Möjliga värden: `AfterInput` (standard) länken visas längst ned på sidan eller `None` tar bort länken Glömt lösen ord.|
 | Setting. enableRememberMe <sup>2</sup>| Nej| Visar kryss rutan [Håll mig inloggad](custom-policy-keep-me-signed-in.md) . Möjliga värden: `true` , eller `false` (standard). |
 | Setting. inputVerificationDelayTimeInMilliseconds <sup>3</sup>| Nej| Förbättrar användar upplevelsen genom att vänta på att användaren slutar att skriva och sedan validera värdet. Standardvärde 2000 millisekunder. |
-| IncludeClaimResolvingInClaimsHandling  | Nej | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true` , eller `false`   (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true` . |
+| IncludeClaimResolvingInClaimsHandling  | Nej | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true` , eller `false` (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true` . |
 
 Obs!
 1. Tillgängligt för innehålls definitionens [DataUri](contentdefinitions.md#datauri) `unifiedssp` -typ, eller `unifiedssd` .

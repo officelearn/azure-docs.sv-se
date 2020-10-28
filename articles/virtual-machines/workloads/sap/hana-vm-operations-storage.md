@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9194b461cdceab889e1dfd20e3e70f3f69cb4369
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0861d1fd3ab2a378f0b9afc4e8b35b32badfc3db
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978262"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670663"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
@@ -44,9 +44,9 @@ Lägsta SAP HANA certifierade villkor för olika lagrings typer är:
 
 - Azure Premium Storage – **/Hana/log** krävs för att Azure [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md)ska kunna användas. **/Hana/data** -volymen kan placeras på Premium Storage utan Azure Skrivningsaccelerator eller på Ultra disk
 - Azure Ultra disk minst för **/Hana/log** -volymen. **/Hana/data** -volymen kan placeras på antingen Premium Storage utan Azure Skrivningsaccelerator eller för att få snabbare omstart Ultra disk
-- **NFS v 4.1** -volymer ovanpå Azure NetApp Files för **/Hana/log och/Hana/data**. Volymen av/Hana/Shared kan använda NFS v3-eller NFS v 4.1-protokollet
+- **NFS v 4.1** -volymer ovanpå Azure NetApp Files för **/Hana/log och/Hana/data** . Volymen av/Hana/Shared kan använda NFS v3-eller NFS v 4.1-protokollet
 
-Några av lagrings typerna kan kombineras. Det är till exempel möjligt att placera **/Hana/data** till Premium Storage och **/Hana/log** kan placeras på Ultra disk Storage för att få en nödvändig låg latens. Om du använder en volym som baseras på ANF för **/Hana/data**måste  **/Hana/log** -volymen baseras på NFS även ovanpå ANF. Att använda NFS ovanpå ANF för en av volymerna (t. ex./Hana/data) och Azure Premium-lagring eller Ultra disk för den andra volymen (t. ex. **/Hana/log**) **stöds inte**.
+Några av lagrings typerna kan kombineras. Det är till exempel möjligt att placera **/Hana/data** till Premium Storage och **/Hana/log** kan placeras på Ultra disk Storage för att få en nödvändig låg latens. Om du använder en volym som baseras på ANF för **/Hana/data** måste  **/Hana/log** -volymen baseras på NFS även ovanpå ANF. Att använda NFS ovanpå ANF för en av volymerna (t. ex./Hana/data) och Azure Premium-lagring eller Ultra disk för den andra volymen (t. ex. **/Hana/log** ) **stöds inte** .
 
 I den lokala världen var du sällan medveten om I/O-undersystemen och dess funktioner. Orsaken var att den nödvändiga enhets leverantören för att se till att minimi kraven för lagring är uppfyllda för SAP HANA. När du skapar Azure-infrastrukturen själv bör du vara medveten om några av dessa SAP-utfärdade krav. Några av de minsta data flödes egenskaper som SAP rekommenderar är:
 
@@ -93,7 +93,7 @@ Rekommendationerna för cachelagring för Azure Premium-diskar nedan förutsätt
 - **OS-disk** – ändra inte standardvärdet för cachelagring som anges av Azure när den virtuella datorn skapades
 
 
-Om du använder LVM eller mdadm för att skapa stripe-uppsättningar över flera Azure Premium-diskar måste du definiera stripe-storlekar. Dessa storlekar skiljer sig mellan **/Hana/data** och **/Hana/log**. **Rekommendation: som en rand storlek rekommenderar vi att du använder:**
+Om du använder LVM eller mdadm för att skapa stripe-uppsättningar över flera Azure Premium-diskar måste du definiera stripe-storlekar. Dessa storlekar skiljer sig mellan **/Hana/data** och **/Hana/log** . **Rekommendation: som en rand storlek rekommenderar vi att du använder:**
 
 - 256 KB för **/Hana/data**
 - 64 KB för **/Hana/log**
@@ -143,36 +143,36 @@ Särskilt i mindre DBMS-system där din arbets belastning hanterar några hundra
 
 Konfiguration för SAP **/Hana/data** -volym:
 
-| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | /hana/data | Maximalt burst-genomflöde | IOPS | Burst IOPS |
+| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | /hana/data | Etablerat dataflöde | Maximalt burst-genomflöde | IOPS | Burst IOPS |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 GiB | 500 Mbit/s | 4 x P6 | 680 Mbit/s | 960 | 14 000 |
-| M32ls | 256 GiB | 500 Mbit/s | 4 x P6 | 680 Mbit/s | 960 | 14 000 |
-| M64ls | 512 GiB | 1 000 Mbit/s | 4 x P10 |  680 Mbit/s | 2 000 | 14 000 |
-| M64s | 1 000 GiB | 1 000 Mbit/s | 4 x p15 | 680 Mbit/s | 4 400 | 14 000 |
-| M64ms | 1 750 GiB | 1 000 Mbit/s | 4 x P20 | 680 Mbit/s | 9 200 | 14 000 |  
-| M128s | 2 000 GiB | 2 000 Mbit/s | 4 x P20 | 680 Mbit/s | 9 200| 14 000 | 
-| M128ms | 3 800 GiB | 2 000 Mbit/s | 4 x P30 | 800 Mbit/s (etablerad) | 20 000 | ingen burst | 
-| M208s_v2 | 2 850 GiB | 1 000 Mbit/s | 4 x P30 | 800 Mbit/s (etablerad) | 20 000| ingen burst | 
-| M208ms_v2 | 5 700 GiB | 1 000 Mbit/s | 4 x P40 | 1 000 Mbit/s (etablerad) | 25,000 | ingen burst |
-| M416s_v2 | 5 700 GiB | 2 000 Mbit/s | 4 x P40 | 1 000 Mbit/s (etablerad) | 25,000 | ingen burst |
-| M416ms_v2 | 11 400 GiB | 2 000 Mbit/s | 4 x P50 | 2 000 Mbit/s (etablerad) | 25,000 | ingen burst |
+| M32ts | 192 GiB | 500 Mbit/s | 4 x P6 | 200 Mbit/s | 680 Mbit/s | 960 | 14 000 |
+| M32ls | 256 GiB | 500 Mbit/s | 4 x P6 | 200 Mbit/s | 680 Mbit/s | 960 | 14 000 |
+| M64ls | 512 GiB | 1 000 Mbit/s | 4 x P10 | 400 Mbit/s | 680 Mbit/s | 2 000 | 14 000 |
+| M64s | 1 000 GiB | 1 000 Mbit/s | 4 x p15 | 500 Mbit/s | 680 Mbit/s | 4 400 | 14 000 |
+| M64ms | 1 750 GiB | 1 000 Mbit/s | 4 x P20 | 600 Mbit/s | 680 Mbit/s | 9 200 | 14 000 |  
+| M128s | 2 000 GiB | 2 000 Mbit/s | 4 x P20 | 600 Mbit/s | 680 Mbit/s | 9 200| 14 000 | 
+| M128ms | 3 800 GiB | 2 000 Mbit/s | 4 x P30 | 800 Mbit/s | ingen mellanburst | 20 000 | ingen mellanburst | 
+| M208s_v2 | 2 850 GiB | 1 000 Mbit/s | 4 x P30 | 800 Mbit/s | ingen mellanburst | 20 000| ingen mellanburst | 
+| M208ms_v2 | 5 700 GiB | 1 000 Mbit/s | 4 x P40 | 1 000 Mbit/s | ingen mellanburst | 30 000 | ingen mellanburst |
+| M416s_v2 | 5 700 GiB | 2 000 Mbit/s | 4 x P40 | 1 000 Mbit/s | ingen mellanburst | 30 000 | ingen mellanburst |
+| M416ms_v2 | 11 400 GiB | 2 000 Mbit/s | 4 x P50 | 2 000 Mbit/s | ingen mellanburst | 30 000 | ingen mellanburst |
 
 
 För **/Hana/log** -volymen. konfigurationen skulle se ut så här:
 
-| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | **/Hana/log** volym | Maximalt burst-genomflöde | IOPS | Burst IOPS |
+| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | **/Hana/log** volym | Etablerat dataflöde | Maximalt burst-genomflöde | IOPS | Burst IOPS |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 GiB | 500 Mbit/s | 3 x P10 | 510 Mbit/s | 1500 | 10 500 | 
-| M32ls | 256 GiB | 500 Mbit/s | 3 x P10 | 510 Mbit/s | 1500 | 10 500 | 
-| M64ls | 512 GiB | 1 000 Mbit/s | 3 x P10 | 510 Mbit/s | 1500 | 10 500 | 
-| M64s | 1 000 GiB | 1 000 Mbit/s | 3 x p15 | 510 Mbit/s | 3 300 | 10 500 | 
-| M64ms | 1 750 GiB | 1 000 Mbit/s | 3 x p15 | 510 Mbit/s | 3 300 | 10 500 |  
-| M128s | 2 000 GiB | 2 000 Mbit/s | 3 x p15 | 510 Mbit/s | 3 300 | 10 500|  
-| M128ms | 3 800 GiB | 2 000 Mbit/s | 3 x p15 | 510 Mbit/s | 3 300 | 10 500 | 
-| M208s_v2 | 2 850 GiB | 1 000 Mbit/s | 3 x p15 | 510 Mbit/s | 3 300 | 10 500 |  
-| M208ms_v2 | 5 700 GiB | 1 000 Mbit/s | 3 x p15 | 510 Mbit/s | 3 300 | 10 500 |  
-| M416s_v2 | 5 700 GiB | 2 000 Mbit/s | 3 x p15 | 510 Mbit/s | 3 300 | 10 500 |  
-| M416ms_v2 | 11 400 GiB | 2 000 Mbit/s | 3 x p15 | 510 Mbit/s | 3 300 | 10 500 | 
+| M32ts | 192 GiB | 500 Mbit/s | 3 x P10 | 300 Mbit/s | 510 Mbit/s | 1500 | 10 500 | 
+| M32ls | 256 GiB | 500 Mbit/s | 3 x P10 | 300 Mbit/s | 510 Mbit/s | 1500 | 10 500 | 
+| M64ls | 512 GiB | 1 000 Mbit/s | 3 x P10 | 300 Mbit/s | 510 Mbit/s | 1500 | 10 500 | 
+| M64s | 1 000 GiB | 1 000 Mbit/s | 3 x p15 | 375 Mbit/s | 510 Mbit/s | 3 300 | 10 500 | 
+| M64ms | 1 750 GiB | 1 000 Mbit/s | 3 x p15 | 375 Mbit/s | 510 Mbit/s | 3 300 | 10 500 |  
+| M128s | 2 000 GiB | 2 000 Mbit/s | 3 x p15 | 375 Mbit/s | 510 Mbit/s | 3 300 | 10 500|  
+| M128ms | 3 800 GiB | 2 000 Mbit/s | 3 x p15 | 375 Mbit/s | 510 Mbit/s | 3 300 | 10 500 | 
+| M208s_v2 | 2 850 GiB | 1 000 Mbit/s | 3 x p15 | 375 Mbit/s | 510 Mbit/s | 3 300 | 10 500 |  
+| M208ms_v2 | 5 700 GiB | 1 000 Mbit/s | 3 x p15 | 375 Mbit/s | 510 Mbit/s | 3 300 | 10 500 |  
+| M416s_v2 | 5 700 GiB | 2 000 Mbit/s | 3 x p15 | 375 Mbit/s | 510 Mbit/s | 3 300 | 10 500 |  
+| M416ms_v2 | 11 400 GiB | 2 000 Mbit/s | 3 x p15 | 375 Mbit/s | 510 Mbit/s | 3 300 | 10 500 | 
 
 
 För de andra volymerna skulle konfigurationen se ut så här:
@@ -192,19 +192,19 @@ För de andra volymerna skulle konfigurationen se ut så här:
 | M416ms_v2 | 11 400 GiB | 2 000 Mbit/s | 1 x P30 | 1 x P10 | 1 x P6 | 
 
 
-Kontrol lera om lagrings data flödet för de olika föreslagna volymerna uppfyller den arbets belastning som du vill köra. Om arbets belastningen kräver högre volymer för **/Hana/data** och **/Hana/log**måste du öka antalet virtuella hård diskar för Azure Premium Storage. Att ändra storlek på en volym med fler virtuella hård diskar än vad som anges i listan ökar IOPS-och I/O-genomflödet inom gränserna för den virtuella Azure-dator typen.
+Kontrol lera om lagrings data flödet för de olika föreslagna volymerna uppfyller den arbets belastning som du vill köra. Om arbets belastningen kräver högre volymer för **/Hana/data** och **/Hana/log** måste du öka antalet virtuella hård diskar för Azure Premium Storage. Att ändra storlek på en volym med fler virtuella hård diskar än vad som anges i listan ökar IOPS-och I/O-genomflödet inom gränserna för den virtuella Azure-dator typen.
 
 Azure-Skrivningsaccelerator fungerar bara tillsammans med [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Minst de Azure Premium Storage-diskar som utgör **/Hana/log** -volymen måste distribueras som hanterade diskar. Mer detaljerade instruktioner och begränsningar för Azure Skrivningsaccelerator finns i artikeln [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md).
 
 För de HANA-certifierade virtuella datorerna i Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) -familjen och [EDSV4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series)måste du ANF för **/Hana/data** -och **/Hana/log** -volymen. Eller så behöver du utnyttja Azure Ultra disk Storage i stället för Azure Premium Storage för **/Hana/log** -volymen. Därför kan konfigurationerna för **/Hana/data** -volymen på Azure Premium Storage se ut så här:
 
-| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | /hana/data | Maximalt burst-genomflöde | IOPS | Burst IOPS |
+| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | /hana/data | Etablerat dataflöde | Maximalt burst-genomflöde | IOPS | Burst IOPS |
 | --- | --- | --- | --- | --- | --- | --- |
-| E20ds_v4 | 160 GiB | 480 Mbit/s | 3 x P10 | 510 Mbit/s | 1500 | 10 500 |
-| E32ds_v4 | 256 GiB | 768 Mbit/s | 3 x P10 |  510 Mbit/s | 1500 | 10 500|
-| E48ds_v4 | 384 GiB | 1 152 Mbit/s | 3 x p15 |  510 Mbit/s | 3 300  | 10 500 | 
-| E64ds_v4 | 504 GiB | 1 200 Mbit/s | 3 x p15 |  510 Mbit/s | 3 300 | 10 500 | 
-| E64s_v3 | 432 GiB | 1 200 MB/s | 3 x p15 |  510 Mbit/s | 3 300 | 10 500 | 
+| E20ds_v4 | 160 GiB | 480 Mbit/s | 3 x P10 | 300 Mbit/s | 510 Mbit/s | 1500 | 10 500 |
+| E32ds_v4 | 256 GiB | 768 Mbit/s | 3 x P10 |  300 Mbit/s | 510 Mbit/s | 1500 | 10 500|
+| E48ds_v4 | 384 GiB | 1 152 Mbit/s | 3 x p15 |  375 Mbit/s |510 Mbit/s | 3 300  | 10 500 | 
+| E64ds_v4 | 504 GiB | 1 200 Mbit/s | 3 x p15 |  375 Mbit/s | 510 Mbit/s | 3 300 | 10 500 | 
+| E64s_v3 | 432 GiB | 1 200 MB/s | 3 x p15 |  375 Mbit/s | 510 Mbit/s | 3 300 | 10 500 | 
 
 För de andra volymerna, inklusive **/Hana/log** på Ultra disk, kan konfigurationen se ut så här:
 

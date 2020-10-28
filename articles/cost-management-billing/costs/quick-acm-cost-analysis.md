@@ -3,18 +3,18 @@ title: Snabbstart – Utforska Azure-kostnader med kostnadsanalys
 description: Den här snabbstarten hjälper dig att använda kostnadsanalys för att utforska och analysera dina Azure-organisationskostnader.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 10/26/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: seodec18
-ms.openlocfilehash: 62651f611654fa601752308ac2fa7f4c388297d6
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.custom: contentperfq2
+ms.openlocfilehash: 31a95d8c02ee540fe6b52088159f04535c39ea93
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132847"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676846"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -42,7 +42,7 @@ Om du har en ny prenumeration kan du inte använda Cost Management-funktioner di
 
 ## <a name="review-costs-in-cost-analysis"></a>Granska kostnader i kostnadsanalys
 
-Om du vill granska kostnaderna i kostnadsanalys öppnar du omfånget i Azure-portalen och väljer **Kostnadsanalys** på menyn. Du kan till exempel gå till **Prenumerationer**, välja en prenumeration i listan och sedan välja **Kostnadsanalys** på menyn. Använd reglaget **Omfång** för att växla till ett annat omfång i kostnadsanalysen. Mer information om omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
+Om du vill granska kostnaderna i kostnadsanalys öppnar du omfånget i Azure-portalen och väljer **Kostnadsanalys** på menyn. Du kan till exempel gå till **Prenumerationer** , välja en prenumeration i listan och sedan välja **Kostnadsanalys** på menyn. Använd reglaget **Omfång** för att växla till ett annat omfång i kostnadsanalysen.
 
 Det omfång som du väljer används i hela Cost Management för att ge datakonsolidering och styra åtkomsten till kostnadsinformation. När du använder omfång så använder du inte flerval för dem. I stället väljer du ett större omfång som andra ackumuleras till, och sedan filtrerar du ned till de kapslade omfång du behöver. Den här metoden är viktig att förstå eftersom vissa personer kanske inte har åtkomst till ett enda överordnat omfång som täcker flera kapslade omfång.
 
@@ -52,15 +52,15 @@ Lär dig hur du arbetar med kostnadsanalyser i videon om [Cost Management på Az
 
 Den initiala kostnadsanalysvyn innehåller följande områden.
 
-**Vy över ackumulerade kostnader**: Representerar konfigurationen för den fördefinierade vyn för kostnadsanalys. Varje vy innehåller inställningar för datumintervall, kornighet, gruppera efter och filter. Standardvyn visar ackumulerade kostnader för den aktuella faktureringsperioden, men du kan ändra till andra inbyggda vyer. Mer information finns i [Anpassa kostnadsvyer](#customize-cost-views).
+**Vy över ackumulerade kostnader** : Representerar konfigurationen för den fördefinierade vyn för kostnadsanalys. Varje vy innehåller inställningar för datumintervall, kornighet, gruppera efter och filter. Standardvyn visar ackumulerade kostnader för den nuvarande faktureringsperioden, men du kan ändra till andra inbyggda vyer.
 
-**Faktisk kostnad**: Visar den totala förbruknings- och inköpskostnaden för den aktuella månaden, allteftersom de påförs och visas på fakturan.
+**Faktisk kostnad** : Visar den totala förbruknings- och inköpskostnaden för den aktuella månaden, allteftersom de påförs och visas på fakturan.
 
-**Prognos**: Visar de totala prognostiserade kostnaderna för den tidsperiod som du väljer.
+**Prognos** : Visar de totala prognostiserade kostnaderna för den tidsperiod som du väljer.
 
-**Budget**: Visar den planerade utgiftsgränsen för det valda omfånget, om en sådan är tillgänglig.
+**Budget** : Visar den planerade utgiftsgränsen för det valda omfånget, om en sådan är tillgänglig.
 
-**Ackumulerad kornighet**: Visar totalsumman för dagliga kostnader från början av faktureringsperioden. När du har [skapat en budget](tutorial-acm-create-budgets.md) för ditt faktureringskonto eller din prenumeration kan du snabbt se din utgiftstrend jämfört med budgeten. Hovra över ett datum om du vill visa den ackumulerade kostnaden för den dagen.
+**Ackumulerad kornighet** : Visar totalsumman för dagliga kostnader från början av faktureringsperioden. När du har skapat en budget för ditt faktureringskonto eller din prenumeration kan du snabbt se din utgiftstrend jämfört med budgeten. Hovra över ett datum om du vill visa den ackumulerade kostnaden för den dagen.
 
 **Pivotdiagram (ringdiagram)** : Visar dynamiska pivoter som delar upp den totala kostnaden enligt en gemensam uppsättning standardegenskaper. De visar de största till minsta kostnaderna för den aktuella månaden. Du kan ändra pivotdiagram när som helst genom att välja en annan pivot. Kostnaderna kategoriseras efter tjänst (mätarkategori), plats (region) och underordnat omfång som standard. Exempel: registreringskonton är under faktureringskonton, resursgrupper är under prenumerationer och resurser är under resursgrupper.
 
@@ -70,7 +70,7 @@ Den initiala kostnadsanalysvyn innehåller följande områden.
 
 En kostnadsprognos visar en uppskattning av kostnaderna för den valda tidsperioden. Modellen baseras på en regressionsmodell med en tidsserie. Kostnads- och användningsdata för minst de senaste tio dagarna krävs för att få en korrekt prognostisering av kostnaderna. För en viss tidsperiod behöver prognosmodellen lika delar med träningsdata för prognosperioden. För att göra en uppskattning för tre månader krävs kostnads- och användningsdata för minst de senaste tre månaderna.
 
-Modellen använder maximalt sex månaders träningsdata för att uppskatta kostnaderna för ett år. Den behöver minst sju dagars träningsdata för att ändra förutsägelsen. Förutsägelsen baseras på stora förändringar, till exempel topp- och bottenvärden, i kostnads- och användningsmönster. Prognosen skapar inte enskilda uppskattningar för varje objekt i **Gruppera efter**-egenskaper. Den ger bara en prognos för ackumulerade kostnader totalt. Om du använder flera valutor anger modellen en prognos för kostnaderna endast i USD.
+Modellen använder maximalt sex månaders träningsdata för att uppskatta kostnaderna för ett år. Den behöver minst sju dagars träningsdata för att ändra förutsägelsen. Förutsägelsen baseras på stora förändringar, till exempel topp- och bottenvärden, i kostnads- och användningsmönster. Prognosen skapar inte enskilda uppskattningar för varje objekt i **Gruppera efter** -egenskaper. Den ger bara en prognos för ackumulerade kostnader totalt. Om du använder flera valutor anger modellen en prognos för kostnaderna endast i USD.
 
 ## <a name="customize-cost-views"></a>Anpassa kostnadsvyer
 
@@ -97,7 +97,7 @@ Använd prognosdiagramvyn för att identifiera potentiella budgetöverträdelser
 
 ![Exempel som visar potentiell budgetöverträdelse](./media/quick-acm-cost-analysis/budget-breach.png)
 
-Det finns även den **dagsvyn**, som visar kostnaderna för varje dag. Dagsvyn visar inte någon tillväxttrend. Vyn har utformats för att visa oregelbundenheter såsom toppar eller dalar i utgifter från dag till dag. Om du har valt en budget visar dagsvyn även en uppskattning av din dagliga budget.
+Det finns även den **dagsvyn** , som visar kostnaderna för varje dag. Dagsvyn visar inte någon tillväxttrend. Vyn har utformats för att visa oregelbundenheter såsom toppar eller dalar i utgifter från dag till dag. Om du har valt en budget visar dagsvyn även en uppskattning av din dagliga budget.
 
 När dina dagliga kostnader konsekvent är över den beräknade dagliga budgeten kan du förvänta dig att du överskrider din månatliga budget. Den beräknade dagliga budgeten är ett sätt att visualisera din budget på en lägre nivå. När det förekommer variationer i de dagliga kostnaderna är jämförelsen mellan den uppskattade dagliga budgeten och den månatliga budgeten mindre exakt.
 
@@ -108,9 +108,9 @@ När du stänger av utgiftsprognosen visas inte planerade utgifter för framtida
 
 Normalt kan du förvänta dig att se data eller meddelanden för förbrukade resurser inom åtta till tolv timmar.
 
-**Gruppera efter** vanliga egenskaper för att dela upp kostnader och identifiera de flesta deltagarna. Om du till exempel grupperar efter resurstaggar väljer du den taggnyckel som du vill gruppera efter. Kostnaderna visas uppdelade efter varje taggvärde, med ett extra segment för resurser som inte har den taggen tillämpad.  Mer information om alternativ för gruppering och filtrering finns i [Alternativ för gruppering och filter](./group-filter.md).
+**Gruppera efter** vanliga egenskaper för att dela upp kostnader och identifiera de flesta deltagarna. Om du till exempel grupperar efter resurstaggar väljer du den taggnyckel som du vill gruppera efter. Kostnaderna visas uppdelade efter varje taggvärde, med ett extra segment för resurser som inte har den taggen tillämpad.
 
-De flesta [Azure-resurser stöder taggning](../../azure-resource-manager/management/tag-support.md). Vissa taggar är emellertid inte tillgängliga inom Cost Management (kostnadshantering) och fakturering. Dessutom stöds inte resursgrupptaggar. Stöd för taggar gäller för användning som rapporterats *efter* taggen tillämpades på resursen. Taggar tillämpas inte retroaktivt för insamlade kostnader.
+De flesta Azure-resurser stöder taggning. Vissa taggar är emellertid inte tillgängliga inom Cost Management (kostnadshantering) och fakturering. Dessutom stöds inte resursgrupptaggar. Stöd för taggar gäller för användning som rapporterats *efter* taggen tillämpades på resursen. Taggar tillämpas inte retroaktivt för insamlade kostnader.
 
 Titta på videon [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) (Så här granskar du taggprinciper med Azure Cost Management) för att lära dig mer om att använda Azures taggprincip för att förbättra synligheten för kostnadsdata.
 
@@ -118,7 +118,7 @@ Här är en vy över Azure-tjänstkostnaderna för den aktuella månaden.
 
 ![Grupperad daglig ackumulerad vy som visar exempel på kostnader för Azure-tjänster för den senaste månaden](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Som standard visar kostnadsanalys alla användnings- och inköpskostnader när de påförs och visas på din faktura. Det här kallas även **Faktisk kostnad**. Det är idealiskt att visa den faktiska kostnaden för att stämma av din faktura. Köptoppar i kostnad kan dock vara alarmerande när du håller ett öga på utgiftsavvikelser och andra kostnadsförändringar. Om du vill förenkla toppar som orsakas av kostnader för reservationsköp växlar du till **Amorterad kostnad**.
+Som standard visar kostnadsanalys alla användnings- och inköpskostnader när de påförs och visas på din faktura. Det här kallas även **Faktisk kostnad** . Det är idealiskt att visa den faktiska kostnaden för att stämma av din faktura. Köptoppar i kostnad kan dock vara alarmerande när du håller ett öga på utgiftsavvikelser och andra kostnadsförändringar. Om du vill förenkla toppar som orsakas av kostnader för reservationsköp växlar du till **Amorterad kostnad** .
 
 ![Ändra mellan faktisk och amorterad kostnad för att se hur reservationsköp sprids ut över villkoret och allokeras till de resurser som använde reservationen](./media/quick-acm-cost-analysis/metric-picker.png)
 
@@ -138,7 +138,7 @@ Pivotdiagram under huvuddiagram visar olika grupperingar för att ge dig en bred
 
 ![Exempel som visar pivotdiagram](./media/quick-acm-cost-analysis/pivot-charts.png)
 
-Du kan visa den fullständiga datauppsättningen för alla vyer. Oavsett vilka val och filter som du använder påverkar de data som visas. Om du vill se en fullständig uppsättning data väljer du listan **diagramtyp** och därefter **tabellvyn**.
+Du kan visa den fullständiga datauppsättningen för alla vyer. Oavsett vilka val och filter som du använder påverkar de data som visas. Om du vill se en fullständig uppsättning data väljer du listan **diagramtyp** och därefter **tabellvyn** .
 
 ![Data för aktuell vy i en tabellvy](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
@@ -154,13 +154,11 @@ För att fästa kostnadsanalys väljer du Fäst-ikonen i det övre högra hörne
 
 Om du vill dela en länk till kostnadsanalys väljer du **Dela** överst på bladet. En anpassad URL visas, som öppnar den specifika vyn för just det här omfånget. Om du inte har kostnadsåtkomst och ser den här URL:en visas meddelandet ”åtkomst nekad”.
 
-Läs mer om hur du beviljar åtkomst till kostnader för varje omfång som stöds i [Förstå och arbeta med omfång](understand-work-scopes.md).
-
 ## <a name="download-usage-data"></a>Ladda ned användningsdata
 
-Det finns tillfällen när du behöver hämta data för ytterligare analys, sammanfoga dem med dina egna data eller integrera dem i dina egna system. Cost Management erbjuder några olika alternativ. Som startpunkt, om du behöver en ad hoc-sammanfattning på hög nivå, t. ex. vad du får inom kostnadsanalys, skapar du den vy du behöver. Sedan kan du ladda ned den genom att välja **Exportera** och välja **Ladda ned rapport till CSV** eller **Ladda ned data till Excel**. Excel-nedladdningen ger ytterligare kontext för vyn du använde för att generera nedladdningen, som omfång, frågekonfiguration, summa och datum för generering.
+Det finns tillfällen när du behöver hämta data för ytterligare analys, sammanfoga dem med dina egna data eller integrera dem i dina egna system. Cost Management erbjuder några olika alternativ. Som startpunkt, om du behöver en ad hoc-sammanfattning på hög nivå, t. ex. vad du får inom kostnadsanalys, skapar du den vy du behöver. Sedan kan du ladda ned den genom att välja **Exportera** och välja **Ladda ned rapport till CSV** eller **Ladda ned data till Excel** . Excel-nedladdningen ger ytterligare kontext för vyn du använde för att generera nedladdningen, som omfång, frågekonfiguration, summa och datum för generering.
 
-Om du behöver den fullständiga, icke-aggregerade datauppsättningen kan du ladda ned den från faktureringskontot. I listan över tjänster i portalens vänstra navigeringsfönster går du till **Kostnadshantering och fakturering**. Välj ditt faktureringskonto, om det är tillämpligt. Gå till **Användning och avgifter**och välj sedan **nedladdningsikonen** för önskad faktureringsperiod.
+Om du behöver den fullständiga, icke-aggregerade datauppsättningen kan du ladda ned den från faktureringskontot. I listan över tjänster i portalens vänstra navigeringsfönster går du till **Kostnadshantering och fakturering** . Välj ditt faktureringskonto, om det är tillämpligt. Gå till **Användning och avgifter** och välj sedan **nedladdningsikonen** för önskad faktureringsperiod.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

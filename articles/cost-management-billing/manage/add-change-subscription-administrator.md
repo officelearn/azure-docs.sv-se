@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 273f12765f60eb1a0d65037e30e33e58b16463bf
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 10956953f9ab3a9e32b9da4ab8a3501d38b0e2c3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372314"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369666"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägg till eller ändra administratörer för en Azure-prenumeration
 
@@ -39,8 +39,8 @@ En administratör måste tilldela rollen [Ägare](../../role-based-access-contro
 Om du inte vet som är kontoadministratör för en prenumeration, tar du reda på det med hjälp av följande steg.
 
 1. Öppna [prenumerationssidan i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Välj den prenumeration du vill kontrollera och gå till **Inställningar**.
-1. Välj **Egenskaper**. Prenumerationens kontoadministratör visas i rutan **Kontoadministratör**.
+1. Välj den prenumeration du vill kontrollera och gå till **Inställningar** .
+1. Välj **Egenskaper** . Prenumerationens kontoadministratör visas i rutan **Kontoadministratör** .
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>Så här gör du en användare till administratör
 
@@ -54,13 +54,13 @@ Om du inte vet som är kontoadministratör för en prenumeration, tar du reda p�
 
     ![Skärmbild som visar rolltilldelningar](./media/add-change-subscription-administrator/role-assignments.png)
 
-1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönstret **Lägg till rolltilldelning**.
+1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönstret **Lägg till rolltilldelning** .
 
     Om du inte har behörighet att tilldela roller är det här alternativet inaktiverat.
 
-1. I listrutan **Roll** väljer du rollen **Ägare**.
+1. I listrutan **Roll** väljer du rollen **Ägare** .
 
-1. Välj en användare i listan **Välj**. Om du inte ser användaren i listan kan du ange visningsnamn och e-postadresser i rutan **Välj** om du vill söka i katalogen.
+1. Välj en användare i listan **Välj** . Om du inte ser användaren i listan kan du ange visningsnamn och e-postadresser i rutan **Välj** om du vill söka i katalogen.
 
     ![Skärmbild där rollen Ägare är vald](./media/add-change-subscription-administrator/add-role.png)
 
@@ -73,7 +73,7 @@ Om du inte vet som är kontoadministratör för en prenumeration, tar du reda p�
 * [Vad är rollbaserad åtkomstkontroll i Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 * [Förstå de olika rollerna i Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Associera eller lägga till en Azure-prenumeration till Azure Active Directory-klienten](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
-* [Behörigheter för administratörsrollen i Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+* [Behörigheter för administratörsrollen i Azure Active Directory](../../active-directory/roles/permissions-reference.md)
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

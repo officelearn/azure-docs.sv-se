@@ -7,14 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 10/26/2020
 ms.author: banders
-ms.openlocfilehash: 95af762e0ff1986f9d1395e787c73b3a886a7a2e
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.custom: contentperfq2
+ms.openlocfilehash: c4a9a981017becd0d9343d9c287a4fe9341d7c43
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653289"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678124"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>Självstudie: Granska din enskilda Azure-prenumerationsfaktura
 
@@ -32,9 +33,9 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste ha ett betalt faktureringskonto för *Microsoft Online Services-programmet*. Kontot skapas när du registrerar dig för Azure via Azure-webbplatsen. Det gäller till exempel om du har ett [konto med Betala per användning-priser](https://azure.microsoft.com/offers/ms-azr-0003p/) eller om du är [Visual Studio-prenumerant](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+Du måste ha ett betalt faktureringskonto för *Microsoft Online Services-programmet* . Kontot skapas när du registrerar dig för Azure via Azure-webbplatsen. Det gäller till exempel om du har ett konto med Betala per användning-priser eller om du är Visual Studio-prenumerant.
 
-Fakturor för [kostnadsfria Azure-konton](https://azure.microsoft.com/offers/ms-azr-0044p/) skapas endast när det månatliga kreditbeloppet överskrids.
+Fakturor för kostnadsfria Azure-konton skapas endast när det månatliga kreditbeloppet överskrids.
 
 Det måste ha gått mer än 30 dagar sedan du började prenumerera på Azure. Azure debiterar dig i slutet av din fakturaperiod.
 
@@ -48,19 +49,19 @@ Det måste ha gått mer än 30 dagar sedan du började prenumerera på Azure. Az
 
 Det första steget för att jämföra användning och kostnader är att ladda ned din faktura och dina användningsfiler. I CSV-filen med detaljerad användning visas dina avgifter per faktureringsperiod och daglig användning. Den innehåller ingen skatteinformation. För att kunna ladda ned filerna måste du vara kontoadministratör eller ha rollen som ägare.
 
-I Azure-portalen skriver du *prenumerationer* i sökrutan och klickar sedan på [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+I Azure-portalen skriver du *prenumerationer* i sökrutan och klickar sedan på **Prenumerationer** .
 
 [![Gå till prenumerationer](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Klicka på prenumerationen i listan över prenumerationer.
 
-Under **Fakturering** klickar du på **Fakturor**.
+Under **Fakturering** klickar du på **Fakturor** .
 
 I listan över fakturor letar du upp den som du vill ladda ned och klickar sedan på nedladdningssymbolen. Du kan behöva ändra tidsintervallet för att visa äldre fakturor. Det kan ta några minuter att generera filen med användningsinformation och fakturan.
 
 ![Skärmbild som visar faktureringsperioder, nedladdningsalternativet och de totala avgifterna för varje faktureringsperiod](./media/review-individual-bill/download-invoice.png)
 
-I fönstret Ladda ned användning + kostnader klickar du på **Ladda ned CSV** och **Ladda ned faktura**.
+I fönstret Ladda ned användning + kostnader klickar du på **Ladda ned CSV** och **Ladda ned faktura** .
 
 ![Skärmbild som visar Ladda ned faktura och förbrukningssidan](./media/review-individual-bill/usageandinvoice.png)
 
@@ -69,14 +70,14 @@ Om det står **Inte tillgängligt** finns det flera orsaker till att du inte ser
 - Det är mindre än 30 dagar sedan du började prenumerera på Azure.
 - Det finns ingen användning för faktureringsperioden.
 - Det har inte genererats någon faktura ännu. Vänta till slutet av faktureringsperioden.
-- Du har inte behörighet att visa fakturor. Du ser kanske inte gamla fakturor om du inte är kontoadministratör. Läs mer om att få åtkomst till faktureringsinformation på sidan om att [hantera åtkomst till Azure-fakturering med hjälp av roller](../manage/manage-billing-access.md).
+- Du har inte behörighet att visa fakturor. Du ser kanske inte gamla fakturor om du inte är kontoadministratör.
 - Om du har en kostnadsfri utvärderingsversion eller ett månatligt kreditbelopp för din prenumeration som du inte har överskridit får du ingen faktura såvida du inte har ett Microsoft-kundavtal.
 
 Därefter granskar du avgifterna. Fakturan visar värden för skatter och dina användningsavgifter.
 
 ![Exempel på Azure-faktura](./media/review-individual-bill/invoice-usage-charge.png)
 
-Öppna den CSV-användningsfil som du laddade ned. I slutet av filen summerar du värdet för alla objekt i kolumnen *Kostnad*.
+Öppna den CSV-användningsfil som du laddade ned. I slutet av filen summerar du värdet för alla objekt i kolumnen *Kostnad* .
 
 ![Exempel på användningsfil med summerad kostnad](./media/review-individual-bill/usage-file-usage-charges.png)
 
@@ -97,7 +98,7 @@ Dina användningsavgifter visas på mätarnivå. Följande termer innebär samma
 |Pris | EffectivePrice|
 | Värde | Kostnad |
 
-I avsnittet **Användningsavgifter** på fakturan visas det totala värdet (kostnaden) för varje mätare som förbrukades under faktureringsperioden. Till exempel visar följande bild en användningsavgift för Azure Storage-tjänsten för resursen *P10-diskar*.
+I avsnittet **Användningsavgifter** på fakturan visas det totala värdet (kostnaden) för varje mätare som förbrukades under faktureringsperioden. Till exempel visar följande bild en användningsavgift för Azure Storage-tjänsten för resursen *P10-diskar* .
 
 ![Användningsavgifter på faktura](./media/review-individual-bill/invoice-usage-charges.png)
 
@@ -107,11 +108,9 @@ I CSV-användningsfilen filtrerar du efter *MeterName* för motsvarande resurs s
 
 Värdet för summerad *Kostnad* ska exakt matcha kostnaden för *användningsavgifter* för den enskilda resurs som debiteras på fakturan.
 
-Mer information finns i [Förstå din Azure-faktura](understand-invoice.md) och [Förstå din detaljerad Azure-användning](understand-usage.md).
-
 ## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>Jämföra debiterade avgifter och användning i kostnadsanalys
 
-Kostnadsanalys i Azure-portalen kan även hjälpa dig att verifiera dina avgifter. För att få en snabb överblick av din fakturerade användning och dina kostnader väljer du din prenumeration på sidan [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure-portalen. Klicka sedan på **Kostnadsanalys**. I listan över vyer klickar du på **Fakturainformation**.
+Kostnadsanalys i Azure-portalen kan även hjälpa dig att verifiera dina avgifter. För att få en snabb överblick av din fakturerade användning och dina kostnader väljer du din prenumeration på sidan Prenumerationer i Azure-portalen. Klicka sedan på **Kostnadsanalys** . I listan över vyer klickar du på **Fakturainformation** .
 
 ![Exempel som visar val av Fakturainformation](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
 
@@ -129,7 +128,7 @@ Kostnader som visas i kostnadsanalys ska exakt matcha kostnaden för *användnin
 
 Externa tjänster eller Marketplace-avgifter är för resurser som har skapats av programvaruleverantörer från tredje part. Dessa resurser är tillgängliga för användning från Azure Marketplace. Till exempel är Barracuda Firewall en Azure Marketplace-resurs som erbjuds av en tredje part. Alla avgifter för brandväggen och dess motsvarande mätare visas som avgifter för externa tjänster.
 
-Avgifter för externa tjänster debiteras separat. Avgifterna står inte på din Azure-faktura. Mer information finns i [Förstå dina avgifter för externa Azure-tjänster](understand-azure-marketplace-charges.md).
+Avgifter för externa tjänster debiteras separat. Avgifterna står inte på din Azure-faktura.
 
 ### <a name="resources-are-billed-by-usage-meters"></a>Resurser debiteras per användningsmätare
 
@@ -161,10 +160,6 @@ Du kan se de mätare som användes för att beräkna din faktura i CSV-filen fö
 Om du konfigurerar ett kreditkort som betalningsmetod debiteras betalningen automatiskt inom 10 dagar efter faktureringsperiodens slut. På ditt kreditkortsutdrag skulle det stå **MSFT Azure** på radobjektet.
 
 Information om hur du ändrar det kreditkort som debiteras finns i [Lägga till, uppdatera eller ta bort ett kreditkort för Azure](../manage/change-credit-card.md).
-
-Om du [betalar med faktura](../manage/pay-by-invoice.md) skickar du betalningen till den plats som anges längst ned på fakturan.
-
-Om du vill kontrollera statusen för din betalning [skapar du en supportbegäran](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="next-steps"></a>Nästa steg
 

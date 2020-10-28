@@ -4,17 +4,17 @@ description: Du använder funktioner i Azure Cost Management + Fakturering för 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 10/26/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
-ms.custom: ''
-ms.openlocfilehash: 1e5f49fb48cfc9be9cfb6970641ad7b4b3c06fb5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.custom: contentperfq2
+ms.openlocfilehash: 2c533ea08534444e5bf8d8d57d585e2bf975a93b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131062"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677382"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Vad är Azure Cost Management + Fakturering?
 
@@ -43,11 +43,11 @@ När du registrerar dig för att använda Azure skapas ett faktureringskonto. Du
 
 Azure-portalen stöder för närvarande följande typer av faktureringskonton:
 
-- **Microsoft Online Services-programmet**: Ett enskilt faktureringskonto för ett Microsoft Online Services-program skapas när du registrerar dig för Azure via Azure-webbplatsen. Det gäller till exempel när du registrerar dig för ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/) eller ett [konto med Betala per användning-priser](https://azure.microsoft.com/offers/ms-azr-0003p/) eller som [Visual studio-prenumerant](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+- **Microsoft Online Services-programmet** : Ett enskilt faktureringskonto för ett Microsoft Online Services-program skapas när du registrerar dig för Azure via Azure-webbplatsen. Det gäller till exempel när du registrerar dig för ett kostnadsfritt Azure-konto eller ett konto med Betala per användning-priser eller som Visual studio-prenumerant.
 
-- **Enterprise-avtal**: Ett faktureringskonto för ett Enterprise-avtal skapas när din organisation tecknar ett [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) för att använda Azure.
+- **Enterprise-avtal** : Ett faktureringskonto för ett Enterprise-avtal skapas när din organisation tecknar ett Enterprise-avtal (EA) för att använda Azure.
 
-- **Microsoft-kundavtal**: Ett faktureringskonto för ett Microsoft-kundavtal skapas när din organisation arbetar med en Microsoft-representant för att teckna ett Microsoft-kundavtal. Vissa kunder i utvalda regioner som registrerar sig via Azure-webbplatsen för ett [konto med Betala per användning-priser](https://azure.microsoft.com/offers/ms-azr-0003p/) eller uppgraderar sitt [kostnadsfria Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/) kan även ha ett faktureringskonto för ett Microsoft-kundavtal. Mer information finns i artikeln om att [komma igång med ditt faktureringskonto för Microsoft-kundavtal](./understand/mca-overview.md).
+- **Microsoft-kundavtal** : Ett faktureringskonto för ett Microsoft-kundavtal skapas när din organisation arbetar med en Microsoft-representant för att teckna ett Microsoft-kundavtal. Vissa kunder i utvalda regioner som registrerar sig via Azure-webbplatsen för ett konto med Betala per användning-priser eller uppgraderar sitt kostnadsfria Azure-konto kan även ha ett faktureringskonto för ett Microsoft-kundavtal.
 
 ### <a name="scopes-for-billing-accounts"></a>Omfång för faktureringskonton
 Ett omfång är en nod i ett faktureringskonto som du använder för att visa och hantera fakturering. Där hanterar du faktureringsdata, betalningar, fakturor och utför vanliga kontohanteringsuppgifter.
@@ -83,7 +83,7 @@ Kostnadshantering visar organisationens kostnader och användningsmönster med h
 
 Du kan använda Azure-portalen eller olika API:er för exportautomatisering för att integrera kostnadsdata med externa system och processer. Automatiserad export av faktureringsdata och schemalagda rapporter är också tillgängligt.
 
-Titta på [videon med en översikt av Azure Cost Management](https://www.youtube.com/watch?v=el4yN5cHsJ0) för att få en snabb översikt över hur Azure Cost Management kan hjälpa dig att spara pengar i Azure. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
+Titta på videon med en översikt av Azure Cost Management för att få en snabb översikt över hur Azure Cost Management kan hjälpa dig att spara pengar i Azure. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
@@ -101,18 +101,14 @@ Om du använder externa system för att komma åt eller granska kostnadshanterin
 
 ### <a name="cloudyn-deprecation"></a>Cloudyn dras tillbaka
 
-[Cloudyn](./cloudyn/overview.md) är en Azure-tjänst som är kopplad till Cost Management och som kommer att tas ur bruk i slutet av 2020. Befintliga Cloudyn-funktioner integreras direkt på Azure-portalen då det är möjligt. Inga nya kunder kan registreras, men supporten fortsätter för produkten tills den har dragits tillbaka helt.
+Cloudyn är en Azure-tjänst som är kopplad till Cost Management och som kommer att tas ur bruk i slutet av 2020. Befintliga Cloudyn-funktioner integreras direkt på Azure-portalen då det är möjligt. Inga nya kunder kan registreras, men supporten fortsätter för produkten tills den har dragits tillbaka helt.
  
-Titta på [videon om Azure Cost Management och Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) för att lära dig mer om när du ska använda antingen Azure Cost Management eller Cloudyn, baserat på dina affärsbehov. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
- 
->[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
-
 ### <a name="additional-azure-tools"></a>Ytterligare Azure-verktyg
 
 I Azure finns andra verktyg som inte ingår i funktionerna i Azure Cost Management + Fakturering. De spelar dock en viktig roll i kostnadshanteringsprocessen. Se följande länkar om du vill veta mer om dessa verktyg.
 
 - [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) – använd det här verktyget för att beräkna dina startkostnader för moln.
-- [Azure Migrate](/azure/cost-management-billing/migrate-services-overview) – utvärdera din nuvarande datacenterarbetsbelastning för att få insikter om vad som behövs från en Azure-ersättningslösning.
+- [Azure Migrate](/azure/migrate/migrate-services-overview) – utvärdera din nuvarande datacenterarbetsbelastning för att få insikter om vad som behövs från en Azure-ersättningslösning.
 - [Azure Advisor](../advisor/advisor-overview.md) – identifiera oanvända virtuella datorer och få rekommendationer om köp av reserverade Azure-instanser.
 - [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) – använd dina aktuella lokala Windows Server- eller SQL Server-licenser för virtuella datorer i Azure för att spara.
 

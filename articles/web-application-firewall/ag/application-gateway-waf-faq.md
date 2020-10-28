@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 3bc71e10167b21b65616dd20f8edb9a1d902527e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fbe930780ff026be748bc42104f821ee9e5c443
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83798353"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785110"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-application-gateway"></a>Vanliga frågor och svar om brand vägg för Azure-webbprogram på Application Gateway
 
@@ -58,6 +58,9 @@ Mer information finns i [OWASP topp 10 sårbarheter](https://owasp.org/www-proje
 
 Ja. Du kan aktivera DDoS-skydd på det virtuella nätverk där programgatewayen distribueras. Den här inställningen säkerställer att tjänsten Azure DDoS Protection också skyddar den virtuella IP-adressen (VIP) för Programgateway.
 
+### <a name="does-waf-store-customer-data"></a>Lagrar WAF kund information?
+
+Nej, WAF lagrar inte kund information.
 
 ## <a name="next-steps"></a>Nästa steg
 

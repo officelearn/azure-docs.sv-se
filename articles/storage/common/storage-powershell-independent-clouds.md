@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b610a5537d110a4046bd42ac86f5c938aeafe953
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072969"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783580"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Hantera lagring i Azures oberoende moln med PowerShell
 
@@ -51,7 +51,7 @@ Logga in på ditt konto som har åtkomst till molnet som du vill ansluta till oc
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-Använd miljön **AzureChinaCloud**för att få åtkomst till Kina-molnet. Använd **AzureGermanCloud**för att få åtkomst till det tyska molnet.
+Använd miljön **AzureChinaCloud** för att få åtkomst till Kina-molnet. Använd **AzureGermanCloud** för att få åtkomst till det tyska molnet.
 
 Om du behöver listan över platser för att skapa ett lagrings konto eller en annan resurs kan du nu fråga de platser som är tillgängliga för det valda molnet med hjälp av [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
@@ -69,7 +69,7 @@ I följande tabell visas de platser som returneras för det tyska molnet.
 
 ## <a name="endpoint-suffix"></a>Slut punkts suffix
 
-Slut punktens suffix för var och en av dessa miljöer skiljer sig från den offentliga Azure-slutpunkten. Till exempel är BLOB Endpoint-suffixet för Azure Public **blob.Core.Windows.net**. För det offentliga molnet är BLOB-slutpunktens suffix **blob.Core.usgovcloudapi.net**.
+Slut punktens suffix för var och en av dessa miljöer skiljer sig från den offentliga Azure-slutpunkten. Till exempel är BLOB Endpoint-suffixet för Azure Public **blob.Core.Windows.net** . För det offentliga molnet är BLOB-slutpunktens suffix **blob.Core.usgovcloudapi.net** .
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Hämta slut punkt med Get-AzEnvironment
 
@@ -167,7 +167,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>Nästa steg
 
 * [Bevara användarinloggningar mellan PowerShell-sessioner](/powershell/azure/context-persistence)
-* [Azure Government lagring](../../azure-government/documentation-government-services-storage.md)
+* [Azure Government lagring](../../azure-government/compare-azure-government-global-azure.md)
 * [Guide för Microsoft Azure Government utvecklare](../../azure-government/documentation-government-developer-guide.md)
 * [Developer-kommentarer för Azure Kina 21Vianet-program](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Dokumentation om Azure Germany](../../germany/germany-welcome.md)

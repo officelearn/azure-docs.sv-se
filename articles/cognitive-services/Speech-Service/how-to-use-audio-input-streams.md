@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3c8d3162e13c31204ed317edc653756b04ef8dd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3baedd49843c7721b6dba464054d5535b4c4f1cd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934131"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785348"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Om API för tal-SDK ljud inspelnings ström
 
@@ -26,7 +26,7 @@ Följande steg krävs när du använder ljud inspelnings strömmar:
 
 - Identifiera formatet för ljud strömmen. Formatet måste stödjas av talet SDK och tal tjänsten. För närvarande stöds endast följande konfiguration:
 
-  Ljud exempel i PCM-format, en kanal, 16 bitar per sampel, 8000 eller 16000-exempel per sekund (16000 eller 32000 byte per sekund), två block justera (16 bitar, inklusive utfyllnad för ett exempel).
+  Ljud exempel är i PCM-format, en kanal, 16 bitar per sampel, 8000 eller 16000-exempel per sekund (16000 eller 32000 byte per sekund), två block justerade (16 bitar inklusive utfyllnad för ett exempel).
 
   Motsvarande kod i SDK: n för att skapa ljud formatet ser ut så här:
 
@@ -37,7 +37,7 @@ Följande steg krävs när du använder ljud inspelnings strömmar:
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- Kontrol lera att din kod kan tillhandahålla rå ljuddata enligt dessa specifikationer. Om dina ljud käll data inte matchar de format som stöds måste ljudet kodas till det format som krävs.
+- Kontrol lera att din kod tillhandahåller rå ljuddata enligt dessa specifikationer. Vi garanterar också att 16-bitars exempel kommer in i litet endian-format. Signerade exempel stöds också. Om dina ljud käll data inte matchar de format som stöds måste ljudet kodas till det format som krävs.
 
 - Skapa din egen ljud data ström klass härledd från `PullAudioInputStreamCallback` . Implementera `Read()` och- `Close()` medlemmar. Den exakta funktions signaturen är språk beroende, men koden kommer att se ut ungefär som i det här kod exemplet:
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 047bfac9179fd10383fc91155c7cb6e737fda516
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 78eb7ae9a73217bfe7b9ef58cb46a70cc312c481
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558711"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784379"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -37,6 +37,7 @@ Om du vill veta mer om *planerade* ändringar som kommer snart till Security Cen
 - [Sårbarhets bedömning för datorer på plats och flera moln (för hands version)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Azure Firewall-rekommendation har lagts till (för hands version)](#azure-firewall-recommendation-added-preview)
 - [Auktoriserade IP-intervall bör definieras i Kubernetes Services-rekommendationen med snabb korrigering](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
+- [Instrument panelen för kontroll av efterlevnad innehåller nu alternativ för att ta bort standarder](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
 - [Microsoft. Security/securityStatuses-tabellen har tagits bort från Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>Sårbarhets bedömning för datorer på plats och flera moln (för hands version)
@@ -77,11 +78,20 @@ Mer information om den här rekommendationen och alla andra Security Center reko
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="De auktoriserade IP-intervallen bör definieras i Kubernetes Services-rekommendation med alternativet för snabb korrigering":::
 
 
+### <a name="regulatory-compliance-dashboard-now-includes-option-to-remove-standards"></a>Instrument panelen för kontroll av efterlevnad innehåller nu alternativ för att ta bort standarder
+
+Security Centers instrument panel för kontroll av efterlevnad ger insikter om din position utifrån hur du uppfyller särskilda efterlevnadsprinciper och krav.
+
+Instrument panelen innehåller en standard uppsättning regler. Om någon av de angivna standarderna inte är relevant för din organisation, är det nu en enkel process att bara ta bort dem från användar gränssnittet för en prenumeration. Standarder kan bara tas bort på *prenumerations* nivå. inte hanterings gruppens omfattning.
+
+Läs mer i [ta bort en standard från din instrument panel](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard).
+
+
 ### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Microsoft. Security/securityStatuses-tabellen har tagits bort från Azure Resource Graph (ARG)
 
 Azure Resource Graph är en tjänst i Azure som är utformad för att tillhandahålla effektiv resurs utforskning med möjlighet att fråga i skala över en specifik uppsättning prenumerationer så att du effektivt kan styra din miljö. 
 
-För Azure Security Center kan du använda ARG och [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) för att fråga efter en mängd säkerhets position data. Till exempel:
+För Azure Security Center kan du använda ARG och [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) för att fråga efter en mängd säkerhets position data. Exempel:
 
 - Till gångs lager använder (ARG)
 - Vi har dokumenterat en exempel-ARG-fråga för att [identifiera konton utan Multi-Factor Authentication (MFA) aktiverat](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
@@ -669,7 +679,7 @@ Du hittar principerna i Azure policy:
 
 Kom igång med [automatiserings mallar för arbets flöden](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 
-Lär dig mer om att använda de två export principerna för att [kontinuerligt exportera Azure Security Center aviseringar och rekommendationer via policy](https://techcommunity.microsoft.com/t5/azure-security-center/continuously-export-azure-security-center-alerts-and/ba-p/1440745).
+Lär dig mer om att använda de två export principerna i [Konfigurera automatisering av arbets flöden i skala med hjälp av de angivna principerna](workflow-automation.md#configure-workflow-automation-at-scale-using-the-supplied-policies) och [Konfigurera en löpande export](continuous-export.md#set-up-a-continuous-export).
 
 
 ### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>Ny rekommendation för att använda NSG: er för att skydda virtuella datorer som inte är Internet-riktade

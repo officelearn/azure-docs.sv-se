@@ -7,22 +7,22 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: 55fff7e4e36f066ba8ae5734e483df393fbd72cd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e20733cb4b93fcfac7606895746645727f12d6c8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488664"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783835"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Guide för Azure Storage Explorer BLOB-versioner
 
-Microsoft Azure Storage Explorer ger enkel åtkomst och hantering av BLOB-versioner. Den här guiden hjälper dig att förstå hur BLOB-versioner fungerar i Storage Explorer. Innan du fortsätter rekommenderar vi att du läser mer om [BLOB-versioner](/azure/storage/blobs/versioning-overview).
+Microsoft Azure Storage Explorer ger enkel åtkomst och hantering av BLOB-versioner. Den här guiden hjälper dig att förstå hur BLOB-versioner fungerar i Storage Explorer. Innan du fortsätter rekommenderar vi att du läser mer om [BLOB-versioner](../blobs/versioning-overview.md).
 
 ## <a name="terminology"></a>Terminologi
 
 Det här avsnittet innehåller några definitioner som hjälper dig att förstå deras användning i den här artikeln.
 
-- Mjuk borttagning: en alternativ funktion för automatisk data skydd. Du kan läsa mer om mjuk borttagning [här](/azure/storage/blobs/soft-delete-blob-overview).
+- Mjuk borttagning: en alternativ funktion för automatisk data skydd. Du kan läsa mer om mjuk borttagning [här](../blobs/soft-delete-blob-overview.md).
 - Aktiv BLOB: en BLOB-eller blob-version skapas i aktivt läge. Du kan bara använda blobbar eller BLOB-versioner i aktivt läge.
 - Mjuk borttagning av BLOB: en BLOB-eller blob-version som marker ATS som mjuk-borttagen. Mjuk borttagning av blobar bevaras bara för dess kvarhållningsperiod.
 - Blob-version: en blob som skapats med aktiverat BLOB-versioner. Varje blob-version är associerad med ett versions-ID.
@@ -117,5 +117,5 @@ Varje blob-version har sin egen åtkomst nivå. Om du vill ändra åtkomst nivå
 
 ## <a name="see-also"></a>Se även
 
-* [BLOB-versioner](/azure/storage/blobs/versioning-overview)
-* [Mjuk borttagning för blobar](/azure/storage/blobs/soft-delete-blob-overview)
+* [BLOB-versioner](../blobs/versioning-overview.md)
+* [Mjuk borttagning för blobar](../blobs/soft-delete-blob-overview.md)

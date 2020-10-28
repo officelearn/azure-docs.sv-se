@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654267"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785620"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrera till Azure-filresurser
 
@@ -34,11 +34,11 @@ Nyckeln i en migrering är att avbilda all tillämplig fil åter givning när du
 
 Här är de två grundläggande komponenterna i en fil:
 
-- **Data ström**: data strömmen i en fil lagrar fil innehållet.
-- **Fil-metadata**: filens metadata har följande del komponenter:
+- **Data ström** : data strömmen i en fil lagrar fil innehållet.
+- **Fil-metadata** : filens metadata har följande del komponenter:
    * Filattribut som skrivskyddade
    * Fil behörigheter, som kan kallas för NTFS- *behörigheter* eller *ACL: er för filer och mappar*
-   * Tidsstämplar, i de flesta fall skapande-och senaste ändrade tidsstämplar
+   * Tidsstämplar, främst när de skapas och senaste ändrade tidsstämplar
    * En alternativ data ström, som är ett utrymme för att lagra större mängder egenskaper som inte är standard
 
 Fil åter givning i en migrering kan definieras som möjlighet att:
@@ -111,7 +111,7 @@ Det finns flera verktyg för fil kopiering som är tillgängliga från Microsoft
 
     Första gången du kör verktyget kopieras data mängden. Den första körningen kan vara en stund. Det varar ofta längre än du vill för att ta data källan offline för dina affärs processer.
 
-    Genom att spegla en källa till ett mål (som med **Robocopy/Mir**) kan du köra verktyget igen på samma källa och mål. Körningen är mycket snabbare eftersom den bara behöver transportera käll ändringar som inträffar efter föregående körning. Om du kör ett kopierings verktyg på det här sättet kan det minska stillestånds tiden avsevärt.
+    Genom att spegla en källa till ett mål (som med **Robocopy/Mir** ) kan du köra verktyget igen på samma källa och mål. Körningen är mycket snabbare eftersom den bara behöver transportera käll ändringar som inträffar efter föregående körning. Om du kör ett kopierings verktyg på det här sättet kan det minska stillestånds tiden avsevärt.
 
 I följande tabell klassificerar vi Microsoft-verktyg och deras aktuella lämplighet för Azure-fil resurser:
 
@@ -121,7 +121,7 @@ I följande tabell klassificerar vi Microsoft-verktyg och deras aktuella lämpli
 |![Ja, rekommenderas](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Inbyggt i Azure-filresurser. | Fullständig åter givning. * |
 |![Ja, rekommenderas](media/storage-files-migration-overview/circle-green-checkmark.png)| Tjänsten för lagringsmigrering | Stöds indirekt. Azure-filresurser kan monteras som nätverks enheter på SMS-mål servrar. | Fullständig åter givning. * |
 |![Ja, rekommenderas](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, version 10,4 eller senare| Stöds. | Fullständig åter givning. * |
-|![Inte fullständigt rekommenderat](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Data Box | Stöds. | Kopierar inte metadata. [Data Box-enhet kan användas med Azure File Sync](storage-sync-offline-data-transfer.md). |
+|![Ja, rekommenderas](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Stöds. | Dataservern har nu fullständigt stöd för metadata. [Data Box-enhet kan också användas i kombination med Azure File Sync](storage-sync-offline-data-transfer.md). |
 |![Inte fullständigt rekommenderat](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer version 1,14 | Stöds. | Kopierar inte ACL: er. Stöder tidsstämplar.  |
 |![Rekommenderas inte](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Stöds. | Kopierar inte metadata. |
 |||||

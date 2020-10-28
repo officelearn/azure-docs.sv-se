@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: de14cf8cc79b4e1387950a2ae048da41738f5db1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d58f89aa87a39d12b2d6f6a3a91254a653a088
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589945"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784668"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Importera HSM-skyddade nycklar för Key Vault (hjälp programmet nCipher)
 
@@ -231,7 +231,7 @@ KeyVault-BYOK-Tools-Switzerland.zip
 ---
 
 
-Använd cmdleten [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) för att kontrol lera integriteten för de hämtade BYOK-verktygen från Azure PowerShell-sessionen.
+Använd cmdleten [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) för att kontrol lera integriteten för de hämtade BYOK-verktygen från Azure PowerShell-sessionen.
 
    ```powershell
    Get-FileHash KeyVault-BYOK-Tools-*.zip
@@ -255,7 +255,7 @@ För det här andra steget utför du följande procedurer på arbets stationen s
 
 Installera hjälp programmet nCipher Support Software på en Windows-dator och Anslut sedan en hjälp programmet nCipher nshield maskinvarusäkerhetsmodul HSM till den datorn.
 
-Se till att hjälp programmet nCipher-verktygen finns i sökvägen (**% nfast_home% \ bin**). Ange till exempel följande:
+Se till att hjälp programmet nCipher-verktygen finns i sökvägen ( **% nfast_home% \ bin** ). Ange till exempel följande:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
@@ -416,7 +416,7 @@ Verifiera det hämtade paketet:
      >
 2. Bekräfta att du ser följande, vilket indikerar att verifieringen lyckades: **resultat: lyckades**
 
-Det här skriptet validerar den som loggar in till rot nyckeln för nshield maskinvarusäkerhetsmodul. Hashen för den här rotnyckeln är inbäddad i skriptet och dess värde bör vara **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Du kan också bekräfta det här värdet separat genom att besöka [Hjälp programmet nCipher-webbplatsen](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
+Det här skriptet validerar den som loggar in till rot nyckeln för nshield maskinvarusäkerhetsmodul. Hashen för den här rotnyckeln är inbäddad i skriptet och dess värde bör vara **59178a47 de508c3f 291277ee 184f46c4 f1d9c639** . Du kan också bekräfta det här värdet separat genom att besöka [Hjälp programmet nCipher-webbplatsen](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
 
 Nu är du redo att skapa en ny nyckel.
 
@@ -432,11 +432,11 @@ generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey
 
 Använd följande anvisningar när du kör det här kommandot:
 
-* Parametern *protect* måste anges till värdet **module**, så som det visas. Detta skapar en modulskyddad nyckel. BYOK-verktygen har inte stöd för OCS-skyddade nycklar.
+* Parametern *protect* måste anges till värdet **module** , så som det visas. Detta skapar en modulskyddad nyckel. BYOK-verktygen har inte stöd för OCS-skyddade nycklar.
 * Ersätt värdet för *contosokey* för **ident** och **plainname** med valfritt strängvärde. För att minimera de administrativa omkostnaderna och minska risken för fel rekommenderar vi att du använder samma värde för båda. Värdet för **identitet** får bara innehålla siffror, bindestreck och gemener.
 * Pubexp lämnas tomt (standard) i det här exemplet, men du kan ange specifika värden. Mer information finns i hjälp programmet nCipher- [dokumentationen.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
 
-Det här kommandot skapar en nyckel fil med nycklar i mappen% NFAST_KMDATA% \ Local med ett namn som börjar med **key_simple_** följt av den **identitet** som angavs i kommandot. Exempel: **key_simple_contosokey**. Den här filen innehåller en krypterad nyckel.
+Det här kommandot skapar en nyckel fil med nycklar i mappen% NFAST_KMDATA% \ Local med ett namn som börjar med **key_simple_** följt av den **identitet** som angavs i kommandot. Exempel: **key_simple_contosokey** . Den här filen innehåller en krypterad nyckel.
 
 Säkerhetskopiera filen för tokeniserad nyckel till en säker plats.
 
@@ -668,7 +668,7 @@ Använd följande anvisningar när du kör det här kommandot:
 * Ersätt *SubscriptionID* med ID: t för den Azure-prenumeration som innehåller ditt nyckel valv. Du har hämtat det här värdet tidigare i **steg 1,2: Hämta ditt Azure-prenumerations-ID** från steget [förbereda din Internet-anslutna arbets Station](#step-1-prepare-your-internet-connected-workstation) .
 * Ersätt *ContosoFirstHSMKey* med en etikett som används för fil namnet för utdatafilen.
 
-När detta har slutförts visas **resultatet: lyckades** och det finns en ny fil i den aktuella mappen med följande namn: KeyTransferPackage-*ContosoFirstHSMkey*. BYOK
+När detta har slutförts visas **resultatet: lyckades** och det finns en ny fil i den aktuella mappen med följande namn: KeyTransferPackage- *ContosoFirstHSMkey* . BYOK
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Steg 4,3: kopiera ditt nyckel överförings paket till den Internet-anslutna arbets stationen
 

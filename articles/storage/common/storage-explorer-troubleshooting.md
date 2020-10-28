@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8bffe0c3871eae12f3b875a96301136d11dfc516
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488630"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783801"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -23,7 +23,7 @@ I den här guiden sammanfattas lösningar för problem som ofta visas i Storage 
 
 ## <a name="azure-rbac-permissions-issues"></a>Problem med Azure RBAC-behörighet
 
-Azure-rollbaserad åtkomst kontroll [Azure RBAC](/azure/role-based-access-control/overview) möjliggör mycket detaljerad åtkomst hantering av Azure-resurser genom att kombinera uppsättningar med behörigheter i _roller_ . Här följer några strategier för att få Azure RBAC fungerar optimalt i Storage Explorer.
+Azure-rollbaserad åtkomst kontroll [Azure RBAC](../../role-based-access-control/overview.md) möjliggör mycket detaljerad åtkomst hantering av Azure-resurser genom att kombinera uppsättningar med behörigheter i _roller_ . Här följer några strategier för att få Azure RBAC fungerar optimalt i Storage Explorer.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Hur gör jag för att åtkomst till mina resurser i Storage Explorer?
 
@@ -65,18 +65,18 @@ Om du vill komma åt BLOB-behållare eller köer kan du koppla dem till dessa re
 3. Välj det användar konto och den klient organisation som är associerad med resursen som du ansluter till. Klicka på Nästa.
 4. Välj resurs typ, ange URL: en till resursen och ange ett unikt visnings namn för anslutningen. Klicka på Nästa. Klicka på Anslut.
 
-För andra resurs typer har vi för närvarande ingen Azure RBAC-relaterad lösning. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+För andra resurs typer har vi för närvarande ingen Azure RBAC-relaterad lösning. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Rekommenderade inbyggda Azure-roller
 
 Det finns flera inbyggda Azure-roller som kan ge de behörigheter som krävs för att använda Storage Explorer. Några av dessa roller är:
-- [Ägare](/azure/role-based-access-control/built-in-roles#owner): hantera allt, inklusive åtkomst till resurser. **Obs** : den här rollen ger dig nyckel åtkomst.
-- [Deltagare](/azure/role-based-access-control/built-in-roles#contributor): hantera allt, förutom åtkomst till resurser. **Obs** : den här rollen ger dig nyckel åtkomst.
-- [Läsare](/azure/role-based-access-control/built-in-roles#reader): läsa och lista resurser.
-- [Lagrings konto deltagare](/azure/role-based-access-control/built-in-roles#storage-account-contributor): fullständig hantering av lagrings konton. **Obs** : den här rollen ger dig nyckel åtkomst.
-- [Storage BLOB data-ägare](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): fullständig åtkomst till Azure Storage BLOB-behållare och data.
-- [Storage BLOB data-deltagare](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): läsa, skriva och ta bort Azure Storage behållare och blobbar.
-- [Storage BLOB data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): läsa och lista Azure Storage behållare och blobbar.
+- [Ägare](../../role-based-access-control/built-in-roles.md#owner): hantera allt, inklusive åtkomst till resurser. **Obs** : den här rollen ger dig nyckel åtkomst.
+- [Deltagare](../../role-based-access-control/built-in-roles.md#contributor): hantera allt, förutom åtkomst till resurser. **Obs** : den här rollen ger dig nyckel åtkomst.
+- [Läsare](../../role-based-access-control/built-in-roles.md#reader): läsa och lista resurser.
+- [Lagrings konto deltagare](../../role-based-access-control/built-in-roles.md#storage-account-contributor): fullständig hantering av lagrings konton. **Obs** : den här rollen ger dig nyckel åtkomst.
+- [Storage BLOB data-ägare](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): fullständig åtkomst till Azure Storage BLOB-behållare och data.
+- [Storage BLOB data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): läsa, skriva och ta bort Azure Storage behållare och blobbar.
+- [Storage BLOB data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): läsa och lista Azure Storage behållare och blobbar.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Fel: självsignerat certifikat i certifikat kedjan (och liknande fel)
 

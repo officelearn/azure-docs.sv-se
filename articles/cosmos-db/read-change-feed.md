@@ -5,18 +5,18 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 399f81a5246633912d1e17a13492e404119e362f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0252af90a6afb5b2a59620afaa61702f208991e7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282068"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785263"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Läsa ändringsflödet i Azure Cosmos DB
 
-Du kan arbeta med Azure Cosmos DB ändra feed med antingen en push-modell eller en pull-modell. Med en push-modell skickas en server (Change feed processor) till en klient som har affärs logik för bearbetning av detta arbete. Komplexiteten vid sökning efter arbete och lagrings tillstånd för det senast bearbetade arbetet hanteras dock på servern.
+Du kan arbeta med Azure Cosmos DB ändra feed med antingen en push-modell eller en pull-modell. Med en push-modell skickas push-meddelanden till en klient som har affärs logik för bearbetning av detta arbete. Komplexiteten vid sökning efter arbete och lagrings tillstånd för det senaste bearbetade arbetet hanteras dock i bytet av byte av feed.
 
 Med en pull-modell måste klienten Hämta arbetet från servern. Klienten, i det här fallet, innehåller inte bara affärs logik för bearbetning av arbete, utan även lagring av tillstånd för det senast bearbetade arbetet, hantering av belastnings utjämning över flera klienter bearbetnings arbete parallellt och hantering av fel.
 
@@ -68,7 +68,7 @@ Du kan parallellisera bearbetning av ändringar över flera klienter, precis som
 Det finns ingen fördefinierad "minst en gång"-leverans garanti med pull-modellen. Hämtnings modellen ger dig kontroll på låg nivå för att bestämma hur du vill hantera fel.
 
 > [!NOTE]
-> Pull-modellen för ändrings flöden är för närvarande [en för hands version i Azure Cosmos dB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview) . För hands versionen är inte tillgänglig ännu för andra SDK-versioner.
+> Pull-modellen för ändrings flöden är för närvarande [en för hands version i Azure Cosmos dB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview) . För hands versionen är inte tillgänglig ännu för andra SDK-versioner.
 
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Ändra feed i API: er för Cassandra och MongoDB
 

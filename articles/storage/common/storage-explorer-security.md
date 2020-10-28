@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: b403a960016be3795857ddd5645eb73e53e83bd6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488613"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783767"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Azure Storage Explorer säkerhets guide
 
@@ -44,13 +44,13 @@ I det här avsnittet beskrivs de två Azure AD-baserade teknikerna som kan anvä
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC (rollbaserad åtkomstkontroll)
 
-[Azure rollbaserad åtkomst kontroll (Azure RBAC)](/azure/role-based-access-control/overview) ger dig detaljerad åtkomst kontroll över dina Azure-resurser. Azure-roller och-behörigheter kan hanteras från Azure Portal.
+[Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/overview.md) ger dig detaljerad åtkomst kontroll över dina Azure-resurser. Azure-roller och-behörigheter kan hanteras från Azure Portal.
 
 Storage Explorer stöder Azure RBAC-åtkomst till lagrings konton, blobbar och köer. Om du behöver åtkomst till fil resurser eller tabeller måste du tilldela Azure-roller som ger behörighet att lista lagrings konto nycklar.
 
 #### <a name="access-control-lists-acls"></a>Åtkomstkontrollistor (ACL)
 
-Med [åtkomst kontrol listor (ACL: er)](/azure/storage/blobs/data-lake-storage-access-control) kan du kontrol lera åtkomst till filer och mappar i ADLS Gen2 BLOB-behållare. Du kan hantera dina ACL: er med hjälp av Storage Explorer.
+Med [åtkomst kontrol listor (ACL: er)](../blobs/data-lake-storage-access-control.md) kan du kontrol lera åtkomst till filer och mappar i ADLS Gen2 BLOB-behållare. Du kan hantera dina ACL: er med hjälp av Storage Explorer.
 
 ### <a name="shared-access-signatures-sas"></a>Signaturer för delad åtkomst (SAS)
 
@@ -81,7 +81,7 @@ Lagrings konto nycklar ger obegränsad åtkomst till tjänster och resurser i et
 
 Vissa Azure-roller ger behörighet att hämta lagrings konto nycklar. Individer med dessa roller kan effektivt kringgå behörigheter som beviljas eller nekas av Azure RBAC. Vi rekommenderar inte att du beviljar den här behörigheten om det inte är nödvändigt.
 
-Storage Explorer försöker använda lagrings konto nycklar, om de är tillgängliga, för att autentisera begär Anden. Du kan inaktivera den här funktionen i inställningar (**tjänster > lagrings konton > inaktivera användning av nycklar**). Vissa funktioner har inte stöd för Azure RBAC, till exempel att arbeta med klassiska lagrings konton. Sådana funktioner kräver fortfarande nycklar och påverkas inte av den här inställningen.
+Storage Explorer försöker använda lagrings konto nycklar, om de är tillgängliga, för att autentisera begär Anden. Du kan inaktivera den här funktionen i inställningar ( **tjänster > lagrings konton > inaktivera användning av nycklar** ). Vissa funktioner har inte stöd för Azure RBAC, till exempel att arbeta med klassiska lagrings konton. Sådana funktioner kräver fortfarande nycklar och påverkas inte av den här inställningen.
 
 Om du måste använda nycklar för att komma åt dina lagrings resurser rekommenderar vi följande rikt linjer:
 
@@ -102,4 +102,4 @@ När du aktiverar offentlig åtkomst för en BLOB-behållare rekommenderar vi f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Säkerhetsrekommendationer](/azure/storage/blobs/security-recommendations)
+- [Säkerhetsrekommendationer](../blobs/security-recommendations.md)

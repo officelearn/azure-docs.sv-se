@@ -6,21 +6,21 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 59f1231e2edf3277898ff57d8e6f8da42ee057ca
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: aa0586ab2a0ff21e3187bba070dd4be7ef325288
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276987"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784685"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Ändra flödes hämtnings modell i Azure Cosmos DB
 
 Med pull-modellen för ändrings flöden kan du använda Azure Cosmos DB ändra feed i din egen takt. Eftersom du redan kan göra med en [bytes processor](change-feed-processor.md)kan du använda pull-modellen för ändrings flöden för att parallellisera bearbetningen av ändringar i flera bytes konsumenter.
 
 > [!NOTE]
-> Pull-modellen för ändrings flöden är för närvarande [en för hands version i Azure Cosmos dB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview) . För hands versionen är inte tillgänglig ännu för andra SDK-versioner.
+> Pull-modellen för ändrings flöden är för närvarande [en för hands version i Azure Cosmos dB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview) . För hands versionen är inte tillgänglig ännu för andra SDK-versioner.
 
 ## <a name="comparing-with-change-feed-processor"></a>Jämför med byte av byte av flödes processor
 
@@ -44,9 +44,13 @@ Här är några viktiga skillnader mellan processorn för förändrings matnings
 | Hålla koll på den aktuella punkten vid bearbetning av ändrings flöde | Lån (lagras i en Azure Cosmos DB container) | Fortsättnings-token (lagras i minnet eller sparas manuellt) |
 | Möjlighet att spela upp tidigare ändringar | Ja, med push-modell | Ja, med pull-modell|
 | Söker efter framtida ändringar | Söker automatiskt efter ändringar baserat på användardefinierad `WithPollInterval` | Manuell |
+| Beteende där det inte finns några nya ändringar | Vänta `WithPollInterval` och kontrol lera automatiskt | Måste fånga upp undantag och manuellt kontrol lera manuellt |
 | Bearbeta ändringar från hela behållaren | Ja, och automatiskt parallellt över flera trådar/datorer som konsumeras från samma behållare| Ja, och manuellt parallellt med FeedTokens |
 | Bearbeta ändringar från bara en enda partitionsnyckel | Stöds inte | Ja|
 | Support nivå | Allmänt tillgänglig | Förhandsgranskning |
+
+> [!NOTE]
+> Till skillnad från när du läser med Change feed-processorn måste du explicit hantera fall där inga nya ändringar har uppstått. 
 
 ## <a name="consuming-an-entire-containers-changes"></a>Konsumera en hel behållares ändringar
 
@@ -75,14 +79,22 @@ FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterat
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
-   FeedResponse<User> users = await iteratorForTheEntireContainer.ReadNextAsync();
+    try {
+        FeedResponse<User> users = await iteratorForTheEntireContainer.ReadNextAsync();
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
+        foreach (User user in users)
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
+    }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
     }
 }
 ```
+
+Eftersom ändrings flödet faktiskt är en oändlig lista över objekt som omfattar alla framtida skrivningar och uppdateringar, värdet för `HasMoreResults` är alltid sant. När du försöker läsa ändrings flödet och det inte finns några nya tillgängliga ändringar får du ett undantag. I ovanstående exempel hanteras undantaget genom att vänta 5 sekunder innan du kontrollerar efter ändringar.
 
 ## <a name="consuming-a-partition-keys-changes"></a>Använda ändringar i en partitionsnyckel
 
@@ -93,11 +105,17 @@ FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<Use
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
-   FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
+    try {
+        FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
+        foreach (User user in users)
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
+    }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
     }
 }
 ```
@@ -129,11 +147,17 @@ Dator 1:
 FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]));
 while (iteratorA.HasMoreResults)
 {
-   FeedResponse<User> users = await iteratorA.ReadNextAsync();
+    try {
+        FeedResponse<User> users = await iteratorA.ReadNextAsync();
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
+        foreach (User user in users)
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
+    }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
     }
 }
 ```
@@ -144,11 +168,17 @@ Dator 2:
 FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]));
 while (iteratorB.HasMoreResults)
 {
-   FeedResponse<User> users = await iteratorB.ReadNextAsync();
+    try {
+        FeedResponse<User> users = await iteratorA.ReadNextAsync();
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
+        foreach (User user in users)
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
+    }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
     }
 }
 ```
@@ -164,13 +194,19 @@ string continuation = null;
 
 while (iterator.HasMoreResults)
 {
-   FeedResponse<User> users = await iterator.ReadNextAsync();
-   continuation = users.ContinuationToken;
+   try { 
+        FeedResponse<User> users = await iterator.ReadNextAsync();
+        continuation = users.ContinuationToken;
 
-   foreach (User user in users)
-    {
-        Console.WriteLine($"Detected change for user with id {user.id}");
-    }
+        foreach (User user in users)
+            {
+                Console.WriteLine($"Detected change for user with id {user.id}");
+            }
+   }
+    catch {
+        Console.WriteLine($"No new changes");
+        Thread.Sleep(5000);
+    }   
 }
 
 // Some time later

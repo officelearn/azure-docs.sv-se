@@ -9,12 +9,12 @@ ms.date: 10/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 96e06e31ae3c963459a0f6b4772147197913b52a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2eed5a8ad783d325ef040b3a358e80a6517f08e8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488596"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783648"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera brandväggar och virtuella nätverk i Azure Storage
 
@@ -64,9 +64,9 @@ Du kan hantera standard regler för nätverks åtkomst för lagrings konton via 
 
 1. Gå till det lagringskonto som du vill skydda.
 
-1. Klicka på menyn Inställningar, som kallas **brand väggar och virtuella nätverk**.
+1. Klicka på menyn Inställningar, som kallas **brand väggar och virtuella nätverk** .
 
-1. Om du vill neka åtkomst som standard väljer du att tillåta åtkomst från **valda nätverk**. Om du vill tillåta trafik från alla nätverk väljer du att tillåta åtkomst från **Alla nätverk**.
+1. Om du vill neka åtkomst som standard väljer du att tillåta åtkomst från **valda nätverk** . Om du vill tillåta trafik från alla nätverk väljer du att tillåta åtkomst från **Alla nätverk** .
 
 1. Klicka på **Spara** för att tillämpa dina ändringar.
 
@@ -118,13 +118,13 @@ Du kan hantera standard regler för nätverks åtkomst för lagrings konton via 
 
 Du kan konfigurera lagrings konton så att endast åtkomst från vissa undernät tillåts. De tillåtna under näten kan tillhöra ett VNet i samma prenumeration eller i en annan prenumeration, inklusive prenumerationer som tillhör en annan Azure Active Directory klient.
 
-Aktivera en [tjänst slut punkt](/azure/virtual-network/virtual-network-service-endpoints-overview) för Azure Storage i VNet. Tjänst slut punkten dirigerar trafik från VNet via en optimal sökväg till Azure Storage tjänsten. Identiteterna för under nätet och det virtuella nätverket överförs också med varje begäran. Administratörer kan sedan konfigurera nätverks regler för det lagrings konto som tillåter att förfrågningar tas emot från vissa undernät i ett VNet. Klienter som beviljats åtkomst via dessa nätverks regler måste fortsätta att uppfylla kraven för auktorisering av lagrings kontot för att komma åt data.
+Aktivera en [tjänst slut punkt](../../virtual-network/virtual-network-service-endpoints-overview.md) för Azure Storage i VNet. Tjänst slut punkten dirigerar trafik från VNet via en optimal sökväg till Azure Storage tjänsten. Identiteterna för under nätet och det virtuella nätverket överförs också med varje begäran. Administratörer kan sedan konfigurera nätverks regler för det lagrings konto som tillåter att förfrågningar tas emot från vissa undernät i ett VNet. Klienter som beviljats åtkomst via dessa nätverks regler måste fortsätta att uppfylla kraven för auktorisering av lagrings kontot för att komma åt data.
 
 Varje lagrings konto har stöd för upp till 200 virtuella nätverks regler, som kan kombineras med [IP-nätverks-regler](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Tillgängliga virtuella nätverks regioner
 
-I allmänhet fungerar tjänst slut punkter mellan virtuella nätverk och tjänst instanser i samma Azure-region. När du använder tjänst slut punkter med Azure Storage växer det här omfånget för att inkludera den [kopplade regionen](/azure/best-practices-availability-paired-regions). Tjänst slut punkter tillåter kontinuitet under en regional redundans och till gång till skrivskyddade geo-redundanta lagrings instanser (RA-GRS). Nätverks regler som beviljar åtkomst från ett virtuellt nätverk till ett lagrings konto ger också åtkomst till valfri RA-GRS-instans.
+I allmänhet fungerar tjänst slut punkter mellan virtuella nätverk och tjänst instanser i samma Azure-region. När du använder tjänst slut punkter med Azure Storage växer det här omfånget för att inkludera den [kopplade regionen](../../best-practices-availability-paired-regions.md). Tjänst slut punkter tillåter kontinuitet under en regional redundans och till gång till skrivskyddade geo-redundanta lagrings instanser (RA-GRS). Nätverks regler som beviljar åtkomst från ett virtuellt nätverk till ett lagrings konto ger också åtkomst till valfri RA-GRS-instans.
 
 När du planerar för haveri beredskap under ett regionalt avbrott bör du skapa virtuella nätverk i den kopplade regionen i förväg. Aktivera tjänstens slut punkter för Azure Storage med nätverks regler som beviljar åtkomst från dessa alternativa virtuella nätverk. Tillämpa sedan dessa regler på dina geo-redundanta lagrings konton.
 
@@ -148,18 +148,18 @@ Du kan hantera virtuella nätverks regler för lagrings konton via Azure Portal,
 
 1. Gå till det lagringskonto som du vill skydda.
 
-1. Klicka på menyn Inställningar, som kallas **brand väggar och virtuella nätverk**.
+1. Klicka på menyn Inställningar, som kallas **brand väggar och virtuella nätverk** .
 
-1. Kontrol lera att du har valt att tillåta åtkomst från **valda nätverk**.
+1. Kontrol lera att du har valt att tillåta åtkomst från **valda nätverk** .
 
-1. Om du vill bevilja åtkomst till ett virtuellt nätverk med en ny nätverks regel klickar du på **Lägg till befintligt virtuellt nätverk**under **virtuella nätverk**, väljer alternativ för **virtuella nätverk** och **undernät** och klickar sedan på **Lägg till**. Om du vill skapa ett nytt virtuellt nätverk och bevilja det åtkomst klickar du på **Lägg till nytt virtuellt nätverk**. Ange den information som krävs för att skapa det nya virtuella nätverket och klicka sedan på **skapa**.
+1. Om du vill bevilja åtkomst till ett virtuellt nätverk med en ny nätverks regel klickar du på **Lägg till befintligt virtuellt nätverk** under **virtuella nätverk** , väljer alternativ för **virtuella nätverk** och **undernät** och klickar sedan på **Lägg till** . Om du vill skapa ett nytt virtuellt nätverk och bevilja det åtkomst klickar du på **Lägg till nytt virtuellt nätverk** . Ange den information som krävs för att skapa det nya virtuella nätverket och klicka sedan på **skapa** .
 
     > [!NOTE]
     > Om en tjänst slut punkt för Azure Storage inte tidigare har kon figurer ATS för det valda virtuella nätverket och under nätet, kan du konfigurera den som en del av den här åtgärden.
     >
     > För närvarande visas endast virtuella nätverk som hör till samma Azure Active Directory klient organisation för val av skapande av regel. Om du vill bevilja åtkomst till ett undernät i ett virtuellt nätverk som tillhör en annan klient organisation använder du PowerShell-, CLI-eller REST-API: er.
 
-1. Om du vill ta bort ett virtuellt nätverk eller en under näts regel klickar du på **...** för att öppna snabb menyn för det virtuella nätverket eller under nätet och klicka på **ta bort**.
+1. Om du vill ta bort ett virtuellt nätverk eller en under näts regel klickar du på **...** för att öppna snabb menyn för det virtuella nätverket eller under nätet och klicka på **ta bort** .
 
 1. Klicka på **Spara** för att tillämpa dina ändringar.
 
@@ -197,7 +197,7 @@ Du kan hantera virtuella nätverks regler för lagrings konton via Azure Portal,
     ```
 
 > [!IMPORTANT]
-> Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka**eller att nätverks regler inte har någon påverkan.
+> Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka** eller att nätverks regler inte har någon påverkan.
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -235,18 +235,18 @@ Du kan hantera virtuella nätverks regler för lagrings konton via Azure Portal,
     ```
 
 > [!IMPORTANT]
-> Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka**eller att nätverks regler inte har någon påverkan.
+> Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka** eller att nätverks regler inte har någon påverkan.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Bevilja åtkomst från ett IP-intervall på internet
 
 Du kan konfigurera lagrings konton så att de tillåter åtkomst från vissa offentliga IP-adressintervall för Internet. Den här konfigurationen beviljar åtkomst till vissa Internetbaserade tjänster och lokala nätverk och blockerar allmän Internet trafik.
 
-Tillhandahålla tillåtna Internet adress intervall med [CIDR-notering](https://tools.ietf.org/html/rfc4632) i formatet *16.17.18.0/24* eller enskilda IP-adresser som *16.17.18.19*.
+Tillhandahålla tillåtna Internet adress intervall med [CIDR-notering](https://tools.ietf.org/html/rfc4632) i formatet *16.17.18.0/24* eller enskilda IP-adresser som *16.17.18.19* .
 
    > [!NOTE]
    > Små adress intervall som använder sig av prefixlängden "/31" eller "/32" stöds inte. Dessa intervall ska konfigureras med hjälp av enskilda IP-adressintervall.
 
-IP-nätverks regler tillåts endast för **offentliga Internet** -IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med _10. *_, _172,16. *_  -  _172,31. *_ och _192,168. *_.
+IP-nätverks regler tillåts endast för **offentliga Internet** -IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med _10. *_ , _172,16. *_  -  _172,31. *_ och _192,168. *_ .
 
    > [!NOTE]
    > IP-nätverksanslutningar har ingen påverkan på begär Anden som kommer från samma Azure-region som lagrings kontot. Använd [regler för virtuella nätverk](#grant-access-from-a-virtual-network) för att tillåta begäran om samma region.
@@ -262,7 +262,7 @@ Varje lagrings konto har stöd för upp till 200 IP-nätverksanslutningar.
 
 Om du vill bevilja åtkomst från dina lokala nätverk till ditt lagrings konto med en IP-nätverks regel måste du identifiera de Internet adresser som IP-adresser används i nätverket. Kontakta nätverks administratören om du behöver hjälp.
 
-Om du använder [ExpressRoute](/azure/expressroute/expressroute-introduction) lokalt för offentlig peering eller Microsoft-peering, måste du identifiera de NAT IP-adresser som används. För offentlig peering, använder varje ExpressRoute-krets som standard två NAT IP-adresser, som används för Azure-tjänsttrafik när trafiken kommer till Microsoft Azure-stamnätverket. För Microsoft-peering används de NAT-IP-adresser som används antingen för kunden eller tillhandahålls av tjänst leverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du en supportbegäran hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
+Om du använder [ExpressRoute](../../expressroute/expressroute-introduction.md) lokalt för offentlig peering eller Microsoft-peering, måste du identifiera de NAT IP-adresser som används. För offentlig peering, använder varje ExpressRoute-krets som standard två NAT IP-adresser, som används för Azure-tjänsttrafik när trafiken kommer till Microsoft Azure-stamnätverket. För Microsoft-peering används de NAT-IP-adresser som används antingen för kunden eller tillhandahålls av tjänst leverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du en supportbegäran hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](../../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Hantera IP-nätverks regler
 
@@ -272,11 +272,11 @@ Du kan hantera IP-nätverks regler för lagrings konton via Azure Portal, PowerS
 
 1. Gå till det lagringskonto som du vill skydda.
 
-1. Klicka på menyn Inställningar, som kallas **brand väggar och virtuella nätverk**.
+1. Klicka på menyn Inställningar, som kallas **brand väggar och virtuella nätverk** .
 
-1. Kontrol lera att du har valt att tillåta åtkomst från **valda nätverk**.
+1. Kontrol lera att du har valt att tillåta åtkomst från **valda nätverk** .
 
-1. Om du vill bevilja åtkomst till ett Internet-IP-intervall anger du IP-adressen eller adress intervallet (i CIDR-format) under **brand Väggs**  >  **adress intervall**.
+1. Om du vill bevilja åtkomst till ett Internet-IP-intervall anger du IP-adressen eller adress intervallet (i CIDR-format) under **brand Väggs**  >  **adress intervall** .
 
 1. Om du vill ta bort en IP-nätverks regel klickar du på pappers korgs ikonen bredvid adress intervallet.
 
@@ -317,7 +317,7 @@ Du kan hantera IP-nätverks regler för lagrings konton via Azure Portal, PowerS
     ```
 
 > [!IMPORTANT]
-> Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka**eller att nätverks regler inte har någon påverkan.
+> Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka** eller att nätverks regler inte har någon påverkan.
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -354,11 +354,11 @@ Du kan hantera IP-nätverks regler för lagrings konton via Azure Portal, PowerS
     ```
 
 > [!IMPORTANT]
-> Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka**eller att nätverks regler inte har någon påverkan.
+> Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka** eller att nätverks regler inte har någon påverkan.
 
 ## <a name="exceptions"></a>Undantag
 
-Nätverks regler hjälper till att skapa en säker miljö för anslutningar mellan dina program och dina data för de flesta scenarier. Vissa program är dock beroende av Azure-tjänster som inte kan isoleras unikt genom virtuella nätverks-eller IP-adress regler. Men sådana tjänster måste beviljas till lagring för att möjliggöra fullständig program funktion. I sådana fall kan du använda **_Tillåt betrodda Microsoft-tjänster..._* _ inställning för att aktivera sådana tjänster för att få åtkomst till dina data, loggar eller analyser.
+Nätverks regler hjälper till att skapa en säker miljö för anslutningar mellan dina program och dina data för de flesta scenarier. Vissa program är dock beroende av Azure-tjänster som inte kan isoleras unikt genom virtuella nätverks-eller IP-adress regler. Men sådana tjänster måste beviljas till lagring för att möjliggöra fullständig program funktion. I sådana fall kan du använda * *_Tillåt betrodda Microsoft-tjänster..._* _ inställning för att aktivera sådana tjänster för att få åtkomst till dina data, loggar eller analyser.
 
 ### <a name="trusted-microsoft-services"></a>Betrodda Microsoft-tjänster
 
@@ -372,39 +372,39 @@ När du aktiverar inställningen **Tillåt betrodda Microsoft-tjänster...** , b
 
 | Tjänst                  | Namn på resurs leverantör     | Tillåtna åtgärder                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
-| Azure Backup             | Microsoft. RecoveryServices | Kör säkerhets kopiering och återställning av ohanterade diskar i virtuella IAAS-datorer. (krävs inte för Managed Disks). [Läs mer](/azure/backup/backup-introduction-to-azure-backup). |
-| Azure Data Box           | Microsoft. data-          | Gör det möjligt att importera data till Azure med hjälp av Data Box-enhet. [Läs mer](/azure/databox/data-box-overview). |
+| Azure Backup             | Microsoft. RecoveryServices | Kör säkerhets kopiering och återställning av ohanterade diskar i virtuella IAAS-datorer. (krävs inte för Managed Disks). [Läs mer](../../backup/backup-overview.md). |
+| Azure Data Box           | Microsoft. data-          | Gör det möjligt att importera data till Azure med hjälp av Data Box-enhet. [Läs mer](../../databox/data-box-overview.md). |
 | Azure DevTest Labs       | Microsoft. DevTestLab       | Skapande av anpassad avbildning och artefakt installation. [Läs mer](../../devtest-labs/devtest-lab-overview.md). |
-| Azure Event Grid         | Microsoft. EventGrid        | Aktivera Blob Storage händelse publicering och Tillåt Event Grid att publicera till lagrings köer. Lär dig mer om [Blob Storage-händelser](/azure/event-grid/event-sources) och [publicering till köer](/azure/event-grid/event-handlers). |
-| Azure Event Hubs         | Microsoft. EventHub         | Arkivera data med Event Hubs avbildning. [Läs mer](/azure/event-hubs/event-hubs-capture-overview). |
+| Azure Event Grid         | Microsoft. EventGrid        | Aktivera Blob Storage händelse publicering och Tillåt Event Grid att publicera till lagrings köer. Lär dig mer om [Blob Storage-händelser](../../event-grid/overview.md#event-sources) och [publicering till köer](../../event-grid/event-handlers.md). |
+| Azure Event Hubs         | Microsoft. EventHub         | Arkivera data med Event Hubs avbildning. [Läs mer](../../event-hubs/event-hubs-capture-overview.md). |
 | Azure File Sync          | Microsoft. StorageSync      | Gör att du kan omvandla din lokal fil server till ett cacheminne för Azure-filresurser. Tillåter synkronisering av flera platser, snabb katastrof återställning och säkerhets kopiering på moln sidan. [Läs mer](../files/storage-sync-files-planning.md) |
-| Azure HDInsight          | Microsoft. HDInsight        | Etablera det inledande innehållet i standard fil systemet för ett nytt HDInsight-kluster. [Läs mer](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
-| Azure import-export      | Microsoft. ImportExport     | Möjliggör import av data till Azure Storage eller export av data från Azure Storage med hjälp av Azure Storage import/export-tjänsten. [Läs mer](/azure/storage/common/storage-import-export-service).  |
-| Azure Monitor            | Microsoft. Insights         | Tillåter skrivning av övervaknings data till ett skyddat lagrings konto, inklusive resurs loggar, Azure Active Directory inloggnings-och gransknings loggar och Microsoft Intune loggar. [Läs mer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Azure-nätverk         | Microsoft.Network          | Lagra och analysera nätverks trafik loggar, inklusive via Network Watcher-och Trafikanalys-tjänsterna. [Läs mer](/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
-| Azure Site Recovery      | Microsoft. SiteRecovery     | Aktivera replikering för haveri beredskap för virtuella Azure IaaS-datorer när du använder brand Väggs-aktiverade cache-, käll-eller mål lagrings konton.  [Läs mer](/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
+| Azure HDInsight          | Microsoft. HDInsight        | Etablera det inledande innehållet i standard fil systemet för ett nytt HDInsight-kluster. [Läs mer](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
+| Azure import-export      | Microsoft. ImportExport     | Möjliggör import av data till Azure Storage eller export av data från Azure Storage med hjälp av Azure Storage import/export-tjänsten. [Läs mer](./storage-import-export-service.md).  |
+| Azure Monitor            | Microsoft. Insights         | Tillåter skrivning av övervaknings data till ett skyddat lagrings konto, inklusive resurs loggar, Azure Active Directory inloggnings-och gransknings loggar och Microsoft Intune loggar. [Läs mer](../../azure-monitor/platform/roles-permissions-security.md). |
+| Azure-nätverk         | Microsoft.Network          | Lagra och analysera nätverks trafik loggar, inklusive via Network Watcher-och Trafikanalys-tjänsterna. [Läs mer](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
+| Azure Site Recovery      | Microsoft. SiteRecovery     | Aktivera replikering för haveri beredskap för virtuella Azure IaaS-datorer när du använder brand Väggs-aktiverade cache-, käll-eller mål lagrings konton.  [Läs mer](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 
 Inställningen **Tillåt betrodda Microsoft-tjänster...** tillåter också att en viss instans av nedanstående tjänster får åtkomst till lagrings kontot, om du uttryckligen [tilldelar en Azure-roll](storage-auth-aad.md#assign-azure-roles-for-access-rights) till den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för den resurs instansen. I det här fallet motsvarar åtkomst omfånget för instansen den Azure-roll som tilldelats den hanterade identiteten.
 
 | Tjänst                        | Namn på resurs leverantör                 | Syfte            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Azure API Management           | Microsoft.ApiManagement/service        | Aktiverar API Management-tjänstens åtkomst till lagrings konton bakom brand väggen med hjälp av principer. [Läs mer](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy). |
+| Azure API Management           | Microsoft.ApiManagement/service        | Aktiverar API Management-tjänstens åtkomst till lagrings konton bakom brand väggen med hjälp av principer. [Läs mer](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft. search/searchServices        | Ger Kognitiv sökning-tjänster åtkomst till lagrings konton för indexering, bearbetning och frågor. |
 | Azure Container Registry Tasks | Microsoft. ContainerRegistry/register | ACR-aktiviteter kan komma åt lagrings konton när du skapar behållar avbildningar. |
 | Azure Data Factory             | Microsoft. DataFactory/fabriker        | Ger åtkomst till lagrings konton via ADF-körningen. |
 | Azure Data Share               | Microsoft. DataShare/konton           | Ger åtkomst till lagrings konton via data resurs. |
 | Azure IoT Hub                  | Microsoft. Devices/IotHubs              | Tillåter att data från en IoT-hubb skrivs till Blob Storage. [Läs mer](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
-| Azure Logic Apps               | Microsoft. Logic/arbets flöden              | Gör att Logic Apps kan komma åt lagrings konton. [Läs mer](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
-| Azure Machine Learning-tjänsten | Microsoft.MachineLearningServices      | Auktoriserade Azure Machine Learning arbets ytor skriver experiment, modeller och loggar till Blob Storage och läser data. [Läs mer](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
-| Azure Synapse Analytics (tidigare SQL Data Warehouse)       | Microsoft.Sql                          | Tillåter import och export av data från vissa SQL-databaser med hjälp av KOPIERINGs instruktionen eller polybasen. [Läs mer](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure SQL Database       | Microsoft.Sql                          | Tillåter [import](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) av data från lagrings konton och [skrivning](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) av gransknings data till lagrings konton bakom brand väggen. |
-| Azure Stream Analytics         | Microsoft. StreamAnalytics             | Tillåter att data från ett strömmande jobb skrivs till Blob Storage. [Läs mer](/azure/stream-analytics/blob-output-managed-identity). |
+| Azure Logic Apps               | Microsoft. Logic/arbets flöden              | Gör att Logic Apps kan komma åt lagrings konton. [Läs mer](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
+| Azure Machine Learning-tjänsten | Microsoft.MachineLearningServices      | Auktoriserade Azure Machine Learning arbets ytor skriver experiment, modeller och loggar till Blob Storage och läser data. [Läs mer](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). | 
+| Azure Synapse Analytics (tidigare SQL Data Warehouse)       | Microsoft.Sql                          | Tillåter import och export av data från vissa SQL-databaser med hjälp av KOPIERINGs instruktionen eller polybasen. [Läs mer](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Azure SQL Database       | Microsoft.Sql                          | Tillåter [import](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) av data från lagrings konton och [skrivning](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) av gransknings data till lagrings konton bakom brand väggen. |
+| Azure Stream Analytics         | Microsoft. StreamAnalytics             | Tillåter att data från ett strömmande jobb skrivs till Blob Storage. [Läs mer](../../stream-analytics/blob-output-managed-identity.md). |
 | Azure Synapse Analytics        | Microsoft. Synapse/arbets ytor          | Ger åtkomst till data i Azure Storage från Synapse Analytics. |
 
 
 ### <a name="storage-analytics-data-access"></a>Åtkomst till Storage Analytics-data
 
-I vissa fall krävs åtkomst till läsa resurs loggar och mät värden utanför nätverks gränserna. När du konfigurerar betrodda tjänster till lagrings kontot kan du tillåta Läs åtkomst för loggfiler, mått tabeller eller både och. [Lär dig mer om hur du arbetar med lagrings analys.](/azure/storage/storage-analytics)
+I vissa fall krävs åtkomst till läsa resurs loggar och mät värden utanför nätverks gränserna. När du konfigurerar betrodda tjänster till lagrings kontot kan du tillåta Läs åtkomst för loggfiler, mått tabeller eller både och. [Lär dig mer om hur du arbetar med lagrings analys.](./storage-analytics.md)
 
 ### <a name="managing-exceptions"></a>Hantera undantag
 
@@ -414,11 +414,11 @@ Du kan hantera nätverks regel undantag via Azure Portal, PowerShell eller Azure
 
 1. Gå till det lagringskonto som du vill skydda.
 
-1. Klicka på menyn Inställningar, som kallas **brand väggar och virtuella nätverk**.
+1. Klicka på menyn Inställningar, som kallas **brand väggar och virtuella nätverk** .
 
-1. Kontrol lera att du har valt att tillåta åtkomst från **valda nätverk**.
+1. Kontrol lera att du har valt att tillåta åtkomst från **valda nätverk** .
 
-1. Under **undantag**väljer du de undantag som du vill bevilja.
+1. Under **undantag** väljer du de undantag som du vill bevilja.
 
 1. Klicka på **Spara** för att tillämpa dina ändringar.
 
@@ -445,7 +445,7 @@ Du kan hantera nätverks regel undantag via Azure Portal, PowerShell eller Azure
     ```
 
 > [!IMPORTANT]
-> Se till att [Ange standard regeln](#change-the-default-network-access-rule) som **neka**eller ta bort undantag har ingen påverkan.
+> Se till att [Ange standard regeln](#change-the-default-network-access-rule) som **neka** eller ta bort undantag har ingen påverkan.
 
 #### <a name="cliv2"></a>CLIv2
 
@@ -470,10 +470,10 @@ Du kan hantera nätverks regel undantag via Azure Portal, PowerShell eller Azure
     ```
 
 > [!IMPORTANT]
-> Se till att [Ange standard regeln](#change-the-default-network-access-rule) som **neka**eller ta bort undantag har ingen påverkan.
+> Se till att [Ange standard regeln](#change-the-default-network-access-rule) som **neka** eller ta bort undantag har ingen påverkan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure Network Service-slutpunkter i [tjänst slut punkter](/azure/virtual-network/virtual-network-service-endpoints-overview).
+Läs mer om Azure Network Service-slutpunkter i [tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 Gå djupare i Azure Storage säkerhet i [Azure Storage säkerhets guide](../blobs/security-recommendations.md).

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: bb7619500cc142eca52ca0a1a6e0b670e6b8f51a
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7270ea589d82c09081aec5d81d1cd0b50b1b8a9f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425478"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785586"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Använda Queue Storage från Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -22,14 +22,14 @@ ms.locfileid: "92425478"
 
 ## <a name="overview"></a>Översikt
 Den här guiden visar hur du utför vanliga scenarier med hjälp av tjänsten Microsoft Azure Queue Storage. Exemplen skrivs med ruby Azure-API: et.
-De scenarier som beskrivs är att **Infoga**, **Granska**, **Hämta**och **ta bort** Kömeddelanden, samt **skapa och ta bort köer**.
+De scenarier som beskrivs är att **Infoga** , **Granska** , **Hämta** och **ta bort** Kömeddelanden, samt **skapa och ta bort köer** .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Skapa ett ruby-program
-Skapa ett ruby-program. Instruktioner finns i [skapa en Ruby-app i App Service på Linux](/azure/app-service/quickstart-ruby).
+Skapa ett ruby-program. Instruktioner finns i [skapa en Ruby-app i App Service på Linux](../../app-service/quickstart-ruby.md).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurera ditt program för åtkomst till lagring
 Om du vill använda Azure Storage måste du ladda ned och använda ruby Azure-paketet, som innehåller en uppsättning bekvämlighets bibliotek som kommunicerar med lagrings REST tjänsterna.
@@ -97,7 +97,7 @@ result = azure_queue_service.peek_messages("test-queue",
 Du kan ta bort ett meddelande från en kö i två steg.
 
 1. När du anropar **list \_ meddelanden ()** får du nästa meddelande i en kö som standard. Du kan också ange hur många meddelanden du vill hämta. Meddelanden som returneras från **list \_ meddelanden ()** blir osynliga för all annan kod som läser meddelanden från den här kön. Du skickar tids gränsen för synlighet i sekunder som en parameter.
-2. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **delete_message ()**.
+2. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **delete_message ()** .
 
 Den här två stegs processen för att ta bort ett meddelande säkerställer att när din kod inte kan bearbeta ett meddelande på grund av maskin-eller program varu fel, kan en annan instans av koden Hämta samma meddelande och försöka igen. Kod anropen **ta bort \_ meddelandet ()** direkt efter att meddelandet har bearbetats.
 

@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7d7bff1bc85e0dec78a69422d126b86f61b7704
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276932"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783988"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Haveriberedskap och lagringskontoredundans
 
@@ -54,9 +54,9 @@ Det är viktigt att utforma ditt program för hög tillgänglighet från start. 
 Tänk också på följande rekommendationer för att upprätthålla hög tillgänglighet för dina Azure Storage data:
 
 - **Diskar:** Använd [Azure Backup](https://azure.microsoft.com/services/backup/) för att säkerhetskopiera de virtuella dator diskar som används av dina virtuella Azure-datorer. Överväg också att använda [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) för att skydda dina virtuella datorer i händelse av en regional katastrof.
-- **Blockera blobbar:** Aktivera [mjuk borttagning](../blobs/storage-blob-soft-delete.md) för att skydda mot borttagningar på objekt nivå och skriv över eller kopiera block-blobar till ett annat lagrings konto i en annan region [med AZCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/)eller [Azure Data flyttnings bibliotek](storage-use-data-movement-library.md).
-- **Filer:** Använd [AzCopy](storage-use-azcopy.md) eller [Azure PowerShell](/powershell/module/az.storage/) för att kopiera filer till ett annat lagrings konto i en annan region.
-- **Tabeller:** Använd [AzCopy](storage-use-azcopy.md) för att exportera tabell data till ett annat lagrings konto i en annan region.
+- **Blockera blobbar:** Aktivera [mjuk borttagning](../blobs/soft-delete-blob-overview.md) för att skydda mot borttagningar på objekt nivå och skriv över eller kopiera block-blobar till ett annat lagrings konto i en annan region [med AZCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/)eller [Azure Data flyttnings bibliotek](storage-use-data-movement-library.md).
+- **Filer:** Använd [AzCopy](./storage-use-azcopy-v10.md) eller [Azure PowerShell](/powershell/module/az.storage/) för att kopiera filer till ett annat lagrings konto i en annan region.
+- **Tabeller:** Använd [AzCopy](./storage-use-azcopy-v10.md) för att exportera tabell data till ett annat lagrings konto i en annan region.
 
 ## <a name="track-outages"></a>Spåra avbrott
 
@@ -132,7 +132,7 @@ Eftersom Azure Storage Resource Provider inte växlar över, returnerar egenskap
 
 ### <a name="azure-virtual-machines"></a>Virtuella Azure-datorer
 
-Virtuella Azure-datorer (VM) växlar inte över som en del av en redundansväxling av kontot. Om den primära regionen blir otillgänglig och du växlar över till den sekundära regionen måste du återskapa alla virtuella datorer efter redundansväxlingen. Det finns också en potentiell data förlust som är associerad med kontots redundans. Microsoft rekommenderar följande rikt linjer för [hög tillgänglighet](../../virtual-machines/windows/manage-availability.md) och [katastrof återställning](../../virtual-machines/windows/backup-recovery.md) som är särskilt tillgängliga för virtuella datorer i Azure.
+Virtuella Azure-datorer (VM) växlar inte över som en del av en redundansväxling av kontot. Om den primära regionen blir otillgänglig och du växlar över till den sekundära regionen måste du återskapa alla virtuella datorer efter redundansväxlingen. Det finns också en potentiell data förlust som är associerad med kontots redundans. Microsoft rekommenderar följande rikt linjer för [hög tillgänglighet](../../virtual-machines/manage-availability.md) och [katastrof återställning](../../virtual-machines/backup-recovery.md) som är särskilt tillgängliga för virtuella datorer i Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Azure-ohanterade diskar
 
@@ -162,7 +162,7 @@ Följande funktioner och tjänster stöds inte för redundans av konto:
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Kopiera data som ett alternativ till redundans
 
-Om ditt lagrings konto har kon figurer ATS för Läs åtkomst till den sekundära kan du utforma ditt program för att läsa från den sekundära slut punkten. Om du föredrar att inte redundansväxla vid ett avbrott i den primära regionen kan du använda verktyg som [AzCopy](storage-use-azcopy.md), [Azure PowerShell](/powershell/module/az.storage/)eller [Azure Data flyttnings bibliotek](../common/storage-use-data-movement-library.md) för att kopiera data från ditt lagrings konto i den sekundära regionen till ett annat lagrings konto i en ej påverkad region. Du kan sedan peka dina program till det lagrings kontot för både Läs-och skriv tillgänglighet.
+Om ditt lagrings konto har kon figurer ATS för Läs åtkomst till den sekundära kan du utforma ditt program för att läsa från den sekundära slut punkten. Om du föredrar att inte redundansväxla vid ett avbrott i den primära regionen kan du använda verktyg som [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/)eller [Azure Data flyttnings bibliotek](../common/storage-use-data-movement-library.md) för att kopiera data från ditt lagrings konto i den sekundära regionen till ett annat lagrings konto i en ej påverkad region. Du kan sedan peka dina program till det lagrings kontot för både Läs-och skriv tillgänglighet.
 
 > [!CAUTION]
 > En växling vid fel ska inte användas som en del av din strategi för datamigrering.

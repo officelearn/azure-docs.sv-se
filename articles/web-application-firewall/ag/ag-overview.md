@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 050252718e4796ff20d57be3fdeac98f0cf04fdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267031"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785229"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Vad är Azure Web Application-brandvägg på Azure Application Gateway?
 
@@ -74,6 +74,7 @@ I det här avsnittet beskrivs de grundläggande fördelar som WAF i Application 
 - Skapa anpassade regler som passar de olika behoven i dina program.
 - Geo-filter-trafik för att tillåta eller blockera vissa länder/regioner från att få åtkomst till dina program. (förhandsversion)
 - Skydda dina program från robotar med ruleset för bot. (förhandsversion)
+- Granska JSON och XML i begär ande texten
 
 ## <a name="waf-policy-and-rules"></a>WAF princip och regler
 
@@ -121,8 +122,8 @@ Om bot-skydd är aktiverat loggas inkommande begär Anden som matchar skadlig ro
 
 Application Gateway WAF kan konfigureras att köras i följande två lägen:
 
-* **Identifierings läge**: övervakar och loggar alla hot aviseringar. Du aktiverar Logging Diagnostics för Application Gateway i avsnittet **diagnostik** . Du måste också kontrol lera att WAF-loggen är markerad och aktive rad. Brand väggen för webbaserade program blockerar inte inkommande förfrågningar när den körs i identifierings läge.
-* **Skydds läge**: blockerar intrång och attacker som reglerna identifierar. Angriparen får ett undantag för "403 obehörig åtkomst" och anslutningen stängs. I skydds läget registreras sådana attacker i WAF-loggarna.
+* **Identifierings läge** : övervakar och loggar alla hot aviseringar. Du aktiverar Logging Diagnostics för Application Gateway i avsnittet **diagnostik** . Du måste också kontrol lera att WAF-loggen är markerad och aktive rad. Brand väggen för webbaserade program blockerar inte inkommande förfrågningar när den körs i identifierings läge.
+* **Skydds läge** : blockerar intrång och attacker som reglerna identifierar. Angriparen får ett undantag för "403 obehörig åtkomst" och anslutningen stängs. I skydds läget registreras sådana attacker i WAF-loggarna.
 
 > [!NOTE]
 > Vi rekommenderar att du kör en nyligen distribuerad WAF i identifierings läge under en kort tids period i en produktions miljö. Detta ger möjlighet att hämta [brand Väggs loggar](../../application-gateway/application-gateway-diagnostics.md#firewall-log) och uppdatera eventuella undantag eller [anpassade regler](./custom-waf-rules-overview.md) innan du övergår till förebyggande läge. Detta kan hjälpa till att minska förekomsten av oväntad blockerad trafik.
@@ -131,9 +132,9 @@ Application Gateway WAF kan konfigureras att köras i följande två lägen:
 
 OWASP har två lägen för att bestämma om du vill blockera trafik: traditionellt läge och avvikande bedömnings läge.
 
-I traditionellt läge betraktas trafik som matchar vilken regel som helst oberoende av andra regel matchningar. Det här läget är enkelt att förstå. Men avsaknad av information om hur många regler som matchar en speciell begäran är en begränsning. Därför introducerades avvikelser bedömnings läget. Det är standardinställningen för OWASP 3. *x*.
+I traditionellt läge betraktas trafik som matchar vilken regel som helst oberoende av andra regel matchningar. Det här läget är enkelt att förstå. Men avsaknad av information om hur många regler som matchar en speciell begäran är en begränsning. Därför introducerades avvikelser bedömnings läget. Det är standardinställningen för OWASP 3. *x* .
 
-I avvikande bedömnings läge blockeras inte trafik som matchar någon regel direkt när brand väggen är i förebyggande läge. Reglerna har en viss allvarlighets grad: *kritisk*, *fel*, *Varning*eller *meddelande*. Allvarlighets graden påverkar ett numeriskt värde för begäran, vilket kallas för avvikelse poängen. En *varnings* regel matchar till exempel 3 till poängen. En *kritisk* regel matchar 5.
+I avvikande bedömnings läge blockeras inte trafik som matchar någon regel direkt när brand väggen är i förebyggande läge. Reglerna har en viss allvarlighets grad: *kritisk* , *fel* , *Varning* eller *meddelande* . Allvarlighets graden påverkar ett numeriskt värde för begäran, vilket kallas för avvikelse poängen. En *varnings* regel matchar till exempel 3 till poängen. En *kritisk* regel matchar 5.
 
 |Allvarlighetsgrad  |Värde  |
 |---------|---------|

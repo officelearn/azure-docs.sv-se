@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-python
-ms.openlocfilehash: 2eeb68ca5b0b6be0970a1adb071a7662399bc879
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: d3d5fd34ee6c1d73429af63693094acdaed6c9d2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042566"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784617"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Snabb start: klient biblioteket för Azure Key Vaults nycklar för python
 
@@ -21,17 +21,17 @@ Kom igång med Azure Key Vault klient biblioteket för python. Följ stegen neda
 
 [API-referens dokumentation](/python/api/overview/azure/keyvault-keys-readme)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys)  |  [Paket (python-paket index)](https://pypi.org/project/azure-keyvault-keys/)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7 + eller 3.5.3 +](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
+- [Python 2.7 + eller 3.5.3 +](/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 Den här snabb starten förutsätter att du kör [Azure CLI](/cli/azure/install-azure-cli) i ett Linux-terminalfönster.
 
 ## <a name="set-up-your-local-environment"></a>Konfigurera din lokala miljö
 
-Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
+Den här snabb starten använder Azure Identity Library med Azure CLI för att autentisera användare till Azure-tjänster. Utvecklare kan också använda Visual Studio eller Visual Studio Code för att autentisera sina anrop. mer information finns i [autentisera klienten med klient biblioteket för Azure Identity](/java/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -134,7 +134,7 @@ print(" done.")
 
 ## <a name="run-the-code"></a>Kör koden
 
-Kontrol lera att koden i föregående avsnitt finns i en fil med namnet *kv_keys. py*. Kör sedan koden med följande kommando:
+Kontrol lera att koden i föregående avsnitt finns i en fil med namnet *kv_keys. py* . Kör sedan koden med följande kommando:
 
 ```terminal
 python kv_keys.py

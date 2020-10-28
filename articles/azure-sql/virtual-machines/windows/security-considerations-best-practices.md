@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 04634a6efb6c17a823532a29ec273b088a4ad843
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f6d1960c07dc23c584dec5bb424f91630fc1bb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272419"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785076"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Säkerhetsöverväganden för SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,13 +41,13 @@ Följande avsnitt innehåller förslag på hur du tänker på dessa punkter.
 
 ## <a name="secure-connections"></a>Säkra anslutningar
 
-När du skapar en SQL Server virtuell dator med en galleri bild kan du med alternativet **SQL Server anslutning** kan du välja **lokalt (inne i VM)**, **privat (inom Virtual Network)** eller **offentlig (Internet)**.
+När du skapar en SQL Server virtuell dator med en galleri bild kan du med alternativet **SQL Server anslutning** kan du välja **lokalt (inne i VM)** , **privat (inom Virtual Network)** eller **offentlig (Internet)** .
 
 ![SQL Server anslutning](./media/security-considerations-best-practices/sql-vm-connectivity-option.png)
 
 För bästa säkerhet väljer du det mest restriktiva alternativet för ditt scenario. Om du till exempel kör ett program som har åtkomst till SQL Server på samma virtuella dator är **lokalt** det säkraste alternativet. Om du kör ett Azure-program som kräver åtkomst till SQL Server, skyddas **privat** kommunikation enbart till SQL Server inom det angivna [virtuella Azure-nätverket](../../../virtual-network/virtual-networks-overview.md). Om du behöver **offentlig** (Internet) åtkomst till SQL Server VM ska du kontrol lera att du följer andra metod tips i det här avsnittet för att minska risken för angrepp.
 
-De valda alternativen i portalen använder inkommande säkerhets regler i den virtuella datorns [nätverks säkerhets grupp](../../../active-directory/identity-protection/security-overview.md) (NSG) för att tillåta eller neka nätverks trafik till den virtuella datorn. Du kan ändra eller skapa nya regler för inkommande NSG för att tillåta trafik till SQL Server porten (standard 1433). Du kan också ange vissa IP-adresser som tillåts att kommunicera via den här porten.
+De valda alternativen i portalen använder inkommande säkerhets regler i den virtuella datorns [nätverks säkerhets grupp](../../../active-directory/identity-protection/concept-identity-protection-security-overview.md) (NSG) för att tillåta eller neka nätverks trafik till den virtuella datorn. Du kan ändra eller skapa nya regler för inkommande NSG för att tillåta trafik till SQL Server porten (standard 1433). Du kan också ange vissa IP-adresser som tillåts att kommunicera via den här porten.
 
 ![Regler för nätverkssäkerhetsgrupp](./media/security-considerations-best-practices/sql-vm-network-security-group-rules.png)
 
@@ -55,11 +55,11 @@ Förutom NSG-regler för att begränsa nätverks trafiken kan du också använda
 
 Om du använder slut punkter med den klassiska distributions modellen tar du bort alla slut punkter på den virtuella datorn om du inte använder dem. Instruktioner för hur du använder ACL: er med slut punkter finns i [Hantera ACL för en slut punkt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Detta är inte nödvändigt för virtuella datorer som använder Azure Resource Manager.
 
-Till sist kan du aktivera krypterade anslutningar för instansen av SQL Server databas motorn på din virtuella Azure-dator. Konfigurera SQL Server-instansen med ett signerat certifikat. Mer information finns i [Aktivera krypterade anslutningar till databas motorn](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) och [syntaxen för anslutnings strängen](https://msdn.microsoft.com/library/ms254500.aspx).
+Till sist kan du aktivera krypterade anslutningar för instansen av SQL Server databas motorn på din virtuella Azure-dator. Konfigurera SQL Server-instansen med ett signerat certifikat. Mer information finns i [Aktivera krypterade anslutningar till databas motorn](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) och [syntaxen för anslutnings strängen](/dotnet/framework/data/adonet/connection-string-syntax).
 
 ## <a name="encryption"></a>Kryptering
 
-Managed disks erbjuder Server-Side kryptering och Azure Disk Encryption. [Kryptering på Server sidan](/azure/virtual-machines/windows/disk-encryption) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) använder antingen Bitlocker eller DM-Crypt-teknik och integrerar med Azure Key Vault för att kryptera både operativ systemet och data diskarna. 
+Managed disks erbjuder Server-Side kryptering och Azure Disk Encryption. [Kryptering på Server sidan](../../../virtual-machines/windows/disk-encryption.md) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) använder antingen Bitlocker eller DM-Crypt-teknik och integrerar med Azure Key Vault för att kryptera både operativ systemet och data diskarna. 
 
 ## <a name="use-a-non-default-port"></a>Använd en port som inte är standard
 
@@ -73,7 +73,7 @@ Om du vill konfigurera detta efter etableringen har du två alternativ:
 
   ![TCP-port ändring i portalen](./media/security-considerations-best-practices/sql-vm-change-tcp-port.png)
 
-- För klassiska virtuella datorer eller för SQL Server virtuella datorer som inte har tillhandahållits med portalen kan du konfigurera porten manuellt genom att fjärrans luta till den virtuella datorn. Konfigurations stegen finns i [Konfigurera en server för att lyssna på en angiven TCP-port](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port). Om du använder den här manuella tekniken måste du också lägga till en regel för Windows-brandväggen för att tillåta inkommande trafik på TCP-porten.
+- För klassiska virtuella datorer eller för SQL Server virtuella datorer som inte har tillhandahållits med portalen kan du konfigurera porten manuellt genom att fjärrans luta till den virtuella datorn. Konfigurations stegen finns i [Konfigurera en server för att lyssna på en angiven TCP-port](/sql/database-engine/configure-windows/configure-a-server-to-listen-on-a-specific-tcp-port). Om du använder den här manuella tekniken måste du också lägga till en regel för Windows-brandväggen för att tillåta inkommande trafik på TCP-porten.
 
 > [!IMPORTANT]
 > Att ange en port som inte är standard är en bra idé om din SQL Server Port är öppen för offentliga Internet anslutningar.
@@ -84,7 +84,7 @@ När SQL Server lyssnar på en port som inte är standard, måste du ange porten
 
 Du vill inte att angripare ska kunna gissa konto namn eller lösen ord. Använd följande tips för att få hjälp:
 
-- Skapa ett unikt lokalt administratörs konto som inte heter **administratör**.
+- Skapa ett unikt lokalt administratörs konto som inte heter **administratör** .
 
 - Använd komplexa starka lösen ord för alla dina konton. Mer information om hur du skapar ett starkt lösen ord finns i artikeln [skapa ett starkt lösen ord](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password) .
 
@@ -93,7 +93,7 @@ Du vill inte att angripare ska kunna gissa konto namn eller lösen ord. Använd 
   - Skapa ett SQL-konto med ett unikt namn som har **sysadmin** -medlemskap. Du kan göra detta från portalen genom att aktivera **SQL-autentisering** under etableringen.
 
     > [!TIP] 
-    > Om du inte aktiverar SQL-autentisering under etableringen måste du manuellt ändra autentiseringsläget till **SQL Server och Windows-autentiseringsläge**. Mer information finns i [ändra autentiseringsläge för Server](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode).
+    > Om du inte aktiverar SQL-autentisering under etableringen måste du manuellt ändra autentiseringsläget till **SQL Server och Windows-autentiseringsläge** . Mer information finns i [ändra autentiseringsläge för Server](/sql/database-engine/configure-windows/change-server-authentication-mode).
 
   - Om du måste använda **sa** -inloggningen aktiverar du inloggningen efter etableringen och tilldelar ett nytt starkt lösen ord.
 
@@ -103,7 +103,7 @@ Utöver de metoder som beskrivs i det här avsnittet rekommenderar vi att du gra
 
 Mer information om lokala säkerhets metoder finns i [säkerhets överväganden för en SQL Server-installation](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) och [Security Center](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database). 
 
-Mer information om säkerhet för virtuella datorer finns i [säkerhets översikten för virtuella datorer](/azure/security/fundamentals/virtual-machines-overview).
+Mer information om säkerhet för virtuella datorer finns i [säkerhets översikten för virtuella datorer](../../../security/fundamentals/virtual-machines-overview.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -111,4 +111,3 @@ Mer information om säkerhet för virtuella datorer finns i [säkerhets översik
 Om du också är intresse rad av bästa praxis kring prestanda, se [metod tips för prestanda för SQL Server på Azure Virtual Machines](performance-guidelines-best-practices.md).
 
 Andra avsnitt om att köra SQL Server i virtuella Azure-datorer finns [SQL Server på azure Virtual Machines-översikt](sql-server-on-azure-vm-iaas-what-is-overview.md). Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](frequently-asked-questions-faq.md).
-

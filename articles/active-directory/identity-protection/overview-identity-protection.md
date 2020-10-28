@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996540"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783189"
 ---
 # <a name="what-is-identity-protection"></a>Vad är Identity Protection?
 
@@ -39,9 +39,9 @@ I sitt [blogg inlägg i oktober 2018](https://techcommunity.microsoft.com/t5/Azu
 >
 > Vid det senaste året har jag ekrar på de 3 främsta attackerna i våra identitets system. Här är den senaste volymen av dessa attacker
 >   
->   - **Risk repetition**: 4.6 BN-attacker som identifieras i maj 2018
->   - **Lösen ords spridning**: 350K i april 2018
->   - **Nätfiske**: det är svårt att kvantifiera exakt, men vi såg 23M risk händelser i mars 2018, många av dessa är Phish relaterade
+>   - **Risk repetition** : 4.6 BN-attacker som identifieras i maj 2018
+>   - **Lösen ords spridning** : 350K i april 2018
+>   - **Nätfiske** : det är svårt att kvantifiera exakt, men vi såg 23M risk händelser i mars 2018, många av dessa är Phish relaterade
 
 ## <a name="risk-detection-and-remediation"></a>Identifiering och reparation av risker
 
@@ -91,8 +91,8 @@ Identitets skydd kräver att användare är en säkerhets läsare, säkerhets op
 | --- | --- | --- |
 | Global administratör | Fullständig åtkomst till identitets skydd |   |
 | Säkerhetsadministratör | Fullständig åtkomst till identitets skydd | Återställ lösen ord för en användare |
-| Säkerhets operatör | Visa alla identitets skydds rapporter och översikts blad <br><br> Ignorera användar risk, bekräfta säker inloggning, bekräfta kompromettera | Konfigurera eller ändra principer <br><br> Återställ lösen ord för en användare <br><br> Konfigurera aviseringar |
-| Säkerhetsläsare | Visa alla identitets skydds rapporter och översikts blad | Konfigurera eller ändra principer <br><br> Återställ lösen ord för en användare <br><br> Konfigurera aviseringar <br><br> Ge feedback om identifieringar |
+| Säkerhets operatör | Visa alla identitets skydds rapporter och översikts blad <br><br> Ignorera användar risk, bekräfta säker inloggning, bekräfta kompromettera | Konfigurera eller ändra principer <br><br> Återställ lösen ord för en användare <br><br> Konfigurera varningar |
+| Säkerhetsläsare | Visa alla identitets skydds rapporter och översikts blad | Konfigurera eller ändra principer <br><br> Återställ lösen ord för en användare <br><br> Konfigurera varningar <br><br> Ge feedback om identifieringar |
 
 För närvarande går det inte att komma åt rapporten över riskfyllda inloggningar i rollen säkerhets operatör.
 
@@ -104,15 +104,15 @@ Administratörer för villkorlig åtkomst kan också skapa principer som faktorn
 
 | Funktion | Information  | Azure AD Free/Microsoft 365 appar | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Risk principer | Användar risk princip (via identitets skydd)  | Inga | Inga |Ja | 
-| Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst)  | Inga |  Inga |Ja |
-| Säkerhetsrapporter | Översikt |  Inga | Inga |Ja |
-| Säkerhetsrapporter | Riskfyllda användare  | Begränsad information | Begränsad information | Fullständig åtkomst|
-| Säkerhetsrapporter | Riskfyllda inloggningar  | Begränsad information | Begränsad information | Fullständig åtkomst|
-| Säkerhetsrapporter | Riskidentifieringar   | Inga | Begränsad information| Fullständig åtkomst|
-| Meddelanden | Varningar för användare med risk identifiering  | Inga | Inga |Ja |
-| Meddelanden | Vecko sammandrag| Inga | Inga | Ja | 
-| | Registreringsprincip för multifaktorautentisering | Inga | Inga | Ja |
+| Risk principer | Användar risk princip (via identitets skydd)  | Nej | Nej |Ja | 
+| Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst)  | Nej |  Nej |Ja |
+| Säkerhetsrapporter | Översikt |  Nej | Nej |Ja |
+| Säkerhetsrapporter | Riskfyllda användare  | Begränsad information. Endast användare med medelhög och hög risk visas. Ingen informations låda eller risk historik. | Begränsad information. Endast användare med medelhög och hög risk visas. Ingen informations låda eller risk historik. | Fullständig åtkomst|
+| Säkerhetsrapporter | Riskfyllda inloggningar  | Begränsad information. Ingen risk information eller risk nivå visas. | Begränsad information. Ingen risk information eller risk nivå visas. | Fullständig åtkomst|
+| Säkerhetsrapporter | Riskidentifieringar   | Nej | Begränsad information. Ingen informations låda.| Fullständig åtkomst|
+| Meddelanden | Varningar för användare med risk identifiering  | Nej | Nej |Ja |
+| Meddelanden | Vecko sammandrag| Nej | Nej | Ja | 
+| | Registreringsprincip för multifaktorautentisering | Nej | Nej | Ja |
 
 Mer information om de här omfattande rapporterna finns i artikeln [så här gör du: Undersök risker](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: f174ba30251757182866f9f446eefb10588618e9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1446b501b9d91c94c12c82755d0e31f361f8cd8f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428094"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783427"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för Java Script
 
@@ -34,12 +34,12 @@ Ytterligare resurser:
 * [Referensdokumentation för API](/javascript/api/@azure/storage-queue/)
 * [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
 * [Paket (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-queue)
-* [Exempel](/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Exempel](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Azure Storage-konto – [skapa ett lagrings konto](/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage-konto – [skapa ett lagrings konto](../common/storage-account-create.md)
 * Nuvarande [Node.js](https://nodejs.org/en/download/) för ditt operativ system.
 
 ## <a name="setting-up"></a>Konfigurera
@@ -48,7 +48,7 @@ Det här avsnittet beskriver hur du förbereder ett projekt så att det fungerar
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-Skapa ett Node.js program med namnet *köer – snabb start-V12*.
+Skapa ett Node.js program med namnet *köer – snabb start-V12* .
 
 1. Skapa en ny katalog för projektet i ett konsol fönster (till exempel cmd, PowerShell eller bash).
 
@@ -62,7 +62,7 @@ Skapa ett Node.js program med namnet *köer – snabb start-V12*.
     cd queues-quickstart-v12
     ```
 
-1. Skapa en ny textfil med namnet *package.jspå*. Den här filen definierar Node.js-projektet. Spara filen i *V12-katalogen för köer – snabb start* . Här är filens innehåll:
+1. Skapa en ny textfil med namnet *package.jspå* . Den här filen definierar Node.js-projektet. Spara filen i *V12-katalogen för köer – snabb start* . Här är filens innehåll:
 
     ```json
     {

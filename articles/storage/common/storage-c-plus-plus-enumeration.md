@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 008991a6eda8a2eac9e7a39074c9e0bddb0c51b5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488715"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784107"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Lista över Azure Storage-resurser i C++
 
@@ -59,8 +59,8 @@ Det är därför opraktiskt att lista alla objekt i ett enda svar. I stället ka
 
 Svaret på en segmenterad registrerings åtgärd inkluderar:
 
-* *_segment*, som innehåller den uppsättning resultat som returneras för ett enda anrop till List-API: et.
-* *continuation_token*, som skickas till nästa anrop för att få nästa resultat sida. Om det inte finns några fler resultat att returnera, är den fortsättnings-token null.
+* *_segment* , som innehåller den uppsättning resultat som returneras för ett enda anrop till List-API: et.
+* *continuation_token* , som skickas till nästa anrop för att få nästa resultat sida. Om det inte finns några fler resultat att returnera, är den fortsättnings-token null.
 
 Till exempel kan ett typiskt anrop för att lista alla blobbar i en behållare se ut som i följande kodfragment. Koden är tillgänglig i våra [exempel](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
 
@@ -198,7 +198,7 @@ Mer information om Azure Storage och klient bibliotek för C++ finns i följande
 
 * [Använda Blob Storage från C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Använda Table Storage från C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Så använder du Queue Storage från C++](../storage-c-plus-plus-how-to-use-queues.md)
+* [Så använder du Queue Storage från C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Azure Storage klient bibliotek för C++ API-dokumentation.](https://azure.github.io/azure-storage-cpp/)
 * [Azure Storage teamets blogg](/archive/blogs/windowsazurestorage/)
 * [Azure Storage dokumentation](https://azure.microsoft.com/documentation/services/storage/)

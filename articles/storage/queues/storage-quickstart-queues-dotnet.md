@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ea413c3879f61f735290717d06a132048169971
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ca3b218da7835ee9f3e9e8653f4829767a1ffb07
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426697"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783478"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för .NET
 
@@ -34,12 +34,12 @@ Ytterligare resurser:
 * [Referensdokumentation för API](/dotnet/api/azure.storage.queues)
 * [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 * [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [Exempel](/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Exempel](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Azure Storage-konto – [skapa ett lagrings konto](/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage-konto – [skapa ett lagrings konto](../common/storage-account-create.md)
 * Nuvarande [.net Core SDK](https://dotnet.microsoft.com/download/dotnet-core) för ditt operativ system. Se till att hämta SDK och inte körnings miljön.
 
 ## <a name="setting-up"></a>Konfigurera
@@ -48,9 +48,9 @@ Det här avsnittet beskriver hur du förbereder ett projekt så att det fungerar
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-Skapa ett .NET Core-program med namnet *QueuesQuickstartV12*.
+Skapa ett .NET Core-program med namnet *QueuesQuickstartV12* .
 
-1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet *QueuesQuickstartV12*. Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *program.cs*.
+1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet *QueuesQuickstartV12* . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *program.cs* .
 
    ```console
    dotnet new console -n QueuesQuickstartV12

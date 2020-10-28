@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: memildin
-ms.openlocfilehash: 3273324044f5d99a2400eee5325d3adb20f4ac0c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f98927e71a675cc6264c413ba07b3cf689b91560
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631384"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784294"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhetsaviseringar – en referensguide
 
@@ -25,7 +25,7 @@ Den här artikeln innehåller en lista över säkerhets aviseringar som du kan f
 
 Information om hur du svarar på dessa aviseringar finns [i hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
 
-Information om hur du exporterar aviseringar (och rekommendationer) finns i [Exportera säkerhets aviseringar och rekommendationer (för hands version)](continuous-export.md).
+Information om hur du exporterar aviseringar (och rekommendationer) finns i [exportera Security Center data kontinuerligt](continuous-export.md).
 
 Längst ned på den här sidan finns det en tabell som beskriver den Azure Security Center Kill-kedja som används för att kategorisera syftet med dessa aviseringar. 
 
@@ -462,4 +462,4 @@ Mer information om aviseringar finns i följande avsnitt:
 
 - [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md)
 - [Hantera och besvara säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
-- [Exportera säkerhets aviseringar och rekommendationer (för hands version)](continuous-export.md)
+- [Exportera Security Center data kontinuerligt](continuous-export.md)

@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 33249da6772d146de3e5e7351bc82c203674ddff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba4ef77dee8eb3cad753aca54a77aeedd166f142
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532145"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784566"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importera HSM-skyddade nycklar till Key Vault
 
@@ -43,4 +43,4 @@ Den här funktionen är inte tillgänglig för Azure Kina 21Vianet.
 ## <a name="next-steps"></a>Nästa steg
 
 * Följ [Key Vault bästa praxis](../general/best-practices.md) för att säkerställa säkerhet, hållbarhet och övervakning för dina nycklar.
-* Se [BYOK-specifikationen](https://docs.microsoft.com/azure/key-vault/keys/byok-specification) för en fullständig beskrivning av den nya BYOK-metoden
+* Se [BYOK-specifikationen](./byok-specification.md) för en fullständig beskrivning av den nya BYOK-metoden

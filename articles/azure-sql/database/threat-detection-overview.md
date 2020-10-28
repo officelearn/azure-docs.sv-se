@@ -13,12 +13,12 @@ ms.author: ronmat
 ms.reviewer: vanto, sstein
 ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: bf228d31180f5c2223fde7433d2d9b335e2b8853
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83b9515e16fcf2c2158586297545206d57e1a6e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284167"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785127"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Avancerat skydd för Azure SQL Database, SQL-hanterad instans och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -35,7 +35,7 @@ För en fullständig utrednings erfarenhet rekommenderar vi att du aktiverar gra
 
 ## <a name="alerts"></a>Aviseringar
 
-Avancerat skydd för Azure SQL Database identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. En lista över aviseringar för Azure SQL Database finns i [aviseringarna för SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) i Azure Security Center](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse).
+Avancerat skydd för Azure SQL Database identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. En lista över aviseringar för Azure SQL Database finns i [aviseringarna för SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse) i Azure Security Center](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>Utforska identifiering av misstänkt händelse
 
@@ -65,5 +65,5 @@ Klicka på **Avancerat skydds varning** för att starta sidan Azure Security Cen
 - Läs mer om [Avancerat skydd i Azure SQL Managed instance](../managed-instance/threat-detection-configure.md).
 - Läs mer om [Azure Defender för SQL](azure-defender-for-sql.md).
 - Läs mer om [Azure SQL Database granskning](../../azure-sql/database/auditing-overview.md)
-- Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- Mer information om priser finns på sidan med [Azure SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/)  
+- Läs mer om [Azure Security Center](../../security-center/security-center-introduction.md)
+- Mer information om priser finns på sidan med [Azure SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/)

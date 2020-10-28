@@ -10,12 +10,12 @@ ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3f2fa6cffd63811df596c8fca80afdc888a0eea9
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091618"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783886"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Konfigurera Azure Storage-anslutningssträngar
 
@@ -35,7 +35,7 @@ Ditt program måste ha åtkomst till anslutnings strängen vid körning för att
 
 * Du kan lagra anslutnings strängen i en miljö variabel.
 * Ett program som körs på Skriv bordet eller på en enhet kan lagra anslutnings strängen i en **app.config** eller **web.config** fil. Lägg till anslutnings strängen i avsnittet **appSettings** i de här filerna.
-* Ett program som körs i en Azure-molnbaserad tjänst kan lagra anslutnings strängen i [Azure Service Configuration schema-filen (. cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Lägg till anslutnings strängen i **ConfigurationSettings** -avsnittet i tjänst konfigurations filen.
+* Ett program som körs i en Azure-molnbaserad tjänst kan lagra anslutnings strängen i [Azure Service Configuration schema-filen (. cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)). Lägg till anslutnings strängen i **ConfigurationSettings** -avsnittet i tjänst konfigurations filen.
 
 Genom att lagra anslutnings strängen i en konfigurations fil kan du enkelt uppdatera anslutnings strängen för att växla mellan [Azurite](../common/storage-use-azurite.md) och ett Azure Storage-konto i molnet. Du behöver bara redigera anslutnings strängen för att peka på mål miljön.
 
@@ -57,7 +57,7 @@ Din anslutnings sträng kan till exempel se ut ungefär så här:
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-Även om Azure Storage stöder både HTTP och HTTPS i en anslutnings sträng, *rekommenderas https starkt*.
+Även om Azure Storage stöder både HTTP och HTTPS i en anslutnings sträng, *rekommenderas https starkt* .
 
 > [!TIP]
 > Du kan hitta lagrings kontots anslutnings strängar i [Azure Portal](https://portal.azure.com). Gå till **Inställningar**  >  **åtkomst nycklar** på ditt lagrings kontos meny blad om du vill se anslutnings strängar för både primära och sekundära åtkomst nycklar.

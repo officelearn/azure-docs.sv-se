@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 9b9f68737ca714c0661ffb008347149235886c68
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6be3c0f3b7ff8e44bd9dda089c803a27e883383
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90015032"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783444"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för Java
 
@@ -33,14 +33,14 @@ Ytterligare resurser:
 * [Referensdokumentation för API](/java/api/overview/azure/storage-queue-readme)
 * [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 * [Paket (maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [Exempel](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Exempel](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * [Java Development Kit (JDK)](/java/azure/jdk/) version 8 eller senare
 * [Apache maven](https://maven.apache.org/download.cgi)
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Azure Storage-konto – [skapa ett lagrings konto](/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage-konto – [skapa ett lagrings konto](../common/storage-account-create.md)
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -48,9 +48,9 @@ Det här avsnittet beskriver hur du förbereder ett projekt så att det fungerar
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-Skapa ett Java-program med namnet *köer-snabb start-V12*.
+Skapa ett Java-program med namnet *köer-snabb start-V12* .
 
-1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du Maven för att skapa en ny konsol app med namn *köer – snabb start-V12*. Skriv följande **mvn** -kommando för att skapa en "Hello World!" Java-projekt.
+1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du Maven för att skapa en ny konsol app med namn *köer – snabb start-V12* . Skriv följande **mvn** -kommando för att skapa en "Hello World!" Java-projekt.
 
    ```console
    mvn archetype:generate -DgroupId=com.queues.quickstart \

@@ -10,12 +10,12 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f1cdd04be4b5774944f70e551221a08261aef22d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488902"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784362"
 ---
 # <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -98,7 +98,7 @@ az login
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Ej tillämpligt
+E.t.
 
 ---
 
@@ -199,7 +199,7 @@ Om du vill skapa ett allmänt-syfte v2-lagrings konto med ett annat replikerings
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Du kan använda antingen Azure PowerShell eller Azure CLI för att distribuera en Resource Manager-mall för att skapa ett lagrings konto. Mallen som används i den här instruktions artikeln är från [Azure Resource Manager snabb starts mallar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Om du vill köra skripten väljer du **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**.
+Du kan använda antingen Azure PowerShell eller Azure CLI för att distribuera en Resource Manager-mall för att skapa ett lagrings konto. Mallen som används i den här instruktions artikeln är från [Azure Resource Manager snabb starts mallar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Om du vill köra skripten väljer du **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in** .
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -223,7 +223,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 Information om hur du ändrar den här mallen eller skapar nya finns i:
 
-- [Azure Resource Manager-dokumentation](/azure/azure-resource-manager/).
+- [Azure Resource Manager-dokumentation](../../azure-resource-manager/index.yml).
 - [Referens för lagrings konto mal len](/azure/templates/microsoft.storage/allversions).
 - [Fler exempel på mallar för lagrings konton](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
@@ -236,7 +236,7 @@ Om du tar bort ett lagrings konto raderas hela kontot, inklusive alla data i kon
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navigera till lagrings kontot i [Azure Portal](https://portal.azure.com).
-1. Klicka på **Ta bort**.
+1. Klicka på **Ta bort** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -279,7 +279,7 @@ Alternativt kan du ta bort resurs gruppen, vilket innebär att lagrings kontot o
 > [!WARNING]
 > Det går inte att återställa ett borttaget lagringskonto eller att hämta innehåll som det innehöll före borttagningen. Var noga med att säkerhetskopiera allt som du vill spara innan du tar bort kontot. Detta gäller även alla resurser i kontot. När du tar bort en blobb, tabell, kö eller fil tas den bort permanent.
 >
-> Om du försöker ta bort ett lagringskonto som är kopplat till en virtuell Azure-dator kan du få ett felmeddelande om att lagringskontot fortfarande används. Information om hur du felsöker det här felet finns i [Felsöka fel när du tar bort lagrings konton](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+> Om du försöker ta bort ett lagringskonto som är kopplat till en virtuell Azure-dator kan du få ett felmeddelande om att lagringskontot fortfarande används. Information om hur du felsöker det här felet finns i [Felsöka fel när du tar bort lagrings konton](../../virtual-machines/troubleshooting/index.yml).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 6c29fd00a19c930995d748027b2ec04eaa12a5ec
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5f04a20b347e2672d9699551885f5dd16ceaa99c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480657"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785603"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Felsöka långa svarstider med hjälp av loggar i Lagringsanalys
 
@@ -27,7 +27,7 @@ Följande steg visar hur du kan identifiera och felsöka latens problem med hjä
 
 ## <a name="recommended-steps"></a>Rekommenderade åtgärder
 
-1. Ladda ned [Lagringsanalys loggar](/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
+1. Ladda ned [Lagringsanalys loggar](./storage-analytics-logging.md#download-storage-logging-log-data).
 
 2. Använd följande PowerShell-skript för att konvertera RAW-formatet loggar till tabell format:
 
@@ -114,7 +114,7 @@ Kontrol lera följande värden som anges i steg 5 i avsnittet "rekommenderade st
 * Server-Latency
 * Client-Latency
 
-I en **GetBlob-åtgärd** med **RequestStatus = lyckades**, om den **maximala tiden** används i **klient svars**tiden, betyder det att Azure Storage kostar en stor mängd tid när data skrivs till klienten. Den här fördröjningen indikerar ett Client-Side problem.
+I en **GetBlob-åtgärd** med **RequestStatus = lyckades** , om den **maximala tiden** används i **klient svars** tiden, betyder det att Azure Storage kostar en stor mängd tid när data skrivs till klienten. Den här fördröjningen indikerar ett Client-Side problem.
 
 **Rekommenderade**
 
@@ -129,7 +129,7 @@ Kontrol lera följande värden som anges i steg 5 i avsnittet "rekommenderade st
 * Server-Latency
 * Client-Latency
 
-I en **GetBlob-åtgärd** med **REQUESTSTATUS = (SAS) NetworkError**, om den **maximala tiden** används i **klient svars**tiden, är det vanligaste problemet att klienten kopplas från innan en tids gräns går ut i lagrings tjänsten.
+I en **GetBlob-åtgärd** med **REQUESTSTATUS = (SAS) NetworkError** , om den **maximala tiden** används i **klient svars** tiden, är det vanligaste problemet att klienten kopplas från innan en tids gräns går ut i lagrings tjänsten.
 
 **Rekommenderade**
 
@@ -144,7 +144,7 @@ Kontrol lera följande värden som anges i steg 5 i avsnittet "rekommenderade st
 * Server-Latency
 * Client-Latency
 
-I en **Placera-åtgärd** med **RequestStatus = lyckades**, om den **maximala tiden** används i **klient svars**tiden, indikerar detta att klienten tar längre tid att skicka data till Azure Storage. Den här fördröjningen indikerar ett Client-Side problem.
+I en **Placera-åtgärd** med **RequestStatus = lyckades** , om den **maximala tiden** används i **klient svars** tiden, indikerar detta att klienten tar längre tid att skicka data till Azure Storage. Den här fördröjningen indikerar ett Client-Side problem.
 
 **Rekommenderade**
 
@@ -159,10 +159,9 @@ Kontrol lera följande värden som anges i steg 5 i avsnittet "rekommenderade st
 * Server-Latency
 * Client-Latency
 
-I en **PutBlob-åtgärd** med **REQUESTSTATUS = (SAS) NetworkError**, om den **maximala tiden** används i **klient svars**tiden, är det vanligaste problemet att klienten kopplas från innan en tids gräns går ut i lagrings tjänsten.
+I en **PutBlob-åtgärd** med **REQUESTSTATUS = (SAS) NetworkError** , om den **maximala tiden** används i **klient svars** tiden, är det vanligaste problemet att klienten kopplas från innan en tids gräns går ut i lagrings tjänsten.
 
 **Rekommenderade**
 
 * Undersök koden i klienten för att förstå varför och när klienten kopplas från lagrings tjänsten.
 * Använd wireshark, Microsoft Message Analyzer eller TCPing för att undersöka problem med nätverks anslutningen från klienten.
-

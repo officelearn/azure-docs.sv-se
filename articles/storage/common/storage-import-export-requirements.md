@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d17b9cdebf06e7d754a23a7224bbe3dba1a2832c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87276405"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783614"
 ---
 # <a name="azure-importexport-system-requirements"></a>Systemkrav för Azure Import/Export
 
@@ -50,7 +50,7 @@ Mer information om lagrings konton finns i [Översikt över Azure Storage-konton
 Varje jobb kan användas för att överföra data till eller från ett enda lagrings konto. Med andra ord kan ett enda import/export-jobb inte omfatta över flera lagrings konton. Information om hur du skapar ett nytt lagrings konto finns i [så här skapar du ett lagrings konto](storage-account-create.md).
 
 > [!IMPORTANT]
-> För lagrings konton där funktionen [Virtual Network tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md)   har Aktiver ATS använder du inställningen **Tillåt betrodda Microsoft-tjänster...** om du vill [Aktivera import](/azure/storage/common/storage-network-security) /export-tjänsten för att importera/exportera data till/från Azure.
+> För lagrings konton där funktionen [Virtual Network tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md) har Aktiver ATS använder du inställningen **Tillåt betrodda Microsoft-tjänster...** om du vill [Aktivera import](./storage-network-security.md) /export-tjänsten för att importera/exportera data till/från Azure.
 
 ## <a name="supported-storage-types"></a>Lagringstyper som stöds
 
@@ -94,4 +94,4 @@ När du förbereder hård diskar och kopierar data med hjälp av WAImportExport-
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Överföra data med kommando rads verktyget AzCopy](storage-use-azcopy.md)
+* [Överföra data med kommando rads verktyget AzCopy](./storage-use-azcopy-v10.md)

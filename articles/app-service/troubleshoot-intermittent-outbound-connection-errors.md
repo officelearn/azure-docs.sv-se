@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b4408b2f8c631453281ecf6f214d49318252a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408223"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785059"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Felsöka återkommande utgående anslutnings fel i Azure App Service
 
-Den här artikeln hjälper dig att felsöka tillfälliga anslutnings fel och relaterade prestanda problem i [Azure App Service](./overview.md). Det här avsnittet innehåller mer information om, och fel söknings metoder för, belastning av SNAT-portar (Source Address Network Translation). Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också fil en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
+Den här artikeln hjälper dig att felsöka tillfälliga anslutnings fel och relaterade prestanda problem i [Azure App Service](./overview.md). Det här avsnittet innehåller mer information om, och fel söknings metoder för, belastning av SNAT-portar (Source Address Network Translation). Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också fil en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support** .
 
 ## <a name="symptoms"></a>Symtom
 
@@ -32,7 +32,7 @@ Program och funktioner som finns på Azure App-tjänsten kan ha ett eller flera 
 En större orsak till dessa symptom är att program instansen inte kan öppna en ny anslutning till den externa slut punkten eftersom den har nått någon av följande gränser:
 
 * TCP-anslutningar: det finns en gräns för hur många utgående anslutningar som kan göras. Detta är associerat med den arbets storlek som används.
-* SNAT-portar: som beskrivs i [utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md)använder azure käll Network Address TRANSLATION (SNAT) och en Load Balancer (visas inte för kunder) för att kommunicera med slut punkter utanför Azure i det offentliga IP-adressutrymmet, samt slut punkter som är interna för Azure och som inte drar nytta av tjänst slut punkter. Varje instans i Azure Apps tjänsten tilldelas ursprungligen ett förallokerat antal **128** SNAT-portar. Den gränsen påverkar öppnande av anslutningar till samma värd-och port kombination. Om din app skapar anslutningar till en blandning av adress-och kombinations kombinationer kan du inte använda dina SNAT-portar. SNAT-portarna används när du upprepade samtal till samma adress-och port kombination. När en port har frigjorts är porten tillgänglig för åter användning vid behov. Azure Network Load Balancer återtar SNAT-porten från stängda anslutningar endast efter en väntan på 4 minuter.
+* SNAT-portar: som beskrivs i [utgående anslutningar i Azure](../load-balancer/load-balancer-outbound-connections.md)använder azure käll Network Address TRANSLATION (SNAT) och en Load Balancer (visas inte för kunder) för att kommunicera med slut punkter utanför Azure i det offentliga IP-adressutrymmet, samt slut punkter som är interna för Azure och som inte drar nytta av tjänster/privata slut punkter. Varje instans i Azure Apps tjänsten tilldelas ursprungligen ett förallokerat antal **128** SNAT-portar. Den gränsen påverkar öppnande av anslutningar till samma värd-och port kombination. Om din app skapar anslutningar till en blandning av adress-och kombinations kombinationer kan du inte använda dina SNAT-portar. SNAT-portarna används när du upprepade samtal till samma adress-och port kombination. När en port har frigjorts är porten tillgänglig för åter användning vid behov. Azure Network Load Balancer återtar SNAT-porten från stängda anslutningar endast efter en väntan på 4 minuter.
 
 När program eller funktioner snabbt öppnar en ny anslutning kan de snabbt försätta sin förallokerade kvot på 128-portarna. De blockeras sedan tills en ny SNAT-port blir tillgänglig, antingen genom att dynamiskt allokera ytterligare SNAT-portar eller genom åter användning av en reportad SNAT-port. Program eller funktioner som blockeras på grund av att det inte går att skapa nya anslutningar kommer att påbörjas ett eller flera av problemen som beskrivs i avsnittet **symptom** i den här artikeln.
 
@@ -130,7 +130,7 @@ Om du inte känner till programmets beteende tillräckligt för att snabbt ta re
 
 Du kan använda [App Service Diagnostics](./overview-diagnostics.md) för att hitta SNAT-port tilldelnings information och se tilldelnings måttet för SNAT-portar på en app service plats. Följ stegen nedan om du vill hitta SNAT-port tilldelnings information:
 
-1. Om du vill komma åt App Service diagnostik navigerar du till din App Service webbapp eller App Service-miljön i [Azure Portal](https://portal.azure.com/). I det vänstra navigerings fältet väljer du **diagnostisera och lösa problem**.
+1. Om du vill komma åt App Service diagnostik navigerar du till din App Service webbapp eller App Service-miljön i [Azure Portal](https://portal.azure.com/). I det vänstra navigerings fältet väljer du **diagnostisera och lösa problem** .
 2. Välj tillgänglighet och prestanda kategori
 3. Välj port överbelastnings panel för SNAT i listan över tillgängliga paneler under kategorin. Övningen är att hålla den under 128.
 Om du behöver det kan du fortfarande öppna ett support ärende så får support teknikern mått från backend-servern åt dig.

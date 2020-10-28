@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 08f677c23cce6eb840a1caee15dcddf6c8311517
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488698"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784056"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Välja en Azure-lösning för dataöverföring
 
@@ -71,14 +71,14 @@ Du kan också gå till ditt Azure Storage-konto i Azure Portal och välja funkti
 ## <a name="next-steps"></a>Nästa steg
 
 - [Få en introduktion till Azure Storage Explorer](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
-- [Läs en översikt över AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+- [Läs en översikt över AzCopy](./storage-use-azcopy-v10.md).
 - [Snabb start: Ladda upp, ladda ned och lista blobar med PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Snabb start: skapa, ladda ned och lista blobar med Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 - Läs om:
 
-    - [Azure Data Box, Azure Data Box disk och Azure Data Box Heavy för offline-överföringar](/azure/databox/).
-    - [Azure Data Box gateway och Azure Stack Edge för online-överföringar](/azure/databox-online/).
-- [Lär dig vad som är Azure Data Factory](/azure/data-factory/copy-activity-overview).
+    - [Azure Data Box, Azure Data Box disk och Azure Data Box Heavy för offline-överföringar](../../databox/index.yml).
+    - [Azure Data Box gateway och Azure Stack Edge för online-överföringar](../../databox-online/index.yml).
+- [Lär dig vad som är Azure Data Factory](../../data-factory/copy-activity-overview.md).
 - Använd REST-API: er för att överföra data
 
     - [I .NET](/dotnet/api/overview/azure/storage)

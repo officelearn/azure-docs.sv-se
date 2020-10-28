@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 057b20d9c14b9a25a1e713d25796e1f0ac93daaa
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 57fc0ebc10158b41539d4802aa6a8ebdd466dd90
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428047"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783308"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för python
 
@@ -34,12 +34,12 @@ Ytterligare resurser:
 * [Referensdokumentation för API](/python/api/azure-storage-queue/index)
 * [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
 * [Paket (python-paket index)](https://pypi.org/project/azure-storage-queue/)
-* [Exempel](/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Exempel](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Azure Storage-konto – [skapa ett lagrings konto](/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage-konto – [skapa ett lagrings konto](../common/storage-account-create.md)
 * [Python](https://www.python.org/downloads/) för ditt operativ system – 2,7, 3,5 eller högre
 
 ## <a name="setting-up"></a>Konfigurera
@@ -48,7 +48,7 @@ Det här avsnittet beskriver hur du förbereder ett projekt så att det fungerar
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-Skapa ett python-program med namnet *köer-snabb start-V12*.
+Skapa ett python-program med namnet *köer-snabb start-V12* .
 
 1. Skapa en ny katalog för projektet i ett konsol fönster (till exempel cmd, PowerShell eller bash).
 

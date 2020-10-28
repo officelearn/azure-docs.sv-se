@@ -3,17 +3,17 @@ title: Migrera till Azure Resource Manager verktyg för HDInsight
 description: Så här migrerar du till Azure Resource Manager utvecklingsverktyg för HDInsight-kluster
 ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
-ms.author: hrasheed
-ms.openlocfilehash: deaf98077e0652dac8bb327839ffa2bf34007c9f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 57dec799cbda03e20717a402a88f1d818d9acd92
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546219"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629484"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster
 
@@ -83,7 +83,7 @@ Information om andra sätt att köra Apache Hadoop MapReduce, Apache Hive och Ap
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migrerar Azure PowerShell till Azure Resource Manager
 Allmän information om Azure PowerShell i Azure Resource Manager läge finns i [använda Azure PowerShell med Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
-Azure PowerShell Resource Manager-cmdletar kan installeras sida vid sida med ASM-cmdletar. Cmdletarna från de två lägena kan särskiljas med deras namn.  Resource Manager-läget har *AzHDInsight* i cmdlet-namnen som jämförs med *AzureHDInsight* i ASM-läge.  Till exempel *New-AzHDInsightCluster* eller *New-AzureHDInsightCluster* . Parametrar och växlar kan ha namn på diskussions grupper och det finns många nya parametrar som är tillgängliga när du använder Resource Manager.  Till exempel kräver flera cmdlets en ny växel som heter *-ResourceGroupName* . 
+Azure PowerShell Resource Manager-cmdletar kan installeras sida vid sida med ASM-cmdletar. Cmdletarna från de två lägena kan särskiljas med deras namn.  Resource Manager-läget har *AzHDInsight* i cmdlet-namnen som jämförs med *AzureHDInsight* i det äldre Azure Service Management-läget.  Till exempel *New-AzHDInsightCluster* eller *New-AzureHDInsightCluster* . Parametrar och växlar kan ha namn på diskussions grupper och det finns många nya parametrar som är tillgängliga när du använder Resource Manager.  Till exempel kräver flera cmdlets en ny växel som heter *-ResourceGroupName* .
 
 Innan du kan använda HDInsight-cmdlets måste du ansluta till ditt Azure-konto och skapa en ny resurs grupp:
 

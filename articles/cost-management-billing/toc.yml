@@ -48,8 +48,6 @@
           href: costs/manage-automation.md
         - name: Cost Management för partner
           href: costs/get-started-partners.md
-        - name: Välja mellan Cost Management och Cloudyn
-          href: costs/choose-between-azure-cost-management-cloudyn.md
     - name: Reservationer
       items:
         - name: Vad är Azure Reservations?
@@ -440,10 +438,6 @@
           href: cloudyn/overview.md
     - name: Snabbstarter
       items:
-        - name: Visa kostnadsdata
-          href: cloudyn/quick-register-azure-sub.md
-        - name: Visa kostnadsdata – EA
-          href: cloudyn/quick-register-ea.md
         - name: Visa kostnadsdata – CSP
           href: cloudyn/quick-register-csp.md
     - name: Självstudier
@@ -468,8 +462,6 @@
           href: cloudyn/activate-subs-accounts.md
         - name: Lägga till utökade mått för virtuella datorer
           href: cloudyn/azure-vm-extended-metrics.md
-        - name: Ansluta ett Google-konto
-          href: cloudyn/connect-google-account.md
         - name: Ansluta ett AWS-konto
           href: cloudyn/connect-aws-account.md
         - name: Konfigurera lagringskonton

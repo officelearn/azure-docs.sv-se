@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 5864a5de8ddec60f2072a28827a870c83ece8b9d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c12398ceacf8495a05037422a6501dc8138abc10
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546049"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628702"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinera scaler och Sparkr i HDInsight
 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Poängsättning någon annan stans
 
-Vi kan också använda modellen för poängsättnings data på en annan plattform. Genom att spara den till en RDS-fil och sedan överföra och importera den till en mål miljö, till exempel MIcrosoft SQL Server R Services. Det är viktigt att se till att faktor nivåerna för de data som ska poängas matchar de som modellen skapades på. Detta kan uppnås genom att extrahera och spara kolumn informationen som är associerad med modellerings data via scaler- `rxCreateColInfo()` funktionen och sedan använda den kolumn informationen i indata-källan för förutsägelse. I följande sparar vi några rader av test data uppsättningen och extraherar och använder kolumn informationen från det här exemplet i förutsägelse skriptet:
+Vi kan också använda modellen för poängsättnings data på en annan plattform. Genom att spara den till en RDS-fil och sedan överföra och importera den till en mål miljö som Microsoft SQL Server R-tjänster. Det är viktigt att se till att faktor nivåerna för de data som ska poängas matchar de som modellen skapades på. Detta kan uppnås genom att extrahera och spara kolumn informationen som är associerad med modellerings data via scaler- `rxCreateColInfo()` funktionen och sedan använda den kolumn informationen i indata-källan för förutsägelse. I följande kod exempel sparar vi några rader i test data uppsättningen och extraherar och använder kolumn informationen från det här exemplet i förutsägelse skriptet:
 
 ```
 # save the model and a sample of the test dataset 

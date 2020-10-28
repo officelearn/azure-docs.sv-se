@@ -1,5 +1,5 @@
 ---
-title: inkludera fil
+title: ta med fil
 description: inkludera fil för att välja mellan versioner av Azure Digitals dubbla installations program, artikel
 services: digital-twins
 author: baanders

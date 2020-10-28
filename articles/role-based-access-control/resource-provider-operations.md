@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 09/22/2020
+ms.date: 10/23/2020
 ms.custom: generated
-ms.openlocfilehash: ade4a6b791a8aca963a056800bd8c58767aeb766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 955e80f31cf08dd703f089d26a03b7f97242eab0
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400102"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631112"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure Resource Provider-åtgärder
 
@@ -93,7 +93,7 @@ Klicka på namnet på resurs leverantören i följande tabell om du vill se en l
 | [Microsoft. IoTCentral](#microsoftiotcentral) |
 | [Microsoft. NotificationHubs](#microsoftnotificationhubs) |
 | [Microsoft. TimeSeriesInsights](#microsofttimeseriesinsights) |
-| **Mixed Reality** |
+| **Mixad verklighet** |
 | [Microsoft. IoTSpaces](#microsoftiotspaces) |
 | [Microsoft. MixedReality](#microsoftmixedreality) |
 | **Integrering** |
@@ -419,6 +419,7 @@ Azure-tjänst: [Virtual Machines](../virtual-machines/index.yml), [Virtual Machi
 > | Microsoft. Compute/cloudServices/roleInstances/Rebuild/Action | Återskapa alla diskar i en CloudService. |
 > | Microsoft. Compute/cloudServices/roleInstances/instanceView/Read | Hämtar status för en roll instans från en CloudService. |
 > | Microsoft. Compute/cloudServices/roles/Read | Hämtar en roll från en CloudService. |
+> | Microsoft. Compute/cloudServices/roles/Write | Skala instanser i en roll |
 > | Microsoft. Compute/cloudServices/updateDomains/Read | Hämtar en lista över alla uppdaterings domäner i en CloudService. |
 > | Microsoft. Compute/diskAccesses/Read | Hämta egenskaperna för DiskAccess-resursen |
 > | Microsoft. Compute/diskAccesses/Write | Skapa en ny DiskAccess-resurs eller uppdatera en befintlig |
@@ -440,6 +441,7 @@ Azure-tjänst: [Virtual Machines](../virtual-machines/index.yml), [Virtual Machi
 > | Microsoft. Compute/Galleri/läsa | Hämtar egenskaperna för galleriet |
 > | Microsoft. Compute/Galleri/skriva | Skapar ett nytt Galleri eller uppdaterar ett befintligt |
 > | Microsoft. Compute/Galleri/ta bort | Tar bort galleriet |
+> | Microsoft. Compute/Galleri/dela/åtgärd | Delar ett galleri i olika omfång |
 > | Microsoft. Compute/Galleri/program/läsa | Hämtar egenskaper för Galleri program |
 > | Microsoft. Compute/Galleri/program/Skriv | Skapar ett nytt Galleri program eller uppdaterar ett befintligt |
 > | Microsoft. Compute/Galleri/program/ta bort | Tar bort Galleri programmet |
@@ -511,6 +513,7 @@ Azure-tjänst: [Virtual Machines](../virtual-machines/index.yml), [Virtual Machi
 > | Microsoft. Compute/sshPublicKeys/Read | Hämta egenskaperna för en offentlig SSH-nyckel |
 > | Microsoft. Compute/sshPublicKeys/Write | Skapar en ny offentlig SSH-nyckel eller uppdaterar en befintlig Offentlig SSH-nyckel |
 > | Microsoft. Compute/sshPublicKeys/Delete | Tar bort den offentliga SSH-nyckeln |
+> | Microsoft. Compute/sshPublicKeys/generateKeyPair/Action | Genererar ett nytt nyckel par för SSH offentlig/privat |
 > | Microsoft. Compute/virtualMachines/Read | Hämta egenskaperna för en virtuell dator |
 > | Microsoft. Compute/virtualMachines/Write | Skapar en ny virtuell dator eller uppdaterar en befintlig virtuell dator |
 > | Microsoft. Compute/virtualMachines/Delete | Tar bort den virtuella datorn |
@@ -839,6 +842,7 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Read | Hämtar Azure Firewall-NetworkRuleCollection |
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Write | CreatesOrUpdates Azure Firewall NetworkRuleCollection |
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Delete | Tar bort Azure Firewall NetworkRuleCollection |
+> | Microsoft. Network/azureWebCategories/Read | Hämtar Azure webcategories |
 > | Microsoft. Network/bastionHosts/Read | Hämtar en skydds-värd |
 > | Microsoft. Network/bastionHosts/Write | Skapa eller uppdatera en skydds-värd |
 > | Microsoft. Network/bastionHosts/Delete | Tar bort en skydds-värd |
@@ -1238,6 +1242,8 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/virtualHubs/bgpConnections/Read | Hämtar en underordnad nätverks resurs för BGP-anslutning för virtuell hubb |
 > | Microsoft. Network/virtualHubs/bgpConnections/Write | Skapar eller uppdaterar en virtuell Hubbs resurs för BGP-anslutning för virtuell hubb |
 > | Microsoft. Network/virtualHubs/bgpConnections/Delete | Tar bort en nav för BGP-anslutningens underordnade resurs för virtuell hubb |
+> | Microsoft. Network/virtualHubs/bgpConnections/advertisedRoutes/Action | Hämtar virtualrouter annonserade vägar |
+> | Microsoft. Network/virtualHubs/bgpConnections/learnedRoutes/Action | Hämtar virtualrouter-inlärda vägar |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Read | Hämtar en underordnad resurs för en routningstabell för virtuell hubb |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Write | Skapar eller uppdaterar en underordnad resurs för en routningstabell för virtuell hubb |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Delete | Tar bort en underordnad resurs för en routningstabell för virtuell hubb |
@@ -1325,6 +1331,9 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/vpngateways/startpacketcapture/Action | Starta VPN gateway-paket avbildning med resurser i enlighet |
 > | Microsoft. Network/vpngateways/stoppacketcapture/Action | Stoppa paket fångst för VPN-gateway med sasURL |
 > | Microsoft. Network/vpngateways/listvpnconnectionshealth/Action | Hämtar anslutnings hälsa för alla eller en delmängd av anslutningar på en VpnGateway |
+> | Microsoft. Network/vpnGateways/natRules/Read | Hämtar en NAT-regel resurs |
+> | Microsoft. Network/vpnGateways/natRules/Write | Placerar en NAT-regel resurs |
+> | Microsoft. Network/vpnGateways/natRules/Delete | Tar bort en NAT-regel resurs |
 > | Microsoft. Network/vpnGateways/vpnConnections/Read | Hämtar en VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Write | Placerar en VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Delete | Tar bort en VpnConnection. |
@@ -1339,7 +1348,7 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/vpnsites/Delete | Tar bort en VPN-webbplats resurs. |
 > | Microsoft. Network/vpnSites/vpnSiteLinks/Read | Hämtar en länk till VPN-platsen |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagring
 
 ### <a name="microsoftclassicstorage"></a>Microsoft. ClassicStorage
 
@@ -1512,6 +1521,8 @@ Azure-tjänst: [lagring](../storage/index.yml)
 > | Microsoft. Storage/locations/usages/Read | Returnerar gränsen och det aktuella antalet användningar för resurser i den angivna prenumerationen |
 > | Microsoft. Storage/Operations/Read | Avsöker statusen för en asynkron åtgärd. |
 > | Microsoft. Storage/SKU/Read | Visar en lista över SKU: er som stöds av Microsoft. Storage. |
+> | Microsoft. Storage/storageAccounts/hnsonmigration/åtgärd | Kunden kan avbryta en pågående HNS-migrering på lagrings kontot |
+> | Microsoft. Storage/storageAccounts/hnsonmigration/åtgärd | Kunden kan migrera till en typ av HNS-konto |
 > | Microsoft. Storage/storageAccounts/restoreBlobRanges/åtgärd | Återställ BLOB-intervall till tillstånd för den angivna tiden |
 > | Microsoft. Storage/storageAccounts/PrivateEndpointConnectionsApproval/åtgärd | Godkänn anslutningar för privata slut punkter |
 > | Microsoft. Storage/storageAccounts/redundans/åtgärd | Kunden kan styra redundansväxlingen i händelse av tillgänglighets problem |
@@ -1523,6 +1534,9 @@ Azure-tjänst: [lagring](../storage/index.yml)
 > | Microsoft. Storage/storageAccounts/listAccountSas/åtgärd | Returnerar kontots SAS-token för det angivna lagrings kontot. |
 > | Microsoft. Storage/storageAccounts/listServiceSas/åtgärd | Returnerar SAS-token för tjänsten för det angivna lagrings kontot. |
 > | Microsoft. Storage/storageAccounts/Write | Skapar ett lagrings konto med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna eller lägger till en anpassad domän för det angivna lagrings kontot. |
+> | Microsoft. Storage/storageAccounts/accountLocks/Read |  |
+> | Microsoft. Storage/storageAccounts/accountLocks/Write |  |
+> | Microsoft. Storage/storageAccounts/accountLocks/Delete |  |
 > | Microsoft. Storage/storageAccounts/blobServices/Read | Lista BLOB Services |
 > | Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey/Action | Returnerar en användar Delegerings nyckel för BLOB service |
 > | Microsoft. Storage/storageAccounts/blobServices/Write | Returnerar resultatet av att ställa in BLOB service-egenskaper |
@@ -1605,6 +1619,7 @@ Azure-tjänst: [lagring](../storage/index.yml)
 > | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/skrivning | Returnerar resultatet av att skriva en BLOB |
 > | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Delete | Returnerar resultatet av att ta bort en BLOB |
 > | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/deleteBlobVersion/åtgärd | Returnerar resultatet av att ta bort en blob-version |
+> | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/permanentDelete/åtgärd |  |
 > | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Lägg till/åtgärd | Returnerar resultatet av att lägga till BLOB-innehåll |
 > | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/filter/åtgärd | Returnerar listan över blobbar under ett konto med matchande Tags filter |
 > | Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/flytta/åtgärd | Flyttar blobben från en sökväg till en annan |
@@ -1854,7 +1869,7 @@ Azure-tjänst: [StorSimple](../storsimple/index.yml)
 > | Microsoft. StorSimple/chefer/storageDomains/operationResults/Read | Visar eller hämtar åtgärds resultatet |
 > | Microsoft. StorSimple/Operations/Read | Visar eller hämtar åtgärder |
 
-## <a name="web"></a>Webb
+## <a name="web"></a>Webben
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
@@ -1933,6 +1948,7 @@ Azure-tjänst: [Azure Maps](../azure-maps/index.yml)
 > | Microsoft. Maps/Accounts/Services/data/Read | Tillåter läsning av data för data överförings tjänster och privat Atlas. |
 > | Microsoft. Maps/konton/tjänster/data/Delete | Tillåter borttagning av data för data överförings tjänster och privat Atlas |
 > | Microsoft. Maps/Accounts/Services/data/Write | Tillåter skrivning eller uppdatering av data för data överförings tjänster och privat Atlas. |
+> | Microsoft. Maps/konton/tjänster/höjning/läsa | Tillåter läsning av data för utökade tjänster. |
 > | Microsoft. Maps/konton/tjänster/geolokalisering/Read | Tillåter läsning av data för tjänster för geolokalisering. |
 > | Microsoft. Maps/konton/tjänster/mobilitet/läsa | Tillåter läsning av data för mobilitets tjänster. |
 > | Microsoft. Maps/konton/tjänster/Render/Read | Tillåter läsning av data för åter givnings tjänster. |
@@ -2184,6 +2200,8 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/customApis/JOIN/åtgärd | Ansluter till en anpassad API. |
 > | Microsoft. Web/customApis/extractApiDefinitionFromWsdl/åtgärd | Extraherar API-definition från ett WSDL. |
 > | Microsoft. Web/customApis/listWsdlInterfaces/åtgärd | Visar en lista över WSDL-gränssnitt för ett anpassat API. |
+> | Microsoft. Web/customhostnames/Read | Hämta anpassade värdnamn som har tilldelats till prenumerationen. |
+> | Microsoft. Web/customhostnames/Sites/Read | Hämta namn på platser som har tilldelats till det anpassade värd namnet. |
 > | Microsoft. Web/deletedSites/Read | Hämta egenskaperna för en borttagen webbapp |
 > | Microsoft. Web/deploymentlocations/Read | Hämta distributions platser. |
 > | Microsoft. Web/Sverige/Read | Hämta listan över geo-regioner. |
@@ -2228,6 +2246,7 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/locations/extractapidefinitionfromwsdl/Action | Extrahera API-definition från WSDL för platser. |
 > | Microsoft. Web/locations/listwsdlinterfaces/Action | Visa en lista över WSDL-gränssnitt för platser. |
 > | Microsoft. Web/locations/deleteVirtualNetworkOrSubnets/Action | Borttagnings meddelande för VNet eller undernät för platser. |
+> | Microsoft. Web/locations/previewstaticsiteworkflowfile/Action | Förhandsgranska statisk plats arbets flödes fil |
 > | Microsoft. Web/locations/apioperations/Read | Hämta API-åtgärder för platser. |
 > | Microsoft. Web/locations/connectiongatewayinstallations/Read | Hämta platser anslutnings-Gateway-installationer. |
 > | Microsoft. Web/locations/managedapis/Read | Hämta platser hanterade API: er. |
@@ -2588,6 +2607,7 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/staticSites/createinvitation/åtgärd | Skapar invitiation-länk för statisk webbplats användare för en uppsättning roller |
 > | Microsoft. Web/staticSites/listConfiguredRoles/åtgärd | Visar en lista över roller som har kon figurer ATS för den statiska platsen. |
 > | Microsoft. Web/staticSites/listfunctionappsettings/åtgärd | Visa program inställningar för en statisk plats |
+> | Microsoft. Web/staticSites/listappsettings/åtgärd | Visa inställningar för appar för en statisk plats |
 > | Microsoft. Web/staticSites/loss/åtgärd | Koppla från en statisk plats från den för tillfället länkade databasen |
 > | Microsoft. Web/staticSites/getuser/åtgärd | Hämta en användares information för en statisk plats |
 > | Microsoft. Web/staticSites/listsecrets/åtgärd | Visa en lista över hemligheterna för en statisk plats |
@@ -2598,8 +2618,9 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/staticSites/build/Read | Hämta en version för en statisk plats |
 > | Microsoft. Web/staticSites/build/Delete | Ta bort en version för en statisk plats |
 > | Microsoft. Web/staticSites/builds/listfunctionappsettings/Action | Visa en lista med funktions program inställningar för en statisk plats version |
-> | Microsoft. Web/staticSites/builds/config/Write | Skapa eller uppdatera Function app-inställningar för en statisk plats version |
-> | Microsoft. Web/staticSites/config/Write | Skapa eller uppdatera Function app-inställningar för en statisk plats |
+> | Microsoft. Web/staticSites/builds/listappsettings/Action | Visa inställningar för appar för en statisk plats version |
+> | Microsoft. Web/staticSites/builds/config/Write | Skapa eller uppdatera appinställningar för en statisk plats version |
+> | Microsoft. Web/staticSites/config/Write | Skapa eller uppdatera appinställningar för en statisk plats |
 > | Microsoft. Web/staticSites/customdomains/Write | Skapa en anpassad domän för en statisk plats |
 > | Microsoft. Web/staticSites/customdomains/Delete | Ta bort en anpassad domän för en statisk plats |
 > | Microsoft. Web/staticSites/customdomains/Read | Lista de anpassade domänerna för en statisk plats |
@@ -2625,6 +2646,7 @@ Azure-tjänst: [container instances](../container-instances/index.yml)
 > | Microsoft. ContainerInstance/containerGroups/containers/exec/Action | Exec till en speciell behållare. |
 > | Microsoft. ContainerInstance/containerGroups/containers/buildlogs/Read | Hämta build-loggar för en speciell behållare. |
 > | Microsoft. ContainerInstance/containerGroups/containers/logs/Read | Hämta loggar för en speciell behållare. |
+> | Microsoft. ContainerInstance/containerGroups/Detections/Read | Visa lista över behållar grupps identifieringar |
 > | Microsoft. ContainerInstance/containerGroups/operationResults/Read | Hämta asynkron åtgärds resultat |
 > | Microsoft. ContainerInstance/containerGroups/providers/Microsoft. Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för behållar gruppen. |
 > | Microsoft. ContainerInstance/containerGroups/providers/Microsoft. Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för behållar gruppen. |
@@ -3097,6 +3119,7 @@ Azure-tjänst: [Azure cache för Redis](../azure-cache-for-redis/index.yml)
 > | Microsoft. cache/avregistrera/åtgärd | Avregistrerar resurs leverantören "Microsoft. cache" med en prenumeration |
 > | Microsoft. cache/locations/asyncOperations/Read | Visar en lista över de åtgärder som stöds av Microsoft. cache-providern. |
 > | Microsoft. cache/locations/operationresults/Read | Hämtar resultatet av en tids krävande åtgärd för vilken "location"-huvudet tidigare returnerades till klienten |
+> | Microsoft. cache/locations/operationsStatus/Read | Hämtar resultatet av en tids krävande åtgärd för vilken AzureAsync-huvudet tidigare returnerades till klienten |
 > | Microsoft. cache/åtgärder/Läs | Visar en lista över de åtgärder som stöds av Microsoft. cache-providern. |
 > | Microsoft. cache/Redis/Write | Ändra Redis Cache inställningar och konfiguration i hanterings portalen |
 > | Microsoft. cache/Redis/Read | Visa Redis Cacheens inställningar och konfiguration i hanterings portalen |
@@ -3129,6 +3152,11 @@ Azure-tjänst: [Azure cache för Redis](../azure-cache-for-redis/index.yml)
 > | Microsoft. cache/Redis/privateEndpointConnections/Write | Skriv en privat slut punkts anslutning |
 > | Microsoft. cache/Redis/privateEndpointConnections/Delete | Ta bort en privat slut punkts anslutning |
 > | Microsoft. cache/Redis/privateLinkResources/Read | Läs "" Redis "-underresursen som en privat länk kan anslutas till |
+> | Microsoft. cache/redisEnterprise/privateEndpointConnectionProxies/validate/Action | Verifiera den privata proxyn för anslutnings-slutpunkt |
+> | Microsoft. cache/redisEnterprise/privateEndpointConnectionProxies/Read | Hämta den privata proxyn för anslutnings slut punkt |
+> | Microsoft. cache/redisEnterprise/privateEndpointConnectionProxies/Write | Skapa Proxy för anslutning till privat slutpunkt |
+> | Microsoft. cache/redisEnterprise/privateEndpointConnectionProxies/Delete | Ta bort proxyn för anslutning till privat slutpunkt |
+> | Microsoft. cache/redisEnterprise/privateEndpointConnectionProxies/operationresults/Read | Ta bort proxyn för anslutning till privat slutpunkt |
 > | Microsoft. cache/redisEnterprise/providers/Microsoft. Insights/metricDefinitions/Read | Hämtar tillgängliga mått för en Redis företags-cache |
 
 ### <a name="microsoftdatafactory"></a>Microsoft. DataFactory
@@ -3334,6 +3362,7 @@ Azure-tjänst: [Azure Database for MariaDB](../mariadb/index.yml)
 > | Microsoft. DBforMariaDB/performanceTiers/Read | Returnerar listan med tillgängliga prestanda nivåer. |
 > | Microsoft. DBforMariaDB/servrar/start/åtgärd | Startar en speciell Server. |
 > | Microsoft. DBforMariaDB/servrar/stoppa/åtgärd | Stoppar en speciell Server. |
+> | Microsoft. DBforMariaDB/servers/resetQueryPerformanceInsightData/åtgärd | Återställ Query Performance Insight data |
 > | Microsoft. DBforMariaDB/servers/queryTexts/åtgärd | Returnera texterna för en lista med frågor |
 > | Microsoft. DBforMariaDB/servers/queryTexts/åtgärd | Returnera texten för en fråga |
 > | Microsoft. DBforMariaDB/servers/privateEndpointConnectionsApproval/åtgärd | Anger om användaren får godkänna en privat slut punkts anslutning |
@@ -3995,7 +4024,7 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/managedInstances/vulnerabilityAssessments/Read | Hämta principerna för sårbarhets bedömning på en specifik hanterad instans |
 > | Microsoft. SQL/Operations/Read | Hämtar tillgängliga REST-åtgärder |
 > | Microsoft. SQL/Servers/tdeCertificates/åtgärd | Skapa/uppdatera TDE-certifikat |
-> | Microsoft. SQL/Servers/import/åtgärd | Importera Azure SQL Database |
+> | Microsoft. SQL/Servers/import/åtgärd | Importera nya Azure SQL Database |
 > | Microsoft. SQL/Servers/Read | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Microsoft. SQL/Servers/Write | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
 > | Microsoft. SQL/Servers/Delete | Tar bort en befintlig server. |
@@ -4310,8 +4339,6 @@ Azure-tjänst: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
 > | Microsoft. Databricks/arbets ytor/providers/Microsoft. Insights/diagnosticSettings/Read | Ställer in tillgängliga diagnostikinställningar för arbets ytan Databricks |
 > | Microsoft. Databricks/arbets ytor/providers/Microsoft. Insights/diagnosticSettings/Write | Lägg till eller ändra diagnostikinställningar. |
 > | Microsoft. Databricks/arbets ytor/providers/Microsoft. Insights/logDefinitions/Read | Hämtar tillgängliga logg definitioner för arbets ytan Databricks |
-> | Microsoft. Databricks/arbets ytor/storageEncryption/Write | Ger kunden hanterad nyckel kryptering på det hanterade lagrings kontot på arbets ytan Databricks |
-> | Microsoft. Databricks/arbets ytor/storageEncryption/Delete | Inaktiverar den kund hanterade nyckel krypteringen på det hanterade lagrings kontot för Databricks-arbetsytan |
 > | Microsoft. Databricks/arbets ytor/virtualNetworkPeerings/Read | Hämtar peering för det virtuella nätverket. |
 > | Microsoft. Databricks/arbets ytor/virtualNetworkPeerings/Write | Lägg till eller ändra peering för virtuella nätverk |
 > | Microsoft. Databricks/arbets ytor/virtualNetworkPeerings/Delete | Tar bort en virtuell nätverks-peering |
@@ -4415,6 +4442,7 @@ Azure-tjänst: [Event Hubs](../event-hubs/index.yml)
 > | Microsoft. EventHub/Namespaces/Delete | Ta bort namn områdes resurs |
 > | Microsoft. EventHub/Namespaces/authorizationRules/åtgärd | Uppdaterar namn områdets auktoriseringsregel. Detta API är föråldrat. Använd ett parkera-anrop för att uppdatera auktoriseringsprincipen för namn områden i stället.. Den här åtgärden stöds inte för API-version 2017-04-01. |
 > | Microsoft. EventHub/Namespaces/removeAcsNamepsace/åtgärd | Ta bort ACS-namnrymd |
+> | Microsoft. EventHub/Namespaces/privateEndpointConnectionsApproval/åtgärd | Godkänn privat slut punkts anslutning |
 > | Microsoft. EventHub/Namespaces/authorizationRules/Read | Hämta listan över Beskrivning av auktoriseringsregler för namn områden. |
 > | Microsoft. EventHub/Namespaces/authorizationRules/Write | Skapa en auktoriseringsregel för namn områdes nivå och uppdatera dess egenskaper. Åtkomst behörighet för auktoriseringsregler, de primära och sekundära nycklarna kan uppdateras. |
 > | Microsoft. EventHub/Namespaces/authorizationRules/Delete | Ta bort auktoriseringsregel för namnrymd. Det går inte att ta bort standard regeln för att tillåta namnrymd.  |
@@ -4717,6 +4745,7 @@ Azure-tjänst: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft. CognitiveServices/register/åtgärd | Registrerar prenumeration för Cognitive Services |
 > | Microsoft. CognitiveServices/checkDomainAvailability/Action | Läser tillgängliga SKU: er för en prenumeration. |
 > | Microsoft. CognitiveServices/register/åtgärd | Registrerar prenumeration för Cognitive Services |
+> | Microsoft. CognitiveServices/register/åtgärd | Registrerar prenumeration för Cognitive Services |
 > | Microsoft. CognitiveServices/konton/läsa | Läser API-konton. |
 > | Microsoft. CognitiveServices/konton/Skriv | Skriver API-konton. |
 > | Microsoft. CognitiveServices/Accounts/Delete | Tar bort API-konton |
@@ -4733,8 +4762,10 @@ Azure-tjänst: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft. CognitiveServices/Accounts/SKU/Read | Läser tillgängliga SKU: er för en befintlig resurs. |
 > | Microsoft. CognitiveServices/konton/användning/Läs | Hämta kvot användning för en befintlig resurs. |
 > | Microsoft. CognitiveServices/locations/checkSkuAvailability/Action | Läser tillgängliga SKU: er för en prenumeration. |
+> | Microsoft. CognitiveServices/locations/checkSkuAvailability/Action | Läser tillgängliga SKU: er för en prenumeration. |
 > | Microsoft. CognitiveServices/locations/deleteVirtualNetworkOrSubnets/Action | Meddelande från Microsoft. Network för att ta bort VirtualNetworks eller undernät. |
 > | Microsoft. CognitiveServices/locations/checkSkuAvailability/Action | Läser tillgängliga SKU: er för en prenumeration. |
+> | Microsoft. CognitiveServices/locations/deleteVirtualNetworkOrSubnets/Action | Meddelande från Microsoft. Network för att ta bort VirtualNetworks eller undernät. |
 > | Microsoft. CognitiveServices/locations/operationresults/Read | Läs status för en asynkron åtgärd. |
 > | Microsoft. CognitiveServices/Operations/Read | Visa en lista över alla tillgängliga åtgärder |
 > | **DataAction** | **Beskrivning** |
@@ -5090,6 +5121,13 @@ Azure-tjänst: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft. CognitiveServices/konton/TextAnalytics/entiteter/åtgärd | API: t returnerar en lista över kända entiteter och allmänna namngivna entiteter ( \" person \" , \" plats \" , \" organisation \" osv.) i ett visst dokument. |
 > | Microsoft. CognitiveServices/Accounts/TextAnalytics/-fras/åtgärd | API: et returnerar en lista med strängar som anger att nyckeln pratar i inmatad text. |
 > | Microsoft. CognitiveServices/Accounts/TextAnalytics/sentiment/Action | API:n returnerar en numerisk poäng mellan 0 och 1.<br>Poäng nära 1 visar en positiv attityd, medan en poäng nära 0 indikerar en negativ attityd.<br>Poängen på 0,5 anger att sentiment saknas (t. ex.<br>ett factoid-uttryck). |
+> | Microsoft. CognitiveServices/Accounts/TextTranslation/detect/åtgärd | Identifierar språket för en del av texten. |
+> | Microsoft. CognitiveServices/Accounts/TextTranslation/breaksentence/Action | Anger placeringen av menings gränser i en text del. |
+> | Microsoft. CognitiveServices/Accounts/TextTranslation/Översätt/åtgärd | Översätter text. |
+> | Microsoft. CognitiveServices/konton/TextTranslation/translittererad/åtgärd | Konverterar text på ett språk från ett skript till ett annat. |
+> | Microsoft. CognitiveServices/Accounts/TextTranslation/Dictionary/EXEMPLE/Action | Innehåller exempel som visar hur termer i ord listan används i kontexten. Den här åtgärden används i tandem med ord lists ökning. |
+> | Microsoft. CognitiveServices/Accounts/TextTranslation/Dictionary/lookup/Action | Innehåller alternativa översättningar för ett ord och ett litet antal idiomatiskt-fraser.<br>Varje översättning har en del av tal och en lista över tillbaka-översättningar.<br>Back-translations gör det möjligt för en användare att förstå översättningen i sammanhanget.<br>Exempel åtgärden för ord listan ger ytterligare ökad detalj nivå för att se exempel som använder sig av varje översättnings par. |
+> | Microsoft. CognitiveServices/Accounts/TextTranslation/languages/Read | Hämtar de språk som för närvarande stöds av andra åtgärder i Translator Text API. |
 > | Microsoft. CognitiveServices/konton/VideoSearch/trending/åtgärd | Hämta videor för utveckling. |
 > | Microsoft. CognitiveServices/konton/VideoSearch/information/åtgärd | Få insikter om en video, till exempel relaterade videor. |
 > | Microsoft. CognitiveServices/Accounts/VideoSearch/search/Action | Hämta videor som är relevanta för en specifik fråga. |
@@ -5145,6 +5183,15 @@ Azure-tjänst: [Machine Learning tjänst](../machine-learning/index.yml)
 > | Microsoft. MachineLearningServices/arbets ytor/ta bort | Tar bort Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/Listnycklar/åtgärd | Lista hemligheter för en Machine Learning Services arbets yta |
 > | Microsoft. MachineLearningServices/arbets ytor/resynckeys/åtgärd | Synkronisera om hemligheter för en Machine Learning Services arbets yta |
+> | Microsoft. MachineLearningServices/arbets ytor/batchEndpoints/Read | Hämtar slut punkter för batch-härledning i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/batchEndpoints/Write | Skapar eller uppdaterar batch-slutpunktens slut punkt i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/batchEndpoints/Delete | Tar bort slut punkt för batch-härledning i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbetsytes/batchEndpoints/Listnycklar/åtgärd | Visar nycklar för slut punkter för batch-härledning i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/batchEndpoints/checkNameAvailability/Read | Kontrollerar namn på slut punkt för batch-härledning i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/batchEndpoints/distributioner/läsning | Hämtar distributioner i batch-härlednings slut punkter i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/batchEndpoints/distributioner/skrivning | Skapar eller uppdaterar distributioner i batch-härlednings slut punkt i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/batchEndpoints/distributioner/Delete | Tar bort distributioner i batch-härlednings slut punkt i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/batchEndpoints/distributioner/checkNameAvailability/Read | Kontrollerar namn för distribution i batch-härlednings slut punkt i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/beräkningar/läsning | Hämtar beräknings resurserna i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/beräkningar/skrivning | Skapar eller uppdaterar beräknings resurserna i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/beräkningar/ta bort | Tar bort beräknings resurserna i Machine Learning Services arbets ytor |
@@ -5191,6 +5238,15 @@ Azure-tjänst: [Machine Learning tjänst](../machine-learning/index.yml)
 > | Microsoft. MachineLearningServices/arbets ytor/experiment/kör/Läs | Körs i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/experiment/kör/Skriv | Skapar eller uppdaterar körs i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/funktioner/läsa | Hämtar alla aktiverade funktioner för en Machine Learning Services arbets yta |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/Read | Hämtar härlednings slut punkter i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/Write | Skapar eller uppdaterar en slut punkt för en Härlednings härledning i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/Delete | Tar bort en slut punkt för Härlednings härledning i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/checkNameAvailability/Read | Kontrollerar namn på en slut punkt för en Härlednings härledning i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/distributioner/läsning | Hämtar distributioner i en slut punkt för Härlednings härledning i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/distributioner/skrivning | Skapar eller uppdaterar distribution i en slut punkt för Härlednings härledning i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/distributioner/Delete | Tar bort en distribution i en slut punkt för Härlednings härledning i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/distributioner/checkNameAvailability/Read | Kontrollerar namn för distribution i slut punkt för Härlednings härledning i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/inferenceEndpoints/Deployments/SKU/Read | Hämtar SKU-inställningar för en distribution i en slut punkt för Härlednings härledning i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/märkning/export/åtgärd | Exportera etiketter för att märka projekt i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/etiketter/etiketter/läsa | Hämtar etiketter för att märka projekt i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/etiketter/etiketter/Skriv | Skapar etiketter för att märka projekt i Machine Learning Services arbets ytor |
@@ -5234,6 +5290,9 @@ Azure-tjänst: [Machine Learning tjänst](../machine-learning/index.yml)
 > | Microsoft. MachineLearningServices/arbets ytor/pipelinedrafts/Read | Hämtar pipeline-utkast i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/pipelinedrafts/Write | Skapar eller uppdaterar pipeline-utkast i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/pipelinedrafts/Delete | Tar bort pipeline-utkast i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/rapporter/läsa | Hämtar anpassade rapporter i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/rapporter/Skriv | Skapar eller uppdaterar anpassade rapporter i Machine Learning Services arbets ytor |
+> | Microsoft. MachineLearningServices/arbets ytor/rapporter/ta bort | Tar bort anpassade rapporter i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/tjänster/läsa | Hämtar tjänster i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/tjänster/ACI/Write | Skapar eller uppdaterar ACI-tjänster i Machine Learning Services arbets ytor |
 > | Microsoft. MachineLearningServices/arbets ytor/tjänster/ACI/listnycklar/åtgärd | Visar nycklar för ACI-tjänster i Machine Learning Services-arbetsytor |
@@ -5699,6 +5758,7 @@ Azure-tjänst: [API Management](../api-management/index.yml)
 > | Microsoft. API Management/Service/kvoter/perioder/skrivning | Ange aktuellt värde för kvot räknare |
 > | Microsoft. API Management/Service/region/läsa | Visar en lista över alla Azure-regioner där tjänsten finns. |
 > | Microsoft. API Management/Service/Reports/Read | Hämta rapport sammanställd per tids period eller hämta rapport som aggregerats per geografisk region eller hämta rapport aggregerade av utvecklare.<br>eller hämta rapporten sammanställt av produkter.<br>eller hämta rapport som aggregerats av API: er eller hämta rapporten sammanställt av åtgärder eller hämta rapport sammanställt av prenumerationen.<br>eller hämta rapporterings data för förfrågningar |
+> | Microsoft. API Management/Service/Settings/Read | Visar en samling klient inställningar. Alltid tomt. Använd/Settings/Public i stället |
 > | Microsoft. API Management/Service/Subscriptions/Read | Visar en lista över alla prenumerationer för API Management tjänst instansen. eller hämtar den angivna prenumerations enheten (utan nycklar). |
 > | Microsoft. API Management/Service/Subscriptions/Write | Skapar eller uppdaterar prenumerationen för angiven användare till den angivna produkten. eller uppdaterar informationen om en prenumeration som anges med dess identifierare. |
 > | Microsoft. API Management/Service/Subscriptions/Delete | Tar bort den angivna prenumerationen. |
@@ -5712,8 +5772,8 @@ Azure-tjänst: [API Management](../api-management/index.yml)
 > | Microsoft. API Management/Service/Templates/Read | Hämtar alla e-postmallar eller hämtar information om API Management e-postmall |
 > | Microsoft. API Management/Service/Templates/Write | Skapa eller uppdatera API Management e-postmall eller uppdateringar API Management e-postmall |
 > | Microsoft. API Management/Service/Templates/Delete | Återställ standard API Management e-postmall |
-> | Microsoft. API Management/Service/Tenant/Read | Hämta den globala princip definitionen för API Management-tjänsten. eller hämta information om klient åtkomst information |
-> | Microsoft. API Management/Service/Tenant/Write | Ange princip konfiguration för klient organisations-eller uppdaterings information om klient åtkomst |
+> | Microsoft. API Management/Service/Tenant/Read | Visar en samling inställningar för klient åtkomst. eller hämta den globala princip definitionen för API Management-tjänsten. eller hämta information om klient åtkomst information |
+> | Microsoft. API Management/Service/Tenant/Write | Ange princip konfigurationen för klient-eller uppdaterings information om klient åtkomst information eller information om klient åtkomst information |
 > | Microsoft. API Management/Service/Tenant/Delete | Ta bort princip konfigurationen för klient organisationen |
 > | Microsoft. API Management/Service/Tenant/listSecrets/åtgärd | Hämta information om klient åtkomst information |
 > | Microsoft. API Management/Service/Tenant/regeneratePrimaryKey/åtgärd | Återskapa primär åtkomst nyckel |
@@ -5782,11 +5842,24 @@ Azure-tjänst: Core
 > | Microsoft. AzureStack/register/åtgärd | Prenumerations registrerings åtgärd |
 > | Microsoft. AzureStack/register/åtgärd | Registrerar prenumeration med Microsoft. AzureStack Resource Provider |
 > | Microsoft. AzureStack/cloudManifestFiles/Read | Hämtar moln manifest filen |
+> | Microsoft. AzureStack/edgeSubscriptions/Read | Hämta egenskaperna för en Azure Stack Edge-prenumeration |
+> | Microsoft. AzureStack/edgeSubscriptions/Write | Skapar eller uppdaterar en Edge-prenumeration |
+> | Microsoft. AzureStack/edgeSubscriptions/Delete | Ta bort en Edge-prenumeration |
+> | Microsoft. AzureStack/edgeSubscriptions/edgeResourceGroups/Action | Läser eller skriver till en planerad Edge-resurs under gräns resurs gruppen |
+> | Microsoft. AzureStack/edgeSubscriptions/edgeProviders/Action | Läser eller skriver till en planerad Edge-resurs under den aktuella Edge-resursens namnrymd |
+> | Microsoft. AzureStack/edgeSubscriptions/Operations/Action | Hämta eller lista status för asynkrona åtgärder på planerade kant resurser |
+> | Microsoft. AzureStack/linkedSubscriptions/Read | Hämta egenskaperna för en Azure Stack länkad prenumeration |
+> | Microsoft. AzureStack/linkedSubscriptions/Write | Skapa eller uppdatera en länkad prenumeration |
+> | Microsoft. AzureStack/linkedSubscriptions/Delete | Ta bort en länkad prenumeration |
+> | Microsoft. AzureStack/linkedSubscriptions/linkedResourceGroups/Action | Läser eller skriver till en planerad länkad resurs under den länkade resurs gruppen |
+> | Microsoft. AzureStack/linkedSubscriptions/linkedProviders/Action | Läser eller skriver till en planerad länkad resurs under det tilldelade namn området för den länkade resurs leverantören |
+> | Microsoft. AzureStack/linkedSubscriptions/Operations/Action | Hämta eller lista status för asynkrona åtgärder på planerade länkade resurser |
 > | Microsoft. AzureStack/Operations/Read | Hämtar egenskaper för en resurs leverantörs åtgärd |
 > | Microsoft. AzureStack/registreringar/läsa | Hämtar egenskaperna för en Azure Stack registrering |
 > | Microsoft. AzureStack/registreringar/skrivning | Skapar eller uppdaterar en Azure Stack registrering |
 > | Microsoft. AzureStack/registreringar/ta bort | Tar bort en Azure Stack registrering |
 > | Microsoft. AzureStack/Registration/getActivationKey/Action | Hämtar den senaste Azure Stack aktiverings nyckeln |
+> | Microsoft. AzureStack/Registration/enableRemoteManagement/Action | Aktivera RemoteManagement för Azure Stack registrering |
 > | Microsoft. AzureStack/registreringar/customerSubscriptions/Read | Hämtar egenskaperna för en Azure Stack kund prenumeration |
 > | Microsoft. AzureStack/registreringar/customerSubscriptions/Write | Skapar eller uppdaterar en Azure Stack kund prenumeration |
 > | Microsoft. AzureStack/Registration/customerSubscriptions/Delete | Tar bort en Azure Stack kund prenumeration |
@@ -5803,7 +5876,7 @@ Azure-tjänst: [Azure Stack Edge](../databox-online/azure-stack-edge-overview.md
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
 > | --- | --- |
-> | Microsoft. DataBoxEdge/availableSkus/Read | Visar eller hämtar ArmApiRes_availableSkus |
+> | Microsoft. DataBoxEdge/availableSkus/Read | Visar eller hämtar tillgängliga SKU: er |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/Write | Skapar eller uppdaterar Data Box Edge enheter |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/Read | Listar eller hämtar Data Box Edge enheter |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/Delete | Tar bort Data Box Edge enheter |
@@ -5838,6 +5911,11 @@ Azure-tjänst: [Azure Stack Edge](../databox-online/azure-stack-edge-overview.md
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/Read | Visar eller hämtar roller |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/Write | Skapar eller uppdaterar roller |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/Delete | Tar bort rollerna |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/monitoringConfig/Write | Skapar eller uppdaterar övervaknings konfigurationen |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/monitoringConfig/Delete | Tar bort övervaknings konfigurationen |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/monitoringConfig/Read | Visar eller hämtar övervaknings konfigurationen |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/monitoringConfig/Read | Visar eller hämtar övervaknings konfigurationen |
+> | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/monitoringConfig/operationResults/Read | Visar eller hämtar åtgärds resultatet |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/roles/operationResults/Read | Visar eller hämtar åtgärds resultatet |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/securitySettings/Update/åtgärd | Uppdatera säkerhets inställningar |
 > | Microsoft. DataBoxEdge/dataBoxEdgeDevices/securitySettings/operationResults/Read | Visar eller hämtar åtgärds resultatet |
@@ -6025,6 +6103,10 @@ Azure-tjänst: [Logic Apps](../logic-apps/index.yml)
 > | Microsoft. Logic/integrationAccounts/sessions/Read | Läser sessionen i integrations kontot. |
 > | Microsoft. Logic/integrationAccounts/sessions/Write | Skapar eller uppdaterar sessionen i integrations kontot. |
 > | Microsoft. Logic/integrationAccounts/sessions/Delete | Tar bort sessionen i integrations kontot. |
+> | Microsoft. Logic/integrationAccounts/usageConfigurations/Read | Läser användnings konfigurationen i integrations kontot. |
+> | Microsoft. Logic/integrationAccounts/usageConfigurations/Write | Skapar eller uppdaterar användnings konfigurationen i integrations kontot. |
+> | Microsoft. Logic/integrationAccounts/usageConfigurations/Delete | Tar bort användnings konfigurationen i integrations kontot. |
+> | Microsoft. Logic/integrationAccounts/usageConfigurations/listCallbackUrl/Action | Hämtar återanrops-URL: en för användnings konfigurationen i integrations kontot. |
 > | Microsoft. Logic/integrationServiceEnvironments/Read | Läser integrerings tjänst miljön. |
 > | Microsoft. Logic/integrationServiceEnvironments/Write | Skapar eller uppdaterar integrerings tjänst miljön. |
 > | Microsoft. Logic/integrationServiceEnvironments/Delete | Tar bort integrerings tjänst miljön. |
@@ -6099,6 +6181,7 @@ Azure-tjänst: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 > | Microsoft. Relay/namnrymder/ta bort | Ta bort namn områdes resurs |
 > | Microsoft. Relay/namnrymder/authorizationRules/åtgärd | Uppdaterar namn områdets auktoriseringsregel. Detta API är föråldrat. Använd ett parkera-anrop för att uppdatera auktoriseringsprincipen för namn områden i stället.. Den här åtgärden stöds inte för API-version 2017-04-01. |
 > | Microsoft. Relay/namnrymder/removeAcsNamepsace/åtgärd | Ta bort ACS-namnrymd |
+> | Microsoft. Relay/namnrymder/privateEndpointConnectionsApproval/åtgärd | Godkänn privat slut punkts anslutning |
 > | Microsoft. Relay/namnrymder/authorizationRules/Read | Hämta listan över Beskrivning av auktoriseringsregler för namn områden. |
 > | Microsoft. Relay/namnrymder/authorizationRules/Write | Skapa en auktoriseringsregel för namn områdes nivå och uppdatera dess egenskaper. Åtkomst behörighet för auktoriseringsregler, de primära och sekundära nycklarna kan uppdateras. |
 > | Microsoft. Relay/namnrymder/authorizationRules/Delete | Ta bort auktoriseringsregel för namnrymd. Det går inte att ta bort standard regeln för att tillåta namnrymd.  |
@@ -6170,6 +6253,7 @@ Azure-tjänst: [Service Bus](../service-bus/index.md)
 > | Microsoft. Service Bus/namnrymder/authorizationRules/åtgärd | Uppdaterar namn områdets auktoriseringsregel. Detta API är föråldrat. Använd ett parkera-anrop för att uppdatera auktoriseringsprincipen för namn områden i stället.. Den här åtgärden stöds inte för API-version 2017-04-01. |
 > | Microsoft. Service Bus/namnrymder/migrera/åtgärd | Migrera namn områdes åtgärd |
 > | Microsoft. Service Bus/namnrymder/removeAcsNamepsace/åtgärd | Ta bort ACS-namnrymd |
+> | Microsoft. Service Bus/namnrymder/privateEndpointConnectionsApproval/åtgärd | Godkänn privat slut punkts anslutning |
 > | Microsoft. Service Bus/namnrymder/authorizationRules/Write | Skapa en auktoriseringsregel för namn områdes nivå och uppdatera dess egenskaper. Åtkomst behörighet för auktoriseringsregler, de primära och sekundära nycklarna kan uppdateras. |
 > | Microsoft. Service Bus/namnrymder/authorizationRules/Read | Hämta listan över Beskrivning av auktoriseringsregler för namn områden. |
 > | Microsoft. Service Bus/Namespaces/authorizationRules/Delete | Ta bort auktoriseringsregel för namnrymd. Det går inte att ta bort standard regeln för att tillåta namnrymd.  |
@@ -6625,6 +6709,7 @@ Azure-tjänst: [Azure Sentinel](../sentinel/index.yml)
 > | Microsoft. SecurityInsights/dataConnectors/Write | Uppdaterar en data anslutning |
 > | Microsoft. SecurityInsights/dataConnectors/Delete | Tar bort en data koppling |
 > | Microsoft. SecurityInsights/entiteter/läsa | Hämtar grafen Sentinel-entiteter |
+> | Microsoft. SecurityInsights/entiteter/tids linje/åtgärd | Hämtar tids linje för enheten för ett angivet intervall |
 > | Microsoft. SecurityInsights/entiteter/relationer/läsa | Hämtar en relation mellan entiteten och relaterade resurser |
 > | Microsoft. SecurityInsights/entiteter/relationer/Skriv | Uppdaterar en relation mellan entiteten och relaterade resurser |
 > | Microsoft. SecurityInsights/entiteter/relationer/ta bort | Tar bort en relation mellan entiteten och relaterade resurser |
@@ -6974,6 +7059,12 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/register/åtgärd | Registrerar prenumeration med Microsoft. OffAzure Resource Provider |
 > | Microsoft. OffAzure/register/åtgärd | Registrerar prenumeration med Microsoft. OffAzure Resource Provider |
 > | Microsoft. OffAzure/register/åtgärd | Registrerar prenumeration med Microsoft. OffAzure Resource Provider |
+> | Microsoft. OffAzure/register/åtgärd | Registrerar prenumeration med Microsoft. OffAzure Resource Provider |
+> | Microsoft. OffAzure/HyperVSites/Read | Hämtar egenskaperna för en Hyper-V-plats |
+> | Microsoft. OffAzure/HyperVSites/Write | Skapar eller uppdaterar Hyper-V-platsen |
+> | Microsoft. OffAzure/HyperVSites/Delete | Tar bort Hyper-V-platsen |
+> | Microsoft. OffAzure/HyperVSites/Refresh/åtgärd | Uppdaterar objekten på en Hyper-V-plats |
+> | Microsoft. OffAzure/HyperVSites/updateProperties/Action | Uppdaterar egenskaperna för datorer på en plats |
 > | Microsoft. OffAzure/HyperVSites/Read | Hämtar egenskaperna för en Hyper-V-plats |
 > | Microsoft. OffAzure/HyperVSites/Write | Skapar eller uppdaterar Hyper-V-platsen |
 > | Microsoft. OffAzure/HyperVSites/Delete | Tar bort Hyper-V-platsen |
@@ -7002,6 +7093,9 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/HyperVSites/kluster/Skriv | Skapar eller uppdaterar Hyper-V-klustret |
 > | Microsoft. OffAzure/HyperVSites/Clusters/Read | Hämtar egenskaperna för ett Hyper-V-kluster |
 > | Microsoft. OffAzure/HyperVSites/kluster/Skriv | Skapar eller uppdaterar Hyper-V-klustret |
+> | Microsoft. OffAzure/HyperVSites/Clusters/Read | Hämtar egenskaperna för ett Hyper-V-kluster |
+> | Microsoft. OffAzure/HyperVSites/kluster/Skriv | Skapar eller uppdaterar Hyper-V-klustret |
+> | Microsoft. OffAzure/HyperVSites/healthsummary/Read | Hämtar hälso översikten för Hyper-V-resursen |
 > | Microsoft. OffAzure/HyperVSites/healthsummary/Read | Hämtar hälso översikten för Hyper-V-resursen |
 > | Microsoft. OffAzure/HyperVSites/healthsummary/Read | Hämtar hälso översikten för Hyper-V-resursen |
 > | Microsoft. OffAzure/HyperVSites/healthsummary/Read | Hämtar hälso översikten för Hyper-V-resursen |
@@ -7014,6 +7108,9 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/HyperVSites/hosts/Write | Skapar eller uppdaterar Hyper-V-värden |
 > | Microsoft. OffAzure/HyperVSites/hosts/Read | Hämtar egenskaperna för en Hyper-V-värd |
 > | Microsoft. OffAzure/HyperVSites/hosts/Write | Skapar eller uppdaterar Hyper-V-värden |
+> | Microsoft. OffAzure/HyperVSites/hosts/Read | Hämtar egenskaperna för en Hyper-V-värd |
+> | Microsoft. OffAzure/HyperVSites/hosts/Write | Skapar eller uppdaterar Hyper-V-värden |
+> | Microsoft. OffAzure/HyperVSites/Jobs/Read | Hämtar egenskaperna för ett Hyper-V-jobb |
 > | Microsoft. OffAzure/HyperVSites/Jobs/Read | Hämtar egenskaperna för ett Hyper-V-jobb |
 > | Microsoft. OffAzure/HyperVSites/Jobs/Read | Hämtar egenskaperna för ett Hyper-V-jobb |
 > | Microsoft. OffAzure/HyperVSites/Jobs/Read | Hämtar egenskaperna för ett Hyper-V-jobb |
@@ -7022,6 +7119,8 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/HyperVSites/Machines/Read | Hämtar egenskaperna för en Hyper-V-dator |
 > | Microsoft. OffAzure/HyperVSites/Machines/Read | Hämtar egenskaperna för en Hyper-V-dator |
 > | Microsoft. OffAzure/HyperVSites/Machines/Read | Hämtar egenskaperna för en Hyper-V-dator |
+> | Microsoft. OffAzure/HyperVSites/Machines/Read | Hämtar egenskaperna för en Hyper-V-dator |
+> | Microsoft. OffAzure/HyperVSites/operationsstatus/Read | Hämtar egenskaperna för en Hyper-V-åtgärds status |
 > | Microsoft. OffAzure/HyperVSites/operationsstatus/Read | Hämtar egenskaperna för en Hyper-V-åtgärds status |
 > | Microsoft. OffAzure/HyperVSites/operationsstatus/Read | Hämtar egenskaperna för en Hyper-V-åtgärds status |
 > | Microsoft. OffAzure/HyperVSites/operationsstatus/Read | Hämtar egenskaperna för en Hyper-V-åtgärds status |
@@ -7030,10 +7129,13 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/HyperVSites/runasaccounts/Read | Hämtar egenskaperna för ett Hyper-V-kör som-konto |
 > | Microsoft. OffAzure/HyperVSites/runasaccounts/Read | Hämtar egenskaperna för ett Hyper-V-kör som-konto |
 > | Microsoft. OffAzure/HyperVSites/runasaccounts/Read | Hämtar egenskaperna för ett Hyper-V-kör som-konto |
+> | Microsoft. OffAzure/HyperVSites/runasaccounts/Read | Hämtar egenskaperna för ett Hyper-V-kör som-konto |
 > | Microsoft. OffAzure/HyperVSites/Summary/Read | Hämtar sammanfattningen av en Hyper-V-plats |
 > | Microsoft. OffAzure/HyperVSites/Summary/Read | Hämtar sammanfattningen av en Hyper-V-plats |
 > | Microsoft. OffAzure/HyperVSites/Summary/Read | Hämtar sammanfattningen av en Hyper-V-plats |
 > | Microsoft. OffAzure/HyperVSites/Summary/Read | Hämtar sammanfattningen av en Hyper-V-plats |
+> | Microsoft. OffAzure/HyperVSites/Summary/Read | Hämtar sammanfattningen av en Hyper-V-plats |
+> | Microsoft. OffAzure/HyperVSites/Usage/Read | Hämtar användningen av en Hyper-V-plats |
 > | Microsoft. OffAzure/HyperVSites/Usage/Read | Hämtar användningen av en Hyper-V-plats |
 > | Microsoft. OffAzure/HyperVSites/Usage/Read | Hämtar användningen av en Hyper-V-plats |
 > | Microsoft. OffAzure/HyperVSites/Usage/Read | Hämtar användningen av en Hyper-V-plats |
@@ -7058,6 +7160,12 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/ImportSites/Delete | Tar bort import webbplatsen |
 > | Microsoft. OffAzure/ImportSites/importuri/Action | Hämtar SAS-URI: n för att importera datorernas CSV-fil. |
 > | Microsoft. OffAzure/ImportSites/exporturi/Action | Hämtar SAS-URI: n för att exportera CSV-filen datorer. |
+> | Microsoft. OffAzure/ImportSites/Read | Hämtar egenskaperna för en import webbplats |
+> | Microsoft. OffAzure/ImportSites/Write | Skapar eller uppdaterar import webbplatsen |
+> | Microsoft. OffAzure/ImportSites/Delete | Tar bort import webbplatsen |
+> | Microsoft. OffAzure/ImportSites/importuri/Action | Hämtar SAS-URI: n för att importera datorernas CSV-fil. |
+> | Microsoft. OffAzure/ImportSites/exporturi/Action | Hämtar SAS-URI: n för att exportera CSV-filen datorer. |
+> | Microsoft. OffAzure/ImportSites/Jobs/Read | Hämtar egenskaperna för ett import jobb |
 > | Microsoft. OffAzure/ImportSites/Jobs/Read | Hämtar egenskaperna för ett import jobb |
 > | Microsoft. OffAzure/ImportSites/Jobs/Read | Hämtar egenskaperna för ett import jobb |
 > | Microsoft. OffAzure/ImportSites/Jobs/Read | Hämtar egenskaperna för ett import jobb |
@@ -7070,6 +7178,53 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/ImportSites/Machines/Delete | Tar bort import datorn |
 > | Microsoft. OffAzure/ImportSites/Machines/Read | Hämtar egenskaperna för en import dator |
 > | Microsoft. OffAzure/ImportSites/Machines/Delete | Tar bort import datorn |
+> | Microsoft. OffAzure/ImportSites/Machines/Read | Hämtar egenskaperna för en import dator |
+> | Microsoft. OffAzure/ImportSites/Machines/Delete | Tar bort import datorn |
+> | Microsoft. OffAzure/MasterSites/operationsstatus/Read | Hämtar egenskaperna för en huvud plats åtgärds status |
+> | Microsoft. OffAzure/MasterSites/operationsstatus/Read | Hämtar egenskaperna för en huvud plats åtgärds status |
+> | Microsoft. OffAzure/MasterSites/operationsstatus/Read | Hämtar egenskaperna för en huvud plats åtgärds status |
+> | Microsoft. OffAzure/MasterSites/operationsstatus/Read | Hämtar egenskaperna för en huvud plats åtgärds status |
+> | Microsoft. OffAzure/MasterSites/operationsstatus/Read | Hämtar egenskaperna för en huvud plats åtgärds status |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Read | Hämta anslutnings proxy för privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/validate/åtgärd | Verifiera en proxy för anslutning till privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Write | Skapa eller uppdatera en anslutning till en privat slut punkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Delete | Ta bort en proxy för anslutning till privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Read | Hämta anslutnings proxy för privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/validate/åtgärd | Verifiera en proxy för anslutning till privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Write | Skapa eller uppdatera en anslutning till en privat slut punkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Delete | Ta bort en proxy för anslutning till privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Read | Hämta anslutnings proxy för privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/validate/åtgärd | Verifiera en proxy för anslutning till privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Write | Skapa eller uppdatera en anslutning till en privat slut punkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Delete | Ta bort en proxy för anslutning till privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Read | Hämta anslutnings proxy för privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/validate/åtgärd | Verifiera en proxy för anslutning till privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Write | Skapa eller uppdatera en anslutning till en privat slut punkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Delete | Ta bort en proxy för anslutning till privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Read | Hämta anslutnings proxy för privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/validate/åtgärd | Verifiera en proxy för anslutning till privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Write | Skapa eller uppdatera en anslutning till en privat slut punkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnectionProxies/Delete | Ta bort en proxy för anslutning till privat slutpunkt |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Read | Hämta privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Write | Uppdatera en privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Delete | Ta bort en privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Read | Hämta privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Write | Uppdatera en privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Delete | Ta bort en privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Read | Hämta privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Write | Uppdatera en privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Delete | Ta bort en privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Read | Hämta privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Write | Uppdatera en privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Delete | Ta bort en privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Read | Hämta privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Write | Uppdatera en privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateEndpointConnections/Delete | Ta bort en privat slut punkts anslutning |
+> | Microsoft. OffAzure/MasterSites/privateLinkResources/Read | Hämta privat länk resurs |
+> | Microsoft. OffAzure/MasterSites/privateLinkResources/Read | Hämta privat länk resurs |
+> | Microsoft. OffAzure/MasterSites/privateLinkResources/Read | Hämta privat länk resurs |
+> | Microsoft. OffAzure/MasterSites/privateLinkResources/Read | Hämta privat länk resurs |
+> | Microsoft. OffAzure/MasterSites/privateLinkResources/Read | Hämta privat länk resurs |
 > | Microsoft. OffAzure/Operations/Read | Läser de exponerade åtgärderna |
 > | Microsoft. OffAzure/ServerSites/Read | Hämtar egenskaperna för en server webbplats |
 > | Microsoft. OffAzure/ServerSites/Write | Skapar eller uppdaterar Server platsen |
@@ -7091,6 +7246,12 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/ServerSites/Delete | Tar bort Server platsen |
 > | Microsoft. OffAzure/ServerSites/Refresh/åtgärd | Uppdaterar objekten på en server webbplats |
 > | Microsoft. OffAzure/ServerSites/updateProperties/Action | Uppdaterar egenskaperna för datorer på en plats |
+> | Microsoft. OffAzure/ServerSites/Read | Hämtar egenskaperna för en server webbplats |
+> | Microsoft. OffAzure/ServerSites/Write | Skapar eller uppdaterar Server platsen |
+> | Microsoft. OffAzure/ServerSites/Delete | Tar bort Server platsen |
+> | Microsoft. OffAzure/ServerSites/Refresh/åtgärd | Uppdaterar objekten på en server webbplats |
+> | Microsoft. OffAzure/ServerSites/updateProperties/Action | Uppdaterar egenskaperna för datorer på en plats |
+> | Microsoft. OffAzure/ServerSites/Jobs/Read | Hämtar egenskaperna för ett Server jobb |
 > | Microsoft. OffAzure/ServerSites/Jobs/Read | Hämtar egenskaperna för ett Server jobb |
 > | Microsoft. OffAzure/ServerSites/Jobs/Read | Hämtar egenskaperna för ett Server jobb |
 > | Microsoft. OffAzure/ServerSites/Jobs/Read | Hämtar egenskaperna för ett Server jobb |
@@ -7103,6 +7264,9 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/ServerSites/Machines/Write | Skriv egenskaperna för en server maskin vara |
 > | Microsoft. OffAzure/ServerSites/Machines/Read | Hämtar egenskaperna för en server maskin vara |
 > | Microsoft. OffAzure/ServerSites/Machines/Write | Skriv egenskaperna för en server maskin vara |
+> | Microsoft. OffAzure/ServerSites/Machines/Read | Hämtar egenskaperna för en server maskin vara |
+> | Microsoft. OffAzure/ServerSites/Machines/Write | Skriv egenskaperna för en server maskin vara |
+> | Microsoft. OffAzure/ServerSites/operationsstatus/Read | Hämtar egenskaperna för en server åtgärds status |
 > | Microsoft. OffAzure/ServerSites/operationsstatus/Read | Hämtar egenskaperna för en server åtgärds status |
 > | Microsoft. OffAzure/ServerSites/operationsstatus/Read | Hämtar egenskaperna för en server åtgärds status |
 > | Microsoft. OffAzure/ServerSites/operationsstatus/Read | Hämtar egenskaperna för en server åtgärds status |
@@ -7111,10 +7275,13 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/ServerSites/runasaccounts/Read | Hämtar egenskaperna för ett Kör som-konto för Server |
 > | Microsoft. OffAzure/ServerSites/runasaccounts/Read | Hämtar egenskaperna för ett Kör som-konto för Server |
 > | Microsoft. OffAzure/ServerSites/runasaccounts/Read | Hämtar egenskaperna för ett Kör som-konto för Server |
+> | Microsoft. OffAzure/ServerSites/runasaccounts/Read | Hämtar egenskaperna för ett Kör som-konto för Server |
 > | Microsoft. OffAzure/ServerSites/Summary/Read | Hämtar sammanfattningen av en server webbplats |
 > | Microsoft. OffAzure/ServerSites/Summary/Read | Hämtar sammanfattningen av en server webbplats |
 > | Microsoft. OffAzure/ServerSites/Summary/Read | Hämtar sammanfattningen av en server webbplats |
 > | Microsoft. OffAzure/ServerSites/Summary/Read | Hämtar sammanfattningen av en server webbplats |
+> | Microsoft. OffAzure/ServerSites/Summary/Read | Hämtar sammanfattningen av en server webbplats |
+> | Microsoft. OffAzure/ServerSites/Usage/Read | Hämtar användningen av en server webbplats |
 > | Microsoft. OffAzure/ServerSites/Usage/Read | Hämtar användningen av en server webbplats |
 > | Microsoft. OffAzure/ServerSites/Usage/Read | Hämtar användningen av en server webbplats |
 > | Microsoft. OffAzure/ServerSites/Usage/Read | Hämtar användningen av en server webbplats |
@@ -7167,10 +7334,29 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/VMwareSites/serverGroupMembers/Action | Visar en lista över Server grupps medlemmar för den valda Server gruppen. |
 > | Microsoft. OffAzure/VMwareSites/getApplications/Action | Hämtar List program informationen för de valda datorerna |
 > | Microsoft. OffAzure/VMwareSites/exportDependencies/Action | Exporterar beroende informationen för de valda datorerna |
+> | Microsoft. OffAzure/VMwareSites/Read | Hämtar egenskaperna för en VMware-plats |
+> | Microsoft. OffAzure/VMwareSites/Write | Skapar eller uppdaterar VMware-webbplatsen |
+> | Microsoft. OffAzure/VMwareSites/Delete | Tar bort VMware-webbplatsen |
+> | Microsoft. OffAzure/VMwareSites/Refresh/åtgärd | Uppdaterar objekten i en VMware-webbplats |
+> | Microsoft. OffAzure/VMwareSites/exportapplications/Action | Exporterar VMware-program och roll data till xls |
+> | Microsoft. OffAzure/VMwareSites/updateProperties/Action | Uppdaterar egenskaperna för datorer på en plats |
+> | Microsoft. OffAzure/VMwareSites/generateCoarseMap/Action | Genererar en grov karta för listan över datorer |
+> | Microsoft. OffAzure/VMwareSites/generateDetailedMap/Action | Genererar den detaljerade av VMware-grov kartan |
+> | Microsoft. OffAzure/VMwareSites/clientGroupMembers/Action | Visar en lista över klient grupps medlemmar för den valda klient gruppen. |
+> | Microsoft. OffAzure/VMwareSites/serverGroupMembers/Action | Visar en lista över Server grupps medlemmar för den valda Server gruppen. |
+> | Microsoft. OffAzure/VMwareSites/getApplications/Action | Hämtar List program informationen för de valda datorerna |
+> | Microsoft. OffAzure/VMwareSites/exportDependencies/Action | Exporterar beroende informationen för de valda datorerna |
 > | Microsoft. OffAzure/VMwareSites/healthsummary/Read | Hämtar hälso översikten för VMware-resursen |
 > | Microsoft. OffAzure/VMwareSites/healthsummary/Read | Hämtar hälso översikten för VMware-resursen |
 > | Microsoft. OffAzure/VMwareSites/healthsummary/Read | Hämtar hälso översikten för VMware-resursen |
 > | Microsoft. OffAzure/VMwareSites/healthsummary/Read | Hämtar hälso översikten för VMware-resursen |
+> | Microsoft. OffAzure/VMwareSites/healthsummary/Read | Hämtar hälso översikten för VMware-resursen |
+> | Microsoft. OffAzure/VMwareSites/hosts/Read | Hämtar egenskaperna för en VMware-värd |
+> | Microsoft. OffAzure/VMwareSites/hosts/Read | Hämtar egenskaperna för en VMware-värd |
+> | Microsoft. OffAzure/VMwareSites/hosts/Read | Hämtar egenskaperna för en VMware-värd |
+> | Microsoft. OffAzure/VMwareSites/hosts/Read | Hämtar egenskaperna för en VMware-värd |
+> | Microsoft. OffAzure/VMwareSites/hosts/Read | Hämtar egenskaperna för en VMware-värd |
+> | Microsoft. OffAzure/VMwareSites/Jobs/Read | Hämtar egenskaperna för ett VMware-jobb |
 > | Microsoft. OffAzure/VMwareSites/Jobs/Read | Hämtar egenskaperna för ett VMware-jobb |
 > | Microsoft. OffAzure/VMwareSites/Jobs/Read | Hämtar egenskaperna för ett VMware-jobb |
 > | Microsoft. OffAzure/VMwareSites/Jobs/Read | Hämtar egenskaperna för ett VMware-jobb |
@@ -7187,6 +7373,10 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/VMwareSites/Machines/Read | Hämtar egenskaperna för en VMware-dator |
 > | Microsoft. OffAzure/VMwareSites/Machines/stop/action | Stoppar VMware-datorerna |
 > | Microsoft. OffAzure/VMwareSites/Machines/start/Action | Starta VMware-datorer |
+> | Microsoft. OffAzure/VMwareSites/Machines/Read | Hämtar egenskaperna för en VMware-dator |
+> | Microsoft. OffAzure/VMwareSites/Machines/stop/action | Stoppar VMware-datorerna |
+> | Microsoft. OffAzure/VMwareSites/Machines/start/Action | Starta VMware-datorer |
+> | Microsoft. OffAzure/VMwareSites/Machines/Applications/Read | Hämtar egenskaperna för ett VMware Machines-program |
 > | Microsoft. OffAzure/VMwareSites/Machines/Applications/Read | Hämtar egenskaperna för ett VMware Machines-program |
 > | Microsoft. OffAzure/VMwareSites/Machines/Applications/Read | Hämtar egenskaperna för ett VMware Machines-program |
 > | Microsoft. OffAzure/VMwareSites/Machines/Applications/Read | Hämtar egenskaperna för ett VMware Machines-program |
@@ -7195,6 +7385,8 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/VMwareSites/operationsstatus/Read | Hämtar egenskaperna för en VMware-åtgärds status |
 > | Microsoft. OffAzure/VMwareSites/operationsstatus/Read | Hämtar egenskaperna för en VMware-åtgärds status |
 > | Microsoft. OffAzure/VMwareSites/operationsstatus/Read | Hämtar egenskaperna för en VMware-åtgärds status |
+> | Microsoft. OffAzure/VMwareSites/operationsstatus/Read | Hämtar egenskaperna för en VMware-åtgärds status |
+> | Microsoft. OffAzure/VMwareSites/runasaccounts/Read | Hämtar egenskaperna för ett VMware-kör som-konto |
 > | Microsoft. OffAzure/VMwareSites/runasaccounts/Read | Hämtar egenskaperna för ett VMware-kör som-konto |
 > | Microsoft. OffAzure/VMwareSites/runasaccounts/Read | Hämtar egenskaperna för ett VMware-kör som-konto |
 > | Microsoft. OffAzure/VMwareSites/runasaccounts/Read | Hämtar egenskaperna för ett VMware-kör som-konto |
@@ -7203,10 +7395,14 @@ Azure-tjänst: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft. OffAzure/VMwareSites/Summary/Read | Hämtar sammanfattningen av en VMware-webbplats |
 > | Microsoft. OffAzure/VMwareSites/Summary/Read | Hämtar sammanfattningen av en VMware-webbplats |
 > | Microsoft. OffAzure/VMwareSites/Summary/Read | Hämtar sammanfattningen av en VMware-webbplats |
+> | Microsoft. OffAzure/VMwareSites/Summary/Read | Hämtar sammanfattningen av en VMware-webbplats |
 > | Microsoft. OffAzure/VMwareSites/Usage/Read | Hämtar användningen av en VMware-plats |
 > | Microsoft. OffAzure/VMwareSites/Usage/Read | Hämtar användningen av en VMware-plats |
 > | Microsoft. OffAzure/VMwareSites/Usage/Read | Hämtar användningen av en VMware-plats |
 > | Microsoft. OffAzure/VMwareSites/Usage/Read | Hämtar användningen av en VMware-plats |
+> | Microsoft. OffAzure/VMwareSites/Usage/Read | Hämtar användningen av en VMware-plats |
+> | Microsoft. OffAzure/VMwareSites/vCenter/Read | Hämtar egenskaperna för en VMware vCenter |
+> | Microsoft. OffAzure/VMwareSites/vCenter/Write | Skapar eller uppdaterar VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vCenter/Read | Hämtar egenskaperna för en VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vCenter/Write | Skapar eller uppdaterar VMware vCenter |
 > | Microsoft. OffAzure/VMwareSites/vCenter/Read | Hämtar egenskaperna för en VMware vCenter |
@@ -7778,6 +7974,12 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AADNonInteractiveUserSignInLogs/läsa | Läsa data från tabellen AADNonInteractiveUserSignInLogs |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AADProvisioningLogs/läsa | Läsa data från tabellen AADProvisioningLogs |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AADServicePrincipalSignInLogs/läsa | Läsa data från tabellen AADServicePrincipalSignInLogs |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/ABSBotRequests/läsa | Läsa data från tabellen ABSBotRequests |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/ABSChannelToBotRequests/läsa | Läsa data från tabellen ABSChannelToBotRequests |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/ABSDependenciesRequests/läsa | Läsa data från tabellen ABSDependenciesRequests |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/ACSBillingUsage/läsa | Läsa data från tabellen ACSBillingUsage |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/ACSChatIncomingOperations/läsa | Läsa data från tabellen ACSChatIncomingOperations |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/ACSSMSIncomingOperations/läsa | Läsa data från tabellen ACSSMSIncomingOperations |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/ADAssessmentRecommendation/läsa | Läsa data från tabellen ADAssessmentRecommendation |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AddonAzureBackupAlerts/läsa | Läsa data från tabellen AddonAzureBackupAlerts |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AddonAzureBackupJobs/läsa | Läsa data från tabellen AddonAzureBackupJobs |
@@ -7806,6 +8008,7 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/arbets ytor/fråga/ADXTableUsageStatistics/läsa | Läsa data från tabellen ADXTableUsageStatistics |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AegDeliveryFailureLogs/läsa | Läsa data från tabellen AegDeliveryFailureLogs |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AegPublishFailureLogs/läsa | Läsa data från tabellen AegPublishFailureLogs |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/AEWAuditLogs/läsa | Läsa data från tabellen AEWAuditLogs |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/avisering/läsa | Läsa data från aviserings tabellen |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AlertHistory/läsa | Läsa data från tabellen AlertHistory |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/AmlComputeClusterEvent/läsa | Läsa data från tabellen AmlComputeClusterEvent |
@@ -7951,6 +8154,7 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/arbets ytor/fråga/HealthStateChangeEvent/läsa | Läsa data från tabellen HealthStateChangeEvent |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/pulsslag/läsa | Läsa data från pulsslags tabellen |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/HuntingBookmark/läsa | Läsa data från tabellen HuntingBookmark |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/IdentityInfo/läsa | Läsa data från tabellen IdentityInfo |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/IISAssessmentRecommendation/läsa | Läsa data från tabellen IISAssessmentRecommendation |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/InboundConnection/läsa | Läsa data från tabellen InboundConnection |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/InsightsMetrics/läsa | Läsa data från tabellen InsightsMetrics |
@@ -8042,6 +8246,8 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/arbets ytor/fråga/begär Anden/läsa | Läsa data från tabellen med begär Anden |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SCCMAssessmentRecommendation/läsa | Läsa data från tabellen SCCMAssessmentRecommendation |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SCOMAssessmentRecommendation/läsa | Läsa data från tabellen SCOMAssessmentRecommendation |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/SecureScoreControls/läsa | Läsa data från tabellen SecureScoreControls |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/SecureScores/läsa | Läsa data från tabellen SecureScores |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SecurityAlert/läsa | Läsa data från tabellen SecurityAlert |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SecurityBaseline/läsa | Läsa data från tabellen SecurityBaseline |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SecurityBaselineSummary/läsa | Läsa data från tabellen SecurityBaselineSummary |
@@ -8051,6 +8257,7 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SecurityIoTRawEvent/läsa | Läsa data från tabellen SecurityIoTRawEvent |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SecurityNestedRecommendation/läsa | Läsa data från tabellen SecurityNestedRecommendation |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SecurityRecommendation/läsa | Läsa data från tabellen SecurityRecommendation |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/SecurityRegulatoryCompliance/läsa | Läsa data från tabellen SecurityRegulatoryCompliance |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/ServiceFabricOperationalEvent/läsa | Läsa data från tabellen ServiceFabricOperationalEvent |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/ServiceFabricReliableActorEvent/läsa | Läsa data från tabellen ServiceFabricReliableActorEvent |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/ServiceFabricReliableServiceEvent/läsa | Läsa data från tabellen ServiceFabricReliableServiceEvent |
@@ -8069,6 +8276,8 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/arbets ytor/fråga/StorageQueueLogs/läsa | Läsa data från tabellen StorageQueueLogs |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/StorageTableLogs/läsa | Läsa data från tabellen StorageTableLogs |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SucceededIngestion/läsa | Läsa data från tabellen SucceededIngestion |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/SynapseGatewayEvents/läsa | Läsa data från tabellen SynapseGatewayEvents |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/SynapseRBACEvents/läsa | Läsa data från tabellen SynapseRBACEvents |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/syslog/läsa | Läsa data från syslog-tabellen |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SysmonEvent/läsa | Läsa data från tabellen SysmonEvent |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/tabeller. anpassad/läst | Läser data från valfri anpassad logg |
@@ -8165,15 +8374,11 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > [!div class="mx-tableFixed"]
 > | Åtgärd | Beskrivning |
 > | --- | --- |
-> | Microsoft. WorkloadMonitor/Components/Read | Hämtar komponenter för resursen |
-> | Microsoft. WorkloadMonitor/componentsSummary/Read | Hämtar Sammanfattning av komponenter |
-> | Microsoft. WorkloadMonitor/monitorInstances/Read | Hämtar instanser av Övervakare för resursen |
-> | Microsoft. WorkloadMonitor/monitorInstancesSummary/Read | Hämtar Sammanfattning av övervaknings instanser |
-> | Microsoft. WorkloadMonitor/Monitors/Read | Hämtar Övervakare för resursen |
-> | Microsoft. WorkloadMonitor/Monitors/Write | Konfigurera övervakaren för resursen |
-> | Microsoft. WorkloadMonitor/notificationSettings/Read | Hämtar meddelande inställningar för resursen |
-> | Microsoft. WorkloadMonitor/notificationSettings/Write | Konfigurera meddelande inställningar för resursen |
-> | Microsoft. WorkloadMonitor/Operations/Read | Hämtar de åtgärder som stöds |
+> | Microsoft. WorkloadMonitor/register/åtgärd | Registrerar prenumeration med Microsoft. WorkloadMonitor Resource Provider |
+> | Microsoft. WorkloadMonitor/avregistrera/åtgärd | Avregistrerar prenumeration med Microsoft. WorkloadMonitor Resource Provider |
+> | Microsoft. WorkloadMonitor/Monitors/Read | Hämtar övervakare och deras aktuella hälso tillstånd |
+> | Microsoft. WorkloadMonitor/övervakare/historik/läsa | Hämtar historiken för hälso ändringar i en angiven övervakare |
+> | Microsoft. WorkloadMonitor/Operations/Read | Hämtar en lista över de åtgärder som stöds |
 
 ## <a name="management--governance"></a>Hantering och styrning
 
@@ -8351,6 +8556,7 @@ Azure-tjänst: [automatisering](../automation/index.yml)
 > | Microsoft. Automation/automationAccounts/Runbooks/innehåll/läsa | Hämtar innehållet i en Azure Automation Runbook |
 > | Microsoft. Automation/automationAccounts/Runbooks/Draft/Read | Hämtar ett utkast till en Azure Automation Runbook |
 > | Microsoft. Automation/automationAccounts/Runbooks/Draft/undoEdit/åtgärd | Ångra redigeringar i ett utkast till Azure Automation Runbook |
+> | Microsoft. Automation/automationAccounts/Runbooks/Draft/Write | Skapar ett utkast till en Azure Automation Runbook |
 > | Microsoft. Automation/automationAccounts/Runbooks/Draft/innehåll/Write | Skapar innehållet i ett utkast till en Azure Automation Runbook |
 > | Microsoft. Automation/automationAccounts/Runbooks/Draft/operationResults/Read | Hämtar Azure Automation åtgärds resultat för Runbook-utkast |
 > | Microsoft. Automation/automationAccounts/Runbooks/Draft/testJob/Read | Hämtar ett utkast till test jobb för Runbook-Azure Automation |
@@ -8463,6 +8669,7 @@ Azure-tjänst: [Cost Management + fakturering](../cost-management-billing/index.
 > | Microsoft. fakturering/billingAccounts/billingProfiles/invoiceSections/Write |  |
 > | Microsoft. fakturering/billingAccounts/billingProfiles/invoiceSections/billingPermissions/Read |  |
 > | Microsoft. fakturering/billingAccounts/billingProfiles/pris dokument/hämtning/åtgärd |  |
+> | Microsoft. fakturering/billingAccounts/billingRoleAssignments/Write |  |
 > | Microsoft. fakturering/billingAccounts/billingSubscriptions/Read |  |
 > | Microsoft. fakturering/billingAccounts/billingSubscriptions/Move/åtgärd |  |
 > | Microsoft. fakturering/billingAccounts/billingSubscriptions/validateMoveEligibility/åtgärd |  |
@@ -8470,13 +8677,16 @@ Azure-tjänst: [Cost Management + fakturering](../cost-management-billing/index.
 > | Microsoft. fakturering/billingAccounts/kunder/billingPermissions/Read |  |
 > | Microsoft. fakturering/billingAccounts/avdelningar/läsa |  |
 > | Microsoft. fakturering/billingAccounts/avdelningar/billingPermissions/Read |  |
+> | Microsoft. fakturering/billingAccounts/avdelningar/billingRoleAssignments/Write |  |
 > | Microsoft. fakturering/billingAccounts/enrollmentAccounts/Read |  |
 > | Microsoft. fakturering/billingAccounts/enrollmentAccounts/billingPermissions/Read |  |
+> | Microsoft. fakturering/billingAccounts/enrollmentAccounts/billingRoleAssignments/Write |  |
 > | Microsoft. fakturering/billingAccounts/fakturor/pris dokument/hämtning/åtgärd |  |
 > | Microsoft. fakturering/billingAccounts/produkter/läsa |  |
 > | Microsoft. fakturering/billingAccounts/produkter/flytta/åtgärd |  |
 > | Microsoft. fakturering/billingAccounts/produkter/validateMoveEligibility/åtgärd |  |
 > | Microsoft. fakturering/avdelningar/läsa |  |
+> | Microsoft. fakturering/fakturor/Hämta/åtgärd | Ladda ned faktura med Hämta länk från lista |
 > | Microsoft. fakturering/fakturor/Hämta/åtgärd | Ladda ned faktura med Hämta länk från lista |
 > | Microsoft. fakturering/åtgärder/Läs |  |
 
@@ -8675,10 +8885,10 @@ Azure-tjänst: [Azure-båge](../azure-arc/index.yml)
 > | Microsoft. HybridCompute/register/åtgärd | Registrerar prenumerationen för Microsoft. HybridCompute Resource Provider |
 > | Microsoft. HybridCompute/avregistrera/åtgärd | Avregistrerar prenumerationen för Microsoft. HybridCompute Resource Provider |
 > | Microsoft. HybridCompute/locations/operationresults/Read | Läser status för en åtgärd på Microsoft. HybridCompute Resource Provider |
+> | Microsoft. HybridCompute/locations/operationstatus/Read | Läser status för en åtgärd på Microsoft. HybridCompute Resource Provider |
 > | Microsoft. HybridCompute/Machines/Read | Läs alla Azure Arc-datorer |
 > | Microsoft. HybridCompute/Machines/Write | Skriver en Azure Arc-dator |
 > | Microsoft. HybridCompute/Machines/Delete | Tar bort en Azure Arc-dator |
-> | Microsoft. HybridCompute/Machines/reconnect/åtgärd | Återansluter en Azure Arc-dator |
 > | Microsoft. HybridCompute/Machines/Extensions/Read | Läser alla Azure Arc-tillägg |
 > | Microsoft. HybridCompute/Machines/Extensions/Write | Installerar eller uppdaterar ett Azure Arc-tillägg |
 > | Microsoft. HybridCompute/Machines/Extensions/Delete | Tar bort ett Azure-båg tillägg |
@@ -9049,6 +9259,9 @@ Azure-tjänst: [Azure policy](../governance/policy/index.yml)
 > | Microsoft. PolicyInsights/attesteringar/skrivning | Skapa eller uppdatera attesteringar för kompatibilitetstillstånd. |
 > | Microsoft. PolicyInsights/attesteringar/ta bort | Ta bort attesteringar för kompatibilitetstillstånd. |
 > | Microsoft. PolicyInsights/checkPolicyRestrictions/Read | Hämta information om de begränsningar som principen kommer att genomdriva på en resurs. |
+> | Microsoft. PolicyInsights/eventGridFilters/Read | Hämta Event Grid filter som används för att spåra vilka omfattningar som ska publicera status ändrings meddelanden för. |
+> | Microsoft. PolicyInsights/eventGridFilters/Write | Skapa eller uppdatera Event Grid filter. |
+> | Microsoft. PolicyInsights/eventGridFilters/Delete | Ta bort Event Grid filter. |
 > | Microsoft. PolicyInsights/Operations/Read | Hämtar åtgärder som stöds på Microsoft. PolicyInsights-namnrymd |
 > | Microsoft. PolicyInsights/policyEvents/queryResults/Action | Fråga efter information om princip händelser. |
 > | Microsoft. PolicyInsights/policyEvents/queryResults/Read | Fråga efter information om princip händelser. |
@@ -9082,6 +9295,9 @@ Azure-tjänst: [Azure Portal](../azure-portal/index.yml)
 > | Microsoft. Portal/instrument paneler/läsa | Läser instrument panelerna för prenumerationen. |
 > | Microsoft. Portal/instrument paneler/Skriv | Lägg till eller ändra instrument panel till en prenumeration. |
 > | Microsoft. Portal/instrument paneler/ta bort | Tar bort instrument panelen från prenumerationen. |
+> | Microsoft. Portal/tenantConfigurations/Read | Läser klient konfiguration |
+> | Microsoft. Portal/tenantConfigurations/Write | Lägger till eller uppdaterar klient konfigurationen. Användaren måste vara klient administratör för den här åtgärden. |
+> | Microsoft. Portal/tenantConfigurations/Delete | Tar bort klient konfiguration. Användaren måste vara klient administratör för den här åtgärden. |
 > | Microsoft. Portal/usersettings/Delete | Tar bort Cloud Shell användar inställningar. |
 > | Microsoft. Portal/usersettings/Write | Skapa eller uppdatera Cloud Shell användar inställning. |
 > | Microsoft. Portal/usersettings/Read | Läser Cloud Shell användar inställningar. |
@@ -9094,69 +9310,69 @@ Azure-tjänst: [Site Recovery](../site-recovery/index.yml)
 > | Åtgärd | Beskrivning |
 > | --- | --- |
 > | Microsoft. RecoveryServices/register/åtgärd | Registrerar prenumeration för den aktuella resurs leverantören |
-> | Microsoft. RecoveryServices/locations/backupPreValidateProtection/Action |  |
-> | Microsoft. RecoveryServices/locations/backupStatus/Action | Kontrol lera säkerhets kopierings status för Recovery Services valv |
-> | Microsoft. RecoveryServices/locations/backupValidateFeatures/Action | Validera funktioner |
+> | Microsoft. recoveryservices/locations/backupPreValidateProtection/Action |  |
+> | Microsoft. recoveryservices/locations/backupStatus/Action | Kontrol lera säkerhets kopierings status för Recovery Services valv |
+> | Microsoft. recoveryservices/locations/backupValidateFeatures/Action | Validera funktioner |
 > | Microsoft. RecoveryServices/locations/Allocatedstamp/Action | Allocatedstamp är en intern åtgärd som används av tjänsten |
 > | Microsoft. RecoveryServices/locations/checkNameAvailability/Action | Kontrol lera resurs namns tillgänglighet är ett API för att kontrol lera om resurs namnet är tillgängligt |
 > | Microsoft. RecoveryServices/locations/allocatedStamp/Read | GetAllocatedStamp är en intern åtgärd som används av tjänsten |
-> | Microsoft. RecoveryServices/locations/backupProtectedItem/Write | Skapa ett säkerhetskopierat skyddat objekt |
-> | Microsoft. RecoveryServices/locations/backupProtectedItems/Read | Returnerar listan över alla skyddade objekt. |
+> | Microsoft. recoveryservices/locations/backupProtectedItem/Write | Skapa ett säkerhetskopierat skyddat objekt |
+> | Microsoft. recoveryservices/locations/backupProtectedItems/Read | Returnerar listan över alla skyddade objekt. |
 > | Microsoft. RecoveryServices/locations/operationStatus/Read | Hämtar åtgärds status för en specifik åtgärd |
 > | Microsoft. RecoveryServices/Operations/Read | Åtgärd returnerar listan över åtgärder för en resurs leverantör |
-> | Microsoft. RecoveryServices/valv/backupJobsExport/åtgärd | Exportera jobb |
-> | Microsoft. RecoveryServices/valv/backupSecurityPIN/åtgärd | Returnerar information om säkerhets kod för Recovery Services valv. |
-> | Microsoft. RecoveryServices/valv/backupValidateOperation/åtgärd | Verifiera åtgärd på skyddat objekt |
+> | Microsoft. recoveryservices/valv/backupJobsExport/åtgärd | Exportera jobb |
+> | Microsoft. recoveryservices/valv/backupSecurityPIN/åtgärd | Returnerar information om säkerhets kod för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupValidateOperation/åtgärd | Verifiera åtgärd på skyddat objekt |
 > | Microsoft. RecoveryServices/valv/skriva | Skapa valv-åtgärd skapar en Azure-resurs av typen valv |
 > | Microsoft. RecoveryServices/valv/läsa | Med åtgärden Hämta valv hämtas ett objekt som representerar Azure-resursen av typen valv |
 > | Microsoft. RecoveryServices/valv/ta bort | Åtgärden ta bort valv tar bort den angivna Azure-resursen av typen valv |
-> | Microsoft. RecoveryServices/valv/backupconfig/läsa | Returnerar konfiguration för Recovery Services valv. |
-> | Microsoft. RecoveryServices/valv/backupconfig/Write | Uppdaterar konfigurationen för Recovery Services valv. |
-> | Microsoft. RecoveryServices/valv/backupEncryptionConfigs/läsa | Hämtar konfiguration av säkerhets kopierings resurs kryptering. |
-> | Microsoft. RecoveryServices/valv/backupEncryptionConfigs/Write | Uppdaterar konfiguration av säkerhets kopierings resurs kryptering |
-> | Microsoft. RecoveryServices/valv/backupEngines/läsa | Returnerar alla säkerhets kopierings hanterings servrar registrerade i valvet. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/refreshContainers/åtgärd | Uppdaterar behållar listan |
-> | Microsoft. RecoveryServices/valv/backupFabrics/backupProtectionIntent/Delete | Ta bort en säkerhets kopie rad skydds avsikt |
-> | Microsoft. RecoveryServices/valv/backupFabrics/backupProtectionIntent/Read | Få en säkerhets kopie rad skydds avsikt |
-> | Microsoft. RecoveryServices/valv/backupFabrics/backupProtectionIntent/Write | Skapa en säkerhets kopia av skydds avsikt |
-> | Microsoft. RecoveryServices/valv/backupFabrics/operationResults/Read | Returnerar status för åtgärden |
-> | Microsoft. RecoveryServices/valv/backupFabrics/operationsStatus/Read | Returnerar status för åtgärden |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectableContainers/Read | Hämta alla skydds bara behållare |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/Delete | Tar bort den registrerade behållaren |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/fråga/åtgärd | Gör förfrågan om arbets belastningar inom en behållare |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/Read | Returnerar alla registrerade behållare |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/Write | Skapar en registrerad behållare |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/objekt/läsa | Hämta alla objekt i en behållare |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/operationResults/Read | Hämtar resultat från utförd åtgärd på skydds behållare. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/operationsStatus/Read | Hämtar status för utförd åtgärd på skydds container. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/säkerhets kopiering/åtgärd | Utför säkerhets kopiering för skyddat objekt. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/Delete | Tar bort skyddat objekt |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/Read | Returnerar objekt information om det skyddade objektet |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/Write | Skapa ett säkerhetskopierat skyddat objekt |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/operationResults/Read | Hämtar resultat från utförd åtgärd på skyddade objekt. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/operationsStatus/Read | Returnerar statusen för den åtgärd som utförts på skyddade objekt. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/åtgärd | Etablera snabb objekts återställning för skyddat objekt |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Read | Hämta återställnings punkter för skyddade objekt. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Restore/Action | Återställa återställnings punkter för skyddade objekt. |
-> | Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/åtgärd | Återkalla direkt objekt återställning för skyddat objekt |
-> | Microsoft. RecoveryServices/valv/backupJobs/Avbryt/åtgärd | Avbryt jobbet |
-> | Microsoft. RecoveryServices/valv/backupJobs/läsa | Returnerar alla jobb objekt |
-> | Microsoft. RecoveryServices/valv/backupJobs/operationResults/Read | Returnerar resultatet av jobb åtgärden. |
-> | Microsoft. RecoveryServices/valv/backupJobs/operationsStatus/Read | Returnerar status för jobb åtgärd. |
-> | Microsoft. RecoveryServices/valv/backupOperationResults/läsa | Returnerar resultatet av säkerhets kopierings åtgärden för Recovery Services valvet. |
-> | Microsoft. RecoveryServices/valv/backupOperations/läsa | Returnerar säkerhets kopierings åtgärdens status för Recovery Services valv. |
-> | Microsoft. RecoveryServices/valv/backupPolicies/Delete | Ta bort en skydds princip |
-> | Microsoft. RecoveryServices/valv/backupPolicies/läsa | Returnerar alla skydds principer |
-> | Microsoft. RecoveryServices/valv/backupPolicies/Write | Skapar skydds princip |
-> | Microsoft. RecoveryServices/valv/backupPolicies/operationResults/Read | Hämta resultat från princip åtgärd. |
-> | Microsoft. RecoveryServices/valv/backupPolicies/åtgärder/Läs | Hämta status för princip åtgärd. |
-> | Microsoft. RecoveryServices/valv/backupProtectableItems/läsa | Returnerar lista över alla objekt som ska skyddas. |
-> | Microsoft. RecoveryServices/valv/backupProtectedItems/läsa | Returnerar listan över alla skyddade objekt. |
-> | Microsoft. RecoveryServices/valv/backupProtectionContainers/läsa | Returnerar alla behållare som hör till prenumerationen |
-> | Microsoft. RecoveryServices/valv/backupProtectionIntents/läsa | Lista alla säkerhets avsikter för säkerhets kopiering |
-> | Microsoft. RecoveryServices/valv/backupstorageconfig/läsa | Returnerar lagrings konfiguration för Recovery Services valv. |
-> | Microsoft. RecoveryServices/valv/backupstorageconfig/Write | Uppdaterar lagrings konfiguration för Recovery Services valv. |
-> | Microsoft. RecoveryServices/valv/backupUsageSummaries/läsa | Returnerar sammanfattningar för skyddade objekt och skyddade servrar för en Recovery Services. |
+> | Microsoft. recoveryservices/valv/backupconfig/läsa | Returnerar konfiguration för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupconfig/Write | Uppdaterar konfigurationen för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupEncryptionConfigs/läsa | Hämtar konfiguration av säkerhets kopierings resurs kryptering. |
+> | Microsoft. recoveryservices/valv/backupEncryptionConfigs/Write | Uppdaterar konfiguration av säkerhets kopierings resurs kryptering |
+> | Microsoft. recoveryservices/valv/backupEngines/läsa | Returnerar alla säkerhets kopierings hanterings servrar registrerade i valvet. |
+> | Microsoft. recoveryservices/valv/backupFabrics/refreshContainers/åtgärd | Uppdaterar behållar listan |
+> | Microsoft. recoveryservices/valv/backupFabrics/backupProtectionIntent/Delete | Ta bort en säkerhets kopie rad skydds avsikt |
+> | Microsoft. recoveryservices/valv/backupFabrics/backupProtectionIntent/Read | Få en säkerhets kopie rad skydds avsikt |
+> | Microsoft. recoveryservices/valv/backupFabrics/backupProtectionIntent/Write | Skapa en säkerhets kopia av skydds avsikt |
+> | Microsoft. recoveryservices/valv/backupFabrics/operationResults/Read | Returnerar status för åtgärden |
+> | Microsoft. recoveryservices/valv/backupFabrics/operationsStatus/Read | Returnerar status för åtgärden |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectableContainers/Read | Hämta alla skydds bara behållare |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/Delete | Tar bort den registrerade behållaren |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/fråga/åtgärd | Gör förfrågan om arbets belastningar inom en behållare |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/Read | Returnerar alla registrerade behållare |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/Write | Skapar en registrerad behållare |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/objekt/läsa | Hämta alla objekt i en behållare |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/operationResults/Read | Hämtar resultat från utförd åtgärd på skydds behållare. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/operationsStatus/Read | Hämtar status för utförd åtgärd på skydds container. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/säkerhets kopiering/åtgärd | Utför säkerhets kopiering för skyddat objekt. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/Delete | Tar bort skyddat objekt |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/Read | Returnerar objekt information om det skyddade objektet |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/Write | Skapa ett säkerhetskopierat skyddat objekt |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/operationResults/Read | Hämtar resultat från utförd åtgärd på skyddade objekt. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/operationsStatus/Read | Returnerar statusen för den åtgärd som utförts på skyddade objekt. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/åtgärd | Etablera snabb objekts återställning för skyddat objekt |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Read | Hämta återställnings punkter för skyddade objekt. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Restore/Action | Återställa återställnings punkter för skyddade objekt. |
+> | Microsoft. recoveryservices/valv/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/åtgärd | Återkalla direkt objekt återställning för skyddat objekt |
+> | Microsoft. recoveryservices/valv/backupJobs/Avbryt/åtgärd | Avbryt jobbet |
+> | Microsoft. recoveryservices/valv/backupJobs/läsa | Returnerar alla jobb objekt |
+> | Microsoft. recoveryservices/valv/backupJobs/operationResults/Read | Returnerar resultatet av jobb åtgärden. |
+> | Microsoft. recoveryservices/valv/backupJobs/operationsStatus/Read | Returnerar status för jobb åtgärd. |
+> | Microsoft. recoveryservices/valv/backupOperationResults/läsa | Returnerar resultatet av säkerhets kopierings åtgärden för Recovery Services valvet. |
+> | Microsoft. recoveryservices/valv/backupOperations/läsa | Returnerar säkerhets kopierings åtgärdens status för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupPolicies/Delete | Ta bort en skydds princip |
+> | Microsoft. recoveryservices/valv/backupPolicies/läsa | Returnerar alla skydds principer |
+> | Microsoft. recoveryservices/valv/backupPolicies/Write | Skapar skydds princip |
+> | Microsoft. recoveryservices/valv/backupPolicies/operationResults/Read | Hämta resultat från princip åtgärd. |
+> | Microsoft. recoveryservices/valv/backupPolicies/åtgärder/Läs | Hämta status för princip åtgärd. |
+> | Microsoft. recoveryservices/valv/backupProtectableItems/läsa | Returnerar lista över alla objekt som ska skyddas. |
+> | Microsoft. recoveryservices/valv/backupProtectedItems/läsa | Returnerar listan över alla skyddade objekt. |
+> | Microsoft. recoveryservices/valv/backupProtectionContainers/läsa | Returnerar alla behållare som hör till prenumerationen |
+> | Microsoft. recoveryservices/valv/backupProtectionIntents/läsa | Lista alla säkerhets avsikter för säkerhets kopiering |
+> | Microsoft. recoveryservices/valv/backupstorageconfig/läsa | Returnerar lagrings konfiguration för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupstorageconfig/Write | Uppdaterar lagrings konfiguration för Recovery Services valv. |
+> | Microsoft. recoveryservices/valv/backupUsageSummaries/läsa | Returnerar sammanfattningar för skyddade objekt och skyddade servrar för en Recovery Services. |
 > | Microsoft. RecoveryServices/valv/certifikat/skriva | Med åtgärden Uppdatera resurs certifikat uppdateras certifikatet för resurs/valv-autentiseringsuppgifter. |
 > | Microsoft. RecoveryServices/valv/extendedInformation/läsa | Med åtgärden Hämta utökad information får du ett objekts utökade information som representerar Azure-resursen av typen? valv? |
 > | Microsoft. RecoveryServices/valv/extendedInformation/Write | Med åtgärden Hämta utökad information får du ett objekts utökade information som representerar Azure-resursen av typen? valv? |
@@ -9165,14 +9381,14 @@ Azure-tjänst: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft. RecoveryServices/valv/monitoringAlerts/Write | Löser aviseringen. |
 > | Microsoft. RecoveryServices/valv/monitoringConfigurations/läsa | Hämtar meddelande konfigurationen för Recovery Services-valvet. |
 > | Microsoft. RecoveryServices/valv/monitoringConfigurations/Write | Konfigurerar e-postaviseringar till Recovery Services-valvet. |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnectionProxies/Delete | Vänta några minuter och försök sedan igen. Kontakta Microsoft-supporten om problemet kvarstår. |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnectionProxies/läsa | Hämta alla skydds bara behållare |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnectionProxies/validate/åtgärd | Hämta alla skydds bara behållare |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnectionProxies/Write | Hämta alla skydds bara behållare |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnectionProxies/operationsStatus/Read | Hämta alla skydds bara behållare |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnections/Delete | Ta bort privata slut punkts begär Anden. Det här anropet görs av säkerhets kopierings administratören. |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnections/Write | Godkänn eller avvisa begär Anden om privata slut punkter. Det här anropet görs av säkerhets kopierings administratören. |
-> | Microsoft. RecoveryServices/valv/privateEndpointConnections/operationsStatus/Read | Returnerar åtgärds statusen för en privat slut punkts anslutning. |
+> | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/Delete | Vänta några minuter och försök sedan igen. Kontakta Microsoft-supporten om problemet kvarstår. |
+> | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/läsa | Hämta alla skydds bara behållare |
+> | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/validate/åtgärd | Hämta alla skydds bara behållare |
+> | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/Write | Hämta alla skydds bara behållare |
+> | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/operationsStatus/Read | Hämta alla skydds bara behållare |
+> | Microsoft. recoveryservices/valv/privateEndpointConnections/Delete | Ta bort privata slut punkts begär Anden. Det här anropet görs av säkerhets kopierings administratören. |
+> | Microsoft. recoveryservices/valv/privateEndpointConnections/Write | Godkänn eller avvisa begär Anden om privata slut punkter. Det här anropet görs av säkerhets kopierings administratören. |
+> | Microsoft. recoveryservices/valv/privateEndpointConnections/operationsStatus/Read | Returnerar åtgärds statusen för en privat slut punkts anslutning. |
 > | Microsoft. RecoveryServices/valv/registeredIdentities/Write | Du kan använda åtgärden registrera tjänst behållare för att registrera en behållare med återställnings tjänsten. |
 > | Microsoft. RecoveryServices/valv/registeredIdentities/läsa | Med åtgärden Hämta behållare kan du hämta de behållare som är registrerade för en resurs. |
 > | Microsoft. RecoveryServices/valv/registeredIdentities/Delete | Du kan använda åtgärden avregistrera behållare för att avregistrera en behållare. |
@@ -9288,7 +9504,7 @@ Azure-tjänst: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft. RecoveryServices/valv/replicationVaultSettings/läsa | Läs alla  |
 > | Microsoft. RecoveryServices/valv/replicationVaultSettings/Write | Skapa eller uppdatera alla  |
 > | Microsoft. RecoveryServices/valv/replicationvCenters/läsa | Läs eventuella vCenter |
-> | Microsoft. RecoveryServices/valv/användning/läsning | Returnerar användnings information för ett Recovery Services-valv. |
+> | Microsoft. recoveryservices/valv/användning/läsning | Returnerar användnings information för ett Recovery Services-valv. |
 > | Microsoft. RecoveryServices/valv/användning/läsning | Läs alla valv användningar |
 > | Microsoft. RecoveryServices/valv/vaultTokens/läsa | Valv-token kan användas för att hämta valv-token för Server dels åtgärder på valvnivå. |
 
@@ -9429,7 +9645,7 @@ Azure-tjänst: Microsoft Monitoring Insights
 > | Microsoft. Intune/diagnosticsettings/Delete | Tar bort en diagnostisk inställning |
 > | Microsoft. Intune/diagnosticsettingscategories/Read | Läser en diagnostisk inställnings kategori |
 
-## <a name="other"></a>Övrigt
+## <a name="other"></a>Annat
 
 ### <a name="microsoftbingmaps"></a>Microsoft. Bingkartssökning
 

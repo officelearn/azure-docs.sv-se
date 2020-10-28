@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0f30edeb24f3c4abed6f144f3fb7f755cc08a72
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604418"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629467"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom en brand vägg för Azure Machine Learning
 
@@ -63,6 +63,8 @@ Värdarna i det här avsnittet ägs av Microsoft och tillhandahåller tjänster 
 | **mcr.microsoft.com** | Microsoft Container Registry för Base Docker-avbildningar |
 | **your-acr-server-name.azurecr.io** | Krävs endast om din Azure Container Registry ligger bakom det virtuella nätverket. I den här konfigurationen skapas en privat länk från Microsoft-miljön till ACR-instansen i din prenumeration. Använd namnet på ACR-servern för din Azure Machine Learning-arbetsyta. |
 | **\*. notebooks.azure.net** | Krävs av antecknings böckerna i Azure Machine Learning Studio. |
+| **\*. file.core.windows.net** | Krävs av Utforskaren i Azure Machine Learning Studio. |
+| **\*. dfs.core.windows.net** | Krävs av Utforskaren i Azure Machine Learning Studio. |
 | **graph.windows.net** | Krävs för antecknings böcker |
 
 > [!TIP]
@@ -76,7 +78,7 @@ Värdarna i det här avsnittet används för att installera python-paket. De kr�
 | ---- | ---- |
 | **anaconda.com**</br>**\*. anaconda.com** | Används för att installera standard paket. |
 | **\*. anaconda.org** | Används för att hämta lagrings platsen-data. |
-| **pypi.org** | Används för att Visa beroenden från standard index, om det finns några, och indexet skrivs inte över av användar inställningarna. Om indexet skrivs över måste du också tillåta ** \* . pythonhosted.org**. |
+| **pypi.org** | Används för att Visa beroenden från standard index, om det finns några, och indexet skrivs inte över av användar inställningarna. Om indexet skrivs över måste du också tillåta **\* . pythonhosted.org** . |
 
 ## <a name="r-hosts"></a>R-värdar
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 2bdfdd31e2cc9bc964abc040d0631c4760fca283
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86bff161e29384b10030ed3d524301f6dea6037e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984872"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634172"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Använd Azure SQL-hanterad instans med SQL Server Integration Services (SSIS) i Azure Data Factory
 
@@ -41,7 +41,7 @@ Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och 
     - Över privat slut punkt (prioriterad)
 
         1. Välj det virtuella nätverk som Azure-SSIS IR ska anslutas till:
-            - I samma virtuella nätverk som den hanterade instansen, med ett **annat undernät**.
+            - I samma virtuella nätverk som den hanterade instansen, med ett **annat undernät** .
             - I ett annat virtuellt nätverk än den hanterade instansen via virtuell nätverks-peering (som är begränsat till samma region på grund av globala VNet-peering-begränsningar) eller en anslutning från det virtuella nätverket till ett virtuellt nätverk.
 
             Mer information om anslutningar för SQL-hanterad instans finns i [ansluta ditt program till Azure SQL Managed instance](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
@@ -50,76 +50,76 @@ Du kan nu flytta dina SQL Server Integration Services-projekt (SSIS), paket och 
 
     - Över offentlig slut punkt
 
-        Azure SQL Managed instances kan ge anslutning via [offentliga slut punkter](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Inkommande och utgående krav måste uppfyllas för att tillåta trafik mellan SQL-hanterad instans och Azure-SSIS IR:
+        Azure SQL Managed instances kan ge anslutning via [offentliga slut punkter](../azure-sql/managed-instance/public-endpoint-configure.md). Inkommande och utgående krav måste uppfyllas för att tillåta trafik mellan SQL-hanterad instans och Azure-SSIS IR:
 
         - När Azure-SSIS IR inte i ett virtuellt nätverk (önskad)
 
-            **Inkommande krav för SQL-hanterad instans**för att tillåta inkommande trafik från Azure-SSIS IR.
+            **Inkommande krav för SQL-hanterad instans** för att tillåta inkommande trafik från Azure-SSIS IR.
 
             | Transport protokoll | Källa | Källportintervall | Mål | Målportintervall |
             |---|---|---|---|---|
             |TCP|Azure Cloud Service-tagg|*|VirtualNetwork|3342|
 
-            Mer information finns i [Tillåt trafik för offentliga slut punkter i nätverks säkerhets gruppen](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure#allow-public-endpoint-traffic-on-the-network-security-group).
+            Mer information finns i [Tillåt trafik för offentliga slut punkter i nätverks säkerhets gruppen](../azure-sql/managed-instance/public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
 
         - När Azure-SSIS IR inne i ett virtuellt nätverk
 
-            Det finns ett särskilt scenario när SQL-hanterad instans finns i en region som Azure-SSIS IR inte stöder Azure-SSIS IR finns i ett virtuellt nätverk utan VNet-peering på grund av en begränsning för global VNet-peering. I det här scenariot ansluter **Azure-SSIS IR i ett virtuellt nätverk** SQL-hanterad instans **över offentlig slut punkt**. Använd nedanstående regler för nätverks säkerhets grupper (NSG) för att tillåta trafik mellan SQL-hanterad instans och Azure-SSIS IR:
+            Det finns ett särskilt scenario när SQL-hanterad instans finns i en region som Azure-SSIS IR inte stöder Azure-SSIS IR finns i ett virtuellt nätverk utan VNet-peering på grund av en begränsning för global VNet-peering. I det här scenariot ansluter **Azure-SSIS IR i ett virtuellt nätverk** SQL-hanterad instans **över offentlig slut punkt** . Använd nedanstående regler för nätverks säkerhets grupper (NSG) för att tillåta trafik mellan SQL-hanterad instans och Azure-SSIS IR:
 
-            1. **Inkommande krav för SQL-hanterad instans**för att tillåta inkommande trafik från Azure-SSIS IR.
+            1. **Inkommande krav för SQL-hanterad instans** för att tillåta inkommande trafik från Azure-SSIS IR.
 
                 | Transport protokoll | Källa | Källportintervall | Mål |Målportintervall |
                 |---|---|---|---|---|
                 |TCP|Statisk IP-adress för Azure-SSIS IR <br> Mer information finns i [ta med din egen offentliga IP-adress för Azure-SSIS IR](join-azure-ssis-integration-runtime-virtual-network.md#publicIP).|*|VirtualNetwork|3342|
 
-             1. **Utgående krav för Azure-SSIS IR**för att tillåta utgående trafik till SQL-hanterad instans.
+             1. **Utgående krav för Azure-SSIS IR** för att tillåta utgående trafik till SQL-hanterad instans.
 
                 | Transport protokoll | Källa | Källportintervall | Mål |Målportintervall |
                 |---|---|---|---|---|
-                |TCP|VirtualNetwork|*|[SQL-hanterad instans offentlig slut punkt IP-adress](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
+                |TCP|VirtualNetwork|*|[SQL-hanterad instans offentlig slut punkt IP-adress](../azure-sql/managed-instance/management-endpoint-find-ip-address.md)|3342|
 
 ### <a name="configure-virtual-network"></a>Konfigurera ett virtuellt nätverk
 
-1. **Användar behörighet**. Den användare som skapar Azure-SSIS IR måste ha [roll tilldelningen](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope) minst på Azure Data Factory resurs med något av alternativen nedan:
+1. **Användar behörighet** . Den användare som skapar Azure-SSIS IR måste ha [roll tilldelningen](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) minst på Azure Data Factory resurs med något av alternativen nedan:
 
-    - Använd den inbyggda rollen nätverks deltagare. Den här rollen ingår i _Microsoft. Network/ \* _ permission, som har en mycket större omfattning än vad som behövs.
+    - Använd den inbyggda rollen nätverks deltagare. Den här rollen ingår i _Microsoft. Network/ \*_ permission, som har en mycket större omfattning än vad som behövs.
     - Skapa en anpassad roll som endast innehåller nödvändig _Microsoft. Network/virtualNetworks/ \* /Join/Action-_ behörighet. Om du även vill ta med dina egna offentliga IP-adresser för Azure-SSIS IR när du ansluter till den till ett Azure Resource Manager virtuellt nätverk, kan du även använda _Microsoft. Network/publicIPAddresses/*/Join/Action-_ behörighet i rollen.
 
-1. **Virtuellt nätverk**.
+1. **Virtuellt nätverk** .
 
     1. Kontrol lera att det virtuella nätverkets resurs grupp kan skapa och ta bort vissa Azure-nätverks resurser.
 
         Azure-SSIS IR måste skapa vissa nätverks resurser i samma resurs grupp som det virtuella nätverket. Dessa resurser omfattar:
-        - En Azure Load Balancer med namnet * \<Guid> -azurebatch-cloudserviceloadbalancer*
+        - En Azure Load Balancer med namnet *\<Guid> -azurebatch-cloudserviceloadbalancer*
         - En nätverks säkerhets grupp med namnet * \<Guid> -azurebatch-cloudservicenetworksecuritygroup
         - En offentlig Azure-IP-adress med namnet-azurebatch-cloudservicepublicip
 
         De här resurserna kommer att skapas när din Azure-SSIS IR startas. De kommer att tas bort när Azure-SSIS IR stoppar. För att undvika att blockera Azure-SSIS IR från att stoppa kan du inte återanvända de här nätverks resurserna i dina andra resurser.
 
-    1. Kontrol lera att du inte har [resurs låset](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) för resurs gruppen/prenumerationen som det virtuella nätverket tillhör. Om du konfigurerar ett skrivskyddat/borttagnings lås kommer det inte att gå att starta och stoppa Azure-SSIS IR, eller så slutar det svara.
+    1. Kontrol lera att du inte har [resurs låset](../azure-resource-manager/management/lock-resources.md) för resurs gruppen/prenumerationen som det virtuella nätverket tillhör. Om du konfigurerar ett skrivskyddat/borttagnings lås kommer det inte att gå att starta och stoppa Azure-SSIS IR, eller så slutar det svara.
 
     1. Kontrol lera att du inte har någon Azure-princip som förhindrar att följande resurser skapas under resurs gruppen/prenumerationen som det virtuella nätverket tillhör:
         - Microsoft. Network/belastningsutjämnare
         - Microsoft. Network/NetworkSecurityGroups
 
     1. Tillåt trafik i regeln för nätverks säkerhets gruppen (NSG) för att tillåta trafik mellan SQL-hanterad instans och Azure-SSIS IR och trafik som krävs av Azure-SSIS IR.
-        1. **Inkommande krav för SQL-hanterad instans**för att tillåta inkommande trafik från Azure-SSIS IR.
+        1. **Inkommande krav för SQL-hanterad instans** för att tillåta inkommande trafik från Azure-SSIS IR.
 
             | Transport protokoll | Källa | Källportintervall | Mål | Målportintervall | Kommentarer |
             |---|---|---|---|---|---|
-            |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|Om din SQL Database Server anslutnings princip är inställd på **proxy** i stället för **omdirigering**krävs bara port 1433.|
+            |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|Om din SQL Database Server anslutnings princip är inställd på **proxy** i stället för **omdirigering** krävs bara port 1433.|
 
-        1. **Utgående krav för Azure-SSIS IR**, för att tillåta utgående trafik till SQL-hanterad instans och annan trafik som krävs av Azure-SSIS IR.
+        1. **Utgående krav för Azure-SSIS IR** , för att tillåta utgående trafik till SQL-hanterad instans och annan trafik som krävs av Azure-SSIS IR.
 
         | Transport protokoll | Källa | Källportintervall | Mål | Målportintervall | Kommentarer |
         |---|---|---|---|---|---|
-        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Tillåt utgående trafik till SQL-hanterad instans. Om anslutnings principen är inställd på **proxy** i stället för **omdirigering**krävs bara port 1433. |
+        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Tillåt utgående trafik till SQL-hanterad instans. Om anslutnings principen är inställd på **proxy** i stället för **omdirigering** krävs bara port 1433. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | Noderna i Azure-SSIS IR i det virtuella nätverket använder den här porten för att få åtkomst till Azure-tjänster, till exempel Azure Storage och Azure-Event Hubs. |
-        | TCP | VirtualNetwork | * | Internet | 80 | Valfritt Noderna i Azure-SSIS IR i det virtuella nätverket Använd den här porten för att hämta en lista över återkallade certifikat från Internet. Om du blockerar den här trafiken kan du få nedgradering av prestanda när du startar IR och förlorar möjlighet att kontrol lera listan över återkallade certifikat för certifikat användning. Om du vill begränsa destinationen till vissa FQDN kan du läsa [Använd Azure-ExpressRoute eller användardefinierad väg (UDR)](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#route).|
-        | TCP | VirtualNetwork | * | Storage | 445 | Valfritt Den här regeln krävs bara när du vill köra SSIS-paketet som lagras i Azure Files. |
+        | TCP | VirtualNetwork | * | Internet | 80 | Valfritt Noderna i Azure-SSIS IR i det virtuella nätverket Använd den här porten för att hämta en lista över återkallade certifikat från Internet. Om du blockerar den här trafiken kan du få nedgradering av prestanda när du startar IR och förlorar möjlighet att kontrol lera listan över återkallade certifikat för certifikat användning. Om du vill begränsa destinationen till vissa FQDN kan du läsa [Använd Azure-ExpressRoute eller användardefinierad väg (UDR)](./join-azure-ssis-integration-runtime-virtual-network.md#route).|
+        | TCP | VirtualNetwork | * | Lagring | 445 | Valfritt Den här regeln krävs bara när du vill köra SSIS-paketet som lagras i Azure Files. |
         |||||||
 
-        1. **Inkommande krav för Azure-SSIS IR**för att tillåta trafik som krävs av Azure-SSIS IR.
+        1. **Inkommande krav för Azure-SSIS IR** för att tillåta trafik som krävs av Azure-SSIS IR.
 
         | Transport protokoll | Källa | Källportintervall | Mål | Målportintervall | Kommentarer |
         |---|---|---|---|---|---|
@@ -163,7 +163,7 @@ Mer information om hur du skapar en Azure-SSIS IR finns [i skapa en Azure-SSIS i
 
 ## <a name="clean-up-ssisdb-logs"></a>Rensa SSISDB-loggar
 
-Bevarande princip för SSISDB-loggar definieras av nedanstående egenskaper i [Catalog.catalog_properties](https://docs.microsoft.com/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15):
+Bevarande princip för SSISDB-loggar definieras av nedanstående egenskaper i [Catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15):
 
 - OPERATION_CLEANUP_ENABLED
 

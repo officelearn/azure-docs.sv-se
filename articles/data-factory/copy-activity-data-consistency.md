@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55db5cf62e2e4ba2844a47ad405afa88349dc8fd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522915"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634920"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Konsekvens kontroll av data i kopierings aktiviteten (förhands granskning)
 
@@ -72,14 +72,14 @@ I följande exempel visas en JSON-definition för att aktivera data konsekvens k
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | -------- 
-validateDataConsistency | Om du anger sant för den här egenskapen, kommer kopierings aktiviteten att kontrol lera fil storlek, lastModifiedDate och MD5-kontrollsumma för varje binär fil som kopieras från käll-till mål lagret när du kopierar binärfiler. När du kopierar tabell data kontrollerar kopierings aktiviteten det totala antalet rader efter att jobbet har slutförts för att se till att det totala antalet rader som läses från källan är detsamma som antalet rader som kopieras till målet plus antalet inkompatibla rader som hoppades över. Tänk på att kopierings prestandan kommer att påverkas genom att aktivera det här alternativet.  | Sant<br/>False (standard) | Inga
-dataInconsistency | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över inkonsekventa filer. <br/> – Sant: du vill kopiera resten genom att hoppa över inkonsekventa filer.<br/> -Falskt: du vill avbryta kopierings aktiviteten när en inkonsekvent fil har hittats.<br/>Tänk på att den här egenskapen endast är giltig när du kopierar binära filer och anger validateDataConsistency som true.  | Sant<br/>False (standard) | Inga
-logStorageSettings | En grupp egenskaper som kan anges för att aktivera sessionsinformation för att logga överhoppade filer. | | Inga
-linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggfilerna för sessionen. | Namnen på en `AzureBlobStorage` `AzureBlobFS` länkad eller typ länkad tjänst, som refererar till den instans som du använder för att lagra loggfilerna. | Inga
-path | Sökvägen till loggfilerna. | Ange den sökväg där du vill lagra loggfilerna. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Inga
+validateDataConsistency | Om du anger sant för den här egenskapen, kommer kopierings aktiviteten att kontrol lera fil storlek, lastModifiedDate och MD5-kontrollsumma för varje binär fil som kopieras från käll-till mål lagret när du kopierar binärfiler. När du kopierar tabell data kontrollerar kopierings aktiviteten det totala antalet rader efter att jobbet har slutförts för att se till att det totala antalet rader som läses från källan är detsamma som antalet rader som kopieras till målet plus antalet inkompatibla rader som hoppades över. Tänk på att kopierings prestandan kommer att påverkas genom att aktivera det här alternativet.  | Sant<br/>False (standard) | Nej
+dataInconsistency | Ett nyckel/värde-par i skipErrorFile egenskaps uppsättning för att avgöra om du vill hoppa över inkonsekventa filer. <br/> – Sant: du vill kopiera resten genom att hoppa över inkonsekventa filer.<br/> -Falskt: du vill avbryta kopierings aktiviteten när en inkonsekvent fil har hittats.<br/>Tänk på att den här egenskapen endast är giltig när du kopierar binära filer och anger validateDataConsistency som true.  | Sant<br/>False (standard) | Nej
+logStorageSettings | En grupp egenskaper som kan anges för att aktivera sessionsinformation för att logga överhoppade filer. | | Nej
+linkedServiceName | Den länkade tjänsten för [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggfilerna för sessionen. | Namnen på en `AzureBlobStorage` `AzureBlobFS` länkad eller typ länkad tjänst, som refererar till den instans som du använder för att lagra loggfilerna. | Nej
+path | Sökvägen till loggfilerna. | Ange den sökväg där du vill lagra loggfilerna. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Nej
 
 >[!NOTE]
->- När du kopierar binära filer från, eller till Azure Blob eller Azure Data Lake Storage Gen2, kan du använda automatisk verifiering av MD5-kontrollsumma på Block nivå för att använda [Azure Blob API](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) och [Azure Data Lake Storage Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Om ContentMD5 på filer finns på Azure Blob eller Azure Data Lake Storage Gen2 som data källor, kontrollerar ADF fil nivåns MD5-kontroll för att kontrol lera filer även efter att filerna har lästs. När du har kopierat filer till Azure-blobben eller Azure Data Lake Storage Gen2 som data mål, skriver ADF ContentMD5 till Azure-blobben eller Azure Data Lake Storage Gen2 som kan förbrukas ytterligare av underordnade program för konsekvens kontroll av data.
+>- När du kopierar binära filer från, eller till Azure Blob eller Azure Data Lake Storage Gen2, kan du använda automatisk verifiering av MD5-kontrollsumma på Block nivå för att använda [Azure Blob API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) och [Azure Data Lake Storage Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Om ContentMD5 på filer finns på Azure Blob eller Azure Data Lake Storage Gen2 som data källor, kontrollerar ADF fil nivåns MD5-kontroll för att kontrol lera filer även efter att filerna har lästs. När du har kopierat filer till Azure-blobben eller Azure Data Lake Storage Gen2 som data mål, skriver ADF ContentMD5 till Azure-blobben eller Azure Data Lake Storage Gen2 som kan förbrukas ytterligare av underordnade program för konsekvens kontroll av data.
 >- ADF verifierar fil storleken vid kopiering av binärfiler mellan lagrings lager.
 
 ## <a name="monitoring"></a>Övervakning
@@ -106,15 +106,15 @@ När kopierings aktiviteten körs fullständigt kan du se resultatet av data kon
 ```
 Du kan se information om verifiering av data konsekvens från "dataConsistencyVerification Property".
 
-Värde för **VerificationResult**: 
--   **Verifierad**: dina kopierade data har verifierats för att vara konsekventa mellan käll-och mål arkivet. 
--   **NotVerified**: dina kopierade data har inte verifierats vara konsekventa eftersom du inte har aktiverat validateDataConsistency i kopierings aktiviteten. 
--   **Stöds**inte: dina kopierade data har inte verifierats vara konsekventa eftersom konsekvens kontroll av data inte stöds för detta specifika kopierings par. 
+Värde för **VerificationResult** : 
+-   **Verifierad** : dina kopierade data har verifierats för att vara konsekventa mellan käll-och mål arkivet. 
+-   **NotVerified** : dina kopierade data har inte verifierats vara konsekventa eftersom du inte har aktiverat validateDataConsistency i kopierings aktiviteten. 
+-   **Stöds** inte: dina kopierade data har inte verifierats vara konsekventa eftersom konsekvens kontroll av data inte stöds för detta specifika kopierings par. 
 
-Värde för **InconsistentData**: 
--   **Hittades**: ADF Copy-aktiviteten hittade inkonsekventa data. 
--   **Hoppade över**: ADF Copy-aktivitet har hittat och hoppat över inkonsekventa data. 
--   **Ingen**: ADF Copy-aktivitet har inte hittat inkonsekventa data. Det kan antingen bero på att dina data har verifierats vara konsekventa mellan käll-och mål lagret, eller att du har inaktiverat validateDataConsistency i kopierings aktiviteten. 
+Värde för **InconsistentData** : 
+-   **Hittades** : ADF Copy-aktiviteten hittade inkonsekventa data. 
+-   **Hoppade över** : ADF Copy-aktivitet har hittat och hoppat över inkonsekventa data. 
+-   **Ingen** : ADF Copy-aktivitet har inte hittat inkonsekventa data. Det kan antingen bero på att dina data har verifierats vara konsekventa mellan käll-och mål lagret, eller att du har inaktiverat validateDataConsistency i kopierings aktiviteten. 
 
 ### <a name="session-log-from-copy-activity"></a>Sessionsbiljett från kopierings aktivitet
 
@@ -142,7 +142,5 @@ I logg filen ovan kan du se sample1.csv har hoppats över eftersom den inte kund
 ## <a name="next-steps"></a>Nästa steg
 Se andra artiklar om kopierings aktiviteter:
 
-- [Översikt över kopieringsaktivitet](copy-activity-overview.md)
+- [Översikt över kopierings aktivitet](copy-activity-overview.md)
 - [Fel tolerans för kopierings aktivitet](copy-activity-fault-tolerance.md)
-
-

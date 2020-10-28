@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: d2465a475371f2cf6b9379d474ccaee324adac10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57915e0b636124265adc8d5f3088cacd20d63746
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90524766"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634019"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformera data i Azure Virtual Network med en Hive-aktivitet i Azure Data Factory
 
@@ -34,18 +34,18 @@ I den här självstudien använder du Azure PowerShell för att skapa en Data Fa
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Azure Storage konto**. Du skapar ett hive-skript och överför det till Azure Storage. Hive-skriptets utdata lagras på det här lagringskontot. I det här exemplet använder HDInsight-klustret det här Azure Storage-kontot som primär lagring. 
+- **Azure Storage konto** . Du skapar ett hive-skript och överför det till Azure Storage. Hive-skriptets utdata lagras på det här lagringskontot. I det här exemplet använder HDInsight-klustret det här Azure Storage-kontot som primär lagring. 
 - **Azure-Virtual Network.** Om du inte har något virtuellt Azure-nätverk skapar du det genom att följa [de här instruktionerna](../virtual-network/quick-create-portal.md). I det här exemplet är HDInsight i ett virtuellt Azure-nätverk. Här är en exempelkonfiguration av Azure Virtual Network. 
 
     ![Skapa det virtuella nätverket](media/tutorial-transform-data-using-hive-in-vnet/create-virtual-network.png)
-- **HDInsight-kluster.** Skapa ett HDInsight-kluster och anslut det till det virtuella nätverket som du skapade i föregående steg genom att följa stegen i den här artikeln: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) (Utöka HDInsight med ett Azure Virtual Network). Här är en exempelkonfiguration av HDInsight i ett virtuellt nätverk. 
+- **HDInsight-kluster.** Skapa ett HDInsight-kluster och anslut det till det virtuella nätverket som du skapade i föregående steg genom att följa stegen i den här artikeln: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-plan-virtual-network-deployment.md) (Utöka HDInsight med ett Azure Virtual Network). Här är en exempelkonfiguration av HDInsight i ett virtuellt nätverk. 
 
     ![HDInsight i ett virtuellt nätverk](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
-- **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-Az-ps).
+- **Azure PowerShell** . Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Överföra Hive-skriptet till ditt Blob Storage-konto
 
@@ -66,8 +66,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
    FROM hivesampletable
    ```
 2. Skapa en container med namnet **adftutorial** i Azure Blob Storage om den inte finns.
-3. Skapa en mapp med namnet **hivescripts**.
-4. Ladda upp filen **hivescript.hql** till undermappen **hivescripts**.
+3. Skapa en mapp med namnet **hivescripts** .
+4. Ladda upp filen **hivescript.hql** till undermappen **hivescripts** .
 
   
 
@@ -93,7 +93,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     ```powershell
     $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
-2. Starta **PowerShell**. Låt Azure PowerShell vara öppet tills du är klar med snabbstarten. Om du stänger och öppnar det igen måste du köra kommandona en gång till. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+2. Starta **PowerShell** . Låt Azure PowerShell vara öppet tills du är klar med snabbstarten. Om du stänger och öppnar det igen måste du köra kommandona en gång till. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory** : [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
     Kör följande kommando och ange det användarnamn och lösenord som du använder för att logga in i Azure Portal:
         
@@ -168,7 +168,7 @@ Du skapar och distribuerar två länkade tjänster i det här avsnittet:
 
 ### <a name="azure-storage-linked-service"></a>Länkad Azure-lagringstjänst
 
-Skapa en JSON-fil med önskat redigeringsprogram, kopiera följande JSON-definition för en länkad Azure Storage-tjänst och spara filen som **MyStorageLinkedService.json**.
+Skapa en JSON-fil med önskat redigeringsprogram, kopiera följande JSON-definition för en länkad Azure Storage-tjänst och spara filen som **MyStorageLinkedService.json** .
 
 ```json
 {
@@ -186,11 +186,11 @@ Skapa en JSON-fil med önskat redigeringsprogram, kopiera följande JSON-definit
 }
 ```
 
-Ersätt ** &lt; AccountName &gt; och &lt; accountkey &gt; ** med namnet och nyckeln för ditt Azure Storage-konto.
+Ersätt **&lt; AccountName &gt; och &lt; accountkey &gt;** med namnet och nyckeln för ditt Azure Storage-konto.
 
 ### <a name="hdinsight-linked-service"></a>Länkad HDInsight-tjänst
 
-Skapa en JSON-fil med önskat redigeringsprogram, kopiera följande JSON-definition för en länkad Azure HDInsight-tjänst och spara filen som **MyHDInsightLinkedService.json**.
+Skapa en JSON-fil med önskat redigeringsprogram, kopiera följande JSON-definition för en länkad Azure HDInsight-tjänst och spara filen som **MyHDInsightLinkedService.json** .
 
 ```
 {
@@ -219,9 +219,9 @@ Skapa en JSON-fil med önskat redigeringsprogram, kopiera följande JSON-definit
 
 Uppdatera värden för följande egenskaper i definitionen för den länkade tjänsten:
 
-- **användar namn**. Namnet på användaren för klusterinloggningen som du angav när du skapade klustret. 
-- **lösen ord**. Ange lösenordet för användaren.
-- **clusterUri**. Ange URL: en för ditt HDInsight-kluster i följande format: `https://<clustername>.azurehdinsight.net` .  Den här artikeln förutsätter att du har åtkomst till klustret via internet. Du kan till exempel ansluta till klustret på `https://clustername.azurehdinsight.net`. Den här adressen använder den offentliga gatewayen, som inte är tillgänglig om du har använt nätverkssäkerhetsgrupper (NSG:er) eller användardefinierade vägar (UDR:er) för att begränsa åtkomst från internet. För att Data Factory ska kunna skicka jobb till HDInsight-kluster i Azure Virtual Network, måste du konfigurera ditt Azure Virtual Network så att URL:en kan matchas med gatewayens privata IP-adress som används av HDInsight.
+- **användar namn** . Namnet på användaren för klusterinloggningen som du angav när du skapade klustret. 
+- **lösen ord** . Ange lösenordet för användaren.
+- **clusterUri** . Ange URL: en för ditt HDInsight-kluster i följande format: `https://<clustername>.azurehdinsight.net` .  Den här artikeln förutsätter att du har åtkomst till klustret via internet. Du kan till exempel ansluta till klustret på `https://clustername.azurehdinsight.net`. Den här adressen använder den offentliga gatewayen, som inte är tillgänglig om du har använt nätverkssäkerhetsgrupper (NSG:er) eller användardefinierade vägar (UDR:er) för att begränsa åtkomst från internet. För att Data Factory ska kunna skicka jobb till HDInsight-kluster i Azure Virtual Network, måste du konfigurera ditt Azure Virtual Network så att URL:en kan matchas med gatewayens privata IP-adress som används av HDInsight.
 
   1. Från Azure-portalen öppnar du det virtuella nätverket som HDInsight finns i. Öppna nätverksgränssnittet med namnet som börjar med `nic-gateway-0`. Skriv ned dess privata IP-adress. Till exempel 10.6.0.15. 
   2. Om din Azure Virtual Network har en DNS-server uppdaterar du DNS-posten så HDInsight-klustrets URL `https://<clustername>.azurehdinsight.net` kan matchas mot `10.6.0.15`. Detta är den rekommenderade metoden. Om du inte har någon DNS-server i Azure Virtual Network kan du tillfälligt lösa detta genom att redigera värdfilen (C:\Windows\System32\drivers\etc) för alla virtuella datorer som är registrerade som noder för lokal installation av Integration Runtime genom att lägga till en post så här: 
@@ -244,7 +244,7 @@ Växla till den mapp där du skapade JSON-filerna i PowerShell och kör följand
     ```
 
 ## <a name="author-a-pipeline"></a>Skapa en pipeline
-I det här steget kan du skapa en ny pipeline med en Hive-aktivitet. Aktiviteten kör Hive-skript för att returnera data från en exempeltabell och spara dem till en sökväg som du har definierat. Skapa en JSON-fil med önskat redigeringsprogram, kopiera följande JSON-definition för en pipelinedefinition och spara filen som **MyHivePipeline.json**.
+I det här steget kan du skapa en ny pipeline med en Hive-aktivitet. Aktiviteten kör Hive-skript för att returnera data från en exempeltabell och spara dem till en sökväg som du har definierat. Skapa en JSON-fil med önskat redigeringsprogram, kopiera följande JSON-definition för en pipelinedefinition och spara filen som **MyHivePipeline.json** .
 
 
 ```json
@@ -408,6 +408,3 @@ Fortsätt till följande självstudie och lär dig att transformera data med ett
 
 > [!div class="nextstepaction"]
 >[Förgrening och länkning av Data Factory-kontrollflöde](tutorial-control-flow.md)
-
-
-

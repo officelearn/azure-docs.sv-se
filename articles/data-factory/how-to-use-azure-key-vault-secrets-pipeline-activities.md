@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 5a662119d9ccf95eac23785c5fe9a787da882531
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1766705e73afab5d15cdb5aa2c5bb1487ad3d7c5
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537403"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634291"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Använda Azure Key Vault-hemligheter i pipeline-aktiviteter
 
@@ -25,7 +25,7 @@ Du kan lagra autentiseringsuppgifter eller hemliga värden i en Azure Key Vault 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här funktionen använder den hanterade identiteten för Data Factory.  Lär dig hur det fungerar från [hanterad identitet för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) och se till att data fabriken har en associerad.
+Den här funktionen använder den hanterade identiteten för Data Factory.  Lär dig hur det fungerar från [hanterad identitet för Data Factory](./data-factory-service-identity.md) och se till att data fabriken har en associerad.
 
 ## <a name="steps"></a>Steg
 
@@ -39,7 +39,7 @@ Den här funktionen använder den hanterade identiteten för Data Factory.  Lär
 
     ![Key Vault åtkomst principer](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 
-    Klicka på **Lägg till**och sedan på **Spara**.
+    Klicka på **Lägg till** och sedan på **Spara** .
 
 3. Navigera till Key Vault hemlighet och kopiera den hemliga identifieraren.
 
@@ -65,10 +65,10 @@ Den här funktionen använder den hanterade identiteten för Data Factory.  Lär
     > [!CAUTION]
     > Ange alternativet för säkra utdata till sant för att förhindra att det hemliga värdet loggas som oformaterad text.  Alla ytterligare aktiviteter som använder det här värdet ska ha sina säkra indatatyps-alternativ inställt på sant.
 
-5. Använd följande kod uttryck ** @activity (' Web1 ')** för att använda värdet i en annan aktivitet. output. Value.
+5. Använd följande kod uttryck **@activity (' Web1 ')** för att använda värdet i en annan aktivitet. output. Value.
 
     ![Kod uttryck](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du använder Azure Key Vault för att lagra autentiseringsuppgifter för data lager och beräkningar finns [i lagra autentiseringsuppgifter i Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+Information om hur du använder Azure Key Vault för att lagra autentiseringsuppgifter för data lager och beräkningar finns [i lagra autentiseringsuppgifter i Azure Key Vault](./store-credentials-in-key-vault.md)

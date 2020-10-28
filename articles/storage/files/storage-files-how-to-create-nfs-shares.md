@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: d5b394833dbc920612f521b01f4da88af6c3e015
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 293fc1bca47f7c58f89a8dac50cc636be8231d4f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220755"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633509"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Så här skapar du en NFS-resurs
 
@@ -86,17 +86,17 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 Nu när du har skapat ett FileStorage-konto och konfigurerat nätverket kan du skapa en NFS-filresurs. Processen påminner om hur du skapar en SMB-resurs genom att välja **NFS** i stället för **SMB** när du skapar resursen.
 
-1. Navigera till ditt lagrings konto och välj **fil resurser**.
+1. Navigera till ditt lagrings konto och välj **fil resurser** .
 1. Välj **+ fil resurs** för att skapa en ny fil resurs.
 1. Namnge fil resursen, Välj en etablerad kapacitet.
-1. För **protokoll** väljer du **NFS (för hands version)**.
+1. För **protokoll** väljer du **NFS (för hands version)** .
 1. För **rot-squash** gör du ett val.
 
     - Rot-squash (standard) – åtkomst för fjärr-superanvändare (rot) mappas till UID (65534) och GID (65534).
     - Ingen rot-squash – fjärr-superanvändare (root) får åtkomst som rot.
     - Alla squash – all användar åtkomst mappas till UID (65534) och GID (65534).
     
-1. Välj **Skapa**.
+1. Välj **Skapa** .
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Skärm bild av bladet för att skapa fil resurs":::
 
@@ -120,7 +120,7 @@ Nu när du har skapat ett FileStorage-konto och konfigurerat nätverket kan du s
 
 1. Stäng och öppna sedan PowerShell-konsolen igen.
 
-1. Installera **AZ. Storage** Preview module version **2.5.2-Preview**.
+1. Installera **AZ. Storage** Preview module version **2.5.2-Preview** .
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
@@ -152,10 +152,9 @@ Om du vill skapa en Premium-filresurs med Azure CLI använder du kommandot [AZ S
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
+    --storage-account $STORAGEACCT \
     --enabled-protocol NFS \
-    --root-access RootSquash \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---

@@ -10,17 +10,18 @@ ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2dfb5876922fd53c372afe82ecdfa843179fb135
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf8d847bd4e950ab17cc1f04b52be2589607f99c
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439018"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629501"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Guiden Azure Data Factory kopiering
+
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. 
 
@@ -35,8 +36,6 @@ Med den här guiden kan du enkelt flytta data från en mängd olika källor till
 
 > [!NOTE]
 > Stegvisa instruktioner för att skapa en exempel-pipeline för att kopiera data från en Azure-blob till en Azure SQL Database tabell finns i [själv studie kursen om guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).
->
->
 
 Guiden är utformad med Big data i åtanke från Start, med stöd för olika data-och objekt typer. Du kan redigera Data Factory pipelines som flyttar hundratals mappar, filer eller tabeller. Guiden stöder automatisk data förhands granskning, schema insamling och mappning och data filtrering.
 
@@ -50,7 +49,6 @@ Schemat för indata kan inte matcha schemat för utdata i vissa fall. I det här
 
 > [!TIP]
 > När du kopierar data från SQL Server eller Azure SQL Database till Azure Synapse Analytics (tidigare SQL Data Warehouse), och om tabellen inte finns i mål lagret, Data Factory stödja automatisk tabell skapande med käll schema. Lär dig mer från [att flytta data till och från Azure Synapse Analytics med hjälp av Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
->
 
 Använd en nedrullningsbar listruta för att välja en kolumn från det käll schema som ska mappas till en kolumn i mål schemat. Kopierings guiden försöker förstå ditt mönster för kolumn mappning. Den använder samma mönster för resten av kolumnerna, så att du inte behöver markera varje kolumn separat för att slutföra schema mappningen. Om du vill kan du åsidosätta dessa mappningar genom att använda List rutorna för att mappa kolumnerna en i taget. Mönstret blir mer korrekt när du mappar fler kolumner. Kopierings guiden uppdaterar kontinuerligt mönstret och når i slut änden det högra mönstret för den kolumn mappning som du vill uppnå.     
 
@@ -65,7 +63,7 @@ Följande skärm bild visar en SQL-fråga med hjälp av `Text.Format` funktionen
 ![Validera uttryck](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrering av data i en Azure Blob-mapp
-Du kan använda variabler i mappsökvägen för att kopiera data från en mapp som fastställs vid körning baserat på [Systemvariabler](data-factory-functions-variables.md#data-factory-system-variables). Variabler som stöds är: **{Year**}, **{Month}**, **{Day}**, **{Hour}**, **{Minute}** och **{Custom}**. Exempel: inputfolder/{year}/{month}/{Day}.
+Du kan använda variabler i mappsökvägen för att kopiera data från en mapp som fastställs vid körning baserat på [Systemvariabler](data-factory-functions-variables.md#data-factory-system-variables). Variabler som stöds är: **{Year** }, **{Month}** , **{Day}** , **{Hour}** , **{Minute}** och **{Custom}** . Exempel: inputfolder/{year}/{month}/{Day}.
 
 Anta att du har inmatade mappar i följande format:
 
@@ -76,7 +74,7 @@ Anta att du har inmatade mappar i följande format:
 ...
 ```
 
-Klicka på knappen **Bläddra** för **filen eller mappen**, bläddra till någon av dessa mappar (till exempel 2016->03->01->02) och klicka på **Välj**. Du bör se `2016/03/01/02` i text rutan. Ersätt nu **2016** med **{Year}**, **03** med **{Month}**, **01** med **{Day}** och **02** med **{Hour}** och tryck på **TABB** -tangenten. Du bör se List rutor för att välja formatet för dessa fyra variabler:
+Klicka på knappen **Bläddra** för **filen eller mappen** , bläddra till någon av dessa mappar (till exempel 2016->03->01->02) och klicka på **Välj** . Du bör se `2016/03/01/02` i text rutan. Ersätt nu **2016** med **{Year}** , **03** med **{Month}** , **01** med **{Day}** och **02** med **{Hour}** och tryck på **TABB** -tangenten. Du bör se List rutor för att välja formatet för dessa fyra variabler:
 
 ![Använda systemvariabler](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
@@ -90,6 +88,49 @@ Du kan köra kopierings åtgärden en gång eller enligt ett schema (varje timme
 En enstaka kopierings åtgärd gör det möjligt att flytta data från en källa till ett mål bara en gång. Den gäller för data av valfri storlek och alla format som stöds. Med den schemalagda kopian kan du kopiera data på en bestämd upprepning. Du kan använda avancerade inställningar (t. ex. återförsök, tids gräns och aviseringar) för att konfigurera den schemalagda kopian.
 
 ![Schemaläggnings egenskaper](./media/data-factory-copy-wizard/scheduling-properties.png)
+
+## <a name="troubleshooting"></a>Felsökning
+
+I det här avsnittet beskrivs vanliga fel söknings metoder för guiden Kopiera i Azure Data Factory.
+
+> [!NOTE] 
+> De här fel söknings tipsen gäller för guiden Kopiera i version 1 av Data Factory. För Data Factory v2, se fel söknings guide vid [fel sökning Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-ux-troubleshoot-guide).
+
+### <a name="error-code-unable-to-validate-in-copy-wizard"></a>Felkod: det går inte att verifiera i guiden Kopiera
+
+- **Symptom** : du får varnings meddelandet "Det gick inte att verifiera" i det första steget i kopierings guiden.
+- **Orsaker** : Detta kan inträffa när alla tredjeparts cookies är inaktiverade.
+- **Lösning** : 
+    - Använd Internet Explorer eller Microsoft Edge-webbläsare.
+    - Om du använder Chrome Browser följer du anvisningarna nedan om du vill lägga till cookies-undantag för *microsoftonline.com* och *Windows.net* .
+        1.  Öppna Chrome-webbläsaren.
+        2.  Klicka på SKIFT nyckel eller tre rader till höger (anpassa och kontrol lera Google Chrome).
+        3.  Klicka på **Inställningar** .
+        4.  Sök efter **cookies** eller gå till **Sekretess** under avancerade inställningar.
+        5.  Välj **innehålls inställningar** .    
+        6.  Cookies ska ställas in så att **lokala data kan anges (rekommenderas)** .
+        7.  Klicka på **Hantera undantag** . Under **hostname-mönster** anger du följande och kontrollerar att **Tillåt** är inställd.
+            - login.microsoftonline.com
+            - login.windows.net
+        8.  Stäng webbläsaren och starta om.
+    - Om du använder Firefox webbläsare följer du anvisningarna nedan för att lägga till cookies-undantag.
+        1. Från menyn Firefox går du till **verktyg**  >  **alternativ** .
+        2. Under **Sekretess**  >  **historiken** kan du se att den aktuella inställningen **använder anpassade inställningar för historik** .
+        3. I **acceptera cookies från tredje part** kan den aktuella inställningen bli **aldrig** . du bör sedan klicka på **undantag** till höger för att lägga till följande platser.
+            - https://login.microsoftonline.com
+            - https://login.windows.net
+        4.  Stäng webbläsaren och starta om. 
+
+
+### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>Felkod: det går inte att öppna inloggnings sidan och ange lösen ord
+
+- **Symptom** : guiden Kopiera omdirigerar sidan till inloggnings sidan, men inloggnings sidan visas inte korrekt.
+- **Orsaker** : det här problemet kan inträffa om du har ändrat nätverks miljön från kontors nät verket till hem nätverket. Det finns vissa cacheminnen i webbläsare. 
+- **Lösning** : 
+    1.  Stäng webbläsaren och försök igen. Gå till nästa steg om problemet fortfarande finns.   
+    2.  Om du använder Internet Explorer-webbläsare försöker du öppna den i privat läge (tryck på "CTRL" + "Shift" + "P"). Om du använder Chrome-webbläsare försöker du öppna den i Incognito-läge (tryck på "CTRL" + "Shift" + "N"). Gå till nästa steg om problemet fortfarande finns. 
+    3.  Försök att använda en annan webbläsare. 
+
 
 ## <a name="next-steps"></a>Nästa steg
 En snabb genom gång av hur du använder Data Factory kopierings guiden för att skapa en pipeline med kopierings aktivitet finns i [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: ca796b09f10127c68c5a22ff58f95c89cbda2610
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b942fb321d2bceef64930bea0c660f66747508b6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534404"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629314"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Självstudie: Använda Apache Kafka-producenten och konsument-API:er
 
@@ -217,9 +217,9 @@ Poster som lagras i Kafka lagras i den ordning som de tas emot i en partition. F
 
 ## <a name="common-issues-faced"></a>Vanliga problem med ansikte
 
-1. Det **går inte att skapa ämnet** Om ditt kluster är aktiverat för säkerhets paket för företag använder du de [färdiga jar-filerna för tillverkare och konsument](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). ESP-jar kan byggas från från koden i under [ `DomainJoined-Producer-Consumer` katalogen](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). Observera att producent-och konsument egenskaperna har ytterligare en egenskap `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` för ESP-aktiverade kluster.
+1. Det **går inte att skapa ämnet** Om ditt kluster är aktiverat för säkerhets paket för företag använder du de [färdiga jar-filerna för tillverkare och konsument](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). ESP-jar kan skapas från koden i under [ `DomainJoined-Producer-Consumer` katalogen](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). Egenskaperna tillverkare och konsument har ytterligare en egenskap `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` för ESP-aktiverade kluster.
 
-2. **Problem med ESP-aktiverade kluster** Om det inte går att skapa och använda åtgärder och du använder ett ESP-aktiverat kluster, kontrollerar du att användaren finns `kafka` i alla Ranger-principer. Om den inte finns lägger du till den i alla Ranger-principer.
+2. **Fel i ESP-aktiverade kluster** : om skapa och förbruka åtgärder Miss lyckas och du använder ett ESP-aktiverat kluster, kontrollerar du att användaren finns `kafka` i alla Ranger-principer. Om den inte finns lägger du till den i alla Ranger-principer.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

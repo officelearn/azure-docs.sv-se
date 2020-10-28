@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 4373618bacad00675d5f639225c435296010949b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221440"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628685"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Köra Jupyter Notebooks på arbetsytan
 
@@ -32,7 +32,7 @@ Se hur du kan:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
 * En Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="create-notebooks"></a><a name="create"></a> Skapa antecknings böcker
@@ -42,7 +42,7 @@ I arbets ytan Azure Machine Learning skapar du en ny Jupyter-anteckningsbok och 
 Så här skapar du en ny antecknings bok: 
 
 1. Öppna din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com).
-1. På den vänstra sidan väljer du **antecknings böcker**. 
+1. På den vänstra sidan väljer du **antecknings böcker** . 
 1. Välj ikonen  **Skapa ny fil** ovanför listan **användarfiler** i avsnittet **Mina filer** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Skapa en ny fil":::
@@ -50,7 +50,7 @@ Så här skapar du en ny antecknings bok:
 1. Ge filen ett namn. 
 1. För Jupyter Notebook filer väljer du **Notebook** som filtyp.
 1. Välj en fil katalog.
-1. Välj **Skapa**.
+1. Välj **Skapa** .
 
 Du kan också skapa textfiler.  Välj **text** som filtyp och Lägg till tillägget i namnet (till exempel myfile.py eller myfile.txt)  
 
@@ -75,14 +75,14 @@ Du kan komma åt alla git-åtgärder med hjälp av ett terminalfönster. Alla gi
 För att få åtkomst till terminalen:
 
 1. Öppna din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com).
-1. På den vänstra sidan väljer du **antecknings böcker**.
+1. På den vänstra sidan väljer du **antecknings böcker** .
 1. Välj en antecknings bok som finns i avsnittet **användarfiler** på den vänstra sidan.  Om du inte har några antecknings böcker där måste du först [skapa en antecknings bok](#create)
 1. Välj ett **beräknings** mål eller skapa ett nytt och vänta tills det körs.
 1. Välj ikonen **Öppna Terminal** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Skapa en ny fil":::
 
-1. Om du inte ser ikonen väljer du **...** till höger om beräknings målet och väljer sedan **Öppna Terminal**.
+1. Om du inte ser ikonen väljer du **...** till höger om beräknings målet och väljer sedan **Öppna Terminal** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Skapa en ny fil":::
 
@@ -113,8 +113,8 @@ Du kan också starta Jupyter eller JupyterLab från antecknings bokens verktygsf
 
 Använd fokus läge för att expandera den aktuella vyn så att du kan fokusera på dina aktiva flikar. Fokus läge döljer fil Utforskaren i antecknings boken.
 
-1. I verktygsfältet i terminalfönstret väljer du **fokus läge**   för att aktivera fokus läge. Beroende på fönstrets bredd kan detta finnas under meny alternativet **...** i verktygsfältet.
-1. I fokus läge går du tillbaka till standardvyn genom att välja **standardvy**.
+1. I verktygsfältet i terminalfönstret väljer du **fokus läge** för att aktivera fokus läge. Beroende på fönstrets bredd kan detta finnas under meny alternativet **...** i verktygsfältet.
+1. I fokus läge går du tillbaka till standardvyn genom att välja **standardvy** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Skapa en ny fil":::
 
@@ -142,13 +142,13 @@ Den nya antecknings boken innehåller bara kod celler, med alla celler som kräv
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Spara och Checkpoint en bärbar dator
 
-Azure Machine Learning skapar en kontroll punkts fil när du skapar en *ipynb*-   fil.
+Azure Machine Learning skapar en kontroll punkts fil när du skapar en *ipynb* -fil.
 
-I verktygsfältet Notebook väljer du menyn och sedan ** &gt; Spara och kontrol kontroll punkt** för att manuellt spara antecknings boken och lägger till en kontroll punkts fil som är associerad med antecknings boken.
+I verktygsfältet Notebook väljer du menyn och sedan **&gt; Spara och kontrol kontroll punkt** för att manuellt spara antecknings boken och lägger till en kontroll punkts fil som är associerad med antecknings boken.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Skapa en ny fil":::
 
-Alla antecknings böcker sparas automatiskt var 30: e sekund.Spara automatiskt uppdateringar endast den ursprungliga *ipynb*   -filen, inte kontroll punkts filen.
+Alla antecknings böcker sparas automatiskt var 30: e sekund. Spara automatiskt uppdateringar endast den ursprungliga *ipynb* -filen, inte kontroll punkts filen.
  
 Välj **kontroll punkter** i Notebook-menyn för att skapa en namngiven kontroll punkt och återställa antecknings boken till en sparad kontroll punkt.
 
@@ -179,8 +179,8 @@ Du *kan* ta bort antecknings böcker för **användar filer** på något av föl
 Om du vill köra ett experiment från en antecknings bok ansluter du först till en [beräknings instans](concept-compute-instance.md)som körs. Om du inte har en beräknings instans använder du följande steg för att skapa ett: 
 
 1. Välj **+** i antecknings bokens verktygsfält. 
-2. Namnge beräkningen och välj en storlek för den **virtuella datorn**. 
-3. Välj **Skapa**.
+2. Namnge beräkningen och välj en storlek för den **virtuella datorn** . 
+3. Välj **Skapa** .
 4. Beräknings instansen är ansluten till antecknings boken automatiskt och du kan nu köra cellerna.
 
 Endast du kan se och använda de beräknings instanser som du skapar.  Dina **användarfiler** lagras separat från den virtuella datorn och delas mellan alla beräknings instanser i arbets ytan.
@@ -217,7 +217,7 @@ Antecknings boken hittar automatiskt alla Jupyter-kernels som är installerade p
 1. Välj [**öppna terminalen**](#terminal) i antecknings bokens verktygsfält.
 1. Använd terminalfönstret för att skapa en ny miljö.  Koden nedan skapar till exempel `newenv` :
     ```shell
-    conda create --name newenv
+    conda create -y --name newenv
     ```
 1. Aktivera miljön.  Till exempel när du har skapat `newenv` :
 
@@ -227,13 +227,13 @@ Antecknings boken hittar automatiskt alla Jupyter-kernels som är installerade p
 1. Installera pip-och ipykernel-paketet i den nya miljön och skapa en kernel för det Conda-avsnittet
 
     ```shell
-    conda install pip
-    conda install ipykernel
+    conda install -y pip
+    conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 
 > [!NOTE]
-> För paket hantering i en bärbar dator använder du **% pip** eller **% Conda** Magic Functions för att automatiskt installera paket i den **aktuella kerneln**i stället för **! pip** eller **! Conda** som refererar till alla paket (inklusive paket utanför den aktuella kerneln som körs)
+> För paket hantering i en bärbar dator använder du **% pip** eller **% Conda** Magic Functions för att automatiskt installera paket i den **aktuella kerneln** i stället för **! pip** eller **! Conda** som refererar till alla paket (inklusive paket utanför den aktuella kerneln som körs)
 
 Alla [tillgängliga Jupyter-kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) kan installeras.
 

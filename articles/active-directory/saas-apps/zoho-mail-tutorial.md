@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c701371a3f2f1430cf68a9164ba4ce4e6441c5c6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 89c703f6bb956409c97c36c6507519f4e884fcf2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519120"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Självstudie: Azure Active Directory integrering med Zoho
 
@@ -41,7 +41,7 @@ För att kunna konfigurera Azure AD-integrering med Zoho behöver du följande:
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Zoho har stöd för **SP**-initierad enkel inloggning
+* Zoho har stöd för **SP** -initierad enkel inloggning
 
 ## <a name="adding-zoho-from-the-gallery"></a>Lägga till Zoho från galleriet
 
@@ -49,11 +49,11 @@ För att kunna konfigurera integreringen av Zoho i Azure AD måste du lägga til
 
 **Gör följande för att lägga till Zoho från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory** -ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -67,7 +67,7 @@ För att kunna konfigurera integreringen av Zoho i Azure AD måste du lägga til
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Zoho baserat på en testanvändare med namnet **Britta Simon**.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Zoho baserat på en testanvändare med namnet **Britta Simon** .
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Zoho upprättas.
 
 För att kunna konfigurera och testa enkel inloggning i Azure AD med Zoho måste du slutföra följande byggblock:
@@ -85,7 +85,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Gör följande för att konfigurera enkel inloggning med Azure AD med Zoho:
 
-1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för programintegrering för **Zoho** och väljer **Enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för programintegrering för **Zoho** och väljer **Enkel inloggning** .
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -93,7 +93,7 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Zoho:
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration** .
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -106,7 +106,7 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Zoho:
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Zoho-supporten](https://www.zoho.com/mail/contact.html) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat** , klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
@@ -124,15 +124,15 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Zoho:
 
 1. Logga in på din Zoho Mail-företagswebbplats som administratör.
 
-2. Gå till **Kontrollpanelen**.
+2. Gå till **Kontrollpanelen** .
    
     ![Kontrollpanelen](./media/zoho-mail-tutorial/ic789607.png "Kontrollpanelen")
 
-3. Klicka på fliken **SAML-autentisering**.
+3. Klicka på fliken **SAML-autentisering** .
    
     ![SAML-autentisering](./media/zoho-mail-tutorial/ic789608.png "SAML-autentisering")
 
-4. Gör följande i avsnittet **SAML-autentiseringsinformation**:
+4. Gör följande i avsnittet **SAML-autentiseringsinformation** :
    
     ![Information om SAML-autentisering](./media/zoho-mail-tutorial/ic789609.png "Information om SAML-autentisering")
    
@@ -142,17 +142,17 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Zoho:
    
     c. I textrutan **Change Password URL** (URL för Byt lösenord) klistrar du in **URL:en för Byt lösenord** som du har kopierat från Azure-portalen.
        
-    d. Öppna ditt base-64-kodade certifikat som du har laddat ned från Azure-portalen i Anteckningar, kopierar innehållet i Urklipp och klistra sedan in den i textrutan **PublicKey**.
+    d. Öppna ditt base-64-kodade certifikat som du har laddat ned från Azure-portalen i Anteckningar, kopierar innehållet i Urklipp och klistra sedan in den i textrutan **PublicKey** .
    
-    e. Som **Algoritm** väljer du **RSA**.
+    e. Som **Algoritm** väljer du **RSA** .
    
-    f. Klicka på **OK**.
+    f. Klicka på **OK** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory** , välj **Users** och sedan **Alla användare** .
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
@@ -164,32 +164,32 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon** .
   
     b. I fältet **användar namn** skriver du **brittasimon \@ yourcompanydomain. extension**  
     Till exempel BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Klicka på **Skapa**.
+    d. Klicka på **Skapa** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att bevilja åtkomst till Zoho.
 
-1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Zoho**.
+1. I Azure-portalen väljer du **Företagsprogram** , **Alla program** och sedan **Zoho** .
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan över program skriver och väljer du **Zoho**.
+2. I listan över program skriver och väljer du **Zoho** .
 
     ![Zoho-länken i programlistan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper** .
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning** .
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
@@ -197,7 +197,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela** .
 
 ### <a name="create-zoho-test-user"></a>Skapa Zoho-testanvändare
 
@@ -208,27 +208,27 @@ För att kunna göra det möjligt för Azure AD-användare att logga in på Zoho
 
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Gör följande för att etablera ett användarkonto:
 
-1. Logga in på din **Zoho Mail**-företagswebbplats som administratör.
+1. Logga in på din **Zoho Mail** -företagswebbplats som administratör.
 
-1. Gå till **Kontrollpanelen \> E-post och dokument**.
+1. Gå till **Kontrollpanelen \> E-post och dokument** .
 
-1. Gå till **Användarinformation \> Lägg till användare**.
+1. Gå till **Användarinformation \> Lägg till användare** .
    
-    ![Lägg till användare](./media/zoho-mail-tutorial/ic789611.png "Lägg till användare")
+    ![Skärm bild som visar Zoho-e-postwebbplatsen med användar information och Lägg till användare vald.](./media/zoho-mail-tutorial/ic789611.png "Lägg till användare")
 
-1. Gör följande i dialogrutan **Lägg till användare**:
+1. Gör följande i dialogrutan **Lägg till användare** :
    
-    ![Lägg till användare](./media/zoho-mail-tutorial/ic789612.png "Lägg till användare")
+    ![Skärm bild som visar dialog rutan Lägg till användare där du kan ange de värden som beskrivs.](./media/zoho-mail-tutorial/ic789612.png "Lägg till användare")
    
-    a. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta**.
+    a. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta** .
 
-    b. I textrutan **Efternamn** skriver du efternamnet: **Simon**.
+    b. I textrutan **Efternamn** skriver du efternamnet: **Simon** .
 
-    c. I text rutan med **e-post-ID** skriver du e-post-ID för användaren som **brittasimon \@ contoso.com**.
+    c. I text rutan med **e-post-ID** skriver du e-post-ID för användaren som **brittasimon \@ contoso.com** .
 
     d. I textrutan **Lösenord** anger du användarens lösenord.
    
-    e. Klicka på **OK**.  
+    e. Klicka på **OK** .  
       
     > [!NOTE]
     > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktivt.

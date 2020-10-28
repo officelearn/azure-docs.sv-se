@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 000f6a80a2cee14abc3d954de479dd87b1edf876
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c39104912c99b199d38cf489bb61d64e83b89286
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090258"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895604"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Så här skyddar du ett enda sid program med icke-interaktiv inloggning
 
@@ -30,15 +30,15 @@ Följande guide avser ett program som använder Azure Active Directory (Azure AD
 
 Skapa ett skyddat webb tjänst program som ansvarar för autentisering till Azure AD. 
 
-1. Skapa en funktion i Azure Portal. Mer information finns i [skapa en Azure-funktion](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function).
+1. Skapa en funktion i Azure Portal. Mer information finns i [skapa en Azure-funktion](../azure-functions/functions-create-first-azure-function.md).
 
-2. Konfigurera CORS-principen på Azure-funktionen så att den kan nås av webb programmet för en enskild sida. Detta skyddar webb läsar klienter till de tillåtna ursprungen för ditt webb program. Se [Lägg till CORS-funktioner](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#add-cors-functionality).
+2. Konfigurera CORS-principen på Azure-funktionen så att den kan nås av webb programmet för en enskild sida. Detta skyddar webb läsar klienter till de tillåtna ursprungen för ditt webb program. Se [Lägg till CORS-funktioner](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
-3. [Lägg till en systemtilldelad identitet](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) i Azure-funktionen för att skapa ett huvud namn för tjänsten för att autentisera till Azure AD.  
+3. [Lägg till en systemtilldelad identitet](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) i Azure-funktionen för att skapa ett huvud namn för tjänsten för att autentisera till Azure AD.  
 
 4. Bevilja rollbaserad åtkomst för den systemtilldelade identiteten till Azure Maps kontot. Mer information finns i [bevilja rollbaserad åtkomst](#grant-role-based-access) .
 
-5. Skriv kod för Azure-funktionen för att hämta Azure Maps åtkomsttoken med hjälp av systemtilldelad identitet med en av de mekanismer som stöds eller REST-protokollet. Se [Hämta token för Azure-resurser](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
+5. Skriv kod för Azure-funktionen för att hämta Azure Maps åtkomsttoken med hjälp av systemtilldelad identitet med en av de mekanismer som stöds eller REST-protokollet. Se [Hämta token för Azure-resurser](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity)
 
     Ett exempel på ett REST-protokoll:
 
@@ -64,8 +64,8 @@ Skapa ett skyddat webb tjänst program som ansvarar för autentisering till Azur
 
 6. Konfigurera säkerhet för Azure Function-HttpTrigger
 
-   * [Skapa en funktions åtkomst nyckel](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys)
-   * [Säker HTTP-slutpunkt](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production) för Azure-funktionen i produktion.
+   * [Skapa en funktions åtkomst nyckel](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys)
+   * [Säker HTTP-slutpunkt](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) för Azure-funktionen i produktion.
    
 7. Konfigurera webb programmet Azure Maps Web SDK. 
 
@@ -102,25 +102,25 @@ Skapa ett skyddat webb tjänst program som ansvarar för autentisering till Azur
 
 ## <a name="grant-role-based-access"></a>Bevilja rollbaserad åtkomst
 
-Du ger åtkomst till Azure-rollbaserad *åtkomst kontroll (Azure RBAC)* genom att tilldela den systemtilldelade identiteten till en eller flera roll definitioner för Azure. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*.
+Du ger åtkomst till Azure-rollbaserad *åtkomst kontroll (Azure RBAC)* genom att tilldela den systemtilldelade identiteten till en eller flera roll definitioner för Azure. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)** . Välj **roller** och Sök sedan efter roller som börjar med *Azure Maps* .
 
-1. Gå till ditt **Azure Maps-konto**. Välj roll tilldelningen **åtkomst kontroll (IAM)**  >  **Role assignment**.
+1. Gå till ditt **Azure Maps-konto** . Välj roll tilldelningen **åtkomst kontroll (IAM)**  >  **Role assignment** .
 
     > [!div class="mx-imgBorder"]
     > ![Bevilja åtkomst med Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. På fliken **roll tilldelningar** under **roll**väljer du en inbyggd Azure Maps roll definition som **Azure Maps data läsare** eller **Azure Maps data deltagare**. Under **tilldela åtkomst till**väljer du **Funktionsapp**. Välj huvudobjektet efter namn. Välj sedan **Spara**.
+2. På fliken **roll tilldelningar** under **roll** väljer du en inbyggd Azure Maps roll definition som **Azure Maps data läsare** eller **Azure Maps data deltagare** . Under **tilldela åtkomst till** väljer du **Funktionsapp** . Välj huvudobjektet efter namn. Välj sedan **Spara** .
 
-   * Se information om [Lägg till eller ta bort roll tilldelningar](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+   * Se information om [Lägg till eller ta bort roll tilldelningar](../role-based-access-control/role-assignments-portal.md).
 
 > [!WARNING]
-> Azure Maps inbyggda roll definitioner ger en mycket stor behörighet till många Azure Maps REST-API: er. För att begränsa API-åtkomsten till ett minimum, se [skapa en anpassad roll definition och tilldela den systemtilldelade identiteten](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) till den anpassade roll definitionen. Detta gör att den minsta behörighet som krävs för att programmet ska kunna få åtkomst till Azure Maps.
+> Azure Maps inbyggda roll definitioner ger en mycket stor behörighet till många Azure Maps REST-API: er. För att begränsa API-åtkomsten till ett minimum, se [skapa en anpassad roll definition och tilldela den systemtilldelade identiteten](../role-based-access-control/custom-roles.md) till den anpassade roll definitionen. Detta gör att den minsta behörighet som krävs för att programmet ska kunna få åtkomst till Azure Maps.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer förståelse för program scenario med en sida:
 > [!div class="nextstepaction"]
-> [Enkelsidig app](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
+> [Enkelsidig app](../active-directory/develop/scenario-spa-overview.md)
 
 Hitta API-användnings mått för ditt Azure Maps-konto:
 > [!div class="nextstepaction"]

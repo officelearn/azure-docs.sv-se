@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 266ad613a4966b26fc4a6ddffbb7b4196aa937b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2274a551542b06996941b49e7d047baf3e8b3ca
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372110"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894040"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Hantera Azure-resurser med hjälp av Azure Portal
 
@@ -29,22 +29,22 @@ När du har skapat en Resource Manager-mall kan du använda Azure Portal för at
 
 ## <a name="open-resources"></a>Öppna resurser
 
-Azure-resurser organiseras av Azure-tjänster och resurs grupper. Följande procedurer visar hur du öppnar ett lagrings konto med namnet **mystorage0207**. Den virtuella datorn finns i en resurs grupp med namnet **mystorage0207rg**.
+Azure-resurser organiseras av Azure-tjänster och resurs grupper. Följande procedurer visar hur du öppnar ett lagrings konto med namnet **mystorage0207** . Den virtuella datorn finns i en resurs grupp med namnet **mystorage0207rg** .
 
 Så här öppnar du en resurs med tjänst typen:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. I det vänstra fönstret väljer du Azure-tjänsten. I det här fallet **lagrings konton**.  Om tjänsten inte visas i listan väljer du **alla tjänster**och väljer sedan tjänst typen.
+2. I det vänstra fönstret väljer du Azure-tjänsten. I det här fallet **lagrings konton** .  Om tjänsten inte visas i listan väljer du **alla tjänster** och väljer sedan tjänst typen.
 
     ![öppna Azure-resursen i portalen](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
 
 3. Välj den resurs som du vill öppna.
 
-    ![öppna Azure-resursen i portalen](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
+    ![Skärm bild som markerar den valda resursen.](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
 
     Ett lagrings konto ser ut så här:
 
-    ![öppna Azure-resursen i portalen](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
+    ![Skärm bild som visar hur ett lagrings konto ser ut.](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
 
 Så här öppnar du en resurs per resurs grupp:
 
@@ -63,17 +63,17 @@ Skärm bilden visar hanterings alternativen för en virtuell Azure-dator. Du kan
 ## <a name="delete-resources"></a>Ta bort resurser
 
 1. Öppna resursen i portalen. Anvisningar finns i [Öppna resurser](#open-resources).
-2. Välj **Ta bort**. Följande skärm bild visar hanterings alternativen för en virtuell dator.
+2. Välj **Ta bort** . Följande skärm bild visar hanterings alternativen för en virtuell dator.
 
     ![ta bort Azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
-3. Skriv namnet på resursen för att bekräfta borttagningen och välj sedan **ta bort**.
+3. Skriv namnet på resursen för att bekräfta borttagningen och välj sedan **ta bort** .
 
 Mer information om hur Azure Resource Manager beställer borttagningen av resurser finns i [Azure Resource Manager ta bort resurs grupp](delete-resource-group.md).
 
 ## <a name="move-resources"></a>Flytta resurser
 
 1. Öppna resursen i portalen. Anvisningar finns i [Öppna resurser](#open-resources).
-2. Välj **Flytta**. Följande skärm bild visar hanterings alternativen för ett lagrings konto.
+2. Välj **Flytta** . Följande skärm bild visar hanterings alternativen för ett lagrings konto.
 
     ![flytta Azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
 3. Välj **Flytta till en annan resurs grupp** eller **Flytta till en annan prenumeration** beroende på dina behov.
@@ -85,10 +85,10 @@ Mer information finns i [Flytta resurser till en ny resursgrupp eller prenumerat
 Låsning förhindrar att andra användare i organisationen oavsiktligt tar bort eller ändrar kritiska resurser, t. ex. Azure-prenumeration, resurs grupp eller resurs. 
 
 1. Öppna resursen i portalen. Anvisningar finns i [Öppna resurser](#open-resources).
-2. Välj **Lås**. Följande skärm bild visar hanterings alternativen för ett lagrings konto.
+2. Välj **Lås** . Följande skärm bild visar hanterings alternativen för ett lagrings konto.
 
     ![Lås Azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
-3. Välj **Lägg till**och ange sedan Lås egenskaperna.
+3. Välj **Lägg till** och ange sedan Lås egenskaperna.
 
 Mer information finns i [Låsa resurser med Azure Resource Manager](lock-resources.md).
 
@@ -97,10 +97,10 @@ Mer information finns i [Låsa resurser med Azure Resource Manager](lock-resourc
 Taggning hjälper till att organisera resurs gruppen och resurserna logiskt. 
 
 1. Öppna resursen i portalen. Anvisningar finns i [Öppna resurser](#open-resources).
-2. Välj **Taggar**. Följande skärm bild visar hanterings alternativen för ett lagrings konto.
+2. Välj **Taggar** . Följande skärm bild visar hanterings alternativen för ett lagrings konto.
 
     ![Tagga Azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
-3. Ange taggens egenskaper och välj sedan **Spara**.
+3. Ange taggens egenskaper och välj sedan **Spara** .
 
 Mer information finns i [använda taggar för att ordna dina Azure-resurser](tag-resources.md#portal).
 

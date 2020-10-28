@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: d006ec692a2345f6b79c4be29446340cf4af6095
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d852d17bdf11ea45f833e3d59cacb435166827fe
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335355"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895468"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Använd modulen Azure Maps inomhus Maps
 
@@ -56,7 +56,7 @@ Om du vill använda den globalt värdbaserade Azure Content Delivery Network-ver
 
 ## <a name="instantiate-the-map-object"></a>Instansiera objektet Map
 
-Skapa först ett *kart objekt*. *Map-objektet* kommer att användas i nästa steg för att skapa en instans av objektet *inomhus Manager* .  Koden nedan visar hur du instansierar Map- *objektet*:
+Skapa först ett *kart objekt* . *Map-objektet* kommer att användas i nästa steg för att skapa en instans av objektet *inomhus Manager* .  Koden nedan visar hur du instansierar Map- *objektet* :
 
 ```javascript
 const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
@@ -77,7 +77,7 @@ const map = new atlas.Map("map-id", {
 
 ## <a name="instantiate-the-indoor-manager"></a>Instansiera inomhus Manager
 
-Om du vill läsa in panelernas tilesets och kart stil måste du instansiera den *inomhus Manager*. Instansiera den *inomhus Manager* genom att tillhandahålla *Map-objektet* och motsvarande `tilesetId` . Om du vill ha stöd för [dynamisk Map-formatering](indoor-map-dynamic-styling.md)måste du skicka `statesetId` . `statesetId`Variabel namnet är Skift läges känsligt. Koden bör likna JavaScript-koden nedan.
+Om du vill läsa in panelernas tilesets och kart stil måste du instansiera den *inomhus Manager* . Instansiera den *inomhus Manager* genom att tillhandahålla *Map-objektet* och motsvarande `tilesetId` . Om du vill ha stöd för [dynamisk Map-formatering](indoor-map-dynamic-styling.md)måste du skicka `statesetId` . `statesetId`Variabel namnet är Skift läges känsligt. Koden bör likna JavaScript-koden nedan.
 
 ```javascript
 const tilesetId = "";
@@ -89,7 +89,7 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 });
 ```
 
-Om du vill aktivera avsökning av tillstånds data du anger måste du ange `statesetId` och anropa `indoorManager.setDynamicStyling(true)` . Med avsöknings tillstånds data kan du dynamiskt uppdatera tillståndet för dynamiska egenskaper eller *tillstånd*. Till exempel kan en funktion som till exempel rum ha en dynamisk egenskap (*State*) som kallas `occupancy` . Programmet kanske vill avsöka efter *status* ändringar för att avspegla ändringen i den visuella kartan. Koden nedan visar hur du aktiverar tillstånds avsökning:
+Om du vill aktivera avsökning av tillstånds data du anger måste du ange `statesetId` och anropa `indoorManager.setDynamicStyling(true)` . Med avsöknings tillstånds data kan du dynamiskt uppdatera tillståndet för dynamiska egenskaper eller *tillstånd* . Till exempel kan en funktion som till exempel rum ha en dynamisk egenskap ( *State* ) som kallas `occupancy` . Programmet kanske vill avsöka efter *status* ändringar för att avspegla ändringen i den visuella kartan. Koden nedan visar hur du aktiverar tillstånds avsökning:
 
 ```javascript
 const tilesetId = "";
@@ -107,7 +107,7 @@ if (statesetId.length > 0) {
 
 ## <a name="indoor-level-picker-control"></a>Väljare för kontroll över inomhus-nivå
 
- Med kontrollen över-på-sidan- *väljare* kan du ändra nivån på den renderade kartan. Du kan välja att initiera kontroll av *väljare på inomhus-nivå* via den *inomhus Manager*. Här är koden för att initiera kontroll väljaren för nivå:
+ Med kontrollen över-på-sidan- *väljare* kan du ändra nivån på den renderade kartan. Du kan välja att initiera kontroll av *väljare på inomhus-nivå* via den *inomhus Manager* . Här är koden för att initiera kontroll väljaren för nivå:
 
 ```javascript
 const levelControl = new atlas.control.LevelControl({ position: "top-right" });
@@ -116,7 +116,7 @@ indoorManager.setOptions({ levelControl });
 
 ## <a name="indoor-events"></a>Inomhus-händelser
 
- *Azure Maps inomhus* -modulen har stöd för *mappnings objekt* händelser. Händelse lyssnarna i *Map-objektet* anropas när en nivå eller funktion har ändrats. Om du vill köra kod när en nivå eller en funktion har ändrats placerar du koden inuti händelse lyssnaren. Koden nedan visar hur händelse avlyssningar kan läggas till i *objektet Map*.
+ *Azure Maps inomhus* -modulen har stöd för *mappnings objekt* händelser. Händelse lyssnarna i *Map-objektet* anropas när en nivå eller funktion har ändrats. Om du vill köra kod när en nivå eller en funktion har ändrats placerar du koden inuti händelse lyssnaren. Koden nedan visar hur händelse avlyssningar kan läggas till i *objektet Map* .
 
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
@@ -144,10 +144,10 @@ Det här exemplet visar hur du använder modulen *Azure Maps inomhus* i ditt web
 
 3. I HTML-huvudet refererar du till JavaScript-och Style Sheet-formaten i *Azure Maps inomhus* -modulen.
 
-4. Initiera ett *kart objekt*. *Map-objektet* har stöd för följande alternativ:
+4. Initiera ett *kart objekt* . *Map-objektet* har stöd för följande alternativ:
     - `Subscription key` är din Azure Maps primära prenumerations nyckel.
     - `center` definierar en latitud och en longitud för platsen för kartan Center. Ange ett värde för `center` om du inte vill ange ett värde för `bounds` . Formatet ska visas som `center` : [-122,13315, 47,63637].
-    - `bounds` är den minsta rektangulära formen som innesluter TILESET-kart data. Ange ett värde för `bounds` om du inte vill ange ett värde för `center` . Du kan hitta mappnings gränserna genom att anropa [TILESET List-API: et](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). TILESET List-API: et returnerar `bbox` , som du kan parsa och tilldela till `bounds` . Formatet ska visas som `bounds` : [# väst, # syd, # öst, # Nord].
+    - `bounds` är den minsta rektangulära formen som innesluter TILESET-kart data. Ange ett värde för `bounds` om du inte vill ange ett värde för `center` . Du kan hitta mappnings gränserna genom att anropa [TILESET List-API: et](/rest/api/maps/tileset/listpreview). TILESET List-API: et returnerar `bbox` , som du kan parsa och tilldela till `bounds` . Formatet ska visas som `bounds` : [# väst, # syd, # öst, # Nord].
     - `style` gör att du kan ange bakgrunds färgen. Om du vill visa en vit bakgrund definierar du `style` som "Tom".
     - `zoom` gör att du kan ange lägsta och högsta zoomnings nivå för kartan.
 
@@ -257,4 +257,4 @@ Lär dig mer om hur du lägger till mer data i kartan:
 > [Dynamisk formatering för inomhus-kartor](indoor-map-dynamic-styling.md)
 
 > [!div class="nextstepaction"]
-> [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Kodexempel](/samples/browse/?products=azure-maps)

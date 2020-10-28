@@ -11,21 +11,16 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: c0fe3c3808709de732bec8ce0599d380094405e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e01721b4b414455b47a394087192696e1ecb025
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91368489"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892742"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Självstudie: kom igång med Azure Machine Learning i utvecklings miljön (del 1 av 4)
 
-I den här *själv studie serien i fyra delar*får du lära dig grunderna i Azure Machine Learning och fullständiga jobbbaserade python-uppgifter för fin inlärning på Azure Cloud-plattformen. Aktiviteterna är bland annat följande:
-
-1. Konfigurera en arbets yta och din lokala utvecklings miljö för Machine Learning.
-2. Kör kod i molnet med hjälp av Azure Machine Learning SDK för python.
-3. Hantera python-miljön som du använder för modell träning.
-4. Ladda upp data till Azure och använda dessa data i utbildningen.
+I den här *själv studie serien i fyra delar* får du lära dig grunderna i Azure Machine Learning och fullständiga jobbbaserade python-uppgifter för fin inlärning på Azure Cloud-plattformen. 
 
 I del 1 av den här själv studie serien kommer du att:
 
@@ -36,20 +31,22 @@ I del 1 av den här själv studie serien kommer du att:
 > * Konfigurera din lokala utvecklings miljö.
 > * Konfigurera ett beräknings kluster.
 
->[!NOTE]
-> I den här själv studie serien fokuserar vi Azure Machine Learning koncept som passar för python *-jobbbaserade* Machine Learning-uppgifter som är beräknings intensiva och/eller kräver reproducerbarhet. Om dina Machine Learning-uppgifter inte passar den här profilen kan du använda [Jupyter-eller RStudio-funktionen på en Azure Machine Learning beräknings instans](tutorial-1st-experiment-sdk-setup.md) för att flytta till Azure Machine Learning.
+> [!NOTE]
+> I den här själv studie serien fokuserar vi Azure Machine Learning koncept som passar för python *-jobbbaserade* Machine Learning-uppgifter som är beräknings intensiva och/eller kräver reproducerbarhet. Om du är mer intresse rad av ett exempel arbets flöde kan du i stället använda [Jupyter eller RStudio på en Azure Machine Learning beräknings instans](tutorial-1st-experiment-sdk-setup.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Försök [Azure Machine Learning](https://aka.ms/AMLFree).
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Försök [Azure Machine Learning](https://aka.ms/AMLFree).
 - Bekanta dig med python och [Machine Learning koncept](concept-azure-machine-learning-architecture.md). Exempel är miljöer, utbildning och poäng.
-- En lokal utvecklings miljö: en bärbar dator med python installerat och din favorit-IDE (till exempel Visual Studio Code, pycharm med eller Jupyter).
+- Lokal utvecklings miljö, till exempel Visual Studio Code, Jupyter eller pycharm med.
+- Python (version 3,5 till 3,7).
+
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>Installera Azure Machine Learning SDK
 
 I den här självstudien använder vi Azure Machine Learning SDK för python.
 
-Du kan använda de verktyg som är mest välbekanta för dig (till exempel Conda och pip) för att konfigurera en miljö som ska användas i den här självstudien. Installera i miljön Azure Machine Learning SDK för python via PIP:
+Du kan använda de verktyg som är mest välbekanta för dig (till exempel Conda och pip) för att konfigurera en python-miljö som ska användas i den här självstudien. Installera i python-miljön Azure Machine Learning SDK för python via PIP:
 
 ```bash
 pip install azureml-sdk
@@ -79,7 +76,7 @@ I katalogen på den översta nivån `tutorial` lägger du till en ny python-fil 
 Du kan köra koden i en interaktiv session eller som en python-fil.
 
 >[!NOTE]
-> När du använder en lokal utvecklings miljö (till exempel en bärbar dator) uppmanas du att autentisera till din arbets yta genom att använda en *enhets kod* första gången du kör följande kod. Följ anvisningarna på skärmen.
+> När du använder en lokal utvecklings miljö (till exempel datorn) uppmanas du att autentisera till din arbets yta genom att använda en *enhets kod* första gången du kör följande kod. Följ anvisningarna på skärmen.
 
 ```python
 # tutorial/01-create-workspace.py
@@ -102,7 +99,11 @@ cd <path/to/tutorial>
 python ./01-create-workspace.py
 ```
 
-När du har kört föregående kodfragment kommer mappstrukturen att se ut så här:
+> [!TIP]
+> Om du kör den här koden får du ett fel meddelande om att du inte har åtkomst till prenumerationen. mer information om autentiseringsalternativ finns i [skapa en arbets yta](how-to-manage-workspace.md?tab=python#create-multi-tenant) .
+
+
+När du har kört *01-Create-Workspace.py* kommer mappstrukturen att se ut så här:
 
 ```markdown
 tutorial
@@ -139,8 +140,7 @@ try:
     print('Found existing cluster, use it.')
 except ComputeTargetException:
     compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                            max_nodes=4, 
-                                                            idle_seconds_before_scaledown=2400)
+                                                           idle_seconds_before_scaledown=2400)
     cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
 
 cpu_cluster.wait_for_completion(show_output=True)
@@ -174,7 +174,13 @@ I den här själv studie kursen har du:
 - Konfigurera din lokala utvecklings miljö.
 - Skapade ett Azure Machine Learning beräknings kluster.
 
-I nästa självstudie går du igenom hur du skickar ett skript till Azure Machine Learning beräknings kluster.
+I de andra delarna av den här självstudien får du lära dig:
+
+* Del 2. Kör kod i molnet med hjälp av Azure Machine Learning SDK för python.
+* Del 3. Hantera python-miljön som du använder för modell träning.
+* Del 4. Ladda upp data till Azure och använda dessa data i utbildningen.
+
+Fortsätt till nästa självstudie och gå igenom sändningen av ett skript till Azure Machine Learning beräknings kluster.
 
 > [!div class="nextstepaction"]
 > [Självstudie: kör en "Hello World!" Python-skript i Azure](tutorial-1st-experiment-hello-world.md)

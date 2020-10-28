@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 4442d7cb83ef28b1483c5156e2655deb793b3b16
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a9bcda4affa19cf8793cd078fdc5b96d842eb42b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678426"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893676"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sd-elements"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med SD-element
 
@@ -143,7 +143,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. I menyn högst upp klickar du på **system** och sedan **på enkel inloggning** .
 
-    ![Konfigurera enkel inloggning](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
+    ![Skärm bild som visar "system" markerat och "enkel inloggning" valt i list rutan.](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
 
 1. I dialog rutan **Inställningar för enskild Sign-On** utför du följande steg:
 
@@ -167,11 +167,11 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 1. Klicka på **användar hantering** på menyn längst upp och sedan på **användare** .
 
-    ![Skapa ett SD-element test användare](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
+    ![Skärm bild som visar "användare" som marker ATS från List rutan "användar hantering".](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
 
 1. Klicka på **Lägg till ny användare** .
 
-    ![Skapa ett SD-element test användare](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
+    ![Skärm bild som visar knappen "Lägg till ny användare" vald.](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
 
 1. I dialog rutan **Lägg till ny användare** utför du följande steg:
 

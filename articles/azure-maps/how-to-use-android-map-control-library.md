@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2cda543781118a19ba4999e774b96ae81857f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd2c714c2e16cb8a7a9c530e8e458c33218b1c2b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330935"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895502"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Komma igång med Azure Maps Android SDK
 
@@ -36,10 +36,10 @@ Hämta Android Studio och skapa ett projekt med en tom aktivitet innan du instal
 
 Börja med att skapa ett nytt projekt med en tom aktivitet. Utför de här stegen för att skapa ett Android Studio-projekt:
 
-1. Välj **telefon och surfplatta**under **Välj ditt projekt**. Programmet kommer att köras på den här formulär faktorn.
-2. På fliken **telefon och surfplatta** väljer du **Tom aktivitet**och väljer sedan **Nästa**.
-3. Under **Konfigurera ditt projekt**väljer `API 21: Android 5.0.0 (Lollipop)` du som lägsta SDK. Detta är den tidigaste versionen som stöds av Azure Maps Android SDK.
-4. Godkänn standard `Activity Name` och `Layout Name` Välj **Slutför**.
+1. Välj **telefon och surfplatta** under **Välj ditt projekt** . Programmet kommer att köras på den här formulär faktorn.
+2. På fliken **telefon och surfplatta** väljer du **Tom aktivitet** och väljer sedan **Nästa** .
+3. Under **Konfigurera ditt projekt** väljer `API 21: Android 5.0.0 (Lollipop)` du som lägsta SDK. Detta är den tidigaste versionen som stöds av Azure Maps Android SDK.
+4. Godkänn standard `Activity Name` och `Layout Name` Välj **Slutför** .
 
 Se [Android Studio-dokumentationen](https://developer.android.com/studio/intro/) för att få hjälp med att installera Android Studio och skapa ett nytt projekt.
 
@@ -47,7 +47,7 @@ Se [Android Studio-dokumentationen](https://developer.android.com/studio/intro/)
 
 ## <a name="set-up-a-virtual-device"></a>Konfigurera en virtuell enhet
 
-Med Android Studio kan du konfigurera en virtuell Android-enhet på datorn. På så sätt kan du testa ditt program under utveckling. Om du vill konfigurera en virtuell enhet väljer du ikonen för AVD-hanteraren (Android Virtual Device) i det övre högra hörnet på projekt skärmen och väljer sedan **Skapa virtuell enhet**. Du kan också gå till avd Manager genom att välja **verktyg**  >  **Android**  >  **avd Manager** i verktygsfältet. I kategorin **telefoner** väljer du **Nexus 5x**, och väljer sedan **Nästa**.
+Med Android Studio kan du konfigurera en virtuell Android-enhet på datorn. På så sätt kan du testa ditt program under utveckling. Om du vill konfigurera en virtuell enhet väljer du ikonen för AVD-hanteraren (Android Virtual Device) i det övre högra hörnet på projekt skärmen och väljer sedan **Skapa virtuell enhet** . Du kan också gå till avd Manager genom att välja **verktyg**  >  **Android**  >  **avd Manager** i verktygsfältet. I kategorin **telefoner** väljer du **Nexus 5x** , och väljer sedan **Nästa** .
 
 Du kan lära dig mer om hur du konfigurerar en AVD i [Android Studio-dokumentationen](https://developer.android.com/studio/run/managing-avds).
 
@@ -57,7 +57,7 @@ Du kan lära dig mer om hur du konfigurerar en AVD i [Android Studio-dokumentati
 
 Nästa steg i att skapa ditt program är att installera Azure Maps Android SDK. Slutför de här stegen för att installera SDK:
 
-1. Öppna filen **build. gradle** på den översta nivån och Lägg till följande kod i avsnittet **alla projekt**, **databaser** :
+1. Öppna filen **build. gradle** på den översta nivån och Lägg till följande kod i avsnittet **alla projekt** , **databaser** :
 
     ```
     maven {
@@ -83,7 +83,7 @@ Nästa steg i att skapa ditt program är att installera Azure Maps Android SDK. 
         implementation "com.microsoft.azure.maps:mapcontrol:0.4"
         ```
     
-    4. Gå till **filen** i verktygsfältet och klicka sedan på **Synkronisera projekt med Gradle-filer**.
+    4. Gå till **filen** i verktygsfältet och klicka sedan på **Synkronisera projekt med Gradle-filer** .
 3. Lägg till ett kart fragment i huvud aktiviteten (aktivitet för res \> layout \> \_main.xml):
     
     ```XML
@@ -299,7 +299,7 @@ Lär dig hur du lägger till överläggs data på kartan:
 > [Lägga till ett symbol lager i en Android-karta](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Lägga till former i en Android-karta](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Lägga till former i en Android-karta](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Ändra kart format i Android Maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Ändra kart format i Android Maps](./set-android-map-styles.md)

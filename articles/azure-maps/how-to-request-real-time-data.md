@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6f0cf663b42c8487495602e4cdbf1a88427f9daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f6d0738cb1673b752e35761a112f2ca22a409e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310942"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895723"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Begär offentlig överförings information i real tid med tjänsten Azure Maps Mobility
 
-Den här artikeln visar hur du använder Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) för att begära offentliga data i real tid.
+Den här artikeln visar hur du använder Azure Maps [Mobility Service](/rest/api/maps/mobility) för att begära offentliga data i real tid.
 
 I den här artikeln får du lära dig hur du begär nästa mottagna real tid för alla rader som kommer vid ett angivet stopp
 
@@ -30,13 +30,13 @@ I den här artikeln används [Postman-appen](https://www.getpostman.com/apps) f�
 
 ## <a name="request-real-time-arrivals-for-a-stop"></a>Begär real tids mottagningar för ett stopp
 
-För att begära ingångs data i real tid för en viss offentlig överförings stopp, måste du göra en begäran till [real tids ingångs-API: t](https://aka.ms/AzureMapsMobilityRealTimeArrivals) för [tjänsten Azure Maps Mobility](https://aka.ms/AzureMapsMobilityService). Du behöver **metroID** och **stopID** för att slutföra begäran. Mer information om hur du begär dessa parametrar finns i vår guide om hur du [begär offentliga överförings vägar](https://aka.ms/AMapsHowToGuidePublicTransitRouting).
+För att begära ingångs data i real tid för en viss offentlig överförings stopp, måste du göra en begäran till [real tids ingångs-API: t](/rest/api/maps/mobility/getrealtimearrivalspreview) för [tjänsten Azure Maps Mobility](/rest/api/maps/mobility). Du behöver **metroID** och **stopID** för att slutföra begäran. Mer information om hur du begär dessa parametrar finns i vår guide om hur du [begär offentliga överförings vägar](./how-to-request-transit-data.md).
 
 Vi använder "522" som vårt tunnelbane-ID, som är Metro-ID: t för "Seattle – Tacoma – Bellevue, WA"-ytan. Använd "522---2060603" som stopp-ID: t det här buss steget är "ne 24 st & 162nd Ave Ne, Bellevue WA". Om du vill begära nästa fem real tids mottagande data, för alla nästa Live-införsel i detta steg, slutför du följande steg:
 
-1. Öppna Postman-appen och skapa en samling där du kan lagra begär Anden. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **samling**.  Namnge samlingen och välj knappen **skapa** .
+1. Öppna Postman-appen och skapa en samling där du kan lagra begär Anden. Längst upp i Postman-appen väljer du **nytt** . I fönstret **Skapa nytt** väljer du **samling** .  Namnge samlingen och välj knappen **skapa** .
 
-2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Välj den samling som du skapade i föregående steg, som den plats där du vill spara begäran. Välj sedan **Spara**.
+2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn** för begäran. Välj den samling som du skapade i föregående steg, som den plats där du vill spara begäran. Välj sedan **Spara** .
 
     ![Skapa en begäran i Postman](./media/how-to-request-transit-data/postman-new.png)
 
@@ -121,4 +121,4 @@ Lär dig hur du begär överförings data med mobilitets tjänsten:
 Utforska dokumentationen för Azure Maps Mobility Service API:
 
 > [!div class="nextstepaction"]
-> [API-dokumentation för Mobility Service](https://aka.ms/AzureMapsMobilityService)
+> [API-dokumentation för Mobility Service](/rest/api/maps/mobility)

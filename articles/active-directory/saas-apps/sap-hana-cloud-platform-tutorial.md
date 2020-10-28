@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: be3634ea051c99acf7b706da266179c93a1be861
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2d87be085331c174b58e2a475e18efa54a78cfea
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676672"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895192"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Självstudie: Azure Active Directory integration med SAP Cloud Platform
 
@@ -150,7 +150,7 @@ Konfigurera enkel inloggning i Azure AD med SAP Cloud Platform genom att utföra
 
 3. I avsnittet förtroendehantering under **Lokal tjänstleverantör** , utför du följande steg:
 
-    ![Förtroende hantering](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Förtroende hantering")
+    ![Skärm bild som visar avsnittet "Trust Management" med fliken "lokal tjänst leverantör" markerad och alla text rutor markerade.](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Förtroende hantering")
    
     a. Klicka på **Redigera** .
 
@@ -178,7 +178,7 @@ Konfigurera enkel inloggning i Azure AD med SAP Cloud Platform genom att utföra
 
 5. Klicka på fliken **Betrodd identitetsprovider** och sedan på **Lägg till betrodd identitetsprovider** .
    
-    ![Förtroende hantering](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Förtroende hantering")
+    ![Skärm bild som visar sidan "förtroende hantering" med fliken "betrodd identitetsprovider" vald.](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Förtroende hantering")
    
     >[!NOTE]
     >Om du vill hantera listan med betrodda identitetsprovidrar så måste du ha valt typ av anpassad konfiguration i avsnittet lokal tjänstleverantör. Som standardkonfigurationstyp har du ett icke-redigerbart och implicit förtroende till SAP-ID-tjänsten. För Ingen så har du inga förtroendeinställningar.

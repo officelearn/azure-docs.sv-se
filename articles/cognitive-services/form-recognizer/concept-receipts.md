@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761455"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893694"
 ---
 # <a name="receipt-concepts"></a>Koncept för kvitton
 
@@ -437,7 +437,7 @@ De data som extraheras med kvitto-API kan användas för att utföra en rad olik
 
 Att arkivera företags kostnader innebär ofta att du anger data från bilder av kvitton manuellt. Med kvitto-API: et kan du använda de extraherade fälten för att delvis automatisera den här processen och snabbt analysera dina kvitton.  
 
-Eftersom kvitto-API: et har ett enkelt JSON-utdata kan du använda de extraherade fältvärdena på flera sätt. Integrera med interna utgifts program för att fylla i utgifts rapporter i förväg. Mer information om det här scenariot får du genom att läsa om hur Acumatica använder sig av kvitto-API för att [göra utgifts rapportering till en mindre smärtsamt process](https://customers.microsoft.com/en-us/story/762684-acumatica-partner-professional-services-azure).  
+Eftersom kvitto-API: et har ett enkelt JSON-utdata kan du använda de extraherade fältvärdena på flera sätt. Integrera med interna utgifts program för att fylla i utgifts rapporter i förväg. Mer information om det här scenariot får du genom att läsa om hur Acumatica använder sig av kvitto-API för att [göra utgifts rapportering till en mindre smärtsamt process](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
 
 ### <a name="auditing-and-accounting"></a>Granskning och redovisning 
 

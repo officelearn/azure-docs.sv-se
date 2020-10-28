@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/15/2019
 ms.author: jeedes
-ms.openlocfilehash: eae60ba9aabe417e986c7637ce700302bfe6c7bf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2b0c42046df716c8ae65046e5f3314817da0a17e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676565"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893805"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-screencast-o-matic"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med skärm utsändning-O-Matic
 
@@ -139,13 +139,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Under avsnittet **åtkomst sida** klickar du på **installation** .
 
-    ![Åtkomst](./media/screencast-tutorial/tutorial_screencast_setup.png)
+    ![Skärm bild som visar avsnittet "åtkomst sidan" med knappen "Konfigurera" valt.](./media/screencast-tutorial/tutorial_screencast_setup.png)
 
 1. Utför följande steg på **sidan Konfigurera åtkomst** .
 
 1. Under avsnittet **åtkomst-URL** , anger du ditt instancename i den angivna text rutan.
 
-    ![Åtkomst](./media/screencast-tutorial/tutorial_screencast_access.png)
+    ![Skärm bild som visar avsnittet "Access U R L" med text rutan instans namn markerat.](./media/screencast-tutorial/tutorial_screencast_access.png)
 
 1. Välj **Kräv domän användare** under avsnittet **SAML-användar begränsning (valfritt)** .
 

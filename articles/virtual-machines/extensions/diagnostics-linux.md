@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448183"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893411"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-diagnostiktillägget för att övervaka mått och loggar
 
@@ -39,6 +39,9 @@ Det här tillägget fungerar med både Azures distributions modeller.
 ## <a name="installing-the-extension-in-your-vm"></a>Installera tillägget på din virtuella dator
 
 Du kan aktivera det här tillägget med hjälp av Azure PowerShell-cmdletar, Azure CLI-skript, ARM-mallar eller Azure Portal. Mer information finns i [tillägg-funktioner](features-linux.md).
+
+>[!NOTE]
+>Vissa komponenter i det virtuella diagnostik-tillägget för virtuella datorer levereras också i [Log Analytics VM-tillägget](./oms-linux.md). På grund av den här arkitekturen kan konflikter uppstå om båda tilläggen instansieras i samma ARM-mall. Undvik dessa installations tids konflikter genom att använda [ `dependsOn` direktivet](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) för att se till att tilläggen installeras i tur och ordning. Tilläggen kan installeras i valfri ordning.
 
 Dessa installationsinstruktioner och en [nedladdnings bar exempel konfiguration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) konfigurerar lad 3,0 till:
 
@@ -67,8 +70,8 @@ Distributioner och versioner som stöds:
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-* **Azure Linux-agentens version 2.2.0 eller senare**. De flesta Azure VM Linux-avbildningar innehåller version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta versionen som är installerad på den virtuella datorn. Om den virtuella datorn kör en äldre version av gäst agenten följer du [de här anvisningarna](./update-linux-agent.md) för att uppdatera den.
-* **Azure CLI**. [Konfigurera Azure CLI](/cli/azure/install-azure-cli) -miljön på din dator.
+* **Azure Linux-agentens version 2.2.0 eller senare** . De flesta Azure VM Linux-avbildningar innehåller version 2.2.7 eller senare. Kör `/usr/sbin/waagent -version` för att bekräfta versionen som är installerad på den virtuella datorn. Om den virtuella datorn kör en äldre version av gäst agenten följer du [de här anvisningarna](./update-linux-agent.md) för att uppdatera den.
+* **Azure CLI** . [Konfigurera Azure CLI](/cli/azure/install-azure-cli) -miljön på din dator.
 * Kommandot wget, om du inte redan har det: kör `sudo apt-get install wget` .
 * En befintlig Azure-prenumeration och ett befintligt allmänt lagrings konto för lagring av data i.  Lagrings konton för generell användning stöder tabell lagring som krävs.  Ett Blob Storage-konto kommer inte att fungera.
 
@@ -172,7 +175,7 @@ När du har ändrat dina skyddade eller offentliga inställningar distribuerar d
 
 ### <a name="migration-from-previous-versions-of-the-extension"></a>Migrering från tidigare versioner av tillägget
 
-Den senaste versionen av tillägget är **3,0**. **Alla gamla versioner (2. x) är inaktuella och kan tas bort från och med den 31 juli 2018**.
+Den senaste versionen av tillägget är **3,0** . **Alla gamla versioner (2. x) är inaktuella och kan tas bort från och med den 31 juli 2018** .
 
 > [!IMPORTANT]
 > Tillägget introducerar ändringar i tilläggets konfiguration. En sådan ändring gjordes för att förbättra säkerheten för tillägget. Det innebär att det inte går att behålla bakåtkompatibilitet med 2. x. Tilläggs utgivaren för det här tillägget skiljer sig också från utgivaren för 2. x-versionerna.
@@ -578,7 +581,7 @@ TransfersPerSecond | Läs-eller Skriv åtgärder per sekund
 
 Sammanställda värden för alla fil system kan hämtas genom inställningen `"condition": "IsAggregate=True"` . Värdena för ett bestämt monterat fil system, till exempel "/mnt", kan hämtas genom att ställa in `"condition": 'Name="/mnt"'` . 
 
-**Obs**: om du använder Azure-portalen i stället för JSON, är rätt villkors fält formulär namn = '/mnt '
+**Obs** : om du använder Azure-portalen i stället för JSON, är rätt villkors fält formulär namn = '/mnt '
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>inbyggda mått för disk klassen
 

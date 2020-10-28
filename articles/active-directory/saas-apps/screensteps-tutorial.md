@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: cf43875be0088f9f9c8c8f209f97c8443bd305bb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3816239798290318404980ded388b726d8134395
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676600"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895213"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Självstudie: Azure Active Directory integrering med ScreenSteps
 
@@ -126,11 +126,11 @@ Utför följande steg för att konfigurera enkel inloggning med ScreenSteps i Az
 
 1. Klicka på **konto inställningar** .
 
-    ![Konto hantering](./media/screensteps-tutorial/ic778523.png "Kontohantering")
+    ![Kontohantering](./media/screensteps-tutorial/ic778523.png "Kontohantering")
 
 1. Klicka på **enkel inloggning** .
 
-    ![Fjärrautentisering](./media/screensteps-tutorial/ic778524.png "Fjärrautentisering")
+    ![Skärm bild som visar markerade "enkel inloggning".](./media/screensteps-tutorial/ic778524.png "Fjärrautentisering")
 
 1. Klicka på **skapa slut punkt för enkel inloggning** .
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 91c0eaf5b1e614e185747cd9ae2c32e7f4f7a707
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6d04601cb11e57f50c82680077793aef1b816bfa
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672055"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895171"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Självstudier: Azure Active Directory-integration med SAP Business ByDesign
 
@@ -110,11 +110,11 @@ Utför följande steg för att konfigurera enkel inloggning med SAP Business ByD
 
 5. I SAP Business ByDesign-programmet förväntas SAML-kontroller i ett särskilt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut** .
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar dialog rutan för användarattribut med knappen "redigera" markerad.](common/edit-attribute.png)
 
 6. Klicka på **redigerings** ikonen för att redigera **namnet på namn identifieraren** .
 
-    ![image](media/sapbusinessbydesign-tutorial/mail-prefix1.png)
+    ![Skärm bild som visar sidan "användarattribut &-anspråk" med ikonen "redigera" markerad.](media/sapbusinessbydesign-tutorial/mail-prefix1.png)
 
 7. I avsnittet **hantera användar anspråk** utför du följande steg:  ![ bild](media/sapbusinessbydesign-tutorial/mail-prefix2.png)
 
@@ -148,7 +148,7 @@ Utför följande steg för att konfigurera enkel inloggning med SAP Business ByD
 
 3. Klicka på **ny identitetsprovider** och välj XML-filen med metadata som du laddade ned från Azure Portal. Genom att importera metadata överför systemet automatiskt de nödvändiga signatur- och krypteringscertifikaten.
 
-    ![Konfigurera enkel inloggning](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
+    ![Skärm bild som visar sidan "Konfigurera enkel inloggning" med fliken "identitetsprovider" vald och åtgärden "ny identitets leverantör" har valts.](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
 
 4. Om du vill ta med **URL: en för intygad konsument tjänst** till SAML-begäran väljer du **ta med URL för intygad konsument tjänst** .
 
@@ -158,7 +158,7 @@ Utför följande steg för att konfigurera enkel inloggning med SAP Business ByD
 
 7. Klicka på fliken **Mina System** .
 
-    ![Konfigurera enkel inloggning](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
+    ![Skärm bild som visar sidan "Konfigurera enkel inloggning" med fliken "min system" vald.](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
 
 8. I text rutan för **inloggnings-URL i Azure AD** klistrar du in **inloggnings-URL** -värde, som du har kopierat från Azure Portal.
 

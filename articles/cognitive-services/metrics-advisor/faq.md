@@ -10,22 +10,18 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131691"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893585"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Vanliga frågor och svar om mått rådgivare
 
 ### <a name="what-is-the-cost-of-my-instance"></a>Vad kostar min instans?
 
 Det finns för närvarande ingen kostnad för att använda din instans under för hands versionen.
-
-### <a name="why-is-the-demo-website-readonly"></a>Varför är demonstrations webbplatsen skrivskyddad?
-
-[Demo webbplatsen](https://anomaly-detector.azurewebsites.net/) är offentligt tillgänglig. Den här instansen blir skrivskyddad för att förhindra oavsiktlig överföring av data.
 
 ### <a name="why-cant-i-create-the-resource-the-pricing-tier-is-unavailable-and-it-says-you-have-already-created-1-s0-for-this-subscription"></a>Varför kan jag inte skapa resursen? Pris nivån är inte tillgänglig och säger att du redan har skapat 1 S0 för den här prenumerationen?
 
@@ -141,9 +137,8 @@ Men vanligt vis är inte alla dimensions kombinationer giltiga, vilket kan minsk
  
 Till exempel när en avvikelse inträffar på påverkar avvikelsen `Service = S2 | Data Center = DC2 | Machine = M5` av avvikelsen den överordnade noden `Service= S2` som också har identifierat avvikelsen, men avvikelsen påverkar inte hela data centret på `DC2` och alla tjänster på `M5` . Incident trädet skulle skapas som i skärm bilden nedan, den översta avvikelsen samlas in `Service = S2` och rotor saken kan analyseras i två sökvägar som båda leder till `Service = S2 | Data Center = DC2 | Machine = M5` .
 
- :::image type="content" source="media/root-cause-paths.png" alt-text="5 märkta hörn med två distinkta sökvägar sammankopplade med en gemensam nod märkta S2. Den främsta avvikelsen samlas in på tjänsten = S2, och rotor saken kan analyseras av de två Sök vägarna som båda leder till service = S2 | Data Center = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 märkta hörn med två distinkta sökvägar sammankopplade med en gemensam nod med etiketten S2. Den främsta avvikelsen samlas in på tjänsten = S2, och rotor saken kan analyseras av de två Sök vägarna som båda leder till service = S2 | Data Center = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 - [Översikt över Metrics Advisor](overview.md)
-- [Prova demo webbplatsen](quickstarts/explore-demo.md)
 - [Använda webbportalen](quickstarts/web-portal.md)

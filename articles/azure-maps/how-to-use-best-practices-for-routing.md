@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 13c7178b4a0866066dc74e409f8f4bfcd21a23f4
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 743710ea0d40eb31375236d4e59b0b138a217518
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874602"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895553"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Metod tips för Azure Maps Route service
 
-API: er för väg riktning och väg mat ris i Azure Maps [Route service](https://docs.microsoft.com/rest/api/maps/route) kan användas för att beräkna uppskattade ankomst tider (ETAs) för varje begärd väg. Väg-API: er kan se faktorer som information om trafik i real tid och historiska trafikdata, till exempel vanliga väg hastigheter på den begärda dagen i veckan och tid på dagen. API: erna returnerar de kortaste eller snabbaste vägarna som är tillgängliga för flera mål i taget i följd eller i optimerad ordning, baserat på tid eller avstånd. Användare kan också begära särskilda vägar och information för avvisare, cyklister och kommersiella bilar som Last bilar. I den här artikeln ska vi dela de bästa metoderna för att anropa Azure Maps [Route service](https://docs.microsoft.com/rest/api/maps/route)och du får lära dig att:
+API: er för väg riktning och väg mat ris i Azure Maps [Route service](/rest/api/maps/route) kan användas för att beräkna uppskattade ankomst tider (ETAs) för varje begärd väg. Väg-API: er kan se faktorer som information om trafik i real tid och historiska trafikdata, till exempel vanliga väg hastigheter på den begärda dagen i veckan och tid på dagen. API: erna returnerar de kortaste eller snabbaste vägarna som är tillgängliga för flera mål i taget i följd eller i optimerad ordning, baserat på tid eller avstånd. Användare kan också begära särskilda vägar och information för avvisare, cyklister och kommersiella bilar som Last bilar. I den här artikeln ska vi dela de bästa metoderna för att anropa Azure Maps [Route service](/rest/api/maps/route)och du får lära dig att:
 
  * Välj mellan API: er för väg riktningar och mat ris Dirigerings-API: et
  * Begära historiska och förväntade restider baserat på trafikdata i realtid och historiska trafikdata
@@ -27,7 +27,7 @@ API: er för väg riktning och väg mat ris i Azure Maps [Route service](https:/
  * Begär en väg som består av ett eller flera stopp (waypoints)
  * Optimera en väg av ett eller flera stopp för att få den bästa ordningen för att besöka varje stopp (waypoint)
  * Optimera alternativa vägar med hjälp av stöd punkter. Du kan till exempel erbjuda alternativa vägar som passerar en station med elektrisk fordons debitering.
- * Använd [Route service](https://docs.microsoft.com/rest/api/maps/route) med Azure Maps webb-SDK
+ * Använd [Route service](/rest/api/maps/route) med Azure Maps webb-SDK
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -113,7 +113,7 @@ I det andra exemplet nedan har vi en operationsföljd förfrågan i real tid, d�
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-Svaret innehåller en sammanfattning som visas nedan. På grund av överbelastningar är **trafficDelaysInSeconds** -värdet större än noll. Det är också större än **historicTrafficTravelTimeInSeconds**.
+Svaret innehåller en sammanfattning som visas nedan. På grund av överbelastningar är **trafficDelaysInSeconds** -värdet större än noll. Det är också större än **historicTrafficTravelTimeInSeconds** .
 
 ```json
 "summary": {
@@ -140,7 +140,7 @@ Expandera `point` elementet om du vill se en lista över koordinater för sökv�
 
 ![Element för utökade punkter](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
-API: er för väg riktningar stöder olika format för instruktioner som kan användas genom att ange parametern **instructionsType** . Använd **instructionsType = Codet**för att formatera instruktioner för enkel dator bearbetning. Använd **instructionsType = taggade** för att visa instruktioner som text för användaren. Dessutom kan instruktioner formateras som text där vissa element i anvisningarna är markerade och instruktionen visas med särskild formatering. Mer information finns i [listan över instruktions typer som stöds](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
+API: er för väg riktningar stöder olika format för instruktioner som kan användas genom att ange parametern **instructionsType** . Använd **instructionsType = Codet** för att formatera instruktioner för enkel dator bearbetning. Använd **instructionsType = taggade** för att visa instruktioner som text för användaren. Dessutom kan instruktioner formateras som text där vissa element i anvisningarna är markerade och instruktionen visas med särskild formatering. Mer information finns i [listan över instruktions typer som stöds](/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 När instruktioner begärs returnerar svaret ett nytt element med namnet `guidance` . `guidance`Elementet innehåller två delar av information: vägbeskrivningar och sammanfattande instruktioner.
 
@@ -186,7 +186,7 @@ Svaret nedan är för en Last bil som bär ett farligt material i klass 9, vilke
 
 ## <a name="request-traffic-information-along-a-route"></a>Begära trafik information längs en väg
 
-Med Azure Maps väg riktnings-API: er kan utvecklare begära information för varje typ av avsnitt genom att inkludera `sectionType` parametern i begäran. Du kan till exempel begära hastighets information för varje segment för stopp av trafik. I [listan med värden för nyckeln sectionType](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) kan du läsa mer om de olika uppgifterna som du kan begära.
+Med Azure Maps väg riktnings-API: er kan utvecklare begära information för varje typ av avsnitt genom att inkludera `sectionType` parametern i begäran. Du kan till exempel begära hastighets information för varje segment för stopp av trafik. I [listan med värden för nyckeln sectionType](/rest/api/maps/route/getroutedirections#sectiontype) kan du läsa mer om de olika uppgifterna som du kan begära.
 
 ### <a name="sample-query"></a>Exempelfråga
 
@@ -208,13 +208,13 @@ Det här alternativet kan användas för att färga avsnitten när du återger k
 
 Azure Maps tillhandahåller för närvarande två former av väg optimeringar:
 
-* Optimeringar baserat på den begärda cirkulations typen, utan att ändra ordningen på waypoints. Du kan hitta de [flödes typer som stöds här](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routetype)
+* Optimeringar baserat på den begärda cirkulations typen, utan att ändra ordningen på waypoints. Du kan hitta de [flödes typer som stöds här](/rest/api/maps/route/postroutedirections#routetype)
 
 * Traveling Salesman-optimering, som ändrar ordningen på waypoints för att få den bästa ordningen för att besöka varje stopp
 
 För multi-Stop-routning kan upp till 150 waypoints anges i en enda Route-begäran. Start-och slut koordinaterna kan vara desamma, som skulle vara fallet med en tur och retur. Men du måste ange minst en ytterligare waypoint för att utföra väg beräkningen. Waypoints kan läggas till i frågan i-mellan koordinaterna för ursprung och mål.
 
-Om du vill optimera den bästa ordningen för att besöka den aktuella waypoints måste du ange **computeBestOrder = True**. Det här scenariot kallas även för problem med att optimera säljman-optimering.
+Om du vill optimera den bästa ordningen för att besöka den aktuella waypoints måste du ange **computeBestOrder = True** . Det här scenariot kallas även för problem med att optimera säljman-optimering.
 
 ### <a name="sample-query"></a>Exempelfråga
 
@@ -262,11 +262,11 @@ Den optimala vägen har följande waypoint: 0, 5, 1, 2, 4, 3 och 6.
 Du kan ha situationer där du vill rekonstruera en väg för att beräkna noll eller fler alternativa vägar för en referens väg. Du kanske till exempel vill visa alternativa vägar till kunder som skickar in din butik. I så fall måste du prioritera en plats med hjälp av support punkter. Här följer stegen för att prioritera en plats:
 
 1. Beräkna en väg som den är och hämta sökvägen från väg svaret
-2. Använd väg Sök vägen för att hitta önskade platser längs eller nära väg Sök vägen. Du kan till exempel använda Azure Maps [orienterings punktens API](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi) eller fråga dina egna data i databasen.  
+2. Använd väg Sök vägen för att hitta önskade platser längs eller nära väg Sök vägen. Du kan till exempel använda Azure Maps [orienterings punktens API](/rest/api/maps/search/getsearchpoi) eller fråga dina egna data i databasen.  
 3. Ordna platserna baserat på avståndet från vägens början
-4. Lägg till dessa platser som stöd punkter i en ny värdväg till API: et för att [publicera väg riktningar](https://docs.microsoft.com/rest/api/maps/route/postroutedirections). Om du vill veta mer om de stödda punkterna kan du läsa [API-dokumentationen för post riktningar](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints). 
+4. Lägg till dessa platser som stöd punkter i en ny värdväg till API: et för att [publicera väg riktningar](/rest/api/maps/route/postroutedirections). Om du vill veta mer om de stödda punkterna kan du läsa [API-dokumentationen för post riktningar](/rest/api/maps/route/postroutedirections#supportingpoints). 
 
-När du anropar [API: er för post vägs riktningar](https://docs.microsoft.com/rest/api/maps/route/postroutedirections)kan du ange den minsta avvikelse tiden eller avstånds begränsningarna, tillsammans med stöd punkterna. Använd de här parametrarna om du vill erbjuda alternativa vägar, men du vill även begränsa res tiden. När dessa villkor används följer de alternativa vägarna referens vägen från ursprungs punkten för den givna tiden eller det givna avståndet. De andra vägarna avviker från referens vägen enligt de begränsningar som anges.
+När du anropar [API: er för post vägs riktningar](/rest/api/maps/route/postroutedirections)kan du ange den minsta avvikelse tiden eller avstånds begränsningarna, tillsammans med stöd punkterna. Använd de här parametrarna om du vill erbjuda alternativa vägar, men du vill även begränsa res tiden. När dessa villkor används följer de alternativa vägarna referens vägen från ursprungs punkten för den givna tiden eller det givna avståndet. De andra vägarna avviker från referens vägen enligt de begränsningar som anges.
 
 Bilden nedan är ett exempel på hur du kan återge alternativa vägar med angivna avvikelse gränser för tid och avstånd.
 
@@ -274,20 +274,20 @@ Bilden nedan är ett exempel på hur du kan återge alternativa vägar med angiv
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>Använda routningstjänsten i en webbapp
 
-Azure Maps Web SDK tillhandahåller en [service-modul](https://docs.microsoft.com/javascript/api/azure-maps-rest/). Den här modulen är ett hjälp bibliotek som gör det enkelt att använda Azure Maps REST-API: er i webb-eller Node.js program med hjälp av Java Script eller TypeScript. Service-modulen kan användas för att återge de returnerade vägarna på kartan. Modulen avgör automatiskt vilket API som ska användas med GET-och POST-förfrågningar.
+Azure Maps Web SDK tillhandahåller en [service-modul](/javascript/api/azure-maps-rest/). Den här modulen är ett hjälp bibliotek som gör det enkelt att använda Azure Maps REST-API: er i webb-eller Node.js program med hjälp av Java Script eller TypeScript. Service-modulen kan användas för att återge de returnerade vägarna på kartan. Modulen avgör automatiskt vilket API som ska användas med GET-och POST-förfrågningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns i:
 
 > [!div class="nextstepaction"]
-> [Tjänsten Route i Azure Maps](https://docs.microsoft.com/rest/api/maps/route)
+> [Tjänsten Route i Azure Maps](/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
-> [Använda Service-modulen](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
+> [Använda Service-modulen](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Visa väg på kartan](https://docs.microsoft.com/azure/azure-maps/map-route)
+> [Visa väg på kartan](./map-route.md)
 
 > [!div class="nextstepaction"]
 > [Azure Maps NPM-paket](https://www.npmjs.com/package/azure-maps-rest  )

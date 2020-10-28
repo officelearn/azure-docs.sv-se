@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4340bd0ffc4a060b1eb8884efa8078aaf18e1e28
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322303"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893989"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Exempel på Resource Manager-mallar för mått varnings regler i Azure Monitor
 
@@ -712,10 +712,10 @@ I det här exemplet övervakar varnings regeln dimensions värde kombinationer f
 2. **ApiName** – en annan tids serie övervakas endast för **GetBlob** -och **PutBlob** -dimensionsvärdena.
 
 Till exempel är några av de tänkbara tids serier som övervakas av den här aviserings regeln:
-- Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *GetBlob*
-- Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *PutBlob*
-- Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *GetBlob*
-- Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *PutBlob*
+- Metric = *transaktioner* , ResponseType = *lyckades* , ApiName = *GetBlob*
+- Metric = *transaktioner* , ResponseType = *lyckades* , ApiName = *PutBlob*
+- Metric = *Transactions* , ResponseType = *Server-timeout* , ApiName = *GetBlob*
+- Metric = *Transactions* , ResponseType = *Server-timeout* , ApiName = *PutBlob*
 
 ### <a name="template-file"></a>Mallfil
 
@@ -903,10 +903,10 @@ I det här exemplet övervakar varnings regeln dimensions värde kombinationer f
 2. **ApiName** – en annan tids serie övervakas endast för **GetBlob** -och **PutBlob** -dimensionsvärdena.
 
 Till exempel är några av de tänkbara tids serier som övervakas av den här aviserings regeln:
-- Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *GetBlob*
-- Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *PutBlob*
-- Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *GetBlob*
-- Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *PutBlob*
+- Metric = *transaktioner* , ResponseType = *lyckades* , ApiName = *GetBlob*
+- Metric = *transaktioner* , ResponseType = *lyckades* , ApiName = *PutBlob*
+- Metric = *Transactions* , ResponseType = *Server-timeout* , ApiName = *GetBlob*
+- Metric = *Transactions* , ResponseType = *Server-timeout* , ApiName = *PutBlob*
 
 >[!NOTE]
 > Flera kriterier stöds för närvarande inte för mått varnings regler som använder dynamiska tröskelvärden.
@@ -3132,7 +3132,7 @@ Med [Application Insights tillgänglighets test](../app/monitor-web-app-availabi
 > [!NOTE]
 > `&amp`; är referensen till HTML-entiteten för &. URL-parametrar är fortfarande åtskilda av en enda &, men om du nämner URL: en i HTML måste du koda den. Så om du har några "&" i ditt pingURL-parameter värde måste du kringgå det med " `&amp` ;"
 
-### <a name="parameter-file"></a>Parameter fil
+### <a name="template-file"></a>Mallfil
 
 ```json
 {
@@ -3234,8 +3234,6 @@ Med [Application Insights tillgänglighets test](../app/monitor-web-app-availabi
 }
 ```
 
-
-
 ### <a name="parameter-file"></a>Parameter fil
 
 ```json
@@ -3254,12 +3252,53 @@ Med [Application Insights tillgänglighets test](../app/monitor-web-app-availabi
         },
         "location": {
             "value": "Replace with the location of your Application Insights resource"
-        }
+        },
+        "pingText": {
+            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string within the content returned from a pingURL response",
+            "type": "String"
+        },
     }
 }
 ```
 
+Ytterligare konfiguration av innehålls matchnings `pingText` parametern styrs i den `Configuration/Webtest` del av mallfilen. I synnerhet avsnittet nedan:
 
+```xml
+<RuleParameter Name=\"FindText\" Value=\"',parameters('pingText'), '\" />
+<RuleParameter Name=\"IgnoreCase\" Value=\"False\" />
+<RuleParameter Name=\"UseRegularExpression\" Value=\"False\" /> 
+<RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />
+```
+### <a name="test-locations"></a>Test platser
+
+|Id                  | Region           |
+|:-------------------|:-----------------|
+| `emea-nl-ams-azr`  | Europa, västra      |
+| `us-ca-sjc-azr`    | USA, västra          |
+| `emea-ru-msa-edge` | Storbritannien, södra         |
+| `emea-se-sto-edge` | Storbritannien, västra          |
+| `apac-sg-sin-azr`  | Sydostasien   |
+| `us-tx-sn1-azr`    | USA, södra centrala |
+| `us-il-ch1-azr`    | USA, norra centrala |
+| `emea-gb-db3-azr`  | Norra Europa     |
+| `apac-jp-kaw-edge` | Japan, östra       |
+| `emea-fr-pra-edge` | Frankrike, centrala   |
+| `emea-ch-zrh-edge` | Frankrike, södra     |
+| `us-va-ash-azr`    | East US          |
+| `apac-hk-hkn-azr`  | Asien, östra        |
+| `us-fl-mia-edge`   | Central US       |
+| `latam-br-gru-edge`| Brasilien, södra      |
+| `emea-au-syd-edge` | Australien, östra   |
+
+### <a name="us-government-test-locations"></a>AMERIKANSKA myndigheters test platser
+
+|Id                    | Region           |
+|----------------------|------------------|
+| `usgov-va-azr`       | `USGov Virginia` |
+| `usgov-phx-azr`      | `USGov Arizona`  |
+| `usgov-tx-azr`       | `USGov Texas`    |
+| `usgov-ddeast-azr`   | `USDoD East`     |
+| `usgov-ddcentral-azr`| `USDoD Central`  |
 
 ## <a name="next-steps"></a>Nästa steg
 

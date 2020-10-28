@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6d8a2bfe20d0e7b52dcd60127b3666f0c21a792
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83677936"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895808"
 ---
 # <a name="manage-azure-maps-creator"></a>Hantera Azure Maps skapare
 
@@ -25,19 +25,19 @@ Den här artikeln tar dig igenom stegen för att skapa och ta bort en skapare-re
 
 1. Logga in på [Azure-portalen](https://portal.azure.com)
 
-2. Välj ditt Azure Maps-konto. Om du inte kan se ditt Azure Maps konto under de **senaste resurserna**går du till Azure Portal-menyn. Välj **Alla resurser**. Sök efter och välj ditt Azure Maps-konto.
+2. Välj ditt Azure Maps-konto. Om du inte kan se ditt Azure Maps konto under de **senaste resurserna** går du till Azure Portal-menyn. Välj **Alla resurser** . Sök efter och välj ditt Azure Maps-konto.
 
     ![Azure Maps portalens start sida](./media/how-to-manage-creator/select-maps-account.png)
 
-3. När du är på sidan Azure Maps konto går du till **översikts** alternativet under **skapare**. Klicka på  **skapa**  för att skapa en Azure Maps skapare-resurs.
+3. När du är på sidan Azure Maps konto går du till **översikts** alternativet under **skapare** . Klicka på  **skapa**  för att skapa en Azure Maps skapare-resurs.
 
     ![Sidan Skapa Azure Maps skapare](./media/how-to-manage-creator/creator-blade-settings.png)
 
-4. Ange namn och plats för din skapare resurs. För närvarande stöds endast skapare i USA. Klicka på **Granska + skapa**.
+4. Ange namn och plats för din skapare resurs. För närvarande stöds endast skapare i USA. Klicka på **Granska + skapa** .
 
    ![Sidan Ange skapare konto information](./media/how-to-manage-creator/creator-creation-dialog.png)
 
-5. Granska inställningarna och klicka på **skapa**.
+5. Granska inställningarna och klicka på **skapa** .
 
     ![Sidan Bekräfta inställningar för skapare av konto](./media/how-to-manage-creator/creator-create-dialog.png)
 
@@ -45,7 +45,7 @@ Den här artikeln tar dig igenom stegen för att skapa och ta bort en skapare-re
 
    ![Status sida för resurs distribution](./media/how-to-manage-creator/creator-resource-created.png)
 
-7. Klicka på **Gå till resurs**. Sidan skapare resurs visning visar status för din skapare-resurs och den valda demografiska regionen.
+7. Klicka på **Gå till resurs** . Sidan skapare resurs visning visar status för din skapare-resurs och den valda demografiska regionen.
 
     ![Sidan status för skapare](./media/how-to-manage-creator/creator-resource-view.png)
 
@@ -54,7 +54,7 @@ Den här artikeln tar dig igenom stegen för att skapa och ta bort en skapare-re
 
 ## <a name="delete-creator-resource"></a>Ta bort skapare resurs
 
-Om du vill ta bort skapare-resursen går du till ditt Azure Maps-konto. Välj **Översikt** under **skapare**. Klicka på knappen **Ta bort**.
+Om du vill ta bort skapare-resursen går du till ditt Azure Maps-konto. Välj **Översikt** under **skapare** . Klicka på knappen **Ta bort** .
 
 >[!WARNING]
 >När du tar bort skapare-resursen för ditt Azure Maps-konto tar du även bort data uppsättningarna, tilesets och funktionen statesets som skapats med hjälp av Creator Services.
@@ -69,7 +69,7 @@ Klicka på knappen **ta bort** och skriv namnet på din skapare för att bekräf
 
 Skapare ärver inställningar för Azure Maps Access Control (IAM). Alla API-anrop för data åtkomst måste skickas med regler för autentisering och auktorisering.
 
-Skapare användnings data ingår i Azure Maps användnings diagram och aktivitets loggen.  Mer information finns i [hantera autentisering i Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Skapare användnings data ingår i Azure Maps användnings diagram och aktivitets loggen.  Mer information finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="access-to-creator-services"></a>Åtkomst till Creator-tjänster
 
@@ -88,7 +88,7 @@ Introduktion till skapare för från koppling till inomhus:
 > [Data konvertering](creator-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Datamängd](creator-indoor-maps.md#datasets)
+> [Data uppsättning](creator-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
 > [Tileset](creator-indoor-maps.md#tilesets)

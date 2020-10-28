@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6fb4d1459584e8dd2b230a424f043ad086f2570d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 57e847116febcea66e1e3ac4ba131617463b6c94
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089459"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895774"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
 
@@ -22,16 +22,16 @@ När du har skapat ett Azure Maps-konto skapas ett klient-ID och nycklar som st�
 
 ## <a name="view-authentication-details"></a>Visa information om autentisering
 
-När du har skapat ett Azure Maps-konto genereras de primära och sekundära nycklarna. Vi rekommenderar att du använder en primär nyckel som en prenumerations nyckel när du [använder autentisering med delad nyckel för att anropa Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Du kan använda en sekundär nyckel i scenarier som löpande nyckel ändringar. Mer information finns i [autentisering i Azure Maps](https://aka.ms/amauth).
+När du har skapat ett Azure Maps-konto genereras de primära och sekundära nycklarna. Vi rekommenderar att du använder en primär nyckel som en prenumerations nyckel när du [använder autentisering med delad nyckel för att anropa Azure Maps](./azure-maps-authentication.md#shared-key-authentication). Du kan använda en sekundär nyckel i scenarier som löpande nyckel ändringar. Mer information finns i [autentisering i Azure Maps](./azure-maps-authentication.md).
 
-Du kan visa information om autentiseringen i Azure Portal. I ditt konto går du till menyn **Inställningar** och väljer **autentisering**.
+Du kan visa information om autentiseringen i Azure Portal. I ditt konto går du till menyn **Inställningar** och väljer **autentisering** .
 
 > [!div class="mx-imgBorder"]
 > ![Information om autentisering](./media/how-to-manage-authentication/how-to-view-auth.png)
 
 ## <a name="discover-category-and-scenario"></a>Identifiera kategori och scenario
 
-Beroende på programmets behov finns det specifika vägar för att skydda programmet. Azure AD definierar kategorier för att stödja en mängd olika autentiserings flöden. Se [program kategorier](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#application-categories) för att förstå vilken kategori programmet passar.
+Beroende på programmets behov finns det specifika vägar för att skydda programmet. Azure AD definierar kategorier för att stödja en mängd olika autentiserings flöden. Se [program kategorier](../active-directory/develop/authentication-flows-app-scenarios.md#application-categories) för att förstå vilken kategori programmet passar.
 
 > [!NOTE]
 > Även om du använder autentisering med delad nyckel kan du använda kategorier och scenarier för att skydda programmet.
@@ -56,14 +56,14 @@ Länkarna i tabellen tar dig till detaljerad konfigurations information för var
 
 ## <a name="view-role-definitions"></a>Visa roll definitioner
 
-Om du vill visa Azure-roller som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*. Dessa Azure Maps roller är de roller som du kan bevilja åtkomst till.
+Om du vill visa Azure-roller som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)** . Välj **roller** och Sök sedan efter roller som börjar med *Azure Maps* . Dessa Azure Maps roller är de roller som du kan bevilja åtkomst till.
 
 > [!div class="mx-imgBorder"]
 > ![Visa tillgängliga roller](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 ## <a name="view-role-assignments"></a>Visa rolltilldelningar
 
-Om du vill visa användare och appar som har beviljats åtkomst för Azure Maps går du till **Access Control (IAM)**. Där väljer du **roll tilldelningar**och filtrerar sedan efter **Azure Maps**.
+Om du vill visa användare och appar som har beviljats åtkomst för Azure Maps går du till **Access Control (IAM)** . Där väljer du **roll tilldelningar** och filtrerar sedan efter **Azure Maps** .
 
 > [!div class="mx-imgBorder"]
 > ![Visa användare och appar som har beviljats åtkomst](./media/how-to-manage-authentication/how-to-view-amrbac.png)
@@ -77,11 +77,11 @@ Begär en token från Azure AD-token-slutpunkten. Använd följande information 
 | Offentligt Azure-moln     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
 | Azure Government molnet | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-Mer information om hur du begär åtkomsttoken från Azure AD för användare och tjänst huvud namn finns i [scenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) och visa särskilda scenarier i tabellen med [scenarier](./how-to-manage-authentication.md#determine-authentication-and-authorization).
+Mer information om hur du begär åtkomsttoken från Azure AD för användare och tjänst huvud namn finns i [scenarier för Azure AD](../active-directory/develop/authentication-vs-authorization.md) och visa särskilda scenarier i tabellen med [scenarier](./how-to-manage-authentication.md#determine-authentication-and-authorization).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [Azure AD och Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Mer information finns i [Azure AD och Azure Maps Web SDK](./how-to-use-map-control.md).
 
 Hitta API-användnings mått för ditt Azure Maps-konto:
 > [!div class="nextstepaction"]

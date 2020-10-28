@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: bbd46237e0b3b21b822b088c545c91f678a8034e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cbe6adc37025f0b727fa5f5d3ace46ed34afaa9e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792301"
+ms.locfileid: "92895230"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatisera svar på Security Center utlösare
 
@@ -115,7 +115,7 @@ Så här implementerar du dessa principer:
 
 1. I tabellen nedan väljer du den princip som du vill använda:
 
-    |Mål  |Policy  |Princip-ID  |
+    |Mål  |Princip  |Princip-ID  |
     |---------|---------|---------|
     |Arbets flödes automatisering för säkerhets aviseringar|[Distribuera arbetsflödesautomation för Azure Security Center-aviseringar](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
     |Arbets flödes automatisering för säkerhets rekommendationer|[Distribuera arbetsflödesautomation för Azure Security Center-rekommendationer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
@@ -193,5 +193,5 @@ För relaterat material, se:
 - [Säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md)
 - [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md)
 - [Om Azure Logic Apps](../logic-apps/logic-apps-overview.md)
-- [Logic Apps-anslutningsappar](/connectors/)
+- [Anslutningsprogram för Azure Logic Apps](../connectors/apis-list.md)
 - [Scheman för datatyper för arbetsflödesautomation](https://aka.ms/ASCAutomationSchemas)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 85428f682b5a5e179b5c501982749611131c6aed
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: fe8acfd1bfd14f339a0109cab215b8a9ab65256f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674427"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893956"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-segment"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med segment
 
@@ -136,19 +136,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **ikonen Inställningar** och rulla ned till **autentisering** och klicka på **anslutningar** .
 
-    ![Segment konfiguration](./media/segment-tutorial/segment1.PNG)
+    ![Skärm bild som visar ikonen "Inställningar" markerad och "anslutningar" som valts från "autentisering"-menyn.](./media/segment-tutorial/segment1.PNG)
 
 1. Klicka på **Lägg till ny anslutning** .
 
-    ![Segment konfiguration](./media/segment-tutorial/segment2.PNG)
+    ![Skärm bild som visar avsnittet "anslutningar" med knappen "Lägg till ny anslutning" markerad.](./media/segment-tutorial/segment2.PNG)
 
 1. Välj **SAML 2,0** som en anslutning som ska konfigureras och klicka på knappen **Välj anslutning** .
 
-    ![Segment konfiguration](./media/segment-tutorial/segment3.PNG)
+    ![Skärm bild som visar avsnittet "Välj en anslutning" med "S A M L 2,0" och knappen "Välj anslutning" markerad.](./media/segment-tutorial/segment3.PNG)
 
 1. Utför följande steg på följande sida:
 
-    ![Segment konfiguration](./media/segment-tutorial/segment4.PNG)
+    ![Skärm bild som visar sidan "Konfigurera identitets leverantör" med text rutorna "Single Sign-On U R L" och "Audience U R L" och "Nästa"-knappen markerad.](./media/segment-tutorial/segment4.PNG)
 
     a. Kopiera det **enkla Sign-On URL** -värdet och klistra in det i rutan **svars-URL** i dialog rutan **grundläggande SAML-konfiguration** i Azure Portal.
 

@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ec62461e5a12f0c566becdfc7d9a1464433ee656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311027"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895757"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Återge anpassade data på en raster karta
 
-Den här artikeln förklarar hur du använder [tjänsten för statisk avbildning](https://docs.microsoft.com/rest/api/maps/render/getmapimage), med bild sammansättnings funktioner, för att tillåta överlägg ovanpå en raster karta. Med bild komposition kan du få en raster panel tillbaka, med ytterligare data som anpassade kartnålar, etiketter och geometri överlägg.
+Den här artikeln förklarar hur du använder [tjänsten för statisk avbildning](/rest/api/maps/render/getmapimage), med bild sammansättnings funktioner, för att tillåta överlägg ovanpå en raster karta. Med bild komposition kan du få en raster panel tillbaka, med ytterligare data som anpassade kartnålar, etiketter och geometri överlägg.
 
-Om du vill återge anpassade kartnålar, etiketter och geometri överlägg kan du använda Postman-programmet. Du kan använda [API: er för Azure Maps data tjänst](https://docs.microsoft.com/rest/api/maps/data) för att lagra och återge överlägg.
+Om du vill återge anpassade kartnålar, etiketter och geometri överlägg kan du använda Postman-programmet. Du kan använda [API: er för Azure Maps data tjänst](/rest/api/maps/data) för att lagra och återge överlägg.
 
 > [!Tip]
 > Det är ofta mycket mer kostnads effektivt att använda Azure Maps Web SDK för att visa en enkel karta på en webb sida än att använda tjänsten för statisk avbildning. Webb-SDK: n använder kart paneler och om inte användaren Pans och zoomar in kartan så genererar de ofta bara en bråkdel av en transaktion per kart belastning. Observera att Azure Maps Web SDK har alternativ för att inaktivera panorering och zoomning. Dessutom tillhandahåller Azure Maps Web SDK en mer omfattande uppsättning data visualiserings alternativ än en statisk kart webb tjänst.  
@@ -41,9 +41,9 @@ Azure Maps-kontots S0-nivå stöder endast en instans av `pins` parametern. Du k
 
 Slutför följande steg för att återge kartnålar med etiketter och en anpassad bild:
 
-1. Skapa en samling där förfrågningarna ska lagras. I Postman-appen väljer du **ny**. I fönstret **Skapa nytt** väljer du **samling**. Namnge samlingen och välj knappen **skapa** . 
+1. Skapa en samling där förfrågningarna ska lagras. I Postman-appen väljer du **ny** . I fönstret **Skapa nytt** väljer du **samling** . Namnge samlingen och välj knappen **skapa** . 
 
-2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** på en begäran för kartnålarna. Välj den samling som du skapade i föregående steg som plats för att spara begäran. Välj sedan **Spara**.
+2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn** på en begäran för kartnålarna. Välj den samling som du skapade i föregående steg som plats för att spara begäran. Välj sedan **Spara** .
     
     ![Skapa en begäran i Postman](./media/how-to-render-custom-data/postman-new.png)
 
@@ -62,7 +62,7 @@ Slutför följande steg för att återge kartnålar med etiketter och en anpassa
 > [!Note]
 > Proceduren i det här avsnittet kräver ett Azure Maps konto i pris nivån S1.
 
-Du kan också hämta plats informationen för sökvägen och PIN-koden genom att använda [API: et för data överföring](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Följ stegen nedan för att ladda upp sökvägen och PIN-data.
+Du kan också hämta plats informationen för sökvägen och PIN-koden genom att använda [API: et för data överföring](/rest/api/maps/data/uploadpreview). Följ stegen nedan för att ladda upp sökvägen och PIN-data.
 
 1. Öppna en ny flik i den samling som du skapade i föregående avsnitt i Postman-appen. Välj metoden POST HTTP på fliken Builder och ange följande URL för att göra en POST-begäran:
 
@@ -172,7 +172,7 @@ Du kan också hämta plats informationen för sökvägen och PIN-koden genom att
 > Proceduren i det här avsnittet kräver ett Azure Maps konto i pris nivån S1.
 
 
-Du kan ändra utseendet på en polygon genom att använda format modifierare med [parametern Path](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Du kan ändra utseendet på en polygon genom att använda format modifierare med [parametern Path](/rest/api/maps/render/getmapimage#uri-parameters).
 
 1. Öppna en ny flik i den samling som du skapade tidigare i Postman-appen. Välj metoden Hämta HTTP på fliken Builder och ange följande URL för att konfigurera en GET-begäran för att återge en polygon med färg och opacitet:
     
@@ -192,7 +192,7 @@ Du kan ändra utseendet på en polygon genom att använda format modifierare med
 > Proceduren i det här avsnittet kräver ett Azure Maps konto i pris nivån S1.
 
 
-Du kan ändra utseendet på PIN-märkena genom att lägga till format modifierare. Om du till exempel vill göra kartnålar och deras etiketter större eller mindre använder du `sc` modifieraren "skal stil". Den här modifieraren tar ett värde som är större än noll. Värdet 1 är standard skalan. Värden som är större än 1 gör PIN-koderna större och värden som är mindre än 1 blir mindre. Mer information om format modifierare finns i [Parametrar för statisk avbildnings tjänst Sök väg](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Du kan ändra utseendet på PIN-märkena genom att lägga till format modifierare. Om du till exempel vill göra kartnålar och deras etiketter större eller mindre använder du `sc` modifieraren "skal stil". Den här modifieraren tar ett värde som är större än noll. Värdet 1 är standard skalan. Värden som är större än 1 gör PIN-koderna större och värden som är mindre än 1 blir mindre. Mer information om format modifierare finns i [Parametrar för statisk avbildnings tjänst Sök väg](/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Följ dessa steg om du vill återge en cirkel och kartnålar med anpassade etiketter:
@@ -222,6 +222,5 @@ På samma sätt kan du ändra, lägga till och ta bort andra format modifierare.
 ## <a name="next-steps"></a>Nästa steg
 
 
-* Utforska [Azure Maps Hämta avbildnings-API](https://docs.microsoft.com/rest/api/maps/render/getmapimage) -dokumentation.
-* Mer information om Azure Maps data service finns i [tjänst dokumentationen](https://docs.microsoft.com/rest/api/maps/data).
-
+* Utforska [Azure Maps Hämta avbildnings-API](/rest/api/maps/render/getmapimage) -dokumentation.
+* Mer information om Azure Maps data service finns i [tjänst dokumentationen](/rest/api/maps/data).

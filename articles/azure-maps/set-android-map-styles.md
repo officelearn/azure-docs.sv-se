@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4e37ae82b46ce06162d0a67d74af54cddaf3f6eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15dbe7d30652d0ace78bca4dc053757d57361c1a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88030953"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895315"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Ange kart stil med Azure Maps Android SDK
 
@@ -22,12 +22,12 @@ Den här artikeln visar två sätt att ange kart stilar med hjälp av Azure Maps
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
+För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) för att läsa in en karta.
 
 
 ## <a name="set-map-style-in-the-layout"></a>Ange kart stil i layouten
 
-Du kan ange en kart stil i layout filen för din aktivitets klass. Redigera **activity_main.xmlför res > > **, så att det ser ut som på bilden nedan:
+Du kan ange en kart stil i layout filen för din aktivitets klass. Redigera **activity_main.xmlför res > >** , så att det ser ut som på bilden nedan:
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -51,7 +51,7 @@ Du kan ange en kart stil i layout filen för din aktivitets klass. Redigera **ac
 </FrameLayout>
 ```
 
-`mapcontrol_style`Attributet ovan anger kart formatet till **grayscale_dark**. 
+`mapcontrol_style`Attributet ovan anger kart formatet till **grayscale_dark** . 
 
 <center>
 
@@ -59,7 +59,7 @@ Du kan ange en kart stil i layout filen för din aktivitets klass. Redigera **ac
 
 ## <a name="set-map-style-in-the-activity-class"></a>Ange kart stil i aktivitets klassen
 
-Du kan ställa in kart stil i aktivitets klassen. Kopiera följande kodfragment till **onCreate ()-** metoden för din `MainActivity.java` klass. Den här koden anger kart formatet till **satellite_road_labels**.
+Du kan ställa in kart stil i aktivitets klassen. Kopiera följande kodfragment till **onCreate ()-** metoden för din `MainActivity.java` klass. Den här koden anger kart formatet till **satellite_road_labels** .
 
 ```Java
 mapControl.onReady(map -> {

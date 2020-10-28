@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: a0347e76a39be8bada9ec59eb8accef17e784951
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738124"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894108"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -1832,7 +1832,7 @@ Azure Managed disks placeras automatiskt i fel domänen för den virtuella dator
 
 En exempel arkitektur för ett SAP NetWeaver-system som använder Azures infrastruktur HA och lagrings konton kan se ut så här:
 
-![Använda Azure-infrastruktur HA för att få SAP-program högre tillgänglighet][planning-guide-figure-2900]
+![Diagram som visar ett SAP NetWeaver-system som använder Azures infrastruktur HA och lagrings konton.][planning-guide-figure-2900]
 
 En exempel arkitektur för ett SAP NetWeaver-system som använder Azures infrastruktur HA och Managed Disks kan se ut så här:
 
@@ -1892,7 +1892,7 @@ Endast ohanterade diskar: begreppen som beskrivs nedan kan behöva kompromettera
 
 ##### <a name="windows-logologo_windows-ha-on-windows"></a>![Windows-logotyp.][Logo_Windows] HA på Windows
 
-![SAP NetWeaver Application HA-arkitektur med SQL Server i Azure IaaS][planning-guide-figure-3200]
+![Diagram som visar SAP NetWeaver-programmets HA-arkitektur med SQL Server i Azure IaaS.][planning-guide-figure-3200]
 
 Följande Azure-konstruktioner används för SAP NetWeaver-systemet för att minimera påverkan på infrastruktur problem och värd korrigering:
 

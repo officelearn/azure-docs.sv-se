@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272964"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895536"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Visa trafik data på kartan med Azure Maps Android SDK
 
@@ -21,7 +21,7 @@ Flödes data och incident data är de två typer av trafik data som kan visas p�
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du kan visa trafik på kartan måste du [skapa ett Azure-konto](quick-demo-map-app.md#create-an-azure-maps-account)och [Skaffa en prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). Sedan måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) och läsa in en karta.
+Innan du kan visa trafik på kartan måste du [skapa ett Azure-konto](quick-demo-map-app.md#create-an-azure-maps-account)och [Skaffa en prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). Sedan måste du installera [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) och läsa in en karta.
 
 ## <a name="incidents-traffic-data"></a>Incident trafik data
 
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Du kan använda koden nedan för att få incidenter för en speciell funktion. När du klickar på en funktion söker kod logiken efter incidenter och skapar ett meddelande om incidenten. Ett meddelande visas längst ned på skärmen med information.
 
-1. Först måste du redigera **> layout för resurs > activity_main.xml**, så att det ser ut som på samma sätt. Du kan ersätta `mapcontrol_centerLat` , `mapcontrol_centerLng` , och `mapcontrol_zoom` med önskade värden. Åter kallelse är zoomnings nivån ett värde mellan 0 och 22. På zoomnings nivå 0 passar hela världen på en enda panel.
+1. Först måste du redigera **> layout för resurs > activity_main.xml** , så att det ser ut som på samma sätt. Du kan ersätta `mapcontrol_centerLat` , `mapcontrol_centerLng` , och `mapcontrol_zoom` med önskade värden. Åter kallelse är zoomnings nivån ett värde mellan 0 och 22. På zoomnings nivå 0 passar hela världen på en enda panel.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>

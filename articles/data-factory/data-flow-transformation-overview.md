@@ -6,13 +6,13 @@ ms.author: daperlov
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: 6fe85db6612a16099f61cb52fe9c5864882f35b3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606272"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892935"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Översikt över mappning av data flödes omvandling
 
@@ -20,7 +20,7 @@ ms.locfileid: "81606272"
 
 Nedan visas en lista över de omvandlingar som stöds för närvarande i mappnings data flödet. Klicka på varje omvandling för att lära dig mer om konfigurationen.
 
-| Name | Kategori | Beskrivning |
+| Namn | Kategori | Beskrivning |
 | ---- | -------- | ----------- |
 | [Aggregera](data-flow-aggregate.md) | Schema modifierare | Definiera olika typer av agg regeringar som SUM, MIN, MAX och COUNT grupperade efter befintliga eller beräknade kolumner. | 
 | [Ändra rad](data-flow-alter-row.md) | Rads modifierare | Ange INSERT-, DELETE-, Update-och upsert-principer på rader. |
@@ -33,6 +33,7 @@ Nedan visas en lista över de omvandlingar som stöds för närvarande i mappnin
 | [Sökning](data-flow-lookup.md) | Flera indata/utdata | Referens data från en annan källa. |
 | [Ny gren](data-flow-new-branch.md) | Flera indata/utdata | Tillämpa flera uppsättningar av åtgärder och omvandlingar mot samma data ström. |
 | [Pivotera](data-flow-pivot.md) | Schema modifierare | En agg regering där en eller flera grupperade kolumner har sina distinkta rad värden omvandlade till enskilda kolumner. |
+| [Rangordning](data-flow-rank.md) | Schema modifierare | Generera en ordnad rangordning baserat på sorterings villkor |
 | [Välj](data-flow-select.md) | Schema modifierare | Alias-kolumner och strömmande namn, och släpp eller ordna om kolumner |
 | [Kanalmottagare](data-flow-sink.md) | - | Ett slutgiltigt mål för dina data |
 | [Sortera](data-flow-sort.md) | Rads modifierare | Sortera inkommande rader i den aktuella data strömmen |

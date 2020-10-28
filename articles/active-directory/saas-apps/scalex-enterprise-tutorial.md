@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: d8bf94bf0048efee05864b951429239de2def87a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a2065286581b6e7de61e4d1a29382b98563cdbb8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669392"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895069"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med ScaleX Enterprise
 
@@ -148,11 +148,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     > [!NOTE]
     > Contoso är bara ett exempel. Detta bör vara ditt faktiska företags namn.
 
-    ![Konfigurera enkel inloggning](./media/scalex-enterprise-tutorial/Test_Admin.png)
+    ![Skärm bild som visar ett exempel företags namn som valts på menyn längst upp till höger.](./media/scalex-enterprise-tutorial/Test_Admin.png)
 
 1. Välj **integrationer** på den översta menyn och välj **enkel inloggning** .
 
-    ![Konfigurera enkel inloggning](./media/scalex-enterprise-tutorial/admin_sso.png) 
+    ![Skärm bild som visar "integreringar" och "enkel inloggning" valt på den nedrullningsbara menyn.](./media/scalex-enterprise-tutorial/admin_sso.png) 
 
 1. Fyll i formuläret enligt följande:
 

@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 1668c7ccad75771a598aaa55f5403f070ea2dff8
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ebdc4b219e0840c18e6bef8ebfe9b8eefa8faf3b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090224"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895579"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>Skydda ett webb program med användar inloggning
 
@@ -27,36 +27,36 @@ Följande guide avser ett program som finns på webb servrar, underhåller flera
 
 Du måste skapa webb programmet i Azure AD för att användarna ska kunna logga in. Det här webb programmet kommer sedan att delegera användar åtkomst till Azure Maps REST-API: er.
 
-1. I listan med Azure-tjänster i Azure Portal väljer du **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering**.  
+1. I listan med Azure-tjänster i Azure Portal väljer du **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering** .  
 
     > [!div class="mx-imgBorder"]
     > ![Appregistrering](./media/how-to-manage-authentication/app-registration.png)
 
-2. Ange ett **namn**, Välj en **Support konto typ**, ange en omdirigerings-URI som representerar URL: en som Azure AD utfärdar token och är URL: en där kart kontrollen är värd. Mer information finns i Azure AD [-Scenario: webbappen som loggar in användare](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview). Slutför de tillhandahållna stegen från Azure AD-scenariot.  
+2. Ange ett **namn** , Välj en **Support konto typ** , ange en omdirigerings-URI som representerar URL: en som Azure AD utfärdar token och är URL: en där kart kontrollen är värd. Mer information finns i Azure AD [-Scenario: webbappen som loggar in användare](../active-directory/develop/scenario-web-app-sign-user-overview.md). Slutför de tillhandahållna stegen från Azure AD-scenariot.  
 
 3. När program registreringen är klar kontrollerar du att program inloggningen fungerar för användare. När inloggningen fungerar kan programmet beviljas delegerad åtkomst till Azure Maps REST-API: er.
     
-4.  Om du vill tilldela delegerade API-behörigheter till Azure Maps går du till programmet. Välj sedan **API-behörigheter**  >  **Lägg till en behörighet**. Sök efter och välj **Azure Maps**under **API: er som används i organisationen**.
+4.  Om du vill tilldela delegerade API-behörigheter till Azure Maps går du till programmet. Välj sedan **API-behörigheter**  >  **Lägg till en behörighet** . Sök efter och välj **Azure Maps** under **API: er som används i organisationen** .
 
     > [!div class="mx-imgBorder"]
     > ![Lägg till API-behörigheter för app](./media/how-to-manage-authentication/app-permissions.png)
 
-5. Markera kryss rutan bredvid **åtkomst Azure Maps**och välj sedan **Lägg till behörigheter**.
+5. Markera kryss rutan bredvid **åtkomst Azure Maps** och välj sedan **Lägg till behörigheter** .
 
     > [!div class="mx-imgBorder"]
     > ![Välj API-behörigheter för app](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Aktivera webb programmet för att anropa Azure Maps REST-API: er genom att konfigurera appens registrering med en program hemlighet. detaljerade anvisningar finns i [en webbapp som anropar webb-API: er för registrering av appar](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-app-registration). En hemlighet krävs för att autentisera till Azure AD å användarens vägnar. Appens registrerings certifikat eller hemlighet ska lagras i ett säkert Arkiv för webb programmet som ska hämtas för att autentisera till Azure AD. 
+6. Aktivera webb programmet för att anropa Azure Maps REST-API: er genom att konfigurera appens registrering med en program hemlighet. detaljerade anvisningar finns i [en webbapp som anropar webb-API: er för registrering av appar](../active-directory/develop/scenario-web-app-call-api-app-registration.md). En hemlighet krävs för att autentisera till Azure AD å användarens vägnar. Appens registrerings certifikat eller hemlighet ska lagras i ett säkert Arkiv för webb programmet som ska hämtas för att autentisera till Azure AD. 
    
    * Om programmet redan har konfigurerat en Azure AD App-registrering och en hemlighet kan det här steget hoppas över.
 
 > [!Tip]
-> Om programmet finns i en Azure-miljö rekommenderar vi att du använder [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) och en Azure Key Vault-instans för att få åtkomst till hemligheter genom att [förvärva en](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) åtkomsttoken för åtkomst till Azure Key Vault hemligheter eller certifikat. Information om hur du ansluter till Azure Key Vault för att hämta hemligheter finns i [självstudier för att ansluta via hanterad identitet](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
+> Om programmet finns i en Azure-miljö rekommenderar vi att du använder [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) och en Azure Key Vault-instans för att få åtkomst till hemligheter genom att [förvärva en](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) åtkomsttoken för åtkomst till Azure Key Vault hemligheter eller certifikat. Information om hur du ansluter till Azure Key Vault för att hämta hemligheter finns i [självstudier för att ansluta via hanterad identitet](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
    
 7. Implementera en säker token-slutpunkt för Azure Maps Web SDK för att få åtkomst till en token. 
    
    * Ett exempel på en styrenhet för token finns i [Azure Maps Azure AD-exempel](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/blob/master/src/OpenIdConnect/AzureMapsOpenIdConnectv1/AzureMapsOpenIdConnect/Controllers/TokenController.cs). 
-   * En icke-AspNetCore implementering eller annat finns i [Hämta token för appen](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token) från Azure AD-dokumentationen.
+   * En icke-AspNetCore implementering eller annat finns i [Hämta token för appen](../active-directory/develop/scenario-web-app-call-api-acquire-token.md) från Azure AD-dokumentationen.
    * Den säkra token-slutpunkten ansvarar för att returnera en åtkomsttoken för den autentiserade och auktoriserade användaren att anropa Azure Maps REST-API: er.
 
 8. Konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC) för användare eller grupper. Se [bevilja rollbaserad åtkomst för användare](#grant-role-based-access-for-users-to-azure-maps).
@@ -100,7 +100,7 @@ var map = new atlas.Map("map", {
 
 Mer förståelse för webb program scenario:
 > [!div class="nextstepaction"]
-> [Scenario: webb program som loggar in användare](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview)
+> [Scenario: webb program som loggar in användare](../active-directory/develop/scenario-web-app-sign-user-overview.md)
 
 Hitta API-användnings mått för ditt Azure Maps-konto:
 > [!div class="nextstepaction"]

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5af7645db662a238099e013f84b0dc0fee2af62c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dd04f404330a6c86e2df09da610e16ba9b721f3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355864"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895655"
 ---
 # <a name="secure-a-daemon-application"></a>Skydda ett daemon-program
 
@@ -27,11 +27,11 @@ Följande guide gäller bakgrunds processer, timers och jobb som finns i en betr
 
 ## <a name="scenario-shared-key-authentication"></a>Scenario: autentisering med delad nyckel
 
-När du har skapat ett Azure Maps-konto genereras de primära och sekundära nycklarna. Vi rekommenderar att du använder den primära nyckeln som prenumerations nyckel när du [använder autentisering med delad nyckel för att anropa Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Du kan använda en sekundär nyckel i scenarier som löpande nyckel ändringar. Mer information finns i [autentisering i Azure Maps](https://aka.ms/amauth).
+När du har skapat ett Azure Maps-konto genereras de primära och sekundära nycklarna. Vi rekommenderar att du använder den primära nyckeln som prenumerations nyckel när du [använder autentisering med delad nyckel för att anropa Azure Maps](./azure-maps-authentication.md#shared-key-authentication). Du kan använda en sekundär nyckel i scenarier som löpande nyckel ändringar. Mer information finns i [autentisering i Azure Maps](./azure-maps-authentication.md).
 
 ### <a name="securely-store-shared-key"></a>Lagra delad nyckel på ett säkert sätt
 
-Den primära och sekundära nyckeln tillåter auktorisering till alla API: er för Maps-kontot. Programmen ska lagra nycklarna i ett säkert arkiv som Azure Key Vault. Programmet måste hämta den delade nyckeln som en Azure Key Vault hemlighet för att undvika att lagra den delade nyckeln i oformaterad text i program konfigurationen. Information om hur du konfigurerar en Azure Key Vault finns i [Azure Key Vault Developer Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide).
+Den primära och sekundära nyckeln tillåter auktorisering till alla API: er för Maps-kontot. Programmen ska lagra nycklarna i ett säkert arkiv som Azure Key Vault. Programmet måste hämta den delade nyckeln som en Azure Key Vault hemlighet för att undvika att lagra den delade nyckeln i oformaterad text i program konfigurationen. Information om hur du konfigurerar en Azure Key Vault finns i [Azure Key Vault Developer Guide](../key-vault/general/developers-guide.md).
 
 Följande steg beskriver den här processen:
 
@@ -44,7 +44,7 @@ Följande steg beskriver den här processen:
 7. Skapa Azure Maps REST API begäran med delad nyckel.
 
 > [!Tip]
-> Om appen finns i Azure-miljö bör du implementera en hanterad identitet för att minska kostnaderna och komplexiteten med att hantera en hemlighet för att autentisera till Azure Key Vault. Se följande Azure Key Vault [själv studie kurs för att ansluta via hanterad identitet](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
+> Om appen finns i Azure-miljö bör du implementera en hanterad identitet för att minska kostnaderna och komplexiteten med att hantera en hemlighet för att autentisera till Azure Key Vault. Se följande Azure Key Vault [själv studie kurs för att ansluta via hanterad identitet](../key-vault/general/tutorial-net-create-vault-azure-web-app.md).
 
 Daemon-programmet ansvarar för att hämta den delade nyckeln från en säker lagrings plats. Implementeringen med Azure Key Vault kräver autentisering via Azure AD för att få åtkomst till hemligheten. I stället uppmuntrar vi direkt Azure AD-autentisering till Azure Maps till följd av de ytterligare komplexitets-och drifts kraven för att använda autentisering med delad nyckel.
 
@@ -62,7 +62,7 @@ När ett Azure Maps-konto har skapats finns Azure Maps- `x-ms-client-id` värdet
 
 När du kör på Azure-resurser konfigurerar du Azure Managed Identities för att aktivera låg kostnad, minimal hantering av autentiseringsuppgifter. 
 
-Se [Översikt över hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för att ge programmet åtkomst till en hanterad identitet.
+Se [Översikt över hanterade identiteter](../active-directory/managed-identities-azure-resources/overview.md) för att ge programmet åtkomst till en hanterad identitet.
 
 Fördelar med hanterade identiteter:
 
@@ -75,46 +75,46 @@ Fördelar med hanterade identiteter:
 
 När det körs på en icke-Azure-miljö hanterade identiteter är inte tillgängliga. Därför måste du konfigurera ett huvud namn för tjänsten via en Azure AD-programregistrering för daemon-programmet.
 
-1. I listan med Azure-tjänster i Azure Portal väljer du **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering**.  
+1. I listan med Azure-tjänster i Azure Portal väljer du **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering** .  
 
     > [!div class="mx-imgBorder"]
     > ![Appregistrering](./media/how-to-manage-authentication/app-registration.png)
 
-2. Om du redan har registrerat appen fortsätter du till nästa steg. Om du inte har registrerat appen, ange ett **namn**, Välj en **Support konto typ**och välj sedan **Registrera**.  
+2. Om du redan har registrerat appen fortsätter du till nästa steg. Om du inte har registrerat appen, ange ett **namn** , Välj en **Support konto typ** och välj sedan **Registrera** .  
 
     > [!div class="mx-imgBorder"]
     > ![Registrerings information för appen](./media/how-to-manage-authentication/app-create.png)
 
-3. Om du vill tilldela delegerade API-behörigheter till Azure Maps går du till programmet. Under **Appregistreringar**väljer du **API-behörigheter**  >  **Lägg till en behörighet**. Sök efter och välj **Azure Maps**under **API: er som används i organisationen**.
+3. Om du vill tilldela delegerade API-behörigheter till Azure Maps går du till programmet. Under **Appregistreringar** väljer du **API-behörigheter**  >  **Lägg till en behörighet** . Sök efter och välj **Azure Maps** under **API: er som används i organisationen** .
 
     > [!div class="mx-imgBorder"]
     > ![Lägg till API-behörigheter för app](./media/how-to-manage-authentication/app-permissions.png)
 
-4. Markera kryss rutan bredvid **åtkomst Azure Maps**och välj sedan **Lägg till behörigheter**.
+4. Markera kryss rutan bredvid **åtkomst Azure Maps** och välj sedan **Lägg till behörigheter** .
 
     > [!div class="mx-imgBorder"]
     > ![Välj API-behörigheter för app](./media/how-to-manage-authentication/select-app-permissions.png)
 
 5. Utför följande steg för att skapa en klient hemlighet eller konfigurera certifikat.
 
-    * Om programmet använder Server-eller programautentisering kan du gå till **certifikat & hemligheter**på din app Registration-sida. Överför sedan antingen ett offentligt nyckel certifikat eller skapa ett lösen ord genom att välja **ny klient hemlighet**.
+    * Om programmet använder Server-eller programautentisering kan du gå till **certifikat & hemligheter** på din app Registration-sida. Överför sedan antingen ett offentligt nyckel certifikat eller skapa ett lösen ord genom att välja **ny klient hemlighet** .
 
         > [!div class="mx-imgBorder"]
         > ![Skapa en klient hemlighet](./media/how-to-manage-authentication/app-keys.png)
 
-    * När du har valt **Lägg till**kopierar du hemligheten och lagrar den på ett säkert sätt i en tjänst, till exempel Azure Key Vault. Granska [Azure Key Vault Developer Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide) för att lagra certifikatet eller hemligheten på ett säkert sätt. Du använder den här hemligheten för att hämta tokens från Azure AD.
+    * När du har valt **Lägg till** kopierar du hemligheten och lagrar den på ett säkert sätt i en tjänst, till exempel Azure Key Vault. Granska [Azure Key Vault Developer Guide](../key-vault/general/developers-guide.md) för att lagra certifikatet eller hemligheten på ett säkert sätt. Du använder den här hemligheten för att hämta tokens från Azure AD.
 
         > [!div class="mx-imgBorder"]
         > ![Lägg till en klient hemlighet](./media/how-to-manage-authentication/add-key.png)
 
 ### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Bevilja rollbaserad åtkomst för daemon-programmet till Azure Maps
 
-Du beviljar *Azure rollbaserad åtkomst kontroll (Azure RBAC)* genom att tilldela antingen den skapade hanterade identiteten eller tjänstens huvud namn till en eller flera Azure Maps roll definitioner. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*. Dessa Azure Maps roller är de roller som du kan bevilja åtkomst till.
+Du beviljar *Azure rollbaserad åtkomst kontroll (Azure RBAC)* genom att tilldela antingen den skapade hanterade identiteten eller tjänstens huvud namn till en eller flera Azure Maps roll definitioner. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)** . Välj **roller** och Sök sedan efter roller som börjar med *Azure Maps* . Dessa Azure Maps roller är de roller som du kan bevilja åtkomst till.
 
 > [!div class="mx-imgBorder"]
 > ![Visa tillgängliga roller](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-1. Gå till ditt **Azure Maps-konto**. Välj **Åtkomstkontroll (IAM)** > **Rolltilldelningar**.
+1. Gå till ditt **Azure Maps-konto** . Välj **Åtkomstkontroll (IAM)** > **Rolltilldelningar** .
 
     > [!div class="mx-imgBorder"]
     > ![Bevilja åtkomst med Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
@@ -124,7 +124,7 @@ Du beviljar *Azure rollbaserad åtkomst kontroll (Azure RBAC)* genom att tilldel
     > [!div class="mx-imgBorder"]
     > ![Skärm bild som visar de sammanslagnings tilldelningar som har marker ATS.](./media/how-to-manage-authentication/add-role-assignment.png)
 
-3. Välj en inbyggd Azure Maps roll definition som **Azure Maps data läsare** eller **Azure Maps data deltagare**. Under **tilldela åtkomst till**väljer du **Azure AD-användare, grupp eller tjänstens huvud namn** eller hanterad identitet med användaren tilldelad hanterad identitet **hanterad**identitet  /  **System assigned Managed identity**. Välj huvud konto. Välj sedan **Spara**.
+3. Välj en inbyggd Azure Maps roll definition som **Azure Maps data läsare** eller **Azure Maps data deltagare** . Under **tilldela åtkomst till** väljer du **Azure AD-användare, grupp eller tjänstens huvud namn** eller hanterad identitet med användaren tilldelad hanterad identitet **hanterad** identitet  /  **System assigned Managed identity** . Välj huvud konto. Välj sedan **Spara** .
 
     > [!div class="mx-imgBorder"]
     > ![Så här lägger du till roll tilldelning](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
@@ -133,7 +133,7 @@ Du beviljar *Azure rollbaserad åtkomst kontroll (Azure RBAC)* genom att tilldel
 
 ## <a name="request-token-with-managed-identity"></a>Begär token med hanterad identitet
 
-När en hanterad identitet har kon figurer ATS för värd resursen använder du Azure SDK eller REST API för att hämta en token för Azure Maps, se information om [att hämta en](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token)åtkomsttoken. Efter hand boken är det förväntat att en åtkomsttoken returneras som kan användas för REST API begär Anden.
+När en hanterad identitet har kon figurer ATS för värd resursen använder du Azure SDK eller REST API för att hämta en token för Azure Maps, se information om [att hämta en](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)åtkomsttoken. Efter hand boken är det förväntat att en åtkomsttoken returneras som kan användas för REST API begär Anden.
 
 ## <a name="request-token-with-application-registration"></a>Begär token med program registrering
 
@@ -168,7 +168,7 @@ Svar:
 }
 ```
 
-Se [scenarier för autentisering för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)för mer detaljerade exempel.
+Se [scenarier för autentisering för Azure AD](../active-directory/develop/authentication-vs-authorization.md)för mer detaljerade exempel.
 
 ## <a name="next-steps"></a>Nästa steg
 

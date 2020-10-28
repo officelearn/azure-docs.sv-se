@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 19db4fb0d75369a0f272eef1180e86f47d45d284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21fd5f5c94b56f2f63d0e90d9982edd60a2d95d6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335338"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895451"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Använda kartkontrollen i Azure Maps
 
@@ -26,7 +26,7 @@ Om du vill använda Kartkontroll på en webb sida måste du ha något av följan
 
 * [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account) och [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
 
-* Hämta dina Azure Active Directory-autentiseringsuppgifter (AAD) med [autentiseringsalternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions).
+* Hämta dina Azure Active Directory-autentiseringsuppgifter (AAD) med [autentiseringsalternativ](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
 ## <a name="create-a-new-map-in-a-web-page"></a>Skapa en ny karta på en webb sida
 
@@ -75,7 +75,7 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
     </style>
    ```
 
-4. Lägg till ett-element i sidans huvuddel `<div>` och ge det ett `id` av **myMap**.
+4. Lägg till ett-element i sidans huvuddel `<div>` och ge det ett `id` av **myMap** .
 
    ```HTML
     <body onload="InitMap()">
@@ -83,7 +83,7 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
     </body>
    ```
 
-5. Nu ska vi initiera kart kontrollen. För att kunna autentisera kontrollen måste du antingen äga en Azure Maps prenumerations nyckel eller använda autentiseringsuppgifter för Azure Active Directory (AAD) med [autentiseringsalternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions).
+5. Nu ska vi initiera kart kontrollen. För att kunna autentisera kontrollen måste du antingen äga en Azure Maps prenumerations nyckel eller använda autentiseringsuppgifter för Azure Active Directory (AAD) med [autentiseringsalternativ](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
     Om du använder en prenumerations nyckel för autentisering, kopiera och klistra in följande skript element i `<head>` elementet och under det första `<script>` elementet. Ersätt `<Your Azure Maps Key>` med din Azure Maps primära prenumerations nyckel.
 
@@ -279,7 +279,7 @@ Lägga till mer data i kartan:
 > [Skapa en karta](map-create.md)
 
 > [!div class="nextstepaction"]
-> [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Kodexempel](/samples/browse/?products=azure-maps)
 
 En lista över exempel som visar hur du integrerar Azure Active Directory (AAD) med Azure Maps finns i:
 

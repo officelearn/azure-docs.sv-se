@@ -5,21 +5,21 @@ ms.date: 10/21/2020
 ms.topic: conceptual
 description: Beskriver migreringsprocessen från Azure dev Spaces till Bridge till Kubernetes
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, bro till Kubernetes
-ms.openlocfilehash: 6a6fe2367fca3d2068bb7d9a8e1a157fd2e5ca9b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7a7642d986d8490c5d0dc3c413e658b21b010798
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329806"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895264"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrera till Bridge to Kubernetes
 
 > [!IMPORTANT]
-> Azure dev Spaces kommer att dras tillbaka den 31 oktober 2023. Utvecklare bör flytta till att använda Bridge till Kubernetes, ett verktyg för klient utvecklare.
+> Azure dev Spaces kommer att dras tillbaka den 31 oktober 2023. Kunderna bör övergå till att använda Bridge till Kubernetes, ett verktyg för klient utvecklare.
 >
-> Syftet med Azure dev Spaces var att det var en över gång utvecklare att utveckla på Kubernetes. En betydande kompromiss i tillvägagångs sättet med Azure dev Spaces gjorde extra bördan för utvecklare för att förstå Docker-och Kubernetes-konfigurationer samt Kubernetes-distributions koncept. Med tiden är det också uppenbart att metoden för Azure dev Spaces inte på ett effektivt sätt minskade hastigheten för inre loop-utveckling på Kubernetes. Brygga till Kubernetes minskar hastigheten på inre loop-utveckling och undviker onödig börda för utvecklare.
+> Syftet med Azure dev Spaces var att över gångs användare till utveckling på Kubernetes. En betydande kompromiss i tillvägagångs sättet med Azure dev Spaces gjorde extra bördan för användare för att förstå Docker-och Kubernetes-konfigurationer samt Kubernetes-distributions koncept. Med tiden är det också uppenbart att metoden för Azure dev Spaces inte på ett effektivt sätt minskade hastigheten för inre loop-utveckling på Kubernetes. Brygga till Kubernetes minskar hastigheten på inre loop-utveckling och undviker onödig börda för användare.
 >
-> Kärn uppdraget är oförändrat: skapa de bästa utvecklings upplevelserna för att utveckla, testa och felsöka mikrotjänst kod i samband med det större programmet.
+> Kärn uppdraget är oförändrat: skapa de bästa upplevelserna för att utveckla, testa och felsöka mikrotjänst kod i samband med det större programmet.
 
 Bridge to Kubernetes ger ett lättare vikt alternativ till många av de utvecklings scenarier som fungerar med Azure dev Spaces. Bridge till Kubernetes är bara en upplevelse på klient sidan som använder tillägg i [Visual Studio][vs]   och [Visual Studio Code][vsc].  
 
@@ -46,7 +46,7 @@ Azure dev Spaces och Bridge till Kubernetes har liknande funktioner, men de skil
 | Azure Kubernetes Service | I 15 Azure-regioner | Alla AKS-tjänsteregion    |
 | **Säkerhet** |
 | Säkerhets åtkomst krävs i klustret  | AKS-kluster deltagare  | Kubernetes RBAC – distributions uppdatering   |
-| Säkerhets åtkomst krävs på din utvecklings dator  | Ej tillämpligt  | Lokal administratör/sudo   |
+| Säkerhets åtkomst krävs på din utvecklings dator  | Saknas  | Lokal administratör/sudo   |
 | **Användbarhet** |
 | Oberoende av Kubernetes och Docker-artefakter  | Nej  | Ja   |
 | Automatisk återställning av ändringar, efter fel sökning  | Nej  | Ja   |
@@ -85,7 +85,7 @@ Brygga till Kubernetes har flexibiliteten att arbeta med program som körs i Kub
 1. Om du använder Visual Studio uppdaterar du Visual Studio IDE till version 16,7 eller senare och installerar bryggan till Kubernetes-tillägget från [Visual Studio Marketplace][vs-marketplace]. Om du använder Visual Studio Code installerar du [bryggan till Kubernetes-tillägget][vsc-marketplace].
 1. Inaktivera Azure dev Spaces-styrenheten med hjälp av Azure Portal eller [Azure dev Spaces CLI][azds-delete].
 1. Använd [Azure Cloud Shell](https://shell.azure.com). Eller på Mac, Linux eller Windows med bash installerat öppnar du en bash shell-prompt. Se till att följande verktyg är tillgängliga i din kommando rads miljö: Azure CLI, Docker, kubectl, sväng, tjära och gunzip.
-1. Skapa ett behållar register eller Använd ett befintligt. Du kan skapa ett behållar register i Azure med [Azure Container Registry](../container-registry/index.yml) eller med hjälp av [Docker Hub](https://hub.docker.com/).
+1. Skapa ett behållar register eller Använd ett befintligt. Du kan skapa ett behållar register i Azure med [Azure Container Registry](../container-registry/index.yml) eller med hjälp av [Docker Hub](https://hub.docker.com/). När du använder Azure Cloud Shell är det bara Azure Container Registry tillgängligt för Docker-avbildningar.
 1. Kör skriptet för migrering för att konvertera Azure dev Spaces-tillgångar till Bridge till Kubernetes-tillgångar. Skriptet skapar en ny avbildning som är kompatibel med Bridge till Kubernetes, laddar upp den till det angivna registret och använder sedan [Helm](https://helm.sh) för att uppdatera klustret med avbildningen. Du måste ange resurs gruppen, namnet på AKS-klustret och ett behållar register. Det finns andra kommando rads alternativ som du ser här:
 
    ```azure-cli
@@ -102,6 +102,7 @@ Brygga till Kubernetes har flexibiliteten att arbeta med program som körs i Kub
     -r Path to root of the project that needs to be migrated (default = current working directory)
     -t Image name & tag in format 'name:tag' (default is 'projectName:stable')
     -i Enable a public endpoint to access your service over internet. (default is false)
+    -c Docker build context path. (default = project root path passed to '-r' option)
     -y Doesn't prompt for non-tty terminals
     -d Helm Debug switch
    ```
@@ -116,7 +117,7 @@ Brygga till Kubernetes har flexibiliteten att arbeta med program som körs i Kub
 
 Du kan också använda utvecklare-speciell routning med Bridge till Kubernetes. Azure dev Spaces Team Development-scenariot använder flera Kubernetes-namnområden för att isolera en tjänst från resten av programmet med hjälp av begreppet över-och underordnade namn områden. Bridge to Kubernetes erbjuder samma funktion, men med förbättrade prestanda egenskaper och inom samma program namn område.
 
-Både Bridge till Kubernetes och Azure dev Spaces kräver att HTTP-huvuden finns och sprids i hela programmet. Om du redan har konfigurerat ditt program för att hantera huvud spridningen för Azure dev Spaces måste rubriken uppdateras. Om du vill gå över till Bridge till Kubernetes från Azure dev Spaces, uppdaterar du konfigurerad rubrik från *azds-Route – som* till *Kubernetes-Route-as*.
+Både Bridge till Kubernetes och Azure dev Spaces kräver att HTTP-huvuden finns och sprids i hela programmet. Om du redan har konfigurerat ditt program för att hantera huvud spridningen för Azure dev Spaces måste rubriken uppdateras. Om du vill gå över till Bridge till Kubernetes från Azure dev Spaces, uppdaterar du konfigurerad rubrik från *azds-Route – som* till *Kubernetes-Route-as* .
 
 ## <a name="evaluate-bridge-to-kubernetes"></a>Utvärdera brygga till Kubernetes
 
@@ -146,9 +147,9 @@ Lär dig mer om hur du Kubernetes fungerar i Bridge.
 
 [azds-delete]: how-to/install-dev-spaces.md#remove-azure-dev-spaces-using-the-cli
 [kubernetes-extension]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools
-[btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes?view=vs-2019#install-the-sample-application
+[btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes#install-the-sample-application
 [how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
-[use-btk-vs]: /visualstudio/containers/bridge-to-kubernetes?view=vs-2019#connect-to-your-cluster-and-debug-a-service
+[use-btk-vs]: /visualstudio/containers/bridge-to-kubernetes#connect-to-your-cluster-and-debug-a-service
 [use-btk-vsc]: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
 [vs]: https://visualstudio.microsoft.com/
 [vsc-marketplace]: https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro

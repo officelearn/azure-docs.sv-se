@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 3128bc587a555b3766e1fad289edc8c11c195001
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 087e2d7f2db8f27378b54675095e97256d6aae9b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672051"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Självstudie: Azure Active Directory integrering med recept Labs – mobil-och webb testning
 
@@ -122,15 +122,15 @@ Utför följande steg för att konfigurera enkel inloggning med recept Labs – 
 
 2. Klicka på **användar ikonen** och välj fliken **team hantering** .
 
-    ![Konfigurera enkel inloggning](./media/saucelabs-mobileandwebtesting-tutorial/configure1.png)
+    ![Skärm bild som visar List rutan "användar" och "Team Management" vald.](./media/saucelabs-mobileandwebtesting-tutorial/configure1.png)
 
 3. Ange ditt **domän namn** i text rutan.
 
-    ![Konfigurera enkel inloggning](./media/saucelabs-mobileandwebtesting-tutorial/configure2.png)
+    ![Skärm bild som visar ett exempel på ett domän namn i text rutan.](./media/saucelabs-mobileandwebtesting-tutorial/configure2.png)
 
 4. Klicka på **Konfigurera** flik.
 
-    ![Konfigurera enkel inloggning](./media/saucelabs-mobileandwebtesting-tutorial/configure3.png)
+    ![Skärm bild som visar fliken "Konfigurera" som valts under "enkel inloggning är aktive rad".](./media/saucelabs-mobileandwebtesting-tutorial/configure3.png)
 
 5. Utför följande steg i avsnittet **Konfigurera enkel inloggning** .
 

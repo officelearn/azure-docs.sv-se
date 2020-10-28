@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d3a3a068a4efb2dea7d7df4bc2b88e2c33dc18b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 748566cf5b25157fcb8a2938a3f4bd307c930874
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672136"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Självstudie: Azure Active Directory integration med SAP HANA
 
@@ -121,13 +121,13 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP HANA genom att gö
 
 5. SAP HANA-program som förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut** .
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar avsnittet "användarattribut" med ikonen "redigera" markerad.](common/edit-attribute.png)
 
 6. I avsnittet **användarattribut** i dialog rutan användarattribut **& Claims** , utför följande steg:
  
     a. Öppna dialogrutan **Hantera användaranspråk** genom att klicka på **redigeringsikonen** .
 
-    ![image](./media/saphana-tutorial/tutorial_usermail.png)
+    ![Skärm bild som visar dialog rutan "User attributes & claims" med ikonen "redigera" markerad.](./media/saphana-tutorial/tutorial_usermail.png)
 
     ![image](./media/saphana-tutorial/tutorial_usermailedit.png)
 
@@ -154,7 +154,7 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP HANA genom att gö
 
     a. I fönstret **Lägg till information om identitetsprovider** klistrar du in innehållet i Metadata XML (som du laddade ner från Azure Portal) i rutan **Metadata** .
 
-    ![Lägg till identitetsproviderinställningar](./media/saphana-tutorial/sap2.png)
+    ![Skärm bild som visar fönstret "Lägg till information om identitets leverantör" med rutorna "metadata" och "namn" markerade.](./media/saphana-tutorial/sap2.png)
 
     b. Om innehållet i XML-dokumentet är giltigt, extraherar parsningsprocessen den information som krävs för fälten **Ämne, Entitets-ID och Utfärdare** till skärmområdet **Allmänna data** . Den extraherar också den information som krävs för URL-fälten i skärmområdet **Mål** , till exempel fälten **Bas-URL och SingleSignOn URL (*)** .
 

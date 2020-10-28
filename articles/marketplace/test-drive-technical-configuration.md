@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 7d22226721d4fc09b4f5affc15047b6799ed0d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1772a61f45d88e0b63346c41d557cfddf35ab4a7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409484"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892629"
 ---
 # <a name="test-drive-technical-configuration"></a>Teknisk konfiguration för provkörning
 
@@ -22,19 +22,19 @@ Om du inte längre vill ange en testen het för ditt erbjudande går du tillbaka
 
 ## <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager testen het
 
-Detta är det enda alternativet för testenhet för virtuella datorer eller Azure App-erbjudanden och kräver också ganska detaljerad installation. Läs avsnitten nedan för [information om distributions prenumeration](#deployment-subscription-details) och [test av enhets listor](#test-drive-listings), och fortsätt sedan med det separata avsnittet för [Azure Resource Manager konfiguration av test enhet](azure-resource-manager-test-drive.md).
+Detta är den enda alternativet test enhet för virtuell dator eller Azure App-erbjudanden och kräver en ganska detaljerad installation. Läs avsnitten nedan för [information om distributions prenumeration](#deployment-subscription-details) och [test av enhets listor](#test-drive-listings), och fortsätt sedan med det separata avsnittet för [Azure Resource Manager konfiguration av test enhet](azure-resource-manager-test-drive.md).
 
 ## <a name="hosted-test-drive"></a>Värdbaserad testen het
 
-Microsoft kan ta bort komplexiteten för att konfigurera en testen het genom att vara värd för och underhålla tjänst etableringen och-distributionen med den här typen av test enhet. Konfigurationen av den här typen av värdbaserad test enhet är densamma oavsett om test enheten är riktad mot en Dynamics 365 Business Central-, Dynamics 365-kund engagemang eller Dynamics 365 Operations-publik.
+Microsoft kan ta bort komplexiteten för att konfigurera en testen het genom att vara värd för och underhålla tjänst etableringen och avetablering. Konfigurationen för den här typen av test enhet är samma oavsett om test enheten är riktad mot en Dynamics 365-kund engagemang eller Dynamics 365-drifts grupp.
 
 - **Maximalt antal samtidiga test enheter** (krävs) – Ange det maximala antalet kunder som kan använda test enheten samtidigt. Varje samtidig användare förbrukar en Dynamics 365-licens medan test enheten är aktiv, så se till att du har tillräckligt med licenser för att stödja Max gränsen. Det rekommenderade värdet är 3-5.
 
-- **Test enhetens varaktighet** (krävs) – ange antalet timmar som test enheten ska förbli aktiv (minst en timme). Efter den här tiden upphör sessionen och använder inte längre någon av dina licenser. Vi rekommenderar ett värde på 2-24 timmar beroende på hur komplex ditt erbjudande är. Denna varaktighet får bara anges i hela timmar (till exempel "2" timmar är giltig; "1,5" är inte). Användaren kan begära en ny session om de får slut på tid och vill komma åt test enheten igen.
+- **Test enhetens varaktighet** (krävs) – ange antalet timmar som test enheten ska vara aktiv för varje kund. Efter den här perioden kommer sessionen att avslutas och använder inte längre någon av dina licenser. Vi rekommenderar ett värde på 2-24 timmar beroende på hur komplex ditt erbjudande är. Denna varaktighet får bara anges i hela timmar (till exempel "2 timmar" är giltig; "1,5 timmar" är inte). Användaren kan begära en ny session om de får slut på tid och vill komma åt test enheten igen.
 
 - **Instans-URL** (obligatorisk) – URL: en där kunden kommer att påbörja sin test-enhet. Normalt är URL: en för din Dynamics 365-instans som kör appen med exempel data installerat (till exempel `https://testdrive.crm.dynamics.com` ).
 
-- **URL för instans webb-API** (krävs) – Hämta URL: en för webb-API för din Dynamics 365-instans genom att logga in på ditt Microsoft 365-konto och navigera till **Inställningar**  >  **anpassning**av  >  **utvecklare resurser**  >  **instans webb-API (tjänstens rot-URL)**, kopiera webb adressen som finns här (till exempel `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
+- **URL för instans webb-API** (krävs) – Hämta URL: en för webb-API för din Dynamics 365-instans genom att logga in på ditt Microsoft 365-konto och navigera till **Inställningar**  >  **anpassning** av  >  **utvecklare resurser**  >  **instans webb-API (tjänstens rot-URL)** , kopiera webb adressen som finns här (till exempel `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - **Rollnamn** (obligatoriskt) – Ange namnet på den säkerhets roll som du har definierat i din anpassade Dynamics 365-testenhet, som kommer att tilldelas användaren under deras test enhet (till exempel Test-Drive-roll).
 
@@ -48,7 +48,7 @@ Den här typen av test enhet är inte Microsoft-värd. Använd den för att ansl
 
 - **Maximalt antal samtidiga test enheter** (krävs) – Ange det maximala antalet kunder som kan använda test enheten samtidigt. De här test enheterna har redan distribuerats, vilket gör det möjligt för kunder att komma åt dem direkt utan att vänta på en distribution.
 
-- **Test enhetens varaktighet** (krävs) – ange antalet timmar som test enheten ska förbli aktiv (minst en timme). Test enheten avslutas automatiskt när den här tids perioden är slut.
+- **Test enhetens varaktighet** (krävs) – ange hur lång tid test enheten ska vara aktiv, i antal timmar. Test enheten avslutas automatiskt när den här tids perioden är slut.
 
 - **Namn på Azure-resurs grupp** (obligatoriskt) – Ange namnet på den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md#resource-groups)) där din Logic app-testenhet sparas.
 
@@ -68,13 +68,13 @@ Om du vill att Microsoft ska kunna distribuera test enheten åt dig skapar du oc
 
 - **ID för Azure-prenumeration** (krävs för Azure Resource Manager-och logi Kap par) – ange prenumerations-ID för att bevilja åtkomst till dina Azure-Kontotjänster för rapportering och fakturering av resursanvändning. Vi rekommenderar att du [skapar en separat Azure-prenumeration](../cost-management-billing/manage/create-subscription.md) som ska användas för test enheter om du inte redan har en. Du hittar ditt prenumerations-ID för Azure genom att logga in på [Azure Portal](https://portal.azure.com/) och navigera till fliken **prenumerationer** på den vänstra menyn. Om du väljer fliken visas ditt prenumerations-ID (till exempel "a83645ac-1234-5AB6-6789-1h234g764ghty").
 
-- **Azure AD-klient-ID** (krävs) – ange ditt Azure Active Directory (AD) [klient organisations-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Egenskaper**och letar efter **katalog-ID** -nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID med din domän namns adress på [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
+- **Azure AD-klient-ID** (krävs) – ange ditt Azure Active Directory (AD) [klient organisations-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Egenskaper** och letar efter **katalog-ID** -nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID med din domän namns adress på [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 - **Namn på Azure AD-klient** (krävs för dynamisk 365) – ange ditt Azure Active Directory (AD) namn. Du hittar det här namnet genom att logga in på [Azure Portal](https://portal.azure.com/)i det övre högra hörnet ditt klient namn visas under ditt konto namn.
 
-- **ID för Azure AD-App** (krävs) – ange ditt Azure Active Directory (AD) [program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **ID för Azure AD-App** (krävs) – ange ditt Azure Active Directory (AD) [program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Appregistreringar** och letar sedan efter det **program-ID-** nummer som anges (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Azure AD-appens klient hemlighet** (krävs) – Ange din Azure AD-program [klient hemlighet](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)). Du hittar det här värdet genom att logga in på [Azure Portal](https://portal.azure.com/). Välj fliken **Azure Active Directory** på den vänstra menyn, Välj **Appregistreringar**och välj sedan appen Test Drive. Välj sedan **certifikat och hemligheter**, Välj **ny klient hemlighet**, ange en beskrivning, Välj **aldrig** under **upphör ande**och välj sedan **Lägg till**. Glöm inte att kopiera värdet. Du behöver inte gå bort från sidan innan du kopierar värdet.
+- **Azure AD-appens klient hemlighet** (krävs) – Ange din Azure AD-program [klient hemlighet](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)). Du hittar det här värdet genom att logga in på [Azure Portal](https://portal.azure.com/). Välj fliken **Azure Active Directory** på den vänstra menyn, Välj **Appregistreringar** och välj sedan appen Test Drive. Välj sedan **certifikat och hemligheter** , Välj **ny klient hemlighet** , ange en beskrivning, Välj **aldrig** under **upphör ande** och välj **Lägg till** . Glöm inte att kopiera värdet. Du behöver inte gå bort från sidan innan du kopierar värdet.
 
 ## <a name="test-drive-listings"></a>Testa enhets listor
 
@@ -93,6 +93,14 @@ Alternativet **test enhets listor** på fliken **testenhet** i Partner Center vi
 
 Om du för närvarande skapar test enheten i Partner Center väljer du **Spara utkast** innan du fortsätter.
 
-## <a name="next-step"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
+- [Metod tips för test enhet](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Översikt](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF, se till att blockering av popup-fönster är inaktiverat)
 - [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](partner-center-portal/update-existing-offer.md)
+
+## <a name="additional-resources"></a>Ytterligare resurser
+
+## <a name="feedback"></a>Feedback
+
+Skicka och Visa feedback för [den här produkten](https://feedback.azure.com/forums/216369-azure-marketplace)

@@ -3,13 +3,13 @@ title: Felsök vanliga problem
 description: Lär dig hur du felsöker vanliga problem när du distribuerar, kör eller hanterar Azure Container Instances
 ms.topic: article
 ms.date: 06/25/2020
-ms.custom: mvc
-ms.openlocfilehash: b31f29cdc9cd15ebf3ba88769095bfd0ef2628d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148617"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746922"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem med Azure Container Instances
 
@@ -99,7 +99,7 @@ Det här felet indikerar att på grund av en kraftig belastning i den region dä
 ## <a name="issues-during-container-group-runtime"></a>Problem under container Group runtime
 ### <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Containern avslutas och startar om kontinuerligt (ingen tidskrävande process)
 
-Behållar grupper som standard till en [omstarts princip](container-instances-restart-policy.md) av **Always**, så behållare i behållar gruppen startar alltid om när de körts till slutförd. Du kan behöva ändra detta till **onFailure** eller **aldrig** om du tänker köra uppgiftsbaserade behållare. Om du anger **onFailure** och fortfarande ser kontinuerliga omstarter kan det bero på ett problem med att programmet eller skriptet körs i din behållare.
+Behållar grupper som standard till en [omstarts princip](container-instances-restart-policy.md) av **Always** , så behållare i behållar gruppen startar alltid om när de körts till slutförd. Du kan behöva ändra detta till **onFailure** eller **aldrig** om du tänker köra uppgiftsbaserade behållare. Om du anger **onFailure** och fortfarande ser kontinuerliga omstarter kan det bero på ett problem med att programmet eller skriptet körs i din behållare.
 
 När du kör behållar grupper utan tids krävande processer kan du se upprepade avslutningar och starta om med bilder som Ubuntu eller Alpine. Att ansluta via [exec](container-instances-exec.md) fungerar inte eftersom behållaren inte har någon process som håller den igång. Lös problemet genom att inkludera ett start kommando som följer med distribution av behållare grupp för att hålla behållaren igång.
 

@@ -4,13 +4,13 @@ description: I den här självstudien om Azure Kubernetes Service (AKS) ska du s
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: bf2ea5c7ea0c2f3ae90f9d98d8009915d5ced6f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: b0f78c3969f3d02c19824fdb6d1e3b786dceb43c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576292"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747065"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Självstudier: Distribuera och använda Azure Container Registry
 
@@ -34,7 +34,7 @@ Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare
 
 För att skapa en Azure Container Registry-instans behöver du en resursgrupp. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
-Skapa en resursgrupp med kommandot [az group create][az-group-create]. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*:
+Skapa en resursgrupp med kommandot [az group create][az-group-create]. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus* :
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -104,7 +104,7 @@ tiangolo/uwsgi-nginx-flask                      python3.6           a16ce562e863
 
 ## <a name="push-images-to-registry"></a>Push-överför avbildningar till registret
 
-När avbildningen har skapats och taggats push-överför du avbildningen *azure-vote-front* till ACR-instansen. Använd [docker push][docker-push] och tillhandahåll din egen *acrLoginServer*-adress för avbildningsnamnet på följande sätt:
+När avbildningen har skapats och taggats push-överför du avbildningen *azure-vote-front* till ACR-instansen. Använd [docker push][docker-push] och tillhandahåll din egen *acrLoginServer* -adress för avbildningsnamnet på följande sätt:
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1
@@ -120,7 +120,7 @@ Du kan returnera en lista med avbildningar som har överförts till ACR-instanse
 az acr repository list --name <acrName> --output table
 ```
 
-Följande exempelutdata visar *azure-vote-front*-avbildningen i registret:
+Följande exempelutdata visar *azure-vote-front* -avbildningen i registret:
 
 ```
 Result
@@ -134,7 +134,7 @@ Om du vill visa taggarna för en viss avbildning kör du kommandot [az acr repos
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-Följande exempelutdata visar *v1*-avbildningen som taggades i föregående steg:
+Följande exempelutdata visar *v1* -avbildningen som taggades i föregående steg:
 
 ```
 Result

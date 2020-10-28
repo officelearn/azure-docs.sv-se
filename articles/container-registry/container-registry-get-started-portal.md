@@ -3,13 +3,13 @@ title: Snabb start – skapa register i portalen
 description: Lär dig snabbt att skapa ett privat Azure Container Registry med hjälp av Azure Portal.
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: f4f16506a36acfe8845e85caf2d337f992f0f332
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88031832"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746677"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Snabb start: skapa ett Azure Container Registry med hjälp av Azure Portal
 
@@ -25,23 +25,23 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
-Välj **skapa en resurs**  >  **behållare**  >  **container Registry**.
+Välj **skapa en resurs**  >  **behållare**  >  **container Registry** .
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="Navigera till behållar registret i portalen":::
 
-På fliken **grundläggande** anger du värden för **resurs grupp** och **register namn**. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. För den här snabbstarten skapar du en ny resursgrupp på platsen `West US` med namnet `myResourceGroup`, och för **SKU** väljer du ”Basic”.
+På fliken **grundläggande** anger du värden för **resurs grupp** och **register namn** . Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. För den här snabbstarten skapar du en ny resursgrupp på platsen `West US` med namnet `myResourceGroup`, och för **SKU** väljer du ”Basic”.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Navigera till behållar registret i portalen":::
 
-Acceptera standardvärden för återstående inställningar. Välj sedan **Granska + skapa**. När du har granskat inställningarna väljer du **skapa**.
+Acceptera standardvärden för återstående inställningar. Välj sedan **Granska + skapa** . När du har granskat inställningarna väljer du **skapa** .
 
-I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänst nivåer (SKU: er) finns i [tjänste nivåer för container Registry][container-registry-skus].
+I den här snabbstarten skapar du ett *Basic* -register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänst nivåer (SKU: er) finns i [tjänste nivåer för container Registry][container-registry-skus].
 
 När meddelandet **Distribueringen lyckades** visas väljer du containerregistret i portalen. 
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Navigera till behållar registret i portalen":::
 
-Anteckna register namnet och värdet för **inloggnings servern**. Du använder dessa värden i följande steg när du push-överför och hämtar bilder med Docker.
+Anteckna register namnet och värdet för **inloggnings servern** . Du använder dessa värden i följande steg när du push-överför och hämtar bilder med Docker.
 
 ## <a name="log-in-to-registry"></a>Logga in till registret
 
@@ -63,11 +63,11 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 ## <a name="list-container-images"></a>Visa lista över containeravbildningar
 
-Om du vill visa en lista över avbildningarna i registret går du till registret i portalen och väljer **databaser**. Välj sedan den  **Hello-världs** databas som du skapade med `docker push` .
+Om du vill visa en lista över avbildningarna i registret går du till registret i portalen och väljer **databaser** . Välj sedan den  **Hello-världs** databas som du skapade med `docker push` .
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-09.png" alt-text="Navigera till behållar registret i portalen":::
 
-Genom att välja **Hello-World-** lagringsplatsen visas den `v1` -märkta bilden under **taggar**.
+Genom att välja **Hello-World-** lagringsplatsen visas den `v1` -märkta bilden under **taggar** .
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 

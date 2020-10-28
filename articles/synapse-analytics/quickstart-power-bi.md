@@ -6,15 +6,15 @@ author: jocaplan
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: business-intelligence
-ms.date: 04/29/2020
+ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
-ms.openlocfilehash: 52b6524bf9f21b7d61ac3907030ff08c7ac15256
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 36334142595d4a6bd4865a690f154279967a70d5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171837"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746339"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Snabb start: länka en Power BI arbets yta till en Synapse-arbetsyta
 
@@ -29,19 +29,19 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 
 ## <a name="link-power-bi-workspace-to-your-synapse-workspace"></a>Länka Power BI arbets yta till din Synapse-arbetsyta
 
-1. Starta från Synapse Studio och klicka på **Hantera**.
+1. Starta från Synapse Studio och klicka på **Hantera** .
 
     ![Synapse Studio Klicka på hantera.](media/quickstart-link-powerbi/synapse-studio-click-manage.png)
 
-2. Under **externa anslutningar**klickar du på **länkade tjänster**.
+2. Under **externa anslutningar** klickar du på **länkade tjänster** .
 
     ![Länkade tjänster är markerade.](media/quickstart-link-powerbi/manage-click-linked-services.png)
 
-3. Klicka på **+ Ny**.
+3. Klicka på **+ Ny** .
 
     ![+ Nya länkade tjänster är markerade.](media/quickstart-link-powerbi/new-highlighted.png)
 
-4. Klicka på **Power BI** och klicka på **Fortsätt**.
+4. Klicka på **Power BI** och klicka på **Fortsätt** .
 
     ![Visar Power BI länkad tjänst.](media/quickstart-link-powerbi/powerbi-linked-service.png)
 
@@ -49,13 +49,13 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 
     ![Visar Power BI länkad tjänst konfiguration.](media/quickstart-link-powerbi/workspace-link-dialog.png)
 
-6. Klicka på **Skapa**.
+6. Klicka på **Skapa** .
 
 ## <a name="view-power-bi-workspace-in-synapse-studio"></a>Visa Power BI arbets yta i Synapse Studio
 
 När dina arbets ytor är länkade kan du bläddra i Power BI data uppsättningar, redigera/skapa nya Power BI rapporter från Synapse Studio.
 
-1. Klicka på **utveckla**.
+1. Klicka på **utveckla** .
 
     ![Synapse Studio Klicka på utveckla.](media/quickstart-link-powerbi/synapse-studio-click-develop.png)
 

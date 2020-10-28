@@ -8,13 +8,13 @@ ms.date: 06/30/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: ee267bda44cde77cf5d3434cd75eecaf34bd5264
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3328fa7d71138ba75fac0c2aed11d7a85081d03a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978857"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748716"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Linux-enhet
 
@@ -55,7 +55,7 @@ Molnresurser:
    az group create --name IoTEdgeResources --location westus2
    ```
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 Starta snabbstarten genom att skapa en IoT-hubb med Azure CLI.
 
@@ -63,13 +63,13 @@ Starta snabbstarten genom att skapa en IoT-hubb med Azure CLI.
 
 Den kostnadsfria nivån för IoT Hub fungerar för den här snabbstarten. Om du har använt IoT Hub tidigare och redan har skapat en hubb, kan du använda den IoT Hub.
 
-Följande kod skapar en kostnads fri **F1** -hubb i resurs gruppen **IoTEdgeResources**. Ersätt `{hub_name}` med ett unikt namn för din IoT Hub. Det kan ta några minuter att skapa en IoT Hub.
+Följande kod skapar en kostnads fri **F1** -hubb i resurs gruppen **IoTEdgeResources** . Ersätt `{hub_name}` med ett unikt namn för din IoT Hub. Det kan ta några minuter att skapa en IoT Hub.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   Om du får ett felmeddelande eftersom det redan finns en kostnadsfri hubb i din prenumeration ändrar du SKU till **S1**. Varje prenumeration kan bara ha en kostnadsfri IoT Hub. Om du får ett felmeddelande om att IoT Hub-namnet inte är tillgängligt innebär det att någon annan redan har en hubb med det namnet. Prova med ett nytt namn.
+   Om du får ett felmeddelande eftersom det redan finns en kostnadsfri hubb i din prenumeration ändrar du SKU till **S1** . Varje prenumeration kan bara ha en kostnadsfri IoT Hub. Om du får ett felmeddelande om att IoT Hub-namnet inte är tillgängligt innebär det att någon annan redan har en hubb med det namnet. Prova med ett nytt namn.
 
 ## <a name="register-an-iot-edge-device"></a>Registrera en IoT Edge-enhet
 
@@ -141,7 +141,7 @@ Den här mallen använder följande parametrar:
 | **dnsLabelPrefix** | En sträng som ska användas för att skapa den virtuella datorns värdnamn. Använd exempel **Min-Edge-VM** eller ange en ny sträng. |
 | **adminUsername** | Ett användar namn för administratörs kontot för den virtuella datorn. Använd exemplet **azureUser** eller ange ett nytt användar namn. |
 | **deviceConnectionString** | Anslutnings strängen från enhets identiteten i IoT Hub, som används för att konfigurera IoT Edge runtime på den virtuella datorn. Kommandot CLI i den här parametern hämtar anslutnings strängen åt dig. Ersätt platshållartexten med ditt IoT Hub-namn. |
-| **authenticationType** | Autentiseringsmetoden för administratörs kontot. Den här snabb starten använder **lösenordsautentisering** , men du kan också ange parametern till **sshPublicKey**. |
+| **authenticationType** | Autentiseringsmetoden för administratörs kontot. Den här snabb starten använder **lösenordsautentisering** , men du kan också ange parametern till **sshPublicKey** . |
 | **adminPasswordOrKey** | Lösen ordet eller värdet för SSH-nyckeln för administratörs kontot. Ersätt platshållartexten med ett säkert lösen ord. Lösen ordet måste vara minst 12 tecken långt och ha tre av fyra av följande: gemener, versaler, siffror och specialtecken. |
 
 När distributionen är klar bör du ta emot JSON-formaterade utdata i CLI som innehåller SSH-informationen för att ansluta till den virtuella datorn. Kopiera värdet för den **offentliga SSH** -posten i avsnittet **utdata** :
@@ -175,7 +175,7 @@ När du är ansluten till den virtuella datorn kontrollerar du att körningen ha
    journalctl -u iotedge
    ```
 
-3. Visa alla moduler som körs på din IoT Edge-enhet. Eftersom det är första gången du startar tjänsten, bör du bara kunna se den **edgeAgent**-modul som körs. EdgeAgent-modulen körs som standard och hjälper till att installera och starta ytterligare moduler som du distribuerar till din enhet.
+3. Visa alla moduler som körs på din IoT Edge-enhet. Eftersom det är första gången du startar tjänsten, bör du bara kunna se den **edgeAgent** -modul som körs. EdgeAgent-modulen körs som standard och hjälper till att installera och starta ytterligare moduler som du distribuerar till din enhet.
 
    ```bash
    sudo iotedge list
@@ -229,7 +229,7 @@ Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta 
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras.
 
-Ta bort gruppen **IoTEdgeResources**. Det kan ta några minuter att ta bort en resurs grupp.
+Ta bort gruppen **IoTEdgeResources** . Det kan ta några minuter att ta bort en resurs grupp.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources

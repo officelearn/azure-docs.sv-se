@@ -4,13 +4,13 @@ description: I den här självstudien om Azure Kubernetes Service (AKS) lär du 
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: c41f6dbd3b85125ef290539040819ffa1833ef6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2e9af5dcc00d8cadd0528d56ee73bc6aeba149d7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629650"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747727"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Självstudie: Uppgradera Kubernetes i Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ Innan du uppgraderar ett kluster använder du kommandot [az aks get-upgrades][] 
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-I följande exempel är den aktuella versionen *1.15.11*och de tillgängliga versionerna visas under *uppgraderingar*.
+I följande exempel är den aktuella versionen *1.15.11* och de tillgängliga versionerna visas under *uppgraderingar* .
 
 ```json
 {
@@ -80,9 +80,9 @@ az aks upgrade \
 ```
 
 > [!NOTE]
-> Du kan endast uppgradera en lägre version i taget. Du kan till exempel uppgradera från *1.14. x* till *1.15. x*, men inte uppgradera från *1.14. x* till *1.16. x* direkt. Uppgradera från *1.14. x* till *1.16. x*genom att först uppgradera från *1.14.* x till *1.15. x*och sedan utföra en annan uppgradering från *1.15. x* till *1.16. x*.
+> Du kan endast uppgradera en lägre version i taget. Du kan till exempel uppgradera från *1.14. x* till *1.15. x* , men inte uppgradera från *1.14. x* till *1.16. x* direkt. Uppgradera från *1.14. x* till *1.16. x* genom att först uppgradera från *1.14.* x till *1.15. x* och sedan utföra en annan uppgradering från *1.15. x* till *1.16. x* .
 
-I följande komprimerade exempel utdata visas resultatet av uppgraderingen till *1.16.8*. Observera att *kubernetesVersion* nu rapporterar *1.16.8*:
+I följande komprimerade exempel utdata visas resultatet av uppgraderingen till *1.16.8* . Observera att *kubernetesVersion* nu rapporterar *1.16.8* :
 
 ```json
 {
@@ -115,7 +115,7 @@ Bekräfta att uppgraderingen lyckades genom att köra kommandot [az aks show][] 
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-Följande exempel på utdata visar AKS-klustret kör *KubernetesVersion 1.16.8*:
+Följande exempel på utdata visar AKS-klustret kör *KubernetesVersion 1.16.8* :
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

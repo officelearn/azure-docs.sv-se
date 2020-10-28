@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: d63893ab219854a270652da38c474e3ccad83abc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630516"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747904"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ansluta din externa lösning med hjälp av vanligt händelse format
 
@@ -44,7 +44,7 @@ Detta kan också finnas om du använder en virtuell dator i ett annat moln eller
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 
-Se till att konfigurera datorns säkerhet enligt din organisations säkerhets princip. Du kan till exempel konfigurera nätverket så att det överensstämmer med företagets nätverks säkerhets princip och ändra portarna och protokollen i daemonen så att de överensstämmer med dina krav. Du kan använda följande instruktioner för att förbättra datorns säkerhets konfiguration:  [säker virtuell dator i Azure](../virtual-machines/security-policy.md), [metod tips för nätverks säkerhet](../security/fundamentals/network-best-practices.md).
+Se till att konfigurera datorns säkerhet enligt din organisations säkerhets princip. Du kan till exempel konfigurera nätverket så att det överensstämmer med företagets nätverks säkerhets princip och ändra portarna och protokollen i daemonen så att de överensstämmer med dina krav. Du kan använda följande instruktioner för att förbättra datorns säkerhets konfiguration:  [säker virtuell dator i Azure](../virtual-machines/security-policy.md), [metod tips för nätverks säkerhet](../security/fundamentals/network-best-practices.md).
 
 Om du vill använda TLS-kommunikation mellan syslog-källan och syslog-vidarebefordraren måste du konfigurera syslog-daemonen (rsyslog eller syslog-ng) för att kommunicera i TLS: [kryptera syslog-trafik med TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [kryptera logg meddelanden med TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
  
@@ -55,14 +55,14 @@ Kontrol lera att Linux-datorn som du använder som proxy kör något av följand
 - 64-bitars
   - CentOS 7 och under versioner, och högre (inte 6)
   - Amazon Linux 2017,09
-  - Oracle Linux 6 och 7
+  - Oracle Linux 7
   - Red Hat Enterprise Linux (RHEL) Server 7 och under versioner, och högre (inte 6)
   - Debian GNU/Linux 8 och 9
   - Ubuntu Linux 14,04 LTS 16,04 LTS och 18,04 LTS
   - SUSE Linux Enterprise Server 12
 - 32-bitars
    - CentOS 7
-   - Oracle Linux 6
+   - Oracle Linux 7
    - Red Hat Enterprise Linux Server 7
    - Debian GNU/Linux 8 och 9
    - Ubuntu Linux 14,04 LTS och 16,04 LTS
@@ -79,7 +79,7 @@ Kontrol lera att datorn också uppfyller följande krav:
 - Behörigheter
     - Du måste ha förhöjd behörighet (sudo) på datorn. 
 - Programvarukrav
-    - Kontrol lera att du har python (2,7 eller högre) som körs på datorn
+    - Se till att python 2,7 körs på datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 

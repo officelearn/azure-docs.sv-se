@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: eea00fe80b71f97ea280a3a76de5012175bcd61c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 331830c50206d14f7894aa837b483656de4222f2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841993"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747844"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Självstudie: uppgradera ett program som körs i Service Fabric Mesh
 
@@ -32,7 +32,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
@@ -50,7 +50,7 @@ I den här självstudien används exemplet med att göra-listan, som [distribuer
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-I distributionsmallen för programresursen har varje tjänst en *cpu*-egenskap som kan användas för att ange önskade CPU-resurser. Ett program kan bestå av flera tjänster där varje tjänst har en unik *CPU*-inställning som distribueras och hanteras tillsammans. För att öka CPU-resurserna för webbtjänsten för klientdelen ändrar du värdet *cpue* i distributionsmallen eller parameterfilen.  Sedan uppgraderar du programmet.
+I distributionsmallen för programresursen har varje tjänst en *cpu* -egenskap som kan användas för att ange önskade CPU-resurser. Ett program kan bestå av flera tjänster där varje tjänst har en unik *CPU* -inställning som distribueras och hanteras tillsammans. För att öka CPU-resurserna för webbtjänsten för klientdelen ändrar du värdet *cpue* i distributionsmallen eller parameterfilen.  Sedan uppgraderar du programmet.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Ändra parametrarna för distributionsmallen
 
@@ -58,7 +58,7 @@ Om det finns värden i mallen som förväntas ändras när programmet har distri
 
 Tidigare distribuerades programmet med hjälp av [mesh_rp.windows.json-distributionsmallen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) och [mesh_rp.windows.parameter.json-parameterfilen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
-Öppna [mesh_rp.windows.parameter.json-parameterfilen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) lokalt och ange *frontEndCpu*-värdet till 1:
+Öppna [mesh_rp.windows.parameter.json-parameterfilen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) lokalt och ange *frontEndCpu* -värdet till 1:
 
 ```json
       "frontEndCpu":{
@@ -68,7 +68,7 @@ Tidigare distribuerades programmet med hjälp av [mesh_rp.windows.json-distribut
 
 Spara dina ändringar i parameterfilen.  
 
-Parametern *frontEndCpu* deklareras i *parametrar*-avsnittet i [distributionsmallen mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json):
+Parametern *frontEndCpu* deklareras i *parametrar* -avsnittet i [distributionsmallen mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json):
 
 ```json
 "frontEndCpu": {
@@ -80,7 +80,7 @@ Parametern *frontEndCpu* deklareras i *parametrar*-avsnittet i [distributionsmal
 }
 ```
 
-WebFrontEnd-tjänsten *codePackages->resurser->begäranden->cpu* egenskapen refererar till *frontEndCpu*-parametern:
+WebFrontEnd-tjänsten *codePackages->resurser->begäranden->cpu* egenskapen refererar till *frontEndCpu* -parametern:
 
 ```json
     "services": [

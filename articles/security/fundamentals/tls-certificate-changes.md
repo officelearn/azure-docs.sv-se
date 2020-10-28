@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9337349914748a38152b97cab50e15afbab3040e
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 45cad20a2e32640cabf4c57ce6411fcd5ab67da3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495868"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748231"
 ---
 # <a name="azure-tls-certificate-changes"></a>Ändringar i Azure TLS-certifikat  
 
@@ -27,7 +27,7 @@ Microsoft uppdaterar Azure-tjänster för att använda TLS-certifikat från en a
 - Befintliga Azure-slutpunkter övergår i ett stegvist sätt med början den 13 augusti 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) och [DPS](/azure/iot-dps/) finns kvar på Baltimore CyberTrust-rot certifikat utfärdare men deras mellanliggande certifikat utfärdare kommer att ändras. [Klicka här om du vill ha mer information](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Azure Storage](/azure/storage) kommer att finnas kvar på Baltimore CyberTrust rot certifikat utfärdare, men deras mellanliggande certifikat utfärdare ändras. [Klicka här om du vill ha mer information](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-
+- [Azure cache för Redis](/azure/azure-cache-for-redis) är kvar på Baltimore CyberTrust rot certifikat utfärdare, men deras mellanliggande certifikat utfärdare kommer att ändras. [Klicka här om du vill ha mer information](../../azure-cache-for-redis/cache-whats-new.md).
 > [!IMPORTANT]
 > Kunder kan behöva uppdatera sina program efter den här ändringen för att förhindra anslutnings problem vid försök att ansluta till Azure-tjänster.
 
@@ -67,11 +67,11 @@ Här följer några sätt att identifiera om ditt program påverkas:
 - Om du har ett program som integreras med Azure-API: er eller andra Azure-tjänster och du är osäker på om det använder certifikat fäst, kontrollerar du med program leverantören.
 
 - Olika operativ system och språk körningar som kommunicerar med Azure-tjänster kan kräva ytterligare åtgärder för att korrekt bygga certifikat kedjan med följande nya rötter:
-    - **Linux**: många distributioner kräver att du lägger till ca: er i/etc/ssl/certs. Mer information finns i distributionens dokumentation.
-    - **Java**: kontrol lera att Java-nyckelfilen innehåller de certifikat utfärdare som anges ovan.
-    - **Fönster som körs i frånkopplade miljöer**: system som körs i frånkopplade miljöer måste ha de nya rötter som lagts till i arkivet Betrodda rot certifikat utfärdare och de mellanliggande certifikat utfärdare som lagts till i arkivet mellanliggande certifikat utfärdare.
-    - **Android**: Mer information finns i dokumentationen för enheten och Android-versionen.
-    - **Andra maskin varu enheter, särskilt IoT**: kontakta enhets tillverkaren.
+    - **Linux** : många distributioner kräver att du lägger till ca: er i/etc/ssl/certs. Mer information finns i distributionens dokumentation.
+    - **Java** : kontrol lera att Java-nyckelfilen innehåller de certifikat utfärdare som anges ovan.
+    - **Fönster som körs i frånkopplade miljöer** : system som körs i frånkopplade miljöer måste ha de nya rötter som lagts till i arkivet Betrodda rot certifikat utfärdare och de mellanliggande certifikat utfärdare som lagts till i arkivet mellanliggande certifikat utfärdare.
+    - **Android** : Mer information finns i dokumentationen för enheten och Android-versionen.
+    - **Andra maskin varu enheter, särskilt IoT** : kontakta enhets tillverkaren.
 
 - Om du har en miljö där brand Väggs regler har ställts in för att tillåta utgående anrop till enbart en speciell lista över återkallade certifikat (CRL) och/eller Online Certificate Status Protocol (OCSP) verifierings platser. Du måste tillåta följande CRL-och OCSP-URL: er:
 

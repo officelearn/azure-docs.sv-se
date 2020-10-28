@@ -3,13 +3,13 @@ title: Montera Azure Files volym till behållar grupp
 description: Lär dig hur du monterar en Azure Files volym för att spara tillstånd med Azure Container Instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
-ms.openlocfilehash: eaf5e0704ba2ea4f0e0a30d61e4ae1d2ad1bf58d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 5ca619ac3ae93ee238d019b64ecccc975b7c8e3b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259472"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746860"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montera en Azure-filresurs i Azure Container Instances
 
@@ -235,7 +235,7 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 
 Om du vill montera flera volymer i en behållar instans måste du distribuera med hjälp av en [Azure Resource Manager mall](/azure/templates/microsoft.containerinstance/containergroups), en yaml-fil eller en annan programmerings metod. Om du vill använda en mall eller en YAML-fil anger du resurs informationen och definierar volymerna genom att fylla `volumes` i matrisen i `properties` avsnittet i filen. 
 
-Om du till exempel har skapat två Azure Files-resurser med namnet *Share1* och *share2* i lagrings kontot *myStorageAccount*, `volumes` skulle matrisen i en Resource Manager-mall se ut ungefär så här:
+Om du till exempel har skapat två Azure Files-resurser med namnet *Share1* och *share2* i lagrings kontot *myStorageAccount* , `volumes` skulle matrisen i en Resource Manager-mall se ut ungefär så här:
 
 ```JSON
 "volumes": [{
@@ -256,7 +256,7 @@ Om du till exempel har skapat två Azure Files-resurser med namnet *Share1* och 
 }]
 ```
 
-Därefter, för varje behållare i den behållar grupp där du vill montera volymerna, fyller du `volumeMounts` i matrisen i `properties` avsnittet i behållar definitionen. Detta monterar till exempel de två volymerna, *myvolume1* och *myvolume2*, som tidigare definierats:
+Därefter, för varje behållare i den behållar grupp där du vill montera volymerna, fyller du `volumeMounts` i matrisen i `properties` avsnittet i behållar definitionen. Detta monterar till exempel de två volymerna, *myvolume1* och *myvolume2* , som tidigare definierats:
 
 ```JSON
 "volumeMounts": [{

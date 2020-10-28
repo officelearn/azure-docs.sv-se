@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: c41a6679009f1467c5bcd04d9629ef9256238e00
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b74c7c3e9678c89edbe90d648520b9526c8fb569
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127053"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748648"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Självstudie: skapa en IoT Edge-instans för video analys (Intel NUC)
 
@@ -117,7 +117,7 @@ Konfigurera IoT Edge för att registrera och ansluta till ditt IoT Central-progr
 
 1. Ersätt `{scope_id}` med **ID-omfånget** som du gjorde en anteckning om i *scratchpad.txt* -filen i föregående självstudie.
 
-1. Ersätt `{registration_id}` med *lva-Gateway-001*, enheten som du skapade i föregående självstudie.
+1. Ersätt `{registration_id}` med *lva-Gateway-001* , enheten som du skapade i föregående självstudie.
 
 1. Ersätt `{symmetric_key}` med den **primära nyckeln** för **lva-Gateway-001-** enheten du antecknade i *scratchpad.txt* -filen i föregående självstudie.
 
@@ -140,7 +140,7 @@ Konfigurera IoT Edge för att registrera och ansluta till ditt IoT Central-progr
 
 Om IoT Edge moduler inte startar på rätt sätt går [du till felsöka IoT Edge enheten](../../iot-edge/troubleshoot.md).
 
-## <a name="collect-the-rstp-stream-from-your-camera"></a>Samla in RSTP-strömmen från kameran
+## <a name="collect-the-rtsp-stream-from-your-camera"></a>Samla in RTSP-strömmen från kameran
 
 Identifiera RTSP-Stream-URL: erna för de kameror som är anslutna till din IoT Edge-enhet, till exempel:
 

@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: aad0da53dc667039a62d2115c1afe4e2c6662bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: df28083a0522178b7327d9f6d24029d303e417a1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840174"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747865"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Självstudie: Skala ett program som körs i Service Fabric Mesh
 
@@ -32,7 +32,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
@@ -56,7 +56,7 @@ Om du vill visa antalet repliker som körs för ToDoService-tjänsten kör du f�
 az mesh service show --resource-group myResourceGroup --name ToDoService --app-name todolistapp --query "replicaCount"
 ```
 
-I distributionsmallen för programresursen har varje tjänst en *replicaCount*-egenskap som kan användas för att ange hur många gånger du vill att tjänsten distribueras. Ett program kan bestå av flera tjänster, och varje tjänst kan ha ett unikt *replicaCount*-värde, som distribueras och hanteras tillsammans. Om du vill skala antalet tjänstrepliker ändra du *replicaCount*-värdet för varje tjänst som du vill skala i distributionsmallen eller parameterfilen.  Sedan uppgraderar du programmet.
+I distributionsmallen för programresursen har varje tjänst en *replicaCount* -egenskap som kan användas för att ange hur många gånger du vill att tjänsten distribueras. Ett program kan bestå av flera tjänster, och varje tjänst kan ha ett unikt *replicaCount* -värde, som distribueras och hanteras tillsammans. Om du vill skala antalet tjänstrepliker ändra du *replicaCount* -värdet för varje tjänst som du vill skala i distributionsmallen eller parameterfilen.  Sedan uppgraderar du programmet.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Ändra parametrarna för distributionsmallen
 
@@ -64,7 +64,7 @@ Om det finns värden i mallen som förväntas ändras när programmet har distri
 
 Tidigare distribuerades programmet med hjälp av [mesh_rp.windows.json-distributionsmallen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) och [mesh_rp.windows.parameter.json-parameterfilen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
-Öppna [mesh_rp.windows.parameter.json-parameterfilen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) lokalt och ange *frontEndReplicaCount*-värdet till 3 och *serviceReplicaCount*-värdet till 2:
+Öppna [mesh_rp.windows.parameter.json-parameterfilen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) lokalt och ange *frontEndReplicaCount* -värdet till 3 och *serviceReplicaCount* -värdet till 2:
 
 ```json
       "frontEndReplicaCount":{
@@ -88,7 +88,7 @@ Spara dina ändringar i parameterfilen.  Parametrarna *frontEndReplicaCount* och
     }
 ```
 
-*replicaCount*-egenskapen för WebFrontEnd-tjänsten refererar till *frontEndReplicaCount*-parametern och *replicaCount*-egenskapen för ToDoService-tjänsten refererar till *serviceReplicaCount*-parametern:
+*replicaCount* -egenskapen för WebFrontEnd-tjänsten refererar till *frontEndReplicaCount* -parametern och *replicaCount* -egenskapen för ToDoService-tjänsten refererar till *serviceReplicaCount* -parametern:
 
 ```json
     "services": [

@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 609f6d5fd0bf75b1a2056c01c8d22ae9e08ab9cb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563700"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746824"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ) som är bransch standard och [NFS-protokollet (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (för hands version). Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -22,7 +22,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 1. Avsnittet kommentarer i den här artikeln.
 2. [Sidan Microsoft Q&en fråga för Azure Storage](https://docs.microsoft.com/answers/topics/azure-file-storage.html).
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft Support. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran**.
+4. Microsoft Support. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran** .
 
 ## <a name="general"></a>Allmänt
 * <a id="why-files-useful"></a>
@@ -107,7 +107,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
     Prestandan varierar beroende på dina miljö inställningar, konfiguration och om detta är en inledande synkronisering eller en pågående synkronisering. Mer information finns i [Azure File Sync prestanda mått](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
 
 * <a id="afs-conflict-resolution"></a>**Vad händer om samma fil ändras på två servrar på ungefär samma tid?**  
-    Azure File Sync använder en enkel lösning för konflikt lösning: vi behåller båda ändringarna i filer som ändras i två slut punkter på samma gång. Den senast skrivna ändringen behåller det ursprungliga fil namnet. Den äldre filen (som bestäms av LastWriteTime) har slut punkts namnet och konflikt numret som läggs till i fil namnet. För Server slut punkter är slut punktens namn namnet på servern. För moln slut punkter är slut punktens namn **moln**. Namnet följer den här taxonomin: 
+    Azure File Sync använder en enkel lösning för konflikt lösning: vi behåller båda ändringarna i filer som ändras i två slut punkter på samma gång. Den senast skrivna ändringen behåller det ursprungliga fil namnet. Den äldre filen (som bestäms av LastWriteTime) har slut punkts namnet och konflikt numret som läggs till i fil namnet. För Server slut punkter är slut punktens namn namnet på servern. För moln slut punkter är slut punktens namn **moln** . Namnet följer den här taxonomin: 
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
@@ -257,7 +257,25 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 * <a id="ad-multiple-forest"></a>
 **Stöder lokal AD DS-autentisering för Azure-filresurser integrering med en AD DS-miljö med flera skogar?**    
 
-    Azure Files lokal AD DS-autentisering integreras bara med skogen för den domän tjänst som lagrings kontot är registrerat på. För att stödja autentisering från en annan skog måste din miljö ha ett skogs förtroende konfigurerat korrekt. Hur Azure Files registreras i AD DS nästan på samma sätt som en vanlig fil server, där den skapar en identitet (dator-eller tjänst inloggnings konto) i AD DS för autentisering. Den enda skillnaden är att lagrings kontots registrerade SPN slutar med "file.core.windows.net" som inte matchar domänsuffix. Kontakta domän administratören för att se om någon uppdatering av DNS-Routningsprincipen krävs för att aktivera flera skogsomfattande autentisering på grund av ett annat domänsuffix.
+    Azure Files lokal AD DS-autentisering integreras bara med skogen för den domän tjänst som lagrings kontot är registrerat på. För att stödja autentisering från en annan skog måste din miljö ha ett skogs förtroende konfigurerat korrekt. Hur Azure Files registreras i AD DS nästan på samma sätt som en vanlig fil server, där den skapar en identitet (dator-eller tjänst inloggnings konto) i AD DS för autentisering. Den enda skillnaden är att lagrings kontots registrerade SPN slutar med "file.core.windows.net" som inte matchar domänsuffix. Kontakta domän administratören för att se om någon uppdatering av Routningsprincipen krävs för att aktivera flera skogar på grund av ett annat domänsuffix. Vi tillhandahåller ett exempel nedan för att konfigurera Dirigerings princip för suffix.
+    
+    Exempel: när användare i skogen en domän vill komma åt en fil resurs med det lagrings konto som registrerats mot en domän i skog B, fungerar detta inte automatiskt eftersom tjänstens huvud namn inte har något suffix som matchar suffixet för någon domän i skog A. Vi kan åtgärda det här problemet genom att manuellt konfigurera en regel för routning av suffix från skog A till skog B för det anpassade suffixet "file.core.windows.net".
+    Först måste du lägga till ett nytt anpassat suffix i skog B. kontrol lera att du har rätt administratörs behörighet för att ändra konfigurationen och följ sedan dessa steg:   
+    1. Logga in på en dator domän som är ansluten till skog B
+    2.  Öppna konsolen Active Directory domäner och förtroenden
+    3.  Högerklicka på "Active Directory domäner och förtroenden"
+    4.  Klicka på "egenskaper"
+    5.  Klicka på "Lägg till"
+    6.  Lägg till "file.core.windows.net" som UPN-suffix
+    7.  Klicka på Använd och sedan på OK för att stänga guiden
+    
+    Lägg sedan till regeln för routning av suffix i skog A, så att den omdirigerar till skog B.
+    1.  Logga in på en dator domän som är ansluten till skog A
+    2.  Öppna konsolen Active Directory domäner och förtroenden
+    3.  Högerklicka på den domän som du vill komma åt fil resursen och klicka sedan på fliken "förtroenden" och välj skog B-domän från utgående förtroenden. Om du inte konfigurerar förtroende mellan de två skogarna måste du konfigurera förtroendet först
+    4.  Klicka på "egenskaper..." sedan "routning av namnsuffix"
+    5.  Kontrol lera att surffix "*. file.core.windows.net" visas. Annars klickar du på uppdatera
+    6.  Välj "*. file.core.windows.net" och klicka på "Aktivera" och "tillämpa"
 
 * <a id=""></a>
 **Vilka regioner är tillgängliga för Azure Files AD DS-autentisering?**

@@ -3,20 +3,20 @@ title: Skicka Azure aktivitets logg till Log Analytics arbets ytan med Azure Res
 description: Använd ARM-mallar för att skapa en Log Analytics arbets yta och en diagnostisk inställning för att skicka aktivitets loggen till Azure Monitor loggar.
 ms.subservice: logs
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 552df72901b9fde7acedd554b429f3a2ce0f671b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: abcaee8cffd36e22c918b9d82f37370df1d61c26
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631859"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747039"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Snabb start: skicka Azure aktivitets logg till Log Analytics arbets yta med en ARM-mall
 
-Aktivitets loggen är en plattforms logg i Azure som ger inblick i händelser på prenumerations nivå. Detta inkluderar sådan information som när en resurs ändras eller när en virtuell dator startas. Du kan visa aktivitets loggen i Azure Portal eller hämta poster med PowerShell och CLI. Den här snabb starten visar hur du använder Azure Resource Manager mallar (ARM-mallar) för att skapa en Log Analytics arbets yta och en diagnostisk inställning för att skicka aktivitets loggen till Azure Monitor loggar där du kan analysera den med hjälp av [logg frågor](../log-query/log-query-overview.md) och aktivera andra funktioner som [logg aviseringar](../platform/alerts-log-query.md) och [arbets böcker](../platform/workbooks-overview.md).
+Aktivitetsloggen är en plattformslogg i Azure som ger inblick i händelser på prenumerationsnivå. Bland annat loggas information som när en resurs ändras eller när en virtuell dator startas. Du kan visa aktivitets loggen i Azure Portal eller hämta poster med PowerShell och CLI. Den här snabb starten visar hur du använder Azure Resource Manager mallar (ARM-mallar) för att skapa en Log Analytics arbets yta och en diagnostisk inställning för att skicka aktivitets loggen till Azure Monitor loggar där du kan analysera den med hjälp av [logg frågor](../log-query/log-query-overview.md) och aktivera andra funktioner som [logg aviseringar](../platform/alerts-log-query.md) och [arbets böcker](../platform/workbooks-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,7 +29,7 @@ Aktivitets loggen är en plattforms logg i Azure som ger inblick i händelser p�
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Följande mall skapar en tom Log Analytics-arbetsyta. Spara den här mallen som *CreateWorkspace.jspå*.
+Följande mall skapar en tom Log Analytics-arbetsyta. Spara den här mallen som *CreateWorkspace.jspå* .
 
 ```json
 {
@@ -134,7 +134,7 @@ Den här mallen definierar en resurs:
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
-Distribuera mallen med valfri standard metod för att [distribuera en arm-mall](../../azure-resource-manager/templates/deploy-portal.md) som i följande exempel med CLI och PowerShell. Ersätt exempel värden för **resurs grupp**, **workspaceName**och **plats** med lämpliga värden för din miljö. Arbets ytans namn måste vara unikt bland alla Azure-prenumerationer.
+Distribuera mallen med valfri standard metod för att [distribuera en arm-mall](../../azure-resource-manager/templates/deploy-portal.md) som i följande exempel med CLI och PowerShell. Ersätt exempel värden för **resurs grupp** , **workspaceName** och **plats** med lämpliga värden för din miljö. Arbets ytans namn måste vara unikt bland alla Azure-prenumerationer.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -180,7 +180,7 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Följande mall skapar en diagnostisk inställning som skickar aktivitets loggen till en Log Analytics-arbetsyta. Spara den här mallen som *CreateDiagnosticSetting.jspå*.
+Följande mall skapar en diagnostisk inställning som skickar aktivitets loggen till en Log Analytics-arbetsyta. Spara den här mallen som *CreateDiagnosticSetting.jspå* .
 
 ```json
 {
@@ -248,7 +248,7 @@ Den här mallen definierar en resurs:
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
-Distribuera mallen med valfri standard metod för att [distribuera en arm-mall](../../azure-resource-manager/templates/deploy-portal.md) som i följande exempel med CLI och PowerShell. Ersätt exempel värden för **resurs grupp**, **workspaceName**och **plats** med lämpliga värden för din miljö. Arbets ytans namn måste vara unikt bland alla Azure-prenumerationer.
+Distribuera mallen med valfri standard metod för att [distribuera en arm-mall](../../azure-resource-manager/templates/deploy-portal.md) som i följande exempel med CLI och PowerShell. Ersätt exempel värden för **resurs grupp** , **workspaceName** och **plats** med lämpliga värden för din miljö. Arbets ytans namn måste vara unikt bland alla Azure-prenumerationer.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -281,7 +281,7 @@ Endast nya aktivitets logg poster skickas till Log Analytics arbets ytan, så ut
 
 ## <a name="retrieve-data-with-a-log-query"></a>Hämta data med en logg fråga
 
-Använd Azure Portal för att använda Log Analytics för att hämta data från arbets ytan. I Azure Portal söker du efter och väljer **övervaka**.
+Använd Azure Portal för att använda Log Analytics för att hämta data från arbets ytan. I Azure Portal söker du efter och väljer **övervaka** .
 
 ![Azure Portal](media/quick-collect-activity-log/azure-portal-monitor.png)
 
@@ -289,7 +289,7 @@ Välj **loggar** på **Azure Monitor** -menyn. Stäng sidan **exempel frågor** 
 
 ![Log Analytics omfång](media/quick-collect-activity-log/log-analytics-scope.png)
 
-I fönstret fråga skriver du `AzureActivity` och klickar på **Kör**. Det här är en enkel fråga som returnerar alla poster i tabellen *AzureActivity* som innehåller alla poster som skickas från aktivitets loggen.
+I fönstret fråga skriver du `AzureActivity` och klickar på **Kör** . Det här är en enkel fråga som returnerar alla poster i tabellen *AzureActivity* som innehåller alla poster som skickas från aktivitets loggen.
 
 ![Exempelfråga](media/quick-collect-activity-log/query-01.png)
 

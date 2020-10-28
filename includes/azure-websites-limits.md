@@ -4,17 +4,17 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 800dc50f82fa47228f1a88a143c5b515168812a6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91745579"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755735"
 ---
 | Resurs | Kostnadsfri | Delad | Basic | Standard | Premium (v3) | Isolerad </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Webb-, mobil-eller API-appar](https://azure.microsoft.com/services/app-service/) per [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Obegränsat<sup>2</sup> |Obegränsat<sup>2</sup> |Obegränsat<sup>2</sup> |Obegränsat<sup>2</sup>|
-| [App Service plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resurs grupp |100 per resurs grupp |100 per resurs grupp |100 per resurs grupp |100 per resurs grupp|
+| [App Service-plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resurs grupp |100 per resurs grupp |100 per resurs grupp |100 per resurs grupp |100 per resurs grupp|
 | Beräknings instans typ |Delad |Delad |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup></p> |Dedikerad<sup>3</sup>|
 | [Skala ut](../articles/app-service/manage-scale-up.md) (maximalt antal instanser) |1 delad |1 delad |3 dedikerad<sup>3</sup> |10 dedikerat<sup>3</sup> |30 dedikerat<sup>3</sup>|100 dedikerat<sup>4</sup>|
 | Lagring<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> <br/><br/> Skicka en support förfrågan för mer än 250 GB. |1 TB<sup>5</sup> <br/><br/> Den tillgängliga lagrings kvoten är 999 GB. |
@@ -32,6 +32,7 @@ ms.locfileid: "91745579"
 | Hybridanslutningar | | | 5 per plan | 25 per plan | 200 per app | 200 per app |
 | [Virtual Network-integrering](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | Integrerad belastningsutjämnare | |X |X |X |X |X<sup>10</sup> |
+| [Åtkomst begränsningar](../articles/app-service/networking-features.md#access-restrictions) | 512 regler per app | 512 regler per app | 512 regler per app | 512 regler per app | 512 regler per app | 512 regler per app |
 | [Always on](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Schemalagda säkerhets kopieringar](../articles/app-service/manage-backup.md) | | | | Schemalagda säkerhets kopieringar varje 2 timme, högst 12 säkerhets kopior per dag (manuellt + schemalagd) | Schemalagda säkerhets kopieringar varje timme, högst 50 säkerhets kopior per dag (manuellt + schemalagd) | Schemalagda säkerhets kopieringar varje timme, högst 50 säkerhets kopior per dag (manuellt + schemalagd) |
 | [Automatisk skalning](../articles/app-service/manage-scale-up.md) | | | |X |X |X |

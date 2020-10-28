@@ -8,13 +8,13 @@ ms.date: 06/30/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 7b732537d5b0ba517c5d638381c07f229c500081
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 1c4ac7d36b568f68c67a99d078fd65515bbb21b0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107801"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747714"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Windows-enhet
 
@@ -45,7 +45,7 @@ Lägg till Azure IoT-tillägget till Cloud Shell-instansen.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Molnresurser:
 
@@ -68,8 +68,8 @@ IoT Edge-enhet:
   När den virtuella datorn startar kan du ladda ned en RDP-fil som ska användas vid anslutning till den virtuella datorn:
 
   1. Navigera till den nya virtuella Windows-datorn i Azure Portal.
-  1. Välj **Anslut**.
-  1. På fliken **RDP** väljer du **Ladda ned RDP-fil**.
+  1. Välj **Anslut** .
+  1. På fliken **RDP** väljer du **Ladda ned RDP-fil** .
 
   Öppna den här filen med Anslutning till fjärrskrivbord för att ansluta till din virtuella Windows-dator med hjälp av det administratörs namn och lösen ord som du angav med `az vm create` kommandot.
 
@@ -94,7 +94,7 @@ Följande kod skapar en kostnads fri **F1** -hubb i resurs gruppen `IoTEdgeResou
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   Om du får ett felmeddelande eftersom det redan finns en kostnadsfri hubb i din prenumeration ändrar du SKU till **S1**. Om du får ett felmeddelande om att IoT Hub-namnet inte är tillgängligt innebär det att någon annan redan har en hubb med det namnet. Prova med ett nytt namn.
+   Om du får ett felmeddelande eftersom det redan finns en kostnadsfri hubb i din prenumeration ändrar du SKU till **S1** . Om du får ett felmeddelande om att IoT Hub-namnet inte är tillgängligt innebär det att någon annan redan har en hubb med det namnet. Prova med ett nytt namn.
 
 ## <a name="register-an-iot-edge-device"></a>Registrera en IoT Edge-enhet
 
@@ -187,7 +187,7 @@ Kontrollera att körningen har installerats och konfigurerats korrekt. Det kan t
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
-3. Visa alla moduler som körs på din IoT Edge-enhet. Eftersom det är första gången du startar tjänsten, bör du bara kunna se den **edgeAgent**-modul som körs. EdgeAgent-modulen körs som standard och hjälper till att installera och starta ytterligare moduler som du distribuerar till din enhet.
+3. Visa alla moduler som körs på din IoT Edge-enhet. Eftersom det är första gången du startar tjänsten, bör du bara kunna se den **edgeAgent** -modul som körs. EdgeAgent-modulen körs som standard och hjälper till att installera och starta ytterligare moduler som du distribuerar till din enhet.
 
     ```powershell
     iotedge list
@@ -241,7 +241,7 @@ Om du skapade den virtuella datorn och IoT-hubben i en ny resursgrupp kan du ta 
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras.
 
-Ta bort gruppen **IoTEdgeResources**. Det kan ta några minuter att ta bort en resurs grupp.
+Ta bort gruppen **IoTEdgeResources** . Det kan ta några minuter att ta bort en resurs grupp.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources

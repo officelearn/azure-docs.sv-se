@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c54a112a85ad930dde524ba4293a3ad0b700a22f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 86b5c1dc396a755d898f0c3c332ab59933236afe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303105"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747450"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett Node.js proxy-program (för hands version)
 
@@ -60,7 +60,7 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 Om du har slutfört [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md) kan du hoppa över det här steget.
 
@@ -82,7 +82,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I det h
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. Om du vill aktivera backend-programmet för att ansluta till din IoT-hubb och hämta meddelandena måste du också ha en *anslutnings sträng för tjänsten*. Följande kommando hämtar strängen för din IoT-hubb:
+1. Om du vill aktivera backend-programmet för att ansluta till din IoT-hubb och hämta meddelandena måste du också ha en *anslutnings sträng för tjänsten* . Följande kommando hämtar strängen för din IoT-hubb:
 
    > [!NOTE]
    > Ersätt plats hållaren *YourIoTHubName* med det namn du valt för din IoT Hub.

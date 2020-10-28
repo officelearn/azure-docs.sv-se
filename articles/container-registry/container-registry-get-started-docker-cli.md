@@ -3,13 +3,13 @@ title: Push-& Hämta Docker-avbildning
 description: Skicka och hämta Docker-avbildningar till ett privat containerregister i Azure med hjälp av Docker CLI
 ms.topic: article
 ms.date: 01/23/2019
-ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 6751a04c3c1bfe826334161704c20c1ba2e5a6d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurecli
+ms.openlocfilehash: 067b5749332c2c41b86d22e7de60083d5f61a442
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74456356"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746621"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett privat Docker-containerregister med hjälp av Docker CLI
 
@@ -17,14 +17,14 @@ Ett Azure-containerregister lagrar och hanterar privata [Docker](https://hub.doc
 
 I följande steg kan du hämta en officiell [nginx-avbildning](https://store.docker.com/images/nginx) från det offentliga Docker Hub-registret, tagga det för ditt privata Azure Container Registry, skicka det till registret och sedan hämta det från registret.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-containerregister** – Skapa ett containerregister i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
 * **Docker CLI** – du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på ett [macOS][docker-mac]-, [Windows][docker-windows]- eller [Linux][docker-linux]-system.
 
 ## <a name="log-in-to-a-registry"></a>Logga in i ett register
 
-Det finns [flera sätt att autentisera](container-registry-authentication.md) till ditt privata behållar register. Den rekommenderade metoden när du arbetar i en kommando rad är med Azure CLI-kommandot [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Om du till exempel vill logga in till ett register med namnet min *Registry*:
+Det finns [flera sätt att autentisera](container-registry-authentication.md) till ditt privata behållar register. Den rekommenderade metoden när du arbetar i en kommando rad är med Azure CLI-kommandot [AZ ACR login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Om du till exempel vill logga in till ett register med namnet min *Registry* :
 
 ```azurecli
 az acr login --name myregistry
@@ -39,7 +39,7 @@ docker login myregistry.azurecr.io
 Båda kommandona returnerades `Login Succeeded` när de har slutförts.
 
 > [!TIP]
-> Ange alltid det fullständigt kvalificerade register namnet (alla gemener) när du använder `docker login` och när du taggar avbildningar för att överföra till registret. I exemplen i den här artikeln är det fullständigt kvalificerade namnet *myregistry.azurecr.io*.
+> Ange alltid det fullständigt kvalificerade register namnet (alla gemener) när du använder `docker login` och när du taggar avbildningar för att överföra till registret. I exemplen i den här artikeln är det fullständigt kvalificerade namnet *myregistry.azurecr.io* .
 
 ## <a name="pull-the-official-nginx-image"></a>Hämta den officiella nginx-avbildningen
 

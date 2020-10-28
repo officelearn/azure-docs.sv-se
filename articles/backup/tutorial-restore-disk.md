@@ -3,13 +3,13 @@ title: Självstudie – återställa en virtuell dator med Azure CLI
 description: Lär dig hur du återställer en disk och återskapar en virtuell dator i Azure med Backup och Recovery Services.
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.custom: mvc
-ms.openlocfilehash: 861c911e84c9de02467d443751902e71d2504422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2d8ce7ab6d5a3ab244d0292ffe52847f18ea8795
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325002"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746751"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Återställa en VM med Azure CLI
 
@@ -27,7 +27,7 @@ Information om hur du återställer en disk och skapar en återställd virtuell 
 
 Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.0.18 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här självstudiekursen måste du ha en virtuell Linux-dator som har skyddats med Azure Backup. Du simulerar en oavsiktlig borttagning och återställning av den virtuella datorn genom att skapa en virtuell dator från en disk i en återställningspunkt. Om du behöver en virtuell Linux-dator som har skyddats med Azure Backup kan du läsa mer i [Säkerhetskopiera en virtuell dator i Azure med CLI](quick-backup-vm-cli.md).
 
@@ -74,7 +74,7 @@ Om den säkerhetskopierade virtuella datorn har hanterade diskar och om avsikten
         --sku Standard_LRS
     ```
 
-2. Återställ disken från återställningspunkten med [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Ersätt *mystorageaccount* med namnet på det lagringskonto du skapade i föregående kommando. Ersätt *myRecoveryPointName* med återställnings punkt namnet som du fick i utdata från föregående [AZ backup recoverypoint List](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) -kommando. ***Ange även mål resurs gruppen som de hanterade diskarna ska återställas till***.
+2. Återställ disken från återställningspunkten med [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Ersätt *mystorageaccount* med namnet på det lagringskonto du skapade i föregående kommando. Ersätt *myRecoveryPointName* med återställnings punkt namnet som du fick i utdata från föregående [AZ backup recoverypoint List](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) -kommando. ***Ange också mål resurs gruppen som de hanterade diskarna ska återställas till** _.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -88,7 +88,7 @@ Om den säkerhetskopierade virtuella datorn har hanterade diskar och om avsikten
     ```
 
     > [!WARNING]
-    > Om **mål resurs gruppen** inte anges återställs de hanterade diskarna som ohanterade diskar till det angivna lagrings kontot. Detta kommer att ha betydande konsekvenser för återställnings tiden eftersom den tid det tar att återställa diskarna i sin helhet beror på det aktuella lagrings kontot. Du får bara fördelen med omedelbar återställning när parametern mål resurs-grupp anges. Om avsikten är att återställa hanterade diskar som ohanterade ska du inte ange parametern **-resurs-grupp** och i stället ange parametern **restore-as-unmanaged-disk** som visas nedan. Den här parametern är tillgänglig från AZ 3.4.0 och senare.
+    > Om _ *mål-resurs-grupp* * inte anges kommer de hanterade diskarna att återställas som ohanterade diskar till det angivna lagrings kontot. Detta kommer att ha betydande konsekvenser för återställnings tiden eftersom den tid det tar att återställa diskarna i sin helhet beror på det aktuella lagrings kontot. Du får bara fördelen med omedelbar återställning när parametern mål resurs-grupp anges. Om avsikten är att återställa hanterade diskar som ohanterade ska du inte ange parametern **-resurs-grupp** och i stället ange parametern **restore-as-unmanaged-disk** som visas nedan. Den här parametern är tillgänglig från AZ 3.4.0 och senare.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -164,7 +164,7 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-När *status* för återställnings jobbet har *slutförts*har nödvändig information (VM-konfiguration och distributions mal len) återställts till lagrings kontot.
+När *status* för återställnings jobbet har *slutförts* har nödvändig information (VM-konfiguration och distributions mal len) återställts till lagrings kontot.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Skapa en virtuell dator från den återställda disken
 

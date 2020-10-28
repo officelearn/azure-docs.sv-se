@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 10/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4d1d071a36531ed5f159543e33e9ac043160cd70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f6cd943e381d53c36867ce960cd99552f3aea6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650773"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746535"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Data flödes gränser för strömning
 
@@ -28,9 +28,9 @@ Azure Time Series Insights Gen2 strömma data ingångs begränsningar beskrivs n
 
 I allmänhet visas ingångs priser som faktor för antalet enheter i din organisation, frekvens för händelse utsläpp och storleken på varje händelse:
 
-* **Antal enheter** × **händelse utsläpps frekvens** × **storlek på varje händelse**.
+* **Antal enheter** × **händelse utsläpps frekvens** × **storlek på varje händelse** .
 
-Som standard kan Azure Time Series Insights Gen2 mata in inkommande data med en hastighet på **upp till 1 megabyte per sekund (Mbit/s) per Azure Time Series Insights Gen2-miljö**. Det finns ytterligare begränsningar [per nav-partition](./concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits).
+Som standard kan Azure Time Series Insights Gen2 mata in inkommande data med en hastighet på **upp till 1 megabyte per sekund (Mbit/s) per Azure Time Series Insights Gen2-miljö** . Det finns ytterligare begränsningar [per nav-partition](./concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits).
 
 > [!TIP]
 >
@@ -41,7 +41,7 @@ Som standard kan Azure Time Series Insights Gen2 mata in inkommande data med en 
 
     Contoso-leverans har 100 000 enheter som genererar en händelse tre gånger per minut. Storleken på en händelse är 200 byte. De använder en IoT Hub med fyra partitioner som Azure Time Series Insights Gen2 händelse källa.
 
-  * Inmatnings takten för Azure Time Series Insights Gen2-miljön skulle vara: **100 000 enheter * 200 byte/event * (3/60 Event/s) = 1 Mbit/s**.
+  * Inmatnings takten för Azure Time Series Insights Gen2-miljön skulle vara: **100 000 enheter * 200 byte/event * (3/60 Event/s) = 1 Mbit/s** .
     * Om du antar balanserade partitioner blir inmatnings takten per partition 0,25 Mbit/s.
     * Contosos överförings takt skulle ligga inom skalnings begränsningarna.
 
@@ -49,7 +49,7 @@ Som standard kan Azure Time Series Insights Gen2 mata in inkommande data med en 
 
     Contoso flotta Analytics har 40 000 enheter som genererar en händelse varje sekund. De använder en Event Hub med ett antal partitioner på 2 som Azure Time Series Insights händelse källa för Gen2. Storleken på en händelse är 200 byte.
 
-  * Miljöns utmatnings frekvens skulle vara: **40 000 enheter * 200 byte/event * 1 händelse/SEK = 8 Mbit/s**.
+  * Miljöns utmatnings frekvens skulle vara: **40 000 enheter * 200 byte/event * 1 händelse/SEK = 8 Mbit/s** .
     * Om du antar balanserade partitioner, blir deras per partition 4 Mbit/s.
     * Contoso flottans analys "inmatnings takt är över miljön och partitionens gränser. De kan skicka en begäran om att Azure Time Series Insights Gen2 genom Azure Portal för att öka inmatnings takten för deras miljö, och skapa en Händelsehubben med fler partitioner som ligger inom gränserna.
 
@@ -66,7 +66,7 @@ För Event Hubs partitionering bör du läsa mer om [hur många partitioner beh�
 
 Oavsett om du skapar en ny hubb för din Azure Time Series Insights Gen2-miljö eller om du använder en befintlig, måste du beräkna din användnings takt per partition för att avgöra om den ligger inom gränserna.
 
-Azure Time Series Insights Gen2 har för närvarande en **gräns för per partition på 0,5 Mbit/s**.
+Azure Time Series Insights Gen2 har för närvarande en **gräns för per partition på 0,5 Mbit/s** .
 
 ### <a name="iot-hub-specific-considerations"></a>IoT Hub-/regionsspecifika överväganden
 
@@ -74,7 +74,7 @@ När en enhet skapas i IoT Hub tilldelas den permanent till en partition. När d
 
 En fast tilldelning av partitioner påverkar också Azure Time Series Insights Gen2-instanser som matar in data som skickas från IoT Hub underordnade. När meddelanden från flera enheter vidarebefordras till hubben med samma Gateway-enhets-ID kan de komma i samma partition samtidigt som de kan överskrida gränserna för varje partition.
 
-**Påverkan**:
+**Påverkan** :
 
 * Om en enda partition får en varaktig takt med att mata in över gränsen, är det möjligt att Azure Time Series Insights Gen2 inte synkroniserar all telemetri innan IoT Hub data lagrings perioden har överskridits. Därför kan skickade data gå förlorade om inmatnings gränserna överskrids konsekvent.
 

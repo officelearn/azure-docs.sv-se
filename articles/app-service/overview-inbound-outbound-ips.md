@@ -3,13 +3,13 @@ title: Inkommande/utgående IP-adresser
 description: Lär dig hur inkommande och utgående IP-adresser används i Azure App Service när de ändras och hur du hittar adresserna för din app.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18
-ms.openlocfilehash: 8fa9fec9219cfd85a8a0b25f50835425766d9043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050700"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746158"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Inkommande och utgående IP-adresser i Azure App Service
 
@@ -51,7 +51,7 @@ Uppsättningen utgående IP-adresser för din app ändras när du utför någon 
 
 - Ta bort en app och återskapa den i en annan resurs grupp (distributions enhet kan ändras).
 - Ta bort den sista appen i en resurs grupp _och_ regions kombination och återskapa den (distributions enheten kan ändras).
-- Skala din app mellan de lägre nivåerna (**Basic**, **standard**och **Premium**) och **Premium v2** -nivån (IP-adresser kan läggas till i eller subtraheras från uppsättningen).
+- Skala din app mellan de lägre nivåerna ( **Basic** , **standard** och **Premium** ) och **Premium v2** -nivån (IP-adresser kan läggas till i eller subtraheras från uppsättningen).
 
 Du hittar uppsättningen med alla möjliga utgående IP-adresser som din app kan använda, oavsett pris nivå, genom att söka efter `possibleOutboundIpAddresses` egenskapen eller i fältet **ytterligare utgående IP-adresser** på bladet **Egenskaper** i Azure Portal. Se [hitta utgående IP-adresser](#find-outbound-ips).
 

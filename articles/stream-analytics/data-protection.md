@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812870"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746399"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Data skydd i Azure Stream Analytics 
 
@@ -67,16 +67,12 @@ Använd följande steg för att konfigurera ditt lagrings konto för privata dat
 
 1. Fyll i sidan Stream Analytics jobb med nödvändig information, till exempel namn, region och skala. 
 
-1. Markera kryss rutan med texten *skydda alla privata data till gångar som krävs av det här jobbet i mitt lagrings konto*.
+1. Markera kryss rutan med texten *skydda alla privata data till gångar som krävs av det här jobbet i mitt lagrings konto* .
 
 1. Välj ett lagrings konto från din prenumeration. Observera att den här inställningen inte kan ändras under jobbets livs cykel. 
 
    ![Inställningar för lagrings konto för privata data](./media/data-protection/storage-account-create.png)
 
-
-
-### <a name="known-issues"></a>Kända problem
-För närvarande finns det en känd begränsning där ett jobb som använder kundhanterad nyckel körs i haverier när den hanterade identiteten används för att autentisera till eventuella indata eller utdata.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: aecf5c8b71f23e3d51c755c86ec0122d6da05f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+- devx-track-azurecli
+ms.openlocfilehash: 74d5e5395853bcba20b2012e54dd8f9fea03afe6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842775"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748541"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -27,7 +28,7 @@ ms.locfileid: "91842775"
 
 Förutom att ta emot telemetri från dina enheter kan du behöva konfigurera dina enheter från din serverdelstjänst. När du skickar en önskad konfiguration till dina enheter vill du kanske också ta emot uppdateringar av status och efterlevnad från dessa enheter. Du kan till exempel ställa in ett måldrifttemperaturområde för en enhet eller hämta versionsinformation för den fasta programvaran från dina enheter.
 
-Om du vill synkronisera statusinformation mellan en enhet och en IoT-hubb använder du _enhetstvillingar_. En [enhetstvilling](iot-hub-devguide-device-twins.md) är ett JSON-dokument som är associerat med en specifik enhet och lagras i IoT-hubben i molnet där du kan [frågan](iot-hub-devguide-query-language.md) det. En enhetstvilling innehåller _önskade egenskaper_, _rapporterade egenskaper_ och _taggar_. En önskad egenskap ställs in av ett serverdelsprogram och läses av en enhet. En rapporterade egenskap ställs in av en enhet och läsas av ett serverdelsprogram. En tagg ställs in av ett serverdelsprogram och skickas aldrig till en enhet. Använd taggar för att organisera din enhet. Den här kursen visar hur du använder önskade och rapporterade egenskaper för att synkronisera tillståndsinformation:
+Om du vill synkronisera statusinformation mellan en enhet och en IoT-hubb använder du _enhetstvillingar_ . En [enhetstvilling](iot-hub-devguide-device-twins.md) är ett JSON-dokument som är associerat med en specifik enhet och lagras i IoT-hubben i molnet där du kan [frågan](iot-hub-devguide-query-language.md) det. En enhetstvilling innehåller _önskade egenskaper_ , _rapporterade egenskaper_ och _taggar_ . En önskad egenskap ställs in av ett serverdelsprogram och läses av en enhet. En rapporterade egenskap ställs in av en enhet och läsas av ett serverdelsprogram. En tagg ställs in av ett serverdelsprogram och skickas aldrig till en enhet. Använd taggar för att organisera din enhet. Den här kursen visar hur du använder önskade och rapporterade egenskaper för att synkronisera tillståndsinformation:
 
 ![Tvillingssammanfattning](media/tutorial-device-twins/DeviceTwins.png)
 
@@ -40,9 +41,9 @@ I den här självstudien utför du följande åtgärder:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node.js v10. x. x eller senare på din utvecklings dator.
 
@@ -62,7 +63,7 @@ Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den hä
 
 För att slutföra den här kursen måste din Azure-prenumeration innehålla en IoT-hubb med en enhet som har lagts till i enhetsidentitetsregistret. Posten i enhetsidentitetsregistret gör att den simulerade enheten som du kör i den här kursen kan ansluta till din hubb.
 
-Om du inte redan har en IoT-hubb konfigurerad i din prenumeration kan du konfigurera en med följande CLI-skript. Det här skriptet använder namnet **tutorial-iot-hub** för IoT-hubben. Du bör ersätta det här namnet med ditt eget unika namn när du kör det. Skriptet skapar resursgruppen och hubben i regionen **USA, centrala**, vilket du kan ändra till en region som ligger närmare till dig. Skriptet hämtar din anslutningssträng för IoT-hubbtjänsten, som du använder i serverdelexemplet för att ansluta till din IoT-hubb:
+Om du inte redan har en IoT-hubb konfigurerad i din prenumeration kan du konfigurera en med följande CLI-skript. Det här skriptet använder namnet **tutorial-iot-hub** för IoT-hubben. Du bör ersätta det här namnet med ditt eget unika namn när du kör det. Skriptet skapar resursgruppen och hubben i regionen **USA, centrala** , vilket du kan ändra till en region som ligger närmare till dig. Skriptet hämtar din anslutningssträng för IoT-hubbtjänsten, som du använder i serverdelexemplet för att ansluta till din IoT-hubb:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -82,7 +83,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-Den här kursen använder en simulerad enhet som heter **MyTwinDevice**. Med följande skript lägger du till den här enheten till din identitetsregistret och hämtar sin anslutningssträng:
+Den här kursen använder en simulerad enhet som heter **MyTwinDevice** . Med följande skript lägger du till den här enheten till din identitetsregistret och hämtar sin anslutningssträng:
 
 ```azurecli-interactive
 # Set the name of your IoT hub:
@@ -119,7 +120,7 @@ Följande kod hämtar en tvilling från klientobjektet:
 
 ### <a name="sample-desired-properties"></a>Exempel på önskade egenskaper
 
-Du kan strukturera dina önskade egenskaper på ett sätt som passar ditt program. Det här exemplet används en toppnivåegenskap som heter **fanOn** och grupperar de övriga egenskaperna i separata **komponenter**. Följande JSO- utdrag visar strukturen för egenskaperna som den här självstudiekursen använder:
+Du kan strukturera dina önskade egenskaper på ett sätt som passar ditt program. Det här exemplet används en toppnivåegenskap som heter **fanOn** och grupperar de övriga egenskaperna i separata **komponenter** . Följande JSO- utdrag visar strukturen för egenskaperna som den här självstudiekursen använder:
 
 [!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
 
@@ -129,15 +130,15 @@ Du kan skapa hanterare för uppdateringar av önskade egenskaper som kan hantera
 
 [!code-javascript[Handle all properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=allproperties&highlight=2 "Handle all properties")]
 
-Följande hanterare reagerar endast på ändringar som gjorts i den önskade egenskapen **fanOn**:
+Följande hanterare reagerar endast på ändringar som gjorts i den önskade egenskapen **fanOn** :
 
 [!code-javascript[Handle fan property](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=fanproperty&highlight=2 "Handle fan property")]
 
 ### <a name="handlers-for-multiple-properties"></a>Hanterare för flera egenskaper
 
-I exemplet önskade egenskaper för JSON som vi såg tidigare innehåller noden **klimatförändringar** under **komponenter** två egenskaper: **minTemperature** och ** maxTemperature**.
+I exemplet önskade egenskaper för JSON som vi såg tidigare innehåller noden **klimatförändringar** under **komponenter** två egenskaper: **minTemperature** och **maxTemperature** .
 
-En enhet som har lokala **tvillingobjekt** lagrar en fullständig uppsättning önskade och rapporterade egenskaper. **Delta** som skickas från en slutpunkt kanske endast uppdaterar en delmängd av egenskaperna. I följande kodavsnitt, om den simulerade enheten tar emot en uppdatering för antingen **minTemperature** eller **maxTemperature**, används värdet i den lokala tvillingen för det andra värdet för att konfigurera enheten :
+En enhet som har lokala **tvillingobjekt** lagrar en fullständig uppsättning önskade och rapporterade egenskaper. **Delta** som skickas från en slutpunkt kanske endast uppdaterar en delmängd av egenskaperna. I följande kodavsnitt, om den simulerade enheten tar emot en uppdatering för antingen **minTemperature** eller **maxTemperature** , används värdet i den lokala tvillingen för det andra värdet för att konfigurera enheten :
 
 [!code-javascript[Handle climate component](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]
 
@@ -147,7 +148,7 @@ Det lokala **tvillingobjektet** lagrar en fullständig uppsättning önskade och
 
 De egenskaper som skickas från serverdelen indikerar vilken åtgärd som utförs på en viss önskad egenskap. Din kod måste härleda åtgärden från den aktuella uppsättningen egenskaper som lagras lokalt och de ändringar som skickas från hubben.
 
-Följande utdrag visar hur den simulerade enheten infogar, uppdaterar och tar bort i listan över **komponenter** i önskade egenskaper. Du kan se hur du använder **null**-värden för att ange att en komponent ska tas bort:
+Följande utdrag visar hur den simulerade enheten infogar, uppdaterar och tar bort i listan över **komponenter** i önskade egenskaper. Du kan se hur du använder **null** -värden för att ange att en komponent ska tas bort:
 
 [!code-javascript[Handle components](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=components&highlight=2,6,13 "Handle components")]
 
@@ -189,11 +190,11 @@ npm install
 node ServiceClient.js "{your service connection string}"
 ```
 
-Följande skärmbild visar utdata från det simulerade enhetsprogrammet och visar hur det hanterar en uppdatering för den önskade egenskapen **maxTemperature**. Du kan se hur både toppnivåhanteraren och klimatkomponenthanteraren körs:
+Följande skärmbild visar utdata från det simulerade enhetsprogrammet och visar hur det hanterar en uppdatering för den önskade egenskapen **maxTemperature** . Du kan se hur både toppnivåhanteraren och klimatkomponenthanteraren körs:
 
 ![Skärm bild som visar hur både toppnivå hanteraren och klimat komponentens hanterare körs.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
-Följande skärmbild visar utdata från det serverdelsprogrammet och visar hur det skickar en uppdatering för den önskade egenskapen **maxTemperature**:
+Följande skärmbild visar utdata från det serverdelsprogrammet och visar hur det skickar en uppdatering för den önskade egenskapen **maxTemperature** :
 
 ![Skärm bild som visar utdata från Server dels programmet och markerar hur den skickar en uppdatering.](./media/tutorial-device-twins/BackEnd1.png)
 
@@ -251,7 +252,7 @@ Följande skärm bild visar utdata från Server dels programmet och visar hur de
 
 Om du planerar att slutföra nästa självstudiekurs så lämna resursgruppen och IoT-hubben och återanvänd dem senare.
 
-Om du inte behöver IoT-hubben längre kan du ta bort den och resursgruppen i portalen. Det gör du genom att markera **tutorial-iot-hub-rg**-resursgruppen som innehåller din IoT-hubb och klicka på **Ta bort**.
+Om du inte behöver IoT-hubben längre kan du ta bort den och resursgruppen i portalen. Det gör du genom att markera **tutorial-iot-hub-rg** -resursgruppen som innehåller din IoT-hubb och klicka på **Ta bort** .
 
 Du kan också använda CLI:
 

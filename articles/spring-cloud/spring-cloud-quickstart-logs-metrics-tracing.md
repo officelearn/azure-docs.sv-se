@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c879b890f9527ea0eee3d702db6f04a38432aa00
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2af9608006eac37ccdfe76d66e619d5a64cad9f1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093064"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746638"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Snabb start: övervaka Azure våren Cloud-appar med loggar, mått och spårning
 
@@ -83,7 +83,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
    [![Använd filter i mått – Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png#lightbox)
 
-1. Ignorera filtret som du skapade i föregående steg, Välj **tillämpa delning**och välj `App` för **värden** för att se CPU-användning av olika appar.
+1. Ignorera filtret som du skapade i föregående steg, Välj **tillämpa delning** och välj `App` för **värden** för att se CPU-användning av olika appar.
 
    [![Använd delning i mått – Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png#lightbox)
 
@@ -142,7 +142,7 @@ Loggarna ser ut så här:
 
 Hämta loggarna med Azure Toolkit for IntelliJ:
 
-1. Välj **Azure Explorer**och sedan **våren Cloud**.
+1. Välj **Azure Explorer** och sedan **våren Cloud** .
 
 1. Högerklicka på appen som körs.
 
@@ -150,7 +150,7 @@ Hämta loggarna med Azure Toolkit for IntelliJ:
 
    ![Välj strömmande loggar](media/spring-cloud-intellij-howto/streaming-logs.png)
     
-1. Välj **instans**.
+1. Välj **instans** .
 
    ![Välj instans](media/spring-cloud-intellij-howto/select-instance.png)
     

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: e89676505bc211d01a4327f8816a048218e579fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10599b47d55a0b4ea1eb79cda3c31a2479efb7c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91829119"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755680"
 ---
 Du kan koppla ett antal data diskar till en virtuell Azure-dator. Baserat på skalbarhets-och prestanda målen för en virtuell dators data diskar kan du fastställa det antal och den typ av disk som du behöver för att uppfylla dina prestanda-och kapacitets krav.
 
@@ -18,7 +18,7 @@ Du kan koppla ett antal data diskar till en virtuell Azure-dator. Baserat på sk
 
 **För Azure Managed disks:**
 
-I följande tabell visas standard-och Max gränserna för antalet resurser per region per prenumeration. Det finns ingen gräns för antalet Managed Disks, ögonblicks bilder och avbildningar per resurs grupp.  
+I följande tabell visas standard-och Max gränserna för antalet resurser per region per prenumeration. Gränserna förblir desamma oavsett diskar som har krypterats med antingen plattforms hanterade nycklar eller Kundhanterade nycklar. Det finns ingen gräns för antalet Managed Disks, ögonblicks bilder och avbildningar per resurs grupp.  
 
 > | Resurs | Gräns |
 > | --- | --- |

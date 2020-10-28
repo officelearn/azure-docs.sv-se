@@ -8,12 +8,12 @@ author: grantomation
 ms.author: b-grodel
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI, Azure-fil
 ms.custom: mvc
-ms.openlocfilehash: c0d809324baa095b2ce8262170289e0dfec8bfd1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a7415a481b133c2f528ba4636c0297ce5cfa23a7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428955"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747882"
 ---
 # <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Skapa en Azure Files StorageClass på Azure Red Hat OpenShift 4
 
@@ -32,7 +32,7 @@ Distribuera ett Azure Red Hat OpenShift 4-kluster i din prenumeration, se [skapa
 
 ### <a name="set-up-azure-storage-account"></a>Konfigurera Azure Storage-konto
 
-I det här steget skapas en resurs grupp utanför Azure Red Hat OpenShift-klustrets resurs grupp. Den här resurs gruppen innehåller Azure Files resurser som skapas av Azure Red Hat openshifts dynamiska provisioor.
+I det här steget skapas en resurs grupp utanför Azure Red Hat OpenShift-ARO-klustrets resurs grupp. Den här resurs gruppen innehåller Azure Files resurser som skapas av Azure Red Hat openshifts dynamiska provisioor.
 
 ```bash
 AZURE_FILES_RESOURCE_GROUP=aro_azure_files

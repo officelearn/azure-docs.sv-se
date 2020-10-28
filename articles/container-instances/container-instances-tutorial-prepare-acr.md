@@ -3,13 +3,13 @@ title: Självstudie – förbereda container Registry för att distribuera avbil
 description: Självstudie om Azure Container Instances del 2 av 3 – förbereda Azure Container Registry och push-överföra en avbildning
 ms.topic: tutorial
 ms.date: 12/18/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 44a7f21c067897b046413851ef5a2c73bfccc24f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 2eda960c53fc7ba851ffcfbe96bd8e9a48844910
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708044"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746927"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Självstudie: skapa ett Azure Container Registry och skicka en behållar avbildning
 
@@ -40,7 +40,7 @@ Hämta först det fullständiga inloggningsservernamnet för ditt Azure-containe
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Om registret t.ex. heter *mycontainerregistry082*:
+Om registret t.ex. heter *mycontainerregistry082* :
 
 ```azurecli
 az acr show --name mycontainerregistry082 --query loginServer --output table
@@ -58,7 +58,7 @@ Visa nu listan över dina lokala avbildningar med kommandot [docker images][dock
 docker images
 ```
 
-Du bör se den *aci-tutorial-app*-avbildning som du skapade i den [föregående självstudiekursen](container-instances-tutorial-prepare-app.md) tillsammans med övriga bilder som finns på datorn:
+Du bör se den *aci-tutorial-app* -avbildning som du skapade i den [föregående självstudiekursen](container-instances-tutorial-prepare-app.md) tillsammans med övriga bilder som finns på datorn:
 
 ```console
 $ docker images

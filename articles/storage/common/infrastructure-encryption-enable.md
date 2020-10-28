@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3164de9c3e44001d58d46eab9f823041b440960b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 612ba18ba71a22ad6c346b26008e688195c1d1e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984139"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746574"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Skapa ett lagrings konto med infrastruktur kryptering aktiverat för dubbel kryptering av data
 
@@ -29,7 +30,7 @@ Om du vill dubblera kryptering av data måste du först skapa ett lagrings konto
 
 Om du vill skapa ett lagrings konto som har infrastruktur kryptering aktiverat måste du först registrera dig för att använda den här funktionen med Azure med hjälp av PowerShell eller Azure CLI.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 E.t.
 
@@ -89,13 +90,13 @@ Du måste konfigurera ett lagrings konto för att använda infrastruktur krypter
 
 Det går inte att aktivera infrastruktur kryptering eller inaktive ras när kontot har skapats.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Följ dessa steg om du vill använda PowerShell för att skapa ett lagrings konto med infrastruktur kryptering aktiverat:
 
 1. Gå till sidan **lagrings konton** i Azure Portal.
 1. Välj knappen **Lägg** till för att lägga till ett nytt allmänt lagrings konto för-syfte v2.
-1. På fliken **Avancerat** letar du reda på **infrastruktur** kryptering och väljer **aktive rad**.
+1. På fliken **Avancerat** letar du reda på **infrastruktur** kryptering och väljer **aktive rad** .
 1. Välj **Granska + skapa** för att slutföra skapandet av lagrings kontot.
 
     :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="Skärm bild som visar hur du aktiverar infrastruktur kryptering när du skapar ett konto":::
@@ -173,12 +174,12 @@ Följande JSON-exempel skapar ett allmänt-syfte v2-lagrings konto som är konfi
 
 ## <a name="verify-that-infrastructure-encryption-is-enabled"></a>Kontrol lera att infrastruktur kryptering har Aktiver ATS
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Följ dessa steg om du vill kontrol lera att infrastruktur kryptering har Aktiver ATS för ett lagrings konto med Azure Portal:
 
 1. Navigera till ditt lagringskonto i Azure-portalen.
-1. Under **Inställningar**väljer du **kryptering**.
+1. Under **Inställningar** väljer du **kryptering** .
 
     :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Skärm bild som visar hur du aktiverar infrastruktur kryptering när du skapar ett konto":::
 

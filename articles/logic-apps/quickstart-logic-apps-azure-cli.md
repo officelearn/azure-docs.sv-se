@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: e492a5f0afdfc2087e5719df65221d08db0a2e77
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e6e53755d9231008d0f48c755ff9da297d7305d7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87499559"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747177"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Snabb start: skapa och hantera Logic Apps med Azure CLI
 
 Den här snabb starten visar hur du skapar och hanterar Logi Kap par med hjälp av [Azure CLI Logic Apps-tillägget](/cli/azure/ext/logic/logic?view=azure-cli-latest) ( `az logic` ). Från kommando raden kan du skapa en Logic-app med hjälp av JSON-filen för en logisk app Workflow-definition. Sedan kan du hantera din Logic app genom att köra åtgärder som `list` , `show` ( `get` ), `update` och `delete` från kommando raden.
 
 > [!WARNING]
-> Azure CLI Logic Apps-tillägget är för närvarande *experimentellt* och *omfattas inte av kund support*. Använd det här CLI-tillägget med försiktighet, särskilt om du väljer att använda tillägget i produktions miljöer.
+> Azure CLI Logic Apps-tillägget är för närvarande *experimentellt* och *omfattas inte av kund support* . Använd det här CLI-tillägget med försiktighet, särskilt om du väljer att använda tillägget i produktions miljöer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -61,7 +61,7 @@ Utdata visar `provisioningState` som `Succeeded` när resurs gruppen har skapats
 
 ## <a name="workflow-definition"></a>Arbetsflödesdefinition
 
-Innan du [skapar en ny Logic-app](#create-logic-apps-from-cli) eller [uppdaterar en befintlig Logic-app](#update-logic-apps-from-cli) med hjälp av Azure CLI behöver du en arbets flödes definition för din Logic app. I Azure Portal kan du Visa din Logic Apps-underliggande arbets flödes definition i JSON-format genom att **Växla från designvyn** till **kodvyn**.
+Innan du [skapar en ny Logic-app](#create-logic-apps-from-cli) eller [uppdaterar en befintlig Logic-app](#update-logic-apps-from-cli) med hjälp av Azure CLI behöver du en arbets flödes definition för din Logic app. I Azure Portal kan du Visa din Logic Apps-underliggande arbets flödes definition i JSON-format genom att **Växla från designvyn** till **kodvyn** .
 
 När du kör kommandona för att skapa eller uppdatera din Logic-app laddas din arbets flödes definition in som en obligatorisk parameter ( `--definition` ). Du måste skapa en arbets flödes definition som en JSON-fil som följer [språk schemat för arbets flödes definitionen](./logic-apps-workflow-definition-language.md).
 
@@ -221,7 +221,7 @@ Du kan filtrera resultaten med följande [valfria parametrar](/cli/azure/ext/log
 | --------- | ----- | ----------- |
 | Namn på resursgrupp | `--resource-group -g` | Namnet på den resurs grupp som du vill filtrera resultaten med. |
 | Antal objekt | `--top` | Antalet objekt som ingår i resultaten. |
-| Filter | `--filter` | Den typ av filter som du använder i listan. Du kan filtrera efter tillstånd ( `State` ), utlösare ( `Trigger` ) och identifieraren för den refererade resursen ( `ReferencedResourceId` ). |
+| Filtrera | `--filter` | Den typ av filter som du använder i listan. Du kan filtrera efter tillstånd ( `State` ), utlösare ( `Trigger` ) och identifieraren för den refererade resursen ( `ReferencedResourceId` ). |
 
 ```azurecli
 

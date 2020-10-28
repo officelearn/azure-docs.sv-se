@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: d4b31eb59ed0bae2afe408546ece66eacade9ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: c4d6de1b3406e6d82bdac5ff9b5c72a2286da988
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603840"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747747"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Avsluta avisering för instanser i skalningsuppsättningar med virtuella Azure-datorer
 Skalnings uppsättnings instanser kan välja att ta emot meddelanden om instans avslutning och ange en fördefinierad fördröjnings-timeout för åtgärden avsluta. Uppsägnings meddelandet skickas via Azure Metadata Service – [schemalagda händelser](../virtual-machines/windows/scheduled-events.md), som innehåller aviseringar för och fördröjning av påverkan på åtgärder som omstarter och omdistribueras. Lösningen lägger till en annan händelse – Avbryt – till listan över Schemalagda händelser och den associerade fördröjningen av händelsen avbryts beror på fördröjningen som anges av användarna i deras skal uppsättnings modell konfigurationer.
@@ -28,12 +28,12 @@ Det finns flera sätt att aktivera avslutnings meddelanden för dina skalnings u
 
 Med följande steg kan du avsluta avisering när du skapar en ny skalnings uppsättning. 
 
-1. Gå till **skalnings uppsättningar för virtuella datorer**.
+1. Gå till **skalnings uppsättningar för virtuella datorer** .
 1. Välj **+ Lägg** till för att skapa en ny skalnings uppsättning.
 1. Gå till fliken **hantering** . 
 1. Leta upp avsnittet om **instans avslutning** .
-1. För **instans avslutnings meddelande**väljer du **på**.
-1. Ange önskad standard tids gräns för **avslutnings fördröjning (minuter)**.
+1. För **instans avslutnings meddelande** väljer du **på** .
+1. Ange önskad standard tids gräns för **avslutnings fördröjning (minuter)** .
 1. När du är klar med att skapa den nya skalnings uppsättningen väljer du **Granska + skapa** . 
 
 > [!NOTE]
@@ -63,9 +63,9 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 
 ```
 
-Blocket ovan anger en tids gräns på 5 minuter (som anges av *PT5M*) för att avsluta åtgärd på alla instanser i din skalnings uppsättning. Fältet *notBeforeTimeout* kan ta ett värde mellan 5 och 15 minuter i ISO 8601-format. Du kan ändra standard tids gränsen för åtgärden avsluta genom att ändra egenskapen *notBeforeTimeout* under *terminateNotificationProfile* som beskrivs ovan.
+Blocket ovan anger en tids gräns på 5 minuter (som anges av *PT5M* ) för att avsluta åtgärd på alla instanser i din skalnings uppsättning. Fältet *notBeforeTimeout* kan ta ett värde mellan 5 och 15 minuter i ISO 8601-format. Du kan ändra standard tids gränsen för åtgärden avsluta genom att ändra egenskapen *notBeforeTimeout* under *terminateNotificationProfile* som beskrivs ovan.
 
-När du har aktiverat *scheduledEventsProfile* i skalnings uppsättnings modellen och angett *notBeforeTimeout*, uppdaterar du de enskilda instanserna till den [senaste modellen](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) för att avspegla ändringarna.
+När du har aktiverat *scheduledEventsProfile* i skalnings uppsättnings modellen och angett *notBeforeTimeout* , uppdaterar du de enskilda instanserna till den [senaste modellen](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) för att avspegla ändringarna.
 
 > [!NOTE]
 >Avsluta meddelanden i skalnings uppsättnings instanser kan bara aktive ras med API version 2019-03-01 och senare
@@ -197,7 +197,7 @@ Om du inte får några **avbrotts** händelser via schemalagda händelser kontro
 >'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Avbryter händelsen med felaktig NotBefore-tid  
-När du har aktiverat *scheduledEventsProfile* i skalnings uppsättnings modellen och angett *notBeforeTimeout*, uppdaterar du de enskilda instanserna till den [senaste modellen](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) för att avspegla ändringarna.
+När du har aktiverat *scheduledEventsProfile* i skalnings uppsättnings modellen och angett *notBeforeTimeout* , uppdaterar du de enskilda instanserna till den [senaste modellen](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) för att avspegla ändringarna.
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig hur du [distribuerar ditt program](virtual-machine-scale-sets-deploy-app.md) på virtuella datorers skalnings uppsättningar.

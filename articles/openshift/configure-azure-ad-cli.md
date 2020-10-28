@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
-ms.custom: mvc
-ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 03ecd0e11df5fa20f134b6fd87baf788078a2203
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469430"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748037"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Konfigurera Azure Active Directory autentisering för ett Azure Red Hat OpenShift 4-kluster (CLI)
 
@@ -21,7 +21,7 @@ Om du väljer att installera och använda CLI lokalt kräver den här artikeln a
 
 Hämta dina företagsspecifika URL: er som ska användas för att konfigurera Azure Active Directory-programmet.
 
-Konstruera klustrets OAuth-callback-URL och lagra den i en variabel **oauthCallbackURL**. Se till att ersätta **Aro-RG** med resurs gruppens namn och **Aro-kluster** med ditt kluster namn.
+Konstruera klustrets OAuth-callback-URL och lagra den i en variabel **oauthCallbackURL** . Se till att ersätta **Aro-RG** med resurs gruppens namn och **Aro-kluster** med ditt kluster namn.
 
 > [!NOTE]
 > `AAD`Avsnittet i OAuth-callback-URL: en ska matcha namnet på den OAuth-identitetsprovider som du kommer att konfigurera senare.
@@ -210,6 +210,6 @@ oauth.config.openshift.io/cluster configured
 
 ## <a name="verify-login-through-azure-active-directory"></a>Verifiera inloggning via Azure Active Directory
 
-Om du nu loggar ut från OpenShift-webbkonsolen och försöker logga in igen visas ett nytt alternativ för att logga in med **AAD**. Du kan behöva vänta några minuter.
+Om du nu loggar ut från OpenShift-webbkonsolen och försöker logga in igen visas ett nytt alternativ för att logga in med **AAD** . Du kan behöva vänta några minuter.
 
 ![Inloggnings skärmen med Azure Active Directory alternativ](media/aro4-login-2.png)

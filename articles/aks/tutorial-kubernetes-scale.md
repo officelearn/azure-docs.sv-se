@@ -4,13 +4,13 @@ description: I den här självstudien om Azure Kubernetes Service (AKS) lär du 
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: a9a8a73e2208f7efe01f43fa87e196ffd8c64f14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: e700934a965f836456458cb33dc46125bef4ab72
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576310"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747004"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Självstudie: Skala program i Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Om du vill ändra antalet poddar i *azure-vote-front*-distributionen manuellt använder du kommandot [kubectl scale][kubectl-scale]. I följande exempel ökas antalet frontend-poddar till *5*:
+Om du vill ändra antalet poddar i *azure-vote-front* -distributionen manuellt använder du kommandot [kubectl scale][kubectl-scale]. I följande exempel ökas antalet frontend-poddar till *5* :
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
@@ -74,7 +74,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Om ditt AKS-kluster är mindre än *1,10*installeras inte mått servern automatiskt. Mått Server installations manifest är tillgängliga som `components.yaml` till gång på mått Server versioner, vilket innebär att du kan installera dem via en URL. Mer information om dessa YAML-definitioner finns i avsnittet [distribution][metrics-server-github] i Readme.
+> Om ditt AKS-kluster är mindre än *1,10* installeras inte mått servern automatiskt. Mått Server installations manifest är tillgängliga som `components.yaml` till gång på mått Server versioner, vilket innebär att du kan installera dem via en URL. Mer information om dessa YAML-definitioner finns i avsnittet [distribution][metrics-server-github] i Readme.
 > 
 > Exempel på installation:
 > ```console
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-I följande exempel används kommandot [kubectl autoscale][kubectl-autoscale] för att automatiskt skala antalet poddar i *azure-vote-front*-distributionen. Om Genomsnittlig CPU-belastning över alla poddar överskrider 50% av den begärda användningen, ökar autoskalning poddar upp till högst *10* instanser. Minst *3* instanser definieras sedan för distributionen:
+I följande exempel används kommandot [kubectl autoscale][kubectl-autoscale] för att automatiskt skala antalet poddar i *azure-vote-front* -distributionen. Om Genomsnittlig CPU-belastning över alla poddar överskrider 50% av den begärda användningen, ökar autoskalning poddar upp till högst *10* instanser. Minst *3* instanser definieras sedan för distributionen:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -150,7 +150,7 @@ Efter några minuter, med minimal belastning på Azure Vote-appen, minskar antal
 
 Om du har skapat ditt Kubernetes-kluster med hjälp av kommandona i den föregående själv studie kursen har det två noder. Du kan justera antalet noder manuellt om du planerar att ha fler eller färre containerarbetsbelastningar i klustret.
 
-I följande exempel ökas antalet agentnoder till tre i Kubernetes-klustret med namn *myAKSCluster*. Det tar några minuter att slutföra kommandot.
+I följande exempel ökas antalet agentnoder till tre i Kubernetes-klustret med namn *myAKSCluster* . Det tar några minuter att slutföra kommandot.
 
 ```azurecli
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3

@@ -6,14 +6,14 @@ ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 173c6ff8bb4bcee7ecc40f9f277fae0e4cb8dd13
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c8542bfe3d1393917a63e4a1feae7d6dfc223031
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152352"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746185"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Snabb start: skapa App Service app med en ARM-mall
 
@@ -21,13 +21,13 @@ Kom igång med [Azure App Service](overview.md) genom att distribuera en app til
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure** . Mallen öppnas på Azure-portalen.
 
-Använd följande knapp för att distribuera i **Linux**:
+Använd följande knapp för att distribuera i **Linux** :
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
 
-Använd följande knapp för att distribuera i **Windows**:
+Använd följande knapp för att distribuera i **Windows** :
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
 
@@ -133,19 +133,19 @@ Bläddra till `http://<app_name>.azurewebsites.net/` och kontrol lera att den ha
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Distribuera från lokal Git](deploy-local-git.md)
+> [Distribuera från lokal Git](deploy-local-git.md)
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core med SQL Database](tutorial-dotnetcore-sqldb-app.md)
+> [ASP.NET Core med SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [Python med Postgres](tutorial-python-postgresql-app.md)
+> [Python med Postgres](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [PHP med MySQL](tutorial-php-mysql-app.md)
+> [PHP med MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Ansluta till Azure SQL Database med Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
+> [Ansluta till Azure SQL Database med Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
 
 > [!div class="nextstepaction"]
-> [Mappa anpassad domän](app-service-web-tutorial-custom-domain.md)
+> [Mappa anpassad domän](app-service-web-tutorial-custom-domain.md)

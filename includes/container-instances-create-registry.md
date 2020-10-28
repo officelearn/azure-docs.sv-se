@@ -1,25 +1,25 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: include
 ms.date: 08/13/2020
 ms.author: danlep
-ms.custom: include file
-ms.openlocfilehash: 2b1d9b7f9ff07a3e0c7745191decc3e82181553e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 173c9156f253e43111299b53287e97ab7b2c0aa5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708027"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746938"
 ---
 ## <a name="create-azure-container-registry"></a>Skapa Azure Container Registry
 
 Innan du skapar containerregistret måste du ha en *resursgrupp* att distribuera den till. En resursgrupp är en logisk samling där alla Azure-resurser distribueras och hanteras.
 
-Skapa en resursgrupp med kommandot [az group create][az-group-create]. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*:
+Skapa en resursgrupp med kommandot [az group create][az-group-create]. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus* :
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -31,7 +31,7 @@ När du har skapat resursgruppen skapar du ett Azure-containerregister med komma
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Här är delvis utdata för ett nytt Azure Container Registry med namnet *mycontainerregistry082*:
+Här är delvis utdata för ett nytt Azure Container Registry med namnet *mycontainerregistry082* :
 
 ```output
 {

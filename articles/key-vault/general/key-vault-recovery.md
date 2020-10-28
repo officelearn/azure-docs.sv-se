@@ -8,12 +8,12 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
 ms.date: 09/30/2020
-ms.openlocfilehash: a0fe5c2af42e8d8095963e29149e1338cc064c90
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: fbeb6f5f223642c09183c149188c6717c1f33a8e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495196"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748501"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Så här aktiverar du skydd mot mjuk borttagning och rensning
 
@@ -23,11 +23,11 @@ Den här artikeln beskriver två återställnings funktioner i Azure Key Vault, 
 
 Det mjuka borttagnings-och tömnings skyddet är två olika återställnings funktioner för nyckel valv.
 > [!IMPORTANT]
-> Mjuk borttagning måste vara aktiverat på alla nyckel valv. Möjligheten att inaktivera skydd mot mjuka borttagningar kommer att föråldras med 2020 december. Se fullständig information [ **här**.](soft-delete-change.md)
+> Mjuk borttagning måste vara aktiverat på alla nyckel valv. Möjligheten att inaktivera skydd mot mjuka borttagningar kommer att föråldras med 2020 december. Se fullständig information [ **här** .](soft-delete-change.md)
 
 **Mjuk borttagning** är utformad för att förhindra oavsiktlig borttagning av nyckel valvet och nycklar, hemligheter och certifikat som lagras i Key Vault. Tänk på mjuk borttagning som en pappers korg. När du tar bort ett nyckel valv eller ett Key Vault-objekt fortsätter det att kunna återskapas för en användar konfigurerbar kvarhållningsperiod eller standardvärdet på 90 dagar. Nyckel valv i läget Soft Deleted kan också **rensas** , vilket innebär att de tas bort permanent. På så sätt kan du återskapa nyckel valv och Key Vault-objekt med samma namn. Både återställning och borttagning av nyckel valv och objekt kräver förhöjd åtkomst princip behörigheter. **När mjuk borttagning har Aktiver ATS kan det inte inaktive ras.**
 
-Det är viktigt att Observera att **nyckel valvs namn är globalt unika**, så du kan inte skapa ett nyckel valv med samma namn som ett nyckel valv i läget Soft Deleted. På samma sätt är namnen på nycklar, hemligheter och certifikat unika i ett nyckel valv. Du kommer inte att kunna skapa en hemlighet, nyckel eller certifikat med samma namn som ett annat i läget Soft Deleted.
+Det är viktigt att Observera att **nyckel valvs namn är globalt unika** , så du kan inte skapa ett nyckel valv med samma namn som ett nyckel valv i läget Soft Deleted. På samma sätt är namnen på nycklar, hemligheter och certifikat unika i ett nyckel valv. Du kommer inte att kunna skapa en hemlighet, nyckel eller certifikat med samma namn som ett annat i läget Soft Deleted.
 
 **Rensnings skyddet** är utformat för att förhindra borttagning av nyckel valvet, nycklar, hemligheter och certifikat med skadlig Insider. Tänk på detta som en pappers korg med ett tidsbaserat lås. Du kan återställa objekt när som helst under den konfigurerbara kvarhållningsperioden. **Du kommer inte att kunna ta bort eller ta bort ett nyckel valv permanent förrän kvarhållningsperioden förflutit.** När kvarhållningsperioden har gått ur nyckel valvet eller Key Vault-objektet rensas det automatiskt.
 
@@ -241,14 +241,6 @@ Det är viktigt att Observera att **nyckel valvs namn är globalt unika**, så d
 
     ```powershell
     Get-AzKeyVault -VaultName "ContosoVault"
-    ```
-
-* Aktivera mjuk borttagning vid nyckel-valvet
-
-    ```powershell
-    ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
-
-    Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
 * Ta bort nyckel valv

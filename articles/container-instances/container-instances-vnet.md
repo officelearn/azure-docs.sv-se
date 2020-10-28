@@ -3,13 +3,13 @@ title: Distribuera behållar grupp till Azure Virtual Network
 description: Lär dig hur du distribuerar en behållar grupp till ett nytt eller befintligt virtuellt Azure-nätverk med hjälp av kommando rads gränssnittet i Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: f8f61bc74f79c1712c3c662be66384c5ef689eb7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 02cf514e6c19387e3a9e2f1c78b65f346fff764e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518134"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746903"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera containerinstanser i ett virtuellt Azure-nätverk
 
@@ -69,7 +69,7 @@ Så här distribuerar du en behållar grupp till ett befintligt virtuellt nätve
 
 I följande exempel distribueras en andra behållar grupp till samma undernät som skapats tidigare och verifierar kommunikationen mellan de två behållar instanserna.
 
-Börja med att hämta IP-adressen för den första behållar gruppen som du har distribuerat, *AppContainer*:
+Börja med att hämta IP-adressen för den första behållar gruppen som du har distribuerat, *AppContainer* :
 
 ```azurecli
 az container show --resource-group myResourceGroup \
@@ -83,7 +83,7 @@ Utdata visar behållar gruppens IP-adress i det privata under nätet. Exempel:
 10.0.0.4
 ```
 
-Ange nu `CONTAINER_GROUP_IP` till den IP-adress som du hämtade med `az container show` kommandot och kör följande `az container create` kommando. Den här andra behållaren, *commchecker*, kör en Alpine Linux-baserad avbildning och körs `wget` mot den första behållar gruppens privata undernät-IP-adress.
+Ange nu `CONTAINER_GROUP_IP` till den IP-adress som du hämtade med `az container show` kommandot och kör följande `az container create` kommando. Den här andra behållaren, *commchecker* , kör en Alpine Linux-baserad avbildning och körs `wget` mot den första behållar gruppens privata undernät-IP-adress.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-address>
@@ -139,7 +139,7 @@ Exempel på utdata:
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-När du har nätverks profil-ID: t kopierar du följande YAML till en ny fil med namnet *VNet-Deploy-ACI. yaml*. `networkProfile`Ersätt `id` värdet med det ID som du precis hämtade under och spara sedan filen. Den här YAML skapar en behållar grupp med namnet *appcontaineryaml* i ditt virtuella nätverk.
+När du har nätverks profil-ID: t kopierar du följande YAML till en ny fil med namnet *VNet-Deploy-ACI. yaml* . `networkProfile`Ersätt `id` värdet med det ID som du precis hämtade under och spara sedan filen. Den här YAML skapar en behållar grupp med namnet *appcontaineryaml* i ditt virtuella nätverk.
 
 ```YAML
 apiVersion: '2019-12-01'
@@ -204,7 +204,7 @@ Den här funktionen kräver för närvarande flera ytterligare kommandon för at
 Ange `RES_GROUP` variabeln till namnet på den resurs grupp som innehåller det virtuella nätverk och undernät som ska tas bort innan du kör skriptet. Uppdatera namnet på det virtuella nätverket om du inte använde det `aci-vnet` föreslagna namnet tidigare. Skriptet är formaterat för bash-gränssnittet. Om du föredrar ett annat gränssnitt, t. ex. PowerShell eller kommando tolken, måste du justera variabel tilldelning och-åtkomst på motsvarande sätt.
 
 > [!WARNING]
-> Det här skriptet tar bort resurser! Den tar bort det virtuella nätverket och alla undernät som det innehåller. Se till att du inte längre behöver *någon* av resurserna i det virtuella nätverket, inklusive eventuella undernät som den innehåller, innan du kör skriptet. **De här resurserna kan inte återställas när de har**tagits bort.
+> Det här skriptet tar bort resurser! Den tar bort det virtuella nätverket och alla undernät som det innehåller. Se till att du inte längre behöver *någon* av resurserna i det virtuella nätverket, inklusive eventuella undernät som den innehåller, innan du kör skriptet. **De här resurserna kan inte återställas när de har** tagits bort.
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group

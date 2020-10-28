@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 18f717ca05e93c9a8f06ac8868e9a6e5ff80eadb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 413786cf8946c1ffbb76bd0e18eae7c7ba16a9c1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91355541"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790754"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Snabb start: återställa en databas till en Azure SQL-hanterad instans med SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,22 +35,22 @@ I den här snabb starten använder du SQL Server Management Studio (SSMS) för a
 Den här snabbstarten:
 
 - Använder resurser från snabb start för att [skapa en hanterad instans](instance-create-quickstart.md) .
-- Kräver att den senaste versionen av [SSMS](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) är installerad.
+- Kräver att den senaste versionen av [SSMS](/sql/ssms/sql-server-management-studio-ssms) är installerad.
 - Kräver att SSMS används för att ansluta till SQL-hanterad instans. Läs följande snabbstarter om hur man ansluter:
   - [Aktivera en offentlig slut punkt](public-endpoint-configure.md) på SQL-hanterad instans – det här är den rekommenderade metoden för den här självstudien.
   - [Anslut till SQL-hanterad instans från en virtuell Azure-dator](connect-vm-instance-configure.md).
   - [Konfigurera en punkt-till-plats-anslutning till SQL-hanterad instans från den lokala](point-to-site-p2s-configure.md)platsen.
 
 > [!NOTE]
-> Mer information om hur du säkerhetskopierar och återställer en SQL Server-databas med hjälp av Azure Blob Storage och en [SAS-nyckel](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) finns i [SQL Server-säkerhetskopiering till URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
+> Mer information om hur du säkerhetskopierar och återställer en SQL Server-databas med hjälp av Azure Blob Storage och en [SAS-nyckel](../../storage/common/storage-sas-overview.md) finns i [SQL Server-säkerhetskopiering till URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## <a name="restore-from-a-backup-file"></a>Återställa från en säkerhets kopia
 
 I SQL Server Management Studio följer du de här stegen för att återställa Wide World Importers-databasen till SQL-hanterad instans. Säkerhetskopian av databasfilen lagras i ett förkonfigurerat Azure Blob Storage-konto.
 
 1. Öppna SSMS och Anslut till din hanterade instans.
-2. I **Object Explorer**högerklickar du på din hanterade instans och väljer **ny fråga** för att öppna ett nytt frågefönster.
-3. Kör följande SQL-skript, som använder ett förkonfigurerat lagrings konto och SAS-nyckel för att [skapa en autentiseringsuppgift](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) i din hanterade instans.
+2. I **Object Explorer** högerklickar du på din hanterade instans och väljer **ny fråga** för att öppna ett nytt frågefönster.
+3. Kör följande SQL-skript, som använder ett förkonfigurerat lagrings konto och SAS-nyckel för att [skapa en autentiseringsuppgift](/sql/t-sql/statements/create-credential-transact-sql) i din hanterade instans.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
@@ -88,15 +88,15 @@ I SQL Server Management Studio följer du de här stegen för att återställa W
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. När återställningen är klar kan du Visa databasen i Object Explorer. Du kan kontrol lera att databas återställningen har slutförts med [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) vyn.
+7. När återställningen är klar kan du Visa databasen i Object Explorer. Du kan kontrol lera att databas återställningen har slutförts med [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) vyn.
 
 > [!NOTE]
-> En databas återställnings åtgärd är asynkron och går att försöka igen. Du kan få ett fel meddelande i SQL Server Management Studio om anslutningen bryts eller om timeout går ut. Azure SQL Database fortsätter att försöka återställa databasen i bakgrunden och du kan följa förloppet för återställningen med hjälp av vyerna [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
-> I vissa faser av återställnings processen visas en unik identifierare i stället för det faktiska databas namnet i systemvyerna. Lär dig mer om `RESTORE` instruktions skillnader [här](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
+> En databas återställnings åtgärd är asynkron och går att försöka igen. Du kan få ett fel meddelande i SQL Server Management Studio om anslutningen bryts eller om timeout går ut. Azure SQL Database fortsätter att försöka återställa databasen i bakgrunden och du kan följa förloppet för återställningen med hjälp av vyerna [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
+> I vissa faser av återställnings processen visas en unik identifierare i stället för det faktiska databas namnet i systemvyerna. Lär dig mer om `RESTORE` instruktions skillnader [här](./transact-sql-tsql-differences-sql-server.md#restore-statement).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du i steg 5 har återställt en databas återställning med meddelande-ID 22003, skapar du en ny säkerhets kopia som innehåller kontroll summor för säkerhets kopior och utför återställningen igen. Se [Aktivera eller inaktivera kontroll summor för säkerhets kopiering under säkerhets kopiering eller återställning](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
-- Information om hur du felsöker en säkerhets kopia till en URL finns i [SQL Server säkerhets kopiering till URL metod tips och fel sökning](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
+- Om du i steg 5 har återställt en databas återställning med meddelande-ID 22003, skapar du en ny säkerhets kopia som innehåller kontroll summor för säkerhets kopior och utför återställningen igen. Se [Aktivera eller inaktivera kontroll summor för säkerhets kopiering under säkerhets kopiering eller återställning](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+- Information om hur du felsöker en säkerhets kopia till en URL finns i [SQL Server säkerhets kopiering till URL metod tips och fel sökning](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
 - En översikt över anslutnings alternativ för appar finns i [ansluta dina program till SQL-hanterad instans](connect-application-instance.md).
 - Om du vill fråga med hjälp av dina favorit verktyg eller språk, se [snabb starter: Azure SQL Database Anslut och fråga](../database/connect-query-content-reference-guide.md).

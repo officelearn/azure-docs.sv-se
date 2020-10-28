@@ -10,12 +10,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: aa4bcee7a2eaf5e6ec11b9066ed6eca6b33bdba1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcf11ef9b64a02383aad5175c19c5db58c3c39cf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284133"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791349"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Fel sökning av anslutnings problem och andra fel med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,19 +24,19 @@ Du får fel meddelanden när det inte går att ansluta till Azure SQL Database e
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Tillfälliga fel fel meddelanden (40197, 40613 och andra)
 
-Azure-infrastrukturen har kapacitet att dynamiskt omkonfigurera servrar vid ökad arbetsbelastning i SQL Database-tjänsten.  Detta dynamiska beteende kan leda till att klient programmet förlorar anslutningen till databasen eller instansen. Den här typen av fel tillstånd kallas för ett *tillfälligt fel*. Händelser vid databas konfiguration inträffar på grund av en planerad händelse (till exempel en program uppgradering) eller en oplanerad händelse (till exempel en process krasch eller belastnings utjämning). De flesta omkonfigurations händelser är vanligt vis korta och bör slutföras på mindre än 60 sekunder. Dessa händelser kan dock ibland ta längre tid att slutföra, till exempel när en stor transaktion orsakar en tids krävande återställning. I följande tabell visas olika tillfälliga fel som program kan ta emot vid anslutning till SQL Database
+Azure-infrastrukturen har kapacitet att dynamiskt omkonfigurera servrar vid ökad arbetsbelastning i SQL Database-tjänsten.  Detta dynamiska beteende kan leda till att klient programmet förlorar anslutningen till databasen eller instansen. Den här typen av fel tillstånd kallas för ett *tillfälligt fel* . Händelser vid databas konfiguration inträffar på grund av en planerad händelse (till exempel en program uppgradering) eller en oplanerad händelse (till exempel en process krasch eller belastnings utjämning). De flesta omkonfigurations händelser är vanligt vis korta och bör slutföras på mindre än 60 sekunder. Dessa händelser kan dock ibland ta längre tid att slutföra, till exempel när en stor transaktion orsakar en tids krävande återställning. I följande tabell visas olika tillfälliga fel som program kan ta emot vid anslutning till SQL Database
 
 ### <a name="list-of-transient-fault-error-codes"></a>Lista över felkoder för tillfälliga fel
 
 | Felkod | Allvarlighetsgrad | Beskrivning |
 | ---:| ---:|:--- |
-| 4060 |16 |Det går inte att öppna databasen%. &#x2a;LS som begärdes av inloggningen. Inloggningen misslyckades. Mer information finns i [fel 4000 till 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
+| 4060 |16 |Det går inte att öppna databasen%. &#x2a;LS som begärdes av inloggningen. Inloggningen misslyckades. Mer information finns i [fel 4000 till 4999](/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |Tjänsten har påträffat ett fel när din begäran bearbetades. Försök igen. Felkod% d.<br/><br/>Du får det här felet när tjänsten är avstängd på grund av program varu-eller maskin varu uppgraderingar, maskin varu fel eller andra problem med redundansväxling. Felkoden (% d) i meddelandet om fel 40197 ger ytterligare information om vilken typ av fel eller redundans som har inträffat. Några exempel på fel koderna är inbäddade i meddelandet om fel 40197 är 40020, 40143, 40166 och 40540.<br/><br/>Om du återansluter automatiskt ansluts du till en felfri kopia av databasen. Ditt program måste fånga fel 40197, logga den inbäddade felkoden (% d) i meddelandet för fel sökning och försöka ansluta till SQL Database tills resurserna är tillgängliga och anslutningen upprättas igen. Mer information finns i [tillfälliga fel](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |Tjänsten är upptagen för närvarande. Gör om begäran efter 10 sekunder. Incident-ID:% ls. Kod:% d. Mer information finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md).|
 | 40613 |17 |Databasen%. &#x2a;ls på servern%. &#x2a;LS är inte tillgänglig för tillfället. Försök att ansluta igen senare. Om problemet kvarstår kan du kontakta kund support och tillhandahålla sessions-ID: t%. &#x2a;ls.<br/><br/> Det här felet kan inträffa om det redan finns en befintlig DAC-anslutning (Dedicated Administrator Connection) som är etablerad i databasen. Mer information finns i [tillfälliga fel](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 49918 |16 |Det går inte att behandla begäran. Det finns inte tillräckligt med resurser för att bearbeta begäran.<br/><br/>Tjänsten är upptagen för närvarande. Försök att utföra begäran senare. Mer information finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). |
-| 49919 |16 |Det går inte att bearbeta Create eller Update-begäran. För många skapande-eller uppdaterings åtgärder pågår för prenumerationen% LD.<br/><br/>Tjänsten är upptagen med att bearbeta flera skapande-eller uppdaterings begär Anden för din prenumeration eller server. Förfrågningar är för närvarande blockerade för resurs optimering. Fråga [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) för väntande åtgärder. Vänta tills väntande skapande-eller uppdaterings begär Anden är slutförda eller ta bort en väntande begäran och försök sedan igen senare. Mer information finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). |
-| 49920 |16 |Det går inte att behandla begäran. För många åtgärder pågår för prenumerationen% LD.<br/><br/>Tjänsten är upptagen med att bearbeta flera begär Anden för den här prenumerationen. Förfrågningar är för närvarande blockerade för resurs optimering. Fråga [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) för åtgärds status. Vänta tills väntande begär Anden är slutförda eller ta bort en väntande begäran och försök igen senare. Mer information finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). |
+| 49919 |16 |Det går inte att bearbeta Create eller Update-begäran. För många skapande-eller uppdaterings åtgärder pågår för prenumerationen% LD.<br/><br/>Tjänsten är upptagen med att bearbeta flera skapande-eller uppdaterings begär Anden för din prenumeration eller server. Förfrågningar är för närvarande blockerade för resurs optimering. Fråga [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) för väntande åtgärder. Vänta tills väntande skapande-eller uppdaterings begär Anden är slutförda eller ta bort en väntande begäran och försök sedan igen senare. Mer information finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). |
+| 49920 |16 |Det går inte att behandla begäran. För många åtgärder pågår för prenumerationen% LD.<br/><br/>Tjänsten är upptagen med att bearbeta flera begär Anden för den här prenumerationen. Förfrågningar är för närvarande blockerade för resurs optimering. Fråga [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) för åtgärds status. Vänta tills väntande begär Anden är slutförda eller ta bort en väntande begäran och försök igen senare. Mer information finns i: <br/>&bull;&nbsp; [Logiska begränsningar för SQL Server-resurser](resource-limits-logical-server.md)<br/>&bull;&nbsp; [DTU-baserade gränser för enskilda databaser](service-tiers-dtu.md)<br/>&bull;&nbsp; [DTU-baserade gränser för elastiska pooler](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). |
 | 4221 |16 |Inloggningen till Read-Secondary misslyckades på grund av en lång väntan på HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING. Repliken är inte tillgänglig för inloggning eftersom rad versioner saknas för transaktioner som var i flygning när replikeringen återvanns. Problemet kan lösas genom att återställa eller bekräfta de aktiva transaktionerna på den primära repliken. Förekomster av det här tillståndet kan minimeras genom att undvika långa Skriv transaktioner på den primära. |
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Steg för att lösa problem med tillfälliga anslutningar
@@ -52,12 +52,12 @@ Vi rekommenderar starkt att ditt klient program har omprövnings logik så att d
 
 Kod exempel på logik för omprövning finns i:
 
-- [Ansluta elastiskt till SQL med ADO.NET](https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net)
-- [Ansluta elastiskt till SQL med PHP](https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [Ansluta elastiskt till SQL med ADO.NET](/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net)
+- [Ansluta elastiskt till SQL med PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
 
 För ytterligare information om hur du hanterar tillfälliga fel i program granskning [Felsöka tillfälliga anslutnings fel till SQL Database](troubleshoot-common-connectivity-issues.md)
 
-En diskussion om *spärrnings perioden* för klienter som använder ADO.NET finns i [ADO.net (connection pooling)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
+En diskussion om *spärrnings perioden* för klienter som använder ADO.NET finns i [ADO.net (connection pooling)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 ## <a name="a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-your-server"></a>Ett nätverksrelaterade eller instans fel inträffade när en anslutning till servern upprättades
 
@@ -119,7 +119,7 @@ Tjänst administratören kan normalt använda följande steg för att lägga til
 4. Om SQL-inloggningens användar namn inte finns skapar du det genom att följa dessa steg:
 
    1. I SSMS dubbelklickar du på **säkerhet** för att expandera den.
-   2. Högerklicka på **inloggningar**och välj sedan **ny inloggning**.
+   2. Högerklicka på **inloggningar** och välj sedan **ny inloggning** .
    3. I det genererade skriptet med plats hållare redigerar du och kör följande SQL-fr åga:
 
    ```sql
@@ -128,10 +128,10 @@ Tjänst administratören kan normalt använda följande steg för att lägga til
    GO
    ```
 
-5. Dubbelklicka på **databas**.
+5. Dubbelklicka på **databas** .
 6. Välj den databas som du vill ge användaren behörighet till.
-7. Dubbelklicka på **säkerhet**.
-8. Högerklicka på **användare**och välj sedan **ny användare**.
+7. Dubbelklicka på **säkerhet** .
+8. Högerklicka på **användare** och välj sedan **ny användare** .
 9. I det genererade skriptet med plats hållare redigerar du och kör följande SQL-fr åga:
 
    ```sql
@@ -148,7 +148,7 @@ Tjänst administratören kan normalt använda följande steg för att lägga til
    > [!NOTE]
    > Du kan också använda `sp_addrolemember` för att mappa vissa användare till vissa databas roller.
 
-Mer information finns i [Hantera databaser och inloggningar i Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+Mer information finns i [Hantera databaser och inloggningar i Azure SQL Database](./logins-create-manage.md).
 
 ## <a name="connection-timeout-expired-errors"></a>Fel vid tids gräns för anslutning
 
@@ -185,7 +185,7 @@ Undvik det här problemet genom att prova någon av följande metoder:
   > [!NOTE]
   > Det här är en minimalist metod som kanske inte löser problemet.
 
-1. Kör följande SQL-fråga för att kontrol lera [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) vyn för att se eventuella spärrnings begär Anden:
+1. Kör följande SQL-fråga för att kontrol lera [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) vyn för att se eventuella spärrnings begär Anden:
 
    ```sql
    SELECT * FROM dm_exec_requests
@@ -194,13 +194,13 @@ Undvik det här problemet genom att prova någon av följande metoder:
 2. Ta reda på **indatabufferten** för huvud blocket.
 3. Finjustera frågan om huvud Blocker.
 
-   En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+   En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 Om databasen ständigt når gränsen trots att blockera och långvariga frågor, bör du överväga att uppgradera till en utgåva med fler resurs [versioner](https://azure.microsoft.com/pricing/details/sql-database/).
 
-Mer information om vyer för dynamisk hantering finns i [vyer för system dynamisk hantering](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+Mer information om vyer för dynamisk hantering finns i [vyer för system dynamisk hantering](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
-Mer information om databas gränser finns i  [SQL Database resurs gränser för servrar](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
+Mer information om databas gränser finns i  [SQL Database resurs gränser för servrar](./resource-limits-logical-server.md).
 
 ### <a name="error-10929-resource-id-1"></a>Fel 10929: resurs-ID: 1
 
@@ -212,7 +212,7 @@ Mer information om databas gränser finns i  [SQL Database resurs gränser för 
 
 Det här är ett fel i motorns begränsning, en indikation på att resurs gränserna överskrids.
 
-Mer information om resurs begränsningar finns i [begränsningar för logiska SQL Server-resurser](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
+Mer information om resurs begränsningar finns i [begränsningar för logiska SQL Server-resurser](./resource-limits-logical-server.md).
 
 ### <a name="error-40544-the-database-has-reached-its-size-quota"></a>Fel 40544: databasen har nått sin storleks kvot
 
@@ -242,7 +242,7 @@ Följande steg kan antingen hjälpa dig att komma runt problemet eller ge dig yt
 
    - Utför normala databas rensnings aktiviteter. Du kan till exempel rensa oönskade data genom att använda trunkera/ta bort eller flytta data med hjälp av SQL Server Integration Services (SSIS) eller verktyget för Mass kopierings program (BCP).
    - Partitionera eller ta bort data, släpp index eller Läs om möjliga lösningar i dokumentationen.
-   - För databas skalning, se [skala resurser för enkel databas](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-scale) och [skala elastiska pooler](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool-scale).
+   - För databas skalning, se [skala resurser för enkel databas](./single-database-scale.md) och [skala elastiska pooler](./elastic-pool-scale.md).
 
 ### <a name="error-40549-session-is-terminated-because-you-have-a-long-running-transaction"></a>Fel 40549: sessionen avslutas eftersom du har en tids krävande transaktion
 
@@ -259,9 +259,9 @@ Om du upprepade gånger stöter på det här felet kan du försöka lösa proble
 2. Fastställ indatabufferten för den tids krävande frågan.
 3. Finjustera frågan.
 
-Överväg också att gruppera dina frågor. Information om batching finns i [så här använder du batching för att förbättra SQL Database program prestanda](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
+Överväg också att gruppera dina frågor. Information om batching finns i [så här använder du batching för att förbättra SQL Database program prestanda](../performance-improve-use-batching.md).
 
-En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Fel 40551: sessionen har avslut ATS på grund av överdriven TEMPDB-användning
 
@@ -292,7 +292,7 @@ Försök att minska antalet rader som körs omedelbart genom att implementera ba
 
 Undvik det här problemet genom att försöka optimera frågan.
 
-En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+En djupgående fel söknings procedur finns i finns [min fråga som körs i molnet?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabell över ytterligare fel meddelanden för resurs styrning
 
@@ -303,7 +303,7 @@ En djupgående fel söknings procedur finns i finns [min fråga som körs i moln
 | 40544 |20 |Databasen har nått sin storleks kvot. Partitionera eller ta bort data, släpp index eller Läs om möjliga lösningar i dokumentationen. För databas skalning, se [skala resurser för enkel databas](single-database-scale.md) och [skala elastiska pooler](elastic-pool-scale.md).|
 | 40549 |16 |Sessionen avslutas eftersom du har en tids krävande transaktion. Försök att förkorta din transaktion. Information om batching finns i [så här använder du batching för att förbättra SQL Database program prestanda](../performance-improve-use-batching.md).|
 | 40550 |16 |Sessionen har avslut ATS eftersom den har fått för många lås. Försök att läsa eller ändra färre rader i en enskild transaktion. Information om batching finns i [så här använder du batching för att förbättra SQL Database program prestanda](../performance-improve-use-batching.md).|
-| 40551 |16 |Sessionen har avslut ATS på grund av för hög `TEMPDB` användning. Försök att ändra frågan för att minska den temporära tabell utrymmes användningen.<br/><br/>Om du använder tillfälliga objekt sparar du utrymme i databasen genom att ta bort `TEMPDB` tillfälliga objekt efter att de inte längre behövs i sessionen. Mer information om tempdb-användning i SQL Database finns i [tempdb-databasen i SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
+| 40551 |16 |Sessionen har avslut ATS på grund av för hög `TEMPDB` användning. Försök att ändra frågan för att minska den temporära tabell utrymmes användningen.<br/><br/>Om du använder tillfälliga objekt sparar du utrymme i databasen genom att ta bort `TEMPDB` tillfälliga objekt efter att de inte längre behövs i sessionen. Mer information om tempdb-användning i SQL Database finns i [tempdb-databasen i SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
 | 40552 |16 |Sessionen har avslut ATS på grund av överdriven användning av transaktions logg utrymme. Försök att ändra färre rader i en enskild transaktion. Information om batching finns i [så här använder du batching för att förbättra SQL Database program prestanda](../performance-improve-use-batching.md).<br/><br/>Om du utför Mass infogningar med `bcp.exe` verktyget eller `System.Data.SqlClient.SqlBulkCopy` -klassen kan du prova `-b batchsize` att använda `BatchSize` alternativen eller för att begränsa antalet rader som kopieras till servern i varje transaktion. Försök att använda alternativet om du återskapar ett index med `ALTER INDEX` instruktionen `REBUILD WITH ONLINE = ON` . Information om transaktions logg storlekar för vCore-inköps modellen finns i: <br/>&bull;&nbsp; [vCore-baserade gränser för enskilda databaser](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [vCore-baserade gränser för elastiska pooler](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md).|
 | 40553 |16 |Sessionen har avslut ATS på grund av överdriven minnes användning. Försök att ändra frågan så att den bearbetar färre rader.<br/><br/>Om du minskar antalet `ORDER BY` och `GROUP BY` -åtgärder i din Transact-SQL-kod minskar frågans minnes krav. För databas skalning, se [skala resurser för enkel databas](single-database-scale.md) och [skala elastiska pooler](elastic-pool-scale.md).|
 
@@ -340,8 +340,8 @@ Det här problemet uppstår eftersom kontot inte har behörighet att komma åt M
 
 Följ dessa anvisningar för att lösa problemet:
 
-1. Välj **alternativ**på inloggnings skärmen på SSMS och välj sedan **anslutnings egenskaper**.
-2. I fältet **Anslut till databas** anger du användarens standard databas namn som standard inloggnings databas och väljer sedan **Anslut**.
+1. Välj **alternativ** på inloggnings skärmen på SSMS och välj sedan **anslutnings egenskaper** .
+2. I fältet **Anslut till databas** anger du användarens standard databas namn som standard inloggnings databas och väljer sedan **Anslut** .
 
    ![Anslutningsegenskaper](./media/troubleshoot-common-errors-issues/cannot-open-database-master.png)
 
@@ -356,7 +356,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-När undantaget utlöses av frågor om frågor kommer du att märka en anrops stack som liknar följande (Observera referensen till klassen **SqlCommand** ). I den här situationen kan [du finjustera dina frågor](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+När undantaget utlöses av frågor om frågor kommer du att märka en anrops stack som liknar följande (Observera referensen till klassen **SqlCommand** ). I den här situationen kan [du finjustera dina frågor](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()
@@ -367,28 +367,28 @@ När undantaget utlöses av frågor om frågor kommer du att märka en anrops st
 Ytterligare anvisningar om fin justering av prestanda finns i följande resurser:
 
 - [Så här hanterar du Azure SQL-index och-statistik](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/How-to-maintain-Azure-SQL-Indexes-and-Statistics/ba-p/368787)
-- [Justera prestanda för manuell prestanda i Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance)
-- [Övervaka prestanda Azure SQL Database med hjälp av vyer för dynamisk hantering](https://docs.microsoft.com/azure/sql-database/sql-database-monitoring-with-dmvs)
-- [Kör Frågearkivet i Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-operate-query-store)
+- [Justera prestanda för manuell prestanda i Azure SQL Database](./performance-guidance.md)
+- [Övervaka prestanda Azure SQL Database med hjälp av vyer för dynamisk hantering](./monitoring-with-dmvs.md)
+- [Kör Frågearkivet i Azure SQL Database](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 
 ## <a name="steps-to-fix-common-connection-issues"></a>Steg för att åtgärda vanliga anslutningsproblem
 
-1. Kontrol lera att TCP/IP är aktiverat som ett klient protokoll på program servern. Mer information finns i [Konfigurera klient protokoll](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-client-protocols). På program servrar där du inte har installerat SQL-verktyg kontrollerar du att TCP/IP är aktiverat genom att köra **cliconfg.exe** (SQL Server klient nätverks verktyg).
+1. Kontrol lera att TCP/IP är aktiverat som ett klient protokoll på program servern. Mer information finns i [Konfigurera klient protokoll](/sql/database-engine/configure-windows/configure-client-protocols). På program servrar där du inte har installerat SQL-verktyg kontrollerar du att TCP/IP är aktiverat genom att köra **cliconfg.exe** (SQL Server klient nätverks verktyg).
 2. Kontrol lera programmets anslutnings sträng för att kontrol lera att den är korrekt konfigurerad. Kontrol lera till exempel att anslutnings strängen anger rätt port (1433) och ett fullständigt kvalificerat Server namn.
-Se [Hämta anslutnings information](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms#get-sql-server-connection-information).
+Se [Hämta anslutnings information](./connect-query-ssms.md#get-server-connection-information).
 3. Försök att öka timeout-värdet för anslutning. Vi rekommenderar att du använder en tids gräns för anslutning på minst 30 sekunder.
-4. Testa anslutningen mellan program servern och Azure SQL Database med hjälp av [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms), en UDL-fil, ping eller Telnet. Mer information finns i [fel sökning av anslutnings problem](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) och [diagnostik för anslutnings problem](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues#diagnostics).
+4. Testa anslutningen mellan program servern och Azure SQL Database med hjälp av [SQL Server Management Studio (SSMS)](./connect-query-ssms.md), en UDL-fil, ping eller Telnet. Mer information finns i [fel sökning av anslutnings problem](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) och [diagnostik för anslutnings problem](./troubleshoot-common-connectivity-issues.md#diagnostics).
 
    > [!NOTE]
    > Som ett fel söknings steg kan du också testa anslutningen på en annan klient dator.
 
-5. Vi rekommenderar att du kontrollerar att logiken för omprövning är på plats. Mer information om logik för omprövning finns i [Felsöka tillfälliga fel och anslutnings fel till SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues).
+5. Vi rekommenderar att du kontrollerar att logiken för omprövning är på plats. Mer information om logik för omprövning finns i [Felsöka tillfälliga fel och anslutnings fel till SQL Database](./troubleshoot-common-connectivity-issues.md).
 
 Om de här stegen inte löser problemet kan du försöka samla in mer data och sedan kontakta supporten. Aktivera loggning om ditt program är en moln tjänst. Det här steget returnerar en tidsstämpel för UTC-tid för felet. Dessutom returnerar SQL Database spårnings-ID. [Microsofts kund support tjänster](https://azure.microsoft.com/support/options/) kan använda den här informationen.
 
-Mer information om hur du aktiverar loggning finns i [Aktivera diagnostikloggning för appar i Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/).
+Mer information om hur du aktiverar loggning finns i [Aktivera diagnostikloggning för appar i Azure App Service](../../app-service/troubleshoot-diagnostic-logs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Arkitektur för Azure SQL Database anslutning](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture)
-- [Azure SQL Database och Azure Synapse Analytics Network Access Controls](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)
+- [Arkitektur för Azure SQL Database anslutning](./connectivity-architecture.md)
+- [Azure SQL Database och Azure Synapse Analytics Network Access Controls](./network-access-controls-overview.md)

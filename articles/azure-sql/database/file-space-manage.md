@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 2e751a77d40403c7bdd4644e8e6fb03ff89063e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a46e47d6e12d52113bf63342c84a58ca98743d0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335079"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789615"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Hantera fil utrymme för databaser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,13 +40,13 @@ I följande scenarier kan det vara nödvändigt att övervaka användningen av f
 
 De flesta mått för lagrings utrymme som visas i Azure Portal och följande API: er mäter endast storleken på data sidor som används:
 
-- API: er för Azure Resource Manager baserade mått, inklusive PowerShell [Get-Metrics](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
-- T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+- API: er för Azure Resource Manager baserade mått, inklusive PowerShell [Get-Metrics](/powershell/module/az.monitor/get-azmetric)
+- T-SQL: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Följande API: er mäter dock också storleken på utrymmet som allokerats för databaser och elastiska pooler:
 
-- T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
-- T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
+- T-SQL:  [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL: [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Krympa datafiler
 
@@ -148,7 +148,7 @@ Frågeresultatet för att bestämma hur mycket utrymme som allokeras för varje 
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020. Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
 
-PowerShell-skriptet kräver SQL Server PowerShell-modul – se [Ladda ned PowerShell-modulen](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) för att installera.
+PowerShell-skriptet kräver SQL Server PowerShell-modul – se [Ladda ned PowerShell-modulen](/sql/powershell/download-sql-server-ps-module) för att installera.
 
 ```powershell
 $resourceGroupName = "<resourceGroupName>"
@@ -214,7 +214,7 @@ DBCC SHRINKDATABASE (N'db1')
 
 Det här kommandot kan påverka databasens prestanda när den körs, och om möjligt bör köras under perioder med låg belastning.  
 
-Mer information om det här kommandot finns i [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Mer information om det här kommandot finns i [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### <a name="auto-shrink"></a>Automatisk krympning
 
@@ -226,11 +226,11 @@ Om du vill aktivera automatisk krympning ändrar du namnet på databasen i följ
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Mer information om det här kommandot finns i alternativ för [databas uppsättning](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) .
+Mer information om det här kommandot finns i alternativ för [databas uppsättning](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) .
 
 ### <a name="rebuild-indexes"></a>Återskapa index
 
-När datafilerna i databasen krymps kan index bli fragmenterade och förlora prestanda optimerings effektivitet. Om prestanda försämringen inträffar bör du överväga att återskapa databas index. Mer information om fragmentering och återuppbyggnad av index finns i [omorganisera och återskapa index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+När datafilerna i databasen krymps kan index bli fragmenterade och förlora prestanda optimerings effektivitet. Om prestanda försämringen inträffar bör du överväga att återskapa databas index. Mer information om fragmentering och återuppbyggnad av index finns i [omorganisera och återskapa index](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Nästa steg
 

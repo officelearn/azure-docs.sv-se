@@ -12,13 +12,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.openlocfilehash: 3a8086c75a7125b744730de83c760db44ce222e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164576"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790108"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Använd Azure Portal för att konfigurera en tillgänglighets grupp (för hands version) för SQL Server på virtuell Azure-dator 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Om du vill konfigurera en tillgänglighets grupp som alltid använder Azure Port
 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - En resurs grupp med en domänkontrollant. 
-- En eller flera domänanslutna [virtuella datorer i Azure som kör SQL Server 2016 (eller senare) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) i *samma* tillgänglighets uppsättning eller *olika* tillgänglighets zoner som har [registrerats med den virtuella SQL VM-providern i fullständigt hanterbarhets läge](sql-vm-resource-provider-register.md) och använder samma domän konto för tjänsten SQL Server på varje virtuell dator.
+- En eller flera domänanslutna [virtuella datorer i Azure som kör SQL Server 2016 (eller senare) Enterprise Edition](./create-sql-vm-portal.md) i *samma* tillgänglighets uppsättning eller *olika* tillgänglighets zoner som har [registrerats med den virtuella SQL VM-providern i fullständigt hanterbarhets läge](sql-vm-resource-provider-register.md) och använder samma domän konto för tjänsten SQL Server på varje virtuell dator.
 - Två tillgängliga (används inte av någon entitet) IP-adresser. En är för den interna belastningsutjämnaren. Det andra är för tillgänglighets gruppens lyssnare i samma undernät som tillgänglighets gruppen. Om du använder en befintlig belastningsutjämnare behöver du bara en tillgänglig IP-adress för tillgänglighets gruppens lyssnare. 
 
 ## <a name="permissions"></a>Behörigheter
@@ -61,7 +61,7 @@ Om du inte redan har ett befintligt kluster kan du skapa det med hjälp av Azure
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 1. Navigera till resursen för [virtuella SQL-datorer](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
-1. Välj **hög tillgänglighet** under **Inställningar**. 
+1. Välj **hög tillgänglighet** under **Inställningar** . 
 1. Välj **+ nytt redundanskluster för Windows Server** för att öppna sidan **Konfigurera Windows-redundanskluster** .  
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="Skapa ett nytt kluster genom att välja + nytt-kluster i portalen":::
@@ -70,7 +70,7 @@ Om du inte redan har ett befintligt kluster kan du skapa det med hjälp av Azure
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Skapa ett nytt kluster genom att välja + nytt-kluster i portalen":::
 
-1. Expandera **autentiseringsuppgifter för Windows Server-redundanskluster** för att ange [autentiseringsuppgifter](https://docs.microsoft.com/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) för SQL Server tjänst kontot, samt kluster operatören och start kontona om de skiljer sig från det konto som används för SQL Servers tjänsten. 
+1. Expandera **autentiseringsuppgifter för Windows Server-redundanskluster** för att ange [autentiseringsuppgifter](/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) för SQL Server tjänst kontot, samt kluster operatören och start kontona om de skiljer sig från det konto som används för SQL Servers tjänsten. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Skapa ett nytt kluster genom att välja + nytt-kluster i portalen"
     ```
@@ -85,7 +85,7 @@ Det gör du på följande sätt:
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 1. Navigera till resursen för [virtuella SQL-datorer](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
-1. Välj **hög tillgänglighet** under **Inställningar**. 
+1. Välj **hög tillgänglighet** under **Inställningar** . 
 1. Välj **publicera befintlig Windows Server-redundanskluster** för att öppna sidan **Windows Server-redundanskluster** . 
 
    :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Skapa ett nytt kluster genom att välja + nytt-kluster i portalen":::
@@ -102,7 +102,7 @@ När klustret har skapats eller publicerats skapar du tillgänglighets gruppen m
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 1. Navigera till resursen för [virtuella SQL-datorer](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
-1. Välj **hög tillgänglighet** under **Inställningar**. 
+1. Välj **hög tillgänglighet** under **Inställningar** . 
 1. Välj **+ ny Always on tillgänglighets grupp** för att öppna sidan **skapa tillgänglighets grupp** .
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="Skapa ett nytt kluster genom att välja + nytt-kluster i portalen":::
@@ -138,8 +138,8 @@ Följ dessa steg om du vill lägga till databaser i tillgänglighets gruppen med
 1. Anslut till en av dina SQL Server virtuella datorer med den metod du föredrar, till exempel Anslutning till fjärrskrivbord (RDP). 
 1. Öppna SQL Server Management Studio (SSMS).
 1. Anslut till din SQL Server-instans. 
-1. Expandera **alltid med hög tillgänglighet** i **Object Explorer**.
-1. Expandera **tillgänglighets grupper**, högerklicka på din tillgänglighets grupp och välj att **lägga till databas..**..
+1. Expandera **alltid med hög tillgänglighet** i **Object Explorer** .
+1. Expandera **tillgänglighets grupper** , högerklicka på din tillgänglighets grupp och välj att **lägga till databas..** ..
 
    :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Skapa ett nytt kluster genom att välja + nytt-kluster i portalen":::
 
@@ -157,14 +157,14 @@ Följ dessa steg om du vill lägga till fler SQL Server virtuella datorer i klus
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 1. Navigera till resursen för [virtuella SQL-datorer](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
-1. Välj **hög tillgänglighet** under **Inställningar**. 
+1. Välj **hög tillgänglighet** under **Inställningar** . 
 1. Välj **Konfigurera Windows Server-redundanskluster** för att öppna sidan **Konfigurera Windows Server** -redundanskluster. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Skapa ett nytt kluster genom att välja + nytt-kluster i portalen":::
 
 1. Expandera **autentiseringsuppgifter för Windows Server-redundanskluster** och ange i de konton som används för SQL Server tjänst, kluster operatör och start konton för kluster. 
 1. Välj de SQL Server virtuella datorer som du vill lägga till i klustret. 
-1. Välj **Tillämpa**. 
+1. Välj **Tillämpa** . 
 
 Du kan kontrol lera statusen för din distribution i **aktivitets loggen** som är tillgänglig från klock ikonen i det övre navigerings fältet. 
 
@@ -172,7 +172,7 @@ Du kan kontrol lera statusen för din distribution i **aktivitets loggen** som �
 ## <a name="modify-availability-group"></a>Ändra tillgänglighets grupp 
 
 
-Du kan **lägga till fler repliker** i tillgänglighets gruppen, **Konfigurera lyssnaren**eller **ta bort lyssnaren** från sidan med **hög tillgänglighet** i Azure Portal genom att välja ellipserna (...) bredvid tillgänglighets gruppen: 
+Du kan **lägga till fler repliker** i tillgänglighets gruppen, **Konfigurera lyssnaren** eller **ta bort lyssnaren** från sidan med **hög tillgänglighet** i Azure Portal genom att välja ellipserna (...) bredvid tillgänglighets gruppen: 
 
 :::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Skapa ett nytt kluster genom att välja + nytt-kluster i portalen":::
 
@@ -245,7 +245,7 @@ Följ dessa steg om du vill visa loggarna för distributionen och kontrol lera d
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Navigera till din resurs grupp.
-1. Välj **distributioner** under **Inställningar**.
+1. Välj **distributioner** under **Inställningar** .
 1. Välj distribution av intresse för att lära dig mer om distributionen. 
 
 

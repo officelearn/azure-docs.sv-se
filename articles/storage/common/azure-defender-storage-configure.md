@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: eb71c5eda66d3d11385577da7142970f4fbcbad2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474860"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789020"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Konfigurera Azure Defender för lagring
 
@@ -37,7 +37,7 @@ I följande lista sammanfattas tillgängligheten för Azure Defender för lagrin
 
 - Versions tillstånd:
   - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (allmän tillgänglighet)
-  - [Azure Files](/azure/storage/files/storage-files-introduction) (allmän tillgänglighet)
+  - [Azure Files](../files/storage-files-introduction.md) (allmän tillgänglighet)
   - Azure Data Lake Storage Gen2 (allmän tillgänglighet)
 - Moln<br>
     ✔ Kommersiella moln<br>
@@ -53,10 +53,10 @@ Du kan konfigurera Azure Defender för lagring på flera olika sätt, som beskri
 När du prenumererar på standard nivån i Azure Security Center konfigureras Azure Defender automatiskt på alla dina lagrings konton. Du kan aktivera eller inaktivera Azure Defender för dina lagrings konton under en speciell prenumeration på följande sätt:
 
 1. Starta **Azure Security Center** i [Azure Portal](https://portal.azure.com).
-1. Välj **pris & inställningar**under **hantering**i huvud menyn.
+1. Välj **pris & inställningar** under **hantering** i huvud menyn.
 1. Välj den prenumeration som du vill aktivera eller inaktivera Azure Defender.
 1. Välj **Azure Defender på** för att aktivera Azure Defender för prenumerationen.
-1. Leta upp **lagrings** raden under **Välj Azure Defender-plan efter resurs typ**och välj **aktive rad** i kolumnen **plan** .
+1. Leta upp **lagrings** raden under **Välj Azure Defender-plan efter resurs typ** och välj **aktive rad** i kolumnen **plan** .
 1. Spara ändringarna.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Skärm bild som visar hur du aktiverar Azure Defender för lagring i Security Center":::
@@ -66,8 +66,8 @@ Azure Defender har nu Aktiver ATS för alla lagrings konton i den här prenumera
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Starta [Azure Portal](https://portal.azure.com/).
-1. Navigera till ditt lagringskonto. Under **Inställningar**väljer du **avancerad säkerhet**.
-1. Välj **Aktivera Azure Defender för lagring**.
+1. Navigera till ditt lagringskonto. Under **Inställningar** väljer du **avancerad säkerhet** .
+1. Välj **Aktivera Azure Defender för lagring** .
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Skärm bild som visar hur du aktiverar Azure Defender för lagring i Security Center":::
 
@@ -138,4 +138,4 @@ Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma å
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [loggar i Azure Storage-konton](/rest/api/storageservices/About-Storage-Analytics-Logging)
-- Läs mer om [Azure Security Center](../../security-center/security-center-intro.md)
+- Läs mer om [Azure Security Center](../../security-center/security-center-introduction.md)

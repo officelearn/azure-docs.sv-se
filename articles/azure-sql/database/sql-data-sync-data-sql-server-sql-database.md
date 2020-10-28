@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 194625ab43dbb161d2b04352d715a44a1328a888
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503342"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791434"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -44,9 +44,9 @@ Datasynkroniseringen använder en nav-och eker-topologi för att synkronisera da
 En Sync-grupp har följande egenskaper:
 
 - **Synkroniseringsschemat** beskriver vilka data som synkroniseras.
-- **Sync-riktningen** kan vara dubbelriktad eller kan endast flöda i en riktning. Det vill säga att synkroniseringen kan vara *hubb till medlem*eller *medlem i hubben*eller både och.
+- **Sync-riktningen** kan vara dubbelriktad eller kan endast flöda i en riktning. Det vill säga att synkroniseringen kan vara *hubb till medlem* eller *medlem i hubben* eller både och.
 - **Intervallet för synkronisering** beskriver hur ofta synkronisering sker.
-- **Konflikt lösnings principen** är en princip på grup nivå som kan vara en *hubb-WINS* eller *-medlem*.
+- **Konflikt lösnings principen** är en princip på grup nivå som kan vara en *hubb-WINS* eller *-medlem* .
 
 ## <a name="when-to-use"></a>När du ska använda detta
 
@@ -62,7 +62,7 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 |----------|----------------------------|
 | Haveriberedskap | [Azure geo-redundanta säkerhets kopieringar](automated-backups-overview.md) |
 | Läs skala | [Använd skrivskyddade repliker för att belastningsutjämna skrivskyddade arbets belastningar för frågor (för hands version)](read-scale-out.md) |
-| ETL (OLTP till OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) eller [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
+| ETL (OLTP till OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) eller [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
 | Migrering från SQL Server till Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -72,9 +72,9 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 
 - **Spårar data ändringar:** Datasynkronisering spårar ändringar med hjälp av INSERT-, Update-och Delete-utlösare. Ändringarna registreras i en sido tabell i användar databasen. Observera att BULK INSERT inte utlösa utlösare som standard. Om FIRE_TRIGGERS inte anges körs inga infognings utlösare. Lägg till alternativet FIRE_TRIGGERS så att datasynkronisering kan spåra dessa infogningar. 
 - **Synkroniserar data:** Datasynkronisering är utformad i en nav-och eker-modell. Hubben synkroniseras med varje medlem individuellt. Ändringar från hubben laddas ned till medlemmen och ändringar från medlemmen överförs till hubben.
-- **Lösa konflikter:** Datasynkronisering innehåller två alternativ för konflikt lösning, *hubb-WINS* eller *medlems-WINS*.
-  - Om du väljer *hubben WINS*skrivs ändringarna i hubben alltid över ändringar i medlemmen.
-  - Om du väljer *medlem WINS*skriver ändringarna i medlemmen över ändringarna i hubben. Om det finns fler än en medlem beror det sista värdet på vilka medlemmar som synkroniseras först.
+- **Lösa konflikter:** Datasynkronisering innehåller två alternativ för konflikt lösning, *hubb-WINS* eller *medlems-WINS* .
+  - Om du väljer *hubben WINS* skrivs ändringarna i hubben alltid över ändringar i medlemmen.
+  - Om du väljer *medlem WINS* skriver ändringarna i medlemmen över ändringarna i hubben. Om det finns fler än en medlem beror det sista värdet på vilka medlemmar som synkroniseras först.
 
 ## <a name="compare-with-transactional-replication"></a>Jämför med transaktionell replikering
 
@@ -101,7 +101,7 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 
 ### <a name="did-something-go-wrong"></a>Har något gå fel
 
-- [Felsöka problem med Azure SQL Data Sync](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Felsöka problem med Azure SQL Data Sync](./sql-data-sync-troubleshoot.md)
 
 ## <a name="consistency-and-performance"></a>Konsekvens och prestanda
 
@@ -126,7 +126,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 > - Data mellan hubb och medlem kan gå förlorade även om synkroniseringen inte rapporterar några problem.
 > - Det går inte att synkronisera eftersom spårnings tabellen inte har en befintlig rad från källan på grund av den primära nyckel ändringen.
 
-- Ögonblicks bilds isolering måste vara aktiverat för både Sync-medlemmar och-hubb. Mer information finns i [Ögonblicksbildisolering i SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- Ögonblicks bilds isolering måste vara aktiverat för både Sync-medlemmar och-hubb. Mer information finns i [Ögonblicksbildisolering i SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Allmänna begränsningar
 
@@ -175,8 +175,8 @@ Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade ko
 
 När Sync-gruppen har upprättats måste data Sync-tjänsten ansluta till Hub-databasen. När du upprättar Sync-gruppen måste Azure SQL-servern ha följande konfiguration i dess `Firewalls and virtual networks` inställningar:
 
- * *Neka offentlig nätverks åtkomst* måste anges till *av*.
- * *Tillåt att Azure-tjänster och-resurser får åtkomst till den här servern* måste anges till *Ja*, eller så måste du skapa IP-regler för de [IP-adresser som används av tjänsten Data Sync](network-access-controls-overview.md#data-sync).
+ * *Neka offentlig nätverks åtkomst* måste anges till *av* .
+ * *Tillåt att Azure-tjänster och-resurser får åtkomst till den här servern* måste anges till *Ja* , eller så måste du skapa IP-regler för de [IP-adresser som används av tjänsten Data Sync](network-access-controls-overview.md#data-sync).
 
 När Sync-gruppen har skapats och kon figureras kan du inaktivera dessa inställningar. Sync-agenten ansluter direkt till NAV databasen och du kan använda serverns [IP-regler för brand väggen](firewall-configure.md) eller [privata slut punkter](private-endpoint-overview.md) för att ge agenten åtkomst till nav servern.
 
@@ -240,7 +240,7 @@ Federations rot databasen kan användas i SQL Data Sync tjänsten utan någon be
 
 ### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>Kan jag använda datasynkronisering för att synkronisera data som exporter ATS från Dynamics 365 med en egen databas (BYOD)-funktion?
 
-Med hjälp av en egen databas funktion i Dynamics 365 kan administratörer exportera dataentiteter från programmet till sin egen Microsoft Azure SQL-databas. Datasynkronisering kan användas för att synkronisera dessa data i andra databaser om data exporteras med hjälp av **stegvis push** (fullständig push-överföring stöds inte) och **Aktivera utlösare i mål databasen** har angetts till **Ja**.
+Med hjälp av en egen databas funktion i Dynamics 365 kan administratörer exportera dataentiteter från programmet till sin egen Microsoft Azure SQL-databas. Datasynkronisering kan användas för att synkronisera dessa data i andra databaser om data exporteras med hjälp av **stegvis push** (fullständig push-överföring stöds inte) och **Aktivera utlösare i mål databasen** har angetts till **Ja** .
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -248,20 +248,19 @@ Med hjälp av en egen databas funktion i Dynamics 365 kan administratörer expor
 
 Behöver du uppdatera schemat för en databas i en Sync-grupp? Schema ändringar replikeras inte automatiskt. Vissa lösningar finns i följande artiklar:
 
-- [Automatisera replikeringen av schema ändringar med SQL Data Sync i Azure](../../sql-database/sql-database-update-sync-schema.md)
+- [Automatisera replikeringen av schema ändringar med SQL Data Sync i Azure](./sql-data-sync-update-sync-schema.md)
 - [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/update-sync-schema-in-sync-group.md)
 
 ### <a name="monitor-and-troubleshoot"></a>Övervaka och felsök
 
 Är SQL Data Sync att göra som det ska? Information om hur du övervakar aktiviteter och felsöker problem finns i följande artiklar:
 
-- [Övervaka SQL Data Sync med Azure Monitor loggar](../../sql-database/sql-database-sync-monitor-oms.md)
-- [Felsöka problem med Azure SQL Data Sync](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Övervaka SQL Data Sync med Azure Monitor loggar](./monitor-tune-overview.md)
+- [Felsöka problem med Azure SQL Data Sync](./sql-data-sync-troubleshoot.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Läs mer om Azure SQL Database
 
 Mer information om Azure SQL Database finns i följande artiklar:
 
 - [Översikt över SQL Database](sql-database-paas-overview.md)
-- [Livscykelhantering för databas](https://msdn.microsoft.com/library/jj907294.aspx)
- 
+- [Livscykelhantering för databas](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628374"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791264"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Anslut ditt program till Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Det finns två alternativ för att ansluta virtuella nätverk:
 Peering är att föredra eftersom det använder Microsoft stamnät nätverket, så från anslutnings perspektivet, finns det ingen märkbar skillnad i fördröjning mellan virtuella datorer i ett peer-kopplat virtuellt nätverk och i samma virtuella nätverk. Peering av virtuella nätverk stöds mellan nätverken i samma region. Global peering för virtuella nätverk stöds också med begränsningen som beskrivs i Obs!  
 
 > [!IMPORTANT]
-> [Den 9/22/2020 vi presenterade global peering för virtuella nätverk för nyligen skapade virtuella kluster](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Det innebär att global virtuell nätverks-peering stöds för SQL-hanterade instanser som skapats i tomma undernät efter meddelandets datum, även för alla efterföljande hanterade instanser som skapats i dessa undernät. För alla andra SQL-hanterade instanser är peering-stödet begränsat till nätverken i samma region på grund av [begränsningarna i den globala virtuella nätverks-peeringen](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se även det relevanta avsnittet i artikeln [vanliga frågor och svar om Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) för mer information. 
+> [Den 9/22/2020 vi presenterade global peering för virtuella nätverk för nyligen skapade virtuella kluster](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Det innebär att global virtuell nätverks-peering stöds för SQL-hanterade instanser som skapats i tomma undernät efter meddelandets datum, även för alla efterföljande hanterade instanser som skapats i dessa undernät. För alla andra SQL-hanterade instanser är peering-stödet begränsat till nätverken i samma region på grund av [begränsningarna i den globala virtuella nätverks-peeringen](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Se även det relevanta avsnittet i artikeln [vanliga frågor och svar om Azure Virtual Networks](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) för mer information. 
 
 ## <a name="connect-from-on-premises"></a>Ansluta lokalt 
 
@@ -71,10 +71,10 @@ Ett annat scenario som implementeras av kunder är var en VPN-gateway installera
 
 ![Peering för virtuella nätverk](./media/connect-application-instance/vnet-peering.png)
 
-När du har konfigurerat den grundläggande infrastrukturen måste du ändra vissa inställningar så att VPN-gatewayen kan se IP-adresserna i det virtuella nätverket som är värd för SQL-hanterad instans. Det gör du genom att göra följande mycket speciella ändringar under **peering-inställningarna**.
+När du har konfigurerat den grundläggande infrastrukturen måste du ändra vissa inställningar så att VPN-gatewayen kan se IP-adresserna i det virtuella nätverket som är värd för SQL-hanterad instans. Det gör du genom att göra följande mycket speciella ändringar under **peering-inställningarna** .
 
-1. I det virtuella nätverk som är värd för VPN-gatewayen går du till **peering**, går till peer-ansluten virtuell nätverks anslutning för SQL-hanterad instans och klickar sedan på **Tillåt Gateway-överföring**.
-2. I det virtuella nätverk som är värd för SQL-hanterad instans går du till **peering**, går till peer-kopplat virtuell nätverks anslutning för VPN-gatewayen och klickar sedan på **Använd fjärrgatewayer**.
+1. I det virtuella nätverk som är värd för VPN-gatewayen går du till **peering** , går till peer-ansluten virtuell nätverks anslutning för SQL-hanterad instans och klickar sedan på **Tillåt Gateway-överföring** .
+2. I det virtuella nätverk som är värd för SQL-hanterad instans går du till **peering** , går till peer-kopplat virtuell nätverks anslutning för VPN-gatewayen och klickar sedan på **Använd fjärrgatewayer** .
 
 ## <a name="connect-azure-app-service"></a>Anslut Azure App Service 
 
@@ -151,8 +151,8 @@ Följande minimala versioner av verktygen och driv rutinerna rekommenderas om du
 |JDBC-drivrutin| 6.4.0 |
 |Node.js-drivrutin| 2.1.1 |
 |OLEDB-drivrutin| 18.0.2.0 |
-|SSMS| 18,0 eller [högre](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) eller högre |
+|SSMS| 18,0 eller [högre](/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) eller högre |
 
 ## <a name="next-steps"></a>Nästa steg
 

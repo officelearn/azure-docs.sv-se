@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 8459ab364fc0af15dd1a1b0035e4ce27d192f7a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfc3abd30fad3e86544430e5a4ecb8510e77c9e5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293466"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789938"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Affärs kontinuitet och HADR för SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -54,7 +54,7 @@ Du kan ha en lösning med hög tillgänglighet för SQL Server på en databas ni
 
 | Teknik | Exempel arkitekturer |
 | --- | --- |
-| **Tillgänglighetsgrupper** |Tillgänglighets repliker som körs i virtuella Azure-datorer i samma region ger hög tillgänglighet. Du måste konfigurera en virtuell domänkontrollant, eftersom Windows-redundanskluster kräver en Active Directory-domän.<br/><br/> För högre redundans och tillgänglighet kan virtuella Azure-datorer distribueras i olika [tillgänglighets zoner](../../../availability-zones/az-overview.md) enligt beskrivningen i [tillgänglighets gruppens översikt](availability-group-overview.md). Om SQL Server de virtuella datorerna i en tillgänglighets grupp har distribuerats i tillgänglighets zoner använder du [Azure-standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) för lyssnaren, som dokumenteras i artiklarna för [Azure SQL VM CLI](availability-group-az-cli-configure.md) och [Azures snabb starts mallar](availability-group-quickstart-template-configure.md) .<br/> ![Tillgänglighetsgrupper](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-ha-always-on.png)<br/>Mer information finns i [Konfigurera tillgänglighets grupper i Azure (GUI)](availability-group-azure-marketplace-template-configure.md). |
+| **Tillgänglighetsgrupper** |Tillgänglighets repliker som körs i virtuella Azure-datorer i samma region ger hög tillgänglighet. Du måste konfigurera en virtuell domänkontrollant, eftersom Windows-redundanskluster kräver en Active Directory-domän.<br/><br/> För högre redundans och tillgänglighet kan virtuella Azure-datorer distribueras i olika [tillgänglighets zoner](../../../availability-zones/az-overview.md) enligt beskrivningen i [tillgänglighets gruppens översikt](availability-group-overview.md). Om SQL Server de virtuella datorerna i en tillgänglighets grupp har distribuerats i tillgänglighets zoner använder du [Azure-standard Load Balancer](../../../load-balancer/load-balancer-overview.md) för lyssnaren, som dokumenteras i artiklarna för [Azure SQL VM CLI](./availability-group-az-commandline-configure.md) och [Azures snabb starts mallar](availability-group-quickstart-template-configure.md) .<br/> ![Tillgänglighetsgrupper](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/azure-only-ha-always-on.png)<br/>Mer information finns i [Konfigurera tillgänglighets grupper i Azure (GUI)](./availability-group-quickstart-template-configure.md). |
 | **Instanser av kluster för växling vid fel** |Instanser av kluster för växling vid fel stöds på SQL Server virtuella datorer. Eftersom FCI-funktionen kräver delad lagring, kommer fem lösningar att fungera med SQL Server på virtuella Azure-datorer: <br/><br/> – Använda [Azure delade diskar](failover-cluster-instance-azure-shared-disks-manually-configure.md) för Windows Server 2019. Delade hanterade diskar är en Azure-produkt som gör det möjligt att koppla en hanterad disk till flera virtuella datorer samtidigt. Virtuella datorer i klustret kan läsa eller skriva till din anslutna disk baserat på den reservation som valts av det klustrade programmet via SCSI-beständiga reservationer (SCSI-PR). SCSI PR är en lösning för bransch standard lagring som används av program som körs på en lokal storage area network (SAN). Genom att aktivera SCSI PR på en hanterad disk kan du migrera dessa program till Azure som de är. <br/><br/>-Använd [Lagringsdirigering \( S2D \) ](failover-cluster-instance-storage-spaces-direct-manually-configure.md) för att tillhandahålla en programvarubaserad virtuell SAN för Windows Server 2016 och senare.<br/><br/>– Användning av en [Premium-filresurs](failover-cluster-instance-premium-file-share-manually-configure.md) för Windows Server 2012 och senare. Premium-filresurser är SSD-baserade, har en konsekvent låg latens och stöds fullt ut för användning med FCI.<br/><br/>-Använda lagring som stöds av en partner lösning för klustring. Ett särskilt exempel som använder SIOS-DataKeeper finns i blogg inlägget [kluster för växling vid fel och SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>-Använder delad block lagring för ett fjärran sluten iSCSI-mål via Azure ExpressRoute. NetApp Private Storage (NPS) visar till exempel ett iSCSI-mål via ExpressRoute med Equinix till virtuella Azure-datorer.<br/><br/>För delade lösningar för lagring och datareplikering från Microsoft-partners kontaktar du leverantören för eventuella problem som rör åtkomst till data vid redundans.<br/><br/>||
 
 ## <a name="azure-only-disaster-recovery-solutions"></a>Endast Azure: katastrof återställnings lösningar
@@ -90,7 +90,7 @@ I följande bild använder installations programmet SQL Server som körs på en 
 
 Mer information finns i avsnittet om [villkor för produktlicensiering](https://www.microsoft.com/licensing/product-licensing/products). 
 
-Om du vill aktivera den här förmånen går du till din [SQL Server virtuella dator resursen](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Välj **Konfigurera** under **Inställningar**och välj sedan alternativet för **haveri beredskap** under **SQL Server licens**. Markera kryss rutan för att bekräfta att SQL Server VM ska användas som passiv replik och välj sedan **Använd** för att spara inställningarna. 
+Om du vill aktivera den här förmånen går du till din [SQL Server virtuella dator resursen](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). Välj **Konfigurera** under **Inställningar** och välj sedan alternativet för **haveri beredskap** under **SQL Server licens** . Markera kryss rutan för att bekräfta att SQL Server VM ska användas som passiv replik och välj sedan **Använd** för att spara inställningarna. 
 
 ![Konfigurera en katastrof återställnings replik i Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/dr-replica-in-portal.png)
 
@@ -101,12 +101,12 @@ Virtuella Azure-datorer, lagring och nätverk har olika operativa egenskaper än
 ### <a name="high-availability-nodes-in-an-availability-set"></a>Noder med hög tillgänglighet i en tillgänglighets uppsättning
 Med tillgänglighets uppsättningar i Azure kan du placera noderna med hög tillgänglighet i separata fel domäner och uppdaterings domäner. Azure-plattformen tilldelar en uppdaterings domän och en feldomän till varje virtuell dator i din tillgänglighets uppsättning. Den här konfigurationen i ett Data Center garanterar att minst en virtuell dator är tillgänglig under en planerad eller oplanerad underhålls händelse och uppfyller Azure-SLA på 99,95 procent. 
 
-Om du vill konfigurera en hög tillgänglighets installation placerar du alla deltagande SQL Server virtuella datorer i samma tillgänglighets uppsättning för att undvika program-eller data förlust under en underhålls händelse. Endast noder i samma moln tjänst kan ingå i samma tillgänglighets uppsättning. Mer information finns i [Hantera tillgängligheten för virtuella datorer](../../../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Om du vill konfigurera en hög tillgänglighets installation placerar du alla deltagande SQL Server virtuella datorer i samma tillgänglighets uppsättning för att undvika program-eller data förlust under en underhålls händelse. Endast noder i samma moln tjänst kan ingå i samma tillgänglighets uppsättning. Mer information finns i [Hantera tillgängligheten för virtuella datorer](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 
 ### <a name="high-availability-nodes-in-an-availability-zone"></a>Noder med hög tillgänglighet i en tillgänglighets zon
 Tillgänglighets zoner är unika fysiska platser inom en Azure-region. Varje zon består av ett eller flera data Center som är utrustade med oberoende strömförsörjning, kylning och nätverk. Den fysiska avgränsningen av tillgänglighets zoner inom en region hjälper till att skydda program och data från data Center problem genom att se till att minst en virtuell dator är tillgänglig och uppfyller Azure-SLA på 99,99 procent. 
 
-Du konfigurerar hög tillgänglighet genom att placera deltagande SQL Server virtuella datorer sprids över tillgänglighets zoner i regionen. Det kommer att finnas ytterligare kostnader för överföringar från nätverk till nätverk mellan tillgänglighets zoner. Mer information finns i [tillgänglighets zoner](/azure/availability-zones/az-overview). 
+Du konfigurerar hög tillgänglighet genom att placera deltagande SQL Server virtuella datorer sprids över tillgänglighets zoner i regionen. Det kommer att finnas ytterligare kostnader för överföringar från nätverk till nätverk mellan tillgänglighets zoner. Mer information finns i [tillgänglighets zoner](../../../availability-zones/az-overview.md). 
 
 
 ### <a name="failover-cluster-behavior-in-azure-networking"></a>Funktions sätt för redundanskluster i Azure-nätverk
@@ -123,7 +123,7 @@ En icke-RFC-kompatibel DHCP-tjänst i Azure kan orsaka att vissa konfigurationer
 
 Du kan undvika det här scenariot genom att tilldela en oanvänd statisk IP-adress till kluster nätverks namnet för att ta klustrets nätverks namn online. Du kan till exempel använda en länk lokal IP-adress som 169.254.1.1. För att förenkla den här processen, se [Konfigurera Windows-redundanskluster i Azure för tillgänglighets grupper](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
 
-Mer information finns i [Konfigurera tillgänglighets grupper i Azure (GUI)](availability-group-azure-marketplace-template-configure.md).
+Mer information finns i [Konfigurera tillgänglighets grupper i Azure (GUI)](./availability-group-quickstart-template-configure.md).
 
 ### <a name="support-for-availability-group-listeners"></a>Stöd för tillgänglighets grupps lyssnare
 Tillgänglighets grupps lyssnare stöds på virtuella Azure-datorer som kör Windows Server 2012 och senare. Det här stödet möjliggörs med hjälp av belastningsutjämnade slut punkter som är aktiverade på de virtuella Azure-datorer som är tillgänglighets grupps noder. Du måste följa särskilda konfigurations steg för att lyssnarna ska fungera för både klient program som körs i Azure och de som körs lokalt.
@@ -136,7 +136,7 @@ Om tillgänglighets gruppen sträcker sig över flera Azure-undernät (till exem
 Du kan fortfarande ansluta till varje tillgänglighets replik separat genom att ansluta direkt till tjänst instansen. Eftersom tillgänglighets grupper är bakåtkompatibla med databas speglings klienter, kan du också ansluta till tillgänglighets replikerna som databas speglings partner så länge replikerna har kon figurer ATS på samma sätt som databas spegling:
 
 * Det finns en primär replik och en sekundär replik.
-* Den sekundära repliken är konfigurerad som icke läsbar (**läsbar sekundär** alternativ uppsättning till **Nej**).
+* Den sekundära repliken är konfigurerad som icke läsbar ( **läsbar sekundär** alternativ uppsättning till **Nej** ).
 
 Här är ett exempel på en klient anslutnings sträng som motsvarar den här databas speglings konfigurationen med ADO.NET eller SQL Server Native Client:
 
@@ -146,11 +146,11 @@ Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=Avail
 
 Mer information om klient anslutningar finns i:
 
-* [Använda nyckelord för anslutnings strängen med SQL Server Native Client](https://msdn.microsoft.com/library/ms130822.aspx)
-* [Ansluta klienter till en databas speglings session (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
-* [Ansluter till tillgänglighets gruppens lyssnare i hybrid IT](https://docs.microsoft.com/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
-* [Tillgänglighets grupps lyssnare, klient anslutning och programredundans (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
-* [Använda Database-Mirroring anslutnings strängar med tillgänglighets grupper](https://technet.microsoft.com/library/hh213417.aspx)
+* [Använda nyckelord för anslutnings strängen med SQL Server Native Client](/sql/relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client)
+* [Ansluta klienter till en databas speglings session (SQL Server)](/sql/database-engine/database-mirroring/connect-clients-to-a-database-mirroring-session-sql-server)
+* [Ansluter till tillgänglighets gruppens lyssnare i hybrid IT](/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
+* [Tillgänglighets grupps lyssnare, klient anslutning och programredundans (SQL Server)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
+* [Använda Database-Mirroring anslutnings strängar med tillgänglighets grupper](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
 
 ### <a name="network-latency-in-hybrid-it"></a>Nätverks fördröjning i hybrid IT
 Distribuera din HADR-lösning med antagandet att det kan finnas perioder med hög nätverks fördröjning mellan ditt lokala nätverk och Azure. När du distribuerar repliker till Azure ska du använda asynkron incheckning i stället för synkront genomförande för Synkroniseringsläge. När du distribuerar databas speglings servrar både lokalt och i Azure använder du läget för hög prestanda i stället för hög säkerhets läge.
@@ -162,8 +162,4 @@ Om du inte har alternativet att inaktivera geo-replikering på lagrings kontot b
 
 ## <a name="next-steps"></a>Nästa steg
 
-Bestäm om en [tillgänglighets grupp](availability-group-overview.md) eller en [instans av redundanskluster](failover-cluster-instance-overview.md) är den bästa affärs kontinuitets lösningen för ditt företag. Granska sedan de [bästa metoderna](hadr-cluster-best-practices.md) för att konfigurera din miljö för hög tillgänglighet och haveri beredskap. 
-
-
-
-
+Bestäm om en [tillgänglighets grupp](availability-group-overview.md) eller en [instans av redundanskluster](failover-cluster-instance-overview.md) är den bästa affärs kontinuitets lösningen för ditt företag. Granska sedan de [bästa metoderna](hadr-cluster-best-practices.md) för att konfigurera din miljö för hög tillgänglighet och haveri beredskap.

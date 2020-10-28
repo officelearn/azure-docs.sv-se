@@ -14,14 +14,14 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a57a432a5f0f8e5a6bd802ec08b18350da3a77b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ec7ed958ac045c68fd7b616903f401dd07d8166
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293381"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789836"
 ---
-# <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Ändring på plats av SQL Server-version på en virtuell Azure-dator
+# <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Förändringar på plats av SQL Server version på virtuell Azure-dator
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
@@ -32,7 +32,7 @@ I den här artikeln beskrivs hur du ändrar den version av Microsoft SQL Server 
 För att utföra en uppgradering på plats av SQL Server gäller följande villkor:
 
 - Installations mediet för den önskade versionen av SQL Server måste anges. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) kan hämta installationsmedia från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Azure Marketplace SQL Server VM-avbildning som har en senare version av SQL Server (finns vanligt vis i C:\SQLServerFull).
-- Uppgraderingar av utgåvor bör följa [sökvägar för support uppgradering](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15).
+- Uppgraderingar av utgåvor bör följa [sökvägar för support uppgradering](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15).
 
 ## <a name="planning-for-version-change"></a>Planera för versions ändring
 
@@ -40,34 +40,34 @@ Vi rekommenderar att du läser följande objekt innan du ändrar versions ändri
 
 1. Se vad som är nytt i den version som du planerar att uppgradera till:
 
-   - Nyheter i [SQL 2019](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-ver15?view=sql-server-ver15)
-   - Nyheter i [SQL 2017](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2017?view=sql-server-ver15)
-   - Nyheter i [SQL 2016](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-ver15)
-   - Nyheter i [SQL 2014](https://docs.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-2014)
+   - Nyheter i [SQL 2019](/sql/sql-server/what-s-new-in-sql-server-ver15?view=sql-server-ver15)
+   - Nyheter i [SQL 2017](/sql/sql-server/what-s-new-in-sql-server-2017?view=sql-server-ver15)
+   - Nyheter i [SQL 2016](/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-ver15)
+   - Nyheter i [SQL 2014](/sql/sql-server/what-s-new-in-sql-server-2016?view=sql-server-2014)
 
-1. Vi rekommenderar att du kontrollerar [kompatibiliteten](https://docs.microsoft.com/sql/database-engine/install-windows/compatibility-certification?view=sql-server-ver15) för den version som du ska ändra till så att du kan använda databasens kompatibilitetsalternativ för att minimera uppgraderingens resultat.
+1. Vi rekommenderar att du kontrollerar [kompatibiliteten](/sql/database-engine/install-windows/compatibility-certification?view=sql-server-ver15) för den version som du ska ändra till så att du kan använda databasens kompatibilitetsalternativ för att minimera uppgraderingens resultat.
 1. Du kan gå igenom följande artiklar för att se hur resultatet lyckades:
 
    - [Video: att SQL Server | Pam-Lahoud & Pedro Lopes | 20 års PASS](https://www.youtube.com/watch?v=5RPkuQHcxxs&feature=youtu.be)
-   - [Database Experimentation Assistant för AB-testning](https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15)
-   - [Uppgradera databaser med hjälp av fråge justerings assistenten](https://docs.microsoft.com/sql/relational-databases/performance/upgrade-dbcompat-using-qta?view=sql-server-ver15)
-   - [Ändra kompatibilitetsnivån för databas och Använd Frågearkivet](https://docs.microsoft.com/sql/database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store?view=sql-server-ver15)
+   - [Database Experimentation Assistant för AB-testning](/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15)
+   - [Uppgradera databaser med hjälp av fråge justerings assistenten](/sql/relational-databases/performance/upgrade-dbcompat-using-qta?view=sql-server-ver15)
+   - [Ändra kompatibilitetsnivån för databas och Använd Frågearkivet](/sql/database-engine/install-windows/change-the-database-compatibility-mode-and-use-the-query-store?view=sql-server-ver15)
 
 ## <a name="upgrade-sql-version"></a>Uppgradera SQL-version
 
 > [!WARNING]
 > Om du uppgraderar versionen av SQL Server startas om tjänsten för SQL Server utöver associerade tjänster, till exempel Analysis Services-och R-tjänster.
 
-Om du vill uppgradera versionen av SQL Server hämtar du SQL Server installations mediet för den senare versionen som har [stöd för uppgraderings Sök vägen](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15) för SQL Server och utför följande steg:
+Om du vill uppgradera versionen av SQL Server hämtar du SQL Server installations mediet för den senare versionen som har [stöd för uppgraderings Sök vägen](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15) för SQL Server och utför följande steg:
 
 1. Säkerhetskopiera databaserna, inklusive system (förutom tempdb) och användar databaser, innan du startar processen. Du kan också skapa en programkonsekvent säkerhets kopiering på VM-nivå genom att använda Azure Backup Services.
 1. Starta Setup.exe från SQL Server-installations mediet.
-1. Installations guiden startar installations Center för SQL Server. Om du vill uppgradera en befintlig instans av SQL Server väljer du **installation** i navigerings fönstret och väljer sedan **Uppgradera från en tidigare version av SQL Server**.
+1. Installations guiden startar installations Center för SQL Server. Om du vill uppgradera en befintlig instans av SQL Server väljer du **installation** i navigerings fönstret och väljer sedan **Uppgradera från en tidigare version av SQL Server** .
 
    :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="Val för uppgradering av versionen av SQL Server":::
 
-1. På sidan **produkt nyckel** väljer du ett alternativ för att ange om du uppgraderar till en kostnads fri version av SQL Server eller om du har en PID-nyckel för en produktions version av produkten. Mer information finns i [utgåvor och stödda funktioner i SQL Server 2019 (15. x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) och [versioner som stöds och uppgraderingar av utgåvor (SQL Server 2016)](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15).
-1. Välj **Nästa** tills du kommer till sidan **redo att uppgradera** och välj sedan **Uppgradera**. Installations fönstret kan sluta svara i flera minuter medan ändringen börjar att fungera. En **fullständig** sida bekräftar att uppgraderingen är klar. En steg-för-steg-procedur för att uppgradera finns i [hela proceduren](https://docs.microsoft.com/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure).
+1. På sidan **produkt nyckel** väljer du ett alternativ för att ange om du uppgraderar till en kostnads fri version av SQL Server eller om du har en PID-nyckel för en produktions version av produkten. Mer information finns i [utgåvor och stödda funktioner i SQL Server 2019 (15. x)](/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) och [versioner som stöds och uppgraderingar av utgåvor (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15).
+1. Välj **Nästa** tills du kommer till sidan **redo att uppgradera** och välj sedan **Uppgradera** . Installations fönstret kan sluta svara i flera minuter medan ändringen börjar att fungera. En **fullständig** sida bekräftar att uppgraderingen är klar. En steg-för-steg-procedur för att uppgradera finns i [hela proceduren](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure).
 
    :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Val för uppgradering av versionen av SQL Server":::
 

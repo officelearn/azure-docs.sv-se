@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 26d4080e20fb8d00ec4d276e56e09170001d2b8e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166547"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789921"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Always on-tillgänglighetsgrupper på SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,12 +37,12 @@ Följande diagram illustrerar en tillgänglighets grupp för SQL Server på virt
 
 ## <a name="vm-redundancy"></a>VM-redundans 
 
-För att öka redundansen och hög tillgänglighet ska de virtuella SQL Server datorerna antingen finnas i samma [tillgänglighets uppsättning](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)eller olika [tillgänglighets zoner](/azure/availability-zones/az-overview).
+För att öka redundansen och hög tillgänglighet ska de virtuella SQL Server datorerna antingen finnas i samma [tillgänglighets uppsättning](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview)eller olika [tillgänglighets zoner](../../../availability-zones/az-overview.md).
 
 En tillgänglighets uppsättning är en gruppering av resurser som är konfigurerade så att det inte finns två land i samma tillgänglighets zon. Detta förhindrar att flera resurser i gruppen påverkas under distributions upprullningar. 
 
 
-## <a name="connectivity"></a>Anslutning 
+## <a name="connectivity"></a>Anslutningsmöjlighet 
 
 I en traditionell lokal distribution ansluter klienter till tillgänglighets gruppens lyssnare med hjälp av det virtuella nätverks namnet (VNN) och lyssnaren dirigerar trafik till lämplig SQL Server replik i tillgänglighets gruppen. Det finns dock ett extra krav för att dirigera trafik i Azure-nätverket. 
 
@@ -74,7 +74,7 @@ Det finns flera alternativ för att distribuera en tillgänglighets grupp till S
 
 Följande tabell innehåller en jämförelse av tillgängliga alternativ: 
 
-| |**[Azure Portal](availability-group-azure-portal-configure.md)**|**[Azure CLI/PowerShell](availability-group-az-cli-configure.md)**|**[Snabb starts mallar](availability-group-quickstart-template-configure.md)**|**[Manuell](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+| |**[Azure Portal](availability-group-azure-portal-configure.md)**|**[Azure CLI/PowerShell](./availability-group-az-commandline-configure.md)**|**[Snabb starts mallar](availability-group-quickstart-template-configure.md)**|**[Manuell](availability-group-manually-configure-prerequisites-tutorial.md)** | 
 |---------|---------|---------|--------- |---------|
 |**SQL Server-version** |2016 + |2016 +|2016 +|2012 +|
 |**SQL Server-utgåva** |Enterprise |Enterprise |Enterprise |Enterprise, standard|
@@ -83,7 +83,7 @@ Följande tabell innehåller en jämförelse av tillgängliga alternativ:
 |**Skapar tillgänglighets gruppen åt dig** |Ja |Nej|Nej|Nej|
 |**Skapar lyssnare och belastningsutjämnare separat** |Nej|Nej|Nej|Ja|
 |**Möjligt att skapa DNN-lyssnare med den här metoden?**|Nej|Nej|Nej|Ja|
-|**WSFC-kvorum konfiguration**n|Molnvittne|Molnvittne|Molnvittne|Alla|
+|**WSFC-kvorum konfiguration** n|Molnvittne|Molnvittne|Molnvittne|Alla|
 |**DR med flera regioner** |Nej|Nej|Nej|Ja|
 |**Stöd för multinätet** |Ja|Ja|Ja|Ja|
 |**Stöd för en befintlig AD**|Ja|Ja|Ja|Ja|
@@ -100,6 +100,6 @@ Om du har ett redundanskluster på en virtuell Azure IaaS-gästdator, rekommende
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska [metod tipsen för hadr](hadr-cluster-best-practices.md) och kom igång med att distribuera tillgänglighets gruppen med hjälp av [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](availability-group-az-cli-configure.md), [snabb starts mallar](availability-group-quickstart-template-configure.md) eller [manuellt](availability-group-manually-configure-prerequisites-tutorial.md).
+Granska [metod tipsen för hadr](hadr-cluster-best-practices.md) och kom igång med att distribuera tillgänglighets gruppen med hjälp av [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](./availability-group-az-commandline-configure.md), [snabb starts mallar](availability-group-quickstart-template-configure.md) eller [manuellt](availability-group-manually-configure-prerequisites-tutorial.md).
 
-Alternativt kan du distribuera en [klustrad tillgänglighets grupp](availability-group-clusterless-workgroup-configure.md) eller en tillgänglighets grupp i [flera regioner](availability-group-manually-configure-multiple-regions.md). 
+Alternativt kan du distribuera en [klustrad tillgänglighets grupp](availability-group-clusterless-workgroup-configure.md) eller en tillgänglighets grupp i [flera regioner](availability-group-manually-configure-multiple-regions.md).

@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: b01208c67610ff220df1654d10211472e0eed61f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 416fb9fc4ce0622a710f2c119942edc4986ddd06
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426846"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790584"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Utveckla med API:er för Media Services v3
 
@@ -32,8 +32,8 @@ Den här artikeln beskriver regler som gäller för entiteter och API: er när d
 
 Du måste autentiseras innan du kan få åtkomst till Media Services-resurser och Media Services-API:et. Media Services stöder [Azure Active Directory-baserad (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) autentisering. Två vanliga autentiseringsalternativ:
  
-* **Autentisering av tjänstens huvudnamn**: Används för att autentisera en tjänst (till exempel webbappar, funktionsappar, logikappar, API:er och mikrotjänster). Program som ofta använder den här autentiseringsmetoden är appar som kör daemon-tjänster, tjänster på mellan nivå eller schemalagda jobb. För Web Apps bör till exempel alltid vara en mellan nivå som ansluter till Media Services med ett huvud namn för tjänsten.
-* **Användarautentisering**: Används för att autentisera en person som använder appen för att interagera med Media Services-resurser. Den interaktiva appen bör först fråga efter användarens autentiseringsuppgifter. Ett exempel är en hanteringskonsolapp som används av behöriga användare för att övervaka kodningsjobb eller liveuppspelning.
+* **Autentisering av tjänstens huvudnamn** : Används för att autentisera en tjänst (till exempel webbappar, funktionsappar, logikappar, API:er och mikrotjänster). Program som ofta använder den här autentiseringsmetoden är appar som kör daemon-tjänster, tjänster på mellan nivå eller schemalagda jobb. För Web Apps bör till exempel alltid vara en mellan nivå som ansluter till Media Services med ett huvud namn för tjänsten.
+* **Användarautentisering** : Används för att autentisera en person som använder appen för att interagera med Media Services-resurser. Den interaktiva appen bör först fråga efter användarens autentiseringsuppgifter. Ett exempel är en hanteringskonsolapp som används av behöriga användare för att övervaka kodningsjobb eller liveuppspelning.
 
 Media Services-API:et kräver att användaren eller appen skickar REST API-begäranden för att få åtkomst till Media Services-kontoresursen och att rollen **Deltagare** eller **Ägare** används. Det går att komma åt API:et med rollen **Läsare** men då är endast åtgärderna **Get** eller **List** tillgängliga. Mer information finns i [rollbaserad åtkomst kontroll i Azure (Azure RBAC) för Media Services-konton](rbac-overview.md).
 
@@ -109,11 +109,11 @@ Media Services har följande tids krävande åtgärder:
 * [Stoppa StreamingEndpoint](/rest/api/media/streamingendpoints/stop)
 * [Skala StreamingEndpoint](/rest/api/media/streamingendpoints/scale)
 
-Vid lyckad sändning av en lång åtgärd får du "202 accepterad" och måste avsöka för att slutföra åtgärden med det returnerade åtgärds-ID: t.
+Vid lyckad sändning av en lång åtgärd visas en "201 skapad" och den måste avsöka för att slutföra åtgärden med det returnerade åtgärds-ID: t.
 
 Artikeln [spåra asynkrona Azure-åtgärder](../../azure-resource-manager/management/async-operations.md) förklarar i djup hur du spårar statusen för asynkrona Azure-åtgärder via värden som returneras i svaret.
 
-Endast en långvarig åtgärd stöds för en specifik Live-händelse eller någon av dess associerade Live-utdata. En tids krävande åtgärd måste slutföras innan en efterföljande tids krävande åtgärd påbörjas på samma LiveEvent eller associerade Live-utdata. För Live-händelser med flera Live-utdata måste du vänta på att en långvarig åtgärd ska slutföras innan en tids krävande åtgärd aktive ras på en annan Live-utdata. 
+Endast en långvarig åtgärd stöds för en specifik Live-händelse eller någon av dess associerade Live-utdata. En tids krävande åtgärd måste slutföras innan en efterföljande tids krävande åtgärd påbörjas på samma LiveEvent eller associerade Live-utdata. För Live-händelser med flera Live-utdata måste du vänta på att en långvarig åtgärd ska slutföras innan en tids krävande åtgärd aktive ras på en annan Live-utdata.
 
 ## <a name="sdks"></a>SDK:er
 

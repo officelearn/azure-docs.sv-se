@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 06/06/2020
-ms.openlocfilehash: e9f3f1ca6005ff8c61211263944513d859d6d23e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9674b7188251312056812ac8e1dcae5885579e2a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620196"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791315"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Mål kod för händelse filen för utökade händelser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "91620196"
 
 Du vill ha ett fullständigt kod exempel för ett robust sätt att samla in och rapportera information om en utökad händelse.
 
-I Microsoft SQL Server används [händelse fil målet](https://msdn.microsoft.com/library/ff878115.aspx) för att lagra händelse resultat i en lokal hård disk fil. Men sådana filer är inte tillgängliga för Azure SQL Database. Vi använder istället tjänsten Azure Storage för att stödja Event File-målet.
+I Microsoft SQL Server används [händelse fil målet](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) för att lagra händelse resultat i en lokal hård disk fil. Men sådana filer är inte tillgängliga för Azure SQL Database. Vi använder istället tjänsten Azure Storage för att stödja Event File-målet.
 
 I det här avsnittet presenteras ett kod exempel med två faser:
 
@@ -39,7 +39,7 @@ I det här avsnittet presenteras ett kod exempel med två faser:
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
 - Ett Azure-konto och prenumeration. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 - Alla databaser du kan skapa en tabell i.
@@ -49,12 +49,12 @@ I det här avsnittet presenteras ett kod exempel med två faser:
 - SQL Server Management Studio (ssms.exe), helst den senaste månatliga uppdaterings versionen.
   Du kan hämta de senaste ssms.exe från:
   
-  - Avsnitt med rubriken [hämta SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  - Avsnitt med rubriken [hämta SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   - [En direkt länk till nedladdningen.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 - Du måste ha installerat [Azure PowerShell-modulerna](https://go.microsoft.com/?linkid=9811175) .
 
-  - Modulerna innehåller kommandon som- **New-AzStorageAccount**.
+  - Modulerna innehåller kommandon som- **New-AzStorageAccount** .
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fas 1: PowerShell-kod för Azure Storage container
 
@@ -62,7 +62,7 @@ Den här PowerShell är fas 1 i kod exemplet med två faser.
 
 Skriptet börjar med kommandon för att rensa efter en eventuell tidigare körning och är rerunnable.
 
-1. Klistra in PowerShell-skriptet i en enkel text redigerare, till exempel Notepad.exe, och Spara skriptet som en fil med fil namns tillägget **. ps1**.
+1. Klistra in PowerShell-skriptet i en enkel text redigerare, till exempel Notepad.exe, och Spara skriptet som en fil med fil namns tillägget **. ps1** .
 2. Starta PowerShell ISE som administratör.
 3. I prompten skriver du<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>och tryck sedan på RETUR.
 4. Öppna din **. ps1** -fil i PowerShell ISE. Kör skriptet.
@@ -258,7 +258,7 @@ PowerShell-skriptet skrev ut några namngivna värden när det avslutades. Du m�
 6. Spara och kör sedan skriptet.
 
 > [!WARNING]
-> SAS-nyckelvärdet som genereras av föregående PowerShell-skript kan börja med en? (frågetecken). När du använder SAS-nyckeln i följande T-SQL-skript måste du *ta bort det inledande "?"*. Annars kan dina insatser blockeras av säkerhet.
+> SAS-nyckelvärdet som genereras av föregående PowerShell-skript kan börja med en? (frågetecken). När du använder SAS-nyckeln i följande T-SQL-skript måste du *ta bort det inledande "?"* . Annars kan dina insatser blockeras av säkerhet.
 
 ### <a name="transact-sql-code"></a>Transact-SQL-kod
 
@@ -496,19 +496,19 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 Föregående Transact-SQL-skript använde följande systemfunktion för att läsa event_file:
 
-- [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
+- [sys.fn_xe_file_target_read_file (Transact-SQL)](/sql/relational-databases/system-functions/sys-fn-xe-file-target-read-file-transact-sql)
 
 En förklaring av avancerade alternativ för visning av data från utökade händelser finns på:
 
-- [Avancerad visning av mål data från utökade händelser](https://msdn.microsoft.com/library/mt752502.aspx)
+- [Avancerad visning av mål data från utökade händelser](/sql/relational-databases/extended-events/advanced-viewing-of-target-data-from-extended-events-in-sql-server)
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Konvertera kod exemplet som ska köras på SQL Server
 
 Anta att du vill köra föregående Transact-SQL-exempel på Microsoft SQL Server.
 
-- För enkelhetens skull vill du helt ersätta användningen av Azure Storage containern med en enkel fil, till exempel *C:\myeventdata.xel*. Filen skrivs till den lokala hård disken på den dator som är värd för SQL Server.
-- Du behöver inte någon typ av Transact-SQL-uttryck för att **skapa huvud nyckel** och **skapa autentiseringsuppgifter**.
-- I instruktionen **Skapa event-session** , i **dess Add Target** -sats, ersätter du det http-värde som tilldelats **filename =** med en fullständig Sök vägs sträng som *C:\myfile.xel*.
+- För enkelhetens skull vill du helt ersätta användningen av Azure Storage containern med en enkel fil, till exempel *C:\myeventdata.xel* . Filen skrivs till den lokala hård disken på den dator som är värd för SQL Server.
+- Du behöver inte någon typ av Transact-SQL-uttryck för att **skapa huvud nyckel** och **skapa autentiseringsuppgifter** .
+- I instruktionen **Skapa event-session** , i **dess Add Target** -sats, ersätter du det http-värde som tilldelats **filename =** med en fullständig Sök vägs sträng som *C:\myfile.xel* .
   
   - Inget Azure Storage konto behöver tas med.
 
@@ -517,8 +517,8 @@ Anta att du vill köra föregående Transact-SQL-exempel på Microsoft SQL Serve
 Mer information om konton och behållare i Azure Storage-tjänsten finns i:
 
 - [Använda Blob Storage från .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Namnge och referera till behållare, blobbar och metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx)
-- [Arbeta med rot behållaren](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-- [Lektion 1: skapa en lagrad åtkomst princip och en signatur för delad åtkomst på en Azure-behållare](https://msdn.microsoft.com/library/dn466430.aspx)
-  - [Lektion 2: skapa en SQL Server autentiseringsuppgift med hjälp av signaturen för delad åtkomst](https://msdn.microsoft.com/library/dn466435.aspx)
-- [Utökade händelser för Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
+- [Namnge och referera till behållare, blobbar och metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)
+- [Arbeta med rot behållaren](/rest/api/storageservices/Working-with-the-Root-Container)
+- [Lektion 1: skapa en lagrad åtkomst princip och en signatur för delad åtkomst på en Azure-behållare](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#1---create-stored-access-policy-and-shared-access-storage)
+  - [Lektion 2: skapa en SQL Server autentiseringsuppgift med hjälp av signaturen för delad åtkomst](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016#2---create-a-sql-server-credential-using-a-shared-access-signature)
+- [Utökade händelser för Microsoft SQL Server](/sql/relational-databases/extended-events/extended-events)

@@ -12,12 +12,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: 61160943fc5762fd492f61a75a44159f2ef9cab2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b76390efaed94003a792b04836d6850e6b7a7ead
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448790"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789564"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Övervaka prestanda för Microsoft Azure SQL Database och Azure SQL Managed Instance med hjälp av dynamiska hanteringsvyer
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ Microsoft Azure SQL Database och Azure SQL Managed instance stöder delvis tre k
 - Vyer för dynamisk hantering i körnings läge.
 - Transaktionsskyddade vyer för dynamisk hantering.
 
-Detaljerad information om vyer för dynamisk hantering finns i [vyer och funktioner i dynamisk hantering (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+Detaljerad information om vyer för dynamisk hantering finns i [vyer och funktioner i dynamisk hantering (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -94,7 +94,7 @@ GO
 
 ### <a name="the-cpu-issue-occurred-in-the-past"></a>PROCESSOR problemet inträffade tidigare
 
-Om problemet inträffade tidigare och du vill utföra rotor Saks analys, använder du [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Användare med databas åtkomst kan använda T-SQL för att fråga efter Query Store-data. Standardkonfigurationer för Query Store använder en kornig het på 1 timme. Använd följande fråga för att titta på aktivitet för frågor med hög CPU-användning. Den här frågan returnerar de högsta 15 processor krävande frågorna. Kom ihåg att ändra `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()` :
+Om problemet inträffade tidigare och du vill utföra rotor Saks analys, använder du [query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Användare med databas åtkomst kan använda T-SQL för att fråga efter Query Store-data. Standardkonfigurationer för Query Store använder en kornig het på 1 timme. Använd följande fråga för att titta på aktivitet för frågor med hög CPU-användning. Den här frågan returnerar de högsta 15 processor krävande frågorna. Kom ihåg att ändra `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()` :
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -119,7 +119,7 @@ När du har identifierat de problematiska frågorna är det dags att finjustera 
 
 ## <a name="identify-io-performance-issues"></a>Identifiera problem med IO-prestanda
 
-När du identifierar i/o-prestanda problem är de viktigaste vänte typerna som är kopplade till IO-problem följande:
+När du har problem med I/O-prestanda är följande väntetyper de som oftast associeras med I/O-problem:
 
 - `PAGEIOLATCH_*`
 
@@ -131,7 +131,7 @@ När du identifierar i/o-prestanda problem är de viktigaste vänte typerna som 
 
 ### <a name="if-the-io-issue-is-occurring-right-now"></a>Om IO-problemet inträffar just nu
 
-Använd [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) eller [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att se `wait_type` och `wait_time` .
+Använd [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) eller [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att se `wait_type` och `wait_time` .
 
 #### <a name="identify-data-and-log-io-usage"></a>Identifiera data-och logg-i/o-användning
 
@@ -145,7 +145,7 @@ ORDER BY end_time DESC;
 
 Om du har nått IO-gränsen har du två alternativ:
 
-- Alternativ 1: uppgradera beräknings storlek eller tjänst nivå
+- Alternativ 1: Uppgradera beräkningsstorleken eller tjänstnivån
 - Alternativ 2: identifiera och finjustera de frågor som förbrukar de flesta i/o.
 
 #### <a name="view-buffer-related-io-using-the-query-store"></a>Visa buffert-relaterad IO med Query Store
@@ -252,15 +252,15 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>Identifiera `tempdb` prestanda problem
 
-När du identifierar i/o-prestanda problem är de vanligaste vänte typerna som är associerade med `tempdb` problem `PAGELATCH_*` (inte `PAGEIOLATCH_*` ). Vänta dock `PAGELATCH_*` inte alltid att du har `tempdb` konkurrens.  Detta kan betyda att du har innehålls sidan för användar objekts data på grund av samtidiga begär Anden som riktar sig mot samma data sida. Om du vill bekräfta `tempdb` konkurrens ytterligare använder du [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att bekräfta att wait_resource svärdet börjar med `2:x:y` där 2 är `tempdb` databas-ID: `x` t, är fil-ID och `y` är sid-ID.  
+När du identifierar i/o-prestanda problem är de vanligaste vänte typerna som är associerade med `tempdb` problem `PAGELATCH_*` (inte `PAGEIOLATCH_*` ). Vänta dock `PAGELATCH_*` inte alltid att du har `tempdb` konkurrens.  Det kan också bero på konkurrens om en datasida med användarobjekt på grund av konkurrerande begäranden som görs mot samma datasida. Om du vill bekräfta `tempdb` konkurrens ytterligare använder du [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att bekräfta att wait_resource svärdet börjar med `2:x:y` där 2 är `tempdb` databas-ID: `x` t, är fil-ID och `y` är sid-ID.  
 
 För tempdb-konkurrens är en vanlig metod att minska eller omskriva program kod som förlitar sig på `tempdb` .  Vanliga `tempdb` användnings områden är:
 
 - Temporära tabeller
-- Table-variabler
-- Tabell värdes parametrar
-- Användning av versions lager (specifikt kopplat till tids krävande transaktioner)
-- Frågor med fråge planer som använder sortering, hash-kopplingar och buffertar
+- Tabellvariabler
+- Tabellvärdesparametrar
+- Användning av versionslagret (specifikt associerat med tidskrävande transaktioner)
+- Frågor som har frågeplaner som använder sorteringar, hash-kopplingar och buffertar
 
 ### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Vanligaste frågor som använder tabell variabler och temporära tabeller
 
@@ -474,9 +474,9 @@ FROM sys.dm_exec_requests AS r
 ORDER BY mg.granted_memory_kb DESC;
 ```
 
-## <a name="calculating-database-and-objects-sizes"></a>Beräkna databas-och objekt storlekar
+## <a name="calculating-database-and-objects-sizes"></a>Beräkna databas- och objektstorlekar
 
-Följande fråga returnerar databasens storlek (i megabyte):
+Följande fråga returnerar databasens storlek (i MB):
 
 ```sql
 -- Calculates the size of the database.
@@ -486,7 +486,7 @@ WHERE type_desc = 'ROWS';
 GO
 ```
 
-Följande fråga returnerar storleken på enskilda objekt (i megabyte) i databasen:
+Följande fråga returnerar storleken på enskilda objekt (i MB) i databasen:
 
 ```sql
 -- Calculates the size of individual database objects.
@@ -517,21 +517,21 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Om du har behörigheten **Visa databas tillstånd** för databasen när du kör **sys.dm_exec_requests** och **sys.dm_exec_sessions vyer**, ser du alla pågående sessioner på databasen. annars visas bara den aktuella sessionen.
+> Om du har behörigheten **Visa databas tillstånd** för databasen när du kör **sys.dm_exec_requests** och **sys.dm_exec_sessions vyer** , ser du alla pågående sessioner på databasen. annars visas bara den aktuella sessionen.
 
 ## <a name="monitor-resource-use"></a>Övervaka resursanvändning
 
-Du kan övervaka Azure SQL Database resursanvändning med [SQL Database Query Performance Insight](query-performance-insight-use.md). För Azure SQL Database och Azure SQL-hanterad instans kan du övervaka med hjälp av [query Store](https://msdn.microsoft.com/library/dn817826.aspx).
+Du kan övervaka Azure SQL Database resursanvändning med [SQL Database Query Performance Insight](query-performance-insight-use.md). För Azure SQL Database och Azure SQL-hanterad instans kan du övervaka med hjälp av [query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 Du kan också övervaka användningen med följande vyer:
 
 - Azure SQL Database: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - Azure SQL-hanterad instans: [sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
-- Både Azure SQL Database och Azure SQL-hanterad instans: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- Både Azure SQL Database och Azure SQL-hanterad instans: [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 
 ### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
-Du kan använda vyn [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) i varje databas. I vyn **sys.dm_db_resource_stats** visas senaste resurs användnings data i förhållande till tjänst nivån. Genomsnitts procent andelen för CPU, data-IO, logg skrivningar och minne registreras var 15: e sekund och bevaras i 1 timme.
+Du kan använda vyn [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) i varje databas. I vyn **sys.dm_db_resource_stats** visas senaste resurs användnings data i förhållande till tjänst nivån. Genomsnitts procent andelen för CPU, data-IO, logg skrivningar och minne registreras var 15: e sekund och bevaras i 1 timme.
 
 Eftersom den här vyn ger en mer detaljerad titt på resursanvändningen använder **sys.dm_db_resource_stats** First för all analys av aktuella tillstånd eller fel sökning. Den här frågan visar till exempel den genomsnittliga och högsta resursanvändning som används för den aktuella databasen under den senaste timmen:
 
@@ -548,7 +548,7 @@ SELECT
 FROM sys.dm_db_resource_stats;  
 ```
 
-För andra frågor, se exemplen i [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+För andra frågor, se exemplen i [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).
 
 ### <a name="sysserver_resource_stats"></a>sys.server_resource_stats
 
@@ -568,7 +568,7 @@ HAVING AVG(avg_cpu_percent) >= 80
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
-[Sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) -vyn i **huvud** databasen har ytterligare information som kan hjälpa dig att övervaka databasens prestanda på den aktuella tjänst nivån och beräknings storleken. Data samlas in var 5: e minut och bevaras i cirka 14 dagar. Den här vyn är användbar för en längre historisk analys av hur databasen använder resurser.
+[Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) -vyn i **huvud** databasen har ytterligare information som kan hjälpa dig att övervaka databasens prestanda på den aktuella tjänst nivån och beräknings storleken. Data samlas in var 5: e minut och bevaras i cirka 14 dagar. Den här vyn är användbar för en längre historisk analys av hur databasen använder resurser.
 
 I följande diagram visas användningen av CPU-resurser för en Premium-databas med P2 Compute-storlek för varje timme under en vecka. Det här diagrammet startar på en måndag, visar 5 arbets dagar och visar sedan en helg, om det händer mycket mindre i programmet.
 
@@ -743,11 +743,11 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Övervaka blockerade frågor
 
-Långsamma eller långvariga frågor kan bidra till överdriven resurs förbrukning och vara en följd av blockerade frågor. Orsaken till blockeringen kan vara dåligt program design, dåliga fråge planer, avsaknad av användbara index och så vidare. Du kan använda vyn sys.dm_tran_locks för att hämta information om den aktuella lås aktiviteten i databasen. Exempel kod finns i [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx).
+Långsamma eller långvariga frågor kan bidra till överdriven resurs förbrukning och vara en följd av blockerade frågor. Orsaken till blockeringen kan vara dåligt program design, dåliga fråge planer, avsaknad av användbara index och så vidare. Du kan använda vyn sys.dm_tran_locks för att hämta information om den aktuella lås aktiviteten i databasen. Exempel kod finns i [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
 
 ### <a name="monitoring-query-plans"></a>Övervaknings fråge planer
 
-En ineffektiv frågeplan kan också öka CPU-förbrukningen. I följande exempel används vyn [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) för att avgöra vilken fråga som använder den mest kumulativa processorn.
+En ineffektiv frågeplan kan också öka CPU-förbrukningen. I följande exempel används vyn [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql) för att avgöra vilken fråga som använder den mest kumulativa processorn.
 
 ```sql
 SELECT

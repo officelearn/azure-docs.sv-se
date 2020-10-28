@@ -12,19 +12,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 10/12/2020
-ms.openlocfilehash: 878fa9f576e50fb53e648d3bf39f98558d6e880a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8fbbd7a2aabc9de417f1eefd2513edba3119bfc0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441121"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791400"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Transparent data kryptering för SQL Database, SQL-hanterad instans och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 [Transparent data kryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) hjälper till att skydda Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse-analys mot hot från skadlig offline-aktivitet genom att kryptera data i vila. TDE utför realtidskryptering och realtidsdekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler i vila, utan att några ändringar krävs i programmet. Som standard är TDE aktiverat för alla nyligen distribuerade SQL-databaser och måste aktive ras manuellt för äldre databaser av Azure SQL Database, Azure SQL-hanterad instans. TDE måste aktive ras manuellt för Azure Synapse Analytics.
 
-TDE utför I/O-kryptering i real tid och dekryptering av data på sidnivå. Varje sida dekrypteras när de läses in i minnet och krypteras sedan innan de skrivs tillbaka till disken. TDE krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel som kallas databas krypterings nyckel (DEK). Vid databas start dekrypteras den krypterade DEK och används sedan för dekryptering och Omkryptering av databasfilerna i processen för SQL Server databas motor. DEK skyddas av TDE-skyddet. TDE-skydd är antingen ett tjänstehanterat certifikat (hanterad transparent data kryptering) eller en asymmetrisk nyckel som lagras i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (kundhanterad transparent data kryptering).
+TDE utför I/O-kryptering i real tid och dekryptering av data på sidnivå. Varje sida dekrypteras när de läses in i minnet och krypteras sedan innan de skrivs tillbaka till disken. TDE krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel som kallas databas krypterings nyckel (DEK). Vid databas start dekrypteras den krypterade DEK och används sedan för dekryptering och Omkryptering av databasfilerna i processen för SQL Server databas motor. DEK skyddas av TDE-skyddet. TDE-skydd är antingen ett tjänstehanterat certifikat (hanterad transparent data kryptering) eller en asymmetrisk nyckel som lagras i [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md) (kundhanterad transparent data kryptering).
 
 För Azure SQL Database och Azure-Synapse anges TDE-skyddet på [Server](logical-servers.md) nivå och ärvs av alla databaser som är kopplade till den servern. För Azure SQL-hanterad instans anges TDE-skydd på instans nivå och den ärvs av alla krypterade databaser på den instansen. Termen *Server* avser både server och instans i det här dokumentet, om inget annat anges.
 
@@ -32,7 +32,7 @@ För Azure SQL Database och Azure-Synapse anges TDE-skyddet på [Server](logical
 > Alla nyligen skapade databaser i SQL Database krypteras som standard med hjälp av tjänst hanterad transparent data kryptering. Befintliga SQL-databaser som skapats före maj 2017 och SQL-databaser som skapats via återställning, geo-replikering och databas kopiering är inte krypterade som standard. Befintliga SQL-hanterade instans databaser som skapats före februari 2019 krypteras inte som standard. SQL-hanterade instans databaser som skapats via återställning ärver krypterings status från källan.
 
 > [!NOTE]
-> TDE kan inte användas för att kryptera system databaser, till exempel **huvud** databasen, i Azure SQL Database och Azure SQL-hanterad instans. **Huvud** databasen innehåller objekt som behövs för att utföra TDE-åtgärder på användar databaserna.
+> TDE kan inte användas för att kryptera system databaser, till exempel **huvud** databasen, i Azure SQL Database och Azure SQL-hanterad instans. **Huvud** databasen innehåller objekt som behövs för att utföra TDE-åtgärder på användar databaserna. Vi rekommenderar att inte lagra känsliga data i system databaserna. [Infrastruktur krypteringen](transparent-data-encryption-byok-overview.md#doubleencryption) är nu distribuerad och krypterar system databaser inklusive Master. 
 
 ## <a name="service-managed-transparent-data-encryption"></a>Hanterad transparent data kryptering i tjänst
 
@@ -42,7 +42,7 @@ Microsoft flyttar också sömlöst och hanterar nycklarna efter behov för geo-r
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Kundhanterad transparent data kryptering – Bring Your Own Key
 
-Kundhanterade TDE kallas även Bring Your Own Key (BYOK)-stöd för TDE. I det här scenariot är TDE-skyddskomponenten som krypterar DEK en kundhanterad asymmetrisk nyckel, som lagras i ett kundägda och hanterat Azure Key Vault (Azures molnbaserade externt nyckel hanterings system) och lämnar aldrig nyckel valvet. TDE-skydd kan [genereras av nyckel valvet eller överföras till nyckel valvet](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) från en lokal HSM-enhet (Hardware Security Module). SQL Database, SQL-hanterad instans och Azure-Synapse måste beviljas behörighet till det kundägda nyckel valvet för att dekryptera och kryptera DEK. Om serverns behörigheter för nyckel valvet har återkallats går det inte att komma åt databasen och alla data krypteras
+Kundhanterade TDE kallas även Bring Your Own Key (BYOK)-stöd för TDE. I det här scenariot är TDE-skyddskomponenten som krypterar DEK en kundhanterad asymmetrisk nyckel, som lagras i ett kundägda och hanterat Azure Key Vault (Azures molnbaserade externt nyckel hanterings system) och lämnar aldrig nyckel valvet. TDE-skydd kan [genereras av nyckel valvet eller överföras till nyckel valvet](../../key-vault/keys/hsm-protected-keys.md) från en lokal HSM-enhet (Hardware Security Module). SQL Database, SQL-hanterad instans och Azure-Synapse måste beviljas behörighet till det kundägda nyckel valvet för att dekryptera och kryptera DEK. Om serverns behörigheter för nyckel valvet har återkallats går det inte att komma åt databasen och alla data krypteras
 
 Med TDE med Azure Key Vault-integrering kan användare styra viktiga hanterings uppgifter, till exempel nyckel rotationer, nyckel valv, nyckel säkerhets kopior och aktivera granskning/rapportering på alla TDE-skydd med hjälp av Azure Key Vault-funktioner. Key Vault tillhandahåller central nyckel hantering, utnyttjar nära övervakade HSM: er och möjliggör separering av uppgifter mellan hantering av nycklar och data för att möta efterlevnaden av säkerhets principer.
 Mer information om BYOK för Azure SQL Database och Azure-Synapse finns i [transparent data kryptering med Azure Key Vault-integration](transparent-data-encryption-byok-overview.md).
@@ -91,7 +91,7 @@ Hantera TDE med hjälp av PowerShell.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
 Om du vill konfigurera TDE via PowerShell måste du vara ansluten som Azure-ägare, deltagare eller SQL Security Manager.
 
@@ -101,14 +101,14 @@ Använd följande cmdlets för Azure SQL Database och Azure-Synapse:
 
 | Cmdlet | Beskrivning |
 | --- | --- |
-| [Set-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Aktiverar eller inaktiverar transparent data kryptering för en databas.|
-| [Get-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Hämtar transparent data krypterings tillstånd för en databas. |
-| [Get-AzSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) |Kontrollerar krypterings förloppet för en databas. |
-| [Add-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/add-azsqlserverkeyvaultkey) |Lägger till en Key Vault nyckel till en server. |
-| [Get-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverkeyvaultkey) |Hämtar Key Vault nycklar för en server  |
-| [Set-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) |Ställer in transparent data krypterings skydd för en server. |
-| [Get-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) |Hämtar skyddet för transparent data kryptering |
-| [Remove-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) |Tar bort en Key Vault nyckel från en server. |
+| [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |Aktiverar eller inaktiverar transparent data kryptering för en databas.|
+| [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |Hämtar transparent data krypterings tillstånd för en databas. |
+| [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) |Kontrollerar krypterings förloppet för en databas. |
+| [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) |Lägger till en Key Vault nyckel till en server. |
+| [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) |Hämtar Key Vault nycklar för en server  |
+| [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) |Ställer in transparent data krypterings skydd för en server. |
+| [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) |Hämtar skyddet för transparent data kryptering |
+| [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) |Tar bort en Key Vault nyckel från en server. |
 |  | |
 
 > [!IMPORTANT]
@@ -138,17 +138,17 @@ Använd följande uppsättning kommandon för Azure SQL Database och Azure-Synap
 
 | Kommando | Beskrivning |
 | --- | --- |
-|[Skapa eller uppdatera Server](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Lägger till en Azure Active Directory identitet till en server. (används för att bevilja åtkomst till Key Vault)|
-|[Skapa eller uppdatera server nyckel](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Lägger till en Key Vault nyckel till en server.|
-|[Ta bort server nyckel](https://docs.microsoft.com/rest/api/sql/serverkeys/delete)|Tar bort en Key Vault nyckel från en server. |
-|[Hämta Server nycklar](https://docs.microsoft.com/rest/api/sql/serverkeys/get)|Hämtar en speciell Key Vault nyckel från en server.|
-|[Visa en lista med Server nycklar per server](https://docs.microsoft.com/rest/api/sql/serverkeys/listbyserver)|Hämtar Key Vault nycklar för en server. |
-|[Skapa eller uppdatera krypterings skydd](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/createorupdate)|Anger TDE-skydd för en server.|
-|[Hämta krypterings skydd](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/get)|Hämtar TDE-skydd för en server.|
-|[Visa lista över krypterings skydd per server](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/listbyserver)|Hämtar TDE-skydd för en server. |
-|[Skapa eller uppdatera transparent datakryptering konfiguration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/createorupdate)|Aktiverar eller inaktiverar TDE för en databas.|
-|[Hämta transparent datakryptering konfiguration](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Hämtar TDE-konfigurationen för en databas.|
-|[Visa lista transparent datakryptering konfigurations resultat](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Hämtar krypterings resultatet för en databas.|
+|[Skapa eller uppdatera Server](/rest/api/sql/servers/createorupdate)|Lägger till en Azure Active Directory identitet till en server. (används för att bevilja åtkomst till Key Vault)|
+|[Skapa eller uppdatera server nyckel](/rest/api/sql/serverkeys/createorupdate)|Lägger till en Key Vault nyckel till en server.|
+|[Ta bort server nyckel](/rest/api/sql/serverkeys/delete)|Tar bort en Key Vault nyckel från en server. |
+|[Hämta Server nycklar](/rest/api/sql/serverkeys/get)|Hämtar en speciell Key Vault nyckel från en server.|
+|[Visa en lista med Server nycklar per server](/rest/api/sql/serverkeys/listbyserver)|Hämtar Key Vault nycklar för en server. |
+|[Skapa eller uppdatera krypterings skydd](/rest/api/sql/encryptionprotectors/createorupdate)|Anger TDE-skydd för en server.|
+|[Hämta krypterings skydd](/rest/api/sql/encryptionprotectors/get)|Hämtar TDE-skydd för en server.|
+|[Visa lista över krypterings skydd per server](/rest/api/sql/encryptionprotectors/listbyserver)|Hämtar TDE-skydd för en server. |
+|[Skapa eller uppdatera transparent datakryptering konfiguration](/rest/api/sql/transparentdataencryptions/createorupdate)|Aktiverar eller inaktiverar TDE för en databas.|
+|[Hämta transparent datakryptering konfiguration](/rest/api/sql/transparentdataencryptions/get)|Hämtar TDE-konfigurationen för en databas.|
+|[Visa lista transparent datakryptering konfigurations resultat](/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Hämtar krypterings resultatet för en databas.|
 
 ## <a name="see-also"></a>Se även
 
@@ -156,4 +156,4 @@ Använd följande uppsättning kommandon för Azure SQL Database och Azure-Synap
 - En allmän beskrivning av TDE finns i [transparent data kryptering](/sql/relational-databases/security/encryption/transparent-data-encryption).
 - Om du vill veta mer om TDE med BYOK-stöd för Azure SQL Database, Azure SQL-hanterad instans och Azure Synapse, se [transparent data kryptering med stöd för Bring Your Own Key](transparent-data-encryption-byok-overview.md).
 - Om du vill börja använda TDE med Bring Your Own Key support kan du läsa instruktions guiden och [Aktivera transparent data kryptering med hjälp av din egen nyckel från Key Vault](transparent-data-encryption-byok-configure.md).
-- Mer information om Key Vault finns i [säker åtkomst till ett nyckel valv](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+- Mer information om Key Vault finns i [säker åtkomst till ett nyckel valv](../../key-vault/general/secure-your-key-vault.md).

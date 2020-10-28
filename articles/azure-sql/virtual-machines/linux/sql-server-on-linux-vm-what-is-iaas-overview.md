@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f7b1255553334bfaa75c5c0c96ecd36afa2c27f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be063105db2384f566e7c94d9f2e7a2bd808b15f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293773"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790142"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Översikt över SQL Server i Azure Virtual Machines (Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "91293773"
 
 SQL Server på Azure Virtual Machines kan du använda fullständiga versioner av SQL Server i molnet utan att behöva hantera lokal maskin vara. Virtuella SQL Server-datorer kan även förenkla licensieringskostnaderna när du betalar per användning.
 
-Virtuella Azure-datorer körs i många olika [geografiska regioner](https://azure.microsoft.com/regions/) runtom i världen. De också erbjuder även en mängd olika [datorstorlekar](../../../virtual-machines/windows/sizes.md). I bildgalleriet för virtuella datorer kan du skapa en virtuell dator med SQL Server med rätt version, utgåva och operativsystem. Det här innebär att virtuella datorer är ett bra alternativ för många olika SQL Server-arbetsbelastningar. 
+Virtuella Azure-datorer körs i många olika [geografiska regioner](https://azure.microsoft.com/regions/) runtom i världen. De också erbjuder även en mängd olika [datorstorlekar](../../../virtual-machines/sizes.md). I bildgalleriet för virtuella datorer kan du skapa en virtuell dator med SQL Server med rätt version, utgåva och operativsystem. Det här innebär att virtuella datorer är ett bra alternativ för många olika SQL Server-arbetsbelastningar. 
 
 Om du inte har arbetat med Azure SQL kan du läsa mer i *SQL Server på Azures översikt över virtuella Azure-datorer* från vår djupgående [Azure SQL-video serie](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
@@ -55,7 +55,7 @@ För att komma igång väljer du en avbildning av en virtuell dator med SQL Serv
 
 När du konfigurerar SQL Server på Linux installerar du databas motor paketet och sedan flera valfria paket beroende på dina behov. Avbildningar av den virtuella Linux-datorn för SQL Server installerar de flesta paket automatiskt åt dig. Följande tabell visar vilka paket som installeras för varje distribution.
 
-| Distribution | [Databas motor](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Verktyg](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server Agent](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Fulltextsökning](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Tillägg för hög tillgänglighet](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
+| Distribution | [Databas motor](/sql/linux/sql-server-linux-setup) | [Verktyg](/sql/linux/sql-server-linux-setup-tools) | [SQL Server Agent](/sql/linux/sql-server-linux-setup-sql-agent) | [Fulltextsökning](/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](/sql/linux/sql-server-linux-setup-ssis) | [Tillägg för hög tillgänglighet](/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
 | RHEL | ![RHEL och databas motor](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL och verktyg](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL och SQL Server Agent](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL och full texts ökning](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL och SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL och HA-tillägg](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
 | SLES | ![SLES och databas motor](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES och verktyg](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES och SQL Server Agent](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES och full texts ökning](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES och SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![SLES och HA-tillägg](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
@@ -67,7 +67,7 @@ När du konfigurerar SQL Server på Linux installerar du databas motor paketet o
 
 * [Översikt över Azure Virtual Machines](../../../virtual-machines/linux/overview.md)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 
 * [Introduktion till Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
@@ -79,7 +79,7 @@ När du konfigurerar SQL Server på Linux installerar du databas motor paketet o
 
 ### <a name="sql"></a>SQL
 
-* [SQL Server på Linux dokumentation](https://docs.microsoft.com/sql/linux)
+* [SQL Server på Linux dokumentation](/sql/linux)
 * [Jämförelse med Azure SQL Database](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg

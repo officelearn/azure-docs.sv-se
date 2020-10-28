@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: be7e4a641e5b5ac2ef755037142cfd8063d66b5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c88b777e08bc165caefa14fe28d43c498e3fefcd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448892"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790380"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight för Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Query Performance Insight ger intelligent frågekörning för databaser i en och samma databas. Det hjälper dig att identifiera de främsta resurserna för resursanvändning och långvariga frågor i din arbets belastning. Detta hjälper dig att hitta frågorna för att optimera för att förbättra den totala arbets Belastningens prestanda och effektivt använda den resurs som du betalar för. Query Performance Insight hjälper dig att ägna mindre tid åt att felsöka databas prestanda genom att tillhandahålla:
+Query Performance Insight ger intelligent frågekörning för enskilda databaser och pooldatabaser. Verktyget hjälper dig att identifiera de resurser i arbetsbelastningen som har högst resursanvändning och som är mest tidskrävande. På så sätt blir det enklare att hitta frågorna som kan optimera arbetsbelastningens prestanda, samt att använda den resurs som du betalar för så effektivt som möjligt. Query Performance Insight hjälper dig att ägna mindre tid åt att felsöka databas prestanda genom att tillhandahålla:
 
 * Djupare insikt i förbrukningen av dina databas resurser (DTU)
 * Information om de främsta databas frågorna efter processor, varaktighet och antal körningar (möjliga justerings förslag för prestanda förbättringar)
@@ -32,7 +32,7 @@ Query Performance Insight ger intelligent frågekörning för databaser i en och
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För Query Performance Insight krävs att [frågearkivet](https://msdn.microsoft.com/library/dn817826.aspx) är aktivt på databasen. Den aktive ras automatiskt för alla databaser i Azure SQL Database som standard. Om Frågearkivet inte körs uppmanas du i Azure Portal att aktivera det.
+För Query Performance Insight krävs att [frågearkivet](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) är aktivt på databasen. Den aktive ras automatiskt för alla databaser i Azure SQL Database som standard. Om Frågearkivet inte körs uppmanas du i Azure Portal att aktivera det.
 
 > [!NOTE]
 > Om meddelandet "Frågearkivet har inte kon figurer ATS korrekt på den här databasen" visas i portalen, se [optimera konfigurationen för frågearkivet](#optimize-the-query-store-configuration).
@@ -41,15 +41,15 @@ För Query Performance Insight krävs att [frågearkivet](https://msdn.microsoft
 
 Du behöver följande [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/overview.md) för att kunna använda Query Performance Insight:
 
-* Behörigheter för **läsare**, **ägare**, **deltagare**, **SQL DB-deltagare**eller **SQL Server deltagare** krävs för att visa de främsta resurs krävande frågorna och diagrammen.
-* Behörigheter för **ägare**, **deltagare**, **SQL DB-deltagare**eller **SQL Server deltagare** krävs för att Visa frågetext.
+* Behörigheter för **läsare** , **ägare** , **deltagare** , **SQL DB-deltagare** eller **SQL Server deltagare** krävs för att visa de främsta resurs krävande frågorna och diagrammen.
+* Behörigheter för **ägare** , **deltagare** , **SQL DB-deltagare** eller **SQL Server deltagare** krävs för att Visa frågetext.
 
 ## <a name="use-query-performance-insight"></a>Använda Query Performance Insight
 
 Query Performance Insight är enkelt att använda:
 
 1. Öppna [Azure Portal](https://portal.azure.com/) och leta upp en databas som du vill undersöka.
-2. Öppna **intelligenta prestanda**Query Performance Insight på menyn på den vänstra sidan  >  **Query Performance Insight**.
+2. Öppna **intelligenta prestanda** Query Performance Insight på menyn på den vänstra sidan  >  **Query Performance Insight** .
   
    ![Query Performance Insight på menyn](./media/query-performance-insight-use/tile.png)
 
@@ -61,7 +61,7 @@ Query Performance Insight är enkelt att använda:
    ![Instrument panel för prestanda](./media/query-performance-insight-use/performance.png)
 
 > [!NOTE]
-> För att Azure SQL Database ska kunna återge informationen i Query Performance Insight måste Query Store samla in några timmar data. Om databasen inte har någon aktivitet eller om Frågearkivet inte var aktiv under en viss period, kommer diagrammet att vara tomt när Query Performance Insight visar tidsintervallet. Du kan aktivera Query Store när som helst om det inte körs. Mer information finns i [metod tips för Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
+> För att Azure SQL Database ska kunna återge informationen i Query Performance Insight måste Query Store samla in några timmar data. Om databasen inte har någon aktivitet eller om Frågearkivet inte var aktiv under en viss period, kommer diagrammet att vara tomt när Query Performance Insight visar tidsintervallet. Du kan aktivera Query Store när som helst om det inte körs. Mer information finns i [metod tips för Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store).
 >
 
 För rekommendationer för databas prestanda väljer du [rekommendationer](database-advisor-implement-performance-recommendations.md) på bladet Query Performance Insight navigering.
@@ -85,9 +85,9 @@ Som standard visar Query Performance Insight de fem främsta processor krävande
    >
    > Om du vill ha en bättre jämförelse (upp till en minut) kan du skapa ett anpassat DTU-användnings diagram:
    >
-   > 1. Välj **Azure SQL Database**  >  **övervakning**i Azure Portal.
-   > 2. Välj **Mått**.
-   > 3. Välj **+ Lägg till diagram**.
+   > 1. Välj **Azure SQL Database**  >  **övervakning** i Azure Portal.
+   > 2. Välj **Mått** .
+   > 3. Välj **+ Lägg till diagram** .
    > 4. Välj procentuellt DTU i diagrammet.
    > 5. Välj dessutom de **senaste 24 timmarna** på den övre vänstra menyn och ändra den till en minut.
    >
@@ -160,7 +160,7 @@ Tids krävande frågor har störst potential för att låsa resurser längre, bl
 Så här identifierar du tids krävande frågor:
 
 1. Öppna fliken **anpassad** i Query Performance Insight för den valda databasen.
-2. Ändra måtten till **duration**.
+2. Ändra måtten till **duration** .
 3. Välj antal frågor och observations intervallet.
 4. Välj agg regerings funktion:
 
@@ -177,9 +177,9 @@ Så här identifierar du tids krävande frågor:
    >
    > Om du vill förstå databasen DTU-förbrukning med mer information (upp till en minut) kan du överväga att skapa ett anpassat diagram i Azure Portal:
    >
-   > 1. Välj **Azure SQL Database**  >  **övervakning**.
-   > 2. Välj **Mått**.
-   > 3. Välj **+ Lägg till diagram**.
+   > 1. Välj **Azure SQL Database**  >  **övervakning** .
+   > 2. Välj **Mått** .
+   > 3. Välj **+ Lägg till diagram** .
    > 4. Välj procentuellt DTU i diagrammet.
    > 5. Välj dessutom de **senaste 24 timmarna** på den övre vänstra menyn och ändra den till en minut.
    >
@@ -197,7 +197,7 @@ Till exempel har många data drivna webbplatser stor åtkomst till databasen fö
 Så här identifierar du vanliga frågor ("chatty"):
 
 1. Öppna fliken **anpassad** i Query Performance Insight för den valda databasen.
-2. Ändra måtten till **antal körningar**.
+2. Ändra måtten till **antal körningar** .
 3. Välj antal frågor och observations intervallet.
 4. Välj knappen **gå >** för att se den anpassade vyn.
 
@@ -232,22 +232,22 @@ Det första fallet inträffar när Frågearkivet är i skrivskyddat läge och pa
 
    ![Information om frågearkivet](./media/query-performance-insight-use/qds-off.png)
 
-Det andra fallet inträffar när Frågearkivet inte är aktiverat, eller om parametrarna inte är optimalt inställda. Du kan ändra principen för kvarhållning och insamling, och även aktivera Frågearkivet, genom att köra följande kommandon som tillhandahålls från [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller Azure Portal.
+Det andra fallet inträffar när Frågearkivet inte är aktiverat, eller om parametrarna inte är optimalt inställda. Du kan ändra principen för kvarhållning och insamling, och även aktivera Frågearkivet, genom att köra följande kommandon som tillhandahålls från [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) eller Azure Portal.
 
 ### <a name="recommended-retention-and-capture-policy"></a>Rekommenderad kvarhållning och avbildnings princip
 
 Det finns två typer av bevarande principer:
 
-* **Storlek baserad**: om den här principen är inställd på **Auto**rensas data automatiskt när den maximala storleken uppnås i närheten.
-* **Tidsbaserad**: som standard är den här principen inställt på 30 dagar. Om Query Store tar slut på utrymme, tar den bort information som är äldre än 30 dagar.
+* **Storlek baserad** : om den här principen är inställd på **Auto** rensas data automatiskt när den maximala storleken uppnås i närheten.
+* **Tidsbaserad** : som standard är den här principen inställt på 30 dagar. Om Query Store tar slut på utrymme, tar den bort information som är äldre än 30 dagar.
 
 Du kan ställa in avbildnings principen på:
 
-* **Alla**: Query Store fångar alla frågor.
-* **Auto**: Query Store ignorerar ovanliga frågor och frågor med obetydlig kompilering och körnings tid. Tröskelvärden för antal körningar, kompileringstid och varaktighet för körning fastställs internt. Detta är standard alternativet.
-* **Ingen**: Query Store slutar att samla in nya frågor, men körnings statistik för redan infångade frågor samlas fortfarande in.
+* **Alla** : Query Store fångar alla frågor.
+* **Auto** : Query Store ignorerar ovanliga frågor och frågor med obetydlig kompilering och körnings tid. Tröskelvärden för antal körningar, kompileringstid och varaktighet för körning fastställs internt. Detta är standard alternativet.
+* **Ingen** : Query Store slutar att samla in nya frågor, men körnings statistik för redan infångade frågor samlas fortfarande in.
 
-Vi rekommenderar att du ställer in alla principer för att **automatiskt** och rensa principen till 30 dagar genom att köra följande kommandon från [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller Azure Portal. (Ersätt `YourDB` med databasens namn.)
+Vi rekommenderar att du ställer in alla principer för att **automatiskt** och rensa principen till 30 dagar genom att köra följande kommandon från [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) eller Azure Portal. (Ersätt `YourDB` med databasens namn.)
 
 ```sql
     ALTER DATABASE [YourDB]
@@ -260,7 +260,7 @@ Vi rekommenderar att du ställer in alla principer för att **automatiskt** och 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 ```
 
-Öka storleken på Frågearkivet genom att ansluta till en databas via [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller Azure Portal och köra följande fråga. (Ersätt `YourDB` med databasens namn.)
+Öka storleken på Frågearkivet genom att ansluta till en databas via [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) eller Azure Portal och köra följande fråga. (Ersätt `YourDB` med databasens namn.)
 
 ```SQL
     ALTER DATABASE [YourDB]

@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: ff29e93149c618bb7d6df6b4477cc79fcf4b53d2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8173d53a5d4cac899b22f51a001f6e373f102236
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058564"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790805"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Självstudie: Konfigurera Transaktionsreplikering mellan Azure SQL-hanterad instans och SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Den här självstudien är avsedd för en erfaren mål grupp och förutsätter a
 
 
 > [!NOTE]
-> I den här artikeln beskrivs användningen av [transaktionell replikering](/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL-hanterad instans. Den är inte relaterad till [redundansväxlingen](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), en funktion för Azure SQL-hanterad instans som gör att du kan skapa kompletta läsbara repliker av enskilda instanser. Det finns ytterligare överväganden när du konfigurerar [transaktionell replikering med grupper för växling vid fel](replication-transactional-overview.md#with-failover-groups).
+> I den här artikeln beskrivs användningen av [transaktionell replikering](/sql/relational-databases/replication/transactional/transactional-replication) i Azure SQL-hanterad instans. Den är inte relaterad till [redundansväxlingen](../database/auto-failover-group-overview.md), en funktion för Azure SQL-hanterad instans som gör att du kan skapa kompletta läsbara repliker av enskilda instanser. Det finns ytterligare överväganden när du konfigurerar [transaktionell replikering med grupper för växling vid fel](replication-transactional-overview.md#with-failover-groups).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -69,7 +69,7 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 Skapa två hanterade instanser i den här nya resurs gruppen med hjälp av [Azure Portal](https://portal.azure.com).
 
 - Namnet på den hanterade instansen av utgivare ska vara `sql-mi-publisher` (tillsammans med några tecken för slumpmässigheten) och namnet på det virtuella nätverket ska vara `vnet-sql-mi-publisher` .
-- Namnet på den hanterade instansen av distributören ska vara `sql-mi-distributor` (tillsammans med några tecken för slumpmässigheten) och bör vara _i samma virtuella nätverk som utgivarens hanterade instans_.
+- Namnet på den hanterade instansen av distributören ska vara `sql-mi-distributor` (tillsammans med några tecken för slumpmässigheten) och bör vara _i samma virtuella nätverk som utgivarens hanterade instans_ .
 
    ![Använda Publisher VNet för distributören](./media/replication-two-instances-and-sql-server-configure-tutorial/use-same-vnet-for-distributor.png)
 
@@ -155,11 +155,11 @@ En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL
 
    ![Skapa en privat DNS-zon](./media/replication-two-instances-and-sql-server-configure-tutorial/create-private-dns-zone.png)
 
-1. Välj **Granska + skapa**. Granska parametrarna för din privata DNS-zon och välj **skapa** för att skapa din resurs.
+1. Välj **Granska + skapa** . Granska parametrarna för din privata DNS-zon och välj **skapa** för att skapa din resurs.
 
 ### <a name="create-an-a-record"></a>Skapa en A-post
 
-1. Gå till din nya **privat DNS zon** och välj **Översikt**.
+1. Gå till din nya **privat DNS zon** och välj **Översikt** .
 1. Välj **+ post uppsättning** för att skapa en ny post.
 1. Ange namnet på din SQL Server VM samt den privata interna IP-adressen.
 
@@ -169,11 +169,11 @@ En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL
 
 ### <a name="link-the-virtual-network"></a>Länka det virtuella nätverket
 
-1. Gå till din nya **privat DNS zon** och välj **länkar till virtuella nätverk**.
-1. Välj **+ Lägg till**.
+1. Gå till din nya **privat DNS zon** och välj **länkar till virtuella nätverk** .
+1. Välj **+ Lägg till** .
 1. Ange ett namn för länken, till exempel `Pub-link` .
 1. Välj din prenumeration i list rutan och välj sedan det virtuella nätverket för utgivarens hanterade instans.
-1. Markera kryss rutan bredvid **Aktivera automatisk registrering**.
+1. Markera kryss rutan bredvid **Aktivera automatisk registrering** .
 
    ![Skapa VNet-länk](./media/replication-two-instances-and-sql-server-configure-tutorial/configure-vnet-link.png)
 
@@ -182,7 +182,7 @@ En privat DNS-zon tillåter DNS-routning mellan de hanterade instanserna och SQL
 
 ## <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
-[Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbets katalogen och skapa sedan en [fil resurs](../../storage/files/storage-how-to-create-file-share.md) i lagrings kontot.
+[Skapa ett Azure Storage-konto](../../storage/common/storage-account-create.md#create-a-storage-account) för arbets katalogen och skapa sedan en [fil resurs](../../storage/files/storage-how-to-create-file-share.md) i lagrings kontot.
 
 Kopiera sökvägen till fil resursen i formatet: `\\storage-account-name.file.core.windows.net\file-share-name`
 
@@ -210,7 +210,7 @@ GO
 -- Drop database if it exists
 IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
-    DROP DATABASE ReplTutorial
+    DROP DATABASE ReplTutorial
 END
 GO
 
@@ -283,14 +283,14 @@ När distributionen har kon figurer ATS kan du nu skapa publikationen. Det gör 
 
 1. Starta SQL Server Management Studio på SQL Server.
 1. Anslut till den `sql-mi-publisher` hanterade instansen.
-1. I **Object Explorer**expanderar du noden **replikering** och högerklickar på mappen för den **lokala publikationen** . Välj **ny publikation...**.
+1. I **Object Explorer** expanderar du noden **replikering** och högerklickar på mappen för den **lokala publikationen** . Välj **ny publikation...** .
 1. Välj **Nästa** för att gå förbi Välkomst sidan.
-1. På sidan **publicerings databas** väljer du den `ReplTutorial` databas du skapade tidigare. Välj **Nästa**.
-1. På sidan **publikationstyp** väljer du **transaktionell publikation**. Välj **Nästa**.
-1. Markera kryss rutan bredvid **tabeller**på sidan **artiklar** . Välj **Nästa**.
+1. På sidan **publicerings databas** väljer du den `ReplTutorial` databas du skapade tidigare. Välj **Nästa** .
+1. På sidan **publikationstyp** väljer du **transaktionell publikation** . Välj **Nästa** .
+1. Markera kryss rutan bredvid **tabeller** på sidan **artiklar** . Välj **Nästa** .
 1. På sidan **filtrera tabell rader** väljer du **Nästa** utan att lägga till några filter.
-1. På sidan **ögonblicks bild agent** markerar du kryss rutan bredvid **skapa ögonblicks bild direkt och håller ögonblicks bilden tillgänglig för att initiera prenumerationer**. Välj **Nästa**.
-1. På sidan **agent säkerhet** väljer du **säkerhets inställningar...**. Ange SQL Server inloggnings uppgifter som ska användas för ögonblicks bild agenten och för att ansluta till utgivaren. Välj **OK** för att stänga **säkerhets sidan för ögonblicks bild agent** . Välj **Nästa**.
+1. På sidan **ögonblicks bild agent** markerar du kryss rutan bredvid **skapa ögonblicks bild direkt och håller ögonblicks bilden tillgänglig för att initiera prenumerationer** . Välj **Nästa** .
+1. På sidan **agent säkerhet** väljer du **säkerhets inställningar...** . Ange SQL Server inloggnings uppgifter som ska användas för ögonblicks bild agenten och för att ansluta till utgivaren. Välj **OK** för att stänga **säkerhets sidan för ögonblicks bild agent** . Välj **Nästa** .
 
    ![Konfigurera säkerhet för ögonblicks bild agent](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
@@ -352,10 +352,10 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 1. Navigera till din resurs grupp i [Azure Portal](https://portal.azure.com).
-1. Välj de hanterade instanserna och välj sedan **ta bort**. Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**. Den här processen kan ta lite tid att slutföra i bakgrunden och tills den är klar kommer du inte att kunna ta bort det *virtuella klustret* eller andra beroende resurser. Övervaka borttagningen på fliken **aktivitet** för att bekräfta att den hanterade instansen har tagits bort.
-1. När den hanterade instansen har tagits bort tar du bort det *virtuella klustret* genom att markera det i resurs gruppen och sedan välja **ta bort**. Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**.
-1. Ta bort eventuella återstående resurser. Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort**.
-1. Ta bort resurs gruppen genom att välja **ta bort resurs**grupp, Skriv namnet på resurs gruppen `myResourceGroup` och välj sedan **ta bort**.
+1. Välj de hanterade instanserna och välj sedan **ta bort** . Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort** . Den här processen kan ta lite tid att slutföra i bakgrunden och tills den är klar kommer du inte att kunna ta bort det *virtuella klustret* eller andra beroende resurser. Övervaka borttagningen på fliken **aktivitet** för att bekräfta att den hanterade instansen har tagits bort.
+1. När den hanterade instansen har tagits bort tar du bort det *virtuella klustret* genom att markera det i resurs gruppen och sedan välja **ta bort** . Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort** .
+1. Ta bort eventuella återstående resurser. Skriv `yes` text rutan för att bekräfta att du vill ta bort resursen och välj sedan **ta bort** .
+1. Ta bort resurs gruppen genom att välja **ta bort resurs** grupp, Skriv namnet på resurs gruppen `myResourceGroup` och välj sedan **ta bort** .
 
 ## <a name="known-errors"></a>Kända fel
 
@@ -414,7 +414,7 @@ Se artikeln [Vad är en Azure SQL-hanterad instans?](sql-managed-instance-paas-o
 - [Hotidentifiering](threat-detection-configure.md)
 - [Dynamisk datamaskning](/sql/relational-databases/security/dynamic-data-masking)
 - [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security)
-- [Transparent data kryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Transparent data kryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>SQL-hanterade instans funktioner
 

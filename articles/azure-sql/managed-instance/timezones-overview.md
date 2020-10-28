@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: bf0cfd70c9850cc6a5ff4482b494d68700022ad8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978381"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790635"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Tids zoner i Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,7 +51,7 @@ När du anger parametrar för en ny instans väljer du en tidszon i listan över
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
-Ange timezoneId-egenskapen i [Resource Manager-mallen](https://aka.ms/sql-mi-create-arm-posh) för att ställa in tids zonen under skapandet av instansen.
+Ange timezoneId-egenskapen i [Resource Manager-mallen](./scripts/create-powershell-azure-resource-manager-template.md) för att ställa in tids zonen under skapandet av instansen.
 
 ```json
 "properties": {
@@ -95,7 +95,7 @@ Att använda samma tidszon i en primär och sekundär instans i en grupp för v�
 
 ## <a name="limitations"></a>Begränsningar
 
-- Det går inte att ändra tids zonen för den befintliga hanterade instansen. Som en lösning kan du skapa en ny hanterad instans med rätt tidszon och sedan antingen utföra en manuell säkerhets kopiering och återställning, eller vad vi rekommenderar, utföra en [återställning mellan olika instanser](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
+- Det går inte att ändra tids zonen för den befintliga hanterade instansen. Som en lösning kan du skapa en ny hanterad instans med rätt tidszon och sedan antingen utföra en manuell säkerhets kopiering och återställning, eller vad vi rekommenderar, utföra en [återställning mellan olika instanser](./point-in-time-restore.md?tabs=azure-portal#restore-an-existing-database).
 - Externa processer som startas från SQL Server Agent jobben observerar inte tids zonen för instansen.
 
 ## <a name="list-of-supported-time-zones"></a>Lista över tids zoner som stöds
@@ -243,7 +243,7 @@ Att använda samma tidszon i en primär och sekundär instans i en grupp för v�
 
 ## <a name="see-also"></a>Se även 
 
-- [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
-- [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
-- [I tidszon (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [CURRENT_TIMEZONE (Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
+- [CURRENT_TIMEZONE_ID (Transact-SQL)](/sql/t-sql/functions/current-timezone-id-transact-sql)
+- [I tidszon (Transact-SQL)](/sql/t-sql/queries/at-time-zone-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

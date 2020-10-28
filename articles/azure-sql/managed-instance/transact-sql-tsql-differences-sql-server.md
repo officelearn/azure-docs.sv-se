@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973317"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790618"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Skillnader i T-SQL mellan SQL Server & Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -114,7 +114,7 @@ SQL-hanterad instans kan inte komma åt fil resurser och Windows-mappar, så fö
 
 Se [Skapa certifikat](/sql/t-sql/statements/create-certificate-transact-sql) -och [säkerhets kopierings certifikat](/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Lösning**: i stället för att skapa en säkerhets kopia av certifikatet och återställa säkerhets kopian [hämtar du det binära innehållet och den privata nyckeln, lagrar det som. SQL-fil och skapar från binär](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
+**Lösning** : i stället för att skapa en säkerhets kopia av certifikatet och återställa säkerhets kopian [hämtar du det binära innehållet och den privata nyckeln, lagrar det som. SQL-fil och skapar från binär](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
 
 ```sql
 CREATE CERTIFICATE  
@@ -153,7 +153,7 @@ SQL-hanterad instans har inte åtkomst till filer, så det går inte att skapa k
 - Att ange en Azure AD-inloggning som är mappad till en Azure AD-grupp eftersom databas ägaren inte stöds.
 - Personifiering av Azure AD-huvudobjekt på server nivå med hjälp av andra Azure AD-huvudobjekt stöds, till exempel [execute as](/sql/t-sql/statements/execute-as-transact-sql) -satsen. Kör som-begränsningar är:
 
-  - Kör som-användare stöds inte för Azure AD-användare när namnet skiljer sig från inloggnings namnet. Ett exempel är när användaren skapas med syntaxen CREATE USER [myAadUser] FROM LOGIn [ john@contoso.com ] och personifiering görs i exec as User = _myAadUser_. När du skapar en **användare** från ett Azure AD server-huvudobjekt (inloggning) anger du user_name som samma Login_name från **inloggningen**.
+  - Kör som-användare stöds inte för Azure AD-användare när namnet skiljer sig från inloggnings namnet. Ett exempel är när användaren skapas med syntaxen CREATE USER [myAadUser] FROM LOGIn [ john@contoso.com ] och personifiering görs i exec as User = _myAadUser_ . När du skapar en **användare** från ett Azure AD server-huvudobjekt (inloggning) anger du user_name som samma Login_name från **inloggningen** .
   - Endast SQL Server nivå huvud konton (inloggningar) som är en del av `sysadmin` rollen kan köra följande åtgärder som är riktade till Azure AD-huvud konton:
 
     - KÖRA SOM ANVÄNDARE
@@ -220,7 +220,7 @@ Mer information finns i [ändra databas uppsättnings partner och ange vittne](/
 
 - Flera loggfiler stöds inte.
 - InMemory-objekt stöds inte i Generell användning tjänst nivå. 
-- Det finns en gräns på 280 filer per Generell användning instans, vilket innebär högst 280 filer per databas. Både data-och loggfiler på Generell användning nivån räknas mot den här gränsen. [Affärskritisk nivån stöder 32 767-filer per databas](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Det finns en gräns på 280 filer per Generell användning instans, vilket innebär högst 280 filer per databas. Både data-och loggfiler på Generell användning nivån räknas mot den här gränsen. [Affärskritisk nivån stöder 32 767-filer per databas](./resource-limits.md#service-tier-characteristics).
 - Databasen får inte innehålla fil grupper som innehåller FILESTREAM-data. Återställningen Miss lyckas om. bak innehåller `FILESTREAM` data. 
 - Varje fil placeras i Azure Blob Storage. I/o och data flöde per fil beror på storleken på varje enskild fil.
 
@@ -354,17 +354,17 @@ Inte dokumenterade DBCC-instruktioner som är aktiverade i SQL Server stöds int
 ### <a name="distributed-transactions"></a>Distribuerade transaktioner
 
 Delvis stöd för [distribuerade transaktioner](../database/elastic-transactions-overview.md) är för närvarande en offentlig för hands version. Scenarier som stöds är:
-* Transaktioner där deltagare bara är Azure SQL-hanterade instanser som ingår i [gruppen för Server förtroende](https://aka.ms/mitrusted-groups).
+* Transaktioner där deltagare bara är Azure SQL-hanterade instanser som ingår i [gruppen för Server förtroende](./server-trust-group-overview.md).
 * Transaktioner som initierats från .NET (TransactionScope-klassen) och Transact-SQL.
 
 Azure SQL Managed instance stöder för närvarande inte andra scenarier som regelbundet stöds av MSDTC lokalt eller i Azure Virtual Machines.
 
 ### <a name="extended-events"></a>Extended Events
 
-Vissa Windows-/regionsspecifika mål för utökade händelser (XEvents) stöds inte:
+Vissa Windows-specifika mål för Extended Events (XEvents) stöds inte:
 
-- `etw_classic_sync`Målet stöds inte. Lagra `.xel` filer i Azure Blob Storage. Se [etw_classic_sync mål](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
-- `event_file`Målet stöds inte. Lagra `.xel` filer i Azure Blob Storage. Se [event_file mål](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
+- `etw_classic_sync`Målet stöds inte. Lagra `.xel` filer i Azure Blob Storage. Läs mer i [Målet etw_classic_sync](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
+- `event_file`Målet stöds inte. Lagra `.xel` filer i Azure Blob Storage. Läs mer i [Målet event_file](/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Externa bibliotek
 
@@ -482,7 +482,7 @@ Service Broker för överinstans stöds inte:
   - `remote proc trans`
 - `sp_execute_external_scripts` stöds inte. Se [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` stöds inte. Se [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures`stöds inte, vilket inkluderar `sp_addextendedproc`   och `sp_dropextendedproc` . Se [utökade lagrade procedurer](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` stöds inte, vilket inkluderar `sp_addextendedproc` och `sp_dropextendedproc` . Se [utökade lagrade procedurer](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` , och `sp_detach_db` stöds inte. Se [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)och [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### <a name="system-functions-and-variables"></a>System funktioner och variabler
@@ -527,13 +527,13 @@ Följande MSDB-scheman i SQL-hanterad instans måste ägas av deras respektive f
 
 - Allmänna roller
   - TargetServersRole
-- [Fasta databas roller](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Fasta databas roller](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [DatabaseMail-roller](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [DatabaseMail-roller](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
   - DatabaseMailUserRole
-- [Integration Services-roller](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Integration Services-roller](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator
@@ -543,7 +543,7 @@ Följande MSDB-scheman i SQL-hanterad instans måste ägas av deras respektive f
 
 ### <a name="error-logs"></a>Felloggar
 
-SQL-hanterad instans placerar utförlig information i fel loggarna. Det finns många interna system händelser som loggas i fel loggen. Använd en anpassad procedur för att läsa fel loggar som filtrerar bort vissa irrelevanta poster. Mer information finns i [SQL-hanterad instans – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) eller [SQL Managed instance Extension (för hands version)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) för Azure Data Studio.
+SQL-hanterad instans placerar utförlig information i fel loggarna. Det finns många interna system händelser som loggas i fel loggen. Använd en anpassad procedur för att läsa fel loggar som filtrerar bort vissa irrelevanta poster. Mer information finns i [SQL-hanterad instans – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) eller [SQL Managed instance Extension (för hands version)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) för Azure Data Studio.
 
 ## <a name="next-steps"></a>Nästa steg
 

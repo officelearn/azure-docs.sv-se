@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 61ccc0231989589836e00088b9ca03d0cb49baca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533962"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790958"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Begränsningar för Azure App Service åtkomst
 
@@ -24,7 +24,11 @@ När en begäran görs till din app, utvärderas från-adressen mot IP-adressbeg
 
 Funktionen åtkomst begränsningar implementeras i App Service-frontend-roller, som är överordnade arbets värdar där koden körs. Åtkomst begränsningarna är därför effektiva nätverks-ACL: er.
 
-Möjligheten att begränsa åtkomsten till din webbapp från en Azure-Virtual Network (VNet) kallas [tjänst slut punkter][serviceendpoints]. Med tjänst slut punkter kan du begränsa åtkomsten till en tjänst för flera innehavare från valda undernät. Den måste vara aktive rad på både nätverks sidan och tjänsten som den aktive ras med. Det fungerar inte för att begränsa trafik till appar som finns i en App Service-miljön. Om du befinner dig i ett App Service-miljön kan du kontrol lera åtkomsten till din app med IP-regler.
+Möjligheten att begränsa åtkomsten till din webbapp från en Azure-Virtual Network (VNet) kallas [tjänst slut punkter][serviceendpoints]. Med tjänst slut punkter kan du begränsa åtkomsten till en tjänst för flera innehavare från valda undernät. Det fungerar inte för att begränsa trafik till appar som finns i en App Service-miljön. Om du befinner dig i ett App Service-miljön kan du kontrol lera åtkomsten till din app med IP-regler.
+
+> [!NOTE]
+> Tjänstens slut punkter måste vara aktiverade på både nätverks sidan och för den Azure-tjänst som aktive ras med. En lista över Azure-tjänster som stöder tjänst slut punkter finns i [Virtual Network tjänst slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md).
+>
 
 ![flöde för åtkomst begränsningar](media/app-service-ip-restrictions/access-restrictions-flow.png)
 

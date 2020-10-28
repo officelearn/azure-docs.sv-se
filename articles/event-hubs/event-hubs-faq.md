@@ -2,13 +2,13 @@
 title: Vanliga frågor och svar – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en lista med vanliga frågor och svar (FAQ) för Azure Event Hubs och deras svar.
 ms.topic: article
-ms.date: 10/23/2020
-ms.openlocfilehash: c95016064ecc9bbfc091138863c8215feeec50b4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 10/27/2020
+ms.openlocfilehash: 051122c2030683eb2f3c57191dbbfa3bfd2bf6b7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518032"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789377"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
@@ -184,8 +184,19 @@ Om det totala **utgående data flödet eller** den totala utgående händelsen i
 
 Ingångs-och utgångs kvoter tillämpas separat, så att ingen avsändare kan orsaka att händelse förbrukningen saktas ned och att ingen mottagare kan förhindra att händelser skickas till en Event Hub.
 
-### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Finns det en gräns för antalet data flödes enheter (antal) som kan reserveras/väljas?
-I ett erbjudande med flera innehavare kan data flödes enheter växa upp till 40 antal (du kan välja upp till 20 antal i portalen och skapa ett support ärende för att öka det till 40 antal i samma namnrymd). Utöver 40 antal erbjuder Event Hubs den resurs-/kapacitets modellen som kallas **Event Hubs Dedicated-kluster**. Dedikerade kluster säljs i kapacitets enheter (CUs).
+### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-reservedselected"></a>Finns det en gräns för antalet data flödes enheter som kan reserveras/väljas?
+
+När du skapar ett Basic-eller standard-nivå namn område i Azure Portal kan du välja upp till 20 antal för namn området. Skicka en [supportbegäran](../azure-portal/supportability/how-to-create-azure-support-request.md)för att öka den till **exakt** 40 antal.  
+
+1. På sidan **Event Bus-namnrymd** väljer du **ny support förfrågan** på den vänstra menyn. 
+1. Följ dessa steg på sidan **ny support förfrågan** :
+    1. Beskriv problemet med några få ord för **Sammanfattning** . 
+    1. Välj **kvot** för **typ av problem** . 
+    1. Välj **begäran om ökning eller minskning av data flödes enhet** för **problem under typ** . 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-throughput-units.png" alt-text="Supportbegäran sida":::
+
+Utöver 40 antal erbjuder Event Hubs den resurs-/kapacitets modellen som kallas Event Hubs Dedicated-kluster. Dedikerade kluster säljs i kapacitets enheter (CUs). Mer information finns i [Event Hubs Dedicated-Overview](event-hubs-dedicated-overview.md).
 
 ## <a name="dedicated-clusters"></a>Dedikerade kluster
 
@@ -199,7 +210,7 @@ Steg-för-steg-instruktioner och mer information om hur du konfigurerar ett Even
 [!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="partitions"></a>Partitioner
 
 ### <a name="how-many-partitions-do-i-need"></a>Hur många partitioner behöver jag?
 Antalet partitioner anges när det skapas och måste vara mellan 1 och 32. Antalet partitioner kan inte ändras, så du bör överväga långsiktig skalning när du anger antalet partitioner. Partitioner är en mekanism för organisering av data som har att göra med vilken underordnad parallellitet som krävs i de program som används. Antalet partitioner i en händelsehubb är direkt kopplat till antalet samtidiga läsare som du förväntar dig. Mer information om partitioner finns i [partitioner](event-hubs-features.md#partitions).
@@ -209,6 +220,21 @@ Du kanske vill ange att den ska vara det högsta möjliga värdet, vilket är 32
 Event Hubs har utformats för att tillåta en enda partitions läsare per konsument grupp. I de flesta användnings fall räcker standardinställningen för fyra partitioner. Om du vill skala din händelse bearbetning kanske du vill överväga att lägga till ytterligare partitioner. Det finns inga särskilda data flödes gränser för en partition, men det sammanlagda data flödet i namn området begränsas av antalet data flödes enheter. När du ökar antalet data flödes enheter i namn området kan du behöva ytterligare partitioner för att tillåta samtidiga läsare att uppnå sitt eget maximala data flöde.
 
 Men om du har en modell där ditt program har en tillhörighet till en viss partition, kanske det inte är någon förmån för att öka antalet partitioner. Mer information finns i [tillgänglighet och konsekvens](event-hubs-availability-and-consistency.md).
+
+### <a name="increase-partitions"></a>Öka partitioner
+Du kan begära att antalet partitioner ska höjas till 40 (exakt) genom att skicka in en support förfrågan. 
+
+1. På sidan **Event Bus-namnrymd** väljer du **ny support förfrågan** på den vänstra menyn. 
+1. Följ dessa steg på sidan **ny support förfrågan** :
+    1. Beskriv problemet med några få ord för **Sammanfattning** . 
+    1. Välj **kvot** för **typ av problem** . 
+    1. Under **typ av problem** väljer du **begäran om ändrad partition** . 
+    
+        :::image type="content" source="./media/event-hubs-faq/support-request-increase-partitions.png" alt-text="Supportbegäran sida":::
+
+Antalet partitioner kan ökas till exakt 40. I det här fallet måste antalet antal också ökas till 40. Om du senare bestämmer dig för att sänka gränsen för data flödes enheter till <= 20, minskas även gränsen för högsta tillåtna partitioner till 32. 
+
+Minskningen av partitioner påverkar inte befintliga händelse nav eftersom partitioner används på händelsens hubbnivå och de är oföränderliga när hubben har skapats. 
 
 ## <a name="pricing"></a>Prissättning
 

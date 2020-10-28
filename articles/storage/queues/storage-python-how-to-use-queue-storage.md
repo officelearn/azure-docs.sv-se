@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 79334db46b6f035aabffcca133ed4f5cb8df3637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b4592b846477fe16e5ebcff7c9adfb45f7fe559
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855551"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790516"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Så här använder du Azure Queue Storage från python
 
@@ -299,7 +299,7 @@ Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar o
 
 * [Azure-köer python API-referens](/python/api/azure-storage-queue)
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
-* [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355)
+* [REST-API för Azure Storage Services](/rest/api/storageservices/)
 
 [Klient bibliotek för Azure Queue Storage för python]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
 [Azure SDK för Python]: https://github.com/azure/azure-sdk-for-python

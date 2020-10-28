@@ -79,6 +79,8 @@
               href: sync-ldap.md
             - name: SCIM-synkronisering
               href: sync-scim.md
+        - name: Certifikatutfärdare som används i Azure
+          href: certificate-authorities.md
     - name: Distributionsguide
       items:
         - name: 'Distribution 30, 90 och senare'

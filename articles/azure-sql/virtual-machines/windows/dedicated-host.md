@@ -13,20 +13,20 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 140d95aeb7baf4b342044bc178d108239236229b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bb80abc35aedcdf0b46cefa279e477739cf1df6b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677675"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789802"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Kör SQL Server VM på en dedikerad Azure-värd 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Den här artikeln innehåller information om hur du använder en SQL Server virtuell dator (VM) med en [dedikerad Azure-värd](/azure/virtual-machines/windows/dedicated-hosts). Ytterligare information om den dedikerade Azure-värden finns i blogg inlägget [Introduktion till Azure-dedikerad värd](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
+Den här artikeln innehåller information om hur du använder en SQL Server virtuell dator (VM) med en [dedikerad Azure-värd](../../../virtual-machines/dedicated-hosts.md). Ytterligare information om den dedikerade Azure-värden finns i blogg inlägget [Introduktion till Azure-dedikerad värd](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
 
 ## <a name="overview"></a>Översikt
-Den [dedikerade Azure-värden](/azure/virtual-machines/windows/dedicated-hosts) är en tjänst som tillhandahåller fysiska servrar som kan vara värd för en eller flera virtuella datorer som är dedikerade till en Azure-prenumeration. Dedikerade värdar är samma fysiska servrar som används i Microsofts Data Center, som en resurs. Du kan etablera dedikerade värdar inom en region, tillgänglighets zon och fel domän. Sedan kan du placera virtuella datorer direkt i dina etablerade värdar, i vilken konfiguration som passar bäst för dina behov.
+Den [dedikerade Azure-värden](../../../virtual-machines/dedicated-hosts.md) är en tjänst som tillhandahåller fysiska servrar som kan vara värd för en eller flera virtuella datorer som är dedikerade till en Azure-prenumeration. Dedikerade värdar är samma fysiska servrar som används i Microsofts Data Center, som en resurs. Du kan etablera dedikerade värdar inom en region, tillgänglighets zon och fel domän. Sedan kan du placera virtuella datorer direkt i dina etablerade värdar, i vilken konfiguration som passar bäst för dina behov.
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -54,7 +54,7 @@ Alternativ på värdnivå för att använda befintliga SQL Server-licenser:
 
 
 ## <a name="provisioning"></a>Etablering  
-Att tillhandahålla en SQL Server VM till den dedikerade värden är inte något annat än någon annan virtuell Azure-dator. Du kan göra det med hjälp av [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), [Azure Portal](../../../virtual-machines/windows/dedicated-hosts-portal.md)och [Azure CLI](../../../virtual-machines/linux/dedicated-hosts-cli.md).
+Att tillhandahålla en SQL Server VM till den dedikerade värden är inte något annat än någon annan virtuell Azure-dator. Du kan göra det med hjälp av [Azure PowerShell](../../../virtual-machines/windows/dedicated-hosts-powershell.md), [Azure Portal](../../../virtual-machines/dedicated-hosts-portal.md)och [Azure CLI](../../../virtual-machines/linux/dedicated-hosts-cli.md).
 
 Processen för att lägga till en befintlig SQL Server VM på den dedikerade värden kräver stillestånds tid, men påverkar inte data och kommer inte att ha någon data förlust. Alla databaser, inklusive system databaser, bör dock säkerhets kopie ras före flytten.
 
@@ -78,5 +78,3 @@ Mer information finns i följande artiklar:
 * [Vanliga frågor och svar om SQL Server på en virtuell Windows-dator](frequently-asked-questions-faq.md)
 * [Pris vägledning för SQL Server på en virtuell Windows-dator](pricing-guidance.md)
 * [Viktig information för SQL Server på en virtuell Windows-dator](doc-changes-updates-release-notes.md)
-
-

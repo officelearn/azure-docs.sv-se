@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/11/2019
-ms.openlocfilehash: 06763624231fde344990da6d0a4639bcccdedf00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41f3505388e72fba15277067a94cf4e473008f20
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448871"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790431"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server-databasmigrering till Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,11 +41,11 @@ Följande lista innehåller det allmänna arbets flödet för en SQL Server Data
 
   ![VSSSDT-migreringsdiagram](./media/migrate-to-database-from-sql-server/azure-sql-migration-sql-db.png)
 
-1. [Utvärdera](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) databasen för kompatibilitet med hjälp av den senaste versionen av [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Utvärdera](/sql/dma/dma-assesssqlonprem) databasen för kompatibilitet med hjälp av den senaste versionen av [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Förbered nödvändiga korrigeringar som Transact-SQL-skript.
-3. Gör en transaktions konsekvent kopia av käll databasen som migreras eller stoppa nya transaktioner från det som inträffar i käll databasen medan migreringen sker. Metoder för att göra detta senare alternativ är att inaktivera klient anslutning eller att skapa en [databas ögonblicks bild](https://msdn.microsoft.com/library/ms175876.aspx). Efter migreringen kan du använda Transaktionsreplikering för att uppdatera de migrerade databaserna med ändringar som inträffar efter den sista punkten för migreringen. Se [migrera med hjälp av transaktionell migrering](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication).  
+3. Gör en transaktions konsekvent kopia av käll databasen som migreras eller stoppa nya transaktioner från det som inträffar i käll databasen medan migreringen sker. Metoder för att göra detta senare alternativ är att inaktivera klient anslutning eller att skapa en [databas ögonblicks bild](/sql/relational-databases/databases/create-a-database-snapshot-transact-sql). Efter migreringen kan du använda Transaktionsreplikering för att uppdatera de migrerade databaserna med ändringar som inträffar efter den sista punkten för migreringen. Se [migrera med hjälp av transaktionell migrering](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication).  
 4. Distribuera Transact-SQL-skripten för att tillämpa korrigeringar på databaskopian.
-5. [Migrera](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) databas kopian till en ny databas i Azure SQL Database med hjälp av data migration assistant.
+5. [Migrera](/sql/dma/dma-migrateonpremsql) databas kopian till en ny databas i Azure SQL Database med hjälp av data migration assistant.
 
 > [!NOTE]
 > I stället för att använda DMA kan du också använda en BACPAC-fil. Mer information finns [i Importera en BACPAC-fil till en ny databas i Azure SQL Database](database-import.md).
@@ -63,11 +63,11 @@ Följande lista innehåller rekommendationer för bästa prestanda under importe
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>Optimera prestanda när migreringen är klar
 
-[Uppdatera statistik](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql) med fullständig sökning när migreringen har slutförts.
+[Uppdatera statistik](/sql/t-sql/statements/update-statistics-transact-sql) med fullständig sökning när migreringen har slutförts.
 
 ## <a name="method-2-use-transactional-replication"></a>Metod 2: Använd transaktionsreplikering
 
-När du inte har råd att ta bort din SQL Server databas från produktionen medan migreringen sker, kan du använda Transaktionsreplikering för SQL Server som migrerings lösning. För att kunna använda den här metoden måste källdatabasen uppfylla [kraven för transaktionsreplikering](https://msdn.microsoft.com/library/mt589530.aspx) och vara kompatibel med Azure SQL Database. Information om SQL-replikering med Always on finns i [Konfigurera replikering för Always on Availability groups (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
+När du inte har råd att ta bort din SQL Server databas från produktionen medan migreringen sker, kan du använda Transaktionsreplikering för SQL Server som migrerings lösning. För att kunna använda den här metoden måste källdatabasen uppfylla [kraven för transaktionsreplikering](./replication-to-sql-database.md) och vara kompatibel med Azure SQL Database. Information om SQL-replikering med Always on finns i [Konfigurera replikering för Always on Availability groups (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
 Om du vill använda den här lösningen konfigurerar du databasen i Azure SQL Database som prenumerant på den SQL Server-instans som du vill migrera. Distributören av transaktionsreplikeringen synkroniserar de data som ska synkroniseras från databasen (utgivaren) medan nya transaktioner fortsätter att göras.
 
@@ -108,22 +108,21 @@ Tips och skillnader vid migrering till SQL Database
 Det finns många olika kompatibilitetsproblem som du kan stöta på, beroende på vilken version av SQL Server i käll databasen och hur komplex databasen som du migrerar. Äldre versioner av SQL Server har fler kompatibilitetsproblem. Använd följande resurser, utöver en riktad Internetsökning med hjälp av sökmotor:
 
 - [SQL Server-databasfunktioner som inte stöds i Azure SQL Database](transact-sql-tsql-differences-sql-server.md)
-- [Utgångna databasmotorfunktioner i SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
-- [Utgångna databasmotorfunktioner i SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
-- [Utgångna databasmotorfunktioner i SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
-- [Utgångna databasmotorfunktioner i SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
-- [Utgångna databasmotorfunktioner i SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
+- [Utgångna databasmotorfunktioner i SQL Server 2016](/sql/database-engine/discontinued-database-engine-functionality-in-sql-server)
+- [Utgångna databasmotorfunktioner i SQL Server 2014](/sql/database-engine/discontinued-database-engine-functionality-in-sql-server?viewFallbackFrom=sql-server-2014)
+- [Utgångna databasmotorfunktioner i SQL Server 2012](/previous-versions/sql/sql-server-2012/ms144262(v=sql.110))
+- [Utgångna databasmotorfunktioner i SQL Server 2008 R2](/previous-versions/sql/sql-server-2008-r2/ms144262(v=sql.105))
+- [Utgångna databasmotorfunktioner i SQL Server 2005](/previous-versions/sql/sql-server-2005/ms144262(v=sql.90))
 
-Förutom att söka på Internet och använda dessa resurser använder du [sidan Microsoft Q&en fråga för Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html) eller [StackOverflow](https://stackoverflow.com/).
+Förutom att söka på Internet och använda dessa resurser använder du [sidan Microsoft Q&en fråga för Azure SQL Database](/answers/topics/azure-sql-database.html) eller [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
 > Med Azure SQL Managed instance kan du migrera en befintlig SQL Server-instans och dess databaser med minimalt antal kompatibilitetsproblem. Se [Vad är en hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd skriptet i Azure SQL EMEA Engineers-bloggen för att [övervaka tempdb-användningen vid migrering](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/) (på engelska).
-- Använd skriptet i Azure SQL EMEA Engineers-bloggen för att [övervaka transaktionsloggutrymmet i databasen medan migreringen pågår](https://docs.microsoft.com/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database) (på engelska).
-- En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (på engelska).
-- Information om hur du arbetar med UTC-tid efter migreringen finns i [Ändra standardtidszon för den lokala tidszonen](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/) (på engelska).
-- Information om hur du ändrar standardspråk för en databas efter migreringen finns [Ändra standardspråk för Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/) (på engelska).
- 
+- Använd skriptet i Azure SQL EMEA Engineers-bloggen för att [övervaka tempdb-användningen vid migrering](/archive/blogs/azuresqlemea/lesson-learned-10-monitoring-tempdb-usage) (på engelska).
+- Använd skriptet i Azure SQL EMEA Engineers-bloggen för att [övervaka transaktionsloggutrymmet i databasen medan migreringen pågår](/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database) (på engelska).
+- En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files) (på engelska).
+- Information om hur du arbetar med UTC-tid efter migreringen finns i [Ändra standardtidszon för den lokala tidszonen](/archive/blogs/azuresqlemea/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone) (på engelska).
+- Information om hur du ändrar standardspråk för en databas efter migreringen finns [Ändra standardspråk för Azure SQL Database](/archive/blogs/azuresqlemea/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database) (på engelska).

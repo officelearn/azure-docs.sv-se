@@ -11,27 +11,27 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 57449b0bbd39b6ea04ecae5a3ad766ae5687ca0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d73efd7a64d0118cea11ca9b0a35f659ce7fee6a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619839"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791298"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Ring buffertens mål kod för utökade händelser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Du vill ha ett fullständigt kod exempel för det enklaste sättet att samla in och rapportera information om en utökad händelse under ett test. Det enklaste målet för utökade händelse data är [målet för ringbufferten](https://msdn.microsoft.com/library/ff878182.aspx).
+Du vill ha ett fullständigt kod exempel för det enklaste sättet att samla in och rapportera information om en utökad händelse under ett test. Det enklaste målet för utökade händelse data är [målet för ringbufferten](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)).
 
 I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 
 1. Skapar en tabell med data att demonstrera med.
-2. Skapar en session för en befintlig utökad händelse, nämligen **SQLServer.sql_statement_starting**.
+2. Skapar en session för en befintlig utökad händelse, nämligen **SQLServer.sql_statement_starting** .
 
-   * Händelsen är begränsad till SQL-uttryck som innehåller en viss uppdaterings sträng: **instruktion som% Update tabEmployee%**.
-   * Väljer att skicka utdata för händelsen till ett mål av typen ring-buffert, nämligen  **package0.ring_buffer**.
+   * Händelsen är begränsad till SQL-uttryck som innehåller en viss uppdaterings sträng: **instruktion som% Update tabEmployee%** .
+   * Väljer att skicka utdata för händelsen till ett mål av typen ring-buffert, nämligen  **package0.ring_buffer** .
 3. Startar händelsesessionen.
 4. Utfärdar ett par enkla SQL UPDATE-instruktioner.
 5. Utfärdar ett SQL SELECT-uttryck för att hämta händelse utdata från ringbufferten.
@@ -50,7 +50,7 @@ I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 * SQL Server Management Studio (ssms.exe), helst den senaste månatliga uppdaterings versionen.
   Du kan hämta de senaste ssms.exe från:
   
-  * Avsnitt med rubriken [hämta SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * Avsnitt med rubriken [hämta SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   * [En direkt länk till nedladdningen.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Kodexempel
@@ -218,9 +218,9 @@ GO
 
 Vi använde `ssms.exe` för att köra kod exemplet.
 
-För att visa resultaten klickade vi på cellen under kolumn rubriken **target_data_XML**.
+För att visa resultaten klickade vi på cellen under kolumn rubriken **target_data_XML** .
 
-Sedan klickade du på cellen under kolumn rubriken **target_data_XML**i resultat fönstret. Då klickar du på fliken skapad en annan fil i ssms.exe där innehållet i resultat cellen visades, som XML.
+Sedan klickade du på cellen under kolumn rubriken **target_data_XML** i resultat fönstret. Då klickar du på fliken skapad en annan fil i ssms.exe där innehållet i resultat cellen visades, som XML.
 
 Utdata visas i följande block. Det ser långt ut, men det är bara två **\<event>** element.
 
@@ -349,6 +349,6 @@ Andra kod exempel ämnen för utökade händelser finns i följande länkar. Du 
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

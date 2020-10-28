@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 1e8810e8b0c02aec33f55fb8f0689eec3c5bad8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616711"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791332"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Använd tjänst slut punkter och regler för virtuella nätverk för servrar i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -89,7 +89,7 @@ För Azure SQL Database har funktionen regler för virtuellt nätverk följande 
 
 När du använder tjänst slut punkter för Azure SQL Database bör du gå igenom följande överväganden:
 
-- **Utgående till Azure SQL Database offentliga IP-adresser krävs**: nätverks säkerhets grupper (NSG: er) måste öppnas för att Azure SQL Database IP-adresser för att tillåta anslutning. Du kan göra detta med hjälp av NSG [service-Taggar](../../virtual-network/security-overview.md#service-tags) för Azure SQL Database.
+- **Utgående till Azure SQL Database offentliga IP-adresser krävs** : nätverks säkerhets grupper (NSG: er) måste öppnas för att Azure SQL Database IP-adresser för att tillåta anslutning. Du kan göra detta med hjälp av NSG [service-Taggar](../../virtual-network/network-security-groups-overview.md#service-tags) för Azure SQL Database.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -112,9 +112,9 @@ PolyBase och COPY-instruktionen används ofta för att läsa in data i Azure Syn
 
 #### <a name="prerequisites"></a>Förutsättningar
 
-- Installera Azure PowerShell med hjälp av den här [guiden](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Om du har ett konto av typen generell användning v1 eller bloblagring måste du först uppgradera till generell användning v2 med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Om du aktiverar den här konfigurationen tillåts PolyBase-och COPY-instruktionen att ansluta till lagrings kontot med stark autentisering där nätverks trafiken finns kvar i Azure-stamnätet. Mer information finns i den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+- Installera Azure PowerShell med hjälp av den här [guiden](/powershell/azure/install-az-ps).
+- Om du har ett konto av typen generell användning v1 eller bloblagring måste du först uppgradera till generell användning v2 med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md).
+- Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Om du aktiverar den här konfigurationen tillåts PolyBase-och COPY-instruktionen att ansluta till lagrings kontot med stark autentisering där nätverks trafiken finns kvar i Azure-stamnätet. Mer information finns i den här [guiden](../../storage/common/storage-network-security.md#exceptions).
 
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
@@ -129,27 +129,27 @@ PolyBase och COPY-instruktionen används ofta för att läsa in data i Azure Syn
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-1. Skapa ett **Allmänt-syfte v2-lagrings konto** med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+1. Skapa ett **Allmänt-syfte v2-lagrings konto** med hjälp av den här [guiden](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
    >
-   > - Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-   > - Information om kända problem med Azure Data Lake Storage Gen2 finns i den här [hand boken](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > - Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](../../storage/common/storage-account-upgrade.md).
+   > - Information om kända problem med Azure Data Lake Storage Gen2 finns i den här [hand boken](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Tilldela Azure-rollen **Storage BLOB data Contributor** till den server som är värd för din Azure Synapse-analys som du har registrerat med Azure Active Directory (AAD) som i steg #1.
+1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning** . Tilldela Azure-rollen **Storage BLOB data Contributor** till den server som är värd för din Azure Synapse-analys som du har registrerat med Azure Active Directory (AAD) som i steg #1.
 
    > [!NOTE]
-   > Endast medlemmar med ägar behörighet för lagrings kontot kan utföra det här steget. Information om olika inbyggda Azure-roller finns i den här [guiden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Endast medlemmar med ägar behörighet för lagrings kontot kan utföra det här steget. Information om olika inbyggda Azure-roller finns i den här [guiden](../../role-based-access-control/built-in-roles.md).
   
 1. **PolyBase-anslutning till Azure Storage kontot:**
 
-   1. Skapa en **[huvud nyckel](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** för databasen om du inte har skapat en tidigare version:
+   1. Skapa en **[huvud nyckel](/sql/t-sql/statements/create-master-key-transact-sql)** för databasen om du inte har skapat en tidigare version:
 
        ```sql
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
 
-   1. Skapa databasens begränsade autentiseringsuppgifter med **Identity = hanterad tjänstidentitet**:
+   1. Skapa databasens begränsade autentiseringsuppgifter med **Identity = hanterad tjänstidentitet** :
 
        ```sql
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -157,7 +157,7 @@ PolyBase och COPY-instruktionen används ofta för att läsa in data i Azure Syn
 
        > [!NOTE]
        >
-       > - Du behöver inte ange hemlighet med Azure Storage åtkomst nyckel eftersom den här mekanismen använder [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under försättsblad.
+       > - Du behöver inte ange hemlighet med Azure Storage åtkomst nyckel eftersom den här mekanismen använder [hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md) under försättsblad.
        > - IDENTITETS namnet måste vara **hanterad tjänstidentitet** för PolyBase-anslutningen för att fungera med Azure Storage konto som skyddas av VNet.
 
    1. Skapa en extern data källa med `abfss://` schema för att ansluta till ditt General-Purpose v2-lagrings konto med PolyBase:
@@ -168,11 +168,11 @@ PolyBase och COPY-instruktionen används ofta för att läsa in data i Azure Syn
 
        > [!NOTE]
        >
-       > - Om du redan har externa tabeller kopplade till allmänna v1-eller Blob Storage-konton bör du först ta bort de externa tabellerna och sedan släppa motsvarande externa data källa. Skapa sedan en extern data källa med `abfss://` schema som ansluter till det allmänna lagrings kontot för generell användning som ovan och återskapa alla externa tabeller med den här nya externa data källan. Du kan använda [guiden skapa och publicera skript](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) för att skapa skapa skript för alla externa tabeller för att under lätta.
-       > - Mer information om `abfss://` schema finns i den här [hand boken](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-       > - Mer information om att skapa en extern DATA källa finns i den här [guiden](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       > - Om du redan har externa tabeller kopplade till allmänna v1-eller Blob Storage-konton bör du först ta bort de externa tabellerna och sedan släppa motsvarande externa data källa. Skapa sedan en extern data källa med `abfss://` schema som ansluter till det allmänna lagrings kontot för generell användning som ovan och återskapa alla externa tabeller med den här nya externa data källan. Du kan använda [guiden skapa och publicera skript](/sql/ssms/scripting/generate-and-publish-scripts-wizard) för att skapa skapa skript för alla externa tabeller för att under lätta.
+       > - Mer information om `abfss://` schema finns i den här [hand boken](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
+       > - Mer information om att skapa en extern DATA källa finns i den här [guiden](/sql/t-sql/statements/create-external-data-source-transact-sql).
 
-   1. Fråga som normal med hjälp av [externa tabeller](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Fråga som normal med hjälp av [externa tabeller](/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Azure SQL Database-BLOB-granskning
 
@@ -188,7 +188,7 @@ Du kan ställa in flaggan **IgnoreMissingVNetServiceEndpoint** med hjälp av Pow
 
 ## <a name="errors-40914-and-40615"></a>Fel 40914 och 40615
 
-Anslutnings fel 40914 relaterar till *virtuella nätverks regler*, enligt vad som anges i brand Väggs fönstret i Azure Portal. Fel 40615 liknar varandra, förutom att det relaterar till *IP-adressens regler* i brand väggen.
+Anslutnings fel 40914 relaterar till *virtuella nätverks regler* , enligt vad som anges i brand Väggs fönstret i Azure Portal. Fel 40615 liknar varandra, förutom att det relaterar till *IP-adressens regler* i brand väggen.
 
 ### <a name="error-40914"></a>Fel 40914
 
@@ -210,7 +210,7 @@ Anslutnings fel 40914 relaterar till *virtuella nätverks regler*, enligt vad so
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Portalen kan skapa en regel för virtuellt nätverk
 
-I det här avsnittet beskrivs hur du kan använda [Azure Portal][http-azure-portal-link-ref-477t] för att skapa en *regel för virtuella nätverk* i din databas i Azure SQL Database. Regeln instruerar din databas att acceptera kommunikation från ett visst undernät som har taggats som en *Virtual Network tjänst slut punkt*.
+I det här avsnittet beskrivs hur du kan använda [Azure Portal][http-azure-portal-link-ref-477t] för att skapa en *regel för virtuella nätverk* i din databas i Azure SQL Database. Regeln instruerar din databas att acceptera kommunikation från ett visst undernät som har taggats som en *Virtual Network tjänst slut punkt* .
 
 > [!NOTE]
 > Om du vill lägga till en tjänst slut punkt i brand Väggs reglerna för VNet för din server måste du först se till att tjänstens slut punkter är aktiverade för under nätet.
@@ -231,7 +231,7 @@ Internt anropar PowerShell-cmdletar för SQL VNet-åtgärder REST-API: er. Du ka
 
 Du måste redan ha ett undernät som är taggat med det specifika Virtual Network tjänst slut punkts *typ namn* som är relevant för Azure SQL Database.
 
-- Det relevanta namnet på slut punkts typen är **Microsoft. SQL**.
+- Det relevanta namnet på slut punkts typen är **Microsoft. SQL** .
 - Om ditt undernät kanske inte är taggat med typ namnet, se [Verifiera att ditt undernät är en slut punkt][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200"></a>
@@ -240,7 +240,7 @@ Du måste redan ha ett undernät som är taggat med det specifika Virtual Networ
 
 1. Logga in på [Azure-portalen][http-azure-portal-link-ref-477t].
 
-2. Sök efter och välj **SQL-servrar**och välj sedan din server. Under **säkerhet**väljer du **brand väggar och virtuella nätverk**.
+2. Sök efter och välj **SQL-servrar** och välj sedan din server. Under **säkerhet** väljer du **brand väggar och virtuella nätverk** .
 
 3. Ange alternativet **Tillåt åtkomst till Azure-tjänster** till av.
 
@@ -255,7 +255,7 @@ Du måste redan ha ett undernät som är taggat med det specifika Virtual Networ
 
     > [!TIP]
     > Du måste inkludera rätt **adressprefix** för ditt undernät. Du kan hitta värdet i portalen.
-    > Navigera **alla resurser** &gt; **alla typer** av &gt; **virtuella nätverk**. Filtret visar dina virtuella nätverk. Klicka på det virtuella nätverket och klicka sedan på **undernät**. I kolumnen **adress intervall** finns det adressprefix du behöver.
+    > Navigera **alla resurser** &gt; **alla typer** av &gt; **virtuella nätverk** . Filtret visar dina virtuella nätverk. Klicka på det virtuella nätverket och klicka sedan på **undernät** . I kolumnen **adress intervall** finns det adressprefix du behöver.
 
     ![Fyll i fält för ny regel.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -298,12 +298,12 @@ Du måste redan ha ett undernät som är taggat med det specifika Virtual Networ
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]:scripts/vnet-service-endpoint-rule-powershell-create.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]:scripts/vnet-service-endpoint-rule-powershell-create.md#a-verify-subnet-is-endpoint-ps-100
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
-[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
+[vm-virtual-network-service-endpoints-overview-649d]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [vpn-gateway-indexmd-608y]: ../../vpn-gateway/index.yml
 
 <!-- Link references, to text, Outside this GitHub repo (HTTP). -->
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
-[rest-api-virtual-network-rules-operations-862r]: https://docs.microsoft.com/rest/api/sql/virtualnetworkrules
+[rest-api-virtual-network-rules-operations-862r]: /rest/api/sql/virtualnetworkrules
 
 <!-- ??2
 #### Syntax related articles

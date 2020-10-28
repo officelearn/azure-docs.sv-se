@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 6e60403344a0341b4aee74a001287c09ba67e114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f240247cbba0f80254d504792df45be55c6a1b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448896"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790414"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Migrera din SQLite-databas till Azure SQL Database Server lös
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,13 +53,13 @@ När du har följt stegen nedan kommer databasen att migreras till Azure SQL Dat
     - Starta ADF (författare och övervakare från tjänsten i Azure Portal)
     - Klicka på fliken "författare" (blå penna) till vänster
     - Klicka på anslutningar (längst ned till vänster) och sedan på integration runtime
-    - Lägg till ny Self-Hosted Integration Runtime, ge den ett namn och välj *Alternativ 2*.
+    - Lägg till ny Self-Hosted Integration Runtime, ge den ett namn och välj *Alternativ 2* .
 
 5. Skapa en ny länkad tjänst för käll-SQLite-databasen i din Data Factory.
 
     ![Skärm bild som visar tomma blad för länkade tjänster i Azure Data Factory](./media/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial/linked-services-create.png)
 
-6. I **anslutningar**, under **länkad tjänst**, klickar du på **ny**.
+6. I **anslutningar** , under **länkad tjänst** , klickar du på **ny** .
 
 7. Sök efter och välj "ODBC"-anslutningen
 
@@ -109,4 +109,4 @@ När du har följt stegen nedan kommer databasen att migreras till Azure SQL Dat
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hur du kommer igång finns i [snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Portal](single-database-create-quickstart.md).
-- För resurs gränser, se [resurs gränser för Server lös beräknings nivå](../../sql-database/sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
+- För resurs gränser, se [resurs gränser för Server lös beräknings nivå](./resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

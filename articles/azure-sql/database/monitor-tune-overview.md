@@ -11,23 +11,23 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 09/30/2020
-ms.openlocfilehash: 6c8d048d43a16191cc7b1245ad2d686ba2ca22ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e5ab1f07473a2572f7fb228139da8670fd6269c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596980"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790363"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Övervakning och prestandajustering för Azure SQL Database och Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Om du vill övervaka prestanda för en databas i Azure SQL Database och Azure SQL-hanterad instans, börjar du med att övervaka de processor-och IO-resurser som används av arbets belastningen i förhållande till den nivå av databas prestanda som du valde när du väljer en viss tjänst nivå och prestanda nivå. För att åstadkomma detta genererar Azure SQL Database och Azure SQL-hanterad instans resurs mått som kan visas i Azure Portal eller genom att använda något av dessa SQL Server hanterings verktyg: [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) eller [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
+Om du vill övervaka prestanda för en databas i Azure SQL Database och Azure SQL-hanterad instans, börjar du med att övervaka de processor-och IO-resurser som används av arbets belastningen i förhållande till den nivå av databas prestanda som du valde när du väljer en viss tjänst nivå och prestanda nivå. För att åstadkomma detta genererar Azure SQL Database och Azure SQL-hanterad instans resurs mått som kan visas i Azure Portal eller genom att använda något av dessa SQL Server hanterings verktyg: [Azure Data Studio](/sql/azure-data-studio/what-is) eller [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
 Azure SQL Database innehåller ett antal databas rådgivare för att tillhandahålla smarta rekommendationer för prestanda justering och automatiska justerings alternativ för att förbättra prestandan. Dessutom visar Query Performance Insight information om de frågor som ansvarar för den mest CPU-och i/o-användningen för enskilda databaser och databaser i pooler.
 
 Azure SQL Database och Azure SQL-hanterad instans tillhandahåller avancerade övervaknings-och justerings funktioner som stöds av artificiell intelligens för att hjälpa dig att felsöka och maximera prestandan för dina databaser och lösningar. Du kan välja att konfigurera [strömnings exporten](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) av dessa [intelligent Insights](intelligent-insights-overview.md) och andra databas resurs loggar och mät värden till en av flera destinationer för förbrukning och analys, särskilt med hjälp av [SQL Analytics](../../azure-monitor/insights/azure-sql.md). Azure SQL-analys är en avancerad lösning för moln övervakning för att övervaka prestanda för alla dina databaser i stor skala och över flera prenumerationer i en enda vy. För en lista över loggar och mått som du kan exportera, se [diagnostisk telemetri för export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
 
-SQL Server har egna funktioner för övervakning och diagnostik som SQL Database och SQL-hanterad instans använder, till exempel [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) och [vyer för dynamisk hantering (DMV: er)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Se [övervakning med DMV: er](monitoring-with-dmvs.md) för skript för att övervaka ett antal prestanda problem.
+SQL Server har egna funktioner för övervakning och diagnostik som SQL Database och SQL-hanterad instans använder, till exempel [query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) och [vyer för dynamisk hantering (DMV: er)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views). Se [övervakning med DMV: er](monitoring-with-dmvs.md) för skript för att övervaka ett antal prestanda problem.
 
 ## <a name="monitoring-and-tuning-capabilities-in-the-azure-portal"></a>Övervaknings-och justerings funktioner i Azure Portal
 
@@ -44,7 +44,7 @@ Du kan snabbt övervaka olika resurs mått i Azure Portal i vyn **mått** . Med 
 
 ### <a name="database-advisors-in-azure-sql-database"></a>Databas rådgivare i Azure SQL Database
 
-Azure SQL Database innehåller [databas rådgivare](database-advisor-implement-performance-recommendations.md) som ger rekommendationer för prestanda justering för enskilda databaser och databaser i pooler. Dessa rekommendationer är tillgängliga i Azure Portal och med [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseadvisor). Du kan också aktivera [Automatisk justering](automatic-tuning-overview.md) så att Azure SQL Database automatiskt kan implementera dessa justerings rekommendationer.
+Azure SQL Database innehåller [databas rådgivare](database-advisor-implement-performance-recommendations.md) som ger rekommendationer för prestanda justering för enskilda databaser och databaser i pooler. Dessa rekommendationer är tillgängliga i Azure Portal och med [PowerShell](/powershell/module/az.sql/get-azsqldatabaseadvisor). Du kan också aktivera [Automatisk justering](automatic-tuning-overview.md) så att Azure SQL Database automatiskt kan implementera dessa justerings rekommendationer.
 
 ### <a name="query-performance-insight-in-azure-sql-database"></a>Query Performance Insight i Azure SQL Database
 
@@ -99,29 +99,29 @@ Du konfigurerar diagnostikinställningar till att strömma kategorier av mått o
 
 ### <a name="log-analytics-workspace-in-azure-monitor"></a>Log Analytics arbets yta i Azure Monitor
 
-Du kan strömma mått och resurs loggar till en [Log Analytics arbets yta i Azure Monitor](../../azure-monitor/platform/resource-logs-collect-workspace.md). Data som strömmas här kan användas av [SQL Analytics](../../azure-monitor/insights/azure-sql.md), som är en övervaknings lösning för endast molnet som ger intelligent övervakning av dina databaser som innehåller prestanda rapporter, aviseringar och rekommendationer. Data som strömmas till en Log Analytics arbets yta kan analyseras med andra övervaknings data som samlas in och du kan också använda andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar.
+Du kan strömma mått och resurs loggar till en [Log Analytics arbets yta i Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Data som strömmas här kan användas av [SQL Analytics](../../azure-monitor/insights/azure-sql.md), som är en övervaknings lösning för endast molnet som ger intelligent övervakning av dina databaser som innehåller prestanda rapporter, aviseringar och rekommendationer. Data som strömmas till en Log Analytics arbets yta kan analyseras med andra övervaknings data som samlas in och du kan också använda andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-Du kan strömma mått och resurs loggar till [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md). Att strömma Diagnostic-telemetri till Event Hubs för att tillhandahålla följande funktioner:
+Du kan strömma mått och resurs loggar till [Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs). Att strömma Diagnostic-telemetri till Event Hubs för att tillhandahålla följande funktioner:
 
-- **Strömma loggar till loggnings-och telemetri system från tredje part**
+- **Strömma loggar till tredjepartssystem för loggning och telemetri**
 
   Strömma alla dina mått och resurs loggar till en enda händelse hubb för att skicka loggdata till en SIEM-eller Log Analytics-verktyg från tredje part.
-- **Bygg en anpassad telemetri-och loggnings plattform**
+- **Skapa en anpassad plattform för telemetri och loggning**
 
   Med händelse hubbarna med hög skalbarhet för publicerings prenumerationer kan du samla in mått och resurs loggar på ett flexibelt sätt i en anpassad telemetri-plattform. Mer information finns i [utforma och ändra storlek på en plattform för global skalnings telemetri på Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) .
 - **Visa tjänstens hälsa genom att strömma data till Power BI**
 
-  Använd Event Hubs, Stream Analytics och Power BI för att omvandla dina diagnostikdata till nära real tids insikter om dina Azure-tjänster. Mer information om den här lösningen finns i [Stream Analytics och Power BI: en analys instrument panel i real tid för att strömma data](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-power-bi-dashboard) .
+  Använd Event Hubs, Stream Analytics och Power BI för att omvandla dina diagnostikdata till nära real tids insikter om dina Azure-tjänster. Mer information om den här lösningen finns i [Stream Analytics och Power BI: en analys instrument panel i real tid för att strömma data](../../stream-analytics/stream-analytics-power-bi-dashboard.md) .
 
 ### <a name="azure-storage"></a>Azure Storage
 
-Strömma mått och resurs loggar till [Azure Storage](../../azure-monitor/platform/resource-logs-collect-storage.md). Använd Azure Storage för att arkivera stora mängder diagnostiska telemetri för en bråkdel av kostnaden för de föregående två strömnings alternativen.
+Strömma mått och resurs loggar till [Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Använd Azure Storage för att arkivera stora mängder diagnostiska telemetri för en bråkdel av kostnaden för de föregående två strömnings alternativen.
 
 ## <a name="use-extended-events"></a>Använda utökade händelser 
 
-Dessutom kan du använda [utökade händelser](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) i SQL Server för avancerad övervakning och fel sökning. Arkitekturen för utökade händelser gör det möjligt för användare att samla in så mycket eller så lite data som behövs för att felsöka eller identifiera ett prestanda problem. Information om hur du använder utökade händelser i Azure SQL Database finns i [utökade händelser i Azure SQL Database](xevent-db-diff-from-svr.md).
+Dessutom kan du använda [utökade händelser](/sql/relational-databases/extended-events/extended-events) i SQL Server för avancerad övervakning och fel sökning. Arkitekturen för utökade händelser gör det möjligt för användare att samla in så mycket eller så lite data som behövs för att felsöka eller identifiera ett prestanda problem. Information om hur du använder utökade händelser i Azure SQL Database finns i [utökade händelser i Azure SQL Database](xevent-db-diff-from-svr.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

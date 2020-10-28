@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d7938f24e408e72a84003c19e5c294d31f6b65b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8119d01ae8e8ed1e809753e433b063a844a2c5c3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565130"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790686"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automatisk säkerhets kopiering för SQL Server 2014 virtuella datorer (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "91565130"
 > * [SQL Server 2014](automated-backup-sql-2014.md)
 > * [SQL Server 2016/2017](automated-backup.md)
 
-Automatisk säkerhets kopiering konfigurerar automatiskt [hanterad säkerhets kopiering till Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) för alla befintliga och nya databaser på en virtuell Azure-dator som kör SQL Server 2014 Standard eller Enterprise. På så sätt kan du konfigurera regelbundna säkerhets kopieringar av databaser som använder varaktiga Azure Blob Storage. Automatiserad säkerhets kopiering beror på [SQL Server infrastruktur som tjänst (IaaS) Agent tillägg](sql-server-iaas-agent-extension-automate-management.md).
+Automatisk säkerhets kopiering konfigurerar automatiskt [hanterad säkerhets kopiering till Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure) för alla befintliga och nya databaser på en virtuell Azure-dator som kör SQL Server 2014 Standard eller Enterprise. På så sätt kan du konfigurera regelbundna säkerhets kopieringar av databaser som använder varaktiga Azure Blob Storage. Automatiserad säkerhets kopiering beror på [SQL Server infrastruktur som tjänst (IaaS) Agent tillägg](sql-server-iaas-agent-extension-automate-management.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -35,11 +35,11 @@ Automatisk säkerhets kopiering konfigurerar automatiskt [hanterad säkerhets ko
 Om du vill använda automatisk säkerhets kopiering bör du tänka på följande:
 
 
-**Operativ system**:
+**Operativ system** :
 
 - Windows Server 2012 och senare 
 
-**SQL Server version/utgåva**:
+**SQL Server version/utgåva** :
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
@@ -47,9 +47,9 @@ Om du vill använda automatisk säkerhets kopiering bör du tänka på följande
 > [!NOTE]
 > För SQL 2016 och senare, se [Automatisk säkerhets kopiering för SQL Server 2016](automated-backup.md).
 
-**Databas konfiguration**:
+**Databas konfiguration** :
 
-- Mål _användar_ databaser måste använda den fullständiga återställnings modellen. System databaser behöver inte använda den fullständiga återställnings modellen. Om du kräver att logg säkerhets kopior ska vidtas för modellen eller MSDB måste du dock använda den fullständiga återställnings modellen. Mer information om effekten av den fullständiga återställnings modellen för säkerhets kopieringar finns i [säkerhets kopiering under den fullständiga återställnings modellen](https://technet.microsoft.com/library/ms190217.aspx). 
+- Mål _användar_ databaser måste använda den fullständiga återställnings modellen. System databaser behöver inte använda den fullständiga återställnings modellen. Om du kräver att logg säkerhets kopior ska vidtas för modellen eller MSDB måste du dock använda den fullständiga återställnings modellen. Mer information om effekten av den fullständiga återställnings modellen för säkerhets kopieringar finns i [säkerhets kopiering under den fullständiga återställnings modellen](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105)). 
 - SQL Server VM har registrerats med resurs leverantören för SQL-VM i [fullständigt hanterings läge](sql-vm-resource-provider-register.md#upgrade-to-full). 
 -  Automatisk säkerhets kopiering förlitar sig på det fullständiga [SQL Server IaaS agent-tillägget](sql-server-iaas-agent-extension-automate-management.md). Automatiserad säkerhets kopiering stöds därför bara för mål databaser från standard instansen eller en namngiven instans. Om det inte finns någon standard instans och flera namngivna instanser, Miss lyckas SQL IaaS-tillägget och den automatiserade säkerhets kopieringen kommer inte att fungera. 
 
@@ -70,7 +70,7 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk s
 
 Använd Azure Portal för att konfigurera automatisk säkerhets kopiering när du skapar en ny SQL Server 2014-virtuell dator i distributions modellen för Resource Manager.
 
-Rulla ned till **Automatisk säkerhets kopiering** på fliken **SQL Server inställningar** och välj **Aktivera**. Följande Azure Portal skärm bild visar inställningarna för **Automatisk säkerhets kopiering i SQL** .
+Rulla ned till **Automatisk säkerhets kopiering** på fliken **SQL Server inställningar** och välj **Aktivera** . Följande Azure Portal skärm bild visar inställningarna för **Automatisk säkerhets kopiering i SQL** .
 
 ![Konfiguration av automatisk säkerhets kopiering i SQL i Azure Portal](./media/automated-backup-sql-2014/azure-sql-arm-autobackup.png)
 
@@ -80,7 +80,7 @@ Rulla ned till **Automatisk säkerhets kopiering** på fliken **SQL Server inst�
 
 För befintliga SQL Server virtuella datorer kan du aktivera och inaktivera automatiserade säkerhets kopieringar, ändra kvarhållningsperioden, ange lagrings kontot och aktivera kryptering från Azure Portal. 
 
-Gå till [resursen för virtuella SQL-datorer](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) för din SQL Server 2014-dator och välj sedan **säkerhets kopieringar**. 
+Gå till [resursen för virtuella SQL-datorer](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) för din SQL Server 2014-dator och välj sedan **säkerhets kopieringar** . 
 
 ![Automatisk SQL-säkerhetskopiering för befintliga virtuella datorer](./media/automated-backup-sql-2014/azure-sql-rm-autobackup-existing-vms.png)
 
@@ -112,7 +112,7 @@ $resourcegroupname = "resourcegroupname"
 
 Om tillägget SQL Server IaaS-agent är installerat ska du se det som "Sqliaasagent är" eller "SQLIaaSExtension". **ProvisioningState** för tillägget ska också Visa "lyckades".
 
-Om den inte är installerad eller om den inte har kon figurer ATS kan du installera den med följande kommando. Förutom namnet på den virtuella datorn och resurs gruppen måste du också ange den region (**$region**) som den virtuella datorn finns i. Ange licens typ för din SQL Server VM, välja mellan antingen betala per användning eller hämta egen licens via [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/). Mer information om licensiering finns i [licensierings modell](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+Om den inte är installerad eller om den inte har kon figurer ATS kan du installera den med följande kommando. Förutom namnet på den virtuella datorn och resurs gruppen måste du också ange den region ( **$region** ) som den virtuella datorn finns i. Ange licens typ för din SQL Server VM, välja mellan antingen betala per användning eller hämta egen licens via [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/). Mer information om licensiering finns i [licensierings modell](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 ```powershell
 New-AzSqlVM  -Name $vmname `
@@ -148,7 +148,7 @@ FullBackupWindowHours       :
 LogBackupFrequency          : 
 ```
 
-Om resultatet visar att **Aktivera** är inställt på **falskt**måste du aktivera automatisk säkerhets kopiering. Den goda nyheten är att du aktiverar och konfigurerar automatisk säkerhets kopiering på samma sätt. Mer information finns i nästa avsnitt.
+Om resultatet visar att **Aktivera** är inställt på **falskt** måste du aktivera automatisk säkerhets kopiering. Den goda nyheten är att du aktiverar och konfigurerar automatisk säkerhets kopiering på samma sätt. Mer information finns i nästa avsnitt.
 
 > [!NOTE] 
 > Om du kontrollerar inställningarna direkt efter att du har gjort en ändring är det möjligt att du får tillbaka de gamla konfigurations värdena. Vänta några minuter och kontrol lera inställningarna igen för att se till att ändringarna har tillämpats.
@@ -172,7 +172,7 @@ If (-Not $storage)
 > [!NOTE]
 > Automatisk säkerhets kopiering stöder inte lagring av säkerhets kopior i Premium Storage, men det kan ta säkerhets kopior från virtuella dator diskar som använder Premium Storage.
 
-Använd sedan kommandot **New-AzVMSqlServerAutoBackupConfig** för att aktivera och konfigurera inställningarna för automatisk säkerhets kopiering för att lagra säkerhets kopior i Azure Storage-kontot. I det här exemplet behålls säkerhets kopiorna i 10 dagar. Det andra kommandot, **set-AzVMSqlServerExtension**, uppdaterar den angivna virtuella Azure-datorn med de här inställningarna.
+Använd sedan kommandot **New-AzVMSqlServerAutoBackupConfig** för att aktivera och konfigurera inställningarna för automatisk säkerhets kopiering för att lagra säkerhets kopior i Azure Storage-kontot. I det här exemplet behålls säkerhets kopiorna i 10 dagar. Det andra kommandot, **set-AzVMSqlServerExtension** , uppdaterar den angivna virtuella Azure-datorn med de här inställningarna.
 
 ```powershell
 $autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `
@@ -186,7 +186,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 Det kan ta flera minuter att installera och konfigurera SQL Server IaaS-agenten.
 
 > [!NOTE]
-> Det finns andra inställningar för **New-AzVMSqlServerAutoBackupConfig** som endast gäller för SQL Server 2016 och automatisk säkerhets kopiering v2. SQL Server 2014 har inte stöd för följande inställningar: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**och **LogBackupFrequencyInMinutes**. Om du försöker konfigurera de här inställningarna på en virtuell SQL Server 2014-dator finns det inget fel, men inställningarna tillämpas inte. Om du vill använda de här inställningarna på en SQL Server 2016 virtuell dator, se [Automatisk säkerhets kopiering v2 för SQL Server 2016 Azure virtuella datorer](automated-backup.md).
+> Det finns andra inställningar för **New-AzVMSqlServerAutoBackupConfig** som endast gäller för SQL Server 2016 och automatisk säkerhets kopiering v2. SQL Server 2014 har inte stöd för följande inställningar: **BackupSystemDbs** , **BackupScheduleType** , **FullBackupFrequency** , **FullBackupStartHour** , **FullBackupWindowInHours** och **LogBackupFrequencyInMinutes** . Om du försöker konfigurera de här inställningarna på en virtuell SQL Server 2014-dator finns det inget fel, men inställningarna tillämpas inte. Om du vill använda de här inställningarna på en SQL Server 2016 virtuell dator, se [Automatisk säkerhets kopiering v2 för SQL Server 2016 Azure virtuella datorer](automated-backup.md).
 
 Om du vill aktivera kryptering ändrar du det tidigare skriptet för att skicka parametern **EnableEncryption** tillsammans med ett lösen ord (säker sträng) för parametern **CertificatePassword** . Följande skript aktiverar de automatiska säkerhets kopierings inställningarna i föregående exempel och lägger till kryptering.
 
@@ -258,17 +258,17 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 Om du vill övervaka automatisk säkerhets kopiering på SQL Server 2014 har du två huvud alternativ. Eftersom den automatiska säkerhets kopieringen använder funktionen SQL Server hanterad säkerhets kopiering, gäller samma övervaknings tekniker för båda.
 
-Först kan du söka efter statusen genom att anropa [msdb. smart_admin. sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Eller fråga tabell värdes funktionen [msdb. smart_admin. fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) .
+Först kan du söka efter statusen genom att anropa [msdb. smart_admin. sp_get_backup_diagnostics](/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Eller fråga tabell värdes funktionen [msdb. smart_admin. fn_get_health_status](/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) .
 
 > [!NOTE]
-> Schemat för hanterad säkerhets kopiering i SQL Server 2014 är **msdb.smart_admin**. I SQL Server 2016 detta ändrades till **msdb.managed_backup**och referens ämnen använder detta nyare schema. Men för SQL Server 2014 måste du fortsätta att använda **smart_admin** -schemat för alla hanterade säkerhets kopierings objekt.
+> Schemat för hanterad säkerhets kopiering i SQL Server 2014 är **msdb.smart_admin** . I SQL Server 2016 detta ändrades till **msdb.managed_backup** och referens ämnen använder detta nyare schema. Men för SQL Server 2014 måste du fortsätta att använda **smart_admin** -schemat för alla hanterade säkerhets kopierings objekt.
 
 Ett annat alternativ är att dra nytta av den inbyggda Database Mail funktionen för meddelanden.
 
-1. Anropa den lagrade proceduren [msdb. smart_admin. sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) för att tilldela en e-postadress till **SSMBackup2WANotificationEmailIds** -parametern. 
+1. Anropa den lagrade proceduren [msdb. smart_admin. sp_set_parameter](/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) för att tilldela en e-postadress till **SSMBackup2WANotificationEmailIds** -parametern. 
 1. Aktivera [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) för att skicka e-postmeddelanden från den virtuella Azure-datorn.
-1. Använd SMTP-servern och användar namnet för att konfigurera Database Mail. Du kan konfigurera Database Mail i SQL Server Management Studio eller med Transact-SQL-kommandon. Mer information finns i [Database mail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
-1. [Konfigurera SQL Server Agent att använda Database mail](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
+1. Använd SMTP-servern och användar namnet för att konfigurera Database Mail. Du kan konfigurera Database Mail i SQL Server Management Studio eller med Transact-SQL-kommandon. Mer information finns i [Database mail](/sql/relational-databases/database-mail/database-mail).
+1. [Konfigurera SQL Server Agent att använda Database mail](/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 1. Kontrol lera att SMTP-porten tillåts både via den lokala VM-brandväggen och nätverks säkerhets gruppen för den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg

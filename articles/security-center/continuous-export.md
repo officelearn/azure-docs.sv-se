@@ -6,16 +6,16 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: ffc74e05d6cbe7722b9bf293c1a1e75a7de1b879
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: cd4f2198721e0d92abe22b1b6d95dceda2dc874d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342067"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789190"
 ---
-# <a name="continuously-export-security-alerts-and-recommendations"></a>Exportera säkerhets aviseringar och rekommendationer kontinuerligt
+# <a name="continuously-export-security-center-data"></a>Exportera Security Center data kontinuerligt
 
 Azure Security Center genererar detaljerade säkerhets aviseringar och rekommendationer. Du kan visa dem i portalen eller med programmerings verktyg. Du kan också behöva exportera viss eller all den här informationen för att spåra med andra övervaknings verktyg i din miljö. 
 
@@ -28,7 +28,7 @@ Med **kontinuerlig export** kan du helt anpassa *vad* som ska exporteras och *va
 Den här artikeln beskriver hur du konfigurerar kontinuerlig export till Log Analytics arbets ytor eller Azure Event Hubs.
 
 > [!NOTE]
-> Om du behöver integrera Security Center med en SIEM granskar du [Stream-aviseringar till en Siem](export-to-siem.md) för dina alternativ.
+> Om du behöver integrera Security Center med en SIEM, se [Stream-aviseringar till en Siem-, Soar-eller IT-Tjänstehanterings lösning](export-to-siem.md).
 
 > [!TIP]
 > Security Center erbjuder också alternativet att utföra en eng ång slö, manuell export till CSV. Läs mer i [en manuell export av aviseringar och rekommendationer](#manual-one-time-export-of-alerts-and-recommendations).
@@ -52,15 +52,15 @@ Den här artikeln beskriver hur du konfigurerar kontinuerlig export till Log Ana
 
 Du kan konfigurera kontinuerlig export från Security Center sidor i Azure Portal, via Security Center REST API eller i skala med hjälp av de angivna Azure Policy mallarna. Välj lämplig flik nedan för information om var och en.
 
-### <a name="use-the-azure-portal"></a>[**Använd Azure Portal**](#tab/azure-portal)
+### <a name="use-the-azure-portal"></a>[**Använda Azure-portalen**](#tab/azure-portal)
 
 ### <a name="configure-continuous-export-from-the-security-center-pages-in-azure-portal"></a>Konfigurera kontinuerlig export från Security Center sidor i Azure Portal
 
 Stegen nedan är nödvändiga om du konfigurerar en kontinuerlig export till Log Analytics arbets yta eller Azure Event Hubs.
 
-1. Välj **pris & inställningar**från Security Center marginal List.
+1. Välj **pris & inställningar** från Security Center marginal List.
 1. Välj den prenumeration som du vill konfigurera data exporten för.
-1. Från List rutan på sidan Inställningar för den prenumerationen väljer du **löpande export**.
+1. Från List rutan på sidan Inställningar för den prenumerationen väljer du **löpande export** .
     [ ![ Exportera alternativ i Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) här visas export alternativen. Det finns en flik för varje tillgängligt export mål. 
 1. Välj den datatyp som du vill exportera och välj bland filtren för varje typ (till exempel endast exportera aviseringar med hög allvarlighets grad).
 1. Om ditt val till exempel innehåller någon av dessa fyra rekommendationer, kan du inkludera resultaten av sårbarhets utvärderingen tillsammans med dem:
@@ -74,7 +74,7 @@ Stegen nedan är nödvändiga om du konfigurerar en kontinuerlig export till Log
     :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Ta med säkerhets brister växla i kontinuerlig export konfiguration&quot; :::
 
 1. I området &quot;Exportera mål" väljer du var du vill spara data. Data kan sparas i ett mål för en annan prenumeration (till exempel på en central Event Hub-instans eller en central Log Analytics-arbetsyta).
-1. Välj **Spara**.
+1. Välj **Spara** .
 
 ### <a name="use-the-rest-api"></a>[**Använda REST API**](#tab/rest-api)
 
@@ -115,7 +115,7 @@ Om du vill distribuera dina kontinuerliga export konfigurationer i organisatione
 
 1. I tabellen nedan väljer du den princip som du vill använda:
 
-    |Mål  |Princip  |Princip-ID  |
+    |Mål  |Policy  |Princip-ID  |
     |---------|---------|---------|
     |Kontinuerlig export till händelsehubben|[Distribuera export till händelsehubben för aviseringar och rekommendationer i Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
     |Löpande export till Log Analytics arbets yta|[Distribuera export till Log Analytics-arbetsytan för aviseringar och rekommendationer i Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
@@ -129,7 +129,7 @@ Om du vill distribuera dina kontinuerliga export konfigurationer i organisatione
 1. I området &quot;Exportera mål":::
     > 2. Från Azure Policy-menyn väljer du **definitioner** och söker efter dem efter namn. 
 
-1. På sidan relevanta Azure Policy väljer du **tilldela**.
+1. På sidan relevanta Azure Policy väljer du **tilldela** .
     :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Ta med säkerhets brister växla i kontinuerlig export konfiguration&quot; :::
 
 1. I området &quot;Exportera mål":::
@@ -145,7 +145,7 @@ Om du vill distribuera dina kontinuerliga export konfigurationer i organisatione
 
 1. I området &quot;Exportera mål" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. Om du vill tillämpa den här tilldelningen på befintliga prenumerationer öppnar du fliken **reparation** och väljer alternativet för att skapa en reparations uppgift.
-1. Granska sidan Sammanfattning och välj **skapa**.
+1. Granska sidan Sammanfattning och välj **skapa** .
 
 --- 
 
@@ -160,7 +160,7 @@ Säkerhets aviseringar och rekommendationer lagras i tabellerna *SecurityAlert* 
 Namnet på Log Analytics-lösningen som innehåller dessa tabeller beror på om du har aktiverat Azure Defender: Security (' Säkerhet och granskning ') eller SecurityCenterFree. 
 
 > [!TIP]
-> Om du vill se data på mål arbets ytan måste du aktivera någon av dessa lösningar **säkerhet och granskning** eller **SecurityCenterFree**.
+> Om du vill se data på mål arbets ytan måste du aktivera någon av dessa lösningar **säkerhet och granskning** eller **SecurityCenterFree** .
 
 ![* SecurityAlert *-tabellen i Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 
@@ -175,15 +175,15 @@ Azure Monitor ger en enhetlig aviserings upplevelse för en rad olika Azure-avis
 
 Om du vill visa aviseringar och rekommendationer från Security Center i Azure Monitor konfigurerar du en varnings regel baserat på Log Analytics frågor (logg avisering):
 
-1. På sidan **aviseringar** för Azure Monitor väljer du **ny aviserings regel**.
+1. På sidan **aviseringar** för Azure Monitor väljer du **ny aviserings regel** .
 
     ![Azure Monitor sidan aviseringar](./media/continuous-export/azure-monitor-alerts.png)
 
 1. På sidan Skapa regel konfigurerar du din nya regel (på samma sätt som du konfigurerar en [logg varnings regel i Azure Monitor](../azure-monitor/platform/alerts-unified-log.md)):
 
-    * För **resurs**väljer du den Log Analytics arbets yta som du exporterade säkerhets aviseringar och rekommendationer till.
+    * För **resurs** väljer du den Log Analytics arbets yta som du exporterade säkerhets aviseringar och rekommendationer till.
 
-    * För **villkor**väljer du **anpassad loggs ökning**. På sidan som visas konfigurerar du frågan, lookback perioden och frekvens perioden. I Sök frågan kan du skriva *SecurityAlert* eller *SecurityRecommendation* för att fråga data typerna som Security Center kontinuerligt exportera till när du aktiverar funktionen för kontinuerlig export till Log Analytics. 
+    * För **villkor** väljer du **anpassad loggs ökning** . På sidan som visas konfigurerar du frågan, lookback perioden och frekvens perioden. I Sök frågan kan du skriva *SecurityAlert* eller *SecurityRecommendation* för att fråga data typerna som Security Center kontinuerligt exportera till när du aktiverar funktionen för kontinuerlig export till Log Analytics. 
     
     * Du kan också konfigurera den [Åtgärds grupp](../azure-monitor/platform/action-groups.md) som du vill utlösa. Åtgärds grupper kan utlösa e-post som skickas, ITSM biljetter, Webhooks och mycket annat.
     ![Azure Monitor varnings regel](./media/continuous-export/azure-monitor-alert-rule.png)
@@ -210,6 +210,29 @@ Läs mer om [priser för Log Analytics-arbetsyta](https://azure.microsoft.com/pr
 
 Läs mer om [priser för Azure Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/).
 
+
+### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>Innehåller exporten data om det aktuella läget för alla resurser?
+
+Nej. Kontinuerlig export skapas för strömning av **händelser** :
+
+- **Aviseringar** som tagits emot innan du aktiverade exporten exporteras inte.
+- **Rekommendationer** skickas när en resurss kompatibilitetstillstånd ändras. Till exempel när en resurs blir från felfritt till dåligt. Med aviseringar exporteras därför rekommendationer för resurser som inte har ändrat tillstånd sedan du aktiverade exporten.
+
+
+### <a name="why-are-recommendations-sent-at-different-intervals"></a>Varför skickas rekommendationer med olika intervall?
+
+Olika rekommendationer har olika utvärderings intervall för kompatibilitet, vilket kan variera från några minuter till några dagar. Rekommendationerna skiljer sig därför från hur lång tid det tar innan de visas i exporten.
+
+### <a name="does-continuous-export-support-any-business-continuity-or-disaster-recovery-bcdr-scenarios"></a>Stöder kontinuerlig export alla scenarier för affärs kontinuitet eller haveri beredskap (BCDR)?
+
+När du förbereder din miljö för BCDR-scenarier där mål resursen drabbas av ett avbrott eller en annan katastrof, är det organisationens ansvar att förhindra data förlust genom att skapa säkerhets kopior enligt rikt linjerna från Azure Event Hubs, Log Analytics arbets yta och Logic app.
+
+Läs mer i [Azure Event Hubs-geo-Disaster Recovery](../event-hubs/event-hubs-geo-dr.md).
+
+
+### <a name="is-continuous-export-available-with-azure-security-center-free"></a>Är kontinuerlig export tillgänglig med Azure Security Center kostnads fritt?
+
+Ja! Observera att många Security Center-aviseringar endast anges när du har aktiverat Azure Defender. Ett bra sätt att förhandsgranska de aviseringar du får i dina exporterade data är att se de aviseringar som visas på Security Centerens sidor i Azure Portal.
 
 
 

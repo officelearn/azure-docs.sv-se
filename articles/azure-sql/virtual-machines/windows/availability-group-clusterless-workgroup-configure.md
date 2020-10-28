@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 43b0f64a1d88a71b221fac240392dc71b93eef76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bfea42c6fca3369485ccf7a47158f7420df9c9c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298844"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790040"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurera en tillgänglighets grupp för arbets gruppen 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,19 +48,19 @@ För referens används följande parametrar i den här artikeln, men kan ändras
 
 ## <a name="set-a-dns-suffix"></a>Ange ett DNS-suffix 
 
-I det här steget konfigurerar du DNS-suffixet för båda servrarna. Exempelvis `ag.wgcluster.example.com`. På så sätt kan du använda namnet på det objekt som du vill ansluta till som en fullständigt kvalificerad adress i nätverket, till exempel `AGNode1.ag.wgcluster.example.com` . 
+I det här steget konfigurerar du DNS-suffixet för båda servrarna. Till exempel `ag.wgcluster.example.com`. På så sätt kan du använda namnet på det objekt som du vill ansluta till som en fullständigt kvalificerad adress i nätverket, till exempel `AGNode1.ag.wgcluster.example.com` . 
 
 Följ dessa steg om du vill konfigurera DNS-suffixet:
 
 1. RDP in till din första nod och öppna Serverhanteraren. 
-1. Välj **lokal server** och välj sedan namnet på den virtuella datorn under **dator namn**. 
-1. Välj **ändra..** . under **för att byta namn på den här datorn.**.. 
+1. Välj **lokal server** och välj sedan namnet på den virtuella datorn under **dator namn** . 
+1. Välj **ändra..** . under **för att byta namn på den här datorn.** .. 
 1. Ändra namnet på arbets grupps namnet så att det är något meningsfullt, till exempel `AGWORKGROUP` : 
 
    ![Ändra arbets grupps namn](./media/availability-group-clusterless-workgroup-configure/1-change-workgroup-name.png)
 
 1. Välj **mer...** för att öppna dialog rutan **DNS-suffix och NetBIOS-** datornamn. 
-1. Skriv namnet på ditt DNS-suffix under **primärt DNS-suffix för den här datorn**, till exempel `ag.wgcluster.example.com` och välj sedan **OK**: 
+1. Skriv namnet på ditt DNS-suffix under **primärt DNS-suffix för den här datorn** , till exempel `ag.wgcluster.example.com` och välj sedan **OK** : 
 
    ![Lägg till DNS-suffix](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
@@ -107,20 +107,20 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 I det här steget ska du skapa redundansklustret. Om du inte är bekant med de här stegen kan du följa anvisningarna i [själv studie kursen för redundanskluster](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 Viktiga skillnader mellan självstudien och vad som ska göras för ett arbets grupps kluster:
-- Avmarkera **lagringen**och **Lagringsdirigering** när du kör kluster verifieringen. 
+- Avmarkera **lagringen** och **Lagringsdirigering** när du kör kluster verifieringen. 
 - När du lägger till noderna i klustret lägger du till det fullständigt kvalificerade namnet, till exempel:
    - `AGNode1.ag.wgcluster.example.com`
    - `AGNode2.ag.wgcluster.example.com`
-- Avmarkera **Lägg till alla tillgängliga lagrings enheter i klustret**. 
+- Avmarkera **Lägg till alla tillgängliga lagrings enheter i klustret** . 
 
 När klustret har skapats tilldelar du en statisk kluster-IP-adress. Det gör du på följande sätt:
 
-1. Öppna **Klusterhanteraren för växling vid fel**på en av noderna, Välj klustret, högerklicka på **namnet: \<ClusterNam> ** under **kluster kärn resurser** och välj sedan **Egenskaper**. 
+1. Öppna **Klusterhanteraren för växling vid fel** på en av noderna, Välj klustret, högerklicka på **namnet: \<ClusterNam>** under **kluster kärn resurser** och välj sedan **Egenskaper** . 
 
    ![Start egenskaper för kluster namnet](./media/availability-group-clusterless-workgroup-configure/5-launch-cluster-name-properties.png)
 
-1. Välj IP-adressen under **IP-adresser** och välj **Redigera**. 
-1. Välj **Använd statisk**, ange IP-adressen för klustret och välj sedan **OK**: 
+1. Välj IP-adressen under **IP-adresser** och välj **Redigera** . 
+1. Välj **Använd statisk** , ange IP-adressen för klustret och välj sedan **OK** : 
 
    ![Ange en statisk IP-adress för klustret](./media/availability-group-clusterless-workgroup-configure/6-provide-static-ip-for-cluster.png)
 
@@ -184,7 +184,7 @@ Följ dessa steg om du vill konfigurera den första noden:
 
 Följ dessa steg om du vill konfigurera den andra noden: 
 
-1. Anslut till den andra noden med **SQL Server Management Studio**, till exempel `AGNode2` . 
+1. Anslut till den andra noden med **SQL Server Management Studio** , till exempel `AGNode2` . 
 1. I ett **nytt frågefönster** kör du följande Transact-SQL-uttryck (T-SQL) efter att ha uppdaterat till ett komplext och säkert lösen ord: 
 
    ```sql
@@ -277,7 +277,7 @@ GO
 
 Om det finns andra noder i klustret upprepar du de här stegen också, och ändrar respektive certifikat och användar namn. 
 
-## <a name="configure-an-availability-group"></a>Konfigurera en tillgänglighets grupp
+## <a name="configure-an-availability-group"></a>Konfigurera en tillgänglighetsgrupp
 
 I det här steget konfigurerar du din tillgänglighets grupp och lägger till dina databaser i den. Skapa inte en lyssnare just nu. Om du inte är bekant med stegen går du till [självstudien för tillgänglighets gruppen](availability-group-manually-configure-tutorial.md#create-the-availability-group). Se till att initiera en redundansväxling och återställning efter fel för att kontrol lera att allt fungerar som det ska. 
 
@@ -291,6 +291,4 @@ I det sista steget konfigurerar du belastningsutjämnaren med hjälp av antingen
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också använda [AZ SQL CLI](availability-group-az-cli-configure.md) för att konfigurera en tillgänglighets grupp. 
-
-
+Du kan också använda [AZ SQL CLI](./availability-group-az-commandline-configure.md) för att konfigurera en tillgänglighets grupp.

@@ -17,13 +17,13 @@
     - name: Nyheter
       items:
         - name: Viktig information
-          displayName: changelog
+          displayName: 'changelog, news'
           href: release-notes.md
         - name: Viktiga kommande ändringar
-          displayName: 'release notes, changelog'
+          displayName: 'release notes, changelog, news'
           href: upcoming-changes.md
         - name: Arkiverad viktig information (äldre än sex månader)
-          displayName: changelog
+          displayName: 'changelog, news'
           href: release-notes-archive.md
     - name: Grunderna i Security Center
       items:
@@ -92,6 +92,7 @@
     - name: Konfigurera e-postmeddelanden
       href: security-center-provide-security-contact-details.md
     - name: Skapa ett automatiskt svar på en avisering med en ARM-mall
+      displayName: Resource Manager
       href: quickstart-automation-alert.md
 - name: Självstudier
   items:
@@ -238,6 +239,7 @@
           displayName: 'continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,'
           href: export-to-siem.md
         - name: Exportera till en Log Analytics-arbetsyta eller Azure Event Hub
+          displayName: continuous
           href: continuous-export.md
         - name: Ladda ned en CSV-rapport med alla aviseringar
           href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations

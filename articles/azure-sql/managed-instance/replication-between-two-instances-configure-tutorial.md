@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 5948f7adedfa430d7d0dac570910f662846464c6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058224"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790873"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Självstudie: Konfigurera replikering mellan två hanterade instanser
 
@@ -68,7 +68,7 @@ Du måste också [Konfigurera en virtuell Azure-dator för att ansluta](connect-
 
 ## <a name="3---create-an-azure-storage-account"></a>3 – skapa ett Azure Storage-konto
 
-[Skapa ett Azure Storage-konto](/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbets katalogen och skapa sedan en [fil resurs](../../storage/files/storage-how-to-create-file-share.md) i lagrings kontot. 
+[Skapa ett Azure Storage-konto](../../storage/common/storage-account-create.md#create-a-storage-account) för arbets katalogen och skapa sedan en [fil resurs](../../storage/files/storage-how-to-create-file-share.md) i lagrings kontot. 
 
 Kopiera sökvägen till fil resursen i formatet: `\\storage-account-name.file.core.windows.net\file-share-name`
 
@@ -326,4 +326,4 @@ Du kan rensa dina Azure-resurser genom [att ta bort SQL-hanterade instans resurs
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också lära dig mer om Transaktionsreplikering [med Azure SQL Managed instance](replication-transactional-overview.md) eller Lär dig att konfigurera replikering mellan en [SQL-hanterad instans utgivare/distributör och en SQL på Azure VM-prenumerant](replication-two-instances-and-sql-server-configure-tutorial.md). 
+Du kan också lära dig mer om Transaktionsreplikering [med Azure SQL Managed instance](replication-transactional-overview.md) eller Lär dig att konfigurera replikering mellan en [SQL-hanterad instans utgivare/distributör och en SQL på Azure VM-prenumerant](replication-two-instances-and-sql-server-configure-tutorial.md).

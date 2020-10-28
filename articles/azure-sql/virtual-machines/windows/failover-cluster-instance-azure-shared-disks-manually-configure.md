@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: dd9b84c379f368e4cb4bcf1b5122e394456cd9e8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168247"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789768"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Skapa en FCI med Azure Shared disks (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ Distribuera en hanterad Premium SSD disk med funktionen för delad disk aktive r
 Lägg till en Azure-delad disk genom att göra följande: 
 
 
-1. Spara följande skript som *SharedDiskConfig.jspå*: 
+1. Spara följande skript som *SharedDiskConfig.jspå* : 
 
    ```JSON
    { 
@@ -151,17 +151,17 @@ Verifiera klustret i användar gränssnittet eller med hjälp av PowerShell.
 
 Verifiera klustret med hjälp av användar gränssnittet genom att göra följande på en av de virtuella datorerna:
 
-1. Under **Serverhanteraren**väljer du **verktyg**och väljer sedan **Klusterhanteraren för växling vid fel**.
-1. Under **Klusterhanteraren för växling vid fel**väljer du **åtgärd**och väljer sedan **Verifiera konfiguration**.
-1. Välj **Nästa**.
-1. Under **Välj servrar eller ett kluster**anger du namnen på de båda virtuella datorerna.
-1. Under **test alternativ**väljer **du kör endast test som jag väljer**. 
-1. Välj **Nästa**.
-1. Under **Val av test**väljer du alla tester *utom* **lagring**
+1. Under **Serverhanteraren** väljer du **verktyg** och väljer sedan **Klusterhanteraren för växling vid fel** .
+1. Under **Klusterhanteraren för växling vid fel** väljer du **åtgärd** och väljer sedan **Verifiera konfiguration** .
+1. Välj **Nästa** .
+1. Under **Välj servrar eller ett kluster** anger du namnen på de båda virtuella datorerna.
+1. Under **test alternativ** väljer **du kör endast test som jag väljer** . 
+1. Välj **Nästa** .
+1. Under **Val av test** väljer du alla tester *utom* **lagring**
 
 ## <a name="test-cluster-failover"></a>Testa redundanskluster
 
-Testa redundansväxlingen av klustret. I **Klusterhanteraren för växling vid fel**högerklickar du på klustret, väljer **fler åtgärder**  >  **Flytta kärn kluster resurs**  >  **Välj nod**och välj sedan den andra noden i klustret. Flytta kärn kluster resursen till varje nod i klustret och flytta tillbaka den till den primära noden. Om du kan flytta klustret till varje nod är du redo att installera SQL Server.  
+Testa redundansväxlingen av klustret. I **Klusterhanteraren för växling vid fel** högerklickar du på klustret, väljer **fler åtgärder**  >  **Flytta kärn kluster resurs**  >  **Välj nod** och välj sedan den andra noden i klustret. Flytta kärn kluster resursen till varje nod i klustret och flytta tillbaka den till den primära noden. Om du kan flytta klustret till varje nod är du redo att installera SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testa redundanskluster genom att flytta kärn resursen till de andra noderna":::
 
@@ -171,15 +171,15 @@ När du har konfigurerat redundansklustret och alla kluster komponenter, inklusi
 
 1. Anslut till den första virtuella datorn med hjälp av Remote Desktop Protocol (RDP).
 
-1. Kontrol lera i **Klusterhanteraren för växling vid fel**att alla kärn kluster resurser finns på den första virtuella datorn. Om det behövs flyttar du alla resurser till den virtuella datorn.
+1. Kontrol lera i **Klusterhanteraren för växling vid fel** att alla kärn kluster resurser finns på den första virtuella datorn. Om det behövs flyttar du alla resurser till den virtuella datorn.
 
 1. Leta upp installations mediet. Om den virtuella datorn använder en av Azure Marketplace-avbildningarna finns mediet på `C:\SQLServer_<version number>_Full` . 
 
-1. Välj **installation**.
+1. Välj **installation** .
 
-1. I **SQL Server installations Center**väljer du **installation**.
+1. I **SQL Server installations Center** väljer du **installation** .
 
-1. Välj **ny SQL Server redundanskluster installationen**. Följ anvisningarna i guiden för att installera SQL Server FCI.
+1. Välj **ny SQL Server redundanskluster installationen** . Följ anvisningarna i guiden för att installera SQL Server FCI.
 
 FCI data kataloger måste finnas på de Azure-delade diskarna. 
 
@@ -187,12 +187,12 @@ FCI data kataloger måste finnas på de Azure-delade diskarna.
 
 1. När installations programmet har installerat FCI på den första noden ansluter du till den andra noden med hjälp av RDP.
 
-1. Öppna **installations Center för SQL Server**och välj sedan **installation**.
+1. Öppna **installations Center för SQL Server** och välj sedan **installation** .
 
-1. Välj **Lägg till nod i ett SQL Server redundanskluster**. Följ anvisningarna i guiden för att installera SQL Server och lägga till servern i FCI.
+1. Välj **Lägg till nod i ett SQL Server redundanskluster** . Följ anvisningarna i guiden för att installera SQL Server och lägga till servern i FCI.
 
    >[!NOTE]
-   >Om du använde en Azure Marketplace-Galleri avbildning som innehåller SQL Server, inkluderades SQL Server verktyg med avbildningen. Om du inte använde någon av dessa avbildningar installerar du SQL Server verktyg separat. Mer information finns i [Ladda ned SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >Om du använde en Azure Marketplace-Galleri avbildning som innehåller SQL Server, inkluderades SQL Server verktyg med avbildningen. Om du inte använde någon av dessa avbildningar installerar du SQL Server verktyg separat. Mer information finns i [Ladda ned SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
    >
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registrera dig för SQL VM RP

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7026757651d1b0510293101203f41a651c7b851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ac4f41a36a2a18a65816be5ea74e88d0b364294
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850973"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789071"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introduktion till Azure Defender för App Service
 
@@ -30,7 +30,7 @@ Genom att använda den synlighet som Azure har som moln leverantör analyserar S
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|[Azure Defender för App Service](azure-defender.md) faktureras så som visas på [sidan med priser](security-center-pricing.md)|
 |App Services planer som stöds:|![Ja ](./media/icons/yes-icon.png) Basic, standard, Premium, isolerat eller Linux<br>![Inga ](./media/icons/no-icon.png) lediga, delade eller konsumtion<br>[Läs mer om App Service-planer](https://azure.microsoft.com/pricing/details/app-service/plans/)|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 ## <a name="what-does-azure-defender-for-app-service-protect"></a>Vad är Azure Defender för App Service skydda?
@@ -50,7 +50,7 @@ För att skydda din Azure App Service-plan med Azure Defender för App Service:
 Security Center är internt integrerat med App Service, vilket eliminerar behovet av distribution och onboarding – integreringen är transparent.
 
 >[!NOTE]
-> På sidan priser och inställningar visas ett antal instanser för din **resurs antal**. Detta representerar det totala antalet beräknings instanser, i alla App Service planer i den här prenumerationen, som körs vid den tidpunkt då du öppnade sidan pris nivå.
+> På sidan priser och inställningar visas ett antal instanser för din **resurs antal** . Detta representerar det totala antalet beräknings instanser, i alla App Service planer i den här prenumerationen, som körs vid den tidpunkt då du öppnade sidan pris nivå.
 >
 > Azure App Service erbjuder en rad olika planer. App Service plan definierar mängden beräknings resurser för en webbapp som ska köras. Dessa motsvarar Server grupper i konventionell webb värd. En eller flera appar kan konfigureras för att köras på samma dator resurser (eller i samma App Service plan).
 >
@@ -64,7 +64,7 @@ I den här artikeln har du lärt dig om Azure Defender för App Service.
 
 Information om relaterade material finns i följande artiklar: 
 
-- Om en avisering genereras av Security Center eller tas emot av Security Center från en annan säkerhets produkt, kan du exportera den. Om du vill exportera aviseringar till Azure Sentinel, SIEM eller andra externa verktyg, följer du anvisningarna i [Exportera aviseringar till en Siem](continuous-export.md).
+- Om en avisering genereras av Security Center eller tas emot av Security Center från en annan säkerhets produkt, kan du exportera den. Om du vill exportera aviseringar till Azure Sentinel, SIEM eller andra externa verktyg, följer du anvisningarna i [Stream-aviseringar till en Siem, Soar eller IT-Tjänstehanterings lösning](export-to-siem.md).
 - En lista över Azure App Service aviseringar finns i [referens tabellen för aviseringar](alerts-reference.md#alerts-azureappserv).
 - Mer information om App Service-planer finns i [App Service planer](https://azure.microsoft.com/pricing/details/app-service/plans/).
 - > [!div class="nextstepaction"]

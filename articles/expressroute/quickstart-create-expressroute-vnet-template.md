@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 37f0b890cd4942e5dcb47b496d661eb7c54db94d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7521344a2bb6aae67724c8bfbb9131e2ff1e6b94
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093522"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789734"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Snabb start: skapa en ExpressRoute-krets med privat peering med en ARM-mall
 
@@ -22,7 +22,7 @@ I den här snabb starten beskrivs hur du använder en Azure Resource Manager mal
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure** . Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-expressroute-private-peering-vnet%2Fazuredeploy.json)
 
@@ -34,16 +34,16 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-expressroute-private-peering-vnet).
 
-I den här snabb starten skapar du en ExpressRoute-krets med *Equinix* som tjänst leverantör. Kretsen använder en *Premium-SKU*, med bandbredd på *50 Mbit/s*och peering-platsen för *Washington DC*. Privat peering aktive ras med ett primärt och sekundärt undernät av *192.168.10.16/30* respektive *192.168.10.20/30* . Ett virtuellt nätverk kommer också att skapas tillsammans med en *HighPerformance ExpressRoute-Gateway*.
+I den här snabb starten skapar du en ExpressRoute-krets med *Equinix* som tjänst leverantör. Kretsen använder en *Premium-SKU* , med bandbredd på *50 Mbit/s* och peering-platsen för *Washington DC* . Privat peering aktive ras med ett primärt och sekundärt undernät av *192.168.10.16/30* respektive *192.168.10.20/30* . Ett virtuellt nätverk kommer också att skapas tillsammans med en *HighPerformance ExpressRoute-Gateway* .
 
-:::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json" range="001-351" highlight="183-219":::
+:::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json":::
 
 Flera Azure-resurser har definierats i mallen:
 
 * [**Microsoft. Network/expressRouteCircuits**](/azure/templates/microsoft.network/expressRouteCircuits)
 * [**Microsoft. Network/expressRouteCircuits/peering**](/azure/templates/microsoft.network/expressRouteCircuits/peerings) (används för att aktivera privat peering på kretsen)
 * [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.network/networkSecurityGroups) (nätverks säkerhets gruppen tillämpas på under näten i det virtuella nätverket)
-* [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks) 
+* [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks)
 * [**Microsoft. Network/publicIPAddresses**](/azure/templates/microsoft.network/publicIPAddresses) (offentlig IP används av ExpressRoute-gatewayen)
 * [**Microsoft. Network/virtualNetworkGateways**](/azure/templates/microsoft.network/virtualNetworkGateways) (ExpressRoute Gateway används för att länka VNet till kretsen)
 
@@ -51,7 +51,7 @@ Du hittar fler mallar som är relaterade till ExpressRoute i [Azure snabb starts
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-1. Välj **prova** från följande kodblock för att öppna Azure Cloud Shell och följ sedan anvisningarna för att logga in på Azure. 
+1. Välj **prova** från följande kodblock för att öppna Azure Cloud Shell och följ sedan anvisningarna för att logga in på Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -70,7 +70,7 @@ Du hittar fler mallar som är relaterade till ExpressRoute i [Azure snabb starts
 
 1. Kopiera PowerShell-skriptet genom att välja **Kopiera** från föregående kodblock.
 
-1. Högerklicka på fönstret Shell-konsol och välj sedan **Klistra in**.
+1. Högerklicka på fönstret Shell-konsol och välj sedan **Klistra in** .
 
 1. Ange värdena.
 
@@ -94,7 +94,7 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
      :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Utdata för PowerShell-distribution för ExpressRoute Resource Manager-mall":::
 
-1. Välj ExpressRoute-kretsen **er-ck01** för att kontrol lera att krets statusen **är aktive rad**, providerns status är **inte etablerad** och privat peering har statusen **etablerad**.
+1. Välj ExpressRoute-kretsen **er-ck01** för att kontrol lera att krets statusen **är aktive rad** , providerns status är **inte etablerad** och privat peering har statusen **etablerad** .
 
     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Utdata för PowerShell-distribution för ExpressRoute Resource Manager-mall":::
 
@@ -114,6 +114,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 ## <a name="next-steps"></a>Nästa steg
 
 I den här snabb starten skapade du en:
+
 * ExpressRoute-krets
 * Virtual Network
 * VPN Gateway

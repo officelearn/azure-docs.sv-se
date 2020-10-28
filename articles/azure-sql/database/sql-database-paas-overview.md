@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 972e4bcfc0eb20903dafc598bad812d0afe98afb
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 093d470052a639ad3d4e819d08fad7c34b547d44
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428317"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789513"
 ---
 # <a name="what-is-azure-sql-database"></a>Vad är Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,7 +26,7 @@ Azure SQL Database är en fullständigt hanterad databasmotor som är en PaaS-tj
 
 Med Azure SQL Database kan du skapa ett lager för datalagring med hög tillgänglighet och höga prestanda för program och lösningar i Azure. SQL Database kan vara det rätta valet för en mängd moderna moln program eftersom det gör att du kan bearbeta både Relations data och [icke-relationella strukturer](../multi-model-features.md), till exempel grafer, JSON, spatial och XML.
 
-Azure SQL Database baseras på den senaste stabila versionen av [Microsoft SQL Server databas motorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Du kan använda avancerade funktioner för frågekörning, till exempel [högpresterande minnes teknologier](../in-memory-oltp-overview.md) och [intelligent bearbetning av frågor](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). I själva verket lanseras de nyaste funktionerna i SQL Server först till SQL Database och sedan till SQL Server. Du får de senaste SQL Server-funktionerna utan kostnad för uppdatering eller uppgradering, testat för miljontals databaser. 
+Azure SQL Database baseras på den senaste stabila versionen av [Microsoft SQL Server databas motorn](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json). Du kan använda avancerade funktioner för frågekörning, till exempel [högpresterande minnes teknologier](../in-memory-oltp-overview.md) och [intelligent bearbetning av frågor](/sql/relational-databases/performance/intelligent-query-processing?toc=%252fazure%252fsql-database%252ftoc.json). I själva verket lanseras de nyaste funktionerna i SQL Server först till SQL Database och sedan till SQL Server. Du får de senaste SQL Server-funktionerna utan kostnad för uppdatering eller uppgradering, testat för miljontals databaser. 
 
 Med SQL Database kan du enkelt definiera och skala prestanda inom två olika inköps modeller: en [vCore-baserad inköps modell](service-tiers-vcore.md) och en [DTU-baserad inköps modell](service-tiers-dtu.md). SQL Database är en fullständigt hanterad tjänst som har inbyggd hög tillgänglighet, säkerhetskopiering och andra vanliga underhållsåtgärder. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-och operativ system koden. Du behöver inte hantera den underliggande infrastrukturen.
 
@@ -37,7 +37,7 @@ Om du inte har använt Azure SQL Database kan du titta närmare på *Azure SQL D
 
 Azure SQL Database tillhandahåller följande distributions alternativ för en databas:
 
-- En [enskild databas](single-database-overview.md) representerar en fullständigt hanterad, isolerad databas. Du kan använda det här alternativet om du har moderna moln program och mikrotjänster som behöver en enda tillförlitlig data källa. En enda databas liknar en [innesluten databas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) i [SQL Server databas motorn](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
+- En [enskild databas](single-database-overview.md) representerar en fullständigt hanterad, isolerad databas. Du kan använda det här alternativet om du har moderna moln program och mikrotjänster som behöver en enda tillförlitlig data källa. En enda databas liknar en [innesluten databas](/sql/relational-databases/databases/contained-databases?toc=%252fazure%252fsql-database%252ftoc.json) i [SQL Server databas motorn](/sql/sql-server/sql-server-technical-documentation?toc=%252fazure%252fsql-database%252ftoc.json).
 - [Elastisk pool](elastic-pool-overview.md) är en samling av [enskilda databaser](single-database-overview.md) med en delad uppsättning resurser, till exempel processor eller minne. Enskilda databaser kan flyttas till och från en elastisk pool.
 
 > [!IMPORTANT]
@@ -53,7 +53,7 @@ Du kan definiera mängden tilldelade resurser.
 
 Du kan bygga din första app på en liten, enkel databas till en låg kostnad per månad i tjänst nivån för generell användning. Du kan sedan ändra dess tjänst nivå manuellt eller program mässigt när som helst till den verksamhets kritiska tjänst nivån, för att uppfylla behoven hos din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser som du behöver när du behöver dem.
 
-*Dynamisk skalbarhet* skiljer sig från *autoskalning*. Med Autoskala avses när en tjänst skalar automatiskt utifrån olika kriterier, medan dynamisk skalbarhet möjliggör manuell skalning utan avbrott. Alternativet enkel databas stöder manuell dynamisk skalbarhet, men inte autoskalning. Om du vill ha en mer automatisk upplevelse bör du använda elastiska pooler, vilka tillåter databaser att dela resurser i en pool utifrån enskilda databasbehov. Ett annat alternativ är att använda skript som kan hjälpa dig att automatisera skalbarheten för en enskild databas. Ett exempel finns i [använda PowerShell för att övervaka och skala en enskild databas](scripts/monitor-and-scale-database-powershell.md).
+*Dynamisk skalbarhet* skiljer sig från *autoskalning* . Med Autoskala avses när en tjänst skalar automatiskt utifrån olika kriterier, medan dynamisk skalbarhet möjliggör manuell skalning utan avbrott. Alternativet enkel databas stöder manuell dynamisk skalbarhet, men inte autoskalning. Om du vill ha en mer automatisk upplevelse bör du använda elastiska pooler, vilka tillåter databaser att dela resurser i en pool utifrån enskilda databasbehov. Ett annat alternativ är att använda skript som kan hjälpa dig att automatisera skalbarheten för en enskild databas. Ett exempel finns i [använda PowerShell för att övervaka och skala en enskild databas](scripts/monitor-and-scale-database-powershell.md).
 
 ### <a name="purchasing-models"></a>Köpmodeller
 
@@ -92,13 +92,13 @@ Azure SQL Database tillhandahåller avancerade övervaknings-och fel söknings f
  - De inbyggda övervaknings funktioner som tillhandahålls av den senaste versionen av SQL Server databas motorn. De gör att du kan hitta prestanda insikter i real tid. 
  - PaaS övervaknings funktioner som tillhandahålls av Azure och som hjälper dig att övervaka och felsöka ett stort antal databas instanser.
 
-[Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), en inbyggd SQL Server övervaknings funktion, registrerar prestanda för dina frågor i real tid och gör det möjligt att identifiera potentiella prestanda problem och de främsta resurs förbrukarna. Automatisk justering och rekommendationer ger råd om frågor med försämrat prestanda och saknade eller duplicerade index. Med automatisk justering i SQL Database kan du antingen manuellt tillämpa skript som kan åtgärda problemen eller låta SQL Database tillämpa korrigeringen. SQL Database kan också testa och kontrol lera att korrigeringen ger viss förmån och behålla eller återställa ändringen beroende på resultatet. Förutom fråge Arkiv och automatiska justerings funktioner kan du använda standard [DMV: er och XEvent](monitoring-with-dmvs.md) för att övervaka arbets Belastningens prestanda.
+[Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store), en inbyggd SQL Server övervaknings funktion, registrerar prestanda för dina frågor i real tid och gör det möjligt att identifiera potentiella prestanda problem och de främsta resurs förbrukarna. Automatisk justering och rekommendationer ger råd om frågor med försämrat prestanda och saknade eller duplicerade index. Med automatisk justering i SQL Database kan du antingen manuellt tillämpa skript som kan åtgärda problemen eller låta SQL Database tillämpa korrigeringen. SQL Database kan också testa och kontrol lera att korrigeringen ger viss förmån och behålla eller återställa ändringen beroende på resultatet. Förutom fråge Arkiv och automatiska justerings funktioner kan du använda standard [DMV: er och XEvent](monitoring-with-dmvs.md) för att övervaka arbets Belastningens prestanda.
 
 Azure innehåller [inbyggda verktyg för prestanda övervakning](performance-guidance.md) och [avisering](alerts-insights-configure-portal.md) , kombinerat med prestanda klassificeringar som gör att du kan övervaka status för tusentals databaser. Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ned baserat på dina aktuella eller planerade prestanda behov. Dessutom kan SQL Database [generera mått och resurs loggar](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) för enklare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
 
-- **Azure Storage**: för att arkivera stora mängder telemetri för ett litet pris.
-- **Azure Event Hubs**: för att integrera SQL Database telemetri med din anpassade övervaknings lösning eller aktiva pipeliner.
-- **Azure Monitor loggar**: för en inbyggd övervaknings lösning med rapporter, aviseringar och mildrande funktioner.
+- **Azure Storage** : för att arkivera stora mängder telemetri för ett litet pris.
+- **Azure Event Hubs** : för att integrera SQL Database telemetri med din anpassade övervaknings lösning eller aktiva pipeliner.
+- **Azure Monitor loggar** : för en inbyggd övervaknings lösning med rapporter, aviseringar och mildrande funktioner.
 
 ![Diagram över Azures övervaknings arkitektur](./media/sql-database-paas-overview/architecture.png)
 
@@ -149,8 +149,8 @@ Många av våra partner som kör [SaaS för flera klient](saas-tenancy-app-desig
 
 Det finns två automatiska justerings aspekter [i SQL Database](automatic-tuning-overview.md):
 
-- **Automatisk indexhantering**: Identifierar index som bör läggas till i din databas och index som ska tas bort.
-- **Automatisk plan korrigering**: identifierar problematiska planer och åtgärdar prestanda problem i SQL-plan.
+- **Automatisk indexhantering** : Identifierar index som bör läggas till i din databas och index som ska tas bort.
+- **Automatisk plan korrigering** : identifierar problematiska planer och åtgärdar prestanda problem i SQL-plan.
 
 ### <a name="adaptive-query-processing"></a>Anpassningsbar frågebearbetning
 
@@ -158,7 +158,7 @@ Du kan använda [anpassad bearbetning av frågor](/sql/relational-databases/perf
 
 ## <a name="advanced-security-and-compliance"></a>Avancerad säkerhet och efterlevnad
 
-SQL-databasen innehåller en uppsättning [inbyggda funktioner för säkerhet och efterlevnad](../../active-directory/identity-protection/security-overview.md) för att uppfylla olika krav för säkerhet och regelefterlevnad i programmet.
+SQL-databasen innehåller en uppsättning [inbyggda funktioner för säkerhet och efterlevnad](../../active-directory/identity-protection/concept-identity-protection-security-overview.md) för att uppfylla olika krav för säkerhet och regelefterlevnad i programmet.
 
 > [!IMPORTANT]
 > Microsoft har certifierat Azure SQL Database (alla distributions alternativ) mot ett antal efterlevnads standarder. Mer information finns i [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), där du hittar den mest aktuella listan med SQL Database certifierings certifieringar.
@@ -180,7 +180,7 @@ Azure Defender för SQL är ett enhetligt paket för avancerade SQL-säkerhetsfu
 
 ### <a name="data-encryption"></a>Datakryptering
 
-SQL Database hjälper till att skydda dina data med hjälp av kryptering. För data i rörelse används [Transport Layer Security](https://support.microsoft.com/kb/3135244). För data i vila används [transparent data kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). För data som används används [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+SQL Database hjälper till att skydda dina data med hjälp av kryptering. För data i rörelse används [Transport Layer Security](https://support.microsoft.com/kb/3135244). För data i vila används [transparent data kryptering](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). För data som används används [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 ### <a name="data-discovery-and-classification"></a>Dataidentifiering och -klassificering
 
@@ -198,8 +198,8 @@ SQL Database gör byggandet och underhållet av appar enklare och mer produktivt
 |:---|:---|
 |[Azure-portalen](https://portal.azure.com/)|Ett webbaserat program för att hantera alla Azure-tjänster.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Ett databas verktyg över plattformar som körs på Windows, macOS och Linux.|
-|[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Ett kostnads fritt, nedladdnings Bart klient program för att hantera alla SQL-infrastrukturer, från SQL Server till SQL Database.|
-|[SQL Server Data Tools i Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Ett kostnads fritt, nedladdnings Bart klient program för att utveckla SQL Server Relations databaser, databaser i Azure SQL Database, Integration Services-paket, Analysis Services data modeller och repor ting Services-rapporter.|
+|[SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)|Ett kostnads fritt, nedladdnings Bart klient program för att hantera alla SQL-infrastrukturer, från SQL Server till SQL Database.|
+|[SQL Server Data Tools i Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt)|Ett kostnads fritt, nedladdnings Bart klient program för att utveckla SQL Server Relations databaser, databaser i Azure SQL Database, Integration Services-paket, Analysis Services data modeller och repor ting Services-rapporter.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|En kostnads fri, nedladdnings bar kod redigerare med öppen källkod för Windows, macOS och Linux. Det stöder tillägg, inklusive [MSSQL-tillägget](https://aka.ms/mssql-marketplace) för frågor Microsoft SQL Server, Azure SQL Database och Azure Azure Synapse Analytics (tidigare SQL Data Warehouse).|
 
 SQL Database har stöd för att skapa program med python, Java, Node.js, PHP, ruby och .NET på macOS, Linux och Windows. SQL Database stöder samma [anslutningsbibliotek](connect-query-content-reference-guide.md#libraries) som SQL Server.
@@ -218,7 +218,7 @@ Nej. Effekten av korrigeringen är vanligt vis inte märkbart om du [använder l
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ställ frågor om databas administration.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): Ställ frågor om utveckling.
-- [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Ställ tekniska frågor.
+- [Sidan Microsoft Q&en fråga](/answers/topics/azure-synapse-analytics.html): Ställ tekniska frågor.
 - [Feedback](https://aka.ms/sqlfeedback): rapportera buggar och begär funktioner.
 - [Reddit](https://www.reddit.com/r/SQLServer/): diskutera SQL Server.
 
@@ -237,4 +237,3 @@ Nej. Effekten av korrigeringen är vanligt vis inte märkbart om du [använder l
 
 - Information om nya funktioner när de visas finns i Azure- [Översikt för SQL Database](https://azure.microsoft.com/roadmap/?category=databases).
 - Se [Azure SQL Database blogg](https://azure.microsoft.com/blog/topics/database)där SQL Server produkt Teams medlemmar bloggar om SQL Database nyheter och funktioner.
-

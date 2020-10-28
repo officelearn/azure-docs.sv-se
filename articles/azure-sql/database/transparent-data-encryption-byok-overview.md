@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: b89b8cc58cb48770b9b42036f8b834cc1bf11b8b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441138"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790890"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent datakryptering i Azure SQL med kundhanterad nyckel
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ För Azure SQL Database och Azure Synapse Analytics anges TDE-skyddet på server
 > För de som använder tjänstehanterade TDE som vill börja använda Kundhanterade TDE-data förblir data krypterade under växlings processen och det finns ingen nedtid eller Omkryptering av databasfilerna. Om du växlar från en tjänst-hanterad nyckel till en kundhanterad nyckel krävs bara Omkryptering av DEK, vilket är en snabb och online-åtgärd.
 
 > [!NOTE]
-> För att ge Azure SQL-kunder två lager av kryptering av data i vila, kommer infrastruktur kryptering (med AES-256 krypteringsalgoritm) med plattforms hanterade nycklar att distribueras. Detta ger en tilläggs nivå av kryptering i vila tillsammans med TDE med Kundhanterade nycklar som redan är tillgänglig. För Azure SQL Database och hanterad instans kommer alla databaser, inklusive huvud databasen och andra system databaser, att krypteras när infrastruktur kryptering aktive ras. För närvarande måste kunderna begära åtkomst till den här funktionen. Om du är intresse rad av den här funktionen kan du kontakta AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
+> <a id="doubleencryption"></a> För att ge Azure SQL-kunder två lager av kryptering av data i vila, kommer infrastruktur kryptering (med AES-256 krypteringsalgoritm) med plattforms hanterade nycklar att distribueras. Detta ger en tilläggs nivå av kryptering i vila tillsammans med TDE med Kundhanterade nycklar som redan är tillgänglig. För Azure SQL Database och hanterad instans kommer alla databaser, inklusive huvud databasen och andra system databaser, att krypteras när infrastruktur kryptering aktive ras. För närvarande måste kunderna begära åtkomst till den här funktionen. Om du är intresse rad av den här funktionen kan du kontakta AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Fördelar med kund hanterade TDE
 
@@ -82,7 +82,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 
 - Bevilja servern eller hanterad instans åtkomst till nyckel valvet (get, wrapKey, unwrapKey) med sin Azure Active Directory identitet. När du använder Azure Portal skapas Azure AD-identiteten automatiskt. När du använder PowerShell eller CLI måste Azure AD-identiteten skapas och slutföras måste verifieras. Se [Konfigurera TDE med BYOK](transparent-data-encryption-byok-configure.md) och [Konfigurera TDE med BYOK för SQL-hanterad instans](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) för detaljerade steg-för-steg-instruktioner när du använder PowerShell.
 
-- När du använder en brand vägg med AKV måste du aktivera alternativet *Tillåt att betrodda Microsoft-tjänster kringgår brand väggen*.
+- När du använder en brand vägg med AKV måste du aktivera alternativet *Tillåt att betrodda Microsoft-tjänster kringgår brand väggen* .
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Krav för att konfigurera TDE-skydd
 
@@ -95,7 +95,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 - Om du importerar en befintlig nyckel till nyckel valvet ska du se till att tillhandahålla den i de fil format som stöds (. pfx,. BYOK eller. säkerhets kopiering).
 
 > [!NOTE]
-> Azure SQL stöder nu användning av en RSA-nyckel som lagras i en hanterad HSM som TDE-skydd. Den här funktionen finns i **offentlig för hands version**. Azure Key Vault hanterad HSM är en fullständigt hanterad moln tjänst med hög tillgänglighet, en standard som är kompatibel med en enda klient, som gör att du kan skydda kryptografiska nycklar för dina moln program med hjälp av FIPS 140-2 nivå 3-verifierade HSM: er. Läs mer om [hanterade HSM: er](https://aka.ms/mhsm).
+> Azure SQL stöder nu användning av en RSA-nyckel som lagras i en hanterad HSM som TDE-skydd. Den här funktionen finns i **offentlig för hands version** . Azure Key Vault hanterad HSM är en fullständigt hanterad moln tjänst med hög tillgänglighet, en standard som är kompatibel med en enda klient, som gör att du kan skydda kryptografiska nycklar för dina moln program med hjälp av FIPS 140-2 nivå 3-verifierade HSM: er. Läs mer om [hanterade HSM: er](../../key-vault/managed-hsm/index.yml).
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Rekommendationer vid konfigurering av Kundhanterade TDE
@@ -106,7 +106,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 
 - Ange ett resurs lås i nyckel valvet för att kontrol lera vem som kan ta bort den här kritiska resursen och förhindra oavsiktlig eller obehörig borttagning. Läs mer om [resurs lås](../../azure-resource-manager/management/lock-resources.md).
 
-- Aktivera granskning och rapportering på alla krypterings nycklar: Key Vault innehåller loggar som är lätta att mata in i andra säkerhets informations-och händelse hanterings verktyg. Operations Management Suite [Log Analytics](../../azure-monitor/insights/azure-key-vault.md) är ett exempel på en tjänst som redan är integrerad.
+- Aktivera granskning och rapportering på alla krypterings nycklar: Key Vault innehåller loggar som är lätta att mata in i andra säkerhets informations-och händelse hanterings verktyg. Operations Management Suite [Log Analytics](../../azure-monitor/insights/key-vault-insights-overview.md) är ett exempel på en tjänst som redan är integrerad.
 
 - Länka varje server med två nyckel valv som finns i olika regioner och håll samma viktiga material för att säkerställa hög tillgänglighet för krypterade databaser. Markera bara nyckeln från nyckel valvet i samma region som ett TDE-skydd. Systemet växlar automatiskt till nyckel valvet i den fjärranslutna regionen om det uppstår ett avbrott som påverkar nyckel valvet i samma region.
 
@@ -126,7 +126,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 
 ## <a name="inaccessible-tde-protector"></a>Oåtkomligt TDE-skydd
 
-När transparent data kryptering har kon figurer ATS för att använda en kundhanterad nyckel, krävs kontinuerlig åtkomst till TDE-skydd för att databasen ska vara online. Om servern förlorar åtkomsten till det Kundhanterade TDE-skyddskomponenten i AKV, på upp till 10 minuter kommer en databas att starta neka alla anslutningar med motsvarande fel meddelande och ändra dess tillstånd till *otillgängligt*. Den enda åtgärden som tillåts för en databas i det otillgängliga läget tar bort den.
+När transparent data kryptering har kon figurer ATS för att använda en kundhanterad nyckel, krävs kontinuerlig åtkomst till TDE-skydd för att databasen ska vara online. Om servern förlorar åtkomsten till det Kundhanterade TDE-skyddskomponenten i AKV, på upp till 10 minuter kommer en databas att starta neka alla anslutningar med motsvarande fel meddelande och ändra dess tillstånd till *otillgängligt* . Den enda åtgärden som tillåts för en databas i det otillgängliga läget tar bort den.
 
 > [!NOTE]
 > Om databasen inte är tillgänglig på grund av ett tillfälligt nätverks avbrott, krävs ingen åtgärd och databaserna kommer att anslutas igen automatiskt.
@@ -135,7 +135,7 @@ När åtkomst till nyckeln har återställts krävs ytterligare tid och steg, vi
 
 - Om nyckel åtkomsten återställs inom 8 timmar kommer databasen automatiskt att korrigeras inom nästa timma.
 
-- Om nyckelåtkomsten återställs efter mer än åtta timmar går det inte att reparera automatiskt. Det kan då krävas ytterligare steg i portalen för att få databasen online igen, vilket kan ta lång tid för stora databaser. När databasen är online igen, har tidigare konfigurerade inställningar på server nivå, till exempel konfiguration av [redundanskonfiguration](auto-failover-group-overview.md) , punkt-i-tid-återställnings historik och taggar går **förlorade**. Därför rekommenderar vi att du implementerar ett meddelande system som gör det möjligt att identifiera och åtgärda de underliggande åtkomst problemen för nycklar inom 8 timmar.
+- Om nyckelåtkomsten återställs efter mer än åtta timmar går det inte att reparera automatiskt. Det kan då krävas ytterligare steg i portalen för att få databasen online igen, vilket kan ta lång tid för stora databaser. När databasen är online igen, har tidigare konfigurerade inställningar på server nivå, till exempel konfiguration av [redundanskonfiguration](auto-failover-group-overview.md) , punkt-i-tid-återställnings historik och taggar går **förlorade** . Därför rekommenderar vi att du implementerar ett meddelande system som gör det möjligt att identifiera och åtgärda de underliggande åtkomst problemen för nycklar inom 8 timmar.
 
 Nedan visas de ytterligare steg som krävs på portalen för att den oåtkomliga databasen ska bli online igen.
 
@@ -146,7 +146,7 @@ Nedan visas de ytterligare steg som krävs på portalen för att den oåtkomliga
 
 Det kan hända att någon med tillräckliga åtkomst rättigheter till Key Vault oavsiktligt inaktiverar Server åtkomst till nyckeln av:
 
-- återkalla nyckel valvets *Get*-, *wrapKey*-, *unwrapKey* -behörigheter från servern
+- återkalla nyckel valvets *Get* -, *wrapKey* -, *unwrapKey* -behörigheter från servern
 
 - tar bort nyckeln
 
@@ -163,7 +163,7 @@ Lär dig mer om [de vanligaste orsakerna till att databasen blir oåtkomlig](/sq
 Konfigurera följande Azure-funktioner för att övervaka databas tillstånd och aktivera avisering för förlust av TDE-skydds åtkomst:
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). En oåtkomlig databas som har förlorat åtkomst till TDE-skyddet visas som "ej tillgänglig" efter att den första anslutningen till databasen har nekats.
-- [Aktivitets logg](../../service-health/alerts-activity-log-service-notifications.md) när åtkomst till TDE-skydd i det Kundhanterade nyckel valvet Miss lyckas, läggs poster till i aktivitets loggen.  Genom att skapa aviseringar för dessa händelser kan du återställa åtkomst så snart som möjligt.
+- [Aktivitets logg](../../service-health/alerts-activity-log-service-notifications-portal.md) när åtkomst till TDE-skydd i det Kundhanterade nyckel valvet Miss lyckas, läggs poster till i aktivitets loggen.  Genom att skapa aviseringar för dessa händelser kan du återställa åtkomst så snart som möjligt.
 - [Åtgärds grupper](../../azure-monitor/platform/action-groups.md) kan definieras för att skicka aviseringar och aviseringar baserat på dina inställningar, t. ex. e-post/SMS/push/röst, Logic app, webhook, ITSM eller Automation Runbook.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Säkerhets kopiering och återställning av databasen med Kundhanterade TDE

@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d1f758390a270f072bc08e13d1d542e08e4df553
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425547"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791145"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utför Azure Queue Storage-åtgärder med Azure PowerShell
 
@@ -45,7 +45,7 @@ Connect-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Hämta lista över platser
 
-Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. I den här övningen används **öster**. Lagra detta på variabel **platsen** för framtida bruk.
+Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. I den här övningen används **öster** . Lagra detta på variabel **platsen** för framtida bruk.
 
 ```powershell
 Get-AzLocation | Select-Object Location
@@ -86,7 +86,7 @@ $queueName = "howtoqueue"
 $queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
-Information om namngivnings konventioner för Azure Queue Service finns i [namngivnings köer och metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+Information om namngivnings konventioner för Azure Queue Service finns i [namngivnings köer och metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
 
 ## <a name="retrieve-a-queue"></a>Hämta en kö
 
@@ -133,7 +133,7 @@ Denna **timeout för insikt** definierar hur länge meddelandet förblir osynlig
 
 Koden läser ett meddelande från kön i två steg. När du anropar metoden [Microsoft. Azure. Storage. Queue. CloudQueue. GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) får du nästa meddelande i kön. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Om du vill slutföra borttagningen av meddelandet från kön anropar du metoden [Microsoft. Azure. Storage. Queue. CloudQueue. DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) .
 
-I följande exempel läser du igenom de tre meddelandena i kön och väntar sedan 10 sekunder (tids gräns för insynlighet). Sedan läser du de tre meddelandena igen och tar bort meddelandena när de har lästs genom att anropa **DeleteMessage**. Om du försöker läsa kön när meddelandena har tagits bort kommer $queueMessage att returneras som NULL.
+I följande exempel läser du igenom de tre meddelandena i kön och väntar sedan 10 sekunder (tids gräns för insynlighet). Sedan läser du de tre meddelandena igen och tar bort meddelandena när de har lästs genom att anropa **DeleteMessage** . Om du försöker läsa kön när meddelandena har tagits bort kommer $queueMessage att returneras som NULL.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue

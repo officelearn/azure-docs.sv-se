@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: fbde77de0ad8698ff82b80b440ae1d4bdcae1f36
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9c09a54daa482d738ded9f7aca1c95c2b640617e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427007"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790278"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Använd skrivskyddade repliker för att avlasta skrivskyddade arbets belastningar
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ Funktionen *Läs skalning* är aktive rad som standard på nya Premium-, affärs
 > [!NOTE]
 > Läs skalning är alltid aktiverat i Affärskritisk tjänst nivå för hanterad instans.
 
-Om SQL-anslutningssträngen är konfigurerad med `ApplicationIntent=ReadOnly` omdirigeras programmet till en skrivskyddad replik av databasen eller en hanterad instans. Information om hur du använder `ApplicationIntent` egenskapen finns i [Ange program avsikt](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+Om SQL-anslutningssträngen är konfigurerad med `ApplicationIntent=ReadOnly` omdirigeras programmet till en skrivskyddad replik av databasen eller en hanterad instans. Information om hur du använder `ApplicationIntent` egenskapen finns i [Ange program avsikt](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Om du vill säkerställa att programmet ansluter till den primära repliken oavsett `ApplicationIntent` inställningen i SQL-anslutningssträngen, måste du explicit inaktivera Läs-och utskalning när du skapar databasen eller när du ändrar konfigurationen. Om du till exempel uppgraderar din databas från standard-eller Generell användning-nivån till Premium, Affärskritisk eller nivån på den storskaliga nivån och vill se till att alla dina anslutningar fortsätter att gå till den primära repliken inaktiverar du Läs-och utskalning. Mer information om hur du inaktiverar det finns i [Aktivera och inaktivera Läs skalning](#enable-and-disable-read-scale-out).
 
@@ -85,18 +85,18 @@ När du är ansluten till en skrivskyddad replik visar DMV: er (Dynamic Manageme
 
 Ofta använda vyer är:
 
-| Name | Syfte |
+| Namn | Syfte |
 |:---|:---|
-|[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Tillhandahåller Mät värden för resursutnyttjande under den senaste timmen, inklusive CPU, data-IO och logg Skriv användning i förhållande till begränsningar i tjänst målet.|
-|[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Tillhandahåller sammanställd wait-statistik för databas motor instansen. |
-|[sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Tillhandahåller hälso tillstånd för replik och synkronisering av statistik. Gör om kös Tor lek och gör om betygs ätt som indikatorer för data svars tid på den skrivskyddade repliken. |
-|[sys.dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Tillhandahåller prestanda räknare för databas motorn.|
-|[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Tillhandahåller körnings statistik per fråga, till exempel antal körningar, CPU-tid som använts osv.|
-|[sys.dm_exec_query_plan ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Tillhandahåller cachelagrade fråge planer. |
-|[sys.dm_exec_sql_text ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Tillhandahåller frågetext för en cachelagrad frågeplan.|
-|[sys.dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Tillhandahåller förlopp för real tids fråga medan frågor körs.|
-|[sys.dm_exec_query_plan_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Tillhandahåller den senast kända faktiska körnings planen, inklusive körnings statistik för en fråga.|
-|[sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Tillhandahåller lagrings-IOPS, data flöde och svars tids statistik för alla databasfiler. |
+|[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Tillhandahåller Mät värden för resursutnyttjande under den senaste timmen, inklusive CPU, data-IO och logg Skriv användning i förhållande till begränsningar i tjänst målet.|
+|[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Tillhandahåller sammanställd wait-statistik för databas motor instansen. |
+|[sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Tillhandahåller hälso tillstånd för replik och synkronisering av statistik. Gör om kös Tor lek och gör om betygs ätt som indikatorer för data svars tid på den skrivskyddade repliken. |
+|[sys.dm_os_performance_counters](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Tillhandahåller prestanda räknare för databas motorn.|
+|[sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Tillhandahåller körnings statistik per fråga, till exempel antal körningar, CPU-tid som använts osv.|
+|[sys.dm_exec_query_plan ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Tillhandahåller cachelagrade fråge planer. |
+|[sys.dm_exec_sql_text ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Tillhandahåller frågetext för en cachelagrad frågeplan.|
+|[sys.dm_exec_query_profiles](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Tillhandahåller förlopp för real tids fråga medan frågor körs.|
+|[sys.dm_exec_query_plan_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Tillhandahåller den senast kända faktiska körnings planen, inklusive körnings statistik för en fråga.|
+|[sys.dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Tillhandahåller lagrings-IOPS, data flöde och svars tids statistik för alla databasfiler. |
 
 > [!NOTE]
 > - `sys.resource_stats` Och- `sys.elastic_pool_resource_stats` DMV: er i den logiska huvud databasen returnerar resurs användnings data för den primära repliken.
@@ -109,13 +109,13 @@ En Extended Event-session på en skrivskyddad replik som baseras på en partitio
 
 ### <a name="transaction-isolation-level-on-read-only-replicas"></a>Transaktions isolerings nivå för skrivskyddade repliker
 
-Frågor som körs på skrivskyddade repliker mappas alltid till isolerings nivån för [ögonblicks bilds](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server) transaktionen. Ögonblicks bild isolering använder rad versioner för att undvika att blockera scenarier där läsarna blockerar skribenter.
+Frågor som körs på skrivskyddade repliker mappas alltid till isolerings nivån för [ögonblicks bilds](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server) transaktionen. Ögonblicks bild isolering använder rad versioner för att undvika att blockera scenarier där läsarna blockerar skribenter.
 
-I sällsynta fall, om en ögonblicks bild isolerings transaktion har åtkomst till metadata för objekt som har ändrats i en annan samtidig transaktion, kan det ta emot fel [3961](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error), "Det gick inte att skapa ögonblicks bild isolerings transaktion i databasen%. * ls eftersom objektet som används av instruktionen har ändrats av en DDL-instruktion i en annan samtidig transaktion sedan transaktionen startades. Detta är inte tillåtet, eftersom metadata saknar version. En samtidig uppdatering av metadata kan leda till inkonsekvens om den är blandad med ögonblicks bild isolering. "
+I sällsynta fall, om en ögonblicks bild isolerings transaktion har åtkomst till metadata för objekt som har ändrats i en annan samtidig transaktion, kan det ta emot fel [3961](/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error), "Det gick inte att skapa ögonblicks bild isolerings transaktion i databasen%. * ls eftersom objektet som används av instruktionen har ändrats av en DDL-instruktion i en annan samtidig transaktion sedan transaktionen startades. Detta är inte tillåtet, eftersom metadata saknar version. En samtidig uppdatering av metadata kan leda till inkonsekvens om den är blandad med ögonblicks bild isolering. "
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Tids krävande frågor om skrivskyddade repliker
 
-Frågor som körs på skrivskyddade repliker behöver åtkomst till metadata för de objekt som refereras till i frågan (tabeller, index, statistik osv.) I sällsynta fall, om ett metadataobjekt ändras på den primära repliken medan en fråga har ett lås på samma objekt på den skrivskyddade repliken, kan frågan [blockera](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) processen som tillämpar ändringar från den primära repliken till den skrivskyddade repliken. Om en sådan fråga skulle köras under en längre tid skulle det innebära att den skrivskyddade repliken var betydligt ur synk med den primära repliken. 
+Frågor som körs på skrivskyddade repliker behöver åtkomst till metadata för de objekt som refereras till i frågan (tabeller, index, statistik osv.) I sällsynta fall, om ett metadataobjekt ändras på den primära repliken medan en fråga har ett lås på samma objekt på den skrivskyddade repliken, kan frågan [blockera](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) processen som tillämpar ändringar från den primära repliken till den skrivskyddade repliken. Om en sådan fråga skulle köras under en längre tid skulle det innebära att den skrivskyddade repliken var betydligt ur synk med den primära repliken. 
 
 Om en tids krävande fråga på en skrivskyddad replik orsakar den här typen av blockering, kommer den automatiskt att avslutas och sessionen får fel 1219 meddelandet "din session har kopplats från på grund av en DDL-åtgärd med hög prioritet".
 
@@ -123,7 +123,7 @@ Om en tids krävande fråga på en skrivskyddad replik orsakar den här typen av
 > Om du får fel 3961 eller fel 1219 när du kör frågor mot en skrivskyddad replik kan du försöka köra frågan igen.
 
 > [!TIP]
-> När du är ansluten till en skrivskyddad replik i Premium-och Affärskritisk tjänst nivåerna `redo_queue_size` `redo_rate` kan kolumnerna i [sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV användas för att övervaka processen för synkronisering av data, och fungerar som indikatorer för data svars tiden på den skrivskyddade repliken.
+> När du är ansluten till en skrivskyddad replik i Premium-och Affärskritisk tjänst nivåerna `redo_queue_size` `redo_rate` kan kolumnerna i [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV användas för att övervaka processen för synkronisering av data, och fungerar som indikatorer för data svars tiden på den skrivskyddade repliken.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Aktivera och inaktivera Läs skalning
@@ -135,7 +135,7 @@ Du kan inaktivera och återaktivera Läs utskalning på enkla databaser och Elas
 > [!NOTE]
 > För enskilda databaser och Elastic pool-databaser, tillhandahålls möjligheten att inaktivera Läs skalning för bakåtkompatibilitet. Läs skalning kan inte inaktive ras på Affärskritisk hanterade instanser.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Du kan hantera inställningen för Läs skalning på bladet **Konfigurera** databas.
 
@@ -144,7 +144,7 @@ Du kan hantera inställningen för Läs skalning på bladet **Konfigurera** data
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande, men all framtida utveckling gäller AZ. SQL-modulen. Azure Resource Manager-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i Azure Resource Manager modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
 
-Hantering av Läs-och utskalning i Azure PowerShell kräver Azure PowerShells versionen december 2016 eller senare. Den senaste PowerShell-versionen finns i [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Hantering av Läs-och utskalning i Azure PowerShell kräver Azure PowerShells versionen december 2016 eller senare. Den senaste PowerShell-versionen finns i [Azure PowerShell](/powershell/azure/install-az-ps).
 
 Du kan inaktivera eller återaktivera Läs-och utskalning i Azure PowerShell genom att anropa cmdleten [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) och skicka in det önskade värdet ( `Enabled` eller `Disabled` ) för `-ReadScale` parametern.
 
@@ -166,7 +166,7 @@ Så här återaktiverar du Läs skalan för en befintlig databas (ersätter obje
 Set-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Enabled
 ```
 
-### <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST-API
 
 Om du vill skapa en databas med Läs skala inaktive rad, eller ändra inställningen för en befintlig databas, använder du följande metod med `readScale` egenskapen inställd på `Enabled` eller `Disabled` , som i följande exempel förfrågan.
 
@@ -180,7 +180,7 @@ Body: {
 }
 ```
 
-Mer information finns i [databaser-skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Mer information finns i [databaser-skapa eller uppdatera](/rest/api/sql/databases/createorupdate).
 
 ## <a name="using-the-tempdb-database-on-a-read-only-replica"></a>Använda `tempdb` databasen på en skrivskyddad replik
 

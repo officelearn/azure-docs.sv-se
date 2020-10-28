@@ -5,19 +5,19 @@ description: Lär dig hur du svarar på ett potentiellt komprometterat TDE-skydd
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 77f2312438f3f9db7aa4e0dc7cc0f672644a87c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 657e3967d9e34147364114cec4d946e900f60032
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617425"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791383"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Ta bort ett transparent datakryptering-skydd (TDE) med PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,16 +26,16 @@ ms.locfileid: "91617425"
 I det här avsnittet beskrivs hur du svarar på en potentiellt komprometterad TDE-skydd för Azure SQL Database eller Azure Synapse Analytics som använder TDE med Kundhanterade nycklar i Azure Key Vault-Bring Your Own Key (BYOK) support. Mer information om BYOK-stöd för TDE finns på [sidan Översikt](transparent-data-encryption-byok-overview.md).
 
 > [!CAUTION]
-> De procedurer som beskrivs i den här artikeln bör endast göras i extrema fall eller i test miljöer. Granska stegen noggrant, som att ta bort aktivt använda TDE-skydd från Azure Key Vault resulterar i att **databasen blir otillgänglig**.
+> De procedurer som beskrivs i den här artikeln bör endast göras i extrema fall eller i test miljöer. Granska stegen noggrant, som att ta bort aktivt använda TDE-skydd från Azure Key Vault resulterar i att **databasen blir otillgänglig** .
 
 Om en nyckel någonsin misstänks vara komprometterad, så att en tjänst eller användare har obehörig åtkomst till nyckeln, är det bäst att ta bort nyckeln.
 
-Tänk på att när TDE-skyddet tas bort i Key Vault, i upp till 10 minuter, kommer alla krypterade databaser att börja neka alla anslutningar med motsvarande fel meddelande och ändra dess tillstånd till [otillgängligt](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql#inaccessible-tde-protector).
+Tänk på att när TDE-skyddet tas bort i Key Vault, i upp till 10 minuter, kommer alla krypterade databaser att börja neka alla anslutningar med motsvarande fel meddelande och ändra dess tillstånd till [otillgängligt](./transparent-data-encryption-byok-overview.md#inaccessible-tde-protector).
 
 Den här instruktions guiden går över två metoder beroende på önskat resultat efter ett komprometterat incident svar:
 
-- För att göra databaserna i Azure SQL Database/Azure Synapse Analytics **otillgängliga**.
-- För att göra databaserna i Azure SQL Database/Azure Azure Synapse Analytics (tidigare SQL Data Warehouse) **otillgängliga**.
+- För att göra databaserna i Azure SQL Database/Azure Synapse Analytics **otillgängliga** .
+- För att göra databaserna i Azure SQL Database/Azure Azure Synapse Analytics (tidigare SQL Data Warehouse) **otillgängliga** .
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,7 +45,7 @@ Den här instruktions guiden går över två metoder beroende på önskat result
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
- Instruktioner för installation av Az-modulen finns i [Installera Azure PowerShell](/powershell/azure/install-az-ps). För vissa cmdlets, se [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+ Instruktioner för installation av Az-modulen finns i [Installera Azure PowerShell](/powershell/azure/install-az-ps). För vissa cmdlets, se [AzureRM. SQL](/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
 > PowerShell-modulen för Azure Resource Manager (RM) stöds fortfarande men all framtida utveckling är för AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).

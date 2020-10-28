@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 8e64e1a63b01e900988c999321423dfe92df00c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14031118a93f5760b302e4d2b76334205be6d087
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335084"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789632"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Självstudie: implementera en geo-distribuerad databas (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
 Kontrol lera att du har installerat följande objekt för att slutföra självstudien:
 
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-Inställningar för geo-replikering kan också ändras i Azure Portal, genom att välja din databas och **Inställningar**  >  **geo-replikering**.
+Inställningar för geo-replikering kan också ändras i Azure Portal, genom att välja din databas och **Inställningar**  >  **geo-replikering** .
 
 ![Inställningar för geo-replikering](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -132,7 +132,7 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Skriv in **Y** och tryck på **RETUR**.
+1. Skriv in **Y** och tryck på **RETUR** .
 
 1. Ändra kataloger till det nya projektet.
 
@@ -182,7 +182,7 @@ Inställningar för geo-replikering kan också ändras i Azure Portal, genom att
    </build>
    ```
 
-1. Spara och Stäng *pom.xmls * filen.
+1. Spara och Stäng *pom.xmls* filen.
 
 1. Öppna filen *app. java* som finns i.. \SqlDbSample\src\main\java\com\sqldbsamples och ersätt innehållet med följande kod:
 

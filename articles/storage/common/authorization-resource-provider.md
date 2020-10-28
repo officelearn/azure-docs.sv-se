@@ -9,16 +9,16 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822274"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789683"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser
 
-Azure Resource Manager är Azures tjänst för distribution och hantering. Azure Storage Resource Provider är en tjänst som baseras på Azure Resource Manager och som ger till gång till hanterings resurser för Azure Storage. Du kan använda Azure Storage Resource Provider för att skapa, uppdatera, hantera och ta bort resurser, till exempel lagrings konton, privata slut punkter och konto åtkomst nycklar. Mer information om Azure Resource Manager finns i [Azure Resource Manager översikt](/azure/azure-resource-manager/resource-group-overview).
+Azure Resource Manager är Azures tjänst för distribution och hantering. Azure Storage Resource Provider är en tjänst som baseras på Azure Resource Manager och som ger till gång till hanterings resurser för Azure Storage. Du kan använda Azure Storage Resource Provider för att skapa, uppdatera, hantera och ta bort resurser, till exempel lagrings konton, privata slut punkter och konto åtkomst nycklar. Mer information om Azure Resource Manager finns i [Azure Resource Manager översikt](../../azure-resource-manager/management/overview.md).
 
 Du kan använda Azure Storage Resource Provider för att utföra åtgärder som att skapa eller ta bort ett lagrings konto eller hämta en lista över lagrings konton i en prenumeration. Använd Azure Active Directory (Azure AD) om du vill auktorisera begär Anden mot Azure Storage resurs leverantören. Den här artikeln beskriver hur du tilldelar behörigheter till hanterings resurser och pekar på exempel som visar hur du begär förfrågningar mot Azure Storage resurs leverantören.
 
@@ -32,9 +32,9 @@ Azure Storage stöder användning av Azure AD för att auktorisera begär Anden 
 
 ## <a name="assign-management-permissions-with-azure-role-based-access-control-azure-rbac"></a>Tilldela hanterings behörigheter med rollbaserad åtkomst kontroll i Azure (Azure RBAC)
 
-Varje Azure-prenumeration har en associerad Azure Active Directory som hanterar användare, grupper och program. En användare, grupp eller ett program kallas även säkerhets objekt i kontexten för [Microsoft Identity Platform](/azure/active-directory/develop/). Du kan bevilja åtkomst till resurser i en prenumeration på ett säkerhets objekt som definieras i Active Directory med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC).
+Varje Azure-prenumeration har en associerad Azure Active Directory som hanterar användare, grupper och program. En användare, grupp eller ett program kallas även säkerhets objekt i kontexten för [Microsoft Identity Platform](../../active-directory/develop/index.yml). Du kan bevilja åtkomst till resurser i en prenumeration på ett säkerhets objekt som definieras i Active Directory med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
-När du tilldelar en Azure-roll till ett säkerhets objekt, anger du även omfattningen som de behörigheter som har beviljats av rollen gäller. För hanterings åtgärder kan du tilldela en roll på nivån för prenumerationen, resurs gruppen eller lagrings kontot. Du kan tilldela en Azure-roll till ett säkerhets objekt med hjälp av [Azure Portal](https://portal.azure.com/), [Azure CLI-verktyg](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/)eller [Azure Storage Resource Provider REST API](/rest/api/storagerp).
+När du tilldelar en Azure-roll till ett säkerhets objekt, anger du även omfattningen som de behörigheter som har beviljats av rollen gäller. För hanterings åtgärder kan du tilldela en roll på nivån för prenumerationen, resurs gruppen eller lagrings kontot. Du kan tilldela en Azure-roll till ett säkerhets objekt med hjälp av [Azure Portal](https://portal.azure.com/), [Azure CLI-verktyg](/cli/azure/install-classic-cli), [PowerShell](/powershell/azure/)eller [Azure Storage Resource Provider REST API](/rest/api/storagerp).
 
 Mer information finns i [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)?](../../role-based-access-control/overview.md) och de klassiska administratörs rollerna för [prenumerationer, Azure-roller och Azure AD-administratörer](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -53,7 +53,7 @@ Inbyggda roller som ger behörighet att anropa lagrings hanterings åtgärder in
 | **Administratör för användaråtkomst** | Kan hantera åtkomst till lagrings kontot.   | Ja, tillåter ett säkerhets objekt att tilldela sig själva behörigheter och andra. |
 | **Virtuell datordeltagare** | Kan hantera virtuella datorer, men inte lagrings kontot som de är anslutna till.   | Ja, ger behörighet att visa och återskapa lagrings konto nycklar. |
 
-Den tredje kolumnen i tabellen visar om den inbyggda rollen stöder **Microsoft. Storage/storageAccounts/listnycklar/åtgärd**. Den här åtgärden ger behörighet att läsa och återskapa lagrings konto nycklar. Behörigheter för åtkomst till Azure Storage hanterings resurser omfattar inte även behörigheter för åtkomst till data. Men om en användare har åtkomst till konto nycklarna kan de använda konto nycklarna för att få åtkomst till Azure Storage data via autentisering med delad nyckel.
+Den tredje kolumnen i tabellen visar om den inbyggda rollen stöder **Microsoft. Storage/storageAccounts/listnycklar/åtgärd** . Den här åtgärden ger behörighet att läsa och återskapa lagrings konto nycklar. Behörigheter för åtkomst till Azure Storage hanterings resurser omfattar inte även behörigheter för åtkomst till data. Men om en användare har åtkomst till konto nycklarna kan de använda konto nycklarna för att få åtkomst till Azure Storage data via autentisering med delad nyckel.
 
 ### <a name="custom-roles-for-management-operations"></a>Anpassade roller för hanterings åtgärder
 
@@ -76,6 +76,6 @@ Mer information om distributions modeller i Azure finns i [Resource Manager och 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+- [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - [Vad är rollbaserad åtkomstkontroll i Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Skalbarhets mål för Azure Storage Resource Provider](scalability-targets-resource-provider.md)

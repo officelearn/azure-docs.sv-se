@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 05/28/2020
-ms.openlocfilehash: b8c7671e655594456621e4489cb06191d820b134
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa236ecaaa9c38c68e66d1813280cd98b85b9463
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333162"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790397"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrera Azure SQL Database från den DTU-baserade modellen till den vCore-baserade modellen
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -94,9 +94,9 @@ FROM dtu_vcore_map;
 Förutom antalet virtuella kärnor (logiska processorer) och maskin varu genereringen kan flera andra faktorer påverka valet av vCore service mål:
 
 - Mappnings-T-SQL-frågan matchar DTU-och vCore-tjänstens mål vad gäller deras CPU-kapacitet, och därför blir resultaten mer exakta för PROCESSORbaserade arbets belastningar.
-- För samma maskin varu generation och samma antal virtuella kärnor är IOPS-och transaktions logg data flödes resurs gränser för vCore-databaser ofta högre än för DTU-databaser. För IO-baserade arbets belastningar kan det vara möjligt att minska antalet virtuella kärnor i vCore-modellen för att uppnå samma prestanda nivå. Resurs begränsningar för DTU-och vCore-databaser i absoluta värden visas i vyn [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) . Genom att jämföra de här värdena mellan DTU-databasen som ska migreras och en vCore-databas med ett cirka matchande tjänst mål kan du välja vCore-tjänstens mål mer precis.
+- För samma maskin varu generation och samma antal virtuella kärnor är IOPS-och transaktions logg data flödes resurs gränser för vCore-databaser ofta högre än för DTU-databaser. För IO-baserade arbets belastningar kan det vara möjligt att minska antalet virtuella kärnor i vCore-modellen för att uppnå samma prestanda nivå. Resurs begränsningar för DTU-och vCore-databaser i absoluta värden visas i vyn [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) . Genom att jämföra de här värdena mellan DTU-databasen som ska migreras och en vCore-databas med ett cirka matchande tjänst mål kan du välja vCore-tjänstens mål mer precis.
 - Mappnings frågan returnerar även mängden minne per kärna för DTU-databasen eller den elastiska poolen som ska migreras, och för varje maskin varu generation i vCore-modellen. Att se till att det finns ett liknande eller högre total minne efter migrering till vCore är viktigt för arbets belastningar som kräver en stor minnes data cache för att uppnå tillräckligt med prestanda eller arbets belastningar som kräver stora minnes bidrag för bearbetning av frågor. För sådana arbets belastningar, beroende på faktiska prestanda, kan det vara nödvändigt att öka antalet virtuella kärnor för att få tillräckligt med minne.
-- Den [historiska resurs användningen](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) av DTU-databasen bör övervägas när du väljer vCore tjänst mål. DTU-databaser med konsekvent underutnyttjade processor resurser kan behöva färre virtuella kärnor än det antal som returneras av mappnings frågan. Däremot kan DTU-databaser där konsekvent hög processor belastning medför otillräckliga arbets belastnings prestanda kräva fler virtuella kärnor än vad som returneras av frågan.
+- Den [historiska resurs användningen](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) av DTU-databasen bör övervägas när du väljer vCore tjänst mål. DTU-databaser med konsekvent underutnyttjade processor resurser kan behöva färre virtuella kärnor än det antal som returneras av mappnings frågan. Däremot kan DTU-databaser där konsekvent hög processor belastning medför otillräckliga arbets belastnings prestanda kräva fler virtuella kärnor än vad som returneras av frågan.
 - Om du migrerar databaser med tillfälliga eller oförutsägbara användnings mönster bör du överväga att använda [Server](serverless-tier-overview.md) lös beräknings nivå.  Observera att max antalet samtidiga arbetare (begär Anden) i Server lös är 75% gränsen för allokerad beräkning för samma antal konfigurerade virtuella kärnor.  Dessutom är Max tillgängligt minne i Server Lös 3 GB gånger det maximala antalet virtuella kärnor som kon figurer ATS. till exempel är maximalt minne 120 GB när 40 max virtuella kärnor har kon figurer ATS.   
 - I vCore-modellen kan den maximala databas storleken som stöds variera beroende på maskin varu genereringen. För stora databaser kontrollerar du de maximala storlekarna som stöds i vCore-modellen för [enskilda databaser](resource-limits-vcore-single-databases.md) och [elastiska pooler](resource-limits-vcore-elastic-pools.md).
 - För elastiska pooler har modellerna [DTU](resource-limits-dtu-elastic-pools.md) och [vCore](resource-limits-vcore-elastic-pools.md) skillnader i det högsta antalet databaser som stöds per pool. Detta bör övervägas när du migrerar elastiska pooler med många databaser.
@@ -105,7 +105,7 @@ Förutom antalet virtuella kärnor (logiska processorer) och maskin varu generer
 > [!IMPORTANT]
 > De här rikt linjerna för DTU-vCore för storleks ändring ovan tillhandahålls för att hjälpa till med den första uppskattningen av mål databasens tjänst mål.
 >
-> Den optimala konfigurationen av mål databasen är arbets belastnings beroende. Därför kan det vara bra att uppnå optimal pris-/prestanda grad efter migreringen, så att du kan behöva dra nytta av vCore-modellens flexibilitet för att justera antalet virtuella kärnor, [maskin varu generering](service-tiers-vcore.md#hardware-generations), [tjänst-](service-tiers-vcore.md#service-tiers) och [beräknings](service-tiers-vcore.md#compute-tiers) nivåer samt justering av andra parametrar för databas konfiguration, till exempel [Maximal grad av parallellitet](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
+> Den optimala konfigurationen av mål databasen är arbets belastnings beroende. Därför kan det vara bra att uppnå optimal pris-/prestanda grad efter migreringen, så att du kan behöva dra nytta av vCore-modellens flexibilitet för att justera antalet virtuella kärnor, [maskin varu generering](service-tiers-vcore.md#hardware-generations), [tjänst-](service-tiers-vcore.md#service-tiers) och [beräknings](service-tiers-vcore.md#compute-tiers) nivåer samt justering av andra parametrar för databas konfiguration, till exempel [Maximal grad av parallellitet](/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
 > 
 
 ### <a name="dtu-to-vcore-migration-examples"></a>Exempel på DTU till vCore-migrering
@@ -132,7 +132,7 @@ Mappnings frågan returnerar följande resultat (vissa kolumner visas inte för 
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
 |0,25|Gen4|0,42|0,250|7|0,425|5,05|
 
-Vi ser att DTU-databasen motsvarar 0,25 logiska processorer (virtuella kärnor), med 0,42 GB minne per vCore och använder Gen4 maskin vara. De minsta vCore-tjänst målen i Gen4-och Gen5-maskin varu generationer, **GP_Gen4_1** och **GP_Gen5_2**, ger fler beräknings resurser än Standard-S0-databasen, så en direkt matchning är inte möjlig. Eftersom Gen4 maskin vara inaktive [ras är](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/)alternativet **GP_Gen5_2** lämpligt. Om arbets belastningen passar bra för [Server](serverless-tier-overview.md) lös beräknings nivån är **GP_S_Gen5_1** dessutom en närmare motsvarighet.
+Vi ser att DTU-databasen motsvarar 0,25 logiska processorer (virtuella kärnor), med 0,42 GB minne per vCore och använder Gen4 maskin vara. De minsta vCore-tjänst målen i Gen4-och Gen5-maskin varu generationer, **GP_Gen4_1** och **GP_Gen5_2** , ger fler beräknings resurser än Standard-S0-databasen, så en direkt matchning är inte möjlig. Eftersom Gen4 maskin vara inaktive [ras är](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/)alternativet **GP_Gen5_2** lämpligt. Om arbets belastningen passar bra för [Server](serverless-tier-overview.md) lös beräknings nivån är **GP_S_Gen5_1** dessutom en närmare motsvarighet.
 
 **Migrera en Premium p15-databas**
 
@@ -152,7 +152,7 @@ Mappnings frågan returnerar följande resultat (vissa kolumner visas inte för 
 |----------------|----------------|----------------------|-----------|-----------------------|-----------|-----------------------|
 |4,00|Gen5|5,40|2,800|7|4,000|5,05|
 
-Vi ser att den elastiska DTU-poolen har 4 logiska processorer (virtuella kärnor), med 5,4 GB minne per vCore och använder Gen5 maskin vara. Den direkta matchningen i vCore-modellen är en **GP_Gen5_4** elastisk pool. Detta tjänst mål har dock stöd för högst 200 databaser per pool, medan den elastiska poolen på Basic 200 eDTU stöder upp till 500-databaser. Om den elastiska poolen som ska migreras har fler än 200 databaser måste det matchande vCore-tjänst målet vara **GP_Gen5_6**, som har stöd för upp till 500-databaser.
+Vi ser att den elastiska DTU-poolen har 4 logiska processorer (virtuella kärnor), med 5,4 GB minne per vCore och använder Gen5 maskin vara. Den direkta matchningen i vCore-modellen är en **GP_Gen5_4** elastisk pool. Detta tjänst mål har dock stöd för högst 200 databaser per pool, medan den elastiska poolen på Basic 200 eDTU stöder upp till 500-databaser. Om den elastiska poolen som ska migreras har fler än 200 databaser måste det matchande vCore-tjänst målet vara **GP_Gen5_6** , som har stöd för upp till 500-databaser.
 
 ## <a name="migrate-geo-replicated-databases"></a>Migrera geo-replikerade databaser
 
@@ -169,12 +169,12 @@ Följande tabell innehåller vägledning för olika scenarier för migrering:
 |---|---|---|---|
 |Standard|Generellt syfte|Lateral|Kan migrera i vilken ordning som helst, men måste säkerställa lämplig vCore storlek enligt beskrivningen ovan|
 |Premium|Affärskritisk|Lateral|Kan migrera i vilken ordning som helst, men måste säkerställa lämplig vCore storlek enligt beskrivningen ovan|
-|Standard|Affärskritisk|Uppgradera|Måste migrera sekundär första|
+|Standard|Affärskritisk|Upgrade|Måste migrera sekundär första|
 |Affärskritisk|Standard|Nedgradera|Måste migrera primär första|
 |Premium|Generellt syfte|Nedgradera|Måste migrera primär första|
-|Generellt syfte|Premium|Uppgradera|Måste migrera sekundär första|
+|Generellt syfte|Premium|Upgrade|Måste migrera sekundär första|
 |Affärskritisk|Generellt syfte|Nedgradera|Måste migrera primär första|
-|Generellt syfte|Affärskritisk|Uppgradera|Måste migrera sekundär första|
+|Generellt syfte|Affärskritisk|Upgrade|Måste migrera sekundär första|
 ||||
 
 ## <a name="migrate-failover-groups"></a>Migrera redundansväxla grupper

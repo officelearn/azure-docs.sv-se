@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4ac76387f32b333d6d17d8d6f71ab0bc7de07ec0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8150375eff98374e21d200d98c04158b07f1c243
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474758"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789700"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Skapa ett konto som stöder Kundhanterade nycklar för tabeller och köer
 
@@ -62,7 +62,7 @@ az feature register --namespace Microsoft.Storage \
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Ej tillämpligt
+E.t.
 
 ---
 
@@ -94,7 +94,7 @@ az feature show --namespace Microsoft.Storage \
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Ej tillämpligt
+E.t.
 
 ---
 
@@ -120,7 +120,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Ej tillämpligt
+E.t.
 
 ---
 
@@ -244,7 +244,7 @@ az storage account show /
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Ej tillämpligt
+E.t.
 
 ---
 
@@ -252,4 +252,4 @@ Ej tillämpligt
 
 - [Azure Storage-kryptering av vilande data](storage-service-encryption.md)
 - [Kundhanterade nycklar för Azure Storage kryptering](customer-managed-keys-overview.md)
-- [Vad är Azure Key Vault](/azure/key-vault/key-vault-overview)?
+- [Vad är Azure Key Vault](../../key-vault/general/overview.md)?

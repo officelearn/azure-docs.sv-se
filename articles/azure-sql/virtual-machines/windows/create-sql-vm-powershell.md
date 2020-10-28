@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bb3fd9136f78a332a22f973d211dec748c4fb260
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bf17f85892691fe930d3d4b1e12846da8f9dc58
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317080"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789819"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Använda Azure PowerShell för att etablera SQL Server på Azure Virtual Machines
 
@@ -28,13 +28,13 @@ ms.locfileid: "91317080"
 
 Den här guiden beskriver alternativ för att använda PowerShell för att etablera SQL Server på Azure Virtual Machines (VM). Ett strömlinjeformat Azure PowerShell exempel som förlitar sig på standardvärden finns i snabb starten för [SQL VM Azure PowerShell](sql-vm-create-powershell-quickstart.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ## <a name="configure-your-subscription"></a>Konfigurera din prenumeration
 
-1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra kommandot **Connect-AzAccount**.
+1. Öppna PowerShell och upprätta åtkomst till ditt Azure-konto genom att köra kommandot **Connect-AzAccount** .
 
    ```powershell
    Connect-AzAccount
@@ -135,7 +135,7 @@ Använd följande variabler för att definiera SQL Server avbildningen som ska a
    Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
    ```
 
-1. I den här självstudien använder du SQL Server 2017 Developer Edition (**SQLDEV**). Developer Edition licensieras fritt för testning och utveckling och du betalar bara för kostnaden för att köra den virtuella datorn.
+1. I den här självstudien använder du SQL Server 2017 Developer Edition ( **SQLDEV** ). Developer Edition licensieras fritt för testning och utveckling och du betalar bara för kostnaden för att köra den virtuella datorn.
 
    ```powershell
    $Sku = "SQLDEV"
@@ -143,7 +143,7 @@ Använd följande variabler för att definiera SQL Server avbildningen som ska a
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Med distributions modellen Resource Manager är det första objekt som du skapar resurs gruppen. Använd cmdleten [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) för att skapa en Azure-resurs grupp och dess resurser. Ange de variabler som du tidigare har initierat för resurs gruppens namn och plats.
+Med distributions modellen Resource Manager är det första objekt som du skapar resurs gruppen. Använd cmdleten [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) för att skapa en Azure-resurs grupp och dess resurser. Ange de variabler som du tidigare har initierat för resurs gruppens namn och plats.
 
 Kör denna cmdlet för att skapa din nya resurs grupp.
 
@@ -153,7 +153,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Den virtuella datorn kräver lagrings resurser för operativ system disken och för SQL Server data-och loggfiler. För enkelhetens skull skapar du en enskild disk för båda. Du kan lägga till ytterligare diskar senare med hjälp av cmdleten [Add-Azure disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) för att placera SQL Server data och loggfiler på dedikerade diskar. Använd cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) för att skapa ett standard lagrings konto i din nya resurs grupp. Ange de variabler som du tidigare har initierat för lagrings konto namnet, lagrings-SKU-namnet och platsen.
+Den virtuella datorn kräver lagrings resurser för operativ system disken och för SQL Server data-och loggfiler. För enkelhetens skull skapar du en enskild disk för båda. Du kan lägga till ytterligare diskar senare med hjälp av cmdleten [Add-Azure disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) för att placera SQL Server data och loggfiler på dedikerade diskar. Använd cmdleten [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) för att skapa ett standard lagrings konto i din nya resurs grupp. Ange de variabler som du tidigare har initierat för lagrings konto namnet, lagrings-SKU-namnet och platsen.
 
 Kör denna cmdlet för att skapa ditt nya lagrings konto.
 
@@ -176,7 +176,7 @@ Den virtuella datorn kräver ett antal nätverks resurser för nätverks anslutn
 
 ### <a name="create-a-virtual-network-subnet-configuration"></a>Skapa en under näts konfiguration för virtuellt nätverk
 
-Börja med att skapa en under näts konfiguration för ditt virtuella nätverk. I den här självstudien skapar du ett standard-undernät med cmdleten [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) . Ange de variabler som du tidigare har initierat för under nätets namn och adressprefix.
+Börja med att skapa en under näts konfiguration för ditt virtuella nätverk. I den här självstudien skapar du ett standard-undernät med cmdleten [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) . Ange de variabler som du tidigare har initierat för under nätets namn och adressprefix.
 
 > [!NOTE]
 > Du kan definiera ytterligare egenskaper för det virtuella nätverkets under näts konfiguration med hjälp av den här cmdleten, men det ligger utanför den här självstudiens omfattning.
@@ -189,7 +189,7 @@ $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefi
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa sedan ditt virtuella nätverk i din nya resurs grupp med hjälp av cmdleten [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) . Ange de variabler som du tidigare har initierat för namn, plats och adressprefix. Använd under näts konfigurationen som du definierade i föregående steg.
+Skapa sedan ditt virtuella nätverk i din nya resurs grupp med hjälp av cmdleten [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) . Ange de variabler som du tidigare har initierat för namn, plats och adressprefix. Använd under näts konfigurationen som du definierade i föregående steg.
 
 Kör denna cmdlet för att skapa ditt virtuella nätverk.
 
@@ -201,7 +201,7 @@ $VNet = New-AzVirtualNetwork -Name $VNetName `
 
 ### <a name="create-the-public-ip-address"></a>Skapa den offentliga IP-adressen
 
-Nu när du har definierat ditt virtuella nätverk måste du konfigurera en IP-adress för anslutning till den virtuella datorn. I den här självstudien skapar du en offentlig IP-adress med dynamisk IP-adressering som stöd för Internet anslutning. Använd cmdleten [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) för att skapa den offentliga IP-adressen i din nya resurs grupp. Ange de variabler som du tidigare har initierat för etiketten namn, plats, allokeringsmetod och DNS-domännamn.
+Nu när du har definierat ditt virtuella nätverk måste du konfigurera en IP-adress för anslutning till den virtuella datorn. I den här självstudien skapar du en offentlig IP-adress med dynamisk IP-adressering som stöd för Internet anslutning. Använd cmdleten [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) för att skapa den offentliga IP-adressen i din nya resurs grupp. Ange de variabler som du tidigare har initierat för etiketten namn, plats, allokeringsmetod och DNS-domännamn.
 
 > [!NOTE]
 > Du kan definiera ytterligare egenskaper för den offentliga IP-adressen med hjälp av den här cmdleten, men det ligger utanför den inledande självstudiens omfång. Du kan också skapa en privat adress eller en adress med en statisk adress, men det är även utanför den här självstudiens omfång.
@@ -243,7 +243,7 @@ Skapa en nätverks säkerhets grupp för att skydda den virtuella datorn och SQL
 
 ### <a name="create-the-network-interface"></a>Skapa nätverks gränssnittet
 
-Nu är du redo att skapa nätverks gränssnittet för den virtuella datorn. Använd cmdleten [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) för att skapa nätverks gränssnittet i din nya resurs grupp. Ange namn, plats, undernät och offentlig IP-adress som definierats tidigare.
+Nu är du redo att skapa nätverks gränssnittet för den virtuella datorn. Använd cmdleten [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) för att skapa nätverks gränssnittet i din nya resurs grupp. Ange namn, plats, undernät och offentlig IP-adress som definierats tidigare.
 
 Kör denna cmdlet för att skapa ett nätverks gränssnitt.
 
@@ -265,7 +265,7 @@ Nu när lagrings-och nätverks resurser har definierats är du redo att definier
 
 ### <a name="create-the-vm-object"></a>Skapa VM-objektet
 
-Börja med att ange den virtuella datorns storlek. I den här självstudien anger du en DS13. Använd cmdleten [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) för att skapa ett konfigurerbart virtuellt dator objekt. Ange de variabler som du tidigare har initierat för namn och storlek.
+Börja med att ange den virtuella datorns storlek. I den här självstudien anger du en DS13. Använd cmdleten [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) för att skapa ett konfigurerbart virtuellt dator objekt. Ange de variabler som du tidigare har initierat för namn och storlek.
 
 Kör denna cmdlet för att skapa objektet för den virtuella datorn.
 
@@ -275,7 +275,7 @@ $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 
 ### <a name="create-a-credential-object-to-hold-the-name-and-password-for-the-local-administrator-credentials"></a>Skapa ett Credential-objekt för att lagra namn och lösen ord för autentiseringsuppgifter för lokal administratör
 
-Innan du kan ange egenskaper för operativ systemet för den virtuella datorn måste du ange autentiseringsuppgifterna för det lokala administratörs kontot som en säker sträng. Använd cmdleten [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) för att åstadkomma detta.
+Innan du kan ange egenskaper för operativ systemet för den virtuella datorn måste du ange autentiseringsuppgifterna för det lokala administratörs kontot som en säker sträng. Använd cmdleten [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) för att åstadkomma detta.
 
 Kör följande cmdlet. Du måste ange den virtuella datorns lokala administratörs namn och lösen ord i fönstret för begäran om PowerShell-autentiseringsuppgifter.
 
@@ -285,7 +285,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 
 ### <a name="set-the-operating-system-properties-for-the-virtual-machine"></a>Ange egenskaper för operativ systemet för den virtuella datorn
 
-Nu är du redo att ange den virtuella datorns egenskaper för operativ systemet med cmdleten [set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) .
+Nu är du redo att ange den virtuella datorns egenskaper för operativ systemet med cmdleten [set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) .
 
 - Ange typ av operativ system som Windows.
 - Kräv att den [virtuella dator agenten](../../../virtual-machines/extensions/agent-windows.md) ska installeras.
@@ -302,7 +302,7 @@ $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine `
 
 ### <a name="add-the-network-interface-to-the-virtual-machine"></a>Lägg till nätverks gränssnittet på den virtuella datorn
 
-Använd sedan cmdleten [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) för att lägga till nätverks gränssnittet med den variabel som du definierade tidigare.
+Använd sedan cmdleten [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) för att lägga till nätverks gränssnittet med den variabel som du definierade tidigare.
 
 Kör denna cmdlet för att ange nätverks gränssnittet för den virtuella datorn.
 
@@ -322,7 +322,7 @@ $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDis
 
 ### <a name="set-the-operating-system-disk-properties-for-the-virtual-machine"></a>Ange egenskaper för operativ system disken för den virtuella datorn
 
-Ange sedan operativ systemets disk egenskaper för den virtuella datorn med cmdleten [set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) . 
+Ange sedan operativ systemets disk egenskaper för den virtuella datorn med cmdleten [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) . 
 
 - Ange att operativ systemet för den virtuella datorn kommer från en avbildning.
 - Ange att cachelagring ska vara skrivskyddad (eftersom SQL Server installeras på samma disk).
@@ -337,7 +337,7 @@ $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
 
 ### <a name="specify-the-platform-image-for-the-virtual-machine"></a>Ange plattforms avbildningen för den virtuella datorn
 
-Det sista konfigurations steget är att ange plattforms avbildningen för den virtuella datorn. I den här självstudien använder du den senaste SQL Server 2016 CTP-avbildningen. Använd cmdleten [set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage) för att använda den här avbildningen med de variabler som du definierade tidigare.
+Det sista konfigurations steget är att ange plattforms avbildningen för den virtuella datorn. I den här självstudien använder du den senaste SQL Server 2016 CTP-avbildningen. Använd cmdleten [set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) för att använda den här avbildningen med de variabler som du definierade tidigare.
 
 Kör denna cmdlet för att ange plattforms avbildningen för den virtuella datorn.
 
@@ -349,7 +349,7 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
 
 ## <a name="create-the-sql-vm"></a>Skapa den virtuella SQL-datorn
 
-Nu när du har slutfört konfigurations stegen är du redo att skapa den virtuella datorn. Använd cmdleten [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) för att skapa den virtuella datorn med de variabler som du har definierat.
+Nu när du har slutfört konfigurations stegen är du redo att skapa den virtuella datorn. Använd cmdleten [New-AzVM](/powershell/module/az.compute/new-azvm) för att skapa den virtuella datorn med de variabler som du har definierat.
 
 > [!TIP]
 > Det kan ta några minuter att skapa den virtuella datorn.
@@ -383,7 +383,7 @@ Om du inte behöver köra den virtuella SQL-datorn kontinuerligt kan du undvika 
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Du kan även permanent ta bort alla resurser som är kopplade till den virtuella datorn med kommandot **Remove-AzResourceGroup**. Det här tar även permanent bort den virtuella datorn, så använd det här kommandot med försiktighet.
+Du kan även permanent ta bort alla resurser som är kopplade till den virtuella datorn med kommandot **Remove-AzResourceGroup** . Det här tar även permanent bort den virtuella datorn, så använd det här kommandot med försiktighet.
 
 ## <a name="example-script"></a>Exempelskript
 

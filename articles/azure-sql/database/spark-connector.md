@@ -11,18 +11,18 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 09/02/2020
-ms.openlocfilehash: 36010ff0206ddf9dae08391eb6e4c3dd7762cc10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e01e74f5086f7f1eb7e85661fbd35f452d8dae8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319341"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790210"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Påskynda real tids analys i real tid med Spark-anslutaren
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 > [!NOTE]
-> Från och med sep 2020 behålls inte den här anslutningen aktivt. [Apache Spark Connector för SQL Server och Azure SQL](https://docs.microsoft.com/sql/connect/spark/connector) är nu tillgängligt, med stöd för python-och R-bindningar, ett enklare sätt att använda gränssnittet för att massredigera data och många andra förbättringar. Vi rekommenderar starkt att du utvärderar och använder den nya anslutningen i stället för den här. Informationen om den gamla anslutningen (den här sidan) bevaras endast för arkivering.
+> Från och med sep 2020 behålls inte den här anslutningen aktivt. [Apache Spark Connector för SQL Server och Azure SQL](/sql/connect/spark/connector) är nu tillgängligt, med stöd för python-och R-bindningar, ett enklare sätt att använda gränssnittet för att massredigera data och många andra förbättringar. Vi rekommenderar starkt att du utvärderar och använder den nya anslutningen i stället för den här. Informationen om den gamla anslutningen (den här sidan) bevaras endast för arkivering.
 
 Spark-anslutaren aktiverar databaser i Azure SQL Database, Azure SQL-hanterad instans och SQL Server att fungera som indata-eller utgående data för Spark-jobb. Det gör att du kan använda transaktions data i real tid i stor data analys och bevara resultat för ad hoc-frågor eller rapporter. Jämfört med den inbyggda JDBC-anslutningen ger den här anslutningen möjlighet att lägga till data i databasen. Det kan avsevärt från rad till rad med 10X för att 20x snabbare prestanda. Spark-anslutaren stöder Azure Active Directory (Azure AD)-autentisering för att ansluta till Azure SQL Database och Azure SQL-hanterad instans, så att du kan ansluta databasen från Azure Databricks med ditt Azure AD-konto. Den innehåller liknande gränssnitt med den inbyggda JDBC-anslutningen. Det är enkelt att migrera dina befintliga Spark-jobb till att använda den här nya anslutningen.
 
@@ -238,4 +238,4 @@ Om du inte redan har gjort det kan du hämta Spark-anslutaren från [Azure-SQLDB
 - [Exempel på Azure Databricks antecknings böcker](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Exempel skript (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-Du kanske också vill läsa [guiden Apache Spark SQL, DataFrames och data uppsättningar](https://spark.apache.org/docs/latest/sql-programming-guide.html) och [Azure Databricks-dokumentationen](https://docs.microsoft.com/azure/azure-databricks/).
+Du kanske också vill läsa [guiden Apache Spark SQL, DataFrames och data uppsättningar](https://spark.apache.org/docs/latest/sql-programming-guide.html) och [Azure Databricks-dokumentationen](/azure/azure-databricks/).

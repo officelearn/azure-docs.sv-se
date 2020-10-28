@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: a5760d3daaa13a5ed16230e1ffb7fe3691455e09
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8883263d6ddb2fb8ddc809f464288fcd282531bd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427044"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788833"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Välj mellan vCore-och DTU-inköps modeller – Azure SQL Database-och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -127,7 +127,7 @@ Du kan lägga till ytterligare eDTU: er i en befintlig pool utan avbrott i datab
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Fastställa antalet DTU: er som krävs av en arbets belastning
 
-Om du vill migrera en befintlig lokal eller SQL Server virtuell dators arbets belastning till SQL Database använder du DTU- [kalkylatorn](https://dtucalculator.azurewebsites.net/) för att uppskatta antalet DTU: er som behövs. För en befintlig SQL Database arbets belastning kan du använda [frågor om prestanda](query-performance-insight-use.md) för att förstå din databas resurs förbrukning (DTU: er) och få djupare insikter för att optimera din arbets belastning. I [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) Dynamic Management View (DMV) kan du Visa resursförbrukning för den senaste timmen. I vyn [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) katalog visas resursförbrukning under de senaste 14 dagarna, men med en lägre åter givning på fem minuters genomsnitt.
+Om du vill migrera en befintlig lokal eller SQL Server virtuell dators arbets belastning till SQL Database använder du DTU- [kalkylatorn](https://dtucalculator.azurewebsites.net/) för att uppskatta antalet DTU: er som behövs. För en befintlig SQL Database arbets belastning kan du använda [frågor om prestanda](query-performance-insight-use.md) för att förstå din databas resurs förbrukning (DTU: er) och få djupare insikter för att optimera din arbets belastning. I [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) Dynamic Management View (DMV) kan du Visa resursförbrukning för den senaste timmen. I vyn [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) katalog visas resursförbrukning under de senaste 14 dagarna, men med en lägre åter givning på fem minuters genomsnitt.
 
 ### <a name="determine-dtu-utilization"></a>Fastställa DTU-användning
 
@@ -135,7 +135,7 @@ Använd följande formel för att fastställa den genomsnittliga procent andelen
 
 `avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
 
-Indatavärdena för den här formeln kan hämtas från [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)och [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMV: er. Med andra ord kan du välja det största procentuella värdet från följande: `avg_cpu_percent` , `avg_data_io_percent` och `avg_log_write_percent` vid en viss tidpunkt, för att fastställa procent andelen DTU/eDTU-användning mot gränsen för DTU/eDTU för en databas eller elastisk pool.
+Indatavärdena för den här formeln kan hämtas från [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)och [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMV: er. Med andra ord kan du välja det största procentuella värdet från följande: `avg_cpu_percent` , `avg_data_io_percent` och `avg_log_write_percent` vid en viss tidpunkt, för att fastställa procent andelen DTU/eDTU-användning mot gränsen för DTU/eDTU för en databas eller elastisk pool.
 
 > [!NOTE]
 > DTU-gränsen för en databas bestäms av CPU, läsningar, skrivningar och minne som är tillgängligt för databasen. Men eftersom SQL Database-motorn vanligt vis använder allt tillgängligt minne för Datacachen för att förbättra prestandan, `avg_memory_usage_percent` är värdet normalt nära 100 procent, oavsett den aktuella databas belastningen. Det innebär att även om minnet påverkar DTU-gränsen, används den inte i formeln DTU-användning.
@@ -150,13 +150,13 @@ I den DTU-baserade inköps modellen kan kunder inte välja den maskin varu gener
 
 Till exempel kan en databas flyttas till en annan maskin varu generation om den skalas upp eller ned till ett annat tjänst mål, eller om den aktuella infrastrukturen i ett Data Center närmar sig sin kapacitets gräns, eller om den för närvarande använda maskin varan inaktive ras på grund av dess livs längd.
 
-Om en databas flyttas till en annan maskin vara kan arbets belastnings prestandan ändras. DTU-modellen garanterar att data flödet och svars tiden för [DTU-benchmark](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) -arbetsbelastningen förblir väsentligen identiska när databasen flyttas till en annan maskin varu generation, så länge tjänst målet (antalet DTU: er) är oförändrat.
+Om en databas flyttas till en annan maskin vara kan arbets belastnings prestandan ändras. DTU-modellen garanterar att data flödet och svars tiden för [DTU-benchmark](./service-tiers-dtu.md#dtu-benchmark) -arbetsbelastningen förblir väsentligen identiska när databasen flyttas till en annan maskin varu generation, så länge tjänst målet (antalet DTU: er) är oförändrat.
 
 Men över hela spektrumet av kund arbets belastningar som körs i Azure SQL Database, kan effekten av att använda annan maskin vara för samma tjänst mål vara mer uttalad. Olika arbets belastningar kan dra nytta av olika maskin varu konfiguration och-funktioner. För andra arbets belastningar än DTU-Benchmark är det därför möjligt att se prestanda skillnader om databasen flyttas från en maskin varu generation till en annan.
 
 Till exempel kan ett program som är känsligt för nätverks fördröjning se bättre prestanda på Gen5 maskin vara jämfört med Gen4 på grund av användningen av accelererade nätverk i Gen5, men ett program som använder intensiv läsning i/o kan se bättre prestanda på Gen4 maskin vara jämfört med Gen5 på grund av ett högre minne per Core-förhållande på Gen4.
 
-Kunder med arbets belastningar som är känsliga för maskin varu förändringar eller kunder som vill kontrol lera valet av maskin varu generering för deras databas kan använda [vCore](service-tiers-vcore.md) -modellen för att välja den maskin varu generation som används när databasen skapas och skalas. I vCore-modellen dokumenteras resurs gränserna för varje tjänst mål för varje maskin varu generation, för både [enkla databaser](resource-limits-vcore-single-databases.md) och [elastiska pooler](resource-limits-vcore-elastic-pools.md). Mer information om maskin varu generationer i vCore-modellen finns i [maskin varu generationer](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations).
+Kunder med arbets belastningar som är känsliga för maskin varu förändringar eller kunder som vill kontrol lera valet av maskin varu generering för deras databas kan använda [vCore](service-tiers-vcore.md) -modellen för att välja den maskin varu generation som används när databasen skapas och skalas. I vCore-modellen dokumenteras resurs gränserna för varje tjänst mål för varje maskin varu generation, för både [enkla databaser](resource-limits-vcore-single-databases.md) och [elastiska pooler](resource-limits-vcore-elastic-pools.md). Mer information om maskin varu generationer i vCore-modellen finns i [maskin varu generationer](./service-tiers-vcore.md#hardware-generations).
 
 ## <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
 

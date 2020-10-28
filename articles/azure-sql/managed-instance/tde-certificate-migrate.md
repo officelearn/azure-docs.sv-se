@@ -4,24 +4,24 @@ description: Migrera ett certifikat som skyddar databas krypterings nyckeln för
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein, jovanpop
 ms.date: 07/21/2020
-ms.openlocfilehash: 08adfd7b69d580f6a231f13f9fb2793d828e16a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80ff16156348db9c3a209757b48b7d54615d9104
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618190"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790703"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Migrera ett certifikat för en TDE-skyddad databas till en Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-När du migrerar en databas som skyddas av [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) till en Azure SQL-hanterad instans med hjälp av det interna återställnings alternativet måste motsvarande certifikat från SQL Server-instansen migreras innan databasen återställs. Den här artikeln vägleder dig genom processen för manuell migrering av certifikatet till den Azure SQL-hanterade instansen:
+När du migrerar en databas som skyddas av [Transparent datakryptering (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) till en Azure SQL-hanterad instans med hjälp av det interna återställnings alternativet måste motsvarande certifikat från SQL Server-instansen migreras innan databasen återställs. Den här artikeln vägleder dig genom processen för manuell migrering av certifikatet till den Azure SQL-hanterade instansen:
 
 > [!div class="checklist"]
 >
@@ -38,20 +38,20 @@ Ett alternativt alternativ som använder en fullständigt hanterad tjänst för 
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-* [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx)-kommandoradsverktyget installerat på den lokala servern eller en annan dator med åtkomst till det certifikat som exporterats som en fil. Verktyget Pvk2Pfx är en del av [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), en fristående kommando rads miljö.
+* [Pvk2Pfx](/windows-hardware/drivers/devtest/pvk2pfx)-kommandoradsverktyget installerat på den lokala servern eller en annan dator med åtkomst till det certifikat som exporterats som en fil. Verktyget Pvk2Pfx är en del av [Enterprise Windows Driver Kit](/windows-hardware/drivers/download-the-wdk), en fristående kommando rads miljö.
 * [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell) version 5.0 eller senare installerat.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Se till att du har följande:
 
-* Azure PowerShell-modulen [installeras och uppdateras](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* Azure PowerShell-modulen [installeras och uppdateras](/powershell/azure/install-az-ps).
 * [AZ. SQL-modul](https://www.powershellgallery.com/packages/Az.Sql).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL-hanterad instans, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRM-modulerna är i stort sett identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL-hanterad instans, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRM-modulerna är i stort sett identiska.
 
 Kör följande kommandon i PowerShell för att installera/uppdatera modulen:
 
@@ -125,7 +125,7 @@ Om certifikatet sparas i den SQL Server lokala datorns certifikat Arkiv, kan det
 
 2. I MMC-snapin-modulen certifikat expanderar du sökvägen personliga > certifikat för att se listan över certifikat.
 
-3. Högerklicka på certifikatet och klicka på **Exportera**.
+3. Högerklicka på certifikatet och klicka på **Exportera** .
 
 4. Följ guiden för att exportera certifikatet och den privata nyckeln till ett. PFX-format.
 
@@ -160,7 +160,7 @@ Om certifikatet sparas i den SQL Server lokala datorns certifikat Arkiv, kan det
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Du måste först [Konfigurera ett Azure Key Vault](/azure/key-vault/key-vault-manage-with-cli2) med din *. pfx* -fil.
+Du måste först [Konfigurera ett Azure Key Vault](../../key-vault/general/manage-with-cli2.md) med din *. pfx* -fil.
 
 1. Börja med förberedelsestegen i PowerShell:
 

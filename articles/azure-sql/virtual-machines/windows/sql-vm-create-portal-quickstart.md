@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb10e85b07037805d59dcba91ff20a4bc2a6574e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d7d82db7fc8a39a0865e80ee7873ee849627c583
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84667649"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791077"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>Snabb start: skapa SQL Server 2017 på en virtuell Windows-dator i Azure Portal
 
@@ -37,19 +37,19 @@ Den här snabb starten beskriver hur du skapar en SQL Server virtuell dator (VM)
 
 ## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Skaffa en Azure-prenumeration
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="select-a-sql-server-vm-image"></a><a id="select"></a> Välj en avbildning av en virtuell SQL Server-dator
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ditt konto.
 
-1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan *Azure SQL* i sökrutan.
+1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster** och skriver sedan *Azure SQL* i sökrutan.
 1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa mer information genom att välja **Visa information** på panelen **SQL Virtual Machines** .
 1. Välj den **kostnads fria SQL Server licensen: SQL Server 2017-utvecklare på Windows Server 2016** -avbildningen i list rutan.
 
    ![Nytt sökfönster](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
 
-1. Välj **Skapa**.
+1. Välj **Skapa** .
 
    ![Nytt sökfönster](./media/sql-vm-create-portal-quickstart/create-sql-2017-vm-image.png)
 
@@ -61,20 +61,20 @@ Ange följande information på fliken **grundläggande** :
 
    ![Prenumeration](./media/sql-vm-create-portal-quickstart/basics-project-details.png)
 
-1. Under **instans information**:
-    1. Skriv _SQLVM_ som namn på den **virtuella datorn**. 
-    1. Välj en plats för din **region**. 
-    1. I den här snabb starten måste du lämna **tillgänglighets alternativen** inställt på _ingen infrastruktur-redundans krävs_. Om du vill veta mer om tillgänglighets alternativ, se [tillgänglighet](../../../virtual-machines/windows/availability.md). 
-    1. I listan **avbildning** väljer du _gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server 2016_. 
+1. Under **instans information** :
+    1. Skriv _SQLVM_ som namn på den **virtuella datorn** . 
+    1. Välj en plats för din **region** . 
+    1. I den här snabb starten måste du lämna **tillgänglighets alternativen** inställt på _ingen infrastruktur-redundans krävs_ . Om du vill veta mer om tillgänglighets alternativ, se [tillgänglighet](../../../virtual-machines/availability.md). 
+    1. I listan **avbildning** väljer du _gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server 2016_ . 
     1. Välj att **ändra storleken** **på den** virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. 
 
    ![Instansinformation](./media/sql-vm-create-portal-quickstart/basics-instance-details.png)
 
-1. Under **administratörs konto**anger du ett användar namn, till exempel _azureuser_ och ett lösen ord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. Under **administratörs konto** anger du ett användar namn, till exempel _azureuser_ och ett lösen ord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
    ![Administratörskonto](./media/sql-vm-create-portal-quickstart/basics-administrator-account.png)
 
-1. Under **regler för inkommande port**väljer du **Tillåt valda portar** och väljer sedan **RDP (3389)** i list rutan. 
+1. Under **regler för inkommande port** väljer du **Tillåt valda portar** och väljer sedan **RDP (3389)** i list rutan. 
 
    ![Regler för inkommande portar](./media/sql-vm-create-portal-quickstart/basics-inbound-port-rules.png)
 
@@ -82,13 +82,13 @@ Ange följande information på fliken **grundläggande** :
 
 Konfigurera följande alternativ på fliken **SQL Server inställningar** :
 
-1. Under **säkerhet & nätverk**väljer du _offentliga (Internet_) för **SQL-anslutning** och ändrar porten till `1401` för att undvika att använda ett välkänt port nummer i det offentliga scenariot. 
-1. Under **SQL-autentisering**väljer du **Aktivera**. Autentiseringsuppgifterna för SQL-inloggning har angetts till samma användar namn och lösen ord som du konfigurerade för den virtuella datorn. Använd standardinställningen för Azure Key Vault- [**integrering**](azure-key-vault-integration-configure.md). **Lagrings konfigurationen** är inte tillgänglig för den grundläggande SQL Server VM-avbildningen, men du hittar mer information om tillgängliga alternativ för andra avbildningar i [lagrings konfigurationen](storage-configuration.md#new-vms).  
+1. Under **säkerhet & nätverk** väljer du _offentliga (Internet_ ) för **SQL-anslutning** och ändrar porten till `1401` för att undvika att använda ett välkänt port nummer i det offentliga scenariot. 
+1. Under **SQL-autentisering** väljer du **Aktivera** . Autentiseringsuppgifterna för SQL-inloggning har angetts till samma användar namn och lösen ord som du konfigurerade för den virtuella datorn. Använd standardinställningen för Azure Key Vault- [**integrering**](azure-key-vault-integration-configure.md). **Lagrings konfigurationen** är inte tillgänglig för den grundläggande SQL Server VM-avbildningen, men du hittar mer information om tillgängliga alternativ för andra avbildningar i [lagrings konfigurationen](storage-configuration.md#new-vms).  
 
    ![Säkerhets inställningar för SQL Server](./media/sql-vm-create-portal-quickstart/sql-server-settings.png)
 
 
-1. Ändra eventuella andra inställningar om det behövs och välj sedan **Granska + skapa**. 
+1. Ändra eventuella andra inställningar om det behövs och välj sedan **Granska + skapa** . 
 
    ![Granska + skapa](./media/sql-vm-create-portal-quickstart/review-create.png)
 
@@ -106,15 +106,15 @@ Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** län
 1. Öppna [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)på en annan dator som är ansluten till Internet.
 
 
-1. I dialogrutan **Anslut till server** eller **Anslut till databasmotor**, redigerar du värdet för **Servernamn**. Ange den virtuella datorns offentliga IP-adress. Lägg sedan till ett kommatecken och Lägg till den anpassade port (**1401**) som du angav när du konfigurerade den nya virtuella datorn. Till exempel `11.22.33.444,1401`.
+1. I dialogrutan **Anslut till server** eller **Anslut till databasmotor** , redigerar du värdet för **Servernamn** . Ange den virtuella datorns offentliga IP-adress. Lägg sedan till ett kommatecken och Lägg till den anpassade port ( **1401** ) som du angav när du konfigurerade den nya virtuella datorn. Till exempel `11.22.33.444,1401`.
 
-1. I rutan **Autentisering**, markerar du **SQL Server-autentisering**.
+1. I rutan **Autentisering** , markerar du **SQL Server-autentisering** .
 
-1. I rutan **Inloggning**, skriver du namnet på en giltig SQL-inloggning.
+1. I rutan **Inloggning** , skriver du namnet på en giltig SQL-inloggning.
 
-1. I rutan **Lösenord**, skriver du lösenordet för inloggningen.
+1. I rutan **Lösenord** , skriver du lösenordet för inloggningen.
 
-1. Välj **Anslut**.
+1. Välj **Anslut** .
 
     ![ssms anslut](./media/sql-vm-create-portal-quickstart/ssms-connect.png)
 

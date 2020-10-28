@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: f30f92df505abeff108f8d1c503cb33162d2e409
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533554"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790924"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Det går inte att skapa kluster med InvalidNetworkConfigurationErrorCode i Azure HDInsight
 
@@ -68,6 +68,19 @@ Azure Storage och SQL har inte fasta IP-adresser, så vi måste tillåta utgåen
 
     Om det finns definierade vägar kontrollerar du att det finns vägar för IP-adresser för den region där klustret distribuerades och att **NextHopType** för varje väg är **Internet** . Det bör finnas en väg definierad för varje obligatorisk IP-adress som dokumenteras i den tidigare artikeln.
 
+## <a name="failed-to-establish-an-outbound-connection-from-the-cluster-for-the-communication-with-the-hdinsight-resource-provider-please-ensure-that-outbound-connectivity-is-allowed"></a>"Det gick inte att upprätta en utgående anslutning från klustret för kommunikation med HDInsight-resurs leverantören. Kontrol lera att den utgående anslutningen tillåts. "
+
+### <a name="issue"></a>Problem
+
+Fel beskrivningen innehåller "Det gick inte att upprätta en utgående anslutning från klustret för kommunikation med HDInsight-resurs leverantören. Kontrol lera att den utgående anslutningen tillåts. "
+
+### <a name="cause"></a>Orsak
+
+När du använder privata länkade HDInsight-kluster måste utgående åtkomst från klustret konfigureras för att tillåta att anslutningar görs till HDInsight-resurs leverantören.
+
+### <a name="resolution"></a>Lösning
+
+* För att lösa det här problemet, se installations stegen för HDInsight privat länk i [konfiguration av privat länk](../hdinsight-private-link.md)
 ---
 
 ## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>"Konfiguration av virtuellt nätverk är inte kompatibelt med HDInsight-krav"

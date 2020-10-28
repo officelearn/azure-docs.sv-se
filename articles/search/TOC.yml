@@ -32,8 +32,8 @@
       href: search-get-started-dotnet.md
     - name: Java
       href: search-get-started-java.md
-    - name: Node.js
-      href: search-get-started-nodejs.md
+    - name: JavaScript
+      href: search-get-started-javascript.md
     - name: Postman
       href: search-get-started-postman.md
     - name: PowerShell
@@ -320,9 +320,11 @@
           href: search-api-preview.md
         - name: Utveckla i .NET
           items:
-            - name: Use Microsoft.Azure.Search (v10)
+            - name: Använda Azure.Search.Documents
               href: search-howto-dotnet-sdk.md
-            - name: Komma igång (v10)
+            - name: Använda Microsoft.Azure.Search
+              href: search-howto-dotnet-sdk-v10.md
+            - name: Äldre snabbstart (Microsoft.Azure.Search)
               href: search-get-started-dotnet-v10.md
         - name: Uppgradera SDK
           items:
@@ -546,5 +548,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: Videoklipp
+    - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

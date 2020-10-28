@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: d208a9b9f8e1cc16e2c72aa825a2daf88ad00176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4be3f8c6cd416743c2d1118cf2de01073c3022ff
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86145661"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790499"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>DNS-alias för Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -60,7 +60,7 @@ Följande egenskaper gäller för varje DNS-alias för servern:
 - *Server krävs:* Det går inte att skapa ett DNS-alias om det inte refererar till exakt en server och servern måste redan finnas. Ett uppdaterat alias måste alltid referera till exakt en befintlig server.
   - När du släpper en server släpper Azure-systemet också alla DNS-alias som refererar till servern.
 - *Inte kopplat till någon region:* DNS-alias är inte kopplade till en region. Alla DNS-alias kan uppdateras för att referera till en server som finns i en geografisk region.
-  - Men när du uppdaterar ett alias för att referera till en annan server måste båda servrarna finnas i samma Azure- *prenumeration*.
+  - Men när du uppdaterar ett alias för att referera till en annan server måste båda servrarna finnas i samma Azure- *prenumeration* .
 - *Behörigheter:* Användaren måste ha behörighet som *Server deltagare* eller högre för att kunna hantera ett DNS-alias. Mer information finns i [Kom igång med Role-Based Access Control i Azure Portal](../../role-based-access-control/overview.md).
 
 ## <a name="manage-your-dns-aliases"></a>Hantera dina DNS-alias
@@ -71,7 +71,7 @@ Både REST-API: er och PowerShell-cmdletar finns tillgängliga så att du kan ha
 
 Dokumentationen för REST-API: erna finns tillgänglig nära följande webbplats:
 
-- [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/)
+- [Azure SQL Database REST API](/rest/api/sql/)
 
 REST-API: er kan också visas i GitHub på:
 
@@ -83,7 +83,7 @@ REST-API: er kan också visas i GitHub på:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
 PowerShell-cmdletar är tillgängliga som anropar REST-API: erna.
 
@@ -93,10 +93,10 @@ Ett kod exempel på PowerShell-cmdletar som används för att hantera DNS-alias 
 
 De cmdletar som används i kod exemplet är följande:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): skapar ett nytt DNS-alias i Azure SQL Database tjänst systemet. Aliaset refererar till Server 1.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Hämta och lista alla DNS-alias som har tilldelats Server 1.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): ändrar Server namnet som aliaset är konfigurerat att referera till, från Server 1 till Server 2.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): ta bort DNS-aliaset från Server 2 med hjälp av namnet på aliaset.
+- [New-AzSqlServerDNSAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias): skapar ett nytt DNS-alias i Azure SQL Database tjänst systemet. Aliaset refererar till Server 1.
+- [Get-AzSqlServerDNSAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Hämta och lista alla DNS-alias som har tilldelats Server 1.
+- [Set-AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): ändrar Server namnet som aliaset är konfigurerat att referera till, från Server 1 till Server 2.
+- [Remove-AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): ta bort DNS-aliaset från Server 2 med hjälp av namnet på aliaset.
 
 ## <a name="limitations-during-preview"></a>Begränsningar under för hands versionen
 
@@ -104,7 +104,7 @@ För närvarande har ett DNS-alias följande begränsningar:
 
 - *Fördröjning på upp till 2 minuter:* Det tar upp till 2 minuter för ett DNS-alias att uppdateras eller tas bort.
   - Oavsett kort fördröjning stoppar aliaset omedelbart refererade klient anslutningar till den äldre servern.
-- *DNS-sökning:* För närvarande är det enda auktoritativa sättet att kontrol lera vilken server ett angivet DNS-alias refererar till genom att utföra en [DNS-sökning](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
+- *DNS-sökning:* För närvarande är det enda auktoritativa sättet att kontrol lera vilken server ett angivet DNS-alias refererar till genom att utföra en [DNS-sökning](/windows-server/administration/windows-commands/nslookup).
 - _Tabell granskning stöds inte:_ Du kan inte använda ett DNS-alias på en server där *tabell granskning* har Aktiver ATS för en databas.
   - Tabell granskning är föråldrad.
   - Vi rekommenderar att du flyttar till [BLOB-granskning](../../azure-sql/database/auditing-overview.md).
@@ -112,8 +112,8 @@ För närvarande har ett DNS-alias följande begränsningar:
 ## <a name="related-resources"></a>Relaterade resurser
 
 - [Översikt över affärs kontinuitet med Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md), inklusive haveri beredskap.
-- [Azure REST API-referens](https://docs.microsoft.com/rest/api/azure/)
-- [API för Server DNS-alias](https://docs.microsoft.com/rest/api/sql/serverdnsaliases)
+- [Azure REST API-referens](/rest/api/azure/)
+- [API för Server DNS-alias](/rest/api/sql/serverdnsaliases)
 
 ## <a name="next-steps"></a>Nästa steg
 

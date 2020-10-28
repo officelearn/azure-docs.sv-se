@@ -18,6 +18,7 @@
         - name: Skapa en offentlig zon – CLI
           href: dns-getstarted-cli.md
         - name: Skapa en offentlig zon – ARM-mall
+          displayName: Resource Manager
           href: dns-get-started-template.md
     - name: Privat DNS
       items:
@@ -79,7 +80,7 @@
           href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
         - name: VANLIGA FRÅGOR OCH SVAR
           href: dns-faq-private.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Offentligt DNS
       items:

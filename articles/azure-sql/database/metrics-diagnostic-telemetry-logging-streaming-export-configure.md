@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: 1442ca7957a458e1458c4815033bf5e79c67c32a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1e1de694b6333a350d034b08225aeea117ae703
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448915"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790482"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Konfigurera direkt uppspelnings export av Azure SQL Database-och SQL-hanterad instans Diagnostic-telemetri
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,38 +37,38 @@ Förutom att strömma exporten av Intelligent Insights loggen kan du också expo
 
 | Diagnostic-telemetri för databaser | Azure SQL Database support | Support för Azure SQL-hanterad instans |
 | :------------------- | ----- | ----- |
-| [Basic-mått](#basic-metrics): innehåller DTU/CPU-procent, DTU/CPU-gräns, fysisk data läsning i procent, logg skrivnings procent, lyckad/misslyckad/blockerad av brand Väggs anslutningar, procent andel av arbets tagare, lagring, lagrings procent och XTP lagrings procent. | Ja | Inga |
-| [Instans och app Advanced](#advanced-metrics): innehåller tempdb-systemets databas data och logg fils storlek och tempdb-logg filen som används. | Ja | Inga |
+| [Basic-mått](#basic-metrics): innehåller DTU/CPU-procent, DTU/CPU-gräns, fysisk data läsning i procent, logg skrivnings procent, lyckad/misslyckad/blockerad av brand Väggs anslutningar, procent andel av arbets tagare, lagring, lagrings procent och XTP lagrings procent. | Ja | Nej |
+| [Instans och app Advanced](#advanced-metrics): innehåller tempdb-systemets databas data och logg fils storlek och tempdb-logg filen som används. | Ja | Nej |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): innehåller information om frågans körnings statistik, till exempel processor användning och statistik över fråge varaktighet. | Ja | Ja |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): innehåller information om frågan vänta i statistik (vad dina frågor väntar på), t. ex. CPU, logg och låsning. | Ja | Ja |
 | [Fel](#errors-dataset): innehåller information om SQL-fel på en databas. | Ja | Ja |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): innehåller information om hur lång tid en databas har använt för att vänta på olika vänte typer. | Ja | Inga |
-| [Timeout](#time-outs-dataset): innehåller information om tids gränser för en databas. | Ja | Inga |
-| [Block](#blockings-dataset): innehåller information om hur du blockerar händelser i en databas. | Ja | Inga |
-| [Död lägen](#deadlocks-dataset): innehåller information om deadlock-händelser på en databas. | Ja | Inga |
-| [AutomaticTuning](#automatic-tuning-dataset): innehåller information om automatiska justerings rekommendationer för en databas. | Ja | Inga |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): innehåller information om hur lång tid en databas har använt för att vänta på olika vänte typer. | Ja | Nej |
+| [Timeout](#time-outs-dataset): innehåller information om tids gränser för en databas. | Ja | Nej |
+| [Block](#blockings-dataset): innehåller information om hur du blockerar händelser i en databas. | Ja | Nej |
+| [Död lägen](#deadlocks-dataset): innehåller information om deadlock-händelser på en databas. | Ja | Nej |
+| [AutomaticTuning](#automatic-tuning-dataset): innehåller information om automatiska justerings rekommendationer för en databas. | Ja | Nej |
 | [SQLInsights](#intelligent-insights-dataset): innehåller intelligent Insights till prestanda för en databas. Läs mer i [intelligent Insights](intelligent-insights-overview.md). | Ja | Ja |
 
 > [!NOTE]
-> Diagnostikinställningar kan inte konfigureras för **system databaser**, till exempel Master-, msdb-, Model-, Resource-och tempdb-databaser.
+> Diagnostikinställningar kan inte konfigureras för **system databaser** , till exempel Master-, msdb-, Model-, Resource-och tempdb-databaser.
 
 ## <a name="streaming-export-destinations"></a>Strömmande export destinationer
 
 Denna diagnostiska telemetri kan strömmas till någon av följande Azure-resurser för analys.
 
-- **[Log Analytics arbets yta](#stream-into-sql-analytics)**:
+- **[Log Analytics arbets yta](#stream-into-sql-analytics)** :
 
-  Data som strömmas till en [Log Analytics arbets yta](../../azure-monitor/platform/resource-logs-collect-workspace.md) kan användas av [SQL Analytics](../../azure-monitor/insights/azure-sql.md). SQL Analytics är en övervaknings lösning för endast molnet som ger intelligent övervakning av dina databaser som innehåller prestanda rapporter, aviseringar och rekommendationer. Data som strömmas till en Log Analytics arbets yta kan analyseras med andra övervaknings data som samlas in och du kan använda andra Azure Monitor funktioner som aviseringar och visualiseringar
-- **[Azure-Event Hubs](#stream-into-event-hubs)**:
+  Data som strömmas till en [Log Analytics arbets yta](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) kan användas av [SQL Analytics](../../azure-monitor/insights/azure-sql.md). SQL Analytics är en övervaknings lösning för endast molnet som ger intelligent övervakning av dina databaser som innehåller prestanda rapporter, aviseringar och rekommendationer. Data som strömmas till en Log Analytics arbets yta kan analyseras med andra övervaknings data som samlas in och du kan använda andra Azure Monitor funktioner som aviseringar och visualiseringar
+- **[Azure-Event Hubs](#stream-into-event-hubs)** :
 
-  Data som strömmas till en [Azure Event Hub](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)innehåller följande funktioner:
+  Data som strömmas till en [Azure Event Hub](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)innehåller följande funktioner:
 
-  - **Strömma loggar till loggnings-och telemetri system från tredje part**: strömma alla dina mått och resurs loggar till en enda händelsehubben för att skicka loggdata till ett Siem-eller Log Analytics-verktyg från tredje part.
-  - **Bygg en anpassad telemetri-och loggnings plattform**: den mycket skalbara publicerings prenumerations typen för Event Hub gör det möjligt att samla in mått och resurs loggar på ett flexibelt sätt i en anpassad telemetri-plattform. Mer information finns i [utforma och ändra storlek på en plattform för global skalnings telemetri på Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) .
-  - **Visa tjänstens hälsa genom att strömma data till Power BI**: Använd Event Hubs, Stream Analytics och Power BI för att omvandla dina diagnostikdata till nära real tids insikter om dina Azure-tjänster. Mer information om den här lösningen finns i [Stream Analytics och Power BI: en analys instrument panel i real tid för att strömma data](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-power-bi-dashboard) .
-- **[Azure Storage](#stream-into-azure-storage)**:
+  - **Strömma loggar till loggnings-och telemetri system från tredje part** : strömma alla dina mått och resurs loggar till en enda händelsehubben för att skicka loggdata till ett Siem-eller Log Analytics-verktyg från tredje part.
+  - **Bygg en anpassad telemetri-och loggnings plattform** : den mycket skalbara publicerings prenumerations typen för Event Hub gör det möjligt att samla in mått och resurs loggar på ett flexibelt sätt i en anpassad telemetri-plattform. Mer information finns i [utforma och ändra storlek på en plattform för global skalnings telemetri på Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) .
+  - **Visa tjänstens hälsa genom att strömma data till Power BI** : Använd Event Hubs, Stream Analytics och Power BI för att omvandla dina diagnostikdata till nära real tids insikter om dina Azure-tjänster. Mer information om den här lösningen finns i [Stream Analytics och Power BI: en analys instrument panel i real tid för att strömma data](../../stream-analytics/stream-analytics-power-bi-dashboard.md) .
+- **[Azure Storage](#stream-into-azure-storage)** :
 
-  Data som strömmas till [Azure Storage](../../azure-monitor/platform/resource-logs-collect-storage.md) gör att du kan arkivera stora mängder diagnostiska telemetri för en bråkdel av kostnaden för föregående två strömnings alternativ.
+  Data som strömmas till [Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) gör att du kan arkivera stora mängder diagnostiska telemetri för en bråkdel av kostnaden för föregående två strömnings alternativ.
 
 Denna diagnostiska telemetri strömmas till någon av dessa destinationer och kan användas för att mäta resursutnyttjande och köra statistik för att få bättre prestanda övervakning.
 
@@ -85,18 +85,18 @@ Du kan aktivera och hantera mått och loggning av diagnostisk telemetri med någ
 - Azure Resource Manager-mall
 
 > [!NOTE]
-> Information om hur du aktiverar Gransknings logg strömning av säkerhetstelemetri finns i [Konfigurera granskning för databasen](../../sql-database/sql-database-auditing.md#setup-auditing) och [gransknings loggar i Azure Monitor loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> Information om hur du aktiverar Gransknings logg strömning av säkerhetstelemetri finns i [Konfigurera granskning för databasen](./auditing-overview.md#setup-auditing) och [gransknings loggar i Azure Monitor loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## <a name="configure-the-streaming-export-of-diagnostic-telemetry"></a>Konfigurera strömnings exporten av Diagnostic-telemetri
 
-Du kan använda menyn **diagnostikinställningar** på Azure Portal för att aktivera och konfigurera strömning av diagnostisk telemetri. Dessutom kan du använda PowerShell, Azure CLI, [REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)och [Resource Manager-mallar](../../azure-monitor/platform/diagnostic-settings-template.md) för att konfigurera strömning av diagnostisk telemetri. Du kan ställa in följande destinationer för att strömma Diagnostic-telemetri: Azure Storage, Azure Event Hubs och Azure Monitor loggar.
+Du kan använda menyn **diagnostikinställningar** på Azure Portal för att aktivera och konfigurera strömning av diagnostisk telemetri. Dessutom kan du använda PowerShell, Azure CLI, [REST API](/rest/api/monitor/diagnosticsettings)och [Resource Manager-mallar](../../azure-monitor/samples/resource-manager-diagnostic-settings.md) för att konfigurera strömning av diagnostisk telemetri. Du kan ställa in följande destinationer för att strömma Diagnostic-telemetri: Azure Storage, Azure Event Hubs och Azure Monitor loggar.
 
 > [!IMPORTANT]
 > Den strömmande exporten av Diagnostic-telemetri är inte aktive rad som standard.
 
 Välj någon av följande flikar för att få stegvisa anvisningar om hur du konfigurerar strömnings exporten av Diagnostic-telemetri i Azure Portal och skript för att utföra samma med PowerShell och Azure CLI.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/azure-portal)
 
 ### <a name="elastic-pools-in-azure-sql-database"></a>Elastiska pooler i Azure SQL Database
 
@@ -116,18 +116,18 @@ Den elastiska poolens behållare har sin egen telemetri separat från varje ensk
 Följ dessa steg om du vill aktivera strömning av diagnostisk telemetri för en elastisk pool-resurs:
 
 1. Gå till resursen för **elastisk pool** i Azure Portal.
-2. Välj **diagnostikinställningar**.
+2. Välj **diagnostikinställningar** .
 3. Välj **Aktivera diagnostik** om det inte finns några tidigare inställningar eller Välj **Redigera inställning** för att redigera en föregående inställning.
 
    ![Aktivera diagnostik för elastiska pooler](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-enable.png)
 
 4. Ange ett inställnings namn för din egen referens.
-5. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto**, **strömma till en Event Hub**eller **Skicka till Log Analytics**.
-6. För Log Analytics väljer du **Konfigurera** och skapa en ny arbets yta genom att välja **+ Skapa ny arbets yta**eller Välj en befintlig arbets yta.
+5. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto** , **strömma till en Event Hub** eller **Skicka till Log Analytics** .
+6. För Log Analytics väljer du **Konfigurera** och skapa en ny arbets yta genom att välja **+ Skapa ny arbets yta** eller Välj en befintlig arbets yta.
 7. Markera kryss rutan för telemetri för elastisk pool: **grundläggande** mått.
    ![Konfigurera diagnostik för elastiska pooler](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-selection.png)
 
-8. Välj **Spara**.
+8. Välj **Spara** .
 9. Dessutom kan du konfigurera strömning av diagnostisk telemetri för varje databas i den elastiska pool som du vill övervaka genom att följa stegen som beskrivs i nästa avsnitt.
 
 > [!IMPORTANT]
@@ -144,19 +144,19 @@ Du kan konfigurera en databas resurs för att samla in följande diagnostiska te
 Följ dessa steg om du vill aktivera strömning av diagnostisk telemetri för en enda eller en pool databas:
 
 1. Gå till Azure **SQL Database** -resurs.
-2. Välj **diagnostikinställningar**.
+2. Välj **diagnostikinställningar** .
 3. Välj **Aktivera diagnostik** om det inte finns några tidigare inställningar eller Välj **Redigera inställning** för att redigera en föregående inställning. Du kan skapa upp till tre parallella anslutningar för att strömma diagnostisk telemetri.
 4. Välj **Lägg till diagnostisk inställning** för att konfigurera parallell strömning av diagnostikdata till flera resurser.
 
    ![Aktivera diagnostik för enskilda databaser och databaser i pooler](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-enable.png)
 
 5. Ange ett inställnings namn för din egen referens.
-6. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto**, **strömma till en Event Hub**eller **Skicka till Log Analytics**.
-7. För den händelsebaserade övervaknings upplevelsen markerar du följande kryss rutor för telemetri för databas diagnostik: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **fel**, **DatabaseWaitStatistics**, **tids gränser**, **block**och **död lägen**.
+6. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto** , **strömma till en Event Hub** eller **Skicka till Log Analytics** .
+7. För den händelsebaserade övervaknings upplevelsen markerar du följande kryss rutor för telemetri för databas diagnostik: **SQLInsights** , **AutomaticTuning** , **QueryStoreRuntimeStatistics** , **QueryStoreWaitStatistics** , **fel** , **DatabaseWaitStatistics** , **tids gränser** , **block** och **död lägen** .
 8. För en avancerad övervaknings upplevelse med en minut markerar du kryss rutan för **grundläggande** mått.
 
    ![Konfigurera diagnostik för Azure SQL Database](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-selection.png)
-9. Välj **Spara**.
+9. Välj **Spara** .
 10. Upprepa de här stegen för varje databas som du vill övervaka.
 
 > [!TIP]
@@ -180,19 +180,19 @@ Behållaren för hanterad instans har sin egen telemetri separat från varje ins
 Följ dessa steg om du vill aktivera strömning av diagnostisk telemetri för en hanterad instans resurs:
 
 1. Gå till resursen för **hanterade instanser** i Azure Portal.
-2. Välj **diagnostikinställningar**.
+2. Välj **diagnostikinställningar** .
 3. Välj **Aktivera diagnostik** om det inte finns några tidigare inställningar eller Välj **Redigera inställning** för att redigera en föregående inställning.
 
    ![Aktivera diagnostik för hanterad instans](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-mi-enable.png)
 
 4. Ange ett inställnings namn för din egen referens.
-5. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto**, **strömma till en Event Hub**eller **Skicka till Log Analytics**.
-6. För Log Analytics väljer du **Konfigurera** och skapa en ny arbets yta genom att välja **+ Skapa ny arbets yta**eller använda en befintlig arbets yta.
-7. Markera kryss rutan för telemetri för instans diagnostik: **ResourceUsageStats**.
+5. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto** , **strömma till en Event Hub** eller **Skicka till Log Analytics** .
+6. För Log Analytics väljer du **Konfigurera** och skapa en ny arbets yta genom att välja **+ Skapa ny arbets yta** eller använda en befintlig arbets yta.
+7. Markera kryss rutan för telemetri för instans diagnostik: **ResourceUsageStats** .
 
    ![Konfigurera diagnostik för hanterad instans](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-mi-selection.png)
 
-8. Välj **Spara**.
+8. Välj **Spara** .
 9. Dessutom kan du konfigurera strömning av diagnostisk telemetri för varje instans databas i den hanterade instans som du vill övervaka genom att följa stegen som beskrivs i nästa avsnitt.
 
 > [!IMPORTANT]
@@ -209,7 +209,7 @@ Du kan konfigurera en instans databas resurs för att samla in följande diagnos
 Följ dessa steg om du vill aktivera strömning av diagnostisk telemetri för en instans databas:
 
 1. Gå till **instans databas** resursen inom en hanterad instans.
-2. Välj **diagnostikinställningar**.
+2. Välj **diagnostikinställningar** .
 3. Välj **Aktivera diagnostik** om det inte finns några tidigare inställningar eller Välj **Redigera inställning** för att redigera en föregående inställning.
    - Du kan skapa upp till tre (3) parallella anslutningar för att strömma diagnostisk telemetri.
    - Välj **+ Lägg till diagnostisk inställning** för att konfigurera parallell strömning av diagnostikdata till flera resurser.
@@ -217,10 +217,10 @@ Följ dessa steg om du vill aktivera strömning av diagnostisk telemetri för en
    ![Aktivera diagnostik för instans databaser](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-mi-enable.png)
 
 4. Ange ett inställnings namn för din egen referens.
-5. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto**, **strömma till en Event Hub**eller **Skicka till Log Analytics**.
-6. Markera kryss rutorna för telemetri för databas diagnostik: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**och **errors**.
+5. Välj en mål resurs för data för strömmande diagnostik: **arkivera till lagrings konto** , **strömma till en Event Hub** eller **Skicka till Log Analytics** .
+6. Markera kryss rutorna för telemetri för databas diagnostik: **SQLInsights** , **QueryStoreRuntimeStatistics** , **QueryStoreWaitStatistics** och **errors** .
    ![Konfigurera diagnostik för instans databaser](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-mi-selection.png)
-7. Välj **Spara**.
+7. Välj **Spara** .
 8. Upprepa de här stegen för varje instans databas som du vill övervaka.
 
 > [!TIP]
@@ -231,7 +231,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostisk telemetri för en
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
 Du kan aktivera mått och diagnostikloggning genom att använda PowerShell.
 
@@ -271,7 +271,7 @@ Du kan kombinera dessa parametrar om du vill aktivera flera utdataalternativ.
 
 **Konfigurera flera Azure-resurser**
 
-Använd PowerShell-skriptet från [Aktivera Azure Resource Metric-loggning med PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/)för att stödja flera prenumerationer.
+Använd PowerShell-skriptet från [Aktivera Azure Resource Metric-loggning med PowerShell](/archive/blogs/msoms/enable-azure-resource-metrics-logging-using-powershell)för att stödja flera prenumerationer.
 
 Ange arbets ytans resurs-ID \<$WSID\> som en parameter när du kör skriptet `Enable-AzureRMDiagnostics.ps1` för att skicka diagnostikdata från flera resurser till arbets ytan.
 
@@ -335,7 +335,7 @@ Du kan övervaka en samling databaser och databas samlingar med Azure SQL-analys
 2. Skapa en Log Analytics arbets yta i lösningen.
 3. Konfigurera databaser för strömning av diagnostisk telemetri till arbets ytan.
 
-Du kan konfigurera strömnings exporten av den här Diagnostic-Telemetrin genom att använda det inbyggda alternativet **Skicka till Log Analytics** på fliken diagnostikinställningar i Azure Portal. Du kan också aktivera strömning i en Log Analytics arbets yta genom att använda diagnostikinställningar via [PowerShell-cmdletar](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), [Azure CLI](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)eller [Resource Manager-mallar](../../azure-monitor/platform/diagnostic-settings-template.md).
+Du kan konfigurera strömnings exporten av den här Diagnostic-Telemetrin genom att använda det inbyggda alternativet **Skicka till Log Analytics** på fliken diagnostikinställningar i Azure Portal. Du kan också aktivera strömning i en Log Analytics arbets yta genom att använda diagnostikinställningar via [PowerShell-cmdletar](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), [Azure CLI](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings)eller [Resource Manager-mallar](../../azure-monitor/samples/resource-manager-diagnostic-settings.md).
 
 ### <a name="create-an-azure-sql-analytics-resource"></a>Skapa en Azure SQL-analys resurs
 
@@ -349,7 +349,7 @@ Du kan konfigurera strömnings exporten av den här Diagnostic-Telemetrin genom 
 
    ![Konfigurera Azure SQL-analys i portalen](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/sql-analytics-configuration-blade.png)
 
-4. Bekräfta genom att klicka på **OK** och välj sedan **skapa**.
+4. Bekräfta genom att klicka på **OK** och välj sedan **skapa** .
 
 ### <a name="configure-the-resource-to-record-metrics-and-resource-logs"></a>Konfigurera resursen för att registrera mått och resurs loggar
 
@@ -383,7 +383,7 @@ Du kan använda strömmade mått i Event Hubs för att:
 
   Genom att använda Event Hubs strömning kan du få mått och resurs loggar i olika övervaknings-och Log Analytics-lösningar från tredje part.
 
-- **Bygg en anpassad telemetri-och loggnings plattform**
+- **Skapa en anpassad plattform för telemetri och loggning**
 
   Har du redan en egen inbyggd telemetri plattform eller funderar du på att skapa en? Med den mycket skalbara publicerings prenumerations typen för Event Hubs kan du samla in mått och resurs loggar på ett flexibelt sätt. Se [Dan Rosanovas Guide to using Event Hubs in the Global-Scale-plattform för telemetri](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
@@ -424,11 +424,11 @@ Om du väljer Event Hubs eller ett lagrings konto kan du ange en bevarande princ
 > [!IMPORTANT]
 > Aktiva databaser med tyngre arbets belastningar inhämtar mer data än inaktiva databaser. Mer information finns i [priser för Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
 
-Om du använder Azure SQL-analys kan du övervaka förbrukningen av data genom att välja OMS- **arbetsyta** i navigerings menyn i Azure SQL-analys och sedan välja **användning** och **beräknade kostnader**.
+Om du använder Azure SQL-analys kan du övervaka förbrukningen av data genom att välja OMS- **arbetsyta** i navigerings menyn i Azure SQL-analys och sedan välja **användning** och **beräknade kostnader** .
 
 ## <a name="metrics-and-logs-available"></a>Mått och loggar är tillgängliga
 
-Övervakning av telemetri som är tillgängliga för enskilda databaser, databaser i pooler, elastiska pooler, hanterade instanser och instans databaser dokumenteras i det här avsnittet i artikeln. Insamlade övervakande telemetri i SQL Analytics kan användas för din egen anpassad analys och program utveckling med hjälp av [Azure Monitor logg frågor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) språk.
+Övervakning av telemetri som är tillgängliga för enskilda databaser, databaser i pooler, elastiska pooler, hanterade instanser och instans databaser dokumenteras i det här avsnittet i artikeln. Insamlade övervakande telemetri i SQL Analytics kan användas för din egen anpassad analys och program utveckling med hjälp av [Azure Monitor logg frågor](../../azure-monitor/log-query/get-started-queries.md) språk.
 
 ### <a name="basic-metrics"></a>Grundläggande mått
 
@@ -543,7 +543,7 @@ Information om telemetri som är tillgängliga för alla loggar finns dokumenter
 |query_id_d|ID för frågan i Frågearkivet |
 |plan_id_d|ID för planen i Frågearkivet |
 
-Läs mer om [körnings statistik data för Query Store](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Läs mer om [körnings statistik data för Query Store](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 #### <a name="query-store-wait-statistics"></a>Väntande statistik för Query Store
 
@@ -581,7 +581,7 @@ Läs mer om [körnings statistik data för Query Store](https://docs.microsoft.c
 |query_id_d|ID för frågan i Frågearkivet |
 |plan_id_d|ID för planen i Frågearkivet |
 
-Läs mer om [väntande statistik data för Query Store](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Läs mer om [väntande statistik data för Query Store](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 #### <a name="errors-dataset"></a>Data uppsättning fel
 
@@ -610,7 +610,7 @@ Läs mer om [väntande statistik data för Query Store](https://docs.microsoft.c
 |query_hash_s|Fråga hash för den misslyckade frågan, om den är tillgänglig |
 |query_plan_hash_s|Fråga plan-hash för den misslyckade frågan, om den är tillgänglig |
 
-Läs mer om [SQL-felmeddelanden](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors).
+Läs mer om [SQL-felmeddelanden](/sql/relational-databases/errors-events/database-engine-events-and-errors).
 
 #### <a name="database-wait-statistics-dataset"></a>Data uppsättning för väntande statistik för databasen
 
@@ -639,7 +639,7 @@ Läs mer om [SQL-felmeddelanden](https://docs.microsoft.com/sql/relational-datab
 |delta_wait_time_ms_d|Total vänte tid i perioden |
 |delta_waiting_tasks_count_d|Antal väntande uppgifter |
 
-Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Läs mer om [väntande statistik för databaser](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 #### <a name="time-outs-dataset"></a>Data uppsättning för tids gränser
 

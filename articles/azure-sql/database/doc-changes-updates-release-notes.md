@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 01126a1ca8590d02d0cd0aa1c8554b34161dbac5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4fbd410a7d2a7374303e637ca81c34dbea90fcb7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426276"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791043"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Vad är nytt i Azure SQL Database & SQL-hanterad instans?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ Den här artikeln innehåller Azure SQL Database-och Azure SQL-hanterade instans
 
 ## <a name="whats-new"></a>Nyheter
 
-Dokumentation för Azure SQL Database och Azure SQL-hanterad instans har delats in i separata avsnitt. Vi har även uppdaterat hur vi refererar till en hanterad instans från *Azure SQL Database Hanterad instans* till en *Azure SQL-hanterad instans*.
+Dokumentation för Azure SQL Database och Azure SQL-hanterad instans har delats in i separata avsnitt. Vi har även uppdaterat hur vi refererar till en hanterad instans från *Azure SQL Database Hanterad instans* till en *Azure SQL-hanterad instans* .
 
 Vi har gjort detta eftersom vissa funktioner och funktioner varierar kraftigt mellan en enda databas och en hanterad instans, och den har blivit allt svårare att förklara komplexa olika delarna mellan Azure SQL Database och Azure SQL-hanterad instans i enskilda delade artiklar.
 
@@ -42,7 +42,7 @@ Den här tabellen ger en snabb jämförelse mellan ändringen i terminologin:
 |**Azure SQL Database**|Azure SQL Database *enskild databas*| Om inget annat uttryckligen anges innehåller produkt namnet Azure SQL Database både enkla databaser och databaser som distribueras till en elastisk pool. |
 |**Azure SQL Database**|Azure SQL Database *elastisk pool*| Om inget annat uttryckligen anges innehåller produkt namnet Azure SQL Database både enkla databaser och databaser som distribueras till en elastisk pool.  |
 |**Azure SQL Database** |Azure SQL Database | Även om villkoret förblir detsamma gäller det nu bara för distributioner av en enskild databas och elastisk pool, och omfattar inte hanterade instanser. |
-| **Azure SQL**| Ej tillämpligt | Detta avser en familj av SQL Server databas motor produkter som är tillgängliga i Azure: Azure SQL Database, Azure SQL-hanterad instans och SQL Server på virtuella Azure-datorer. | 
+| **Azure SQL**| E.t. | Detta avser en familj av SQL Server databas motor produkter som är tillgängliga i Azure: Azure SQL Database, Azure SQL-hanterad instans och SQL Server på virtuella Azure-datorer. | 
 
 ## <a name="features-in-public-preview"></a>Funktioner i offentlig för hands version
 
@@ -56,7 +56,7 @@ Den här tabellen ger en snabb jämförelse mellan ändringen i terminologin:
 | Elastiska frågor | Mer information finns i [Översikt över elastiska frågor](elastic-query-overview.md). |
 | Elastiska transaktioner | [Distribuerade transaktioner över moln databaser](elastic-transactions-overview.md). |
 | Frågeredigeraren i Azure Portal |Mer information finns i [använda Azure Portal SQL-Frågeredigeraren för att ansluta och fråga efter data](connect-query-portal.md).|
-| R Services/Machine Learning med enkla databaser och elastiska pooler |Mer information finns i [Machine Learning Services i Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
+| R Services/Machine Learning med enkla databaser och elastiska pooler |Mer information finns i [Machine Learning Services i Azure SQL Database](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
 |SQL-analys|Mer information finns i [Azure SQL-analys](../../azure-monitor/insights/azure-sql.md).|
 | &nbsp; |
 
@@ -66,7 +66,7 @@ Den här tabellen ger en snabb jämförelse mellan ändringen i terminologin:
 | ---| --- |
 | <a href="/azure/azure-sql/database/elastic-transactions-overview">Distribuerade transaktioner</a> | Distribuerade transaktioner över hanterade instanser. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instanspooler</a> | Ett bekvämt och kostnads effektivt sätt att migrera mindre SQL-instanser till molnet. |
-| <a href="https://aka.ms/managed-instance-aadlogins">Azure AD server-huvudobjekt på instans nivå (inloggningar)</a> | Skapa inloggningar på instans nivå med hjälp av instruktionen <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning från extern provider</a> . |
+| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">Azure AD server-huvudobjekt på instans nivå (inloggningar)</a> | Skapa inloggningar på instans nivå med hjälp av instruktionen <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning från extern provider</a> . |
 | [Transaktionell replikering](../managed-instance/replication-transactional-overview.md) | Replikera ändringarna från dina tabeller till andra databaser i SQL-hanterad instans, SQL Database eller SQL Server. Eller uppdatera dina tabeller när några rader ändras i andra instanser av SQL-hanterad instans eller SQL Server. Mer information finns i [Konfigurera replikering i Azure SQL-hanterad instans](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Hotidentifiering |Mer information finns i [Konfigurera hot identifiering i Azure SQL Managed instance](../managed-instance/threat-detection-configure.md).|
 | Långsiktig kvarhållning av säkerhetskopior | Mer information finns i [Konfigurera långsiktig säkerhets kopiering i Azure SQL Managed instance](../managed-instance/long-term-backup-retention-configure.md), som för närvarande finns i begränsad offentlig för hands version. | 
@@ -85,13 +85,13 @@ Den här tabellen ger en snabb jämförelse mellan ändringen i terminologin:
 ### <a name="sql-managed-instance-h1-2019-updates"></a>SQL-hanterad instans H1 2019 uppdateringar
 
 Följande funktioner är aktiverade i distributions modellen SQL-hanterad instans i H1 2019:
-  - Support för prenumerationer med <a href="https://aka.ms/sql-mi-visual-studio-subscribers"> Azures månatliga kredit för Visual Studio-prenumeranter </a> och ökade [regionala gränser](../managed-instance/resource-limits.md#regional-resource-limitations).
-  - Stöd för <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> sharepoint 2016 och sharepoint 2019 </a> och <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central. </a>
-  - Skapa en hanterad instans med <a href="https://aka.ms/managed-instance-collation">sortering på instans nivå</a> och en <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">tidszon</a> som du väljer.
+  - Support för prenumerationer med <a href="/azure/azure-sql/managed-instance/resource-limits"> Azures månatliga kredit för Visual Studio-prenumeranter </a> och ökade [regionala gränser](../managed-instance/resource-limits.md#regional-resource-limitations).
+  - Stöd för <a href="/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> sharepoint 2016 och sharepoint 2019 </a> och <a href="/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central. </a>
+  - Skapa en hanterad instans med <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">sortering på instans nivå</a> och en <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">tidszon</a> som du väljer.
   - Hanterade instanser skyddas nu med [inbyggd brand vägg](../managed-instance/management-endpoint-verify-built-in-firewall.md).
-  - Konfigurera SQL-hanterad instans så att den använder [offentliga slut punkter](../managed-instance/public-endpoint-configure.md), [åsidosätter proxy](connectivity-architecture.md#connection-policy) -anslutning för att få bättre nätverks prestanda, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 virtuella kärnor på Gen5-maskinvarukompatibilitet</a> eller <a href="https://aka.ms/managed-instance-configurable-backup-retention">Konfigurera kvarhållning av säkerhets kopior upp till 35 dagar</a> för återställning vid tidpunkter. [Långsiktig kvarhållning av säkerhets kopior](long-term-retention-overview.md#sql-managed-instance-support) (upp till 10 år) är för närvarande en begränsad offentlig för hands version.  
+  - Konfigurera SQL-hanterad instans så att den använder [offentliga slut punkter](../managed-instance/public-endpoint-configure.md), [åsidosätter proxy](connectivity-architecture.md#connection-policy) -anslutning för att få bättre nätverks prestanda, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 virtuella kärnor på Gen5-maskinvarukompatibilitet</a> eller <a href="/azure/azure-sql/database/automated-backups-overview">Konfigurera kvarhållning av säkerhets kopior upp till 35 dagar</a> för återställning vid tidpunkter. [Långsiktig kvarhållning av säkerhets kopior](long-term-retention-overview.md#sql-managed-instance-support) (upp till 10 år) är för närvarande en begränsad offentlig för hands version.  
   - Med nya funktioner kan du <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">geo-återställa databasen till ett annat data Center med hjälp av PowerShell</a>, [byta namn på databas](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [ta bort virtuellt kluster](../managed-instance/virtual-cluster-delete.md).
-  - Den nya inbyggda [rollen instans deltagar roll](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) möjliggör separering av tull (SOD) efterlevnad av säkerhets principer och efterlevnad av företags standarder.
+  - Den nya inbyggda [rollen instans deltagar roll](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) möjliggör separering av tull (SOD) efterlevnad av säkerhets principer och efterlevnad av företags standarder.
   - SQL-hanterad instans finns i följande Azure Government regioner till GA (US Gov, Texas, US Gov, Arizona) och i Kina, norra 2 och Kina, östra 2. Den är också tillgänglig i följande offentliga regioner: Australien, centrala, Australien, centrala, södra Frankrike, södra Förenade Arabemiraten Central, Förenade Arabemiraten Nord, Sydafrika, norra, södra Afrika, västra.
 
 ## <a name="known-issues"></a>Kända problem
@@ -100,7 +100,7 @@ Följande funktioner är aktiverade i distributions modellen SQL-hanterad instan
 |---------|---------|---------|---------|
 |[Distribuerade transaktioner kan utföras efter borttagning av hanterade instanser från Server förtroende grupp](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Okt 2020|Har en lösning||
 |[Distribuerade transaktioner kan inte utföras efter skalnings åtgärden för hanterade instanser](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Okt 2020|Har en lösning||
-|[bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) / [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) i Azure SQL och `BACKUP` / `RESTORE` instruktionen i en hanterad instans kan inte använda Azure AD-hantera identitet för att autentisera till Azure Storage|Sep 2020|Har en lösning||
+|[bulk INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / [OpenRowSet](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) i Azure SQL och `BACKUP` / `RESTORE` instruktionen i en hanterad instans kan inte använda Azure AD-hantera identitet för att autentisera till Azure Storage|Sep 2020|Har en lösning||
 |[Tjänstens huvud namn kan inte komma åt Azure AD och AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Har en lösning||
 |[Återställning av manuell säkerhets kopiering utan kontroll summa kan Miss kopie ras](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020|Matchat|Juni 2020|
 |[Agenten slutar svara vid ändring, inaktive ring eller aktivering av befintliga jobb](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020|Matchat|Juni 2020|
@@ -131,11 +131,11 @@ Följande funktioner är aktiverade i distributions modellen SQL-hanterad instan
 
 ### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>Distribuerade transaktioner kan utföras efter borttagning av hanterade instanser från Server förtroende grupp
 
-[Server förtroende grupper](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) används för att upprätta förtroende mellan hanterade instanser som är nödvändiga för att köra [distribuerade transaktioner](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). När du har tagit bort hanterade instanser från gruppen Server förtroende eller tagit bort gruppen kan du fortfarande köra distribuerade transaktioner. Det finns en lösning som du kan använda för att se till att distribuerade transaktioner är inaktiverade och att manuell redundansväxling på den hanterade instansen har [startats](https://docs.microsoft.com/azure/azure-sql/managed-instance/user-initiated-failover) .
+[Server förtroende grupper](../managed-instance/server-trust-group-overview.md) används för att upprätta förtroende mellan hanterade instanser som är nödvändiga för att köra [distribuerade transaktioner](./elastic-transactions-overview.md). När du har tagit bort hanterade instanser från gruppen Server förtroende eller tagit bort gruppen kan du fortfarande köra distribuerade transaktioner. Det finns en lösning som du kan använda för att se till att distribuerade transaktioner är inaktiverade och att manuell redundansväxling på den hanterade instansen har [startats](../managed-instance/user-initiated-failover.md) .
 
 ### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>Distribuerade transaktioner kan inte utföras efter skalnings åtgärden för hanterade instanser
 
-Skalnings åtgärder för hanterade instanser som inkluderar ändring av tjänst nivå eller antal virtuella kärnor kommer att återställa grupp inställningar för Server förtroende på Server delen och inaktivera [distribuerade transaktioner](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Som en lösning kan du ta bort och skapa en ny [Server förtroende grupp](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) på Azure Portal.
+Skalnings åtgärder för hanterade instanser som inkluderar ändring av tjänst nivå eller antal virtuella kärnor kommer att återställa grupp inställningar för Server förtroende på Server delen och inaktivera [distribuerade transaktioner](./elastic-transactions-overview.md). Som en lösning kan du ta bort och skapa en ny [Server förtroende grupp](../managed-instance/server-trust-group-overview.md) på Azure Portal.
 
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT-och BACKUP/Restore-instruktioner kan inte använda hanterad identitet för att komma åt Azure Storage
 
@@ -150,19 +150,19 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Lösning**: Använd [signaturen för delad åtkomst för att autentisera till lagring](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
+**Lösning** : Använd [signaturen för delad åtkomst för att autentisera till lagring](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Tjänstens huvud namn kan inte komma åt Azure AD och AKV
 
 I vissa fall kan det finnas ett problem med tjänstens huvud namn som används för att få åtkomst till Azure AD-och Azure Key Vault-tjänster (AKV). Därför påverkar det här problemet användningen av Azure AD-autentisering och transparent databas kryptering (TDE) med SQL-hanterad instans. Detta kan uppstå som ett tillfälligt anslutnings problem eller inte kan köra instruktioner som till exempel skapa inloggning/användare från extern PROVIDER eller köra som inloggning/användare. Att ställa in TDE med kundhanterad nyckel på en ny Azure SQL-hanterad instans kanske inte fungerar i vissa fall.
 
-**Lösning**: förhindra att det här problemet uppstår på SQL-hanterad instans innan du kör några uppdaterings kommandon, eller om du redan har drabbats av det här problemet efter uppdaterings kommandon, går du till Azure Portal, åtkomst till SQL Managed instance [Active Directory admin-bladet](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Kontrol lera om du kan se fel meddelandet "en hanterad instans behöver ett tjänst huvud namn för att få åtkomst till Azure Active Directory. Klicka här om du vill skapa ett huvud namn för tjänsten. Om du har påträffat det här fel meddelandet klickar du på det och följer instruktionerna för steg för steg som tillhandahölls tills felet har åtgärd ATS.
+**Lösning** : förhindra att det här problemet uppstår på SQL-hanterad instans innan du kör några uppdaterings kommandon, eller om du redan har drabbats av det här problemet efter uppdaterings kommandon, går du till Azure Portal, åtkomst till SQL Managed instance [Active Directory admin-bladet](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Kontrol lera om du kan se fel meddelandet "en hanterad instans behöver ett tjänst huvud namn för att få åtkomst till Azure Active Directory. Klicka här om du vill skapa ett huvud namn för tjänsten. Om du har påträffat det här fel meddelandet klickar du på det och följer instruktionerna för steg för steg som tillhandahölls tills felet har åtgärd ATS.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Återställning av manuell säkerhets kopiering utan kontroll summa kan Miss kopie ras
 
 I vissa fall kan manuell säkerhets kopiering av databaser som gjorts på en hanterad instans utan kontroll Summa kanske inte återställas. I sådana fall kan du försöka återställa säkerhets kopieringen igen tills du är klar.
 
-**Lösning**: gör manuella säkerhets kopieringar av databaser på hanterade instanser med kontroll Summa aktiverat.
+**Lösning** : gör manuella säkerhets kopieringar av databaser på hanterade instanser med kontroll Summa aktiverat.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Agenten slutar svara vid ändring, inaktive ring eller aktivering av befintliga jobb
 
@@ -172,19 +172,19 @@ I vissa fall kan det hända att agenten slutar svara om du ändrar, inaktiverar 
 
 När Azure-rollen SQL-hanterad instans deltagare används i en resurs grupp (RG), tillämpas den inte på SQL-hanterad instans och har ingen effekt.
 
-**Lösning**: Konfigurera en SQL-hanterad instans deltagar roll för användare på prenumerations nivå.
+**Lösning** : Konfigurera en SQL-hanterad instans deltagar roll för användare på prenumerations nivå.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Begränsning av manuell redundans via portalen för failover-grupper
 
 Om en failover-grupp sträcker sig över instanser i olika Azure-prenumerationer eller resurs grupper kan inte manuell redundans initieras från den primära instansen i gruppen för redundans.
 
-**Lösning**: starta redundans via portalen från den geo-sekundära instansen.
+**Lösning** : starta redundans via portalen från den geo-sekundära instansen.
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>SQL Agent-roller behöver uttryckliga EXECUTE-behörigheter för icke-sysadmin-inloggningar
 
-Om icke-sysadmin-inloggningar läggs till i alla [fasta databas roller för SQL-agenten](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), finns det ett problem i vilket EXPLICITa körnings behörigheter måste beviljas till de Master-lagrade procedurerna för att dessa inloggningar ska fungera. Om det här problemet uppstår nekades fel meddelandet "KÖRNINGs behörigheten för objektet <object_name> (Microsoft SQL Server, fel: 229)" visas.
+Om icke-sysadmin-inloggningar läggs till i alla [fasta databas roller för SQL-agenten](/sql/ssms/agent/sql-server-agent-fixed-database-roles), finns det ett problem i vilket EXPLICITa körnings behörigheter måste beviljas till de Master-lagrade procedurerna för att dessa inloggningar ska fungera. Om det här problemet uppstår nekades fel meddelandet "KÖRNINGs behörigheten för objektet <object_name> (Microsoft SQL Server, fel: 229)" visas.
 
-**Lösning**: när du lägger till inloggningar till en fast databas roll för SQL-Agent (SQLAgentUserRole, SQLAgentReaderRole eller SQLAgentOperatorRole) för varje inloggnings objekt som har lagts till i rollerna kör du skriptet nedan för att uttryckligen bevilja kör behörighet till de lagrade procedurerna i listan.
+**Lösning** : när du lägger till inloggningar till en fast databas roll för SQL-Agent (SQLAgentUserRole, SQLAgentReaderRole eller SQLAgentOperatorRole) för varje inloggnings objekt som har lagts till i rollerna kör du skriptet nedan för att uttryckligen bevilja kör behörighet till de lagrade procedurerna i listan.
 
 ```tsql
 USE [master]
@@ -204,13 +204,13 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 Den Affärskritisk tjänst nivån kommer inte att tillämpa [högsta minnes gränser för minnesoptimerade objekt](../managed-instance/resource-limits.md#in-memory-oltp-available-space) i vissa fall. SQL-hanterad instans kan göra att arbets belastningen kan använda mer minne för minnes intern OLTP-åtgärder, vilket kan påverka instansens tillgänglighet och stabilitet. InMemory OLTP-frågor som når gränserna kanske inte kommer att Miss genast. Det här problemet kommer snart att åtgärdas. Frågor som använder mer minnes-till-minne OLTP-minne kommer att Miss Miss kort om de når [gränserna](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
-**Lösning**: [övervaka minnes intern OLTP-lagring](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-monitor-space) med [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) för att säkerställa att arbets belastningen inte använder mer än det tillgängliga minnet. Öka de minnes gränser som beror på antalet virtuella kärnor eller optimera arbets belastningen för att använda mindre minne.
+**Lösning** : [övervaka minnes intern OLTP-lagring](../in-memory-oltp-monitor-space.md) med [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) för att säkerställa att arbets belastningen inte använder mer än det tillgängliga minnet. Öka de minnes gränser som beror på antalet virtuella kärnor eller optimera arbets belastningen för att använda mindre minne.
  
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Ett fel fel returnerades vid försök att ta bort en fil som inte är tom
 
 SQL Server-och SQL-hanterad instans [låter inte en användare släppa en fil som inte är tom](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Om du försöker ta bort en data fil som inte är tom med en `ALTER DATABASE REMOVE FILE` instruktion `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` returneras inte felet omedelbart. SQL-hanterad instans fortsätter att försöka släppa filen och åtgärden kommer att Miss par efter 30 minuter `Internal server error` .
 
-**Lösning**: ta bort innehållet i filen med hjälp av `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` kommandot. Om det här är den enda filen i fil gruppen måste du ta bort data från tabellen eller partitionen som är kopplade till den här fil gruppen innan du krymper filen och eventuellt läsa in dessa data till en annan tabell/partition.
+**Lösning** : ta bort innehållet i filen med hjälp av `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` kommandot. Om det här är den enda filen i fil gruppen måste du ta bort data från tabellen eller partitionen som är kopplade till den här fil gruppen innan du krymper filen och eventuellt läsa in dessa data till en annan tabell/partition.
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Ändra tjänst nivå och skapa instans åtgärder blockeras av pågående databas återställning
 
@@ -218,19 +218,19 @@ Kontinuerlig `RESTORE` instruktion, migrering av Datamigrerings tjänsten och in
 
 Återställnings processen blockerar dessa åtgärder på hanterade instanser och instans-pooler i samma undernät där återställnings processen körs. Instanserna i instans pooler påverkas inte. Det går inte att skapa eller ändra åtgärder på tjänst nivå eller timeout. De kommer att fortsätta när återställnings processen har slutförts eller avbrutits.
 
-**Lösning**: vänta tills återställnings processen har slutförts, eller Avbryt återställnings processen om åtgärden för att skapa eller uppdatera service-nivå har högre prioritet.
+**Lösning** : vänta tills återställnings processen har slutförts, eller Avbryt återställnings processen om åtgärden för att skapa eller uppdatera service-nivå har högre prioritet.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Resource Governor på Affärskritisk tjänst nivå kan behöva konfigureras om efter en redundansväxling
 
 [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) funktionen som gör att du kan begränsa de resurser som är tilldelade till användarens arbets belastning kan felaktigt klassificera viss användar arbets belastning efter en redundansväxling eller en användarinitierad ändring av tjänst nivån (till exempel ändringen av Max vCore eller maximum instans lagrings storlek).
 
-**Lösning**: kör `ALTER RESOURCE GOVERNOR RECONFIGURE` regelbundet eller som en del av ett SQL Agent-jobb som kör SQL-aktiviteten när instansen startar om du använder [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
+**Lösning** : kör `ALTER RESOURCE GOVERNOR RECONFIGURE` regelbundet eller som en del av ett SQL Agent-jobb som kör SQL-aktiviteten när instansen startar om du använder [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
 
 ### <a name="cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade"></a>Service Broker dialog rutor mellan databaser måste initieras om efter uppgraderingen av service nivå
 
-Service Broker dialog rutor mellan databaser slutar att leverera meddelanden till tjänsterna i andra databaser efter åtgärden ändra tjänst nivå. Meddelandena går *inte förlorade*och de finns i avsändar kön. Om du ändrar virtuella kärnor eller instans lagrings storlek i SQL-hanterad instans `service_broke_guid` ändras värdet i [sys. Databass](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) -vyn för alla databaser. Alla `DIALOG` skapade med en [BEGIN-dialog](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) -instruktion som refererar till tjänst utjämnare i andra databaser kommer att sluta leverera meddelanden till mål tjänsten.
+Service Broker dialog rutor mellan databaser slutar att leverera meddelanden till tjänsterna i andra databaser efter åtgärden ändra tjänst nivå. Meddelandena går *inte förlorade* och de finns i avsändar kön. Om du ändrar virtuella kärnor eller instans lagrings storlek i SQL-hanterad instans `service_broke_guid` ändras värdet i [sys. Databass](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) -vyn för alla databaser. Alla `DIALOG` skapade med en [BEGIN-dialog](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) -instruktion som refererar till tjänst utjämnare i andra databaser kommer att sluta leverera meddelanden till mål tjänsten.
 
-**Lösning**: stoppa alla aktiviteter som använder Service Broker dialog samtal mellan databaser innan du uppdaterar en tjänst nivå och initierar om dem efteråt. Om det finns återstående meddelanden som inte har levererats efter en ändring av en tjänst nivå läser du meddelandena från käll kön och skickar dem igen till målkön.
+**Lösning** : stoppa alla aktiviteter som använder Service Broker dialog samtal mellan databaser innan du uppdaterar en tjänst nivå och initierar om dem efteråt. Om det finns återstående meddelanden som inte har levererats efter en ändring av en tjänst nivå läser du meddelandena från käll kön och skickar dem igen till målkön.
 
 ### <a name="impersonation-of-azure-ad-login-types-is-not-supported"></a>Personifiering av Azure AD-inloggnings typer stöds inte
 
@@ -258,7 +258,7 @@ Databasen som är i *återställnings* tillstånd kommer temporärt att ha ett s
 
 I den inledande fasen kan en användare komma åt den tomma databasen och till och med skapa tabeller eller läsa in data i den här databasen. Den här tillfälliga databasen kommer att tas bort när återställnings tjänsten startar den andra fasen.
 
-**Lösning**: få inte åtkomst till den databas som du återställer förrän du ser att återställningen har slutförts.
+**Lösning** : få inte åtkomst till den databas som du återställer förrän du ser att återställningen har slutförts.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>TEMPDB-strukturen och innehållet har skapats på nytt
 
@@ -279,13 +279,13 @@ Det här exemplet illustrerar att under vissa omständigheter, på grund av en s
 
 I det här exemplet fortsätter befintliga databaser att fungera och kan växa utan problem så länge nya filer inte läggs till. Det går inte att skapa eller återställa nya databaser eftersom det inte finns tillräckligt med utrymme för nya disk enheter, även om den totala storleken på alla databaser inte når gränsen för instans storlek. Det fel som returneras i detta fall är inte klart.
 
-Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med hjälp av systemvyer. Om du når den här gränsen kan du försöka att [tömma och ta bort några av de mindre filerna med hjälp av DBCC SHRINKFILE-instruktionen](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) eller växla till [Affärskritisks nivån, som inte har den här gränsen](/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med hjälp av systemvyer. Om du når den här gränsen kan du försöka att [tömma och ta bort några av de mindre filerna med hjälp av DBCC SHRINKFILE-instruktionen](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) eller växla till [Affärskritisks nivån, som inte har den här gränsen](../managed-instance/resource-limits.md#service-tier-characteristics).
 
 ### <a name="guid-values-shown-instead-of-database-names"></a>GUID-värden som visas i stället för databas namn
 
 Flera systemvyer, prestanda räknare, fel meddelanden, XEvents och fel logg poster visar GUID-databas identifierare i stället för de faktiska databas namnen. Använd inte dessa GUID-identifierare eftersom de ersätts med faktiska databas namn i framtiden.
 
-**Lösning**: Använd sys. Databass-vyn för att matcha det faktiska databas namnet från det fysiska databas namnet, som anges i form av GUID-databas identifierare:
+**Lösning** : Använd sys. Databass-vyn för att matcha det faktiska databas namnet från det fysiska databas namnet, som anges i form av GUID-databas identifierare:
 
 ```tsql
 SELECT name as ActualDatabaseName, physical_database_name as GUIDDatabaseIdentifier 
@@ -324,13 +324,13 @@ using (var scope = new TransactionScope())
 
 ```
 
-**Lösning (behövs inte sedan mars 2020)**: Använd [SQLConnection. ChangeDatabase (sträng)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) om du vill använda en annan databas i en anslutnings kontext i stället för att använda två anslutningar.
+**Lösning (behövs inte sedan mars 2020)** : Använd [SQLConnection. ChangeDatabase (sträng)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) om du vill använda en annan databas i en anslutnings kontext i stället för att använda två anslutningar.
 
 ### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>CLR-moduler och länkade servrar kan ibland inte referera till en lokal IP-adress
 
 CLR-moduler i SQL-hanterad instans och länkade servrar eller distribuerade frågor som refererar till en aktuell instans kan ibland inte matcha IP-adressen för en lokal instans. Det här felet är ett tillfälligt problem.
 
-**Lösning**: Använd kontext anslutningar i en CLR-modul om möjligt.
+**Lösning** : Använd kontext anslutningar i en CLR-modul om möjligt.
 
 ## <a name="updates"></a>Uppdateringar
 
@@ -340,4 +340,4 @@ Uppdateringar och förbättringar av alla Azure-tjänster finns i [tjänste uppd
 
 ## <a name="contribute-to-content"></a>Bidra med innehåll
 
-Information om hur du bidrar till Azure SQL-dokumentationen finns i [Guide för dokument bidrag](https://docs.microsoft.com/contribute/).
+Information om hur du bidrar till Azure SQL-dokumentationen finns i [Guide för dokument bidrag](/contribute/).

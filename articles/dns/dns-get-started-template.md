@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: 986258631d47989e5be5e738da86f844283ce706
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 24460167e2279e7d3001d0bc16d050beb5b55289
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093828"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791009"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Snabb start: skapa en Azure DNS zon och en post med en ARM-mall
 
-I den här snabb starten beskrivs hur du använder en Azure Resource Manager mall (ARM-mall) för att skapa en DNS-zon med en post i den.
+I den här snabb starten beskrivs hur du använder en Azure Resource Manager mall (ARM-mall) för att skapa en DNS-zon med en `A` post i den.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure** . Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-dns-new-zone%2Fazuredeploy.json)
 
@@ -34,20 +34,20 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-azure-dns-new-zone).
 
-I den här snabb starten skapar du en unik DNS-zon med suffixet * <span>azurequickstart.</span> org*. En *A* -post som pekar på två IP-adresser placeras också i zonen.
+I den här snabb starten skapar du en unik DNS-zon med suffixet `azurequickstart.org` . En `A` post som pekar på två IP-adresser placeras också i zonen.
 
 :::code language="json" source="~/quickstart-templates/101-azure-dns-new-zone/azuredeploy.json":::
 
 Två Azure-resurser har definierats i mallen:
 
-* [**Microsoft. Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
-* [**Microsoft. Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A) (används för att skapa en post i zonen)
+- [**Microsoft. Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
+- [**Microsoft. Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A): används för att skapa en `A` post i zonen.
 
 Du hittar fler mallar som är relaterade till Azure Traffic Manager i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-1. Välj **prova** från följande kodblock för att öppna Azure Cloud Shell och följ sedan anvisningarna för att logga in på Azure. 
+1. Välj **prova** från följande kodblock för att öppna Azure Cloud Shell och följ sedan anvisningarna för att logga in på Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -66,11 +66,11 @@ Du hittar fler mallar som är relaterade till Azure Traffic Manager i [Azure sna
 
 1. Kopiera PowerShell-skriptet genom att välja **Kopiera** från föregående kodblock.
 
-1. Högerklicka på fönstret Shell-konsol och välj sedan **Klistra in**.
+1. Högerklicka på fönstret Shell-konsol och välj sedan **Klistra in** .
 
 1. Ange värdena.
 
-    Mallen för distribution skapar en zon med en A-post som pekar på två IP-adresser. Resurs gruppens namn är projekt namnet med **RG** tillagt.
+    Mallen för distribution skapar en zon med en `A` post som pekar på två IP-adresser. Resurs gruppens namn är projekt namnet med **RG** tillagt.
 
     Det tar några sekunder att distribuera mallen. När det är slutfört ser utdata ut ungefär så här:
 
@@ -90,7 +90,7 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
     :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Azure DNS Zone Resource Manager-mall utdata för PowerShell-distribution":::
 
-1. Välj DNS-zonen med suffixet ** <span>azurequickstart.</span> org** för att verifiera att zonen har skapats på rätt sätt med en **A** -post som refererar till värdet **1.2.3.4** och **1.2.3.5**.
+1. Välj DNS-zonen med suffixet för `azurequickstart.org` att kontrol lera att zonen har skapats korrekt med en `A` post som refererar till värdet för `1.2.3.4` och `1.2.3.5` .
 
     :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Azure DNS Zone Resource Manager-mall utdata för PowerShell-distribution":::
 
@@ -98,13 +98,13 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
 1. Öppna en kommandotolk och kör följande kommando:
 
-   ```
+   ```cmd
    nslookup www.<dns zone name> <name server name>
    ```
 
    Exempel:
 
-   ```
+   ```cmd
    nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.
    ```
 
@@ -112,7 +112,7 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
     :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Azure DNS Zone Resource Manager-mall utdata för PowerShell-distribution":::
 
-Värd namnet **www<span>. 2lwynbseszpam. azurequickstart.</span> org** matchar till **1.2.3.4** och **1.2.3.5**, precis som du konfigurerade det. Resultatet verifierar att namnmatchningen fungerar korrekt.
+Värd namnet `www.2lwynbseszpam.azurequickstart.org` matchas till `1.2.3.4` och `1.2.3.5` , precis som du konfigurerade det. Resultatet verifierar att namnmatchningen fungerar korrekt.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -127,10 +127,11 @@ Remove-AzResourceGroup -Name <your resource group name>
 ## <a name="next-steps"></a>Nästa steg
 
 I den här snabb starten skapade du en:
-* DNS-zon
-* A-post
 
-Nu när du har skapat din första DNS-zon och-post med Azure Resource Manager mall kan du skapa poster för en webbapp i en anpassad domän.
+- DNS-zon
+- `A` konkurrentpost
+
+Nu när du har skapat din första DNS-zon och-post med en ARM-mall kan du skapa poster för en webbapp i en anpassad domän.
 
 > [!div class="nextstepaction"]
 > [Skapa DNS-poster för en webbapp i en anpassad domän](./dns-web-sites-custom-domain.md)

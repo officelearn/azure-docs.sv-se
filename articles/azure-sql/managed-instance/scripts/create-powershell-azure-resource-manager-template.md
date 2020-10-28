@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 6758aed67949032bb93086527623b60af33e716e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c364fe7fa0ac4dd70a01a75478289ea861dee7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079565"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790839"
 ---
 # <a name="use-powershell-with-an-azure-resource-manager-template-to-create-a-managed-instance"></a>Använd PowerShell med en Azure Resource Manager mall för att skapa en hanterad instans
 
@@ -41,12 +41,12 @@ Azure PowerShell-kommandon kan starta distribution med hjälp av en fördefinier
 
 Instans namn, SQL-administratörens användar namn, VNet/undernät och sortering kan inte ändras senare. Andra instansegenskaper kan ändras.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här exemplet förutsätter att du har [skapat en giltig nätverks miljö](../virtual-network-subnet-create-arm-template.md) eller [ändrat ett befintligt virtuellt](../vnet-existing-add-subnet.md) nätverk för din hanterade instans. Du kan förbereda nätverks miljön med en separat [Azure Resource Manager mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment), om det behövs. 
 
 
-Exemplet använder cmdletarna [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) och [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork), så kontrol lera att du har installerat följande PowerShell-moduler:
+Exemplet använder cmdletarna [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) och [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), så kontrol lera att du har installerat följande PowerShell-moduler:
 
 ```powershell
 Install-Module Az.Network

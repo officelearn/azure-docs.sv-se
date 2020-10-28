@@ -8,18 +8,18 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f969c30033604cb4b331b5ed86d992af371f9c75
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 154a7b17fc09c55e83b65eef8d479904c36e87eb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490823"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791196"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Självstudie: migrera lokala data till moln lagring med AzCopy
 
 AzCopy är ett kommandoradsverktyg med vilket du kan kopiera data till eller från Azure Blob Storage, Azure Files och Azure Table Storage med hjälp av enkla kommandon. Kommandona är utformade för att ge optimala prestanda. Med AzCopy kan du antingen kopiera data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton. AzCopy kan användas för att kopiera data från lokala data till ett lagringskonto.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett lagringskonto. 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 Hämta den senaste versionen av AzCopy för att slutföra den här självstudien. Se [Kom igång med AZCopy](storage-use-azcopy-v10.md).
 
-Om du kör Windows behöver du [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) eftersom den här självstudien använder det för att schemalägga en uppgift. Linux-användare använder i stället crontab-kommandot.
+Om du kör Windows behöver du [Schtasks](/windows/win32/taskschd/schtasks) eftersom den här självstudien använder det för att schemalägga en uppgift. Linux-användare använder i stället crontab-kommandot.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -44,7 +44,7 @@ Det första steget är att skapa en container, eftersom blobar alltid måste lad
 Skapa en container genom att följa de här stegen:
 
 1. Välj knappen **Lagringskonton** på huvudsidan och markera det lagringskonto som du har skapat.
-2. Välj **Blobar** under **Tjänster**, och välj sedan **Container**.
+2. Välj **Blobar** under **Tjänster** , och välj sedan **Container** .
 
    ![Skärm bild som visar skapande av behållare](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
@@ -62,7 +62,7 @@ Placera AzCopy-filen var som helst på din dator. Lägg till platsen för filen 
 
 ## <a name="authenticate-with-azure-ad"></a>Autentisera med Azure AD
 
-Tilldela först rollen [Storage BLOB data Contributor](/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) till din identitet. Se [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](/azure/storage/common/storage-auth-aad-rbac-portal).
+Tilldela först rollen [Storage BLOB data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) till din identitet. Se [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](./storage-auth-aad-rbac-portal.md).
 
 Öppna sedan en kommando tolk, Skriv följande kommando och tryck på RETUR-tangenten.
 
@@ -78,7 +78,7 @@ Ett inloggnings fönster visas. I det fönstret loggar du in på ditt Azure-kont
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Ladda upp innehåll i en mapp till Blob Storage
 
-Du kan överföra alla filer i en mapp till Blob Storage i [Windows](/azure/storage/common/storage-use-azcopy) eller [Linux](/azure/storage/common/storage-use-azcopy-linux) med AzCopy. Överför alla blobar i en mapp genom att ange följande AzCopy-kommando:
+Du kan överföra alla filer i en mapp till Blob Storage i [Windows](./storage-use-azcopy-v10.md) eller [Linux](./storage-use-azcopy-v10.md) med AzCopy. Överför alla blobar i en mapp genom att ange följande AzCopy-kommando:
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -135,7 +135,7 @@ azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycont
 
 ---
 
-I den här självstudiekursen används [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) för att skapa en schemalagd uppgift i Windows. Kommandot [Crontab](http://crontab.org/) används för att skapa ett Cron-jobb i Linux.
+I den här självstudiekursen används [Schtasks](/windows/win32/taskschd/schtasks) för att skapa en schemalagd uppgift i Windows. Kommandot [Crontab](http://crontab.org/) används för att skapa ett Cron-jobb i Linux.
 
  Med **Schtasks** kan en administratör skapa, ta bort, fråga, ändra, köra och avsluta schemalagda uppgifter på en lokal eller fjärransluten dator. Med **Cron** kan Linux- och Unix-användare köra kommandon eller skript angivet datum och angiven med hjälp av [Cron-uttryck](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
@@ -166,7 +166,7 @@ Kommandot använder:
 - Parametern `/TN` för att ange uppgiftens namn.
 - Parametern `/TR` för att ange sökvägen till filen `script.bat`.
 
-Mer information om hur du skapar en schemalagd uppgift i Windows finns i [Schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes).
+Mer information om hur du skapar en schemalagd uppgift i Windows finns i [Schtasks](/previous-versions/orphan-topics/ws.10/cc772785(v=ws.10)#BKMK_minutes).
 
 ---
 
@@ -176,7 +176,7 @@ Du kan verifiera att den schemalagda uppgiften/Cron-jobbet körs korrekt genom a
 
 Mer information om hur du flyttar lokala data till Azure Storage och vice versa finns i följande länk:
 
-* [Flytta data till och från Azure Storage](/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+* [Flytta data till och från Azure Storage](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
 
 Mer information om AzCopy finns i följande artiklar:
 

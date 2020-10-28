@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/14/2018
-ms.openlocfilehash: fb64348e53dc92ef8f5830f2649afdf9eca3a9ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9997ea737b96185b31a7f51996a396fb5fc46c4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616490"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790193"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatisera replikeringen av schema ändringar i Azure SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
     VALUES (EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand/CommandText)[1]', 'nvarchar(max)'), 'From DDL trigger')
 ```
 
-Utlösaren infogar en post i tabellen schema ändrings spårning för varje ALTER TABLE-kommando. I det här exemplet läggs ett filter till för att undvika att replikera schema ändringar som görs under schema **DataSync**, eftersom de är mest sannolika av tjänsten Data Sync. Lägg till fler filter om du bara vill replikera vissa typer av schema ändringar.
+Utlösaren infogar en post i tabellen schema ändrings spårning för varje ALTER TABLE-kommando. I det här exemplet läggs ett filter till för att undvika att replikera schema ändringar som görs under schema **DataSync** , eftersom de är mest sannolika av tjänsten Data Sync. Lägg till fler filter om du bara vill replikera vissa typer av schema ändringar.
 
 Du kan också lägga till fler utlösare för att replikera andra typer av schema ändringar. Skapa till exempel CREATE_PROCEDURE, ALTER_PROCEDURE och DROP_PROCEDURE utlösare för att replikera ändringar till lagrade procedurer.
 
@@ -231,7 +231,7 @@ Mer information om SQL Data Sync finns i:
         -  [Använda PowerShell för att synkronisera mellan en databas i Azure SQL Database och en databas i en SQL Server instans](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](sql-data-sync-agent-overview.md)
 -   Metodtips – [Metodtips för Azure SQL Data Sync](sql-data-sync-best-practices.md)
--   Övervaka [SQL Data Sync med Azure Monitor loggar](sql-data-sync-monitor-sync.md)
+-   Övervaka [SQL Data Sync med Azure Monitor loggar](./monitor-tune-overview.md)
 -   Felsökning – [Felsöka problem med Azure SQL Data Sync]()
 -   Uppdatera synkroniseringsschemat
     -   Med PowerShell – [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/update-sync-schema-in-sync-group.md)

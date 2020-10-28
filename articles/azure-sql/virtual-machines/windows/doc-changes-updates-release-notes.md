@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: d05b603d3f854d919df43e633449e37301a5e77d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1d6eb4df91ce912832d15835a00bdb287f67e787
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168332"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789751"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Dokumentations ändringar för SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,9 +56,9 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 | Ändringar | Information |
 | --- | --- |
-| **Distribuerat nätverks namn (DNN)** | SQL Server 2019 i Windows Server 2016 + för hands versions hantering av trafik till din FCI (failover Cluster instance) med hjälp av ett [distribuerat nätverks namn](hadr-distributed-network-name-dnn-configure.md) i stället för att använda Azure Load Balancer. Detta stöd fören klar och effektiviserar anslutningen till din lösning för hög tillgänglighet (HA) i Azure. | 
+| **Namn på distribuerat nätverk (DNN)** | SQL Server 2019 i Windows Server 2016 + för hands versions hantering av trafik till din FCI (failover Cluster instance) med hjälp av ett [distribuerat nätverks namn](./failover-cluster-instance-distributed-network-name-dnn-configure.md) i stället för att använda Azure Load Balancer. Detta stöd fören klar och effektiviserar anslutningen till din lösning för hög tillgänglighet (HA) i Azure. | 
 | **FCI med Azure delade diskar** | Nu kan du distribuera din instans av [redundanskluster (FCI)](failover-cluster-instance-overview.md) med hjälp av [Azure delade diskar](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
-| **Omorganisera FCI-dokument** | Dokumentationen runt [kluster instanserna för redundanskluster med SQL Server på virtuella Azure-datorer](failover-cluster-instance-overview.md) har skrivits om och organiserats om för tydlighets skull. Vi har avgränsat en del konfigurations innehåll, t. ex. [metod tips för kluster konfiguration](hadr-cluster-best-practices.md), hur du förbereder en [virtuell dator för en SQL Server FCI](failover-cluster-instance-prepare-vm.md)och hur du konfigurerar [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md). | 
+| **Omorganisera FCI-dokument** | Dokumentationen runt [kluster instanserna för redundanskluster med SQL Server på virtuella Azure-datorer](failover-cluster-instance-overview.md) har skrivits om och organiserats om för tydlighets skull. Vi har avgränsat en del konfigurations innehåll, t. ex. [metod tips för kluster konfiguration](hadr-cluster-best-practices.md), hur du förbereder en [virtuell dator för en SQL Server FCI](failover-cluster-instance-prepare-vm.md)och hur du konfigurerar [Azure Load Balancer](./availability-group-vnn-azure-load-balancer-configure.md). | 
 | &nbsp; | &nbsp; |
 
 
@@ -84,7 +84,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 | **Registrering av Mass resurs leverantör** | Nu kan du [Mass registrera](sql-vm-resource-provider-bulk-register.md) SQL Server virtuella datorer med resurs leverantören. | 
 |**Prestandaoptimerad lagrings konfiguration** | Du kan nu [helt anpassa lagrings konfigurationen](storage-configuration.md#new-vms) när du skapar en ny SQL Server VM. |
 |**Premium-filresurs för FCI** | Nu kan du skapa en instans av ett kluster för växling vid fel med hjälp av en [Premium-filresurs](failover-cluster-instance-premium-file-share-manually-configure.md) i stället för den ursprungliga [Lagringsdirigerings](failover-cluster-instance-storage-spaces-direct-manually-configure.md)metoden. 
-| **Dedikerad Azure-värd** | Du kan köra din SQL Server VM på den [dedikerade Azure-värden](dedicated-host.md). | 
+| **Azure Dedicated Host** | Du kan köra din SQL Server VM på den [dedikerade Azure-värden](dedicated-host.md). | 
 | **SQL Server VM migrering till en annan region** | Använd Azure Site Recovery för att [migrera SQL Server VM från en region till en annan](move-sql-vm-different-region.md). |
 |  **Nya installations lägen för SQL-IaaS** | Nu är det möjligt att installera SQL Server IaaS-tillägget i [lättviktigt läge](sql-server-iaas-agent-extension-automate-management.md) för att undvika att starta om tjänsten SQL Server.  |
 | **Ändring av SQL Servers utgåva** | Nu kan du ändra [egenskapen version](change-sql-server-edition.md) för SQL Server VM. |
@@ -96,7 +96,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 | **Stöd för namngiven instans** | Du kan nu använda [tillägget SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md#installation) med en namngiven instans, om standard instansen har avinstallerats på rätt sätt. | 
 | **Portal förbättring** | Azure Portals upplevelsen för att distribuera en SQL Server VM har förbättringar för att förbättra användbarhet. Mer information finns i [snabb start](sql-vm-create-portal-quickstart.md) och mer utförlig [instruktions guide](create-sql-vm-portal.md) för att distribuera en SQL Server VM.|
 | **Portal förbättring** | Det är nu möjligt att ändra licensierings modellen för en SQL Server VM från betala per användning för att få en egen licens genom att använda [Azure Portal](licensing-model-azure-hybrid-benefit-ahb-change.md#vms-already-registered-with-the-resource-provider).|
-| **Förenkling av tillgänglighets grupps distribution till en SQL Server VM via Azure CLI** | Nu är det enklare än någonsin att distribuera en tillgänglighets grupp till en SQL Server VM i Azure. Du kan använda [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) för att skapa Windows-redundanskluster, en intern belastningsutjämnare och tillgänglighets grupps lyssnare, allt från kommando raden. Mer information finns i [använda Azure CLI för att konfigurera en Always on-tillgänglighets grupp för SQL Server på en virtuell Azure-dator](availability-group-az-cli-configure.md). | 
+| **Förenkling av tillgänglighets grupps distribution till en SQL Server VM via Azure CLI** | Nu är det enklare än någonsin att distribuera en tillgänglighets grupp till en SQL Server VM i Azure. Du kan använda [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) för att skapa Windows-redundanskluster, en intern belastningsutjämnare och tillgänglighets grupps lyssnare, allt från kommando raden. Mer information finns i [använda Azure CLI för att konfigurera en Always on-tillgänglighets grupp för SQL Server på en virtuell Azure-dator](./availability-group-az-commandline-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 
@@ -112,7 +112,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-**Virtuella Windows-datorer**:
+**Virtuella Windows-datorer** :
 
 * [Översikt över SQL Server på en virtuell Windows-dator](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Etablera SQL Server på en virtuell Windows-dator](create-sql-vm-portal.md)
@@ -121,9 +121,9 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 * [Metod tips för prestanda för SQL Server på Azure Virtual Machines](performance-guidelines-best-practices.md)
 * [Program mönster och utvecklings strategier för SQL Server på Azure Virtual Machines](application-patterns-development-strategies.md)
 
-**Virtuella Linux-datorer**:
+**Virtuella Linux-datorer** :
 
 * [Översikt över SQL Server på en virtuell Linux-dator](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Etablera SQL Server på en virtuell Linux-dator](../linux/sql-vm-create-portal-quickstart.md)
 * [Vanliga frågor och svar (Linux)](../linux/frequently-asked-questions-faq.md)
-* [SQL Server på Linux dokumentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server på Linux dokumentation](/sql/linux/sql-server-linux-overview)

@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bf5c3f7d854081c7306a038cc452b620d1af00d0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 204c7d756a13ed0427f06abfb56e3f1256df48bc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168007"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789955"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Använd Azures snabb starts mallar för att konfigurera en tillgänglighets grupp för SQL Server på Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Den här artikeln använder Azures snabb starts mallar för att konfigurera till
 Om du vill automatisera installationen av en tillgänglighets grupp som alltid är tillgänglig med hjälp av snabb starts mallar måste du ha följande krav: 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - En resurs grupp med en domänkontrollant. 
-- En eller flera domänanslutna [virtuella datorer i Azure som kör SQL Server 2016 (eller senare) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) som finns i samma tillgänglighets uppsättning eller tillgänglighets zon och som har [registrerats med den virtuella SQL-PROVIDERn för virtuella](sql-vm-resource-provider-register.md)datorer.  
+- En eller flera domänanslutna [virtuella datorer i Azure som kör SQL Server 2016 (eller senare) Enterprise Edition](./create-sql-vm-portal.md) som finns i samma tillgänglighets uppsättning eller tillgänglighets zon och som har [registrerats med den virtuella SQL-PROVIDERn för virtuella](sql-vm-resource-provider-register.md)datorer.  
 - Två tillgängliga (används inte av någon entitet) IP-adresser: en för den interna belastningsutjämnaren och en för tillgänglighets gruppens lyssnare i samma undernät som tillgänglighets gruppen. Om en befintlig belastningsutjämnare används behöver du bara en tillgänglig IP-adress.  
 
 ## <a name="permissions"></a>Behörigheter
@@ -52,7 +52,7 @@ Följande behörigheter är nödvändiga för att konfigurera tillgänglighets g
 
 
 ## <a name="create-cluster"></a>Skapa kluster
-När dina SQL Server virtuella datorer har registrerats med resurs leverantören för SQL-VM kan du ansluta dina SQL Server virtuella datorer till *SqlVirtualMachineGroups*. Den här resursen definierar metadata för Windows-redundansklustret. Metadata innehåller version, utgåva, fullständigt kvalificerade domän namn Active Directory konton för att hantera både klustret och SQL Server och lagrings kontot som moln vittne. 
+När dina SQL Server virtuella datorer har registrerats med resurs leverantören för SQL-VM kan du ansluta dina SQL Server virtuella datorer till *SqlVirtualMachineGroups* . Den här resursen definierar metadata för Windows-redundansklustret. Metadata innehåller version, utgåva, fullständigt kvalificerade domän namn Active Directory konton för att hantera både klustret och SQL Server och lagrings kontot som moln vittne. 
 
 Om du lägger till SQL Server virtuella datorer i resurs gruppen *SqlVirtualMachineGroups* startar kluster tjänsten Windows-redundans för att skapa klustret och ansluter sedan till de SQL Server virtuella datorerna till klustret. Det här steget är automatiserat med snabb starts mal len **101-SQL-VM-AG-setup** . Du kan implementera det med hjälp av följande steg:
 
@@ -66,7 +66,7 @@ Om du lägger till SQL Server virtuella datorer i resurs gruppen *SqlVirtualMach
    | **Prenumeration** |  Den prenumeration där SQL Server virtuella datorer finns. |
    |**Resursgrupp** | Resurs gruppen där dina SQL Server virtuella datorer finns. | 
    |**Kluster namn för växling vid fel** | Det namn som du vill använda för det nya Windows-redundansklustret. |
-   | **Befintlig VM-lista** | De SQL Server virtuella datorer som du vill delta i tillgänglighets gruppen och vara en del av det nya klustret. Avgränsa dessa värden med kommatecken och blank steg (till exempel: *SQLVM1, SQLVM2*). |
+   | **Befintlig VM-lista** | De SQL Server virtuella datorer som du vill delta i tillgänglighets gruppen och vara en del av det nya klustret. Avgränsa dessa värden med kommatecken och blank steg (till exempel: *SQLVM1, SQLVM2* ). |
    | **SQL Server version** | SQL Server versionen av dina SQL Server virtuella datorer. Välj den i list rutan. För närvarande stöds endast SQL Server 2016 och SQL Server 2017-avbildningar. |
    | **Befintligt fullständigt kvalificerat domän namn** | Det befintliga fullständiga domän namnet för den domän där SQL Server virtuella datorerna finns. |
    | **Befintligt domän konto** | Ett befintligt domän användar konto som har behörighet att **skapa dator objekt** i domänen när [CNO: t](/windows-server/failover-clustering/prestage-cluster-adds) skapas när mallen distribueras. Till exempel har ett domän administratörs konto vanligt vis tillräcklig behörighet (till exempel: account@domain.com ). *Detta konto bör också vara en del av den lokala administratörs gruppen på varje virtuell dator för att skapa klustret.*| 
@@ -79,7 +79,7 @@ Om du lägger till SQL Server virtuella datorer i resurs gruppen *SqlVirtualMach
    | &nbsp; | &nbsp; |
 
 1. Om du godkänner villkoren markerar du kryss rutan **Jag accepterar villkoren som anges ovan** . Välj sedan **köp** för att slutföra distributionen av snabb starts mal len. 
-1. Om du vill övervaka din distribution väljer du antingen distributionen i klock ikonen för **meddelanden** i den övre navigerings banderollen eller går till **resurs grupp** i Azure Portal. Välj **distributioner** under **Inställningar**och välj distributionen av **Microsoft. template** . 
+1. Om du vill övervaka din distribution väljer du antingen distributionen i klock ikonen för **meddelanden** i den övre navigerings banderollen eller går till **resurs grupp** i Azure Portal. Välj **distributioner** under **Inställningar** och välj distributionen av **Microsoft. template** . 
 
 >[!NOTE]
 > De autentiseringsuppgifter som angavs vid mal distributionen lagras bara för distributionens längd. När distributionen är klar tas lösen orden bort. Du uppmanas att ange dem igen om du lägger till fler SQL Server virtuella datorer i klustret. 
@@ -115,15 +115,15 @@ Lyssnaren för Always on-tillgänglighetsgrupper kräver en intern instans av Az
 Du behöver bara skapa den interna belastningsutjämnaren. I steg 4 hanterar snabb starts mal len **101-SQL-VM-aglistener-setup** resten av konfigurationen (till exempel backend-poolen, hälso avsökningen och regler för belastnings utjämning). 
 
 1. Öppna den resurs grupp som innehåller de SQL Server virtuella datorerna i Azure Portal. 
-2. I resurs gruppen väljer du **Lägg till**.
-3. Sök efter **belastningsutjämnare**. I Sök resultaten väljer du **Load Balancer**, som publiceras av **Microsoft**.
-4. På bladet **Load Balancer** väljer du **skapa**.
+2. I resurs gruppen väljer du **Lägg till** .
+3. Sök efter **belastningsutjämnare** . I Sök resultaten väljer du **Load Balancer** , som publiceras av **Microsoft** .
+4. På bladet **Load Balancer** väljer du **skapa** .
 5. I dialog rutan **skapa belastnings utjämning** konfigurerar du belastningsutjämnaren enligt följande:
 
    | Inställning | Värde |
    | --- | --- |
-   | **Namn** |Ange ett text namn som representerar belastningsutjämnaren. Skriv till exempel **sqlLB**. |
-   | **Typ** |**Internt**: de flesta implementeringar använder en intern belastningsutjämnare som gör det möjligt för program i samma virtuella nätverk att ansluta till tillgänglighets gruppen.  </br> **Externt**: tillåter att program ansluter till tillgänglighets gruppen via en offentlig Internet anslutning. |
+   | **Namn** |Ange ett text namn som representerar belastningsutjämnaren. Skriv till exempel **sqlLB** . |
+   | **Typ** |**Internt** : de flesta implementeringar använder en intern belastningsutjämnare som gör det möjligt för program i samma virtuella nätverk att ansluta till tillgänglighets gruppen.  </br> **Externt** : tillåter att program ansluter till tillgänglighets gruppen via en offentlig Internet anslutning. |
    | **Virtuellt nätverk** | Välj det virtuella nätverk som SQL Servers instanserna finns i. |
    | **Undernät** | Välj det undernät som de SQL Server instanserna finns i. |
    | **Tilldelning av IP-adress** |**Statiskt** |
@@ -133,11 +133,11 @@ Du behöver bara skapa den interna belastningsutjämnaren. I steg 4 hanterar sna
    | **Plats** |Välj den Azure-plats som SQL Server instanserna finns i. |
    | &nbsp; | &nbsp; |
 
-6. Välj **Skapa**. 
+6. Välj **Skapa** . 
 
 
 >[!IMPORTANT]
-> Den offentliga IP-resursen för varje SQL Server VM måste ha en standard-SKU för att vara kompatibel med standard belastnings utjämningen. Ta reda på SKU: n för den virtuella datorns offentliga IP-resurs genom att gå till **resurs grupp**, välja din **offentliga IP** -adressresurs för SQL Server VM och leta upp värdet under **SKU** i fönstret **Översikt** . 
+> Den offentliga IP-resursen för varje SQL Server VM måste ha en standard-SKU för att vara kompatibel med standard belastnings utjämningen. Ta reda på SKU: n för den virtuella datorns offentliga IP-resurs genom att gå till **resurs grupp** , välja din **offentliga IP** -adressresurs för SQL Server VM och leta upp värdet under **SKU** i fönstret **Översikt** . 
 
 ## <a name="create-listener"></a>Skapa lyssnare 
 
@@ -163,17 +163,17 @@ Gör så här för att konfigurera den interna belastningsutjämnaren och skapa 
    |**Resursgrupp** | Resurs gruppen där SQL Server VM och tillgänglighets grupp finns. | 
    |**Befintligt kluster namn för växling vid fel** | Namnet på det kluster som dina SQL Server virtuella datorer är anslutna till. |
    | **Befintlig SQL-tillgänglighets grupp**| Namnet på den tillgänglighets grupp som dina SQL Server virtuella datorer ingår i. |
-   | **Befintlig VM-lista** | Namnen på de SQL Server virtuella datorer som ingår i den tidigare nämnda tillgänglighets gruppen. Avgränsa namnen med kommatecken och blank steg (till exempel: *SQLVM1, SQLVM2*). |
+   | **Befintlig VM-lista** | Namnen på de SQL Server virtuella datorer som ingår i den tidigare nämnda tillgänglighets gruppen. Avgränsa namnen med kommatecken och blank steg (till exempel: *SQLVM1, SQLVM2* ). |
    | **Lyssnare** | Det DNS-namn som du vill tilldela lyssnaren. Som standard anger den här mallen namnet "aglistener", men du kan ändra den. Namnet får inte överskrida 15 tecken. |
    | **Lyssnar port** | Den port som du vill att lyssnaren ska använda. Normalt ska den här porten vara standardvärdet 1433. Detta är port numret som mallen anger. Men om standard porten har ändrats bör lyssnar porten använda det värdet i stället. | 
    | **Lyssnare-IP** | Den IP-adress som du vill att lyssnaren ska använda. Den här adressen skapas när mallen distribueras, så ange en som inte redan används.  |
-   | **Befintligt undernät** | Namnet på det interna under nätet för SQL Server virtuella datorer (till exempel: *standard*). Du kan fastställa det här värdet genom att gå till **resurs grupp**, välja ditt virtuella nätverk, välja **undernät** i fönstret **Inställningar** och kopiera värdet under **namn**. |
+   | **Befintligt undernät** | Namnet på det interna under nätet för SQL Server virtuella datorer (till exempel: *standard* ). Du kan fastställa det här värdet genom att gå till **resurs grupp** , välja ditt virtuella nätverk, välja **undernät** i fönstret **Inställningar** och kopiera värdet under **namn** . |
    | **Befintliga interna Load Balancer** | Namnet på den interna belastningsutjämnare som du skapade i steg 3. |
    | **Avsöknings port** | Avsöknings porten som du vill att den interna belastningsutjämnaren ska använda. Mallen använder 59999 som standard, men du kan ändra det här värdet. |
    | &nbsp; | &nbsp; |
 
 1. Om du godkänner villkoren markerar du kryss rutan **Jag accepterar villkoren som anges ovan** . Välj **köp** för att slutföra distributionen av snabb starts mal len. 
-1. Om du vill övervaka din distribution väljer du antingen distributionen i klock ikonen för **meddelanden** i den övre navigerings banderollen eller går till **resurs grupp** i Azure Portal. Välj **distributioner** under **Inställningar**och välj distributionen av **Microsoft. template** . 
+1. Om du vill övervaka din distribution väljer du antingen distributionen i klock ikonen för **meddelanden** i den övre navigerings banderollen eller går till **resurs grupp** i Azure Portal. Välj **distributioner** under **Inställningar** och välj distributionen av **Microsoft. template** . 
 
 >[!NOTE]
 >Om distributionen Miss lyckas halvvägs måste du manuellt [ta bort den nyligen skapade lyssnaren](#remove-listener) med hjälp av PowerShell innan du distribuerar snabb starts mal len **101-SQL-VM-aglistener-setup** . 
@@ -204,15 +204,15 @@ Lös problemet genom att ta bort lyssnaren med hjälp av [PowerShell](#remove-li
 
 Kontrol lera att kontot finns. Om det gör det kan du köra den andra situationen. Gör så här för att lösa problemet:
 
-1. På domänkontrollanten öppnar du fönstret **Active Directory användare och datorer** från alternativet **verktyg** i **Serverhanteraren**. 
+1. På domänkontrollanten öppnar du fönstret **Active Directory användare och datorer** från alternativet **verktyg** i **Serverhanteraren** . 
 2. Gå till kontot genom att välja **användare** i det vänstra fönstret.
-3. Högerklicka på kontot och välj **Egenskaper**.
+3. Högerklicka på kontot och välj **Egenskaper** .
 4. Välj fliken **konto** . Om rutan **användarens inloggnings namn** är tom är detta orsaken till felet. 
 
     ![Ett tomt användar konto indikerar att UPN saknas](./media/availability-group-quickstart-template-configure/account-missing-upn.png)
 
 5. Fyll i rutan **användarens inloggnings namn** för att matcha namnet på användaren och välj rätt domän i list rutan. 
-6. Välj **Verkställ** för att spara ändringarna och Stäng dialog rutan genom att välja **OK**. 
+6. Välj **Verkställ** för att spara ändringarna och Stäng dialog rutan genom att välja **OK** . 
 
 När du har gjort dessa ändringar kan du försöka Distribuera Azure snabb starts mal len en gång till. 
 
@@ -226,6 +226,3 @@ Mer information finns i följande artiklar:
 * [Pris vägledning för SQL Server virtuella datorer](pricing-guidance.md)
 * [Viktig information för SQL Server virtuella datorer](../../database/doc-changes-updates-release-notes.md)
 * [Växla licensierings modeller för en SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md)
-
-
-

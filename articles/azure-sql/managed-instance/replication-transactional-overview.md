@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: a335f6ac015397ba2b2634d0d604c194a768260a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76bb4ffb4ebeb01baf8236d6be84c900b23ffbc0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283249"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790822"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Transaktionell replikering med Azure SQL-hanterad instans (för hands version)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,19 +35,19 @@ Du kan använda Transaktionsreplikering för att skicka ändringar som görs i e
 - En instans databas i Azure SQL-hanterad instans
 
   > [!NOTE]
-  > Om du vill använda alla funktioner i den hanterade Azure SQL-instansen måste du använda de senaste versionerna av [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
+  > Om du vill använda alla funktioner i den hanterade Azure SQL-instansen måste du använda de senaste versionerna av [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt).
 
 ### <a name="components"></a>Komponenter
 
-Nyckel komponenterna i Transaktionsreplikering är **utgivare**, **distributör**och **prenumerant**, som du ser i följande bild:  
+Nyckel komponenterna i Transaktionsreplikering är **utgivare** , **distributör** och **prenumerant** , som du ser i följande bild:  
 
 ![replikering med SQL Database](./media/replication-transactional-overview/replication-to-sql-database.png)
 
 | Roll | Azure SQL Database | Hanterad Azure SQL-instans |
 | :----| :------------- | :--------------- |
-| **Publisher** | Inga | Ja |
-| **Möjligheter** | Inga | Ja|
-| **Pull-prenumerant** | Inga | Ja|
+| **Publisher** | Nej | Ja |
+| **Möjligheter** | Nej | Ja|
+| **Pull-prenumerant** | Nej | Ja|
 | **Push-prenumerant**| Ja | Ja|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -65,21 +65,21 @@ En Azure SQL-hanterad instans kan stödja en prenumerant från följande version
 
    > [!NOTE]
    >
-   > - För andra versioner av SQL Server som inte stöder publicering till objekt i Azure är det möjligt att använda metoden [republishing](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) för att flytta data till nyare versioner av SQL Server.
+   > - För andra versioner av SQL Server som inte stöder publicering till objekt i Azure är det möjligt att använda metoden [republishing](/sql/relational-databases/replication/republish-data) för att flytta data till nyare versioner av SQL Server.
    > - Försök att konfigurera replikering med en äldre version kan resultera i fel nummer MSSQL_REPL20084 (processen kunde inte ansluta till prenumeranten.) och MSSQ_REPL40532 (det går inte att öppna servern \<name> som begärdes av inloggningen. Inloggningen misslyckades.)
 
 ### <a name="types-of-replication"></a>Typer av replikering
 
-Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
+Det finns olika [typer av replikering](/sql/relational-databases/replication/types-of-replication):
 
 | Replikering | Azure SQL Database | Hanterad Azure SQL-instans |
 | :----| :------------- | :--------------- |
-| [**Standard transaktion**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Ja |
-| [**Ögonblicksbild**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Ja|
-| [**Sammanfoga replikering**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Inga | Inga|
-| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Inga | Inga|
-| [**Dubbelriktad**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Inga | Ja|
-| [**Uppdaterings bara prenumerationer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Inga | Inga|
+| [**Standard transaktion**](/sql/relational-databases/replication/transactional/transactional-replication) | Ja (endast som prenumerant) | Ja |
+| [**Ögonblicksbild**](/sql/relational-databases/replication/snapshot-replication) | Ja (endast som prenumerant) | Ja|
+| [**Sammanfoga replikering**](/sql/relational-databases/replication/merge/merge-replication) | Nej | Nej|
+| [**Peer-to-peer**](/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nej | Nej|
+| [**Dubbelriktad**](/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nej | Ja|
+| [**Uppdaterings bara prenumerationer**](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nej | Nej|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>Support mat ris
@@ -148,7 +148,7 @@ I den här konfigurationen är en databas i Azure SQL Database eller Azure SQL-h
 - Konfigurera VPN-peering mellan virtuella nätverk för replikeringspartner om de virtuella nätverken skiljer sig åt.
 
 > [!NOTE]
-> Du kan stöta på fel 53 när du ansluter till en Azure Storage-fil om den utgående nätverks säkerhets gruppen (NSG) port 445 är blockerad när distributören är en Azure SQL-hanterad instans databas och prenumeranten är lokalt. [Uppdatera vNet-NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) för att lösa problemet.
+> Du kan stöta på fel 53 när du ansluter till en Azure Storage-fil om den utgående nätverks säkerhets gruppen (NSG) port 445 är blockerad när distributören är en Azure SQL-hanterad instans databas och prenumeranten är lokalt. [Uppdatera vNet-NSG](../../storage/files/storage-troubleshoot-windows-file-connection-problems.md) för att lösa problemet.
 
 ## <a name="with-failover-groups"></a>Med failover-grupper
 
@@ -196,16 +196,16 @@ Mer information om hur du konfigurerar Transaktionsreplikering finns i följande
 
 - [Konfigurera replikering mellan en SQL-hanterad instans utgivare och prenumerant](../managed-instance/replication-between-two-instances-configure-tutorial.md)
 - [Konfigurera replikering mellan en SQL-hanterad instans utgivare, SQL-hanterad instans distributör och SQL Server prenumerant](../managed-instance/replication-two-instances-and-sql-server-configure-tutorial.md)
-- [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-- [Skapa en push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) med hjälp av Server namnet som prenumeranten (till exempel `N'azuresqldbdns.database.windows.net` och databasen i Azure SQL Database namn som mål databas (till exempel **AdventureWorks**. )
+- [Skapa en publikation](/sql/relational-databases/replication/publish/create-a-publication).
+- [Skapa en push-prenumeration](/sql/relational-databases/replication/create-a-push-subscription) med hjälp av Server namnet som prenumeranten (till exempel `N'azuresqldbdns.database.windows.net` och databasen i Azure SQL Database namn som mål databas (till exempel **AdventureWorks** . )
 
 ## <a name="see-also"></a>Se även  
 
 - [Replikering med en SQL-hanterad instans och en failover-grupp](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replikering till SQL-databas](../database/replication-to-sql-database.md)
 - [Replikering till hanterad instans](../managed-instance/replication-between-two-instances-configure-tutorial.md)
-- [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Skapa en push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Typer av replikering](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Övervakning (replikering)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Initiera en prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
+- [Skapa en publikation](/sql/relational-databases/replication/publish/create-a-publication)
+- [Skapa en push-prenumeration](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Typer av replikering](/sql/relational-databases/replication/types-of-replication)
+- [Övervakning (replikering)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Initiera en prenumeration](/sql/relational-databases/replication/initialize-a-subscription)

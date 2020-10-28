@@ -13,6 +13,7 @@
     - name: Skapa en ExpressRoute-krets – CLI
       href: howto-circuit-cli.md
     - name: Skapa en ExpressRoute-krets – ARM-mall
+      displayName: Resource Manager
       href: quickstart-create-expressroute-vnet-template.md
   expanded: true
 - name: Självstudier

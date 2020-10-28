@@ -11,17 +11,17 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 1d4c29cdb9cf24f87df4acc3556b318a1079810a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f8c296860fc36772a85039e27c86a72614c2a50
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443615"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791060"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Kom igång med SQL Database dynamisk data maskning med Azure Portal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Den här artikeln visar hur du implementerar [dynamisk data maskning](dynamic-data-masking-overview.md) med Azure Portal. Du kan också implementera dynamisk data maskning med hjälp av [Azure SQL Database-cmdletar](https://docs.microsoft.com/powershell/module/az.sql/) eller [REST API](https://docs.microsoft.com/rest/api/sql/).
+Den här artikeln visar hur du implementerar [dynamisk data maskning](dynamic-data-masking-overview.md) med Azure Portal. Du kan också implementera dynamisk data maskning med hjälp av [Azure SQL Database-cmdletar](/powershell/module/az.sql/) eller [REST API](/rest/api/sql/).
 
 > [!NOTE]
 > Den här funktionen kan inte ställas in med Portal för Azure-Synapse (Använd PowerShell eller REST API) eller SQL-hanterad instans. Mer information finns i [dynamisk data maskning](/sql/relational-databases/security/dynamic-data-masking).
@@ -42,7 +42,7 @@ Den här artikeln visar hur du implementerar [dynamisk data maskning](dynamic-da
 
     ![Skärm bild som visar sidan Lägg till masknings regel konfiguration.](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
-6. Välj **schemat**, **tabellen** och **kolumnen** för att definiera det angivna fältet för maskering.
+6. Välj **schemat** , **tabellen** och **kolumnen** för att definiera det angivna fältet för maskering.
 7. **Välj hur du vill maskera** från listan över känsliga data masknings kategorier.
 
     ![Skärm bild som visar kategorierna känsliga data maskning under avsnittet Välj hur den ska maskeras.](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
@@ -60,4 +60,4 @@ Den här artikeln visar hur du implementerar [dynamisk data maskning](dynamic-da
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt över dynamisk data maskning finns i [dynamisk datamaskering](dynamic-data-masking-overview.md).
-- Du kan också implementera dynamisk data maskning med hjälp av [Azure SQL Database-cmdletar](https://docs.microsoft.com/powershell/module/az.sql/) eller [REST API](https://docs.microsoft.com/rest/api/sql/).
+- Du kan också implementera dynamisk data maskning med hjälp av [Azure SQL Database-cmdletar](/powershell/module/az.sql/) eller [REST API](/rest/api/sql/).

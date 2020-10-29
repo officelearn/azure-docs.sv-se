@@ -500,7 +500,7 @@
           items:
             - name: Använda MapReduce med Apache Hadoop
               items:
-                - name: Översikt över MapReduce
+                - name: Använda MapReduce
                   href: ./hadoop/hdinsight-use-mapreduce.md
                 - name: Använd SSH
                   href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md

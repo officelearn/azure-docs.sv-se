@@ -1,5 +1,9 @@
 - name: Översikt
   href: overview.md
+- name: Red Hat-snabbstarter
+  items: null
+- name: Snabbstart – WildFly på CentOS
+  href: wildfly-on-centos.md
 - name: Red Hat Enterprise Linux-avbildningar
   items:
     - name: Red Hat Enterprise Linux-översikt

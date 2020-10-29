@@ -16,6 +16,7 @@
     - name: Python
       href: quick-create-python.md
     - name: ARM-mall
+      displayName: Resource Manager
       href: quick-create-template.md
 - name: Självstudier
   items:

@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4979405c7675b5eff9f6940cd34e0c974ebad217
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: af057750e81086bf691b87057da97af3de19cd3b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538280"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909649"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -52,7 +52,7 @@ Vissa SDK: er förlitar sig på IoT Hub att utfärda från koppling när SAS-tok
 
 ### <a name="cause-2"></a>Orsak 2
 
-IoT Hub kunde inte autentisera auth-huvudet, regeln eller nyckeln.
+IoT Hub kunde inte autentisera auth-huvudet, regeln eller nyckeln. Detta kan bero på något av orsakerna som nämns i symptomen.
 
 ## <a name="solution"></a>Lösning
 
@@ -66,10 +66,13 @@ Om det är ett problem med fel volymen växlar du till C SDK, som förnyar SAS-t
 
 I allmänhet bör det fel meddelande visas som förklarar hur du åtgärdar felet. Om du av någon anledning inte har till gång till fel meddelande informationen, se till att:
 
-- SAS eller annan säkerhetstoken som du använder har inte gått ut. 
-- Autentiseringsuppgifterna för auktorisering är väl utformade för det protokoll som du använder. Läs mer i [IoT Hub åtkomst kontroll](iot-hub-devguide-security.md).
+- SAS eller annan säkerhetstoken som du använder har inte gått ut.
+- För X. 509-certifikatautentisering har enhets certifikatet eller CA-certifikatet som är associerat med enheten inte upphört att gälla. Information om hur du registrerar X. 509 CA-certifikat med IoT Hub finns i [Konfigurera X. 509-säkerhet i Azure IoT Hub](iot-hub-security-x509-get-started.md).
+- För X. 509-certifikatets tumavtryck för tumavtryck registreras tumavtrycket för enhets certifikatet med IoT Hub.
+- Autentiseringsuppgifterna för auktorisering är väl utformade för det protokoll som du använder. Mer information finns i [kontrol lera åtkomst till IoT Hub](iot-hub-devguide-security.md).
 - Den auktoriseringsregel som används har behörighet för den begärda åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vi rekommenderar att du använder [Azure IoT SDK](iot-hub-devguide-sdks.md): er för att under lätta autentiseringen till IoT Hub enklare.
+- Vi rekommenderar att du använder [Azure IoT SDK](iot-hub-devguide-sdks.md): er för att under lätta autentiseringen till IoT Hub enklare.
+- Information om autentisering med IoT Hub finns i [kontrol lera åtkomst till IoT Hub](iot-hub-devguide-security.md).

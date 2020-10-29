@@ -1,0 +1,59 @@
+### YamlMime:Landing
+title: Dokumentation om Azure DDoS Protection Standard
+summary: Lär dig hur Azure DDoS Protection Standard tillhandahåller skydd mot DDOS-attacker när du kombinerar det med bästa praxis för dina program.
+metadata:
+  description: Lär dig hur Azure DDoS Protection Standard tillhandahåller skydd mot DDOS-attacker när du kombinerar det med bästa praxis för dina program.
+  keywords: azure ddos protection standard
+  author: yitoh
+  ms.author: yitoh
+  ms.date: 09/04/2019
+  ms.service: ddos-protection
+  ms.topic: landing-page
+  ms.custom: azure-ddos-protection
+  ms.openlocfilehash: cfc0a8c4856711c4f011805322e2b28942866573
+  ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92904728"
+landingContent:
+- title: Lär dig mer om Azure DDoS Protection Standard
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure DDoS Protection Standard?
+      url: ddos-protection-overview.md
+  - linkListType: architecture
+    links:
+    - text: Funktioner i Azure DDoS Protection Standard
+      url: ddos-protection-standard-features.md
+    - text: Referensarkitekturer
+      url: ddos-protection-reference-architectures.md
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en DDOS-skyddsplan – Portalen
+      url: manage-ddos-protection.md
+- title: Konfigurera attackanalys
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Visa och konfigurera telemetri för DDoS-skydd
+      url: telemetry-monitoring-alerting.md
+    - text: Konfigurera riskreduceringsrapporter och flödesloggar för DDOS-attacker
+      url: reports-and-flow-logs.md
+- title: Hantera DDoS-attacker
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Angreppstyper
+      url: types-of-attacks.md
+    - text: Grundläggande regelverk
+      url: fundamental-best-practices.md
+    - text: Komponenter i en strategi för att hantera DDoS-attacker
+      url: ddos-response-strategy.md
+  - linkListType: how-to-guide
+    links:
+    - text: Använda DDoS Rapid Response (DRR)
+      url: ddos-rapid-response.md

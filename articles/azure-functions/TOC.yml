@@ -79,7 +79,33 @@
         - name: TypeScript
           href: /samples/browse/?products=azure-functions&languages=typescript
     - name: Azure CLI
-      href: functions-cli-samples.md
+      items:
+        - name: CLI-exempelindex
+          href: functions-cli-samples.md
+        - name: Skapa funktionsappen
+          items:
+            - name: Serverlös funktionsapp
+              href: ./scripts/functions-cli-create-serverless.md
+            - name: Serverlös Python-app
+              href: ./scripts/functions-cli-create-serverless-python.md
+            - name: Skalbar Premiumplan-app
+              href: ./scripts/functions-cli-create-premium-plan.md
+            - name: Dedikerad (App Service)-planapp
+              href: ./scripts/functions-cli-create-app-service-plan.md
+        - name: Integrera tjänster
+          items:
+            - name: Ansluta till Azure Storage
+              href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
+            - name: Ansluta till Azure Cosmos DB
+              href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
+            - name: Filresurs för Python-montering
+              href: ./scripts/functions-cli-mount-files-storage-linux.md
+        - name: Kontinuerlig distribution
+          items:
+            - name: GitHub-distribution
+              href: ./scripts/functions-cli-create-function-app-github-continuous.md
+            - name: DevOps-distribution
+              href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Begrepp
   items:
     - name: Jämföra CLR-versioner

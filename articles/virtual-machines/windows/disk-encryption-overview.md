@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ffed14c1877f92b8f8989ea65500f441506fa34
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ea82724ec534aa896fa012332c10e28050caf825
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977297"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909394"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption för virtuella Windows-datorer 
 
@@ -37,7 +37,7 @@ Virtuella Windows-datorer är tillgängliga i [flera storlekar](../sizes-general
 
 Azure Disk Encryption är också tillgängligt för virtuella datorer med Premium Storage.
 
-Azure Disk Encryption är inte tillgänglig på virtuella datorer i [generation 2](../generation-2.md#generation-1-vs-generation-2-capabilities) och [virtuella datorer i Lsv2-serien](../lsv2-series.md). Mer undantag finns i [Azure Disk Encryption: scenarier som inte stöds](disk-encryption-windows.md#unsupported-scenarios).
+Azure Disk Encryption är inte tillgänglig på [virtuella datorer i generation 2](../generation-2.md#generation-1-vs-generation-2-capabilities). Mer undantag finns i [Azure Disk Encryption: scenarier som inte stöds](disk-encryption-windows.md#unsupported-scenarios).
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 

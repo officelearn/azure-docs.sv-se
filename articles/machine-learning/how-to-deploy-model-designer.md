@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: e2f3e0b596847000af62aa6e23da5b137ee9de33
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 0d98d5103e26eb0b4ee0d31b95f1d07cdaa396ae
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999004"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927591"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Använda Studio för att distribuera modeller som har tränats i designern
 
@@ -56,7 +56,7 @@ När utbildnings pipelinen är klar registrerar du den tränade modellen på din
 
     ![Skärm bild av den högra rutan i modulen träna modell](./media/how-to-deploy-model-designer/train-model-right-pane.png)
 
-1. Ange ett namn för din modell och välj sedan **Spara**.
+1. Ange ett namn för din modell och välj sedan **Spara** .
 
 När du har registrerat din modell kan du hitta den på sidan **modeller** till gångar i Studio.
     
@@ -73,7 +73,7 @@ Du behöver följande filer för att distribuera en modell i Azure Machine Learn
 
 Du kan ladda ned dessa två filer i den högra rutan i modulen **träna modell** :
 
-1. Välj **träningsmodellmodulen**.
+1. Välj **träningsmodellmodulen** .
 1. På fliken **utdata + loggar** väljer du mappen `trained_model_outputs` .
 1. Ladda ned `conda_env.yaml` filen och `score.py` filen.
 
@@ -104,8 +104,8 @@ När du har hämtat de nödvändiga filerna är du redo att distribuera modellen
 
     - Mata in ett namn för slut punkten.
     - Välj om du vill distribuera modellen till [Azure Kubernetes service](how-to-deploy-azure-kubernetes-service.md) eller [Azure Container instance](how-to-deploy-azure-container-instance.md).
-    - Överför `score.py` för **Start skript filen**.
-    - Ladda upp `conda_env.yml` filen för **Conda-beroenden**. 
+    - Överför `score.py` för **Start skript filen** .
+    - Ladda upp `conda_env.yml` filen för **Conda-beroenden** . 
 
     >[!TIP]
     > I **Avancerad** inställning kan du ange processor-/minnes kapacitet och andra parametrar för distribution. De här inställningarna är viktiga för vissa modeller, till exempel PyTorch-modeller, som använder stora mängder memery (cirka 4 GB).
@@ -299,6 +299,7 @@ score_params = dict(
 ## <a name="next-steps"></a>Nästa steg
 
 * [Träna en modell i designern](tutorial-designer-automobile-price-train-score.md)
+* [Distribuera modeller med Azure Machine Learning SDK](how-to-deploy-and-where.md)
 * [Felsöka en misslyckad distribution](how-to-troubleshoot-deployment.md)
 * [Distribuera till Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Skapa klient program för att använda webb tjänster](how-to-consume-web-service.md)

@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: eab0a54d30f2cd2829779dbfc6081445f5be0a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 525635ef40437fe308c52e2d5aba2c97ed8f20e7
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83648839"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927540"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions på Kubernetes med KEDA
 
@@ -18,7 +18,7 @@ Azure Functions runtime ger flexibilitet i värd och hur du vill.  [KEDA](https:
 
 ## <a name="how-kubernetes-based-functions-work"></a>Hur Kubernetes-baserade funktioner fungerar
 
-Azure Functionss tjänsten består av två viktiga komponenter: en körnings miljö och en skalnings styrenhet.  Functions-körningen körs och kör koden.  Körningen innehåller logik för att utlösa, logga och hantera funktions körningar.  Azure Functions körningen kan köras *var som helst*.  Den andra komponenten är en skalnings styrenhet.  Skalnings styrenheten övervakar händelse frekvensen som är riktad mot din funktion och skalar i proaktivt antalet instanser som kör din app.  Läs mer i [Azure Functions skala och vara värd](functions-scale.md).
+Azure Functionss tjänsten består av två viktiga komponenter: en körnings miljö och en skalnings styrenhet.  Functions-körningen körs och kör koden.  Körningen innehåller logik för att utlösa, logga och hantera funktions körningar.  Azure Functions körningen kan köras *var som helst* .  Den andra komponenten är en skalnings styrenhet.  Skalnings styrenheten övervakar händelse frekvensen som är riktad mot din funktion och skalar i proaktivt antalet instanser som kör din app.  Läs mer i [Azure Functions skala och vara värd](functions-scale.md).
 
 Kubernetes-baserade funktioner tillhandahåller Functions-körning i en [Docker-behållare](functions-create-function-linux-custom-image.md) med händelse driven skalning via KEDA.  KEDA kan skala in till 0 instanser (när inga händelser inträffar) och ut till *n* -instanser. Detta sker genom att de anpassade måtten exponeras för Kubernetes autoskalning (horisontell Pod autoskalning).  Med hjälp av Functions-behållare med KEDA kan du replikera Server lös funktions funktioner i ett Kubernetes-kluster.  Dessa funktioner kan också distribueras med funktionen [virtuella AKS-noder (Azure Kubernetes Services)](../aks/virtual-nodes-cli.md) för Server lös infrastruktur.
 
@@ -33,6 +33,9 @@ Det finns olika sätt att installera KEDA i ett Kubernetes-kluster inklusive Hel
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Distribuera en Function-app till Kubernetes
 
 Du kan distribuera valfri Function-app till ett Kubernetes-kluster som kör KEDA.  Eftersom dina funktioner körs i en Docker-behållare behöver ditt projekt en `Dockerfile` .  Om den inte redan har en, kan du lägga till en Dockerfile genom att köra följande kommando i roten för ditt Functions-projekt:
+
+> [!NOTE]
+> Kärn verktygen skapar automatiskt Dockerfile för Azure Functions som skrivits i .NET, Node, python eller PowerShell. För funktions appar som skrivits i Java måste Dockerfile skapas manuellt. Använd listan Azure Functions [avbildningen](https://github.com/Azure/azure-functions-docker) för att hitta rätt avbildning för att basera Azure-funktionen.
 
 ```cli
 func init --docker-only
@@ -49,7 +52,10 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > Ersätt `<name-of-function-deployment>` med namnet på din Function-app.
 
-Detta skapar en Kubernetes- `Deployment` resurs, en `ScaledObject` resurs och `Secrets` , som innehåller miljövariabler som importeras från `local.settings.json` filen.
+Kommandot Deploy kör en serie åtgärder:
+1. Dockerfile som skapades tidigare används för att skapa en lokal avbildning för Function-appen.
+2. Den lokala avbildningen är taggad och flyttas till behållar registret där användaren är inloggad.
+3. Ett manifest skapas och tillämpas på klustret som definierar en Kubernetes `Deployment` -resurs, en `ScaledObject` resurs och `Secrets` , som innehåller miljövariabler som importeras från `local.settings.json` filen.
 
 ### <a name="deploying-a-function-app-from-a-private-registry"></a>Distribuera en Function-app från ett privat register
 

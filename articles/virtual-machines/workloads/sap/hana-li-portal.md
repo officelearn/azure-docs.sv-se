@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d81a8b3a1596e8a447f7a2434e52df8c89b416b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 887adb3e8b0a5f0410fc9a7732e2220049b7ba6c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085273"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927200"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Kontroll av Azure HANA – stora instanser med Azure Portal
 Det här dokumentet beskriver hur [Hana-stora instanser](./hana-overview-architecture.md) presenteras i [Azure Portal](https://portal.azure.com) och vilka aktiviteter som kan utföras med hjälp av Azure Portal med Hana-stora instans enheter som distribueras åt dig. Visning av HANA-stora instanser i Azure Portal tillhandahålls via en Azure Resource Provider för HANA-stora instanser, som för närvarande finns i en offentlig för hands version
@@ -54,13 +54,13 @@ När de första HANA-stora instanserna distribueras skapas en ny [Azure-resurs g
 
 För att hitta den nya Azure-resurs gruppen visar du resurs gruppen i din prenumeration genom att navigera i det vänstra navigerings fönstret i Azure Portal
 
-![Navigerings fönster i Azure Portal](./media/hana-li-portal/portal-resource-group.png)
+![Skärm bild som visar alternativet resurs grupper.](./media/hana-li-portal/portal-resource-group.png)
 
 I listan över resurs grupper visas, kan du behöva filtrera på den prenumeration som du använde för att ha HANA-stora instanser distribuerade
 
 ![Filtrera resurs grupper i Azure Portal](./media/hana-li-portal/portal-filtering-subscription.png)
 
-När du har filtrerat efter rätt prenumeration kan du fortfarande ha en lång lista över resurs grupper. Leta efter en med post-Fix of **-TXXX** där "XXX" är tre siffror, t. ex. **-T050**. 
+När du har filtrerat efter rätt prenumeration kan du fortfarande ha en lång lista över resurs grupper. Leta efter en med post-Fix of **-TXXX** där "XXX" är tre siffror, t. ex. **-T050** . 
 
 När du hittat resurs gruppen kan du ange information om den. Listan som du fick kan se ut så här:
 
@@ -94,7 +94,7 @@ En annan viktig information finns i det nedre högra hörnet i översikten med n
 Ett extra fält i den högra kolumnen i rubriken informerar om energispar läget för den stora instans enheten i HANA.
 
 > [!NOTE]
-> Energi statusen beskriver om maskin varu enheten är påslagen eller inte. Det ger inte information om operativ systemet som körs. När du startar om en HANA-stor instans enhet kommer du att uppleva en liten stund där enhetens status ändras till **början** för att gå vidare till det **startade**stadiet. Att det är i läget för **startad** innebär att operativ systemet startas eller att operativ systemet har startats helt. Efter en omstart av enheten kan du efter en omstart av enheten omedelbart logga in i enheten så snart Tillstånds växlarna **har startats**.
+> Energi statusen beskriver om maskin varu enheten är påslagen eller inte. Det ger inte information om operativ systemet som körs. När du startar om en HANA-stor instans enhet kommer du att uppleva en liten stund där enhetens status ändras till **början** för att gå vidare till det **startade** stadiet. Att det är i läget för **startad** innebär att operativ systemet startas eller att operativ systemet har startats helt. Efter en omstart av enheten kan du efter en omstart av enheten omedelbart logga in i enheten så snart Tillstånds växlarna **har startats** .
 > 
 
 Om du trycker på "se mer" visas ytterligare information. En ytterligare information visar revideringen av den stora superinstansen i HANA, enheten har distribuerats i. Se artikeln [Vad är SAP HANA på Azure (stora instanser)](./hana-overview-architecture.md) för olika revisioner av Hana-stora instans stämplingar
@@ -106,7 +106,7 @@ Utöver att ge en översikt av de stora instans enheterna i HANA kan du kontrol 
 
 En av de viktigaste aktiviteterna som registreras är omstarter av en enhet. De data som visas i listan innehåller status för aktiviteten, tidsstämpeln som aktiviteten fick utlöstes, det prenumerations-ID som aktiviteten fick utlöstes till och den Azure-användare som utlöste aktiviteten. 
 
-En annan aktivitet som registreras är ändringar i enheten i Azure metadata-data. Förutom att starta om startas kan du se aktiviteten **Skriv HANAInstances**. Den här typen av aktivitet utför inga ändringar i själva volymen i HANA-stor instans, men dokumenterar ändringar i enhetens metadata i Azure. I det fall som anges lade vi till och tog bort en tagg (se nästa avsnitt).
+En annan aktivitet som registreras är ändringar i enheten i Azure metadata-data. Förutom att starta om startas kan du se aktiviteten **Skriv HANAInstances** . Den här typen av aktivitet utför inga ändringar i själva volymen i HANA-stor instans, men dokumenterar ändringar i enhetens metadata i Azure. I det fall som anges lade vi till och tog bort en tagg (se nästa avsnitt).
 
 ## <a name="add-and-delete-an-azure-tag-to-a-hana-large-instance-unit"></a>Lägga till och ta bort en Azure-tagg i en stor HANA-instans enhet
 En annan möjlighet är att lägga till en [tagg](../../../azure-resource-manager/management/tag-resources.md) i en stor Hana-instans enhet. Hur Taggar tilldelas skiljer sig inte från tilldelning av taggar till virtuella datorer. Precis som med virtuella datorer finns taggarna i Azure meta data och har samma begränsningar som taggar för virtuella datorer för HANA-stora instanser.
@@ -131,7 +131,7 @@ Att starta en omstart av Linux-operativsystemet, det finns olika situationer dä
 När du trycker på knappen starta om får du frågan om du verkligen vill starta om enheten. När du bekräftar genom att trycka på knappen "Ja" startas enheten om.
 
 > [!NOTE]
-> Under omstarten kommer du att uppleva en liten stund där enhetens status ändras till **början** för att gå vidare till läget för **Start**. Att det är i läget för **startad** innebär att operativ systemet startas eller att operativ systemet har startats helt. Efter en omstart av enheten kan du efter en omstart av enheten omedelbart logga in i enheten så snart Tillstånds växlarna **har startats**.
+> Under omstarten kommer du att uppleva en liten stund där enhetens status ändras till **början** för att gå vidare till läget för **Start** . Att det är i läget för **startad** innebär att operativ systemet startas eller att operativ systemet har startats helt. Efter en omstart av enheten kan du efter en omstart av enheten omedelbart logga in i enheten så snart Tillstånds växlarna **har startats** .
 
 > [!IMPORTANT]
 > Beroende av mängden minne i den stora volymen av HANA-stor instans, kan en omstart och omstart av maskin varan och operativ systemet ta upp till en timme
@@ -146,7 +146,7 @@ För att kunna hämta tjänsten för SAP HANA – stora instanser som visas på 
 
 ![Välj alla tjänster i Azure Portal](./media/hana-li-portal/portal-create-service-request.png)
 
-I listan över tjänster kan du hitta tjänsten **SAP HANA stor instans**. När du väljer tjänsten kan du välja vissa problem typer som visas:
+I listan över tjänster kan du hitta tjänsten **SAP HANA stor instans** . När du väljer tjänsten kan du välja vissa problem typer som visas:
 
 
 ![Välj problem klass i Azure Portal](./media/hana-li-portal/portal-select-problem-class.png)

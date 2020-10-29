@@ -6,16 +6,16 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: b4e2b5afd7742791218394422d00ee8ee46cb23a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 161e3e7fbc5b343ee73142f0e968367c3cbfaa6b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212601"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927421"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Mönster för Azure Functions bindnings uttryck
 
-En av de mest kraftfulla funktionerna i [utlösare och bindningar](./functions-triggers-bindings.md) är *bindnings uttryck*. I *function.jspå* fil och i funktions parametrar och kod kan du använda uttryck som matchar värden från olika källor.
+En av de mest kraftfulla funktionerna i [utlösare och bindningar](./functions-triggers-bindings.md) är *bindnings uttryck* . I *function.jspå* fil och i funktions parametrar och kod kan du använda uttryck som matchar värden från olika källor.
 
 De flesta uttryck kan identifieras genom att de omsluts av klammerparenteser. I en kö utlösnings funktion `{queueTrigger}` matchas exempelvis meddelande texten i kön. Om `path` egenskapen för en BLOB-utgående bindning är `container/{queueTrigger}` och funktionen utlöses av ett Queue `HelloWorld` -meddelande, skapas en blob med namnet `HelloWorld` .
 
@@ -41,7 +41,7 @@ När en funktion körs lokalt kommer appens inställnings värden från *local.s
 > [!NOTE]
 > `connection`Egenskapen för utlösare och bindningar är ett specialfall och löser automatiskt värden som appinställningar, utan procent tecken. 
 
-Följande exempel är en Azure Queue Storage-utlösare som använder en app-inställning `%input-queue-name%` för att definiera kön som ska aktive ras.
+Följande exempel är en Azure Queue Storage-utlösare som använder en app-inställning `%input_queue_name%` för att definiera kön som ska aktive ras.
 
 ```json
 {
@@ -50,7 +50,7 @@ Följande exempel är en Azure Queue Storage-utlösare som använder en app-inst
       "name": "order",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "%input-queue-name%",
+      "queueName": "%input_queue_name%",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     }
   ]
@@ -62,7 +62,7 @@ Du kan använda samma metod i klass bibliotek:
 ```csharp
 [FunctionName("QueueTrigger")]
 public static void Run(
-    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    [QueueTrigger("%input_queue_name%")]string myQueueItem, 
     ILogger log)
 {
     log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
@@ -292,7 +292,7 @@ public class BlobName
 
 ## <a name="create-guids"></a>Skapa GUID
 
-`{rand-guid}`Bindnings uttrycket skapar ett GUID. Följande BLOB-sökväg i en `function.json` fil skapar en blob med ett namn som *50710cb5-84b9-4d87-9d83-a03d6976a682.txt*.
+`{rand-guid}`Bindnings uttrycket skapar ett GUID. Följande BLOB-sökväg i en `function.json` fil skapar en blob med ett namn som *50710cb5-84b9-4d87-9d83-a03d6976a682.txt* .
 
 ```json
 {
@@ -305,7 +305,7 @@ public class BlobName
 
 ## <a name="current-time"></a>Aktuell tid
 
-Bindnings uttrycket `DateTime` matchar `DateTime.UtcNow` . Följande BLOB-sökväg i en `function.json` fil skapar en blob med ett namn som *2018-02-16T17-59-55Z.txt*.
+Bindnings uttrycket `DateTime` matchar `DateTime.UtcNow` . Följande BLOB-sökväg i en `function.json` fil skapar en blob med ett namn som *2018-02-16T17-59-55Z.txt* .
 
 ```json
 {

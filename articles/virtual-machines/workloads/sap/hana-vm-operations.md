@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 19abb3f12dc1a0fd2a3dff548ecdc9e7fff47659
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978789"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927676"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer
 Det här dokumentet innehåller rikt linjer för att konfigurera Azure-infrastruktur och operativ SAP HANA system som distribueras på virtuella Azure-datorer (VM: ar). Dokumentet innehåller också konfigurations information för SAP HANA skala ut för VM-SKU: n för M128s. Detta dokument är inte avsett att ersätta standard-SAP-dokumentationen, som innehåller följande innehåll:
@@ -135,11 +135,11 @@ För/Hana/Shared rekommenderar vi också användningen av [Azure NetApp Files](h
 
 En typisk grundläggande design för en enskild nod i en skalbar konfiguration kommer att se ut så här:
 
-![Skala ut grunderna för en enskild nod](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
+![Diagram som visar en typisk grundläggande design för en enskild nod i en skalbar konfiguration.](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 Den grundläggande konfigurationen av en VM-nod för SAP HANA utskalning ser ut så här:
 
-- För **/Hana/Shared**använder du den inbyggda NFS-tjänsten som tillhandahålls via Azure NetApp Files. 
+- För **/Hana/Shared** använder du den inbyggda NFS-tjänsten som tillhandahålls via Azure NetApp Files. 
 - Alla andra disk volymer delas inte mellan de olika noderna och baseras inte på NFS. Installations konfiguration och steg för att skala ut HANA-installationer med icke-delade **/Hana/data** och **/Hana/log** ges ytterligare senare i det här dokumentet. För HANA-certifierad lagring som kan användas, se artikeln [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](./hana-vm-operations-storage.md).
 
 
@@ -316,7 +316,7 @@ Mer information om hur du konfigurerar och underhåller support anslutningar via
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Hög tillgänglighet med SAP HANA på virtuella Azure-datorer
 Om du kör SUSE Linux Enterprise Server eller Red Hat kan du upprätta ett pacemaker-kluster med STONITH-enheter. Du kan använda enheterna för att konfigurera en SAP HANA-konfiguration som använder synkron replikering med HANA-systemreplikering och automatisk redundans. Mer information finns i avsnittet "nästa steg".
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Bekanta dig med artiklarna som de visas i listan
 - [Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA](./hana-vm-operations-storage.md)
 - [Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md)

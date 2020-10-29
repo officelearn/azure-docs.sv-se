@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar funktioner med Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fcacfd96ece68424c876b0349ceb49d3eaabb598
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b25e548fe56c22458fe625f617fb076be13525cd
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736700"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927523"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java Developer Guide
 
@@ -17,7 +17,7 @@ Den här guiden innehåller detaljerad information som hjälper dig att utveckla
 
 Som Java-utvecklare, om du är nybörjare på Azure Functions, bör du först läsa någon av följande artiklar:
 
-| Kom igång | Begrepp| 
+| Komma igång | Begrepp| 
 | -- | -- |  
 | <ul><li>[Java-funktion med Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[Java/maven-funktion med Terminal/kommando-prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Java-funktion med Gradle](functions-create-first-java-gradle.md)</li><li>[Java-funktion med Sol förmörkelse](functions-create-maven-eclipse.md)</li><li>[Java-funktion med IntelliJ idé](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Utvecklarguide](functions-reference.md)</li><li>[Värdalternativ](functions-scale.md)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li></ul> |
 
@@ -49,7 +49,7 @@ Om du föredrar kommando rads utveckling från terminalen är det enklaste sätt
 
 Följande kommando genererar ett nytt Java-funktions projekt med hjälp av den här archetype:
 
-```
+```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype 
@@ -153,7 +153,7 @@ Du kan kontrol lera vilken version av Java som är mål för maven-archetype med
 
 Maven-archetype genererar en pom.xml som är riktad mot den angivna Java-versionen. Följande element i pom.xml visar vilken Java-version som ska användas:
 
-| Element |  Java 8-värde | Java 11-värde | Beskrivning |
+| Element |  Java 8-värde | Java 11-värde | Description |
 | ---- | ---- | ---- | --- |
 | **`Java.version`** | 1.8 | 11 | Den version av Java som används av maven-compiler-plugin-programmet. |
 | **`JavaVersion`** | 8 | 11 | Java-version som körs av Function-appen i Azure. |

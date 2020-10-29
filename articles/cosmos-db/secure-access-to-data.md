@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0a68c2b9c857205dda7f5da846085f9f3823da20
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371740"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927642"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Säker åtkomst till data i Azure Cosmos DB
 
@@ -119,6 +119,12 @@ En behörighets resurs är kopplad till en användare och tilldelad till behåll
 > [!NOTE]
 > För att kunna köra lagrade procedurer måste användaren ha behörigheten alla för behållaren där den lagrade proceduren ska köras.
 
+Om du aktiverar [diagnostikloggar för data Plans begär Anden](cosmosdb-monitor-resource-logs.md)loggas följande två egenskaper som motsvarar behörigheten:
+
+* **resourceTokenPermissionId** – den här egenskapen anger det behörigheter för resurs-token som du har angett. 
+
+* **resourceTokenPermissionMode** – den här egenskapen anger det behörighets läge som du har angett när du skapar en resurs-token. Behörighets läget kan ha värden som "all" eller "Read".
+
 ### <a name="code-sample-to-create-permission"></a>Kod exempel för att skapa behörighet
 
 Följande kod exempel visar hur du skapar en behörighets resurs, läser resurs-token för behörighets resursen och associerar behörigheterna med [användaren](#users) som skapades ovan.
@@ -150,12 +156,12 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 Om du vill lägga till Azure Cosmos DB konto läsar åtkomst till ditt användar konto, har du en prenumerations ägare som utför följande steg i Azure Portal.
 
 1. Öppna Azure Portal och välj ditt Azure Cosmos DB-konto.
-2. Klicka på fliken **åtkomst kontroll (IAM)** och klicka sedan på  **+ Lägg till roll tilldelning**.
-3. I fönstret **Lägg till roll tilldelning** väljer du **Cosmos DB konto läsar roll**i rutan **roll** .
-4. I **rutan tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller program**.
+2. Klicka på fliken **åtkomst kontroll (IAM)** och klicka sedan på  **+ Lägg till roll tilldelning** .
+3. I fönstret **Lägg till roll tilldelning** väljer du **Cosmos DB konto läsar roll** i rutan **roll** .
+4. I **rutan tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller program** .
 5. Välj den användare, grupp eller det program i din katalog som du vill bevilja åtkomst till.  Du kan söka i katalogen efter visnings namn, e-postadress eller objekt identifierare.
     Den valda användaren, gruppen eller programmet visas i listan med valda medlemmar.
-6. Klicka på **Spara**.
+6. Klicka på **Spara** .
 
 Entiteten kan nu läsa Azure Cosmos DB-resurser.
 

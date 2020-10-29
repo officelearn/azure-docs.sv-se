@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: eeceb1279579055bfff33f0a4413f0798418faed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59b57e292275888140045bf94ff36995f312b6c1
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83201519"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927489"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Självstudie: Konfigurera automatisk rotation av certifikat i Key Vault
 
@@ -41,13 +41,13 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Skapa ett valv
 
-Skapa ett nyckel valv eller Välj ditt befintliga valv för att utföra åtgärder (se [steg för att skapa ett nyckel valv](../quick-create-portal.md)). I exemplet är Key Vault **-namnet exempel-valv**.
+Skapa ett nyckel valv eller Välj ditt befintliga valv för att utföra åtgärder (se [steg för att skapa ett nyckel valv](../quick-create-portal.md)). I exemplet är Key Vault **-namnet exempel-valv** .
 
 ![Utdata efter att nyckel valvet har skapats](../media/certificates/tutorial-import-cert/vault-properties.png)
 
 ## <a name="create-a-certificate-in-key-vault"></a>Skapa ett certifikat i Key Vault
 
-Skapa ett certifikat eller importera ett certifikat till nyckel valvet (se [steg för att skapa ett certifikat i Key Vault](../quick-create-portal.md)). I det här fallet arbetar du med ett certifikat med namnet **ExampleCertificate**.
+Skapa ett certifikat eller importera ett certifikat till nyckel valvet (se [steg för att skapa ett certifikat i Key Vault](../quick-create-portal.md)). I det här fallet arbetar du med ett certifikat med namnet **ExampleCertificate** .
 
 ## <a name="update-certificate-lifecycle-attributes"></a>Uppdatera livs cykel attribut för certifikat
 
@@ -73,38 +73,38 @@ Key Vault automatiskt roterar certifikat genom upprättade partnerskap med ca: e
 
 ### <a name="update-certificate-lifecycle-attributes-at-the-time-of-creation"></a>Uppdatera attribut för certifikat-livs cykel vid skapande tillfället
 
-1. Välj **certifikat**på sidan Key Vault egenskaper.
-1. Välj **generera/importera**.
+1. Välj **certifikat** på sidan Key Vault egenskaper.
+1. Välj **generera/importera** .
 1. På skärmen **skapa ett certifikat** uppdaterar du följande värden:
 
-   - **Giltighets period**: Ange värdet (i månader). Att skapa kortsiktiga certifikat är en rekommenderad säkerhets rutin. Som standard är giltighets värdet för ett nyligen skapat certifikat 12 månader.
-   - **Typ av livs längd**: Välj certifikatets automatiska förnyelse-och aviserings åtgärd och uppdatera sedan **livs längden för procent** eller **antal dagar innan det går ut**. Som standard anges ett certifikats automatiska förnyelse till 80 procent av sin livs längd. Välj något av följande alternativ på den nedrullningsbara menyn.
+   - **Giltighets period** : Ange värdet (i månader). Att skapa kortsiktiga certifikat är en rekommenderad säkerhets rutin. Som standard är giltighets värdet för ett nyligen skapat certifikat 12 månader.
+   - **Typ av livs längd** : Välj certifikatets automatiska förnyelse-och aviserings åtgärd och uppdatera sedan **livs längden för procent** eller **antal dagar innan det går ut** . Som standard anges ett certifikats automatiska förnyelse till 80 procent av sin livs längd. Välj något av följande alternativ på den nedrullningsbara menyn.
 
         |  Förnya automatiskt vid en specifik tidpunkt| Skicka e-post till alla kontakter vid en specifik tidpunkt |
         |-----------|------|
         |Om du väljer det här alternativet *aktive* ras autorotation. | Om du väljer det här alternativet roteras *inte* automatiskt, utan endast aviseringar skickas till dem.|
 
-1. Välj **Skapa**.
+1. Välj **Skapa** .
 
 ![Certifikat livs cykel](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)
 
 ### <a name="update-lifecycle-attributes-of-a-stored-certificate"></a>Uppdatera livs cykel attribut för ett lagrat certifikat
 
 1. Välj nyckel valvet.
-1. Välj **certifikat**på sidan Key Vault egenskaper.
-1. Välj det certifikat som du vill uppdatera. I det här fallet arbetar du med ett certifikat med namnet **ExampleCertificate**.
+1. Välj **certifikat** på sidan Key Vault egenskaper.
+1. Välj det certifikat som du vill uppdatera. I det här fallet arbetar du med ett certifikat med namnet **ExampleCertificate** .
 1. Välj **utgivnings princip** på den översta meny raden.
 
-   ![Certifikategenskaper](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
+   ![Skärm bild som visar knappen för utgivnings princip.](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
 
 1. På skärmen **utgivnings princip** uppdaterar du följande värden:
 
-   - **Giltighets period**: uppdatera värdet (i månader).
-   - **Typ av livs längd**: Välj certifikatets automatiska förnyelse-och aviserings åtgärd och uppdatera sedan **livs längden för procent** eller **antal dagar innan det går ut**.
+   - **Giltighets period** : uppdatera värdet (i månader).
+   - **Typ av livs längd** : Välj certifikatets automatiska förnyelse-och aviserings åtgärd och uppdatera sedan **livs längden för procent** eller **antal dagar innan det går ut** .
 
    ![Certifikategenskaper](../media/certificates/tutorial-rotate-cert/cert-policy-change.png)
 
-1. Välj **Spara**.
+1. Välj **Spara** .
 
 > [!IMPORTANT]
 > Om du ändrar livs längds åtgärds typen för ett certifikat registreras ändringarna för de befintliga certifikaten omedelbart.
@@ -144,8 +144,8 @@ När du inte längre behöver dem tar du bort resurs gruppen, som tar bort nycke
 Ta bort resurs gruppen med hjälp av portalen:
 
 1. Ange namnet på din resurs grupp i rutan **Sök** högst upp i portalen. När resurs gruppen som används i den här snabb starten visas i Sök resultaten väljer du den.
-1. Välj **Ta bort resursgrupp**.
-1. Skriv namnet på resurs gruppen i rutan **Skriv resurs gruppens namn:** och välj sedan **ta bort**.
+1. Välj **Ta bort resursgrupp** .
+1. Skriv namnet på resurs gruppen i rutan **Skriv resurs gruppens namn:** och välj sedan **ta bort** .
 
 
 ## <a name="next-steps"></a>Nästa steg

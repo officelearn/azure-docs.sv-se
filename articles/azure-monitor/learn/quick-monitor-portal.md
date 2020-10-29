@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ed7cec34b4bca1882d069997d4f89677cda32447
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dd262b942d6ce4e423f524c7381574afd501f466
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88080957"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927557"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Börja övervaka din ASP.NET-webbapp
 
@@ -36,13 +36,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 2. Välj **Configure Application Insights** (Konfigurera Application Insights) på projektmenyn. Visual Studio lägger till Application Insights SDK för programmet.
 
     > [!IMPORTANT]
-    > Processen för att lägga till Application Insights varierar beroende på malltypen i ASP.NET. Om du använder mallen **Tom** eller **Azure-mobilapp** väljer du **Projekt** > **Lägg till Application Insights Telemetry**. För alla andra ASP.NET-mallar läser du anvisningarna i steget ovan. 
+    > Processen för att lägga till Application Insights varierar beroende på malltypen i ASP.NET. Om du använder mallen **Tom** eller **Azure-mobilapp** väljer du **Projekt** > **Lägg till Application Insights Telemetry** . För alla andra ASP.NET-mallar läser du anvisningarna i steget ovan. 
 
 3. Klicka på **Get Started** (Kom igång) (tidigare versioner av Visual Studio har knappen **Start Free** (Börja kostnadsfritt) i stället).
 
     ![Lägga till Application Insights i Visual Studio](./media/quick-monitor-portal/add-application-insights-b.png)
 
-4. Välj din prenumeration och klicka på **Registrera**.
+4. Välj din prenumeration och klicka på **Registrera** .
 
 5. Välj **projekt**  >  **Hantera NuGet paket**  >  **Källa: NuGet.org**  >  **Uppdatera** Application Insights SDK-paket till den senaste stabila versionen.
 
@@ -52,7 +52,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Application Insights samlar in telemetridata för tillämpningsprogrammet oavsett var det körs. Gör så här om du vill börja granska dessa data:
 
-1. Öppna Application Insights genom att klicka på **Visa**  ->  **andra Windows**  ->  **Application Insights Sök**.  Du kan se telemetrin från den aktuella sessionen.<BR><br>![Telemetri i Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. Öppna Application Insights genom att klicka på **Visa**  ->  **andra Windows**  ->  **Application Insights Sök** .  Du kan se telemetrin från den aktuella sessionen.<BR><br>![Telemetri i Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. Klicka på den första begäran i listan (GET Home/Index i det här exemplet) för att se mer information. Observera att både statuskoden och svarstiden ingår tillsammans med annan värdefull information om begäran.<br><br>![Svarsinformation i Visual Studio](media/quick-monitor-portal/request-details.png)
 
@@ -60,17 +60,17 @@ Application Insights samlar in telemetridata för tillämpningsprogrammet oavset
 
 Nu kan du öppna Application Insights i Azure-portalen för att visa olika detaljer om programmet som körs.
 
-1. Expandera mappen **anslutna tjänster** (moln-och plugin-ikonen) i Solution Explorer högerklicka sedan på mappen **Application Insights** och klicka på **Öppna Application Insights Portal**.  Du ser viss information om ditt program och många andra alternativ.
+1. Expandera mappen **anslutna tjänster** (moln-och plugin-ikonen) i Solution Explorer högerklicka sedan på mappen **Application Insights** och klicka på **Öppna Application Insights Portal** .  Du ser viss information om ditt program och många andra alternativ.
 
-    ![Programkarta](media/quick-monitor-portal/04-overview.png)
+    ![Skärm bild som visar information om programmet i Application Insights-portalen.](media/quick-monitor-portal/04-overview.png)
 
 2. Klicka på **Programkarta** för en visuell layout av beroenden mellan programkomponenterna.  Varje komponent visas KPI: er som belastning, prestanda, fel och varningar.
 
     ![Programkarta](media/quick-monitor-portal/05-appmap.png)
 
-3. Klicka på vyn program översikt för **app Analytics** -ikon ![ ](media/quick-monitor-portal/app-viewinlogs-icon.png) **i loggar (Analytics)** på en av program komponenterna. Detta öppnar **loggar (analyser)**, som innehåller ett omfattande frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3. Klicka på ikonen för **app Analytics** -ikonen ![ för app Analytics-ikonen.](media/quick-monitor-portal/app-viewinlogs-icon.png) **Visa i loggar (analys)** på en av program komponenterna. Detta öppnar **loggar (analyser)** , som innehåller ett omfattande frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
-    ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
+    ![Analys](media/quick-monitor-portal/6viewanalytics.png)
 
 4. Klicka på **Live Metrics Stream** till vänster under Undersök. Här ser du livestatistik om programmet när medan det körs. Det innehåller information som antalet inkommande begäranden, varaktigheten för dessa begäranden och fel som inträffar. Du kan även granska kritiska prestandavärden, till exempel processor och minne.
 
@@ -103,8 +103,8 @@ Mer information finns på GitHub-lagringsplatsen för vår [JavaScript-SDK med �
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är färdig med testningen kan du ta bort resurs gruppen och alla relaterade resurser. Följ stegen nedan.
-1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
-2. På sidan resurs grupp klickar du på **ta bort**, skriver **myResourceGroup** i text rutan och klickar sedan på **ta bort**.
+1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup** .
+2. På sidan resurs grupp klickar du på **ta bort** , skriver **myResourceGroup** i text rutan och klickar sedan på **ta bort** .
 
 ## <a name="next-steps"></a>Nästa steg
 I den här snabb starten har du aktiverat ditt program för övervakning genom att Azure Application insikter.  Fortsätt till självstudierna för att lära dig att använda övervakningsstatistik och identifiera problem i programmet.

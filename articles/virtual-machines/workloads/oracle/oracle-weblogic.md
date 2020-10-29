@@ -7,30 +7,32 @@ ms.topic: article
 ms.date: 09/23/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: 32f5ae0e06c38f610ae9751d81b7bf77a0ebc050
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d8639214773a4444876b2a89dda5dd831b8c36ce
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149286"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927298"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Vilka lösningar finns för att köra Oracle WebLogic Server på Azure Virtual Machines?
 
 Den här sidan beskriver lösningar för att köra Oracle WebLogic Server (WLS) på virtuella Azure-datorer. Dessa lösningar har utvecklats gemensamt och stöds av Oracle och Microsoft.
 
+Det är också möjligt att köra WLS på Azure Kubernetes-tjänsten. Lösningarna för detta beskrivs i [den här artikeln i Microsoft](/azure/virtual-machines/workloads/oracle/weblogic-aks).
+
 WLS är en ledande Java-Programserver som kör några av de viktigaste viktiga företags Java-programmen över hela världen. WLS utgör mellanvaru Stiftelsen för Oracle-programsviten. Oracle och Microsoft strävar efter att ge kunderna möjlighet att välja och flexibilitet för att köra arbets belastningar på Azure som en ledande moln plattform.
 
-Azure WLS-lösningarna syftar till att göra det så enkelt som möjligt att lyfta och flytta dina Java EE-program till Azure Virtual Machines genom att automatisera de flesta vanliga åtgärder. Lösningarna etablerar automatiskt virtuella nätverks-, lagrings-, Java-och Linux-resurser. WebLogic-servern installeras med minimal ansträngning. Lösningarna kan konfigurera säkerhet med en nätverks säkerhets grupp, belastnings utjämning med Azure App gateway och autentisering med Azure Active Directory. Du kan också ansluta automatiskt till din befintliga databas, inklusive Azure PostgreSQL, Azure SQL och Oracle DB i Oracle-molnet eller Azure. I väg kartan för lösningarna ingår möjligheten att aktivera distribuerad loggning och distribuerad cachelagring via Oracle-samstämmighet. Microsoft och Oracle samarbetar för att möjliggöra liknande funktioner för WebLogic och Azure Kubernetes service (AKS).
+Azure WLS-lösningarna syftar till att göra det så enkelt som möjligt att lyfta och flytta dina Java EE-program till Azure Virtual Machines genom att automatisera de flesta vanliga åtgärder. Lösningarna etablerar automatiskt virtuella nätverks-, lagrings-, Java-och Linux-resurser. WebLogic-servern installeras med minimal ansträngning. Lösningarna kan konfigurera säkerhet med en nätverks säkerhets grupp, belastnings utjämning med Azure App gateway och autentisering med Azure Active Directory. Du kan också ansluta automatiskt till din befintliga databas, inklusive Azure PostgreSQL, Azure SQL och Oracle DB i Oracle-molnet eller Azure. I väg kartan för lösningarna ingår möjligheten att aktivera distribuerad loggning och distribuerad cachelagring via Oracle-samstämmighet.  
 
 :::image type="content" source="media/oracle-weblogic/wls-on-azure.gif" alt-text="Du kan använda Azure Portal för att distribuera WebLogic-Server på Azure":::
 
 Det finns fyra erbjudanden som är tillgängliga för att möta olika scenarier: en [nod utan en administratörs Server](https://portal.azure.com/#create/oracle.20191001-arm-oraclelinux-wls20191001-arm-oraclelinux-wls), en [nod med en administratörs Server, ett](https://portal.azure.com/#create/oracle.20191009-arm-oraclelinux-wls-admin20191009-arm-oraclelinux-wls-admin) [kluster](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster)och ett [dynamiskt kluster](https://portal.azure.com/#create/oracle.20191021-arm-oraclelinux-wls-dynamic-cluster20191021-arm-oraclelinux-wls-dynamic-cluster). Erbjudandena är tillgängliga utan kostnad. Dessa erbjudanden beskrivs och länkas nedan.
 
-_De här erbjudandena är en egen licens_. De förutsätter att du redan har rätt licenser med Oracle och att de är korrekt licensierade för att köra erbjudanden i Azure.
+_De här erbjudandena är en egen licens_ . De förutsätter att du redan har rätt licenser med Oracle och att de är korrekt licensierade för att köra erbjudanden i Azure.
 
 Det finns stöd för flera operativ system, Java och WLS-versioner via bas avbildningar (till exempel WebLogic Server 14 och JDK 11 på Oracle Linux 7,6). De här bas avbildningarna är också tillgängliga på Azure på egen hand. Bas avbildningarna är lämpliga för kunder som kräver komplexa, anpassade Azure-distributioner. Den aktuella uppsättningen bas avbildningar finns [här](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
 
-_Om du är intresse rad av att jobba nära dina migrerings scenarier med teknik teamet som utvecklar dessa erbjudanden väljer du knappen [kontakta mig](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) _ på [sidan för Marketplace erbjudande översikt](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Program chefer, arkitekter och tekniker kommer att kontakta dig inom kort och börja nära samarbete. Möjligheten att samar beta med ett scenario för migrering är kostnads fri medan erbjudandena är aktiva vid inledande utveckling.
+_Om du är intresse rad av att jobba nära dina migrerings scenarier med teknik teamet som utvecklar dessa erbjudanden väljer du knappen [kontakta mig](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview)_ på [sidan för Marketplace erbjudande översikt](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Program chefer, arkitekter och tekniker kommer att kontakta dig inom kort och börja nära samarbete. Möjligheten att samar beta med ett scenario för migrering är kostnads fri medan erbjudandena är aktiva vid inledande utveckling.
 
 ## <a name="oracle-weblogic-server-single-node"></a>Enskild nod för Oracle WebLogic-Server
 

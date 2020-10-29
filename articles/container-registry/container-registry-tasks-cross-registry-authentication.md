@@ -3,12 +3,12 @@ title: Autentisering mellan register från ACR-aktivitet
 description: Konfigurera en Azure Container Registry aktivitet (ACR Task) för att få åtkomst till ett annat privat Azure Container Registry med hjälp av en hanterad identitet för Azure-resurser
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: 8b961a2ff6a795f03798cc6f6a7d303391036ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a460102eafa5c1eda2f37330887d985387d5df5
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86057371"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026266"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autentisering mellan register i en ACR-aktivitet med hjälp av en Azure-hanterad identitet 
 
@@ -26,12 +26,12 @@ Det här exemplet visar steg som använder antingen en användardefinierad eller
 
 I ett verkligt scenario kan en organisation underhålla en uppsättning grundläggande avbildningar som används av alla utvecklings grupper för att bygga sina program. De här bas avbildningarna lagras i ett företags register, där varje utvecklings team har bara pull-rättigheter. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här artikeln behöver du två Azure Container-register:
 
 * Du använder det första registret för att skapa och köra ACR-uppgifter. I den här *artikeln kallas registret för registret.* 
-* Det andra registret är värd för en bas avbildning som används för aktiviteten för att bygga en avbildning. I den här artikeln heter det andra registret *mybaseregistry*. 
+* Det andra registret är värd för en bas avbildning som används för aktiviteten för att bygga en avbildning. I den här artikeln heter det andra registret *mybaseregistry* . 
 
 Ersätt med dina egna register namn i senare steg.
 
@@ -39,16 +39,12 @@ Om du inte redan har de nödvändiga Azure Container register, se [snabb start: 
 
 ## <a name="prepare-base-registry"></a>Förbered grundläggande register
 
-Skapa först en arbets katalog och skapa sedan en fil med namnet Dockerfile med följande innehåll. Det här enkla exemplet skapar en Node.js bas avbildning från en offentlig avbildning i Docker Hub.
-    
-```bash
-echo FROM node:9-alpine > Dockerfile
-```
+I demonstrations syfte kan du som en engångs åtgärd köra [AZ ACR import] [AZ-ACR-import] för att importera en offentlig Node.js-avbildning från Docker Hub till ditt bas register. I praktiken kan ett annat team eller en process i organisationen underhålla avbildningar i bas registret.
 
-I den aktuella katalogen kör du kommandot [AZ ACR build][az-acr-build] för att skapa och skicka bas avbildningen till bas registret. I praktiken kan ett annat team eller en process i organisationen underhålla bas registret.
-    
 ```azurecli
-az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file Dockerfile .
+az acr import --name mybaseregistry \
+  --source docker.io/library/node:9-alpine \
+  --image baseimages/node:9-alpine 
 ```
 
 ## <a name="define-task-steps-in-yaml-file"></a>Definiera uppgifts steg i YAML-filen
@@ -88,7 +84,7 @@ az acr task create \
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Ge Identity pull-behörighet till bas registret
 
-I det här avsnittet ger du hanterade identitets behörigheter att hämta från bas registret, *mybaseregistry*.
+I det här avsnittet ger du hanterade identitets behörigheter att hämta från bas registret, *mybaseregistry* .
 
 Använd kommandot [AZ ACR show][az-acr-show] för att hämta resurs-ID för bas registret och lagra det i en variabel:
 
@@ -127,7 +123,7 @@ az acr task create \
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Ge Identity pull-behörighet till bas registret
 
-I det här avsnittet ger du hanterade identitets behörigheter att hämta från bas registret, *mybaseregistry*.
+I det här avsnittet ger du hanterade identitets behörigheter att hämta från bas registret, *mybaseregistry* .
 
 Använd kommandot [AZ ACR show][az-acr-show] för att hämta resurs-ID för bas registret och lagra det i en variabel:
 
@@ -223,7 +219,7 @@ The push refers to repository [myregistry.azurecr.io/hello-world]
 Run ID: cf10 was successful after 32s
 ```
 
-Kör kommandot [AZ ACR-lagringsplatsen show-Tags][az-acr-repository-show-tags] för att kontrol lera att avbildningen har skapats och skickats till *registret*:
+Kör kommandot [AZ ACR-lagringsplatsen show-Tags][az-acr-repository-show-tags] för att kontrol lera att avbildningen har skapats och skickats till *registret* :
 
 ```azurecli
 az acr repository show-tags --name myregistry --repository hello-world --output tsv

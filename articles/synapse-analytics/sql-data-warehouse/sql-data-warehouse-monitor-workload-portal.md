@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 01a22aa5d2ec7ed54be62f0975b0fefbafd84cd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53c68f44273b14658bd4d95ce7cf3cf847c077d0
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211569"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025960"
 ---
 # <a name="monitor-workload---azure-portal"></a>Övervaka arbets belastning – Azure Portal
 
 Den här artikeln beskriver hur du använder Azure Portal för att övervaka arbets belastningen. Detta innefattar att ställa in Azure Monitor loggar för att undersöka frågor om körning och arbets belastnings trender med Log Analytics för [SYNAPSE SQL](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - SQL-pool: vi kommer att samla in loggar för en SQL-pool. Om du inte har en SQL-pool etablerad kan du läsa anvisningarna i [skapa en SQL-pool](load-data-from-azure-blob-storage-using-polybase.md).
@@ -32,9 +32,9 @@ Navigera till bladet Bläddra för Log Analytics arbets ytor och skapa en arbets
 
 ![Log Analytics-arbetsytor](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspaces.png)
 
-![Lägg till Analytics-arbetsyta](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
+![Skärm bild som visar Log Analytics arbets ytor där du kan välja Lägg till.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace.png)
 
-![Lägg till Analytics-arbetsyta](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
+![Skärm bild som visar Log Analytics arbets ytan där du kan ange värden.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
 Mer information om arbets ytor finns i följande [dokumentation](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace).
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: d52e8e0157c891cf8be6c610b7c0185d83ef9f06
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 519447dfffaa660131fa587eaef946c76f66983b
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638065"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027337"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Snabbstart: Skapa en datafabrik via gränssnittet i Azure Data Factory 
 
@@ -61,6 +61,8 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 1. För **Plats** väljer du en plats för datafabriken.
 
    I listan visas endast platser som Data Factory har stöd för och var dina Azure Data Factory-metadata kommer att lagras. De associerade data lag ren (t. ex. Azure Storage och Azure SQL Database) och beräkningarna (som Azure HDInsight) som Data Factory använder kan köras i andra regioner.
+
+1. Välj **Nästa: git-konfiguration** och välj sedan **Konfigurera git senare** .
 
 1. Välj **Skapa** . När du har skapat filen väljer du **gå till resurs** för att gå till sidan **Data Factory** . 
 

@@ -3,12 +3,12 @@ title: Översikt över ACR-uppgifter
 description: En introduktion till ACR-aktiviteter, en uppsättning funktioner i Azure Container Registry som tillhandahåller säker, automatiserad version av behållar avbildning, hantering och korrigeringar i molnet.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488651"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027674"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållar avbildnings versioner och underhåll med ACR-uppgifter
 
@@ -58,8 +58,8 @@ ACR-aktiviteter stöder följande utlösare när du anger en git-lagrings platse
 
 | Utlösare | Aktiverat som standard |
 | ------- | ------------------ |
-| Checka in | Ja |
-| Pull-begäran | Inga |
+| Checka in | Yes |
+| Pull-begäran | No |
 
 Om du vill konfigurera en uppdaterings utlösare för käll koden måste du ange uppgiften en personlig åtkomsttoken (PAT) för att ställa in webhooken i den offentliga eller privata GitHub eller Azure DevOps lagrings platsen.
 
@@ -70,7 +70,7 @@ Lär dig hur du utlöser versioner av käll kods bekräftelse i självstudien f�
 
 ## <a name="automate-os-and-framework-patching"></a>Automatisera korrigering av OS och ramverk
 
-Kraften i ACR-aktiviteter för att verkligen förbättra arbets flödet för behållar bygget kommer från möjligheten att identifiera en uppdatering av en *bas avbildning*. En funktion i de flesta behållar avbildningar är en bas avbildning som är en överordnad avbildning som en eller flera program avbildningar baseras på. Bas avbildningar innehåller vanligt vis operativ systemet och ibland program ramverk. 
+Kraften i ACR-aktiviteter för att verkligen förbättra arbets flödet för behållar bygget kommer från möjligheten att identifiera en uppdatering av en *bas avbildning* . En funktion i de flesta behållar avbildningar är en bas avbildning som är en överordnad avbildning som en eller flera program avbildningar baseras på. Bas avbildningar innehåller vanligt vis operativ systemet och ibland program ramverk. 
 
 Du kan ställa in en ACR-uppgift för att spåra ett beroende på en bas avbildning när den skapar en program avbildning. När den uppdaterade bas avbildningen skickas till ditt register, eller om en bas avbildning uppdateras i en offentlig lagrings platsen, t. ex. i Docker Hub, kan ACR-aktiviteter automatiskt bygga program avbildningar baserat på den.
 Med den här automatiska identifieringen och återuppbyggnaden sparar ACR-uppgifter den tid och ansträngning som normalt krävs för att manuellt spåra och uppdatera varje program avbildning som refererar till den uppdaterade bas avbildningen.
@@ -138,10 +138,6 @@ När du är redo att automatisera behållar avbildnings versioner och underhåll
 Du kan också installera [Docker-tillägget för Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) och tillägget [Azure-konto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) för att arbeta med dina Azure Container register. Hämta och push-avbildningar till ett Azure Container Registry, eller kör ACR-aktiviteter, allt i Visual Studio Code.
 
 <!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 

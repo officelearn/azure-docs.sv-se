@@ -4,12 +4,12 @@ description: Använd Azure Container Registry-kommandon för att snabbt skapa, s
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 36921900f64d458f1f2591897e32c98f6d22a550
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4ea3f1bb86bcf3f6583cc438b2a27429f5b69d14
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91538236"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027694"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Snabb start: skapa och köra en behållar avbildning med Azure Container Registry uppgifter
 
@@ -27,7 +27,7 @@ Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för 
 
 Om du inte redan har ett behållar register måste du först skapa en resurs grupp med kommandot [AZ Group Create][az-group-create] . En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
-I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -46,10 +46,10 @@ I det här exemplet skapas ett *grundläggande* register, ett kostnads optimerat
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Bygg och skicka avbildningar från en Dockerfile
 
-Använd nu Azure Container Registry för att bygga och skicka en avbildning. Skapa först en lokal arbets katalog och skapa sedan en Dockerfile med namnet *Dockerfile* med den enskilda raden: `FROM hello-world` . Det här är ett enkelt exempel på hur du skapar en Linux container-avbildning från `hello-world` avbildningen i Docker Hub. Du kan skapa egna standard-Dockerfile och skapa avbildningar för andra plattformar. Om du arbetar med ett bash-gränssnitt skapar du Dockerfile med följande kommando:
+Använd nu Azure Container Registry för att bygga och skicka en avbildning. Skapa först en lokal arbets katalog och skapa sedan en Dockerfile med namnet *Dockerfile* med den enskilda raden: `FROM mcr.microsoft.com/hello-world` . Det här är ett enkelt exempel på hur du skapar en Linux container-avbildning från `hello-world` avbildningen på Microsoft container Registry. Du kan skapa egna standard-Dockerfile och skapa avbildningar för andra plattformar. Om du arbetar med ett bash-gränssnitt skapar du Dockerfile med följande kommando:
 
 ```bash
-echo FROM hello-world > Dockerfile
+echo FROM mcr.microsoft.com/hello-world > Dockerfile
 ```
 
 Kör kommandot [AZ ACR build][az-acr-build] , som skapar avbildningen och när avbildningen har skapats, och push-överför den till registret. I följande exempel skapas och pushrar `sample/hello-world:v1` avbildningen. I `.` slutet av kommandot anges platsen för Dockerfile, i det här fallet den aktuella katalogen.
@@ -78,8 +78,8 @@ Waiting for agent...
 2019/03/18 21:57:00 Successfully obtained source code and scanned for dependencies
 2019/03/18 21:57:00 Launching container with name: build
 Sending build context to Docker daemon  13.82kB
-Step 1/1 : FROM hello-world
-latest: Pulling from library/hello-world
+Step 1/1 : FROM mcr.microsoft.com/hello-world
+latest: Pulling from hello-world
 Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586fxxxx21577a99efb77324b0fe535
 Successfully built fce289e99eb9
 Successfully tagged mycontainerregistry008.azurecr.io/sample/hello-world:v1

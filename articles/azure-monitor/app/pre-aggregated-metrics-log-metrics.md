@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539137"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027167"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Loggbaserade och föraggregerade mått i Application Insights
 
@@ -40,6 +40,28 @@ De nyare SDK: erna ([Application Insights 2,7](https://www.nuget.org/packages/Mi
 För SDK: er som inte implementerar för insamlingen (dvs. äldre versioner av Application Insights-SDK: er eller för webb läsar Instrumentation), fyller Application Insights-servern fortfarande de nya måtten genom att aggregera de händelser som tas emot av slut punkten för den Application Insights händelse samlingen. Det innebär att när du inte drar nytta av den minskade mängden data som överförs via kabeln, kan du fortfarande använda församlade mått och få bättre prestanda och stöd för den nära dimensions aviseringen i real tid med SDK: er som inte föraggregerar mått under samlingen.
 
 Det är värt att nämna att samlings slut punkten föraggregerar händelser innan inmatnings samplingen, vilket innebär att [provtagnings samplingen](./sampling.md) aldrig påverkar noggrannheten i föraggregerade mått, oavsett vilken SDK-version du använder med ditt program.  
+
+### <a name="sdk-supported-pre-aggregated-metrics-table"></a>SDK som stöds i förväg sammanställda mått tabell
+
+| Aktuella produktions-SDK: er | Standard mått (SDK pre-aggregering) | Anpassade mått (utan föragg regering för SDK) | Anpassade mått (med pre-aggregering SDK)|
+|------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
+| .NET Core och .NET Framework | Stöds (V-2.13.1 +)| Stöds via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Stöds (V-2.7.2 +) via [GetMetric](get-metric.md) |
+| Java                         | Stöds inte       | Stöds via [TrackMetric](api-custom-events-metrics.md#trackmetric)| Stöds inte                           |
+| Node.js                      | Stöds inte       | Stöds via  [TrackMetric](api-custom-events-metrics.md#trackmetric)| Stöds inte                           |
+| Python                       | Stöds inte       | Stöds                                 | Stöds via [openinventering. statistik](opencensus-python.md#metrics) |  
+
+
+### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Tabell med kod som stöds för föraggregerade mått
+
+| Aktuella produktions-SDK: er | Standard mått (SDK pre-aggregering) | Anpassade mått (utan föragg regering för SDK) | Anpassade mått (med pre-aggregering SDK)|
+|-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| ASP.NET                 | Stöds <sup> 1<sup>    | Stöds inte                             | Stöds inte                           |
+| ASP.NET Core            | 2 som stöds <sup><sup>    | Stöds inte                             | Stöds inte                           |
+| Java                    | Stöds inte            | Stöds inte                             | [Stöds](java-in-process-agent.md#metrics) |
+| Node.js                 | Stöds inte            | Stöds inte                             | Stöds inte                           |
+
+1. ASP.NET-kod koppling på App Service utvärderar endast mått i "fullständig" övervaknings läge. ASP.NET-kod koppling för App Service, VM/VMSS och lokala metoder avger standard mått utan dimensioner. SDK krävs för alla dimensioner.
+2. ASP.NET Core kod koppling för App Service avger standard mått utan dimensioner. SDK krävs för alla dimensioner.
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Använda föragg regering med Application Insights anpassade mått
 

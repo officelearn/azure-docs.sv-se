@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2020
-ms.openlocfilehash: 0cdad47123d69ca7cee468c5bb0cea3268d73bfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15a4a0ea78ef169480d4494683cb929cfefd16f2
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420119"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026980"
 ---
 # <a name="managing-the-mapping-data-flow-graph"></a>Hantera diagrammet mappa data flöde
 
@@ -27,7 +27,7 @@ När dina data flödar mer komplexa använder du följande mekanismer för att e
 
 ## <a name="moving-transformations"></a>Flytta transformeringar
 
-I mappnings data flöden kallas en uppsättning ansluten omvandlings logik som en **data ström**. Fältet **inkommande ström** avgör vilken data ström som används för att mata in den aktuella omvandlingen. Varje omvandling har en eller två inkommande strömmar beroende på dess funktion och representerar en utdataström. Utmatnings schema för inkommande strömmar avgör vilka kolumn-metadata som kan refereras av den aktuella omvandlingen.
+I mappnings data flöden kallas en uppsättning ansluten omvandlings logik som en **data ström** . Fältet **inkommande ström** avgör vilken data ström som används för att mata in den aktuella omvandlingen. Varje omvandling har en eller två inkommande strömmar beroende på dess funktion och representerar en utdataström. Utmatnings schema för inkommande strömmar avgör vilka kolumn-metadata som kan refereras av den aktuella omvandlingen.
 
 ![Flytta nod](media/data-flow/move-nodes.png "flytta nod")
 
@@ -39,7 +39,7 @@ När du redigerar din omvandling kan du expandera konfigurations panelen för at
 
 ![Dölj diagram](media/data-flow/hide-graph.png "Dölj diagram")
 
-När grafen är dold kan du flytta mellan omvandlingar i en ström genom att klicka på **Nästa** eller **föregående**. Visa grafen genom att klicka på den nedåtriktade ikonen.
+När grafen är dold kan du flytta mellan omvandlingar i en ström genom att klicka på **Nästa** eller **föregående** . Visa grafen genom att klicka på den nedåtriktade ikonen.
 
 ![Visa diagram](media/data-flow/show-graph.png "Visa diagram")
 
@@ -47,15 +47,15 @@ När grafen är dold kan du flytta mellan omvandlingar i en ström genom att kli
 
 Om du snabbt vill hitta en omvandling i grafen klickar du på **Sök** ikonen ovanför zoomnings inställningen.
 
-![Sök](media/data-flow/search-1.png "Sök diagram")
+![Skärm bild som visar Sök knappen.](media/data-flow/search-1.png "Sök diagram")
 
 Du kan söka efter omvandlings namn eller beskrivning för att hitta en omvandling.
 
-![Sök](media/data-flow/search-2.png "Sök diagram")
+![Skärm bild som visar Sök text rutan.](media/data-flow/search-2.png "Sök diagram")
 
 ## <a name="hide-reference-nodes"></a>Dölj noder i referens
 
-Om ditt data flöde har kopplings-, lookup-, exists-eller union-transformationer, visar data flödet referens-noderna till alla inkommande data strömmar. Om du vill minimera mängden lodrätt utrymme kan du minimera dina Reference-noder. Det gör du genom att högerklicka på arbets ytan och välja **Dölj Reference Nodes**.
+Om ditt data flöde har kopplings-, lookup-, exists-eller union-transformationer, visar data flödet referens-noderna till alla inkommande data strömmar. Om du vill minimera mängden lodrätt utrymme kan du minimera dina Reference-noder. Det gör du genom att högerklicka på arbets ytan och välja **Dölj Reference Nodes** .
 
 ![Dölj noder i referens](media/data-flow/hide-reference-nodes.png "Dölj noder i referens")
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: cd1342ae5912a9a91f1bd8d1bdacecdb5a2bbdb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eaf36cc2690b3c0f8922c05432b3197b4ff30d9a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416512"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026062"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Skapa Azure Data Factory-dataflöde
 
@@ -22,15 +22,15 @@ Att mappa data flöden i ADF är ett sätt att omvandla data i skala utan att be
 
 Kom igång genom att först skapa en ny v2-Data Factory från Azure Portal. När du har skapat din nya fabrik klickar du på panelen "skapa & övervakare" för att starta Data Factory användar gränssnittet.
 
-![Data flödes alternativ](media/data-flow/v2portal.png "skapa data flöde")
+![Skärm bild som visar fönstret ny data fabrik med v2 valt för version.](media/data-flow/v2portal.png "skapa data flöde")
 
 När du är i Data Factory användar gränssnittet kan du använda exempel data flöden. Exemplen är tillgängliga från galleriet för ADM-mallar. I ADF skapar du "pipeline från mall" och väljer kategorin data flöde från mallgalleriet.
 
-![Data flödes alternativ](media/data-flow/template.png "skapa data flöde")
+![Skärm bild som visar fliken Data flöde med transformera data med hjälp av data flöde valt.](media/data-flow/template.png "skapa data flöde")
 
 Du uppmanas att ange din Azure Blob Storage konto information.
 
-![Data flödes alternativ](media/data-flow/template2.png "data flöde-skapa 2")
+![Skärm bild som visar fönstret transformera data med data flöde där du kan ange användar indata.](media/data-flow/template2.png "data flöde-skapa 2")
 
 [De data som används för dessa exempel hittar du här](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Hämta exempel data och lagra filerna i dina Azure Blob Storage-konton så att du kan köra exemplen.
 
@@ -38,7 +38,7 @@ Du uppmanas att ange din Azure Blob Storage konto information.
 
 Använd knappen Skapa resurs "plus tecken" i ADF-gränssnittet för att skapa data flöden.
 
-![Data flödes alternativ](media/data-flow/newresource.png "Ny resurs")
+![Skärm bild som visar det data flöde som valts från menyn fabriks resurser.](media/data-flow/newresource.png "Ny resurs")
 
 ## <a name="next-steps"></a>Nästa steg
 

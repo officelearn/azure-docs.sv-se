@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 445cd7c55de58b6e5266f76a06d2cbabc75c18b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: fb5aca1739fbb4a77cbcb7eed6b9dce1b3ccc182
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907174"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027592"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Strömma data som indata till Stream Analytics
 
@@ -55,7 +55,7 @@ I följande tabell förklaras varje egenskap på den **nya inmatnings** sidan i 
 | **Namn på händelsehubb** | Namnet på händelsehubben som ska användas som indatamängd. |
 | **Principnamn för Event Hub** | Principen för delad åtkomst som ger åtkomst till Händelsehubben. Varje princip för delad åtkomst har ett namn, behörigheter som du anger och åtkomst nycklar. Det här alternativet fylls i automatiskt, om du inte väljer alternativet att ange inställningar för Händelsehubben manuellt.|
 | **Konsument grupp för Event Hub** (rekommenderas) | Vi rekommenderar starkt att du använder en distinkt konsument grupp för varje Stream Analytics jobb. Den här strängen identifierar den konsument grupp som ska användas för att mata in data från händelsehubben. Om ingen konsument grupp har angetts använder Stream Analytics jobbet $Default konsument gruppen.  |
-| **Partitionsnyckel** | Om din Indatatyp är partitionerad med en egenskap kan du lägga till namnet på den här egenskapen. Partitionsnyckel är valfria och används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. |
+| **Partitionsnyckel** | Detta är ett valfritt fält som bara är tillgängligt om jobbet är konfigurerat för att använda [kompatibilitetsnivån](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 eller högre. Om din inaktuella information har partitionerats av en egenskap kan du lägga till namnet på den här egenskapen här. Detta används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. Om det här jobbet använder kompatibilitetsnivå 1,2 eller högre är det här fältet standardvärdet "PartitionId". |
 | **Händelseserialiseringsformat** | Serialization-formatet (JSON, CSV, Avro eller [Other (protobuf, XML, tillverkarspecifika...)](custom-deserializer.md)) för den inkommande data strömmen.  Se till att JSON-formatet överensstämmer med specifikationen och inte innehåller inledande 0 för decimal tal. |
 | **Kodning** | UTF-8 är för närvarande det enda kodnings format som stöds. |
 | **Händelse komprimerings typ** | Komprimerings typen som används för att läsa inkommande data ström, till exempel ingen (standard), GZip eller DEFLATE. |
@@ -105,7 +105,7 @@ I följande tabell förklaras varje egenskap på den **nya indata** -sidan i Azu
 | **Namn på princip för delad åtkomst** | Principen för delad åtkomst som ger åtkomst till IoT Hub. Varje princip för delad åtkomst har ett namn, behörigheter som du anger och åtkomst nycklar. |
 | **Nyckel för delad åtkomst princip** | Den delade åtkomst nyckeln som används för att ge åtkomst till IoT Hub.  Det här alternativet fylls i automatiskt om du inte väljer alternativet att tillhandahålla IoT Hub-inställningarna manuellt. |
 | **Konsument grupp** | Vi rekommenderar starkt att du använder en annan konsument grupp för varje Stream Analytics jobb. Konsument gruppen används för att mata in data från IoT Hub. Stream Analytics använder $Default konsument gruppen om du inte anger något annat.  |
-| **Partitionsnyckel** | Om din Indatatyp är partitionerad med en egenskap kan du lägga till namnet på den här egenskapen. Partitionsnyckel är valfria och används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. |
+| **Partitionsnyckel** | Detta är ett valfritt fält som bara är tillgängligt om jobbet är konfigurerat för att använda [kompatibilitetsnivån](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 eller högre. Om din inaktuella information har partitionerats av en egenskap kan du lägga till namnet på den här egenskapen här. Detta används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. Om det här jobbet använder kompatibilitetsnivå 1,2 eller högre är det här fältet standardvärdet "PartitionId". |
 | **Händelseserialiseringsformat** | Serialization-formatet (JSON, CSV, Avro eller [Other (protobuf, XML, tillverkarspecifika...)](custom-deserializer.md)) för den inkommande data strömmen.  Se till att JSON-formatet överensstämmer med specifikationen och inte innehåller inledande 0 för decimal tal. |
 | **Kodning** | UTF-8 är för närvarande det enda kodnings format som stöds. |
 | **Händelse komprimerings typ** | Komprimerings typen som används för att läsa inkommande data ström, till exempel ingen (standard), GZip eller DEFLATE. |
@@ -159,7 +159,8 @@ I följande tabell beskrivs varje egenskap på den **nya indata** -sidan i Azure
 | **Sök vägs mönster** (valfritt) | Den fil Sök väg som används för att hitta Blobbarna i den angivna behållaren. Om du vill läsa blobbar från behållarens rot ska du inte ange ett Sök vägs mönster. I sökvägen kan du ange en eller flera instanser av följande tre variabler: `{date}` , `{time}` eller `{partition}`<br/><br/>Exempel 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exempel 2: `cluster1/logs/{date}`<br/><br/>`*`Specialtecknet är inte ett tillåtet värde för Path-prefixet. Endast giltiga <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob-tecken</a> tillåts. Lägg inte till behållar namn eller fil namn. |
 | **Datum format** (valfritt) | Om du använder date-variabeln i sökvägen är datum formatet där filerna är ordnade. Exempel: `YYYY/MM/DD` <br/><br/> När BLOB-indatatypen har `{date}` eller `{time}` i sin sökväg tittar mapparna i stigande tids ordning.|
 | **Tids format** (valfritt) |  Om du använder tids variabeln i sökvägen är det tids formatet som filerna är ordnade i. För närvarande är det enda värde som stöds `HH` för timmar. |
-| **Partitionsnyckel** | Om din Indatatyp är partitionerad med en egenskap kan du lägga till namnet på den här egenskapen. Partitionsnyckel är valfria och används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. |
+| **Partitionsnyckel** | Detta är ett valfritt fält som bara är tillgängligt om jobbet är konfigurerat för att använda [kompatibilitetsnivån](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 eller högre. Om din inaktuella information har partitionerats av en egenskap kan du lägga till namnet på den här egenskapen här. Detta används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. Om det här jobbet använder kompatibilitetsnivå 1,2 eller högre är det här fältet standardvärdet "PartitionId". |
+| **Antal inpartitioner** | Det här fältet finns bara när {partition} finns i Sök vägs mönstret. Värdet för den här egenskapen är ett heltal >= 1. Var {partition} visas i pathPattern, ett tal mellan 0 och värdet för det här fältet-1 kommer att användas. |
 | **Händelseserialiseringsformat** | Serialization-formatet (JSON, CSV, Avro eller [Other (protobuf, XML, tillverkarspecifika...)](custom-deserializer.md)) för den inkommande data strömmen.  Se till att JSON-formatet överensstämmer med specifikationen och inte innehåller inledande 0 för decimal tal. |
 | **Kodning** | För CSV och JSON är UTF-8 för närvarande det enda kodnings format som stöds. |
 | **Komprimering** | Komprimerings typen som används för att läsa inkommande data ström, till exempel ingen (standard), GZip eller DEFLATE. |

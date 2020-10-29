@@ -16,34 +16,34 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90838b0b613c043ae41a71c76b5e9023d21df3a6
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387276"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025858"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML enkel inloggning för lokala program med programproxy
 
 Du kan tillhandahålla enkel inloggning (SSO) till lokala program som skyddas med SAML-autentisering och ge fjärråtkomst till dessa program via programproxyn. Med enkel inloggning med SAML kan Azure Active Directory (Azure AD) autentiseras för programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar inloggnings informationen till programmet via ett anslutnings protokoll. Du kan också mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk. Genom att aktivera Application Proxy förutom SAML SSO får användarna extern åtkomst till programmet och en sömlös SSO-upplevelse.
 
-Programmen måste kunna använda SAML-token som utfärdats av **Azure Active Directory**. Den här konfigurationen gäller inte för program som använder en lokal identitetsprovider. I dessa scenarier rekommenderar vi att du visar [resurser för att migrera program till Azure AD](migration-resources.md).
+Programmen måste kunna använda SAML-token som utfärdats av **Azure Active Directory** . Den här konfigurationen gäller inte för program som använder en lokal identitetsprovider. I dessa scenarier rekommenderar vi att du visar [resurser för att migrera program till Azure AD](migration-resources.md).
 
 SAML SSO med Application Proxy fungerar också med krypterings funktionen för SAML-token. Mer information finns i [Konfigurera Azure AD SAML-token-kryptering](howto-saml-token-encryption.md).
 
 Protokoll diagrammen nedan beskriver den enkla inloggnings ordningen för både ett SP-initierat flöde av en tjänst leverantör och ett initierat IdP-flöde (Identity Provider – initierat). Application Proxy fungerar med SAML SSO genom att cachelagring av SAML-begäranden och-svar till och från det lokala programmet cachelagras.
 
-  ![SAML SP Flow](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
+  ![Diagram visar interaktioner för program, programproxy, klient och Azure A D för S P-initierad enkel inloggning.](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-sp-initiated-flow.png)
 
-  ![SAML SP Flow](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
+  ![Diagram visar interaktioner för program, programproxy, klient och Azure A D för I d-initierad enkel inloggning.](./media/application-proxy-configure-single-sign-on-on-premises-apps/saml-idp-initiated-flow.png)
 
 ## <a name="create-an-application-and-set-up-saml-sso"></a>Skapa ett program och konfigurera SAML SSO
 
-1. I Azure Portal väljer du **Azure Active Directory > företags program** och väljer **nytt program**.
+1. I Azure Portal väljer du **Azure Active Directory > företags program** och väljer **nytt program** .
 
-2. Ange visnings namnet för det nya programmet, Välj **integrera andra program som du inte hittar i galleriet**och välj sedan **skapa**.
+2. Ange visnings namnet för det nya programmet, Välj **integrera andra program som du inte hittar i galleriet** och välj sedan **skapa** .
 
-3. På sidan **Översikt** för appen väljer du **enkel inloggning**.
+3. På sidan **Översikt** för appen väljer du **enkel inloggning** .
 
 4. Välj **SAML** som metoden för enkel inloggning.
 
@@ -52,13 +52,13 @@ Protokoll diagrammen nedan beskriver den enkla inloggnings ordningen för både 
 6. Lägg till minst en användare i programmet och kontrol lera att test kontot har åtkomst till programmet. När du är ansluten till företags nätverket använder du test kontot för att se om du har enkel inloggning till programmet. 
 
    > [!NOTE]
-   > När du har konfigurerat Application Proxy kommer du tillbaka och uppdaterar **URL: en**för SAML-svar.
+   > När du har konfigurerat Application Proxy kommer du tillbaka och uppdaterar **URL: en** för SAML-svar.
 
 ## <a name="publish-the-on-premises-application-with-application-proxy"></a>Publicera det lokala programmet med Application Proxy
 
 Innan du kan ange SSO för lokala program måste du aktivera programproxyn och installera en anslutning. Se självstudien [Lägg till ett lokalt program för fjärråtkomst via programproxy i Azure AD](application-proxy-add-on-premises-application.md) för att lära dig hur du förbereder din lokala miljö, installerar och registrerar en anslutning och testar anslutningen. Följ sedan de här stegen för att publicera ditt nya program med Application Proxy. Information om andra inställningar som inte nämns nedan finns i avsnittet [lägga till en lokal app i Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) i självstudien.
 
-1. När programmet fortfarande är öppet i Azure Portal väljer du **programproxy**. Ange den **interna URL:** en för programmet. Om du använder en anpassad domän måste du också ladda upp TLS/SSL-certifikatet för ditt program. 
+1. När programmet fortfarande är öppet i Azure Portal väljer du **programproxy** . Ange den **interna URL:** en för programmet. Om du använder en anpassad domän måste du också ladda upp TLS/SSL-certifikatet för ditt program. 
    > [!NOTE]
    > Vi rekommenderar att du använder anpassade domäner när det är möjligt för en optimerad användar upplevelse. Lär dig mer om att [arbeta med anpassade domäner i Azure AD-programproxy](application-proxy-configure-custom-domain.md).
 
@@ -70,9 +70,9 @@ Innan du kan ange SSO för lokala program måste du aktivera programproxyn och i
 
 ## <a name="update-the-saml-configuration"></a>Uppdatera SAML-konfigurationen
 
-1. När programmet fortfarande öppnas i Azure Portal väljer du **enkel inloggning**. 
+1. När programmet fortfarande öppnas i Azure Portal väljer du **enkel inloggning** . 
 
-2. På sidan **Konfigurera enkla Sign-On med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en penna). Se till att den **externa URL:** en som du har konfigurerat i programproxyn är ifylld i fälten **identifierare**, **svars-URL**och **utloggnings-URL** . Dessa URL: er krävs för att Application Proxy ska fungera korrekt. 
+2. På sidan **Konfigurera enkla Sign-On med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en penna). Se till att den **externa URL:** en som du har konfigurerat i programproxyn är ifylld i fälten **identifierare** , **svars-URL** och **utloggnings-URL** . Dessa URL: er krävs för att Application Proxy ska fungera korrekt. 
 
 3. Redigera **svars-URL: en** som kon figurer ATS tidigare så att dess domän kan bli tillgänglig på Internet via programproxyn. Om din **externa URL** till exempel är `https://contosotravel-f128.msappproxy.net` och den ursprungliga **svars-URL: en** var `https://contosotravel.com/acs` , måste du uppdatera den ursprungliga **svars-URL: en** till `https://contosotravel-f128.msappproxy.net/acs` .
 

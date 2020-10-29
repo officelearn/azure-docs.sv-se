@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 0c82114f697227b96e3548fff24314d4774455b9
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494741"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026453"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Hantera enheter automatiskt i Azure Digitals med hjälp av enhets etablerings tjänsten (DPS)
 
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig hur du integrerar Azure Digitals med [enhe
 
 Lösningen som beskrivs i den här artikeln gör att du kan automatisera processen för att **_etablera_** och **_dra tillbaka_** IoT Hub enheter i Azure Digitals, med hjälp av enhets etablerings tjänsten. 
 
-Mer information om hur du _etablerar_ och drar _tillbaka_ faser och för att bättre förstå de allmänna enhets hanterings faser som är gemensamma för alla Enterprise IoT-projekt finns i [avsnittet *enhets livs cykel* ](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) i IoT Hub enhets hanteringens dokumentation.
+Mer information om hur du _etablerar_ och drar _tillbaka_ faser och för att bättre förstå de allmänna enhets hanterings faser som är gemensamma för alla Enterprise IoT-projekt finns i [avsnittet *enhets livs cykel*](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) i IoT Hub enhets hanteringens dokumentation.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -29,12 +29,12 @@ Innan du kan konfigurera etableringen måste du ha en **digital Azure-instans** 
 Om du inte redan har konfigurerat den här inställningen kan du skapa den genom att följa självstudien om Azure Digitals dubblare [*: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md). Självstudien vägleder dig genom att konfigurera en digital Azure-instans med modeller och dubbla, en ansluten Azure- [IoT Hub](../iot-hub/about-iot-hub.md)och flera [Azure Functions](../azure-functions/functions-overview.md) för att sprida data flödet.
 
 Du behöver följande värden senare i den här artikeln när du konfigurerar din instans. Om du behöver samla in värdena igen kan du använda länkarna nedan för instruktioner.
-* Azure Digitals dubbla instans **_värd namn_** ([Sök i portalen](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* **_Anslutnings sträng_** för Azure Event Hubs-anslutningssträng ([Sök i portalen](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
+* Azure Digitals dubbla instans **_värd namn_** ( [Sök i portalen](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+* **_Anslutnings sträng_** för Azure Event Hubs-anslutningssträng ( [Sök i portalen](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
 I det här exemplet används även en **enhets Simulator** som inkluderar etablering med Device Provisioning-tjänsten. Enhets simulatorn finns här: [Azure Digitals, dubbla och IoT Hub integrations exempel](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Hämta exempelprojektet på datorn genom att gå till exempel länken och välja *Hämta zip* -knappen under rubriken. Zippa upp den hämtade mappen.
 
-Enhets simulatorn baseras på **Node.js**, version 10.0. x eller senare. [*Förbereda utvecklings miljön*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här själv studie kursen på antingen Windows eller Linux.
+Enhets simulatorn baseras på **Node.js** , version 10.0. x eller senare. [*Förbereda utvecklings miljön*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) beskriver hur du installerar Node.js för den här själv studie kursen på antingen Windows eller Linux.
 
 ## <a name="solution-architecture"></a>Lösningsarkitekturen
 
@@ -77,7 +77,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### <a name="create-an-azure-function"></a>Skapa en Azure-funktion
 
-Därefter skapar du en HTTP-begäran-utlöst funktion i en Function-app. Du kan använda Function-appen som skapats i kursen från slut punkt till slut punkt ([*Självstudier: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md)) eller din egen.
+Därefter skapar du en HTTP-begäran-utlöst funktion i en Function-app. Du kan använda Function-appen som skapats i kursen från slut punkt till slut punkt ( [*Självstudier: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md)) eller din egen.
 
 Den här funktionen kommer att användas av enhets etablerings tjänsten i en [anpassad resursallokeringsprincip](../iot-dps/how-to-use-custom-allocation-policies.md) för att etablera en ny enhet. Mer information om hur du använder HTTP-förfrågningar med Azure Functions finns i [*Azure http-begäran utlösare för Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
@@ -233,7 +233,7 @@ Spara filen och publicera om din Function-app. Anvisningar om hur du publicerar 
 
 ### <a name="configure-your-function"></a>Konfigurera din funktion
 
-Därefter måste du ställa in miljövariabler i din Function-app från tidigare, som innehåller referensen till den Azure Digital-instans som du har skapat. Om du använde självstudierna från slut punkt till slut punkt ([*Självstudier: ansluta en slut punkt till slut punkt*](tutorial-end-to-end.md)) är inställningen redan konfigurerad.
+Därefter måste du ställa in miljövariabler i din Function-app från tidigare, som innehåller referensen till den Azure Digital-instans som du har skapat. Om du använde självstudierna från slut punkt till slut punkt ( [*Självstudier: ansluta en slut punkt till slut punkt*](tutorial-end-to-end.md)) är inställningen redan konfigurerad.
 
 Lägg till inställningen med följande Azure CLI-kommando:
 
@@ -243,18 +243,11 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 
 Se till att roll tilldelningen behörigheter och hanterad identitet är korrekt konfigurerad för Function-appen, enligt beskrivningen i avsnittet [*tilldela behörigheter till Function-appen*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) i slut punkt till slut punkt.
 
-<!-- 
-* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
-``` -->
-
 ### <a name="create-device-provisioning-enrollment"></a>Skapa registrering av enhets etablering
 
-Därefter måste du skapa en registrering i enhets etablerings tjänsten med hjälp av en **anpassad tilldelnings funktion**. Följ anvisningarna i avsnittet [*skapa registrering*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) och [*Härled unika enhets nycklar*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) i artikeln enhets etablerings tjänster om anpassade allokeringsregler.
+Därefter måste du skapa en registrering i enhets etablerings tjänsten med hjälp av en **anpassad tilldelnings funktion** . Följ anvisningarna i avsnittet [*skapa registrering*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) och [*Härled unika enhets nycklar*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) i artikeln enhets etablerings tjänster om anpassade allokeringsregler.
 
-När du går igenom flödet länkar du registreringen till funktionen som du nyss skapade genom att välja din funktion under steget för att **välja hur du vill tilldela enheter till hubbar**. När du har skapat registreringen används registrerings namnet och den primära eller sekundära SAS-nyckeln senare för att konfigurera enhets simulatorn för den här artikeln.
+När du går igenom flödet länkar du registreringen till funktionen som du nyss skapade genom att välja din funktion under steget för att **välja hur du vill tilldela enheter till hubbar** . När du har skapat registreringen används registrerings namnet och den primära eller sekundära SAS-nyckeln senare för att konfigurera enhets simulatorn för den här artikeln.
 
 ### <a name="set-up-the-device-simulator"></a>Konfigurera enhets simulatorn
 
@@ -266,7 +259,7 @@ I det här exemplet används en enhets simulator som inkluderar etablering med e
 npm install
 ```
 
-Kopiera sedan filen *. miljö. template* till en ny fil med namnet *. kuvert*och fyll i följande inställningar:
+Kopiera sedan filen *. miljö. template* till en ny fil med namnet *. kuvert* och fyll i följande inställningar:
 
 ```cmd
 PROVISIONING_HOST = "global.azure-devices-provisioning.net"
@@ -318,18 +311,18 @@ I följande avsnitt går vi igenom stegen för att ställa in det här flödet f
 Nu måste du skapa en Azure [Event Hub](../event-hubs/event-hubs-about.md)som ska användas för att ta emot IoT Hub livs cykel händelser. 
 
 Gå igenom stegen som beskrivs i snabb starten för att [*skapa en Event Hub*](../event-hubs/event-hubs-create.md) med följande information:
-* Om du använder självstudierna från slut punkt till slut punkt ([*självstudie: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md)) kan du återanvända den resurs grupp som du skapade för självstudierna från slut punkt till slut punkt.
-* Namnge din Event Hub- *lifecycleevents*eller något annat alternativ och kom ihåg namn området du skapade. Du kommer att använda dessa när du ställer in livs cykel funktionen och IoT Hub vägen i nästa avsnitt.
+* Om du använder självstudierna från slut punkt till slut punkt ( [*självstudie: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md)) kan du återanvända den resurs grupp som du skapade för självstudierna från slut punkt till slut punkt.
+* Namnge din Event Hub- *lifecycleevents* eller något annat alternativ och kom ihåg namn området du skapade. Du kommer att använda dessa när du ställer in livs cykel funktionen och IoT Hub vägen i nästa avsnitt.
 
 ### <a name="create-an-azure-function"></a>Skapa en Azure-funktion
 
-Därefter skapar du en Event Hubs utlöst funktion i en Function-app. Du kan använda Function-appen som skapats i kursen från slut punkt till slut punkt ([*Självstudier: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md)) eller din egen. 
+Därefter skapar du en Event Hubs utlöst funktion i en Function-app. Du kan använda Function-appen som skapats i kursen från slut punkt till slut punkt ( [*Självstudier: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md)) eller din egen. 
 
-Namnge Event Hub-utlösaren *lifecycleevents*och Anslut Event Hub-utlösaren till händelsehubben som du skapade i föregående steg. Om du har använt ett annat händelsehubben, ändrar du det så att det matchar i Utlösarens namn nedan.
+Namnge Event Hub-utlösaren *lifecycleevents* och Anslut Event Hub-utlösaren till händelsehubben som du skapade i föregående steg. Om du har använt ett annat händelsehubben, ändrar du det så att det matchar i Utlösarens namn nedan.
 
 Den här funktionen använder IoT Hub enhetens livs cykel händelse för att dra tillbaka en befintlig enhet. Mer information om livs cykel händelser finns i [*IoT Hub händelser som inte är telemetri*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). Mer information om hur du använder Event Hubs med Azure Functions finns i [*Azure Event Hubs-utlösare för Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
-I din publicerade Function-app lägger du till en ny funktions klass av typen *Event Hub-utlösare*och klistrar in koden nedan.
+I din publicerade Function-app lägger du till en ny funktions klass av typen *Event Hub-utlösare* och klistrar in koden nedan.
 
 ```C#
 using System;
@@ -445,7 +438,7 @@ Spara projektet och publicera sedan Function-appen igen. Anvisningar om hur du p
 
 ### <a name="configure-your-function"></a>Konfigurera din funktion
 
-Därefter måste du ställa in miljövariabler i din Function-app från tidigare, som innehåller referensen till den Azure Digital-instans som du har skapat och Event Hub. Om du använde självstudien från slut punkt till slut punkt ([*Självstudier: ansluta en slut punkt till slut punkt*](./tutorial-end-to-end.md)) är den första inställningen redan konfigurerad.
+Därefter måste du ställa in miljövariabler i din Function-app från tidigare, som innehåller referensen till den Azure Digital-instans som du har skapat och Event Hub. Om du använde självstudien från slut punkt till slut punkt ( [*Självstudier: ansluta en slut punkt till slut punkt*](./tutorial-end-to-end.md)) är den första inställningen redan konfigurerad.
 
 Lägg till inställningen med detta Azure CLI-kommando. Kommandot kan köras i [Cloud Shell](https://shell.azure.com)eller lokalt om du har Azure CLI [installerat på datorn](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 

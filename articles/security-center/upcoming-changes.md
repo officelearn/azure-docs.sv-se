@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2020
 ms.author: memildin
-ms.openlocfilehash: ba0c68589f7ea4b32970e3ad81fea5175b998dc7
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 549a95b0b2ffc2b2d2bf5670a961e0454683e33a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629161"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026725"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Viktiga kommande ändringar i Azure Security Center
 
@@ -42,27 +42,19 @@ Om du letar efter den senaste versions informationen hittar du dem i [vad som ä
 
 Azures säkerhets prestanda är Microsofts-skapade, Azure-/regionsspecifika uppsättning rikt linjer för säkerhets-och efterlevnads metod tips baserade på vanliga ramverk för efterlevnad. [Läs mer om Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-Följande 29 nya rekommendationer kommer att läggas till Security Center för att öka omfattningen av benchmark.
+Följande 18 nya rekommendationer kommer att läggas till Security Center för att öka omfattningen av benchmark.
 
 För hands versions rekommendationer återger inte en resurs som inte är felfri och ingår inte i beräkningarna av dina säkra poäng. Åtgärda dem när så är möjligt, så att när förhands gransknings perioden är slut bidrar de till dina poäng. Lär dig mer om hur du svarar på dessa rekommendationer i att [åtgärda rekommendationer i Azure Security Center](security-center-remediate-recommendations.md).
 
 - Azure Backup ska vara aktiverat för virtuella datorer
-- Gransknings kvarhållning för SQL-servrar ska vara minst 90 dagar
-- Diagnostikloggar ska aktive ras i App Service 
 - Tvinga SSL-anslutning ska vara aktive rad för MySQL-databas servrar
 - Tvinga SSL-anslutning ska vara aktive rad för PostgreSQL-databas servrar
-- FTPS måste anges i din API-app
-- FTPS måste anges i din Function-app
-- FTPS måste anges i din webbapp
 - Geo-redundant säkerhets kopiering måste aktive ras för Azure Database for MariaDB
 - Geo-redundant säkerhets kopiering måste aktive ras för Azure Database for MySQL
 - Geo-redundant säkerhets kopiering måste aktive ras för Azure Database for PostgreSQL
 - Java bör uppdateras till den senaste versionen för din API-app
 - Java bör uppdateras till den senaste versionen för din Function-app
 - Java bör uppdateras till den senaste versionen för din webbapp
-- Hanterad identitet ska användas i din API-app
-- Hanterad identitet ska användas i din Function-app
-- Hanterad identitet ska användas i din webbapp
 - PHP bör uppdateras till den senaste versionen för din API-app
 - PHP bör uppdateras till den senaste versionen för din webbapp
 - Den privata slut punkten måste vara aktive rad för MariaDB-servrar
@@ -71,9 +63,6 @@ För hands versions rekommendationer återger inte en resurs som inte är felfri
 - Python bör uppdateras till den senaste versionen för din API-app
 - Python bör uppdateras till den senaste versionen för din Function-app
 - Python bör uppdateras till den senaste versionen för din webbapp
-- TLS bör uppdateras till den senaste versionen för din API-app
-- TLS bör uppdateras till den senaste versionen för din Function-app
-- TLS bör uppdateras till den senaste versionen för din webbapp
 - Web Apps bör begära ett SSL-certifikat för alla inkommande begär Anden
 
 Relaterade länkar:

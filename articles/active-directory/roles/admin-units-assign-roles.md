@@ -1,6 +1,6 @@
 ---
 title: Tilldela och lista roller med den administrativa enhetens omfattning – Azure Active Directory | Microsoft Docs
-description: Använda administrativa enheter för att begränsa omfånget för roll tilldelningar i Azure Active Directory
+description: Använd administrativa enheter för att begränsa omfånget för roll tilldelningar i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,25 +14,25 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a4810b3a84cac55a49744025b6ac71c3f1c0a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfae813f01d3e7a08e18cde76e5c26ca253a371f
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377948"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026606"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Tilldela begränsade roller till en administrativ enhet
 
-I Azure Active Directory (Azure AD) kan du tilldela användare till en Azure AD-roll med en omfattning som är begränsad till en eller flera administrativa enheter (Australien) för mer detaljerad administrativ kontroll.
+I Azure Active Directory (Azure AD), för mer detaljerad administrativ kontroll, kan du tilldela användare till en Azure AD-roll med en omfattning som är begränsad till en eller flera administrativa enheter.
 
 Information om hur du förbereder för att använda PowerShell och Microsoft Graph för hantering av administrativa enheter finns i [Kom igång](admin-units-manage.md#get-started).
 
-## <a name="roles-available"></a>Tillgängliga roller
+## <a name="available-roles"></a>Tillgängliga roller
 
 Roll  |  Beskrivning
 ----- |  -----------
 Administratör för autentisering  |  Har åtkomst att visa, ange och återställa information om autentiseringsinformation för användare som inte är administratörer i den tilldelade administrativa enheten.
-Grupp administratör  |  Kan hantera alla aspekter av grupper och grupper inställningar som namngivnings-och förfallo principer i den tilldelade administrativa enheten.
+Grupp administratör  |  Kan hantera alla aspekter av grupper och grupp inställningar, till exempel namn och förfallo principer, i den tilldelade administrativa enheten.
 Support administratör  |  Kan återställa lösen ord för administratörer som inte har administratörer och supportavdelningen i den tilldelade administrativa enheten.
 Licens administratör  |  Kan endast tilldela, ta bort och uppdatera licens tilldelningar inom den administrativa enheten.
 Lösen ords administratör  |  Kan återställa lösen ord för icke-administratörer och lösen ords administratörer inom den tilldelade administrativa enheten.
@@ -48,21 +48,28 @@ Följande säkerhets objekt kan tilldelas en roll med en administrativ enhets om
 
 ## <a name="assign-a-scoped-role"></a>Tilldela en omfattnings roll
 
-### <a name="azure-portal"></a>Azure Portal
+Du kan tilldela en omfattnings roll med hjälp av Azure Portal, PowerShell eller Microsoft Graph.
 
-Gå till **Azure AD > administrativa enheter** i portalen. Välj den administrativa enhet som du vill tilldela rollen till en användare. I den vänstra rutan väljer du roller och administratörer för att visa en lista över alla tillgängliga roller.
+### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-![Välj en administrativ enhet för att ändra roll omfånget](./media/admin-units-assign-roles/select-role-to-scope.png)
+1. I Azure Portal går du till **Azure AD** .
 
-Välj den roll som ska tilldelas och välj sedan **Lägg till tilldelningar**. En panel öppnas till höger där du kan välja en eller flera användare som ska tilldelas rollen.
+1. Välj **administrativa enheter** och välj sedan den administrativa enhet som du vill tilldela användar roll omfånget till. 
 
-![Välj rollen som definitions område och välj sedan Lägg till tilldelningar](./media/admin-units-assign-roles/select-add-assignment.png)
+1. I den vänstra rutan väljer du **roller och administratörer** för att visa en lista över alla tillgängliga roller.
+
+   ![Skärm bild av fönstret "roll och administratörer" där du kan välja en administrativ enhet vars roll omfång du vill tilldela.](./media/admin-units-assign-roles/select-role-to-scope.png)
+
+1. Välj den roll som ska tilldelas och välj sedan **Lägg till tilldelningar** . 
+
+1. I fönstret **Lägg till tilldelningar** väljer du en eller flera användare som ska tilldelas rollen.
+
+   ![Välj rollen som definitions område och välj sedan Lägg till tilldelningar](./media/admin-units-assign-roles/select-add-assignment.png)
 
 > [!Note]
->
-> Om du vill tilldela en roll på en administrativ enhet med hjälp av PIM följer du stegen [här](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
+> Information om hur du tilldelar en roll på en administrativ enhet genom att använda Azure AD Privileged Identity Management (PIM) finns i [tilldela Azure AD-roller i PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
 
-### <a name="powershell"></a>PowerShell
+### <a name="use-powershell"></a>Använd PowerShell
 
 ```powershell
 $AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
@@ -73,9 +80,9 @@ $RoleMember.ObjectId = $AdminUser.ObjectId
 Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
-Det markerade avsnittet kan ändras efter behov för den aktuella miljön.
+Du kan ändra det markerade avsnittet efter behov för den aktuella miljön.
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>Använd Microsoft Graph
 
 ```http
 Http request
@@ -90,22 +97,30 @@ Request body
 }
 ```
 
-## <a name="list-the-scoped-admins-on-an-au"></a>Visa en lista över omfångs administratörer på en AU
+## <a name="view-a-list-of-the-scoped-admins-in-an-administrative-unit"></a>Visa en lista över omfångs administratörer i en administrativ enhet
 
-### <a name="azure-portal"></a>Azure Portal
+Du kan visa en lista över omfångs administratörer med hjälp av Azure Portal, PowerShell eller Microsoft Graph.
 
-Alla roll tilldelningar som har gjorts med en administrativ enhets omfattning kan visas i [avsnittet administrativa enheter i Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). Gå till **Azure AD > administrativa enheter** i portalen. Välj admin-enheten för roll tilldelningarna som du vill visa. Välj **roller och administratörer** och öppna en roll för att Visa tilldelningarna i admin-enheten.
+### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-### <a name="powershell"></a>PowerShell
+Du kan visa alla roll tilldelningar som skapats med en administrativ enhets omfattning i [avsnittet administrativa enheter i Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
+
+1. I Azure Portal går du till **Azure AD** .
+
+1. I det vänstra fönstret väljer du **administrativa enheter** och väljer sedan den administrativa enheten för listan med roll tilldelningar som du vill visa. 
+
+1. Välj **roller och administratörer** och öppna sedan en roll för att Visa tilldelningarna i den administrativa enheten.
+
+### <a name="use-powershell"></a>Använd PowerShell
 
 ```powershell
 $administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
 Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
-Det markerade avsnittet kan ändras efter behov för den aktuella miljön.
+Du kan ändra det markerade avsnittet efter behov för din speciella miljö.
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>Använd Microsoft Graph
 
 ```http
 Http request
@@ -116,5 +131,5 @@ Request body
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använd moln grupper för att hantera roll tilldelningar](groups-concept.md)
-- [Felsökningsroller tilldelade till molngrupper](groups-faq-troubleshooting.md)
+- [Använda molngrupper för att hantera rolltilldelningar](groups-concept.md)
+- [Felsöka roller tilldelade till moln grupper](groups-faq-troubleshooting.md)

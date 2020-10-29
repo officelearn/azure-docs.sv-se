@@ -7,12 +7,12 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: 2b5b7b45cc52d900e5ecde59e6a5ae203533286b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 12f0af5f051d02945eeb9b1f7d4bfc50ef98f281
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978874"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027643"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuera Azure Blob Storage i IoT Edge-modulen till din enhet
 
@@ -36,11 +36,11 @@ Azure Portal vägleder dig genom att skapa ett distributions manifest och distri
 1. Logga in på [Azure Portal](https://portal.azure.com) och navigera till din IoT-hubb.
 1. Välj **IoT Edge** på menyn.
 1. Klicka på mål enhetens ID i listan över enheter.
-1. Välj **Ange moduler**.
+1. Välj **Ange moduler** .
 
 ### <a name="configure-a-deployment-manifest"></a>Konfigurera ett distributions manifest
 
-Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan moduler och önskade egenskaper för modulen. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest. Den har tre steg indelade i flikar: **moduler**, **vägar**och **Granska + skapa**.
+Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan moduler och önskade egenskaper för modulen. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest. Den har tre steg indelade i flikar: **moduler** , **vägar** och **Granska + skapa** .
 
 #### <a name="add-modules"></a>Lägga till moduler
 
@@ -50,19 +50,19 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 
    Exempel:
   
-   - **Namn på IoT Edge modul**: `azureblobstorageoniotedge`
-   - **Bild-URI**: `mcr.microsoft.com/azure-blob-storage:latest`
+   - **Namn på IoT Edge modul** : `azureblobstorageoniotedge`
+   - **Bild-URI** : `mcr.microsoft.com/azure-blob-storage:latest`
 
-   ![Modul, dubbla inställningar](./media/how-to-deploy-blob/addmodule-tab1.png)
+   ![Skärm bild som visar fliken modul inställningar på sidan Lägg till I o T Edge-modulen.](./media/how-to-deploy-blob/addmodule-tab1.png)
 
-   Välj inte **Lägg till** förrän du har angett värden för **modulens inställningar**, alternativet för att **skapa behållare**och fliken  **dubbla inställningar** enligt beskrivningen i den här proceduren.
+   Välj inte **Lägg till** förrän du har angett värden för **modulens inställningar** , alternativet för att **skapa behållare** och fliken  **dubbla inställningar** enligt beskrivningen i den här proceduren.
 
    > [!IMPORTANT]
-   > Azure IoT Edge är Skift läges känslig när du anropar moduler, och Storage SDK: n är också i gemener. Även om namnet på modulen på [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) är **AzureBlobStorageonIoTEdge**kan du med hjälp av att ändra namnet till gemener se till att dina anslutningar till Azure-Blob Storage i IoT Edge-modulen inte avbryts.
+   > Azure IoT Edge är Skift läges känslig när du anropar moduler, och Storage SDK: n är också i gemener. Även om namnet på modulen på [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) är **AzureBlobStorageonIoTEdge** kan du med hjälp av att ändra namnet till gemener se till att dina anslutningar till Azure-Blob Storage i IoT Edge-modulen inte avbryts.
 
 3. Öppna fliken **behållare skapa alternativ** .
 
-   ![Modul, dubbla inställningar](./media/how-to-deploy-blob/addmodule-tab3.png)
+   ![Skärm bild som visar fliken behållare skapa alternativ på sidan Lägg till I o T Edge-modulen.](./media/how-to-deploy-blob/addmodule-tab3.png)
 
    Kopiera och klistra in följande JSON i rutan för att ange information om lagrings konto och en montering för lagringen på enheten.
   
@@ -91,10 +91,10 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 
    - Ersätt `<storage mount>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en befintlig katalog på din IoT Edge enhet där BLOB-modulen kommer att lagra data. Lagrings monteringen mappar en plats på enheten som du anger till en angiven plats i modulen.
 
-     - För Linux-behållare är formatet ** \<your storage path or volume> :/blobroot**. Till exempel:
+     - För Linux-behållare är formatet **\<your storage path or volume> :/blobroot** . Exempel:
          - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Se till att följa stegen för att [bevilja katalog åtkomst till behållar användaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - För Windows-behållare är formatet ** \<your storage path or volume> : C:/BlobRoot**. Till exempel:
+     - För Windows-behållare är formatet **\<your storage path or volume> : C:/BlobRoot** . Exempel:
          - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
          - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
          - I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats, mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
@@ -104,7 +104,7 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 
 5. På fliken **dubbla inställningar för modul** kopierar du följande JSON och klistrar in den i rutan.
 
-   ![Modul, dubbla inställningar](./media/how-to-deploy-blob/addmodule-tab4.png)
+   ![Skärm bild som visar fliken dubbla inställningar på sidan Lägg till I o T Edge-modulen.](./media/how-to-deploy-blob/addmodule-tab4.png)
 
    Konfigurera varje egenskap med ett lämpligt värde som anges av plats hållarna. Om du använder IoT Edge simulatorn ställer du in värdena på de relaterade miljövariablerna för dessa egenskaper enligt beskrivningen i [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) och [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
 
@@ -131,7 +131,7 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 
    Information om hur du konfigurerar deviceToCloudUploadProperties och deviceAutoDeleteProperties efter att modulen har distribuerats finns i [Redigera modulens dubbla](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Mer information om önskade egenskaper finns i [definiera eller uppdatera önskade egenskaper](module-composition.md#define-or-update-desired-properties).
 
-6. Välj **Lägg till**.
+6. Välj **Lägg till** .
 
 7. Välj **Nästa: vägar** för att fortsätta till avsnittet vägar.
 
@@ -141,16 +141,16 @@ Behåll standard vägarna och välj **Nästa: granska + skapa** för att fortsä
 
 #### <a name="review-deployment"></a>Granska distribution
 
-I avsnittet granska visas JSON-distributions manifestet som skapades utifrån dina val i de föregående två avsnitten. Det finns också två moduler som har deklarerats att du inte har lagt till: **$edgeAgent** och **$edgeHub**. Dessa två moduler utgör den [IoT Edge körningen](iot-edge-runtime.md) och måste vara standardvärden i varje distribution.
+I avsnittet granska visas JSON-distributions manifestet som skapades utifrån dina val i de föregående två avsnitten. Det finns också två moduler som har deklarerats att du inte har lagt till: **$edgeAgent** och **$edgeHub** . Dessa två moduler utgör den [IoT Edge körningen](iot-edge-runtime.md) och måste vara standardvärden i varje distribution.
 
-Granska distributions informationen och välj sedan **skapa**.
+Granska distributions informationen och välj sedan **skapa** .
 
 ### <a name="verify-your-deployment"></a>Verifiera distributionen
 
 När du har skapat distributionen återgår du till **IoT Edge** sida i IoT Hub.
 
 1. Välj den IoT Edge enhet som du har för distributionen för att öppna informationen.
-1. I enhets informationen kontrollerar du att Blob Storage-modulen anges som båda **anges i distributionen** och **rapporteras av enheten**.
+1. I enhets informationen kontrollerar du att Blob Storage-modulen anges som båda **anges i distributionen** och **rapporteras av enheten** .
 
 Det kan ta en stund innan modulen har startats på enheten och sedan rapporteras tillbaka till IoT Hub. Uppdatera sidan om du vill se en uppdaterad status.
 
@@ -158,7 +158,7 @@ Det kan ta en stund innan modulen har startats på enheten och sedan rapporteras
 
 Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att utveckla Edge-lösningar. Använd följande steg för att skapa en ny IoT Edge-lösning med en Blob Storage-modul och konfigurera distributions manifestet.
 
-1. Välj **Visa**  >  **kommando palett**.
+1. Välj **Visa**  >  **kommando palett** .
 
 1. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten.
 
@@ -166,12 +166,12 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
 
    Skapa lösningen genom att följ anvisningarna på kommandopaletten.
 
-   | Field | Värde |
+   | Fält | Värde |
    | ----- | ----- |
    | Välj mapp | Skapa lösningsfiler genom att välja platsen på utvecklings datorn för Visual Studio Code. |
-   | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
-   | Välj modulmall | Välj **befintlig modul (ange fullständig bild-URL)**. |
-   | Ange ett modulnamn | Ange ett namn på gemener för din modul, t. ex. **azureblobstorageoniotedge**.<br/><br/>Det är viktigt att använda ett gement namn för Azure-Blob Storage i IoT Edge-modulen. IoT Edge är Skift läges känslig när du refererar till moduler och Storage SDK-standardvärdet till gemener. |
+   | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution** . |
+   | Välj modulmall | Välj **befintlig modul (ange fullständig bild-URL)** . |
+   | Ange ett modulnamn | Ange ett namn på gemener för din modul, t. ex. **azureblobstorageoniotedge** .<br/><br/>Det är viktigt att använda ett gement namn för Azure-Blob Storage i IoT Edge-modulen. IoT Edge är Skift läges känslig när du refererar till moduler och Storage SDK-standardvärdet till gemener. |
    | Tillhandahålla Docker-avbildning för modulen | Ange avbildnings-URI: n: **MCR.Microsoft.com/Azure-Blob-Storage:Latest** |
 
    Visual Studio Code tar den information du har angett, skapar en IoT Edge-lösning och läser sedan in den i ett nytt fönster. Lösnings mal len skapar en mall för distributions manifest som innehåller din avbildning av Blob Storage-modulen, men du måste konfigurera modulens skapande alternativ.
@@ -203,10 +203,10 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
 
 1. Ersätt `<storage mount>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge enhet där du vill att BLOB-modulen ska lagra data. Lagrings monteringen mappar en plats på enheten som du anger till en angiven plats i modulen.  
 
-     - För Linux-behållare är formatet ** \<your storage path or volume> :/blobroot**. Till exempel:
+     - För Linux-behållare är formatet **\<your storage path or volume> :/blobroot** . Exempel:
          - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot` . Se till att följa stegen för att [bevilja katalog åtkomst till behållar användaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - För Windows-behållare är formatet ** \<your storage path or volume> : C:/BlobRoot**. Till exempel:
+     - För Windows-behållare är formatet **\<your storage path or volume> : C:/BlobRoot** . Exempel:
          - Använd [volym montering](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot` .
          - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot` .
          - I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats. Mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
@@ -243,9 +243,9 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
 
    Information om hur du konfigurerar deviceToCloudUploadProperties och deviceAutoDeleteProperties efter att modulen har distribuerats finns i [Redigera modulens dubbla](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). Mer information om alternativen för att skapa behållare, omstart av princip och önskad status finns i [EdgeAgent önskade egenskaper](module-edgeagent-edgehub.md#edgeagent-desired-properties).
 
-1. Spara filen *deployment.template.json*.
+1. Spara filen *deployment.template.json* .
 
-1. Högerklicka på **deployment.template.jspå** och välj **generera IoT Edge distributions manifest**.
+1. Högerklicka på **deployment.template.jspå** och välj **generera IoT Edge distributions manifest** .
 
 1. Visual Studio Code tar den information som du angav i *deployment.template.jspå* och använder den för att skapa en ny distributions manifest fil. Distributions manifestet skapas i en ny **config** -mapp i din lösnings arbets yta. När du har den filen kan du följa stegen i [distribuera Azure IoT Edge moduler från Visual Studio Code](how-to-deploy-modules-vscode.md) eller [Distribuera Azure IoT Edge moduler med Azure CLI 2,0](how-to-deploy-modules-cli.md).
 
@@ -278,23 +278,23 @@ Dessutom kräver en Blob Storage-modul också HTTPS_PROXY inställningen i manif
 
 1. Välj den enhet som ska konfigureras av modulen.
 
-1. Välj **Ange moduler**.
+1. Välj **Ange moduler** .
 
 1. I avsnittet **IoT Edge moduler** på sidan väljer du Blob Storage-modulen.
 
 1. På sidan **uppdatera IoT Edge-modulen** väljer du fliken **miljövariabler** .
 
-1. Lägg till `HTTPS_PROXY` **namnet** och proxyserverns URL för **värdet**.
+1. Lägg till `HTTPS_PROXY` **namnet** och proxyserverns URL för **värdet** .
 
-      ![Ange HTTPS_PROXY miljö variabel](./media/how-to-deploy-blob/https-proxy-config.png)
+      ![Skärm bild som visar fönstret Uppdatera I o T Edge-modulen där du kan ange de angivna värdena.](./media/how-to-deploy-blob/https-proxy-config.png)
 
-1. Klicka på **Uppdatera**och **granska sedan + skapa**.
+1. Klicka på **Uppdatera** och **granska sedan + skapa** .
 
-1. Observera att proxyn läggs till i modulen i distributions manifestet och välj **skapa**.
+1. Observera att proxyn läggs till i modulen i distributions manifestet och välj **skapa** .
 
 1. Kontrol lera inställningen genom att välja modulen på sidan med enhets information och på den nedre delen av sidan med **information om IoT Edge-moduler** väljer du fliken **miljövariabler** .
 
-      ![Ange HTTPS_PROXY miljö variabel](./media/how-to-deploy-blob/verify-proxy-config.png)
+      ![Skärm bild som visar fliken miljövariabler.](./media/how-to-deploy-blob/verify-proxy-config.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

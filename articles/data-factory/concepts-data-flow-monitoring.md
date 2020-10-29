@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/19/2020
-ms.openlocfilehash: 77dda42b27aa6f5fb505fe65667876523cb3f5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9636e7227671cd5a8ed31904e6bc27782d3bd6a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650901"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025841"
 ---
 # <a name="monitor-data-flows"></a>Övervaka data flöden
 
@@ -23,15 +23,15 @@ När du har slutfört skapandet och fel sökningen av ditt data flöde vill du s
 
 När du kör din pipeline kan du övervaka pipelinen och alla aktiviteter som finns i pipelinen, inklusive data flödes aktiviteten. Klicka på ikonen övervaka i panelen till vänster Azure Data Factory användar gränssnitt. Du kan se en skärm som liknar den nedan. Med de markerade ikonerna kan du öka detalj nivån i aktiviteterna i pipelinen, inklusive data flödes aktiviteten.
 
-![Övervakning av data flöde](media/data-flow/mon001.png "Dataflödesövervakning")
+![Skärm bild som visar ikoner att välja för pipelines för mer information.](media/data-flow/mon001.png "Dataflödesövervakning")
 
 Du ser statistik på den här nivån även körnings tiderna och-statusen. Körnings-ID: t på aktivitets nivån skiljer sig från körnings-ID: t på pipelin nivån. Körnings-ID: t på den föregående nivån är för pipelinen. Genom att välja glasögon får du djupgående information om din data flödes körning.
 
-![Övervakning av data flöde](media/data-flow/monitoring-details.png "Dataflödesövervakning")
+![Skärm bild som visar glasögon-ikonen för att se information om data flödes körning.](media/data-flow/monitoring-details.png "Dataflödesövervakning")
 
 När du befinner dig i vyn övervakning av grafisk nod kan du se en förenklad visnings version av data flödes diagrammet.
 
-![Övervakning av data flöde](media/data-flow/mon003.png "Dataflödesövervakning")
+![Skärm bild visar diagrammets visnings version.](media/data-flow/mon003.png "Dataflödesövervakning")
 
 Här är en video översikt över övervakning av prestanda för dina data flöden från fönstret ADF Monitoring:
 
@@ -41,7 +41,7 @@ Här är en video översikt över övervakning av prestanda för dina data flöd
 
 När ditt data flöde körs i Spark, fastställer Azure Data Factory optimala kod Sök vägar baserat på hela ditt data flöde. Dessutom kan sökvägar för körning ske på olika skalbara noder och datapartitioner. Därför representerar övervaknings diagrammet utformningen av ditt flöde, med hänsyn till körnings vägen för dina transformeringar. När du väljer enskilda noder kan du se "grupperingar" som representerar kod som har körts tillsammans i klustret. De tids inställningar och räknare som du ser representerar dessa grupper i stället för de enskilda stegen i din design.
 
-![Övervakning av data flöde](media/data-flow/mon004.png "Dataflödesövervakning")
+![Skärm bild som visar sidan för ett data flöde.](media/data-flow/mon004.png "Dataflödesövervakning")
 
 * När du väljer det öppna utrymmet i övervaknings fönstret, visar statistik i det nedre fönstret tidtagnings-och rad antal för varje mottagare och de omvandlingar som ledde till mottagar data för omvandlings härkomst.
 
@@ -56,7 +56,7 @@ När ditt data flöde körs i Spark, fastställer Azure Data Factory optimala ko
   * Kluster start tid: hur lång tid det tar att hämta JIT Spark Compute-miljön för data flödes körning
   * Antal transformeringar: hur många omvandlings steg som körs i ditt flöde
   
-![Övervakning av data flöde](media/data-flow/monitornew.png "Data flödes övervakning New")
+![Skärm bild som visar uppdaterings alternativet.](media/data-flow/monitornew.png "Data flödes övervakning New")
 
 ## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Total bearbetnings tid för mottagare jämfört med omvandlings tid för transformering
 
@@ -85,6 +85,6 @@ När du väljer en omvandlings ikon för mottagare i kartan visas en ytterligare
 
 Den här ikonen innebär att Transformations data redan har cachelagrats i klustret, så tids inställningarna och körnings Sök vägen har tagit detta i beräkningen:
 
-![Övervakning av data flöde](media/data-flow/mon005.png "Dataflödesövervakning")
+![Skärm bild som visar disk ikonen.](media/data-flow/mon005.png "Dataflödesövervakning")
 
 Du ser också gröna cirkel ikoner i omvandlingen. De representerar antalet handfat som data flödar in i.

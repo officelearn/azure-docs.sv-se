@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 879ea141a4621fac9e1774df64a63e9e56549012
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707990"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026963"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads plats
 
@@ -20,7 +20,7 @@ Den här artikeln besvarar vanliga frågor om den kommersiella Marketplace.
 
 ## <a name="general"></a>Allmänt
 
-### <a name="what-is-the-microsoft-commercial-marketplace"></a>Vad är Microsofts kommersiella marknads plats?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>Vad är Microsofts kommersiella marknadsplats?
 
 Den kommersiella marknads platsen ansluter affärs-och myndighets myndigheter med lösningar som skapats av våra partner. Våra partner skapar och hanterar erbjudanden i Partner Center, och kunder kan upptäcka och köpa lösningar via produkt upplevelser, till exempel Microsoft AppSource, Azure Marketplace, åter försäljare i Cloud Solution Provider-programmet och våra sälj team via Co-Sales-programmet.
 
@@ -58,9 +58,9 @@ Om du vill registrera dig som en extern Marketplace-utgivare går du till [partn
 
 De sätt som kunder kan använda ditt kommersiella Marketplace-erbjudande beror på hur du skapar erbjudandena.
 
-- För lösningar som du tillhandahåller automatiskt, oavsett om de är betalda, BYOL eller kostnads fri, uppmanas kunderna att *Skaffa det nu*.
-- Erbjudanden som stöder en testenhet (demo) begär att kunden ska *testa enheten*. 
-- SaaS-erbjudanden (Software as a Service) tillhandahåller en utvärderings version utanför den kommersiella Marketplace- *versionen*.
+- För lösningar som du tillhandahåller automatiskt, oavsett om de är betalda, BYOL eller kostnads fri, uppmanas kunderna att *Skaffa det nu* .
+- Erbjudanden som stöder en testenhet (demo) begär att kunden ska *testa enheten* . 
+- SaaS-erbjudanden (Software as a Service) tillhandahåller en utvärderings version utanför den kommersiella Marketplace- *versionen* .
 - Med enkla listor kan *kunden be om hjälp.*
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>Hur gör jag för att skapa erbjudanden för den kommersiella marknads platsen?
@@ -99,10 +99,10 @@ Ja, Azure Government Marketplace är tillgänglig i Azure Government regioner oc
 
 Det finns fyra relevanta roller som reglerar åtkomst till Partner Center.
 
-- *Manager*: ger behörighet att hantera Partner Center-användare i katalogen och skapa och uppdatera erbjudanden.
-- *Utvecklare*: tillåter att en användare skapar och uppdaterar erbjudanden.
-- *Finansiell bidrags givare*: ger behörighet att Visa utbetalnings rapportering.
-- *Ägare*: kan ställa in konto för utbetalning och skatte profil. Den användare som har godkänt utgivar avtalet blir ägare som standard.
+- *Manager* : ger behörighet att hantera Partner Center-användare i katalogen och skapa och uppdatera erbjudanden.
+- *Utvecklare* : tillåter att en användare skapar och uppdaterar erbjudanden.
+- *Finansiell bidrags givare* : ger behörighet att Visa utbetalnings rapportering.
+- *Ägare* : kan ställa in konto för utbetalning och skatte profil. Den användare som har godkänt utgivar avtalet blir ägare som standard.
 
 Azure Active Directory (Azure AD) *globala administratörs* behörigheter krävs för att skapa nya användar konton eller bjuda in gäst konton i den underliggande katalogen. Partner Center använder Azure AD till identitets modellen och en organisations Azure AD-instans hanteras ofta och styrs ofta av IT-eller säkerhets teamen.
 
@@ -303,7 +303,7 @@ Mer information finns i [Konfigurera ditt utbetalnings konto och skatte formulä
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Finns det avkastning och åter betalningar som stöds med den kommersiella marknads platsen?
 
-Kunder kan avbryta prenumerationer inom en angiven tidsram för att få pengarna. För månads prenumerationer är det 24 timmar och för årliga prenumerationer är det 14 dagar. Erbjudanden som debiteras enligt förbrukningen när en lösning har använts är inte berättigad till åter betalningar.
+Åter betalningar är tillgängliga för kunder under vissa villkor och för vissa kostnader. Begär Anden om åter betalning av återkommande avgifter debiteras månads vis inom 24 timmar efter köp eller förnyelse. På samma sätt måste förfrågningar om åter betalning av återkommande avgifter per år tas emot inom 14 dagar från inköp eller förnyelse. Den här typen av åter betalningar gäller inte för avgifter som härrör från användning (antingen från virtuell dator eller med avgiftsbelagd fakturering).
 
 ## <a name="resources"></a>Resurser
 
@@ -311,7 +311,7 @@ Kunder kan avbryta prenumerationer inom en angiven tidsram för att få pengarna
 
 Här är några resurser som hjälper dig att komma igång:
 
-- [Vad är Microsofts kommersiella marknads plats?](overview.md)
+- [Vad är Microsofts kommersiella marknadsplats?](overview.md)
 - [Microsofts partner hubb för marknads plats](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>Hur kan jag engagera mig hos Microsoft och andra partner?
@@ -323,7 +323,7 @@ Vi rekommenderar följande resurser:
 
 ### <a name="where-can-i-learn-more-about-partner-center"></a>Var kan jag lära mig mer om Partner Center?
 
-- [Partner Center-dokumentation](/partner-center/)
+- [Dokumentation för Partnercenter](/partner-center/)
 - [Välkommen till den kommersiella marknadsplatsen](index.yml)
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Var kan jag lära mig mer om Microsoft administrations Center?

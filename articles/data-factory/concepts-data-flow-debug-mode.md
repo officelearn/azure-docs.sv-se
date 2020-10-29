@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085101"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027014"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mappa fel söknings läge för data flöde
 
@@ -77,15 +77,15 @@ Se till att du använder en liten uppsättning kända data för ditt test när d
 
 När du ser data förhands granskningen kan du generera en snabb omvandling till typecast, ta bort eller göra en ändring i en kolumn. Klicka på kolumn rubriken och välj sedan ett av alternativen i verktygsfältet för förhands granskning.
 
-![Snabb åtgärder](media/data-flow/quick-actions1.png "Snabb åtgärder")
+![Skärm bild som visar verktygsfältet för förhands granskning med alternativ: typecast, ändra, statistik och ta bort.](media/data-flow/quick-actions1.png "Snabb åtgärder")
 
 När du har valt en ändring uppdateras data förhands granskningen omedelbart. Klicka på **Bekräfta** i det övre högra hörnet för att generera en ny omvandling.
 
-![Snabb åtgärder](media/data-flow/quick-actions2.png "Snabb åtgärder")
+![Skärm bilden visar knappen Bekräfta.](media/data-flow/quick-actions2.png "Snabb åtgärder")
 
 **Typecast** och **ändra** genererar en härledd kolumn omvandling och **tar bort** genererar en SELECT-omvandling.
 
-![Snabb åtgärder](media/data-flow/quick-actions3.png "Snabb åtgärder")
+![Skärm bild som visar härledd kolumns inställningar.](media/data-flow/quick-actions3.png "Snabb åtgärder")
 
 > [!NOTE]
 > Om du redigerar ditt data flöde måste du hämta data förhands granskningen igen innan du lägger till en snabb omvandling.

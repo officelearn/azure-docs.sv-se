@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 84cb7e7e98e81e242ec1cac554fe073370e45645
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 7f5ca063bcc784498dddf87f34f0f7974b95ecaf
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495783"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027321"
 ---
 # <a name="write-client-app-authentication-code"></a>Skriv kod för klientautentisering för klient program
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs hur du hämtar autentiseringsuppgifter med hjälp a
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Slutför först installations stegen i [*anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). På så sätt ser du till att du har en Azure Digitals-instans, att användaren har åtkomst behörighet och att du har konfigurerat behörigheter för klient program. När du har konfigurerat den här konfigurationen är du redo att skriva kod för klient program.
+Slutför först installations stegen i [*anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). Detta säkerställer att du har en digital Azure-instans och att användaren har åtkomst behörighet. Efter den installationen är du redo att skriva kod för klient program.
 
 Om du vill fortsätta måste du ha ett klient-app-projekt där du skriver koden. Om du inte redan har skapat ett klient-app-projekt skapar du ett Basic-projekt på det språk som du väljer att använda med den här självstudien.
 
@@ -37,7 +37,7 @@ Om du vill fortsätta måste du ha ett klient-app-projekt där du skriver koden.
 * [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 Tre vanliga autentiseringsuppgifter för att hämta metoder i `Azure.Identity` är:
-* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) tillhandahåller ett standard `TokenCredential` flöde för autentisering för program som ska distribueras till Azure och är **det rekommenderade alternativet för lokal utveckling**. Den kan också aktive ras för att prova de andra två metoderna som rekommenderas i den här artikeln. den radbryts `ManagedIdentityCredential` och kan komma åt `InteractiveBrowserCredential` med en konfigurations variabel.
+* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) tillhandahåller ett standard `TokenCredential` flöde för autentisering för program som ska distribueras till Azure och är **det rekommenderade alternativet för lokal utveckling** . Den kan också aktive ras för att prova de andra två metoderna som rekommenderas i den här artikeln. den radbryts `ManagedIdentityCredential` och kan komma åt `InteractiveBrowserCredential` med en konfigurations variabel.
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) fungerar bra i de fall där du behöver [hanterade identiteter (MSI)](../active-directory/managed-identities-azure-resources/overview.md)och är en bra kandidat för att arbeta med Azure Functions och distribuera till Azure-tjänster.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) är avsett för interaktiva program och kan användas för att skapa en autentiserad SDK-klient
 
@@ -60,7 +60,7 @@ Lägg sedan till kod för att hämta autentiseringsuppgifter med någon av metod
 
 ### <a name="defaultazurecredential-method"></a>DefaultAzureCredential-metod
 
-[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) tillhandahåller ett standard `TokenCredential` flöde för autentisering för program som ska distribueras till Azure och är **det rekommenderade alternativet för lokal utveckling**.
+[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) tillhandahåller ett standard `TokenCredential` flöde för autentisering för program som ska distribueras till Azure och är **det rekommenderade alternativet för lokal utveckling** .
 
 Om du vill använda Azures standard inloggnings uppgifter behöver du Azure Digital-instansen URL ([instruktioner för att hitta](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
@@ -110,8 +110,8 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) -metoden är avsedd för interaktiva program och kommer att hämta en webbläsare för autentisering. Du kan använda det här i stället för `DefaultAzureCredential` i fall där du kräver interaktiv autentisering.
 
 Om du vill använda autentiseringsuppgifter för den interaktiva webbläsaren behöver du en **registrerad app-registrering** som har behörighet till Azure Digitals dubbla API: er. Anvisningar för hur du konfigurerar den här appen finns i [*instruktion: skapa en app-registrering*](how-to-create-app-registration.md). När appens registrering har kon figurer ATS behöver du...
-* appens registrerings *program (klient) ID* ([instruktioner att söka efter](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
-* appens registrerings *katalog (klient)-ID* ([instruktioner att hitta](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* appens registrerings *program (klient) ID* ( [instruktioner att söka efter](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* appens registrerings *katalog (klient)-ID* ( [instruktioner att hitta](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
 * Azure Digitals sammanflätade instanss URL ([instruktioner att hitta](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 
 Här är ett exempel på koden för att skapa en autentiserad SDK-klient med hjälp av `InteractiveBrowserCredential` .

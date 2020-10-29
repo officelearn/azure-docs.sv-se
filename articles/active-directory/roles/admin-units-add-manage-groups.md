@@ -1,6 +1,6 @@
 ---
 title: Lägg till, ta bort och lista grupper i en administrativ enhet-Azure Active Directory | Microsoft Docs
-description: Hantera grupper och deras roll behörigheter i en administrativ enhet i Azure Active Directory
+description: Hantera grupper och deras roll behörigheter i en administrativ enhet i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,38 +14,56 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec566fecb0dd14a4e56a2a3b9a59745bfe549faf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: eee8ae8eeebfff61dd90aedc35a3dc04a88d6758
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377990"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026742"
 ---
-# <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Lägg till och hantera grupper i administrativa enheter i Azure Active Directory
+# <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Lägg till och hantera grupper i en administrativ enhet i Azure Active Directory
 
-I Azure Active Directory (Azure AD) kan du lägga till grupper i en administrativ enhet (AU) för mer detaljerad administrativ omfattning av kontroll.
+I Azure Active Directory (Azure AD) kan du lägga till grupper i en administrativ enhet för en mer detaljerad administrativ omfattning av kontroll.
 
 Information om hur du förbereder för att använda PowerShell och Microsoft Graph för hantering av administrativa enheter finns i [Kom igång](admin-units-manage.md#get-started).
 
-## <a name="add-groups-to-an-au"></a>Lägga till grupper i en AU
+## <a name="add-groups-to-an-administrative-unit"></a>Lägga till grupper i en administrativ enhet
 
-### <a name="azure-portal"></a>Azure Portal
+Du kan lägga till grupper i en administrativ enhet med hjälp av Azure Portal, PowerShell eller Microsoft Graph.
 
-Du kan endast tilldela grupper individuellt till en administrativ enhet. Det finns inget alternativ för att tilldela grupper i grupp till en administrativ enhet. Du kan tilldela en grupp till en administrativ enhet på något av de två sätten på portalen:
+### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-1. Från sidan **Azure AD > grupper**
+Du kan endast tilldela enskilda grupper till en administrativ enhet. Det finns inget alternativ för att tilldela grupper som en Mass åtgärd. I Azure Portal kan du tilldela en grupp till en administrativ enhet på något av två sätt:
 
-    Öppna sidan Översikt över grupper i Azure AD och välj den grupp som måste tilldelas den administrativa enheten. På den vänstra sidan väljer du **administrativa enheter** för att visa en lista över de administrativa enheter som gruppen är tilldelad till. Överst visas alternativet tilldela till administrativ enhet och om du klickar på den visas en panel på höger sida där du kan välja den administrativa enheten.
+* Från fönstret **grupper** :
 
-    ![tilldela en grupp individuellt till en administrativ enhet](./media/admin-units-add-manage-groups/assign-to-group-1.png)
+  1. I Azure Portal går du till **Azure AD** .
+  1. Välj **grupper** och välj sedan den grupp som du vill tilldela till den administrativa enheten. 
+  1. I den vänstra rutan väljer du **administrativa enheter** för att visa en lista över de administrativa enheter som gruppen är tilldelad till. 
 
-1. Från sidan **Azure AD > administrativa enheter > alla grupper**
+     ![Skärm bild av länken "tilldela till administrativ enhet" i fönstret "administrativa enheter".](./media/admin-units-add-manage-groups/assign-to-group-1.png)
 
-    Öppna bladet alla grupper i Azure AD > administrativa enheter. Om det redan finns grupper som har tilldelats till den administrativa enheten visas de på höger sida. Välj **Lägg till** överst och en höger panel visas i listan över tillgängliga grupper i Azure AD-organisationen. Välj en eller flera grupper som ska tilldelas de administrativa enheterna.
+  1. Välj **tilldela till administrativ enhet** .
+  1. Välj den administrativa enheten i den högra rutan.
 
-    ![Välj en administrativ enhet och välj sedan Lägg till medlem](./media/admin-units-add-manage-groups/assign-to-admin-unit.png)
+* Från fönstret **administrativa enheter**  >  **alla grupper** :
 
-### <a name="powershell"></a>PowerShell
+  1. I Azure Portal går du till **Azure AD** .
+  
+  1. Välj **administrativa enheter** i den vänstra rutan och välj sedan **alla grupper** . 
+     Alla grupper som redan har tilldelats till den administrativa enheten visas i den högra rutan. 
+
+  1. I fönstret **grupper** väljer du **Lägg till** .
+    I den högra rutan visas alla tillgängliga grupper i din Azure AD-organisation. 
+
+     ![Skärm bild av knappen Lägg till för att lägga till en grupp i en administrativ enhet.](./media/admin-units-add-manage-groups/assign-to-admin-unit.png)
+
+  1. Välj en eller flera grupper som ska tilldelas den administrativa enheten och välj sedan knappen **Välj** .
+
+### <a name="use-powershell"></a>Använd PowerShell
+
+I följande exempel använder du `Add-AzureADMSAdministrativeUnitMember` cmdleten för att lägga till gruppen i den administrativa enheten. Objekt-ID för den administrativa enheten och objekt-ID: t för den grupp som ska läggas till tas som argument. Ändra det markerade avsnittet efter behov för din speciella miljö.
+
 
 ```powershell
 $administrative unitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
@@ -53,9 +71,9 @@ $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
 Add-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
 ```
 
-I det här exemplet används cmdleten Add-AzureADMSAdministrativeUnitMember för att lägga till gruppen i den administrativa enheten. Objekt-ID: t för den administrativa enheten och objekt-ID: t för den grupp som ska läggas till tas som argument. Det markerade avsnittet kan ändras efter behov för den aktuella miljön.
+### <a name="use-microsoft-graph"></a>Använd Microsoft Graph
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+Kör följande kommandon:
 
 ```http
 Http request
@@ -75,22 +93,28 @@ Exempel:
 }
 ```
 
-## <a name="list-groups-in-an-au"></a>Lista grupper i en AU
+## <a name="view-a-list-of-groups-in-an-administrative-unit"></a>Visa en lista över grupper i en administrativ enhet
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-Gå till **Azure AD > administrativa enheter** i portalen. Välj den administrativa enhet som du vill visa användarna för. Som standard väljs **alla användare** redan i den vänstra panelen. Välj **alla grupper** och till höger hittar du en lista över grupper som är medlemmar i den valda administrativa enheten.
+1. I Azure Portal går du till **Azure AD** .
 
-![Lista grupper i en administrativ enhet](./media/admin-units-add-manage-groups/list-groups-in-admin-units.png)
+1. I den vänstra rutan väljer du **administrativa enheter** och väljer sedan den administrativa enhet vars grupper du vill visa. Som standard är **alla användare** markerade i det vänstra fönstret. 
 
-### <a name="powershell"></a>PowerShell
+1. I den vänstra rutan väljer du **grupper** . I den högra rutan visas en lista över grupper som är medlemmar i den valda administrativa enheten.
+
+   ![Skärm bild av fönstret "grupper" som visar en lista över grupper i en administrativ enhet.](./media/admin-units-add-manage-groups/list-groups-in-admin-units.png)
+
+### <a name="use-powershell"></a>Använd PowerShell
+
+Om du vill visa en lista över alla medlemmar i den administrativa enheten kör du följande kommando: 
 
 ```powershell
 $administrative unitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
 Get-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId
 ```
 
-Detta hjälper dig att få alla medlemmar i den administrativa enheten. Om du vill visa alla grupper som är medlemmar i den administrativa enheten kan du använda kodfragmentet nedan:
+Om du vill visa alla grupper som är medlemmar i den administrativa enheten använder du följande kodfragment:
 
 ```http
 foreach ($member in (Get-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId)) 
@@ -102,7 +126,9 @@ Get-AzureADGroup -ObjectId $member.ObjectId
 }
 ```
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>Använd Microsoft Graph
+
+Kör följande kommando:
 
 ```http
 HTTP request
@@ -111,54 +137,71 @@ Request body
 {}
 ```
 
-## <a name="list-aus-for-a-group"></a>Visa en grupps Australien
+## <a name="view-a-list-of-administrative-units-for-a-group"></a>Visa en lista över administrativa enheter för en grupp
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-I Azure AD-portalen kan du öppna en grupps information genom att öppna **grupper**. Välj en grupp för att öppna gruppens profil. Välj **administrativa enheter** för att visa en lista över alla administrativa enheter där gruppen är medlem.
+1. I Azure Portal går du till **Azure AD** .
 
-![Lista administrativa enheter för en grupp](./media/admin-units-add-manage-groups/list-group-au.png)
+1. I den vänstra rutan väljer du **grupper** för att visa en lista över grupper.
 
-### <a name="powershell"></a>PowerShell
+1. Välj en grupp för att öppna gruppens profil. 
+
+1. I den vänstra rutan väljer du **administrativa enheter** för att visa en lista över de administrativa enheter där gruppen är medlem.
+
+   ![Skärm bild av fönstret "administrativa enheter" som visar en lista med administrativa enheter som en grupp är tilldelad till.](./media/admin-units-add-manage-groups/list-group-au.png)
+
+### <a name="use-powershell"></a>Använd PowerShell
+
+Kör följande kommando:
 
 ```powershell
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
 ```
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>Använd Microsoft Graph
+
+Kör följande kommando:
 
 ```http
 https://graph.microsoft.com/v1.0/groups/<group-id>/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
-## <a name="remove-a-group-from-an-au"></a>Ta bort en grupp från en AU
+## <a name="remove-a-group-from-an-administrative-unit"></a>Ta bort en grupp från en administrativ enhet
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-Det finns två sätt att ta bort en grupp från en administrativ enhet i Azure Portal.
+Du kan ta bort en grupp från en administrativ enhet i Azure Portal på något av två sätt:
 
-- Ta bort från en grupp översikt
+- Ta bort den från en grupp översikt:
 
-  1. Öppna **Azure AD**-  >  **grupper** och öppna profilen för gruppen som du vill ta bort från en administrativ enhet.
-  1. Välj **administrativa enheter** i den vänstra panelen för att visa en lista över de administrativa enheter där gruppen är medlem. Välj den administrativa enhet som du vill ta bort gruppen från och välj sedan **ta bort från administrativ enhet**.
+  1. I Azure Portal går du till **Azure AD** .
+  1. I den vänstra rutan väljer du **grupper** och öppnar sedan profilen för gruppen som du vill ta bort från en administrativ enhet.
+  1. I den vänstra rutan väljer du **administrativa enheter** för att visa en lista över de administrativa enheter som gruppen är tilldelad till. 
+  1. Välj den administrativa enhet som du vill ta bort gruppen från och välj sedan **ta bort från administrativ enhet** .
 
-    ![Ta bort en grupp från en administrativ enhet](./media/admin-units-add-manage-groups/group-au-remove.png)
+     ![Skärm bild av fönstret "administrativa enheter" som visar en lista över grupper som har tilldelats den valda administrativa enheten.](./media/admin-units-add-manage-groups/group-au-remove.png)
 
-- Ta bort från en administrativ enhet
+- Ta bort den från en administrativ enhet:
 
-  1. Öppna **Azure AD**-  >  **administrativa enheter** och välj den administrativa enhet där gruppen är medlem.
-  1. Välj **grupper** i den vänstra panelen för att Visa medlems grupperna.
-  1. Välj den grupp som ska tas bort från den administrativa enheten och välj sedan **ta bort grupper**.
+  1. I Azure Portal går du till **Azure AD** .
+  1. I den vänstra rutan väljer du **administrativa enheter** och väljer sedan den administrativa enhet som gruppen är tilldelad till.
+  1. I den vänstra rutan väljer du **grupper** för att visa en lista över alla grupper som är kopplade till den administrativa enheten.
+  1. Välj den grupp som du vill ta bort och välj sedan **ta bort grupper** .
 
-    ![Lista grupper i en administrativ enhet](./media/admin-units-add-manage-groups/list-groups-in-admin-units.png)
+    ![Skärm bild av fönstret grupper som visar en lista över grupperna i en administrativ enhet.](./media/admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
-### <a name="powershell"></a>PowerShell
+### <a name="use-powershell"></a>Använd PowerShell
+
+Kör följande kommando:
 
 ```powershell
 Remove-AzureADMSAdministrativeUnitMember -ObjectId $auId -MemberId $memberGroupObjId
 ```
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>Använd Microsoft Graph
+
+Kör följande kommando:
 
 ```http
 https://graph.microsoft.com/v1.0/directory/AdministrativeUnits/<adminunit-id>/members/<group-id>/$ref

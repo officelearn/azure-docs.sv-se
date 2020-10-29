@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
 ms.custom: mqtt
-ms.openlocfilehash: d8552391e8e8c389a44174595305b8f28224a833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15c0df33b8f09ec71f2be913d72f0785dc766375
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81732540"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027541"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Skicka meddelanden från moln till enhet med IoT Hub (iOS)
 
@@ -27,20 +27,20 @@ I den här självstudiekursen lär du dig att:
 
 * Ta emot meddelanden från molnet till enheten på en enhet.
 
-* Från Server delen av lösningen kan du begära leverans bekräftelse (*feedback*) för meddelanden som skickas till en enhet från IoT Hub.
+* Från Server delen av lösningen kan du begära leverans bekräftelse ( *feedback* ) för meddelanden som skickas till en enhet från IoT Hub.
 
 Du hittar mer information om moln-till-enhet-meddelanden i [meddelande avsnittet i guiden för IoT Hub utvecklare](iot-hub-devguide-messaging.md).
 
 I slutet av den här artikeln kör du två Swift iOS-projekt:
 
-* **Sample-Device**, samma app skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-ios.md), som ansluter till din IoT-hubb och tar emot meddelanden från molnet till enheten.
+* **Sample-Device** , samma app skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-ios.md), som ansluter till din IoT-hubb och tar emot meddelanden från molnet till enheten.
 
-* **exempel-service**, som skickar ett meddelande från moln till enhet till den simulerade enheten via IoT Hub och sedan får leverans bekräftelse.
+* **exempel-service** , som skickar ett meddelande från moln till enhet till den simulerade enheten via IoT Hub och sedan får leverans bekräftelse.
 
 > [!NOTE]
 > IoT Hub har SDK-stöd för många enhets plattformar och språk (inklusive C, Java, python och Java Script) via SDK: er för Azure IoT-enheter. Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [Azure IoT Developer Center](https://www.azure.com/develop/iot).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
@@ -70,7 +70,7 @@ CocoaPods hanterar beroenden för iOS-projekt där du använder bibliotek från 
 cd quickstart/sample-device
 ```
 
-Kontrollera att XCode är stängt och kör följande kommando för att installera CocoaPods som deklareras i filen **podfile**:
+Kontrollera att XCode är stängt och kör följande kommando för att installera CocoaPods som deklareras i filen **podfile** :
 
 ```sh
 pod install
@@ -100,9 +100,9 @@ Förutom att installera de poddar som krävs för projektet så skapar även ins
 
 5. Spara ändringarna. 
 
-6. Kör projektet i enhetsemulatorn med knappen **Build and run** (Skapa och kör) eller tangentkombinationen **command + r**.
+6. Kör projektet i enhetsemulatorn med knappen **Build and run** (Skapa och kör) eller tangentkombinationen **command + r** .
 
-   ![Kör projektet](media/iot-hub-ios-swift-c2d/run-sample.png)
+   ![Skärm bild som visar knappen Skapa och kör i enhetens emulator.](media/iot-hub-ios-swift-c2d/run-sample.png)
 
 ## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
@@ -124,7 +124,7 @@ Gå till mappen Azure IoT iOS-exempel som du laddade ned i kraven. Navigera seda
 cd quickstart/sample-service
 ```
 
-Kontrollera att XCode är stängt och kör följande kommando för att installera CocoaPods som deklareras i filen **podfile**:
+Kontrollera att XCode är stängt och kör följande kommando för att installera CocoaPods som deklareras i filen **podfile** :
 
 ```sh
 pod install
@@ -152,21 +152,21 @@ Förutom att installera de poddar som krävs för projektet så skapar även ins
 
    ![Ändra emulator-enhet](media/iot-hub-ios-swift-c2d/change-device.png)
 
-7. Kör projektet i enhetens emulator med knappen **skapa och kör** eller med **kommando + r**för nyckel kombination.
+7. Kör projektet i enhetens emulator med knappen **skapa och kör** eller med **kommando + r** för nyckel kombination.
 
-   ![Kör projektet](media/iot-hub-ios-swift-c2d/run-app.png)
+   ![Skärm bild som visar knappen Skapa och kör.](media/iot-hub-ios-swift-c2d/run-app.png)
 
 ## <a name="send-a-cloud-to-device-message"></a>Skicka ett meddelande från moln till enhet
 
 Du är nu redo att använda de två programmen för att skicka och ta emot meddelanden från molnet till enheten.
 
-1. I **exempel appen iOS app** som körs på den simulerade IoT-enheten klickar du på **Starta**. Programmet börjar skicka enhets-till-moln-meddelanden, men börjar också lyssna efter meddelanden från molnet till enheten.
+1. I **exempel appen iOS app** som körs på den simulerade IoT-enheten klickar du på **Starta** . Programmet börjar skicka enhets-till-moln-meddelanden, men börjar också lyssna efter meddelanden från molnet till enheten.
 
    ![Visa exempel på IoT Device-appen](media/iot-hub-ios-swift-c2d/view-d2c.png)
 
 2. I **IoTHub-tjänstens exempel** app som körs på den simulerade tjänst enheten anger du ID: t för den IoT-enhet som du vill skicka ett meddelande till. 
 
-3. Skriv ett meddelande i klartext och klicka sedan på **Skicka**.
+3. Skriv ett meddelande i klartext och klicka sedan på **Skicka** .
 
     Flera åtgärder sker så snart du klickar på Skicka. Tjänst exemplet skickar meddelandet till din IoT-hubb, som appen har åtkomst till på grund av den tjänst anslutnings sträng som du har angett. Din IoT Hub kontrollerar enhets-ID, skickar meddelandet till mål enheten och skickar ett bekräftelse kvitto till käll enheten. Den app som körs på din simulerade IoT-enhet söker efter meddelanden från IoT Hub och skriver ut texten från den senaste på skärmen.
 

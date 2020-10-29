@@ -11,12 +11,12 @@ ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4d66a1174b1b4adc94b24c6aecd55b2b8679f2f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa5025e0a2bd260adeb23b4ab7c4d5f8bd83a43a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85211892"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026810"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Så här övervakar du Gen2-cachen
 
@@ -26,15 +26,15 @@ Lagrings arkitekturen Gen2 använder automatiskt de mest efterfrågade columnsto
  
 ## <a name="troubleshoot-using-the-azure-portal"></a>Felsöka med hjälp av Azure Portal
 
-Du kan använda Azure Monitor för att Visa Gen2-cache-mått för att felsöka frågans prestanda. Gå först till Azure Portal och klicka på **övervakaren**, **mått** och **+ Välj ett omfång**:
+Du kan använda Azure Monitor för att Visa Gen2-cache-mått för att felsöka frågans prestanda. Gå först till Azure Portal och klicka på **övervakaren** , **mått** och **+ Välj ett omfång** :
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
+![Skärm bild som visar Välj ett omfång som valts från mått i Azure Portal.](./media/sql-data-warehouse-how-to-monitor-cache/cache-0.png)
 
 Använd Sök-och list fälten för att hitta ditt informations lager. Välj sedan Använd.
 
-![Azure Monitor](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
+![Skärm bild som visar fönstret Välj ett omfång där du kan välja ditt informations lager.](./media/sql-data-warehouse-how-to-monitor-cache/cache-1.png)
 
-Nyckel måtten för fel sökning av Gen2-cachen är **cache träff procent** och **cache som används i procent**. Välj **procent andels träff i procent** och Använd sedan knappen **Lägg till mått** för att lägga till **cache-använt procent**. 
+Nyckel måtten för fel sökning av Gen2-cachen är **cache träff procent** och **cache som används i procent** . Välj **procent andels träff i procent** och Använd sedan knappen **Lägg till mått** för att lägga till **cache-använt procent** . 
 
 ![Cache-mått](./media/sql-data-warehouse-how-to-monitor-cache/cache-2.png)
 

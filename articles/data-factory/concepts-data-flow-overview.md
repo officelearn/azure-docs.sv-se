@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
-ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32f1602c91d17ef2ad3283d4bc03d00d432641aa
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370920"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027609"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mappa data flöden i Azure Data Factory
 
@@ -27,7 +27,7 @@ Genom att mappa data flöden får du en helt visuell upplevelse utan kodning som
 
 ## <a name="getting-started"></a>Komma igång
 
-Data flöden skapas från fönstret fabriks resurser som pipelines och data uppsättningar. Om du vill skapa ett data flöde väljer du plus tecknet bredvid **fabriks resurser**och väljer sedan **data flöde**. 
+Data flöden skapas från fönstret fabriks resurser som pipelines och data uppsättningar. Om du vill skapa ett data flöde väljer du plus tecknet bredvid **fabriks resurser** och väljer sedan **data flöde** . 
 
 ![Nytt data flöde](media/data-flow/new-data-flow.png "nytt data flöde")
 
@@ -37,13 +37,13 @@ Den här åtgärden tar dig till data flödets arbets yta där du kan skapa din 
 
 Kart data flödet har en unik redigerings yta som är utformad för att skapa omvandlings logik enkelt. Data flödes arbets ytan är uppdelad i tre delar: det översta fältet, grafen och konfigurations panelen. 
 
-![Arbetsyta](media/data-flow/canvas1.png "Arbetsyta")
+![Skärm bild som visar data flödets arbets yta med översta stapel-, graf-och konfigurations panelen märkt.](media/data-flow/canvas1.png "Arbetsyta")
 
 ### <a name="graph"></a>Graph
 
-I diagrammet visas omvandlings strömmen. Den visar härkomst för källdata när den flödar till en eller flera handfat. Om du vill lägga till en ny källa väljer du **Lägg till källa**. Om du vill lägga till en ny omvandling väljer du plus tecknet längst ned till höger i en befintlig omvandling. Läs mer om hur du [hanterar data flödes diagrammet](concepts-data-flow-manage-graph.md).
+I diagrammet visas omvandlings strömmen. Den visar härkomst för källdata när den flödar till en eller flera handfat. Om du vill lägga till en ny källa väljer du **Lägg till källa** . Om du vill lägga till en ny omvandling väljer du plus tecknet längst ned till höger i en befintlig omvandling. Läs mer om hur du [hanterar data flödes diagrammet](concepts-data-flow-manage-graph.md).
 
-![Arbetsyta](media/data-flow/canvas2.png "Arbetsyta")
+![Skärm bild som visar graf-delen av arbets ytan med en söktext ruta.](media/data-flow/canvas2.png "Arbetsyta")
 
 ### <a name="configuration-panel"></a>Konfigurations panel
 
@@ -110,7 +110,7 @@ Mappning av data flöden är tillgängliga i följande regioner:
 | Brasilien, södra  | ✓ |  |
 | Kanada, centrala | ✓ |  |
 | Indien, centrala | ✓ |   ✓ |
-| Central US    | ✓ |   ✓ |
+| USA, centrala    | ✓ |   ✓ |
 | Kina, östra |      | ✓ |
 | Kina, östra 2  |   |    |
 | Kina, icke-regional | | |
@@ -131,7 +131,7 @@ Mappning av data flöden är tillgängliga i följande regioner:
 | Sydkorea, centrala | ✓ |  |
 | Sydkorea, södra | | |
 | USA, norra centrala  | ✓ | ✓ |
-| Norra Europa  | ✓ |    |
+| Europa, norra  | ✓ |    |
 | Östra Norge | | |
 | Norge, väst | | |
 | Sydafrika, norra    | ✓ | |

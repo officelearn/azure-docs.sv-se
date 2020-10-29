@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 99af424d44624adeedf30a87d915fbd377012378
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: d2ea7233ee923881ee430aba8d8c23a37c29da7c
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927608"
+ms.locfileid: "93027728"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume-using-an-arm-template"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym med en ARM-mall
 
@@ -304,7 +304,7 @@ Följande kodfragment visar hur du skapar en pool för kapacitet i en ARM-mall m
     * Välj NFS-version ( **NFSv3** eller **nfsv 4.1** ) för volymen.
       Se [överväganden](azure-netapp-files-create-volumes.md#considerations) och [bästa praxis](azure-netapp-files-create-volumes.md#best-practice) om NFS-versioner.
 
-  ![Ange NFS-protokoll för snabb start](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+    ![Ange NFS-protokoll för snabb start](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Klicka på **Granska + skapa** .
 

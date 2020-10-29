@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: ce0858f61ca1fe3b81c3d0c8a3c97954827def80
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4ecd436b548c29c520a7538970d4d703cc8488d2
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950626"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027575"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Aktivera Security Center för alla prenumerationer i en hanterings grupp
 
@@ -25,7 +25,7 @@ Du kan använda Azure Policy för att aktivera Azure Security Center på alla Az
 
 För att publicera en hanterings grupp och alla dess prenumerationer:
 
-1. Som en användare med behörigheten **säkerhets administratör** öppnar du Azure policy och söker efter definitionen **Aktivera Azure Security Center i din prenumeration**.
+1. Som en användare med behörigheten **säkerhets administratör** öppnar du Azure policy och söker efter definitionen **Aktivera Azure Security Center i din prenumeration** .
 
     :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="Azure Policy definition aktivera Azure Security Center på din prenumeration":::
 
@@ -43,7 +43,7 @@ För att publicera en hanterings grupp och alla dess prenumerationer:
     Reparations uppgiften aktiverar sedan Security Center, kostnads fritt, för de icke-kompatibla prenumerationerna.
 
 > [!IMPORTANT]
-> Princip definitionen aktiverar endast Security Center på **befintliga** prenumerationer. Om du vill registrera nya prenumerationer registrerar du nya prenumerationer genom att öppna fliken efterlevnad, välja relevanta icke-kompatibla prenumerationer och skapa en reparations uppgift. Upprepa det här steget när du har en eller flera nya prenumerationer som du vill övervaka med Security Center.
+> Princip definitionen aktiverar endast Security Center på **befintliga** prenumerationer. Om du vill registrera nya prenumerationer öppnar du fliken efterlevnad, väljer relevanta icke-kompatibla prenumerationer och skapar en reparations uppgift. Upprepa det här steget när du har en eller flera nya prenumerationer som du vill övervaka med Security Center.
 
 ## <a name="optional-modifications"></a>Valfria ändringar
 

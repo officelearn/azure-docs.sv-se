@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/24/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 8acd0a6992c26266f20aaf46dd225a9fff9d6974
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e5f9cd361d4f130d725f608614159d67fb7b56d1
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172024"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026368"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Låsa en App Service-miljön
 
@@ -61,11 +61,11 @@ De steg som krävs för att låsa utgående från din befintliga ASE med Azure F
    
    ![Lägg till program regel][1]
    
-1. I användar gränssnittet för Azure-brandväggen > regler > nätverks regel samling väljer du Lägg till nätverks regel samling. Ange ett namn, prioritet och ange Tillåt. I avsnittet regler under IP-adresser anger du ett namn, väljer ett protokoll för **alla**, anger * till käll-och mål adresser och anger portarna till 123. Med den här regeln kan systemet utföra klock synkronisering med NTP. Skapa en annan regel på samma sätt som port 12000 för att hjälpa prioritering eventuella system problem. 
+1. I användar gränssnittet för Azure-brandväggen > regler > nätverks regel samling väljer du Lägg till nätverks regel samling. Ange ett namn, prioritet och ange Tillåt. I avsnittet regler under IP-adresser anger du ett namn, väljer ett protokoll för **alla** , anger * till käll-och mål adresser och anger portarna till 123. Med den här regeln kan systemet utföra klock synkronisering med NTP. Skapa en annan regel på samma sätt som port 12000 för att hjälpa prioritering eventuella system problem. 
 
    ![Lägg till NTP-nätverksanslutning][3]
    
-1. I användar gränssnittet för Azure-brandväggen > regler > nätverks regel samling väljer du Lägg till nätverks regel samling. Ange ett namn, prioritet och ange Tillåt. I avsnittet regler under tjänst Taggar anger du ett namn, väljer ett protokoll för **alla**, anger * till käll adresser, väljer en service tag-AzureMonitor och anger portarna till 80 443. Med den här regeln kan systemet tillhandahålla Azure Monitor med hälso-och mät information.
+1. I användar gränssnittet för Azure-brandväggen > regler > nätverks regel samling väljer du Lägg till nätverks regel samling. Ange ett namn, prioritet och ange Tillåt. I avsnittet regler under tjänst Taggar anger du ett namn, väljer ett protokoll för **alla** , anger * till käll adresser, väljer en service tag-AzureMonitor och anger portarna till 80 443. Med den här regeln kan systemet tillhandahålla Azure Monitor med hälso-och mät information.
 
    ![Lägg till en NTP-tjänstinstans för service tag-regler][6]
    
@@ -255,6 +255,7 @@ Med en Azure-brandvägg får du automatiskt allt nedan konfigurerat med FQDN-tag
 |security.ubuntu.com:80 |
 |oryx-cdn.microsoft.io:443 |
 | \*. cdn.mscr.io:443 |
+| \*. data.mcr.microsoft.com:443 |
 |mcr.microsoft.com:443 |
 |\*. data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |

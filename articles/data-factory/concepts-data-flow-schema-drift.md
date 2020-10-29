@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11ddb2f40ee56b51c5ecbae11465093abb8e4feb
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324356"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027490"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Schema avvikelse i mappnings data flödet
 
@@ -43,7 +43,7 @@ I en käll omvandling definieras schema avvikelsen som att läsa kolumner som in
 
 ![Schema avvikelse källa](media/data-flow/schemadrift001.png "Schema avvikelse källa")
 
-När schema avvikelsen är aktive rad läses alla inkommande fält från din källa under körningen och skickas genom hela flödet till mottagaren. Som standard tas alla nyligen identifierade kolumner, som kallas för inkommande *kolumner*, emot som en sträng data typ. Om du vill att data flödet automatiskt ska härleda data typer av inaktuella kolumner kontrollerar du **härledda kolumn typer** i dina käll inställningar.
+När schema avvikelsen är aktive rad läses alla inkommande fält från din källa under körningen och skickas genom hela flödet till mottagaren. Som standard tas alla nyligen identifierade kolumner, som kallas för inkommande *kolumner* , emot som en sträng data typ. Om du vill att data flödet automatiskt ska härleda data typer av inaktuella kolumner kontrollerar du **härledda kolumn typer** i dina käll inställningar.
 
 ## <a name="schema-drift-in-sink"></a>Schema avvikelse i mottagare
 
@@ -69,11 +69,11 @@ Mer information om hur du implementerar kolumn mönster finns [i kolumn mönster
 
 Om du vill referera till påpekade kolumner kan du snabbt skapa mappningar för dessa kolumner via snabb åtgärden för förhands granskning av data. När [fel söknings läget](concepts-data-flow-debug-mode.md) är på går du till fliken Data förhands granskning och klickar på **Uppdatera** för att hämta en data för hands version. Om Data Factory upptäcker att det finns inaktuella kolumner kan du klicka på **Mappa** och generera en härledd kolumn som gör att du kan referera till alla nedstaplade kolumner i schema vyerna.
 
-![Kartning](media/data-flow/mapdrifted1.png "Kartning")
+![Skärm bild som visar fliken Data förhands granskning med inaktuellt inringat.](media/data-flow/mapdrifted1.png "Kartning")
 
 I den genererade härledda kolumn-omvandlingen mappas varje nedstaplad kolumn till dess identifierade namn och datatyp. I data förhands granskningen ovan identifieras kolumnen ' movieId ' som ett heltal. När du har klickat på **kartan** definieras movieId i den härledda kolumnen som `toInteger(byName('movieId'))` och tas med i schema vyerna i efterföljande transformeringar.
 
-![Kartning](media/data-flow/mapdrifted2.png "Kartning")
+![Skärm bild som visar fliken Inställningar för den härledda kolumnen.](media/data-flow/mapdrifted2.png "Kartning")
 
 ## <a name="next-steps"></a>Nästa steg
 I [data flödets uttrycks språk](data-flow-expression-functions.md)hittar du ytterligare funktioner för kolumn mönster och schema avvikelser, inklusive "byName" och "byPosition".

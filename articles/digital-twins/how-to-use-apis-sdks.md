@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1ad9d72d69e23e4029de163ded1a71ae4dfb82fb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 89fb0e8435bd1804193db5b0f8c0596733a7e674
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913780"
+ms.locfileid: "93026147"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -306,7 +306,7 @@ Härifrån kan du visa måtten för din instans och skapa anpassade vyer.
 ## <a name="next-steps"></a>Nästa steg
 
 Se hur du använder API: erna för att konfigurera en digital Azure-instans och autentisering:
-* [*Anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md)
+* [*Anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-cli.md)
 
 Du kan också gå igenom stegen för att skapa en klient app som den som används i den här instruktionen:
 * [*Självstudie: koda en klient app*](tutorial-code.md)

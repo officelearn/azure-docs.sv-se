@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9ea85449d3980f46e88eddc7e06e4a5384b8cea3
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461081"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027558"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrera med Logic Apps med hjälp av en anpassad anslutning
 
@@ -26,9 +26,9 @@ Azure Digitals dubbla är för närvarande inte en certifierad (fördefinierad) 
 
 I den här artikeln ska du använda [Azure Portal](https://portal.azure.com) för att **skapa en anpassad anslutning** som kan användas för att ansluta Logic Apps till en digital Azure-instans. Sedan skapar du **en Logic-app** som använder den här anslutningen för ett exempel scenario, där händelser som utlöses av en timer automatiskt uppdaterar en dubbla i din Azure Digital-instansen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du **skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ** innan du börjar.
+Om du inte har en Azure-prenumeration kan du **skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** innan du börjar.
 Logga in på [Azure Portal](https://portal.azure.com) med det här kontot. 
 
 Du måste också utföra följande objekt som en del av den nödvändiga installationen. Resten av det här avsnittet beskriver hur du gör följande:
@@ -40,21 +40,21 @@ Du måste också utföra följande objekt som en del av den nödvändiga install
 
 Om du vill ansluta en Azure Digitals-instans till Logic Apps i den här artikeln måste du redan har konfigurerat **Azure Digital-instansen** . 
 
-Börja med att **Konfigurera en digital Azure-instans** och autentisering som krävs för att kunna arbeta med den. Det gör du genom att följa anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). Beroende på din önskade upplevelse, erbjuds installations artikeln för skript exemplet [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md)eller [automatiserad Cloud Shell distribution](how-to-set-up-instance-scripted.md). Alla versioner av instruktionerna innehåller också steg för att kontrol lera att du har slutfört varje steg och är redo att gå vidare till med den nya instansen.
-* När du har konfigurerat din Azure Digital-instansen behöver du instansen **_värdnamn_** ([hitta i Azure Portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+Börja med att **Konfigurera en digital Azure-instans** och autentisering som krävs för att kunna arbeta med den. Det gör du genom att följa anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md).
+* När du har konfigurerat din Azure Digital-instansen behöver du instansen **_värdnamn_** ( [hitta i Azure Portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-För att autentisera anslutningen måste du också konfigurera en **app-registrering**. Följ instruktionerna i [*instruktion: skapa en app-registrering*](how-to-create-app-registration.md) för att konfigurera den här. 
-* När du har registrerat en app behöver du registreringens **_program_** -ID och **_katalog (klient)-ID_** ([hitta i Azure Portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
+För att autentisera anslutningen måste du också konfigurera en **app-registrering** . Följ instruktionerna i [*instruktion: skapa en app-registrering*](how-to-create-app-registration.md) för att konfigurera den här. 
+* När du har registrerat en app behöver du registreringens **_program_** -ID och **_katalog (klient)-ID_** ( [hitta i Azure Portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### <a name="get-app-registration-client-secret"></a>Hämta klient hemlighet för app-registrering
 
 Du måste också skapa en **_klient hemlighet_** för din Azure AD-App-registrering. Det gör du genom att gå till sidan [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Portal (du kan använda den här länken eller leta efter den i portalens Sök fält). Välj din registrering som du skapade i föregående avsnitt i listan för att öppna dess information. 
 
-Besök *certifikat och hemligheter* från registrerings menyn och välj *+ ny klient hemlighet*.
+Besök *certifikat och hemligheter* från registrerings menyn och välj *+ ny klient hemlighet* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
 
-Ange de värden som du vill ha som beskrivning och förfaller, och tryck sedan på *Lägg till*.
+Ange de värden som du vill ha som beskrivning och förfaller, och tryck sedan på *Lägg till* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
 
@@ -74,11 +74,11 @@ Du behöver det **_dubbla ID: t_** för en som är dubbel i din instans som du h
 
 I det här steget ska du skapa en [anpassad Logic Apps-anslutning](../logic-apps/custom-connector-overview.md) för Azure Digitals dubbla API: er. När du har gjort det kan du ansluta Azure Digital-luren när du skapar en Logic-app i nästa avsnitt.
 
-Gå till sidan [Logic Apps anpassad anslutning](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) i Azure Portal (du kan använda den här länken eller Sök efter den i portalens Sök fält). Tryck på *+ Lägg till*.
+Gå till sidan [Logic Apps anpassad anslutning](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) i Azure Portal (du kan använda den här länken eller Sök efter den i portalens Sök fält). Tryck på *+ Lägg till* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
 
-På sidan *skapa Logic Apps anpassad anslutning* som följer väljer du din prenumeration och resurs grupp och ett namn och en distributions plats för din nya anslutning. Tryck på *Granska + skapa*. 
+På sidan *skapa Logic Apps anpassad anslutning* som följer väljer du din prenumeration och resurs grupp och ett namn och en distributions plats för din nya anslutning. Tryck på *Granska + skapa* . 
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
 
@@ -94,12 +94,12 @@ Sedan konfigurerar du den anslutning som du har skapat för att komma åt Azure 
 
 Börja med att ladda ned en anpassad Azure Digital-Swagger som har ändrats för att fungera med Logic Apps. Ladda ned **Azure Digitals, anpassade swaggers-exemplet (Logic Apps Connector)** från [**den här länken**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) genom att trycka på *Hämta zip* -knappen. Navigera till den hämtade *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* -mappen och packa upp den. 
 
-Den anpassade Swagger för den här självstudien finns i mappen _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps **_ _. Den här mappen innehåller undermappar med namnet *stabil* och för *hands version*, som båda har olika versioner av Swagger organiserade efter datum. Mappen med det senaste datumet kommer att innehålla den senaste kopian av Swagger. Oavsett vilken version du väljer heter Swagger-filen _** digitaltwins.jspå * * _.
+Den anpassade Swagger för den här självstudien finns i mappen _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps **_ _. Den här mappen innehåller undermappar med namnet *stabil* och för *hands version* , som båda har olika versioner av Swagger organiserade efter datum. Mappen med det senaste datumet kommer att innehålla den senaste kopian av Swagger. Oavsett vilken version du väljer heter Swagger-filen _** digitaltwins.jspå * * _.
 
 > [!NOTE]
 > Om du inte arbetar med en förhands gransknings funktion rekommenderar vi vanligt vis att du använder den senaste *stabila* versionen av Swagger. Tidigare versioner och för hands versioner av Swagger stöds dock också fortfarande. 
 
-Gå sedan till sidan med din kopplings översikt i [Azure Portal](https://portal.azure.com) och tryck på *Redigera*.
+Gå sedan till sidan med din kopplings översikt i [Azure Portal](https://portal.azure.com) och tryck på *Redigera* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
 
@@ -107,7 +107,7 @@ På sidan *redigera Logic Apps anpassad anslutning* som följer konfigurerar du 
 * **Anpassade anslutningar**
     - API-slut punkt: REST (lämna standard)
     - Import läge: OpenAPI-fil (lämna standard)
-    - Fil: det här är den anpassade Swagger-fil som du laddade ned tidigare. Tryck på *Importera*, leta upp filen på din dator (*Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps \...\digitaltwins.jspå*) och tryck på *Öppna*.
+    - Fil: det här är den anpassade Swagger-fil som du laddade ned tidigare. Tryck på *Importera* , leta upp filen på din dator ( *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps \...\digitaltwins.jspå* ) och tryck på *Öppna* .
 * **Allmän information**
     - Ikon: Ladda upp en ikon som du gillar
     - Bakgrunds färg för ikon: Ange hexadecimal kod i formatet #xxxxxx för din färg.
@@ -121,8 +121,8 @@ Tryck sedan på knappen *säkerhet* längst ned i fönstret för att fortsätta 
 :::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
 
 I säkerhets steget trycker du på *Redigera* och konfigurerar den här informationen:
-* **Autentiseringstyp**: OAuth 2,0
-* **OAuth 2,0**:
+* **Autentiseringstyp** : OAuth 2,0
+* **OAuth 2,0** :
     - Identitetsprovider: Azure Active Directory
     - Klient-ID: *program-ID (klient)* för din Azure AD-App-registrering
     - Klient hemlighet: den *klient hemlighet* som du skapade i [*krav*](#prerequisites) för din Azure AD-App-registrering
@@ -132,7 +132,7 @@ I säkerhets steget trycker du på *Redigera* och konfigurerar den här informat
     - Omfattning: Directory. AccessAsUser. all
     - Omdirigerings-URL: (lämna kvar standardvärdet för tillfället)
 
-Observera att fältet omdirigerings-URL står för att *Spara det anpassade anslutnings programmet för att generera omdirigerings-URL*. Gör detta nu genom att trycka på *Uppdatera koppling* längst upp i fönstret för att bekräfta dina anslutnings inställningar.
+Observera att fältet omdirigerings-URL står för att *Spara det anpassade anslutnings programmet för att generera omdirigerings-URL* . Gör detta nu genom att trycka på *Uppdatera koppling* längst upp i fönstret för att bekräfta dina anslutnings inställningar.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
 
@@ -145,7 +145,7 @@ Gå tillbaka till fältet omdirigerings-URL och kopiera värdet som har generera
 Detta är all information som krävs för att skapa din anslutning (du behöver inte fortsätta med den senaste säkerheten till definitions steget). Du kan stänga fönstret *redigera Logic Apps anpassade anslutnings* fönster.
 
 >[!NOTE]
->På sidans översikts sida där du ursprungligen nådde *Redigera*, Observera att om du trycker på *Redigera* igen startas hela processen om att ange dina konfigurations alternativ. Värdena fylls inte i automatiskt från den senaste gången du gick igenom den, så om du vill spara en uppdaterad konfiguration med ändrade värden måste du ange alla andra värden och undvika att de skrivs över av standardvärdena.
+>På sidans översikts sida där du ursprungligen nådde *Redigera* , Observera att om du trycker på *Redigera* igen startas hela processen om att ange dina konfigurations alternativ. Värdena fylls inte i automatiskt från den senaste gången du gick igenom den, så om du vill spara en uppdaterad konfiguration med ändrade värden måste du ange alla andra värden och undvika att de skrivs över av standardvärdena.
 
 ### <a name="grant-connector-permissions-in-the-azure-ad-app"></a>Bevilja anslutnings behörigheter i Azure AD-appen
 
@@ -177,30 +177,30 @@ Tryck på knappen _Granska + skapa_ .
 
 Då kommer du till fliken *Granska + skapa* där du kan granska informationen och trycka på *skapa* längst ned för att skapa din resurs.
 
-Du kommer till sidan distribution för Logic app. När distributionen är färdig klickar du på knappen *gå till resurs* för att fortsätta till *Logic Apps designer*där du kan fylla i arbets flödets logik.
+Du kommer till sidan distribution för Logic app. När distributionen är färdig klickar du på knappen *gå till resurs* för att fortsätta till *Logic Apps designer* där du kan fylla i arbets flödets logik.
 
 ### <a name="design-workflow"></a>Design arbets flöde
 
-I *Logic Apps designer*, under *börja med en gemensam utlösare*, väljer du _**upprepning**_.
+I *Logic Apps designer* , under *börja med en gemensam utlösare* , väljer du _**upprepning**_ .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
 
-På sidan *Logic Apps designer* som följer ändrar du **upprepnings** frekvensen till den *andra*, så att händelsen utlöses var tredje sekund. Detta gör det enkelt att se resultaten senare utan att behöva vänta mycket lång tid.
+På sidan *Logic Apps designer* som följer ändrar du **upprepnings** frekvensen till den *andra* , så att händelsen utlöses var tredje sekund. Detta gör det enkelt att se resultaten senare utan att behöva vänta mycket lång tid.
 
-Tryck på *+ nytt steg*.
+Tryck på *+ nytt steg* .
 
 Då öppnas rutan *Välj en åtgärd* . Växla till fliken *anpassad* . Du bör se din anpassade anslutning från tidigare i den översta rutan.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
 
-Välj den för att visa en lista över API: er som finns i den anslutningen. Använd Sök fältet eller bläddra i listan och välj **DigitalTwins_Add**. (Detta är det API som används i den här artikeln, men du kan också välja andra API som ett giltigt val för en Logic Apps anslutning).
+Välj den för att visa en lista över API: er som finns i den anslutningen. Använd Sök fältet eller bläddra i listan och välj **DigitalTwins_Add** . (Detta är det API som används i den här artikeln, men du kan också välja andra API som ett giltigt val för en Logic Apps anslutning).
 
 Du kan uppmanas att logga in med dina Azure-autentiseringsuppgifter för att ansluta till anslutningen. Om du får en dialog ruta som *efterfrågats* , följer du anvisningarna för att ge appen ett medgivande och acceptera.
 
 I rutan ny *DigitalTwinsAdd* fyller du i fälten enligt följande:
-* _ID_: Fyll i det *dubbla ID: t* för den digitala dubbla i din instans som du vill att Logic-appen ska uppdatera.
-* _dubbla_: det här fältet är där du anger den text som den valda API-begäran kräver. För *DigitalTwinsUpdate*är den här texten i form av JSON-patch-kod. Mer information om att strukturera en JSON-korrigering för att uppdatera din dubbla finns i avsnittet [Uppdatera ett digitalt](how-to-manage-twin.md#update-a-digital-twin) avsnitt med *anvisningar: hantera digitala dubbla*.
-* _API-version_: den senaste API-versionen. För närvarande är det här värdet *2020-10-31*.
+* _ID_ : Fyll i det *dubbla ID: t* för den digitala dubbla i din instans som du vill att Logic-appen ska uppdatera.
+* _dubbla_ : det här fältet är där du anger den text som den valda API-begäran kräver. För *DigitalTwinsUpdate* är den här texten i form av JSON-patch-kod. Mer information om att strukturera en JSON-korrigering för att uppdatera din dubbla finns i avsnittet [Uppdatera ett digitalt](how-to-manage-twin.md#update-a-digital-twin) avsnitt med *anvisningar: hantera digitala dubbla* .
+* _API-version_ : den senaste API-versionen. För närvarande är det här värdet *2020-10-31* .
 
 Tryck på *Spara* i Logic Apps designer.
 

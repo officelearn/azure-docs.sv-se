@@ -14,41 +14,47 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b47ea3cc55be26521dfa6e2b3230b477f82f442
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: aa0abffc9bfb1a0c6511af331d1e8dbc10cff455
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377906"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026538"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Hantera administrativa enheter i Azure Active Directory
 
-För mer detaljerad administrativ kontroll i Azure Active Directory (Azure AD) kan du tilldela användare till en Azure AD-roll med en omfattning som är begränsad till en eller flera administrativa enheter (Australien).
+För mer detaljerad administrativ kontroll i Azure Active Directory (Azure AD) kan du tilldela användare till en Azure AD-roll med en omfattning som är begränsad till en eller flera administrativa enheter.
 
 ## <a name="get-started"></a>Kom igång
 
 1. Om du vill köra frågor från följande instruktioner via [Graph Explorer](https://aka.ms/ge)gör du följande:
 
-    a. I Azure Portal går du till Azure AD. I listan program väljer du **Graph Explorer**och väljer sedan **bevilja administrativt medgivande till Graph Explorer**.
+    a. I Azure Portal går du till Azure AD. 
+    
+    b. I listan program väljer du **Graph Explorer** .
+    
+    c. I rutan **behörigheter** väljer du **bevilja administrativt godkännande för Graph Explorer** .
 
-    ![Skärm bild som visar länk till "bevilja administrativt medgivande"](./media/admin-units-manage/select-graph-explorer.png)
+    ![Skärm bild som visar länken bevilja administrativt medgivande för Graph Explorer.](./media/admin-units-manage/select-graph-explorer.png)
 
 
 1. Använd för hands versionen av Azure AD PowerShell.
 
 ## <a name="add-an-administrative-unit"></a>Lägg till en administrativ enhet
 
+Du kan lägga till en administrativ enhet genom att använda antingen Azure Portal eller PowerShell.
+
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-1. I Azure Portal går du till Azure AD och väljer sedan **administrativa enheter**i den vänstra rutan.
+1. I Azure Portal går du till Azure AD. Välj sedan **administrativa enheter** i den vänstra rutan.
 
-    ![Skärm bild av den administrativa unitslink i Azure AD](./media/admin-units-manage/nav-to-admin-units.png)
+    ![Skärm bild av länken "administrations enheter" i Azure AD.](./media/admin-units-manage/nav-to-admin-units.png)
 
-1. Välj **Lägg till** och ange sedan namnet på den administrativa enheten. Du kan också lägga till en beskrivning av den administrativa enheten.
+1. Välj knappen **Lägg till** i den övre delen av fönstret och skriv sedan namnet på den administrativa enheten i rutan **namn** . Du kan också lägga till en beskrivning av den administrativa enheten.
 
-    ![Skärm bild av knappen Lägg till och text rutan för att ange namnet på den administrativa enheten](./media/admin-units-manage/add-new-admin-unit.png)
+    ![Skärm bild som visar knappen Lägg till och rutan namn för att ange namnet på den administrativa enheten.](./media/admin-units-manage/add-new-admin-unit.png)
 
-1. Välj **Lägg till** för att slutföra den administrativa enheten.
+1. Klicka på knappen blå **Lägg** till för att slutföra den administrativa enheten.
 
 ### <a name="use-powershell"></a>Använd PowerShell
 
@@ -79,11 +85,11 @@ I Azure AD kan du ta bort en administrativ enhet som du inte längre behöver so
 
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-1. I Azure Portal går du till **Azure AD**  >  **administrations enheter**för Azure AD. 
-1. Välj den administrativa enhet som ska tas bort och välj sedan **ta bort**. 
-1. Bekräfta att du vill ta bort den administrativa enheten genom att välja **Ja**. Den administrativa enheten tas bort.
+1. I Azure Portal går du till **Azure AD** och väljer sedan **administrativa enheter** . 
+1. Välj den administrativa enhet som ska tas bort och välj sedan **ta bort** . 
+1. Bekräfta att du vill ta bort den administrativa enheten genom att välja **Ja** . Den administrativa enheten tas bort.
 
-![Skärm bild av den administrativa enhets knappen Ta bort och bekräftelse fönstret](./media/admin-units-manage/select-admin-unit-to-delete.png)
+![Skärm bild av den administrativa enhets knappen Ta bort och bekräftelse fönstret.](./media/admin-units-manage/select-admin-unit-to-delete.png)
 
 ### <a name="use-powershell"></a>Använd PowerShell
 

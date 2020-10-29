@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b8ef1c14089744defaf6de5b3cf9e72d281452b6
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631282"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027116"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -35,6 +35,10 @@ Du kan välja en regional operatör och land-Ethernet-anslutning till en av de E
 ### <a name="how-much-does-expressroute-cost"></a>Hur mycket kostar ExpressRoute?
 
 Se [pris](https://azure.microsoft.com/pricing/details/expressroute/) information för pris information.
+
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-this-bandwidth-allocated-for-ingress-and-egress-traffic-separately"></a>Använder jag den här bandbredden för ingångs-och utgående trafik separat om jag betalar för en ExpressRoute-krets för en specifik bandbredd?
+
+Ja, ExpressRoute-kretsens bandbredd är duplex. Om du till exempel köper en 200 Mbit/s ExpressRoute-krets, ska du köpa 200 Mbit/s för ingress trafik och 200 Mbit/s för utgående trafik.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Om jag betalar för en ExpressRoute-krets för en specifik bandbredd, måste VPN-anslutningen jag köper från min nätverks leverantör ha samma hastighet?
 

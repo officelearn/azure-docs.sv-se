@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bd2c714c2e16cb8a7a9c530e8e458c33218b1c2b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 72bb821c0dfed6d3f9e7e2cc222242e65a35a011
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895502"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911060"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Komma igång med Azure Maps Android SDK
 
@@ -80,7 +80,7 @@ Nästa steg i att skapa ditt program är att installera Azure Maps Android SDK. 
     3. Uppdatera beroende blocket och Lägg till en ny implementerings beroende linje för den senaste Azure Maps Android SDK:
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.4"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.6"
         ```
     
     4. Gå till **filen** i verktygsfältet och klicka sedan på **Synkronisera projekt med Gradle-filer** .

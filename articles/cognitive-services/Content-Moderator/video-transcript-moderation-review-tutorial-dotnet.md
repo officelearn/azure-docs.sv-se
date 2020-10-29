@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1f5a68bcf0069663d8ef1101407bea7ee26e9e8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1648bd9a073bca696299e9ed703536db745e7edb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919299"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912845"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Självstudie: Moderering av video och avskrift
 
@@ -33,9 +33,9 @@ I den här självstudiekursen lär du dig att:
 > - Moderera avskriften med textändringstjänsten
 > - Lägga till den modererade avskriften i videogranskningen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Registrera dig för webbplatsen för [Content moderator gransknings verktyg](https://contentmoderator.cognitive.microsoft.com/) och skapa anpassade taggar. Se [använda Taggar](Review-Tool-User-Guide/tags.md) om du behöver hjälp med det här steget.
+- Registrera dig för webbplatsen för [Content moderator gransknings verktyg](https://contentmoderator.cognitive.microsoft.com/) och skapa anpassade taggar. Se [använda Taggar](./review-tool-user-guide/configure.md#tags) om du behöver hjälp med det här steget.
 
     ![skärm bild av anpassade taggar för video moderator](images/video-tutorial-custom-tags.png)
 - Om du vill köra exempel programmet behöver du ett Azure-konto, en Azure Media Services resurs, en Azure Content Moderator-resurs och Azure Active Directory autentiseringsuppgifter. Instruktioner för hur du hämtar dessa resurser finns i API-guiden för [Videokontrollanter](video-moderation-api.md) .
@@ -45,7 +45,7 @@ I den här självstudiekursen lär du dig att:
 
 Redigera `App.config` filen och Lägg till Active Directory klient namn, tjänst slut punkter och prenumerations nycklar som anges av `#####` . Du behöver följande information:
 
-|Tangent|Beskrivning|
+|Nyckel|Beskrivning|
 |-|-|
 |`AzureMediaServiceRestApiEndpoint`|Slutpunkt för API:n till Azure Media Services (AMS)|
 |`ClientSecret`|Prenumerationsnyckel för Azure Media Services|
@@ -83,7 +83,7 @@ Klassen `Program` i `Program.cs` är den främsta startpunkten till videoändrin
 Om det inte finns några argument på kommandoraden anropar `Main()``GetUserInputs()`. Den här metoden uppmanar användaren att ange sökvägen till en enskild videofil och att ange om en textavskrift ska genereras.
 
 > [!NOTE]
-> Konsol programmet använder [Azure Media INDEXER API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) för att generera avskrifter från den uppladdade videons ljud spår. Resultaten anges i WebVTT-format. Mer information om det här formatet finns i [Web Video Text Tracks-format](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
+> Konsol programmet använder [Azure Media INDEXER API](../../media-services/previous/legacy-components.md) för att generera avskrifter från den uppladdade videons ljud spår. Resultaten anges i WebVTT-format. Mer information om det här formatet finns i [Web Video Text Tracks-format](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
 
 ### <a name="initialize-and-processvideo-methods"></a>Metoderna Initialize och ProcessVideo
 
@@ -224,7 +224,7 @@ Resultatet från videoändringsjobbet (se [snabbstarten för videoändringar](vi
 En avskrift av ljudet från videon genereras också när `GenerateVTT`-flaggan har angetts.
 
 > [!NOTE]
-> Konsol programmet använder [Azure Media INDEXER API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) för att generera avskrifter från den uppladdade videons ljud spår. Resultaten anges i WebVTT-format. Mer information om det här formatet finns i [Web Video Text Tracks-format](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
+> Konsol programmet använder [Azure Media INDEXER API](../../media-services/previous/legacy-components.md) för att generera avskrifter från den uppladdade videons ljud spår. Resultaten anges i WebVTT-format. Mer information om det här formatet finns i [Web Video Text Tracks-format](https://developer.mozilla.org/docs/Web/API/WebVTT_API).
 
 ## <a name="create-a-human-review"></a>Skapa en mänsklig granskning
 
@@ -249,7 +249,7 @@ Följande skärmbild visar resultatet av föregående steg.
 
 ## <a name="process-the-transcript"></a>Bearbeta avskriften
 
-Fram tills nu har koden som visas i den här självstudien fokuserat på visuellt innehåll. Granskning av talat innehåll är en separat och en valfri process som använder en avskrift som genereras av ljudet. Det är nu dags att ta en titt på hur textavskrifter skapas och används i granskningsprocessen. Uppgiften att generera avskriften finns i [Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-index-content)-tjänsten.
+Fram tills nu har koden som visas i den här självstudien fokuserat på visuellt innehåll. Granskning av talat innehåll är en separat och en valfri process som använder en avskrift som genereras av ljudet. Det är nu dags att ta en titt på hur textavskrifter skapas och används i granskningsprocessen. Uppgiften att generera avskriften finns i [Azure Media Indexer](../../media-services/previous/media-services-index-content.md)-tjänsten.
 
 Programmet utför följande uppgifter:
 

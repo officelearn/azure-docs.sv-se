@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 073f1361771ded96b33158d040efd77306acd846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 513d98ae274c668197b066c742119055248f37f9
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276957"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911723"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Skapa en tränings data uppsättning för en anpassad modell
 
@@ -41,7 +41,7 @@ Följ dessa ytterligare tips för att optimera dina data uppsättningar för utb
 
 ## <a name="upload-your-training-data"></a>Ladda upp dina utbildnings data
 
-När du har lagt samman uppsättningen med formulär dokument som du ska använda för utbildning måste du ladda upp den till en Azure Blob Storage-behållare. Om du inte vet hur du skapar ett Azure Storage-konto med en behållare följer du [Azure Storage snabb start för Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Använd standard prestanda nivån.
+När du har lagt samman uppsättningen med formulär dokument som du ska använda för utbildning måste du ladda upp den till en Azure Blob Storage-behållare. Om du inte vet hur du skapar ett Azure Storage-konto med en behållare följer du [Azure Storage snabb start för Azure Portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Använd standard prestanda nivån.
 
 Om du vill använda manuellt märkta data måste du också ladda upp *.labels.js* och *.ocr.jspå* filer som motsvarar dina utbildnings dokument. Du kan använda [exempel etikett verktyget](./quickstarts/label-tool.md) (eller ditt eget användar gränssnitt) för att generera dessa filer.
 

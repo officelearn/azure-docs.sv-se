@@ -7,66 +7,65 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f78aa110ed42e17db873b9593de62602aa4193f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121875"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911145"
 ---
 # <a name="what-is-a-test-drive"></a>Vad är en provkörning?
 
-En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att *prova innan du köper*, vilket resulterar i ökad konvertering och generering av mycket kvalificerade leads. En testen het ger din produkt liv i ett verkligt implementerings scenario samtidigt som du genererar hög kvalificerade leads.
+En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att prova innan du köper, genererar hög kvalificerade leads och resulterar i ökad konvertering. En testen het ger din produkt livs längd i ett verkligt implementerings scenario. Kunder som provar produkten är en tydlig avsikt att köpa en liknande lösning. Använd den här för din fördel genom att följa upp med mer avancerade leads.
 
-Test enheter är hanterade instanser som distribuerar din lösning eller program på begäran för kunder som begär det. När en test enhets instans har tilldelats är den tillgänglig för användning under en angiven tids period och tas sedan bort för att skapa utrymme för en annan kund.
-
-Som utgivare hanterar och konfigurerar du inställningarna för test enheten i Partner Center. Teknisk konfigurations information varierar beroende på vilken typ av erbjudande du arbetar med. Detaljerad vägledning finns i länken under [Nästa steg](#next-step) i slutet av det här avsnittet.
-
-Potentiella kunder identifierar test enheten på den kommersiella marknaden. De ger sina kontakt uppgifter och samtycker till ditt erbjudandes villkor och sekretess policy och får sedan till gång till förkonfigurerad miljö för att testa den under en viss tids period. Kunderna får en praktisk, själv guidad utvärderings version av produktens viktiga funktioner och fördelar och du får en värdefull lead.
+Dina kunder får även nytta av en test-enhet. Genom att göra det möjligt för dem att testa produkten först, minskar du friktionen i inköps processen. Dessutom är test enheten företablerad, d.v.s. kunder behöver inte hämta, konfigurera eller konfigurera produkten.
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
-Som utgivare hanterar och konfigurerar du inställningarna för test enheten i Partner Center. Efter installationen blir den en hanterad instans som kommer att distribueras på begäran för kunden som begär det. När en test enhets instans har tilldelats är den tillgänglig för användning under en angiven tids period och tas sedan bort för att skapa utrymme för en annan kund.
+Test enheter är hanterade instanser som startar din lösning eller program på begäran för kunder som begär det. När en Test Drive-instans har tilldelats är den tillgänglig för användning av den kunden under en angiven period. När perioden har upphört tas den bort för att skapa en plats för en annan kund.
+
+Som utgivare hanterar och konfigurerar du inställningarna för test enheten i Partner Center. Teknisk konfigurations information varierar beroende på typen av erbjudande. Detaljerad vägledning finns i [teknisk konfiguration för test enheten](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
+
+Potentiella kunder identifierar din testenhet som ett centrum för ditt erbjudande på [AppSource](https://appsource.microsoft.com/en-US/). De ger sina kontakt uppgifter och samtycker till ditt erbjudandes villkor och sekretess policy och får sedan till gång till förkonfigurerad miljö för att testa den under en viss period. Kunderna får en praktisk, själv guidad utvärderings version av produktens viktiga funktioner och fördelar och du får en värdefull lead.
 
 ## <a name="types-of-test-drives"></a>Typer av test enheter
 
 Det finns olika test enheter tillgängliga på den kommersiella marknads platsen för utvalda erbjudanden beroende på vilken typ av produkt, scenario och Marketplace du är på:
 
 - Azure Resource Manager
+    - Azure-program
+    - SaaS
+    - Virtual Machines
 - Värdbaserad testen het
-    - Dynamics 365 för Business Central
+    - Dynamics 365 for Business Central (stöds inte för närvarande)
     - Dynamics 365 för Customer Engagement
     - Dynamics 365 for Operations
-- Logikapp
+- Logic app (endast i support läge)
 - Power BI
 
-Mer information om hur du konfigurerar en av dessa test enheter finns i länken under [Nästa steg](#next-step) i slutet av det här avsnittet.
+Mer information om hur du konfigurerar en av dessa test enheter finns i [teknisk konfiguration för test enhet](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration). 
 
 ### <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager testen het
 
 Den här distributions mal len innehåller alla Azure-resurser som utgör din lösning. Produkter som passar det här scenariot använder bara Azure-resurser. Den Azure Resource Manager test enheten är tillgänglig för dessa erbjudande typer: 
 
 - Azure-program
-- Dynamics 365 för Business Central
-- Dynamics 365 för kund engagemang & PowerApps
-- Dynamics 365 for Operations
 - SaaS
 - Virtuella datorer
 
 >[!NOTE]
 >Detta är det enda alternativet test enhet för erbjudanden för virtuella datorer och Azure-program.
 
-### <a name="hosted-test-drive"></a>Värdbaserad testen het
+### <a name="hosted-test-drive-recommended"></a>Värdbaserad testen het (rekommenderas)
 
-En värdbaserad testen het tar bort komplexiteten i installationen genom att låta Microsoft Host och underhålla tjänsten som utför test enhetens användar etablering, distribution och avetablering. Om du har ett erbjudande på Microsoft AppSource, kan du bygga din test enhet för att ansluta till en Dynamics AX/Azure-instans eller någon annan resurs utöver bara Azure. Använd den här typen för AppSource-erbjudanden för att ansluta till dessa Dynamics 365-erbjudanden:
+En värdbaserad testen het tar bort komplexiteten i installationen genom att låta Microsoft Host och underhålla tjänsten som utför test enhetens användar etablering och avetablering. Om du har ett erbjudande på Microsoft AppSource skapar du test enheten för att ansluta till en Dynamics AX/CRM-instans. Du kan använda följande typer av AppSource-erbjudanden:
 
-- Använd [Dynamics 365 for Business Central](partner-center-portal/create-new-operations-offer.md) för företagets centrala företags resurs planerings system som ekonomi, drift, leverans kedja och CRM.
 - Använd [Dynamics 365 för kund engagemang](partner-center-portal/create-new-customer-engagement-offer.md) för ett kund engagemang system, till exempel Sales, service, Project service och Field service.
 - Använd [Dynamics 365 för åtgärder](partner-center-portal/create-new-operations-offer.md) för ekonomi-och drift företags resurs planerings system, till exempel ekonomi, drift och tillverkning, leverans kedja.
 
 ### <a name="logic-app-test-drive"></a>Test enhet för Logic app
 
-Den här typen av test enhet är inte Microsoft-värd. Använd den för att ansluta till ett erbjudande för Dynamics 365 eller en annan anpassad resurs.
+Den här typen av test enhet är inte värd för Microsoft och använder Azure Resource Manager ARM-mallar för Dynamics AX/CRM-erbjudande typer. Du måste köra ARM-mallen för att skapa nödvändiga resurser i din Azure-prenumeration. Logic app-testenheten är för närvarande endast i support läge och rekommenderas inte av Microsoft för information om hur du konfigurerar en Logic app-testenhet, se [teknisk konfiguration av test enhet](https://docs.microsoft.com/azure/marketplace/test-drive-technical-configuration).
 
 ### <a name="power-bi-test-drive"></a>Power BI testen het
 
@@ -92,7 +91,7 @@ Om du stänger ett avtal med en testen het måste du registrera det på [Microso
 
 Ytterligare resurser för test enheter:
 
-- [Rekommenderade tekniska metoder](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Metod tips för test enhet](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Översikt](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF, se till att blockering av popup-fönster är inaktiverat)
 
 ## <a name="next-step"></a>Nästa steg

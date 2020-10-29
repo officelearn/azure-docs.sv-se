@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 2a986afa1916d179834c516a26f76a2789f82452
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc400922115f348090677661cd1b30434be19b72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87511895"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910482"
 ---
 # <a name="monitor-azure-data-share"></a>Övervaka Azure Data Share  
 
@@ -36,13 +36,13 @@ Din inbjudan kan vara i tre lägen:
 
 ## <a name="monitor-share-subscriptions"></a>Övervaka resurs prenumerationer
 
-Visa statusen för dina resurs prenumerationer genom att navigera till skickade resurser-> dela prenumerationer. Detta ger dig information om aktiva prenumerationer som skapats av dina data konsumenter när du har accepterat din inbjudan. Du kan stoppa framtida uppdateringar av din data konsument genom att välja resurs prenumerationen och välja *återkalla*. 
+Visa statusen för dina resurs prenumerationer genom att navigera till skickade resurser-> dela prenumerationer. Detta ger dig information om aktiva prenumerationer som skapats av dina data konsumenter när du har accepterat din inbjudan. Du kan stoppa framtida uppdateringar av din data konsument genom att välja resurs prenumerationen och välja *återkalla* . 
 
 ## <a name="snapshot-history"></a>Ögonblicks bilds historik 
 
 På fliken **Historik** i en resurs kan du se när data kopieras från dataprovidern till data konsumentens data lager. Du kan övervaka frekvens, varaktighet och status för varje ögonblicks bild. 
 
-![Ögonblicks bilds historik](./media/sent-shares.png "Ögonblicks bilds historik") 
+![Skärm bild som visar skickade resurser i Azure Portal.](./media/sent-shares.png "Ögonblicks bilds historik") 
 
 Du kan visa mer information om varje ögonblicks bild körning genom att klicka på start datum för körning. Klicka sedan på status för varje data uppsättning för att visa mängden data som överförs, antalet filer/poster som har kopierats, varaktigheten för ögonblicks bilden, antalet virtuella kärnor som används och fel meddelandet om det finns några. 
 
@@ -50,9 +50,9 @@ Upp till 30 dagar efter ögonblicks bilds historik visas. Om du behöver spara o
 
 ## <a name="diagnostic-setting"></a>Diagnostisk inställning
 
-Du kan konfigurera diagnostikinställningar för att spara loggdata eller händelser. Navigera till övervakning – > diagnostikinställningar och välj **Lägg till diagnostisk inställning**. Välj de logg data eller händelser som du är intresse rad av och var du vill lagra eller skicka dem. 
+Du kan konfigurera diagnostikinställningar för att spara loggdata eller händelser. Navigera till övervakning – > diagnostikinställningar och välj **Lägg till diagnostisk inställning** . Välj de logg data eller händelser som du är intresse rad av och var du vill lagra eller skicka dem. 
 
-![Ögonblicks bilds historik](./media/diagnostic-settings.png "Diagnostikinställningar") 
+![Skärm bild som visar sidan diagnostikinställningar i Azure Portal.](./media/diagnostic-settings.png "Diagnostikinställningar") 
 
 ## <a name="next-steps"></a>Nästa steg 
 

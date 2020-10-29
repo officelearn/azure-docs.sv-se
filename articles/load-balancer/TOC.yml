@@ -13,6 +13,7 @@
     - name: Skapa offentlig lastbalanserare – Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Skapa offentlig lastbalanserare – ARM-mall
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
     - name: Skapa intern lastbalanserare – portalen
       href: quickstart-load-balancer-standard-internal-portal.md
@@ -21,6 +22,7 @@
     - name: Skapa en intern lastbalanserare – Azure CLI
       href: quickstart-load-balancer-standard-internal-cli.md
     - name: Skapa intern lastbalanserare – ARM-mall
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Självstudier
@@ -53,6 +55,8 @@
       items:
         - name: Hälsotillståndsavsökningar
           href: load-balancer-custom-probe-overview.md
+        - name: Azure Monitor-insikter för Load Balancer
+          href: load-balancer-insights.md
         - name: Mått och diagnostik för Standard Load Balancer
           href: load-balancer-standard-diagnostics.md
         - name: Azure Monitor-loggar för Basic Load Balancer

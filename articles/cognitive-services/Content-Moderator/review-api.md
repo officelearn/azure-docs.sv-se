@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a66c49d64ab9ba589050e1f20399f7f193b76e
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872059"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912964"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Granskningar av innehålls moderatorer, arbets flöden och jobb
 
@@ -35,7 +35,7 @@ Ett arbets flöde är ett molnbaserad anpassat filter för innehåll. Arbets fl�
 
 ### <a name="view-workflows"></a>Visa arbets flöden
 
-Om du vill visa dina befintliga arbets flöden går du till [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) och väljer **Inställningar**  >  **arbets flöden**.
+Om du vill visa dina befintliga arbets flöden går du till [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) och väljer **Inställningar**  >  **arbets flöden** .
 
 ![Standard arbets flöde](images/default-workflow-listed.PNG)
 
@@ -75,5 +75,5 @@ Se [rest Apis guide](./try-review-api-job.md) för att komma igång med jobb.
 ## <a name="next-steps"></a>Nästa steg
 
 * Testkör jobb- [API-konsolen](try-review-api-job.md)och Använd REST API kod exempel. Om du är bekant med Visual Studio och C# kan du också ta en titt på [jobben .net snabb start](moderation-jobs-quickstart-dotnet.md). 
-* För recensioner kan du komma igång med [Granska API-konsolen](try-review-api-review.md)och använda REST API kod exempel. Se avsnittet recensioner i [.net-snabb](dotnet-sdk-quickstart.md)starten.
+* För recensioner kan du komma igång med [Granska API-konsolen](try-review-api-review.md)och använda REST API kod exempel. Se avsnittet recensioner i [.net-snabb](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)starten.
 * För video granskningar använder du [snabb starten för video granskning](video-reviews-quickstart-dotnet.md)och lär dig hur du [lägger till avskrifter i video granskningen](video-transcript-reviews-quickstart-dotnet.md).

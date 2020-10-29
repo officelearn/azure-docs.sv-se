@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 4f381e2f2e9f85422bd5f4fb89ec684f4bc99f91
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9287e9661172480292a2214b231e7e5dac9c32f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970817"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912251"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -28,13 +28,13 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 
 - **REST API referens är tillgänglig** – Visa [v 2.1 – för hands version. 1 referens](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
-- **Nya språk som stöds utöver engelska**, följande [språk](language-support.md) stöds nu: for `Layout` och `Train Custom Model` : engelska ( `en` ), kinesiska (förenklad) ( `zh-Hans` ), nederländska () `nl` , franska (), tyska (), `fr` italienska (), portugisiska ( `de` `it` `pt` ) och spanska ( `es` ).
+- **Nya språk som stöds utöver engelska** , följande [språk](language-support.md) stöds nu: for `Layout` och `Train Custom Model` : engelska ( `en` ), kinesiska (förenklad) ( `zh-Hans` ), nederländska () `nl` , franska (), tyska (), `fr` italienska (), portugisiska ( `de` `it` `pt` ) och spanska ( `es` ).
 - **Kryss ruta och identifiering av markerings märke** – formulär tolken stöder identifiering och extrahering av markerings märken som kryss rutor och alternativ knappar. Markerings markeringar extraheras i `Layout` och du kan nu också märka och träna i `Train Custom Model`  -  _träna med etiketter_ för att extrahera nyckel värde par för markerings märken. 
-- Med **modellens Skriv** möjlighet kan flera modeller skapas och anropas med ett enda modell-ID. När ett dokument skickas för att analyseras med ett sammansatt modell-ID utförs ett klassificerings steg först för att dirigera det till rätt anpassad modell. Modellens Skriv sätt är tillgängligt för `Train Custom Model`  -  _träna med etiketter_.
+- Med **modellens Skriv** möjlighet kan flera modeller skapas och anropas med ett enda modell-ID. När ett dokument skickas för att analyseras med ett sammansatt modell-ID utförs ett klassificerings steg först för att dirigera det till rätt anpassad modell. Modellens Skriv sätt är tillgängligt för `Train Custom Model`  -  _träna med etiketter_ .
 - **Modell namn** Lägg till ett eget namn i dina anpassade modeller för enklare hantering och spårning.
 - Ny fördefinierad **[modell för visitkort](concept-business-cards.md)** som används för att extrahera vanliga fält på engelska, språk visitkort.
 - **[Nya språk för förbyggda kvitton](concept-receipts.md)** , förutom en-US, support är nu tillgängligt för en-au, en-ca, en-GB, en-i
-- **Kvalitets förbättringar** för `Layout` , `Train Custom Model`  -  _träna utan etiketter_ och _träna med etiketter_.
+- **Kvalitets förbättringar** för `Layout` , `Train Custom Model`  -  _träna utan etiketter_ och _träna med etiketter_ .
 
 
 **v 2.0** innehåller följande uppdatering:
@@ -45,7 +45,7 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 **Nya exempel** finns på GitHub. 
 - [Recepten för kunskaps extrahering – formulär Spelbok](https://github.com/microsoft/knowledge-extraction-recipes-forms) samlar in bästa praxis från riktiga formulär som kund engagemang och ger användbara kod exempel, check listor och exempel på pipelines som används för att utveckla dessa projekt. 
 - [Verktyget för samplings etiketter](https://github.com/microsoft/OCR-Form-Tools) har uppdaterats för att stödja de nya v 2.1-funktionerna. Se den här [snabb](quickstarts/label-tool.md) starten för att komma igång med verktyget. 
-- Formulär tolks exemplet i [intelligent kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) visar hur du integrerar `Analyze Receipt` och `Train Custom Model`  -  _tränar utan etiketter_.
+- Formulär tolks exemplet i [intelligent kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) visar hur du integrerar `Analyze Receipt` och `Train Custom Model`  -  _tränar utan etiketter_ .
 
 
 
@@ -53,14 +53,14 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 ### <a name="new-features"></a>Nya funktioner
 
-* **v 2.0-referensen är tillgänglig** Visa [v 2.0 API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) och de uppdaterade SDK: erna för [.net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)och [Java Script](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
-* Förbättringar av **tabell förbättringar och extraktioner** omfattar precisions förbättringar och förbättringar av tabell extrahering, särskilt möjligheten att lära tabell rubriker och strukturer i _anpassade tåg utan etiketter_. 
+* **v 2.0-referensen är tillgänglig** Visa [v 2.0 API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) och de uppdaterade SDK: erna för [.net](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)och [Java Script](/javascript/api/overview/azure/?view=azure-node-latest).
+* Förbättringar av **tabell förbättringar och extraktioner** omfattar precisions förbättringar och förbättringar av tabell extrahering, särskilt möjligheten att lära tabell rubriker och strukturer i _anpassade tåg utan etiketter_ . 
 
 * **Valuta stöd** Identifiering och extrahering av globala valuta symboler.
 * **Azure-gov** Formulär igenkänning är nu också tillgängligt i Azure gov.
-* **Förbättrade säkerhetsfunktioner**: 
-   * **Ta med din egen nyckel**  Formulär tolken krypterar dina data automatiskt när de sparas i molnet för att skydda dem och hjälpa dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Som standard använder din prenumeration krypteringsnycklar som hanteras av Microsoft. Du kan nu även hantera din prenumeration med dina egna krypterings nycklar. [Kundhanterade nycklar (CMK), som även kallas för att ta med din egen nyckel (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest), erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data.  
-   * **Privata slut punkter** – gör att du på ett virtuellt nätverk (VNet) kan [komma åt data på ett säkert sätt via en privat länk. ](https://docs.microsoft.com/azure/private-link/private-link-overview)
+* **Förbättrade säkerhetsfunktioner** : 
+   * **Ta med din egen nyckel**  Formulär tolken krypterar dina data automatiskt när de sparas i molnet för att skydda dem och hjälpa dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Som standard använder din prenumeration krypteringsnycklar som hanteras av Microsoft. Du kan nu även hantera din prenumeration med dina egna krypterings nycklar. [Kundhanterade nycklar (CMK), som även kallas för att ta med din egen nyckel (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data.  
+   * **Privata slut punkter** – gör att du på ett virtuellt nätverk (VNet) kan [komma åt data på ett säkert sätt via en privat länk.](../../private-link/private-link-overview.md)
 
 
 ## <a name="june-2020"></a>Juni 2020
@@ -78,10 +78,10 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 ### <a name="new-features"></a>Nya funktioner
 * **SDK-stöd för Forms IGENKÄNNING API v 2.0 offentlig för hands version** Den här månaden utökade vi vår tjänst support för att inkludera en för hands versions-SDK för formulär igenkännings versionen v 2.0 (för hands version). Använd länkarna nedan för att komma igång med ditt val av språk: 
-   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
-   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
-   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
+   * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
+   * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
+   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
+   * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
 
   Den nya SDK: n stöder alla funktioner i v 2.0-REST API för formulär igenkänning. Du kan till exempel träna en modell med eller utan etiketter och extrahera text, nyckel värde par och tabeller från dina formulär, extrahera data från kvitton med den förbyggda tjänsten för inaktuella inleveranser och extrahera text och tabeller med layout tjänsten från dina dokument. Du kan dela din feedback på SDK: erna via [feedback-formuläret för SDK](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -91,8 +91,8 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 ### <a name="security-improvements"></a>Förbättringar av säkerhet
 
-* Kundhanterade nycklar är nu tillgängliga för FormRecognizer. Mer information finns i [data kryptering i vila för formulär igenkänning](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest).
-* Använd hanterade identiteter för åtkomst till Azure-resurser med Azure Active Directory. Mer information finns i [ge åtkomst till hanterade identiteter](https://docs.microsoft.com/azure/cognitive-services/authentication#authorize-access-to-managed-identities).
+* Kundhanterade nycklar är nu tillgängliga för FormRecognizer. Mer information finns i [data kryptering i vila för formulär igenkänning](./form-recognizer-encryption-of-data-at-rest.md).
+* Använd hanterade identiteter för åtkomst till Azure-resurser med Azure Active Directory. Mer information finns i [ge åtkomst till hanterade identiteter](../authentication.md#authorize-access-to-managed-identities).
 
 ## <a name="march-2020"></a>Mars 2020 
 

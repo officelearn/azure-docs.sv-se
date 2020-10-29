@@ -3,21 +3,22 @@ title: Sök efter en plats med Azure Maps Sök tjänster
 description: 'Läs mer om Azure Maps Search-tjänsten. Se hur du använder den här uppsättningen med API: er för kodning, omvänd hår kodning, fuzzy-sökningar och omvänd Cross-gata-sökningar.'
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/21/2020
+ms.date: 10/05/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9628ecada2e427f6220ae2a5154cebb8e4958bd0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 00ddb53276c052d538d658f2c40384e86cf72aee
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895706"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910992"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Sök efter en plats med Azure Maps Sök tjänster
 
 [Azure Maps search service](/rest/api/maps/search) är en uppsättning RESTful-API: er som är utformade för att hjälpa utvecklare att söka i adresser, platser och affärs listor efter namn, kategori och annan geografisk information. Förutom att stödja traditionell hår ande kod kan tjänster också omvända koder för hår koder och korsade gator utifrån latitud och longitud. Värdena för latitud och longitud som returneras av sökningen kan användas som parametrar i andra Azure Maps tjänster, t. ex. [routning](/rest/api/maps/route) och [väder](/rest/api/maps/weather) tjänster.
+
 
 I den här artikeln får du lära dig att:
 
@@ -44,9 +45,7 @@ I det här exemplet använder vi Azure Maps [Hämta Sök adress-API](/rest/api/m
 
 2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran** . Ange ett **namn** för begäran. Välj den samling som du skapade i föregående steg och välj sedan **Spara** .
 
-3. Välj metoden **Hämta** http på fliken Builder och ange följande URL. I den här förfrågan söker vi efter en speciell adress: `400 Braod St, Seattle, WA 98109` .
-
-    För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln. Begäran bör se ut som följande URL:
+3. Välj metoden **Hämta** http på fliken Builder och ange följande URL. I den här förfrågan söker vi efter en speciell adress: `400 Braod St, Seattle, WA 98109` . För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln.
 
     ```http
     https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
@@ -60,7 +59,7 @@ I det här exemplet använder vi Azure Maps [Hämta Sök adress-API](/rest/api/m
 
 6. Försök sedan `query` att ange nyckeln till `400 Broa` .
 
-7. Klicka på knappen **Skicka** .  Nu kan du se att svaret innehåller svar från flera länder. Om du vill göra ett neutralt resultat till det relevanta område för dina användare ska du alltid lägga till så många plats detaljer som möjligt för begäran.
+7. Klicka på knappen **Skicka** . Nu kan du se att svaret innehåller svar från flera länder. Om du vill göra ett neutralt resultat till det relevanta område för dina användare ska du alltid lägga till så många plats detaljer som möjligt för begäran.
 
 ## <a name="using-fuzzy-search-api"></a>Använda API för fuzzy-sökning
 
@@ -78,7 +77,7 @@ I det här exemplet ska vi använda FUZZY search för att söka hela världen ef
 
 1. Öppna Postman-appen, klicka på **ny** och välj **begäran** . Ange ett **namn** för begäran. Välj den samling som du skapade i föregående avsnitt eller skapa en ny och välj sedan **Spara** .
 
-2. Välj metoden **Hämta** http på fliken Builder och ange följande URL. För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln. Begäran bör se ut som följande URL:
+2. Välj metoden **Hämta** http på fliken Builder och ange följande URL. För den här begäran och andra begär Anden som nämns i den här artikeln ersätter `{Azure-Maps-Primary-Subscription-key}` du med den primära prenumerations nyckeln.
 
     ```http
    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza

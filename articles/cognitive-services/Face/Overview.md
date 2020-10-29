@@ -11,12 +11,12 @@ ms.date: 9/17/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: ansikts igenkänning, ansikts igenkännings program, ansikts analys, ansikts matchning, ansikts igenkännings program, ansikts sökning efter bild, ansikts igenkännings sökning
-ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262492"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911451"
 ---
 # <a name="what-is-the-azure-face-service"></a>Vad är Azure Face service?
 
@@ -34,7 +34,7 @@ Ansikts tjänsten innehåller flera olika funktioner för ansikts analys som är
 Ansikts tjänsten identifierar människo ansikten i en bild och returnerar Rectangle-koordinaterna för deras platser. Om du vill kan ansikts igenkänning extrahera en serie av ansikts attribut, till exempel Head attityd, kön, ålder, känslo, ansikts hår och glasögon.
 
 > [!NOTE]
-> Funktionen för ansikts igenkänning är också tillgänglig via [visuellt innehålls tjänsten](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Men om du vill utföra ytterligare åtgärder med ansikts data bör du använda den här tjänsten i stället.
+> Funktionen för ansikts igenkänning är också tillgänglig via [visuellt innehålls tjänsten](../computer-vision/overview.md). Men om du vill utföra ytterligare åtgärder med ansikts data bör du använda den här tjänsten i stället.
 
 ![En bild av en kvinna och en man, med rektanglar som ritas runt deras ansikten och ålder och kön visas](./Images/Face.detection.jpg)
 
@@ -48,7 +48,7 @@ Verifierings-API: t utför en autentisering mot två identifierade ansikten elle
 
 Hitta liknande API: er möter ansikts matchning mellan målets ansikte och en uppsättning kandidater, och söker efter en mindre uppsättning ansikten som ser ut ungefär som mål ytan. Detta är användbart för att göra en ansikts sökning efter bild. 
 
-Det finns stöd för två arbets lägen, **matchPerson** och **matchFace**. **MatchPerson** -läget returnerar liknande ansikten efter filtrering av samma person med hjälp av [verifierings-API: et](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). **MatchFace** -läget ignorerar filtret för samma person. Den returnerar en lista över liknande kandidater som kanske inte tillhör samma person.
+Det finns stöd för två arbets lägen, **matchPerson** och **matchFace** . **MatchPerson** -läget returnerar liknande ansikten efter filtrering av samma person med hjälp av [verifierings-API: et](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). **MatchFace** -läget ignorerar filtret för samma person. Den returnerar en lista över liknande kandidater som kanske inte tillhör samma person.
 
 I följande exempel visas målets ansikte:
 
@@ -76,7 +76,7 @@ När du har skapat och tränat en databas kan du göra en identifiering mot grup
 
 Mer information om person identifiering finns i rikt linjer för [ansikts igenkänning](concepts/face-recognition.md) eller referens dokumentation för att [identifiera API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) .
 
-## <a name="containers"></a>Containers
+## <a name="containers"></a>Containrar
 
 [Använd behållaren ansikts](face-how-to-install-containers.md) för att identifiera, identifiera och identifiera ansikten genom att installera en standardiserad Docker-behållare närmare dina data.
 

@@ -2,22 +2,22 @@
 title: Konfigurera diagnostikloggar – Azure Event Hub | Microsoft Docs
 description: Lär dig hur du konfigurerar aktivitets loggar och diagnostikloggar för Event Hub i Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: a7230746dc4225b04b0507c872416368aa14442b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88927739"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912607"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurera diagnostikloggar för en Azure-händelsehubb
 
 Du kan visa två typer av loggar för Azure Event Hubs:
 
-* **[Aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md)**: loggarna innehåller information om åtgärder som utförs i ett jobb. Loggarna är alltid aktiverade. Du kan se aktivitets logg poster genom att välja **aktivitets logg** i det vänstra fönstret för ditt Event Hub-namnområde i Azure Portal. Exempel: "skapa eller uppdatera namn område", "skapa eller uppdatera Event Hub".
+* **[Aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md)** : loggarna innehåller information om åtgärder som utförs i ett jobb. Loggarna är alltid aktiverade. Du kan se aktivitets logg poster genom att välja **aktivitets logg** i det vänstra fönstret för ditt Event Hub-namnområde i Azure Portal. Exempel: "skapa eller uppdatera namn område", "skapa eller uppdatera Event Hub".
 
     ![Aktivitets logg för ett Event Hubs-namnområde](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md)**: diagnostikloggar ger mer utförlig information om åtgärder och åtgärder som utförs mot ditt namn område med hjälp av API: et, eller via hanterings klienter på språk-SDK: n. 
+* **[Diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md)** : diagnostikloggar ger mer utförlig information om åtgärder och åtgärder som utförs mot ditt namn område med hjälp av API: et, eller via hanterings klienter på språk-SDK: n. 
     
     I följande avsnitt visas hur du aktiverar diagnostikloggar för ett Event Hubs namn område.
 
@@ -25,7 +25,7 @@ Du kan visa två typer av loggar för Azure Event Hubs:
 Diagnostikloggar är inaktiverade som standard. Följ dessa steg om du vill aktivera diagnostikloggar:
 
 1.  I [Azure Portal](https://portal.azure.com)navigerar du till Event Hubs namn området. 
-2. Välj **diagnostikinställningar** under **övervakning** i den vänstra rutan och välj sedan **+ Lägg till diagnostisk inställning**. 
+2. Välj **diagnostikinställningar** under **övervakning** i den vänstra rutan och välj sedan **+ Lägg till diagnostisk inställning** . 
 
     ![Sidan diagnostikinställningar – Lägg till diagnostisk inställning](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
 4. I avsnittet **kategori Detaljer** väljer du de **typer av diagnostikloggar** som du vill aktivera. Du hittar mer information om dessa kategorier längre fram i den här artikeln. 
@@ -188,7 +188,6 @@ Kafka user error log JSON innehåller element som anges i följande tabell:
 | `Message` | Informations meddelande som innehåller information om ett fel |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Händelse schema för Event Hubs virtuell nätverks anslutning
-
 Event Hubs virtuellt nätverk (VNet) Connection Event JSON innehåller element som anges i följande tabell:
 
 | Namn | Beskrivning |
@@ -196,10 +195,12 @@ Event Hubs virtuellt nätverk (VNet) Connection Event JSON innehåller element s
 | `SubscriptionId` | ID för Azure-prenumeration |
 | `NamespaceName` | Namn på namnområde |
 | `IPAddress` | IP-adress för en klient som ansluter till Event Hubs tjänsten |
-| `Action` | Åtgärd som utförs av den Event Hubs tjänsten vid utvärdering av anslutnings begär Anden. Åtgärder som stöds **accepterar anslutning** och **neka anslutning**. |
+| `Action` | Åtgärd som utförs av den Event Hubs tjänsten vid utvärdering av anslutnings begär Anden. Åtgärder som stöds **accepterar anslutning** och **neka anslutning** . |
 | `Reason` | Innehåller en orsak till varför åtgärden utfördes |
 | `Count` | Antal förekomster för den aktuella åtgärden |
 | `ResourceId` | Azure Resource Manager resurs-ID. |
+
+Virtuella nätverks loggar skapas endast om namn området tillåter åtkomst från **valda nätverk** eller från **vissa IP-adresser** (IP-filter regler). Om du inte vill begränsa åtkomsten till ditt namn område med dessa funktioner och fortfarande vill hämta virtuella nätverks loggar för att spåra IP-adresser för klienter som ansluter till Event Hubs-namnrymden kan du använda följande lösning. Aktivera IP-filtrering och Lägg till det totala adresser bara IPv4-intervallet (1.0.0.0/1-255.0.0.0/1). Event Hubs stöder inte IPv6-intervall. 
 
 ### <a name="example"></a>Exempel
 

@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c063fec3eac962d22ead12e0ca11f4b9fc155b5d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903195"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910159"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Felsöka Azure Stream Analytics utdata
 
@@ -67,7 +67,7 @@ Under normal drift av ett jobb kan utdata ha längre och längre tids perioder. 
 * Anger om den överordnade källan är begränsad
 * Om bearbetnings logiken i frågan är beräknings intensiv
 
-Om du vill visa information om utdata väljer du direkt uppspelnings jobbet i Azure Portal och väljer sedan **jobb diagram**. För varje Indatatyp finns det ett händelse mått per partition. Om måttet håller på att öka är det en indikator att system resurserna är begränsade. Ökningen kan bero på begränsning av utgående mottagare eller hög CPU-användning. Mer information finns i [data driven fel sökning med hjälp av jobb diagrammet](stream-analytics-job-diagram-with-metrics.md).
+Om du vill visa information om utdata väljer du direkt uppspelnings jobbet i Azure Portal och väljer sedan **jobb diagram** . För varje Indatatyp finns det ett händelse mått per partition. Om måttet håller på att öka är det en indikator att system resurserna är begränsade. Ökningen kan bero på begränsning av utgående mottagare eller hög CPU-användning. Mer information finns i [data driven fel sökning med hjälp av jobb diagrammet](stream-analytics-job-diagram-with-metrics.md).
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Varning om nyckel fel med Azure SQL Database utdata
 
@@ -81,7 +81,29 @@ Observera följande observationer när du konfigurerar IGNORE_DUP_KEY för flera
 
 * Du kan inte ange IGNORE_DUP_KEY på en primär nyckel eller en unik begränsning som använder ALTER INDEX. Du måste släppa indexet och återskapa det.  
 * Du kan ange IGNORE_DUP_KEY med hjälp av ALTER INDEX för ett unikt index. Den här instansen skiljer sig från en primär nyckel/unik begränsning och skapas med hjälp av ett CREATE-INDEX eller en INDEX definition.  
-* Alternativet IGNORE_DUP_KEY gäller inte för kolumn lagrings index eftersom du inte kan genomdriva unika objekt.  
+* Alternativet IGNORE_DUP_KEY gäller inte för kolumn lagrings index eftersom du inte kan genomdriva unika objekt.
+
+## <a name="sql-output-retry-logic"></a>SQL output-omförsök-logik
+
+När ett Stream Analytics jobb med SQL-utdata tar emot den första batchen med händelser inträffar följande steg:
+
+1. Jobbet försöker ansluta till SQL.
+2. Jobbet hämtar schemat för mål tabellen.
+3. Jobbet verifierar kolumn namn och typer mot mål tabellens schema.
+4. Jobbet förbereder en InMemory-datatabell från utgående poster i batchen.
+5. Jobbet skriver data tabellen till SQL med BulkCopy- [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1).
+
+Under de här stegen kan SQL-utdata uppleva följande typer av fel:
+
+* Tillfälliga [fel](/azure/azure-sql/database/troubleshoot-common-errors-issues#transient-fault-error-messages-40197-40613-and-others) som görs om med en exponentiell backoff-strategi för återförsök. Det minsta intervallet för återförsök beror på den enskilda felkoden, men intervallet är vanligt vis mindre än 60 sekunder. Den övre gränsen kan vara högst fem minuter. 
+
+   [Inloggnings fel](/azure/azure-sql/database/troubleshoot-common-errors-issues#unable-to-log-in-to-the-server-errors-18456-40531) och [brand Väggs problem](/azure/azure-sql/database/troubleshoot-common-errors-issues#cannot-connect-to-server-due-to-firewall-issues) görs minst 5 minuter efter det föregående försöket och provas tills det lyckas.
+
+* Data fel, t. ex. dataflödes fel och överträdelser av schema begränsningar, hanteras med fel policyn för utdata. Dessa fel hanteras genom att försöka att köra en binär delning igen tills den enskilda posten som orsakar felet hanteras av SKIP eller försök igen. En felaktig primär unik nyckel begränsnings begränsning [hanteras alltid](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output).
+
+* Icke-tillfälliga fel kan inträffa när det finns problem med SQL-tjänsten eller interna kod fel. Om t. ex. fel som (kod 1132) Elastisk pool nått sin lagrings gräns, löser inte försöken felet. I de här scenarierna är Stream Analytics jobb upplevelsen [försämrad](job-states.md).
+* `BulkCopy` tids gränser kan inträffa under `BulkCopy` steg 5. `BulkCopy` kan uppleva timeout för åtgärder ibland. Den minsta standardinställda tids gränsen är fem minuter och den dubbleras när den sträcker sig.
+När tids gränsen är över 15 minuter minskas det maximala batchstorleken till `BulkCopy` hälften förrän 100 händelser per batch lämnas.
 
 ## <a name="column-names-are-lowercase-in-azure-stream-analytics-10"></a>Kolumn namn är gemener i Azure Stream Analytics (1,0)
 

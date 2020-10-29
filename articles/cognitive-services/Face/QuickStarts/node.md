@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 0f87bc13a75355306f7d2d15b22ff9cdfaa53794
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f77282502a0032a5b1811e32d9aa47d9b4ede569
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858230"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912828"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Snabbstart: Identifiera ansikten i en bild med ansikts-REST API och Node.js
 
@@ -24,17 +24,17 @@ I den här snabb starten ska du använda Azures ansikts REST API med Node.js fö
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
-* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" skapar du en ansikts resurs "  target="_blank"> skapa en ansikts resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs** .
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Ansikts-API. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 - En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="set-up-the-node-environment"></a>Konfigurera nodmiljön
 
-Gå till mappen där du vill skapa projektet och skapa den nya filen *facedetection.js*. Installera sedan modulen `axios` i projektet. Det innebär att dina skript kan göra HTTP-begäranden.
+Gå till mappen där du vill skapa projektet och skapa den nya filen *facedetection.js* . Installera sedan modulen `axios` i projektet. Det innebär att dina skript kan göra HTTP-begäranden.
 
 ```shell
 npm install axios --save
@@ -42,7 +42,7 @@ npm install axios --save
 
 ## <a name="write-the-nodejs-script"></a>Skriv Node.js-skriptet
 
-Klistra in följande kod i *facedetection.js*. Dessa fält anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar dess indata. [Skapa miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) och Lägg till din prenumerations nyckel och slut punkt för ditt ansikte. Du kanske vill ändra fältet `imageUrl` så att det pekar på din egen inmatade bild.
+Klistra in följande kod i *facedetection.js* . Dessa fält anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar dess indata. [Skapa miljövariabler](../../cognitive-services-apis-create-account.md?tabs=multiservice%252cwindows#configure-an-environment-variable-for-authentication) och Lägg till din prenumerations nyckel och slut punkt för ditt ansikte. Du kanske vill ändra fältet `imageUrl` så att det pekar på din egen inmatade bild.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -60,7 +60,7 @@ När du har gjort dina ändringar öppnar du en kommandotolk och kör filen med 
 node facedetection.js
 ```
 
-Ett lyckat svar visar ansiktsinformation i lättläst JSON-format. Exempel:
+Ett lyckat svar visar ansiktsinformation i lättläst JSON-format. Till exempel:
 
 ```json
 [
@@ -88,7 +88,7 @@ Om du vill extrahera ansikts attribut använder du identifierings modell 1 och l
     },
 ```
 
-Svaret innehåller nu ansikts attribut. Exempel:
+Svaret innehåller nu ansikts attribut. Till exempel:
 
 ```json
 [

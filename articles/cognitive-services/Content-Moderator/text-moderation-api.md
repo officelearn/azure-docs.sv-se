@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85800099"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912913"
 ---
 # <a name="learn-text-moderation-concepts"></a>Lär dig om text moderator koncept
 
@@ -34,7 +34,7 @@ Tjänstsvaret innehåller följande information:
 
 ## <a name="profanity"></a>Olämpligt språk
 
-Om API: n identifierar eventuella svordomar i något av de [språk som stöds](Text-Moderation-API-Languages.md), inkluderas dessa villkor i svaret. Svaret innehåller också deras plats ( `Index` ) i den ursprungliga texten. `ListId`I följande exempel-JSON refererar de termer som finns i [anpassade term listor](try-terms-list-api.md) om de är tillgängliga.
+Om API: n identifierar eventuella svordomar i något av de [språk som stöds](./language-support.md), inkluderas dessa villkor i svaret. Svaret innehåller också deras plats ( `Index` ) i den ursprungliga texten. `ListId`I följande exempel-JSON refererar de termer som finns i [anpassade term listor](try-terms-list-api.md) om de är tillgängliga.
 
 ```json
 "Terms": [
@@ -47,13 +47,13 @@ Om API: n identifierar eventuella svordomar i något av de [språk som stöds](T
 ```
 
 > [!NOTE]
-> För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska**.
+> För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska** .
 >
 > För identifiering av **svordomar** kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
 
 ## <a name="classification"></a>Klassificering
 
-Content Moderator funktionen för maskin stöd för **text klassificering** stöder **endast engelska**och hjälper till att identifiera potentiellt oönskat innehåll. Det flaggade innehållet kan utvärderas som olämpligt beroende på kontext. Den förmedlar sannolikheten för varje kategori och kan rekommendera en mänsklig granskning. Funktionen använder en tränad modell för att identifiera eventuellt stötande, avvikande eller diskriminerande språk. Detta omfattar slang, förkortade ord, stötande och avsiktligt felstavade ord för granskning. 
+Content Moderator funktionen för maskin stöd för **text klassificering** stöder **endast engelska** och hjälper till att identifiera potentiellt oönskat innehåll. Det flaggade innehållet kan utvärderas som olämpligt beroende på kontext. Den förmedlar sannolikheten för varje kategori och kan rekommendera en mänsklig granskning. Funktionen använder en tränad modell för att identifiera eventuellt stötande, avvikande eller diskriminerande språk. Detta omfattar slang, förkortade ord, stötande och avsiktligt felstavade ord för granskning. 
 
 Följande utdrag i JSON-extraheringen visar ett exempel på utdata:
 
@@ -142,7 +142,7 @@ Om du ber om automatisk korrigering innehåller svaret den korrigerade versionen
 Standardinställningen är att den globala listan över termer fungerar bra i de flesta fall, men du kanske vill skärmen mot de villkor som är specifika för dina affärs behov. Du kanske till exempel vill filtrera bort eventuella konkurrens märkes namn från inlägg av användare.
 
 > [!NOTE]
-> Det finns en maxgräns på **5 termlistor** där varje lista kan innehålla **högst 10 000 termer**.
+> Det finns en maxgräns på **5 termlistor** där varje lista kan innehålla **högst 10 000 termer** .
 >
 
 I följande exempel visas matchnings List-ID:

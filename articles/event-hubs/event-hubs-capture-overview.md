@@ -3,12 +3,12 @@ title: Avbilda strömmande händelser – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en översikt över insamlings funktionen som gör att du kan avbilda händelser som strömmas via Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1b79db7a7f8d0fe03b21e005ef696d5fe55ac0a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32741fdd98ec79c38568ff5a6c4fa476f27d794b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613415"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912624"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Avbilda händelser via Azure Event Hubs i Azure Blob Storage eller Azure Data Lake Storage
 Med Azure Event Hubs kan du automatiskt samla in strömmande data i Event Hubs i [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) eller [Azure Data Lake Storage gen 1-eller gen 2](https://azure.microsoft.com/services/data-lake-store/) -konto, med den extra flexibiliteten att ange en tid eller ett storleks intervall. Att konfigurera avbildningen är snabbt, det finns inga administrativa kostnader att köra den och skalar automatiskt med Event Hubs [data flödes enheter](event-hubs-scalability.md#throughput-units). Event Hubs Capture är det enklaste sättet att läsa in strömmande data i Azure och du kan fokusera på data bearbetning i stället för på data fångst.
@@ -58,6 +58,8 @@ Du kan konfigurera avbildningen vid skapande tiden för händelsehubben med hjä
 - [Aktivera avbildningsfunktionen i Event Hubs med Azure Portal](event-hubs-capture-enable-through-portal.md)
 - [Skapa ett namnområde för Event Hubs med en händelsehubb och aktivera avbildning med hjälp av en Azure Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
+> [!NOTE]
+> Om du aktiverar insamlings funktionen för en befintlig händelsehubben, fångar funktionen händelser som kommer till händelsehubben **när** funktionen är aktive rad. Den fångar inte in händelser som fanns i händelsehubben innan funktionen var aktive rad. 
 
 ## <a name="exploring-the-captured-files-and-working-with-avro"></a>Utforska de fångade filerna och arbeta med Avro
 

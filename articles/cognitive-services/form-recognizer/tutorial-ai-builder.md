@@ -9,19 +9,19 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 90e6c41ad9f6b3d13f29e76d053287395eb88aed
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889909"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912335"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Självstudie: skapa en app för bearbetning av formulär med AI Builder
 
-[AI Builder](https://docs.microsoft.com/ai-builder/overview) är en Power Platform-funktion som gör att du kan automatisera processer och förutsäga resultat för att förbättra affärs prestanda. Du kan använda AI Builder-formulär bearbetning för att skapa AI-modeller som identifierar och extraherar nyckel/värde-par och tabell data från formulär dokument.
+[AI Builder](/ai-builder/overview) är en Power Platform-funktion som gör att du kan automatisera processer och förutsäga resultat för att förbättra affärs prestanda. Du kan använda AI Builder-formulär bearbetning för att skapa AI-modeller som identifierar och extraherar nyckel/värde-par och tabell data från formulär dokument.
 
 > [!NOTE]
-> Det här projektet är också tillgängligt som en [Microsoft Learn modul](https://docs.microsoft.com/learn/modules/get-started-with-form-processing/).
+> Det här projektet är också tillgängligt som en [Microsoft Learn modul](/learn/modules/get-started-with-form-processing/).
 
 I de här självstudierna får du lära dig att
 
@@ -129,11 +129,11 @@ Om du är nöjd med din modell väljer du **publicera**  för att publicera den.
 > [!div class="mx-imgBorder"]
 > ![Sidan publicera modell](./media/tutorial-ai-builder/model-page.png)
 
-När du har publicerat din formulär bearbetnings modell kan du använda den i en [app för Power Apps-arbetsytan](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) eller i [energi spar läge](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
+När du har publicerat din formulär bearbetnings modell kan du använda den i en [app för Power Apps-arbetsytan](/ai-builder/form-processor-component-in-powerapps) eller i [energi spar läge](/ai-builder/form-processing-model-in-flow).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Följ AI Builder-dokumentationen för att använda en formulär bearbetnings modell.
 
-* [Använd komponenten form-processor i Power Apps](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps)
-* [Använd en formulär bearbetnings modell i automatiserad energi förbrukning](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow)
+* [Använd komponenten form-processor i Power Apps](/ai-builder/form-processor-component-in-powerapps)
+* [Använd en formulär bearbetnings modell i automatiserad energi förbrukning](/ai-builder/form-processing-model-in-flow)

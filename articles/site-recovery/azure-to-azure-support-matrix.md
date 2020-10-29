@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: b90f0c379310e8557f08f0f318ab6abe2c0be016
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 05e29278f6b9ce5436979c0533551763e2f90462
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520946"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911043"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Supportmatris för haveriberedskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -44,8 +44,8 @@ Du kan replikera och återställa virtuella datorer mellan två regioner i samma
 **Geografiskt kluster** | **Azure-regioner**
 -- | --
 Vägnar | Östra Kanada, centrala Kanada, södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2, centrala USA, norra centrala USA
-Europa | Storbritannien, västra, Storbritannien, södra, Nord Europa, Västeuropa, västra Europa, västra Sydafrika, norra Norge, östra Norge, västra Frankrike, centrala Frankrike
-Asien | Södra Indien, centrala Indien, västra Indien, Sydostasien, Asien, östra, Östra Japan, västra Japan, centrala Korea, centrala Korea, södra Korea
+Europe | Storbritannien, västra, Storbritannien, södra, Nord Europa, Västeuropa, Västeuropa, västra Sydafrika, norra Norge, östra Norge, västra USA, centrala Frankrike, Schweiz, norra
+Asia | Södra Indien, centrala Indien, västra Indien, Sydostasien, Asien, östra, Östra Japan, västra Japan, centrala Korea, centrala Korea, södra Korea
 Australien    | Australien, östra, Australien, sydöstra, Australien, centrala, Australien, centrala 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, USA DOD öst, USA DOD Central
 Tyskland    | Tyskland, centrala, Tyskland nordöstra
@@ -54,7 +54,7 @@ Begränsade regioner som är reserverade för haveri beredskap i landet |Tysklan
 
 >[!NOTE]
 >
-> - För **södra Brasilien**kan du replikera och redundansväxla till dessa regioner: södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och norra centrala USA.
+> - För **södra Brasilien** kan du replikera och redundansväxla till dessa regioner: södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och norra centrala USA.
 > - Södra Brasilien kan endast användas som käll region från vilka virtuella datorer kan replikeras med hjälp av Site Recovery. Den kan inte fungera som mål region. Detta beror på fördröjnings problem på grund av geografiska avstånd. Observera att om du växlar över från Brasilien, södra som käll region till ett mål, stöds failback till södra Brasilien från mål regionen.
 > - Du kan arbeta i regioner som du har lämplig åtkomst till.
 > - Om den region där du vill skapa ett valv inte visas kontrollerar du att prenumerationen har åtkomst till att skapa resurser i den regionen.
@@ -280,7 +280,7 @@ Intern belastningsutjämnare | Stöds | Koppla den förkonfigurerade belastnings
 Offentlig IP-adress | Stöds | Koppla en befintlig offentlig IP-adress till NÄTVERKSKORTet. Du kan också skapa en offentlig IP-adress och associera den med NÄTVERKSKORTet med hjälp av ett Azure Automation-skript i en återställnings plan.
 NSG på nätverkskort | Stöds | Koppla NSG till NÄTVERKSKORTet med hjälp av ett Azure Automation-skript i en återställnings plan.
 NSG i undernät | Stöds | Koppla NSG till under nätet med hjälp av ett Azure Automation-skript i en återställnings plan.
-Reserverad (statisk) IP-adress | Stöds | Om NÄTVERKSKORTet på den virtuella käll datorn har en statisk IP-adress, och mål under nätet har samma IP-adress, tilldelas den misslyckade över VM.<br/><br/> Om mål under nätet inte har samma IP-adress är en av de tillgängliga IP-adresserna i under nätet reserverad för den virtuella datorn.<br/><br/> Du kan också ange en fast IP-adress och undernät i inställningar för **replikerade objekt**,  >  **Settings**  >  **beräknings-och nätverks**  >  **nätverks gränssnitt**.
+Reserverad (statisk) IP-adress | Stöds | Om NÄTVERKSKORTet på den virtuella käll datorn har en statisk IP-adress, och mål under nätet har samma IP-adress, tilldelas den misslyckade över VM.<br/><br/> Om mål under nätet inte har samma IP-adress är en av de tillgängliga IP-adresserna i under nätet reserverad för den virtuella datorn.<br/><br/> Du kan också ange en fast IP-adress och undernät i inställningar för **replikerade objekt** ,  >  **Settings**  >  **beräknings-och nätverks**  >  **nätverks gränssnitt** .
 Dynamisk IP-adress | Stöds | Om NÄTVERKSKORTet på källan har dynamisk IP-adressering, är NÄTVERKSKORTet på den misslyckade virtuella datorn också dynamiskt som standard.<br/><br/> Du kan ändra detta till en fast IP-adress om det behövs.
 Flera IP-adresser | Stöds inte | När du växlar över en virtuell dator som har ett nätverkskort med flera IP-adresser behålls bara den primära IP-adressen för NÄTVERKSKORTet i käll regionen. Om du vill tilldela flera IP-adresser kan du lägga till virtuella datorer i en [återställnings plan](recovery-plan-overview.md) och bifoga ett skript för att tilldela ytterligare IP-adresser till planen, eller så kan du göra ändringen manuellt eller med ett skript efter redundansväxlingen.
 Traffic Manager     | Stöds | Du kan förkonfigurera Traffic Manager så att trafiken dirigeras till slut punkten i käll regionen regelbundet och till slut punkten i mål regionen i händelse av redundans.

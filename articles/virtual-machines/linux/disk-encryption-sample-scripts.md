@@ -8,34 +8,43 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: dcfae72d5f15399dc4c759ab859ad8059134f11d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d178ae39d3af6b39047501f0bc47acbc6e792f48
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279798"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911502"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Azure Disk Encryption exempel skript för virtuella Linux-datorer
 
-Den här artikeln innehåller exempel skript för att förbereda förkrypterade virtuella hård diskar och andra uppgifter.
+Den här artikeln innehåller exempel skript för att förbereda förkrypterade virtuella hård diskar och andra uppgifter.  
 
- 
+> [!NOTE]
+> Alla skript avser den senaste, icke-AAD-versionen av ADE, förutom där det anges.
 
 ## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>Exempel på PowerShell-skript för Azure Disk Encryption 
 
 - **Lista alla krypterade virtuella datorer i din prenumeration**
+  
+  Du kan hitta alla ADE-krypterade virtuella datorer och tilläggs versionen i alla resurs grupper som finns i en prenumeration med hjälp av [det här PowerShell-skriptet](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VM.ps1).
 
-     ```azurepowershell-interactive
-     $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
-     $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
-     Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
-     ```
+  Dessa cmdletar visar också alla ADE-krypterade virtuella datorer (men inte tilläggs versionen):
+
+   ```azurepowershell-interactive
+   $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
+   $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
+   Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
+   ```
+
+- **Visa en lista över alla krypterade VMSS-instanser i din prenumeration**
+    
+    Du kan hitta alla ADE-krypterade VMSS-instanser och tilläggs versionen i alla resurs grupper som finns i en prenumeration med hjälp av [det här PowerShell-skriptet](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VMSS.ps1).
 
 - **Lista alla disk krypterings hemligheter som används för att kryptera virtuella datorer i ett nyckel valv** 
 
-     ```azurepowershell-interactive
-     Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
-     ```
+   ```azurepowershell-interactive
+   Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
+   ```
 
 ### <a name="using-the-azure-disk-encryption-prerequisites-powershell-script"></a>Använda PowerShell-skriptet Azure Disk Encryption krav
 Om du redan är bekant med kraven för Azure Disk Encryption kan du använda [PowerShell-skriptet Azure Disk Encryption krav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Ett exempel på hur du använder PowerShell-skriptet finns i [kryptera en snabb start för virtuell dator](disk-encryption-powershell-quickstart.md). Du kan ta bort kommentarerna från ett avsnitt i skriptet, med början på rad 211, för att kryptera alla diskar för befintliga virtuella datorer i en befintlig resurs grupp. 
@@ -53,14 +62,13 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
 |$aadClientSecret|Klient hemlighet för Azure AD-programmet som skapades tidigare.|Falskt|
 |$keyEncryptionKeyName|Namn på valfri nyckel krypterings nyckel i nyckel valvet. En ny nyckel med det här namnet kommer att skapas om det inte finns någon.|Falskt|
 
-
 ### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Kryptera eller dekryptera virtuella datorer utan en Azure AD-App
 
 - [Aktivera disk kryptering på en befintlig eller virtuell Linux-dator](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
 - [Inaktivera kryptering på en virtuell Linux-dator som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Det går bara att inaktivera kryptering på data volymer för virtuella Linux-datorer.  
 
-### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Kryptera eller dekryptera virtuella datorer med en Azure AD-App (tidigare version) 
+### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Kryptera eller dekryptera virtuella datorer med en Azure AD-App (tidigare version)
  
 - [Aktivera disk kryptering på en befintlig eller virtuell Linux-dator](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
@@ -71,10 +79,6 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
 
 - [Skapa en ny krypterad hanterad disk från en förkrypterad VHD/Storage-BLOB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - Skapar en ny krypterad hanterad disk som tillhandahöll en förkrypterad virtuell hård disk och dess motsvarande krypterings inställningar
-
-
-
-
 
 ## <a name="encrypting-an-os-drive-on-a-running-linux-vm"></a>Kryptera en OS-enhet på en virtuell Linux-dator som körs
 
@@ -227,7 +231,7 @@ Konfigurera kryptering så att den fungerar med Azure genom att utföra följand
     fi
    ```
 
-2. Ändra config config i */etc/crypttab*. Den bör se ut så här:
+2. Ändra config config i */etc/crypttab* . Den bör se ut så här:
    ```
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
@@ -254,7 +258,7 @@ Konfigurera kryptering så att den fungerar med Azure genom att utföra följand
 
 ### <a name="opensuse-132"></a>openSUSE 13,2
 Gör så här för att konfigurera kryptering under installationen av distributionen:
-1. När du partitionerar diskarna väljer du **kryptera volym grupp**och anger ett lösen ord. Det här är det lösen ord som du överför till ditt nyckel valv.
+1. När du partitionerar diskarna väljer du **kryptera volym grupp** och anger ett lösen ord. Det här är det lösen ord som du överför till ditt nyckel valv.
 
    ![openSUSE 13,2-konfiguration – kryptera volym grupp](./media/disk-encryption/opensuse-encrypt-fig1.png)
 

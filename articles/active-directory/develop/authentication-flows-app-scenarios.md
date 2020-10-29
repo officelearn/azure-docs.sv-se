@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: ff92f66d4d7b96660fe83b79273f65ca50eb22f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 906adb5b9535ee66fd7bc4a22c5c30a86b561547
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89292908"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910261"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Autentiserings flöden och program scenarier
 
@@ -42,8 +42,8 @@ I följande avsnitt beskrivs program kategorierna.
 
 Autentiserings scenarier omfattar två aktiviteter:
 
-- **Förvärva säkerhetstoken för ett skyddat webb-API**: Vi rekommenderar att du använder [Microsoft-klient bibliotek som stöds](reference-v2-libraries.md#microsoft-supported-client-libraries) för att hämta tokens. Vi rekommenderar särskilt Microsoft Authentication Library (MSAL)-serien.
-- **Skydda ett webb-API eller en webbapp**: en utmaning för att skydda dessa resurser är att verifiera säkerhetstoken. På vissa plattformar erbjuder Microsoft [bibliotek för mellanprogram](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
+- **Förvärva säkerhetstoken för ett skyddat webb-API** : Vi rekommenderar att du använder [Microsoft-klient bibliotek som stöds](reference-v2-libraries.md#microsoft-supported-client-libraries) för att hämta tokens. Vi rekommenderar särskilt Microsoft Authentication Library (MSAL)-serien.
+- **Skydda ett webb-API eller en webbapp** : en utmaning för att skydda dessa resurser är att verifiera säkerhetstoken. På vissa plattformar erbjuder Microsoft [bibliotek för mellanprogram](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
 ### <a name="with-users-or-without-users"></a>Med användare eller utan användare
 
@@ -59,14 +59,14 @@ Det finns dock även daemon-appar. I dessa scenarier hämtar appar token för si
 
 Du kan hämta säkerhetstoken med flera olika typer av program. Dessa program tenderar att delas upp i följande tre kategorier. Varje används med olika bibliotek och objekt.
 
-- **Program med en enda sida**: även kallat SPAs, dessa är webbappar där tokens förvärvas av en JavaScript-eller typescript-app som körs i webbläsaren. Många moderna appar har ett enda webb program på klient sidan som främst skrivs i Java Script. Programmet använder ofta ett ramverk som vinkel, reagera eller Vue. MSAL.js är det enda Microsoft Authentication Library som stöder program med en enda sida.
+- **Program med en enda sida** : även kallat SPAs, dessa är webbappar där tokens förvärvas av en JavaScript-eller typescript-app som körs i webbläsaren. Många moderna appar har ett enda webb program på klient sidan som främst skrivs i Java Script. Programmet använder ofta ett ramverk som vinkel, reagera eller Vue. MSAL.js är det enda Microsoft Authentication Library som stöder program med en enda sida.
 
-- **Offentliga klient program**: appar i den här kategorin, som följande typer, alltid loggar in användare:
+- **Offentliga klient program** : appar i den här kategorin, som följande typer, alltid loggar in användare:
   - Skrivbordsappar som anropar webb-API: er åt inloggade användare
   - Mobilappar
   - Appar som körs på enheter som inte har någon webbläsare, som de som körs på IoT
   
-- **Konfidentiella klient program**: appar i den här kategorin omfattar:
+- **Konfidentiella klient program** : appar i den här kategorin omfattar:
   - Webb program som anropar ett webb-API
   - Webb-API: er som anropar ett webb-API
   - Daemon-appar, även när de implementeras som en konsol tjänst som en Linux-daemon eller en Windows-tjänst
@@ -217,7 +217,7 @@ Scenarier som innefattar att förvärva token mappas också till OAuth 2,0-auten
  </tr>
 
   <tr>
-   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web app that signs in users" src="media/scenarios/web-app.svg"></a></td>
+   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web app that calls web APIs" src="media/scenarios/web-app.svg"></a></td>
    <td><a href="scenario-web-app-call-api-overview.md">Webbapp som anropar webb-API:er</a></td>
    <td><a href="v2-oauth2-auth-code-flow.md">Authorization code (Auktoriseringskod)</a></td>
    <td>Arbets-eller skol konton, personliga konton och Azure AD B2C</td>

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: b65c37ab06092be63cbb2ad9fb5e23cdb8324e80
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476169"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911825"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Konfigurera LVM och RAID på krypterade enheter
 
@@ -287,7 +287,7 @@ I stället för att använda namnet på enheten använder du/dev/mapper-sökväg
 
 ### <a name="configure-lvm-on-top-of-the-encrypted-layers"></a>Konfigurera LVM ovanpå de krypterade skikten
 #### <a name="create-the-physical-volumes"></a>Skapa de fysiska volymerna
-En varning visas som frågar om det är OK att rensa fil systemets signatur. Fortsätt genom att ange **y**eller Använd **ECHO "y"** som visas:
+En varning visas som frågar om det är OK att rensa fil systemets signatur. Fortsätt genom att ange **y** eller Använd **ECHO "y"** som visas:
 
 ```bash
 echo "y" | pvcreate /dev/mapper/c49ff535-1df9-45ad-9dad-f0846509f052
@@ -298,7 +298,7 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![Verifierar att en fysisk volym har skapats](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
 >[!NOTE] 
->/Dev/mapper/Device namn måste ersättas för dina faktiska värden baserat på utdata från **lsblk**.
+>/Dev/mapper/Device namn måste ersättas för dina faktiska värden baserat på utdata från **lsblk** .
 
 #### <a name="verify-the-information-for-physical-volumes"></a>Verifiera informationen för fysiska volymer
 ```bash
@@ -368,9 +368,9 @@ mount -a
 lsblk -fs
 df -h
 ```
-![Information om monterade fil system](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![Skärm bild som visar ett konsol fönster med fil system som monterats som Data0 och fil1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
-På den här varianten av **lsblk**visar vi enheterna som visar beroendena i omvänd ordning. Med det här alternativet kan du identifiera vilka enheter som grupperas av den logiska volymen i stället för den ursprungliga/dev/SD [disk] enhets namn.
+På den här varianten av **lsblk** visar vi enheterna som visar beroendena i omvänd ordning. Med det här alternativet kan du identifiera vilka enheter som grupperas av den logiska volymen i stället för den ursprungliga/dev/SD [disk] enhets namn.
 
 Det är viktigt att se till att alternativet **nomisslyckande** har lagts till i monterings punkt alternativen för de LVM-volymer som skapas ovanpå en enhet som är krypterad via Azure Disk Encryption. Det förhindrar att operativ systemet blir fastnat under start processen (eller i underhålls läge).
 
@@ -406,7 +406,7 @@ mdadm --create /dev/md10 \
 ![Information om konfigurerad RAID via kommandot mdadm](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 
 >[!NOTE] 
->/Dev/mapper/Device namn måste ersättas med dina faktiska värden, baserat på utdata från **lsblk**.
+>/Dev/mapper/Device namn måste ersättas med dina faktiska värden, baserat på utdata från **lsblk** .
 
 ### <a name="checkmonitor-raid-creation"></a>Kontrol lera/övervaka RAID-skapande
 ```bash
@@ -437,7 +437,7 @@ Kontrol lera att det nya fil systemet är monterat:
 lsblk -fs
 df -h
 ```
-![Information om monterade fil system](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![Skärm bild som visar ett konsol fönster med ett fil system monterat som raiddata.](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
 Det är viktigt att se till att alternativet **nomisslyckande** har lagts till i monterings punkt alternativen för de RAID-volymer som skapats ovanpå en enhet som är krypterad via Azure Disk Encryption. Det förhindrar att operativ systemet blir fastnat under start processen (eller i underhålls läge).
 

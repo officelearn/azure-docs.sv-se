@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ce922e3ce39bc3df9f4c242558644922e5713300
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 2ea8840a4c66ff05bea22c5c7c063e31d09f9dc8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494821"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911757"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Hantera slut punkter och vägar i Azure Digitals dubbla (API: er och CLI)
 
@@ -46,7 +46,7 @@ Om du vill länka en slut punkt till Azure Digitals-band måste Event Grid-ämne
 
 I följande exempel visas hur du skapar en slut punkt för Event Grid-typ med hjälp av Azure CLI. Du kan använda [Azure Cloud Shell](https://shell.azure.com)eller [Installera CLI lokalt](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
-Börja med att skapa ett event Grid-ämne. Du kan använda följande kommando eller Visa stegen mer detaljerat genom [att gå till avsnittet *skapa ett anpassat ämne* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) i snabb starten för Event Grid *anpassade händelser* .
+Börja med att skapa ett event Grid-ämne. Du kan använda följande kommando eller Visa stegen mer detaljerat genom [att gå till avsnittet *skapa ett anpassat ämne*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) i snabb starten för Event Grid *anpassade händelser* .
 
 ```azurecli-interactive
 az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
@@ -64,15 +64,15 @@ När du har skapat ämnet kan du länka det till Azure Digitals dubbla med följ
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Nu är event Grid-avsnittet tillgängligt som en slut punkt i Azure Digitals, under namnet som anges med `--endpoint-name` argumentet. Du använder vanligt vis det namnet som mål för en **händelse väg**, som du kommer att skapa [senare i den här artikeln](#create-an-event-route) med hjälp av Azure Digitals tjänst-API.
+Nu är event Grid-avsnittet tillgängligt som en slut punkt i Azure Digitals, under namnet som anges med `--endpoint-name` argumentet. Du använder vanligt vis det namnet som mål för en **händelse väg** , som du kommer att skapa [senare i den här artikeln](#create-an-event-route) med hjälp av Azure Digitals tjänst-API.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Skapa en Event Hubs-eller Service Bus-slutpunkt
 
 Processen för att skapa Event Hubs-eller Service Bus-slutpunkter liknar Event Grid processen som visas ovan.
 
 Börja med att skapa de resurser som du ska använda som slut punkt. Här är vad som krävs:
-* Service Bus: _Service Bus namnrymd_, _Service Bus ämne_, _auktoriseringsregel_
-* Event Hubs: _Event Hubs namnrymd_, _händelsehubben_, _auktoriseringsregel_
+* Service Bus: _Service Bus namnrymd_ , _Service Bus ämne_ , _auktoriseringsregel_
+* Event Hubs: _Event Hubs namnrymd_ , _händelsehubben_ , _auktoriseringsregel_
 
 Använd sedan följande kommandon för att skapa slut punkterna i Azure Digitals flätas: 
 
@@ -88,7 +88,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Skapa en slut punkt med obeställbara meddelanden
 
-När en slut punkt inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden**.
+När en slut punkt inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden** .
 
 Du måste använda [arm-API: erna](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) för att skapa slut punkten för att kunna skapa en slut punkt med att obeställbara meddelanden har Aktiver ATS. 
 
@@ -152,11 +152,11 @@ Här är ett exempel på ett meddelande om obeställbara meddelanden för ett [d
 
 ## <a name="create-an-event-route"></a>Skapa en händelse väg
 
-Om du faktiskt vill skicka data från digitala Azure-sändningar till en slut punkt måste du definiera en **händelse väg**. Med Azure Digitals **EventRoutes-API: er** kan utvecklare skapa händelse flöde, i hela systemet och i underordnade tjänster. Läs mer om händelse vägar i [*begrepp: routing Azure Digitals, dubbla händelser*](concepts-route-events.md).
+Om du faktiskt vill skicka data från digitala Azure-sändningar till en slut punkt måste du definiera en **händelse väg** . Med Azure Digitals **EventRoutes-API: er** kan utvecklare skapa händelse flöde, i hela systemet och i underordnade tjänster. Läs mer om händelse vägar i [*begrepp: routing Azure Digitals, dubbla händelser*](concepts-route-events.md).
 
 I exemplen i det här avsnittet används [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
 
-**Förutsättning**: du måste skapa slut punkter enligt beskrivningen ovan i den här artikeln innan du kan gå vidare till skapa en väg. Du kan fortsätta att skapa en händelse väg när slut punkterna har koner ATS.
+**Förutsättning** : du måste skapa slut punkter enligt beskrivningen ovan i den här artikeln innan du kan gå vidare till skapa en väg. Du kan fortsätta att skapa en händelse väg när slut punkterna har koner ATS.
 
 >[!NOTE]
 >Om du nyligen har distribuerat dina slut punkter kontrollerar du att de är klara med distributionen **innan** du försöker använda dem för en ny händelse väg. Om väg distributionen Miss lyckas eftersom slut punkterna inte är klara, väntar du några minuter och försöker igen.
@@ -179,27 +179,29 @@ En väg bör tillåta att flera meddelanden och händelse typer väljs.
 `CreateEventRoute` är SDK-anropet som används för att lägga till en händelse väg. Här är ett exempel på användningen:
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
+EventRoute er = new EventRoute("<your-endpointName>");
 er.Filter = "true"; //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+await CreateEventRoute(client, "routeName", er);
 ```
-
+    
 > [!TIP]
 > Alla SDK-funktioner ingår i synkrona och asynkrona versioner.
 
 ### <a name="event-route-sample-code"></a>Exempel kod för händelse väg
 
-Följande kod exempel visar hur du skapar, visar och tar bort en händelse väg:
+Följande exempel metod visar hur du skapar, visar och tar bort en händelse väg:
 ```csharp
-try
+private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, EventRoute er)
 {
+  try
+  {
     Console.WriteLine("Create a route: testRoute1");
-    EventRoute er = new EventRoute("< your - endpoint - name >");
+            
     // Make a filter that passes everything
     er.Filter = "true";
-    client.CreateEventRoute("< your - route - name >", er);
+    await client.CreateEventRouteAsync(routeName, er);
     Console.WriteLine("Create route succeeded. Now listing routes:");
-    Pageable <EventRoute> result = client.GetEventRoutes();
+    Pageable<EventRoute> result = client.GetEventRoutes();
     foreach (EventRoute r in result)
     {
         Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
@@ -210,11 +212,12 @@ try
         Console.WriteLine($"Deleting route {r.Id}:");
         client.DeleteEventRoute(r.Id);
     }
-}
-catch (RequestFailedException e)
-{
-    Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
-}
+  }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
+    }
+  }
 ```
 
 ## <a name="filter-events"></a>Filtrera händelser

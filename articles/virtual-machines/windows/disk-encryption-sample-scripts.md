@@ -8,35 +8,47 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: e9dc6acf33208de44eec2b5b9706b9f0b176f0d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 255e284cf8d54a9be59f09f5613cb2728417d234
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284480"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912046"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Exempelskript för Azure Disk Encryption 
 
 Den här artikeln innehåller exempel skript för att förbereda förkrypterade virtuella hård diskar och andra uppgifter.
 
+> [!NOTE]
+> Alla skript avser den senaste, icke-AAD-versionen av ADE, förutom där det anges.
+
+## <a name="sample-powershell-scripts-for-azure-disk-encryption"></a>Exempel på PowerShell-skript för Azure Disk Encryption 
+
+
+- **Lista alla krypterade virtuella datorer i din prenumeration**
+
+  Du kan hitta alla ADE-krypterade virtuella datorer och tilläggs versionen i alla resurs grupper som finns i en prenumeration med hjälp av [det här PowerShell-skriptet](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VM.ps1).
+
+  Dessa cmdletar visar också alla ADE-krypterade virtuella datorer (men inte tilläggs versionen):
+
+    ```azurepowershell-interactive
+    $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
+    $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
+    Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
+    ```
+
+- **Visa en lista över alla krypterade VMSS-instanser i din prenumeration**
+    
+    Du kan hitta alla ADE-krypterade VMSS-instanser och tilläggs versionen i alla resurs grupper som finns i en prenumeration med hjälp av [det här PowerShell-skriptet](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VMSS.ps1).
  
-
-## <a name="list-vms-and-secrets"></a>Visa lista över virtuella datorer och hemligheter
-
-Lista alla krypterade virtuella datorer i din prenumeration:
-
-```azurepowershell-interactive
-$osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
-$dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
-Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
-```
-Lista alla disk krypterings hemligheter som används för kryptering av virtuella datorer i ett nyckel valv:
+- **Lista alla disk krypterings hemligheter som används för att kryptera virtuella datorer i ett nyckel valv**
 
 ```azurepowershell-interactive
 Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
 ```
 
-## <a name="the-azure-disk-encryption-prerequisites-scripts"></a>Skript för Azure Disk Encryption nödvändiga komponenter
+### <a name="using-the-azure-disk-encryption-prerequisites-powershell-script"></a>Använda PowerShell-skriptet Azure Disk Encryption krav
+
 Om du redan är bekant med kraven för Azure Disk Encryption kan du använda [PowerShell-skriptet Azure Disk Encryption krav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Ett exempel på hur du använder PowerShell-skriptet finns i [kryptera en snabb start för virtuell dator](disk-encryption-powershell-quickstart.md). Du kan ta bort kommentarerna från ett avsnitt i skriptet, med början på rad 211, för att kryptera alla diskar för befintliga virtuella datorer i en befintlig resurs grupp. 
 
 I följande tabell visas vilka parametrar som kan användas i PowerShell-skriptet: 
@@ -69,7 +81,7 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
 Avsnitten som följer är nödvändiga för att förbereda en förkrypterad Windows-VHD för distribution som en krypterad virtuell hård disk i Azure IaaS. Använd informationen för att förbereda och starta en ny virtuell Windows-dator (VHD) på Azure Site Recovery eller Azure. Mer information om hur du förbereder och laddar upp en virtuell hård disk finns i [överföra en generaliserad virtuell hård disk och använda den för att skapa nya virtuella datorer i Azure](upload-generalized-managed.md).
 
 ### <a name="update-group-policy-to-allow-non-tpm-for-os-protection"></a>Uppdatera grup princip för att tillåta icke-TPM för OS-skydd
-Konfigurera BitLocker-grupprincip inställningen **BitLocker-diskkryptering**, som du hittar under dator konfiguration för **lokal dator princip**  >  **Computer Configuration**  >  **administrativa mallar**  >  **Windows-komponenter**. Om du ändrar den här inställningen till **operativ system enheter**  >  **krävs ytterligare autentisering vid start**  >  **Tillåt BitLocker utan en kompatibel TPM**, som visas i följande bild:
+Konfigurera BitLocker-grupprincip inställningen **BitLocker-diskkryptering** , som du hittar under dator konfiguration för **lokal dator princip**  >  **Computer Configuration**  >  **administrativa mallar**  >  **Windows-komponenter** . Om du ändrar den här inställningen till **operativ system enheter**  >  **krävs ytterligare autentisering vid start**  >  **Tillåt BitLocker utan en kompatibel TPM** , som visas i följande bild:
 
 ![Microsoft Antimalware i Azure](../media/disk-encryption/disk-encryption-fig8.png)
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9b389841bdba107ba27371387d4a6e5d1f009d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd813c6db9d03b0b7c84497e5b44f6ecdb591437
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919360"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912862"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analysera video innehåll för stötande material i C #
 
@@ -33,17 +33,17 @@ Content Moderatorens funktioner för videoinspelning är tillgänglig som en kos
 
 ### <a name="create-an-azure-media-services-account"></a>Skapa ett Azure Media Services-konto
 
-Följ instruktionerna i [skapa ett Azure Media Services konto](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) för att prenumerera på AMS och skapa ett associerat Azure Storage-konto. I det lagrings kontot skapar du en ny Blob Storage-behållare.
+Följ instruktionerna i [skapa ett Azure Media Services konto](../../media-services/previous/media-services-portal-create-account.md) för att prenumerera på AMS och skapa ett associerat Azure Storage-konto. I det lagrings kontot skapar du en ny Blob Storage-behållare.
 
 ### <a name="create-an-azure-active-directory-application"></a>Skapa ett Azure Active Directory program
 
-Navigera till din nya AMS-prenumeration i Azure Portal och välj **API-åtkomst** på menyn på sidan. Välj **Anslut till Azure Media Services med tjänstens huvud namn**. Observera värdet i fältet **REST API slut punkt** . du kommer att behöva detta senare.
+Navigera till din nya AMS-prenumeration i Azure Portal och välj **API-åtkomst** på menyn på sidan. Välj **Anslut till Azure Media Services med tjänstens huvud namn** . Observera värdet i fältet **REST API slut punkt** . du kommer att behöva detta senare.
 
 I avsnittet **Azure AD-App** väljer du **Skapa nytt** och namnger din nya Azure AD-programregistrering (till exempel "VideoModADApp"). Klicka på **Spara** och vänta några minuter medan programmet har kon figurer ATS. Sedan bör du se din nya app-registrering under avsnittet **Azure AD-App** på sidan.
 
-Välj din app-registrering och klicka på knappen **hantera program** under den. Observera värdet i fältet **program-ID** ; du kommer att behöva detta senare. Välj **Inställningar**  >  **nycklar**och ange en beskrivning för en ny nyckel (till exempel "VideoModKey"). Klicka på **Spara**och Lägg sedan till det nya nyckelvärdet. Kopiera den här strängen och spara den på ett säkert sätt.
+Välj din app-registrering och klicka på knappen **hantera program** under den. Observera värdet i fältet **program-ID** ; du kommer att behöva detta senare. Välj **Inställningar**  >  **nycklar** och ange en beskrivning för en ny nyckel (till exempel "VideoModKey"). Klicka på **Spara** och Lägg sedan till det nya nyckelvärdet. Kopiera den här strängen och spara den på ett säkert sätt.
 
-En mer grundlig genom gång av ovanstående process finns i [Kom igång med Azure AD-autentisering](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
+En mer grundlig genom gång av ovanstående process finns i [Kom igång med Azure AD-autentisering](../../media-services/previous/media-services-portal-get-started-with-aad.md).
 
 När du har gjort det kan du använda Videos moderator medie processorn på två olika sätt.
 
@@ -55,9 +55,9 @@ Azure Media Services Explorer är en användarvänlig klient del för AMS. Anvä
 
 ## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
 
-1. I Visual Studio skapar du ett nytt **konsol program (.NET Framework)-** projekt och namnger det **VideoModeration**. 
+1. I Visual Studio skapar du ett nytt **konsol program (.NET Framework)-** projekt och namnger det **VideoModeration** . 
 1. Om det finns andra projekt i din lösning väljer du den här kopian som det enda startprojektet.
-1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket**. Sök efter och installera följande paket:
+1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Solution Explorer och välj **Hantera NuGet-paket** . Sök efter och installera följande paket:
     - windowsazure. Media Services
     - windowsazure. Media Services. Extensions
 
@@ -67,7 +67,7 @@ Nu ska du kopiera och klistra in koden från den här guiden i ditt projekt för
 
 ### <a name="update-the-programs-using-statements"></a>Uppdatera programmets using-instruktioner
 
-Lägg till följande `using`-instruktioner överst i _Program.cs_-filen.
+Lägg till följande `using`-instruktioner överst i _Program.cs_ -filen.
 
 ```csharp
 using System;
@@ -84,7 +84,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Konfigurera resurs referenser
 
-Lägg till följande statiska fält i **program** klassen i _program.cs_. Dessa fält innehåller den information som krävs för att ansluta till din AMS-prenumeration. Fyll i med de värden du fick i stegen ovan. Observera att `CLIENT_ID` är **programmets ID-** värde för din Azure AD-App och `CLIENT_SECRET` är värdet för "VideoModKey" som du skapade för appen.
+Lägg till följande statiska fält i **program** klassen i _program.cs_ . Dessa fält innehåller den information som krävs för att ansluta till din AMS-prenumeration. Fyll i med de värden du fick i stegen ovan. Observera att `CLIENT_ID` är **programmets ID-** värde för din Azure AD-App och `CLIENT_SECRET` är värdet för "VideoModKey" som du skapade för appen.
 
 ```csharp
 // declare constants and globals
@@ -121,7 +121,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Om du vill använda en lokal videofil (enklaste fallet) lägger du till den i projektet och anger dess sökväg som `INPUT_FILE` värde (relativa sökvägar är relativa till körnings katalogen).
 
-Du måste också skapa _preset.js_ filen i den aktuella katalogen och använda den för att ange ett versions nummer. Exempel:
+Du måste också skapa _preset.js_ filen i den aktuella katalogen och använda den för att ange ett versions nummer. Till exempel:
 
 ```JSON
 {
@@ -159,7 +159,7 @@ RunContentModeratorJob(asset);
 
 ### <a name="create-an-azure-media-context"></a>Skapa en Azure Media-kontext
 
-Lägg till följande metod i klassen **Program**. Detta använder dina AMS-autentiseringsuppgifter för att tillåta kommunikation med AMS.
+Lägg till följande metod i klassen **Program** . Detta använder dina AMS-autentiseringsuppgifter för att tillåta kommunikation med AMS.
 
 ```csharp
 // Creates a media context from azure credentials
@@ -180,7 +180,7 @@ static void CreateMediaContext()
 
 ### <a name="add-the-code-to-create-an-azure-storage-context"></a>Lägg till koden för att skapa en Azure Storage-kontext
 
-Lägg till följande metod i klassen **Program**. Du kan använda lagrings kontexten som skapats från dina autentiseringsuppgifter för lagring för att komma åt Blob Storage.
+Lägg till följande metod i klassen **Program** . Du kan använda lagrings kontexten som skapats från dina autentiseringsuppgifter för lagring för att komma åt Blob Storage.
 
 ```csharp
 // Creates a storage context from the AMS associated storage name and key
@@ -365,9 +365,9 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 Analysera JSON-svaret när innehålls redigerings jobbet har slutförts. Den består av följande element:
 
 - Sammanfattning av video information
-- **Bilder** som "**fragment**"
-- **Nyckel rutor** som "**händelser**" med flaggan **reviewRecommended "(= true eller false)** som baseras på **vuxen** och **vågat** resultat
-- **Start**, **varaktighet**, **totalDuration**och **tidstämpel** är i "ticks". Dividera med **tids skala** för att hämta talet i sekunder.
+- **Bilder** som " **fragment** "
+- **Nyckel rutor** som " **händelser** " med flaggan **reviewRecommended "(= true eller false)** som baseras på **vuxen** och **vågat** resultat
+- **Start** , **varaktighet** , **totalDuration** och **tidstämpel** är i "ticks". Dividera med **tids skala** för att hämta talet i sekunder.
  
 > [!NOTE]
 > - `adultScore` representerar potentiell närvaro och förutsägelse Poäng för innehåll som kan anses vara sexuellt explicit eller vuxna i vissa situationer.

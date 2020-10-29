@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: ad365c2d4c171105d8dec89d818ef481361d1ff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81272601"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912879"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Måttlig text från API-konsolen
 
@@ -33,7 +33,7 @@ Gå till [API-referensen för text redigering](https://westus.dev.cognitive.micr
 
 ## <a name="open-the-api-console"></a>Öppna API-konsolen
 
-För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats. 
+För **öppna API test-konsolen** väljer du den region som bäst beskriver din plats. 
 
   ![Val av sid region för text på skärmen](images/test-drive-region.png)
 
@@ -43,20 +43,20 @@ För **öppna API test-konsolen**väljer du den region som bäst beskriver din p
 
 ### <a name="parameters"></a>Parametrar
 
-Välj de frågeparametrar som du vill använda på text skärmen. I det här exemplet använder du standardvärdet för **språk**. Du kan också lämna det tomt eftersom åtgärden automatiskt identifierar det sannolika språket som en del av körningen.
+Välj de frågeparametrar som du vill använda på text skärmen. I det här exemplet använder du standardvärdet för **språk** . Du kan också lämna det tomt eftersom åtgärden automatiskt identifierar det sannolika språket som en del av körningen.
 
 > [!NOTE]
-> För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska**.
+> För parametern **språk** , tilldelar `eng` eller lämnar du den tom för att se det omhjälpande **klassificerings** svaret (förhands gransknings funktion). **Den här funktionen stöder enbart engelska** .
 >
 > För identifiering av **svordomar** kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
 
-För **Autokorrigering**, **PII**och **klassificering (för hands version)** väljer du **Sant**. Lämna fältet **listid** tomt.
+För **Autokorrigering** , **PII** och **klassificering (för hands version)** väljer du **Sant** . Lämna fältet **listid** tomt.
 
   ![Frågeparametrar för text skärms konsolen](images/text-api-console-inputs.PNG)
 
 ### <a name="content-type"></a>Innehållstyp
 
-För **innehålls typ**väljer du den typ av innehåll som du vill skärma. I det här exemplet använder du standard typen **text/oformaterad** innehålls typ. I rutan **OCP-APIM-Subscription-Key** anger du din prenumerations nyckel.
+För **innehålls typ** väljer du den typ av innehåll som du vill skärma. I det här exemplet använder du standard typen **text/oformaterad** innehålls typ. I rutan **OCP-APIM-Subscription-Key** anger du din prenumerations nyckel.
 
 ### <a name="sample-text-to-scan"></a>Exempel text att skanna
 
@@ -137,4 +137,4 @@ En detaljerad förklaring av alla avsnitt i JSON-svaret finns i vägledning för
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd REST API i din kod eller följ snabb starten för [.NET SDK](dotnet-sdk-quickstart.md) för att integrera med ditt program.
+Använd REST API i din kod eller följ snabb starten för [.NET SDK](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) för att integrera med ditt program.

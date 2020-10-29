@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447375"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911400"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Förhindra Dangling DNS-poster och Undvik under domän övertag Ande
 
@@ -51,7 +51,7 @@ Ett vanligt scenario för en under domän överköps:
 
     1. Hot aktören etablerar en Azure-resurs med samma fullständiga domän namn för den resurs som du tidigare kontrollerat. I det här exemplet `app-contogreat-dev-001.azurewebsites.net` .
 
-    1. Trafik som skickas till under domänen `myapp.contoso.com` dirigeras nu till den skadliga aktörens resurs där de styr innehållet.
+    1. Trafik som skickas till under domänen `greatapp.contoso.com` dirigeras nu till den skadliga aktörens resurs där de styr innehållet.
 
 
 
@@ -119,7 +119,7 @@ Om du är global administratör för din organisations klient kan du höja ditt 
 
 ### <a name="run-the-script"></a>Kör skriptet
 
-Läs mer om PowerShell-skriptet **Get-DanglingDnsRecords.ps1**och ladda ned det från GitHub: https://aka.ms/DanglingDNSDomains .
+Läs mer om PowerShell-skriptet **Get-DanglingDnsRecords.ps1** och ladda ned det från GitHub: https://aka.ms/DanglingDNSDomains .
 
 ## <a name="remediate-dangling-dns-entries"></a>Åtgärda Dangling DNS-poster 
 

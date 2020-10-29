@@ -3,23 +3,23 @@ title: Självstudie – lokala peer-miljöer i ett privat moln
 description: Lär dig hur du skapar ExpressRoute Global Reach peering till ett privat moln i en Azure VMware-lösning.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 9de6cbe177ac8d2ca4957e80c7ca1072a0d7985e
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4d10972a693f7c4c3ae25a5bc986f6c15e978294
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948314"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912505"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Självstudie: peer-lokala miljöer till ett privat moln
 
 ExpressRoute Global Reach ansluter din lokala miljö till ditt privata moln i Azure VMware-lösningen. ExpressRoute Global Reach-anslutningen upprättas mellan det privata molnet ExpressRoute-kretsen och en befintlig ExpressRoute-anslutning till dina lokala miljöer. 
 
-ExpressRoute-kretsen som du använder när du [konfigurerar Azure-till-Private Cloud Networking](tutorial-configure-networking.md) kräver att du skapar och använder auktoriseringsregler när du peer-koppla till ExpressRoute-gatewayer eller med andra ExpressRoute-kretsar som använder Global Reach. Du har redan använt en auktoriseringspost från ExpressRoute-kretsen och i den här självstudien skapar du en andra med en-peer med din lokala ExpressRoute-krets.
+ExpressRoute-kretsen som du använder när du [konfigurerar Azure-till-privata moln nätverk](tutorial-configure-networking.md) kräver att du skapar och använder auktoriseringsregler.  Du har redan använt en auktoriseringspost från ExpressRoute-kretsen och i den här självstudien skapar du en andra med en-peer-dator med din lokala ExpressRoute-krets.
 
 I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
-> * Skapa en andra auktoriseringsregel för _krets 2_, den privata molnets ExpressRoute-krets
+> * Skapa en andra auktoriseringsregel för _krets 2_ , den privata molnets ExpressRoute-krets
 > * Använd antingen [Azure Portal](#azure-portal-method) eller [Azure CLI i en Cloud Shell-metod](#azure-cli-in-a-cloud-shell-method) i prenumerationen på _krets 1_ för att aktivera lokal-till-privat-moln ExpressRoute Global Reach-peering
 
 
@@ -30,21 +30,21 @@ Innan du aktiverar anslutning mellan två ExpressRoute-kretsar med ExpressRoute 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-1. Upprättad anslutning till och från ett privat moln i Azure VMware-lösningen med sin ExpressRoute-krets med en ExpressRoute-gateway i ett virtuellt Azure-nätverk (VNet), som är _krets 2_ från peering-procedurer.  
-1. En separat, fungerande ExpressRoute-krets som används för att ansluta lokala miljöer till Azure, som är _krets 1_ från peering-procedurens perspektiv.
-1. Ett/29 icke-överlappande [nätverks adress block](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) för ExpressRoute Global Reach-peering.
+- Upprättad anslutning till och från ett privat moln i Azure VMware-lösningen med sin ExpressRoute-krets med en ExpressRoute-gateway i ett virtuellt Azure-nätverk (VNet), som är _krets 2_ från peering-procedurer.  
+- En separat, fungerande ExpressRoute-krets som används för att ansluta lokala miljöer till Azure, som är _krets 1_ från peering-procedurens perspektiv.
+- Ett/29 icke-överlappande [nätverks adress block](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) för ExpressRoute Global Reach-peering.
 
 > [!TIP]
-> I samband med dessa förutsättningar är din lokala ExpressRoute-krets _krets 1_, och din privata moln ExpressRoute-krets är i en annan prenumeration och har märkt _krets 2_. 
+> I samband med dessa förutsättningar är din lokala ExpressRoute-krets _krets 1_ , och din privata moln ExpressRoute-krets är i en annan prenumeration och har märkt _krets 2_ . 
 
 
 ## <a name="create-an-expressroute-authorization-key-in-the-private-cloud"></a>Skapa en ExpressRoute-auktoriseringsregel i det privata molnet
 
-1. I **översikten över**det privata molnet under hantera väljer du **anslutnings > ExpressRoute > begära en nyckel för autentisering**.
+1. I **översikten över** det privata molnet under hantera väljer du **anslutnings > ExpressRoute > begära en nyckel för autentisering** .
 
    :::image type="content" source="media/expressroute-global-reach/start-request-auth-key.png" alt-text="Välj anslutnings > ExpressRoute > begära en autentiseringsnyckel för att starta en ny begäran.":::
 
-2. Ange namnet på verifierings nyckeln och välj **skapa**. 
+2. Ange namnet på verifierings nyckeln och välj **skapa** . 
 
    :::image type="content" source="media/expressroute-global-reach/create-global-reach-auth-key.png" alt-text="Välj anslutnings > ExpressRoute > begära en autentiseringsnyckel för att starta en ny begäran.":::
 
@@ -56,25 +56,25 @@ Innan du aktiverar anslutning mellan två ExpressRoute-kretsar med ExpressRoute 
 
 ## <a name="peer-private-cloud-to-on-premises-using-authorization-key"></a>Peer-privat moln till lokalt med hjälp av auktoriseringsregeln
 
-Nu när du har skapat en auktoriseringsregel för ExpressRoute-kretsen för det privata molnet kan du koppla den till din lokala ExpressRoute-krets.  Peer koppling görs från den lokala ExpressRoute-kretsens perspektiv i antingen [Azure Portal](#azure-portal-method) eller med hjälp av [Azure CLI i en Cloud Shell](#azure-cli-in-a-cloud-shell-method). Med någon av metoderna kommer du att använda resurs-ID och verifierings nyckel för din privata moln ExpressRoute-krets, som du skapade i föregående steg, för att slutföra peer kopplingen.
+Nu när du har skapat en auktoriseringsregel för ExpressRoute-kretsen för det privata molnet kan du koppla den till din lokala ExpressRoute-krets.  Peer koppling görs från den lokala ExpressRoute-kretsens perspektiv i antingen [Azure Portal](#azure-portal-method) eller med hjälp av [Azure CLI i en Cloud Shell](#azure-cli-in-a-cloud-shell-method). Med båda metoderna använder du resurs-ID och verifierings nyckel för din privata moln ExpressRoute-krets för att slutföra peer kopplingen.
 
 ### <a name="azure-portal-method"></a>Azure Portal metod
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med samma prenumeration som den lokala ExpressRoute-kretsen.
 
-1. I **översikten över**det privata molnet under hantera väljer du **anslutnings > ExpressRoute Global Reach > Lägg till**.
+1. I **översikten över** det privata molnet under hantera väljer du **anslutnings > ExpressRoute Global Reach > Lägg till** .
 
    :::image type="content" source="./media/expressroute-global-reach/expressroute-global-reach-tab.png" alt-text="Välj anslutnings > ExpressRoute > begära en autentiseringsnyckel för att starta en ny begäran.":::
 
-1. Du kan skapa en lokal moln anslutning genom att göra något av följande:
+1. Du kan skapa en lokal moln anslutning genom att göra något av följande val:
 
    - Välj ExpressRoute-kretsen i listan.
    - Om du har ett krets-ID kopierar du och klistrar in det.
 
-1. Välj **Anslut**. Den nya anslutningen visas i listan lokal moln anslutning.  
+1. Välj **Anslut** . Den nya anslutningen visas i listan lokal moln anslutning.  
 
 >[!TIP]
->Du kan ta bort eller koppla från en anslutning från listan genom att välja **mer**.  
+>Du kan ta bort eller koppla från en anslutning från listan genom att välja **mer** .  
 >
 > :::image type="content" source="./media/expressroute-global-reach/on-premises-connection-disconnect.png" alt-text="Välj anslutnings > ExpressRoute > begära en autentiseringsnyckel för att starta en ny begäran.":::
 
@@ -90,13 +90,13 @@ Vi har förstärkt CLI- [kommandona](../expressroute/expressroute-howto-set-glob
  
    :::image type="content" source="media/expressroute-global-reach/open-cloud-shell.png" alt-text="Välj anslutnings > ExpressRoute > begära en autentiseringsnyckel för att starta en ny begäran.":::
  
-2. På kommando raden anger du Azure CLI-kommandot för att skapa peering med hjälp av din specifika information och resurs-ID, auktoriseringskod och/29 CIDR-Adressblock. 
+2. Skapa peer koppling genom att ange Azure CLI-kommandot. Använd din speciella information och resurs-ID, auktoriseringskod och/29 CIDR-Adressblock. 
 
-   Följande är ett exempel på det kommando som du kommer att använda och utdata som indikerar en lyckad peering. Exempel kommandot baseras på kommandot som används i [steg 3 i "aktivera anslutning mellan ExpressRoute-kretsar i olika Azure-prenumerationer"](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).
+   Bilden visar ett exempel på kommandot som du kommer att använda och utdata som indikerar en lyckad peering. Exempel kommandot baseras på kommandot som används i [steg 3 i "aktivera anslutning mellan ExpressRoute-kretsar i olika Azure-prenumerationer"](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).
 
    :::image type="content" source="media/expressroute-global-reach/azure-command-with-results.png" alt-text="Välj anslutnings > ExpressRoute > begära en autentiseringsnyckel för att starta en ny begäran.":::
  
-   Nu bör du kunna ansluta från lokala miljöer till ditt privata moln via ExpressRoute Global Reach-peering.
+   Du kan ansluta från lokala miljöer till ditt privata moln via ExpressRoute Global Reach-peering.
 
 > [!TIP]
 > Du kan ta bort peering som du nyss skapade genom att följa anvisningarna [för att inaktivera anslutningen mellan dina lokala nätverk](../expressroute/expressroute-howto-set-global-reach-cli.md#disable-connectivity-between-your-on-premises-networks) .
@@ -104,7 +104,7 @@ Vi har förstärkt CLI- [kommandona](../expressroute/expressroute-howto-set-glob
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du skapar en andra auktoriseringskod för ExpressRoute-kretsen för det privata molnet och aktiverat det lokala molnet ExpressRoute Global Reach peering. 
+I den här självstudien har du lärt dig hur du skapar en andra Authorization-nyckel för den privata moln ExpressRoute kretsen. Du har också lärt dig hur du aktiverar Global Reach ExpressRoute-peering lokalt till privat moln. 
 
 Fortsätt till nästa självstudie och lär dig hur du distribuerar och konfigurerar VMware HCX-lösningen för ditt privata moln i Azure VMware-lösningen.
 

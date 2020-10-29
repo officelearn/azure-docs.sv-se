@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82182c24f87a82df5ee040b7853588f74dda449f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334556"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909955"
 ---
 # <a name="business-card-concepts"></a>Koncept för visitkort
 
@@ -385,7 +385,7 @@ De data som extraheras med visitkorts-API kan användas för att utföra en rad 
 * Håll koll på Sälj leads.  
 * Extrahera kontakt information i bulk från befintliga visitkorts avbildningar. 
 
-Visitkorts-API: t ger också [AIBuilder för affärs korts bearbetning](https://docs.microsoft.com/ai-builder/prebuilt-business-card).
+Visitkorts-API: t ger också [AIBuilder för affärs korts bearbetning](/ai-builder/prebuilt-business-card).
 
 ## <a name="next-steps"></a>Nästa steg
 

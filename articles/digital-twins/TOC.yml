@@ -23,8 +23,6 @@
   items:
     - name: Anpassade modeller
       href: concepts-models.md
-    - name: Konvertera branschstandardmodeller
-      href: concepts-convert-models.md
     - name: Digitala tvillingenheter och tvillingdiagrammet
       href: concepts-twins-graph.md
     - name: Frågespråk
@@ -63,6 +61,8 @@
       items:
         - name: Hantera anpassade modeller
           href: how-to-manage-model.md
+        - name: Konvertera branschstandardmodeller
+          href: how-to-convert-models.md
         - name: Parsa och verifiera modeller
           href: how-to-parse-models.md
         - name: Lägga till taggar
@@ -176,11 +176,15 @@
             - name: Java SDK – källa
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
             - name: JavaScript SDK – npm
-              href: 'https://www.npmjs.com/package/@azure/digital-twins/'
+              href: 'https://www.npmjs.com/package/@azure/digital-twins-core'
             - name: Java Script SDK – referens
               href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+            - name: JavaScript SDK – källa
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core'
             - name: Python SDK – PyPi
               href: 'https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/'
+            - name: Python SDK – källa
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
     - name: Digital Twins CLI
       items:
         - name: Digital Twins CLI-referens

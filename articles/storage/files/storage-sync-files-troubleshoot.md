@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 14a532e7809db3359d90a03c169c27a19cf89a9a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164235"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911641"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -21,7 +21,7 @@ Den här artikeln är utformad för att hjälpa dig att felsöka och lösa probl
 
 1. [Sidan Microsoft Q&en fråga för Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Microsoft Support. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran**.
+3. Microsoft Support. Om du vill skapa en ny supportbegäran går du till fliken **Hjälp** i Azure Portal, väljer **Hjälp + Support** -knappen och väljer sedan **ny supportbegäran** .
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Jag har problem med Azure File Sync på min server (synkronisering, moln nivå osv.). Bör jag ta bort och återskapa min server slut punkt?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -102,17 +102,20 @@ Om en server inte visas under **registrerade servrar** för en tjänst för synk
 3. Kör ServerRegistration.exe och Slutför guiden för att registrera servern med en tjänst för synkronisering av lagring.
 
 ## <a name="sync-group-management"></a>Synkronisera grupp hantering
+
+### <a name="cloud-endpoint-creation-errors"></a>Fel vid skapande av moln slut punkt
+
 <a id="cloud-endpoint-using-share"></a>**Det gick inte att skapa moln slut punkten, med det här felet: "den angivna Azure-FileShare används redan av en annan CloudEndpoint"**  
 Det här felet uppstår om Azure-filresursen redan används av en annan molnslutpunkt. 
 
 Om du ser det här meddelandet och Azure-filresursen för närvarande inte används av en moln slut punkt, slutför du följande steg för att rensa Azure File Sync metadata på Azure-filresursen:
 
 > [!Warning]  
-> Om du tar bort metadata på en Azure-filresurs som för närvarande används av en moln slut punkt uppstår Azure File Sync åtgärder för att Miss kunna. 
+> Om du tar bort metadata på en Azure-filresurs som för närvarande används av en moln slut punkt uppstår Azure File Sync åtgärder för att Miss kunna. 
 
-1. Gå till Azure-filresursen i Azure Portal.  
-2. Högerklicka på Azure-filresursen och välj sedan **Redigera metadata**.
-3. Högerklicka på **SyncService**och välj sedan **ta bort**.
+1. Gå till Azure-filresursen i Azure Portal.  
+2. Högerklicka på Azure-filresursen och välj sedan **Redigera metadata** .
+3. Högerklicka på **SyncService** och välj sedan **ta bort** .
 
 <a id="cloud-endpoint-authfailed"></a>**Det gick inte att skapa moln slut punkten, med det här felet: "AuthorizationFailed"**  
 Det här felet uppstår om ditt användar konto inte har behörighet att skapa en moln slut punkt. 
@@ -128,13 +131,15 @@ Följande inbyggda roller har de nödvändiga Microsoft Authorization-behörighe
 * Administratör för användaråtkomst
 
 För att avgöra om användar konto rollen har de behörigheter som krävs:  
-1. I Azure Portal väljer du **resurs grupper**.
-2. Välj den resurs grupp där lagrings kontot finns och välj sedan **åtkomst kontroll (IAM)**.
+1. I Azure Portal väljer du **resurs grupper** .
+2. Välj den resurs grupp där lagrings kontot finns och välj sedan **åtkomst kontroll (IAM)** .
 3. Välj fliken **roll tilldelningar** .
 4. Välj **rollen** (till exempel ägare eller deltagare) för ditt användar konto.
-5. Välj **Microsoft Authorization**i listan **resurs leverantör** . 
+5. Välj **Microsoft Authorization** i listan **resurs leverantör** . 
     * **Roll tilldelningen** ska ha **Läs** -och **Skriv** behörighet.
     * **Roll definitionen** måste ha **Läs** -och **Skriv** behörighet.
+
+### <a name="server-endpoint-creation-and-deletion-errors"></a>Fel vid skapande och borttagning av Server slut punkt
 
 <a id="-2134375898"></a>**Det gick inte att skapa server slut punkten, med följande fel: "MgmtServerJobFailed" (felkod:-2134375898 eller 0x80c80226)**  
 Felet uppstår om sökvägen till serverslutpunkten finns på systemvolymen och molnnivåindelning är aktiverat. Molnnivåindelning stöds inte på systemvolymen. Om du vill skapa en serverslutpunkt på systemvolymen inaktiverar du molnnivåindelning när du skapar serverslutpunkten.
@@ -165,6 +170,8 @@ Det här felet uppstår om sökvägen till Server slut punkten innehåller över
 
 <a id="-2134347757"></a>**Det gick inte att ta bort Server slut punkten, med det här felet: "MgmtServerJobExpired" (felkod:-2134347757 eller 0x80c87013)**  
 Det här felet uppstår om servern är offline eller inte har någon nätverksanslutning. Om servern inte längre är tillgänglig avregistrerar du servern i portalen, vilket tar bort serverslutpunkterna. Om du vill ta bort Server slut punkterna följer du stegen som beskrivs i [avregistrera en server med Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+### <a name="server-endpoint-health"></a>Server slut punkts hälsa
 
 <a id="server-endpoint-provisioningfailed"></a>**Det gick inte att öppna sidan Egenskaper för Server slut punkt eller uppdatera princip för moln skikt**  
 Det här problemet kan inträffa om en hanterings åtgärd på Server slut punkten Miss lyckas. Om sidan Egenskaper för Server slut punkt inte öppnas i Azure Portal kan det lösa problemet genom att uppdatera Server slut punkten med PowerShell-kommandon från servern. 
@@ -338,7 +345,9 @@ Om du vill se de här felen kör du **FileSyncErrorsReport.ps1** PowerShell-skri
 | 0x80c80200 | – 2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Det går inte att synkronisera filen eftersom det maximala antalet konfliktskapande filer har nåtts. Azure File Sync stöder 100-konfliktskapande filer per fil. Mer information om fil konflikter finns i Azure File Sync [vanliga frågor och svar](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | Lös problemet genom att minska antalet konfliktskapande filer. Filen kommer att synkroniseras när antalet konfliktskapande filer är mindre än 100. |
 
 #### <a name="handling-unsupported-characters"></a>Hantera tecken som inte stöds
-Om **FileSyncErrorsReport.ps1** PowerShell-skriptet visar synkroniseringsfel per objekt på grund av tecken som inte stöds (felkod 0x8007007B eller 0x80c80255), bör du ta bort eller byta namn på tecknen vid fel från respektive fil namn. PowerShell kommer förmodligen att skriva ut dessa tecken som frågetecken eller tomma rektanglar eftersom de flesta av dessa tecken inte har någon standardiserad visuell kodning. [Utvärderings verktyget](storage-sync-files-planning.md#evaluation-cmdlet) kan användas för att identifiera tecken som inte stöds. Om data uppsättningen har flera filer med ogiltiga tecken använder du [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) -skriptet för att byta namn på filer som innehåller tecken som inte stöds.
+Om **FileSyncErrorsReport.ps1** PowerShell-skriptet visar synkroniseringsfel per objekt på grund av tecken som inte stöds (felkod 0x8007007B eller 0x80c80255), bör du ta bort eller byta namn på tecknen vid fel från respektive fil namn. PowerShell kommer förmodligen att skriva ut dessa tecken som frågetecken eller tomma rektanglar eftersom de flesta av dessa tecken inte har någon standardiserad visuell kodning. 
+> [!Note]  
+> [Utvärderings verktyget](storage-sync-files-planning.md#evaluation-cmdlet) kan användas för att identifiera tecken som inte stöds. Om data uppsättningen har flera filer med ogiltiga tecken använder du [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) -skriptet för att byta namn på filer som innehåller tecken som inte stöds.
 
 Tabellen nedan innehåller alla Unicode-tecken Azure File Sync ännu inte har stöd för.
 
@@ -520,7 +529,7 @@ Det här felet uppstår när du överskrider lagringsgränsen för Azure-filresu
 
 5. Välj **filer** om du vill visa listan över fil resurser.
 6. Klicka på de tre punkterna i slutet av raden för den Azure-filresurs som refereras av moln slut punkten.
-7. Kontrollera att **Användning** är lägre än **Kvot**. Observera att om en alternativ kvot har angetts matchar kvoten den [maximala storleken på Azure-filresursen](storage-files-scale-targets.md).
+7. Kontrollera att **Användning** är lägre än **Kvot** . Observera att om en alternativ kvot har angetts matchar kvoten den [maximala storleken på Azure-filresursen](storage-files-scale-targets.md).
 
     ![En skärm bild av egenskaperna för Azure-filresursen.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
@@ -995,16 +1004,16 @@ if ($fileShare -eq $null) {
 <a id="troubleshoot-rbac"></a>**Se till att Azure File Sync har åtkomst till lagrings kontot.**  
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Klicka på **åtkomst kontroll (IAM)** i den vänstra innehålls förteckningen.
-1. Klicka på fliken **roll tilldelningar** i listan över användare och program (*tjänstens huvud namn*) som har åtkomst till ditt lagrings konto.
+1. Klicka på fliken **roll tilldelningar** i listan över användare och program ( *tjänstens huvud namn* ) som har åtkomst till ditt lagrings konto.
 1. Kontrol lera att **Microsoft. StorageSync** eller **hybrid File syncs tjänsten** (gammalt program namn) visas i listan med rollen **läsare och data åtkomst** . 
 
     ![En skärm bild av tjänsten hybrid File Sync tjänstens huvud namn på fliken åtkomst kontroll för lagrings kontot](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
     Om **Microsoft. StorageSync** eller **hybrid File syncs tjänsten** inte visas i listan utför du följande steg:
 
-    - Klicka på **Lägg till**.
-    - I fältet **roll** väljer du **läsare och data åtkomst**.
-    - I fältet **Välj** skriver du **Microsoft. StorageSync**, väljer rollen och klickar på **Spara**.
+    - Klicka på **Lägg till** .
+    - I fältet **roll** väljer du **läsare och data åtkomst** .
+    - I fältet **Välj** skriver du **Microsoft. StorageSync** , väljer rollen och klickar på **Spara** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
@@ -1045,17 +1054,17 @@ Det finns två sökvägar för problem i moln skiktning:
 Det finns två huvud klasser av problem som kan inträffa via en felsökväg:
 
 - Moln lagrings problem
-    - *Tillgänglighets problem med tillfällig lagrings tjänst*. Mer information finns i [serviceavtal (SLA) för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
-    - *Otillgänglig Azure-filresurs*. Det här felet uppstår vanligt vis när du tar bort Azure-filresursen när den fortfarande är en moln slut punkt i en Sync-grupp.
-    - *Otillgängligt lagrings konto*. Det här felet uppstår vanligt vis när du tar bort lagrings kontot medan det fortfarande har en Azure-filresurs som är en moln slut punkt i en Sync-grupp. 
+    - *Tillgänglighets problem med tillfällig lagrings tjänst* . Mer information finns i [serviceavtal (SLA) för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+    - *Otillgänglig Azure-filresurs* . Det här felet uppstår vanligt vis när du tar bort Azure-filresursen när den fortfarande är en moln slut punkt i en Sync-grupp.
+    - *Otillgängligt lagrings konto* . Det här felet uppstår vanligt vis när du tar bort lagrings kontot medan det fortfarande har en Azure-filresurs som är en moln slut punkt i en Sync-grupp. 
 - Server problem 
-  - *Azure File Sync fil system filter (StorageSync.sys) har inte lästs in*. För att kunna svara på nivå-/återställnings begär Anden måste det Azure File Sync fil system filtret läsas in. Det går inte att läsa in filtret eftersom det kan bero på flera orsaker, men det vanligaste skälet är att en administratör har inaktiverat den manuellt. Det Azure File Sync fil system filtret måste läsas in hela tiden för att Azure File Sync ska fungera korrekt.
-  - *Saknad, skadad eller på annat sätt bruten referens punkt*. En referens punkt är en särskild data struktur för en fil som består av två delar:
+  - *Azure File Sync fil system filter (StorageSync.sys) har inte lästs in* . För att kunna svara på nivå-/återställnings begär Anden måste det Azure File Sync fil system filtret läsas in. Det går inte att läsa in filtret eftersom det kan bero på flera orsaker, men det vanligaste skälet är att en administratör har inaktiverat den manuellt. Det Azure File Sync fil system filtret måste läsas in hela tiden för att Azure File Sync ska fungera korrekt.
+  - *Saknad, skadad eller på annat sätt bruten referens punkt* . En referens punkt är en särskild data struktur för en fil som består av två delar:
     1. En referens tag gen som anger det operativ system som Azure File Sync fil system filter (StorageSync.sys) kan behöva utföra en åtgärd på IO till filen. 
     2. Parsa data, vilket indikerar fil systemet filtrera URI för filen på den associerade moln slut punkten (Azure-filresursen). 
         
        Det vanligaste sättet att en referens punkt kan bli skadad är om en administratör försöker ändra antingen taggen eller dess data. 
-  - *Problem med nätverks anslutningen*. Servern måste ha Internet anslutning för att kunna skikta eller återkalla en fil.
+  - *Problem med nätverks anslutningen* . Servern måste ha Internet anslutning för att kunna skikta eller återkalla en fil.
 
 Följande avsnitt visar hur du felsöker problem med moln skiktning och avgör om ett problem är ett problem med moln lagring eller ett Server problem.
 
@@ -1271,7 +1280,7 @@ Utför följande steg för att köra AFSDiag:
 
 3. För spårnings nivån Azure File Sync kernelläge anger du **1** (om inget annat anges för att skapa mer utförliga spår) och trycker sedan på RETUR.
 4. För spårnings nivån i Azure File Sync-användarläge anger du **1** (om inget annat anges för att skapa mer utförliga spår) och trycker sedan på RETUR.
-5. Återskapa problemet. När du är klar anger du **D**.
+5. Återskapa problemet. När du är klar anger du **D** .
 6. En. zip-fil som innehåller loggar och spårningsfiler sparas i den utgående katalogen som du har angett.
 
 ## <a name="see-also"></a>Se även

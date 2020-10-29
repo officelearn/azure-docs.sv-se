@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/30/2020
-ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 753d72b31e4f813d0e7abbbd223e050fd3390411
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485045"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910771"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Data flödes aktivitet i Azure Data Factory
 
@@ -57,10 +57,10 @@ Använd data flödes aktiviteten för att transformera och flytta data via data 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 data flöde | Referens till det data flöde som körs | DataFlowReference | Ja
-integrationRuntime | Beräknings miljön som data flödet körs på. Om inget anges används automatisk lösning för Azure integration Runtime. | IntegrationRuntimeReference | Inga
-Compute. coreCount | Antalet kärnor som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | 8, 16, 32, 48, 80, 144, 272 | Inga
-Compute. computeType | Den typ av beräkning som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | "Allmänt", "ComputeOptimized", "MemoryOptimized" | Inga
-mellanlagring. linkedService | Om du använder en Azure Synapse Analytics-källa eller-mottagare är det lagrings konto som används för PolyBase-mellanlagring | LinkedServiceReference | Endast om data flödet läser eller skriver till en Azure Synapse-analys
+integrationRuntime | Beräknings miljön som data flödet körs på. Om inget anges används automatisk lösning för Azure integration Runtime. | IntegrationRuntimeReference | Nej
+Compute. coreCount | Antalet kärnor som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | 8, 16, 32, 48, 80, 144, 272 | Nej
+Compute. computeType | Den typ av beräkning som används i Spark-klustret. Kan bara anges om automatisk matchning av Azure integration runtime används | "Allmänt", "ComputeOptimized", "MemoryOptimized" | Nej
+mellanlagring. linkedService | Om du använder en Azure Synapse Analytics-källa eller mottagare anger du det lagrings konto som används för PolyBase-mellanlagring.<br/><br/>Om din Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitetsautentisering med alternativet "Tillåt betrodd Microsoft-tjänst" på lagrings kontot, se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig även de konfigurationer som krävs för [Azure-Blob](connector-azure-blob-storage.md#managed-identity) respektive [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .<br/> | LinkedServiceReference | Endast om data flödet läser eller skriver till en Azure Synapse-analys
 mellanlagring. folderPath | Om du använder en Azure Synapse Analytics-källa eller handfat, används mappsökvägen i Blob Storage-kontot för PolyBase-mellanlagring | Sträng | Endast om data flödet läser eller skriver till Azure Synapse Analytics
 
 ![Kör data flöde](media/data-flow/activity-data-flow.png "Kör data flöde")
@@ -116,7 +116,7 @@ Fel söknings pipelinen körs mot det aktiva fel söknings klustret, inte integr
 
 ## <a name="monitoring-the-data-flow-activity"></a>Övervaka data flödes aktiviteten
 
-Data flödes aktiviteten har en särskild övervaknings upplevelse där du kan visa information om partitionering, fas tid och data härkomst. Öppna fönstret övervakning via glasögon-ikonen under **åtgärder**. Mer information finns i [övervaka data flöden](concepts-data-flow-monitoring.md).
+Data flödes aktiviteten har en särskild övervaknings upplevelse där du kan visa information om partitionering, fas tid och data härkomst. Öppna fönstret övervakning via glasögon-ikonen under **åtgärder** . Mer information finns i [övervaka data flöden](concepts-data-flow-monitoring.md).
 
 ### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Använd data flödes aktivitets resultat i en efterföljande aktivitet
 

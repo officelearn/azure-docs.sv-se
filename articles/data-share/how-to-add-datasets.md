@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 540cdc2948cbcd97bf7c8872f3aace2862280434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bfa911921e9bacde2649ee8c4f0d4bc31b56f54
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513497"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910550"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Så här lägger du till data uppsättningar till en befintlig resurs i Azure Data Share
 
@@ -23,13 +23,13 @@ Information om hur du lägger till data uppsättningar när du skapar en resurs 
 
 Gå till den skickade resursen i Azure Data Share och välj fliken **data uppsättningar** . Lägg till fler data uppsättningar genom att klicka på **+ Lägg till data uppsättningar** .
 
-![Lägg till data uppsättningar](./media/how-to/how-to-add-datasets/add-datasets.png)
+![Skärm bild som visar Lägg till markerade data uppsättningar.](./media/how-to/how-to-add-datasets/add-datasets.png)
 
-I panelen till höger väljer du den data uppsättnings typ som du vill lägga till och klickar sedan på **Nästa**. Välj prenumerationen och resurs gruppen för de data som du vill lägga till. Använd de nedrullningsbara pilarna och leta upp och markera kryss rutan bredvid de data som ska läggas till.
+I panelen till höger väljer du den data uppsättnings typ som du vill lägga till och klickar sedan på **Nästa** . Välj prenumerationen och resurs gruppen för de data som du vill lägga till. Använd de nedrullningsbara pilarna och leta upp och markera kryss rutan bredvid de data som ska läggas till.
 
-![Lägg till data uppsättningar](./media/how-to/how-to-add-datasets/add-datasets-side.png)
+![Skärm bild som visar fönstret Lägg till Blob Storage där du kan välja data.](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 
-När du klickar på **Lägg till data uppsättningar**kommer data uppsättningarna att läggas till i din resurs. Obs! en ögonblicks bild måste utlösas av dina användare för att de ska kunna se de nya data uppsättningarna. Om inställningarna för ögonblicks bilder har kon figurer ATS ser användarna de nya data uppsättningarna när nästa schemalagda ögonblicks bild har slutförts. Om inte inställningarna för ögonblicks bilder har kon figurer ATS måste konsumenten manuellt utlösa en fullständig eller stegvis kopia av data för att ta emot uppdateringarna. Mer information om ögonblicks bilder finns i [ögonblicks bilder](terminology.md).
+När du klickar på **Lägg till data uppsättningar** kommer data uppsättningarna att läggas till i din resurs. Obs! en ögonblicks bild måste utlösas av dina användare för att de ska kunna se de nya data uppsättningarna. Om inställningarna för ögonblicks bilder har kon figurer ATS ser användarna de nya data uppsättningarna när nästa schemalagda ögonblicks bild har slutförts. Om inte inställningarna för ögonblicks bilder har kon figurer ATS måste konsumenten manuellt utlösa en fullständig eller stegvis kopia av data för att ta emot uppdateringarna. Mer information om ögonblicks bilder finns i [ögonblicks bilder](terminology.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om hur du [lägger till mottagare i en befintlig data resurs](how-to-add-recipients.md).

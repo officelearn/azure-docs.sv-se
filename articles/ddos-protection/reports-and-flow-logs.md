@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 2c4349662b06ff281ef028c833c6c43dd2707051
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 5a6fc8e9b316f7c4740ee27fe72c5f056f071d73
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905551"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912723"
 ---
 # <a name="configure-ddos-attack-mitigation-reports-and-flow-logs"></a>Konfigurera DDoS-attackens minsknings rapporter och flödes loggar 
 
@@ -91,6 +91,22 @@ Flödes loggar har följande fält:
 ![DDoS Protection arbets bok](./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png)
 
 Attack analys fungerar bara om DDoS Protection standard är aktiverat på det virtuella nätverket för den offentliga IP-adressen. 
+
+## <a name="sample-log-outputs"></a>Exempel på logg utmatningar
+
+Följande skärm bilder är exempel på logg utdata:
+
+### <a name="ddosmitigationflowlogs"></a>DDoSMitigationFlowLogs
+
+![DDoS Protection DDoSMitigationFlowLogs](./media/ddos-attack-telemetry/ddos-mitigation-flow-logs.png)
+
+### <a name="ddosprotectionnotifications"></a>DDoSProtectionNotifications
+
+![DDoS Protection DDoSProtectionNotifications](./media/ddos-attack-telemetry/ddos-protection-notifications.png)
+
+### <a name="ddosmitigationreports"></a>DDoSMitigationReports
+
+![DDoS Protection DDoSMitigationReports](./media/ddos-attack-telemetry/ddos-mitigation-reports.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -118,10 +118,6 @@
           href: concepts-data-in-replication.md
         - name: Skrivskyddade repliker
           href: concepts-read-replicas.md
-    - name: Flytta mellan regioner
-      items:
-        - name: Azure Portal
-          href: howto-move-regions-portal.md
 - name: Anvisningar
   items:
     - name: Hantera en server
@@ -240,6 +236,10 @@
           href: howto-restart-server-cli.md
         - name: Azure PowerShell
           href: howto-restart-server-powershell.md
+    - name: Flytta mellan regioner
+      items:
+        - name: Azure Portal
+          href: howto-move-regions-portal.md
 - name: Referens
   items:
     - name: Azure CLI

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 2ca13ef3c6fa5bbd40ee239c50a023beee85a977
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 0e34ee7ae47358c7de95298dd245e77690bb15cf
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637181"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928084"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>XML-format i Azure Data Factory
 
@@ -30,13 +30,13 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **XML** . | Ja      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning** . | Ja      |
-| encodingName     | Kodnings typen som används för att läsa/skriva testfiler. <br>Tillåtna värden är följande: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Nej       |
-| nullValue | Anger sträng representationen för null-värde.<br/>Standardvärdet är en **tom sträng** . | Nej |
-| komprimering | Grupp egenskaper för att konfigurera fil komprimering. Konfigurera det här avsnittet när du vill utföra komprimering/expandering under aktivitets körningen. | Nej |
-| typ<br>( *under `compression`* ) | Komprimerings-codec som används för att läsa/skriva XML-filer. <br>Tillåtna värden är **bzip2** , **gzip** , **DEFLATE** , **ZipDeflate** , **TarGzip** , **fästfunktionen** eller **lz4** . Standardvärdet är inte komprimerat.<br>**Obs!** kopierings aktiviteten stöder för närvarande inte "fästfunktionen" & "lz4" och kart data flödet stöder inte "ZipDeflate".<br>**Obs!** när du använder kopierings aktivitet för att expandera **ZipDeflate** / **TarGzip** -fil (er) och skriva till filbaserat mottagar data lager, extraheras filerna som standard till mappen: `<path specified in dataset>/<folder named as source compressed file>/` , används `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` vid [kopiering av aktivitets källan](#xml-as-source) för att kontrol lera om namnet på den komprimerade filen/filerna är kvar som mappstruktur. | Nej.  |
-| nivå<br/>( *under `compression`* ) | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast** .<br>- **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **Optimalt** : komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](/dotnet/api/system.io.compression.compressionlevel) . | Nej       |
+| typ             | Data uppsättningens typ-egenskap måste anges till **XML** . | Yes      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning** . | Yes      |
+| encodingName     | Kodnings typen som används för att läsa/skriva testfiler. <br>Tillåtna värden är följande: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
+| nullValue | Anger sträng representationen för null-värde.<br/>Standardvärdet är en **tom sträng** . | No |
+| komprimering | Grupp egenskaper för att konfigurera fil komprimering. Konfigurera det här avsnittet när du vill utföra komprimering/expandering under aktivitets körningen. | No |
+| typ<br>( *under `compression`* ) | Komprimerings-codec som används för att läsa/skriva XML-filer. <br>Tillåtna värden är **bzip2** , **gzip** , **DEFLATE** , **ZipDeflate** , **TarGzip** , **tar** , **fästning** eller **lz4** . Standardvärdet är inte komprimerat.<br>**Obs!** kopierings aktiviteten stöder för närvarande inte "fästfunktionen" & "lz4" och kart data flödet stöder inte "ZipDeflate", "TarGzip" och "tar".<br>**Obs!** när du använder kopierings aktivitet för att expandera **ZipDeflate** / **TarGzip** / **tar** filer och skriver till filbaserat mottagar data lager som standardfiler extraheras till mappen: `<path specified in dataset>/<folder named as source compressed file>/` , använder `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` du på [kopierings aktivitets källan](#xml-as-source) för att kontrol lera om namnet på den eller de komprimerade filerna är kvar som mappstruktur. | Nej.  |
+| nivå<br/>( *under `compression`* ) | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast** .<br>- **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **Optimalt** : komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 Nedan visas ett exempel på XML-datauppsättningen på Azure Blob Storage:
 
@@ -75,22 +75,22 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitet **_ \_ källa \*** *. 
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **XmlSource** . | Ja      |
-| formatSettings | En grupp med egenskaper. Läs tabellen **XML-läsa inställningar** nedan. | Nej       |
-| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet** . | Nej       |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **XmlSource** . | Yes      |
+| formatSettings | En grupp med egenskaper. Läs tabellen **XML-läsa inställningar** nedan. | No       |
+| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet** . | No       |
 
 **XML-läsa inställningar** som stöds under `formatSettings` :
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typen för formatSettings måste anges till **XmlReadSettings** . | Ja      |
-| validationMode | Anger om XML-schemat ska verifieras.<br>Tillåtna värden är **ingen** (standard, ingen validering), **XSD** (validate med XSD), **DTD** (validate using DTD). | Nej |
-| namn områden | Om namn området ska aktive ras när XML-filerna parsas. Tillåtna värden är: **Sant** (standard), **falskt** . | Nej |
-| namespacePrefixes | Namn områdes-URI till prefix-mappning, som används för att namnge fält när XML-filen parsas.<br/>Om en XML-fil har namnrymd och namn område är aktiverat som standard är fält namnet detsamma som i XML-dokumentet.<br>Om ett objekt har definierats för namn områdets URI i den här kartan är fält namnet `prefix:fieldName` . | Nej |
-| detectDataType | Anger om heltal, dubbla och booleska data typer ska identifieras. Tillåtna värden är: **Sant** (standard), **falskt** .| Nej |
-| compressionProperties | En grupp egenskaper för hur man dekomprimerar data för en angiven komprimerings-codec. | Nej       |
-| preserveZipFileNameAsFolder<br>( *under `compressionProperties` -> `type` som `ZipDeflateReadSettings`* )  | Gäller när indata-dataset konfigureras med **ZipDeflate** -komprimering. Anger om käll filens zip-filnamn ska bevaras som mappstruktur under kopieringen.<br>-Om värdet är **true (standard)** , Data Factory skriver zippade filer till `<path specified in dataset>/<folder named as source zip file>/` .<br>– Om värdet är **false** skriver data Factory zippade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika käll-zip-filer för att undvika racing eller oväntat beteende.  | Nej |
-| preserveCompressionFileNameAsFolder<br>( *under `compressionProperties` -> `type` som `TarGZipReadSettings`* ) | Gäller när indata-dataset konfigureras med **TarGzip** -komprimering. Anger om du vill bevara det komprimerade fil namnet för källan som mappstruktur under kopieringen.<br>– När värdet är **true (standard)** , Data Factory skriver expanderade filer till `<path specified in dataset>/<folder named as source compressed file>/` . <br>– Om det är inställt på **false** Data Factory skriver expanderade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika källfiler för att undvika racing eller oväntat beteende. | Nej |
+| typ          | Typen för formatSettings måste anges till **XmlReadSettings** . | Yes      |
+| validationMode | Anger om XML-schemat ska verifieras.<br>Tillåtna värden är **ingen** (standard, ingen validering), **XSD** (validate med XSD), **DTD** (validate using DTD). | No |
+| namn områden | Om namn området ska aktive ras när XML-filerna parsas. Tillåtna värden är: **Sant** (standard), **falskt** . | No |
+| namespacePrefixes | Namn områdes-URI till prefix-mappning, som används för att namnge fält när XML-filen parsas.<br/>Om en XML-fil har namnrymd och namn område är aktiverat som standard är fält namnet detsamma som i XML-dokumentet.<br>Om ett objekt har definierats för namn områdets URI i den här kartan är fält namnet `prefix:fieldName` . | No |
+| detectDataType | Anger om heltal, dubbla och booleska data typer ska identifieras. Tillåtna värden är: **Sant** (standard), **falskt** .| No |
+| compressionProperties | En grupp egenskaper för hur man dekomprimerar data för en angiven komprimerings-codec. | No       |
+| preserveZipFileNameAsFolder<br>( *under `compressionProperties` -> `type` som `ZipDeflateReadSettings`* )  | Gäller när indata-dataset konfigureras med **ZipDeflate** -komprimering. Anger om käll filens zip-filnamn ska bevaras som mappstruktur under kopieringen.<br>-Om värdet är **true (standard)** , Data Factory skriver zippade filer till `<path specified in dataset>/<folder named as source zip file>/` .<br>– Om värdet är **false** skriver data Factory zippade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika käll-zip-filer för att undvika racing eller oväntat beteende.  | No |
+| preserveCompressionFileNameAsFolder<br>( *under `compressionProperties` -> `type` som `TarGZipReadSettings` eller `TarReadSettings`* ) | Gäller när indata-dataset konfigureras med **TarGzip** / **tar** komprimering. Anger om du vill bevara det komprimerade fil namnet för källan som mappstruktur under kopieringen.<br>– När värdet är **true (standard)** , Data Factory skriver expanderade filer till `<path specified in dataset>/<folder named as source compressed file>/` . <br>– Om det är inställt på **false** Data Factory skriver expanderade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika källfiler för att undvika racing eller oväntat beteende. | No |
 
 ## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 
@@ -100,17 +100,17 @@ I mappa data flöden kan du läsa och skriva till XML-format i följande data la
 
 I tabellen nedan visas de egenskaper som stöds av en XML-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** . Lär dig mer från [XML-kopplingens beteende](#xml-connector-behavior). När du använder en infogad data uppsättning visas ytterligare fil inställningar, som är samma som de egenskaper som beskrivs i avsnittet [Egenskaper för data mängd](#dataset-properties) . 
 
-| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Jokertecken sökvägar | Alla filer som matchar sökvägen för jokertecken kommer att bearbetas. Åsidosätter mappen och fil Sök vägen som angetts i data uppsättningen. | Nej | Sträng [] | wildcardPaths |
+| Jokertecken sökvägar | Alla filer som matchar sökvägen för jokertecken kommer att bearbetas. Åsidosätter mappen och fil Sök vägen som angetts i data uppsättningen. | No | Sträng [] | wildcardPaths |
 | Partitionens rot Sök väg | För fildata som är partitionerade kan du ange en rot Sök väg för partitionen för att kunna läsa partitionerade mappar som kolumner | Nej | Sträng | partitionRootPath |
-| Lista över filer | Om källan pekar på en textfil som visar en lista över filer som ska bearbetas | Nej | `true` eller `false` | fileList |
+| Lista över filer | Om källan pekar på en textfil som visar en lista över filer som ska bearbetas | No | `true` eller `false` | fileList |
 | Kolumn som ska lagra fil namn | Skapa en ny kolumn med käll filens namn och sökväg | Nej | Sträng | rowUrlColumn |
-| Efter slut för ande | Ta bort eller flytta filerna efter bearbetning. Fil Sök vägen börjar från container roten | Nej | Ta bort: `true` eller `false` <br> Fart `['<from>', '<to>']` | purgeFiles <br>moveFiles |
-| Filtrera efter senast ändrad | Välj att filtrera filer baserat på när de senast ändrades | Nej | Timestamp | modifiedAfter <br>modifiedBefore |
-| Validerings läge | Anger om XML-schemat ska verifieras. | Nej | `None` (standard, ingen verifiering)<br>`xsd` (validera med XSD)<br>`dtd` (verifiera med hjälp av DTD). | validationMode |
-| Namnrymder | Om namn området ska aktive ras när XML-filerna parsas. | Nej | `true` (standard) eller `false` | namn områden |
-| Par av namnområdesprefix | Namn områdes-URI till prefix-mappning, som används för att namnge fält när XML-filen parsas.<br/>Om en XML-fil har namnrymd och namn område är aktiverat som standard är fält namnet detsamma som i XML-dokumentet.<br>Om ett objekt har definierats för namn områdets URI i den här kartan är fält namnet `prefix:fieldName` . | Nej | Matris med mönster`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| Efter slut för ande | Ta bort eller flytta filerna efter bearbetning. Fil Sök vägen börjar från container roten | No | Ta bort: `true` eller `false` <br> Fart `['<from>', '<to>']` | purgeFiles <br>moveFiles |
+| Filtrera efter senast ändrad | Välj att filtrera filer baserat på när de senast ändrades | No | Timestamp | modifiedAfter <br>modifiedBefore |
+| Validerings läge | Anger om XML-schemat ska verifieras. | No | `None` (standard, ingen verifiering)<br>`xsd` (validera med XSD)<br>`dtd` (verifiera med hjälp av DTD). | validationMode |
+| Namnrymder | Om namn området ska aktive ras när XML-filerna parsas. | No | `true` (standard) eller `false` | namn områden |
+| Par av namnområdesprefix | Namn områdes-URI till prefix-mappning, som används för att namnge fält när XML-filen parsas.<br/>Om en XML-fil har namnrymd och namn område är aktiverat som standard är fält namnet detsamma som i XML-dokumentet.<br>Om ett objekt har definierats för namn områdets URI i den här kartan är fält namnet `prefix:fieldName` . | No | Matris med mönster`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
 | Det gick inte att hitta några filer | Om värdet är true uppstår ett fel inte om inga filer hittas | nej | `true` eller `false` | ignoreNoFilesFound |
 
 ### <a name="xml-source-script-example"></a>Skript exempel för XML-källa

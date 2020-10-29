@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e9341ff9a2ee0a6bfc79d94eea99bfb9aebceadf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ea746d67b23422243685347d1fe7a7fbaf03a4fe
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637045"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927965"
 ---
 # <a name="eav4-and-easv4-series"></a>Eav4- och Easv4-serien
 
@@ -25,7 +25,7 @@ Eav4-serien och Easv4-serien använder AMD: s 2.35 GHz EPYC<sup>TM</sup> 7452-pr
 [Premium Storage caching](premium-storage-performance.md): stöds inte<br>
 [Direktmigrering](maintenance-and-updates.md): stöds<br>
 [Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
-[Stöd för VM-generering](generation-2.md): generation 1<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
 <br>
 
 Eav4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en högre högsta frekvens på 3.35 GHz och använder Premium SSD. Eav4-seriens storlek är idealiska för minnes intensiva företags program. Datadisklagring faktureras separat från virtuella datorer. Om du vill använda Premium SSD använder du Easv4-seriens storlekar. Pris-och debiterings mätare för Easv4-storlekar är samma som för Eav3-serien.
@@ -49,7 +49,7 @@ Eav4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processor
 [Premium Storage caching](premium-storage-performance.md): stöds<br>
 [Direktmigrering](maintenance-and-updates.md): stöds<br>
 [Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
-[Stöd för VM-generering](generation-2.md): generation 1<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
 <br>
 
 Easv4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en högre högsta frekvens på 3.35 GHz och använder Premium SSD. Easv4-seriens storlek är idealiska för minnes intensiva företags program.

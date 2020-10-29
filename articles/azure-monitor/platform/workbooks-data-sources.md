@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: a0349a3fe21bdc0b73252bce1207c9f3b53dc15f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143734"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927914"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor arbets böcker data källor
 
@@ -77,7 +77,7 @@ Arbets böcker har stöd för att få Azure Resource Health och kombinera dem me
 
 Om du vill att en fråga ska använda den här data källan använder du List rutan **typ av fråga** för att välja Azure Health och väljer de resurser som ska användas som mål. Använd List rutorna för hälso filter för att välja en intressant del av resurs problem för dina analys behov.
 
-![Skärm bild av fråga om aviseringar](./media/workbooks-overview/resource-health.png)
+![Skärm bild av aviserings frågan som visar hälso filter listor.](./media/workbooks-overview/resource-health.png)
 
 ## <a name="json"></a>JSON
 
@@ -100,7 +100,7 @@ Om du vill göra en fråg-kontroll använder du den här data källan, använder
 
 Arbets böcker har stöd för att hämta data från alla externa källor. Om dina data finns utanför Azure kan du använda dem i arbets böcker med den här typen av data källa.
 
-Om du vill göra en fråg-kontroll använder du den här data källan använder du List rutan _data källa_ för att välja _anpassad slut punkt_. Ange lämpliga parametrar som,, `Http method` `url` `headers` `url parameters` och/eller `body` . Kontrol lera att data källan har stöd för [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) , annars Miss Miss förfrågan.
+Om du vill göra en fråg-kontroll använder du den här data källan använder du List rutan _data källa_ för att välja _anpassad slut punkt_ . Ange lämpliga parametrar som,, `Http method` `url` `headers` `url parameters` och/eller `body` . Kontrol lera att data källan har stöd för [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) , annars Miss Miss förfrågan.
 
 För att undvika att anrop till obetrodda värdar när du använder mallar, måste användaren Markera de använda värdarna som betrodda. Du kan göra detta genom att antingen klicka på knappen _Lägg till som betrodd_ eller genom att lägga till den som en betrodd värd i arbets boks inställningarna. De här inställningarna kommer att sparas i webbläsare som stöder IndexDb med webb arbetare, mer information [här](https://caniuse.com/#feat=indexeddb).
 

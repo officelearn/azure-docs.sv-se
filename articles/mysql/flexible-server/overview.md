@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4cb706bfa1c10e941e6d2d44358c784549973302
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537957"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927982"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -85,6 +85,17 @@ Den flexibla Server tjänsten är tillgänglig på tre SKU-nivåer: Burst, Gener
 
 Mer information finns i [beräknings-och lagrings koncept](concepts-compute-storage.md) .
 
+## <a name="scale-out-your-read-workload-with-up-to-10-read-replicas"></a>Skala ut din Läs arbets belastning med upp till 10 Läs repliker
+
+MySQL är en av de populära databas motorerna för att köra webb-och mobil program på Internet-skala. Många av våra kunder använder den för sina utbildnings tjänster online, video strömnings tjänster, digitala betalnings lösningar, e-handelsplattformar, spel tjänster, nyhets portaler, myndigheter och sjukvårds webbplatser. Dessa tjänster krävs för att betjäna och skala när trafiken på webben eller det mobila programmet ökar.
+
+På program sidan, utvecklas programmet vanligt vis i Java eller php och migreras till att köras på [Azures skalnings uppsättningar för virtuella datorer](/azure/virtual-machine-scale-sets/overview.md)   eller [Azure App tjänster](/azure/app-service/overview.md)   eller behållare som ska köras på [Azure Kubernetes service (AKS)](/azure/aks/intro-kubernetes.md). Med den virtuella datorns skalnings uppsättning, App Service eller AKS som en underliggande infrastruktur, är program skalningen förenklad genom att tillfälligt tillhandahålla nya virtuella datorer och replikera tillstånds lösa komponenter för program till följd av begär Anden, men ofta avslutas databasen som en Flask hals som centraliserad tillstånds känslig komponent.
+
+Med funktionen Läs replik kan du replikera data från en Azure Database for MySQL flexibel server till en skrivskyddad Server. Du kan replikera från käll servern till **upp till 10 repliker** . Repliker uppdateras asynkront med MySQL-motorns interna [binära logg (BinLog)-baserad teknik för replikering](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html). Du kan använda en proxyserver för belastningsutjämnare som [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) för att enkelt skala ut din program arbets belastning för att läsa repliker utan att behöva göra några omkostnader för programmet. 
+
+Mer information finns i [läsa replik begrepp](concepts-read-replicas.md) . 
+
+
 ## <a name="stopstart-server-to-optimize-cost"></a>Stoppa/starta servern för att optimera kostnaderna
 
 Med tjänsten flexibel Server kan du stoppa och starta Server på begäran för att optimera kostnaderna. Faktureringen av beräknings nivån stoppas omedelbart när servern stoppas. Detta kan göra att du kan få avsevärda kostnads besparingar under utveckling, testning och tidsbegränsade förutsägbara produktions arbets belastningar. Servern är kvar i stoppat tillstånd i sju dagar om den inte startas om tidigare. 
@@ -122,7 +133,7 @@ Tjänsten kör community-versionen av MySQL. Detta möjliggör fullständig prog
 En av fördelarna med att köra din arbets belastning i Azure är den globala räckvidden. Den flexibla servern för Azure Database for MySQL är tillgänglig idag i följande Azure-regioner:
 
 - Europa, västra
-- Norra Europa
+- Europa, norra
 - Storbritannien, södra
 - USA, östra 2
 - USA, västra 2

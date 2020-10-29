@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c706ba6847334648fade1e8983e00433d3fa618
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dcabd01cfbda8cd892c82b391bf649b2b464d6fb
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978211"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927778"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>SAP HANA tillgänglighet inom en Azure-region
 I den här artikeln beskrivs flera tillgänglighets scenarier i en Azure-region. Azure har många regioner, sprids över hela världen. En lista över Azure-regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/). För att distribuera SAP HANA på virtuella datorer inom en Azure-region, erbjuder Microsoft distribution av en enskild virtuell dator med en HANA-instans. För ökad tillgänglighet kan du distribuera två virtuella datorer med två HANA-instanser i en [Azures tillgänglighets uppsättning](../../windows/tutorial-availability-sets.md) som använder Hana-systemreplikering för tillgänglighet. 
@@ -78,7 +78,7 @@ En av de mest elementära-installationerna är att använda säkerhets kopior. I
 
 Arkitekturen ser ut så här:
 
-![Diagram över två virtuella datorer med Storage Replication](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![Diagram som visar arkitekturen för två virtuella datorer med Storage Replication.](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 Den här konfigurationen passar inte bra för att uppnå utmärkta återställnings punkt mål (återställnings punkt mål) och återställnings tids mål (RTO). RTO gånger skulle särskilt bli lidande på grund av behovet av att fullständigt återställa den fullständiga databasen med hjälp av de kopierade säkerhets kopiorna. Den här installationen är dock användbar för återställning från oavsiktligt data borttagning på huvud instanserna. Med den här installationen kan du när som helst återställa till en viss tidpunkt, extrahera data och importera borttagna data till huvud instansen. Därför kan det vara bra att använda en säkerhets kopierings metod i kombination med andra funktioner med hög tillgänglighet. 
 

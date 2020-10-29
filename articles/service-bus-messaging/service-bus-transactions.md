@@ -2,14 +2,14 @@
 title: Översikt över transaktions bearbetning i Azure Service Bus
 description: Den här artikeln innehåller en översikt över transaktions bearbetning och funktionen Skicka via i Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 10/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f51e570775fbce8a316d98b5198fa906173dc755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9162b8578fe4f48cc3740b38d9d84ffaa2f260de
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88999962"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927795"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Översikt över Service Bus transaktions bearbetning
 
@@ -17,7 +17,7 @@ I den här artikeln beskrivs transaktions funktionerna i Microsoft Azure Service
 
 ## <a name="transactions-in-service-bus"></a>Transaktioner i Service Bus
 
-En *transaktion* grupper två eller flera åtgärder tillsammans i ett *körnings område*. En sådan transaktion måste efter beskaffenhet säkerställa att alla åtgärder som hör till en specifik grupp av åtgärder antingen lyckas eller Miss lyckas gemensamt. I detta hänseende fungerar transaktionerna som en enhet, vilket ofta kallas *Atomicitet*.
+En *transaktion* grupper två eller flera åtgärder tillsammans i ett *körnings område* . En sådan transaktion måste efter beskaffenhet säkerställa att alla åtgärder som hör till en specifik grupp av åtgärder antingen lyckas eller Miss lyckas gemensamt. I detta hänseende fungerar transaktionerna som en enhet, vilket ofta kallas *Atomicitet* .
 
 Service Bus är en transaktions meddelande Broker och säkerställer transaktions integriteten för alla interna åtgärder mot sina meddelande arkiv. Alla överföringar av meddelanden i Service Bus, till exempel att flytta meddelanden till en [kö för obeställbara](service-bus-dead-letter-queues.md) meddelanden eller [automatisk vidarebefordran](service-bus-auto-forwarding.md) av meddelanden mellan entiteter, är transaktionella. Om Service Bus accepterar ett meddelande har det redan lagrats och märkts med ett sekvensnummer. Från och med, är alla meddelande överföringar inom Service Bus koordinerade åtgärder över entiteter och kommer inte att leda till förlust (källan lyckas och målet Miss lyckas) eller för att duplicera (källan Miss lyckas och målet lyckas) för meddelandet.
 
@@ -27,8 +27,8 @@ Service Bus stöder grupperingsåtgärder mot en enskild meddelandeenhet (kö, �
 
 De åtgärder som kan utföras inom ett transaktions omfång är följande:
 
-* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**:,,,,,,, `Complete` `CompleteAsync` `Abandon` `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` , `RenewLockAsync` 
+* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)** : `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** :,,,,,,, `Complete` `CompleteAsync` `Abandon` `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` , `RenewLockAsync` 
 
 Receive-åtgärder ingår inte, eftersom det förutsätts att programmet hämtar meddelanden med hjälp av läget [PeekLock ReceiveMode. PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) , i vissa mottagnings slingor eller med ett [motringningen OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) -motanrop, och öppnar bara ett transaktions omfång för bearbetning av meddelandet.
 
@@ -36,9 +36,9 @@ Dispositionen av meddelandet (fullständig, överge, obeställbara meddelanden, 
 
 ## <a name="transfers-and-send-via"></a>Överföringar och "Skicka via"
 
-Om du vill aktivera transaktionell överlämnande av data från en kö till en processor, och sedan till en annan kö, Service Bus stöder *överföringar*. I en överförings åtgärd skickar en sändare först ett meddelande till en *överförings kö*, och överförings kön flyttar omedelbart meddelandet till den avsedda målkön med samma robusta överförings implementering som funktionen för vidarebefordran är beroende av. Meddelandet allokeras aldrig till överförings köns logg på ett sätt som är synligt för överförings köns konsumenter.
+Om du vill aktivera transaktions överlämnande av data från en kö eller ett ämne till en processor, och sedan till en annan kö eller ämne, Service Bus stöder *överföringar* . I en överförings åtgärd skickar en sändare först ett meddelande till en *överförings kö eller ett ämne* , och överförings kön eller avsnittet flyttar direkt meddelandet till den avsedda målkön eller avsnittet med samma robusta överförings implementering som funktionen för autoforward är beroende av. Meddelandet allokeras aldrig till överförings kön eller ämnes loggen på ett sätt som är synligt för överförings kön eller ämnets konsumenter.
 
-Kraften i denna transaktions funktion blir tydlig när själva överförings kön är källan till avsändarens indatameddelande. Med andra ord kan Service Bus överföra meddelandet till målkön "via" överförings kön, samtidigt som en fullständig (eller överskjutande eller obeställbara meddelanden) utförs i Indataporten, allt i en atomisk åtgärd. 
+Kraften i denna transaktions funktion blir tydlig när överförings kön eller själva ämnet är källan till avsändarens indatameddelande. Med andra ord kan Service Bus överföra meddelandet till målkön eller avsnittet "via" överförings kön eller ämnet, samtidigt som du utför en fullständig (eller överskjutande eller obeställbara meddelanden) i Indataporten, allt i en atomisk åtgärd. 
 
 ### <a name="see-it-in-code"></a>Se det i kod
 

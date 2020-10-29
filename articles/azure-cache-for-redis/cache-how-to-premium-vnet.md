@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: eb70e7cfec4e6f3e7e55fa74bbdd6cee43493576
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a55db6a9db8cc53da15ba6e818db7b78b72cefc9
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537889"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927744"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Ett VNet är ett privat nätverk i molnet. När en Azure-cache för Redis-instans har kon figurer ATS med ett VNet, är den inte offentligt adresserad och kan endast nås från virtuella datorer och program i VNet. Den här artikeln beskriver hur du konfigurerar stöd för virtuella nätverk för en Premium Azure-cache för Redis-instansen.
@@ -50,10 +50,10 @@ Stöd för Virtual Network (VNet) konfigureras på bladet **ny Azure-cache för 
 
 5. På fliken **nätverk** väljer du **virtuella nätverk** som anslutnings metod. Om du vill använda ett nytt virtuellt nätverk skapar du det först genom att följa stegen i [skapa ett virtuellt nätverk med hjälp av Azure Portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) eller [skapa ett virtuellt nätverk (klassisk) med hjälp av Azure Portal](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) och återgå sedan till bladet **ny Azure-cache för Redis** för att skapa och konfigurera din Premium-cache.
 
-> [!IMPORTANT]
-> När du distribuerar en Azure-cache för Redis till ett virtuellt resurs hanterings nätverk måste cachen finnas i ett dedikerat undernät som inte innehåller några andra resurser förutom Azure cache för Redis-instanser. Om ett försök görs att distribuera en Azure-cache för Redis till ett virtuellt nätverk till ett undernät som innehåller andra resurser, Miss lyckas distributionen.
-> 
-> 
+   > [!IMPORTANT]
+   > När du distribuerar en Azure-cache för Redis till ett virtuellt resurs hanterings nätverk måste cachen finnas i ett dedikerat undernät som inte innehåller några andra resurser förutom Azure cache för Redis-instanser. Om ett försök görs att distribuera en Azure-cache för Redis till ett virtuellt nätverk till ett undernät som innehåller andra resurser, Miss lyckas distributionen.
+   > 
+   > 
 
    | Inställning      | Föreslaget värde  | Beskrivning |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -61,12 +61,12 @@ Stöd för Virtual Network (VNet) konfigureras på bladet **ny Azure-cache för 
    | **Undernät** | List rutan och välj ditt undernät. | Under nätets adress intervall ska vara i CIDR-notation (t. ex. 192.168.1.0/24). Det måste finnas i det virtuella nätverkets adress utrymme. | 
    | **Statisk IP-adress** | Valfritt Ange en statisk IP-adress. | Om du inte anger en statisk IP-adress väljs en IP-adress automatiskt. | 
 
-> [!IMPORTANT]
-> Azure reserverar vissa IP-adresser i varje undernät och de här adresserna kan inte användas. De första och sista IP-adresserna i under näten är reserverade för protokoll överensstämmelse, tillsammans med tre fler adresser som används för Azure-tjänster. Mer information finns i finns [det några begränsningar för att använda IP-adresser i dessa undernät?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
-> 
-> Förutom de IP-adresser som används av Azure VNET-infrastrukturen använder varje Redis-instans i under nätet två IP-adresser per Shard och ytterligare en IP-adress för belastningsutjämnaren. En icke-klustrad cache anses ha en Shard.
-> 
-> 
+   > [!IMPORTANT]
+   > Azure reserverar vissa IP-adresser i varje undernät och de här adresserna kan inte användas. De första och sista IP-adresserna i under näten är reserverade för protokoll överensstämmelse, tillsammans med tre fler adresser som används för Azure-tjänster. Mer information finns i finns [det några begränsningar för att använda IP-adresser i dessa undernät?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+   > 
+   > Förutom de IP-adresser som används av Azure VNET-infrastrukturen använder varje Redis-instans i under nätet två IP-adresser per Shard och ytterligare en IP-adress för belastningsutjämnaren. En icke-klustrad cache anses ha en Shard.
+   > 
+   > 
 
 6. Välj **Nästa: fliken Avancerat** eller klicka på **Nästa: Avancerat** längst ned på sidan.
 
@@ -131,7 +131,7 @@ Det finns nio krav för utgående port. Utgående begär anden i dessa intervall
 | Portar | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Utgående |TCP |Redis-beroenden för Azure Storage/PKI (Internet) | (Redis-undernät) |* |
-| 443 | Utgående | TCP | Redis beroende av Azure Key Vault | (Redis-undernät) | AzureKeyVault <sup>1</sup> |
+| 443 | Utgående | TCP | Redis beroende av Azure Key Vault och Azure Monitor | (Redis-undernät) | AzureKeyVault, AzureMonitor <sup>1</sup> |
 | 53 |Utgående |TCP/UDP |Redis-beroenden för DNS (Internet/VNet) | (Redis-undernät) | 168.63.129.16 och 169.254.169.254 <sup>2</sup> och valfri anpassad DNS-server för under nätet <sup>3</sup> |
 | 8443 |Utgående |TCP |Intern kommunikation för Redis | (Redis-undernät) | (Redis-undernät) |
 | 10221-10231 |Utgående |TCP |Intern kommunikation för Redis | (Redis-undernät) | (Redis-undernät) |
@@ -140,7 +140,7 @@ Det finns nio krav för utgående port. Utgående begär anden i dessa intervall
 | 15000-15999 |Utgående |TCP |Intern kommunikation för Redis och Geo-Replication | (Redis-undernät) |(Redis-undernät) (Geo-Replica-peer-undernät) |
 | 6379-6380 |Utgående |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |
 
-<sup>1</sup> du kan använda tjänst tag gen "AzureKeyVault" med nätverks säkerhets grupper i Resource Manager.
+<sup>1</sup> du kan använda tjänst taggarna "AzureKeyVault" och "AzureMonitor" med nätverks säkerhets grupper i Resource Manager.
 
 <sup>2</sup> de här IP-adresserna som ägs av Microsoft används för att ADRESSERA den virtuella värddatorn som hanterar Azure DNS.
 
@@ -172,9 +172,9 @@ Det finns åtta krav för ingående port intervall. Inkommande begär anden i de
 Det finns krav på nätverks anslutning för Azure cache för Redis som inte inlednings vis uppfylls i ett virtuellt nätverk. Azure cache för Redis kräver att alla följande objekt fungerar korrekt när de används i ett virtuellt nätverk.
 
 * Utgående nätverks anslutning till Azure Storage slut punkter över hela världen. Detta inkluderar slut punkter som finns i samma region som Azure-cachen för Redis-instansen, samt lagrings slut punkter som finns i **andra** Azure-regioner. Azure Storage slut punkter matchas enligt följande DNS-domäner: *Table.Core.Windows.net* , *blob.Core.Windows.net* , *Queue.Core.Windows.net* och *File.Core.Windows.net* . 
-* Utgående nätverks anslutning till *OCSP.msocsp.com* , *mscrl.Microsoft.com* och *CRL.Microsoft.com* . Den här anslutningen krävs för att stödja TLS/SSL-funktioner.
+* Utgående nätverks anslutning till *OCSP.DigiCert.com* , *crl4.DigiCert.com* , *OCSP.msocsp.com* , *mscrl.Microsoft.com* , *crl3.DigiCert.com* , *cacerts.DigiCert.com* , *oneocsp.Microsoft.com* och *CRL.Microsoft.com* . Den här anslutningen krävs för att stödja TLS/SSL-funktioner.
 * DNS-konfigurationen för det virtuella nätverket måste kunna matcha alla slut punkter och domäner som nämns i de tidigare punkterna. Dessa DNS-krav kan uppfyllas genom att en giltig DNS-infrastruktur konfigureras och underhålls för det virtuella nätverket.
-* Utgående nätverks anslutning till följande slut punkter för Azure-övervakning, som löses under följande DNS-domäner: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
+* Utgående nätverks anslutning till följande Azure Monitor slut punkter, som löses under följande DNS-domäner: *shoebox2-Black.shoebox2.Metrics.nsatc.net* , *North-prod2.prod2.Metrics.nsatc.net* , *azglobal-Black.azglobal.Metrics.nsatc.net* , *shoebox2-Red.shoebox2.Metrics.nsatc.net* , *East-prod2.prod2.Metrics.nsatc.net* , *azglobal-Red.azglobal.Metrics.nsatc.net* .
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Hur kan jag kontrol lera att mitt cacheminne fungerar i ett VNET?
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7ab9b5166aab07e0629cdd280f8cdccbd0702c99
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518015"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927727"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) om Azure Virtual Network
 
@@ -123,8 +123,8 @@ Nej. Ett VNet är begränsat till en enda region. Ett virtuellt nätverk gör do
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Kan jag ansluta ett VNet till ett annat VNet i Azure?
 Ja. Du kan ansluta ett VNet till ett annat VNet med hjälp av något av följande:
-- **Peering för virtuellt nätverk**: Mer information finns i [Översikt över VNet-peering](virtual-network-peering-overview.md)
-- **En Azure-VPN gateway**: Mer information finns i [Konfigurera en VNet-till-VNET-anslutning](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- **Peering för virtuellt nätverk** : Mer information finns i [Översikt över VNet-peering](virtual-network-peering-overview.md)
+- **En Azure-VPN gateway** : Mer information finns i [Konfigurera en VNet-till-VNET-anslutning](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="name-resolution-dns"></a>Namn matchning (DNS)
 
@@ -159,10 +159,10 @@ Ja. Alla nätverks gränssnitt (NIC) som är anslutna till en virtuell dator som
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Vilka är de olika typerna av IP-adresser jag kan tilldela till virtuella datorer?
 * **Privat:** Tilldelas varje nätverkskort i varje virtuell dator. Adressen tilldelas antingen med den statiska eller dynamiska metoden. Privata IP-adresser tilldelas från det intervall som du har angett i under näts inställningarna för ditt VNet. Resurser som distribueras via den klassiska distributions modellen tilldelas privata IP-adresser, även om de inte är anslutna till ett VNet. Metoden för allokeringsmetod är olika beroende på om en resurs har distribuerats med Resource Manager eller den klassiska distributions modellen: 
 
-  - **Resource Manager**: en privat IP-adress som tilldelats med den dynamiska eller statiska metoden förblir tilldelad till en virtuell dator (Resource Manager) tills resursen har tagits bort. Skillnaden är att du väljer den adress som ska tilldelas när du använder statisk, och Azure väljer när du använder dynamisk. 
-  - **Klassisk**: en privat IP-adress som tilldelats med den dynamiska metoden kan ändras när en virtuell dator (klassisk) startas om efter att ha varit i läget Stoppad (Frigjord). Om du behöver se till att den privata IP-adressen för en resurs som distribueras via den klassiska distributions modellen aldrig ändras, tilldelar du en privat IP-adress med den statiska metoden.
+  - **Resource Manager** : en privat IP-adress som tilldelats med den dynamiska eller statiska metoden förblir tilldelad till en virtuell dator (Resource Manager) tills resursen har tagits bort. Skillnaden är att du väljer den adress som ska tilldelas när du använder statisk, och Azure väljer när du använder dynamisk. 
+  - **Klassisk** : en privat IP-adress som tilldelats med den dynamiska metoden kan ändras när en virtuell dator (klassisk) startas om efter att ha varit i läget Stoppad (Frigjord). Om du behöver se till att den privata IP-adressen för en resurs som distribueras via den klassiska distributions modellen aldrig ändras, tilldelar du en privat IP-adress med den statiska metoden.
 
-* **Offentlig:** Kan tilldelas till nätverkskort som är anslutna till virtuella datorer som distribueras via Azure Resource Manager distributions modell. Adressen kan tilldelas med metoden för statisk eller dynamisk allokering. Alla virtuella datorer och Cloud Services roll instanser som distribueras via den klassiska distributions modellen finns i en moln tjänst, som tilldelas en *dynamisk*, offentlig virtuell IP-adress (VIP). En offentlig *statisk* IP-adress, som kallas en [reserverad IP-adress](virtual-networks-reserved-public-ip.md), kan alternativt tilldelas som VIP. Du kan tilldela offentliga IP-adresser till enskilda virtuella datorer eller Cloud Services roll instanser som distribueras via den klassiska distributions modellen. Dessa adresser kallas [offentliga IP-adresser på instans nivå (ILPIP-](virtual-networks-instance-level-public-ip.md) adresser och kan tilldelas dynamiskt).
+* **Offentlig:** Kan tilldelas till nätverkskort som är anslutna till virtuella datorer som distribueras via Azure Resource Manager distributions modell. Adressen kan tilldelas med metoden för statisk eller dynamisk allokering. Alla virtuella datorer och Cloud Services roll instanser som distribueras via den klassiska distributions modellen finns i en moln tjänst, som tilldelas en *dynamisk* , offentlig virtuell IP-adress (VIP). En offentlig *statisk* IP-adress, som kallas en [reserverad IP-adress](virtual-networks-reserved-public-ip.md), kan alternativt tilldelas som VIP. Du kan tilldela offentliga IP-adresser till enskilda virtuella datorer eller Cloud Services roll instanser som distribueras via den klassiska distributions modellen. Dessa adresser kallas [offentliga IP-adresser på instans nivå (ILPIP-](virtual-networks-instance-level-public-ip.md) adresser och kan tilldelas dynamiskt).
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Kan jag reservera en privat IP-adress för en virtuell dator som jag ska skapa vid ett senare tillfälle?
 Nej. Du kan inte reservera en privat IP-adress. Om en privat IP-adress är tillgänglig, tilldelas den en virtuell dator eller roll instans av DHCP-servern. Den virtuella datorn kanske inte är den som du vill att den privata IP-adressen är tilldelad till. Du kan dock ändra den privata IP-adressen för en redan skapad virtuell dator till valfri tillgänglig privat IP-adress.
@@ -228,6 +228,9 @@ Ja. Du kan distribuera en [brand vägg för virtuella brand väggar](https://azu
 ### <a name="is-there-information-available-about-securing-vnets"></a>Finns det någon information om att skydda virtuella nätverk?
 Ja. Mer information finns i [Översikt över Azure Network Security](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+### <a name="do-virtual-networks-store-customer-data"></a>Lagrar virtuella nätverk kund information?
+Nej. Virtuella nätverk lagrar ingen kund information. 
+
 ## <a name="apis-schemas-and-tools"></a>API: er, scheman och verktyg
 
 ### <a name="can-i-manage-vnets-from-code"></a>Kan jag hantera virtuella nätverk från kod?
@@ -268,7 +271,7 @@ Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNe
 Ja. Det går att etablera VNet-peering (oavsett om den är lokal eller global) om prenumerationerna tillhör olika Azure Active Directory klienter. Du kan göra detta via portalen, PowerShell eller CLI.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Mitt VNet-peering-anslutning har *initierats* , varför kan jag inte ansluta?
-Om peering-anslutningen är i ett *initierat* tillstånd innebär det att du bara har skapat en länk. En dubbelriktad länk måste skapas för att en anslutning ska kunna upprättas. Till exempel, för peer-VNet A till VNet B, måste en länk skapas från VNetA till VNetB och från VNetB till VNetA. Om du skapar båda länkarna ändras statusen till *ansluten*.
+Om peering-anslutningen är i ett *initierat* tillstånd innebär det att du bara har skapat en länk. En dubbelriktad länk måste skapas för att en anslutning ska kunna upprättas. Till exempel, för peer-VNet A till VNet B, måste en länk skapas från VNetA till VNetB och från VNetB till VNetA. Om du skapar båda länkarna ändras statusen till *ansluten* .
 
 ### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Mitt VNet-peering-anslutning är i *frånkopplat* tillstånd, varför kan jag inte skapa en peering-anslutning?
 Om din VNet-peering-anslutning är i *frånkopplat* läge, innebär det att en av de länkar som skapats har tagits bort. För att återupprätta en peering-anslutning måste du ta bort länken och återskapa den.
@@ -331,7 +334,7 @@ Det första steget är en åtgärd på nätverks sidan och det andra steget är 
 >[!NOTE]
 > Båda åtgärderna som beskrivs ovan måste slutföras innan du kan begränsa åtkomsten till Azure-tjänsten till det tillåtna VNet och under nätet. Att bara aktivera tjänst slut punkter för Azure-tjänsten på nätverks sidan ger dig inte begränsad åtkomst. Dessutom måste du också konfigurera VNet ACL: er på Azure-tjänstesidan.
 
-Vissa tjänster (till exempel SQL och CosmosDB) tillåter undantag till ovanstående sekvens genom **IgnoreMissingVnetServiceEndpoint** -flaggan. När flaggan har angetts till **True**kan VNet-ACL: er anges på Azure-tjänstesidan innan du konfigurerar tjänstens slut punkter på nätverks sidan. Azure-tjänster tillhandahåller den här flaggan för att hjälpa kunder i de fall där de angivna IP-brandväggarna har kon figurer ATS på Azure-tjänster och aktivering av tjänstens slut punkter på nätverks sidan kan leda till en anslutning på grund av att käll-IP-adressen ändras från en offentlig IPv4-adress till en privat adress. Konfigurera VNet ACL: er på Azure-tjänstesidan innan du ställer in tjänst slut punkter på nätverks sidan kan hjälpa till att ta bort en anslutning.
+Vissa tjänster (till exempel SQL och CosmosDB) tillåter undantag till ovanstående sekvens genom **IgnoreMissingVnetServiceEndpoint** -flaggan. När flaggan har angetts till **True** kan VNet-ACL: er anges på Azure-tjänstesidan innan du konfigurerar tjänstens slut punkter på nätverks sidan. Azure-tjänster tillhandahåller den här flaggan för att hjälpa kunder i de fall där de angivna IP-brandväggarna har kon figurer ATS på Azure-tjänster och aktivering av tjänstens slut punkter på nätverks sidan kan leda till en anslutning på grund av att käll-IP-adressen ändras från en offentlig IPv4-adress till en privat adress. Konfigurera VNet ACL: er på Azure-tjänstesidan innan du ställer in tjänst slut punkter på nätverks sidan kan hjälpa till att ta bort en anslutning.
 
 ### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>Finns alla Azure-tjänster i det virtuella Azure-nätverket som tillhandahålls av kunden? Hur fungerar VNet-tjänstens slut punkter med Azure-tjänster?
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0bc8b4f7bd2bf02d4d034ebacc0fc45b17cd3e15
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425356"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928101"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Säkerhetspoäng i Azure Security Center
 
@@ -29,7 +29,7 @@ Azure Security Center har två huvudsakliga mål:
 - för att hjälpa dig att förstå den aktuella säkerhets situationen
 - för att hjälpa dig att effektivt och effektivt förbättra din säkerhet
 
-Den centrala funktionen i Security Center som gör att du kan uppnå dessa mål är **säkra Poäng**.
+Den centrala funktionen i Security Center som gör att du kan uppnå dessa mål är **säkra Poäng** .
 
 Security Center utvärderar kontinuerligt dina resurser, prenumerationer och din organisation efter säkerhets problem. Den sammanställer sedan alla resultat i en enda poäng så att du snabbt kan tala om din aktuella säkerhets situation: ju högre poäng, desto lägre är den identifierade risk nivån.
 
@@ -39,7 +39,7 @@ De säkra poängen visas på Azure Portal sidor som ett procent värde, men de u
 
 Du kan öka säkerheten genom att granska Security Centerens rekommendationer-sida för de utestående åtgärder som krävs för att öka dina poäng. Varje rekommendation innehåller anvisningar som hjälper dig att åtgärda det aktuella problemet.
 
-Rekommendationerna är grupperade i **säkerhets kontroller**. Varje kontroll är en logisk grupp relaterade säkerhets rekommendationer och återspeglar dina sårbara angrepps ytor. Poängen ökar bara när du reparerar *alla* rekommendationer för en enskild resurs i en kontroll. Om du vill se hur väl din organisation skyddar varje enskild attack yta granskar du poängen för varje säkerhets kontroll.
+Rekommendationerna är grupperade i **säkerhets kontroller** . Varje kontroll är en logisk grupp relaterade säkerhets rekommendationer och återspeglar dina sårbara angrepps ytor. Poängen ökar bara när du reparerar *alla* rekommendationer för en enskild resurs i en kontroll. Om du vill se hur väl din organisation skyddar varje enskild attack yta granskar du poängen för varje säkerhets kontroll.
 
 Mer information finns i [så här beräknas din säkra Poäng](secure-score-security-controls.md#how-your-secure-score-is-calculated) nedan. 
 
@@ -88,7 +88,7 @@ Azure Resource Graph ger direkt åtkomst till resursinformation i dina moln milj
 
 För att komma åt säkra Poäng för flera prenumerationer med ARG:
 
-1. Öppna **Azure Resource Graph Explorer**från Azure Portal.
+1. Öppna **Azure Resource Graph Explorer** från Azure Portal.
 
     :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Övergripande säkra poäng som visas i portalen" :::
 
@@ -112,7 +112,7 @@ För att komma åt säkra Poäng för flera prenumerationer med ARG:
         | project SecureControl , unhealthy, currentscore, maxscore
         ```
 
-1. Välj **Kör fråga**.
+1. Välj **Kör fråga** .
 
 ## <a name="how-your-secure-score-is-calculated"></a>Så här beräknas din säkra Poäng 
 
@@ -162,6 +162,14 @@ Ett annat sätt att förbättra dina poäng och se till att användarna inte ska
 
 I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För varje kontroll kan du se det maximala antalet punkter som du kan lägga till i dina säkra poäng om du reparerar *alla* rekommendationer som anges i kontrollen för *alla* dina resurser. 
 
+Uppsättningen med säkerhets rekommendationer som medföljer Security Center är anpassad till de tillgängliga resurserna i varje organisations miljö. Rekommendationerna kan anpassas ytterligare genom att [inaktivera principer](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) och [undanta vissa resurser från en rekommendation](exempt-resource.md). 
+ 
+Vi rekommenderar att varje organisation noggrant granskar sina tilldelade Azure Policy initiativ. 
+
+> [!TIP]
+> Mer information om hur du kan granska och redigera dina initiativ finns i [arbeta med säkerhets principer](tutorial-security-policy.md). 
+
+Även om Security Centerens standard säkerhets initiativ baseras på bransch bästa praxis och standarder, finns det scenarier där de inbyggda rekommendationerna nedan kanske inte passar din organisation helt. Därför är det ibland nödvändigt att ändra standard initiativet – utan att kompromissa med säkerheten – så att den är anpassad till organisationens egna principer. bransch standarder, reglerande standarder och benchmarks som du är skyldig att uppfylla.<br><br>
 <div class="foo">
 
 <style type="text/css"> . TG {kant linje-komprimera: minimera; kant linje avstånd: 0;}. TG TD {kant linje färg: svart; kant linje format: solid; kant linje bredd: 1px; teckensnitts familj: Arial, sans-serif; font-size: 14px; spill: Hidden; utfyllnad: 10px 5px; Word-Break: normal;}. TG {kant linje färg: Black; kant linje format: solid; kant linje bredd: 1px; teckensnitts familj: Arial, sans-serif; font-size: 18px; font-weight: normal; spill: Hidden; utfyllnad: 10px 5px; ord-Break: normal;}. TG. TG-cly1 {text-align: Left; vertikalt-align: mitten}. TG. TG-lboi {kant linje färg: Ärv; text – justera: vänster; lodrätt justerad: mitten} </style>

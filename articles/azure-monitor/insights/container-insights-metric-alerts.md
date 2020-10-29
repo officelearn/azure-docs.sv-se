@@ -2,13 +2,13 @@
 title: Mått varningar från Azure Monitor för behållare
 description: Den här artikeln granskar rekommenderade mått varningar som är tillgängliga från Azure Monitor för behållare i offentlig för hands version.
 ms.topic: conceptual
-ms.date: 10/09/2020
-ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/28/2020
+ms.openlocfilehash: cda5639fdf72f5731af851860f37afa888e7d965
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308650"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927829"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Rekommenderade mått varningar (förhands granskning) från Azure Monitor för behållare
 
@@ -24,12 +24,12 @@ Innan du börjar ska du kontrol lera följande:
 
 * Anpassade mått är bara tillgängliga i en delmängd av Azure-regioner. En lista över regioner som stöds finns dokumenterade i [regioner som stöds](../platform/metrics-custom-overview.md#supported-regions).
 
-* För att stödja mått aviseringar och införandet av ytterligare mått är den lägsta agent version som krävs **Microsoft/OMS: ciprod05262020** för AKS och **Microsoft/OMS: Ciprod09252020** för Azure Arc-aktiverade Kubernetes-kluster.
+* För att stödja mått aviseringar och införandet av ytterligare mått, är den lägsta agent version som krävs **MCR.Microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** för AKS och **MCR.Microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** för Azure Arc-aktiverade Kubernetes-kluster.
 
     För att verifiera att klustret kör den nyare versionen av agenten kan du antingen:
 
     * Kör kommandot: `kubectl describe <omsagent-pod-name> --namespace=kube-system` . Observera värdet under **bild** för omsagent i avsnittet *behållare* i utdata i status returnerat. 
-    * På fliken **noder** väljer du noden kluster och i rutan **Egenskaper** till höger, noterar du värdet under **agent avbildnings tag gen**.
+    * På fliken **noder** väljer du noden kluster och i rutan **Egenskaper** till höger, noterar du värdet under **agent avbildnings tag gen** .
 
     Värdet som visas för AKS ska vara version **ciprod05262020** eller senare. Värdet som visas för Azure Arc Enabled Kubernetes-kluster ska vara version **ciprod09252020** eller senare. Om du har en äldre version av klustret läser du så här [uppgraderar du Azure Monitor för behållare agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) för att hämta den senaste versionen.
 
@@ -39,7 +39,7 @@ Innan du börjar ska du kontrol lera följande:
 
 För att varna om vad som är viktigt, innehåller Azure Monitor för behållare följande mått aviseringar för dina AKS-och Azure Arc-aktiverade Kubernetes-kluster:
 
-|Namn| Beskrivning |Standard tröskel |
+|Name| Beskrivning |Standard tröskel |
 |----|-------------|------------------|
 |Genomsnittlig container-CPU% |Beräknar Genomsnittlig CPU-användning per behållare.|När den genomsnittliga CPU-användningen per container är större än 95%.| 
 |Genomsnittlig container i arbets minnet% |Beräknar Genomsnittligt arbets minne som används per container.|När genomsnittlig användning av arbets minne per behållare är större än 95%. |
@@ -74,7 +74,7 @@ Följande aviserings mått har unika beteende egenskaper jämfört med de andra 
 
 * *oomKilledContainerCount* -måttet skickas endast när det finns OOM avlivade behållare.
 
-* *cpuExceededPercentage*-, *MemoryRssExceededPercentage*-och *memoryWorkingSetExceededPercentage* -mått skickas när värdena för processor, minne-RSS och minne som arbetar överskrider den konfigurerade tröskeln (standard tröskelvärdet är 95%). De här tröskelvärdena är exklusiva från tröskelvärdet för aviserings villkor som angetts för motsvarande aviserings regel. Om du vill samla in dessa mått och analysera dem från [Metrics Explorer](../platform/metrics-getting-started.md)rekommenderar vi att du konfigurerar tröskelvärdet till ett värde som är lägre än tröskelvärdet för aviseringar. Konfigurationen som är relaterad till samlings inställningarna för deras användnings tröskelvärden för container resurser kan åsidosättas i ConfigMaps-filen under avsnittet `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Mer information om hur du konfigurerar din ConfigMap-konfigurationsfil finns i avsnittet [Konfigurera aviserings bara statistik ConfigMaps](#configure-alertable-metrics-in-configmaps) .
+* *cpuExceededPercentage* -, *MemoryRssExceededPercentage* -och *memoryWorkingSetExceededPercentage* -mått skickas när värdena för processor, minne-RSS och minne som arbetar överskrider den konfigurerade tröskeln (standard tröskelvärdet är 95%). De här tröskelvärdena är exklusiva från tröskelvärdet för aviserings villkor som angetts för motsvarande aviserings regel. Om du vill samla in dessa mått och analysera dem från [Metrics Explorer](../platform/metrics-getting-started.md)rekommenderar vi att du konfigurerar tröskelvärdet till ett värde som är lägre än tröskelvärdet för aviseringar. Konfigurationen som är relaterad till samlings inställningarna för deras användnings tröskelvärden för container resurser kan åsidosättas i ConfigMaps-filen under avsnittet `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Mer information om hur du konfigurerar din ConfigMap-konfigurationsfil finns i avsnittet [Konfigurera aviserings bara statistik ConfigMaps](#configure-alertable-metrics-in-configmaps) .
 
 * *pvUsageExceededPercentage* -måttet skickas när den permanenta volym användnings procenten överskrider den konfigurerade tröskeln (standard tröskelvärdet är 60%). Tröskelvärdet är exklusivt för aviserings villkors tröskelvärdet som angetts för motsvarande aviserings regel. Om du vill samla in dessa mått och analysera dem från [Metrics Explorer](../platform/metrics-getting-started.md)rekommenderar vi att du konfigurerar tröskelvärdet till ett värde som är lägre än tröskelvärdet för aviseringar. Konfigurationen som rör samlings inställningarna för gränser för permanent användning av volymer kan åsidosättas i ConfigMaps-filen under avsnittet `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Mer information om hur du konfigurerar din ConfigMap-konfigurationsfil finns i avsnittet [Konfigurera aviserings bara statistik ConfigMaps](#configure-alertable-metrics-in-configmaps) . Insamling av permanenta volym mått med anspråk i *Kube-systemets* namnrymd utesluts som standard. Om du vill aktivera samling i det här namn området använder du avsnittet `[metric_collection_settings.collect_kube_system_pv_metrics]` i ConfigMap-filen. Mer information finns i [Inställningar för mått samling](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) .
 
@@ -114,11 +114,11 @@ Det här avsnittet beskriver hur du aktiverar Azure Monitor för behållare måt
 
 2. Åtkomst till funktionen Azure Monitor för behållare mått avisering (förhands granskning) är tillgänglig direkt från ett AKS-kluster genom att välja **insikter** i den vänstra rutan i Azure Portal.
 
-3. I kommando fältet väljer du **rekommenderade aviseringar**.
+3. I kommando fältet väljer du **rekommenderade aviseringar** .
 
     ![Alternativ för rekommenderade aviseringar i Azure Monitor för behållare](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
-4. Egenskaps fönstret för **rekommenderade aviseringar** visas automatiskt till höger på sidan. Som standard är alla varnings regler i listan inaktiverade. När du har valt **Aktivera**skapas varnings regeln och regel namnet uppdateras för att inkludera en länk till aviserings resursen.
+4. Egenskaps fönstret för **rekommenderade aviseringar** visas automatiskt till höger på sidan. Som standard är alla varnings regler i listan inaktiverade. När du har valt **Aktivera** skapas varnings regeln och regel namnet uppdateras för att inkludera en länk till aviserings resursen.
 
     ![Fönstret Egenskaper för rekommenderade aviseringar](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
@@ -126,7 +126,7 @@ Det här avsnittet beskriver hur du aktiverar Azure Monitor för behållare måt
 
     ![Aktivera aviseringsregel](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
-5. Aviserings regler är inte kopplade till en [Åtgärds grupp](../platform/action-groups.md) för att meddela användare om att en avisering har utlösts. Välj **ingen åtgärds grupp tilldelad** och på sidan **Åtgärds grupper** anger du en befintlig eller skapar en åtgärds grupp genom att välja **Lägg till** eller **skapa**.
+5. Aviserings regler är inte kopplade till en [Åtgärds grupp](../platform/action-groups.md) för att meddela användare om att en avisering har utlösts. Välj **ingen åtgärds grupp tilldelad** och på sidan **Åtgärds grupper** anger du en befintlig eller skapar en åtgärds grupp genom att välja **Lägg till** eller **skapa** .
 
     ![Välj en åtgärds grupp](./media/container-insights-metric-alerts/select-action-group.png)
 
@@ -148,15 +148,15 @@ De grundläggande stegen är följande:
 
 2. Om du vill distribuera en anpassad mall via portalen väljer du **skapa en resurs** från [Azure Portal](https://portal.azure.com).
 
-3. Sök efter **mall**och välj sedan **malldistribution**.
+3. Sök efter **mall** och välj sedan **malldistribution** .
 
-4. Välj **Skapa**.
+4. Välj **Skapa** .
 
-5. Du ser flera alternativ för att skapa en mall genom att välja **skapa en egen mall i redigeraren**.
+5. Du ser flera alternativ för att skapa en mall genom att välja **skapa en egen mall i redigeraren** .
 
-6. På **sidan Redigera mall**väljer du **Läs in fil** och väljer sedan mallfilen.
+6. På **sidan Redigera mall** väljer du **Läs in fil** och väljer sedan mallfilen.
 
-7. På sidan **Redigera mall** väljer du **Spara**.
+7. På sidan **Redigera mall** väljer du **Spara** .
 
 8. På sidan **Anpassad distribution** anger du följande och när du har slutfört Välj **köp** för att distribuera mallen och skapa varnings regeln.
 
@@ -200,14 +200,14 @@ De grundläggande stegen är följande:
 
 Du kan visa och hantera Azure Monitor för behållares aviserings regler, för att redigera tröskelvärdet eller konfigurera en [Åtgärds grupp](../platform/action-groups.md) för ditt AKS-kluster. Även om du kan utföra dessa åtgärder från Azure Portal och Azure CLI kan du också göra det direkt från ditt AKS-kluster i Azure Monitor for containers.
 
-1. I kommando fältet väljer du **rekommenderade aviseringar**.
+1. I kommando fältet väljer du **rekommenderade aviseringar** .
 
-2. Om du vill ändra tröskelvärdet väljer du den aktiverade aviseringen i fönstret **rekommenderade aviseringar** . I **Redigera regel**väljer du de **aviserings villkor** som du vill redigera.
+2. Om du vill ändra tröskelvärdet väljer du den aktiverade aviseringen i fönstret **rekommenderade aviseringar** . I **Redigera regel** väljer du de **aviserings villkor** som du vill redigera.
 
-    * Om du vill ändra tröskelvärdet för varnings regeln väljer du **villkoret**.
+    * Om du vill ändra tröskelvärdet för varnings regeln väljer du **villkoret** .
     * Om du vill ange en befintlig eller skapa en åtgärds grupp väljer du **Lägg till** eller **skapa** under **Åtgärds grupp**
 
-Om du vill visa aviseringar som skapats för de aktiverade reglerna väljer du **Visa i aviseringar**i fönstret **rekommenderade aviseringar** . Du omdirigeras till aviserings menyn för AKS-klustret där du kan se alla aviseringar som för närvarande har skapats för klustret.
+Om du vill visa aviseringar som skapats för de aktiverade reglerna väljer du **Visa i aviseringar** i fönstret **rekommenderade aviseringar** . Du omdirigeras till aviserings menyn för AKS-klustret där du kan se alla aviseringar som för närvarande har skapats för klustret.
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Konfigurera aviserings bara mått i ConfigMaps
 

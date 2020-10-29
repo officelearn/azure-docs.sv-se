@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 622ead2ab58075fe6edbe2c013f14391624fd2b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b911181abea06894873e64da51afbb8799f1066a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590463"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927846"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Felsöka Azure Dedicated HSM-tjänsten
 
@@ -71,7 +71,7 @@ När en viss stämpel eller region blir full, är det nästan alla kostnads fria
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Hur gör jag för att se HSM: er vid etablering?
 Eftersom dedikerad HSM är en vit listas-tjänst betraktas den som en "dold typ" i Azure Portal. Om du vill se HSM-resurserna måste du markera kryss rutan Visa dolda typer som visas nedan. NIC-resursen följer alltid HSM och är en bra plats för att ta reda på IP-adressen för HSM innan du använder SSH för att ansluta.
 
-![Under näts delegering](./media/troubleshoot/hsm-provisioned.png)
+![Skärm bild som markerar kryss rutan Visa dolda typer](./media/troubleshoot/hsm-provisioned.png)
 
 ## <a name="networking-resources"></a>Nätverks resurser
 
@@ -85,7 +85,7 @@ Dedikerad HSM använder ExpressRoute-gateway som en "tunnel" för kommunikation 
 
 Exempel mallarna som anges för dedikerad HSM antar att HSM-IP: en hämtas automatiskt från ett angivet under näts intervall. Du kan ange en explicit IP-adress för HSM via ett "NetworkInterfaces"-attribut i ARM-mallen. 
 
-![Under näts delegering](./media/troubleshoot/private-ip-address.png)
+![Skärm bild som visar exempel mal len för dedikerad HSM.](./media/troubleshoot/private-ip-address.png)
 
 ## <a name="hsm-initialization"></a>HSM-initiering
 

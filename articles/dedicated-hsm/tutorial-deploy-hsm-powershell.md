@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
 ms.author: johndaw
-ms.openlocfilehash: fc67012dff5931fb86452ea95c2ea074a426953c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee431df89128a516e3a1cabeb43b5cbe9e356dae
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075689"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927863"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Självstudie – Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell
 
@@ -38,7 +38,7 @@ Den här självstudien fokuserar på integreringen av ett par HSM:er och den nö
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Dedikerad HSM i Azure är inte tillgängligt i Azure-portalen. Därför sker all interaktion med tjänsten via kommandoraden eller PowerShell. Den här självstudien använder PowerShell i Azure Cloud Shell. Om PowerShell är nytt för dig följer du instruktionerna för att komma igång här: [Komma igång med Azure PowerShell](/powershell/azure/get-started-azureps).
 
@@ -233,7 +233,7 @@ När du är ansluten till HSM-enheten med hjälp av SSH kör du följande komman
 
 Utdata bör se ut som på bilden nedan:
 
-![etableringsstatus](media/tutorial-deploy-hsm-powershell/output.png)
+![Skärm bild som visar utdata från kommandot HSM show.](media/tutorial-deploy-hsm-powershell/output.png)
 
 I det här skedet har du allokerat alla resurser för en distribution med hög tillgänglighet och två HSM:er samt verifierat åtkomst och driftstatus. Ytterligare konfiguration eller testning medför mer arbete med själva HSM-enheten. För detta bör du följa anvisningarna i kapitel 7 i administrationsguiden för Gemalto Luna Network HSM 7 för att initiera HSM och skapa partitioner. All dokumentation och programvara är tillgänglig direkt från Gemalto för nedladdning när du har registrerats i Gemalto Customer Support Portal och har ett kund-ID. Ladda ned klientprogramvara version 7.2 för att få alla nödvändiga komponenter.
 

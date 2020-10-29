@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 66c8f72c82e04bafe9582c4a5dc6967e5470d3ea
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c5af77da0ed2c579a478c8ebaaa924882d9a15c6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147883"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927710"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Skapa democertifikat för att testa funktioner på IoT Edge-enheter
 
@@ -163,7 +163,7 @@ Innan du fortsätter med stegen i det här avsnittet följer du stegen i avsnitt
    New-CACertsCertChain rsa
    ```
 
-   Det här skript kommandot skapar flera certifikat och viktiga filer, men när artiklar frågar efter **rot-CA-certifikatet**använder du följande fil:
+   Det här skript kommandot skapar flera certifikat och viktiga filer, men när artiklar frågar efter **rot-CA-certifikatet** använder du följande fil:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
@@ -177,7 +177,7 @@ Innan du fortsätter med stegen i det här avsnittet följer du stegen i avsnitt
    ./certGen.sh create_root_and_intermediate
    ```
 
-   Det här skript kommandot skapar flera certifikat och viktiga filer, men när artiklar frågar efter **rot-CA-certifikatet**använder du följande fil:
+   Det här skript kommandot skapar flera certifikat och viktiga filer, men när artiklar frågar efter **rot-CA-certifikatet** använder du följande fil:
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
@@ -255,7 +255,7 @@ Namnet som skickas till kommandot **New-CACertsEdgeDevice** får inte vara detsa
 2. Skapa IoT Edge enhetens CA-certifikat och privata nyckel med följande kommando. Ange ett namn för CA-certifikatet.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
    Det här skript kommandot skapar flera certifikat och viktiga filer. Följande certifikat och nyckel par måste kopieras till en IoT Edge-enhet och refereras till i filen config. yaml:
@@ -263,7 +263,7 @@ Namnet som skickas till kommandot **New-CACertsEdgeDevice** får inte vara detsa
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-Namnet som skickas till **create_edge_device_certificate** -kommandot får inte vara samma som hostname-parametern i config. yaml eller enhetens ID i IoT Hub.
+Namnet som skickas till **create_edge_device_ca_certificate** -kommandot får inte vara samma som hostname-parametern i config. yaml eller enhetens ID i IoT Hub.
 
 ## <a name="create-downstream-device-certificates"></a>Skapa certifikat för underordnad enhet
 

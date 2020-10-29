@@ -7,12 +7,12 @@ ms.date: 10/15/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6c1ccbfc221970980d5d0b15e82f9f8483c48bce
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6ac4d0e0744bfc82a686671234e013b2dd717146
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043773"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927761"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrera Azure Key Vault med Azure Policy
 
@@ -29,9 +29,9 @@ Exempel på användnings scenarier:
 
 ## <a name="types-of-policy-effects-and-guidance"></a>Typer av princip effekter och rikt linjer
 
-**Granskning**: när en princips inverkan är inställd på granskning kommer principen inte att orsaka några större ändringar i din miljö. Den varnar dig endast om komponenter som inte följer princip definitionerna inom ett angivet omfång, genom att markera dessa komponenter som icke-kompatibla på instrument panelen för policyn för efterlevnad. Audit är standard om ingen princip påverkan har valts.
+**Granskning** : när en princips inverkan är inställd på granskning kommer principen inte att orsaka några större ändringar i din miljö. Den varnar dig endast om komponenter som inte följer princip definitionerna inom ett angivet omfång, genom att markera dessa komponenter som icke-kompatibla på instrument panelen för policyn för efterlevnad. Audit är standard om ingen princip påverkan har valts.
 
-**Neka**: när en princips inverkan är inställd på neka, kommer principen att blockera skapandet av nya komponenter, t. ex. certifikat och blockera nya versioner av befintliga komponenter som inte överensstämmer med princip definitionen. Befintliga icke-kompatibla resurser i ett nyckel valv påverkas inte. Gransknings funktionerna kommer att fortsätta att köras.
+**Neka** : när en princips inverkan är inställd på neka, kommer principen att blockera skapandet av nya komponenter, t. ex. certifikat och blockera nya versioner av befintliga komponenter som inte överensstämmer med princip definitionen. Befintliga icke-kompatibla resurser i ett nyckel valv påverkas inte. Gransknings funktionerna kommer att fortsätta att köras.
 
 ## <a name="available-built-in-policy-definitions"></a>Tillgängliga "inbyggda" princip definitioner
 
@@ -91,9 +91,9 @@ Tjänsten kan drabbas av ett avbrott om ett certifikat som inte övervakas på e
 
 Om du vill se till att dina nycklar inte har varit aktiva längre än ett visst antal dagar kan du använda den här principen för att granska hur länge din nyckel har varit aktiv.
 
-**Om din nyckel har en aktive rad aktiverings datum**, beräknar den här principen antalet dagar som har förflutit från **aktiverings datumet** för nyckeln till det aktuella datumet. Om antalet dagar överskrider det tröskelvärde som du har angett markeras nyckeln som icke-kompatibel med principen.
+**Om din nyckel har en aktive rad aktiverings datum** , beräknar den här principen antalet dagar som har förflutit från **aktiverings datumet** för nyckeln till det aktuella datumet. Om antalet dagar överskrider det tröskelvärde som du har angett markeras nyckeln som icke-kompatibel med principen.
 
-**Om din nyckel inte har något aktiverings datum**, beräknar den här principen antalet dagar som har förflutit från det **skapande datumet** för nyckeln till det aktuella datumet. Om antalet dagar överskrider det tröskelvärde som du har angett markeras nyckeln som icke-kompatibel med principen.
+**Om din nyckel inte har något aktiverings datum** , beräknar den här principen antalet dagar som har förflutit från det **skapande datumet** för nyckeln till det aktuella datumet. Om antalet dagar överskrider det tröskelvärde som du har angett markeras nyckeln som icke-kompatibel med principen.
 
 ### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec-preview"></a>Nycklar ska vara den angivna kryptografiska typen RSA eller EG (för hands version)
 
@@ -139,9 +139,9 @@ Hantera organisationens krav på efterlevnad genom att ange den maximala tid i d
 
 Om du vill se till att dina hemligheter inte har varit aktiva längre än ett visst antal dagar kan du använda den här principen för att granska hur länge din hemlighet har varit aktiv.
 
-**Om din hemlighet har en aktive rad aktiverings datum**, beräknar den här principen antalet dagar som har förflutit från **aktiverings datumet** för hemligheten till det aktuella datumet. Om antalet dagar överskrider det tröskelvärde som du har angett markeras hemligheten som inkompatibel med principen.
+**Om din hemlighet har en aktive rad aktiverings datum** , beräknar den här principen antalet dagar som har förflutit från **aktiverings datumet** för hemligheten till det aktuella datumet. Om antalet dagar överskrider det tröskelvärde som du har angett markeras hemligheten som inkompatibel med principen.
 
-**Om din hemlighet inte har en aktive rad aktiverings datum**, beräknar den här principen antalet dagar som har förflutit från det **datum** då hemligheten skapades till det aktuella datumet. Om antalet dagar överskrider det tröskelvärde som du har angett markeras hemligheten som inkompatibel med principen.
+**Om din hemlighet inte har en aktive rad aktiverings datum** , beräknar den här principen antalet dagar som har förflutit från det **datum** då hemligheten skapades till det aktuella datumet. Om antalet dagar överskrider det tröskelvärde som du har angett markeras hemligheten som inkompatibel med principen.
 
 ### <a name="secrets-should-have-content-type-set-preview"></a>Hemligheter ska ha en innehålls typ uppsättning (förhands granskning)
 
@@ -175,51 +175,51 @@ Du hanterar ett nyckel valv som används av flera team som innehåller 100-certi
 ### <a name="select-a-policy-definition"></a>Välj en princip definition
 
 1. Logga in på Azure Portal. 
-1. Sök i "princip" i Sök fältet och välj **princip**.
+1. Sök i "princip" i Sök fältet och välj **princip** .
 
-    ![Översikt över hur Azure Key Vault fungerar](../media/policy-img1.png)
+    ![Skärm bild som visar Sök fältet.](../media/policy-img1.png)
 
-1. I fönstret princip väljer du **definitioner**.
+1. I fönstret princip väljer du **definitioner** .
 
-    ![Översikt över hur Azure Key Vault fungerar](../media/policy-img2.png)
+    ![Skärm bild som visar alternativet definitioner.](../media/policy-img2.png)
 
-1. I kategori filtret avmarkerar du **Markera alla** och väljer **Key Vault**. 
+1. I kategori filtret avmarkerar du **Markera alla** och väljer **Key Vault** . 
 
-    ![Översikt över hur Azure Key Vault fungerar](../media/policy-img3.png)
+    ![Skärm bild som visar kategori filtret och den valda Key Vault kategorin.](../media/policy-img3.png)
 
 1. Nu bör du kunna se alla principer som är tillgängliga för förhands granskning för Azure Key Vault. Se till att du har läst och förstått avsnittet princip vägledning ovan och välj en princip som du vill tilldela till ett omfång.  
 
-    ![Översikt över hur Azure Key Vault fungerar](../media/policy-img4.png)
+    ![Skärm bild som visar de principer som är tillgängliga för en offentlig för hands version.](../media/policy-img4.png)
 
 ### <a name="assign-a-policy-to-a-scope"></a>Tilldela en princip till ett omfång 
 
 1. Välj en princip som du vill använda. i det här exemplet visas principen **Hantera certifikatets giltighets period** . Klicka på knappen tilldela i det övre vänstra hörnet.
 
-    ![Översikt över hur Azure Key Vault fungerar](../media/policy-img5.png)
+    ![Skärm bild som visar principen hantera certifikatets giltighets period.](../media/policy-img5.png)
   
 1. Välj den prenumeration där du vill att principen ska tillämpas. Du kan välja att begränsa omfattningen till endast en enda resurs grupp i en prenumeration. Om du vill tillämpa principen på hela prenumerationen och undanta vissa resurs grupper kan du också konfigurera en undantags lista. Ställ in princip tvångs väljaren på **aktive rad** om du vill att principen (granska eller neka) ska ske eller **inaktive** ras för att aktivera effekterna (granska eller neka). 
 
-    ![Översikt över hur Azure Key Vault fungerar](../media/policy-img6.png)
+    ![Skärm bild som visar var du kan välja att begränsa omfattningen till endast en resurs grupp i en prenumeration.](../media/policy-img6.png)
 
 1. Klicka på fliken Parametrar överst på skärmen för att ange den längsta giltighets perioden i månader som du vill ha. Välj **Granska** eller **neka** för att påverka principen enligt anvisningarna i avsnitten ovan. Välj sedan knappen granska + skapa. 
 
-    ![Översikt över hur Azure Key Vault fungerar](../media/policy-img7.png)
+    ![Skärm bild som visar fliken Parametrar där du kan ange den maximala giltighets perioden i månader som du vill.](../media/policy-img7.png)
 
 ### <a name="view-compliance-results"></a>Visa resultat för efterlevnad
 
 1. Gå tillbaka till bladet princip och välj fliken efterlevnad. Klicka på den princip tilldelning som du vill visa kompatibilitetsstatus för.
 
-    ![Översikt över hur Azure Key Vault fungerar](../media/policy-img8.png)
+    ![Skärm bild som visar fliken kompatibilitet där du kan välja den princip tilldelning som du vill visa resultat för.](../media/policy-img8.png)
 
 1. Från den här sidan kan du filtrera resultat efter kompatibla eller icke-kompatibla valv. Här kan du se en lista över icke-kompatibla nyckel valv inom omfånget för princip tilldelningen. Ett valv anses vara icke-kompatibelt om någon av komponenterna (certifikaten) i valvet inte är kompatibel. Du kan välja ett enskilt valv om du vill visa enskilda icke-kompatibla komponenter (certifikat). 
 
 
-    ![Översikt över hur Azure Key Vault fungerar](../media/policy-img9.png)
+    ![Skärm bild som visar en lista över icke-kompatibla nyckel valv inom omfånget för princip tilldelningen.](../media/policy-img9.png)
 
 1. Visa namnet på komponenterna i ett valv som inte är kompatibla
 
 
-    ![Översikt över hur Azure Key Vault fungerar](../media/policy-img10.png)
+    ![Skärm bild som visar var du kan visa namnet på komponenterna i ett valv som inte är kompatibla.](../media/policy-img10.png)
 
 1. Om du behöver kontrol lera om användarna nekas möjlighet att skapa resurser i Key Vault kan du klicka på fliken **komponent händelser (för hands version)** om du vill visa en översikt över nekade certifikat åtgärder med begär Anden och tidsstämpel för förfrågningar. 
 
@@ -236,7 +236,7 @@ Att tilldela en princip med en "Neka"-effekt kan ta upp till 30 minuter (genomsn
 > [!NOTE]
 > Azure Policy [resurs lägen](../../governance/policy/concepts/definition-structure.md#resource-provider-modes)för olika leverantörer, till exempel för Azure Key Vault, ger information om kompatibilitet på sidan [komponenternas efterlevnad](../../governance/policy/how-to/get-compliance-data.md#component-compliance) .
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [tjänsten Azure policy](../../governance/policy/overview.md)
 - Se Key Vault exempel: [Key Vault inbyggda princip definitioner](../../governance/policy/samples/built-in-policies.md#key-vault)

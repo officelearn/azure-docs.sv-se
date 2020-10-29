@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f915652110524aac06d641d636155bc6a5fcd256
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611528"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927931"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Tillfälliga OS-diskar för virtuella Azure-datorer
 
@@ -34,15 +34,16 @@ Viktiga skillnader mellan beständiga och tillfälliga OS-diskar:
 
 |                             | Beständig OS-disk                          | Differentierande OS-disk                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Storleks gräns för OS-disk**      | 2 TiB                                                                                        | Cachestorlek för VM-storlek eller 2TiB, beroende på vilket som är mindre. Cache- **storleken i GIB**finns i [DS](sizes-general.md), [es](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)och [GS](sizes-previous-gen.md#gs-series)              |
+| **Storleks gräns för OS-disk**      | 2 TiB                                                                                        | Cachestorlek för VM-storlek eller 2TiB, beroende på vilket som är mindre. Cache- **storleken i GIB** finns i [DS](sizes-general.md), [es](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)och [GS](sizes-previous-gen.md#gs-series)              |
 | **VM-storlekar som stöds**          | Alla                                                                                          | VM-storlekar som stöder Premium Storage, till exempel DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
 | **Disk typs stöd**           | Hanterad och ohanterad OS-disk                                                                | Endast hanterad OS-disk                                                               |
 | **Stöd för regioner**              | Alla regioner                                                                                  | Alla regioner                              |
 | **Data persistens**            | Operativ system disk data som skrivs till OS-disken lagras i Azure Storage                                  | Data som skrivs till OS-disken lagras på den lokala VM-lagringen och är inte kvar att Azure Storage. |
 | **Stopp-frigjord tillstånd**      | De virtuella datorerna och skalnings uppsättnings instanserna kan stoppas och startas om från det stoppade avallokerade läget | Virtuella datorer och skalnings uppsättnings instanser kan inte stoppas eller avallokeras                                  |
-| **Stöd för specialiserade OS-diskar** | Ja                                                                                          | Inga                                                                                 |
+| **Stöd för specialiserade OS-diskar** | Ja                                                                                          | Nej                                                                                 |
 | **Storleks ändring av OS-disk**              | Stöds under skapande av virtuell dator och när den virtuella datorn har stoppats                                | Stöds endast när en virtuell dator skapas                                                  |
-| **Ändra storlek till en ny VM-storlek**   | OS-disk data bevaras                                                                    | Data på OS-disken tas bort, OS har allokerats på nytt                                      |
+| **Ändra storlek till en ny VM-storlek**   | OS-disk data bevaras                                                                    | Data på OS-disken tas bort, OS har allokerats på nytt       
+| **Placering av växlings fil**   | För Windows lagras växlings filen på resurs disken                                              | För Windows lagras växlings filen på OS-disken   |
 
 ## <a name="size-requirements"></a>Storleks krav
 
@@ -87,13 +88,13 @@ För skalnings uppsättningar använder du samma `--ephemeral-os-disk true` para
 
 ## <a name="portal"></a>Portalen   
 
-I Azure Portal kan du välja att använda tillfälliga diskar när du distribuerar en virtuell dator genom att öppna avsnittet **Avancerat** på fliken **diskar** . Välj **Ja**om du vill **använda en tillfällig OS-disk** .
+I Azure Portal kan du välja att använda tillfälliga diskar när du distribuerar en virtuell dator genom att öppna avsnittet **Avancerat** på fliken **diskar** . Välj **Ja** om du vill **använda en tillfällig OS-disk** .
 
 ![Skärm bild som visar alternativ knappen för att välja att använda en tillfällig OS-disk](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
 
 Om alternativet för att använda en tillfällig disk är nedtonat kan du ha valt en storlek på virtuell dator som inte har en cachestorlek som är större än operativ system avbildningen eller som inte stöder Premium Storage. Gå tillbaka till sidan med **grundläggande** information och försök att välja en annan storlek på den virtuella datorn.
 
-Du kan också skapa skalnings uppsättningar med tillfälliga OS-diskar med hjälp av portalen. Se bara till att du väljer en VM-storlek med en tillräckligt stor cachestorlek och välj sedan **Ja**i **Använd tillfällig OS-disk** .
+Du kan också skapa skalnings uppsättningar med tillfälliga OS-diskar med hjälp av portalen. Se bara till att du väljer en VM-storlek med en tillräckligt stor cachestorlek och välj sedan **Ja** i **Använd tillfällig OS-disk** .
 
 ![Skärm bild som visar alternativ knappen för att välja att använda en tillfällig OS-disk för din skalnings uppsättning](./media/virtual-machines-common-ephemeral/scale-set.png)
 

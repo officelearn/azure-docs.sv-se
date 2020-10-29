@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3908e5f4b7b246fe1c74e5ac4d20053242ece9f6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336011"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927693"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Utöka operativsystemenheten för en virtuell dator
 
@@ -32,22 +32,23 @@ När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en a
 > [!IMPORTANT]
 > Att ändra storlek på ett operativ system eller en data disk på en virtuell Azure-dator kräver att den virtuella datorn frigörs.
 >
-> När du har expanderat diskarna måste du [expandera volymen i operativ systemet](#expand-the-volume-within-the-os) för att dra nytta av den större disken.
+> Det finns inte stöd för att krympa en befintlig disk, och det kan eventuellt leda till data förlust.
 > 
+> När du har expanderat diskarna måste du [expandera volymen i operativ systemet](#expand-the-volume-within-the-os) för att dra nytta av den större disken.
 
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Ändra storlek på en hanterad disk i Azure Portal
 
 1. I [Azure Portal](https://portal.azure.com)går du till den virtuella dator där du vill expandera disken. Välj **stoppa** för att frigöra den virtuella datorn.
-2. När den virtuella datorn är stoppad väljer du **diskar**på den vänstra menyn under **Inställningar**.
+2. När den virtuella datorn är stoppad väljer du **diskar** på den vänstra menyn under **Inställningar** .
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
 
  
-3. Under **disk namn**väljer du den disk som du vill ändra storlek på.
+3. Under **disk namn** väljer du den disk som du vill ändra storlek på.
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
 
-4. På den vänstra menyn under **Inställningar**väljer du **konfiguration**.
+4. På den vänstra menyn under **Inställningar** väljer du **konfiguration** .
 
     :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
 
@@ -59,7 +60,7 @@ När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en a
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
 
-6. Välj **Spara**.
+6. Välj **Spara** .
 
     :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Skärm bild som visar alternativet diskar som marker ATS i avsnittet Inställningar på menyn.":::
 
@@ -230,11 +231,11 @@ På samma sätt kan du referera till andra data diskar som är anslutna till den
 
 ## <a name="expand-the-volume-within-the-os"></a>Expandera volymen i operativ systemet
 
-När du har expanderat disken för den virtuella datorn måste du gå till operativ systemet och expandera volymen för att omfatta det nya utrymmet. Det finns flera metoder för att expandera en partition. I det här avsnittet beskrivs hur du ansluter den virtuella datorn via en RDP-anslutning för att expandera partitionen med **DiskPart**.
+När du har expanderat disken för den virtuella datorn måste du gå till operativ systemet och expandera volymen för att omfatta det nya utrymmet. Det finns flera metoder för att expandera en partition. I det här avsnittet beskrivs hur du ansluter den virtuella datorn via en RDP-anslutning för att expandera partitionen med **DiskPart** .
 
 1. Öppna en RDP-anslutning till den virtuella datorn.
 
-2. Öppna en kommando tolk och skriv **DiskPart**.
+2. Öppna en kommando tolk och skriv **DiskPart** .
 
 3. Skriv i **DiskPart** -prompten `list volume` . Anteckna den volym som du vill utöka.
 

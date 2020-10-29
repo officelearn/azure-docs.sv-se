@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 506336ad80c1f30b937bc71724ca39cee24bb2fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dc6706d4ec9090c59d4dd668d2ae1dd3ce7d188a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968930"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928050"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Storlekar för virtuella datorer i B-serien
 
-De virtuella datorerna i B-serien är idealiska för arbets belastningar som inte behöver PROCESSORns fulla prestanda kontinuerligt, t. ex. webb servrar, bevis på begrepp, små databaser och utvecklings Bygg miljöer. Dessa arbets belastningar har vanligt vis höga prestanda krav. B-serien ger dig möjlighet att köpa en VM-storlek med bas linje prestanda och VM-instansen skapar krediter när den använder mindre än dess bas linje. När den virtuella datorn har ackumulerat kredit kan den virtuella datorn överföras över bas linjen med upp till 100% av vCPU när programmet kräver högre CPU-prestanda.
+De virtuella datorerna i B-serien är idealiska för arbets belastningar som inte behöver PROCESSORns fulla prestanda kontinuerligt, t. ex. webb servrar, bevis på begrepp, små databaser och utvecklings Bygg miljöer. Dessa arbets belastningar har vanligt vis höga prestanda krav. B-serien ger dig möjlighet att köpa en VM-storlek med bas linje prestanda som kan bygga upp krediter när den använder mindre än dess bas linje. När den virtuella datorn har ackumulerade krediter kan den virtuella datorn överföras över bas linjen med upp till 100% av vCPU när programmet kräver högre CPU-prestanda.
 
 B-serien levereras i följande VM-storlekar:
 
@@ -93,25 +93,24 @@ För en D16s_v3 som har 16 virtuella processorer-och 64-GiB av minne är Tim pri
 
 ## <a name="q--a"></a>Frågor och svar
 
-### <a name="q-what-happens-if-the-credits-run-out"></a>F: Vad händer om krediten körs?
-**A**: när krediten är slut återgår den virtuella datorn till bas linje prestandan.
+### <a name="q-what-happens-when-my-credits-run-out"></a>F: Vad händer när mina krediter körs?
+**A** : när krediten är slut återgår den virtuella datorn till bas linje prestandan.
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>F: Hur får du 135% bas linje prestanda från en virtuell dator?
 
-S **: 135**% delas mellan de 8 vCPU som utgör storleken på den virtuella datorn. Om ditt program exempelvis använder 4 av de 8 kärnor som arbetar vid batchbearbetning och var och en av dessa 4 vCPU körs med 30% användning, blir den totala mängden CPU-prestanda för virtuell dator lika med 120%.  Det innebär att din virtuella dator skulle bygga kredit tid baserat på 15% delta från bas linje prestanda.  Men det innebär också att när du har krediter som är tillgängliga för samma virtuella dator kan du använda 100% av alla 8 vCPU, vilket ger den högsta processor prestanda på 800%.
-
+S **: 135** % delas mellan de 8 vCPU som utgör storleken på den virtuella datorn. Om ditt program exempelvis använder 4 av de 8 kärnor som arbetar vid batchbearbetning och var och en av dessa 4 vCPU körs med 30% användning, blir den totala mängden CPU-prestanda för virtuell dator lika med 120%.  Det innebär att din virtuella dator skulle bygga kredit tid baserat på 15% delta från bas linje prestanda.  Men det innebär också att när du har krediter som är tillgängliga för samma virtuella dator kan du använda 100% av alla 8 vCPU, vilket ger den högsta processor prestanda på 800%.
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>F: Hur kan jag övervaka mitt kredit belopp och förbrukning?
 
-**A**: Vi presenterar 2 nya mått i de kommande veckorna, **kredit** måttet gör att du kan se hur många krediter din virtuella dator har debiterats och **ConsumedCredit** -måttet visar hur många CPU-krediter din virtuella dator har förbrukat från banken.    Du kan visa dessa mått från fönstret mått i portalen eller via programmering via Azure Monitor API: er.
+**A** : **kredit** måttet gör att du kan se hur många krediter din virtuella dator har varit bank och **ConsumedCredit** -måttet visar hur många CPU-krediter din virtuella dator har förbrukat från banken.    Du kan visa dessa mått från fönstret mått i portalen eller via programmering via Azure Monitor API: er.
 
 Mer information om hur du kommer åt mått data för Azure finns i [Översikt över mått i Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>F: hur summeras och förbrukas krediter?
 
-**A**: de virtuella datorerna för VM-insamlingen och förbruknings priserna är inställda så att en virtuell dator som körs på exakt dess bas prestanda nivå inte har något netto kapital eller en konsumtion av de olika krediterna.  En virtuell dator kommer att ha en netto ökning av krediterna när den körs under dess bas prestanda nivå och har en netto minskning av krediterna när den virtuella datorn använder processorn mer än dess grundläggande prestanda nivå.
+**A** : de virtuella datorerna för VM-insamlingen och förbruknings priserna är inställda så att en virtuell dator som körs på exakt dess bas prestanda nivå inte har något netto kapital eller en konsumtion av de olika krediterna.  En virtuell dator kommer att ha en netto ökning av krediterna när den körs under dess bas prestanda nivå och har en netto minskning av krediterna när den virtuella datorn använder processorn mer än dess grundläggande prestanda nivå.
 
-**Exempel**: jag distribuerar en virtuell dator med B1ms-storlek för mitt lilla tid-och närvaro databas program. Den här storleken gör att mitt program kan använda upp till 20% av en vCPU som min bas linje, vilket är 0,2 krediter per minut som jag kan använda eller bank.
+**Exempel** : jag distribuerar en virtuell dator med B1ms-storlek för mitt lilla tid-och närvaro databas program. Den här storleken gör att mitt program kan använda upp till 20% av en vCPU som min bas linje, vilket är 0,2 krediter per minut som jag kan använda eller bank.
 
 Mitt program är upptaget i början och slutet av mina anställdas arbets dag, mellan 7:00-9:00 och 4:00 – 6:12:00. Under de andra 20 timmarna av dagen är mitt program normalt i inaktivt, endast med 10% av vCPU. Vid perioder med låg belastning får jag 0,2 krediter per minut men får bara förbruka 0. l-krediter per minut, så att min virtuella dator bank 0,1 x 60 = 6 krediter per timme.  För de 20 timmarna som jag är låg, är jag bank 120-krediter.  
 
@@ -121,7 +120,7 @@ Om jag tar de 120 krediterna som jag har fått från hög belastning och subtrah
 
 ### <a name="q-how-can-i-calculate-credits-accumulated-and-used"></a>F: Hur kan jag beräkna krediter som har samlats in och använts?
 
-**A**: du kan använda följande formel:
+**A** : du kan använda följande formel:
 
 (Grundläggande processor prestanda för VM-CPU-användning)/100 = kredit bank eller användning per minut
 
@@ -129,11 +128,11 @@ till exempel är din bas linje 20% och om du använder 10% av processorn som du 
 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>F: stöder B-serien Premium Storage data diskar?
 
-S **: Ja**, alla storlekar i B-serien har stöd för Premium Storage data diskar.
+S **: Ja** , alla storlekar i B-serien har stöd för Premium Storage data diskar.
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>F: Varför är min återstående kredit inställd på 0 efter en omdistribution eller en stoppa/starta?
 
-**A** : när en virtuell dator är "REDPLOYED" och den virtuella datorn flyttas till en annan nod går den ackumulerade krediten förlorad. Om den virtuella datorn stoppas/startas, men förblir kvar på samma nod, behåller den virtuella datorn den ackumulerade krediten. När den virtuella datorn startar färska på en nod får den en inledande kredit, för Standard_B8ms den är 240 minuter.
+**A** : när en virtuell dator är "REDPLOYED" och den virtuella datorn flyttas till en annan nod går den ackumulerade krediten förlorad. Om den virtuella datorn stoppas/startas, men förblir kvar på samma nod, behåller den virtuella datorn den ackumulerade krediten. När den virtuella datorn startar på nytt på en nod får den en inledande kredit, för Standard_B8ms den är 240.
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>F: Vad händer om jag distribuerar en OS-avbildning som inte stöds på B1ls?
 

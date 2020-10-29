@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900285"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927999"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Självstudie: Konfigurera global vidarebefordring identitets synkronisering för automatisk användar etablering
 
@@ -33,6 +33,10 @@ I den här självstudien beskrivs de steg du behöver utföra i både global syn
 > * Ta bort användare i global relä identitets synkronisering när de inte behöver åtkomst längre
 > * Behåll användarattribut synkroniserade mellan Azure AD och global Relay Identity Sync
 > * Etablera grupper och grupp medlemskap i global vidarebefordring identitets synkronisering
+
+
+> [!NOTE]
+> Global Relay Identity Sync Provisioning Connector använder en SCIM som inte längre stöds på grund av säkerhets problem. Ansträngningarna är i gång med global relä för att växla till en säkrare Authorization-metod.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

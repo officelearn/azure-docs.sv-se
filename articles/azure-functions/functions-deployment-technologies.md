@@ -4,12 +4,12 @@ description: Lär dig hur du kan distribuera kod till Azure Functions på olika 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88641967"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900168"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Distributions tekniker i Azure Functions
 
@@ -33,8 +33,8 @@ I följande tabell beskrivs tillgängliga distributions metoder för ditt funkti
 
 Azure Functions stöder lokal utveckling på över plattformar och är värd för Windows och Linux. För närvarande är tre värd planer tillgängliga:
 
-+ [Förbrukning](functions-scale.md#consumption-plan)
-+ [Premium](functions-scale.md#premium-plan)
++ [Bruk](functions-scale.md#consumption-plan)
++ [Denaturering](functions-scale.md#premium-plan)
 + [Dedikerad (App Service)](functions-scale.md#app-service-plan)
 
 Varje plan har olika beteenden. Alla distributions tekniker är inte tillgängliga för varje smak av Azure Functions. Följande diagram visar vilka distributions tekniker som stöds för varje kombination av operativ system och värd plan:
@@ -128,7 +128,7 @@ Du kan distribuera en Linux container-avbildning som innehåller din Function-ap
 
 >__Så här använder du den:__ Skapa en Linux Function-app i Premium-eller dedikerade planen och ange vilken behållar avbildning som ska köras från. Du kan göra det här på två sätt:
 >
->* Skapa en Linux Function-app i en Azure App Service plan i Azure Portal. För **publicera**väljer du **Docker-avbildning**och konfigurerar sedan behållaren. Ange den plats där avbildningen finns.
+>* Skapa en Linux Function-app i en Azure App Service plan i Azure Portal. För **publicera** väljer du **Docker-avbildning** och konfigurerar sedan behållaren. Ange den plats där avbildningen finns.
 >* Skapa en Linux Function-app på en App Service plan med hjälp av Azure CLI. Mer information finns i [skapa en funktion i Linux med hjälp av en anpassad avbildning](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >Om du vill distribuera till en befintlig app med hjälp av en anpassad behållare, använder du i [Azure Functions Core tools](functions-run-local.md) [`func deploy`](functions-run-local.md#publish) kommandot.
@@ -210,9 +210,9 @@ När du gör en distribution kan alla befintliga körningar slutföras, och tids
 
 Om du behöver mer kontroll över den här över gången bör du använda distributions platser.
 
-## <a name="deployment-slots"></a>Distributionsplatser
+## <a name="deployment-slots"></a>Distributionsfack
 
-När du distribuerar din Function-app till Azure kan du distribuera till en separat distributions plats i stället för direkt till produktion. Mer information om distributions platser finns i dokumentationen för [Azure Functions distributions fack](../app-service/deploy-staging-slots.md) för mer information.
+När du distribuerar din Function-app till Azure kan du distribuera till en separat distributions plats i stället för direkt till produktion. Mer information om distributions platser finns i dokumentationen för [Azure Functions distributions fack](functions-deployment-slots.md) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 

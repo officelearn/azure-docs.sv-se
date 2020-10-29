@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: cbe6adc37025f0b727fa5f5d3ace46ed34afaa9e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: a7341362183aee4a23556a164677bc320babdfec
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895230"
+ms.locfileid: "92900829"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatisera svar på Security Center utlösare
 
@@ -74,7 +74,7 @@ I den här artikeln beskrivs funktionen för arbets flödes automatisering i Azu
 1. I den nya Logic-appen kan du välja mellan inbyggda och fördefinierade mallar i kategorin säkerhet. Eller så kan du definiera ett anpassat flöde av händelser som inträffar när den här processen utlöses.
 
     > [!TIP]
-    > Ibland ingår parametrar i en-koppling i en Logic app som en del av en sträng och inte i ett eget fält. För EAN-exempel på hur du extraherar parametrar, se steg #14 hur du [arbetar med Logic app-parametrar när du skapar Azure Security Center arbets flödes automatiseringar](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121).
+    > Ibland ingår parametrar i en-koppling i en Logic app som en del av en sträng och inte i ett eget fält. Ett exempel på hur du extraherar parametrar finns i steg #14 du [arbetar med Logic app-parametrar när du skapar Azure Security Center arbets flödes automatiseringar](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121).
 
     Logic App Designer stöder dessa Security Center-utlösare:
 

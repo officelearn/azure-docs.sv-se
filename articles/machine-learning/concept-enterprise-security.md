@@ -1,5 +1,5 @@
 ---
-title: Företagssäkerhet
+title: Företagssäkerhet och styrning
 titleSuffix: Azure Machine Learning
 description: 'Använd Azure Machine Learning på ett säkert sätt: autentisering, auktorisering, nätverks säkerhet, data kryptering och övervakning.'
 services: machine-learning
@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b45c5cd1a750ee4b3f182920c4ee2f2e47756867
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637096"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899319"
 ---
-# <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
+# <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Företags säkerhet och styrning för Azure Machine Learning
 
 I den här artikeln får du lära dig om säkerhetsfunktioner som är tillgängliga för Azure Machine Learning.
 
-När du använder en moln tjänst är det bästa sättet att begränsa åtkomsten till de användare som behöver den. Börja med att förstå autentiserings-och auktoriserings modellen som används av tjänsten. Du kanske också vill begränsa nätverks åtkomsten eller på ett säkert sätt ansluta resurser i ditt lokala nätverk till molnet. Data kryptering är också viktigt, både i vila och medan data flyttas mellan tjänster. Slutligen måste du kunna övervaka tjänsten och skapa en Gransknings logg för all aktivitet.
+När du använder en moln tjänst är det bästa sättet att begränsa åtkomsten till de användare som behöver den. Börja med att förstå autentiserings-och auktoriserings modellen som används av tjänsten. Du kanske också vill begränsa nätverks åtkomsten eller på ett säkert sätt ansluta resurser i ditt lokala nätverk till molnet. Data kryptering är också viktigt, både i vila och medan data flyttas mellan tjänster. Du kanske också vill skapa principer för att genomdriva vissa konfigurationer eller logg när icke-kompatibla konfigurationer skapas. Slutligen måste du kunna övervaka tjänsten och skapa en Gransknings logg för all aktivitet.
 
 > [!NOTE]
 > Informationen i den här artikeln fungerar med Azure Machine Learning python SDK-version 1.0.83.1 eller högre.

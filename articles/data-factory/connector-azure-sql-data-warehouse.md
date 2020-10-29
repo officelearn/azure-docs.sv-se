@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 79bc9a238b7c36392ff2ba519078713089156f6e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 7dd23f481409eb3498893c1c7f9c0fd8311b9af2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638218"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901600"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure Synapse Analytics (tidigare SQL Data Warehouse) med hjälp av Azure Data Factory
 
@@ -271,7 +271,7 @@ Om du vill kopiera data från Azure Synapse Analytics ställer du in egenskapen 
 | partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Azure Synapse Analytics. <br>Tillåtna värden är: **ingen** (standard), **PhysicalPartitionsOfTable** och **DynamicRange** .<br>När ett partitions alternativ är aktiverat (dvs. inte `None` ), kontrol leras graden av parallellitet för att samtidigt läsa in data från en Azure Synapse Analytics med [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) inställningen på kopierings aktiviteten. | Nej |
 | partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när alternativet partition inte är det `None` . | Nej |
 | **_Under `partitionSettings` :_* _ | | |
-| partitionColumnName | Ange namnet på käll kolumnen _ *i heltal eller datum/datetime-typ* * som ska användas av intervall partitionering för parallell kopiering. Om detta inte anges identifieras indexet eller primär nyckeln för tabellen automatiskt och används som partition-kolumn.<br>Använd när alternativet partition är `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook  `?AdfDynamicRangePartitionCondition ` i WHERE-satsen. Ett exempel finns i avsnittet [parallell kopiering från SQL-databas](#parallel-copy-from-synapse-analytics) . | Nej |
+| partitionColumnName | Ange namnet på käll kolumnen _ *i Integer-eller date/datetime-typ* * (,,,,,, `int` `smallint` `bigint` `date` `smalldatetime` `datetime` `datetime2` eller `datetimeoffset` ) som ska användas av intervall partitionering för parallell kopiering. Om detta inte anges identifieras indexet eller primär nyckeln för tabellen automatiskt och används som partition-kolumn.<br>Använd när alternativet partition är `DynamicRange` . Om du använder en fråga för att hämta källdata, Hook  `?AdfDynamicRangePartitionCondition ` i WHERE-satsen. Ett exempel finns i avsnittet [parallell kopiering från SQL-databas](#parallel-copy-from-synapse-analytics) . | Nej |
 | partitionUpperBound | Det maximala värdet för partition-kolumnen för delning av partition intervall. Det här värdet används för att bestämma partitionens kliv, inte för att filtrera raderna i tabellen. Alla rader i tabellen eller frågeresultatet kommer att partitioneras och kopieras. Om inget värde anges identifierar kopierings aktiviteten automatiskt värdet.  <br>Använd när alternativet partition är `DynamicRange` . Ett exempel finns i avsnittet [parallell kopiering från SQL-databas](#parallel-copy-from-synapse-analytics) . | Nej |
 | partitionLowerBound | Det minsta värdet för partition-kolumnen för delning av partition intervall. Det här värdet används för att bestämma partitionens kliv, inte för att filtrera raderna i tabellen. Alla rader i tabellen eller frågeresultatet kommer att partitioneras och kopieras. Om inget värde anges identifierar kopierings aktiviteten automatiskt värdet.<br>Använd när alternativet partition är `DynamicRange` . Ett exempel finns i avsnittet [parallell kopiering från SQL-databas](#parallel-copy-from-synapse-analytics) . | Nej |
 
@@ -478,7 +478,7 @@ Att använda [PolyBase](/sql/relational-databases/polybase/polybase-guide) är e
 - Om käll data lagret och formatet inte ursprungligen stöds av PolyBase använder du den **[mellanlagrade kopian med PolyBase](#staged-copy-by-using-polybase)** -funktionen i stället. Funktionen för mellanlagrad kopiering ger också bättre data flöde. Den konverterar automatiskt data till PolyBase-kompatibelt format, lagrar data i Azure Blob Storage och anropar PolyBase för att läsa in data i Azure Synapse Analytics.
 
 > [!TIP]
-> Lär dig mer om [metod tips för att använda PolyBase](#best-practices-for-using-polybase).
+> Lär dig mer om [metod tips för att använda PolyBase](#best-practices-for-using-polybase). När du använder PolyBase med Azure Integration Runtime, är effektiv data integrerings enheter (DIUs) alltid 2. Att justera DIU påverkar inte prestandan, eftersom inläsning av data från lagring drivs av Synapse-motorn.
 
 Följande PolyBase-inställningar stöds under `polyBaseSettings` kopierings aktivitet:
 
@@ -671,6 +671,9 @@ Azure Synapse Analytics [copy-instruktionen](/sql/t-sql/statements/copy-into-tra
 
 >[!NOTE]
 >För närvarande finns Data Factory bara stöd för kopiering från COPY Statement-kompatibla källor som anges nedan.
+
+>[!TIP]
+>När du använder COPY-instruktionen med Azure Integration Runtime är effektiv data integrerings enheter (DIUs) alltid 2. Att justera DIU påverkar inte prestandan, eftersom inläsning av data från lagring drivs av Synapse-motorn.
 
 Att använda COPY-instruktionen har stöd för följande konfiguration:
 

@@ -4,16 +4,16 @@ description: Lär dig hur du skapar och hanterar flera Node-pooler för ett klus
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 024b7adb254980ec87084b4794a9ced3eaea95eb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074523"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900083"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera nodpooler för ett kluster i Azure Kubernetes Service (AKS)
 
-I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsammans i *noder i pooler*. De här noderna innehåller de underliggande virtuella datorerna som kör dina program. Det ursprungliga antalet noder och deras storlek (SKU) definieras när du skapar ett AKS-kluster, vilket skapar en [pool för system-Node][use-system-pool]. För att stödja program som har olika beräknings-eller lagrings krav kan du skapa ytterligare *pooler för användar-noder*. System Node-pooler fungerar som ett primärt syfte att vara värd för kritiska system poddar, till exempel CoreDNS och tunnelfront. Pooler för användar-noder fungerar som ett primärt syfte att vara värd för din applikations poddar. Programpoddar kan dock schemaläggas på system-nodkonfigurationer om du bara vill ha en pool i ditt AKS-kluster. Användar-resurspooler är där du placerar dina programspecifika poddar. Du kan till exempel använda dessa ytterligare resurspooler för användare för att tillhandahålla GPU: er för beräknings intensiva program eller åtkomst till SSD-lagring med höga prestanda.
+I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsammans i *noder i pooler* . De här noderna innehåller de underliggande virtuella datorerna som kör dina program. Det ursprungliga antalet noder och deras storlek (SKU) definieras när du skapar ett AKS-kluster, vilket skapar en [pool för system-Node][use-system-pool]. För att stödja program som har olika beräknings-eller lagrings krav kan du skapa ytterligare *pooler för användar-noder* . System Node-pooler fungerar som ett primärt syfte att vara värd för kritiska system poddar, till exempel CoreDNS och tunnelfront. Pooler för användar-noder fungerar som ett primärt syfte att vara värd för din applikations poddar. Programpoddar kan dock schemaläggas på system-nodkonfigurationer om du bara vill ha en pool i ditt AKS-kluster. Användar-resurspooler är där du placerar dina programspecifika poddar. Du kan till exempel använda dessa ytterligare resurspooler för användare för att tillhandahålla GPU: er för beräknings intensiva program eller åtkomst till SSD-lagring med höga prestanda.
 
 > [!NOTE]
 > Den här funktionen ger bättre kontroll över hur du skapar och hanterar flera noder i pooler. Därför krävs separata kommandon för att skapa/uppdatera/ta bort. Tidigare kluster åtgärder via `az aks create` eller `az aks update` använde managedCluster API och var det enda alternativet att ändra ditt kontroll plan och en enskild Node-pool. Den här funktionen exponerar en separat åtgärds uppsättning för agent-pooler via Agentpoolegenskap-API: et och kräver `az aks nodepool` att kommando uppsättningen används för att köra åtgärder på en enskild Node-pool.
@@ -93,7 +93,7 @@ Om du vill se status för dina nodkonfigurationer använder du kommandot [AZ AKS
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-Följande exempel på utdata visar att *mynodepool* har skapats med tre noder i Node-poolen. När AKS-klustret skapades i föregående steg skapades en standard- *nodepool1* med antalet noder *2*.
+Följande exempel på utdata visar att *mynodepool* har skapats med tre noder i Node-poolen. När AKS-klustret skapades i föregående steg skapades en standard- *nodepool1* med antalet noder *2* .
 
 ```output
 [
@@ -161,7 +161,7 @@ Eftersom det finns två nodkonfigurationer i det här exemplet måste vi använd
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Nu ska vi uppgradera *mynodepool*. Använd kommandot [AZ AKS nodepool Upgrade][az-aks-nodepool-upgrade] för att uppgradera Node-poolen, som visas i följande exempel:
+Nu ska vi uppgradera *mynodepool* . Använd kommandot [AZ AKS nodepool Upgrade][az-aks-nodepool-upgrade] för att uppgradera Node-poolen, som visas i följande exempel:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -172,7 +172,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-Ange status för dina nodkonfigurationer igen med kommandot [AZ AKS Node pool List][az-aks-nodepool-list] . I följande exempel visas att *mynodepool* är i *uppgraderings* läge för att *KUBERNETES_VERSION*:
+Ange status för dina nodkonfigurationer igen med kommandot [AZ AKS Node pool List][az-aks-nodepool-list] . I följande exempel visas att *mynodepool* är i *uppgraderings* läge för att *KUBERNETES_VERSION* :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -214,7 +214,7 @@ Som bästa praxis bör du uppgradera alla resurspooler i ett AKS-kluster till sa
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Uppgradera ett kluster kontroll plan med flera noder i pooler
 
 > [!NOTE]
-> Kubernetes använder standard versions schema för [semantisk versions hantering](https://semver.org/) . Versions numret uttrycks som *x. y. z*, där *x* är huvud versionen, *y* är den lägre versionen och *z* är korrigerings versionen. I version *1.12.6*1 är till exempel den högre versionen, 12 är den lägre versionen och 6 är korrigerings versionen. Kubernetes-versionen av kontroll planet och den första nodens resurspool anges när klustret skapas. Alla ytterligare noder i pooler har Kubernetes-versionen när de läggs till i klustret. Kubernetes-versionerna kan variera mellan olika resurspooler samt mellan en Node-pool och kontroll planet.
+> Kubernetes använder standard versions schema för [semantisk versions hantering](https://semver.org/) . Versions numret uttrycks som *x. y. z* , där *x* är huvud versionen, *y* är den lägre versionen och *z* är korrigerings versionen. I version *1.12.6* 1 är till exempel den högre versionen, 12 är den lägre versionen och 6 är korrigerings versionen. Kubernetes-versionen av kontroll planet och den första nodens resurspool anges när klustret skapas. Alla ytterligare noder i pooler har Kubernetes-versionen när de läggs till i klustret. Kubernetes-versionerna kan variera mellan olika resurspooler samt mellan en Node-pool och kontroll planet.
 
 Ett AKS-kluster har två kluster resurs objekt med associerade Kubernetes-versioner.
 
@@ -249,7 +249,7 @@ När ditt programs arbets belastnings behov ändras kan du behöva skala antalet
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Om du vill skala antalet noder i en Node-pool använder du kommandot [AZ AKS Node pool Scale][az-aks-nodepool-scale] . I följande exempel skalas antalet noder i *mynodepool* till *5*:
+Om du vill skala antalet noder i en Node-pool använder du kommandot [AZ AKS Node pool Scale][az-aks-nodepool-scale] . I följande exempel skalas antalet noder i *mynodepool* till *5* :
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -351,11 +351,11 @@ Det tar några minuter att ta bort noderna och Node-poolen.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Ange en VM-storlek för en Node-pool
 
-I föregående exempel för att skapa en Node-pool användes en standard storlek för virtuella datorer för de noder som skapades i klustret. Ett vanligt scenario är att du kan skapa nodkonfigurationer med olika storlekar och kapaciteter för virtuella datorer. Du kan till exempel skapa en noduppsättning som innehåller noder med stora mängder CPU eller minne, eller en Node-pool som tillhandahåller GPU-stöd. I nästa steg ska du [använda utsmaker och tolererar](#schedule-pods-using-taints-and-tolerations) för att meddela Kubernetes Scheduler hur du begränsar åtkomsten till poddar som kan köras på dessa noder.
+I föregående exempel för att skapa en Node-pool användes en standard storlek för virtuella datorer för de noder som skapades i klustret. Ett vanligt scenario är att du kan skapa nodkonfigurationer med olika storlekar och kapaciteter för virtuella datorer. Du kan till exempel skapa en noduppsättning som innehåller noder med stora mängder CPU eller minne, eller en Node-pool som tillhandahåller GPU-stöd. I nästa steg ska du [använda utsmaker och tolererar](#setting-nodepool-taints) för att meddela Kubernetes Scheduler hur du begränsar åtkomsten till poddar som kan köras på dessa noder.
 
 I följande exempel skapar du en GPU-baserad Node-pool som använder *Standard_NC6* VM-storlek. De här virtuella datorerna drivs av NVIDIA Tesla K80-kortet. Information om tillgängliga VM-storlekar finns i [storlekar för virtuella Linux-datorer i Azure][vm-sizes].
 
-Skapa en Node-pool med kommandot [AZ AKS Node pool Add][az-aks-nodepool-add] . Den här gången anger du namnet *gpunodepool*och använder `--node-vm-size` parametern för att ange *Standard_NC6* storlek:
+Skapa en Node-pool med kommandot [AZ AKS Node pool Add][az-aks-nodepool-add] . Den här gången anger du namnet *gpunodepool* och använder `--node-vm-size` parametern för att ange *Standard_NC6* storlek:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -367,7 +367,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-I följande exempel visas utdata från kommandot [AZ AKS Node pool List][az-aks-nodepool-list] som visar att *gpunodepool* *skapar* noder med den angivna *VmSize*:
+I följande exempel visas utdata från kommandot [AZ AKS Node pool List][az-aks-nodepool-list] som visar att *gpunodepool* *skapar* noder med den angivna *VmSize* :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -404,89 +404,6 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Det tar några minuter innan *gpunodepool* har skapats.
 
-## <a name="schedule-pods-using-taints-and-tolerations"></a>Schemalägg poddar med hjälp av utsmakar och tolererar
-
-Nu har du två noder i klustret – standardpoolen som ursprungligen skapades och den GPU-baserade Node-poolen. Använd kommandot [kubectl get Nodes][kubectl-get] för att visa noderna i klustret. Följande exempel på utdata visar noderna:
-
-```console
-kubectl get nodes
-```
-
-```output
-NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
-```
-
-Kubernetes Scheduler kan använda utsmakar och tolereras för att begränsa vilka arbets belastningar som kan köras på noder.
-
-* En **bismak** tillämpas på en nod som endast anger att vissa poddar kan schemaläggas på dem.
-* En **tolererande** tillämpas sedan på en pod som gör det möjligt för dem att *tolerera* en nods smak.
-
-Mer information om hur du använder avancerade Kubernetes schemalagda funktioner finns i [metod tips för avancerade funktioner i Schemaläggaren i AKS][taints-tolerations]
-
-I det här exemplet ska du använda en-utsmak på den GPU-baserade noden med kommandot--Node-superdrives. Ange namnet på den GPU-baserade noden från utdata från föregående `kubectl get nodes` kommando. Bismaken används som ett *nyckel = värde* -par och sedan ett schemaläggnings alternativ. I följande exempel används *SKU = GPU* -paret och definierar poddar i övrigt har *noschema* -funktionen:
-
-```console
-az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
-```
-
-Följande grundläggande exempel på YAML-manifest använder en tolererare för att tillåta att Schemaläggaren för Kubernetes kör en NGINX-Pod på den GPU-baserade noden. För ett mer lämpligt, men tids krävande exempel för att köra ett Tensorflow-jobb mot MNIST-datauppsättningen, se [Använd GPU: er för beräknings intensiva arbets belastningar på AKS][gpu-cluster].
-
-Skapa en fil med namnet `gpu-toleration.yaml` och kopiera i följande exempel yaml:
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mypod
-spec:
-  containers:
-  - image: nginx:1.15.9
-    name: mypod
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 1
-        memory: 2G
-  tolerations:
-  - key: "sku"
-    operator: "Equal"
-    value: "gpu"
-    effect: "NoSchedule"
-```
-
-Schemalägg Pod med `kubectl apply -f gpu-toleration.yaml` kommandot:
-
-```console
-kubectl apply -f gpu-toleration.yaml
-```
-
-Det tar några sekunder att schemalägga Pod och hämta NGINX-avbildningen. Använd kommandot [kubectl beskriver Pod][kubectl-describe] för att Visa Pod-status. I följande komprimerade exempel utdata visas *SKU = GPU: Noschema* -tolerera används. I avsnittet Events har Scheduler tilldelat Pod till *AKS-gpunodepool-28993262-vmss000000* GPU-baserad nod:
-
-```console
-kubectl describe pod mypod
-```
-
-```output
-[...]
-Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
-                 node.kubernetes.io/unreachable:NoExecute for 300s
-                 sku=gpu:NoSchedule
-Events:
-  Type    Reason     Age    From                                          Message
-  ----    ------     ----   ----                                          -------
-  Normal  Scheduled  4m48s  default-scheduler                             Successfully assigned default/mypod to aks-gpunodepool-28993262-vmss000000
-  Normal  Pulling    4m47s  kubelet, aks-gpunodepool-28993262-vmss000000  pulling image "nginx:1.15.9"
-  Normal  Pulled     4m43s  kubelet, aks-gpunodepool-28993262-vmss000000  Successfully pulled image "nginx:1.15.9"
-  Normal  Created    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Created container
-  Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
-```
-
-Endast poddar som har den här tolereraren som används kan schemaläggas på noder i *gpunodepool*. Andra pod skulle schemaläggas i *nodepool1* Node-pool. Om du skapar ytterligare noder kan du använda ytterligare utsmakar och tolererar för att begränsa vilka poddar som kan schemaläggas för dessa resurs resurser.
-
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Ange en smak, etikett eller tagg för en Node-pool
 
 ### <a name="setting-nodepool-taints"></a>Ställa in nodepool-smakar
@@ -508,7 +425,7 @@ az aks nodepool add \
 > [!NOTE]
 > En bismak kan bara ställas in för Node-pooler när en resurspool skapas.
 
-I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *taintnp* *skapar* noder med angivna *nokvarhållning*:
+I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *taintnp* *skapar* noder med angivna *nokvarhållning* :
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -532,7 +449,68 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-Informationen om bismaken visas i Kubernetes för hantering av schema regler för noder.
+Informationen om bismaken visas i Kubernetes för hantering av schema regler för noder. Kubernetes Scheduler kan använda utsmakar och tolereras för att begränsa vilka arbets belastningar som kan köras på noder.
+
+* En **bismak** tillämpas på en nod som endast anger att vissa poddar kan schemaläggas på dem.
+* En **tolererande** tillämpas sedan på en pod som gör det möjligt för dem att *tolerera* en nods smak.
+
+Mer information om hur du använder avancerade Kubernetes schemalagda funktioner finns i [metod tips för avancerade funktioner i Schemaläggaren i AKS][taints-tolerations]
+
+I föregående steg har du tillämpat *SKU = GPU: Noschema* -smak när du skapade din Node-pool. Följande grundläggande exempel på YAML-manifest använder en tolererare för att tillåta att Schemaläggaren för Kubernetes kör en NGINX-Pod på en nod i den noden.
+
+Skapa en fil med namnet `nginx-toleration.yaml` och kopiera i följande exempel yaml:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 1
+        memory: 2G
+  tolerations:
+  - key: "sku"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
+```
+
+Schemalägg Pod med `kubectl apply -f nginx-toleration.yaml` kommandot:
+
+```console
+kubectl apply -f nginx-toleration.yaml
+```
+
+Det tar några sekunder att schemalägga Pod och hämta NGINX-avbildningen. Använd kommandot [kubectl beskriver Pod][kubectl-describe] för att Visa Pod-status. I följande komprimerade exempel utdata visas *SKU = GPU: Noschema* -tolerera används. I avsnittet Events har Scheduler tilldelat Pod till *AKS-taintnp-28993262-vmss000000-* noden:
+
+```console
+kubectl describe pod mypod
+```
+
+```output
+[...]
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+                 sku=gpu:NoSchedule
+Events:
+  Type    Reason     Age    From                Message
+  ----    ------     ----   ----                -------
+  Normal  Scheduled  4m48s  default-scheduler   Successfully assigned default/mypod to aks-taintnp-28993262-vmss000000
+  Normal  Pulling    4m47s  kubelet             pulling image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Pulled     4m43s  kubelet             Successfully pulled image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Created    4m40s  kubelet             Created container
+  Normal  Started    4m40s  kubelet             Started container
+```
+
+Endast poddar som har den här tolereraren som används kan schemaläggas på noder i *taintnp* . Andra pod skulle schemaläggas i *nodepool1* Node-pool. Om du skapar ytterligare noder kan du använda ytterligare utsmakar och tolererar för att begränsa vilka poddar som kan schemaläggas för dessa resurs resurser.
 
 ### <a name="setting-nodepool-labels"></a>Ange nodepool-etiketter
 
@@ -553,7 +531,7 @@ az aks nodepool add \
 > [!NOTE]
 > Det går bara att ange etiketten för Node-pooler när en resurspool skapas. Etiketter måste också vara ett nyckel/värde-par och ha en [giltig syntax][kubernetes-label-syntax].
 
-I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *labelnp* *skapar* noder med angivet *nodeLabels*:
+I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *labelnp* *skapar* noder med angivet *nodeLabels* :
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -599,9 +577,9 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> Du kan också använda `--tags` parametern när du använder kommandot [AZ AKS nodepool Update][az-aks-nodepool-update] och när klustret skapas. När klustret skapas `--tags` använder parametern taggen på den första noden som skapats med klustret. Alla taggnamn måste följa de begränsningar som [används vid användning av taggar för att organisera dina Azure-resurser][tag-limitation]. Uppdatering av en Node-pool med `--tags` parametern uppdaterar eventuella befintliga tagg värden och lägger till nya taggar. Om till exempel din Node-pool hade *avd = IT* och *CostCenter = 9999* för taggar och du har uppdaterat den med *team = dev* och *CostCenter = 111* for taggar kan du nodepool ha *avd = IT*, *CostCenter = 111*och *team = dev* för taggar.
+> Du kan också använda `--tags` parametern när du använder kommandot [AZ AKS nodepool Update][az-aks-nodepool-update] och när klustret skapas. När klustret skapas `--tags` använder parametern taggen på den första noden som skapats med klustret. Alla taggnamn måste följa de begränsningar som [används vid användning av taggar för att organisera dina Azure-resurser][tag-limitation]. Uppdatering av en Node-pool med `--tags` parametern uppdaterar eventuella befintliga tagg värden och lägger till nya taggar. Om till exempel din Node-pool hade *avd = IT* och *CostCenter = 9999* för taggar och du har uppdaterat den med *team = dev* och *CostCenter = 111* for taggar kan du nodepool ha *avd = IT* , *CostCenter = 111* och *team = dev* för taggar.
 
-I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *tagnodepool* *skapar* noder med den angivna *taggen*:
+I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *tagnodepool* *skapar* noder med den angivna *taggen* :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -635,8 +613,8 @@ När du använder en Azure Resource Manager mall för att skapa och hanterade re
 Skapa en mall som `aks-agentpools.json` och klistra in följande exempel manifest. I den här exempel mal len konfigureras följande inställningar:
 
 * Uppdaterar *Linux* Node-poolen med namnet *myagentpool* för att köra tre noder.
-* Ställer in noderna i Node-poolen att köra Kubernetes-version *1.15.7*.
-* Definierar nodens storlek som *Standard_DS2_v2*.
+* Ställer in noderna i Node-poolen att köra Kubernetes-version *1.15.7* .
+* Definierar nodens storlek som *Standard_DS2_v2* .
 
 Redigera de här värdena som behövs för att uppdatera, lägga till eller ta bort noder i pooler efter behov:
 
@@ -798,7 +776,7 @@ az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I den här artikeln har du skapat ett AKS-kluster som innehåller GPU-baserade noder. För att minska onödig kostnad kanske du vill ta bort *gpunodepool*eller hela AKS-klustret.
+I den här artikeln har du skapat ett AKS-kluster som innehåller GPU-baserade noder. För att minska onödig kostnad kanske du vill ta bort *gpunodepool* eller hela AKS-klustret.
 
 Om du vill ta bort GPU-baserad Node-pool använder du kommandot [AZ AKS nodepool Delete][az-aks-nodepool-delete] , som visas i följande exempel:
 

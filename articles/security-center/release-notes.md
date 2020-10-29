@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: f7ea990c22614dca00a9983e5c544103d09b9e6a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 3ea8e944a004dc89dadc74e4ab2e3e4b295b3a9b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891690"
+ms.locfileid: "92900242"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -536,7 +536,7 @@ De nya rekommendationerna är:
 - **Avancerat skydd bör vara aktiverat på Azure Storage konton**
 - **Avancerat skydd bör vara aktiverat på virtuella datorer**
 
-De här nya rekommendationerna hör till säkerhets kontrollen **Aktivera avancerat skydd** .
+Dessa nya rekommendationer tillhör säkerhets kontrollen **Aktivera Azure Defender** .
 
 Rekommendationerna omfattar även snabb korrigerings funktionen. 
 

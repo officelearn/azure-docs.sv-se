@@ -1,5 +1,5 @@
 ---
-title: Anslut till Power BI Professional
+title: Ansluta till Synapse SQL med Power BI Professional
 description: I den här självstudien går vi igenom steg hur du ansluter Power BI Desktop till SQL på begäran (för hands version).
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 48b6639ad8228347737669fffca06eb660a25874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d88406646099a136d196a104f9cf4352a367f6d2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288706"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899126"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Ansluta till Synapse SQL med Power BI Professional
 
@@ -28,7 +28,7 @@ ms.locfileid: "91288706"
 
 I den här självstudien ska vi gå igenom stegen för att ansluta Power BI Desktop till SQL på begäran (för hands version).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande verktyg för att utfärda frågor:
 
@@ -75,7 +75,7 @@ Vi måste skapa autentiseringsuppgifter innan du kan köra frågor. Den här aut
 > [!NOTE]
 > Du måste skapa autentiseringsuppgifter för åtkomst till lagrings kontot. Även om SQL på begäran kan komma åt lagring från olika regioner, ger lagrings-och Azure Synapse-arbetsytan i samma region en bättre prestanda upplevelse.
 
-Kodfragment för **att skapa autentiseringsuppgifter för inventerings data behållare**, kör:
+Kodfragment för **att skapa autentiseringsuppgifter för inventerings data behållare** , kör:
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
@@ -98,7 +98,7 @@ GO
 
 ### <a name="step-1---select-data-source"></a>Steg 1 – Välj data Källa
 
-Välj **Azure** i menyn och **Azure SQL Database**.
+Välj **Azure** i menyn och **Azure SQL Database** .
 ![Välj data källa.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>Steg 2 – Välj databas

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: b833b45f5243e446ac507ee913abe256a12ac01d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368476"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900128"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Skydda poddar med Azure Policy
 
@@ -61,7 +61,7 @@ Följande allmänna begränsningar gäller för Azure Policy-tillägget för Kub
 Följande begränsningar gäller endast för Azure Policy-tillägget för AKS:
 
 - [AKS Pod-säkerhetsprincipen (för hands version)](use-pod-security-policies.md) och Azure policy-tillägget för AKS kan inte både aktive ras. 
-- Namn områden som undantas automatiskt av Azure Policy tillägg för utvärdering: _Kube-system_, _Gatekeeper-system_och _AKS-Periscope_.
+- Namn områden som undantas automatiskt av Azure Policy tillägg för utvärdering: _Kube-system_ , _Gatekeeper-system_ och _AKS-Periscope_ .
 
 ### <a name="recommendations"></a>Rekommendationer
 
@@ -150,7 +150,7 @@ If the built-in initiatives to address pod security do not match your requiremen
 > [!WARNING]
 > Poddar i admin-namnrymder som Kube-system måste köras för att ett kluster ska förbli felfritt. om du tar bort ett obligatoriskt namn område från listan över undantagna fördefinierade namn områden kan det uppstå princip överträdelser på grund av en nödvändig system pod.
 
-AKS kräver att system poddar körs på ett kluster för att tillhandahålla kritiska tjänster, till exempel DNS-matchning. Principer som begränsar Pod-funktioner kan påverka stabiliteten i systemet pod. Därför undantas följande namn rymder **från princip utvärderingen vid begäran om att skapa, uppdatera och granska principer**. Detta innebär att nya distributioner till dessa namn områden exkluderas från Azure-principer.
+AKS kräver att system poddar körs på ett kluster för att tillhandahålla kritiska tjänster, till exempel DNS-matchning. Principer som begränsar Pod-funktioner kan påverka stabiliteten i systemet pod. Därför undantas följande namn rymder **från princip utvärderingen vid begäran om att skapa, uppdatera och granska principer** . Detta innebär att nya distributioner till dessa namn områden exkluderas från Azure-principer.
 
 1. Kube-system
 1. Gatekeeper-system
@@ -209,7 +209,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         privileged: true
 ```
@@ -244,7 +244,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 ```
 
 Skapa Pod med kommandot [kubectl Apply][kubectl-apply] och ange namnet på ditt yaml-manifest:
@@ -253,7 +253,7 @@ Skapa Pod med kommandot [kubectl Apply][kubectl-apply] och ange namnet på ditt 
 kubectl apply -f nginx-unprivileged.yaml
 ```
 
-Pod har schemalagts. När du kontrollerar status för Pod med kommandot [kubectl get poddar][kubectl-get] *körs*pod:
+Pod har schemalagts. När du kontrollerar status för Pod med kommandot [kubectl get poddar][kubectl-get] *körs* pod:
 
 ```console
 $ kubectl get pods

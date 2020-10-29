@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 83fa16265106e1033cb77ab4175b606714ec66d7
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 693d2304324bdfcac298b3e20ddd0d882a16533c
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996839"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899863"
 ---
 # <a name="expressroute-encryption"></a>ExpressRoute-kryptering
  
@@ -31,7 +31,7 @@ Nej. Om MACsec har kon figurer ATS och en nyckel avvikelse uppstår förlorar du
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>Kommer MACsec att aktivera på ExpressRoute direkt försämra nätverks prestanda?
 MACsec kryptering och dekryptering sker i maskin vara på de routrar som vi använder. Det finns ingen inverkan på vår sida. Du bör dock kontrol lera med nätverks leverantören för de enheter du använder och se om MACsec har några prestanda indirekt.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>Vilka chiffersviter stöds för kryptering?
-Vi har stöd för den [utökade paket](https://1.ieee802.org/security/802-1aebw/) versionen av AES128 och AES256. Inaktivera dessutom en [säker kanal identifierare (området)](https://en.wikipedia.org/wiki/IEEE_802.1AE) i MACsec-konfigurationen på enheten. 
+Vi stöder bara den [utökade paket](https://1.ieee802.org/security/802-1aebw/) versionen av AES-128 och aes-256. Du måste också inaktivera en [säker kanal identifierare (området)](https://wikipedia.org/wiki/IEEE_802.1AE) i MACsec-konfigurationen på enheten. 
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Vanliga frågor och svar från slut punkt till slut punkt för IPsec
 IPsec är en [IETF-standard](https://tools.ietf.org/html/rfc6071). Den krypterar data på Internet Protocol (IP) eller nätverks nivå 3. Du kan använda IPsec för att kryptera en slutpunkt-till-slutpunkt-anslutning mellan ditt lokala nätverk och ditt virtuella nätverk (VNET) i Azure. Se andra vanliga frågor och svar nedan.

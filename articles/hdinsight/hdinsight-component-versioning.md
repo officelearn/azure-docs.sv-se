@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 47e2211be478a16238d35eeb5219cf6e785a6979
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 282f13c89c527b096573b67b5d539de821e89032
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547579"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900808"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Apache-komponenter och versioner som är tillgängliga för Azure HDInsight
 
@@ -89,7 +89,7 @@ I den här tabellen listas de versioner av HDInsight som är tillgängliga i Azu
 | HDInsight 3,6 Spark             | 2.2               | Dras tillbaka den 30 juni 2020          |                             |
 | HDInsight 3,6 Spark             | 2.1               | Dras tillbaka den 30 juni 2020          |                             |
 | HDInsight 3,6-Kafka             | 1,1               | 31 december 2020                      | 30 juni 2021               |
-| HDInsight 3,6-Kafka             | 1.0               | Dras tillbaka den 30 juni 2020.         |                             |
+| HDInsight 3,6-Kafka             | 1,0               | Dras tillbaka den 30 juni 2020.         |                             |
 | HDInsight 3,6-HBase             | 1,1               | 31 december 2020                      | 30 juni 2021               |
 | HDInsight 3,6 interaktiv fråga | 2.1               | 31 december 2020                      | 30 juni 2021               |
 | HDInsight 3,6 Storm             | 1,1               | 31 december 2020                      | 30 juni 2021               |
@@ -133,6 +133,6 @@ Mer information om vilka virtuella datorer SKU: er som ska väljas för klustret
 ## <a name="next-steps"></a>Nästa steg
 
 - [Kluster konfiguration för Apache Hadoop, Spark och mer på HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-- [Arbeta i Apache Hadoop på HDInsight från en Windows-dator](hdinsight-hadoop-windows-tools.md)
-- [Hortonworks versions anteckningar som är associerade med Azure HDInsight-versioner](./hortonworks-release-notes.md)
 - [Enterprise Security Package](./enterprise-security-package.md)
+- [Hortonworks versions anteckningar som är associerade med Azure HDInsight-versioner](./hortonworks-release-notes.md)
+- [Arbeta i Apache Hadoop på HDInsight från en Windows-dator](hdinsight-hadoop-windows-tools.md)

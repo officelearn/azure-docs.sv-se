@@ -5,19 +5,19 @@ description: Lär dig att dynamiskt skapa en permanent volym med Azure-diskar i 
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: fd2bc698a107599dccf8f142b0d318400b40aaf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad51bfdf8c494e763921de880926b839cdb7be62
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299331"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900750"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Skapa och använda en permanent volym med Azure-diskar i Azure Kubernetes service (AKS) dynamiskt
 
 En beständig volym representerar en lagrings enhet som har etablerats för användning med Kubernetes poddar. En permanent volym kan användas av en eller flera poddar och kan vara dynamiskt eller statiskt etablerad. Den här artikeln visar hur du dynamiskt skapar permanenta volymer med Azure disks för användning av en enda Pod i ett Azure Kubernetes service-kluster (AKS).
 
 > [!NOTE]
-> Det går bara att montera en Azure-disk med *åtkomst läges* typen *ReadWriteOnce*, vilket gör den tillgänglig för en nod i AKS. Om du behöver dela en permanent volym över flera noder använder du [Azure Files][azure-files-pvc].
+> Det går bara att montera en Azure-disk med *åtkomst läges* typen *ReadWriteOnce* , vilket gör den tillgänglig för en nod i AKS. Om du behöver dela en permanent volym över flera noder använder du [Azure Files][azure-files-pvc].
 
 Mer information om Kubernetes-volymer finns i [lagrings alternativ för program i AKS][concepts-storage].
 
@@ -25,7 +25,7 @@ Mer information om Kubernetes-volymer finns i [lagrings alternativ för program 
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
-Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Inbyggda lagrings klasser
 
@@ -78,7 +78,7 @@ spec:
 ```
 
 > [!TIP]
-> Använd `storageClassName: default` i stället för *hanterad Premium*om du vill skapa en disk som använder standard lagring.
+> Använd `storageClassName: default` i stället för *hanterad Premium* om du vill skapa en disk som använder standard lagring.
 
 Skapa ett beständigt volym anspråk med kommandot [kubectl Apply][kubectl-apply] och ange din *Azure-Premium. yaml* -fil:
 
@@ -90,7 +90,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Använd beständig volym
 
-När beständiga volym anspråk har skapats och disken har etablerats kan du skapa en POD med åtkomst till disken. Följande manifest skapar en grundläggande NGINX-Pod som använder det beständiga volym anspråket med namnet *Azure-hanterad disk* för att montera Azure-disken på sökvägen `/mnt/azure` . För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"*.
+När beständiga volym anspråk har skapats och disken har etablerats kan du skapa en POD med åtkomst till disken. Följande manifest skapar en grundläggande NGINX-Pod som använder det beständiga volym anspråket med namnet *Azure-hanterad disk* för att montera Azure-disken på sökvägen `/mnt/azure` . För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"* .
 
 Skapa en fil med namnet `azure-pvc-disk.yaml` och kopiera i följande manifest.
 
@@ -102,7 +102,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -159,7 +159,7 @@ Om du vill använda Ultra disk ser du [Använd Ultra disks på Azure Kubernetes 
 
 Ta en ögonblicks bild av den hanterade disken för volymen om du vill säkerhetskopiera data i den beständiga volymen. Du kan sedan använda den här ögonblicks bilden för att skapa en återställd disk och ansluta till poddar som ett sätt att återställa data.
 
-Börja med att hämta volym namnet med `kubectl get pvc` kommandot, till exempel för den PVC som heter *Azure-Managed-disk*:
+Börja med att hämta volym namnet med `kubectl get pvc` kommandot, till exempel för den PVC som heter *Azure-Managed-disk* :
 
 ```console
 $ kubectl get pvc azure-managed-disk
@@ -176,7 +176,7 @@ $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```
 
-Använd disk-ID för att skapa en ögonblicks bild disk med [AZ Snapshot Create][az-snapshot-create]. I följande exempel skapas en ögonblicks bild med namnet *pvcSnapshot* i samma resurs grupp som AKS-klustret (*MC_myResourceGroup_myAKSCluster_eastus*). Du kan stöta på behörighets problem om du skapar ögonblicks bilder och återställer diskar i resurs grupper som AKS-klustret inte har åtkomst till.
+Använd disk-ID för att skapa en ögonblicks bild disk med [AZ Snapshot Create][az-snapshot-create]. I följande exempel skapas en ögonblicks bild med namnet *pvcSnapshot* i samma resurs grupp som AKS-klustret ( *MC_myResourceGroup_myAKSCluster_eastus* ). Du kan stöta på behörighets problem om du skapar ögonblicks bilder och återställer diskar i resurs grupper som AKS-klustret inte har åtkomst till.
 
 ```azurecli-interactive
 $ az snapshot create \
@@ -189,7 +189,7 @@ Beroende på mängden data på disken kan det ta några minuter att skapa ögonb
 
 ## <a name="restore-and-use-a-snapshot"></a>Återställa och använda en ögonblicks bild
 
-Du återställer disken och använder den med en Kubernetes-Pod genom att använda ögonblicks bilden som källa när du skapar en disk med [AZ disk Create][az-disk-create]. Den här åtgärden bevarar den ursprungliga resursen om du behöver komma åt den ursprungliga data ögonblicks bilden. I följande exempel skapas en disk med namnet *pvcRestored* från ögonblicks bilden med namnet *pvcSnapshot*:
+Du återställer disken och använder den med en Kubernetes-Pod genom att använda ögonblicks bilden som källa när du skapar en disk med [AZ disk Create][az-disk-create]. Den här åtgärden bevarar den ursprungliga resursen om du behöver komma åt den ursprungliga data ögonblicks bilden. I följande exempel skapas en disk med namnet *pvcRestored* från ögonblicks bilden med namnet *pvcSnapshot* :
 
 ```azurecli-interactive
 az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot
@@ -201,7 +201,7 @@ Om du vill använda den återställda disken med en POD anger du ID för disken 
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
 ```
 
-Skapa ett Pod-manifest med namnet `azure-restored.yaml` och ange disk-URI: n som hämtades i föregående steg. I följande exempel skapas en grundläggande NGINX-webbserver med den återställda disken monterad som en volym på */mnt/Azure*:
+Skapa ett Pod-manifest med namnet `azure-restored.yaml` och ange disk-URI: n som hämtades i föregående steg. I följande exempel skapas en grundläggande NGINX-webbserver med den återställda disken monterad som en volym på */mnt/Azure* :
 
 ```yaml
 kind: Pod
@@ -211,7 +211,7 @@ metadata:
 spec:
   containers:
   - name: mypodrestored
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m

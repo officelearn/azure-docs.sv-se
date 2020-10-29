@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
-ms.openlocfilehash: 9088b36acead9f47e94949ee102d66a8aff2d226
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 1f3ab61c6030c2871356f494db228711305e5466
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529610"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901579"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Kopiera data från SAP ECC med hjälp av Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -47,6 +47,13 @@ Mer specifikt stöder denna SAP ECC-anslutning:
 
 - Kopiera data med hjälp av grundläggande autentisering.
 
+Version 7,0 eller senare avser SAP NetWeaver-versionen i stället för SAP ECC-versionen. Exempelvis har SAP ECC 6,0 EHP 7 i allmänhet NetWeaver version >= 7,4. Om du är osäker på din miljö kan du använda följande steg för att bekräfta versionen från SAP-systemet:
+
+1. Använd SAP-gränssnittet för att ansluta till SAP-systemet. 
+2. Gå till **system**  ->  **status** . 
+3. Kontrol lera versionen av SAP_BASIS, se till att den är lika med eller större än 701.  
+      ![Kontrol lera SAP_BASIS](./media/connector-sap-table/sap-basis.png)
+
 >[!TIP]
 >Om du vill kopiera data från SAP ECC via en SAP-tabell eller-vy använder du [SAP Table](connector-sap-table.md) Connector som är snabbare och mer skalbar.
 
@@ -54,9 +61,9 @@ Mer specifikt stöder denna SAP ECC-anslutning:
 
 Om du vill använda denna SAP ECC-anslutning måste du exponera SAP ECC-entiteter via OData-tjänster via SAP Gateway. Mer specifikt:
 
-- **Konfigurera SAP Gateway**. För servrar med SAP NetWeaver-versioner senare än 7,4 är SAP Gateway redan installerat. För tidigare versioner måste du installera den inbäddade SAP-gatewayen eller SAP Gateway Hub-systemet innan du exponerar SAP ECC-data via OData-tjänster. Information om hur du konfigurerar SAP Gateway finns i [installations guiden](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm)för.
+- **Konfigurera SAP Gateway** . För servrar med SAP NetWeaver-versioner senare än 7,4 är SAP Gateway redan installerat. För tidigare versioner måste du installera den inbäddade SAP-gatewayen eller SAP Gateway Hub-systemet innan du exponerar SAP ECC-data via OData-tjänster. Information om hur du konfigurerar SAP Gateway finns i [installations guiden](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm)för.
 
-- **Aktivera och konfigurera SAP OData-tjänsten**. Du kan aktivera OData-tjänsten via TCODE SICF på några sekunder. Du kan också konfigurera vilka objekt som ska visas. Mer information finns i [steg-för-steg-anvisningar](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
+- **Aktivera och konfigurera SAP OData-tjänsten** . Du kan aktivera OData-tjänsten via TCODE SICF på några sekunder. Du kan också konfigurera vilka objekt som ska visas. Mer information finns i [steg-för-steg-anvisningar](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -74,9 +81,9 @@ Följande egenskaper stöds för den länkade SAP ECC-tjänsten:
 |:--- |:--- |:--- |
 | `type` | `type`Egenskapen måste anges till `SapEcc` . | Ja |
 | `url` | URL: en för SAP ECC OData-tjänsten. | Ja |
-| `username` | Det användar namn som används för att ansluta till SAP ECC. | Inga |
-| `password` | Lösen ordet för klartext används för att ansluta till SAP ECC. | Inga |
-| `connectVia` | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om du inte anger någon körnings miljö används standard körningen av Azure integration. | Inga |
+| `username` | Det användar namn som används för att ansluta till SAP ECC. | Nej |
+| `password` | Lösen ordet för klartext används för att ansluta till SAP ECC. | Nej |
+| `connectVia` | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om du inte anger någon körnings miljö används standard körningen av Azure integration. | Nej |
 
 ### <a name="example"></a>Exempel
 
@@ -145,9 +152,9 @@ Följande egenskaper stöds i avsnittet kopierings aktivitet `source` :
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | `type` | `type`Egenskapen för kopierings aktivitetens `source` avsnitt måste anges till `SapEccSource` . | Ja |
-| `query` | OData-frågealternativen för att filtrera data. Exempel:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC-anslutaren kopierar data från den kombinerade URL: en:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Mer information finns i [OData URL-komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Inga |
-| `sapDataColumnDelimiter` | Det enkla tecken som används som avgränsare skickades till SAP RFC för att dela ut utdata. | Inga |
-| `httpRequestTimeout` | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Om inget värde anges är standardvärdet **00:30:00** (30 minuter). | Inga |
+| `query` | OData-frågealternativen för att filtrera data. Till exempel:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC-anslutaren kopierar data från den kombinerade URL: en:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Mer information finns i [OData URL-komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
+| `sapDataColumnDelimiter` | Det enkla tecken som används som avgränsare skickades till SAP RFC för att dela ut utdata. | Nej |
+| `httpRequestTimeout` | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Om inget värde anges är standardvärdet **00:30:00** (30 minuter). | Nej |
 
 ### <a name="example"></a>Exempel
 

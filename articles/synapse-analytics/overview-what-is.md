@@ -6,29 +6,29 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 09/12/2020
+ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c4338152579170bf809577262992f0db9a1a95ff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09429e26c5b7192141262e1a31c0ef90427bdd32
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90524954"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899040"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Vad är Azure Synapse Analytics (för hands versioner av arbets ytor)?
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Enterprise Analytics måste arbeta massivt på alla typer av data, oavsett om de är RAW, raffinerade eller mycket anpassade. Detta krävs för att företag ska kunna häfta samman Big data och data lagrings tekniker som Spark och SQL till omfattande datapipeliner som fungerar mellan data i Relations lager och data sjöar. Lösningar som detta är svåra att bygga, säkra och underhålla. Komplexitets fördröjningen för att leverera Insight Enteprises-behovet.
+Enterprise Analytics måste arbeta i massiv skala på alla typer av data, oavsett om de är råa, raffinerade eller mycket anpassade. Detta kräver vanligt vis att företag samlar ihop Big data och data lager teknik i komplexa datapipeliner som fungerar mellan data i Relations lager och data sjöar. Dessa typer av lösningar är svåra att bygga, underhålla och säkra. Deras komplexitets fördröjningar ger insikter Enteprises-behov.
 
-**Azure Synapse** är en integrerad analys tjänst som påskyndar tiden för att bli inblick i informations lager och Big data analys system. Azure-Synapse kombinerar i sin kärna det bästa av **SQL** -teknikerna som används i företags data lager, **Spark** -tekniker som används för Big data och **pipelines** för data integrering och ETL/ELT. Synapse har en webbaserad **Studio** som ger en enda plats för hantering, övervakning, kodning och säkerhet. Synapse innehåller djupgående integrering med andra Azure-tjänster som **PowerBI**, **CosmosDB**och **azureml**.
+**Azure Synapse** är en integrerad analys tjänst som påskyndar tiden för att bli inblick i informations lager och stora data system. Azure Synapse kombinerar det bästa av **SQL** -teknikerna som används i företags data lager, **Spark** -tekniker som används för Big data och **pipelines** för data integrering och ETL/ELT. **Synapse Studio** ger en enhetlig upplevelse för hantering, övervakning, kodning och säkerhet. Synapse har djupgående integrering med andra Azure-tjänster som **PowerBI** , **CosmosDB** och **azureml** .
 
 ## <a name="key-features--benefits"></a>Viktiga funktioner & förmåner
 
 ### <a name="industry-leading-sql"></a>Branschledande SQL
 
-* **SYNAPSE SQL** är ett distribuerat Query-system som gör det möjligt för företag att implementera data lager-och data virtualiseringslösningar med hjälp av vanliga T-SQL-upplevelser som är bekanta med data tekniker. Den utökar också funktionerna i SQL för att adressera strömnings-och maskin inlärnings scenarier.
+* **SYNAPSE SQL** är ett distribuerat Query-system som gör det möjligt för företag att implementera data lager-och data Virtualization-scenarier med hjälp av vanliga och välkända T-SQL-upplevelser. Den utökar också funktionerna i SQL för att adressera strömnings-och maskin inlärnings scenarier.
 
 * Synapse SQL erbjuder både **Server** lös och **dedikerade** resurs modeller, och erbjuder användnings-och fakturerings alternativ som passar dina behov. För förutsägbara prestanda och kostnader skapar du dedikerade SQL-pooler för att reservera bearbetnings kraften för data som lagras i SQL-tabeller. För oplanerade eller burst-arbetsbelastningar använder du den alltid tillgängliga, Server lös SQL-slutpunkten.
 * Använd inbyggda **strömnings** funktioner för att landa data från moln data källor till SQL-tabeller
@@ -56,7 +56,7 @@ Azure Synapse tar bort de traditionella teknik barriärerna mellan att använda 
 Azure Synapse levereras med samma data integrerings motor och upplevelser som Azure Data Factory, så att du kan skapa omfattande ETL-pipelines utan att lämna Synapse Analytics.
 
 * Mata in data från 90 + data källor
-* Kod fri ETL med data flödes aktiviteter
+* Code-Free ETL med data flödes aktiviteter
 * Dirigera antecknings böcker, Spark-jobb, lagrade procedurer, SQL-skript med mera
 
 ### <a name="unified-management-monitoring-and-security"></a>Enhetlig hantering, övervakning och säkerhet

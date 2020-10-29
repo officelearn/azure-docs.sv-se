@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/23/2020
+ms.date: 10/27/2020
 ms.custom: generated
-ms.openlocfilehash: ed5d7c3007cf8471da453db93be0ab716805908c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 60e9ec88fd07d8b04254c5d3917aab09d671f517
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742960"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900874"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda roller i Azure
 
@@ -2581,7 +2581,7 @@ Läs och Visa Azure Storage köer och köa meddelanden. Information om vilka åt
 }
 ```
 
-## <a name="web"></a>Webben
+## <a name="web"></a>Webb
 
 
 ### <a name="azure-maps-data-reader"></a>Azure Maps data läsare
@@ -4166,7 +4166,7 @@ Gör att du kan hantera SQL-servrar och databaser, men inte åtkomst till dem oc
 }
 ```
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analys
 
 
 ### <a name="azure-event-hubs-data-owner"></a>Azure Event Hubs data ägare
@@ -9225,12 +9225,12 @@ Fullständig åtkomst roll för digitala multidata-plan [Läs mer](../digital-tw
 > | **NotActions** |  |
 > | *inget* |  |
 > | **DataActions** |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/Relationships/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/Models/* |  |
-> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/Query/* |  |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* | Läsa, ta bort, skapa eller uppdatera eventuella händelse vägar |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* | Läsa, skapa, uppdatera eller ta bort digitala dubbla |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* | Anropa ett kommando på en digital, dubbel |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/Relationships/* | Läsa, skapa, uppdatera eller ta bort en digital, dubbel relation |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/Models/* | Läsa, skapa, uppdatera eller ta bort en modell |
+> | [Microsoft. DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/Query/* | Fråga efter ett digitalt flätat diagram |
 > | **NotDataActions** |  |
 > | *inget* |  |
 

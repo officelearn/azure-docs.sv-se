@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90993ea2ee66a23b5b629dfaf5bb34298ce15d9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93d90232fb530a6c14c40558fc6a9974a1da42de
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936290"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900919"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Kontrollera texten mot en anpassad termlista i C#
 
@@ -43,7 +43,7 @@ Innan du kan använda Content Moderator-tjänster via REST-API:n eller SDK:n beh
 
 1. Lägg till ett nytt projekt för en **konsolapp (.NET Framework)** i lösningen.
 
-1. Namnge projektet **TermLists**. Välj det här projektet som det enda startprojektet för lösningen.
+1. Namnge projektet **TermLists** . Välj det här projektet som det enda startprojektet för lösningen.
 
 ### <a name="install-required-packages"></a>Installera de paket som krävs
 
@@ -134,10 +134,10 @@ private const double latencyDelay = 0.5;
 
 ## <a name="create-a-term-list"></a>Skapa en termlista
 
-Du skapar en termlista med **ContentModeratorClient.ListManagementTermLists.Create**. Den första parametern för **Create** (Skapa) är en sträng som innehåller en MIME-typ som ska vara ”application/json”. Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). Den andra parametern är en **Body**-objekt som innehåller ett namn och beskrivning för den nya termlistan.
+Du skapar en termlista med **ContentModeratorClient.ListManagementTermLists.Create** . Den första parametern för **Create** (Skapa) är en sträng som innehåller en MIME-typ som ska vara ”application/json”. Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). Den andra parametern är en **Body** -objekt som innehåller ett namn och beskrivning för den nya termlistan.
 
 > [!NOTE]
-> Det finns en maxgräns på **5 termlistor** där varje lista kan innehålla **högst 10 000 termer**.
+> Det finns en maxgräns på **5 termlistor** där varje lista kan innehålla **högst 10 000 termer** .
 
 Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
@@ -172,7 +172,7 @@ static string CreateTermList (ContentModeratorClient client)
 
 ## <a name="update-term-list-name-and-description"></a>Uppdatera termlistans namn och beskrivning
 
-Du uppdaterar termlistans information med **ContentModeratorClient.ListManagementTermLists.Update**. Den första parametern för **Update** (Uppdatera) är termlist-ID. Den andra parametern är en MIME-typ som ska vara ”application/json”. Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). Den tredje parametern är ett **Body**-objekt som innehåller det nya namnet och en beskrivning.
+Du uppdaterar termlistans information med **ContentModeratorClient.ListManagementTermLists.Update** . Den första parametern för **Update** (Uppdatera) är termlist-ID. Den andra parametern är en MIME-typ som ska vara ”application/json”. Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). Den tredje parametern är ett **Body** -objekt som innehåller det nya namnet och en beskrivning.
 
 Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
@@ -239,7 +239,7 @@ static void GetAllTerms(ContentModeratorClient client, string list_id)
 
 När du gör ändringar i en termlista kan du uppdatera dess sökindex för att ändringarna ska tas med nästa gång du använder termlistan för att kontrollera text. Detta liknar det sätt som en sökmotor på skrivbordet (om det är aktiverat) eller en webbsökmotor kontinuerligt uppdaterar sitt index för att inkludera nya filer och sidor.
 
-Du uppdaterar sökindex för en termlista med **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod**.
+Du uppdaterar sökindex för en termlista med **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod** .
 
 Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
@@ -259,7 +259,7 @@ static void RefreshSearchIndex (ContentModeratorClient client, string list_id)
 
 ## <a name="screen-text-using-a-term-list"></a>Kontrollera text med hjälp av en termlista
 
-Du kontrollerar text med hjälp av en termlista med **ContentModeratorClient.TextModeration.ScreenText**, som använder följande parametrar.
+Du kontrollerar text med hjälp av en termlista med **ContentModeratorClient.TextModeration.ScreenText** , som använder följande parametrar.
 
 - Språket för termerna i termlistan.
 - En MIME-typ som kan vara ”text/html”, ”text/xml”, ”text/markdown” eller ”text/plain”.
@@ -270,7 +270,7 @@ Du kontrollerar text med hjälp av en termlista med **ContentModeratorClient.Tex
 
 Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
 
-**ScreenText** returnerar ett **Screen**-objekt som har en **Terms**-egenskap som visar en lista över alla termer som Content Moderator identifierade i kontrollen. Observera att om Content Moderator inte identifierade några termer under kontrollen har egenskapen **Terms** värdet **null**.
+**ScreenText** returnerar ett **Screen** -objekt som har en **Terms** -egenskap som visar en lista över alla termer som Content Moderator identifierade i kontrollen. Observera att om Content Moderator inte identifierade några termer under kontrollen har egenskapen **Terms** värdet **null** .
 
 Lägg till följande metoddefinition till namnrymden TermLists, klassen Program.
 
@@ -296,7 +296,7 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
             Console.WriteLine(String.Format("Found term: \"{0}\" from list ID {1} at index {2}.", term.Term, term.ListId, term.Index));
         }
     }
-    read.Sleep(throttleRate);
+    Thread.Sleep(throttleRate);
 }
 ```
 
@@ -304,9 +304,9 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
 
 Det är enkelt att ta bort en term eller en lista. Du använder SDK:n för att utföra följande uppgifter:
 
-- Ta bort en term. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
-- Ta bort alla termer i en lista utan att ta bort listan. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
-- Ta bort en lista och allt dess innehåll. (**ContentModeratorClient.ListManagementTermLists.Delete**)
+- Ta bort en term. ( **ContentModeratorClient.ListManagementTerm.DeleteTerm** )
+- Ta bort alla termer i en lista utan att ta bort listan. ( **ContentModeratorClient.ListManagementTerm.DeleteAllTerms** )
+- Ta bort en lista och allt dess innehåll. ( **ContentModeratorClient.ListManagementTermLists.Delete** )
 
 ### <a name="delete-a-term"></a>Ta bort en term
 
@@ -365,7 +365,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 
 ## <a name="compose-the-main-method"></a>Skapa main-metoden
 
-Lägg till **huvud** metods definitionen i namn området **TermLists**, klass **program**. Stäng slutligen **program** klassen och **TermLists** -namnområdet.
+Lägg till **huvud** metods definitionen i namn området **TermLists** , klass **program** . Stäng slutligen **program** klassen och **TermLists** -namnområdet.
 
 ```csharp
 static void Main(string[] args)

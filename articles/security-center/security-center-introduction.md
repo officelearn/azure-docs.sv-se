@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e72d1161f80ad92c1e4cfc7fd2c9fde0d46e77b9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 97853f0524b794169de3aaaec33cf1b30949d930
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332016"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901545"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -33,15 +33,15 @@ Azure Security Center kan hantera de tre mest brådskande säkerhetsriskerna:
 
 -   **Allt mer sofistikerade attacker** – Oavsett var du kör dina arbetsbelastningar blir attackerna ständigt alltmer avancerade. Du måste skydda dina arbetsbelastningar i det offentliga molnet. Det här är i praktiken arbetsbelastningar som är öppna mot internet och som kan gör dig ännu mer sårbar om du inte följer rekommenderade säkerhetsmetoder.
 
--   **Kompetens inom säkerhetsområdet är en bristvara**– Antalet säkerhetsaviseringar och aviseringssystem överträffar vida antalet administratörer med den nödvändiga bakgrund och erfarenhet som krävs för att se till att dina miljöer är skyddade. Att hålla sig informerad om de senaste attackerna är en konstant utmaning, och det är omöjligt att alltid vara på rätt plats eftersom kampen mot säkerhetshoten sker längs en ständigt föränderlig stridslinje.
+-   **Kompetens inom säkerhetsområdet är en bristvara** – Antalet säkerhetsaviseringar och aviseringssystem överträffar vida antalet administratörer med den nödvändiga bakgrund och erfarenhet som krävs för att se till att dina miljöer är skyddade. Att hålla sig informerad om de senaste attackerna är en konstant utmaning, och det är omöjligt att alltid vara på rätt plats eftersom kampen mot säkerhetshoten sker längs en ständigt föränderlig stridslinje.
 
 Security Center har verktyg som kan hjälpa dig med de här utmaningarna.
 
--   **Förstärk säkerhets position**: Security Center utvärderar din miljö och gör det möjligt att förstå statusen för dina resurser och om de är säkra.
+-   **Förstärk säkerhets position** : Security Center utvärderar din miljö och gör det möjligt att förstå statusen för dina resurser och om de är säkra.
 
--   **Skydda mot hot**: Security Center utvärderar dina arbets belastningar och aktiverar rekommendationer för skydd mot hot och säkerhets aviseringar.
+-   **Skydda mot hot** : Security Center utvärderar dina arbets belastningar och aktiverar rekommendationer för skydd mot hot och säkerhets aviseringar.
 
--   **Bli säker snabbare**: Allt sker med molnhastighet i Security Center. Eftersom Security Center är inbyggt sker distributionen snabbt och enkelt, och du får automatisk etablering och skydd för Azure-tjänster.
+-   **Bli säker snabbare** : Allt sker med molnhastighet i Security Center. Eftersom Security Center är inbyggt sker distributionen snabbt och enkelt, och du får automatisk etablering och skydd för Azure-tjänster.
 
 > [!NOTE]
 > Den här tjänsten har stöd för [Azure-Lighthouse](../lighthouse/overview.md), som låter tjänst leverantörer logga in på sin egen klient för att hantera prenumerationer och resurs grupper som kunder har delegerat. För Azure Security Center scenarier måste en prenumeration delegeras i stället för enskilda resurs grupper.
@@ -62,11 +62,11 @@ Med Azure Security Center kan du förbättra din säkerhet. Du får hjälp med a
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Hantera principer för organisationssäkerhet och efterlevnad
 
-Det tillhör grunderna i säkerhetsarbetet att känna till och skydda sina arbetsbelastningar, och utgångspunkten är att ha skräddarsydda säkerhetsprinciper på plats. Eftersom alla principer i Security Center bygger på Azure Policy kontroller får du full räckvidd och flexibilitet i en **princip lösning i världs klass**. Du kan konfigurera dina principer i Security Center så att de körs för hanteringsgrupper, för prenumerationer och även för en hel klientorganisation.
+Det tillhör grunderna i säkerhetsarbetet att känna till och skydda sina arbetsbelastningar, och utgångspunkten är att ha skräddarsydda säkerhetsprinciper på plats. Eftersom alla principer i Security Center bygger på Azure Policy kontroller får du full räckvidd och flexibilitet i en **princip lösning i världs klass** . Du kan konfigurera dina principer i Security Center så att de körs för hanteringsgrupper, för prenumerationer och även för en hel klientorganisation.
 
 :::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Sidan princip hantering":::
 
-Security Center hjälper dig att **identifiera SKUGG IT-prenumerationer**. Genom att titta på prenumerationer märkta **omfattas inte** på instrumentpanelen kan du se direkt när det har skapats nya prenumerationer och se till att de omfattas av dina principer och skyddas av Azure Security Center.
+Security Center hjälper dig att **identifiera SKUGG IT-prenumerationer** . Genom att titta på prenumerationer märkta **omfattas inte** på instrumentpanelen kan du se direkt när det har skapats nya prenumerationer och se till att de omfattas av dina principer och skyddas av Azure Security Center.
 
 :::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Sidan princip hantering":::
 
@@ -74,13 +74,13 @@ Security Center hjälper dig att **identifiera SKUGG IT-prenumerationer**. Genom
 
 Security Center identifierar nya resurser som distribueras till dina arbetsbelastningar och utvärderar om de har konfigurerats enligt rekommenderade säkerhetsmetoder. Om så inte är fallet flaggas de och du får en prioriterad lista med rekommendationer om vad du måste åtgärda för att skydda dina datorer.
 
-För att hjälpa dig att förstå hur viktiga varje rekommendation är för din övergripande säkerhets position, kan Security Center gruppera rekommendationerna i säkerhets kontroller och lägga till ett **säkert Poäng** värde för varje kontroll. Detta är viktigt för att du ska kunna **prioritera ditt säkerhets arbete**.
+För att hjälpa dig att förstå hur viktiga varje rekommendation är för din övergripande säkerhets position, kan Security Center gruppera rekommendationerna i säkerhets kontroller och lägga till ett **säkert Poäng** värde för varje kontroll. Detta är viktigt för att du ska kunna **prioritera ditt säkerhets arbete** .
 
 :::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Sidan princip hantering":::
 
 ### <a name="network-map"></a>Nätverks karta
 
-Ett av de mest kraftfulla verktygen Security Center ger en kontinuerlig övervakning av nätverkets säkerhets status som **nätverks kartan**. Med hjälp av kartan kan du se dina arbetsbelastningars topologi, och därmed även se om varje enskild nod har konfigurerats korrekt. Du kan se hur dina noder är anslutna, vilket hjälper dig att blockera oönskade anslutningar som potentiellt kan göra det enklare för en angripare att ta sig in i ditt nätverk.
+Ett av de mest kraftfulla verktygen Security Center ger en kontinuerlig övervakning av nätverkets säkerhets status som **nätverks kartan** . Med hjälp av kartan kan du se dina arbetsbelastningars topologi, och därmed även se om varje enskild nod har konfigurerats korrekt. Du kan se hur dina noder är anslutna, vilket hjälper dig att blockera oönskade anslutningar som potentiellt kan göra det enklare för en angripare att ta sig in i ditt nätverk.
 
 :::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Sidan princip hantering":::
 
@@ -103,9 +103,9 @@ Security Centers hotskydd innehåller fusionsattackkedjeanalys, som automatiskt 
 
 :::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Sidan princip hantering":::
 
-### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integrering med Microsoft Defender Avancerat skydd
+### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integrering med Microsoft Defender för slut punkt
 
-Security Center inkluderar automatisk, inbyggd integrering med Microsoft Defender Avancerat skydd. Det innebär att Windows-och Linux-datorerna är helt integrerade med Security Center rekommendationer och utvärderingar utan någon konfiguration.
+Security Center innehåller automatisk, inbyggd integrering med Microsoft Defender för slut punkt. Det innebär att Windows-och Linux-datorerna är helt integrerade med Security Center rekommendationer och utvärderingar utan någon konfiguration.
 
 I kan Security Center du dessutom automatisera programkontrollsprinciper för servermiljöer. De anpassningsbara program kontrollerna i Security Center aktivera program godkännande från slut punkt till slut punkt på dina Windows-servrar. Du behöver varken skapa reglerna eller kontrollera överträdelser. Allt görs automatiskt.
 
@@ -123,7 +123,7 @@ Security Center innehåller funktioner som hjälper dig att utföra automatisk k
 
 ## <a name="get-secure-faster"></a>Bli skyddad snabbare
 
-Intern Azure-integration (inklusive Azure Policy och Azure Monitor loggar) kombinerat med sömlös integrering med andra Microsoft-säkerhetslösningar, till exempel Microsoft Cloud App Security och Windows Defender Avancerat skydd se till att din säkerhetslösning är omfattande och enkelt att publicera och distribuera.
+Intern Azure-integration (inklusive Azure Policy och Azure Monitor loggar) kombinerat med sömlös integrering med andra Microsoft-säkerhetslösningar, till exempel Microsoft Cloud App Security och Microsoft Defender för slut punkts hjälp se till att din säkerhetslösning är omfattande och enkel att publicera och distribuera.
 
 Dessutom kan du utöka den fullständiga lösningen utöver Azure till arbetsbelastningar som körs i andra moln och i lokala datacentra.
 

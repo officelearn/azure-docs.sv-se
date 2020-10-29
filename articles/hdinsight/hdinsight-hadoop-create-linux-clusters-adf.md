@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: dede52b751b25a1990cf110fea083f9aebc4ddbb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ea4f8c33a906bff96ea93f9a7aea3e6f625556cb
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542071"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900897"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudie: skapa Apache Hadoop kluster på begäran i HDInsight med Azure Data Factory
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-I den här självstudien får du lära dig hur du skapar ett [Apache Hadoop](./hadoop/apache-hadoop-introduction.md) -kluster på begäran i Azure HDInsight med Azure Data Factory. Du använder sedan datapipelines i Azure Data Factory för att köra Hive-jobb och ta bort klustret. I slutet av den här självstudien får du lära dig hur du `operationalize` kör ett stort data jobb där kluster skapande, jobb körning och kluster borttagning görs enligt ett schema.
+I den här självstudien får du lära dig hur du skapar ett [Apache Hadoop](../hdinsight/hdinsight-overview.md#cluster-types-in-hdinsight) -kluster på begäran i Azure HDInsight med Azure Data Factory. Du använder sedan datapipelines i Azure Data Factory för att köra Hive-jobb och ta bort klustret. I slutet av den här självstudien får du lära dig hur du `operationalize` kör ett stort data jobb där kluster skapande, jobb körning och kluster borttagning görs enligt ett schema.
 
 Den här självstudien omfattar följande uppgifter:
 

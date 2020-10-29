@@ -4,18 +4,18 @@ description: Lär dig mer om de grundläggande kluster-och arbets belastnings ko
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17203123ceb0c196bd8f9011e2962f5022e54698
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86251866"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901303"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes Core-koncept för Azure Kubernetes service (AKS)
 
 När program utvecklingen flyttas till en container-baserad metod är behovet av att dirigera och hantera resurser viktigt. Kubernetes är den ledande plattformen som ger möjlighet att tillhandahålla tillförlitlig schemaläggning av feltoleranta program arbets belastningar. Azure Kubernetes service (AKS) är ett hanterat Kubernetes-erbjudande som ytterligare fören klar distribution och hantering av container-baserade program.
 
-Den här artikeln beskriver kärn Kubernetes infrastruktur komponenter som *kontroll plan*, *noder*och *nodkonfigurationer*. Arbets belastnings resurser som *poddar*, *distributioner*och *uppsättningar* introduceras också, tillsammans med hur du grupperar resurser till *namn områden*.
+Den här artikeln beskriver kärn Kubernetes infrastruktur komponenter som *kontroll plan* , *noder* och *nodkonfigurationer* . Arbets belastnings resurser som *poddar* , *distributioner* och *uppsättningar* introduceras också, tillsammans med hur du grupperar resurser till *namn områden* .
 
 ## <a name="what-is-kubernetes"></a>Vad är Kubernetes?
 
@@ -57,7 +57,7 @@ För associerade metod tips, se [metod tips för kluster säkerhet och uppgrader
 
 ## <a name="nodes-and-node-pools"></a>Noder och Node-pooler
 
-Om du vill köra program och stöd tjänster behöver du en Kubernetes- *nod*. Ett AKS-kluster har en eller flera noder, som är en virtuell Azure-dator (VM) som kör Kubernetes-nodens komponenter och behållar körningen:
+Om du vill köra program och stöd tjänster behöver du en Kubernetes- *nod* . Ett AKS-kluster har en eller flera noder, som är en virtuell Azure-dator (VM) som kör Kubernetes-nodens komponenter och behållar körningen:
 
 - `kubelet`Är Kubernetes-agenten som bearbetar Orchestration-begärandena från kontroll planet och schemaläggning av att köra de begärda behållarna.
 - Virtuella nätverk hanteras av *Kube-proxy* på varje nod. Proxyservern dirigerar nätverks trafik och hanterar IP-adresser för tjänster och poddar.
@@ -94,7 +94,7 @@ För att upprätthålla prestanda och funktioner för noden reserveras resurser 
 
 - **Minnes** minne som används av AKS inkluderar summan av två värden.
 
-1. Daemon för kubelet har installerats på alla Kubernetes-agent-noder för att hantera skapande och avslutning av behållare. Som standard har daemonen följande borttagnings regel i AKS: *minne. available<750Mi*, vilket innebär att en nod alltid måste ha minst 750 mi allocatable.  När en värd unders tiger den tröskeln för tillgängligt minne, kommer kubelet att avsluta en av de poddar som körs för att frigöra minne på värddatorn och skydda den. Den här åtgärden utlöses när det tillgängliga minnet minskar efter 750Mi tröskel.
+1. Daemon för kubelet har installerats på alla Kubernetes-agent-noder för att hantera skapande och avslutning av behållare. Som standard har daemonen följande borttagnings regel i AKS: *minne. available<750Mi* , vilket innebär att en nod alltid måste ha minst 750 mi allocatable.  När en värd unders tiger den tröskeln för tillgängligt minne, kommer kubelet att avsluta en av de poddar som körs för att frigöra minne på värddatorn och skydda den. Den här åtgärden utlöses när det tillgängliga minnet minskar efter 750Mi tröskel.
 
 2. Det andra värdet är en autoregressiva hastighet för de minnes reservationer som kubelet-daemonen ska fungera korrekt (Kube-reserverad).
     - 25% av de första 4 GB minne
@@ -115,7 +115,7 @@ För associerade metod tips, se [metod tips för grundläggande funktioner i Sch
 
 ### <a name="node-pools"></a>Nodpooler
 
-Noder i samma konfiguration grupperas tillsammans i *noder i pooler*. Ett Kubernetes-kluster innehåller en eller flera Node-pooler. Det ursprungliga antalet noder och storlek definieras när du skapar ett AKS-kluster, vilket skapar en *standardnod*. Denna standardnod i AKS innehåller de underliggande virtuella datorerna som kör dina agent-noder.
+Noder i samma konfiguration grupperas tillsammans i *noder i pooler* . Ett Kubernetes-kluster innehåller en eller flera Node-pooler. Det ursprungliga antalet noder och storlek definieras när du skapar ett AKS-kluster, vilket skapar en *standardnod* . Denna standardnod i AKS innehåller de underliggande virtuella datorerna som kör dina agent-noder.
 
 > [!NOTE]
 > För att säkerställa att klustret fungerar på ett tillförlitligt sätt bör du köra minst två (två) noder i standardnodens adresspool.
@@ -128,7 +128,7 @@ Mer information om hur du använder flera Node-pooler i AKS finns i [skapa och h
 
 I ett AKS-kluster som innehåller flera resurspooler kan du behöva meddela Kubernetes Scheduler vilken Node-pool som ska användas för en specifik resurs. Till exempel ska ingångs styrenheter inte köras på Windows Server-noder. Med Node-väljare kan du definiera olika parametrar, till exempel nodens operativ system, för att styra var Pod ska schemaläggas.
 
-Följande grundläggande exempel schemalägger en NGINX-instans på en Linux-nod med hjälp av Node-väljaren *"beta.Kubernetes.io/OS": Linux*:
+Följande grundläggande exempel schemalägger en NGINX-instans på en Linux-nod med hjälp av Node-väljaren *"beta.Kubernetes.io/OS": Linux* :
 
 ```yaml
 kind: Pod
@@ -138,7 +138,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx:1.15.12
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
     "beta.kubernetes.io/os": linux
 ```
@@ -153,7 +153,7 @@ När du skapar en POD kan du definiera *resurs begär Anden* för att begära en
 
 Mer information finns i [Kubernetes poddar][kubernetes-pods] och [Kubernetes Pod Lifecycle][kubernetes-pod-lifecycle].
 
-En pod är en logisk resurs, men behållarna är där program arbets belastningarna körs. Poddar är vanligt vis tillfälliga, disponibla resurser och individuellt schemalagda poddar saknar några av funktionerna för hög tillgänglighet och redundans Kubernetes ger. I stället distribueras och hanteras poddar av Kubernetes- *kontrollanter*, till exempel distributions styrenheten.
+En pod är en logisk resurs, men behållarna är där program arbets belastningarna körs. Poddar är vanligt vis tillfälliga, disponibla resurser och individuellt schemalagda poddar saknar några av funktionerna för hög tillgänglighet och redundans Kubernetes ger. I stället distribueras och hanteras poddar av Kubernetes- *kontrollanter* , till exempel distributions styrenheten.
 
 ## <a name="deployments-and-yaml-manifests"></a>Distributioner och YAML-manifest
 
@@ -184,7 +184,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.15.2
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.2-alpine
         ports:
         - containerPort: 80
         resources:
@@ -240,7 +240,7 @@ Mer information finns i [Kubernetes DaemonSets][kubernetes-daemonset].
 
 ## <a name="namespaces"></a>Namnrymder
 
-Kubernetes-resurser, till exempel poddar och distributioner, grupperas logiskt i ett *namn område*. Dessa grupperingar ger ett sätt att logiskt dela upp ett AKS-kluster och begränsa åtkomsten till att skapa, Visa eller hantera resurser. Du kan till exempel skapa namn områden för att separera affärs grupper. Användare kan bara interagera med resurser inom de tilldelade namn områdena.
+Kubernetes-resurser, till exempel poddar och distributioner, grupperas logiskt i ett *namn område* . Dessa grupperingar ger ett sätt att logiskt dela upp ett AKS-kluster och begränsa åtkomsten till att skapa, Visa eller hantera resurser. Du kan till exempel skapa namn områden för att separera affärs grupper. Användare kan bara interagera med resurser inom de tilldelade namn områdena.
 
 ![Kubernetes namn områden som logiskt delar resurser och program](media/concepts-clusters-workloads/namespaces.png)
 

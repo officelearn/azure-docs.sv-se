@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aaafd3833c63458f8403dfeb3620d76f631315b5
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781489"
+ms.locfileid: "92899194"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
 
@@ -142,10 +142,7 @@ SCIM RFC definierar en kärn användare och ett grupp schema, samtidigt som till
    4. Välj **Redigera attributlistan för APPNAME** .
    5. Längst ned i listan attribut anger du information om det anpassade attributet i de angivna fälten. Välj sedan **Lägg till attribut** .
 
-För SCIM-program måste attributnamnet följa mönstret som visas i exemplet nedan. Du kan anpassa "CustomExtensionName" och "CustomAttribute" enligt programmets krav, till exempel:  
- * urn: IETF: params: scim: schemas: tillägg: CustomExtensionName: 2.0: användare: CustomAttribute 
- * urn: IETF: params: scim: schemas: tillägg: 2.0: CustomExtensionName: CustomAttribute  
- * urn: IETF: params: scim: schemas: tillägg: CustomExtensionName: 2.0: användare: CustomAttributeName: värde
+För SCIM-program måste attributnamnet följa mönstret som visas i exemplet nedan. Du kan anpassa "CustomExtensionName" och "CustomAttribute" enligt programmets krav, till exempel: urn: IETF: params: scim: schemas: tillägg: CustomExtensionName: 2.0: användare: CustomAttribute 
 
 Dessa anvisningar gäller endast för SCIM-aktiverade program. Program som ServiceNow och Salesforce är inte integrerade med Azure AD med hjälp av SCIM, och därför behövs inte det här särskilda namn området när du lägger till ett anpassat attribut.
 

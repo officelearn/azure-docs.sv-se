@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: dd4a7537e01c9e97997be64bb478e86a64f4325b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792267"
+ms.locfileid: "92900395"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Ytterligare hot skydd i Azure Security Center
 I och med de inbyggda [Azure Defender-skydden](azure-defender.md)erbjuder Azure Security Center även följande hot skydds funktioner.
@@ -32,7 +32,6 @@ Security Center Network Layer Analytics baseras på [IPFIX data](https://en.wiki
 Vissa nätverkskonfigurationer kan begränsa Security Center från att generera aviseringar om misstänkt nätverks aktivitet. För att Security Center generera nätverks aviseringar, se till att:
 - Den virtuella datorn har en offentlig IP-adress (eller finns på en belastningsutjämnare med en offentlig IP-adress).
 - Den virtuella datorns utgående trafik blockeras inte av en extern ID-lösning.
-- Den virtuella datorn har tilldelats samma IP-adress för hela timmen då den misstänkta kommunikationen uppstod. Detta gäller även för virtuella datorer som skapats som en del av en hanterad tjänst (till exempel AKS, Databricks).
 
 En lista över aviseringar för Azure nätverks lager finns i [referens tabellen för aviseringar](alerts-reference.md#alerts-azurenetlayer).
 

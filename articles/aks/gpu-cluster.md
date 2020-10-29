@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 4dfaa329dd0472b52de2d3306e6a3b61f660e666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52fd4867532832e0304a27317b21950bf131de79
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89443066"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900784"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Använd GPU: er för beräknings intensiva arbets belastningar i Azure Kubernetes service (AKS)
 
-Grafiska bearbetnings enheter (GPU: er) används ofta för beräknings intensiva arbets belastningar som grafik och visualiserings arbets belastningar. AKS stöder skapande av GPU-aktiverade nodkonfigurationer för att köra dessa beräknings intensiva arbets belastningar i Kubernetes. Mer information om tillgängliga GPU-aktiverade virtuella datorer finns i [GPU-optimerade VM-storlekar i Azure][gpu-skus]. För AKS-noder rekommenderar vi en minimal storlek på *Standard_NC6*.
+Grafiska bearbetnings enheter (GPU: er) används ofta för beräknings intensiva arbets belastningar som grafik och visualiserings arbets belastningar. AKS stöder skapande av GPU-aktiverade nodkonfigurationer för att köra dessa beräknings intensiva arbets belastningar i Kubernetes. Mer information om tillgängliga GPU-aktiverade virtuella datorer finns i [GPU-optimerade VM-storlekar i Azure][gpu-skus]. För AKS-noder rekommenderar vi en minimal storlek på *Standard_NC6* .
 
 > [!NOTE]
 > GPU-aktiverade virtuella datorer innehåller specialiserad maskin vara som omfattas av högre priser och region tillgänglighet. Mer information finns i [pris][azure-pricing] verktyget och [regions tillgänglighet][azure-availability].
@@ -26,7 +26,7 @@ För närvarande är användningen av GPU-aktiverade noder bara tillgänglig fö
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster med noder som stöder GPU: er. Ditt AKS-kluster måste köra Kubernetes 1,10 eller senare. Om du behöver ett AKS-kluster som uppfyller dessa krav kan du läsa det första avsnittet i den här artikeln för att [skapa ett AKS-kluster](#create-an-aks-cluster).
 
-Du måste också ha Azure CLI-versionen 2.0.64 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du måste också ha Azure CLI-versionen 2.0.64 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
@@ -58,7 +58,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Innan du kan använda GPU: er i noderna måste du distribuera en DaemonSet för NVIDIA-enhetens plugin-program. Den här DaemonSet kör en POD på varje nod för att tillhandahålla nödvändiga driv rutiner för GPU: er.
 
-Börja med att skapa ett namn område med hjälp av kommandot [kubectl Create namespace][kubectl-create] , till exempel *GPU-resurser*:
+Börja med att skapa ett namn område med hjälp av kommandot [kubectl Create namespace][kubectl-create] , till exempel *GPU-resurser* :
 
 ```console
 kubectl create namespace gpu-resources
@@ -97,7 +97,7 @@ spec:
         operator: Exists
         effect: NoSchedule
       containers:
-      - image: nvidia/k8s-device-plugin:1.11
+      - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:1.11
         name: nvidia-device-plugin-ctr
         securityContext:
           allowPrivilegeEscalation: false
@@ -134,7 +134,7 @@ Registrera `GPUDedicatedVHDPreview` funktionen:
 az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
 ```
 
-Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+Det kan ta flera minuter innan statusen visas som **registrerad** . Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
@@ -198,7 +198,7 @@ aks-nodepool1-28993262-0   Ready    agent   13m   v1.12.7
 
 Använd nu kommandot [kubectl beskriver Node][kubectl-describe] för att bekräfta att GPU: erna är schedulable. I avsnittet *kapacitet* ska GPU: en lista som `nvidia.com/gpu:  1` .
 
-Följande komprimerade exempel visar att en GPU är tillgänglig på noden med namnet *AKS-nodepool1-18821093-0*:
+Följande komprimerade exempel visar att en GPU är tillgänglig på noden med namnet *AKS-nodepool1-18821093-0* :
 
 ```console
 $ kubectl describe node aks-nodepool1-28993262-0
@@ -289,7 +289,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>Visa status och utdata för GPU-aktiverade arbets belastningar
 
-Övervaka förloppet för jobbet med kommandot [kubectl get Jobs][kubectl-get] med `--watch` argumentet. Det kan ta några minuter att först hämta avbildningen och bearbeta data uppsättningen. När kolumnen *slut för ande* visar *1/1*har jobbet slutförts. Avsluta `kubetctl --watch` kommandot med *CTRL-C*:
+Övervaka förloppet för jobbet med kommandot [kubectl get Jobs][kubectl-get] med `--watch` argumentet. Det kan ta några minuter att först hämta avbildningen och bearbeta data uppsättningen. När kolumnen *slut för ande* visar *1/1* har jobbet slutförts. Avsluta `kubetctl --watch` kommandot med *CTRL-C* :
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch

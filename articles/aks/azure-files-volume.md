@@ -5,12 +5,12 @@ description: Lär dig hur du manuellt skapar en volym med Azure Files för anvä
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: e7f013d16b899418a5262f23dfcc595a1e270616
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 227b592a2384d82fde78258a97ede9d318aaaf40
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281216"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900429"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Skapa och använda en volym med Azure Files resurs i Azure Kubernetes service (AKS) manuellt
 
@@ -22,11 +22,11 @@ Mer information om Kubernetes-volymer finns i [lagrings alternativ för program 
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
-Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 
-Innan du kan använda Azure Files som Kubernetes-volym måste du skapa ett Azure Storage-konto och fil resursen. Följande kommandon skapar en resurs grupp med namnet *myAKSShare*, ett lagrings konto och en fil resurs med namnet *aksshare*:
+Innan du kan använda Azure Files som Kubernetes-volym måste du skapa ett Azure Storage-konto och fil resursen. Följande kommandon skapar en resurs grupp med namnet *myAKSShare* , ett lagrings konto och en fil resurs med namnet *aksshare* :
 
 ```azurecli-interactive
 # Change these four parameters as needed for your own environment
@@ -69,7 +69,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Montera fil resursen som en volym
 
-Om du vill montera Azure Files resursen i din POD konfigurerar du volymen i behållar specifikationen. Skapa en ny fil `azure-files-pod.yaml` med namnet med följande innehåll. Om du har ändrat namnet på fil resursen eller det hemliga namnet uppdaterar du *resurs* namn och *secretName*. Om du vill kan du uppdatera `mountPath` , vilket är sökvägen till fil resursen som är monterad i pod. För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"*.
+Om du vill montera Azure Files resursen i din POD konfigurerar du volymen i behållar specifikationen. Skapa en ny fil `azure-files-pod.yaml` med namnet med följande innehåll. Om du har ändrat namnet på fil resursen eller det hemliga namnet uppdaterar du *resurs* namn och *secretName* . Om du vill kan du uppdatera `mountPath` , vilket är sökvägen till fil resursen som är monterad i pod. För Windows Server-behållare anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"* .
 
 ```yaml
 apiVersion: v1
@@ -78,7 +78,7 @@ metadata:
   name: mypod
 spec:
   containers:
-  - image: nginx:1.15.5
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: mypod
     resources:
       requests:
@@ -104,7 +104,7 @@ Använd `kubectl` kommandot för att skapa pod.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-Nu har du en aktiv Pod med en Azure Files resurs som är monterad på */mnt/Azure*. Du kan använda `kubectl describe pod mypod` för att kontrol lera att resursen har monterats. I följande komprimerade exempel utdata visas den volym som är monterad i behållaren:
+Nu har du en aktiv Pod med en Azure Files resurs som är monterad på */mnt/Azure* . Du kan använda `kubectl describe pod mypod` för att kontrol lera att resursen har monterats. I följande komprimerade exempel utdata visas den volym som är monterad i behållaren:
 
 ```
 Containers:
@@ -133,7 +133,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Monteringsalternativ
 
-Standardvärdet för *fileMode* och *dirMode* är *0755* för Kubernetes version 1.9.1 och senare. Om du använder ett kluster med Kubernetes version 1.8.5 eller större och statiskt skapar permanent volym objekt måste monterings alternativ anges i *PersistentVolume* -objektet. I följande exempel anges *0777*:
+Standardvärdet för *fileMode* och *dirMode* är *0755* för Kubernetes version 1.9.1 och senare. Om du använder ett kluster med Kubernetes version 1.8.5 eller större och statiskt skapar permanent volym objekt måste monterings alternativ anges i *PersistentVolume* -objektet. I följande exempel anges *0777* :
 
 ```yaml
 apiVersion: v1
@@ -159,9 +159,9 @@ spec:
   - nobrl
 ```
 
-Om du använder ett kluster av version 1.8.0-1.8.4 kan du ange en säkerhets kontext med värdet för *runAsUser* inställt på *0*. Mer information om säkerhets kontexten för Pod finns i [Konfigurera en säkerhets kontext][kubernetes-security-context].
+Om du använder ett kluster av version 1.8.0-1.8.4 kan du ange en säkerhets kontext med värdet för *runAsUser* inställt på *0* . Mer information om säkerhets kontexten för Pod finns i [Konfigurera en säkerhets kontext][kubernetes-security-context].
 
-Om du vill uppdatera monterings alternativen skapar du en *azurefile-Mount-Options-PV. yaml-* fil med en *PersistentVolume*. Exempel:
+Om du vill uppdatera monterings alternativen skapar du en *azurefile-Mount-Options-PV. yaml-* fil med en *PersistentVolume* . Till exempel:
 
 ```yaml
 apiVersion: v1
@@ -187,7 +187,7 @@ spec:
   - nobrl
 ```
 
-Skapa en *azurefile-Mount-Options-PVC. yaml-* fil med en *PersistentVolumeClaim* som använder *PersistentVolume*. Exempel:
+Skapa en *azurefile-Mount-Options-PVC. yaml-* fil med en *PersistentVolumeClaim* som använder *PersistentVolume* . Till exempel:
 
 ```yaml
 apiVersion: v1
@@ -203,14 +203,14 @@ spec:
       storage: 5Gi
 ```
 
-Använd `kubectl` kommandona för att skapa *PersistentVolume* och *PersistentVolumeClaim*.
+Använd `kubectl` kommandona för att skapa *PersistentVolume* och *PersistentVolumeClaim* .
 
 ```console
 kubectl apply -f azurefile-mount-options-pv.yaml
 kubectl apply -f azurefile-mount-options-pvc.yaml
 ```
 
-Verifiera att din *PersistentVolumeClaim* har skapats och bundits till *PersistentVolume*.
+Verifiera att din *PersistentVolumeClaim* har skapats och bundits till *PersistentVolume* .
 
 ```console
 $ kubectl get pvc azurefile
@@ -219,7 +219,7 @@ NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 ```
 
-Uppdatera din container specifikation för att referera till din *PersistentVolumeClaim* och uppdatera din POD. Exempel:
+Uppdatera din container specifikation för att referera till din *PersistentVolumeClaim* och uppdatera din POD. Till exempel:
 
 ```yaml
 ...

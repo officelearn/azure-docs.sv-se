@@ -4,12 +4,12 @@ description: Lär dig hur du aktiverar och konfigurerar Ultra disks i ett Azure 
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 049c2682a8f61bb658083b0418a4fcf99dc477a5
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420871"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900040"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Använd Azure Ultra disks på Azure Kubernetes service (för hands version)
 
@@ -32,7 +32,7 @@ Registrera `EnableUltraSSD` funktions flaggan med hjälp av kommandot [AZ Featur
 az feature register --namespace "Microsoft.ContainerService" --name "EnableUltraSSD"
 ```
 
-Det tar några minuter för statusen att visa *registrerad*. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
+Det tar några minuter för statusen att visa *registrerad* . Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableUltraSSD')].{Name:name,State:properties.state}"
@@ -168,7 +168,7 @@ metadata:
 spec:
   containers:
   - name: nginx-ultra
-    image: nginx
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m

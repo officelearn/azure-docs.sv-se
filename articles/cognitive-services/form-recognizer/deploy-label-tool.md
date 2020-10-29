@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717905"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913117"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuera exempeletikettverktyget
 
@@ -37,13 +37,13 @@ Innan vi börjar är det viktigt att Observera att det finns två sätt att dist
 * [Använda Azure Portal](#azure-portal)
 * [Använda Azure CLI](#azure-cli)
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Följ de här stegen för att skapa en ny resurs med hjälp av Azure Portal: 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/signin/index/).
-2. Välj **Skapa en resurs**. 
-3. Välj sedan **webbapp**. 
+2. Välj **Skapa en resurs** . 
+3. Välj sedan **webbapp** . 
 
    > [!div class="mx-imgBorder"]
    > ![Välja webbapp](./media/quickstarts/formre-create-web-app.png)
@@ -95,14 +95,14 @@ Följ de här stegen för att skapa en ny resurs med hjälp av Azure Portal:
    > [!div class="mx-imgBorder"]
    > ![Konfigurera Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. Och sedan är du klar. Välj sedan **Granska + skapa**och sedan **skapa** för att distribuera din webbapp. När du är klar kan du komma åt din webbapp på den URL som anges i **översikten** för din resurs.
+7. Klart! Välj sedan **Granska + skapa** och sedan **skapa** för att distribuera din webbapp. När du är klar kan du komma åt din webbapp på den URL som anges i **översikten** för din resurs.
 
 > [!NOTE]
 > När du skapar din webbapp kan du också konfigurera auktorisering/autentisering. Detta är inte nödvändigt för att komma igång. 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Som ett alternativ till att använda Azure Portal kan du skapa en resurs med hjälp av Azure CLI. Innan du fortsätter måste du installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Du kan hoppa över det här steget om du redan arbetar med Azure CLI. 
+Som ett alternativ till att använda Azure Portal kan du skapa en resurs med hjälp av Azure CLI. Innan du fortsätter måste du installera [Azure CLI](/cli/azure/install-azure-cli). Du kan hoppa över det här steget om du redan arbetar med Azure CLI. 
 
 Det finns några saker du behöver veta om det här kommandot:
 
@@ -149,7 +149,7 @@ az container create \
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Ansluta till Azure AD för auktorisering
 
-Vi rekommenderar att du ansluter din webbapp till Azure Active Directory. Detta säkerställer att endast användare med giltiga autentiseringsuppgifter kan logga in och använda din webbapp. Följ anvisningarna i [Konfigurera din app service-app](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) för att ansluta till Azure Active Directory.
+Vi rekommenderar att du ansluter din webbapp till Azure Active Directory. Detta säkerställer att endast användare med giltiga autentiseringsuppgifter kan logga in och använda din webbapp. Följ anvisningarna i [Konfigurera din app service-app](../../app-service/configure-authentication-provider-aad.md) för att ansluta till Azure Active Directory.
 
 ## <a name="open-source-on-github"></a>Öppen källkod på GitHub
 

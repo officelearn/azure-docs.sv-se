@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172841"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925585"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -76,6 +76,10 @@ Ja. Du kan avbryta säkerhets kopierings jobbet med status för **ögonblicks bi
 Om du låser resurs gruppen som skapats av tjänsten Azure Backup, kommer säkerhets kopieringarna att Miss lyckas eftersom det finns en övre gräns på 18 återställnings punkter.
 
 Ta bort låset och rensa återställnings punkt samlingen från resurs gruppen för att göra framtida säkerhets kopieringar genomförda. [Följ de här stegen](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) för att ta bort återställnings punkts samlingen.
+
+### <a name="i-have-a-lock-at-the-resource-group-level-that-contains-all-the-resources-related-to-my-virtual-machine-will-my-backup-work"></a>Jag har ett lås på resurs grupps nivån som innehåller alla resurser som är relaterade till min virtuella dator. Fungerar min säkerhets kopiering?
+
+Azure Backup skapar en separat resurs grupp i formatet `AzureBackupRG_<geo>_<number>` för att lagra ResourcePointCollections-objekt. Eftersom den här resurs gruppen är en tjänst som ägs leder det till att säkerhets kopieringen Miss lyckas. Lås kan endast tillämpas på resurs grupper som skapats av kunder.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Stöder Azure Backup Standard SSD-hanterade diskar?
 
@@ -145,7 +149,7 @@ Ja. Även om du tar bort den virtuella datorn kan du gå till motsvarande säker
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Hur gör jag för att återställa en virtuell dator till samma tillgänglighets uppsättningar?
 
-För hanterade virtuella Azure-datorer aktive ras återställning till tillgänglighets uppsättningarna genom att tillhandahålla ett alternativ i mallen när de återställs som hanterade diskar. Den här mallen har Indataparametern inheter **tillgänglighets uppsättningar**.
+För hanterade virtuella Azure-datorer aktive ras återställning till tillgänglighets uppsättningarna genom att tillhandahålla ett alternativ i mallen när de återställs som hanterade diskar. Den här mallen har Indataparametern inheter **tillgänglighets uppsättningar** .
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Hur får vi snabbare återställning av prestanda?
 
@@ -181,7 +185,7 @@ Den virtuella datorn säkerhets kopie ras med inställningarna för schemaläggn
 
    1. Hitta platsen för den virtuella datorn.
    2. Hitta en resurs grupp med följande namn mönster: `AzureBackupRG_<location of your VM>_1` . Till exempel *AzureBackupRG_westus2_1*
-   3. I Azure Portal markerar du **Visa dolda typer**.
+   3. I Azure Portal markerar du **Visa dolda typer** .
    4. Hitta resursen med typen **Microsoft. Compute/restorePointCollections** som har namngivnings mönstret `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Ta bort den här resursen. Den här åtgärden tar bara bort direkta återställnings punkter, inte säkerhetskopierade data i valvet.
    6. När borttagnings åtgärden har slutförts kan du flytta den virtuella datorn.
@@ -199,7 +203,7 @@ När du flyttar den virtuella datorn till en ny resurs grupp kan du skydda den v
 
 Den gamla återställnings punkten för den gamla datorn kommer att vara tillgänglig för återställning om det behövs. Om du inte behöver dessa säkerhetskopierade data kan du sluta skydda din gamla virtuella dator med ta bort data.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Finns det en gräns för antalet virtuella datorer som kan associeras med samma säkerhets kopierings princip?
+### <a name="is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy"></a>Finns det en gräns för antalet virtuella datorer som kan associeras med samma säkerhets kopierings princip?
 
 Ja, det finns en gräns på 100 virtuella datorer som kan kopplas till samma säkerhets kopierings princip från portalen. Vi rekommenderar att du skapar flera säkerhets kopierings principer med samma schema eller ett annat schema för fler än 100 virtuella datorer.
 

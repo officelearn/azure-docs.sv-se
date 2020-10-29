@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f4e429d9c5eeee382d59a294a11204f674b1f546
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 2d5a6949c5dbe1e4c3c668dcb9eae6e51e5806f7
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911519"
+ms.locfileid: "92926044"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault tillägg för virtuell dator för Linux
 
@@ -85,7 +85,7 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värde/exempel | Datatyp |
+| Name | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | utgivare | Microsoft.Azure.KeyVault | sträng |
@@ -216,14 +216,13 @@ Observera följande begränsningar/krav:
   - Det måste finnas vid tidpunkten för distributionen 
   - Key Vault åtkomst princip måste anges för VM/VMSS-identitet med hjälp av en hanterad identitet. Se [hur du autentiserar till Key Vault](../../key-vault/general/authentication.md) och [tilldelar en Key Vault åtkomst princip](../../key-vault/general/assign-access-policy-cli.md).
 
-## <a name="troubleshoot-and-support"></a>Felsöka och support
-
 ### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 * Finns det en gräns för hur många observedCertificates du kan konfigurera?
   Nej, Key Vault VM-tillägget har inte någon gräns för antalet observedCertificates.
 
-### <a name="troubleshoot"></a>Felsöka
+
+### <a name="troubleshoot"></a>Felsök
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure PowerShell.
 
@@ -243,6 +242,14 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*
 /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/*
 ```
+### <a name="using-symlink"></a>Använda symlink
+
+Symboliska länkar och symlinks är i princip avancerade genvägar. Om du vill undvika att övervaka mappen och hämta det senaste certifikatet automatiskt kan du använda den här symlink `([VaultName].[CertificateName])` för att hämta den senaste versionen av certifikat på Linux.
+
+### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
+* Finns det en gräns för hur många observedCertificates du kan konfigurera?
+  Nej, Key Vault VM-tillägget har inte någon gräns för antalet observedCertificates.
 
 ### <a name="support"></a>Support
 

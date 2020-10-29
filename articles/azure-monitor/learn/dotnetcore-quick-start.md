@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: a12fe837bfd9606d07c7be71851880d2cebb9d61
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bd45284bfea09935ea48445d816f3b91272f68fc
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055489"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925857"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
@@ -36,13 +36,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
 Application Insights kan samla in telemetridata från alla internetanslutna appar, oavsett om de körs lokalt eller i molnet. Gör så här om du vill börja granska dessa data:
 
-1. Välj **skapa ett verktyg för resurs**  >  **utvecklare**  >  **Application Insights**.
+1. Välj **skapa ett verktyg för resurs**  >  **utvecklare**  >  **Application Insights** .
 
    > [!NOTE]
    >Om det här är första gången du skapar en Application Insights-resurs kan du lära dig mer genom att gå till [skapa ett Application Insights resurs](../app/create-new-resource.md) dokument.
@@ -55,25 +55,25 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
    | **Resursgrupp**     | myResourceGroup      | Namn för den nya resurs gruppen som värd för App Insights-data. Du kan skapa en ny resursgrupp eller välja en befintlig. |
    | **Plats** | East US | Välj en plats nära dig eller nära där appen finns |
 
-2. Klicka på **Skapa**.
+2. Klicka på **Skapa** .
 
 
 
 ## <a name="configure-app-insights-sdk"></a>Konfigurera App Insights SDK
 
-1. Öppna **projektet** för ASP.NET Core-webbappen i Visual Studio > högerklicka på appnamnet i **Solution Explorer** > välj **Lägg till** > **Application Insights Telemetry**.
+1. Öppna **projektet** för ASP.NET Core-webbappen i Visual Studio > högerklicka på appnamnet i **Solution Explorer** > välj **Lägg till** > **Application Insights Telemetry** .
 
     ![lägg till Application Insights Telemetry](./media/dotnetcore-quick-start/2vsaddappinsights.png)
 
 2. Klicka på knappen **Kom igång**
 
-3. Välj ditt konto och din prenumeration > Välj den **befintliga resurs** som du skapade i Azure Portal > Klicka på **Registrera**.
+3. Välj ditt konto och din prenumeration > Välj den **befintliga resurs** som du skapade i Azure Portal > Klicka på **Registrera** .
 
 4. Välj **projekt**  >  **Hantera NuGet paket**  >  **Källa: NuGet.org**  >  **Uppdatera** Application Insights SDK-paket till den senaste stabila versionen.
 
 5. Välj **fel sökning**  >  **starta utan fel sökning** (Ctrl + F5) för att starta appen
 
-    ![översiktsvyn för Application Insights](./media/dotnetcore-quick-start/3debug.png)
+    ![Skärm bild som visar meny alternativet starta utan fel sökning.](./media/dotnetcore-quick-start/3debug.png)
 
 > [!NOTE]
 > Det tar 3–5 minuter innan data börjar visas i portalen. Om appen är en testapp för lågtrafik bör du komma ihåg att de flesta mått endast registreras när det finns aktiva begäranden eller åtgärder.
@@ -88,7 +88,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    ![Programkarta](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Klicka på ikonen program karta för **app Analytics** ![ ](./media/dotnetcore-quick-start/006.png) **i Analytics**. Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3. Klicka på ikonen program karta för **app Analytics** ![ ](./media/dotnetcore-quick-start/006.png) **i Analytics** . Då öppnas **Application Insights Analytics** , med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
    ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/dotnetcore-quick-start/6analytics.png)
 
@@ -96,7 +96,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    ![diagram med hälsotillståndsöversiktens tidslinje](./media/dotnetcore-quick-start/7kpidashboards.png)
 
-5. Klicka på **mått**till vänster. Använd Mät Utforskaren för att undersöka hälso tillståndet och användningen av resursen. Du kan klicka på **Lägg till nytt diagram** för att skapa ytterligare anpassade vyer eller välja **Redigera** för att ändra befintliga diagramtyper, höjd, färgpalett, grupperingar och mått. Du kan till exempel skapa ett diagram som visar den genomsnittliga webb sidans inläsnings tid genom att välja "webbläsarens sid inläsnings tid" från insamlingen mått och "AVG". Mer information om Azure Metrics Explorer finns i [komma igång med azure Metrics Explorer](../platform/metrics-getting-started.md).
+5. Klicka på **mått** till vänster. Använd Mät Utforskaren för att undersöka hälso tillståndet och användningen av resursen. Du kan klicka på **Lägg till nytt diagram** för att skapa ytterligare anpassade vyer eller välja **Redigera** för att ändra befintliga diagramtyper, höjd, färgpalett, grupperingar och mått. Du kan till exempel skapa ett diagram som visar den genomsnittliga webb sidans inläsnings tid genom att välja "webbläsarens sid inläsnings tid" från insamlingen mått och "AVG". Mer information om Azure Metrics Explorer finns i [komma igång med azure Metrics Explorer](../platform/metrics-getting-started.md).
 
      ![Fliken mått: genomsnittlig sid inläsnings tid i webbläsaren](./media/dotnetcore-quick-start/8metrics.png)
 
@@ -106,8 +106,8 @@ När du är färdig med testningen kan du ta bort resurs gruppen och alla relate
 > [!NOTE]
 > Om du använde en befintlig resurs grupp kommer instruktionerna nedan inte att fungera och du behöver bara ta bort den enskilda Application Insights resursen. Kom ihåg att du tar bort en resurs grupp när alla underliggande resurser som är medlemmar i gruppen tas bort.
 
-1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
-2. På sidan resurs grupp klickar du på **ta bort**, skriver **myResourceGroup** i text rutan och klickar sedan på **ta bort**.
+1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup** .
+2. På sidan resurs grupp klickar du på **ta bort** , skriver **myResourceGroup** i text rutan och klickar sedan på **ta bort** .
 
 ## <a name="next-steps"></a>Nästa steg
 

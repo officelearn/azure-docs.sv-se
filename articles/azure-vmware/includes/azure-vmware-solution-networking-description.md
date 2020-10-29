@@ -1,14 +1,14 @@
 ---
-title: Nätverks-och anslutnings barhet för Azure VMWare-lösningar
-description: Azure VMWare-lösning nätverks-och anslutnings beskrivning.
+title: Nätverks-och anslutnings barhet för Azure VMware-lösningar
+description: Azure VMware-lösning nätverks-och anslutnings beskrivning.
 ms.topic: include
 ms.date: 09/28/2020
-ms.openlocfilehash: 1d43a8a49fc56a6a5b534a89fd1dfc2f5ae2d478
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b5fab8430f4e462f1e4a0e8cb6ddb69ec38c02
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574472"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925020"
 ---
 <!-- Used in introduction.md and concepts-networking.md -->
 
@@ -16,7 +16,4 @@ Azure VMware-lösningen erbjuder en privat moln miljö som är tillgänglig frå
 
 När du distribuerar ett privat moln, skapas privata nätverk för hantering, etablering och vMotion. Använd de här privata nätverken för att få åtkomst till vCenter och NSX-T Manager och vMotion eller distribution av virtuella datorer.  ExpressRoute Global Reach används för att ansluta privata moln till lokala miljöer. Anslutningen kräver ett virtuellt nätverk med en ExpressRoute-krets i din prenumeration.
 
-
-
->[!NOTE]
->Åtkomst till Internet och Azure-tjänster tillhandahålls och tillhandahålls för att använda virtuella datorer i produktions nätverk när du distribuerar ett privat moln.  Som standard är Internet åtkomst inaktive rad för nya privata moln och kan när som helst aktive ras eller inaktive ras.
+Resurser, t. ex. webb servrar och virtuella datorer, är tillgängliga för Internet via de offentliga Azure-funktionerna för virtuella WAN-nätverk.  Som standard är Internet åtkomst inaktive rad för nya privata moln. Mer information finns i [så här använder du de offentliga IP-funktionerna i Azure VMware-lösningen](../public-ip-usage.md).

@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: b4d5b3682114d44ceaadc73252f355e4cdc9cc66
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 166234711ce00f0ed1f45c35ef661aa5b35f8a3c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548618"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926333"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Övervakning av Azure IoT Hub data-referens
 
@@ -57,7 +57,7 @@ För de flesta mått är alla agg regerings typer giltiga. men för Count-mått,
 
 ### <a name="cloud-to-device-command-metrics"></a>Kommando mått för moln till enhet
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |C2D meddelanden har förfallit (förhands granskning)|C2DMessagesExpired|Antal|Totalt|Antal utgångna meddelanden från moln till enhet|Inget|
 |C2D meddelande leveranser har slutförts|C2D. commands. utgående.<br>slutfört. lyckades|Antal|Totalt|Antalet meddelande leveranser från moln till enhet har slutförts av enheten|Inget|
@@ -68,7 +68,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="cloud-to-device-direct-methods-metrics"></a>Mått för moln till enhetens direkta metoder
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Misslyckade direkta metod anrop|C2D. Methods. Failure|Antal|Totalt|Antalet misslyckade direkta metod anrop.|Inget|
 |Begär ande storlek för direkta metod anrop|C2D. Methods. requestSize|Byte|Genomsnitt|Antalet lyckade direkta metod begär Anden.|Inget|
@@ -79,7 +79,7 @@ För mått med ett **enhets** värde som **endast är total mängd (** sum) agg 
 
 ### <a name="cloud-to-device-twin-operations-metrics"></a>Moln till enhet, dubbla drifts mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Det gick inte att dubbla läsningar från Server delen|C2D. delad.|Antal|Totalt|Antalet dubbla läsningar som initierats av alla misslyckade backend-slutpunkter.|Inget|
 |Misslyckade dubbla uppdateringar från Server delen|C2D. delad. Update. Failure|Antal|Totalt|Antalet dubbla uppdateringar som initierats av alla misslyckade backend-slutpunkter.|Inget|
@@ -92,7 +92,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="configurations-metrics"></a>Konfigurations mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Konfigurations mått|konfigurationer|Antal|Totalt|Antalet totala CRUD-åtgärder som utförts för enhets konfiguration och IoT Edge distribution på en uppsättning mål enheter. Detta omfattar även antalet åtgärder som ändrar enheten till dubbla eller modulerna på grund av dessa konfigurationer.|Inget|
 
@@ -100,7 +100,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="daily-quota-metrics"></a>Dagliga kvot mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Total användning av enhets data|deviceDataUsage|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Inget|
 |Total användning av enhets data (för hands version)|deviceDataUsageV2|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Inget|
@@ -110,7 +110,7 @@ För det *totala antalet meddelanden som används* stöds endast lägsta, högst
 
 ### <a name="device-metrics"></a>Enhets mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Totalt antal enheter (inaktuella)|enheter. totalDevices|Antal|Totalt|Antal enheter som har registrerats för din IoT-hubb|Inget|
 |Anslutna enheter (inaktuella) |Devices. connectedDevices.<br>allProtocol|Antal|Totalt|Antal enheter som är anslutna till din IoT-hubb|Inget|
@@ -125,7 +125,7 @@ För *Totalt antal enheter (för hands version)* och *anslutna enheter (för han
 
 ### <a name="device-telemetry-metrics"></a>Mått för enhets telemetri
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Antal begränsnings fel|D2C. telemetri. ingress.<br>sendThrottle|Antal|Totalt|Antal begränsnings fel som beror på begränsning av enhetens data flöde|Inget|
 |Skicka försök för telemetri|D2C. telemetri. ingress.<br>allProtocol|Antal|Totalt|Antalet telemetri från enhet till molnet försökte skickas till din IoT-hubb|Inget|
@@ -135,7 +135,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="device-to-cloud-twin-operations-metrics"></a>Enhet till molnet med dubbla drifts mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Misslyckade dubbla läsningar från enheter|D2C. delad.|Antal|Totalt|Antalet misslyckade, dubbla läsningar som initierats av enheten.|Inget|
 |Misslyckade dubbla uppdateringar från enheter|D2C. delad. Update. Failure|Antal|Totalt|Antalet misslyckade, dubbla uppdateringar som initierats av enheten.|Inget|
@@ -148,7 +148,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="event-grid-metrics"></a>Event Grid-mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Event Grid leveranser (för hands version)|EventGridDeliveries|Antal|Totalt|Antalet IoT Hub-händelser som publicerats till Event Grid. Använd resultat dimensionen för antalet lyckade och misslyckade förfrågningar. EventType-dimensionen visar händelse typen ( https://aka.ms/ioteventgrid) .|Resultat,<br/>Typ<br>*Mer information finns i [mått dimensioner](#metric-dimensions)* .|
 |Event Grid svars tid (för hands version)|EventGridLatency|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) från när IoT Hub-händelsen genererades till när händelsen publicerades till Event Grid. Det här talet är ett medelvärde mellan alla händelse typer. Använd EventType-dimensionen för att se svars tiden för en speciell typ av händelse.|Typ<br>*Mer information finns i [mått dimensioner](#metric-dimensions)* .|
@@ -157,7 +157,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="jobs-metrics"></a>Jobb mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Slutförda jobb|jobb. slutfört|Antal|Totalt|Antalet slutförda jobb.|Inget|
 |Misslyckade anrop till List jobb|Jobs. listJobs. Failure|Antal|Totalt|Antalet misslyckade anrop till List jobb.|Inget|
@@ -176,7 +176,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="routing-metrics"></a>Routnings mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 | Routnings leverans försök (förhands granskning) |RoutingDeliveries | Antal | Totalt |Detta är mått för routnings leverans. Använd dimensionerna för att identifiera leverans status för en angiven slut punkt eller för en speciell Dirigerings källa.| Resultat,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*Mer information finns i [mått dimensioner](#metric-dimensions)* . |
 | Flödes leverans data storlek i byte (för hands version)|RoutingDataSizeInBytesDelivered| Byte | Totalt |Det totala antalet byte som dirigerats av IoT Hub till den anpassade slut punkten och den inbyggda slut punkten. Använd dimensionerna för att identifiera data storleken dirigerad till en angiven slut punkt eller för en speciell vägkälla.| RoutingSource,<br>EndpointType<br>EndpointName<br>*Mer information finns i [mått dimensioner](#metric-dimensions)* .|
@@ -203,7 +203,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 ### <a name="twin-query-metrics"></a>Dubbla fråge mått
 
-|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
+|Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Misslyckade dubbla frågor|twinQueries. Failure|Antal|Totalt|Antalet misslyckade dubbla frågor.|Inget|
 |Lyckades dubbla frågor|twinQueries. lyckades|Antal|Totalt|Antalet lyckade dubbla frågor.|Inget|
@@ -215,7 +215,7 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 
 Azure IoT Hub har följande dimensioner kopplade till några av måtten för Routning och händelse rutnät.
 
-|Dimensions namn | Beskrivning|
+|Dimensions namn | Description|
 |---|---|
 ||
 |**EndpointName**| Slut punktens namn.|
@@ -235,7 +235,7 @@ I det här avsnittet visas alla kategori typer och scheman för resurs logg som 
 
 - [Anslutningar](#connections)
 - [Telemetri för enhet](#device-telemetry)
-- [Kommandon från moln till enhet](#cloud-to-device-commands)
+- [Moln till enhet-kommandon](#cloud-to-device-commands)
 - [Enhets identitets åtgärder](#device-identity-operations)
 - [Filöverföringsåtgärder](#file-upload-operations)
 - [Vägar](#routes)
@@ -298,7 +298,7 @@ Kategorin hets telemetri spårar fel som inträffar på IoT-hubben och är relat
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Kommandon från moln till enhet
+### <a name="cloud-to-device-commands"></a>Moln till enhet-kommandon
 
 Kommando kategorin för moln-till-enhet spårar fel som uppstår på IoT-hubben och är relaterade till pipeline för meddelande från moln till enhet. Den här kategorin innehåller fel som inträffar från:
 
@@ -559,7 +559,7 @@ IoT Hub registrerar loggen när ett meddelande som innehåller giltiga spårning
 
 Här `durationMs` beräknas inte som IoT Hub klockan kanske inte är synkroniserad med enhets klockan och därför kan en varaktighets beräkning vara missvisande. Vi rekommenderar att du skriver logik med hjälp av tidsstämplar i `properties` avsnittet för att samla in toppar i svars tid från enhet till moln.
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Integer | Storleken på meddelanden från enhet till moln i byte |
 | **deviceId** | Sträng med ASCII 7-bitars alfanumeriska tecken | Enhetens identitet |
@@ -593,7 +593,7 @@ IoT Hub registrerar loggen när ett meddelande som innehåller giltiga spårning
 
 I `properties` avsnittet innehåller den här loggen ytterligare information om meddelande ingångar.
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | Sträng | Antingen sant eller falskt anger om meddelanderoutning är aktiverat i IoT Hub |
 | **parentSpanId** | Sträng | Det överordnade meddelandets [span-ID](https://w3c.github.io/trace-context/#parent-id) , som skulle vara D2C meddelande spårning i det här fallet |
@@ -625,7 +625,7 @@ IoT Hub registrerar loggen när [routning](iot-hub-devguide-messages-d2c.md) är
 
 I `properties` avsnittet innehåller den här loggen ytterligare information om meddelande ingångar.
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | Sträng | Namnet på dirigerings slut punkten |
 | **endpointType** | Sträng | Typ av Dirigerings slut punkt |

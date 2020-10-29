@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90cd9605a166a00412ed77caf3727ffb3ad3e1fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba5bca9b0d5907d9900741d0fe2c319f141f810b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262132"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913644"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Utveckla Azure Functions med Media Services
 
@@ -49,37 +49,37 @@ När du utvecklar Media Services funktioner är det praktiskt att lägga till mi
 
 Funktionen som definieras i den här artikeln förutsätter att du har följande miljövariabler i dina app-inställningar:
 
-**AMSAADTenantDomain**: Azure AD-klientens slut punkt. Mer information om hur du ansluter till AMS-API: et finns i [den här](media-services-use-aad-auth-to-access-ams-api.md) artikeln.
+**AMSAADTenantDomain** : Azure AD-klientens slut punkt. Mer information om hur du ansluter till AMS-API: et finns i [den här](media-services-use-aad-auth-to-access-ams-api.md) artikeln.
 
-**AMSRESTAPIEndpoint**: URI som representerar REST API slut punkten. 
+**AMSRESTAPIEndpoint** : URI som representerar REST API slut punkten. 
 
-**AMSClientId**: klient-ID för Azure AD-program.
+**AMSClientId** : klient-ID för Azure AD-program.
 
-**AMSClientSecret**: Azure AD-programmets klient hemlighet.
+**AMSClientSecret** : Azure AD-programmets klient hemlighet.
 
-**StorageConnection**: lagrings anslutning för det konto som är kopplat till Media Services kontot. Det här värdet används i filen **function.jspå** filen och filen **Run. CSX** (beskrivs nedan).
+**StorageConnection** : lagrings anslutning för det konto som är kopplat till Media Services kontot. Det här värdet används i filen **function.jspå** filen och filen **Run. CSX** (beskrivs nedan).
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
 När din Function-app har distribuerats kan du hitta den bland **App Services** Azure Functions.
 
-1. Välj din Function-app och klicka på **ny funktion**.
+1. Välj din Function-app och klicka på **ny funktion** .
 2. Välj **C#** -språket och **data bearbetnings** scenariot.
-3. Välj **en** -mall. Den här funktionen utlöses när en BLOB överförs till behållaren för **indatafilen** . **Indatamängden** anges i **sökvägen**i nästa steg.
+3. Välj **en** -mall. Den här funktionen utlöses när en BLOB överförs till behållaren för **indatafilen** . **Indatamängden** anges i **sökvägen** i nästa steg.
 
-    ![filer](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![Skärm bild som visar dialog rutan Välj en mall med en valt.](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
-4. När du har valt **en**visas vissa fler kontroller på sidan.
+4. När du har valt **en** visas vissa fler kontroller på sidan.
 
-    ![filer](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![Skärm bild som visar dialog rutan namnge din funktion.](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Klicka på **Skapa**. 
+4. Klicka på **Skapa** . 
 
 ## <a name="files"></a>Files
 
 Din Azure-funktion är associerad med kodfragment och andra filer som beskrivs i det här avsnittet. När du använder Azure Portal för att skapa en funktion skapas **function.jspå** och **Kör. CSX** . Du måste lägga till eller ladda upp en **project.jspå** filen. Resten av det här avsnittet ger en kort förklaring av varje fil och visar deras definitioner.
 
-![filer](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![Skärm bild som visar JSON-filerna i projektet.](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
@@ -138,7 +138,7 @@ Exemplet som definieras i det här avsnittet visar
 
 I det verkliga livet vill du förmodligen spåra jobbets förlopp och sedan publicera din kodade till gång. Mer information finns i [använda Azure Webhooks för att övervaka Media Services jobb meddelanden](media-services-dotnet-check-job-progress-with-webhooks.md). Fler exempel finns i [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Ersätt innehållet i den befintliga filen Run. CSX med följande kod: när du är klar med att definiera en funktion klickar du på **Spara och kör**.
+Ersätt innehållet i den befintliga filen Run. CSX med följande kod: när du är klar med att definiera en funktion klickar du på **Spara och kör** .
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -336,8 +336,8 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 Om du vill testa din funktion måste du ladda upp en MP4-fil till **indatafilen** för det lagrings konto som du har angett i anslutnings strängen.  
 
 1. Välj det lagrings konto som du har angett i **StorageConnection** -miljövariabeln.
-2. Klicka på **blobbar**.
-3. Klicka på **+Behållare**. Namnge behållar **indatamängden**.
+2. Klicka på **blobbar** .
+3. Klicka på **+Behållare** . Namnge behållar **indatamängden** .
 4. Tryck på **överför** och bläddra till en MP4-fil som du vill ladda upp.
 
 >[!NOTE]

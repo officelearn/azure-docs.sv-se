@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1157a18954c30e1f1d93aa33dbea6104491b5353
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d7e019e7759e22e945bddee477a4cb77f17350b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396459"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913831"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk Encryption i ett isolerat nätverk
 
@@ -25,12 +25,12 @@ Azure Disk Encryption är beroende av ett antal komponenter, som vanligt vis ins
 
 Här är de paket som krävs för varje distribution. En fullständig lista över distributioner och volym typer som stöds finns i [virtuella datorer och operativ system som stöds](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
-- **Ubuntu 14,04, 16,04, 18,04**: lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-sex, procps
-- **CentOS 7,2-7,7**: lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup, cryptsetup-recrypting, pyparted, procps-ng, util-linux
-- **CentOS 6,8**: lsscsi, psmisc, lvm2, UUID, at, cryptsetup-Encrypting, pyparted, python-sex
-- **RedHat 7,2-7,7**: lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup, cryptsetup-Encrypting, procps-ng, util-linux
-- **RedHat 6,8**: lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup-Encrypting
-- **openSUSE 42,3, SLES 12 – SP4, 12-SP3**: lsscsi, cryptsetup
+- **Ubuntu 14,04, 16,04, 18,04** : lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-sex, procps, grub-PC-bin
+- **CentOS 7,2-7,7** : lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup, cryptsetup-recrypting, pyparted, procps-ng, util-linux
+- **CentOS 6,8** : lsscsi, psmisc, lvm2, UUID, at, cryptsetup-Encrypting, pyparted, python-sex
+- **RedHat 7,2-7,7** : lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup, cryptsetup-Encrypting, procps-ng, util-linux
+- **RedHat 6,8** : lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup-Encrypting
+- **openSUSE 42,3, SLES 12 – SP4, 12-SP3** : lsscsi, cryptsetup
 
 I Red Hat måste du, när en proxyserver krävs, se till att prenumerations-och yum har kon figurer ATS korrekt. Mer information finns i [så här felsöker du problem med prenumerations hanteraren och yum](https://access.redhat.com/solutions/189533).  
 

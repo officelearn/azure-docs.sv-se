@@ -4,12 +4,12 @@ description: Instruktioner om hur du flyttar ett Recovery Services valv över Az
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: bd1870e803f5051e2a65a6cddbb72406421d4fc3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171604"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926690"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -17,11 +17,7 @@ Den här artikeln förklarar hur du flyttar ett Recovery Services valv som kon f
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Flytt av resurser för Recovery Services valv stöds i östra Australien, Australien, Östra Kanada, centrala Kanada, östra USA, Asien, sydöstra, Asien, östra, centrala USA, norra centrala USA, östra USA, östra USA 2, södra centrala USA, västra centrala USA, västra USA, västra USA, västra USA, västra USA, centrala Indien, södra Indien, Östra Japan, västra Japan, Korea, centrala, södra Brasilien , Norra Europa, Västeuropa, Sydafrika, norra, södra Afrika, västra Storbritannien, södra och Storbritannien, västra.
-
-## <a name="unsupported-regions"></a>Regioner som inte stöds
-
-Frankrike, centrala, södra Frankrike, Tyskland nordöstra, Tyskland, centrala, US Gov, Iowa, Kina, norra, Kina North2, Kina, östra, Kina östra
+Alla offentliga regioner och suveräna regioner stöds, förutom Frankrikes centrala, Frankrike, södra, Tyskland nordöstra, Tyskland, centrala, Kina, norra, Kina North2, Kina, östra och Kina östra.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Krav för att flytta Recovery Services valv
 
@@ -46,7 +42,7 @@ Frankrike, centrala, södra Frankrike, Tyskland nordöstra, Tyskland, centrala, 
 
 > [!NOTE]
 > Det finns inte stöd för att flytta Recovery Services valv för Azure Backup i Azure-regioner.<br><br>
-> Om du har konfigurerat några virtuella datorer (Azure IaaS, Hyper-V, VMware) eller fysiska datorer för haveri beredskap med **Azure Site Recovery**blockeras flyttnings åtgärden. Om du vill flytta valv för Azure Site Recovery granskar du [den här artikeln](../site-recovery/move-vaults-across-regions.md) för att lära dig att flytta valv manuellt.
+> Om du har konfigurerat några virtuella datorer (Azure IaaS, Hyper-V, VMware) eller fysiska datorer för haveri beredskap med **Azure Site Recovery** blockeras flyttnings åtgärden. Om du vill flytta valv för Azure Site Recovery granskar du [den här artikeln](../site-recovery/move-vaults-across-regions.md) för att lära dig att flytta valv manuellt.
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Använd Azure Portal för att flytta Recovery Services valv till en annan resurs grupp
 
@@ -61,7 +57,7 @@ Så här flyttar du ett Recovery Services valv och dess associerade resurser til
 
    ![Fliken information om Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. På menyn valv översikt väljer du **ändra** bredvid **resurs gruppen**för att öppna fönstret **Flytta resurser** .
+3. På menyn valv översikt väljer du **ändra** bredvid **resurs gruppen** för att öppna fönstret **Flytta resurser** .
 
    ![Ändra resurs grupp](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
@@ -90,7 +86,7 @@ Du kan flytta ett Recovery Services valv och dess associerade resurser till en a
 
     ![Fliken information om Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. I valv översikts menyn väljer du **ändra** bredvid **prenumeration**för att öppna fönstret **Flytta resurser** .
+3. I valv översikts menyn väljer du **ändra** bredvid **prenumeration** för att öppna fönstret **Flytta resurser** .
 
    ![Ändra prenumeration](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
@@ -103,7 +99,7 @@ Du kan flytta ett Recovery Services valv och dess associerade resurser till en a
 
    ![Lägg till prenumeration](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Välj **Jag är medveten om att verktyg och skript som är kopplade till flyttade resurser inte fungerar förrän jag uppdaterar dem så att de använder nya resurs-ID: n** för att bekräfta, och välj sedan **OK**.
+7. Välj **Jag är medveten om att verktyg och skript som är kopplade till flyttade resurser inte fungerar förrän jag uppdaterar dem så att de använder nya resurs-ID: n** för att bekräfta, och välj sedan **OK** .
 
 > [!NOTE]
 > Säkerhets kopiering mellan prenumerationer (RS Vault och skyddade virtuella datorer finns i olika prenumerationer) är inte ett scenario som stöds. Dessutom går det inte att ändra alternativ för redundans från lokal redundant lagring (LRS) till global redundant lagring (GRS) och vice versa i flytt åtgärden för valvet.
@@ -161,9 +157,9 @@ För att skydda arbets belastningar i ett nytt valv måste det aktuella skyddet 
 
 1. Inaktivera mjuk borttagning i valv egenskaperna. Följ [dessa steg](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) om du vill inaktivera mjuk borttagning.
 
-2. Stoppa skyddet och ta bort säkerhets kopior från det aktuella valvet. Välj **säkerhets kopierings objekt**på instrument panelen för valv-menyn. Objekt som anges här och som måste flyttas till det nya valvet måste tas bort tillsammans med sina säkerhets kopierings data. Se [ta bort skyddade objekt i molnet](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) och [ta bort skyddade objekt lokalt](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+2. Stoppa skyddet och ta bort säkerhets kopior från det aktuella valvet. Välj **säkerhets kopierings objekt** på instrument panelen för valv-menyn. Objekt som anges här och som måste flyttas till det nya valvet måste tas bort tillsammans med sina säkerhets kopierings data. Se [ta bort skyddade objekt i molnet](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) och [ta bort skyddade objekt lokalt](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 
-3. Om du planerar att flytta AFS (Azure-filresurser), SQL-servrar eller SAP HANA-servrar måste du också avregistrera dem. På instrument panelen för valv väljer du **säkerhets kopierings infrastruktur**. Se hur du [avregistrerar SQL-servern](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [avregistrerar ett lagrings konto som är associerat med Azure-filresurser](manage-afs-backup.md#unregister-a-storage-account)och [avregistrerar en SAP HANA instans](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+3. Om du planerar att flytta AFS (Azure-filresurser), SQL-servrar eller SAP HANA-servrar måste du också avregistrera dem. På instrument panelen för valv väljer du **säkerhets kopierings infrastruktur** . Se hur du [avregistrerar SQL-servern](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [avregistrerar ett lagrings konto som är associerat med Azure-filresurser](manage-afs-backup.md#unregister-a-storage-account)och [avregistrerar en SAP HANA instans](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
 
 4. När de har tagits bort från det gamla valvet fortsätter du att konfigurera säkerhets kopieringarna för din arbets belastning i det nya valvet.
 

@@ -12,12 +12,12 @@ ms.date: 10/27/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a8e3b6cfce9bff76ec3989273cadadebb23d6d40
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1af7f2918af7071320244dd35882a8de9717654f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795400"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913253"
 ---
 # <a name="switching-organizations-in-a-portal"></a>Byta organisationer i en portal
 
@@ -34,7 +34,7 @@ Växlings organisationer är inte tillgängligt för **Mina inloggningar** , **s
 
 ## <a name="switch-organizations"></a>Växla organisationer
 
-Så här byter du till en annan organisation. Det här exemplet används i **mitt konto** Portal, men växlaren-ikonen och-placeringen liknar även andra portaler.
+Så här byter du till en annan organisation. I det här exemplet används **min konto** Portal, men växlaren-ikonen och placeringen liknar även andra portaler.
 
 1. Logga in på ditt arbets-eller skol konto och öppna sidan [mitt konto](https://myaccount.microsoft.com) .
 1. Välj organisationen växlaren :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="ikonen för organisationens växlaren"::: överst på sidan bredvid ditt konto foto.

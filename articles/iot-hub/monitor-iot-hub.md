@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 5e2f5e067f0a1d5c13179b3d6175b3aebf6a43fd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a8f9c46487422deb4513768dff04f559af952f7b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548615"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926265"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Övervaka Azure-IoT Hub
 
@@ -54,11 +54,14 @@ Plattforms mått och aktivitets loggen samlas in och lagras automatiskt, men kan
 
 Resurs loggar samlas inte in och lagras förrän du skapar en diagnostisk inställning och dirigerar dem till en eller flera platser.
 
-Mått och loggar kan dirigeras till en Log Analytics arbets yta där de kan analyseras med hjälp av Azure Monitor loggar. för att Azure Storage för arkivering och offline-analys. eller till en Event Hubs-slutpunkt där de kan läsas av externa program, till exempel SIEM-verktyg från tredje part.
+Mått och loggar kan dirigeras till flera platser, inklusive:
+- Azure Monitor loggar lager via en associerad Log Analytics arbets yta. De kan analyseras med hjälp av Log Analytics.
+- Azure Storage för arkivering och offline-analys 
+- En Event Hubs-slutpunkt där de kan läsas av externa program, till exempel SIEM-verktyg från tredje part.
 
 I Azure Portal kan du välja **diagnostikinställningar** under **övervakning** i den vänstra rutan i IoT Hub följt av **Lägg till diagnostikinställningar** för att skapa diagnostikinställningar som är begränsade till loggarna och plattforms måtten som har spridits av din IoT Hub.
 
-Följande skärm bild visar en diagnostisk inställning för routning av anslutnings åtgärder i resurs loggar och alla plattforms mått till en Log Analytics-arbetsyta.
+Följande skärm bild visar en diagnostisk inställning för att vidarebefordra resurs logg typen *anslutnings åtgärder* och alla plattforms mått till en Log Analytics-arbetsyta.
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Översikts sidan standard mått diagram på IoT Hub.":::
 
@@ -86,7 +89,7 @@ Vissa IoT Hub mått, till exempel [routnings mått](monitor-iot-hub-reference.md
 
 ## <a name="analyzing-logs"></a>Analysera loggar
 
-Data i Azure Monitor loggar lagras i tabeller där varje tabell har en egen uppsättning unika egenskaper. Mer information om Azure Monitor loggar finns i [Översikt över Azure Monitor loggar](/azure/azure-monitor/platform/data-platform-logs) i Azure Monitor-dokumentationen. 
+Data i Azure Monitor loggar lagras i tabeller där varje tabell har en egen uppsättning unika egenskaper. Data i dessa tabeller är associerade med en Log Analytics arbets yta och kan efter frågas i Log Analytics. Mer information om Azure Monitor loggar finns i [Översikt över Azure Monitor loggar](/azure/azure-monitor/platform/data-platform-logs) i Azure Monitor-dokumentationen. 
 
 Om du vill dirigera data till Azure Monitor loggar måste du skapa en diagnostisk inställning för att skicka resurs loggar eller plattforms mått till en Log Analytics arbets yta. Mer information finns i [insamling och routning](#collection-and-routing).
 

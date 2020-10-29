@@ -5,23 +5,23 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/02/2020
-ms.openlocfilehash: ad3287651716580aaf6ab8c5e819fd92a70e695d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 10/29/2020
+ms.openlocfilehash: 4075e27c3711cbc4c584005126b53f7c99942049
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144103"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926733"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Borttagning av OperationalInsights-API-version
-Microsoft tillhandahåller ett meddelande minst 12 månader i förväg för att dra tillbaka ett API för att utjämna över gången till en nyare/version som stöds. Vi har släppt en ny version (2020-08-01) för **OperationalInsights** Resource Provider-API: er och kommer att dra tillbaka alla tidigare API-versioner den 31 oktober 2023.
+Microsoft tillhandahåller ett meddelande minst 12 månader i förväg för att dra tillbaka ett API för att utjämna över gången till en nyare/version som stöds. Vi har släppt en ny version (2020-08-01) för **OperationalInsights** Resource Provider-API: er och kommer att dra tillbaka alla tidigare API-versioner den 29 februari 2014.
 
 Vi rekommenderar att du börjar använda version 2020-08-01 nu för att få fördelarna med nya funktioner, till exempel [dedikerat kluster](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters), [Kundhanterade nycklar](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys), [privat länk](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security) och [data export](https://docs.microsoft.com/azure/azure-monitor/platform/logs-data-export). Nya funktioner och funktioner och optimeringar läggs också till i det aktuella API: t.
 
-Efter den 31 oktober 2023 kommer Azure Monitor inte längre att ha stöd för tidigare API-versioner än 2020-08-01. Om du föredrar att inte uppgradera fortsätter de begär Anden som skickas från tidigare versioner att betjänas av Azure Monitor tjänsten fram till den 31 oktober 2023.
+Efter den 29 februari 2014 Azure Monitor kommer inte längre att ha stöd för tidigare API-versioner än 2020-08-01. Om du föredrar att inte uppgradera fortsätter de begär Anden som skickas från tidigare versioner att betjänas av Azure Monitor tjänsten fram till den 29 februari 2014.
 
 ## <a name="migration-steps"></a>Migreringsanvisningar
-Beroende på vilken konfigurations metod du använder bör du uppdatera den nya versionen i **rest** -begäranden och **Resource Manager-mallar**. Uppdatera API-versionen genom att följa exemplen nedan:
+Beroende på vilken konfigurations metod du använder bör du uppdatera den nya versionen i **rest** -begäranden och **Resource Manager-mallar** . Uppdatera API-versionen genom att följa exemplen nedan:
 
 1. REST API begär Anden använder API-versionen i URL: en för begäran. Ersätt den versionen med den senaste versionen (2020-08-01) som du ser i följande exempel.
 

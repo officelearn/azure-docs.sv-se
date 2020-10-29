@@ -3,15 +3,15 @@ title: Autentisera ett program för att få åtkomst till Azure Event Hubs-resur
 description: Den här artikeln innehåller information om hur du autentiserar ett program med Azure Active Directory för åtkomst till Azure Event Hubs-resurser
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 6eac2ef362705ecb68212166f8b691ac969a40ff
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 25ec5f11ca7b5e801e18155f1a3da6474c8e66e2
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359942"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913321"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autentisera ett program med Azure Active Directory för att få åtkomst till Event Hubs resurser
-Microsoft Azure ger integrerad åtkomst kontroll hantering för resurser och program baserat på Azure Active Directory (Azure AD). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2,0-åtkomsttoken från Microsoft Identity Platform. Resurs namnet för att begära en token `https://eventhubs.azure.net/` (för Kafka-klienter är resursen att begära en token `https://<namespace>.servicebus.windows.net` ). Azure AD autentiserar säkerhets objekt (en användare, grupp eller tjänstens huvud namn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
+Microsoft Azure ger integrerad åtkomst kontroll hantering för resurser och program baserat på Azure Active Directory (Azure AD). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2,0-åtkomsttoken från Microsoft Identity Platform. Resurs namnet för att begära en token är `https://eventhubs.azure.net/` , och det är detsamma för alla moln/klient organisationer (för Kafka-klienter, resursen att begära en token `https://<namespace>.servicebus.windows.net` ). Azure AD autentiserar säkerhets objekt (en användare, grupp eller tjänstens huvud namn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
 
 När en roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, Event Hubs namn området eller någon annan resurs under den. En Azure AD-säkerhet kan tilldela roller till en användare, en grupp, ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md). 
 
@@ -48,7 +48,7 @@ Följande bilder visar steg för att registrera ett webb program:
 > [!Note]
 > Om du registrerar ditt program som ett internt program kan du ange en giltig URI för omdirigerings-URI: n. För interna program behöver det här värdet inte vara en riktig URL. För webb program måste omdirigerings-URI: n vara en giltig URI, eftersom den anger den URL till vilken tokens anges.
 
-När du har registrerat ditt program visas **program-ID: t (klient)** under **Inställningar**:
+När du har registrerat ditt program visas **program-ID: t (klient)** under **Inställningar** :
 
 ![Program-ID för det registrerade programmet](./media/authenticate-application/application-id.png)
 
@@ -60,7 +60,7 @@ Programmet behöver en klient hemlighet för att bevisa sin identitet när en to
 
 1. Navigera till din app-registrering i Azure Portal.
 1. Välj inställningen för **certifikat & hemligheter** .
-1. Under **klient hemligheter**väljer du **ny klient hemlighet** för att skapa en ny hemlighet.
+1. Under **klient hemligheter** väljer du **ny klient hemlighet** för att skapa en ny hemlighet.
 1. Ange en beskrivning av hemligheten och välj önskat utgångs intervall.
 1. Kopiera omedelbart värdet för den nya hemligheten till en säker plats. Fill-värdet visas bara en gång.
 
@@ -75,7 +75,7 @@ När du har registrerat programmet tilldelar du programmets tjänst huvud namn t
 
     ![Välj händelsehubben](./media/authenticate-application/select-event-hub.png)
 1. Välj **Access Control (IAM)** om du vill visa inställningar för åtkomst kontroll för händelsehubben. 
-1. Välj fliken **roll tilldelningar** om du vill se en lista över roll tilldelningar. Välj knappen **Lägg till** i verktygsfältet och välj sedan **Lägg till roll tilldelning**. 
+1. Välj fliken **roll tilldelningar** om du vill se en lista över roll tilldelningar. Välj knappen **Lägg till** i verktygsfältet och välj sedan **Lägg till roll tilldelning** . 
 
     ![Knappen Lägg till i verktygsfältet](./media/authenticate-application/role-assignments-add-button.png)
 1. Utför följande steg på sidan **Lägg till roll tilldelning** :

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5e9fd3b3d2d5bceb766651c2758f956b9ef105e0
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494950"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913304"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Självstudie: kom igång med Azure Machine Learning i Jupyter Notebooks
 
@@ -36,12 +36,12 @@ En Azure Machine Learning arbets yta är en grundläggande resurs i molnet som d
 
 Gå vidare till [klona en Notebook-mapp](#clone) om du redan har en Azure Machine Learning arbets yta.  
 
-Du skapar en arbets yta via Azure Portal, en webbaserad konsol för att hantera dina Azure-resurser.
+Det finns många [sätt att skapa en arbets yta](how-to-manage-workspace.md).  I den här självstudien skapar du en arbets yta via Azure Portal, en webbaserad konsol för att hantera dina Azure-resurser.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT]
-> Anteckna din *arbets yta* och din *prenumeration*. Du behöver den här informationen för att se till att du skapar experimentet på rätt plats.
+> Anteckna din *arbets yta* och din *prenumeration* . Du behöver den här informationen för att se till att du skapar experimentet på rätt plats.
 
 ## <a name="run-a-notebook-in-your-workspace"></a><a name="azure"></a>Köra en antecknings bok i din arbets yta
 
@@ -59,7 +59,7 @@ Du har slutfört följande experiment-konfiguration och kör steg i Azure Machin
 
 1. Välj din prenumeration och arbets ytan du skapade.
 
-1. Välj **antecknings böcker**till vänster.
+1. Välj **antecknings böcker** till vänster.
 
 1. Välj fliken **exempel** längst upp.
 
@@ -67,7 +67,7 @@ Du har slutfört följande experiment-konfiguration och kör steg i Azure Machin
 
 1. Öppna mappen med ett versions nummer. Det här talet representerar den aktuella versionen för python SDK.
 
-1. Klicka på knappen **...** till höger om mappen **självstudier** och välj sedan **klona**.
+1. Klicka på knappen **...** till höger om mappen **självstudier** och välj sedan **klona** .
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Skärm bild som visar mappen klona självstudier.":::
 
@@ -99,11 +99,11 @@ Du har slutfört följande experiment-konfiguration och kör steg i Azure Machin
 
     1. Välj den virtuella dator storleken från de tillgängliga alternativen. För självstudierna är standard-VM ett bra val.
 
-    1. Välj sedan **Skapa**. Det kan ta ungefär fem minuter att konfigurera den virtuella datorn.
+    1. Välj sedan **Skapa** . Det kan ta ungefär fem minuter att konfigurera den virtuella datorn.
 
 1. När den virtuella datorn är tillgänglig visas den i det översta verktygsfältet. Nu kan du köra den bärbara datorn genom att antingen **köra alla** i verktygsfältet eller **Shift + ange** i kod cellerna i antecknings boken.
 
-Om du har anpassade widgetar eller vill använda Jupyter eller JupyterLab väljer du List rutan **Jupyter** längst till höger. Välj sedan **Jupyter** eller **JupyterLab**. Fönstret ny webbläsare öppnas.
+Om du har anpassade widgetar eller vill använda Jupyter eller JupyterLab väljer du List rutan **Jupyter** längst till höger. Välj sedan **Jupyter** eller **JupyterLab** . Fönstret ny webbläsare öppnas.
 
 ## <a name="next-steps"></a>Nästa steg
 

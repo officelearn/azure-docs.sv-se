@@ -2,13 +2,13 @@
 title: Resurser utan gräns för 800
 description: Visar en lista över de Azure-resurs typer som kan ha fler än 800 instanser i en resurs grupp.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: e7a15607b144f1d7916f310948f15dc28d76a205
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: cec7ea87bbe81d3bfcca37f3133ac650e66f849f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330765"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913508"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Resurser som inte är begränsade till 800 instanser per resurs grupp
 
@@ -81,6 +81,7 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 
 ## <a name="microsoftdevtestlab"></a>Microsoft. DevTestLab
 
+* labb/virtualMachines – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
 * scheman
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
@@ -173,6 +174,10 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 
 * workspaceCollections – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
 
+## <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
+
+* kapaciteter – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
+
 ## <a name="microsoftrelay"></a>Microsoft. Relay
 
 * namn områden
@@ -185,18 +190,21 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 
 * namn områden
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft. ServiceFabricMesh
+## <a name="microsoftsingularity"></a>Microsoft. Singularity
 
-* program
-* containerGroups
-* gatewayer
-* nätet
-* secrets
-* volumes
+* konton
+* konton/accountQuotaPolicies
+* konton/groupPolicies
+* konton/jobb
+* konton/storageContainers
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 * storageAccounts
+
+## <a name="microsoftsql"></a>Microsoft.Sql
+
+* servrar/databaser
 
 ## <a name="microsoftweb"></a>Microsoft. Web
 

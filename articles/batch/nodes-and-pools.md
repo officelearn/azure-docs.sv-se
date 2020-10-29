@@ -3,16 +3,16 @@ title: Noder och pooler i Azure Batch
 description: Lär dig mer om Compute-noder och pooler och hur de används i ett Azure Batch arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371451"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913814"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Noder och pooler i Azure Batch
 
-I ett Azure Batch arbets flöde är en *Compute-nod* (eller *nod*) en virtuell dator som bearbetar en del av programmets arbets belastning. En *pool* är en samling av de noder som programmet ska köras på. Den här artikeln förklarar mer om noder och pooler, tillsammans med överväganden när du skapar och använder dem i ett Azure Batch-arbetsflöde.
+I ett Azure Batch arbets flöde är en *Compute-nod* (eller *nod* ) en virtuell dator som bearbetar en del av programmets arbets belastning. En *pool* är en samling av de noder som programmet ska köras på. Den här artikeln förklarar mer om noder och pooler, tillsammans med överväganden när du skapar och använder dem i ett Azure Batch-arbetsflöde.
 
 ## <a name="nodes"></a>Noder
 
@@ -68,11 +68,11 @@ Det finns två typer av pool-konfigurationer som är tillgängliga i batch.
 
 Konfigurationen av den **virtuella datorn** anger att poolen består av virtuella Azure-datorer. Dessa virtuella datorer kan skapas från Linux- eller Windows-avbildningar.
 
-När du skapar en pool med noder i en konfiguration av en virtuell dator måste du inte bara ange storleken på noderna och källan för avbildningarna som användes för att skapa dem, utan även **referensen till avbildningen av den virtuella datorn** och Batch-**nodagentens SKU** som ska installeras på noderna. Mer information om hur du anger dessa poolegenskaper finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md). Om du vill kan du koppla en eller flera tomma datadiskar till en pool med virtuella datorer som skapats av Microsoft Azure Marketplace-avbildningar. Alternativt kan du inkludera datadiskar i de anpassade avbildningar som används för att skapa de virtuella datorerna. När du inkluderar data diskar måste du montera och Formatera diskarna inifrån en virtuell dator för att använda dem.
+[Batch Node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) är ett program som körs på varje nod i poolen och tillhandahåller kommando-och-Control-gränssnittet mellan noden och batch-tjänsten. Det finns olika implementeringar av Node-agenten, som kallas SKU: er, för olika operativ system. När du skapar en pool med noder i en konfiguration av en virtuell dator måste du inte bara ange storleken på noderna och källan för avbildningarna som användes för att skapa dem, utan även **referensen till avbildningen av den virtuella datorn** och Batch- **nodagentens SKU** som ska installeras på noderna. Mer information om hur du anger dessa poolegenskaper finns i [Etablera Linux-beräkningsnoder i Azure Batch-pooler](batch-linux-nodes.md). Om du vill kan du koppla en eller flera tomma datadiskar till en pool med virtuella datorer som skapats av Microsoft Azure Marketplace-avbildningar. Alternativt kan du inkludera datadiskar i de anpassade avbildningar som används för att skapa de virtuella datorerna. När du inkluderar data diskar måste du montera och Formatera diskarna inifrån en virtuell dator för att använda dem.
 
 ### <a name="cloud-services-configuration"></a>Cloud Services konfiguration
 
-**Cloud Services-konfigurationen** anger att poolen består av Azure Cloud Services-noder. Cloud Services tillhandahåller *endast*Windows Compute-noder.
+**Cloud Services-konfigurationen** anger att poolen består av Azure Cloud Services-noder. Cloud Services tillhandahåller *endast* Windows Compute-noder.
 
 Tillgängliga operativsystem för pooler med Cloud Services-konfiguration finns i [Kompatibilitetstabell för versioner av Azure-gästoperativsystem och SDK:er](../cloud-services/cloud-services-guestos-update-matrix.md). När du skapar en pool som innehåller Cloud Services noder måste du ange nodens storlek och dess OS- *familj* (som avgör vilka versioner av .net som installeras med operativ systemet). Cloud Services distribueras snabbare till Azure än virtuella datorer som kör Windows. Om du vill ha pooler med Windows-beräkningsnoder får du bättre distributionstid med Cloud Services.
 
@@ -80,7 +80,7 @@ Precis som med arbetsroller i Cloud Services kan du ange en *operativsystemversi
 
 ### <a name="node-agent-skus"></a>Node agent-SKU: er
 
-När du skapar en pool måste du välja lämplig **nodeAgentSkuId**, beroende på vilket operativsystem din VHD-basavbildning har. Du kan hämta en mappning av tillgängliga ID: n för Node-agenten till sina OS-avbildningar genom att anropa den [lista som stöds av Node agent-SKU: er](/rest/api/batchservice/list-supported-node-agent-skus) .
+När du skapar en pool måste du välja lämplig **nodeAgentSkuId** , beroende på vilket operativsystem din VHD-basavbildning har. Du kan hämta en mappning av tillgängliga ID: n för Node-agenten till sina OS-avbildningar genom att anropa den [lista som stöds av Node agent-SKU: er](/rest/api/batchservice/list-supported-node-agent-skus) .
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Anpassade avbildningar för virtuell datorpooler
 
@@ -127,7 +127,7 @@ En skalningsformel kan baseras på följande mått:
 
 - **Tidsmått** baseras på statistik som samlas in var femte minut under angivet antalet timmar.
 - **Resursmått** baseras på processoranvändning, bandbreddsanvändning, minnesanvändning och antalet noder.
-- **Aktivitetsmått** baseras på aktivitetens tillstånd, t.ex. *Aktiv* (köad), *Körs* eller *Slutförd*.
+- **Aktivitetsmått** baseras på aktivitetens tillstånd, t.ex. *Aktiv* (köad), *Körs* eller *Slutförd* .
 
 Om den automatiska skalningen minskar antalet beräkningsnoder i en pool måste du bestämma hur pågående aktiviteter ska hanteras vid nedskalningen. Batch tillhandahåller ett [*alternativ för noden*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) som du kan inkludera i dina formler. Du kan till exempel ange att pågående aktiviteter ska stoppas direkt och sedan placeras i kö för att köras på en annan nod eller att de ska slutföras innan noden tas bort från poolen. Observera att om du anger alternativet för nodens tilldelning som `taskcompletion` eller `retaineddata` kommer att förhindra åtgärder för att ändra storlek på poolen förrän alla aktiviteter har slutförts, eller om alla aktiviteter för kvarhållning av aktiviteter har gått ut.
 
@@ -142,7 +142,7 @@ Konfigurationsalternativet för [högsta antal aktiviteter per nod](batch-parall
 
 Standardkonfigurationen specificerar att en aktivitet i taget ska köras på en nod, men det finns scenarier där det kan vara bra om två eller fler aktiviteter kan köras samtidigt på en nod. Information om hur du kan dra fördel av flera aktiviteter per nod finns i [exempelscenariot](batch-parallel-node-tasks.md#example-scenario) i artikeln om [samtidiga nodaktiviteter](batch-parallel-node-tasks.md).
 
-Du kan också ange en *Fyllnings typ*, som bestämmer om batch sprider aktiviteterna jämnt över alla noder i en pool, eller paketerar varje nod med maximalt antal uppgifter innan aktiviteter tilldelas till en annan nod.
+Du kan också ange en *Fyllnings typ* , som bestämmer om batch sprider aktiviteterna jämnt över alla noder i en pool, eller paketerar varje nod med maximalt antal uppgifter innan aktiviteter tilldelas till en annan nod.
 
 ## <a name="communication-status"></a>Kommunikations status
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 6b953c0183943e895c8836f79c1b8e81a22fb31d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 95856db9288e5860dfab47dce506d1e7d6de1ffc
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792284"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913338"
 ---
 # <a name="quickstart-create-a-nat-gateway---arm-template"></a>Snabb start: skapa en NAT-gateway-ARM-mall
 
@@ -54,26 +54,18 @@ Den virtuella Ubuntu-datorn distribueras till ett undernät som är associerat m
 Nio Azure-resurser definieras i mallen:
 
 * **[Microsoft. Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)** : skapar en nätverks säkerhets grupp.
-
 * **[Microsoft. Network/networkSecurityGroups/securityRules](/azure/templates/microsoft.network/networksecuritygroups/securityrules)** : skapar en säkerhets regel.
-
 * **[Microsoft. Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)** : skapar en offentlig IP-adress.
-
 * **[Microsoft. Network/publicIPPrefixes](/azure/templates/microsoft.network/publicipprefixes)** : skapar ett offentligt IP-prefix.
-
 * **[Microsoft. Compute/virtualMachines](/azure/templates/Microsoft.Compute/virtualMachines)** : skapar en virtuell dator.
-
 * **[Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)** : skapar ett virtuellt nätverk.
-
 * **[Microsoft. Network/natGateways](/azure/templates/microsoft.network/natgateways)** : skapar en NAT-gateway-resurs.
-
 * **[Microsoft. Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets)** : skapar ett undernät för virtuellt nätverk.
-
 * **[Microsoft. Network/NetworkInterfaces](/azure/templates/microsoft.network/networkinterfaces)** : skapar ett nätverks gränssnitt.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-### <a name="azure-cli"></a>Azure CLI
+**Azure CLI**
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
@@ -89,7 +81,7 @@ az group deployment create \
 --template-uri  $templateUri
 ```
 
-### <a name="azure-powershell"></a>Azure PowerShell
+**Azure PowerShell**
 
 ```azurepowershell-interactive
 $location = Read-Host -Prompt "Enter the location (i.e. westcentralus)"
@@ -101,7 +93,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+**Azure-portalen**
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
 
@@ -119,7 +111,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-### <a name="azure-cli"></a>Azure CLI
+**Azure CLI**
 
 När de inte längre behövs kan du använda kommandot [AZ Group Delete](/cli/azure/group#az-group-delete) för att ta bort resurs gruppen och alla resurser som ingår i.
 
@@ -128,7 +120,7 @@ När de inte längre behövs kan du använda kommandot [AZ Group Delete](/cli/az
     --name myResourceGroupNAT
 ```
 
-### <a name="azure-powershell"></a>Azure PowerShell
+**Azure PowerShell**
 
 När de inte längre behövs kan du använda kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resurs gruppen och alla resurser som ingår i.
 
@@ -136,7 +128,7 @@ När de inte längre behövs kan du använda kommandot [Remove-AzResourceGroup](
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+**Azure-portalen**
 
 Ta bort resurs gruppen, NAT-gatewayen och alla relaterade resurser när de inte längre behövs. Välj den resurs grupp **myResourceGroupNAT** som innehåller NAT-gatewayen och välj sedan **ta bort** .
 

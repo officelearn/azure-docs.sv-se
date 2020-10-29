@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec29b6489712eeb67783aef03261a3606a390125
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88648997"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926622"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>SAP-arbetsbelastning på en virtuell Azure-dator – scenarier som stöds
 Genom att utforma SAP NetWeaver, Business en `Hybris` eller S/4HANA Systems arkitektur i Azure öppnas många olika möjligheter för olika arkitekturer och verktyg som du kan använda för att komma till en skalbar, effektiv och hög tillgänglig distribution. Även om det är beroende av det operativ system eller DBMS som används, finns det några begränsningar. Dessutom stöds inte alla scenarier som stöds lokalt på samma sätt i Azure. Det här dokumentet leder till konfigurationer med stöd för icke-hög tillgänglighet och konfigurationer med hög tillgänglighet och arkitekturer med enbart virtuella Azure-datorer. För scenarier som stöds med [Hana-stora instanser](./hana-overview-architecture.md)kan du läsa artikeln [om vilka scenarier som stöds för Hana-stora instanser](./hana-supported-scenario.md). 
@@ -46,7 +46,7 @@ I dessa konfigurationer separerar du SAP-programlagret och DBMS-skiktet till oli
 
 Den grafiska presentationen ser ut så här:
 
-![Enkel konfiguration med två nivåer](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
+![Diagram som visar en enkel konfiguration med tre nivåer.](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
 
 Den här typen av konfiguration stöds i Windows, Red Hat, SUSE och Oracle Linux för DBMS-systemen i SQL Server, Oracle, DB2, SAP HANA, maxDB och SAP ASE för produktion och icke-produktions ärenden. Det här är standard distributions konfigurationen för [Azure Hana-stora instanser](./hana-overview-architecture.md). För enkelhetens användning skiljer vi inte mellan SAP-centrala tjänster och SAP-dialogrutor i SAP-Programskiktet. I den här enkla konfigurationen på tre nivåer skulle det inte finnas något skydd för hög tillgänglighet för SAP Central Services.
 
@@ -83,7 +83,7 @@ I många fall distribueras flera dialog instanser på Bare Metal-servrar eller �
 
 Vid konfiguration på tre nivåer där flera SAP-dialogrutor körs i virtuella Azure-datorer kan det se ut så här:
 
-![Flera DBMS-instanser i en enhet](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
+![Diagram som visar en konfiguration på tre nivåer där flera instansen av SAP-dialog rutor körs i virtuella Azure-datorer.](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
 
 För enkelhetens användning skiljer vi inte mellan SAP-centrala tjänster och SAP-dialogrutor i SAP-Programskiktet. I den här enkla konfigurationen på tre nivåer skulle det inte finnas något skydd för hög tillgänglighet för SAP Central Services. För produktions system rekommenderar vi inte att du lämnar SAP Central Services oskyddade. Mer information om så kallade multi-SID-konfigurationer runt SAP Central-instanser och hög tillgänglighet för sådana konfigurationer med flera SID finns i senare avsnitt i det här dokumentet.
 
@@ -208,7 +208,7 @@ Konfigurationen dokumenteras i [hög tillgänglighet för SAP NetWeaver på virt
 
 Ett multi-SID-kluster med en transaktionskö för replikering ser ut som
 
-![DBMS-och ASCS HA-konfiguration](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
+![Diagram som visar ett kluster med flera säkerhets-ID: et.](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
 
 
 ## <a name="sap-hana-scale-out-scenarios"></a>SAP HANA skalnings scenarier

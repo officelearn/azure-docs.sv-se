@@ -5,49 +5,38 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 047e2855949b800a88ca87bcc50e0df06f420aa8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 10/23/2020
+ms.openlocfilehash: 723a1fbe05919f2e797c7b29715cd3995bf42cad
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475506"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926300"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimera kostnaden för flera regioner i Azure Cosmos DB
 
-Du kan när som helst lägga till och ta bort regioner till ditt Azure Cosmos-konto. Det data flöde som du konfigurerar för olika Azure Cosmos-databaser och behållare är reserverade i varje region som är kopplad till ditt konto. Om det data flöde som har allokerats per timme, det vill säga summan av RU/s som kon figurer ATS över alla databaser och behållare för ditt Azure Cosmos-konto är `T` och antalet Azure-regioner som är associerade med ditt databas konto är `N` , är det totala etablerade data flödet för ditt Cosmos-konto för en viss timme lika med:
-
-1. `T x N RU/s` Om ditt Azure Cosmos-konto har kon figurer ATS med en enda Skriv region. 
-
-1. `T x (N+1) RU/s` Om ditt Azure Cosmos-konto har kon figurer ATS med alla regioner som kan bearbeta skrivningar. 
+Du kan när som helst lägga till och ta bort regioner till ditt Azure Cosmos-konto. Det data flöde som du konfigurerar för olika Azure Cosmos-databaser och behållare är reserverade i varje region som är kopplad till ditt konto. Om det data flöde som har allokerats per timme, det vill säga summan av RU/s som kon figurer ATS över alla databaser och behållare för ditt Azure Cosmos-konto är `T` och antalet Azure-regioner som är associerade med ditt databas konto är `N` , är det totala etablerade data flödet för ditt Cosmos-konto för en viss timme lika med `T x N RU/s` .
 
 Ett etablerat dataflöde med en enda skrivningsregion kostar 0,008 USD/timme per 100 RU/s och ett etablerat dataflöde med flera skrivbara regioner kostar 0,016 USD/timme per 100 RU/s. Mer information finns på sidan med Azure Cosmos DB [prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="costs-for-multiple-write-regions"></a>Kostnader för flera Skriv regioner
 
-I ett system med flera regioner ökar de tillgängliga ru: er för Skriv åtgärder `N` när `N` är antalet skriv regioner. Till skillnad från enskilda region skrivningar är varje region nu skrivbar och bör stödja konflikt lösning. Mängden arbets belastning för skrivare har ökat. Från kostnads planerings platsen för att utföra `M` ru/s-värd för skrivningar i hela världen måste du etablera M `RUs` på en container-eller databas nivå. Du kan sedan lägga till så många regioner som du vill och använda dem för skrivningar för att utföra ru-värden `M` i världs omspännande skrivningar. 
+I ett system med flera regioner ökar de tillgängliga ru: er för Skriv åtgärder `N` när `N` är antalet skriv regioner. Till skillnad från enskilda region skrivningar är varje region nu skrivbar och har stöd för konflikt lösning. Från kostnads planerings platsen för att utföra `M` ru/s-värd för skrivningar i hela världen måste du etablera M `RUs` på en container-eller databas nivå. Du kan sedan lägga till så många regioner som du vill och använda dem för skrivningar för att utföra ru-värden `M` i världs omspännande skrivningar.
 
 ### <a name="example"></a>Exempel
 
-Se till att du har en behållare i västra USA som tillhandahålls med data flöde 10 000 RU/s och lagrar 1 TB data den här månaden. Vi antar att du lägger till tre regioner – östra USA, norra Europa och Asien, östra, var och en med samma lagring och data flöde och du vill kunna skriva till behållarna i alla fyra regionerna från din globalt distribuerade app. Den totala månads fakturan (antar 31 dagar) är följande:
+Se till att du har en behållare i västra USA som kon figurer ATS för skrivningar i en region, som tillhandahålls med data flöde 10 000 RU/s och lagrar 1 TB data den här månaden. Vi antar att du lägger till en region, östra USA, med samma lagring och data flöde och du vill kunna skriva till behållarna i båda regionerna från din app. Den totala månads fakturan (antar 31 dagar) är följande:
 
 |**Objekt**|**Användning (månatlig)**|**Hastighet**|**Månatlig kostnad**|
 |----|----|----|----|
-|Data flödes faktura för container i USA, västra (flera Skriv regioner) |10 000 RU/s * 24 * 31 |$0,016 per 100 RU/s per timme |$1 190,40 |
-|Data flödes faktura för 3 ytterligare regioner – östra USA, norra Europa och Asien, östra (flera Skriv regioner) |(3 + 1) * 10 000 RU/s * 24 * 31 |$0,016 per 100 RU/s per timme |$4 761,60 |
+|Data flödes faktura för container i USA, västra (enkla Skriv regioner) |10 000 RU/s * 24 timmar * 31 dagar |$0,008 per 100 RU/s per timme |$584,06 |
+|Data flödes faktura för container i 2 regioner – västra USA & USA, östra (flera Skriv regioner) |2 * 10 000 RU/s * 24 timmar * 31 dagar|$0,016 per 100 RU/s per timme |$2 336,26 |
 |Lagrings faktura för behållare i västra USA |1 TB (eller 1 024 GB) |$0,25/GB |$256 |
-|Lagrings faktura för 3 ytterligare regioner – östra USA, norra Europa och Asien, östra |3 * 1 TB (eller 3 072 GB) |$0,25/GB |$768 |
-|**Totalt**|||**$6 976** |
+|Lagrings faktura för 2 regioner – västra USA & USA, östra |2 * 1 TB (eller 3 072 GB) |$0,25/GB |$768 |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Förbättra data flödes användningen baserat på per region
 
-Om du har ineffektiv användning, till exempel en eller flera underutnyttjade eller överutnyttjade regioner, kan du utföra följande steg för att förbättra data flödes användningen:  
-
-1. Se till att optimera det etablerade data flödet (ru: er) i Skriv regionen först och gör sedan den maximala användningen av ru: er i Läs regioner genom att använda ändra feed från det skrivskyddade området osv. 
-
-2. Läsningar och skrivningar för flera Skriv regioner kan skalas över alla regioner som är associerade med Azure Cosmos-kontot. 
-
-3. Övervaka aktiviteten i dina regioner och du kan lägga till och ta bort regioner på begäran för att skala ditt Skriv-och skriv flöde.
+Om du har ineffektiv användning, till exempel en eller flera använda Läs regioner, kan du vidta åtgärder för att göra den maximala användningen av ru: er i Läs regioner genom att använda ändra feed från den skrivskyddade regionen eller flytta den till en annan sekundär om överutnyttjad. Du måste se till att optimera det etablerade data flödet (ru: er) i Skriv regionen först. Skriver kostnad mer än läsningar om inte mycket stora frågor så att du kan vara utmanande. Generellt, övervaka förbrukat data flöde i dina regioner och Lägg till eller ta bort regioner på begäran för att skala ditt Läs-och skriv flöde, så att du vet hur lång tid det tar för alla appar som distribueras i samma region.
 
 ## <a name="next-steps"></a>Nästa steg
 

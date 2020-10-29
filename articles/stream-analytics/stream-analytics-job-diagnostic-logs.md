@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: ed5c7eee1e8261c65decba4748e1d9c6a4d7212b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18270a2f435428824714067749fc18ce2addc535
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91459820"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913049"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Felsöka Azure Stream Analytics med hjälp av resurs loggar
 
@@ -38,13 +38,13 @@ Stream Analytics erbjuder två typer av loggar:
 
 Aktivitets loggarna är aktiverat som standard och ger höga insikter om åtgärder som utförs av ditt Stream Analytics jobb. Information som finns i aktivitets loggar kan hjälpa dig att hitta rotor saken till problem som påverkar ditt jobb. Utför följande steg för att använda aktivitets loggar i Stream Analytics:
 
-1. Logga in på Azure Portal och välj **aktivitets logg** under **Översikt**.
+1. Logga in på Azure Portal och välj **aktivitets logg** under **Översikt** .
 
    ![Stream Analytics aktivitets logg](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
 
 2. Du kan se en lista över åtgärder som har utförts. Alla åtgärder som gjorde att jobbet misslyckades har en röd informations bubbla.
 
-3. Klicka på en åtgärd för att visa dess sammanfattningsvy. Informationen här är ofta begränsad. Om du vill ha mer information om åtgärden klickar du på **JSON**.
+3. Klicka på en åtgärd för att visa dess sammanfattningsvy. Informationen här är ofta begränsad. Om du vill ha mer information om åtgärden klickar du på **JSON** .
 
    ![Sammanfattning av Stream Analytics aktivitets loggs åtgärd](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
@@ -62,29 +62,29 @@ Det rekommenderas starkt att du aktiverar resurs loggar och skickar dem till Azu
 
 1.  Skapa en Log Analytics arbets yta om du inte redan har en. Vi rekommenderar att du har din Log Analytics arbets yta i samma region som ditt Stream Analytics-jobb.
 
-2.  Logga in på Azure Portal och navigera till ditt Stream Analytics-jobb. Under **övervakning** **väljer du diagnostikloggar.** Välj sedan **Aktivera diagnostik**.
+2.  Logga in på Azure Portal och navigera till ditt Stream Analytics-jobb. Under **övervakning** **väljer du diagnostikloggar.** Välj sedan **Aktivera diagnostik** .
 
     ![Blad navigering till resurs loggar](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Ange ett **namn** i **namn på diagnostikinställningar** och markera kryss rutorna för att **köra** och **Redigera** under **logg**och **AllMetrics** under **mått**. Välj sedan **Skicka till Log Analytics** och välj din arbets yta. Klicka på **Spara**.
+2.  Ange ett **namn** i **namn på diagnostikinställningar** och markera kryss rutorna för att **köra** och **Redigera** under **logg** och **AllMetrics** under **mått** . Välj sedan **Skicka till Log Analytics** och välj din arbets yta. Klicka på **Spara** .
 
     ![Inställningar för resurs loggar](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
 3. När ditt Stream Analytics jobb startar dirigeras resurs loggar till Log Analytics-arbetsytan. Om du vill visa resurs loggar för ditt jobb väljer du **loggar** i avsnittet **övervakning** .
 
-   ![Resurs loggar under övervakning](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
+   ![Skärm bild som visar menyn allmänt med loggar valt.](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs.png)
 
-4. Stream Analytics innehåller fördefinierade frågor som gör det enkelt att söka efter de loggar som du är intresse rad av. Du kan välja valfri fördefinierad fråga i den vänstra rutan och sedan välja **Kör**. Resultatet av frågan visas i det nedre fönstret. 
+4. Stream Analytics innehåller fördefinierade frågor som gör det enkelt att söka efter de loggar som du är intresse rad av. Du kan välja valfri fördefinierad fråga i den vänstra rutan och sedan välja **Kör** . Resultatet av frågan visas i det nedre fönstret. 
 
-   ![Resurs loggar under övervakning](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
+   ![Skärm bild som visar loggar för ett Stream Analytics jobb.](./media/stream-analytics-job-diagnostic-logs/logs-example.png)
 
 ## <a name="resource-log-categories"></a>Resurs loggs kategorier
 
 Azure Stream Analytics fångar två kategorier av resurs loggar:
 
-* **Redigering**: fångar logg händelser som är relaterade till jobb redigerings åtgärder, till exempel skapande av jobb, lägga till och ta bort indata och utdata, lägga till och uppdatera frågan och starta eller stoppa jobbet.
+* **Redigering** : fångar logg händelser som är relaterade till jobb redigerings åtgärder, till exempel skapande av jobb, lägga till och ta bort indata och utdata, lägga till och uppdatera frågan och starta eller stoppa jobbet.
 
-* **Körning**: fångar händelser som inträffar under jobb körningen.
+* **Körning** : fångar händelser som inträffar under jobb körningen.
     * Anslutningsfel
     * Fel vid data bearbetning, inklusive:
         * Händelser som inte följer frågedefinitionen (felmatchade fält typer och värden, saknade fält osv.)
@@ -98,11 +98,11 @@ Alla loggar lagras i JSON-format. Varje post har följande gemensamma sträng f�
 Namn | Beskrivning
 ------- | -------
 time | Tidsstämpel (i UTC) för loggen.
-resourceId | ID för den resurs som åtgärden ägde rum i, i versaler. Den innehåller prenumerations-ID, resurs grupp och jobb namn. Till exempel **/Subscriptions/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/My-Resource-Group/providers/Microsoft. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
-category | Logg kategori, antingen **körning** eller **redigering**.
-operationName | Namnet på den åtgärd som loggas. Till exempel **skicka händelser: skrivning av SQL-utdata har misslyckats till mysqloutput**.
-status | Status för åtgärden. Till exempel **misslyckad** eller **lyckad**.
-nivå | Loggnings nivå. Till exempel **fel**, **Varning**eller **information**.
+resourceId | ID för den resurs som åtgärden ägde rum i, i versaler. Den innehåller prenumerations-ID, resurs grupp och jobb namn. Till exempel **/Subscriptions/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/My-Resource-Group/providers/Microsoft. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB** .
+category | Logg kategori, antingen **körning** eller **redigering** .
+operationName | Namnet på den åtgärd som loggas. Till exempel **skicka händelser: skrivning av SQL-utdata har misslyckats till mysqloutput** .
+status | Status för åtgärden. Till exempel **misslyckad** eller **lyckad** .
+nivå | Loggnings nivå. Till exempel **fel** , **Varning** eller **information** .
 properties | Logg post-detaljerad information, serialiserad som en JSON-sträng. Mer information finns i följande avsnitt i den här artikeln.
 
 ### <a name="execution-log-properties-schema"></a>Schema för körnings logg egenskaper
@@ -117,16 +117,16 @@ Namn | Beskrivning
 ------- | -------
 Källa | Namnet på det indata eller utdata där felet uppstod.
 Meddelande | Meddelande som är kopplat till felet.
-Typ | Typ av fel. Till exempel **DataConversionError**, **CsvParserError**eller **ServiceBusPropertyColumnMissingError**.
+Typ | Typ av fel. Till exempel **DataConversionError** , **CsvParserError** eller **ServiceBusPropertyColumnMissingError** .
 Data | Innehåller data som är användbara för att korrekt hitta orsaken till felet. Omfattas av trunkering, beroende på storlek.
 
 I väntan på värdet **operationName** har data fel följande schema:
 
 * **Serialisering av händelser** sker under händelse Läs åtgärder. De inträffar när data i indata inte uppfyller synkroniseringsschemat av något av följande skäl:
 
-   * *Typ matchnings fel vid händelse (de) serialisering*: identifierar det fält som orsakar felet.
+   * *Typ matchnings fel vid händelse (de) serialisering* : identifierar det fält som orsakar felet.
 
-   * *Det går inte att läsa en händelse, ogiltig serialisering*: visar information om platsen i indata där felet uppstod. Inkluderar BLOB-namn för BLOB-indata, förskjutning och ett exempel på data.
+   * *Det går inte att läsa en händelse, ogiltig serialisering* : visar information om platsen i indata där felet uppstod. Inkluderar BLOB-namn för BLOB-indata, förskjutning och ett exempel på data.
 
 * **Sändnings händelser** inträffar under Skriv åtgärder. De identifierar den strömmande händelse som orsakade felet.
 
@@ -138,7 +138,7 @@ Namn | Beskrivning
 -------- | --------
 Fel | valfritt Fel information. Detta är vanligt vis undantags information om det är tillgängligt.
 Meddelande| Logg meddelande.
-Typ | Typ av meddelande. Mappar till intern kategorisering av fel. Till exempel **JobValidationError** eller **BlobOutputAdapterInitializationFailure**.
+Typ | Typ av meddelande. Mappar till intern kategorisering av fel. Till exempel **JobValidationError** eller **BlobOutputAdapterInitializationFailure** .
 Korrelations-ID | GUID som unikt identifierar jobb körningen. Alla körnings logg poster från den tidpunkt då jobbet startar tills jobbet stoppas har samma **korrelations-ID-** värde.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
-ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc8e7314c941035207ecf809a9d85ef46bd58379
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306641"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913763"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>Använd privat länk i virtuellt WAN
 
@@ -72,7 +72,7 @@ $ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 10.1.3.75
 ```
 
-Som du kan se använder vi en särskild SQL-fråga som ger oss käll-IP-adressen som SQL-servern ser från klienten. I det här fallet ser servern klienten med dess privata IP-adress ( `10.1.3.75` ), vilket innebär att trafiken inte färdas via det offentliga Internet, utan går direkt till den privata slut punkten.
+Som du kan se använder vi en särskild SQL-fråga som ger oss käll-IP-adressen som SQL-servern ser från klienten. I det här fallet ser servern klienten med dess privata IP-adress ( `10.1.3.75` ), vilket innebär att trafiken går från det virtuella nätverket direkt till den privata slut punkten.
 
 Observera att du måste ange variablerna `username` och `password` matcha de autentiseringsuppgifter som definierats i Azure SQL Database för att se att exemplen i den här hand boken fungerar.
 

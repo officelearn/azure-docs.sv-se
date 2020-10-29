@@ -2,19 +2,18 @@
 title: Använd körnings profilen för att utvärdera frågor i Azure Cosmos DB Gremlin-API
 description: Lär dig hur du felsöker och förbättrar dina Gremlin-frågor med hjälp av steget kör profil.
 services: cosmos-db
-author: jasonwhowell
-manager: kfile
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
-ms.author: jasonh
-ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.author: chrande
+ms.openlocfilehash: ff49889977bc4e5d9097d81ea7b05387900bedd4
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490602"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926384"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Använda stegen i körningsprofilen för att utvärdera Gremlin-frågor
 
@@ -139,12 +138,12 @@ Följande är ett kommenterat exempel på utdata som kommer att returneras:
 ## <a name="execution-profile-response-objects"></a>Svars objekt för körnings profil
 
 Svaret på en executionProfile ()-funktion kommer att ge en hierarki med JSON-objekt med följande struktur:
-  - **Gremlin-åtgärds objekt**: representerar hela Gremlin-åtgärden som kördes. Innehåller följande egenskaper.
+  - **Gremlin-åtgärds objekt** : representerar hela Gremlin-åtgärden som kördes. Innehåller följande egenskaper.
     - `gremlin`: Den explicita Gremlin-instruktion som kördes.
     - `totalTime`: Tiden, i millisekunder, som körningen av steget i. 
     - `metrics`: En matris som innehåller var och en av de Cosmos DB runtime-operatörer som kördes för att uppfylla frågan. Den här listan sorteras i körnings ordning.
     
-  - **Cosmos DB runtime-operatörer**: representerar var och en av komponenterna i hela Gremlin-åtgärden. Den här listan sorteras i körnings ordning. Varje-objekt innehåller följande egenskaper:
+  - **Cosmos DB runtime-operatörer** : representerar var och en av komponenterna i hela Gremlin-åtgärden. Den här listan sorteras i körnings ordning. Varje-objekt innehåller följande egenskaper:
     - `name`: Namnet på operatorn. Detta är den typ av steg som utvärderades och kördes. Läs mer i tabellen nedan.
     - `time`: Hur lång tid i millisekunder som en specifik operatör vidtog.
     - `annotations`: Innehåller ytterligare information, som är speciell för den operator som kördes.
@@ -155,7 +154,7 @@ Svaret på en executionProfile ()-funktion kommer att ge en hierarki med JSON-ob
     - `storeOps.count`: Representerar antalet resultat som den här lagrings åtgärden returnerade.
     - `storeOps.size`: Representerar storleken i byte för resultatet av en specifik lagrings åtgärd.
 
-Cosmos DB Gremlin runtime-operator|Beskrivning
+Cosmos DB Gremlin runtime-operator|Description
 ---|---
 `GetVertices`| Det här steget hämtar en predikat uppsättning objekt från beständiga skiktet. 
 `GetEdges`| Det här steget hämtar de kanter som gränsar till en uppsättning formhörn. Det här steget kan resultera i en eller flera lagrings åtgärder.
@@ -177,7 +176,7 @@ Följande är exempel på vanliga optimeringar som kan Spotted med hjälp av kö
 
 ### <a name="blind-fan-out-query-patterns"></a>Fråga mönster för blinda fläktar
 
-Antag följande körnings profil svar från en **partitionerad graf**:
+Antag följande körnings profil svar från en **partitionerad graf** :
 
 ```json
 [
@@ -220,7 +219,7 @@ Antag följande körnings profil svar från en **partitionerad graf**:
 
 Följande slut satser kan göras från den:
 - Frågan är en enskild ID-sökning, eftersom Gremlin-instruktionen följer mönstret `g.V('id')` .
-- Bedömnings från `time` måttet, verkar svars tiden för den här frågan vara hög eftersom det är [mer än 10ms för en enda punkt-Läs åtgärd](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide).
+- Bedömnings från `time` måttet, verkar svars tiden för den här frågan vara hög eftersom det är [mer än 10ms för en enda punkt-Läs åtgärd](./introduction.md#guaranteed-speed-at-any-scale).
 - Om vi tittar på `storeOps` objektet kan vi se att `fanoutFactor` är `5` , vilket innebär att [5 partitioner](./partitioning-overview.md) har öppnats av den här åtgärden.
 
 I slutet av den här analysen kan vi fastställa att den första frågan har åtkomst till fler partitioner än vad som behövs. Detta kan åtgärdas genom att ange partitionerings nyckeln i frågan som ett predikat. Detta leder till mindre latens och mindre kostnad per fråga. Lär dig mer om [diagram partitionering](graph-partitioning.md). En mer optimal fråga är `g.V('tt0093640').has('partitionKey', 't1001')` .

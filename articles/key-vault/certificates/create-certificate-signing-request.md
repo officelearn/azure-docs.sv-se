@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: ad3dd64bb55ccd657b74bacff3e4441ce63f0cf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cea061c1fd36bed9fa1e43c874fbca347707f78d
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569381"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925875"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Skapa och sammanfoga CSR i Key Vault
 
@@ -34,7 +34,7 @@ Följande steg hjälper dig att skapa ett certifikat från certifikat utfärdare
 
 
 
-1.  Skapa först **certifikat principen**. Key Vault kan inte registrera eller förnya certifikatet från utfärdaren åt användaren eftersom CA: n som valts i det här scenariot inte stöds, och därför har IssuerName angetts till okänd.
+1.  Skapa först **certifikat principen** . Key Vault kan inte registrera eller förnya certifikatet från utfärdaren åt användaren eftersom CA: n som valts i det här scenariot inte stöds, och därför har IssuerName angetts till okänd.
 
     ```azurepowershell
     $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
@@ -62,19 +62,19 @@ Följande steg hjälper dig att skapa ett certifikat från certifikat utfärdare
 ### <a name="azure-portal"></a>Azure Portal
 
 1.  Om du vill skapa en kund service representant för den certifikat utfärdare som du väljer navigerar du till det nyckel valv som du vill lägga till certifikatet i.
-2.  Välj **certifikat**på sidan Key Vault egenskaper.
+2.  Välj **certifikat** på sidan Key Vault egenskaper.
 3.  Välj fliken **generera/importera** .
 4.  På skärmen **skapa ett certifikat** väljer du följande värden:
     - **Metod för att skapa certifikat:** Skapas.
     - **Certifikat namn:** ContosoManualCSRCertificate.
     - **Typ av certifikat utfärdare (ca):** Certifikat utfärdat av en icke-integrerad certifikat utfärdare
     - **Ämne:**`"CN=www.contosoHRApp.com"`
-    - Välj de andra värdena som du vill. Klicka på **Skapa**.
+    - Välj de andra värdena som du vill. Klicka på **Skapa** .
 
     ![Certifikategenskaper](../media/certificates/create-csr-merge-csr/create-certificate.png)
 6.  Du kommer att se att certifikatet nu har lagts till i listan certifikat. Välj det här nya certifikatet som du nyss skapade. Certifikatets aktuella tillstånd är inaktive rad eftersom det inte har utfärdats av certifikat utfärdaren än.
-7. Klicka på fliken **certifikat åtgärd** och välj **Hämta CSR**.
- ![Certifikategenskaper](../media/certificates/create-csr-merge-csr/download-csr.png)
+7. Klicka på fliken **certifikat åtgärd** och välj **Hämta CSR** .
+ ![Skärm bild som visar knappen Hämta CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
 8.  Ta. CSR-filen till CA: n för begäran om att bli signerad.
 9.  När begäran har signerats av certifikat utfärdaren ska du ta tillbaka certifikat filen för att **slå samman den signerade begäran** på skärmen för samma certifikat åtgärd.
@@ -98,7 +98,7 @@ Exempel
 >Om du begär ett DV-certifikat med alla dessa uppgifter i CSR kan certifikat utfärdaren avvisa begäran eftersom CA kanske inte kan verifiera all information i begäran. Om du begär ett OV-certifikat blir det mer lämpligt att lägga till all information i CSR.
 
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsök
 
 - **Fel typ: den offentliga nyckeln för certifikatet för slutentiteten i det angivna X. 509-certifikatets innehåll matchar inte den offentliga delen av den angivna privata nyckeln. Kontrol lera att certifikatet är giltigt** . det här felet kan inträffa om du inte slår samman kund service representanten med samma CSR-begäran som initieras. Varje gång en CSR skapas, skapas en privat nyckel som måste matchas vid sammanslagning av den signerade begäran.
     

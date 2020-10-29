@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/12/2020
-ms.openlocfilehash: af03dde724b4f1ec75c9505bb2f9311ad09f5fd0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/28/2020
+ms.openlocfilehash: 5969c449afe203ec9a014d2da78b56eeeb837590
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635923"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913372"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure Blob Storage med hjälp av Azure Data Factory
 
@@ -48,9 +48,6 @@ För kopierings aktiviteten stöder denna Blob Storage Connector:
 - Kopiera blobbar som är eller parsa eller generera blobbar med [fil format och komprimerings-codec som stöds](supported-file-formats-and-compression-codecs.md).
 - [Sparar metadata för filen under kopieringen](#preserving-metadata-during-copy).
 
->[!IMPORTANT]
->Om du aktiverar alternativet **Tillåt betrodda Microsoft-tjänster för att komma åt det här lagrings kontot** i Azure Storage brand Väggs inställningar och vill använda Azure integration runtime för att ansluta till Blob Storage måste du använda [hanterad identitets autentisering](#managed-identity).
-
 ## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -67,7 +64,8 @@ Denna Blob Storage-anslutning har stöd för följande typer av autentisering. S
 - [Hanterade identiteter för Azure-resurs-autentisering](#managed-identity)
 
 >[!NOTE]
->När du använder PolyBase för att läsa in data i Azure Synapse Analytics (tidigare SQL Data Warehouse), om din källa eller mellanlagring av blob-lagring har kon figurer ATS med en Azure Virtual Network-slutpunkt, måste du använda hanterad identitetsautentisering som krävs av PolyBase. Du måste också använda den egen värdbaserade integrerings körningen med version 3,18 eller senare. Mer konfigurations krav finns i avsnittet [hanterad identitets autentisering](#managed-identity) .
+>- Om du vill använda den offentliga Azure integration runtime för att ansluta till blob-lagringen genom att använda alternativet **Tillåt att betrodda Microsoft-tjänster för att komma åt det här lagrings kontot** är aktiverat på Azure Storage brand vägg, måste du använda [hanterad identitets autentisering](#managed-identity).
+>- När du använder PolyBase-eller COPY-uttryck för att läsa in data i Azure Synapse Analytics, måste du använda hanterad identitetsautentisering som krävs av Synapse för att din källa eller mellanlagring ska vara konfigurerad med en Azure Virtual Network-slutpunkt. Mer konfigurations krav finns i avsnittet [hanterad identitets autentisering](#managed-identity) .
 
 >[!NOTE]
 >Azure HDInsight och Azure Machine Learning-aktiviteter stöder endast autentisering som använder Azure Blob Storage-konto nycklar.
@@ -286,7 +284,7 @@ Allmän information om Azure Storage autentisering finns i [autentisera åtkomst
     - **Som mottagare** , i **åtkomst kontroll (IAM)** , beviljar du minst rollen **Storage BLOB data Contributor** .
 
 >[!IMPORTANT]
->Om du använder PolyBase för att läsa in data från Blob Storage (som en källa eller som mellanlagring) till Azure Synapse Analytics (tidigare SQL Data Warehouse) när du använder hanterad identitetsautentisering för Blob Storage kontrollerar du att du följer steg 1 och 2 i [den här vägledningen](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). De här stegen registrerar servern med Azure AD och tilldelar rollen Storage BLOB data Contributor till servern. Data Factory hanterar resten. Om du har konfigurerat Blob Storage med en Azure Virtual Network-slutpunkt för att använda PolyBase för att läsa in data från den, måste du använda hanterad identitetsautentisering som krävs av PolyBase.
+>Om du använder PolyBase-eller COPY-uttryck för att läsa in data från Blob Storage (som en källa eller som mellanlagring) till Azure Synapse Analytics, måste du följa steg 1 till 3 i [den här vägledningen](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)när du använder hanterad identitetsautentisering för Blob Storage. De här stegen registrerar servern med Azure AD och tilldelar rollen Storage BLOB data Contributor till servern. Data Factory hanterar resten. Om du konfigurerar Blob Storage med en Azure Virtual Network-slutpunkt måste du också ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** som krävs av Synapse.
 
 Dessa egenskaper stöds för en länkad Azure Blob Storage-tjänst:
 

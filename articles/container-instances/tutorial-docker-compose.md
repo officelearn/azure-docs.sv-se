@@ -2,14 +2,14 @@
 title: Självstudie – använda Docker Compose för att distribuera grupper med flera behållare
 description: Använd Docker Compose för att skapa och köra ett program med flera behållare och sedan hämta programmet i Azure Container Instances
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 10/28/2020
 ms.custom: ''
-ms.openlocfilehash: 1e8a5cd856358a0dc3e9c356cb3a55f75db29c86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90709686"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913848"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Självstudie: Distribuera en grupp med flera behållare med hjälp av Docker Compose 
 
@@ -33,7 +33,7 @@ Den här artikeln innehåller följande avsnitt:
 > * Skapa en Azure-kontext för Docker
 > * Hämta programmet i Azure Container Instances
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure CLI** – du måste ha Azure CLI installerat på den lokala datorn. Version 2.10.1 eller senare rekommenderas. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -67,14 +67,16 @@ I katalogen är program käll koden och en för hands skapad Docker-fil, Docker-
 version: '3'
 services:
   azure-vote-back:
-    image: redis
+    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
     container_name: azure-vote-back
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
     ports:
         - "6379:6379"
 
   azure-vote-front:
     build: ./azure-vote
-    image: azure-vote-front
+    image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
     container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
@@ -84,7 +86,7 @@ services:
 
 `azure-vote-front`Gör följande två ändringar i konfigurationen:
 
-1. Uppdatera `image` egenskapen i `azure-vote-front` tjänsten. Prefix namnet på avbildningen med inloggnings Server namnet för ditt Azure Container Registry, \<acrName\> . azurecr.io. Om registret till exempel heter *registret*, är namnet på inloggnings servern *myregistry.azurecr.io* (alla gemener) och egenskapen image är sedan `myregistry.azurecr.io/azure-vote-front` .
+1. Uppdatera `image` egenskapen i `azure-vote-front` tjänsten. Prefix namnet på avbildningen med inloggnings Server namnet för ditt Azure Container Registry, \<acrName\> . azurecr.io. Om registret till exempel heter *registret* , är namnet på inloggnings servern *myregistry.azurecr.io* (alla gemener) och egenskapen image är sedan `myregistry.azurecr.io/azure-vote-front` .
 1. Ändra `ports` mappningen till `80:80` . Spara filen.
 
 Den uppdaterade filen bör se ut ungefär så här:
@@ -93,8 +95,10 @@ Den uppdaterade filen bör se ut ungefär så här:
 version: '3'
 services:
   azure-vote-back:
-    image: redis
+    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
     container_name: azure-vote-back
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
     ports:
         - "6379:6379"
 
@@ -128,7 +132,7 @@ $ docker images
 
 REPOSITORY                                TAG        IMAGE ID            CREATED             SIZE
 myregistry.azurecr.io/azure-vote-front    latest     9cc914e25834        40 seconds ago      944MB
-redis                                     latest     a1b99da73d05        7 days ago          104MB
+mcr.microsoft.com/oss/bitnami/redis       6.0.8      3a54a920bb6c        4 weeks ago          103MB
 tiangolo/uwsgi-nginx-flask                python3.6  788ca94b2313        9 months ago        9444MB
 ```
 
@@ -137,9 +141,9 @@ Kör kommandot [docker ps](https://docs.docker.com/engine/reference/commandline/
 ```
 $ docker ps
 
-CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                           NAMES
-82411933e8f9        myregistry.azurecr.io/azure-vote-front  "/entrypoint.sh /sta…"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:80->80/tcp   azure-vote-front
-b68fed4b66b6        redis                                   "docker-entrypoint.s…"   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
+CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                           NAMES
+82411933e8f9        myregistry.azurecr.io/azure-vote-front     "/entrypoint.sh /sta…"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:80->80/tcp   azure-vote-front
+b62b47a7d313        mcr.microsoft.com/oss/bitnami/redis:6.0.8  "/opt/bitnami/script…"   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
 ```
 
 Om du vill visa programmet som körs anger du `http://localhost:80` i en lokal webbläsare. Exempelprogrammet läses in, som du ser i följande exempel:
@@ -205,16 +209,16 @@ docker ps
 Exempel på utdata:
 
 ```
-CONTAINER ID                           IMAGE                                    COMMAND             STATUS              PORTS
-azurevotingappredis_azure-vote-back    redis                                                        Running             52.179.23.131:6379->6379/tcp
-azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                       Running             52.179.23.131:80->80/tcp
+CONTAINER ID                           IMAGE                                         COMMAND             STATUS              PORTS
+azurevotingappredis_azure-vote-back    mcr.microsoft.com/oss/bitnami/redis:6.0.8                         Running             52.179.23.131:6379->6379/tcp
+azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                            Running             52.179.23.131:80->80/tcp
 ```
 
 Om du vill se det program som körs i molnet anger du den visade IP-adressen i en lokal webbläsare. I det här exemplet anger du `52.179.23.131` . Exempelprogrammet läses in, som du ser i följande exempel:
 
 :::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="Bild av röstnings app":::
 
-Om du vill se loggarna för klient dels behållaren kör du kommandot [Docker-loggar](https://docs.docker.com/engine/reference/commandline/logs) . Exempel:
+Om du vill se loggarna för klient dels behållaren kör du kommandot [Docker-loggar](https://docs.docker.com/engine/reference/commandline/logs) . Till exempel:
 
 ```console
 docker logs azurevotingappredis_azure-vote-front

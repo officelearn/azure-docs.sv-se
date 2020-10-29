@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 6dfee84c44643823a4ec76c32e750febc6646be5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9405eb01dbe2d7ea9d4a9e64bf7dd79ca356e9f5
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908065"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926996"
 ---
 # <a name="evaluate-model-module"></a>Utvärdera modell modul
 
@@ -34,13 +34,21 @@ Använd den här modulen för att mäta noggrannheten för en utbildad modell. D
 
 
 ## <a name="how-to-use-evaluate-model"></a>Använda utvärdera modell
-1. Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) eller resultat data uppsättningens utdata från [tilldela data till kluster](./assign-data-to-clusters.md) till den vänstra Indataporten för **utvärdera modell**. 
+1. Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) eller resultat data uppsättningens utdata från [tilldela data till kluster](./assign-data-to-clusters.md) till den vänstra Indataporten för **utvärdera modell** . 
     > [!NOTE] 
     > Om du använder moduler som "Välj kolumner i data uppsättning" för att välja en del av data uppsättningen för indata, se till att kolumnen verklig etikett (används i träning), kolumnen "beräknade sannolikheter" och "score etiketter" finns för att beräkna mått som AUC, precision för binära klassificering/avvikelse identifiering.
     > Den faktiska etikett kolumnen, kolumnen scored etiketter finns för att beräkna mått för klassificering/regression i flera klasser.
     > Kolumnen tilldelningar, kolumnerna DistancesToClusterCenter nej. X ' (X är centroid-index, sträcker sig från 0,..., antal centroids-1) för att beräkna mått för klustring.
 
-2. Valfritt Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) eller resultat data uppsättningens utdata från tilldela data till kluster för den andra modellen till den **högra** Indataporten för **utvärdera modell**. Du kan enkelt jämföra resultat från två olika modeller på samma data. De två indatavärdena ska vara av samma typ av algoritm. Eller så kan du jämföra resultat från två olika körningar över samma data med olika parametrar.
+    > [!IMPORTANT]
+    > + Om du vill utvärdera resultaten ska den utgående data uppsättningen innehålla särskilda namn på resultat kolumnen som uppfyller kraven för utvärdera modell modul.
+    > + `Labels`Kolumnen kommer att anses som faktiska etiketter.
+    > + För Regressions aktivitet måste data uppsättningen som ska utvärderas ha en kolumn med namnet `Regression Scored Labels` , som representerar Poäng etiketter.
+    > + För att den binära klassificerings aktiviteten ska kunna utvärdera måste den data uppsättning som ska utvärderas ha två kolumner, med namnet `Binary Class Scored Labels` , `Binary Class Scored Probabilities` som representerar beräknade etiketter respektive sannolikheter.
+    > + För att flera klassificerings uppgifter ska kunna utvärderas måste den data uppsättning som ska utvärderas ha en kolumn med namnet `Multi Class Scored Labels` , som representerar Poäng etiketter.
+    > Om utdata från den överordnade modulen inte har dessa kolumner måste du ändra enligt kraven ovan.
+
+2. Valfritt Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) eller resultat data uppsättningens utdata från tilldela data till kluster för den andra modellen till den **högra** Indataporten för **utvärdera modell** . Du kan enkelt jämföra resultat från två olika modeller på samma data. De två indatavärdena ska vara av samma typ av algoritm. Eller så kan du jämföra resultat från två olika körningar över samma data med olika parametrar.
 
     > [!NOTE]
     > Algoritmen refererar till klassificeringen "dubbelriktad", "klassad klassificering", "regression", "Clustering" under Machine Learning algoritmer. 
@@ -49,14 +57,14 @@ Använd den här modulen för att mäta noggrannheten för en utbildad modell. D
 
 ## <a name="results"></a>Resultat
 
-När du har kört **utvärdera modell**väljer du modulen för att öppna navigerings panelen **utvärdera modell** till höger.  Välj sedan fliken **utdata + loggar** och på den fliken har avsnittet **data utdata** flera ikoner. **Visualiserings** ikonen har en stapeldiagram och är ett första sätt att se resultatet.
+När du har kört **utvärdera modell** väljer du modulen för att öppna navigerings panelen **utvärdera modell** till höger.  Välj sedan fliken **utdata + loggar** och på den fliken har avsnittet **data utdata** flera ikoner. **Visualiserings** ikonen har en stapeldiagram och är ett första sätt att se resultatet.
 
 När du har klickat på **visualiserings** ikonen för binär klassificering kan du visualisera den binära förvirring i matrisen.
 För flera klassificeringar kan du hitta filen för förvirring i mat ris ritningen på fliken **utdata + loggar** , till exempel följande:
 > [!div class="mx-imgBorder"]
 > ![Förhands granskning av Uppladdad bild](media/module/multi-class-confusion-matrix.png)
 
-Om du ansluter data uppsättningar till båda indata för **utvärdera modell**kommer resultatet att innehålla mått för båda data uppsättningarna eller båda modellerna.
+Om du ansluter data uppsättningar till båda indata för **utvärdera modell** kommer resultatet att innehålla mått för båda data uppsättningarna eller båda modellerna.
 Modellen eller data som är kopplade till den vänstra porten visas först i rapporten följt av måtten för data uppsättningen eller modellen som är kopplad till rätt port.  
 
 Följande bild visar till exempel en jämförelse av resultat från två kluster modeller som bygger på samma data, men med olika parametrar.  
@@ -67,7 +75,7 @@ Eftersom det här är en kluster modell är utvärderings resultatet annorlunda 
 
 ## <a name="metrics"></a>Mått
 
-I det här avsnittet beskrivs de mått som returneras för de olika typerna av modeller som stöds för användning med **utvärdera modell**:
+I det här avsnittet beskrivs de mått som returneras för de olika typerna av modeller som stöds för användning med **utvärdera modell** :
 
 + [klassificerings modeller](#metrics-for-classification-models)
 + [Regressions modeller](#metrics-for-regression-models)
@@ -105,7 +113,7 @@ Måtten som returneras för Regressions modeller är utformade för att uppskatt
   
 
   
-- **Koefficienten för bestämning**, som ofta kallas R<sup>2</sup>, representerar modellens förutsägande effekt som ett värde mellan 0 och 1. Noll betyder att modellen är slumpmässig (förklarar ingenting). 1 betyder en perfekt anpassning. Vi bör dock använda försiktighet i tolkningen av R<sup>2</sup> -värden, eftersom låga värden kan vara helt normala och höga värden kan vara misstänkta.
+- **Koefficienten för bestämning** , som ofta kallas R <sup>2</sup>, representerar modellens förutsägande effekt som ett värde mellan 0 och 1. Noll betyder att modellen är slumpmässig (förklarar ingenting). 1 betyder en perfekt anpassning. Vi bör dock använda försiktighet i tolkningen av R<sup>2</sup> -värden, eftersom låga värden kan vara helt normala och höga värden kan vara misstänkta.
 
 ###  <a name="metrics-for-clustering-models"></a>Mått för kluster modeller
 
@@ -117,15 +125,15 @@ Eftersom kluster modeller skiljer sig avsevärt från klassificerings-och Regres
   
 Följande mått rapporteras för utvärdering av kluster modeller.
     
--   Poängen i kolumnen, det **genomsnittliga avståndet till andra centret**, visar hur nära, i genomsnitt, varje punkt i klustret är till centroids för alla andra kluster.   
+-   Poängen i kolumnen, det **genomsnittliga avståndet till andra centret** , visar hur nära, i genomsnitt, varje punkt i klustret är till centroids för alla andra kluster.   
 
--   Poängen i kolumnen, **Genomsnittligt avstånd till kluster Center**, motsvarar stängningen av alla punkter i ett kluster till centroid i klustret.  
+-   Poängen i kolumnen, **Genomsnittligt avstånd till kluster Center** , motsvarar stängningen av alla punkter i ett kluster till centroid i klustret.  
   
 -   I kolumnen **antal punkter** visas hur många data punkter som har tilldelats varje kluster, tillsammans med det totala antalet data punkter i alla kluster.  
   
      Om antalet data punkter som tilldelas till kluster är mindre än det totala antalet tillgängliga data punkter, innebär det att data punkterna inte kunde tilldelas till ett kluster.  
   
--   Poängen i kolumnen, **Maximalt avstånd till kluster Center**, representerar Max avståndet mellan varje punkt och centroid för den aktuella punktens kluster.  
+-   Poängen i kolumnen, **Maximalt avstånd till kluster Center** , representerar Max avståndet mellan varje punkt och centroid för den aktuella punktens kluster.  
   
      Om det här värdet är högt, kan det betyda att klustret är allmänt utspridd. Du bör granska statistiken tillsammans med det **genomsnittliga avståndet till kluster Center** för att fastställa klustrets uppslag.   
 

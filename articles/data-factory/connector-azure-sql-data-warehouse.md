@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 7dd23f481409eb3498893c1c7f9c0fd8311b9af2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a06bbeb4946f03b9cb6e5b1400521a0abffdd7f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901600"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913559"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure Synapse Analytics (tidigare SQL Data Warehouse) med hjälp av Azure Data Factory
 
@@ -42,7 +42,7 @@ För kopierings aktivitet stöder den här Azure Synapse Analytics-anslutaren de
 
 - Kopiera data med hjälp av SQL-autentisering och Azure Active Directory (Azure AD) Application token-autentisering med tjänstens huvud namn eller hanterade identiteter för Azure-resurser.
 - Som källa hämtar du data med hjälp av en SQL-fråga eller lagrad procedur. Du kan också välja att parallellt kopiera från en Azure Synapse Analytics-källa. mer information finns i avsnittet om [parallell kopiering från Synapse Analytics](#parallel-copy-from-synapse-analytics) .
-- Läs in data med hjälp av [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) -eller [copy-instruktionen](#use-copy-statement) (för hands version) eller Mass infogning i som mottagare. Vi rekommenderar PolyBase-eller COPY-instruktion (för hands version) för bättre kopierings prestanda. Kopplingen har också stöd för automatisk skapande av mål tabell om den inte finns, baserat på käll schemat.
+- Läs in data med [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) -eller [copy-instruktion](#use-copy-statement) eller Mass infogning som mottagare. Vi rekommenderar PolyBase-eller COPY-instruktioner för bättre kopierings prestanda. Kopplingen har också stöd för automatisk skapande av mål tabell om den inte finns, baserat på käll schemat.
 
 > [!IMPORTANT]
 > Om du kopierar data genom att använda Azure Data Factory Integration Runtime konfigurerar du en [brand Väggs regel på server nivå](../azure-sql/database/firewall-configure.md) så att Azure-tjänster kan komma åt den [logiska SQL-servern](../azure-sql/database/logical-servers.md).
@@ -51,7 +51,7 @@ För kopierings aktivitet stöder den här Azure Synapse Analytics-anslutaren de
 ## <a name="get-started"></a>Kom igång
 
 > [!TIP]
-> Använd PolyBase för att läsa in data i Azure Synapse Analytics för att uppnå bästa prestanda. Mer information finns i avsnittet [använda PolyBase för att läsa in data i avsnittet om Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) . För en genom gång med ett användnings fall läser du [läsa in 1 TB i Azure Synapse Analytics under 15 minuter med Azure Data Factory](load-azure-sql-data-warehouse.md).
+> Använd PolyBase-eller COPY-uttryck för att läsa in data i Azure Synapse Analytics för att uppnå bästa prestanda. [Använd PolyBase för att läsa in data i Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) och [använda Copy-instruktionen för att läsa in data i Azure Synapse Analytics](#use-copy-statement) -sektioner innehåller information. För en genom gång med ett användnings fall läser du [läsa in 1 TB i Azure Synapse Analytics under 15 minuter med Azure Data Factory](load-azure-sql-data-warehouse.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -478,7 +478,7 @@ Att använda [PolyBase](/sql/relational-databases/polybase/polybase-guide) är e
 - Om käll data lagret och formatet inte ursprungligen stöds av PolyBase använder du den **[mellanlagrade kopian med PolyBase](#staged-copy-by-using-polybase)** -funktionen i stället. Funktionen för mellanlagrad kopiering ger också bättre data flöde. Den konverterar automatiskt data till PolyBase-kompatibelt format, lagrar data i Azure Blob Storage och anropar PolyBase för att läsa in data i Azure Synapse Analytics.
 
 > [!TIP]
-> Lär dig mer om [metod tips för att använda PolyBase](#best-practices-for-using-polybase). När du använder PolyBase med Azure Integration Runtime, är effektiv data integrerings enheter (DIUs) alltid 2. Att justera DIU påverkar inte prestandan, eftersom inläsning av data från lagring drivs av Synapse-motorn.
+> Lär dig mer om [metod tips för att använda PolyBase](#best-practices-for-using-polybase). När du använder PolyBase med Azure Integration Runtime, är effektiv [data integrerings enheter (DIU)](copy-activity-performance-features.md#data-integration-units) för direkt eller mellanlagrad lagring-till-Synapse alltid 2. Att justera DIU påverkar inte prestandan, eftersom inläsning av data från lagring drivs av Synapse-motorn.
 
 Följande PolyBase-inställningar stöds under `polyBaseSettings` kopierings aktivitet:
 
@@ -507,7 +507,8 @@ Om kraven inte uppfylls kontrollerar Azure Data Factory inställningarna och åt
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Autentisering av konto nyckel, hanterad identitets autentisering |
 
     >[!IMPORTANT]
-    >Om din Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitets autentisering – Se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig mer om de konfigurationer som krävs i Data Factory från [Azure Blob-hanterad identitets verifiering](connector-azure-blob-storage.md#managed-identity) och [Azure Data Lake Storage Gen2-hanterad identitets verifiering](connector-azure-data-lake-storage.md#managed-identity) .
+    >- När du använder hanterad identitetsautentisering för den länkade lagrings tjänsten kan du läsa om de konfigurationer som krävs för [Azure-Blob](connector-azure-blob-storage.md#managed-identity) respektive [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .
+    >- Om din Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitetsautentisering med alternativet "Tillåt betrodd Microsoft-tjänst" på lagrings kontot, se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 2. **Käll data formatet** är av **Parquet** , **Orc** eller **avgränsad text** , med följande konfigurationer:
 
@@ -567,7 +568,8 @@ När dina källdata inte är internt kompatibla med PolyBase, aktivera data kopi
 Om du vill använda den här funktionen skapar du en [Azure Blob Storage länkad tjänst](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Storage Gen2 länkad tjänst](connector-azure-data-lake-storage.md#linked-service-properties) med **konto nyckel eller hanterad identitetsautentisering** som refererar till Azure Storage-kontot som tillfällig lagring.
 
 >[!IMPORTANT]
->Om din mellanlagrings Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitets autentisering – Se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig de konfigurationer som krävs i Data Factory från [Azure Blob-hanterad identitetsautentisering](connector-azure-blob-storage.md#managed-identity) och [Azure Data Lake Storage Gen2-hanterad identitetsautentisering](connector-azure-data-lake-storage.md#managed-identity).
+>- När du använder hanterad identitetsautentisering för den länkade mellanlagrings tjänsten bör du läsa de konfigurationer som krävs för [Azure-Blob](connector-azure-blob-storage.md#managed-identity) respektive [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .
+>- Om din mellanlagrings Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitetsautentisering med "Tillåt betrodd Microsoft-tjänst" på lagrings konto, se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ```json
 "activities":[
@@ -673,7 +675,7 @@ Azure Synapse Analytics [copy-instruktionen](/sql/t-sql/statements/copy-into-tra
 >För närvarande finns Data Factory bara stöd för kopiering från COPY Statement-kompatibla källor som anges nedan.
 
 >[!TIP]
->När du använder COPY-instruktionen med Azure Integration Runtime är effektiv data integrerings enheter (DIUs) alltid 2. Att justera DIU påverkar inte prestandan, eftersom inläsning av data från lagring drivs av Synapse-motorn.
+>När du använder COPY-instruktionen med Azure Integration Runtime är effektiv [data integrerings enheter (DIU)](copy-activity-performance-features.md#data-integration-units) alltid 2. Att justera DIU påverkar inte prestandan, eftersom inläsning av data från lagring drivs av Synapse-motorn.
 
 Att använda COPY-instruktionen har stöd för följande konfiguration:
 
@@ -687,7 +689,8 @@ Att använda COPY-instruktionen har stöd för följande konfiguration:
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Avgränsad text](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Autentisering av konto nyckel, autentisering av tjänstens huvud konto, hanterad identitets autentisering |
 
     >[!IMPORTANT]
-    >Om din Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitets autentisering – Se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Lär dig mer om de konfigurationer som krävs i Data Factory från [Azure Blob-hanterad identitets verifiering](connector-azure-blob-storage.md#managed-identity) och [Azure Data Lake Storage Gen2-hanterad identitets verifiering](connector-azure-data-lake-storage.md#managed-identity) .
+    >- När du använder hanterad identitetsautentisering för den länkade lagrings tjänsten kan du läsa om de konfigurationer som krävs för [Azure-Blob](connector-azure-blob-storage.md#managed-identity) respektive [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .
+    >- Om din Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitetsautentisering med alternativet "Tillåt betrodd Microsoft-tjänst" på lagrings kontot, se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 2. Format inställningarna är med följande:
 
@@ -769,7 +772,10 @@ Inställningar som är särskilt tillgängliga för Azure Synapse Analytics finn
 
 **Mata in** Välj om du vill peka källan på en tabell (motsvarande ```Select * from <table-name>``` ) eller ange en anpassad SQL-fråga.
 
-**Aktivera mellanlagring** Vi rekommenderar starkt att du använder det här alternativet i produktions arbets belastningar med Synapse DW-källor. När du kör en data flödes aktivitet med Synapase-källor från en pipeline, uppmanas du att ange ett lagrings konto för lagrings platsen och använder det för inläsning av mellanlagrad data. Det är den snabbaste mekanismen för att läsa in data från Synapse DW.
+**Aktivera mellanlagring** Vi rekommenderar starkt att du använder det här alternativet i produktions arbets belastningar med Azure Synapse Analytics-källor. När du kör en [data flödes aktivitet](control-flow-execute-data-flow-activity.md) med Azure Synapse Analytics-källor från en pipeline, uppmanas du att ange ett lagrings konto för lagrings platsen och använder det för inläsning av mellanlagrad data. Det är den snabbaste mekanismen för att läsa in data från Azure Synapse Analytics.
+
+- När du använder hanterad identitetsautentisering för den länkade lagrings tjänsten kan du läsa om de konfigurationer som krävs för [Azure-Blob](connector-azure-blob-storage.md#managed-identity) respektive [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .
+- Om din Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitetsautentisering med alternativet "Tillåt betrodd Microsoft-tjänst" på lagrings kontot, se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 **Fråga** : om du väljer fråga i fältet inmatat anger du en SQL-fråga för källan. Den här inställningen åsidosätter alla tabeller som du har valt i data uppsättningen. **Order by** -satser stöds inte här, men du kan ange en fullständig Select from-instruktion. Du kan också använda användardefinierade tabell funktioner. **Select * from udfGetData ()** är en UDF i SQL som returnerar en tabell. Med den här frågan skapas en käll tabell som du kan använda i ditt data flöde. Att använda frågor är också ett bra sätt att minska antalet rader för testning eller sökning.
 
@@ -798,7 +804,10 @@ Inställningar som är tillgängliga för Azure Synapse Analytics finns på flik
 - Återskapa: tabellen tas bort och återskapas. Krävs om du skapar en ny tabell dynamiskt.
 - Trunkera: alla rader från mål tabellen tas bort.
 
-**Aktivera mellanlagring:** Bestämmer om [PolyBase](/sql/relational-databases/polybase/polybase-guide) ska användas vid skrivning till Azure Synapse Analytics
+**Aktivera mellanlagring:** Bestämmer huruvida [PolyBase](/sql/relational-databases/polybase/polybase-guide) ska användas vid skrivning till Azure Synapse Analytics. Mellanlagringen konfigureras i [aktiviteten kör data flöde](control-flow-execute-data-flow-activity.md). 
+
+- När du använder hanterad identitetsautentisering för den länkade lagrings tjänsten kan du läsa om de konfigurationer som krävs för [Azure-Blob](connector-azure-blob-storage.md#managed-identity) respektive [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) .
+- Om din Azure Storage har kon figurer ATS med VNet-tjänstens slut punkt måste du använda hanterad identitetsautentisering med alternativet "Tillåt betrodd Microsoft-tjänst" på lagrings kontot, se [effekten av att använda VNet-tjänstens slut punkter med Azure Storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 **Batchstorlek** : styr hur många rader som skrivs i varje Bucket. Större batch-storlekar förbättrar komprimeringen och minnes optimeringen, men riskerar att ta bort minnes undantag när data cachelagras.
 

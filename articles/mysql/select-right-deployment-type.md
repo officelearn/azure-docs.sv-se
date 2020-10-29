@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: e89a7d9bc71d48be1b7d7ea40246b2394c95e84b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543788"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926197"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Välj rätt MySQL Server-alternativ i Azure
 
@@ -55,7 +55,7 @@ De huvudsakliga skillnaderna mellan dessa alternativ visas i följande tabell:
 | Hög tillgänglighet | Inbyggt HA i en zon för enskild tillgänglighet| Inbyggda HA i och över tillgänglighets zoner | Anpassad hanterad med kluster, replikering osv.|
 | Zonredundans | Stöds inte | Stöds | Stöds|
 | Hybrid scenarier | Stöds med [datareplikering](./concepts-data-in-replication.md)| Inte tillgänglig i för hands version | Hanteras av slutanvändare |
-| Skrivskyddade repliker | Stöds| Stöds | Hanteras av slutanvändare |
+| Skrivskyddade repliker | Stöds (upp till 5 repliker)| Stöds (upp till 10 repliker)| Hanteras av slutanvändare |
 | Backup | Automatiserad med 7-35 dagars kvarhållning | Automatiserad med 1-35 dagars kvarhållning | Hanteras av slutanvändare |
 | Övervaka databas åtgärder | Stöds | Stöds | Hanteras av slutanvändare |
 | Haveriberedskap | Stöds med Geo-redundant lagring av säkerhets kopior och Läs repliker i flera regioner | Stöds inte i för hands versionen| Anpassad hantering med teknik för replikering |

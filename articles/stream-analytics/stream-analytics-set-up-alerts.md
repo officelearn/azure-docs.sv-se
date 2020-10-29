@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 06/21/2019
-ms.openlocfilehash: 271cae3504601ffa42c077029541cef8c7726053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35fb02717f706f026862790b7d618036d764c7a8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461044"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92914018"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Konfigurera aviseringar för Azure Stream Analytics jobb
 
@@ -30,15 +30,15 @@ I följande exempel visas hur du konfigurerar aviseringar för när jobbet över
 
 2. Gå till avsnittet **övervakning** på sidan **jobb** .  
 
-3. Välj **mått**och sedan **ny varnings regel**.
+3. Välj **mått** och sedan **ny varnings regel** .
 
    ![Installation av Azure Portal Stream Analytics-varningar](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
-4. Ditt Stream Analytics jobb namn ska visas automatiskt under **resurs**. Klicka på **Lägg till villkor**och välj **alla administrativa åtgärder** under **Konfigurera signal logik**.
+4. Ditt Stream Analytics jobb namn ska visas automatiskt under **resurs** . Klicka på **Lägg till villkor** och välj **alla administrativa åtgärder** under **Konfigurera signal logik** .
 
    ![Välj signal namn för Stream Analytics avisering](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. Under **Konfigurera signal logik**, ändra **händelse nivå** till **alla** och ändra **status** till **misslyckades**. Lämna **händelsen som initierad av** tomt och välj **färdig**.
+5. Under **Konfigurera signal logik** , ändra **händelse nivå** till **alla** och ändra **status** till **misslyckades** . Lämna **händelsen som initierad av** tomt och välj **färdig** .
 
    ![Konfigurera signal logik för Stream Analytics avisering](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -46,13 +46,13 @@ I följande exempel visas hur du konfigurerar aviseringar för när jobbet över
 
    ![Konfigurera en avisering för ett Azure streaming Analytics-jobb](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. **Resurs**, **villkor**och **Åtgärds grupper** måste ha en post. Observera att de villkor som definierats måste uppfyllas för att aviseringarna ska kunna utlösas. Du kan till exempel mäta medelvärdet för ett mått för de senaste 15 minuterna, var femte minut.
+7. **Resurs** , **villkor** och **Åtgärds grupper** måste ha en post. Observera att de villkor som definierats måste uppfyllas för att aviseringarna ska kunna utlösas. Du kan till exempel mäta medelvärdet för ett mått för de senaste 15 minuterna, var femte minut.
 
-   ![Skapa Stream Analytics varnings regel](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
+   ![Skärm bild som visar dialog rutan skapa regel med resurs, villkor och ÅTGÄRDs grupp.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
-   Lägg till en **varnings regel namn**, **Beskrivning**och din **resurs grupp** i **aviserings informationen** och klicka på **skapa aviserings regel** för att skapa regeln för ditt Stream Analytics jobb.
+   Lägg till en **varnings regel namn** , **Beskrivning** och din **resurs grupp** i **aviserings informationen** och klicka på **skapa aviserings regel** för att skapa regeln för ditt Stream Analytics jobb.
 
-   ![Skapa Stream Analytics varnings regel](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
+   ![Skärm bild som visar dialog rutan skapa regel med AVISERINGs information.](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
    
 ## <a name="scenarios-to-monitor"></a>Scenarier att övervaka
 

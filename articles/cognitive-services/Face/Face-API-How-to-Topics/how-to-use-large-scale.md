@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b35b66615bd5c577dd73faca77d3ea20468442f8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332397"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913525"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Exempel: Använd funktionen för storskalig skalning
 
@@ -31,7 +31,7 @@ Exemplen skrivs i C# med hjälp av klient biblioteket för Azure Cognitive Servi
 
 ## <a name="step-1-initialize-the-client-object"></a>Steg 1: initiera klient objekt
 
-När du använder klient biblioteket ansikte skickas prenumerations nyckeln och prenumerations slut punkten in via FaceClient-klassens konstruktor. Exempel:
+När du använder klient biblioteket ansikte skickas prenumerations nyckeln och prenumerations slut punkten in via FaceClient-klassens konstruktor. Till exempel:
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -232,7 +232,7 @@ Ett exempel på ett arbetsflöde:
 
 Om en relativt lång latens är acceptabel, är det inte nödvändigt att utlösa åtgärds åtgärden direkt när du har lagt till nya data. Istället kan träningsåtgärden delas upp från den huvudsakliga logiken och utlösas regelbundet. Den här strategin är lämplig för dynamiska scenarier med acceptabel svars tid. Det kan användas för statiska scenarier för att ytterligare minska tåg frekvensen.
 
-Anta att det finns en `TrainLargePersonGroup` funktion som liknar `TrainLargeFaceList` . En typisk implementering av den fristående utbildningen på en LargePersonGroup genom att anropa [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) klassen i `System.Timers` är:
+Anta att det finns en `TrainLargePersonGroup` funktion som liknar `TrainLargeFaceList` . En typisk implementering av den fristående utbildningen på en LargePersonGroup genom att anropa [`Timer`](/dotnet/api/system.timers.timer) klassen i `System.Timers` är:
 
 ```csharp
 private static void Main()

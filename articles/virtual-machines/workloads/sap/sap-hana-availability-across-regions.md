@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68a393865038722f2fd7fa5e42334f8d5e760951
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3de5a449e90452307f3c9b02c725050df6fdd873
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70078858"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925687"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>SAP HANA tillgänglighet i Azure-regioner
 
@@ -74,7 +74,7 @@ Möjlig arkitektur med multi-Target-replikering ser ut så här:
 
 Om organisationen har krav för beredskap för hög tillgänglighet i den andra (DR) Azure-regionen skulle arkitekturen se ut så här:
 
-![Diagram över tre virtuella datorer över två regioner Milti-Target](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+![Diagram som visar en organisation som har krav för beredskap för hög tillgänglighet i den andra (DR) Azure-regionen.](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
 
 
 Med logreplay som åtgärds läge tillhandahåller den här konfigurationen en återställnings punkt = 0, med låg RTO, inom den primära regionen. Konfigurationen tillhandahåller också vettigt-återställnings punkt om en flytt till den andra regionen är involverad. RTO-tiderna i den andra regionen är beroende av om data har förinstallerats. Många kunder använder den virtuella datorn i den sekundära regionen för att köra ett test system. I detta fall kan data inte förinstalleras.

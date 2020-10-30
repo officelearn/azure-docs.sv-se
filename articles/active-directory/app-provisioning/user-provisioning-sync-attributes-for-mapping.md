@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 05/13/2019
 ms.author: kenwith
-ms.openlocfilehash: 00c4dec329456409bc8d5b77dca72f25daf9f5c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cecdda27139aa1dd0733b50898db9db70aa34dc3
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84781081"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040980"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Synkronisera ett attribut från din lokala Active Directory till Azure AD för etablering till ett program
 
@@ -27,13 +27,13 @@ Om de data du behöver för etablering är i Active Directory men inte är tillg
  
 ## <a name="sync-an-attribute"></a>Synkronisera ett attribut 
 
-1. Öppna guiden Azure AD Connect, Välj uppgifter och välj sedan **Anpassa synkroniseringsalternativ**.
+1. Öppna guiden Azure AD Connect, Välj uppgifter och välj sedan **Anpassa synkroniseringsalternativ** .
 
    ![Sidan ytterligare aktiviteter för Azure Active Directory Connect guiden](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-customize.png)
  
 2. Logga in som global administratör för Azure AD. 
 
-3. På sidan **valfria funktioner** väljer du **katalog tillägg attribut Sync**.
+3. På sidan **valfria funktioner** väljer du **katalog tillägg attribut Sync** .
  
    ![Sidan med valfria funktioner i Azure Active Directory Connect guiden](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
 
@@ -41,7 +41,7 @@ Om de data du behöver för etablering är i Active Directory men inte är tillg
    > [!NOTE]
    > Sökningen under **tillgängliga attribut** är Skift läges känslig.
 
-   ![Sidan val av katalog tillägg för Azure Active Directory Connect guide](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
+   ![Skärm bild som visar val sidan "katalog tillägg"](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extensions.png)
 
 5. Slutför guiden Azure AD Connect och låt en fullständig synkronisering köras. När cykeln har slutförts utökas schemat och de nya värdena synkroniseras mellan din lokala AD och Azure AD.
  
@@ -50,7 +50,7 @@ Om de data du behöver för etablering är i Active Directory men inte är tillg
    ![Sidan val av katalog tillägg för Azure Active Directory Connect guide](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 
 > [!NOTE]
-> Möjligheten att etablera referenser från lokala AD, till exempel **ManagedBy** eller **DN/DistinguishedName**, stöds inte idag. Du kan begära den här funktionen på [användarens röst](https://feedback.azure.com/forums/169401-azure-active-directory). 
+> Möjligheten att etablera referenser från lokala AD, till exempel **ManagedBy** eller **DN/DistinguishedName** , stöds inte idag. Du kan begära den här funktionen på [användarens röst](https://feedback.azure.com/forums/169401-azure-active-directory). 
 
 ## <a name="next-steps"></a>Nästa steg
 

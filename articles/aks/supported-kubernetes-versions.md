@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 649f02097a18a141d186434a91539563c64e72ba
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735059"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042131"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -131,7 +131,7 @@ az aks get-versions --location eastus --output table
 
 ## <a name="aks-kubernetes-release-calendar"></a>AKS Kubernetes, versions kalender
 
-Den senaste versions historiken finns [här](https://en.wikipedia.org/wiki/Kubernetes#History).
+Tidigare versions historik finns i [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
 |  K8s-version | Överordnad version  | AKS för hands version  | AKS GA  | Uttjänta |
 |--------------|-------------------|--------------|---------|-------------|
@@ -139,8 +139,10 @@ Den senaste versions historiken finns [här](https://en.wikipedia.org/wiki/Kuber
 | 1,17  | Dec-09-19  | Jan 2019   | Jul 2020  | 1,20 GA | 
 | 1,18  | Mar – 23-20  | Maj 2020   | Aug 2020  | 1,21 GA | 
 | 1,19  | Aug – 04-20  | Sep 2020   | Nov 2020  | 1,22 GA | 
-| 1,20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1,23 GA | 
-\* På grund av jul säsongs AKS utökar livs längden 1,16 från november 2020 till och med januari 2021. Läs mer [här](https://github.com/Azure/AKS/releases/tag/2020-10-12)
+| 1,20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1,23 GA |
+
+\* På grund av jul helgen utökar AKS livs längden 1,16 från november 2020 till och med januari 2021. [Läs mer](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+
 
 ## <a name="faq"></a>Vanliga frågor
 

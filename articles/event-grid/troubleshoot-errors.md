@@ -3,25 +3,25 @@ title: Azure Event Grid – fel söknings guide
 description: Den här artikeln innehåller en lista över felkoder, fel meddelanden, beskrivningar och rekommenderade åtgärder.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dd464339e7654f8886224ff07cf368b4724ff82
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119046"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041391"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Felsöka Azure Event Grid fel
 Den här fel söknings guiden innehåller en lista över Azure Event Grid felkoder, fel meddelanden, beskrivningar och rekommenderade åtgärder som du bör vidta när du får dessa fel. 
 
 ## <a name="error-code-400"></a>Felkod: 400
-| Felkod | Felmeddelande | Beskrivning | Rekommendation |
+| Felkod | Felmeddelande | Description | Rekommendation |
 | ---------- | ------------- | ----------- | -------------- | 
-| HttpStatusCode. BadRequest<br/>400 | Ämnes namnet måste vara mellan 3 och 50 tecken långt. | Namnet på den anpassade ämnes namnet ska vara mellan 3 och 50 tecken långt. Endast alfanumeriska bokstäver, siffror och tecknen '-' är tillåtna i ämnes namnet. Namnet får inte heller börja med följande reserverade ord: <ul><li>Microsoft</li><li>EventGrid</li><li>System</li></ul> | Välj ett annat ämnes namn som följer namn kraven för ämnet. |
-| HttpStatusCode. BadRequest<br/>400 | Domän namnet måste vara mellan 3 och 50 tecken långt. | Domän namnets längd måste vara mellan 3 och 50 tecken långt. Endast alfanumeriska bokstäver, siffror och tecknen '-' är tillåtna i ämnes namnet. Namnet får inte heller börja med följande reserverade ord:<ul><li>Microsoft</li><li>EventGrid</li><li>System</li> | Välj ett annat domän namn som följer domän namns kraven. |
+| HttpStatusCode. BadRequest<br/>400 | Ämnes namnet måste vara mellan 3 och 50 tecken långt. | Namnet på den anpassade ämnes namnet ska vara mellan 3 och 50 tecken långt. Endast alfanumeriska bokstäver, siffror och tecknen '-' är tillåtna i ämnes namnet. Namnet får inte heller börja med följande reserverade ord: <ul><li>Utforskaren</li><li>EventGrid</li><li>Säker</li></ul> | Välj ett annat ämnes namn som följer namn kraven för ämnet. |
+| HttpStatusCode. BadRequest<br/>400 | Domän namnet måste vara mellan 3 och 50 tecken långt. | Domän namnets längd måste vara mellan 3 och 50 tecken långt. Endast alfanumeriska bokstäver, siffror och tecknen '-' är tillåtna i domän namnet. Namnet får inte heller börja med följande reserverade ord:<ul><li>Utforskaren</li><li>EventGrid</li><li>Säker</li> | Välj ett annat domän namn som följer domän namns kraven. |
 | HttpStatusCode. BadRequest<br/>400 | Ogiltig förfallo tid. | Förfallo tiden för händelse prenumerationen avgör när händelse prenumerationen ska tas ur bruk. Värdet måste vara ett giltigt DateTime-värde i framtiden.| Se till att förfallo tiden för händelse prenumerationen är i ett giltigt DateTime-format och att den har angetts vara i framtiden. |
 
 ## <a name="error-code-409"></a>Felkod: 409
-| Felkod | Felmeddelande | Beskrivning | Rekommenderad åtgärd |
+| Felkod | Felmeddelande | Description | Rekommenderad åtgärd |
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode. konflikt <br/>409 | Det finns redan ett ämne med det angivna namnet. Välj ett annat ämnes namn.   | Namnet på den anpassade artikeln bör vara unikt i en enda Azure-region för att säkerställa en korrekt publicerings åtgärd. Samma namn kan användas i olika Azure-regioner. | Välj ett annat namn för ämnet. |
 | HttpStatusCode. konflikt <br/> 409 | Den angivna domänen finns redan. Välj ett annat domän namn. | Domän namnet bör vara unikt i en enda Azure-region för att säkerställa en korrekt publicerings åtgärd. Samma namn kan användas i olika Azure-regioner. | Välj ett annat namn för domänen. |
@@ -29,7 +29,7 @@ Den här fel söknings guiden innehåller en lista över Azure Event Grid felkod
 
 ## <a name="error-code-403"></a>Felkod: 403
 
-| Felkod | Felmeddelande | Beskrivning | Rekommenderad åtgärd |
+| Felkod | Felmeddelande | Description | Rekommenderad åtgärd |
 | ---------- | ------------- | ----------- | ------------------ |
 | HttpStatusCode. förbjuden <br/>403 | Publicering till {Topic/Domain} av klienten {IpAddress} nekas på grund av IP-filter. | Avsnittet eller domänen har konfigurerade regler för IP-brandvägg och åtkomst begränsas endast till konfigurerade IP-adresser. | Lägg till IP-adressen i IP-brandväggens regler, se [Konfigurera IP-brandvägg](configure-firewall.md) |
 | HttpStatusCode. förbjuden <br/> 403 | Publicering till {Topic/Domain} av klienten avvisas eftersom begäran kom från privat slut punkt och ingen matchande privat slut punkts anslutning hittades för resursen. | Ämnet eller domänen har konfigurerade privata slut punkter och publicerings förfrågan kom från en privat slut punkt som inte har kon figurer ATS/godkänts. | Konfigurera en privat slut punkt för ämnet/domänen. [Konfigurera privata slutpunkter](configure-private-endpoints.md) |

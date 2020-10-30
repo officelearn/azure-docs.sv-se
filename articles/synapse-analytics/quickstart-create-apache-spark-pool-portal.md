@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea32126e19c4520a6d5a40f38f60ec44e9a119cd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7578ca12c46ec6de626eeb1340ce680eda6bbb92
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260877"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041314"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Snabb start: skapa en ny Apache Spark pool med hjälp av Azure Portal
 
@@ -39,13 +39,13 @@ Logga in på [Azure-portalen](https://portal.azure.com/)
 ## <a name="navigate-to-the-synapse-workspace"></a>Navigera till arbets ytan Synapse 
 1. Gå till arbets ytan Synapse där Apache Spark-poolen skapas genom att skriva tjänst namnet (eller resurs namnet direkt) i Sök fältet.
 ![Azure Portal Sök fältet med Synapse-arbetsytor som anges i.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-1. I listan över arbets ytor skriver du namnet (eller en del av namnet) på arbets ytan som ska öppnas. I det här exemplet använder vi en arbets yta med namnet **contosoanalytics**.
+1. I listan över arbets ytor skriver du namnet (eller en del av namnet) på arbets ytan som ska öppnas. I det här exemplet använder vi en arbets yta med namnet **contosoanalytics** .
 ![Lista över Synapse-arbetsytor filtrerade för att visa de som innehåller namnet contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 
 ## <a name="create-new-apache-spark-pool"></a>Skapa ny Apache Spark pool
 
-1. I arbets ytan Synapse där du vill skapa Apache Spark-poolen väljer du **ny Apache Spark pool**.
+1. I arbets ytan Synapse där du vill skapa Apache Spark-poolen väljer du **ny Apache Spark pool** .
     ![Översikt över Synapse-arbetsytan med en röd ruta runt kommandot för att skapa en ny Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-01.png)
 2. Ange följande information på fliken **grundläggande** :
 
@@ -62,18 +62,18 @@ Logga in på [Azure-portalen](https://portal.azure.com/)
     > Observera att det finns vissa begränsningar för de namn som Apache Spark pooler kan använda. Namn får bara innehålla bokstäver eller siffror, måste bestå av högst 15 tecken, måste inledas med en bokstav, får inte innehålla reserverade ord och vara unika i arbets ytan.
 
 3. Välj **Nästa: ytterligare inställningar** och granska standardinställningarna. Ändra inte några standardinställningar.
-    ![Apache Spark fliken Skapa flöde-ytterligare inställningar.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
+    ![Skärm bild som visar sidan "skapa Apache Spark pool" med fliken "ytterligare inställningar" vald.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
-4. Välj **Nästa: Taggar**. Lägg inte till några taggar.
+4. Välj **Nästa: Taggar** . Lägg inte till några taggar.
     ![Apache Spark fliken Skapa flöde-ytterligare inställningar.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
 
-5. Välj **Granska + skapa**.
+5. Välj **Granska + skapa** .
 
-6. Se till att informationen ser korrekt ut baserat på vad som tidigare har angetts och välj **skapa**.
+6. Se till att informationen ser korrekt ut baserat på vad som tidigare har angetts och välj **skapa** .
     ![Apache Spark fliken Skapa flöde-granska inställningar.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
 7. I det här läget startar resurs etablerings flödet och anger när det är klart.
-    ![Apache Spark poolen skapa flödes resurs etablering.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
+    ![Skärm bild som visar sidan "Översikt" med meddelandet "distributionen är klar" visas.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-06.png)
 
 8. När etableringen är klar visas en ny post för den nyligen skapade Apache Spark-poolen när du navigerar tillbaka till arbets ytan.
     ![Apache Spark poolen skapa flödes resurs etablering.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-07.png)
@@ -89,8 +89,8 @@ Följ stegen nedan för att ta bort Apache Spark-poolen från arbets ytan.
 Gör så här om du vill ta bort Apache Spark poolen:
 
 1. Gå till bladet Apache Spark pooler på arbets ytan.
-2. Välj den Apache Spark pool som ska tas bort (i det här fallet **contosospark**).
-3. Tryck på **ta bort**.
+2. Välj den Apache Spark pool som ska tas bort (i det här fallet **contosospark** ).
+3. Tryck på **ta bort** .
  ![Lista över Apache Spark pooler med den nyligen skapade poolen vald.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Bekräfta borttagningen och tryck på knappen **ta bort** .
  ![Bekräftelse dialog ruta för att ta bort den valda Apache Spark poolen.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-10.png)

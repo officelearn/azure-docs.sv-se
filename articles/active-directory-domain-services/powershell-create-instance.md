@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 10/02/2020
 ms.author: joflore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4b2ea0806f70d9f99982b9d9af9c462ff0099966
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 46fdaed4a3e1dbbe5575cd573061a480bf330389
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967978"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041959"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Aktivera Azure Active Directory Domain Services med PowerShell
 
@@ -44,15 +44,15 @@ För att slutföra den här artikeln behöver du följande resurser:
 
 Azure AD DS kräver ett huvud namn för tjänsten och en Azure AD-grupp. Dessa resurser låter Azure AD DS-hanterad domän synkronisera data och definiera vilka användare som har administrativa behörigheter i den hanterade domänen.
 
-Börja med att skapa ett Azure AD-tjänstens huvud namn för Azure AD DS för att kommunicera och autentisera sig själv. Ett angivet program-ID används med namnet *domänkontrollant tjänster* med ID *2565bd9d-DA50-47d4-8b85-4c97f669dc36*. Ändra inte det här program-ID: t.
+Börja med att skapa ett Azure AD-tjänstens huvud namn för Azure AD DS för att kommunicera och autentisera sig själv. Ett angivet program-ID används med namnet *domänkontrollant tjänster* med ID *6ba9a5d4-8456-4118-b521-9c5ca10cdf84* . Ändra inte det här program-ID: t.
 
 Skapa ett Azure AD-tjänstens huvud namn med cmdleten [New-AzureADServicePrincipal][New-AzureADServicePrincipal] :
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
-Skapa nu en Azure AD-grupp med namnet *AAD DC-administratörer*. Användare som läggs till i den här gruppen beviljas sedan behörigheter för att utföra administrations uppgifter på den hanterade domänen.
+Skapa nu en Azure AD-grupp med namnet *AAD DC-administratörer* . Användare som läggs till i den här gruppen beviljas sedan behörigheter för att utföra administrations uppgifter på den hanterade domänen.
 
 Börja med att hämta objekt-ID för *AAD DC-administratörer* med hjälp av cmdleten [Get-AzureADGroup][Get-AzureADGroup] . Om gruppen inte finns skapar du den med *Administratörs gruppen för AAD-domänkontrollanten* med cmdleten [New-AzureADGroup][New-AzureADGroup] :
 
@@ -109,7 +109,7 @@ New-AzResourceGroup `
   -Location $AzureLocation
 ```
 
-Skapa det virtuella nätverket och undernät för Azure AD Domain Services. Två undernät skapas – ett för *DomainServices*och ett för *arbets belastningar*. Azure AD DS distribueras till det dedikerade *DomainServices* -undernätet. Distribuera inte andra program eller arbets belastningar i det här under nätet. Använd de separata *arbets belastningarna* eller andra undernät för resten av dina virtuella datorer.
+Skapa det virtuella nätverket och undernät för Azure AD Domain Services. Två undernät skapas – ett för *DomainServices* och ett för *arbets belastningar* . Azure AD DS distribueras till det dedikerade *DomainServices* -undernätet. Distribuera inte andra program eller arbets belastningar i det här under nätet. Använd de separata *arbets belastningarna* eller andra undernät för resten av dina virtuella datorer.
 
 Skapa under näten med cmdleten [New-AzVirtualNetworkSubnetConfig][New-AzVirtualNetworkSubnetConfig] och skapa sedan det virtuella nätverket med cmdleten [New-AzVirtualNetwork][New-AzVirtualNetwork] .
 
@@ -200,7 +200,7 @@ $vnet | Set-AzVirtualNetwork
 
 ## <a name="create-a-managed-domain"></a>Skapa en hanterad domän
 
-Nu ska vi skapa en hanterad domän. Ange ditt ID för Azure-prenumerationen och ange sedan ett namn för den hanterade domänen, till exempel *aaddscontoso.com*. Du kan hämta ditt prenumerations-ID med hjälp av cmdleten [Get-AzSubscription][Get-AzSubscription] .
+Nu ska vi skapa en hanterad domän. Ange ditt ID för Azure-prenumerationen och ange sedan ett namn för den hanterade domänen, till exempel *aaddscontoso.com* . Du kan hämta ditt prenumerations-ID med hjälp av cmdleten [Get-AzSubscription][Get-AzSubscription] .
 
 Om du väljer en region som stöder Tillgänglighetszoner fördelas Azure AD DS-resurserna mellan zoner för ytterligare redundans.
 
@@ -252,7 +252,7 @@ Connect-AzureAD
 Connect-AzAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 
 # First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `

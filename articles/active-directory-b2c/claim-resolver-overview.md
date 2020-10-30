@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39b61815c33f933e0cdf08bd46382e74eea2f806
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259644"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040460"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
 
 Anspråk matchare i Azure Active Directory B2C (Azure AD B2C) [anpassade principer](custom-policy-overview.md) ger Sammanhangs information om en auktoriseringsbegäran, till exempel princip namn, KORRELATIONS-ID för begäran, användar gränssnitts språk med mera.
 
-Om du vill använda en anspråks lösare i ett indata-eller utgående anspråk definierar du en sträng **claimType**, under elementet [ClaimsSchema](claimsschema.md) , och anger sedan **DefaultValue** till anspråks lösa ren i elementet indata-eller utdata-anspråk. Azure AD B2C läser värdet för anspråks matcharen och använder värdet i den tekniska profilen.
+Om du vill använda en anspråks lösare i ett indata-eller utgående anspråk definierar du en sträng **claimType** , under elementet [ClaimsSchema](claimsschema.md) , och anger sedan **DefaultValue** till anspråks lösa ren i elementet indata-eller utdata-anspråk. Azure AD B2C läser värdet för anspråks matcharen och använder värdet i den tekniska profilen.
 
 I följande exempel definieras en anspråks typ `correlationId` med namnet med en **data** typ `string` .
 
@@ -53,7 +53,7 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 | {Culture: RegionName} | ISO-koden för den två bokstaven för regionen. | USA |
 | {Culture: RFC5646} | Språk koden RFC5646. | sv-SE |
 
-### <a name="policy"></a>Princip
+### <a name="policy"></a>Policy
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
@@ -66,16 +66,16 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {OIDC: AuthenticationContextReferences} |Frågesträngparametern `acr_values` . | E.t. |
+| {OIDC: AuthenticationContextReferences} |Frågesträngparametern `acr_values` . | Saknas |
 | {OIDC: ClientId} |Frågesträngparametern `client_id`  . | 00000000-0000-0000-0000-000000000000 |
 | {OIDC: DomainHint} |Frågesträngparametern `domain_hint`  . | facebook.com |
 | {OIDC: LoginHint} |  Frågesträngparametern `login_hint` . | someone@contoso.com |
-| {OIDC: MaxAge} | `max_age`. | E.t. |
+| {OIDC: MaxAge} | `max_age`. | Saknas |
 | {OIDC: nonce} |Frågesträngparametern `Nonce`  . | defaultNonce |
 | {OIDC: lösen ord}| [Autentiseringsuppgifter för resurs ägarens lösen ord flödar](ropc-custom.md) användarens lösen ord.| password1| 
 | {OIDC: prompt} | Frågesträngparametern `prompt` . | inloggning |
 | {OIDC: RedirectUri} |Frågesträngparametern `redirect_uri`  . | https://jwt.ms |
-| {OIDC: resurs} |Frågesträngparametern `resource`  . | E.t. |
+| {OIDC: resurs} |Frågesträngparametern `resource`  . | Saknas |
 | {OIDC: omfång} |Frågesträngparametern `scope`  . | OpenID |
 | {OIDC: username}| [Autentiseringsuppgifter för resurs ägar lösen ord flöda](ropc-custom.md) användarens användar namn.| emily@contoso.com| 
 
@@ -106,14 +106,14 @@ Alla parameter namn som ingår i en OIDC-eller OAuth2-begäran kan mappas till e
 | {OAUTH-KV: campaignId} | En frågesträngparametern. | Hawaii |
 | {OAUTH-KV: app_session} | En frågesträngparametern. | A3C5R |
 | {OAUTH-KV: loyalty_number} | En frågesträngparametern. | 1234 |
-| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | E.t. |
+| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | Saknas |
 
 ### <a name="oauth2"></a>OAuth2
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
-| {OAuth2: access_token} | Åtkomsttoken. | E.t. |
-| {OAuth2: refresh_token} | Refresh-token. | E.t. |
+| {OAuth2: access_token} | Åtkomsttoken. | Saknas |
+| {OAuth2: refresh_token} | Refresh-token. | Saknas |
 
 
 ### <a name="saml"></a>SAML
@@ -127,6 +127,7 @@ Alla parameter namn som ingår i en OIDC-eller OAuth2-begäran kan mappas till e
 | {SAML: ForceAuthn} | `ForceAuthN`Attributvärdet, från `AuthnRequest` ELEMENTET i SAML-begäran. | Sant |
 | {SAML: ProviderName} | `ProviderName`Attributvärdet, från `AuthnRequest` ELEMENTET i SAML-begäran.| Contoso.com |
 | {SAML: RelayState} | Frågesträngparametern `RelayState` .| 
+| {SAML: subject} | `Subject`Från NameId-elementet för SAML authn-begäran.| 
 
 ## <a name="using-claim-resolvers"></a>Använda anspråks matchare
 

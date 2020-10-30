@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 793a8f291be4fcca6fad19d486849253dddc089f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18f9f62ba28595289d37975200352c26788e69cc
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84754506"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040040"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Distribuera din första app till Cloud Foundry på Microsoft Azure
 
@@ -95,7 +95,7 @@ Du kan distribuera de flesta program till Cloud Foundry med hjälp av `push` kom
 cf push
 ```
 
-När du *push* -överför ett program identifierar Cloud Foundry program typen (i det här fallet en Java-app) och identifierar dess beroenden (i det här fallet våren-ramverket). Sedan paketeras allt som krävs för att köra din kod i en fristående behållar avbildning som kallas *droplet*. Slutligen Cloud Foundry schemalägger programmet på någon av de tillgängliga datorerna i din miljö och skapar en URL där du kan komma åt den, vilket är tillgängligt i kommandots utdata.
+När du *push* -överför ett program identifierar Cloud Foundry program typen (i det här fallet en Java-app) och identifierar dess beroenden (i det här fallet våren-ramverket). Sedan paketeras allt som krävs för att köra din kod i en fristående behållar avbildning som kallas *droplet* . Slutligen Cloud Foundry schemalägger programmet på någon av de tillgängliga datorerna i din miljö och skapar en URL där du kan komma åt den, vilket är tillgängligt i kommandots utdata.
 
 ![Utdata från CF push-kommando][cf-push-output]
 
@@ -114,7 +114,7 @@ Du kan använda Cloud Foundry CLI för att visa loggar för ett program med hjä
 cf logs hello-spring-cloud
 ```
 
-Som standard använder loggar kommandot *pilslut*, som visar nya loggar när de skrivs. Om du vill se nya loggar visas uppdaterar du appen Hello-våren-Cloud i webbläsaren.
+Som standard använder loggar kommandot *pilslut* , som visar nya loggar när de skrivs. Om du vill se nya loggar visas uppdaterar du appen Hello-våren-Cloud i webbläsaren.
 
 Om du vill visa loggar som redan har skrivits lägger du till `recent` växeln:
 
@@ -146,7 +146,7 @@ Att köra `cf app` kommandot i programmet visar att Cloud Foundry skapar en anna
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
 [pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/pivotalcf/customizing/pcf_azure.html
 [cf-cli]: https://github.com/cloudfoundry/cli
-[cloudshell-docs]: https://docs.microsoft.com/azure/cloud-shell/overview
+[cloudshell-docs]: ../cloud-shell/overview.md
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
 [spring-boot]: https://projects.spring.io/spring-boot/
 [spring-framework]: https://spring.io

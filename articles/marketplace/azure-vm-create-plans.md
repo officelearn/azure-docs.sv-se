@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 922f4a2785a0b7260bcd0aae19c0172a2fa7a782
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bc5e98484560fcc15e0ea3e289069c84687f158c
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284844"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040586"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Skapa planer för ett erbjudande för virtuell dator
 
@@ -30,8 +30,8 @@ När du har skapat dina planer väljer du fliken **plan översikt** för att vis
 
 De åtgärder som är tillgängliga i fönstret **plan översikt** varierar beroende på planens aktuella status.
 
-- Om plan status är ett utkast väljer du **ta bort utkast**.
-- Om plan status är publicerad Live väljer du **stoppa Sälj plan** eller **Synkronisera privat publik**.
+- Om plan status är ett utkast väljer du **ta bort utkast** .
+- Om plan status är publicerad Live väljer du **stoppa Sälj plan** eller **Synkronisera privat publik** .
 
 ## <a name="create-a-new-plan"></a>Skapa en ny plan
 
@@ -40,11 +40,11 @@ Välj **Skapa ny plan** längst upp. Dialog rutan **nytt plan** visas.
 Skapa ett unikt plan-ID för varje plan i det här erbjudandet i rutan **plan-ID** . Detta ID visas för kunder i produktens webb adress. Använd bara gemena bokstäver och siffror, bindestreck eller under streck och högst 50 tecken.
 
 > [!NOTE]
-> Det går inte att ändra plan-ID när du har valt **skapa**.
+> Det går inte att ändra plan-ID när du har valt **skapa** .
 
-I rutan **plan namn** anger du ett namn för den här planen. Kunderna ser det här namnet när de bestämmer vilken plan som ska väljas i erbjudandet. Skapa ett unikt namn som tydligt pekar på skillnaderna mellan planerna. Du kan till exempel ange **Windows Server** med " *betala per*användning"-, *BYOL*-, *Advanced*-och *Enterprise* -planer.
+I rutan **plan namn** anger du ett namn för den här planen. Kunderna ser det här namnet när de bestämmer vilken plan som ska väljas i erbjudandet. Skapa ett unikt namn som tydligt pekar på skillnaderna mellan planerna. Du kan till exempel ange **Windows Server** med " *betala per* användning"-, *BYOL* -, *Advanced* -och *Enterprise* -planer.
 
-Välj **Skapa**.
+Välj **Skapa** .
 
 ## <a name="plan-setup"></a>Planera installationen
 
@@ -52,7 +52,7 @@ Ange den avancerade konfigurationen för typen av plan, ange om den återanvänd
 
 ### <a name="reuse-a-technical-configuration"></a>Återanvänd en teknisk konfiguration
 
-Om du har mer än en plan av samma typ och paketen är identiska mellan dem, kan du välja **den här prenumerationen Återanvänd teknisk konfiguration från ett annat abonnemang**. Med det här alternativet kan du välja något av de andra planerna av samma typ för det här erbjudandet och du kan återanvända den tekniska konfigurationen.
+Om du har mer än en plan av samma typ och paketen är identiska mellan dem, kan du välja **den här prenumerationen Återanvänd teknisk konfiguration från ett annat abonnemang** . Med det här alternativet kan du välja något av de andra planerna av samma typ för det här erbjudandet och du kan återanvända den tekniska konfigurationen.
 
 > [!NOTE]
 > När du återanvänder den tekniska konfigurationen från ett annat abonnemang försvinner fliken **teknisk konfiguration** från den här planen. Den tekniska konfigurations informationen från den andra planen, inklusive eventuella uppdateringar som du gör i framtiden, kommer även att användas för den här planen. Det går inte att ändra den här inställningen när planen har publicerats.
@@ -114,13 +114,13 @@ När du tar bort en marknad kommer kunder från den marknaden som använder akti
 
 ### <a name="pricing"></a>Prissättning
 
-För **licens modellen**väljer du Använd **månatlig månatlig fakturerings plan** för att konfigurera prissättningen för den här planen eller Välj **Bring Your Own License** så att kunderna kan använda den här planen med sin befintliga licens.
+För **licens modellen** väljer du Använd **månatlig månatlig fakturerings plan** för att konfigurera prissättningen för den här planen eller Välj **Bring Your Own License** så att kunderna kan använda den här planen med sin befintliga licens.
 
 Använd en av följande tre alternativ för pris poster för en användnings-baserad månatlig fakturerings plan:
 
-- **Per kärna**: ange priser per kärna i USD. Microsoft beräknar priset per kärn storlek och omvandlar det till lokala valutor med hjälp av den aktuella växelkursen.
-- **Per kärn storlek**: ange priser per kärn storlek i USD. Microsoft beräknar priset och konverterar det till lokala valutor med hjälp av den aktuella växelkursen.
-- **Per marknad och kärn storlek**: Ange prissättning för varje kärn storlek för alla marknader. Du kan importera priserna från ett kalkyl blad.
+- **Per kärna** : ange priser per kärna i USD. Microsoft beräknar priset per kärn storlek och omvandlar det till lokala valutor med hjälp av den aktuella växelkursen.
+- **Per kärn storlek** : ange priser per kärn storlek i USD. Microsoft beräknar priset och konverterar det till lokala valutor med hjälp av den aktuella växelkursen.
+- **Per marknad och kärn storlek** : Ange prissättning för varje kärn storlek för alla marknader. Du kan importera priserna från ett kalkyl blad.
 
 > [!NOTE]
 > Spara pris ändringar så att du kan exportera pris information. När du har publicerat ett pris för en marknad i planen kan du inte ändra det senare. För att se till att priserna är rätt innan du publicerar dem, exportera pris kalkyl bladet och granska priserna på varje marknad.
@@ -133,14 +133,14 @@ Du kan erbjuda dina kunder en *kostnads fri utvärderings period* på en månad 
 
 Du kan utforma varje plan som ska vara synlig för alla eller endast till en förvaltad mål grupp. Tilldela medlemskap i den här begränsade mål gruppen med hjälp av ID för Azure-prenumeration.
 
-**Offentlig**: din prenumeration kan ses av alla.
+**Offentlig** : din prenumeration kan ses av alla.
 
-**Privat publik**: gör ditt plan bara synligt för en förvaltad mål grupp. När den har publicerats som en privat plan kan du uppdatera mål gruppen eller ändra den till offentlig. När du har gjort en plan offentlig måste den vara offentlig. Det går inte att ändra tillbaka till en privat plan.
+**Privat publik** : gör ditt plan bara synligt för en förvaltad mål grupp. När den har publicerats som en privat plan kan du uppdatera mål gruppen eller ändra den till offentlig. När du har gjort en plan offentlig måste den vara offentlig. Det går inte att ändra tillbaka till en privat plan.
 
 > [!NOTE]
 > En privat eller begränsad mål grupp skiljer sig från den förhands visnings mål som du definierade i **förhands gransknings** fönstret. En förhands gransknings grupp kan komma åt ditt erbjudande _innan_ det publiceras Live till Azure Marketplace. Även om valet för den privata publiken bara gäller för en speciell plan, kan förhands gransknings publiken Visa alla privata och offentliga planer i validerings syfte.
 
-**Begränsad mål grupp (Azure-prenumerations-ID)**: tilldela den mål grupp som ska ha åtkomst till den privata planen genom att använda Azures prenumerations-ID. Du kan också ta med en beskrivning av varje Azure-prenumerations-ID som du har tilldelat. Lägg till upp till 10 prenumerations-ID: n manuellt eller upp till 20 000-ID om du importerar ett CSV-kalkylblad. ID: n för Azure-prenumerationen visas som GUID och alla bokstäver måste vara gemena.
+**Begränsad mål grupp (Azure-prenumerations-ID)** : tilldela den mål grupp som ska ha åtkomst till den privata planen genom att använda Azures prenumerations-ID. Du kan också ta med en beskrivning av varje Azure-prenumerations-ID som du har tilldelat. Lägg till upp till 10 prenumerations-ID: n manuellt eller upp till 20 000-ID om du importerar ett CSV-kalkylblad. ID: n för Azure-prenumerationen visas som GUID och alla bokstäver måste vara gemena.
 
 >[!Note]
 >Privata erbjudanden stöds inte med Azure-prenumerationer som upprättats via en åter försäljare av Cloud Solution Provider-programmet (CSP).
@@ -165,9 +165,9 @@ Ange de bilder och andra tekniska egenskaper som är associerade med den här pl
 
 Gör följande i fönstret **operativ system** :
 
-- För **operativ system familj**väljer du operativ systemet **Windows** eller **Linux** .
-- För **version** eller **leverantör**väljer du Windows-versionen eller Linux-leverantören.
-- För **eget**operativ system namn anger du ett eget operativ system namn. Det här namnet är synligt för kunderna.
+- För **operativ system familj** väljer du operativ systemet **Windows** eller **Linux** .
+- För **version** eller **leverantör** väljer du Windows-versionen eller Linux-leverantören.
+- För **eget** operativ system namn anger du ett eget operativ system namn. Det här namnet är synligt för kunderna.
 
 ### <a name="recommended-vm-sizes"></a>Rekommenderade VM-storlekar
 
@@ -179,24 +179,48 @@ Välj upp till sex rekommenderade storlekar för virtuella datorer som ska visas
 
 ### <a name="storage-option-for-deployment"></a>Lagrings alternativ för distribution
 
-För **disk distributions alternativ**väljer du den typ av disk distribution som dina kunder kan använda för den virtuella datorn. Microsoft rekommenderar att du endast begränsar distributionen till **hanterad disk distribution** .
+För **disk distributions alternativ** väljer du den typ av disk distribution som dina kunder kan använda för den virtuella datorn. Microsoft rekommenderar att du endast begränsar distributionen till **hanterad disk distribution** .
 
 ### <a name="properties"></a>Egenskaper
 
-För **stöd för accelererat nätverk**väljer du om den virtuella datorn har stöd för [accelererat nätverk](https://go.microsoft.com/fwlink/?linkid=2124513).
+För **stöd för accelererat nätverk** väljer du om den virtuella datorn har stöd för [accelererat nätverk](https://go.microsoft.com/fwlink/?linkid=2124513).
+
+### <a name="generations"></a>Generationer
+
+När en virtuell dator skapas definieras den virtuella maskin varan som används. Baserat på kundens behov kan du publicera en virtuell dator i generation 1, generation 2 VM eller både och.
+
+1. När du skapar ett nytt erbjudande väljer du en **typ av generation** och anger den begärda avbildnings informationen:
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details.png" alt-text="En vy av list rutan generation.":::
+
+2. Om du vill lägga till en annan generation i en plan väljer du **Lägg till generation** :
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-add.png" alt-text="En vy av list rutan generation.":::
+
+    Ange sedan generations information:
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-details.png" alt-text="En vy av list rutan generation.":::
+
+    Det **generations-ID** som du väljer visas för kunder på platser som produkt-URL: er och arm-mallar (om tillämpligt). Använd endast gemener, alfanumeriska tecken, bindestreck eller under streck. den kan inte ändras när den har publicerats.
+
+3. Om du vill uppdatera en befintlig virtuell dator som har en generation 1 redan publicerad, redigerar du bara information på sidan **teknisk konfiguration** :
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="En vy av list rutan generation.":::
+
+Mer information om skillnaderna mellan funktioner i generation 1 och generation 2 finns i [stöd för virtuella datorer i generation 2 på Azure](../virtual-machines/generation-2.md).
 
 ### <a name="vm-images"></a>VM-avbildningar
 
 Ange en disk version och URL: en för signaturen för delad åtkomst (SAS) för de virtuella dator avbildningarna. Lägg till upp till 16 data diskar för varje VM-avbildning. Ange endast en ny avbildnings version per plan i ett angivet överförings objekt. När en avbildning har publicerats kan du inte redigera den, men du kan ta bort den. Om du tar bort en version förhindrar det att både nya och befintliga användare distribuerar en ny instans av den borttagna versionen.
 
-- **Skiv version**: den version av avbildningen som du tillhandahåller.
-- **SAS-URI**: platsen i ditt Azure Storage-konto där du har lagrat operativ systemet på den virtuella hård disken. Information om hur du hämtar en SAS-URI finns i [Hämta signatur-URI för delad åtkomst för din virtuella dator avbildning](azure-vm-get-sas-uri.md).
+- **Skiv version** : den version av avbildningen som du tillhandahåller.
+- **SAS-URI** : platsen i ditt Azure Storage-konto där du har lagrat operativ systemet på den virtuella hård disken. Information om hur du hämtar en SAS-URI finns i [Hämta signatur-URI för delad åtkomst för din virtuella dator avbildning](azure-vm-get-sas-uri.md).
 - Data disk avbildningar är också URI: er för delad åtkomst för virtuella hård diskar som lagras i deras Azure Storage-konton.
 - Lägg endast till en bild per överföring i en plan.
 
 Oavsett vilket operativ system du använder lägger du endast till det minsta antalet data diskar som krävs för lösningen. Under distributionen kan kunderna inte ta bort diskar som ingår i en avbildning, men de kan alltid lägga till diskar under eller efter distributionen.
 
-Välj **Spara utkast** innan du fortsätter och återgå till **plan översikt**.
+Välj **Spara utkast** innan du fortsätter och återgå till **plan översikt** .
 
 ## <a name="next-steps"></a>Nästa steg
 

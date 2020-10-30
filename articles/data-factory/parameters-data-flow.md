@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 564c7cf6e9627db08d543b964ce476e71bfb473d
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82780425"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040747"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Parametrisera mappningsdataflöden
 
@@ -28,7 +28,7 @@ Använd den här funktionen för att göra dina data flöden generella, flexibla
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>Skapa parametrar i ett data flöde för mappning
 
-Om du vill lägga till parametrar till ditt data flöde, klickar du på den tomma delen av data flödes arbets ytan för att se de allmänna egenskaperna. I fönstret inställningar visas en flik som heter **parameter**. Välj **ny** för att skapa en ny parameter. För varje parameter måste du tilldela ett namn, välja en typ och alternativt ange ett standardvärde.
+Om du vill lägga till parametrar till ditt data flöde, klickar du på den tomma delen av data flödes arbets ytan för att se de allmänna egenskaperna. I fönstret inställningar visas en flik som heter **parameter** . Välj **ny** för att skapa en ny parameter. För varje parameter måste du tilldela ett namn, välja en typ och alternativt ange ett standardvärde.
 
 ![Skapa data flödes parametrar](media/data-flow/create-params.png "Skapa data flödes parametrar")
 
@@ -36,11 +36,11 @@ Om du vill lägga till parametrar till ditt data flöde, klickar du på den tomm
 
 Det går att referera till parametrar i ett data flödes uttryck. Parametrarna börjar med $ och är oföränderliga. Du hittar listan över tillgängliga parametrar inuti uttrycks verktyget under fliken **parametrar** .
 
-![Parameter uttryck för data flöde](media/data-flow/parameter-expression.png "Parameter uttryck för data flöde")
+![Skärm bild som visar de tillgängliga parametrarna på fliken parametrar.](media/data-flow/parameter-expression.png "Parameter uttryck för data flöde")
 
 Du kan snabbt lägga till ytterligare parametrar genom att välja **ny parameter** och ange namn och typ.
 
-![Parameter uttryck för data flöde](media/data-flow/new-parameter-expression.png "Parameter uttryck för data flöde")
+![Skärm bild som visar parametrarna på fliken parametrar med nya parametrar tillagda.](media/data-flow/new-parameter-expression.png "Parameter uttryck för data flöde")
 
 ## <a name="assign-parameter-values-from-a-pipeline"></a>Tilldela parameter värden från en pipeline
 
@@ -48,13 +48,13 @@ När du har skapat ett data flöde med parametrar kan du köra det från en pipe
 
 När du tilldelar parameter värden kan du använda antingen [uttrycks språket för pipelinen](control-flow-expression-language-functions.md) eller [data flödets uttrycks språk](data-flow-expression-functions.md) baserat på Spark-typer. Varje mappnings data flöde kan ha valfri kombination av parametrar för pipeline och data flödes uttryck.
 
-![Ange en data flödes parameter](media/data-flow/parameter-assign.png "Ange en data flödes parameter")
+![Skärm bild som visar fliken parametrar med det data flödes uttryck som valts för värdet.](media/data-flow/parameter-assign.png "Ange en data flödes parameter")
 
 ### <a name="pipeline-expression-parameters"></a>Uttrycks parametrar för pipeline
 
-Med parametrarna för pipeline-uttryck kan du referera till systemvariabler, funktioner, pipeline-parametrar och variabler som liknar andra pipeline-aktiviteter. När du klickar på **pipeline-uttryck**öppnas ett sido navigerings läge där du kan ange ett uttryck med uttrycks verktyget.
+Med parametrarna för pipeline-uttryck kan du referera till systemvariabler, funktioner, pipeline-parametrar och variabler som liknar andra pipeline-aktiviteter. När du klickar på **pipeline-uttryck** öppnas ett sido navigerings läge där du kan ange ett uttryck med uttrycks verktyget.
 
-![Ange en data flödes parameter](media/data-flow/parameter-pipeline.png "Ange en data flödes parameter")
+![Skärm bild som visar fönstret uttrycks verktyg.](media/data-flow/parameter-pipeline.png "Ange en data flödes parameter")
 
 När det hänvisas till utvärderas pipeliniska parametrar och sedan används deras värde i data flödets uttrycks språk. Uttrycks typen för pipelinen behöver inte matcha data flödets parameter typ. 
 
@@ -62,7 +62,7 @@ När det hänvisas till utvärderas pipeliniska parametrar och sedan används de
 
 När du tilldelar en uttrycks parameter för pipeline av typen sträng, läggs standard citat tecken till och värdet utvärderas som en literal. Om du vill läsa parameter värdet som ett data flödes uttryck, markerar du rutan uttryck bredvid parametern.
 
-![Ange en data flödes parameter](media/data-flow/string-parameter.png "Ange en data flödes parameter")
+![Skärm bild som visar det uttryck för data flödes parametrar som valts för en parameter.](media/data-flow/string-parameter.png "Ange en data flödes parameter")
 
 Om data flödes parametern `stringParam` refererar till en pipeline-parameter med värde `upper(column1)` . 
 
@@ -73,7 +73,7 @@ Om data flödes parametern `stringParam` refererar till en pipeline-parameter me
 
 I pipeline-uttryckets språk kan systemvariabler, till exempel `pipeline().TriggerTime` och funktioner som `utcNow()` returnerar tidsstämplar som strängar i formatet åååå-mm-dd \' T \' hh: mm: SS. SSSSSSZ'. Om du vill konvertera dessa till data flödes parametrar av typen timestamp, använder du String-interpolation för att inkludera önskad tidstämpel i en `toTimestamp()` funktion. Om du till exempel vill konvertera utlösnings tiden för pipelinen till en data flödes parameter kan du använda `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')` . 
 
-![Ange en data flödes parameter](media/data-flow/parameter-timestamp.png "Ange en data flödes parameter")
+![Skärm bild som visar fliken Parametrar där du kan ange en utlösnings tid.](media/data-flow/parameter-timestamp.png "Ange en data flödes parameter")
 
 > [!NOTE]
 > Data flöden kan bara stödja upp till 3 millisekunder. `left()`Funktionen används för att trimma ytterligare siffror.
@@ -82,15 +82,15 @@ I pipeline-uttryckets språk kan systemvariabler, till exempel `pipeline().Trigg
 
 Anta att du har en heltals parameter `intParam` som refererar till en pipeline-parameter av typen sträng, `@pipeline.parameters.pipelineParam` . 
 
-![Ange en data flödes parameter](media/data-flow/parameter-pipeline-2.png "Ange en data flödes parameter")
+![Skärm bild som visar fliken parametrar med parametrar med namnet stringParam och intParam.](media/data-flow/parameter-pipeline-2.png "Ange en data flödes parameter")
 
 `@pipeline.parameters.pipelineParam` tilldelas värdet `abs(1)` vid körning.
 
-![Ange en data flödes parameter](media/data-flow/parameter-pipeline-4.png "Ange en data flödes parameter")
+![Skärm bild som visar fliken parametrar med värdet för a b s (1) markerat.](media/data-flow/parameter-pipeline-4.png "Ange en data flödes parameter")
 
 När `$intParam` refereras till i ett uttryck, till exempel en härledd kolumn, kommer det att utvärdera `abs(1)` RETUR `1` . 
 
-![Ange en data flödes parameter](media/data-flow/parameter-pipeline-3.png "Ange en data flödes parameter")
+![Skärm bild som visar värdet för kolumner.](media/data-flow/parameter-pipeline-3.png "Ange en data flödes parameter")
 
 ### <a name="data-flow-expression-parameters"></a>Uttrycks parametrar för data flöde
 

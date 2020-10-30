@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e6e59ad237cdc1f23181375894512e69eba86ff
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704736"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042181"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planera och hantera kostnader för Azure Machine Learning
 
@@ -41,7 +41,7 @@ Mer information om hur du får åtkomst till Azure Cost Management finns i [Till
 
 ## <a name="estimate-costs"></a>Uppskatta kostnader
 
-Använd [pris Kalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator/) för att beräkna kostnaderna innan du skapar resurserna i ett Azure Machine Learning konto. Välj **AI + Machine Learning**till vänster och välj sedan **Azure Machine Learning** för att börja.  
+Använd [pris Kalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator/) för att beräkna kostnaderna innan du skapar resurserna i ett Azure Machine Learning konto. Välj **AI + Machine Learning** till vänster och välj sedan **Azure Machine Learning** för att börja.  
 
 Följande skärm bild visar kostnads uppskattningen med hjälp av Kalkylatorn:
 
@@ -61,7 +61,9 @@ När du använder resurser med Azure Machine Learning debiteras du kostnader. Ko
 
 Du kan visa kostnader i grafer och tabeller i olika tidsintervall. Du kan också Visa kostnader för budgetar och prognostiserade kostnader. Genom att växla till längre vyer över tid kan du identifiera utgifts trender och se var överförbrukningen kan ha inträffat. Om du har skapat budgetar, se var de överskreds.  
 
-Du kan inte se ett separat tjänst utrymme för Machine Learning.  I stället ser du de olika resurser som du har lagt till i dina Machine Learning-arbetsytor.
+Du kan inte se ett separat tjänst utrymme för Machine Learning.  I stället ser du de olika resurser som du har lagt till i dina Machine Learning-arbetsytor. 
+
+Observera att medan själva Machine Learning-arbetsytan inte har direkt kostnad debiteras du på hanterade beräknings resurser. Om du har lagt till taggar till arbets ytorna, eftersom det inte finns någon direkt kostnad för den, så återspeglar fönstret kostnads analys detta för arbets ytan. För korrekt kostnads hantering via Taggar måste du tagga de associerade beräknings resurserna.  
 
 ## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Använda Azure Machine Learning Compute Cluster (AmlCompute)
 

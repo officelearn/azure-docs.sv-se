@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bc7b0ce521522e677e0dc53809c8c33e0743f0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87239e361b518a85cf30352374e7a9b5e530928e
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327926"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042621"
 ---
 # <a name="what-is-risk"></a>Vad är risker?
 
@@ -24,11 +24,14 @@ Risk identifieringar i Azure AD Identity Protection innehåller identifierade mi
 
 Identitets skydd ger organisationer till gång till kraftfulla resurser för att kunna se och svara snabbt på dessa misstänkta åtgärder. 
 
+>**Obs:** Identitets skydd genererar endast risk identifieringar när rätt autentiseringsuppgifter används. Om felaktiga autentiseringsuppgifter används på en inloggning, representerar den inte risk för komprometterade autentiseringsuppgifter.
+
 ![Säkerhets översikt som visar riskfyllda användare och inloggningar](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
+
 
 ## <a name="risk-types-and-detection"></a>Risk typer och identifiering
 
-Det finns två typer av risk **användare** och **inloggning** och två typer av identifiering eller beräkning i **real tid** och **offline**.
+Det finns två typer av risk **användare** och **inloggning** och två typer av identifiering eller beräkning i **real tid** och **offline** .
 
 Real tids identifieringar kanske inte visas i rapportering i fem till tio minuter. Offline-identifieringar kanske inte visas i rapportering för två till 24 timmar.
 
@@ -38,7 +41,7 @@ En användar risk representerar sannolikheten att en specifik identitet eller et
 
 Dessa risker beräknas offline med Microsofts interna och externa hot informations källor, inklusive säkerhets forskare, lag verk ställande personal, säkerhets team på Microsoft och andra betrodda källor.
 
-| Identifiering av risker | Beskrivning |
+| Identifiering av risker | Description |
 | --- | --- |
 | Läckta autentiseringsuppgifter | Den här typen av risk identifiering anger att användarens giltiga autentiseringsuppgifter har läckts. När cyberbrottslingar kompromettera giltiga lösen ord för legitima användare delar de ofta dessa autentiseringsuppgifter. Den här delningen görs vanligt vis genom att publicera offentligt på den mörka webbplatsen, klistra in webbplatser eller genom handel och sälja autentiseringsuppgifterna på den svarta marknaden. När tjänsten Microsoft läcker autentiseringsuppgifter hämtar användarautentiseringsuppgifter från den mörka webben, klistra in webbplatser eller andra källor, kontrol leras de mot Azure AD-användares aktuella giltiga autentiseringsuppgifter för att hitta giltiga matchningar. Mer information om läckage av autentiseringsuppgifter finns i [vanliga frågor](#common-questions). |
 | Azure AD Threat Intelligence | Den här typen av risk identifiering indikerar användar aktivitet som är ovanlig för den aktuella användaren eller som är konsekvent med kända angrepps mönster baserade på Microsofts interna och externa hot informations källor. |
@@ -49,7 +52,7 @@ En inloggnings risk representerar sannolikheten att en begäran om autentisering
 
 Dessa risker kan beräknas i real tid eller beräknas offline med hjälp av Microsofts interna och externa hot informations källor, till exempel säkerhets forskare, juridiska tekniker, säkerhets team på Microsoft och andra betrodda källor.
 
-| Identifiering av risker | Identifierings typ | Beskrivning |
+| Identifiering av risker | Identifierings typ | Description |
 | --- | --- | --- |
 | Anonym IP-adress | Real tids | Den här typen av risk identifiering indikerar inloggningar från en anonym IP-adress (till exempel Tor webbläsare eller anonym VPN). Dessa IP-adresser används vanligt vis av aktörer som vill dölja sin login telemetri (IP-adress, plats, enhet osv.) för potentiellt skadliga avsikter. |
 | Ovanlig resa | Offline | Den här typen av risk identifiering identifierar två inloggningar som härstammar från geografiskt avlägsna platser, där minst en av platserna också kan vara ovanlig för användaren, med hänsyn till tidigare beteende. Bland flera andra faktorer tar den här Machine Learning-algoritmen hänsyn till tiden mellan de två inloggningarna och den tid det skulle ha tagit för användaren att resa från den första platsen till den andra, vilket indikerar att en annan användare använder samma autentiseringsuppgifter. <br><br> Algoritmen ignorerar uppenbara "falska positiva identifieringar" som bidrar till de omöjliga rese villkoren, till exempel VPN och platser som regelbundet används av andra användare i organisationen. Systemet har en inledande inlärnings period på tidigast 14 dagar eller 10 inloggningar, under vilken den lär sig en ny användares inloggnings beteende. |
@@ -63,7 +66,7 @@ Dessa risker kan beräknas i real tid eller beräknas offline med hjälp av Micr
 
 ### <a name="other-risk-detections"></a>Andra risk identifieringar
 
-| Identifiering av risker | Identifierings typ | Beskrivning |
+| Identifiering av risker | Identifierings typ | Description |
 | --- | --- | --- |
 | Ytterligare risk upptäckt | I real tid eller offline | Den här identifieringen anger att ett av ovanstående Premium-identifieringar upptäcktes. Eftersom Premium-identifieringar endast är synliga för Azure AD Premium P2-kunder kallas de "ytterligare risk upptäckt" för kunder utan Azure AD Premium P2-licenser. |
 

@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 06/20/2019
-ms.openlocfilehash: 08aaec23b0edc0e797d26d4b51081f6daa5b5c19
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/29/2020
+ms.openlocfilehash: 30a511caec82ead406f0a80f107e4261a707bfdb
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671236"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040173"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: importera en BACPAC-fil till en databas i Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -62,9 +62,11 @@ Om du vill migrera en databas till en [Azure SQL-hanterad instans](../managed-in
 
 ## <a name="using-sqlpackage"></a>Använda SqlPackage
 
-Om du vill importera en SQL Server-databas med hjälp av kommando rads verktyget [SqlPackage](/sql/tools/sqlpackage) , se [import parametrar och egenskaper](/sql/tools/sqlpackage#import-parameters-and-properties). [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools för Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) inkluderar SqlPackage. Du kan också hämta de senaste [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) från Microsoft Download Center.
+Om du vill importera en SQL Server-databas med hjälp av kommando rads verktyget [SqlPackage](/sql/tools/sqlpackage) , se [import parametrar och egenskaper](/sql/tools/sqlpackage#import-parameters-and-properties). [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) och [SQL Server Data Tools för Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) inkluderar SqlPackage. Du kan också hämta de senaste [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) från Microsoft Download Center. 
 
 För skalning och prestanda rekommenderar vi att du använder SqlPackage i de flesta produktions miljöer snarare än att använda Azure Portal. En SQL Server kund expert team blogg om hur du migrerar med hjälp av `BACPAC` filer finns i [migrera från SQL Server till Azure SQL Database använda BACPAC-filer](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files).
+
+DTU-baserad etablerings modell stöder Select Database maximum size-värden för varje nivå. [Använd något av de värden som stöds](/sql/t-sql/statements/create-database-transact-sql)när du importerar en databas. 
 
 Följande SqlPackage-kommando importerar **AdventureWorks2008R2** -databasen från lokal lagring till en logisk SQL-Server med namnet **mynewserver20170403** . Den skapar en ny databas med namnet **myMigratedDatabase** med en **Premium** service-nivå och ett **P6** -tjänst mål. Ändra värdena efter behov för din miljö.
 
@@ -94,7 +96,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!IMPORTANT]
 > PowerShell-modulen för Azure Resource Manager (RM) stöds fortfarande, men all framtida utveckling är för AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
 
-Använd cmdleten [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) för att skicka en begäran om att importera databasen till Azure. Det kan ta en stund att slutföra importen, beroende på databasens storlek.
+Använd cmdleten [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) för att skicka en begäran om att importera databasen till Azure. Det kan ta en stund att slutföra importen, beroende på databasens storlek. DTU-baserad etablerings modell stöder Select Database maximum size-värden för varje nivå. [Använd något av de värden som stöds](/sql/t-sql/statements/create-database-transact-sql)när du importerar en databas. 
 
 ```powershell
 $importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>" `
@@ -126,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Använd kommandot [AZ-SQL-DB-import](/cli/azure/sql/db#az-sql-db-import) för att skicka en begäran om att importera databasen till Azure. Det kan ta en stund att slutföra importen, beroende på databasens storlek.
+Använd kommandot [AZ-SQL-DB-import](/cli/azure/sql/db#az-sql-db-import) för att skicka en begäran om att importera databasen till Azure. Det kan ta en stund att slutföra importen, beroende på databasens storlek. DTU-baserad etablerings modell stöder Select Database maximum size-värden för varje nivå. [Använd något av de värden som stöds](/sql/t-sql/statements/create-database-transact-sql)när du importerar en databas. 
 
 ```azurecli
 # get the storage account key

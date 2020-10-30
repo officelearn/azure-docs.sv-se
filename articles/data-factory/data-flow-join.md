@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
-ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac84ce17f53145ffd85ffa31b6633d8b4b184962
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83683365"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042646"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Koppla omvandling i data flöde för mappning
 
@@ -59,7 +59,7 @@ Om du vill skapa en fullständig kartesiska-produkt explicit använder du den h�
 
 1. Välj vilken data ström som du ansluter till med i list rutan till **höger ström** .
 1. Välj **Anslutnings typ**
-1. Välj vilka nyckel kolumner som du vill matcha på för dig som kopplings villkor. Som standard söker data flödet efter likhet mellan en kolumn i varje data ström. Om du vill jämföra via ett beräknat värde hovrar du över kolumn List rutan och väljer **beräknad kolumn**.
+1. Välj vilka nyckel kolumner som du vill matcha på för dig som kopplings villkor. Som standard söker data flödet efter likhet mellan en kolumn i varje data ström. Om du vill jämföra via ett beräknat värde hovrar du över kolumn List rutan och väljer **beräknad kolumn** .
 
 ![Koppla omvandling](media/data-flow/join.png "Slå ihop")
 
@@ -75,13 +75,13 @@ Till skillnad från sammanfognings koppling i verktyg som SSIS är Join-omvandli
 
 ![Optimering av kopplings omvandling](media/data-flow/joinoptimize.png "Delta i optimering")
 
-I kopplingar, sökningar och exists-omvandling, om en eller båda data strömmar får plats i arbetsnodens minne, kan du optimera prestandan genom att aktivera **sändning**. Som standard bestämmer Spark-motorn om en sida ska sändas automatiskt eller inte. Välj **fast**om du vill välja vilken sida som ska sändas manuellt.
+I kopplingar, sökningar och exists-omvandling, om en eller båda data strömmar får plats i arbetsnodens minne, kan du optimera prestandan genom att aktivera **sändning** . Som standard bestämmer Spark-motorn om en sida ska sändas automatiskt eller inte. Välj **fast** om du vill välja vilken sida som ska sändas manuellt.
 
 Vi rekommenderar inte att du inaktiverar sändning via alternativet **inaktivera** om inte dina kopplingar körs i tids gräns fel.
 
 ## <a name="self-join"></a>Self-Join
 
-Om du själv vill ansluta en data ström med sig själv kan du ange ett alias för en befintlig ström med en SELECT-omvandling. Skapa en ny gren genom att klicka på plus ikonen bredvid en omvandling och välja **ny gren**. Lägg till en SELECT-omvandling för att ange alias för den ursprungliga strömmen. Lägg till en kopplings omvandling och välj den ursprungliga data strömmen som **vänster ström** och välj omvandlingen som **rätt data ström**.
+Om du själv vill ansluta en data ström med sig själv kan du ange ett alias för en befintlig ström med en SELECT-omvandling. Skapa en ny gren genom att klicka på plus ikonen bredvid en omvandling och välja **ny gren** . Lägg till en SELECT-omvandling för att ange alias för den ursprungliga strömmen. Lägg till en kopplings omvandling och välj den ursprungliga data strömmen som **vänster ström** och välj omvandlingen som **rätt data ström** .
 
 ![Själv koppling](media/data-flow/selfjoin.png "Själv koppling")
 
@@ -108,7 +108,7 @@ Exemplet nedan är en JOIN-omvandling med namnet `JoinMatchedData` som tar väns
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 
-![Exempel på koppling](media/data-flow/join-script1.png "Exempel på koppling")
+![Skärm bild som visar omvandlingen med fliken koppla inställningar valt och en kopplings typ för inre.](media/data-flow/join-script1.png "Exempel på koppling")
 
 Data flödes skriptet för den här omvandlingen är i kodfragmentet nedan:
 
@@ -130,7 +130,7 @@ Exemplet nedan är en JOIN-omvandling med namnet `JoiningColumns` som tar vänst
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 
-![Exempel på koppling](media/data-flow/join-script2.png "Exempel på koppling")
+![Skärm bild som visar omvandlingen med fliken koppla inställningar valt och en kopplings typ (Cross).](media/data-flow/join-script2.png "Exempel på koppling")
 
 Data flödes skriptet för den här omvandlingen är i kodfragmentet nedan:
 

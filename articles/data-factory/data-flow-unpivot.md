@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: ea8881adf39a315df7746dbce14dedcbee18ccf6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ef861cdf394716a70d85e43ce9c60f46af2cc2e4
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521058"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040200"
 ---
 # <a name="unpivot-transformation-in-mapping-data-flow"></a>Avpivotera transformering i data flöde för mappning
 
@@ -20,25 +20,25 @@ ms.locfileid: "92521058"
 
 Använd unpivot i data flöde för ADF-mappning som ett sätt att omvandla en normaliserad data uppsättning till en mer normaliserad version genom att expandera värden från flera kolumner i en enskild post till flera poster med samma värden i en enda kolumn.
 
-![Avpivotera transformering](media/data-flow/unpivot1.png "Avpivotera alternativ 1")
+![Skärm bild som visar unpivot-markering från menyn.](media/data-flow/unpivot1.png "Avpivotera alternativ 1")
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B1RR]
 
 ## <a name="ungroup-by"></a>Dela upp efter
 
-![Avpivotera transformering](media/data-flow/unpivot5.png "Avpivotera alternativ 2")
+![Skärm bild som visar unpivot-inställningarna med fliken Dela upp grupper valt.](media/data-flow/unpivot5.png "Avpivotera alternativ 2")
 
 Ange först de kolumner som du vill dela upp för unpivot-aggregering. Ange en eller flera kolumner för att dela upp med +-tecknet bredvid kolumn listan.
 
 ## <a name="unpivot-key"></a>Unpivot-nyckel
 
-![Avpivotera transformering](media/data-flow/unpivot6.png "Avpivotera alternativ 3")
+![Skärm bild som visar unpivot-inställningarna med fliken unpivot-tangenten vald.](media/data-flow/unpivot6.png "Avpivotera alternativ 3")
 
 Unpivot-nyckeln är den kolumn som används för ADF från kolumn till rad. Som standard kommer varje unikt värde i data uppsättningen för det här fältet att pivoteras till en rad. Du kan också ange värden från data uppsättningen som du vill pivotera till rad värden.
 
 ## <a name="unpivoted-columns"></a>Kolumner som inte har pivoteras
 
-![Avpivotera transformering](media/data-flow//unpivot7.png "Avpivotera alternativ 4")
+![Skärm bild som visar unpivot-inställningarna med fliken Data förhands granskning vald.](media/data-flow//unpivot7.png "Avpivotera alternativ 4")
 
 Slutligen väljer du kolumn namnet för att lagra värdena för staplade kolumner som omvandlas till rader.
 
@@ -50,7 +50,7 @@ Till exempel är SumCost det kolumn namn som väljs i exemplet som delas ovan.
 
 Om du ställer in kolumn ordningen till "normal" grupperas alla nya kolumner som inte har pivoteras från ett enda värde. Om du anger kolumnernas ordning till "lateral" grupperas nya, staplade kolumner som genereras från en befintlig kolumn.
 
-![Avpivotera transformering](media/data-flow//unpivot7.png "Avpivotera alternativ 5")
+![Skärm bild som visar resultatet av omvandlingen.](media/data-flow//unpivot7.png "Avpivotera alternativ 5")
 
 I den sista pivottabellen med nedpivoterade data visas kolumn summor nu i separata rad värden.
 

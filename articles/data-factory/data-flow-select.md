@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
-ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d8c4d1915e22ccabf193f1b34c5fc4797ead549
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84322098"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040239"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Välj omvandling i data flöde för mappning
 
@@ -44,13 +44,13 @@ Fasta mappningar kan användas för att mappa en under kolumn i en hierarkisk ko
 
 Om du vill mappa många kolumner samtidigt eller skicka efterföljande kolumner, använder du regelbaserade mappningar för att definiera dina mappningar med hjälp av kolumn mönster. Matchning baserat på `name` `type` kolumnerna,, `stream` och `position` . Du kan ha en kombination av fasta och regelbaserade mappningar. Som standard är alla projektioner med fler än 50 kolumner som standard en regelbaserade mappning som matchar i varje kolumn och som utvärderar det angivna namnet. 
 
-Om du vill lägga till en regelbaserade mappning klickar du på **Lägg till mappning** och väljer **regel baserad mappning**.
+Om du vill lägga till en regelbaserade mappning klickar du på **Lägg till mappning** och väljer **regel baserad mappning** .
 
-![regel baserad mappning](media/data-flow/rule2.png "Regel baserad mappning")
+![Skärm bild som visar regel baserad mappning som valts från Lägg till mappning.](media/data-flow/rule2.png "Regel baserad mappning")
 
 Varje regelbaserade mappning kräver två indata: det villkor som ska matchas med och vad som ska namnge varje mappad kolumn. Båda värdena anges via [uttrycks verktyget](concepts-data-flow-expression-builder.md). Ange ditt booleska matchnings villkor i rutan till vänster-uttryck. I rutan till höger uttryck anger du vad den matchade kolumnen ska mappas till.
 
-![regel baserad mappning](media/data-flow/rule-based-mapping.png "Regel baserad mappning")
+![Skärm bild som visar en mappning.](media/data-flow/rule-based-mapping.png "Regel baserad mappning")
 
 Använd `$$` syntax för att referera till Indataporten för en matchad kolumn. Använd bilden ovan som ett exempel, säg att en användare vill matcha i alla sträng kolumner vars namn är kortare än sex tecken. Om en inkommande kolumn har namngetts `test` , `$$ + '_short'` kommer uttrycket att byta namn på kolumnen `test_short` . Om det är den enda mappning som finns, kommer alla kolumner som inte uppfyller villkoret att tas bort från de data som returneras.
 
@@ -60,7 +60,7 @@ Mönster matchar både inkompatibla och definierade kolumner. Om du vill se vilk
 
 Om du klickar på ikonen för nedåtriktadt läge kan du ange ett regex-mappnings villkor. Ett regex-mappnings villkor matchar alla kolumn namn som matchar det angivna regex-villkoret. Detta kan användas tillsammans med standard regelbaserade mappningar.
 
-![regel baserad mappning](media/data-flow/regex-matching.png "Regel baserad mappning")
+![Skärm bild som visar regex-mappningens villkor med hierarkinivå och namn matchningar.](media/data-flow/regex-matching.png "Regel baserad mappning")
 
 Ovanstående exempel matchar i regex-mönster `(r)` eller kolumn namn som innehåller gemener r. På samma sätt som med standard regelbaserade mappningar ändras alla matchade kolumner av villkoret till höger med `$$` syntax.
 
@@ -70,7 +70,7 @@ Om du har flera regex-matchningar i ditt kolumn namn kan du referera till de oli
 
 Om din definierade projektion har en hierarki kan du använda regelbaserade mappningar för att mappa under kolumnerna hierarkier. Ange ett matchande villkor och den komplexa kolumn vars under kolumner du vill mappa. Varje matchad under kolumn kommer att returneras med regeln "name as".
 
-![regel baserad mappning](media/data-flow/rule-based-hierarchy.png "Regel baserad mappning")
+![Skärm bild som visar en regel baserad mappning som använder för en hierarki.](media/data-flow/rule-based-hierarchy.png "Regel baserad mappning")
 
 Ovanstående exempel matchar på alla under kolumner i komplex kolumn `a` . `a` innehåller två under kolumner `b` och `c` . Utdata-schemat kommer att innehålla två kolumner `b` och `c` som villkoret ' name as ' `$$` .
 

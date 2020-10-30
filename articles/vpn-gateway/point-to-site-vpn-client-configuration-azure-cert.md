@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3a7a9711f04a4b54459d57a05ae65b4eedf1d6b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 517b006b013bddbe4e7e7a3d44be74dfa36cc154
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986647"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042583"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera konfigurationsfiler för VPN-klienten för interna P2S-konfigurationer för Azure-certifikatautentisering
 
@@ -34,16 +34,16 @@ Innan du börjar ska du kontrol lera att alla anslutna användare har ett giltig
 
 Du kan generera konfigurationsfiler för klienter med hjälp av PowerShell, eller med hjälp av Azure Portal. Båda metoderna returnerar samma zip-fil. Zippa upp filen om du vill visa följande mappar:
 
-  * **WindowsAmd64** och **WindowsX86**, som innehåller installations paket för Windows 32-bitars och 64-bitars. **WindowsAmd64** Installer-paketet är för alla 64-bitars Windows-klienter som stöds, inte bara AMD.
-  * **Generisk**, som innehåller allmän information som används för att skapa en egen VPN-klientkonfiguration. Den allmänna mappen anges om IKEv2 eller SSTP + IKEv2 har kon figurer ATS på gatewayen. Om endast SSTP har kon figurer ATS finns inte den generiska mappen.
+  * **WindowsAmd64** och **WindowsX86** , som innehåller installations paket för Windows 32-bitars och 64-bitars. **WindowsAmd64** Installer-paketet är för alla 64-bitars Windows-klienter som stöds, inte bara AMD.
+  * **Generisk** , som innehåller allmän information som används för att skapa en egen VPN-klientkonfiguration. Den allmänna mappen anges om IKEv2 eller SSTP + IKEv2 har kon figurer ATS på gatewayen. Om endast SSTP har kon figurer ATS finns inte den generiska mappen.
 
 ### <a name="generate-files-using-the-azure-portal"></a><a name="zipportal"></a>Skapa filer med hjälp av Azure Portal
 
 1. I Azure Portal navigerar du till den virtuella Nätverksgatewayen för det virtuella nätverk som du vill ansluta till.
-2. På sidan virtuell nätverksgateway klickar du på **punkt-till-plats-konfiguration**.
+2. På sidan virtuell nätverksgateway klickar du på **punkt-till-plats-konfiguration** .
 
    ![Ladda ned klient portal](./media/point-to-site-vpn-client-configuration-azure-cert/client-configuration-portal.png)
-3. Klicka på **Ladda ned VPN-klient**överst på sidan punkt-till-plats-konfiguration. Det tar några minuter för klient konfigurations paketet att genereras.
+3. Klicka på **Ladda ned VPN-klient** överst på sidan punkt-till-plats-konfiguration. Det tar några minuter för klient konfigurations paketet att genereras.
 4. Din webbläsare indikerar att en zip-fil för klient konfiguration är tillgänglig. Den heter samma namn som din gateway. Zippa upp filen för att visa mapparna.
 
 ### <a name="generate-files-using-powershell"></a><a name="zipps"></a>Generera filer med PowerShell
@@ -60,26 +60,14 @@ Du kan generera konfigurationsfiler för klienter med hjälp av PowerShell, elle
 
 ## <a name="windows"></a><a name="installwin"></a>Windows
 
-Du kan använda samma konfigurations paket för VPN-klienten på varje Windows-klientdator, förutsatt att versionen överensstämmer med arkitekturen för-klienten. En lista över klient operativ system som stöds finns i avsnittet punkt-till-plats i [vanliga frågor och svar om VPN gateway](vpn-gateway-vpn-faq.md#P2S).
-
->[!NOTE]
->Du måste ha administratörs behörighet på den Windows-klientdator från vilken du vill ansluta.
->
->
-
-Använd följande steg för att konfigurera den interna Windows VPN-klienten för certifikatautentisering:
-
-1. Välj de VPN-klientkonfigurationsfiler som motsvarar Windows-datorns arkitektur. Välj ”VpnClientSetupAmd64”-installationspaketet för en 64-bitars processorarkitektur. Välj ”VpnClientSetupX86”-installationspaketet för en 32-bitars processorarkitektur. 
-2. Dubbelklicka på paketet för att installera det. Om du ser ett SmartScreen-fönster klickar du på **mer info**och **kör ändå**.
-3. På klientdatorn går du till **Nätverksinställningar** och klickar på **VPN**. VPN-anslutningen visar namnet på det virtuella nätverk som den ansluter till. 
-4. Innan du försöker ansluta kontrollerar du att du har installerat ett klientcertifikat på klientdatorn. Ett klientcertifikat krävs för autentisering när du använder den interna Azure-certifikatautentiseringstypen. Mer information om hur du skapar certifikat finns i [Skapa certifikat](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Information om hur du installerar ett klient certifikat finns i [Installera ett klient certifikat](point-to-site-how-to-vpn-client-install-azure-cert.md).
+[!INCLUDE [Windows instructions](../../includes/vpn-gateway-p2s-client-configuration-windows.md)]
 
 ## <a name="mac-os-x"></a><a name="installmac"></a>Mac (OS X)
 
  Du måste konfigurera den inbyggda IKEv2 VPN-klienten manuellt på varje Mac som ska ansluta till Azure. Azure tillhandahåller inte mobileconfig-filen för intern Azure-certifikatautentisering. Den **generiska** innehåller all information som du behöver för konfigurationen. Om du inte ser mappen Generic i nedladdningen beror det antagligen på att du inte valde IKEv2 som tunneltyp. Observera att VPN gateway Basic SKU inte stöder IKEv2. När du har valt IKEv2 genererar du ZIP-filen igen för att hämta mappen Generic.<br>Mappen Generic innehåller följande filer:
 
-* **VpnSettings.xml**, som innehåller viktiga inställningar som server adress och tunnel typ. 
-* **VpnServerRoot. cer**, som innehåller rot certifikatet som krävs för att verifiera Azure-VPN gateway under installationen av P2s-anslutningen.
+* **VpnSettings.xml** , som innehåller viktiga inställningar som server adress och tunnel typ. 
+* **VpnServerRoot. cer** , som innehåller rot certifikatet som krävs för att verifiera Azure-VPN gateway under installationen av P2s-anslutningen.
 
 Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac för certifikatautentisering. Du måste utföra de här stegen på varje Mac som ska ansluta till Azure:
 
@@ -100,18 +88,18 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
 4. I den **allmänna** mappen, från **VpnSettings.xml** -filen, kopierar du värdet för **VpnServer** -taggen. Klistra in det här värdet i fälten **Server adress** och **fjärr-ID** för profilen.
 
    ![Server information](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-5. Klicka på **autentiseringsinställningar** och välj **certifikat**.För **Catalina**klickar du på **ingen** och sedan **certifikat**
+5. Klicka på **autentiseringsinställningar** och välj **certifikat** . För **Catalina** klickar du på **ingen** och sedan **certifikat**
 
    ![autentiseringsinställningar](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
 
-   * För Catalina väljer du **ingen** och sedan **certifikat**. **Välj** rätt certifikat:
+   * För Catalina väljer du **ingen** och sedan **certifikat** . **Välj** rätt certifikat:
    
    ![Skärm bild som visar fönstret nätverk där inga inställningar har valts för autentiseringsinställningar och certifikat har valts.](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
 
 6. Klicka på **Välj...** för att välja det klient certifikat som du vill använda för autentisering. Det här är det certifikat som du installerade i steg 2.
 
    ![Skärm bild som visar fönstret nätverk med autentiseringsinställningar där du kan välja ett certifikat.](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
-7. **Välj en identitet** visar en lista över certifikat som du kan välja bland. Välj rätt certifikat och klicka sedan på **Fortsätt**.
+7. **Välj en identitet** visar en lista över certifikat som du kan välja bland. Välj rätt certifikat och klicka sedan på **Fortsätt** .
 
    ![Skärm bild som visar dialog rutan Välj en identitet där du kan välja rätt certifikat.](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. I fältet **lokalt ID** anger du namnet på certifikatet (från steg 6). I det här exemplet är det "ikev2Client.com". Klicka sedan på knappen **tillämpa** för att spara ändringarna.
@@ -140,7 +128,7 @@ Följande instruktioner skapades på Ubuntu 18.0.4. Ubuntu-16.0.10 stöder inte 
    ```
    sudo apt install network-manager-strongswan
    ```
-2. Välj **Inställningar**och välj sedan **nätverk**.
+2. Välj **Inställningar** och välj sedan **nätverk** .
 
    ![redigera anslutningar](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
 3. Klicka på **+** knappen för att skapa en ny anslutning.
@@ -153,7 +141,7 @@ Följande instruktioner skapades på Ubuntu 18.0.4. Ubuntu-16.0.10 stöder inte 
 
    ![namn på kopia](./media/point-to-site-vpn-client-configuration-azure-cert/vpnserver.png)
 6. Klistra in det här namnet i fältet **adress** i den nya VPN-anslutningen i **Gateway** -avsnittet. Sedan väljer du mappikonen i slutet av fältet **certifikat** , bläddrar till den **allmänna** mappen och väljer filen **VpnServerRoot** .
-7. I avsnittet **klient** i anslutningen, för **autentisering**, väljer du **certifikat/privat nyckel**. För **certifikat** och **privat nyckel**väljer du certifikatet och den privata nyckeln som skapades tidigare. I **alternativ**väljer du **begär en inre IP-adress**. Klicka sedan på **Lägg till**.
+7. I avsnittet **klient** i anslutningen, för **autentisering** , väljer du **certifikat/privat nyckel** . För **certifikat** och **privat nyckel** väljer du certifikatet och den privata nyckeln som skapades tidigare. I **alternativ** väljer du **begär en inre IP-adress** . Klicka sedan på **Lägg till** .
 
    ![begär en inre IP-adress](./media/point-to-site-vpn-client-configuration-azure-cert/turnon.png)
 8. **Aktivera anslutningen.**
@@ -193,7 +181,7 @@ Om du inte redan har skapat certifikat kan du använda följande steg:
          leftsourceip=%config
          auto=add
    ```
-6. Lägg till följande i */etc/IPSec.Secrets*.
+6. Lägg till följande i */etc/IPSec.Secrets* .
 
    ```
    : P12 client.p12 'password' # key filename inside /etc/ipsec.d/private directory

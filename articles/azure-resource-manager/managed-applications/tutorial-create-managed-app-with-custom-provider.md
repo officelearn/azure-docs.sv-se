@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ace58bd3bb89f9e8545bf125f272e62c3a134061
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: a92382f397eee5e0315dda73d33f968dafa4b496
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949838"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041722"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Självstudie: skapa ett hanterat program med anpassade åtgärder och resurser
 
@@ -41,7 +41,7 @@ För att slutföra den här självstudien måste du känna till följande:
 
 I den här självstudien skapar du ett hanterat program och dess hanterade resurs grupp kommer att innehålla anpassad Provider-instans, lagrings konto och funktion. Azure-funktionen som används i det här exemplet implementerar ett API som hanterar anpassade Provider-åtgärder för åtgärder och resurser. Azure Storage kontot används som grundläggande lagring för dina anpassade Provider-resurser.
 
-Definitionen av användar gränssnittet för att skapa en hanterad program instans innehåller `funcname` och `storagename` inmatade element. Lagrings kontots namn och funktions namn måste vara globalt unikt. Som standard kommer filerna att distribueras från [exempel funktions paketet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), men du kan ändra det genom att lägga till ett inmatat element för en paket länk i *createUIDefinition.jspå*:
+Definitionen av användar gränssnittet för att skapa en hanterad program instans innehåller `funcname` och `storagename` inmatade element. Lagrings kontots namn och funktions namn måste vara globalt unikt. Som standard kommer filerna att distribueras från [exempel funktions paketet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), men du kan ändra det genom att lägga till ett inmatat element för en paket länk i *createUIDefinition.jspå* :
 
 ```json
 {
@@ -74,7 +74,7 @@ Definitionen av användar gränssnittet för att skapa en hanterad program insta
 }
 ```
 
-och utdata i *createUIDefinition.jspå*:
+och utdata i *createUIDefinition.jspå* :
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -86,7 +86,7 @@ Du hittar en fullständig *createUIDefinition.jsför* samplet i [referensen: art
 
 ## <a name="template-with-custom-provider"></a>Mall med anpassad Provider
 
-Om du vill skapa en hanterad program instans med en anpassad Provider måste du definiera en anpassad Provider-resurs med namnet **offentlig** och skriva **Microsoft. CustomProviders/resourceProviders** i **mainTemplate.jspå**. I den resursen definierar du resurs typer och åtgärder för din tjänst. För att distribuera Azure Function-och Azure Storage konto instanser definiera resurser av typen `Microsoft.Web/sites` respektive `Microsoft.Storage/storageAccounts` .
+Om du vill skapa en hanterad program instans med en anpassad Provider måste du definiera en anpassad Provider-resurs med namnet **offentlig** och skriva **Microsoft. CustomProviders/resourceProviders** i **mainTemplate.jspå** . I den resursen definierar du resurs typer och åtgärder för din tjänst. För att distribuera Azure Function-och Azure Storage konto instanser definiera resurser av typen `Microsoft.Web/sites` respektive `Microsoft.Storage/storageAccounts` .
 
 I den här självstudien får du skapa en `users` resurs typ, en `ping` anpassad åtgärd och en `users/contextAction` anpassad åtgärd som ska utföras i en kontext för en `users` anpassad resurs. För varje resurs typ och åtgärd tillhandahåller en slut punkt som pekar på funktionen med namnet som anges i [createUIDefinition.jspå](#user-interface-definition). Ange **routingType** som `Proxy,Cache` för resurs typer och `Proxy` för åtgärder:
 
@@ -247,28 +247,28 @@ az managedapp definition create \
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du och väljer **hanterade program Center**.
-2. I **Center för hanterade program**väljer du **tjänst katalog program definition** och klickar på **Lägg till**. 
+1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du och väljer **hanterade program Center** .
+2. I **Center för hanterade program** väljer du **tjänst katalog program definition** och klickar på **Lägg till** . 
     
     ![Lägg till tjänst katalog](./media/tutorial-create-managed-app-with-custom-provider/service-catalog-managed-application.png)
 
 3. Ange värden för att skapa en tjänst katalog definition:
 
-    * Ange ett unikt **namn** för tjänst katalog definitionen, **visnings namn** och *Beskrivning*(valfritt).
-    * Välj den **prenumeration**, **resurs grupp**och **plats** där program definitionen ska skapas. Du kan använda samma resurs grupp som används för zip-paket eller skapa en ny resurs grupp.
-    * För en **paket fil-URI**anger du sökvägen till zip-filen som du skapade i föregående steg.
+    * Ange ett unikt **namn** för tjänst katalog definitionen, **visnings namn** och *Beskrivning* (valfritt).
+    * Välj den **prenumeration** , **resurs grupp** och **plats** där program definitionen ska skapas. Du kan använda samma resurs grupp som används för zip-paket eller skapa en ny resurs grupp.
+    * För en **paket fil-URI** anger du sökvägen till zip-filen som du skapade i föregående steg.
 
     ![Ange värden](./media/tutorial-create-managed-app-with-custom-provider/add-service-catalog-managed-application.png)
 
-4. När du kommer till avsnittet autentisering och lås nivå väljer du **Lägg till auktorisering**.
+4. När du kommer till avsnittet autentisering och lås nivå väljer du **Lägg till auktorisering** .
 
     ![Lägg till auktorisering](./media/tutorial-create-managed-app-with-custom-provider/add-authorization.png)
 
-5. Välj en Azure Active Directory grupp för att hantera resurserna och välj **OK**.
+5. Välj en Azure Active Directory grupp för att hantera resurserna och välj **OK** .
 
    ![Lägg till auktoriseringsregel](./media/tutorial-create-managed-app-with-custom-provider/add-auth-group.png)
 
-6. När du har angett alla värden väljer du **skapa**.
+6. När du har angett alla värden väljer du **skapa** .
 
    ![Skapa definition av hanterade program](./media/tutorial-create-managed-app-with-custom-provider/create-service-catalog-definition.png)
 
@@ -303,18 +303,18 @@ az managedapp create \
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du och väljer **hanterade program Center**.
-2. I den **hanterade program Center**väljer du **tjänst katalog program** och klickar på **Lägg till**. 
+1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du och väljer **hanterade program Center** .
+2. I den **hanterade program Center** väljer du **tjänst katalog program** och klickar på **Lägg till** . 
 
     ![Lägg till hanterat program](./media/tutorial-create-managed-app-with-custom-provider/add-managed-application.png)
 
-3. På sidan **tjänst katalog program** anger du visnings namn för tjänst katalog definition i sökrutan. Välj den definition som skapades i föregående steg och klicka på **skapa**.
+3. På sidan **tjänst katalog program** anger du visnings namn för tjänst katalog definition i sökrutan. Välj den definition som skapades i föregående steg och klicka på **skapa** .
 
     ![Välj tjänstkatalog](./media/tutorial-create-managed-app-with-custom-provider/select-service-catalog-definition.png)
 
 4. Ange värden för att skapa en hanterad program instans från tjänst katalog definitionen:
 
-    * Välj den **prenumeration**, **resurs grupp**och **plats** där program instansen ska skapas.
+    * Välj den **prenumeration** , **resurs grupp** och **plats** där program instansen ska skapas.
     * Ange ett unikt namn på Azure-Function och Azure Storage konto namn.
 
     ![Programinställningar](./media/tutorial-create-managed-app-with-custom-provider/application-settings.png)
@@ -327,7 +327,7 @@ az managedapp create \
 
 ## <a name="custom-actions-and-resources"></a>Anpassade åtgärder och resurser
 
-När tjänst katalogens program instans har distribuerats har du två nya resurs grupper. Den första resurs gruppen `applicationGroup` innehåller en instans av det hanterade programmet, den andra resurs gruppen innehåller `managedResourceGroup` resurserna för det hanterade programmet, inklusive **anpassad Provider**.
+När tjänst katalogens program instans har distribuerats har du två nya resurs grupper. Den första resurs gruppen `applicationGroup` innehåller en instans av det hanterade programmet, den andra resurs gruppen innehåller `managedResourceGroup` resurserna för det hanterade programmet, inklusive **anpassad Provider** .
 
 ![Program resurs grupper](./media/tutorial-create-managed-app-with-custom-provider/application-resource-groups.png)
 
@@ -339,11 +339,11 @@ Du kan gå till den hanterade program instansen och utföra **anpassad åtgärd*
 
 * Gå till sidan användare och klicka på knappen Lägg till. Ange indata för att skapa en resurs och skicka formuläret:
 
-![Skapa anpassad resurs](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
+![Skärm bild som visar knappen Lägg till som valts från användare.](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
 
 * Gå till sidan användare, Välj en "användare"-resurs och klicka på "anpassad kontext åtgärd":
 
-![Skapa anpassad resurs](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
+![Skärm bild som visar en anpassad kontext åtgärd vald.](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
 [!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
 

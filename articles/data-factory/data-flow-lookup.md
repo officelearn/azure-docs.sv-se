@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84187601"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040184"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Söknings omvandling i data flöde för mappning
 
@@ -27,7 +27,7 @@ En uppslags omvandling liknar en vänster yttre koppling. Alla rader från den p
 
 ## <a name="configuration"></a>Konfiguration
 
-![Sök omvandling](media/data-flow/lookup1.png "Sökning")
+![Skärm bild som visar fliken uppslags inställningar med etiketterna som beskrivs i följande text.](media/data-flow/lookup1.png "Sökning")
 
 **Primär ström:** Inkommande data ström. Den här strömmen motsvarar vänster sida av en koppling.
 
@@ -65,7 +65,7 @@ När du testar lookup-omvandlingen med data förhands granskning i fel söknings
 
 ![Sändnings anslutning](media/data-flow/broadcast.png "Sändnings anslutning")
 
-I kopplingar, sökningar och exists-omvandling, om en eller båda data strömmar får plats i arbetsnodens minne, kan du optimera prestandan genom att aktivera **sändning**. Som standard bestämmer Spark-motorn om en sida ska sändas automatiskt eller inte. Välj **fast**om du vill välja vilken sida som ska sändas manuellt.
+I kopplingar, sökningar och exists-omvandling, om en eller båda data strömmar får plats i arbetsnodens minne, kan du optimera prestandan genom att aktivera **sändning** . Som standard bestämmer Spark-motorn om en sida ska sändas automatiskt eller inte. Välj **fast** om du vill välja vilken sida som ska sändas manuellt.
 
 Vi rekommenderar inte att du inaktiverar sändning via alternativet **inaktivera** om inte dina kopplingar körs i tids gräns fel.
 
@@ -85,7 +85,7 @@ Vi rekommenderar inte att du inaktiverar sändning via alternativet **inaktivera
 ```
 ### <a name="example"></a>Exempel
 
-![Sök omvandling](media/data-flow/lookup-dsl-example.png "Sökning")
+![Skärm bild som visar fliken uppslags inställningar för följande kod.](media/data-flow/lookup-dsl-example.png "Sökning")
 
 Data flödes skriptet för ovanstående uppslags konfiguration finns i kodfragmentet nedan.
 

@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d0b66d2b4d89b512b34cb33a5607b471b7d1e84
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212151"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040934"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus utgående bindning för Azure Functions
 
 Använd Azure Service Bus utgående bindning för att skicka kö-eller ämnes meddelanden.
 
-Information om konfiguration och konfigurations information finns i [översikten](functions-bindings-service-bus-output.md).
+Information om konfiguration och konfigurations information finns i [översikten](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Exempel
 
@@ -175,7 +175,7 @@ En Service Bus bindnings definition definieras i *function.jspå* WHERE- *typ* h
 }
 ```
 
-I * _ \_ init_ \_ . py*kan du skriva ut ett meddelande till kön genom att skicka ett värde till- `set` metoden.
+I *_\_ init_ \_ . py* kan du skriva ut ett meddelande till kön genom att skicka ett värde till- `set` metoden.
 
 ```python
 import azure.functions as func
@@ -280,7 +280,7 @@ Attribut stöds inte av python.
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `ServiceBus` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Beskrivning|
+|function.jspå egenskap | Attributets egenskap |Description|
 |---------|---------|----------------------|
 |**bastyp** | Saknas | Måste vara inställd på "Service Bus". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
 |**position** | Saknas | Måste anges till "out". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
@@ -384,7 +384,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 
 Om du har `isSessionsEnabled` ställt in till `true` , `sessionHandlerOptions` kommer att användas.  Om du har `isSessionsEnabled` ställt in till `false` , `messageHandlerOptions` kommer att användas.
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Default | Description |
 |---------|---------|---------|
 |prefetchCount|0|Hämtar eller anger antalet meddelanden som meddelande mottagaren samtidigt kan begära.|
 |maxAutoRenewDuration|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.|

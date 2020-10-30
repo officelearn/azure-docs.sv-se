@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84691347"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041908"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scener, klipp och nyckelbilder
 
@@ -46,9 +46,9 @@ Om du vill extrahera nyckel bild rutor med hög upplösning för videon måste d
 
 #### <a name="with-the-video-indexer-website"></a>Med Video Indexer webbplats
 
-Om du vill extrahera nyckel rutor med Video Indexer webbplats laddar du upp och indexerar videon. När indexerings jobbet är klart klickar du på **nedladdnings** knappen och väljer **artefakter (zip)**. Då hämtas mappen artefakter till datorn. 
+Om du vill extrahera nyckel rutor med Video Indexer webbplats laddar du upp och indexerar videon. När indexerings jobbet är klart klickar du på **nedladdnings** knappen och väljer **artefakter (zip)** . Då hämtas mappen artefakter till datorn. 
 
-![Nyckel rutor](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+![Skärm bild som visar List rutan "Ladda ned" med "artefakter" valda.](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  
 Zippa upp och öppna mappen. I mappen *_KeyframeThumbnail* och du hittar alla nyckel rutor som har extraherats från videon. 
 

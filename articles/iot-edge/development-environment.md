@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 17531c6e38447fba7fe8761a963be39ecfc8f489
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4064acd6d2857ebc00a38ea7f6ff5d5e30bbd699
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044164"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041380"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Förbered din utvecklings-och test miljö för IoT Edge
 
@@ -49,7 +49,7 @@ Mer information och hämtning finns i [Azure IoT Tools för Visual Studio Code](
 
 Förutom IoT Edge tillägg kan det vara bra att installera ytterligare tillägg för utveckling. Du kan till exempel använda [Docker-stöd för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) för att hantera dina avbildningar, behållare och register. Alla språk som stöds har dessutom tillägg för Visual Studio-kod som kan hjälpa dig när du utvecklar moduler.
 
-#### <a name="prerequisites"></a>Krav
+#### <a name="prerequisites"></a>Förutsättningar
 
 Mallarna för vissa språk och tjänster har förutsättningar som krävs för att bygga projektmappen på din utvecklings dator med Visual Studio Code.
 
@@ -83,7 +83,7 @@ Endast IoT Edge runtime stöds för produktions distributioner, men med följand
 | Verktyg | Kallas även | Plattformar som stöds | Bäst för |
 | ---- | ------------- | ------------------- | --------- |
 | Verktyget IoT EdgeHub dev  | iotedgehubdev | Windows, Linux, macOS | Simulera en enhet för att felsöka moduler. |
-| IoT Edge dev-behållare | Microsoft/iotedgedev | Windows, Linux, macOS | Utveckla utan att installera beroenden. |
+| IoT Edge dev-behållare | iotedgedev | Windows, Linux, macOS | Utveckla utan att installera beroenden. |
 | IoT Edge körning i en behållare | iotedgec | Windows, Linux, macOS, ARM | Testning på en enhet som kanske inte har stöd för körnings miljön. |
 | Behållare för IoT Edge enhet | toolboc/Azure-IoT-Edge-Device-container | Windows, Linux, macOS, ARM | Testa ett scenario med många IoT Edge enheter i stor skala. |
 
@@ -99,7 +99,7 @@ Mer information och installera finns i [verktyget Azure IoT EdgeHub dev](https:/
 
 Azure IoT Edge dev-behållaren är en Docker-behållare som har alla beroenden som du behöver för att IoT Edge utveckling. Den här behållaren gör det enkelt att komma igång med det språk som du vill utveckla i, inklusive C#, python, Node.js och Java. Allt du behöver installera är en behållar motor, som Docker eller Moby, för att hämta behållaren till din utvecklings dator.
 
-Mer information finns i [Azure IoT Edge dev container](https://hub.docker.com/r/microsoft/iotedgedev/).
+Mer information finns i [Azure IoT Edge dev container](https://github.com/Azure/iotedgedev/wiki/quickstart-with-iot-edge-dev-container).
 
 ### <a name="iot-edge-runtime-in-a-container"></a>IoT Edge körning i en behållare
 

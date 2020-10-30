@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a249d5f3c47e8e8789f91f355c791cc50341ab01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b8fdabc3f4f33627936eead9dda57e67c7b0da8
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827912"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040505"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Vanliga frågor om identitets skydd i Azure Active Directory
 
 ## <a name="dismiss-user-risk-known-issues"></a>Ignorera kända problem med användar risker
 
-**Ignorera användar risk** i klassiskt identitets skydd ställer in aktören i användarens risk historik i identitets skydd till **Azure AD**.
+**Ignorera användar risk** i klassiskt identitets skydd ställer in aktören i användarens risk historik i identitets skydd till **Azure AD** .
 
 **Ignorera användar risk** i identitets skydd anger aktören i användarens risk historik i identitets skydd till **\<Admin’s name with a hyperlink pointing to user’s blade\>** .
 
@@ -34,17 +34,23 @@ Frågor i fältet **username** är Skift läges känsliga, medan frågor i fält
 
 Om du omväxlar **visas datum som** döljer den **senaste uppdaterade** kolumnen. Om du vill läsa kolumnen klickar du på **kolumner** överst på bladet riskfyllda användare.
 
-**Ignorera alla händelser** i klassiskt identitets skydd anger status för risk identifieringar till **stängda (löst)**.
+**Ignorera alla händelser** i klassiskt identitets skydd anger status för risk identifieringar till **stängda (löst)** .
 
 ## <a name="risky-sign-ins-report-known-issues"></a>Kända problem med riskfyllda inloggnings rapporter
 
-**Vid en** risk identifiering anges statusen till användare som **godkände MFA med en riskfylld princip**.
+**Vid en** risk identifiering anges statusen till användare som **godkände MFA med en riskfylld princip** .
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="why-is-a-user-is-at-risk"></a>Varför är en användare utsatt för risk?
 
 Om du är Azure AD Identity Protection kund går du till vyn [riskfyllda användare](howto-identity-protection-investigate-risk.md#risky-users) och klickar på en användare som är utsatt för risk. I kassan längst ned visas alla händelser som ledde till en ändring av användar risken i fliken risk historik. Om du vill se alla riskfyllda inloggningar för användaren klickar du på användarens riskfyllda inloggningar. Om du vill se alla risk identifieringar för den här användaren klickar du på användarens risk identifieringar.
+
+## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Varför har min inloggning blockerats men identitets skydd genererade inte någon risk identifiering?
+Inloggningar kan blockeras av flera orsaker. Det är viktigt att Observera att identitets skydd endast genererar risk identifiering när rätt autentiseringsuppgifter används i autentiseringsbegäran. Om en användare använder felaktiga autentiseringsuppgifter, kommer den inte att flaggas av identitets skydd eftersom det inte finns risk för komprometterande autentiseringsuppgifter om inte en felaktig aktör använder rätt autentiseringsuppgifter. Vissa orsaker till att en användare kan blockeras från signering som inte genererar en identifiering av identitets skydd är:
+* **IP-adressen kan ha blockerats** på grund av skadlig aktivitet från IP-adressen. Det blockerade IP-meddelandet särskiljer inte om autentiseringsuppgifterna var korrekta eller inte. Om IP-adressen är blockerad och rätt autentiseringsuppgifter inte används genererar den ingen identifiering av identitets skydd
+* **[Smart utelåsning](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** kan blockera kontot från att logga in efter flera misslyckade försök
+* En **princip för villkorlig åtkomst** kan tillämpas som använder andra villkor än risk nivån för att blockera en autentiseringsbegäran
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Hur kan jag få en rapport om identifieringar av en speciell typ?
 
@@ -76,12 +82,12 @@ Alla risk identifieringar dokumenteras i artikeln [Vad är en risk](concept-iden
 
 **Bekräfta komprometterad** (på inloggning) – informerar Azure AD Identity Protection att inloggningen inte utfördes av identitets ägaren och indikerar ett problem.
 
-- När du får den här feedbacken flyttar vi inloggnings-och användar risk tillstånd till **bekräftat komprometterad** och risk nivå till **hög**.
+- När du får den här feedbacken flyttar vi inloggnings-och användar risk tillstånd till **bekräftat komprometterad** och risk nivå till **hög** .
 
 - Dessutom tillhandahåller vi informationen till våra Machine Learning-system för framtida förbättringar av riskbedömning.
 
     > [!NOTE]
-    > Om användaren redan har reparerats klickar du inte på **Bekräfta komprometterad** eftersom den flyttar in inloggnings-och användar risk tillstånd till **bekräftat komprometterad** och risk nivå till **hög**.
+    > Om användaren redan har reparerats klickar du inte på **Bekräfta komprometterad** eftersom den flyttar in inloggnings-och användar risk tillstånd till **bekräftat komprometterad** och risk nivå till **hög** .
 
 **Bekräfta säker** (vid inloggning) – informerar Azure AD Identity Protection att inloggningen har utförts av identitets ägaren och inte tyder på en kompromiss.
 

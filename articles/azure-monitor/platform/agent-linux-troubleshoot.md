@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: e87331cb2bbfb11a9d49888462b8be3b55e18118
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: eaf12fe1d757c3a5a76307d87151bf71aa720b2b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460877"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042394"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Felsöka problem med Log Analytics-agenten för Linux 
 
@@ -55,6 +55,15 @@ Se vår [GitHub-dokumentation](https://github.com/microsoft/OMS-Agent-for-Linux/
  >[!NOTE]
  >Kör verktyget för logg insamlaren när ett problem uppstår. Om loggarna inlednings vis hjälper vårt support team att felsöka problemet snabbare.
 
+## <a name="purge-and-re-install-the-linux-agent"></a>Rensa och Re-Install Linux-agenten
+
+Vi har sett att en ren ominstallation av agenten kommer att åtgärda de flesta problem. Detta kan i själva verket vara det första förslaget från support för att hämta agenten till ett uncurropted-tillstånd från vårt support team. Genom att köra fel sökaren, logga in och försöka med en ren installation kan du snabbt lösa problem.
+
+1. Hämta rensnings skriptet:
+- `$ wget https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/tools/purge_omsagent.sh`
+2. Kör rensnings skriptet (med sudo-behörigheter):
+- `$ sudo sh purge_omsagent.sh`
+
 ## <a name="important-log-locations-and-log-collector-tool"></a>Viktiga logg platser och logg insamlings verktyg
 
  Fil | Sökväg
@@ -83,9 +92,9 @@ Se vår [GitHub-dokumentation](https://github.com/microsoft/OMS-Agent-for-Linux/
 | NOT_DEFINED | Eftersom nödvändiga beroenden inte är installerade kommer auoms-granskade plugin-programmet inte att installeras | Det gick inte att installera auoms, installations paketet har granskats. |
 | 2 | Ett ogiltigt alternativ angavs för gränssnitts paketet. Kör `sudo sh ./omsagent-*.universal*.sh --help` för användning |
 | 3 | Inget alternativ angavs för gränssnitts paketet. Kör `sudo sh ./omsagent-*.universal*.sh --help` för användning. |
-| 4 | Ogiltig pakettyp eller ogiltiga proxyinställningar. omsagent-*rpm*. sh-paket kan bara installeras på RPM-baserade system och omsagent-*deb*. sh-paket kan bara installeras på Debian-baserade system. Vi rekommenderar att du använder det universella installations programmet från den [senaste versionen](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Se även till att verifiera proxyinställningarna. |
+| 4 | Ogiltig pakettyp eller ogiltiga proxyinställningar. omsagent- *rpm* . sh-paket kan bara installeras på RPM-baserade system och omsagent- *deb* . sh-paket kan bara installeras på Debian-baserade system. Vi rekommenderar att du använder det universella installations programmet från den [senaste versionen](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Se även till att verifiera proxyinställningarna. |
 | 5 | Shell-paketet måste köras som rot eller så uppstod ett 403-fel under inregistreringen. Kör kommandot med hjälp av `sudo` . |
-| 6 | Ogiltig paket arkitektur eller så uppstod fel 200 vid registrering. omsagent-*x64.sh-paket kan bara installeras på 64-bitars system, och omsagent-x86.sh-* paket kan bara installeras på 32-bitars system. Hämta rätt paket för din arkitektur från den [senaste versionen](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
+| 6 | Ogiltig paket arkitektur eller så uppstod fel 200 vid registrering. omsagent- *x64.sh-paket kan bara installeras på 64-bitars system, och omsagent-x86.sh-* paket kan bara installeras på 32-bitars system. Hämta rätt paket för din arkitektur från den [senaste versionen](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Installationen av OMS-paketet misslyckades. Titta igenom kommandots utdata för rot felen. |
 | 19 | Det gick inte att installera OMI-paketet. Titta igenom kommandots utdata för rot felen. |
 | 20 | Det gick inte att installera SCX-paketet. Titta igenom kommandots utdata för rot felen. |
@@ -454,7 +463,7 @@ Utför följande steg för att åtgärda problemet.
 1. Ta bort tillägget från Azure Portal.
 2. Installera agenten genom att följa [anvisningarna](../learn/quick-collect-linux-computer.md).
 3. Starta om agenten genom att köra följande kommando: `sudo /opt/microsoft/omsagent/bin/service_control restart` .
-* Vänta några minuter och etablerings statusen ändras till **etableringen har slutförts**.
+* Vänta några minuter och etablerings statusen ändras till **etableringen har slutförts** .
 
 
 ## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Problem: uppgraderingen av Log Analytics-agenten på begäran

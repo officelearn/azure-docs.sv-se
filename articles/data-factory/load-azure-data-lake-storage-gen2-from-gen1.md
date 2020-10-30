@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 203b62bdeb2ef83d884188c5d1753b6a70050361
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415828"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042718"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Kopiera data från Azure Data Lake Storage Gen1 till Gen2 med Azure Data Factory
 
@@ -41,7 +41,7 @@ Den här artikeln visar hur du använder verktyget Data Factory kopiera data fö
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. På den vänstra menyn väljer du **skapa en resurs**  >  **data och analys**  >  **Data Factory**.
+1. På den vänstra menyn väljer du **skapa en resurs**  >  **data och analys**  >  **Data Factory** .
    
    ![Data Factory valet i det nya fönstret](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -49,13 +49,13 @@ Den här artikeln visar hur du använder verktyget Data Factory kopiera data fö
       
    ![Sidan ny data fabrik](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
-    * **Namn**: Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "Data Factory name \" LoadADLSDemo \" är inte tillgängligt" anger du ett annat namn för data fabriken. Använd till exempel namnet _**dittnamn**_**ADFTutorialDataFactory**. Skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
-    * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data fabriken. 
-    * **Resurs grupp**: Välj en befintlig resurs grupp i den nedrullningsbara listan. Du kan också välja alternativet **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md). 
-    * **Version**: Välj **V2**.
-    * **Plats**: Välj plats för data fabriken. Endast platser som stöds visas i listrutan. Datalagren som används av datafabriken kan finnas på andra platser och i andra regioner. 
+    * **Namn** : Ange ett globalt unikt namn för din Azure Data Factory. Om du får felet "Data Factory name \" LoadADLSDemo \" är inte tillgängligt" anger du ett annat namn för data fabriken. Använd till exempel namnet _**dittnamn**_**ADFTutorialDataFactory** . Skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+    * **Prenumeration** : Välj din Azure-prenumeration där du vill skapa data fabriken. 
+    * **Resurs grupp** : Välj en befintlig resurs grupp i den nedrullningsbara listan. Du kan också välja alternativet **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/overview.md). 
+    * **Version** : Välj **V2** .
+    * **Plats** : Välj plats för data fabriken. Endast platser som stöds visas i listrutan. Datalagren som används av datafabriken kan finnas på andra platser och i andra regioner. 
 
-3. Välj **Skapa**.
+3. Välj **Skapa** .
 4. När du har skapat den går du till din data fabrik. Du ser **Data Factory** start sida så som visas i följande bild: 
    
    ![Datafabrikens startsida](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)
@@ -67,39 +67,39 @@ Den här artikeln visar hur du använder verktyget Data Factory kopiera data fö
 1. På sidan **Kom igång** väljer du panelen **Kopiera data** för att starta verktyget kopiera data. 
 
    ![Verktygs panel för att kopiera data](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
-2. På sidan **Egenskaper** anger du **CopyFromADLSGen1ToGen2** för fältet **uppgifts namn** . Välj **Nästa**.
+2. På sidan **Egenskaper** anger du **CopyFromADLSGen1ToGen2** för fältet **uppgifts namn** . Välj **Nästa** .
 
     ![Sidan Egenskaper](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)
-3. På sidan **käll data lager** väljer du **+ Skapa ny anslutning**.
+3. På sidan **käll data lager** väljer du **+ Skapa ny anslutning** .
 
     ![Sidan Källdatalager](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page.png)
     
-4. Välj **Azure Data Lake Storage Gen1** i galleriet med anslutningsappar och välj **Fortsätt**.
+4. Välj **Azure Data Lake Storage Gen1** i galleriet med anslutningsappar och välj **Fortsätt** .
     
     ![Sidan käll data lager Azure Data Lake Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
 5. Följ dessa steg på sidan **ange Azure Data Lake Storage gen1 anslutning** :
 
-   a. Välj Data Lake Storage Gen1 för konto namnet och ange eller verifiera **klienten**.
+   a. Välj Data Lake Storage Gen1 för konto namnet och ange eller verifiera **klienten** .
   
-   b. Verifiera inställningarna genom att välja **Testa anslutning** . Välj sedan **Slutför**.
+   b. Verifiera inställningarna genom att välja **Testa anslutning** . Välj sedan **Slutför** .
   
-   c. Du ser att en ny anslutning har skapats. Välj **Nästa**.
+   c. Du ser att en ny anslutning har skapats. Välj **Nästa** .
    
    > [!IMPORTANT]
    > I den här genom gången använder du en hanterad identitet för Azure-resurser för att autentisera din Azure Data Lake Storage Gen1. Följ [dessa instruktioner](connector-azure-data-lake-store.md#managed-identity)om du vill ge den hanterade identiteten rätt behörigheter i Azure Data Lake Storage gen1.
    
    ![Ange Azure Data Lake Storage Gen1 konto](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
       
-6. På sidan **Välj indatafil eller mapp** bläddrar du till mappen och filen som du vill kopiera. Markera mappen eller filen och välj **Välj**.
+6. På sidan **Välj indatafil eller mapp** bläddrar du till mappen och filen som du vill kopiera. Markera mappen eller filen och välj **Välj** .
 
     ![Välj indatafil eller mapp](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
 
-7. Ange kopierings beteendet genom att välja alternativen **Kopiera filer rekursivt** och **binär kopia** . Välj **Nästa**.
+7. Ange kopierings beteendet genom att välja alternativen **Kopiera filer rekursivt** och **binär kopia** . Välj **Nästa** .
 
-    ![Ange mapp för utdata](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
+    ![Skärm bild visar sidan Välj indatafilen eller mappen där du kan välja Kopiera fil rekursivt och binär kopia.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
-8. På sidan **mål data lager** väljer du **+ Skapa ny anslutning**  >  **Azure Data Lake Storage Gen2**  >  **Fortsätt**.
+8. På sidan **mål data lager** väljer du **+ Skapa ny anslutning**  >  **Azure Data Lake Storage Gen2**  >  **Fortsätt** .
 
     ![Sidan Måldatalager](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 
@@ -107,20 +107,20 @@ Den här artikeln visar hur du använder verktyget Data Factory kopiera data fö
 
    a. Välj ditt Data Lake Storage Gen2-kapabla konto i list rutan **lagrings konto namn** .
    
-   b. Välj **Slutför** för att skapa anslutningen. Välj **Nästa**.
+   b. Välj **Slutför** för att skapa anslutningen. Välj sedan **Nästa** .
    
    ![Ange Azure Data Lake Storage Gen2 konto](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-10. På sidan **Välj utdatafil eller mapp** anger du **copyfromadlsgen1** som namn på utdata-mappen och väljer **Nästa**. Data Factory skapar motsvarande Azure Data Lake Storage Gen2 fil system och undermappar under kopieringen om de inte redan finns.
+10. På sidan **Välj utdatafil eller mapp** anger du **copyfromadlsgen1** som namn på utdata-mappen och väljer **Nästa** . Data Factory skapar motsvarande Azure Data Lake Storage Gen2 fil system och undermappar under kopieringen om de inte redan finns.
 
-    ![Ange mapp för utdata](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
+    ![Skärm bild som visar den mappsökväg som du anger.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 
 11. På sidan **Inställningar** väljer du **Nästa** för att använda standardinställningarna.
 
-12. På sidan **Sammanfattning** granskar du inställningarna och väljer **Nästa**.
+12. På sidan **Sammanfattning** granskar du inställningarna och väljer **Nästa** .
 
     ![Sammanfattningssida](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
-13. På **sidan distribution**väljer du **övervakare** för att övervaka pipelinen.
+13. På **sidan distribution** väljer du **övervakare** för att övervaka pipelinen.
 
     ![Distributionssida](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
 14. Observera att fliken **Övervaka** till vänster väljs automatiskt. I kolumnen **Åtgärder** finns länkar som visar information om aktivitetskörningen och för att köra pipelinen igen.

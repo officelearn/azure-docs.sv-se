@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1ac27f8fe0c6c608bfc261e9ac2d96651c94b341
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018890"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040086"
 ---
 # <a name="animated-character-detection-preview"></a>Identifiering av animerade karaktärer (förhandsversion)
 
@@ -75,11 +75,11 @@ Följ dessa steg för att ansluta dig Custom Vision konto till Video Indexer ell
     > [!NOTE]
     > För att tillhandahålla alla nycklar måste du ha två separata resurser i Custom Vision, en för utbildning och en för förutsägelse.
 1. Bläddra och logga in på [video Indexer](https://vi.microsoft.com/).
-1. Klicka på frågetecknet i det övre högra hörnet på sidan och välj **API-referens**.
+1. Klicka på frågetecknet i det övre högra hörnet på sidan och välj **API-referens** .
 1. Se till att du prenumererar på API Management genom att klicka på fliken **produkter** . Om du har ett API anslutet kan du fortsätta till nästa steg, annars prenumerera. 
-1. Klicka på den **fullständiga API-referensen** på Developer-portalen och gå till **åtgärder**.  
-1. Välj **anslut Custom vision konto (FÖRhands granskning)** och klicka på **prova**.
-1. Fyll i obligatoriska fält och åtkomsttoken och klicka på **Skicka**. 
+1. Klicka på den **fullständiga API-referensen** på Developer-portalen och gå till **åtgärder** .  
+1. Välj **anslut Custom vision konto (FÖRhands granskning)** och klicka på **prova** .
+1. Fyll i obligatoriska fält och åtkomsttoken och klicka på **Skicka** . 
 
     Om du vill ha mer information om hur du hämtar Video Indexer-åtkomsttoken går du till [Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?)och läser [relevant dokumentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
 1. Ditt konto är anslutet när anropet returnerade svaret 200 OK.
@@ -96,9 +96,9 @@ Följ dessa steg för att ansluta dig Custom Vision konto till Video Indexer ell
 1. Gå till [Video Indexer](https://vi.microsoft.com/)-webbplatsen och logga in.
 1. Klicka på anpassnings knappen för innehålls modell i det övre högra hörnet på sidan.
 
-    ![Anpassning av innehålls modell](./media/animated-characters-recognition/content-model-customization.png)
+    ![Skärm bild som visar sidan "Video Indexer" med knappen "anpassning av innehålls modell" markerad i det övre högra hörnet.](./media/animated-characters-recognition/content-model-customization.png)
 1. Gå till fliken **animerade tecken** i avsnittet modell anpassning.
-1. Klicka på **Lägg till modell**.
+1. Klicka på **Lägg till modell** .
 1. Namn du modell och klicka på RETUR för att spara namnet.
 
 > [!NOTE]
@@ -108,8 +108,8 @@ Följ dessa steg för att ansluta dig Custom Vision konto till Video Indexer ell
 
 1. Klicka på knappen **överför** på den översta menyn.
 1. Välj en video att ladda upp (från en fil eller en URL).
-1. Klicka på **Avancerade alternativ**.
-1. Välj **animerings modeller**under **personer/animerade tecken** .
+1. Klicka på **Avancerade alternativ** .
+1. Välj **animerings modeller** under **personer/animerade tecken** .
 1. Om du har en modell väljs den automatiskt, och om du har flera modeller kan du välja den som är relevant för den aktuella List menyn.
 1. Klicka på överför.
 1. När videon har indexerats visas identifierade tecken i avsnittet **animerade tecken** i fönstret **insikter** .
@@ -129,7 +129,7 @@ Följ dessa steg för att ansluta dig Custom Vision konto till Video Indexer ell
 
         Öppna anpassnings sidan och klicka på fliken **animerade tecken** och klicka sedan på knappen **träna** för att träna din modell.
          
-        Om du har ett betalt konto kan du klicka på länken **Hantera modeller i Customer vision** (se nedan). Du kommer sedan att vidarebefordras till modellens sida i **Custom vision**.
+        Om du har ett betalt konto kan du klicka på länken **Hantera modeller i Customer vision** (se nedan). Du kommer sedan att vidarebefordras till modellens sida i **Custom vision** .
  
         ![Anpassning av innehålls modell](./media/animated-characters-recognition/content-model-customization-tab.png)
 

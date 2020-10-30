@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73161773"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040801"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Skapa ett Pivotal Cloud Foundry-kluster i Azure
 
@@ -36,13 +36,13 @@ Det finns flera sätt att generera en offentlig SSH-nyckel (Secure Shell) med hj
 ssh-keygen -t rsa -b 2048
 ```
 
-Mer information finns i [Använda SSH-nycklar med Windows i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+Mer information finns i [Använda SSH-nycklar med Windows i Azure](../virtual-machines/linux/ssh-from-windows.md).
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
 > [!NOTE]
 >
-> Du behöver behörighet till ägarkontot för att kunna skapa tjänstens huvudnamn. Du kan också skriva ett skript som automatiserar skapandet av tjänstens huvudnamn. Till exempel kan du använda Azure CLI [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
+> Du behöver behörighet till ägarkontot för att kunna skapa tjänstens huvudnamn. Du kan också skriva ett skript som automatiserar skapandet av tjänstens huvudnamn. Till exempel kan du använda Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest).
 
 1. Logga in på ditt Azure-konto.
 
@@ -56,11 +56,11 @@ Mer information finns i [Använda SSH-nycklar med Windows i Azure](https://docs.
 
     `az account set -s {id}`
 
-3. Skapa ett Azure Active Directory-program för din PCF. Ange ett unikt alfanumeriskt lösenord. Lagra lösenordet som **clientSecret**, vilket vi ska använda senare.
+3. Skapa ett Azure Active Directory-program för din PCF. Ange ett unikt alfanumeriskt lösenord. Lagra lösenordet som **clientSecret** , vilket vi ska använda senare.
 
     `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
 
-    Kopiera sedan värdet ”appId” i utdatan som **clientID**, vilket vi ska använda senare.
+    Kopiera sedan värdet ”appId” i utdatan som **clientID** , vilket vi ska använda senare.
 
     > [!NOTE]
     >
@@ -84,7 +84,7 @@ Mer information finns i [Använda SSH-nycklar med Windows i Azure](https://docs.
 
     `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
 
-7. Skapa en .json-fil i nedanstående format. Använd de värden för **prenumerations-ID**, **tenantID**, **clientID** och **clientSecret** som du kopierade tidigare. Spara filen.
+7. Skapa en .json-fil i nedanstående format. Använd de värden för **prenumerations-ID** , **tenantID** , **clientID** och **clientSecret** som du kopierade tidigare. Spara filen.
 
     ```json
     {
@@ -98,8 +98,8 @@ Mer information finns i [Använda SSH-nycklar med Windows i Azure](https://docs.
 ## <a name="get-the-pivotal-network-token"></a>Hämta Pivotal Network-token
 
 1. Registrera dig eller logga in på ditt [Pivotal Network](https://network.pivotal.io)-konto.
-2. Välj ditt profilnamn i det övre högra hörnet på sidan. Välj **Redigera profil**.
-3. Rulla längst ned på sidan och kopiera värdet **LEGACY API TOKEN**. Det här är ditt värde för **Pivotal Network-token** som du kommer att använda senare.
+2. Välj ditt profilnamn i det övre högra hörnet på sidan. Välj **Redigera profil** .
+3. Rulla längst ned på sidan och kopiera värdet **LEGACY API TOKEN** . Det här är ditt värde för **Pivotal Network-token** som du kommer att använda senare.
 
 ## <a name="provision-your-cloud-foundry-cluster-on-azure"></a>Etablera Cloud Foundry-klustret i Azure
 
@@ -128,4 +128,3 @@ Ange parametrarna och skapa ditt PCF-kluster.
 5. PCF Ops Manager visar de distribuerade Azure-instanserna. Nu kan du skapa och hantera dina program här.
                
     ![Distribuerad Azure-instans i Pivotal](media/deploy/ops-mgr.png )
- 

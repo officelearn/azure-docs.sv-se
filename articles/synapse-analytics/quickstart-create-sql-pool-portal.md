@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c89bd01cb2e6947df5ed192d66e0dbae08cf66d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6c9d49d8d4d1951542268d35e22822ab62449278
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260639"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041227"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-the-azure-portal"></a>Snabb start: skapa en Synapse SQL-pool (för hands version) med hjälp av Azure Portal
 
@@ -37,7 +37,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/)
 
 1. Gå till arbets ytan Synapse där SQL-poolen ska skapas genom att skriva tjänst namnet (eller resurs namnet direkt) i Sök fältet.
 ![Azure Portal Sök fältet med Synapse-arbetsytor som skrevs in. ](media/quickstart-create-sql-pool/create-sql-pool-00a.png) . 
-1. I listan över arbets ytor skriver du namnet (eller en del av namnet) på arbets ytan som ska öppnas. I det här exemplet använder vi en arbets yta med namnet **contosoanalytics**.
+1. I listan över arbets ytor skriver du namnet (eller en del av namnet) på arbets ytan som ska öppnas. I det här exemplet använder vi en arbets yta med namnet **contosoanalytics** .
 ![Lista över Synapse-arbetsytor filtrerade för att visa de som innehåller namnet contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 ## <a name="create-new-sql-pool"></a>Skapa ny SQL-pool
@@ -56,16 +56,16 @@ Logga in på [Azure-portalen](https://portal.azure.com/)
     > [!IMPORTANT]
     > Observera att det finns vissa begränsningar för de namn som SQL-pooler kan använda. Namn får inte innehålla specialtecken, måste bestå av högst 15 tecken, får inte innehålla reserverade ord och vara unika i arbets ytan.
 
-3. Välj **Nästa: Ytterligare inställningar**.
+3. Välj **Nästa: Ytterligare inställningar** .
 4. Välj **ingen** för att etablera SQL-poolen utan data. Lämna standard sorteringen markerad.
 ![Fliken Skapa flöde för SQL-pool – ytterligare inställningar.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
-5. Välj **Granska + skapa**.
-6. Se till att informationen ser korrekt ut baserat på vad som angavs tidigare. Välj **Skapa**.
+5. Välj **Granska + skapa** .
+6. Se till att informationen ser korrekt ut baserat på vad som angavs tidigare. Välj **Skapa** .
 ![SQL-pool skapa flöde-granska inställningar fliken.](media/quickstart-create-sql-pool/create-sql-pool-portal-04.png)
 
 7. I det här läget startar resurs etablerings flödet.
- ![SQL-pool skapa flödes resurs etablering.](media/quickstart-create-sql-pool/create-sql-pool-portal-06.png)
+ ![Skärm bild som visar sidan "distributionen är klar".](media/quickstart-create-sql-pool/create-sql-pool-portal-06.png)
 
 8. När etableringen är klar visas en ny post för den nyligen skapade SQL-poolen när du navigerar tillbaka till arbets ytan.
  ![SQL-pool skapa flödes resurs etablering.](media/quickstart-create-sql-pool/create-sql-pool-portal-07.png)
@@ -82,7 +82,7 @@ Följ stegen nedan för att ta bort SQL-poolen från arbets ytan.
 Utför följande steg om du vill ta bort SQL-poolen:
 
 1. Gå till bladet SQL-pooler på bladet arbets yta
-1. Välj den SQL-pool som ska tas bort (i det här fallet **contosowdw**)
+1. Välj den SQL-pool som ska tas bort (i det här fallet **contosowdw** )
 1. Tryck på **ta bort** när du är markerat
 1. Bekräfta borttagningen och tryck på knappen **ta** bort ![ SQL-pool för att markera ta bort bekräftelse.](media/quickstart-create-sql-pool/create-sql-pool-portal-11.png)
 1. När processen har slutförts visas inte längre SQL-poolen i resurserna för arbets ytan.

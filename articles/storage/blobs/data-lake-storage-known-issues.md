@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bffe69dd5b7d3cdfcba1df3420d494dcffc33f9a
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282198"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042667"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -68,13 +68,13 @@ Möjligheten att tillämpa ACL-ändringar rekursivt från överordnad katalog ti
 
 ## <a name="azcopy"></a>AzCopy
 
-Använd endast den senaste versionen av AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).Tidigare versioner av AzCopy, till exempel AzCopy v 8.1, stöds inte.
+Använd endast den senaste versionen av AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Tidigare versioner av AzCopy, till exempel AzCopy v 8.1, stöds inte.
 
 <a id="storage-explorer"></a>
 
-## <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
+## <a name="azure-storage-explorer"></a>Azure Storage Explorer
 
-Använd endast versioner  `1.6.0`   eller högre.
+Använd endast versioner `1.6.0` eller högre.
 
 <a id="explorer-in-portal"></a>
 
@@ -84,7 +84,7 @@ ACL: er stöds inte ännu.
 
 <a id="third-party-apps"></a>
 
-## <a name="thirdpartyapplications"></a>Program från tredje part
+## <a name="third-party-applications"></a>Program från tredje part
 
 Program från tredje part som använder REST-API: er för arbete fortsätter att fungera om du använder dem med Data Lake Storage Gen2 program som anropar BLOB-API: er kommer att fungera.
 
@@ -92,38 +92,15 @@ Program från tredje part som använder REST-API: er för arbete fortsätter att
 
 Om [Anonym Läs åtkomst](storage-manage-access-to-resources.md) har beviljats till en behållare, har ACL: er ingen påverkan på den behållaren eller filerna i den behållaren.
 
-### <a name="diagnostic-logs"></a>Diagnostikloggar
+## <a name="diagnostic-logs"></a>Diagnostikloggar
 
 Inställningen för kvarhållning av dagar stöds inte ännu, men du kan ta bort loggar manuellt med hjälp av ett verktyg som stöds, till exempel Azure Storage Explorer, REST eller en SDK.
 
-## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>Problem som är specifika för BlockBlobStorage lagrings konton för Premium-prestanda
+## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Policys för livs cykel hantering med Premium-nivån för Azure Data Lake Storage
 
-### <a name="diagnostic-logs"></a>Diagnostikloggar
+Du kan inte flytta data som lagras på Premium-nivån mellan frekvent, låg frekvent och Arkiv lag rings nivå. Du kan dock kopiera data från Premium-nivån till frekvent åtkomst nivå i ett annat konto.
 
-Diagnostikloggar kan inte aktive ras ännu med hjälp av Azure Portal. Du kan aktivera dem med hjälp av PowerShell. Exempel:
-
-```powershell
-#To login
-Connect-AzAccount
-
-#Set default block blob storage account.
-Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
-
-#Enable logging
-Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
-```
-
-### <a name="lifecycle-management-policies"></a>Principer för livs cykel hantering
-
-- Principer för livs cykel hantering stöds bara i allmänna-Purpose v2-konton. De stöds ännu inte i Premium BlockBlobStorage-lagrings konton.
-- Det går inte att flytta data från Premium-nivån till lägre nivåer.
-
-
-### <a name="hdinsight-support"></a>Stöd för HDInsight
-
-När du skapar ett n HDInsight-kluster kan du ännu inte välja ett BlockBlobStorage-konto som har funktionen hierarkiskt namn område aktive rad. Du kan dock koppla kontot till klustret när du har skapat det.
-
-### <a name="dremio-support"></a>Dremio-stöd
+## <a name="dremio-support-with-premium-performance-blockblobstorage-storage-accounts"></a>Dremio-support med BlockBlobStorage-lagrings konton för Premium-prestanda
 
 Dremio ansluter ännu inte till ett BlockBlobStorage-konto som har funktionen hierarkiskt namn område aktive rad på den. 
 

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84752477"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040250"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Begär ande storleks gränser och undantags listor för WebApplication-brandvägg
 
@@ -38,11 +38,11 @@ Du kan ange en exakt matchning av rubrik, brödtext, cookie eller frågesträng 
 
 Följande är de matchnings villkor som stöds:
 
-- **Är lika med**: den här operatorn används för en exakt matchning. För att välja ett sidhuvud med namnet **bearerToken**använder du till exempel operatorn Equals med Selector Set as **bearerToken**.
-- **Börjar med**: den här operatorn matchar alla fält som börjar med det angivna värdet för väljaren.
-- **Slutar med**: den här operatorn matchar alla begär ande fält som slutar med det angivna väljar värdet.
-- **Contains**: den här operatorn matchar alla begär ande fält som innehåller det angivna värdet för väljaren.
-- **Lika med alla**: den här operatorn matchar alla begär ande fält. * är väljar värde.
+- **Är lika med** : den här operatorn används för en exakt matchning. För att välja ett sidhuvud med namnet **bearerToken** använder du till exempel operatorn Equals med Selector Set as **bearerToken** .
+- **Börjar med** : den här operatorn matchar alla fält som börjar med det angivna värdet för väljaren.
+- **Slutar med** : den här operatorn matchar alla begär ande fält som slutar med det angivna väljar värdet.
+- **Contains** : den här operatorn matchar alla begär ande fält som innehåller det angivna värdet för väljaren.
+- **Lika med alla** : den här operatorn matchar alla begär ande fält. * är väljar värde.
 
 I samtliga fall är Skift läges okänsligt och reguljärt uttryck tillåts inte som väljare.
 
@@ -81,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Så om URL: en `http://www.contoso.com/?user%281%29=fdafdasfda` skickas till WAF utvärderas inte strängen **fdafdasfda**, men den kommer fortfarande att utvärdera parameter namn **användaren %281 %29**. 
+Så om URL: en `http://www.contoso.com/?user%281%29=fdafdasfda` skickas till WAF utvärderas inte strängen **fdafdasfda** , men den kommer fortfarande att utvärdera parameter namn **användaren %281 %29** . 
 
 ## <a name="waf-request-size-limits"></a>Storleks gränser för WAF-begäran
 
@@ -89,7 +89,7 @@ Så om URL: en `http://www.contoso.com/?user%281%29=fdafdasfda` skickas till WAF
 
 Med brand vägg för webbaserade program kan du konfigurera storleks gränser för förfrågningar inom nedre och övre gränser. Det finns följande två storleks gränser för konfigurationer:
 
-- Fältet Max storlek för begäran har angetts i kilobyte och kontrollerar den allmänna storleks gränsen för förfrågningar exklusive eventuella fil överföringar. Det här fältet kan vara mellan 1 och 1 KB minst 128-KB-högsta värde. Standardvärdet för brödtext i begär ande storlek är 128 KB.
+- Fältet Max storlek för begäran har angetts i kilobyte och kontrollerar den allmänna storleks gränsen för förfrågningar exklusive eventuella fil överföringar. Det här fältet har ett minsta värde på 1 KB och ett max värde på 128 KB. Standardvärdet för brödtext i begär ande storlek är 128 KB.
 - Fältet för fil överförings gräns anges i MB och styr den högsta tillåtna storleken för fil uppladdning. Det här fältet kan ha ett minimivärde på 1 MB och följande max värden:
 
    - 100 MB för v1 mellan WAF-gatewayer

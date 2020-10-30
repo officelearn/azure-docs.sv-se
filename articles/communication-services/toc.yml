@@ -74,6 +74,8 @@
       href: concepts/sdk-options.md
     - name: Prismodell
       href: concepts/pricing.md
+    - name: Sekretess
+      href: concepts/privacy.md
     - name: Autentisering
       href: concepts/authentication.md
     - name: Händelsehantering

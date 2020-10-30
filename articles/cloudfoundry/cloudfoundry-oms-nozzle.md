@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76277365"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040771"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuera Azure Log Analytics munstycke för Cloud Foundry system övervakning
 
@@ -28,7 +28,7 @@ I det här dokumentet får du lära dig hur du distribuerar munstycket till CF-m
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande steg är nödvändiga för att distribuera munstycket.
 
@@ -59,15 +59,15 @@ Du kan skapa Log Analytics arbets ytan manuellt eller genom att använda en mall
 #### <a name="to-create-the-workspace-manually"></a>Så här skapar du arbets ytan manuellt:
 
 1. Sök i listan över tjänster på Azure Marketplace i Azure Portal och välj sedan Log Analytics arbets ytor.
-2. Välj **skapa**och välj sedan alternativ för följande objekt:
+2. Välj **skapa** och välj sedan alternativ för följande objekt:
 
-   * **Log Analytics arbets yta**: Ange ett namn för din arbets yta.
-   * **Prenumeration**: om du har flera prenumerationer väljer du den som är samma som din CF-distribution.
-   * **Resurs grupp**: du kan skapa en ny resurs grupp eller använda samma som i CF-distributionen.
-   * **Plats**: Ange platsen.
-   * **Pris nivå**: Välj **OK** för att slutföra.
+   * **Log Analytics arbets yta** : Ange ett namn för din arbets yta.
+   * **Prenumeration** : om du har flera prenumerationer väljer du den som är samma som din CF-distribution.
+   * **Resurs grupp** : du kan skapa en ny resurs grupp eller använda samma som i CF-distributionen.
+   * **Plats** : Ange platsen.
+   * **Pris nivå** : Välj **OK** för att slutföra.
 
-Mer information finns i [Kom igång med Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Mer information finns i [Kom igång med Azure Monitor loggar](../azure-monitor/overview.md).
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Skapa Log Analytics arbets ytan via övervaknings mal len från Azures marknads plats:
 
@@ -76,13 +76,13 @@ Mer information finns i [Kom igång med Azure Monitor loggar](https://docs.micro
 1. Skriv "Cloud Foundry" i sökfönstret och välj Cloud Foundry övervaknings lösning.
 1. Sidan för mall för Cloud Foundry övervaknings lösning har lästs in och klicka på "skapa" för att starta bladet mall.
 1. Ange de parametrar som krävs:
-    * **Prenumeration**: Välj en Azure-prenumeration för Log Analytics arbets ytan, vanligt vis samma med Cloud Foundry-distribution.
-    * **Resurs grupp**: Välj en befintlig resurs grupp eller skapa en ny för arbets ytan Log Analytics.
-    * **Plats för resurs grupp**: Välj platsen för resurs gruppen.
-    * **OMS_Workspace_Name**: Ange ett namn på arbets ytan, om arbets ytan inte finns, kommer mallen att skapa en ny.
-    * **OMS_Workspace_Region**: Välj plats för arbets ytan.
-    * **OMS_Workspace_Pricing_Tier**: Välj Log Analytics-arbetsyteets SKU. Se [pris vägledningen](https://azure.microsoft.com/pricing/details/log-analytics/) för referens.
-    * **Juridiska villkor**: Klicka på juridiska villkor och klicka sedan på "skapa" för att godkänna den juridiska termen.
+    * **Prenumeration** : Välj en Azure-prenumeration för Log Analytics arbets ytan, vanligt vis samma med Cloud Foundry-distribution.
+    * **Resurs grupp** : Välj en befintlig resurs grupp eller skapa en ny för arbets ytan Log Analytics.
+    * **Plats för resurs grupp** : Välj platsen för resurs gruppen.
+    * **OMS_Workspace_Name** : Ange ett namn på arbets ytan, om arbets ytan inte finns, kommer mallen att skapa en ny.
+    * **OMS_Workspace_Region** : Välj plats för arbets ytan.
+    * **OMS_Workspace_Pricing_Tier** : Välj Log Analytics-arbetsyteets SKU. Se [pris vägledningen](https://azure.microsoft.com/pricing/details/log-analytics/) för referens.
+    * **Juridiska villkor** : Klicka på juridiska villkor och klicka sedan på "skapa" för att godkänna den juridiska termen.
 1. När du har angett alla parametrar klickar du på "skapa" för att distribuera mallen. När distributionen har slutförts visas statusen på fliken meddelande.
 
 
@@ -183,17 +183,17 @@ Om du har skapat Log Analytics arbets ytan manuellt följer du stegen nedan för
 
 ### <a name="1-import-the-oms-view"></a>1. Importera OMS-vyn
 
-I OMS-portalen bläddrar du till **Visa designer**  >  **Importera**  >  **Bläddra**och väljer en av omsview-filerna. Välj till exempel *Cloud Foundry. omsview*och spara vyn. Nu visas en panel på sidan **Översikt** . Markera det om du vill visa visualiserings mått.
+I OMS-portalen bläddrar du till **Visa designer**  >  **Importera**  >  **Bläddra** och väljer en av omsview-filerna. Välj till exempel *Cloud Foundry. omsview* och spara vyn. Nu visas en panel på sidan **Översikt** . Markera det om du vill visa visualiserings mått.
 
-Du kan anpassa dessa vyer eller skapa nya vyer via **View Designer**.
+Du kan anpassa dessa vyer eller skapa nya vyer via **View Designer** .
 
 *"Cloud Foundry. omsview"* är en för hands version av Cloud Foundry OMS View-mallen. Det här är en fullständigt konfigurerad standard mall. Om du har förslag eller feedback om mallen kan du skicka dem till [avsnittet ärende](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues).
 
 ### <a name="2-create-alert-rules"></a>2. skapa aviserings regler
 
-Du kan [skapa aviseringarna](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts)och anpassa frågorna och tröskelvärdena efter behov. Följande är rekommenderade aviseringar:
+Du kan [skapa aviseringarna](../azure-monitor/platform/alerts-overview.md)och anpassa frågorna och tröskelvärdena efter behov. Följande är rekommenderade aviseringar:
 
-| Sökfråga                                                                  | Generera avisering baserat på | Beskrivning                                                                       |
+| Sökfråga                                                                  | Generera avisering baserat på | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Skriv = CF_ValueMetric_CL Origin_s = BBS Name_s = "domän. CF-Apps"                   | Antal resultat < 1   | **BBS. Domain.cf – appar** anger om domänen CF-Apps är uppdaterad. Det innebär att CF app-begäranden från moln styrenheten synkroniseras till BBS. LRPsDesired (Diego-önskad AIs) för körning. Inga mottagna data betyder CF-Apps-domänen är inte uppdaterad i den angivna tids perioden. |
 | Skriv = CF_ValueMetric_CL Origin_s = rep Name_s = UnhealthyCell Value_d>1            | Antal resultat > 0   | För Diego-celler betyder 0 att det är felfritt och 1 betyder fel. Ange aviseringen om flera felaktiga Diego-celler har identifierats i det angivna tidsfönstret. |

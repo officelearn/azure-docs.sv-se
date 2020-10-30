@@ -45,12 +45,12 @@
           href: how-to-use-cli.md
         - name: Konfigurera en instans och autentisering
           items:
-            - name: Skriptad version
-              href: how-to-set-up-instance-scripted.md
-            - name: CLI-version
-              href: how-to-set-up-instance-cli.md
             - name: Portalversion
               href: how-to-set-up-instance-portal.md
+            - name: CLI-version
+              href: how-to-set-up-instance-cli.md
+            - name: Skriptad version
+              href: how-to-set-up-instance-scripted.md
         - name: Skriva appautentiseringskod
           href: how-to-authenticate-client.md
         - name: Skapa en appregistrering

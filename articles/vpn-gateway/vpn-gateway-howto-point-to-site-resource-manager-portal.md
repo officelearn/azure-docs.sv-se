@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18260867f0258ebe3cc885c5a1b1754f143bfccc
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fd95de8033fc5a986ac30677a4272336b1e17244
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541612"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041545"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-VPN-anslutning till ett VNet med intern Azure-certifikatautentisering: Azure Portal
 
@@ -73,11 +73,11 @@ I det här steget ska du skapa den virtuella nätverksgatewayen för ditt virtue
 
 Certifikat används av Azure för att autentisera klienter som ansluter till ett virtuella nätverk över en VPN-anslutning från punkt till plats. När du har hämtat ett rotcertifikat [laddar du upp](#uploadfile) information om den offentliga nyckeln till Azure. Rotcertifikatet betraktas av Azure som betrott för punkt till plats-anslutning till det virtuella nätverket. Du skapar också klientcertifikat från det betrodda rotcertifikatet och installerar dem sedan på varje klientdator. Klientcertifikatet används för att autentisera klienten när den påbörjar en anslutning till det virtuella nätverket. 
 
-### <a name="1-obtain-the-cer-file-for-the-root-certificate"></a><a name="getcer"></a>1. Hämta CER-filen för rot certifikatet
+### <a name="1-root-certificate"></a><a name="getcer"></a>1. rot certifikat
 
 [!INCLUDE [root-certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### <a name="2-generate-a-client-certificate"></a><a name="generateclientcert"></a>2. generera ett klient certifikat
+### <a name="2-client-certificate"></a><a name="generateclientcert"></a>2. klient certifikat
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
@@ -142,21 +142,7 @@ VPN-klientkonfigurationsfilerna innehåller inställningar för att konfigurera 
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Så här ansluter du från en Windows VPN-klient
 
->[!NOTE]
->Du måste ha administratörsbehörigheter på den Windows-klientdator som du använder för att ansluta.
->
->
-
-1. Anslut till ditt VNet genom att gå till VPN-anslutningarna på klientdatorn och leta upp den VPN-anslutning som du skapade. Den har samma namn som ditt virtuella nätverk. Välj **Anslut** . Ett popup-meddelande med information om certifikatanvändningen kanske visas. Välj **Fortsätt** om du vill använda utökade privilegier.
-
-2. På statussidan **Anslutning** väljer du **Anslut** för att initiera anslutningen. Om du ser skärmen **Välj certifikat** kontrollerar du att klientcertifikatet som visas är det som du vill använda för att ansluta. Om så inte är fallet använder du listpilen för att välja rätt certifikat och väljer sedan **OK** .
-
-   ![VPN-klient ansluter till Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png "connect")
-3. Anslutningen upprättas.
-
-   ![Anslutning upprättad](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png "anslutning upprättad")
-
-#### <a name="troubleshoot-windows-p2s-connections"></a>Felsöka Windows P2S-anslutningar
+[!INCLUDE [Connect from a Windows client](../../includes/vpn-gateway-p2s-connect-windows-client.md)]
 
 [!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 

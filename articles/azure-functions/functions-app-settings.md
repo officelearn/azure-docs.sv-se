@@ -3,12 +3,12 @@ title: Referens för appinställningar för Azure Functions
 description: Referens dokumentation för Azure Functions app-inställningar eller miljövariabler.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165782"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043223"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
@@ -226,6 +226,14 @@ Endast för förbruknings & Premium-planer. Anslutnings sträng för lagrings ko
 |Nyckel|Exempelvärde|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [namn]; AccountKey = [nyckel]|
+
+## <a name="website_contentovervnet"></a>WEBBPLATS \_ CONTENTOVERVNET
+
+Endast för Premium-planer. Värdet `1` gör att din Function-app kan skalas när ditt lagrings konto är begränsat till ett virtuellt nätverk. Du bör aktivera den här inställningen när du begränsar ditt lagrings konto till ett virtuellt nätverk. Mer information finns i [begränsa ditt lagrings konto till ett virtuellt nätverk](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+
+|Nyckel|Exempelvärde|
+|---|------------|
+|WEBSITE_CONTENTOVERVNET|1|
 
 ## <a name="website_contentshare"></a>WEBBPLATS \_ CONTENTSHARE
 

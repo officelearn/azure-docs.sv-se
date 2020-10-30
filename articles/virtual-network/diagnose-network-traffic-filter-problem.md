@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: 8d4e78a90c5b852177c88350422bdd6ce1e398cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec70f7820994898cb8e552dab66547cc9c9f10ec
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84704989"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042870"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostisera ett problem med nätverks trafik filter för virtuella datorer
 
@@ -32,48 +32,48 @@ Med NSG: er kan du styra vilka typer av trafik som flödar in och ut ur en virtu
 
 Du försöker ansluta till en virtuell dator via port 80 från Internet, men anslutningen Miss lyckas. För att avgöra varför du inte kan komma åt port 80 från Internet kan du Visa de effektiva säkerhets reglerna för ett nätverks gränssnitt med hjälp av Azure [Portal](#diagnose-using-azure-portal), [POWERSHELL](#diagnose-using-powershell)eller [Azure CLI](#diagnose-using-azure-cli).
 
-Stegen nedan förutsätter att du har en befintlig virtuell dator för att se de effektiva säkerhets reglerna för. Om du inte har en befintlig virtuell dator distribuerar du först en [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -eller [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -dator för att slutföra uppgifterna i den här artikeln med. Exemplen i den här artikeln gäller för en virtuell dator med namnet *myVM* med ett nätverks gränssnitt med namnet *myVMVMNic*. Den virtuella datorn och nätverks gränssnittet finns i en resurs grupp med namnet *myResourceGroup*och finns i regionen *USA, östra* . Ändra värdena i stegen efter behov för den virtuella dator som du diagnostiserar problemet för.
+Stegen nedan förutsätter att du har en befintlig virtuell dator för att se de effektiva säkerhets reglerna för. Om du inte har en befintlig virtuell dator distribuerar du först en [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -eller [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -dator för att slutföra uppgifterna i den här artikeln med. Exemplen i den här artikeln gäller för en virtuell dator med namnet *myVM* med ett nätverks gränssnitt med namnet *myVMVMNic* . Den virtuella datorn och nätverks gränssnittet finns i en resurs grupp med namnet *myResourceGroup* och finns i regionen *USA, östra* . Ändra värdena i stegen efter behov för den virtuella dator som du diagnostiserar problemet för.
 
 ## <a name="diagnose-using-azure-portal"></a>Diagnostisera med Azure Portal
 
 1. Logga in på Azure [Portal](https://portal.azure.com) med ett Azure-konto som har de [behörigheter som krävs](virtual-network-network-interface.md#permissions).
 2. Ange namnet på den virtuella datorn i sökrutan överst i Azure Portal. När namnet på den virtuella datorn visas i Sök resultatet väljer du det.
-3. Under **Inställningar**väljer du **nätverk**, som du ser i följande bild:
+3. Under **Inställningar** väljer du **nätverk** , som du ser i följande bild:
 
-   ![Visa säkerhets regler](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
+   ![Skärm bild som visar Azure Portal med nätverks inställningar för mitt V M V M-nätverkskort.](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
-   Reglerna som visas i föregående bild är för ett nätverks gränssnitt med namnet **myVMVMNic**. Du ser att det finns **regler för inkommande portar** för nätverks gränssnittet från två olika nätverks säkerhets grupper:
+   Reglerna som visas i föregående bild är för ett nätverks gränssnitt med namnet **myVMVMNic** . Du ser att det finns **regler för inkommande portar** för nätverks gränssnittet från två olika nätverks säkerhets grupper:
    
-   - **mySubnetNSG**: associerat med det undernät som nätverks gränssnittet finns i.
-   - **myVMNSG**: kopplade till nätverks gränssnittet på den virtuella datorn med namnet **myVMVMNic**.
+   - **mySubnetNSG** : associerat med det undernät som nätverks gränssnittet finns i.
+   - **myVMNSG** : kopplade till nätverks gränssnittet på den virtuella datorn med namnet **myVMVMNic** .
 
-   Regeln med namnet **DenyAllInBound** är vad som hindrar inkommande kommunikation till den virtuella datorn via port 80 från Internet, enligt beskrivningen i [scenariot](#scenario). Regeln listar *0.0.0.0/0* för **källa**, inklusive Internet. Ingen annan regel med högre prioritet (lägre nummer) tillåter port 80 inkommande. Information om hur du tillåter port 80 inkommande till den virtuella datorn från Internet finns i [lösa ett problem](#resolve-a-problem). Mer information om säkerhets regler och hur Azure använder dem finns i [nätverks säkerhets grupper](security-overview.md).
+   Regeln med namnet **DenyAllInBound** är vad som hindrar inkommande kommunikation till den virtuella datorn via port 80 från Internet, enligt beskrivningen i [scenariot](#scenario). Regeln listar *0.0.0.0/0* för **källa** , inklusive Internet. Ingen annan regel med högre prioritet (lägre nummer) tillåter port 80 inkommande. Information om hur du tillåter port 80 inkommande till den virtuella datorn från Internet finns i [lösa ett problem](#resolve-a-problem). Mer information om säkerhets regler och hur Azure använder dem finns i [nätverks säkerhets grupper](security-overview.md).
 
-   Längst ned på bilden visas även **utgående port regler**. Under som är regler för utgående portar för nätverks gränssnittet. Även om bilden visar fyra regler för inkommande trafik för varje NSG, kan NSG: er ha många fler än fyra regler. I bilden ser du **VirtualNetwork** under **källa** och **mål** och **AzureLoadBalancer** under **källa**. **VirtualNetwork** och **AzureLoadBalancer** är [service märken](security-overview.md#service-tags). Service märken representerar en grupp med IP-adressprefix för att minimera komplexiteten för att skapa säkerhets regler.
+   Längst ned på bilden visas även **utgående port regler** . Under som är regler för utgående portar för nätverks gränssnittet. Även om bilden visar fyra regler för inkommande trafik för varje NSG, kan NSG: er ha många fler än fyra regler. I bilden ser du **VirtualNetwork** under **källa** och **mål** och **AzureLoadBalancer** under **källa** . **VirtualNetwork** och **AzureLoadBalancer** är [service märken](security-overview.md#service-tags). Service märken representerar en grupp med IP-adressprefix för att minimera komplexiteten för att skapa säkerhets regler.
 
-4. Se till att den virtuella datorn är i körnings läge och välj sedan **effektiva säkerhets regler**, som du ser i föregående bild, för att se de effektiva säkerhets reglerna som visas på följande bild:
+4. Se till att den virtuella datorn är i körnings läge och välj sedan **effektiva säkerhets regler** , som du ser i föregående bild, för att se de effektiva säkerhets reglerna som visas på följande bild:
 
-   ![Visa gällande säkerhets regler](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
+   ![Skärm bild som visar fönstret gällande säkerhets regler med Hämta valda och AllowAzureLoadBalancerInbound inkommande regel vald.](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
-   Reglerna i listan är samma som du såg i steg 3, men det finns olika flikar för de NSG som är kopplade till nätverks gränssnittet och under nätet. Som du kan se i bilden visas endast de första 50 reglerna. Om du vill hämta en. csv-fil som innehåller alla regler väljer du **Hämta**.
+   Reglerna i listan är samma som du såg i steg 3, men det finns olika flikar för de NSG som är kopplade till nätverks gränssnittet och under nätet. Som du kan se i bilden visas endast de första 50 reglerna. Om du vill hämta en. csv-fil som innehåller alla regler väljer du **Hämta** .
 
-   Om du vill se vilka prefix varje service tag representerar väljer du en regel, till exempel regeln med namnet **AllowAzureLoadBalancerInbound**. Följande bild visar prefixen för **AzureLoadBalancer** -tjänst tag gen:
+   Om du vill se vilka prefix varje service tag representerar väljer du en regel, till exempel regeln med namnet **AllowAzureLoadBalancerInbound** . Följande bild visar prefixen för **AzureLoadBalancer** -tjänst tag gen:
 
-   ![Visa gällande säkerhets regler](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   ![Skärm bild som visar adressprefix för AllowAzureLoadBalancerInbound som har angetts.](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
 
    Även om **AzureLoadBalancer** service tag bara representerar ett prefix, representerar andra tjänst Taggar flera prefix.
 
-5. Föregående steg visade säkerhets reglerna för ett nätverks gränssnitt med namnet **myVMVMNic**, men du har också sett ett nätverks gränssnitt med namnet **myVMVMNic2** i några av de föregående bilderna. Den virtuella datorn i det här exemplet har två nätverks gränssnitt anslutna. De effektiva säkerhets reglerna kan vara olika för varje nätverks gränssnitt.
+5. Föregående steg visade säkerhets reglerna för ett nätverks gränssnitt med namnet **myVMVMNic** , men du har också sett ett nätverks gränssnitt med namnet **myVMVMNic2** i några av de föregående bilderna. Den virtuella datorn i det här exemplet har två nätverks gränssnitt anslutna. De effektiva säkerhets reglerna kan vara olika för varje nätverks gränssnitt.
 
    Om du vill se reglerna för nätverks gränssnittet **myVMVMNic2** väljer du det. Som du ser i bilden nedan, har nätverks gränssnittet samma regler som är kopplade till sitt undernät som nätverks gränssnittet **myVMVMNic** , eftersom båda nätverks gränssnitten finns i samma undernät. När du associerar en NSG till ett undernät tillämpas reglerna på alla nätverks gränssnitt i under nätet.
 
-   ![Visa säkerhets regler](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
+   ![Skärm bild som visar Azure Portal med nätverks inställningar för mitt V M V M NIC 2.](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
 
    Till skillnad från nätverks gränssnittet för **myVMVMNic** har nätverks gränssnittet **myVMVMNic2** ingen nätverks säkerhets grupp kopplad till sig. Varje nätverks gränssnitt och undernät kan ha noll, eller ett, NSG kopplat till det. NSG som är kopplade till varje nätverks gränssnitt eller undernät kan vara samma eller olika. Du kan associera samma nätverks säkerhets grupp med så många nätverks gränssnitt och undernät du väljer.
 
 Trots att de effektiva säkerhets reglerna har visats via den virtuella datorn kan du också Visa effektiva säkerhets regler via en individ:
-- **Nätverks gränssnitt**: Lär dig hur du [visar ett nätverks gränssnitt](virtual-network-network-interface.md#view-network-interface-settings).
-- **NSG**: Lär dig hur du [visar en NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
+- **Nätverks gränssnitt** : Lär dig hur du [visar ett nätverks gränssnitt](virtual-network-network-interface.md#view-network-interface-settings).
+- **NSG** : Lär dig hur du [visar en NSG](manage-network-security-group.md#view-details-of-a-network-security-group).
 
 ## <a name="diagnose-using-powershell"></a>Diagnostisera med PowerShell
 
@@ -81,7 +81,7 @@ Trots att de effektiva säkerhets reglerna har visats via den virtuella datorn k
 
 Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn behöver du Azure PowerShell-modulen, version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` på datorn för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att logga in på Azure med ett konto som har de [behörigheter som krävs](virtual-network-network-interface.md#permissions)].
 
-Hämta de effektiva säkerhets reglerna för ett nätverks gränssnitt med [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). I följande exempel hämtas effektiva säkerhets regler för ett nätverks gränssnitt med namnet *myVMVMNic*, som finns i en resurs grupp med namnet *myResourceGroup*:
+Hämta de effektiva säkerhets reglerna för ett nätverks gränssnitt med [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). I följande exempel hämtas effektiva säkerhets regler för ett nätverks gränssnitt med namnet *myVMVMNic* , som finns i en resurs grupp med namnet *myResourceGroup* :
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -109,13 +109,13 @@ NetworkInterfaces
 {/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
 ```
 
-I föregående utdata är nätverks gränssnittets namn *myVMVMNic*.
+I föregående utdata är nätverks gränssnittets namn *myVMVMNic* .
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnostisera med Azure CLI
 
 Om du använder kommando rads kommandon i Azure för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. Den här artikeln kräver Azure CLI version 2.0.32 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` och logga in på Azure med ett konto som har de [behörigheter som krävs](virtual-network-network-interface.md#permissions).
 
-Hämta de effektiva säkerhets reglerna för ett nätverks gränssnitt med [AZ Network NIC List-effektiv-NSG](/cli/azure/network/nic#az-network-nic-list-effective-nsg). I följande exempel hämtas effektiva säkerhets regler för ett nätverks gränssnitt med namnet *myVMVMNic* som finns i en resurs grupp med namnet *myResourceGroup*:
+Hämta de effektiva säkerhets reglerna för ett nätverks gränssnitt med [AZ Network NIC List-effektiv-NSG](/cli/azure/network/nic#az-network-nic-list-effective-nsg). I följande exempel hämtas effektiva säkerhets regler för ett nätverks gränssnitt med namnet *myVMVMNic* som finns i en resurs grupp med namnet *myResourceGroup* :
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -150,15 +150,15 @@ I returnerade utdata ser du information som liknar följande exempel:
       },
 ```
 
-I föregående utdata är nätverks gränssnittets namn MyVMVMNic- *gränssnittet*.
+I föregående utdata är nätverks gränssnittets namn MyVMVMNic- *gränssnittet* .
 
 ## <a name="interpret-command-output"></a>Tolka kommandoutdata
 
 Oavsett om du har använt [PowerShell](#diagnose-using-powershell)eller [Azure CLI](#diagnose-using-azure-cli) för att diagnosticera problemet får du utdata som innehåller följande information:
 
-- **NetworkSecurityGroup**: ID för nätverks säkerhets gruppen.
-- **Association**: om nätverks säkerhets gruppen är kopplad till en *NetworkInterface* eller ett *undernät*. Om en NSG är kopplad till båda returneras utdata med **NetworkSecurityGroup**, **Association**och **EffectiveSecurityRules**för varje NSG. Om NSG är associerat eller disassocierat omedelbart innan du kör kommandot för att se de effektiva säkerhets reglerna kan du behöva vänta några sekunder innan ändringen visas i kommandoutdata.
-- **EffectiveSecurityRules**: en förklaring av varje egenskap beskrivs i [skapa en säkerhets regel](manage-network-security-group.md#create-a-security-rule). Regel namn som föregås av *defaultSecurityRules/* är standard säkerhets regler som finns i alla NSG. Regel namn som föregås av *securityRules/* är regler som du har skapat. Regler som anger en [service tagg](security-overview.md#service-tags), till exempel **Internet**, **VirtualNetwork**och **AzureLoadBalancer** för egenskaperna **DestinationAddressPrefix** eller **sourceAddressPrefix** , har också värden för egenskapen **expandedDestinationAddressPrefix** . Egenskapen **expandedDestinationAddressPrefix** visar alla adressprefix som representeras av tjänst tag gen.
+- **NetworkSecurityGroup** : ID för nätverks säkerhets gruppen.
+- **Association** : om nätverks säkerhets gruppen är kopplad till en *NetworkInterface* eller ett *undernät* . Om en NSG är kopplad till båda returneras utdata med **NetworkSecurityGroup** , **Association** och **EffectiveSecurityRules** för varje NSG. Om NSG är associerat eller disassocierat omedelbart innan du kör kommandot för att se de effektiva säkerhets reglerna kan du behöva vänta några sekunder innan ändringen visas i kommandoutdata.
+- **EffectiveSecurityRules** : en förklaring av varje egenskap beskrivs i [skapa en säkerhets regel](manage-network-security-group.md#create-a-security-rule). Regel namn som föregås av *defaultSecurityRules/* är standard säkerhets regler som finns i alla NSG. Regel namn som föregås av *securityRules/* är regler som du har skapat. Regler som anger en [service tagg](security-overview.md#service-tags), till exempel **Internet** , **VirtualNetwork** och **AzureLoadBalancer** för egenskaperna **DestinationAddressPrefix** eller **sourceAddressPrefix** , har också värden för egenskapen **expandedDestinationAddressPrefix** . Egenskapen **expandedDestinationAddressPrefix** visar alla adressprefix som representeras av tjänst tag gen.
 
 Om du ser dubbla regler som visas i utdata, beror det på att en NSG är kopplad till både nätverks gränssnittet och under nätet. Båda NSG: er har samma standard regler och kan ha ytterligare dubbletter om du har skapat dina egna regler som är samma i båda NSG: er.
 
@@ -179,7 +179,7 @@ Oavsett om du använder Azure- [portalen](#diagnose-using-azure-portal), [POWERS
 | Prioritet                | 100                                                                                |
 | Namn                    | Tillåt-HTTP-alla                                                                     |
 
-När du har skapat regeln tillåts port 80 inkommande från Internet, eftersom regelns prioritet är högre än standard säkerhets regeln med namnet *DenyAllInBound*, som nekar trafiken. Lär dig hur du [skapar en säkerhets regel](manage-network-security-group.md#create-a-security-rule). Om olika NSG: er är kopplade till både nätverks gränssnittet och under nätet måste du skapa samma regel i båda NSG: er.
+När du har skapat regeln tillåts port 80 inkommande från Internet, eftersom regelns prioritet är högre än standard säkerhets regeln med namnet *DenyAllInBound* , som nekar trafiken. Lär dig hur du [skapar en säkerhets regel](manage-network-security-group.md#create-a-security-rule). Om olika NSG: er är kopplade till både nätverks gränssnittet och under nätet måste du skapa samma regel i båda NSG: er.
 
 När Azure bearbetar inkommande trafik, bearbetar den regler i NSG som är kopplade till under nätet (om det finns en associerad NSG) och bearbetar sedan reglerna i de NSG som är kopplade till nätverks gränssnittet. Om det finns en NSG kopplad till nätverks gränssnittet och under nätet måste porten vara öppen i båda NSG: er för att trafiken ska kunna uppnå den virtuella datorn. För att under lätta administration och kommunikations problem rekommenderar vi att du associerar en NSG till ett undernät i stället för enskilda nätverks gränssnitt. Om virtuella datorer inom ett undernät behöver olika säkerhets regler, kan du göra nätverks gränssnitten till medlemmar i en program säkerhets grupp (grupperna) och ange en grupperna som källa och mål för en säkerhets regel. Läs mer om [program säkerhets grupper](security-overview.md#application-security-groups).
 

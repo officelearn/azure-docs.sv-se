@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: alzam
-ms.openlocfilehash: 1102e2dafcf1a78bc9c243f27549b13793ec5408
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 9cc68eb60096c4431acfc988c87ca9bf99f1f045
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079181"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043406"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Konfigurera Azure Active Directory autentisering för användar-VPN
 
@@ -60,14 +60,14 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
    * **Resurs grupps plats** – Välj en resurs plats i list rutan. Ett WAN är en global resurs och är inte kopplad till en viss region. Du måste dock välja en region för att lättare att hantera och leta upp WAN-resursen som du skapar.
    * **Namn** – ange det namn som du vill anropa ditt WAN.
    * **Typ:** Standard. Om du skapar ett grundläggande WAN-nätverk kan du bara skapa en Basic-hubb. Basic-hubbar har endast stöd för VPN för plats-till-plats-anslutning.
-4. När du har fyllt i fälten väljer du **Granska + skapa**.
+4. När du har fyllt i fälten väljer du **Granska + skapa** .
 5. När verifieringen har godkänts väljer du **skapa** för att skapa det virtuella WAN-nätverket.
 
 ## <a name="create-an-empty-virtual-hub"></a><a name="site"></a>Skapa en tom virtuell hubb
 
-1. Under ditt virtuella WAN-nätverk väljer du hubbar och klickar på **+ ny hubb**.
+1. Under ditt virtuella WAN-nätverk väljer du hubbar och klickar på **+ ny hubb** .
 
-   ![ny webbplats](media/virtual-wan-point-to-site-azure-ad/hub1.jpg)
+   ![Skärm bild som visar dialog rutan Hubbs konfiguration med ny hubb vald.](media/virtual-wan-point-to-site-azure-ad/hub1.jpg)
 2. Fyll i följande fält på sidan Skapa virtuellt nav.
 
    **Region** – Välj den region som du vill distribuera den virtuella hubben i.
@@ -76,23 +76,23 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 
    **Hubb privat adress utrymme** – hubbens adress intervall i CIDR-format.
 
-   ![ny webbplats](media/virtual-wan-point-to-site-azure-ad/hub2.jpg)  
-3. Klicka på **Granska + skapa**.
-4. Klicka på **skapa**på sidan **valideringen har slutförts** .
+   ![Skärm bild som visar fönstret Skapa virtuellt nav där du kan ange värden.](media/virtual-wan-point-to-site-azure-ad/hub2.jpg)  
+3. Klicka på **Granska + skapa** .
+4. Klicka på **skapa** på sidan **valideringen har slutförts** .
 
 ## <a name="create-a-new-user-vpn-configuration"></a><a name="site"></a>Skapa en ny VPN-konfiguration för användare
 
 En VPN-konfiguration för användare definierar parametrar för att ansluta fjärrklienter.
 
-1. Välj **VPN-konfigurationer för användare**under ditt virtuella WAN-nätverk.
+1. Välj **VPN-konfigurationer för användare** under ditt virtuella WAN-nätverk.
 
-   ![ny konfiguration](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
+   ![Skärm bild som visar meny alternativet för användare V P N-inställningar valt.](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
 
-2. Klicka på **+ skapa användare VPN-konfiguration**.
+2. Klicka på **+ skapa användare VPN-konfiguration** .
 
-   ![ny konfiguration](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
+   ![Skärm bild som visar länken Skapa användare V P N config.](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 
-3. Ange informationen och klicka på **skapa**.
+3. Ange informationen och klicka på **skapa** .
 
    * **Konfigurations namn** – ange det namn som du vill anropa din användar-VPN-konfiguration.
    * **Tunnel typ** – Välj OpenVPN.
@@ -101,30 +101,28 @@ En VPN-konfiguration för användare definierar parametrar för att ansluta fjä
    * **Utfärdare** - `https://sts.windows.net/<your Directory ID>/`
    * **AAD-klient** - `https://login.microsoftonline.com/<your Directory ID>`
   
-
-
-   ![ny konfiguration](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
+   ![Skärm bild som visar konfigurations rutan skapa ny användare V P N där du kan ange värden.](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
 ## <a name="edit-hub-assignment"></a><a name="hub"></a>Redigera hubbtilldelning
 
 1. Gå till bladet **hubbar** under det virtuella WAN-nätverket.
 2. Välj den hubb som du vill koppla VPN-serverkonfigurationen till och klicka på ellipsen (...).
 
-   ![ny webbplats](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
-3. Klicka på **Redigera virtuell hubb**.
+   ![Skärm bild som visar redigera virtuell hubb som valts på menyn.](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
+3. Klicka på **Redigera virtuell hubb** .
 4. Markera kryss rutan **Inkludera punkt-till-plats-Gateway** och välj den **enhet för gateway-skalning** som du vill använda.
 
-   ![ny webbplats](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
+   ![Skärm bild som visar dialog rutan Redigera virtuellt nav där du kan välja din skalnings enhet för gateway.](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
 5. Ange adresspoolen **från vilken** VPN-klienter ska tilldelas IP-adresser.
-6. Klicka på **Bekräfta**.
+6. Klicka på **Bekräfta** .
 7. Åtgärden kan ta upp till 30 minuter att slutföra.
 
 ## <a name="download-user-vpn-profile"></a><a name="device"></a>Ladda ned användare VPN-profil
 
 Använd VPN-profilen för att konfigurera dina klienter.
 
-1. På sidan för ditt virtuella WAN-nätverk klickar du på **användare VPN-konfigurationer**.
-2. Klicka på **Hämta VPN-konfiguration för användare**längst upp på sidan.
+1. På sidan för ditt virtuella WAN-nätverk klickar du på **användare VPN-konfigurationer** .
+2. Klicka på **Hämta VPN-konfiguration för användare** längst upp på sidan.
 3. När filen har skapats klickar du på länken för att ladda ned den.
 4. Använd profil filen för att konfigurera VPN-klienterna.
 
@@ -142,53 +140,53 @@ Använd den här [länken](https://www.microsoft.com/p/azure-vpn-client-preview/
 
 #### <a name="to-import-a-client-profile"></a><a name="import"></a>Så här importerar du en klient profil
 
-1. På sidan väljer du **Importera**.
+1. På sidan väljer du **Importera** .
 
-    ![importera](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
+    ![Skärm bild som visar importera markerade från menyn plus.](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
 
-2. Bläddra till profil-XML-filen och markera den. När filen är vald väljer du **Öppna**.
+2. Bläddra till profil-XML-filen och markera den. När filen är vald väljer du **Öppna** .
 
-    ![importera](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
+    ![Skärm bild som visar en öppen dialog ruta där du kan välja en fil.](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
 
-3. Ange namnet på profilen och välj **Spara**.
+3. Ange namnet på profilen och välj **Spara** .
 
-    ![importera](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
+    ![Skärm bild som visar det tillagda anslutnings namnet och knappen Spara valt.](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
 
 4. Välj **Anslut** för att ansluta till VPN.
 
-    ![importera](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
+    ![Skärm bild som visar knappen Anslut för den anslutning som du nyss skapade.](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
 
-5. När du har anslutit ikonen blir den grön och säg **ansluten**.
+5. När du har anslutit ikonen blir den grön och säg **ansluten** .
 
-    ![importera](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
+    ![Skärm bild som visar anslutningen i en ansluten status med alternativet att koppla från.](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
 
 #### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Ta bort en klient profil
 
-1. Välj ellipsen (...) bredvid den klient profil som du vill ta bort. Välj sedan **ta bort**.
+1. Välj ellipsen (...) bredvid den klient profil som du vill ta bort. Välj sedan **ta bort** .
 
-    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![Skärm bild som visar ta bort valda från menyn.](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. Välj **ta bort** för att ta bort.
 
-    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![Skärm bild som visar en bekräftelse dialog ruta med alternativet att ta bort eller avbryta.](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnostisera anslutnings problem
 
-1. För att diagnostisera anslutnings problem kan du använda verktyget **diagnostisera** . Välj ellipsen (...) bredvid den VPN-anslutning som du vill diagnostisera för att Visa menyn. Välj sedan **diagnostisera**.
+1. För att diagnostisera anslutnings problem kan du använda verktyget **diagnostisera** . Välj ellipsen (...) bredvid den VPN-anslutning som du vill diagnostisera för att Visa menyn. Välj sedan **diagnostisera** .
 
-    ![diagnostisera](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
+    ![Skärm bild som visar diagnostiserat valt i menyn.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
 
-2. På sidan **anslutnings egenskaper** väljer du **Kör diagnostik**.
+2. På sidan **anslutnings egenskaper** väljer du **Kör diagnostik** .
 
-    ![diagnostisera](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
+    ![Skärm bild som visar knappen Kör diagnostik för en anslutning.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
 
 3. Logga in med dina autentiseringsuppgifter.
 
-    ![diagnostisera](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose3.jpg)
+    ![Skärm bild som visar dialog rutan logga in för den här åtgärden.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose3.jpg)
 
 4. Visa diagnos resultatet.
 
-    ![diagnostisera](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
+    ![Skärm bild som visar resultatet av diagnostiken.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
 
 ## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>Visa virtuellt WAN
 

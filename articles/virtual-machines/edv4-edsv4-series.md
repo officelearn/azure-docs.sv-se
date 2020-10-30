@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: e8ecb0dde2208b367362f26f654ec8eb83c7a777
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5d02085fe4850dacf6e876b42cf301df2ea76713
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016203"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043334"
 ---
 # <a name="edv4-and-edsv4-series"></a>Edv4- och Edsv4-serien
 
@@ -29,10 +29,10 @@ Edv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina 8272CL-processor
 [Premium Storage caching](premium-storage-performance.md): stöds inte<br>
 [Direktmigrering](maintenance-and-updates.md): stöds<br>
 [Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
-[Stöd för VM-generering](generation-2.md): generation 1<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
 <br>
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt cacheminne för cachelagrad och temporär lagring: IOPS/Mbit/s | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | <sup>**</sup> Maximalt cacheminne för cachelagrad och temporär lagring: IOPS/Mbit/s | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2d_v4  | 2 | 16 | 75 | 4 | 19000/120 | 2|1000 |
 | Standard_E4d_v4  | 4 | 32 | 150 | 8 | 38500/242 | 2|2000 |
@@ -44,6 +44,8 @@ Edv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina 8272CL-processor
 | Standard_E64d_v4 | 64 | 504 | 2400 | 32 | 615000/3872 | 8|30000 |
 
 
+<sup>**</sup> Dessa IOPs-värden kan garanteras med hjälp av [virtuella Gen2-datorer](generation-2.md)
+
 ## <a name="edsv4-series"></a>Edsv4-serien
 
 Edsv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina 8272CL-processorer (Cascade Lake). Edsv4-funktionen för virtuella datorer är upp till 504 GiB RAM, förutom snabb och stor lokal SSD-lagring (upp till 2 400 GiB). De här virtuella datorerna är idealiska för minnes intensiva företags program och program som drar nytta av låg latens, lokal lagring med hög hastighet.
@@ -53,10 +55,10 @@ Edsv4-seriens storlekar körs på Intel &reg; Xeon &reg; platina 8272CL-processo
 [Premium Storage caching](premium-storage-performance.md): stöds<br>
 [Direktmigrering](maintenance-and-updates.md): stöds<br>
 [Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds<br>
-[Stöd för VM-generering](generation-2.md): generation 1<br>
+[Stöd för VM-generering](generation-2.md): generation 1 och 2<br>
 <br>
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | <sup>**</sup> Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort|Förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120 (50) | 3200/48 | 2|1000 |
 | Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242 (100) | 6400/96 | 2|2000 |

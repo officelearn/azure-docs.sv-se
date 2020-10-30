@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfc5126c0cce89502b0f1d8b17c06519f338fe52
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1709bd42fb77bd4f18b8a5e9d1af6e07be67b6c4
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370856"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043072"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory?
 
@@ -93,7 +93,7 @@ För att bättre förstå Azure AD och dess dokumentation rekommenderar vi att d
 |Kontoadministratör|Den här administratörsrollen för klassiska prenumerationer är begreppsmässigt faktureringsägaren av en prenumeration. Den här rollen har åtkomst till [Azure-kontocenter](https://account.azure.com/Subscriptions) och med den kan du hantera alla prenumerationer på ett konto. Mer information finns i [klassiska prenumerationer på administratörs roller, Azure-roller och Azure AD-administratörer](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Tjänstadministratör|Med den här administratörsrollen för klassiska prenumerationer kan du hantera alla Azure-resurser, inklusive åtkomst. Den här rollen har likvärdig åtkomst som en användare som har tilldelats rollen Ägare i prenumerationsomfånget. Mer information finns i [klassiska prenumerationer på administratörs roller, Azure-roller och Azure AD-administratörer](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Ägare|Den här rollen hjälper dig att hantera alla Azure-resurser, inklusive åtkomst. Den här rollen bygger på ett nyare Authorization-system som kallas Azure Role-Base Access Control (Azure RBAC) som ger detaljerad åtkomst hantering till Azure-resurser. Mer information finns i [klassiska prenumerationer på administratörs roller, Azure-roller och Azure AD-administratörer](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Global Azure AD-administratör|Den här administratörsrollen tilldelas automatiskt till den som har skapat Azure AD-klienten. Globala administratörer kan utföra alla administrativa funktioner för Azure AD och alla tjänster som federerar till Azure AD, till exempel Exchange Online, SharePoint Online och Skype för företag – online. Du kan flera globala administratörer men bara globala administratörer kan tilldela administratörsroller (inklusive tilldela andra globala administratörer) till användare. Observera att den här administratörs rollen kallas global administratör i Azure Portal, men den kallas **företags administratör** i Microsoft Graph API och Azure AD PowerShell. mer information om de olika administratörs rollerna finns [i administratörs roll behörigheter i Azure Active Directory](../roles/permissions-reference.md).|
+|Global Azure AD-administratör|Den här administratörsrollen tilldelas automatiskt till den som har skapat Azure AD-klienten. Globala administratörer kan utföra alla administrativa funktioner för Azure AD och alla tjänster som federerar till Azure AD, till exempel Exchange Online, SharePoint Online och Skype för företag – online. Du kan flera globala administratörer men bara globala administratörer kan tilldela administratörsroller (inklusive tilldela andra globala administratörer) till användare. Observera att den här administratörs rollen kallas global administratör i Azure Portal, men den kallas **företags administratör** i Microsoft Graph API och Azure AD PowerShell. Mer information om olika administratörsroller finns i artikeln om [behörigheter för administratörsrollen i Azure Active Directory](../roles/permissions-reference.md).|
 |Azure-prenumeration| Används för att betala för Azure-molntjänster. Du kan ha många prenumerationer och de är länkade till ett kreditkort.|
 |Azure-klientorganisation| En dedikerad och betrodd instans av Azure AD som skapas automatiskt när din organisation registrerar sig för en prenumeration på Microsoft Cloud service, till exempel Microsoft Azure, Microsoft Intune eller Microsoft 365. En Azure-klientorganisation representerar en enskild organisation.|
 |Enskild klientorganisation| Azure-klienter som har åtkomst till andra tjänster i en dedikerad miljö betraktas som en enskild klientorganisation.|

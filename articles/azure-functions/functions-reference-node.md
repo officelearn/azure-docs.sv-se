@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164830"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043112"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
@@ -107,13 +107,13 @@ I Java Script konfigureras och definieras [bindningarna](functions-triggers-bind
 
 ### <a name="inputs"></a>Indata
 Indatamängden är indelade i två kategorier i Azure Functions: en är utlösaren och den andra är den extra ingången. Utlösare och andra indatamasker (bindningar av `direction === "in"` ) kan läsas av en funktion på tre sätt:
- - **_[Rekommenderas]_ Som parametrar som skickas till din funktion.** De skickas till funktionen i samma ordning som de definieras i *function.jspå*. Den `name` egenskap som definierats i *function.jspå* behöver inte matcha namnet på din parameter, men den borde.
+ - **_[Rekommenderas]_ Som parametrar som skickas till din funktion.** De skickas till funktionen i samma ordning som de definieras i *function.jspå* . Den `name` egenskap som definierats i *function.jspå* behöver inte matcha namnet på din parameter, men den borde.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Som medlemmar i [`context.bindings`](#contextbindings-property) objektet.** Varje medlem namnges av den `name` egenskap som definierats i *function.jspå*.
+ - **Som medlemmar i [`context.bindings`](#contextbindings-property) objektet.** Varje medlem namnges av den `name` egenskap som definierats i *function.jspå* .
  
    ```javascript
    module.exports = async function(context) { 
@@ -138,7 +138,7 @@ Utdata (bindningar av `direction === "out"` ) kan skrivas till av en funktion p�
 
 Du kan tilldela data till utgående bindningar på något av följande sätt (kombinera inte dessa metoder):
 
-- **_[Rekommenderas för flera utdata]_ Returnera ett objekt.** Om du använder en asynkron/löftes funktion för att returnera, kan du returnera ett objekt med tilldelad utmatnings information. I exemplet nedan heter utgående bindningarna "httpResponse" och "queueOutput" i *function.jspå*.
+- **_[Rekommenderas för flera utdata]_ Returnera ett objekt.** Om du använder en asynkron/löftes funktion för att returnera, kan du returnera ett objekt med tilldelad utmatnings information. I exemplet nedan heter utgående bindningarna "httpResponse" och "queueOutput" i *function.jspå* .
 
   ```javascript
   module.exports = async function(context) {
@@ -154,7 +154,7 @@ Du kan tilldela data till utgående bindningar på något av följande sätt (ko
 
   Om du använder en synkron funktion kan du returnera objektet med hjälp av [`context.done`](#contextdone-method) (se exemplet).
 - **_[Rekommenderas för enstaka utdata]_ Returnerar ett värde direkt och använder $return bindnings namn.** Detta fungerar endast för asynkrona/löftes retur funktioner. Se exempel i [Exportera en async-funktion](#exporting-an-async-function). 
-- **Tilldela värden till `context.bindings` ** Du kan tilldela värden direkt till Context. bindings.
+- **Tilldela värden till `context.bindings`** Du kan tilldela värden direkt till Context. bindings.
 
   ```javascript
   module.exports = async function(context) {
@@ -201,7 +201,7 @@ module.exports = (context) => {
 
 Kontexten som skickas till funktionen exponerar en `executionContext` egenskap, som är ett objekt med följande egenskaper:
 
-| Egenskapsnamn  | Typ  | Beskrivning |
+| Egenskapsnamn  | Typ  | Description |
 |---------|---------|---------|
 | `invocationId` | Sträng | Innehåller en unik identifierare för det specifika funktions anropet. |
 | `functionName` | Sträng | Anger namnet på den aktiva funktionen |
@@ -325,10 +325,10 @@ Utöver standard nivån är följande loggnings metoder tillgängliga som gör a
 
 | Metod                 | Beskrivning                                |
 | ---------------------- | ------------------------------------------ |
-| **fel (_meddelande_)**   | Skriver en händelse på fel nivå till loggarna.   |
-| **Varna (_meddelande_)**    | Skriver en varnings nivå händelse till loggarna. |
-| **info (_meddelande_)**    | Skriver till loggning på informations nivå eller lägre.    |
-| **utförlig (_meddelande_)** | Skriver till utförlig nivå loggning.           |
+| **fel ( _meddelande_ )**   | Skriver en händelse på fel nivå till loggarna.   |
+| **Varna ( _meddelande_ )**    | Skriver en varnings nivå händelse till loggarna. |
+| **info ( _meddelande_ )**    | Skriver till loggning på informations nivå eller lägre.    |
+| **utförlig ( _meddelande_ )** | Skriver till utförlig nivå loggning.           |
 
 I följande exempel skrivs samma logg på varnings spårnings nivån, i stället för informations nivån:
 
@@ -358,7 +358,7 @@ Om du vill ange tröskelvärdet för alla spår som skrivs till loggar och-konso
 }  
 ```
 
-Värdena för **consoleLevel** motsvarar namnen på `context.log` metoderna. Om du vill inaktivera all spårnings loggning till-konsolen anger du **consoleLevel** till _av_. Mer information finns i [host.jspå v1. x-referens](functions-host-json-v1.md).
+Värdena för **consoleLevel** motsvarar namnen på `context.log` metoderna. Om du vill inaktivera all spårnings loggning till-konsolen anger du **consoleLevel** till _av_ . Mer information finns i [host.jspå v1. x-referens](functions-host-json-v1.md).
 
 ---
 
@@ -545,12 +545,12 @@ Det finns två sätt att installera paket på Funktionsapp:
 ### <a name="using-kudu"></a>Använda kudu
 1. Gå till `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Klicka på **Felsök konsol**  >  **cmd**.
+2. Klicka på **Felsök konsol**  >  **cmd** .
 
 3. Gå till `D:\home\site\wwwroot` och dra sedan package.jspå filen till mappen **wwwroot** på sidans övre halva.  
     Du kan också ladda upp filer till din Function-app på andra sätt. Mer information finns i [så här uppdaterar du Function Apps-filer](functions-reference.md#fileupdate). 
 
-4. När package.jsfilen har överförts kör du `npm install` kommandot i **kudu-konsolen för fjärrkörning**.  
+4. När package.jsfilen har överförts kör du `npm install` kommandot i **kudu-konsolen för fjärrkörning** .  
     Den här åtgärden hämtar de paket som anges i package.jspå filen och startar om Function-appen.
 
 ## <a name="environment-variables"></a>Miljövariabler
@@ -659,7 +659,7 @@ TypeScript-filer (. TS) är destaplade i JavaScript-filer (. js) i `dist` utdata
 
 Hur du utvecklar och distribuerar lokalt från ett TypeScript-projekt beror på ditt utvecklingsverktyg.
 
-### <a name="visual-studio-code"></a>Visual Studio-koden
+### <a name="visual-studio-code"></a>Visuell Studio-kod
 
 Med [Azure Functions för kod tillägget för Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) kan du utveckla dina funktioner med typescript. Kärn verktygen är ett krav i Azure Functions-tillägget.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: bc0369e99552859393da206e791477040681ccc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49863bec4cbd367b6b309ef5a79e7287cb53ee5b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281073"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042981"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Ladda upp filer till ett Media Services-konto med REST
 
@@ -72,7 +72,7 @@ Anvisningar om hur du konfigurerar Postman för den här självstudien finns i [
 
     För att hämta värden för de första fem variablerna, se [åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    ![Ladda upp en fil](./media/media-services-rest-upload-files/postman-import-env.png)
+    ![Skärm bild som visar ikonen "kugg hjuls" som valts från det övre högra hörnet och de första fem variablerna som valts från fliken "hanterings miljöer".](./media/media-services-rest-upload-files/postman-import-env.png)
 2. Ange värdet för **MediaFileName** -miljövariabeln.
 
     Ange fil namnet på det medium som du planerar att ladda upp. I det här exemplet ska vi ladda upp BigBuckBunny.mp4. 
@@ -90,17 +90,17 @@ Anvisningar om hur du konfigurerar Postman för den här självstudien finns i [
         ]
     }
     ```
-4. Till vänster i fönstret **Postman** klickar du på **1. Hämta AAD auth token**  ->  **Hämta Azure AD-token för tjänstens huvud namn**.
+4. Till vänster i fönstret **Postman** klickar du på **1. Hämta AAD auth token**  ->  **Hämta Azure AD-token för tjänstens huvud namn** .
 
     URL-delen fylls med **AzureADSTSEndpoint** -miljövariabeln (tidigare i självstudien anger du värden för miljövariabler som stöder samlingen).
 
-    ![Ladda upp en fil](./media/media-services-rest-upload-files/postment-get-token.png)
+    ![Skärm bild som visar "1. Hämta en D auth-token – Hämta Azure A D-token för tjänstens huvud namn "valt i fönstret" Postman "och knappen" Skicka "vald.](./media/media-services-rest-upload-files/postment-get-token.png)
 
-5. Tryck på **Skicka**.
+5. Tryck på **Skicka** .
 
     Du kan se svaret som innehåller "access_token". Skriptet "test" tar detta värde och ställer in miljövariabeln **AccessToken** (enligt beskrivningen ovan). Om du undersöker dina miljövariabler ser du att den här variabeln nu innehåller värdet åtkomsttoken (Bearer token) som används i resten av åtgärderna. 
 
-    Om token går ut går du till steget "Hämta Azure AD-token för tjänstens huvud namn" igen. 
+    Om token går ut går du till steget "Hämta Azure AD-token för tjänstens huvud namn" igen. 
 
 ## <a name="create-an-access-policy-with-write-permission"></a>Skapa en åtkomst princip med Skriv behörighet
 
@@ -113,10 +113,10 @@ Innan du överför filer till Blob Storage anger du åtkomst princip rättighete
 
 ### <a name="create-an-access-policy"></a>Skapa en åtkomst princip
 
-1. Välj **Access policy**  ->  **skapa Access policy för uppladdning**.
-2. Tryck på **Skicka**.
+1. Välj **Access policy**  ->  **skapa Access policy för uppladdning** .
+2. Tryck på **Skicka** .
 
-    ![Ladda upp en fil](./media/media-services-rest-upload-files/postman-access-policy.png)
+    ![Skärm bild som visar alternativet "Access policy-skapa Access policy för uppladdning" valt på menyn i den vänstra menyn och knappen "Skicka" är markerad.](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     Skriptet "test" hämtar Access Policy-ID och anger lämplig miljö variabel.
 
@@ -126,7 +126,7 @@ Innan du överför filer till Blob Storage anger du åtkomst princip rättighete
 
 En [till gång](/rest/api/media/operations/asset) är en behållare för flera typer eller uppsättningar med objekt i Media Services, inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning. När du skapar en till gång i REST API måste du skicka POST-begäran till Media Services och placera all egenskaps information om din till gång i begär ande texten.
 
-En av de egenskaper som du kan lägga till när du skapar en till gång är **alternativ**. Du kan ange något av följande krypterings alternativ: **ingen** (standard, ingen kryptering används), **StorageEncrypted** (för innehåll som har krypterats med lagrings kryptering på klient sidan), **CommonEncryptionProtected**eller **EnvelopeEncryptionProtected**. När du har en krypterad till gång måste du konfigurera en leverans princip. Mer information finns i [Konfigurera till gångs leverans principer](media-services-rest-configure-asset-delivery-policy.md).
+En av de egenskaper som du kan lägga till när du skapar en till gång är **alternativ** . Du kan ange något av följande krypterings alternativ: **ingen** (standard, ingen kryptering används), **StorageEncrypted** (för innehåll som har krypterats med lagrings kryptering på klient sidan), **CommonEncryptionProtected** eller **EnvelopeEncryptionProtected** . När du har en krypterad till gång måste du konfigurera en leverans princip. Mer information finns i [Konfigurera till gångs leverans principer](media-services-rest-configure-asset-delivery-policy.md).
 
 Om din till gång är krypterad måste du skapa en **ContentKey** och länka den till till gången enligt beskrivningen i följande artikel: [så här skapar du en ContentKey](media-services-rest-create-contentkey.md). När du har överfört filerna till till gången måste du uppdatera krypterings egenskaperna i **AssetFile** -entiteten med de värden som du fick vid **till gångs** krypteringen. Gör det med hjälp av **sammanfogningen** av http-begäran. 
 
@@ -134,10 +134,10 @@ I det här exemplet skapar vi en okrypterad till gång.
 
 ### <a name="create-an-asset"></a>Skapa en tillgång
 
-1. Välj **till gångar**  ->  **skapa till gång**.
-2. Tryck på **Skicka**.
+1. Välj **till gångar**  ->  **skapa till gång** .
+2. Tryck på **Skicka** .
 
-    ![Ladda upp en fil](./media/media-services-rest-upload-files/postman-create-asset.png)
+    ![Skärm bild som visar "till gångar – skapa till gång" som valts från menyn samlingar och knappen "Skicka" är markerad.](./media/media-services-rest-upload-files/postman-create-asset.png)
 
     Skriptet "test" hämtar till gångs-ID och anger lämplig miljö variabel.
 
@@ -165,12 +165,12 @@ Vissa förutsättningar gäller:
 
 ### <a name="create-a-sas-locator"></a>Skapa en SAS-positionerare
 
-1. Välj **Locator**  ->  **skapa SAS-positionerare**.
-2. Tryck på **Skicka**.
+1. Välj **Locator**  ->  **skapa SAS-positionerare** .
+2. Tryck på **Skicka** .
 
     Skriptet "test" skapar "överförings webb adress" baserat på det medie fil namn du angav och information om SAS-positionerare och anger lämplig miljö variabel.
 
-    ![Ladda upp en fil](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
+    ![Skärm bild som visar "Locator-Create S A S Locator" som valts från menyn samlingar och knappen "Skicka" är markerad.](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Ladda upp en fil till Blob Storage med uppladdnings-URL
 
@@ -191,20 +191,20 @@ Uppladdnings förfrågan ingår inte i **AzureMedia** -samlingen.
 Skapa och konfigurera en ny begäran:
 1. Tryck på **+** för att skapa en ny begäran-flik.
 2. Välj åtgärden **Lägg** och klistra in **{{UploadURL}}** i URL: en.
-2. Lämna fliken **auktorisering** som är (ange inte till **Bearer-token**).
-3. På fliken **sidhuvud** anger du: **nyckel**: "x-MS-BLOB-Type" och **Value**: "BlockBlob".
-2. Klicka på **binär**på fliken **brödtext** .
+2. Lämna fliken **auktorisering** som är (ange inte till **Bearer-token** ).
+3. På fliken **sidhuvud** anger du: **nyckel** : "x-MS-BLOB-Type" och **Value** : "BlockBlob".
+2. Klicka på **binär** på fliken **brödtext** .
 4. Välj filen med det namn som du angav i miljövariabeln **MediaFileName** .
-5. Tryck på **Skicka**.
+5. Tryck på **Skicka** .
 
-    ![Ladda upp en fil](./media/media-services-rest-upload-files/postman-upload-file.png)
+    ![Skärm bild som visar fliken "(UploadU R L)" vald.](./media/media-services-rest-upload-files/postman-upload-file.png)
 
 ##  <a name="create-a-metadata-in-the-asset"></a>Skapa metadata i till gången
 
 När filen har laddats upp måste du skapa en metadata i till gången för medie filen som du laddade upp i blob-lagringen som är kopplad till din till gång.
 
-1. Välj **AssetFiles**  ->  **CreateFileInfos**.
-2. Tryck på **Skicka**.
+1. Välj **AssetFiles**  ->  **CreateFileInfos** .
+2. Tryck på **Skicka** .
 
     ![Ladda upp en fil](./media/media-services-rest-upload-files/postman-create-file-info.png)
 

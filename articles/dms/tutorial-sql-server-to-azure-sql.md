@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 1027b4f37160281bcf298e57e890b73b472526a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eaf311a8e8c3fb3c3699b8624def4923bead420
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308766"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043062"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Självstudie: Migrera SQL Server till Azure SQL Database offline med hjälp av DMS
 
 Du kan använda Azure Database Migration Service för att migrera databaserna från en SQL Server instans till [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). I den här självstudien migrerar du **Adventureworks2012** -databasen som återställs till en lokal instans av SQL Server 2016 (eller senare) till en databas eller en databas i pooler i Azure SQL Database genom att använda Azure Database migration service.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 >
 > - Utvärdera din lokala databas med hjälp av Data Migration Assistant.
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 
 I den här artikeln beskrivs en offline-migrering från SQL Server till en databas i Azure SQL Database. En onlinemigrering beskrivs i [Migrera SQL Server till Azure SQL Database online med DMS](tutorial-sql-server-azure-sql-online.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -65,7 +65,7 @@ För att slutföra den här kursen behöver du:
 
 - Se till att de virtuella nätverkets säkerhets grupp regler inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om NSG trafik filtrering i Azure Virtual Network finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Konfigurera din [Windows-brandvägg för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Öppna Windows-brandväggen för att tillåta Azure Database Migration Service åtkomst till käll SQL Server, vilket som standard är TCP-port 1433.
+- Öppna Windows-brandväggen för att tillåta Azure Database Migration Service åtkomst till käll SQL Server, vilket som standard är TCP-port 1433. Om standard instansen lyssnar på någon annan port lägger du till den i brand väggen.
 - Om du kör flera namngivna SQL Server instanser med dynamiska portar kanske du vill aktivera tjänsten SQL Browser och tillåta åtkomst till UDP-port 1434 genom brand väggarna så att Azure Database Migration Service kan ansluta till en namngiven instans på käll servern.
 - När du använder en brand Väggs installation framför dina käll databaser, kan du behöva lägga till brand Väggs regler för att tillåta Azure Database Migration Service åtkomst till käll databaserna för migrering.
 - Skapa en regel för IP- [brandvägg](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för Azure SQL Database att tillåta Azure Database migration service åtkomst till mål databaserna. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
@@ -77,7 +77,7 @@ För att slutföra den här kursen behöver du:
 Innan du kan migrera data från en SQL Server instans till en databas eller databas i pooler i Azure SQL Database måste du utvärdera SQL Server databasen för eventuella spärrnings problem som kan förhindra migrering. Använd Data Migration Assistant version 3.3 eller senare och följ stegen som beskrivs i artikeln om att [utföra en SQL Server-migreringsutvärdering](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) för att slutföra den lokala databasutvärderingen. En sammanfattning av de steg som krävs följer:
 
 1. I Data Migration Assistant väljer du ikonen Nytt (+) och väljer sedan **Utvärdering** projekttyp.
-2. Ange ett projektnamn. I textrutan **Typ av källserver** väljer du **SQL Server**, i textrutan **Målservertyp** väljer du **Azure SQL Database**. Välj sedan **Skapa** för att skapa projektet.
+2. Ange ett projektnamn. I textrutan **Typ av källserver** väljer du **SQL Server** , i textrutan **Målservertyp** väljer du **Azure SQL Database** . Välj sedan **Skapa** för att skapa projektet.
 
     När du utvärderar SQL Server-källdatabasen som ska migreras till en enkel databas eller pooldatabas i Azure SQL Database, kan du välja en eller båda av följande utvärderingsrapporttyper:
 
@@ -86,9 +86,9 @@ Innan du kan migrera data från en SQL Server instans till en databas eller data
 
     Båda rapporttyperna väljs som standard.
 
-3. I Data Migration Assistant, på sidan **Alternativ** väljer du **Näsa**.
-4. På sidan **Välj källor** i dialogrutan **Anslut till en server**, anger du anslutningsinformationen till SQL Server och väljer sedan **Anslut**.
-5. I dialogrutan **Lägg till källor** väljer du **AdventureWorks2012**. Välj **Lägg till** och välj sedan **Starta utvärderingen**.
+3. I Data Migration Assistant, på sidan **Alternativ** väljer du **Näsa** .
+4. På sidan **Välj källor** i dialogrutan **Anslut till en server** , anger du anslutningsinformationen till SQL Server och väljer sedan **Anslut** .
+5. I dialogrutan **Lägg till källor** väljer du **AdventureWorks2012** . Välj **Lägg till** och välj sedan **Starta utvärderingen** .
 
     > [!NOTE]
     > Om du använder SSIS så har DMA för närvarande inget stöd för utvärdering av SSISDB-källan. Dock utvärderas/verifieras SSIS-projekt/-paket när de omdistribueras till SSISDB-målet med Azure SQL Database. Mer information om migrera SSIS-paket finns i artikeln [Migrate SQL Server Integration Services packages to Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) (Migrera SQL Server Integration Services-paket till Azure).
@@ -116,24 +116,24 @@ När du är nöjd med utvärderingen och finner att den valda databasen är en g
 
 Gör så här om du vill migrera **AdventureWorks2012** -schemat till en databas eller databas Azure SQL Database:
 
-1. I Data Migration Assistant väljer du ikonen Nytt (+) och sedan under **Projekttyp** väljer du **Migrering**.
-2. Ange ett projektnamn i textrutan **Typ av källserver**, välj **SQL Server**. I textrutan **Målservertyp** väljer du sedan **Azure SQL Database**.
-3. Under **Migreringsomfång** väljer du **Endast schema**.
+1. I Data Migration Assistant väljer du ikonen Nytt (+) och sedan under **Projekttyp** väljer du **Migrering** .
+2. Ange ett projektnamn i textrutan **Typ av källserver** , välj **SQL Server** . I textrutan **Målservertyp** väljer du sedan **Azure SQL Database** .
+3. Under **Migreringsomfång** väljer du **Endast schema** .
 
     När du har utfört de föregående stegen bör Data Migration Assistant-gränssnittet visas i följande bild:
 
     ![Skapa Data Migration Assistant-projekt](media/tutorial-sql-server-to-azure-sql/dma-create-project.png)
 
 4. Välj **Skapa** för att skapa projektet.
-5. I Data Migration Assistant anger du källanslutningsinformationen för SQL Server. Välj **Anslut** och välj databasen **AdventureWorks2012**.
+5. I Data Migration Assistant anger du källanslutningsinformationen för SQL Server. Välj **Anslut** och välj databasen **AdventureWorks2012** .
 
     ![Källanslutningsinformation för Data Migration Assistant](media/tutorial-sql-server-to-azure-sql/dma-source-connect.png)
 
-6. Välj **Nästa**, under **Anslut till mål server**, ange mål anslutnings information för Azure SQL Database, Välj **Anslut**och välj sedan den **AdventureWorksAzure** -databas som du hade fördefinierat i Azure SQL Database.
+6. Välj **Nästa** , under **Anslut till mål server** , ange mål anslutnings information för Azure SQL Database, Välj **Anslut** och välj sedan den **AdventureWorksAzure** -databas som du hade fördefinierat i Azure SQL Database.
 
     ![Målanslutningsinformation för Data Migration Assistant](media/tutorial-sql-server-to-azure-sql/dma-target-connect.png)
 
-7. Välj **Nästa** för att komma till sidan **Välj objekt**, där du kan ange schemaobjekten i databasen **AdventureWorks2012** som måste distribueras till Azure SQL Database.
+7. Välj **Nästa** för att komma till sidan **Välj objekt** , där du kan ange schemaobjekten i databasen **AdventureWorks2012** som måste distribueras till Azure SQL Database.
 
     Som standard markeras alla objekt.
 
@@ -149,25 +149,25 @@ Gör så här om du vill migrera **AdventureWorks2012** -schemat till en databas
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure Portal. Sök efter och välj **prenumerationer**.
+1. Logga in på Azure-portalen. Sök efter och välj **prenumerationer** .
 
    ![Visa portalprenumerationer](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
 
-2. Välj den prenumeration där du vill skapa instansen av Azure Database Migration Service och välj sedan **resurs leverantörer**.
+2. Välj den prenumeration där du vill skapa instansen av Azure Database Migration Service och välj sedan **resurs leverantörer** .
 
     ![Visa resursprovidrar](media/tutorial-sql-server-to-azure-sql/portal-select-resource-provider.png)
 
-3. Sök efter migrering och välj sedan **Registrera** för **Microsoft. data migration**.
+3. Sök efter migrering och välj sedan **Registrera** för **Microsoft. data migration** .
 
     ![Registrera resursprovider](media/tutorial-sql-server-to-azure-sql/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Skapa en instans
 
-1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**. Sök efter och välj **Azure Database migration service**.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs** . Sök efter och välj **Azure Database migration service** .
 
     ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql/portal-marketplace.png)
 
-2. På sidan **Azure Database Migration Service** väljer du **Skapa**.
+2. På sidan **Azure Database Migration Service** väljer du **Skapa** .
 
     ![Skapa Azure Database Migration Service-instans](media/tutorial-sql-server-to-azure-sql/dms-create1.png)
   
@@ -193,17 +193,17 @@ Gör så här om du vill migrera **AdventureWorks2012** -schemat till en databas
 
 När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och skapar sedan ett nytt migreringsprojekt.
 
-1. I menyn Azure Portal väljer du **alla tjänster**. Sök efter och välj **Azure Database migration Services**.
+1. I menyn Azure Portal väljer du **alla tjänster** . Sök efter och välj **Azure Database migration Services** .
 
      ![Hitta alla instanser av Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-search.png)
 
 2. På skärmen **Azure Database migration Services** väljer du Azure Database migration service-instansen som du skapade.
 
-3. Välj **nytt migreringsjobb**.
+3. Välj **nytt migreringsjobb** .
 
      ![Hitta din instans av Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
-4. På sidan **Nytt migreringsprojekt** anger du namnet på projektet, I textrutan **Typ av källserver** väljer du **SQL Server**, i textrutan **Målservertyp** väljer du **Azure SQL Database** och sedan för **Välj typ av aktivitet** väljer du **Offline-datamigrering**.
+4. På sidan **Nytt migreringsprojekt** anger du namnet på projektet, I textrutan **Typ av källserver** väljer du **SQL Server** , i textrutan **Målservertyp** väljer du **Azure SQL Database** och sedan för **Välj typ av aktivitet** väljer du **Offline-datamigrering** .
 
     ![Skapa Database Migration Service-projekt](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
 
@@ -215,7 +215,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
     Se till att använda ett fullständigt domännamn (FQDN) för SQL Server-källinstansens namn. Du kan även använda IP-adressen i situationer då DNS-namnmatchning inte är möjlig.
 
-2. Om du inte har installerat ett betrott certifikat på källservern markerar du kryssrutan **Lita på servercertifikatet**.
+2. Om du inte har installerat ett betrott certifikat på källservern markerar du kryssrutan **Lita på servercertifikatet** .
 
     När ett betrott certifikat inte har installerats genererar SQL Server ett självsignerat certifikat när instansen har startats. Detta certifikat används till att kryptera autentiseringsuppgifterna för klientanslutningar.
 
@@ -229,7 +229,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 ## <a name="specify-target-details"></a>Ange målinformation
 
-1. Välj **Spara**och ange sedan anslutnings information för mål Azure SQL Database på skärmen **information om migreringen** , vilket är den företablerade Azure SQL Database som **AdventureWorks2012** -schemat har distribuerats med hjälp av data migration assistant.
+1. Välj **Spara** och ange sedan anslutnings information för mål Azure SQL Database på skärmen **information om migreringen** , vilket är den företablerade Azure SQL Database som **AdventureWorks2012** -schemat har distribuerats med hjälp av data migration assistant.
 
     ![Välja mål](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
 
@@ -239,15 +239,15 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
     ![Mappa till måldatabaser](media/tutorial-sql-server-to-azure-sql/dms-map-targets-activity2.png)
 
-3. Välj **Spara**. Expandera tabellistan på sidan **Välj tabeller** och granska sedan listan över berörda fält.
+3. Välj **Spara** . Expandera tabellistan på sidan **Välj tabeller** och granska sedan listan över berörda fält.
 
     Azure Database Migration Service väljer automatiskt alla tomma käll tabeller som finns på mål Azure SQL Databases instansen. Om du vill migrera tabeller på nytt som redan innehåller data måste du uttryckligen välja tabellerna på det här bladet.
 
     ![Välj tabeller](media/tutorial-sql-server-to-azure-sql/dms-configure-setting-activity2.png)
 
-4. Välj **Spara**. På sidan **Migreringssammanfattning**, i textrutan **Aktivitetsnamn** anger du ett namn på migreringsaktiviteten.
+4. Välj **Spara** . På sidan **Migreringssammanfattning** , i textrutan **Aktivitetsnamn** anger du ett namn på migreringsaktiviteten.
 
-5. Expandera avsnittet **Verifieringsalternativ** för att visa sidan **Välj verifieringsalternativ** och ange sedan om du ska verifiera de migrerade databaserna för **Schemajämförelse**, **Datakonsekvens** och **Frågeriktighet**.
+5. Expandera avsnittet **Verifieringsalternativ** för att visa sidan **Välj verifieringsalternativ** och ange sedan om du ska verifiera de migrerade databaserna för **Schemajämförelse** , **Datakonsekvens** och **Frågeriktighet** .
 
     ![Välja verifieringsalternativ](media/tutorial-sql-server-to-azure-sql/dms-configuration2.png)
 
@@ -257,15 +257,15 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 ## <a name="run-the-migration"></a>Köra migreringen
 
-- Välj **Kör migrering**.
+- Välj **Kör migrering** .
 
-    Migreringsaktivitetsfönstret visas och **Status** för aktiviteten är **Väntande**.
+    Migreringsaktivitetsfönstret visas och **Status** för aktiviteten är **Väntande** .
 
     ![Aktivitetsstatus](media/tutorial-sql-server-to-azure-sql/dms-activity-status1.png)
 
 ## <a name="monitor-the-migration"></a>Övervaka migreringen
 
-1. På migreringsaktivitetssidan väljer du **Uppdatera** för att uppdatera visningen tills **Status** för migreringen är **Slutförd**.
+1. På migreringsaktivitetssidan väljer du **Uppdatera** för att uppdatera visningen tills **Status** för migreringen är **Slutförd** .
 
     ![Aktivitetsstatus Slutförd](media/tutorial-sql-server-to-azure-sql/dms-completed-activity1.png)
 

@@ -5,18 +5,18 @@ description: En beskrivning av begränsningarna och begränsningarna i formatet 
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 08/07/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
-ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: bd6f88db2b55a5f0f445659e4b5ef609d3e146e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: marsma, lenalepa, manrath
+ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030318"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042899"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Begränsningar och begränsningar för omdirigerings-URI (svars-URL)
 
@@ -24,7 +24,7 @@ En omdirigerings-URI eller svars-URL är den plats där auktoriseringsservern sk
 
  Följande begränsningar gäller för omdirigerings-URI: er:
 
-* Omdirigerings-URI: n måste börja med schemat `https` .
+* Omdirigerings-URI: n måste börja med schemat `https` . Det finns vissa [undantag för](#localhost-exceptions) omdirigerade URI: er för localhost.
 
 * Omdirigerings-URI: n är Skift läges känslig. Dess fall måste matcha fallet med URL-sökvägen till det program som körs. Om ditt program t. ex. ingår som en del av sökvägen `.../abc/response-oidc` ska du inte ange `.../ABC/response-oidc` i omdirigerings-URI: n. Eftersom webbläsaren behandlar sökvägar som Skift läges känsliga, kan cookies som är kopplade till `.../abc/response-oidc` uteslutas om de omdirigeras till den Skift läges fel matchnings bara `.../ABC/response-oidc` URL: en.
 
@@ -32,7 +32,7 @@ En omdirigerings-URI eller svars-URL är den plats där auktoriseringsservern sk
 
 Den här tabellen visar det maximala antalet omdirigerings-URI: er som du kan lägga till i en app-registrering i Microsoft Identity Platform.
 
-| Konton som är inloggade | Maximalt antal omdirigerings-URI: er | Beskrivning |
+| Konton som är inloggade | Maximalt antal omdirigerings-URI: er | Description |
 |--------------------------|---------------------------------|-------------|
 | Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD) | 256 | `signInAudience` fältet i applikations manifestet har angetts till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs* |
 | Personliga Microsoft-konton och arbets-och skol konton | 100 | `signInAudience` fältet i applikations manifestet har angetts till *AzureADandPersonalMicrosoftAccount* |
@@ -64,11 +64,10 @@ I en utvecklings synpunkt innebär detta några saker:
 
 * Registrera inte flera omdirigerings-URI: er där bara porten är annorlunda. Inloggnings servern väljer en godtyckligt och använder beteendet som är kopplat till den omdirigerings-URI: n (till exempel om den är `web` -, `native` -eller `spa` -typ-omdirigering).
 * Om du behöver registrera flera omdirigerings-URI: er på localhost för att testa olika flöden under utvecklingen kan du skilja dem åt med hjälp av *Sök vägs* komponenten i URI: n. Matchar till exempel `http://127.0.0.1/MyWebApp` inte `http://127.0.0.1/MyNativeApp` .
-* Enligt RFC-vägledningen bör du inte använda `localhost` den omdirigerings-URI: n. Använd i stället den faktiska loopback-IP-adressen `127.0.0.1` . Detta förhindrar att appen bryts av felkonfigurerade brand väggar eller bytt namn på nätverks gränssnitt.
+* IPv6 loopback-adressen ( `[::1]` ) stöds inte för närvarande.
+* För att förhindra att appen bryts av felkonfigurerade brand väggar eller byter namn på nätverks gränssnitt, använder du IP-literal loopback-adress `127.0.0.1` i omdirigerings-URI i stället för `localhost` .
 
-    Om du vill använda `http` schemat med loopback-adressen (127.0.0.1) i stället för localhost måste du redigera [applikations manifestet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute). 
-
-    IPv6 loopback-adressen ( `[::1]` ) stöds inte för närvarande.
+    Om du vill använda `http` schemat med loopback-adressen för IP-literal `127.0.0.1` måste du för närvarande ändra attributet [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) i [applikations manifestet](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Begränsningar för jokertecken i omdirigerings-URI: er
 
@@ -78,9 +77,9 @@ URI: er för jokertecken stöds för närvarande inte i appar som kon figurer AT
 
 Om du vill lägga till omdirigerings-URI: er med jokertecken till app-registreringar som loggar in på arbets-eller skol konton, måste du använda program manifest redigeraren i [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) i Azure Portal. Även om det är möjligt att ange en omdirigerings-URI med ett jokertecken med hjälp av manifest redigeraren rekommenderar vi *starkt* att du följer [Section 3.1.2 i RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) och använder endast absoluta URI: er.
 
-Om ditt scenario kräver fler omdirigerings-URI: er än den högsta tillåtna gränsen, bör du tänka på [följande tillvägagångs sätt](#use-a-state-parameter) i stället för att lägga till en omdirigering
+Om ditt scenario kräver fler omdirigerings-URI: er än den högsta tillåtna gränsen, bör du tänka på följande [tillstånds parameter metod](#use-a-state-parameter) i stället för att lägga till en omdirigering
 
-### <a name="use-a-state-parameter"></a>Använda en tillstånds parameter
+#### <a name="use-a-state-parameter"></a>Använda en tillstånds parameter
 
 Om du har flera under domäner och ditt scenario kräver att du vid lyckad autentisering omdirigerar användare till samma sida som de startade från, kan det vara bra att använda en tillstånds parameter.
 

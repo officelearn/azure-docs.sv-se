@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 7d91491a2f521d974f15878791739a70a31c1bbe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f7132ffa1fa55d1dfd8043677bf9695a589b7af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745813"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043022"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Skapa ett Azure Kubernetes service-kluster (AKS) som använder tillgänglighets zoner
 
@@ -52,7 +52,7 @@ Följande begränsningar gäller när du skapar ett AKS-kluster med hjälp av ti
 
 Volymer som använder Azure Managed disks är för närvarande inte zoner-redundanta resurser. Det går inte att koppla volymer mellan zoner och måste vara samplacerade i samma zon som en nod som är värd för mål-pod.
 
-Om du måste köra tillstånds känsliga arbets belastningar använder du Pod-specifikationer för att gruppera Pod-schemaläggning i samma zon som diskarna. Du kan också använda nätverksbaserad lagring som Azure Files som kan kopplas till poddar när de är schemalagda mellan zoner.
+Kubernetes är medveten om tillgänglighets zoner i Azure sedan version 1,12. Du kan distribuera ett PersistentVolumeClaim-objekt som refererar till en Azure-hanterad disk i ett kluster med flera zoner och [Kubernetes kommer att ta hand om schemaläggning av](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) alla Pod som hävdar denna PVC i rätt tillgänglighets zon.
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Översikt över tillgänglighets zoner för AKS-kluster
 
@@ -120,7 +120,20 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 När du lägger till ytterligare noder i en agent distribuerar Azure-plattformen automatiskt de underliggande virtuella datorerna i de angivna tillgänglighets zonerna.
 
-Observera att i senare Kubernetes-versioner (1.17.0 och senare) använder AKS den nyare etiketten `topology.kubernetes.io/zone` förutom den inaktuella `failure-domain.beta.kubernetes.io/zone` .
+Observera att i senare Kubernetes-versioner (1.17.0 och senare) använder AKS den nyare etiketten `topology.kubernetes.io/zone` förutom den inaktuella `failure-domain.beta.kubernetes.io/zone` . Du kan få samma resultat som ovan med genom att köra följande skript:
+
+```console
+kubectl get nodes -o custom-columns=NAME:'{.metadata.name}',REGION:'{.metadata.labels.topology\.kubernetes\.io/region}',ZONE:'{metadata.labels.topology\.kubernetes\.io/zone}'
+```
+
+Du får en mer kortfattad utdata:
+
+```console
+NAME                                REGION   ZONE
+aks-nodepool1-34917322-vmss000000   eastus   eastus-1
+aks-nodepool1-34917322-vmss000001   eastus   eastus-2
+aks-nodepool1-34917322-vmss000002   eastus   eastus-3
+```
 
 ## <a name="verify-pod-distribution-across-zones"></a>Verifiera Pod-distribution mellan zoner
 

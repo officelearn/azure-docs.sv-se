@@ -7,30 +7,30 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 80e04ec06edc7169f0a4318c2c94de34dda9d96a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 441632ea33195ff8bcb6da5f4fb2298c337a6c97
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331102"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043140"
 ---
 I det här steget ska du utvärdera hur många Azure-filresurser du behöver. En enda Windows Server-instans (eller kluster) kan synkronisera upp till 30 Azure-filresurser.
 
-Du kan ha fler mappar på dina volymer som du för närvarande delar ut lokalt som SMB-resurser till dina användare och appar. Det enklaste sättet är att Envision en lokal resurs som mappar 1:1 till en Azure-filresurs. Om du har ett litet nummer, under 30 för en enda Windows Server-instans, rekommenderar vi en 1:1-mappning.
+Du kan ha fler mappar på dina volymer som du för närvarande delar ut lokalt som SMB-resurser till dina användare och appar. Det enklaste sättet att bild i det här scenariot är att Envision en lokal resurs som mappar 1:1 till en Azure-filresurs. Om du har ett litet antal under 30 för en enda Windows Server-instans rekommenderar vi en 1:1-mappning.
 
 Om du har fler resurser än 30 är det ofta onödigt att mappa en lokal resurs 1:1 till en Azure-filresurs. Överväg följande alternativ.
 
 #### <a name="share-grouping"></a>Dela gruppering
 
-Om din HR-avdelning (till exempel) har totalt 15 resurser kan du överväga att lagra alla HR-data i en enda Azure-filresurs. Att lagra flera lokala resurser i en Azure-filresurs förhindrar inte att du skapar vanliga 15 SMB-resurser på den lokala Windows Server-instansen. Det innebär bara att du ordnar rotmapparna för dessa 15 resurser som undermappar under en gemensam mapp. Du synkroniserar sedan den här gemensamma mappen med en Azure-filresurs. På så sätt behövs bara en enda Azure-filresurs i molnet för den här gruppen lokala resurser.
+Om t. ex. personalavdelningen (HR) har totalt 15 delar kan du överväga att lagra alla HR-data i en enda Azure-filresurs. Att lagra flera lokala resurser i en Azure-filresurs förhindrar inte att du skapar vanliga 15 SMB-resurser på den lokala Windows Server-instansen. Det innebär bara att du ordnar rotmapparna för dessa 15 resurser som undermappar under en gemensam mapp. Du synkroniserar sedan den här gemensamma mappen med en Azure-filresurs. På så sätt behövs bara en enda Azure-filresurs i molnet för den här gruppen lokala resurser.
 
 #### <a name="volume-sync"></a>Volym synkronisering
 
 Azure File Sync stöder synkronisering av roten för en volym till en Azure-filresurs. Om du synkroniserar rotmappen kommer alla undermappar och filer att gå till samma Azure-filresurs.
 
-Synkronisering av volymens rot är inte alltid det bästa svaret. Det finns fördelar med att synkronisera flera platser. Om du till exempel gör det kan du behålla antalet objekt som ligger lägre per synkroniserings omfång. Medan vi testar Azure-filresurser och Azure File Sync med 100 000 000 objekt (filer och mappar) per resurs, är det en bra idé att prova och behålla siffran under 20 eller 30 000 000 i en enda resurs. Att ställa in Azure File Sync med ett lägre antal objekt är inte bara bra för filsynkronisering. Ett lägre antal objekt fördelar också scenarier som dessa:
+Synkronisering av volymens rot är inte alltid det bästa svaret. Det finns fördelar med att synkronisera flera platser. Om du till exempel gör det kan du behålla antalet objekt som ligger lägre per synkroniserings omfång. Medan vi testar Azure-filresurser och Azure File Sync med 100 000 000 objekt (filer och mappar) per resurs, är det en bra idé att försöka hålla talet under 20 000 000 eller 30 000 000 i en enda resurs. Att ställa in Azure File Sync med ett lägre antal objekt är inte bara fördelaktigt för filsynkronisering. Ett lägre antal objekt fördelar också scenarier som dessa:
 
-* Inledande genomsökning av moln innehållet innan namn området kan börja visas på en Azure File Sync aktive rad Server kan bli snabbare.
+* Inledande genomsökning av moln innehållet innan namn området kan börja visas på en Azure File Sync-aktiverad server kan bli snabbare.
 * Det går snabbare att återställa på moln sidan från en ögonblicks bild av Azure-filresurs.
 * Haveri beredskap för en lokal server kan påskynda avsevärt.
 * Ändringar som görs direkt i en Azure-filresurs (utanför synkronisering) kan identifieras och synkroniseras snabbare.
@@ -45,11 +45,11 @@ Innan du distribuerar moln lagring i ett senare steg är det viktigt att skapa e
 För att fatta beslut om hur många Azure-filresurser du behöver kan du läsa följande begränsningar och bästa metoder. På så sätt kan du optimera kartan.
 
 * En server med Azure File Sync agent installerad kan synkroniseras med upp till 30 Azure-filresurser.
-* En Azure-filresurs distribueras i ett lagrings konto. Det gör lagrings kontot till ett skal mål för prestanda siffror som IOPS och data flöde. 
+* En Azure-filresurs distribueras i ett lagrings konto. Det gör lagrings kontot till ett skal mål för prestanda siffror som IOPS och data flöde.
 
-  Två standard-(ej Premium) Azure-filresurser kan teoretiskt fylla den maximala prestanda som ett lagrings konto kan leverera. Om du endast planerar att bifoga Azure File Sync till dessa fil resurser, skapar inte ett problem med att gruppera flera Azure-filresurser till samma lagrings konto. Granska prestanda målen i Azure-filresursen om du vill ha djupare insikt i relevanta mått. 
+  Två standard-(ej Premium) Azure-filresurser kan teoretiskt fylla den maximala prestanda som ett lagrings konto kan leverera. Om du endast planerar att bifoga Azure File Sync till dessa fil resurser, skapar inte ett problem med att gruppera flera Azure-filresurser till samma lagrings konto. Granska prestanda målen i Azure-filresursen om du vill ha djupare insikt i relevanta mått.
 
-  Om du planerar att lyfta en app till Azure som ska använda Azure-filresursen internt kan du behöva mer prestanda från Azure-filresursen. Om detta är en möjlighet, även i framtiden, är det bäst att mappa en Azure-filresurs till ett eget lagrings konto.
+  Om du planerar att lyfta en app till Azure som ska använda Azure-filresursen internt kan du behöva mer prestanda från Azure-filresursen. Om den här typen av användning är en möjlighet, även i framtiden, är det bäst att mappa en Azure-filresurs till ett eget lagrings konto.
 * Det finns en gräns på 250 lagrings konton per prenumeration i en enda Azure-region.
 
 > [!TIP]
@@ -62,7 +62,7 @@ För att fatta beslut om hur många Azure-filresurser du behöver kan du läsa f
 
 Azure File Sync stöder synkronisering av upp till 100 000 000 objekt till en enda Azure-filresurs. Den här gränsen kan överskridas och visar bara hur Azure File Sync-grupptester regelbundet.
 
-Det är en bra idé att hålla antalet objekt per omfånget för synkronisering låg. Det är en viktig faktor att överväga i mappningen av mappar till Azure-filresurser. Medan vi testar Azure-filresurser och Azure File Sync med 100 000 000 objekt (filer och mappar) per resurs, är det en bra idé att prova och behålla siffran under 20 eller 30 000 000 i en enda resurs. Dela upp ditt namn område i flera resurser om du börjar överskrida de här talen. Du kan fortsätta att gruppera flera lokal resurser i samma Azure-filresurs, så länge som du håller dig till ungefär så här. På så vis får du utrymme att växa.
+Det är en bra idé att hålla antalet objekt per omfånget för synkronisering låg. Det är en viktig faktor att överväga i mappningen av mappar till Azure-filresurser. Medan vi testar Azure-filresurser och Azure File Sync med 100 000 000 objekt (filer och mappar) per resurs, är det en bra idé att försöka hålla talet under 20 000 000 eller 30 000 000 i en enda resurs. Dela upp ditt namn område i flera resurser om du börjar överskrida de här talen. Du kan fortsätta att gruppera flera lokala resurser i samma Azure-filresurs om du är i stort sett de här talen. I den här övningen får du plats att växa.
 
 I din situation är det möjligt att en uppsättning mappar kan synkroniseras logiskt till samma Azure-filresurs (med den nya, gemensamma rotmappen som nämns ovan). Men det kan fortfarande vara bättre att gruppera mappar så att de synkroniseras till två i stället för en Azure-filresurs. Du kan använda den här metoden för att hålla reda på hur många filer och mappar per fil resurs som bal anse ras på servern.
 
@@ -70,12 +70,12 @@ I din situation är det möjligt att en uppsättning mappar kan synkroniseras lo
 
 :::row:::
     :::column:::
-        [![Ett exempel på en mappnings tabell. Hämta filen nedan för att uppleva och använda innehållet i den här avbildningen.](media/storage-files-migration-namespace-mapping/namespace-mapping.png)](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
+        [![Ett exempel på en mappnings tabell. Hämta följande fil för att uppleva och använda innehållet i den här avbildningen.](media/storage-files-migration-namespace-mapping/namespace-mapping.png)](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
     :::column-end:::
     :::column:::
         Använd en kombination av de tidigare begreppen för att avgöra hur många Azure-filresurser du behöver, och vilka delar av dina befintliga data som kommer att få plats i Azure-filresursen.
         
-        Skapa en tabell som registrerar dina tankar så att du kan referera till den när det behövs. Att hålla ordning på är viktigt, eftersom det kan vara enkelt att förlora information om din kart plan när du konfigurerar många Azure-resurser på en gång. För att hjälpa dig att skapa en fullständig mappning kan du ladda ned en Microsoft Excel-fil som en mall.
+        Skapa en tabell som registrerar dina tankar så att du kan referera till den när det behövs. Att hålla ordning på är viktigt eftersom det kan vara enkelt att förlora information om din kart plan när du konfigurerar många Azure-resurser på samma gång. För att hjälpa dig att skapa en fullständig mappning kan du hämta en Microsoft Excel-fil som mall.
 
 [//]: # (HTML visas som det enda sättet att lägga till en kapslad tabell med två kolumner med fungerande bild tolkning och text/hyperlänk på samma rad.)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: af3d9e9fcf0dad6a5e51a3db87b63567d701970e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2f3635c8280bdd95e8ad1259fe4ae35f8b531a4
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687998"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042827"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Konfigurera Dirigerings inställningar för en virtuell dator med hjälp av Azure Portal
 
@@ -42,45 +42,46 @@ Logga in på [Azure-portalen](https://preview.portal.azure.com/).
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
 1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
-2. Välj **Compute (beräkna**) och välj sedan **Windows Server 2016 VM**eller något annat operativ system som du väljer.
-3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
+2. Välj **Compute (beräkna** ) och välj sedan **Windows Server 2016 VM** eller något annat operativ system som du väljer.
+3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK** :
 
-    |Inställningen|Värde|
+    |Inställning|Värde|
     |---|---|
     |Namn|myVM|
     |Användarnamn| Ange ett valfritt användarnamn.|
     |Lösenord| Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup** .|
+    |Plats| Välj **USA, östra**|
 
-4. Välj en storlek för den virtuella datorn och sedan **Välj**.
-5. Under fliken **nätverk** klickar du på **Skapa ny** för **offentlig IP-adress**.
-6. Ange *myPublicIpAddress*, Välj SKU som **standard**och välj sedan dirigera inställningar **Internet** och tryck sedan på **OK**, som du ser i följande bild:
+4. Välj en storlek för den virtuella datorn och sedan **Välj** .
+5. Under fliken **nätverk** klickar du på **Skapa ny** för **offentlig IP-adress** .
+6. Ange *myPublicIpAddress* , Välj SKU som **standard** och välj sedan dirigera inställningar **Internet** och tryck sedan på **OK** , som du ser i följande bild:
 
    ![Välj statisk](./media/tutorial-routing-preference-virtual-machine-portal/routing-preference-internet-new.png)
 
-6. Välj en port eller inga portar under **Välj offentliga inkommande portar**. Portal 3389 är markerad, för att aktivera fjärråtkomst till den virtuella Windows Server-datorn från Internet. Det rekommenderas inte att öppna port 3389 från Internet för produktions arbets belastningar.
+6. Välj en port eller inga portar under **Välj offentliga inkommande portar** . Portal 3389 är markerad, för att aktivera fjärråtkomst till den virtuella Windows Server-datorn från Internet. Det rekommenderas inte att öppna port 3389 från Internet för produktions arbets belastningar.
 
    ![Välj en port](./media/tutorial-routing-preference-virtual-machine-portal/pip-ports-new.png)
 
-7. Godkänn de återstående standardinställningarna och välj **OK**.
-8. På sidan **Sammanfattning** väljer du **Skapa**. Det tar några minuter att distribuera den virtuella datorn.
+7. Godkänn de återstående standardinställningarna och välj **OK** .
+8. På sidan **Sammanfattning** väljer du **Skapa** . Det tar några minuter att distribuera den virtuella datorn.
 9. När den virtuella datorn har distribuerats anger du *myPublicIpAddress* i sökrutan längst upp i portalen. När **myPublicIpAddress** visas i Sök resultaten väljer du det.
 10. Du kan visa den offentliga IP-adress som har tilldelats och att adressen är tilldelad den virtuella **myVM** -datorn, som du ser i följande bild:
 
-    ![Visa offentlig IP-adress](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
+    ![Skärm bild som visar NÄTVERKSKORTets offentliga I P för nätverks gränssnittet mynic.](./media/tutorial-routing-preference-virtual-machine-portal/pip-properties-new.png)
 
-11. Välj **nätverk**och klicka sedan på NIC- **mynic** och välj sedan den offentliga IP-adressen för att bekräfta att cirkulations inställningen tilldelas som **Internet**.
-    ![Visa offentlig IP-adress](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
+11. Välj **nätverk** och klicka sedan på NIC- **mynic** och välj sedan den offentliga IP-adressen för att bekräfta att cirkulations inställningen tilldelas som **Internet** .
+
+    ![Skärm bild som visar inställningarna i P-adress och routning för en offentlig I P-adress.](./media/tutorial-routing-preference-virtual-machine-portal/pip-routing-internet-new.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller:
 
 1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
-2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
+2. Välj **Ta bort resursgrupp** .
+3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort** .
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [offentlig IP-adress med inställningar för routning](routing-preference-overview.md).

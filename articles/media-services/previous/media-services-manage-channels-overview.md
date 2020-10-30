@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: eb508831d7a10537f27bb5b4e55f3a0627ce1f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2e899a9d98d43f826bfa63e62458adf1601f071
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265980"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042985"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Översikt över direkt uppspelning med Media Services
 
@@ -53,7 +53,7 @@ Med Media Services kan du dra nytta av [dynamisk paketering](media-services-dyna
 
 ## <a name="streaming-endpoints-channels-programs"></a>Slut punkter för direkt uppspelning, kanaler, program
 
-I Azure Media Services hanterar **kanaler**, **program** och **strömningsslutpunkter** alla funktioner för liveuppspelning, inklusive infogande, formatering, DVR, säkerhet, skalbarhet och redundans.
+I Azure Media Services hanterar **kanaler** , **program** och **strömningsslutpunkter** alla funktioner för liveuppspelning, inklusive infogande, formatering, DVR, säkerhet, skalbarhet och redundans.
 
 En **kanal** representerar en pipeline för bearbetning av liveuppspelningsinnehåll. En kanal kan ta emot en live-indataström på följande sätt:
 
@@ -74,25 +74,25 @@ Från och med Media Services 2,10-versionen när du skapar en kanal, kan du ange
 
 Följande tabell innehåller en guide för att jämföra de två kanal typer som stöds i Media Services
 
-| Funktion | Direkt kanal | Standard kanal |
+| Visning av aktuellt objekt | Direkt kanal | Standard kanal |
 | --- | --- | --- |
-| Inmatade enstaka bit hastighet kodas till flera bit hastigheter i molnet |Inga |Ja |
+| Inmatade enstaka bit hastighet kodas till flera bit hastigheter i molnet |Nej |Ja |
 | Högsta upplösning, antal lager |1080p, 8 lager, 60 + fps |720p, 6 lager, 30 fps |
 | Protokoll för indataport |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Pris |Se [sidan med priser](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken "live video" |Se [sidan med priser](https://azure.microsoft.com/pricing/details/media-services/) |
 | Maximal kör tid |runt |8 timmar |
-| Stöd för att infoga mellanliggande |Inga |Ja |
-| Stöd för AD-signalering |Inga |Ja |
+| Stöd för att infoga mellanliggande |Nej |Ja |
+| Stöd för AD-signalering |Nej |Ja |
 | Pass-through CEA 608/708-textning |Ja |Ja |
-| Stöd för icke-uniform GOPs |Ja |Nej – indatamängden måste vara fast 2sec GOPs |
-| Stöd för variabla bild Rute frekvens inmatade |Ja |Nej – indatatyper måste vara fasta bild hastigheter.<br/>Mindre variationer tolereras, till exempel vid hög rörelse i bakgrunden. Men kodare kan inte släppa till 10 bild rutor/SEK. |
-| Shutoff av kanaler när inmatnings flöde förloras |Inga |Efter 12 timmar, om inget program körs |
+| Stöd för icke-uniform GOPs |Yes |Nej – indatamängden måste vara fast 2sec GOPs |
+| Stöd för variabla bild Rute frekvens inmatade |Yes |Nej – indatatyper måste vara fasta bild hastigheter.<br/>Mindre variationer tolereras, till exempel vid hög rörelse i bakgrunden. Men kodare kan inte släppa till 10 bild rutor/SEK. |
+| Shutoff av kanaler när inmatnings flöde förloras |No |Efter 12 timmar, om inget program körs |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare (genomströmning)
 
-I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i arbetsflödet **Genomströmning**.
+I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i arbetsflödet **Genomströmning** .
 
-![Live-arbetsflöde](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
+![Diagram som visar de viktigaste delarna av en M S-plattform för "direkt"-arbets flödet.](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 Mer information finns i [Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -142,11 +142,11 @@ Du ansvarar för att stoppa kanalerna när du är färdig med kanalen. Om du int
 ### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Kanal tillstånd och hur de mappas till fakturerings läget
 Aktuell status för en kanal. Möjliga värden är:
 
-* **Stoppades**. Det här är den ursprungliga statusen för kanalen när den har skapats (om Autostart har marker ATS i portalen). Ingen fakturering sker i det här läget. I det här läget kan kanal egenskaperna uppdateras, men strömning är inte tillåtet.
-* **Startar**. Kanalen startas. Ingen fakturering sker i det här läget. Inga uppdateringar eller strömmande tillåts under det här läget. Om ett fel inträffar återgår kanalen till stoppat tillstånd.
-* **Körs**. Kanalen kan bearbeta Live-strömmar. Nu faktureras användning. Du måste stoppa kanalen för att förhindra ytterligare fakturering.
-* **Stoppar**. Kanalen stoppas. Ingen fakturering sker i det här tillfälliga läget. Inga uppdateringar eller strömmande tillåts under det här läget.
-* **Tar bort**. Kanalen tas bort. Ingen fakturering sker i det här tillfälliga läget. Inga uppdateringar eller strömmande tillåts under det här läget.
+* **Stoppades** . Det här är den ursprungliga statusen för kanalen när den har skapats (om Autostart har marker ATS i portalen). Ingen fakturering sker i det här läget. I det här läget kan kanal egenskaperna uppdateras, men strömning är inte tillåtet.
+* **Startar** . Kanalen startas. Ingen fakturering sker i det här läget. Inga uppdateringar eller strömmande tillåts under det här läget. Om ett fel inträffar återgår kanalen till stoppat tillstånd.
+* **Körs** . Kanalen kan bearbeta Live-strömmar. Nu faktureras användning. Du måste stoppa kanalen för att förhindra ytterligare fakturering.
+* **Stoppar** . Kanalen stoppas. Ingen fakturering sker i det här tillfälliga läget. Inga uppdateringar eller strömmande tillåts under det här läget.
+* **Tar bort** . Kanalen tas bort. Ingen fakturering sker i det här tillfälliga läget. Inga uppdateringar eller strömmande tillåts under det här läget.
 
 Följande tabell visar hur kanal tillstånd mappas till fakturerings läget.
 
@@ -155,7 +155,7 @@ Följande tabell visar hur kanal tillstånd mappas till fakturerings läget.
 | Startar |Startar |Nej (tillfälligt tillstånd) |
 | Körs |Redo (inga program som körs)<br/>eller<br/>Strömning (minst ett program som körs) |JA |
 | Stoppas |Stoppas |Nej (tillfälligt tillstånd) |
-| Stoppad |Stoppad |Inga |
+| Stoppad |Stoppad |No |
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

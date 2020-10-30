@@ -2,13 +2,13 @@
 title: Azure Event Grid leverans och försök igen
 description: Beskriver hur Azure Event Grid levererar händelser och hur de hanterar meddelanden som inte levererats.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324101"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042955"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelande leverans och försök igen
 
@@ -78,14 +78,16 @@ Som ett slut punkts problem med leverans fel börjar Event Grid fördröja lever
 Det funktionella syftet med försenad leverans är att skydda Felaktiga slut punkter och Event Grid systemet. Utan avstängning och fördröjning av leverans till felaktiga slut punkter, kan Event Grids princip för återförsök och volym kapacitet lätt överbelasta ett system.
 
 ## <a name="dead-letter-events"></a>Händelser för obeställbara meddelanden
-När Event Grid inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden**. Event Grid obeställbara meddelanden en händelse när **något av följande** villkor uppfylls. 
+När Event Grid inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden** . Event Grid obeställbara meddelanden en händelse när **något av följande** villkor uppfylls. 
 
-- Händelsen har inte levererats inom Time-to-Live-perioden
-- Antalet försök att leverera händelsen har överskridit gränsen
+- Händelsen har inte levererats inom **Time-to-Live-** perioden. 
+- **Antalet försök** att leverera händelsen har överskridit gränsen.
 
 Om något av villkoren är uppfyllt tas händelsen bort eller tas bort från kön.  Som standard aktiverar Event Grid inte obeställbara meddelanden. Om du vill aktivera det måste du ange ett lagrings konto som ska innehålla ej levererade händelser när händelse prenumerationen skapas. Du kan hämta händelser från det här lagrings kontot för att lösa leveranser.
 
 Event Grid skickar en händelse till platsen för obeställbara meddelanden när den har provat alla nya försök. Om Event Grid får en 400 (felaktig begäran) eller 413 (den begärda entiteten för stor) svars kod skickar den omedelbart händelsen till slut punkten för obeställbara meddelanden. Dessa svars koder indikerar att händelsen levereras aldrig.
+
+Tiden till Live-utgången kontrol leras bara vid nästa schemalagda leverans försök. Det innebär att om Time-to-Live går ut före nästa schemalagda leverans försök, kontrol leras händelsen som upphör att gälla vid nästa leverans och sedan i efterhand. 
 
 Det senaste försöket att leverera en händelse är en fördröjning på fem minuter mellan det senaste försöket att leverera en händelse och när den levereras till platsen för obeställbara meddelanden. Den här fördröjningen är avsedd att minska antalet Blob Storage-åtgärder. Om platsen för obeställbara meddelanden inte är tillgänglig i fyra timmar släpps händelsen.
 

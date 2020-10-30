@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 879b9f965a5ee76131a65bf3151be5c6114cd20c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ba8ccf3534cbb4a93983f81095b4ef2c20d6498
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260891"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042794"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Övervaka förloppet för kodnings jobbet med Azure Portal
 
@@ -32,9 +32,9 @@ ms.locfileid: "89260891"
 
 När du kör jobb krävs ofta ett sätt att spåra jobbets förlopp. 
 
-Klicka på **Inställningar** (överst på sidan) för att övervaka förloppet för kodningsjobbet och välj sedan **Jobb**.
+Klicka på **Inställningar** (överst på sidan) för att övervaka förloppet för kodningsjobbet och välj sedan **Jobb** .
 
-![Jobb](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![Skärm bild som visar "jobb" som valts från menyn "Inställningar".](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 Du kan klicka på jobbet för att se mer information.
 

@@ -1,18 +1,18 @@
 ---
 title: 'Snabb start: skapa en Azure-databas för PostgreSQL-ARM-mall'
 description: I den här artikeln lär du dig hur du skapar en Azure Database for PostgreSQL enskild server med hjälp av en Azure Resource Manager mall.
-author: mgblythe
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: b73bf82b7fba4c7c618dbae81873efabec61051d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf53b6673da57428b648c0043a1454560f64e4bb
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906446"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042930"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Snabb start: Använd en ARM-mall för att skapa en Azure Database for PostgreSQL-enskild server
 
@@ -20,7 +20,7 @@ Azure Database för PostgreSQL är en hanterad tjänst som du använder för att
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure** . Mallen öppnas på Azure-portalen.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera till Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
@@ -70,34 +70,34 @@ Välj följande länk för att distribuera Azure Database for PostgreSQL Server 
 
 På sidan **distribuera Azure Database for PostgreSQL med VNet** :
 
-1. För **resurs grupp**väljer du **Skapa ny**, anger ett namn för den nya resurs gruppen och väljer **OK**.
+1. För **resurs grupp** väljer du **Skapa ny** , anger ett namn för den nya resurs gruppen och väljer **OK** .
 
 2. Om du har skapat en ny resurs grupp väljer du en **plats** för resurs gruppen och den nya servern.
 
-3. Ange ett **Server namn**, **Administratörs inloggning**och **lösen ord för Administratörs inloggning**.
+3. Ange ett **Server namn** , **Administratörs inloggning** och **lösen ord för Administratörs inloggning** .
 
     :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Distribuera till Azure":::
 
 4. Ändra de andra standardinställningarna om du vill:
 
-    * **Prenumeration**: den Azure-prenumeration som du vill använda för servern.
-    * **SKU-kapacitet**: vCore-kapaciteten, som kan *vara 2* (standard), *4*, *8*, *16*, *32*eller *64*.
-    * **SKU-namn**: SKU-nivåns prefix, SKU-serien och SKU-kapaciteten som ingår i under streck, till exempel *B_Gen5_1*, *GP_Gen5_2* (standard) eller *MO_Gen5_32*.
-    * **SKU-storlek MB**: lagrings utrymmet i megabyte för Azure Database for postgresql server (standard *51200*).
-    * **SKU-nivå**: distributions nivån, till *exempel Basic*, *generalpurpose* (standard) eller *MemoryOptimized*.
-    * **SKU-familj**: *Gen4* eller *Gen5* (standard), vilket indikerar maskin varu generering för Server distribution.
-    * **Postgresql-version**: den version av postgresql-servern som ska distribueras, till exempel *9,5*, *9,6*, *10*eller *11* (standard).
-    * **Kvarhållning av säkerhets kopierings dagar**: den önskade perioden för kvarhållning av Geo-redundant säkerhets kopia i dagar (standard *7*).
-    * **Geo-redundant säkerhets kopiering**: *aktive rad* eller *inaktive* rad (standard), beroende på krav för geo-haveri beredskap (geo-Dr).
-    * **Virtual Network namn**: namnet på det virtuella nätverket (standard *azure_postgresql_vnet*).
-    * **Under näts namn**: namnet på under nätet (standard *azure_postgresql_subnet*).
-    * **Virtual Network regel namn**: namnet på den virtuella nätverks regel som tillåter under nätet (standard *AllowSubnet*).
-    * **VNet-** adressprefix: adressprefixet för det virtuella nätverket (standard *10.0.0.0/16*).
-    * **Undernätsprefixet**: adressprefixet för under nätet (standard *10.0.0.0/16*).
+    * **Prenumeration** : den Azure-prenumeration som du vill använda för servern.
+    * **SKU-kapacitet** : vCore-kapaciteten, som kan *vara 2* (standard), *4* , *8* , *16* , *32* eller *64* .
+    * **SKU-namn** : SKU-nivåns prefix, SKU-serien och SKU-kapaciteten som ingår i under streck, till exempel *B_Gen5_1* , *GP_Gen5_2* (standard) eller *MO_Gen5_32* .
+    * **SKU-storlek MB** : lagrings utrymmet i megabyte för Azure Database for postgresql server (standard *51200* ).
+    * **SKU-nivå** : distributions nivån, till *exempel Basic* , *generalpurpose* (standard) eller *MemoryOptimized* .
+    * **SKU-familj** : *Gen4* eller *Gen5* (standard), vilket indikerar maskin varu generering för Server distribution.
+    * **Postgresql-version** : den version av postgresql-servern som ska distribueras, till exempel *9,5* , *9,6* , *10* eller *11* (standard).
+    * **Kvarhållning av säkerhets kopierings dagar** : den önskade perioden för kvarhållning av Geo-redundant säkerhets kopia i dagar (standard *7* ).
+    * **Geo-redundant säkerhets kopiering** : *aktive rad* eller *inaktive* rad (standard), beroende på krav för geo-haveri beredskap (geo-Dr).
+    * **Virtual Network namn** : namnet på det virtuella nätverket (standard *azure_postgresql_vnet* ).
+    * **Under näts namn** : namnet på under nätet (standard *azure_postgresql_subnet* ).
+    * **Virtual Network regel namn** : namnet på den virtuella nätverks regel som tillåter under nätet (standard *AllowSubnet* ).
+    * **VNet-** adressprefix: adressprefixet för det virtuella nätverket (standard *10.0.0.0/16* ).
+    * **Undernätsprefixet** : adressprefixet för under nätet (standard *10.0.0.0/16* ).
 
-5. Läs de allmänna villkoren och välj sedan **Jag accepterar villkoren som anges ovan**.
+5. Läs de allmänna villkoren och välj sedan **Jag accepterar villkoren som anges ovan** .
 
-6. Välj **Köp**.
+6. Välj **Köp** .
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
@@ -148,7 +148,7 @@ read -p "Press [ENTER] to continue: "
 
 Följ dessa steg om du vill se en översikt över din nya Azure Database for PostgreSQL Server:
 
-1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **Azure Database for PostgreSQL servrar**.
+1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **Azure Database for PostgreSQL servrar** .
 
 2. I listan databas väljer du den nya servern. **Översikts** sidan för din nya Azure Database for postgresql-server visas.
 
@@ -181,13 +181,13 @@ När den inte längre behövs tar du bort resurs gruppen, som tar bort resursern
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **resurs grupper**.
+1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **resurs grupper** .
 
 2. I listan resurs grupp väljer du namnet på din resurs grupp.
 
-3. På sidan **Översikt** i resurs gruppen väljer du **ta bort resurs grupp**.
+3. På sidan **Översikt** i resurs gruppen väljer du **ta bort resurs grupp** .
 
-4. I bekräftelse dialog rutan skriver du namnet på din resurs grupp och väljer sedan **ta bort**.
+4. I bekräftelse dialog rutan skriver du namnet på din resurs grupp och väljer sedan **ta bort** .
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

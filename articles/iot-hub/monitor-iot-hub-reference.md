@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 166234711ce00f0ed1f45c35ef661aa5b35f8a3c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 8cace120dc823f42f2b2e01e4234ea8d5ace7a69
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926333"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042933"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Övervakning av Azure IoT Hub data-referens
 
@@ -60,9 +60,9 @@ För de flesta mått är alla agg regerings typer giltiga. men för Count-mått,
 |Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |C2D meddelanden har förfallit (förhands granskning)|C2DMessagesExpired|Antal|Totalt|Antal utgångna meddelanden från moln till enhet|Inget|
-|C2D meddelande leveranser har slutförts|C2D. commands. utgående.<br>slutfört. lyckades|Antal|Totalt|Antalet meddelande leveranser från moln till enhet har slutförts av enheten|Inget|
-|Övergivna C2D-meddelanden|C2D. commands. utgående.<br>överge. lyckades|Antal|Totalt|Antal meddelanden från moln till enhet som har övergivits av enheten|Inget|
-|Avvisade C2D-meddelanden|C2D. commands. utgående.<br>avvisa. lyckades|Antal|Totalt|Antal meddelanden från moln till enhet som avvisats av enheten|Inget|
+|C2D meddelande leveranser har slutförts|C2D. commands. utgående. Complete. lyckades|Antal|Totalt|Antalet meddelande leveranser från moln till enhet har slutförts av enheten|Inget|
+|Övergivna C2D-meddelanden|C2D. commands. utgående. Abandon. lyckades|Antal|Totalt|Antal meddelanden från moln till enhet som har övergivits av enheten|Inget|
+|Avvisade C2D-meddelanden|C2D. commands. rekasta. Success|Antal|Totalt|Antal meddelanden från moln till enhet som avvisats av enheten|Inget|
 
 För mått med ett **enhets** **värde antal är** endast total summan (sum) agg regeringen giltig. Lägsta, högsta och genomsnittliga agg regeringar returnerar alltid 1. Mer information finns i [agg regeringar som stöds](#supported-aggregations).
 
@@ -113,7 +113,7 @@ För det *totala antalet meddelanden som används* stöds endast lägsta, högst
 |Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
 |Totalt antal enheter (inaktuella)|enheter. totalDevices|Antal|Totalt|Antal enheter som har registrerats för din IoT-hubb|Inget|
-|Anslutna enheter (inaktuella) |Devices. connectedDevices.<br>allProtocol|Antal|Totalt|Antal enheter som är anslutna till din IoT-hubb|Inget|
+|Anslutna enheter (inaktuella) |Devices. connectedDevices. allProtocol|Antal|Totalt|Antal enheter som är anslutna till din IoT-hubb|Inget|
 |Totalt antal enheter (förhands granskning)|totalDeviceCount|Antal|Genomsnitt|Antal enheter som har registrerats för din IoT-hubb|Inget|
 |Anslutna enheter (förhands granskning)|connectedDeviceCount|Antal|Genomsnitt|Antal enheter som är anslutna till din IoT-hubb|Inget|
 
@@ -127,9 +127,9 @@ För *Totalt antal enheter (för hands version)* och *anslutna enheter (för han
 
 |Mått visnings namn|Mått|Enhet|Sammansättningstyp|Description|Dimensioner|
 |---|---|---|---|---|---|
-|Antal begränsnings fel|D2C. telemetri. ingress.<br>sendThrottle|Antal|Totalt|Antal begränsnings fel som beror på begränsning av enhetens data flöde|Inget|
-|Skicka försök för telemetri|D2C. telemetri. ingress.<br>allProtocol|Antal|Totalt|Antalet telemetri från enhet till molnet försökte skickas till din IoT-hubb|Inget|
-|Meddelande om telemetri|D2C. telemetri. ingress.<br>lyckades|Antal|Totalt|Antal telemetri om enhet till molnet har skickats till din IoT-hubb|Inget|
+|Antal begränsnings fel|D2C. telemetri. ingress. sendThrottle|Antal|Totalt|Antal begränsnings fel som beror på begränsning av enhetens data flöde|Inget|
+|Skicka försök för telemetri|D2C. telemetri. ingress. allProtocol|Antal|Totalt|Antalet telemetri från enhet till molnet försökte skickas till din IoT-hubb|Inget|
+|Meddelande om telemetri|D2C. telemetri. ingress. lyckades|Antal|Totalt|Antal telemetri om enhet till molnet har skickats till din IoT-hubb|Inget|
 
 För mått med ett **enhets** **värde antal är** endast total summan (sum) agg regeringen giltig. Lägsta, högsta och genomsnittliga agg regeringar returnerar alltid 1. Mer information finns i [agg regeringar som stöds](#supported-aggregations).
 
@@ -161,13 +161,13 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 |---|---|---|---|---|---|
 |Slutförda jobb|jobb. slutfört|Antal|Totalt|Antalet slutförda jobb.|Inget|
 |Misslyckade anrop till List jobb|Jobs. listJobs. Failure|Antal|Totalt|Antalet misslyckade anrop till List jobb.|Inget|
-|Det gick inte att skapa metod anrops jobb|Jobs. createDirectMethodJob.<br>haverera|Antal|Totalt|Antalet misslyckade skapande av direkta anrops jobb för metoden.|Inget|
-|Det gick inte att skapa dubbla uppdaterings jobb|Jobs. createTwinUpdateJob.<br>haverera|Antal|Totalt|Antalet misslyckade skapandet av dubbla uppdaterings jobb.|Inget|
+|Det gick inte att skapa metod anrops jobb|Jobs. createDirectMethodJob. Failure|Antal|Totalt|Antalet misslyckade skapande av direkta anrops jobb för metoden.|Inget|
+|Det gick inte att skapa dubbla uppdaterings jobb|Jobs. createTwinUpdateJob. Failure|Antal|Totalt|Antalet misslyckade skapandet av dubbla uppdaterings jobb.|Inget|
 |Misslyckade jobb-annulleringar|Jobs. cancelJob. Failure|Antal|Totalt|Antalet misslyckade anrop för att avbryta ett jobb.|Inget|
 |Misslyckade jobb frågor|Jobs. queryJobs. Failure|Antal|Totalt|Antalet misslyckade anrop till jobb för frågor.|Inget|
 |Misslyckade jobb|jobb. misslyckades|Antal|Totalt|Antalet misslyckade jobb.|Inget|
 |Lyckade anrop till List jobb|Jobs. listJobs. lyckades|Antal|Totalt|Antalet lyckade anrop till List jobb.|Inget|
-|Lyckade skapande av metod anrops jobb|Jobs. createDirectMethodJob.<br>lyckades|Antal|Totalt|Antalet slutförda skapande av direkta metod anrops jobb.|Inget|
+|Lyckade skapande av metod anrops jobb|Jobs. createDirectMethodJob. lyckades|Antal|Totalt|Antalet slutförda skapande av direkta metod anrops jobb.|Inget|
 |Skapandet av dubbla uppdaterings jobb lyckades|Jobs. createTwinUpdateJob.<br>lyckades|Antal|Totalt|Antalet slutförda skapandet av dubbla uppdaterings jobb.|Inget|
 |Slutförda jobb avbokningar|Jobs. cancelJob. lyckades|Antal|Totalt|Antalet lyckade anrop för att avbryta ett jobb.|Inget|
 |Slutförda jobb frågor|Jobs. queryJobs. lyckades|Antal|Totalt|Antalet lyckade anrop för att köra frågor mot jobb.|Inget|
@@ -181,23 +181,23 @@ För mått med ett **enhets** **värde antal är** endast total summan (sum) agg
 | Routnings leverans försök (förhands granskning) |RoutingDeliveries | Antal | Totalt |Detta är mått för routnings leverans. Använd dimensionerna för att identifiera leverans status för en angiven slut punkt eller för en speciell Dirigerings källa.| Resultat,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*Mer information finns i [mått dimensioner](#metric-dimensions)* . |
 | Flödes leverans data storlek i byte (för hands version)|RoutingDataSizeInBytesDelivered| Byte | Totalt |Det totala antalet byte som dirigerats av IoT Hub till den anpassade slut punkten och den inbyggda slut punkten. Använd dimensionerna för att identifiera data storleken dirigerad till en angiven slut punkt eller för en speciell vägkälla.| RoutingSource,<br>EndpointType<br>EndpointName<br>*Mer information finns i [mått dimensioner](#metric-dimensions)* .|
 | Svars tid för routning (för hands version) |RoutingDeliveryLatency| Millisekunder | Genomsnitt |Detta är måttet för leverans fördröjning i routning. Använd dimensionerna för att identifiera svars tiden för en speciell slut punkt eller för en speciell Dirigerings källa.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*Mer information finns i [mått dimensioner](#metric-dimensions)* .|
-|Routning: blobbar levererade till lagring|D2C. endpoints. utgående.<br>Storage. blob|Antal|Totalt|Antal gånger IoT Hub som levererade blobbar till lagrings slut punkter.|Inget|
-|Routning: data som levereras till lagring|D2C. endpoints. utgående.<br>lagring. byte|Byte|Totalt|Mängden data (byte) IoT Hub routning som levereras till lagrings slut punkter.|Inget|
-|Routning: meddelande fördröjning för Event Hub|D2C. endpoints. latens.<br>eventHubs|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelandet intränger i anpassade slut punkter av typen Event Hub. Detta inkluderar inte meddelanden vägar till den inbyggda slut punkten (händelser).|Inget|
-|Routning: meddelande fördröjning för Service Bus kö|D2C. endpoints. latens.<br>serviceBusQueues|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelandet intränger i en Service Bus Queue-slutpunkt.|Inget|
-|Routning: meddelande fördröjning för Service Bus ämne|D2C. endpoints. latens.<br>serviceBusTopics|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelandet intränger i en Service Bus avsnitts slut punkt.|Inget|
-|Routning: meddelande fördröjning för meddelanden/händelser|D2C. endpoints. latens.<br>Builtin. events|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelandet intränger i den inbyggda slut punkten (meddelanden/händelser) och återställnings väg.|Inget|
-|Routning: meddelande fördröjning för lagring|D2C. endpoints. latens.<br>storage|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelandet intränger i en lagrings slut punkt.|Inget|
-|Routning: meddelanden levererade till Händelsehubben|D2C. endpoints. utgående.<br>eventHubs|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till anpassade slut punkter av typen Event Hub. Detta inkluderar inte meddelanden vägar till den inbyggda slut punkten (händelser).|Inget|
-|Routning: meddelanden levererade till Service Bus kö|D2C. endpoints. utgående.<br>serviceBusQueues|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus-köns slut punkter.|Inget|
-|Routning: meddelanden levererade till Service Bus ämnet|D2C. endpoints. utgående.<br>serviceBusTopics|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus ämnes slut punkter.|Inget|
-|Routning: meddelanden levererade till reserv|D2C. telemetri. utgående.<br>grund|Antal|Totalt|Antalet gånger IoT Hub vidarebefordran av meddelanden till slut punkten som är kopplad till återställnings vägen.|Inget|
-|Routning: meddelanden som levereras till meddelanden/händelser|D2C. endpoints. utgående.<br>Builtin. events|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till den inbyggda slut punkten (meddelanden/händelser) och återställnings väg.|Inget|
-|Routning: meddelanden som levereras till lagring|D2C. endpoints. utgående.<br>storage|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till lagrings slut punkter.|Inget|
-|Routning: telemetri meddelanden levereras|D2C. telemetri. utgående.<br>lyckades|Antal|Totalt|Antalet gånger som meddelanden har levererats till alla slut punkter med hjälp av IoT Hub routning. Om ett meddelande dirigeras till flera slut punkter ökar det här värdet med ett för varje lyckad leverans. Om ett meddelande skickas till samma slut punkt flera gånger ökar det här värdet med ett för varje lyckad leverans.|Inget|
-|Routning: telemetri ignoreras |D2C. telemetri. utgående.<br>släpper|Antal|Totalt|Antalet gånger som meddelanden släpptes genom IoT Hub routning på grund av död slut punkter. Det här värdet räknar inte meddelanden som levereras till återställnings vägen eftersom ignorerade meddelanden inte levereras där.|Inget|
-|Routning: telemetri-meddelanden är inkompatibla|D2C. telemetri. utgående.<br>tillåtet|Antal|Totalt|Antalet gånger IoT Hub routningen kunde inte leverera meddelanden på grund av inkompatibilitet med slut punkten. Ett meddelande är inkompatibelt med en slut punkt när IoT Hub försöker leverera meddelandet till en slut punkt och det Miss lyckas med ett icke-tillfälligt fel. Ogiltiga meddelanden har inte gjorts om. Det här värdet omfattar inte återförsök.|Inget|
-|Routning: telemetri-meddelanden har överblivna |D2C. telemetri. utgående.<br>överblivna|Antal|Totalt|Antalet gånger som meddelanden har överblivnas av IoT Hub routning eftersom de inte matchade någon cirkulations fråga när reserv vägen är inaktive rad.|Inget|
+|Routning: blobbar levererade till lagring|D2C. endpoints. utgående. Storage. blob|Antal|Totalt|Antal gånger IoT Hub som levererade blobbar till lagrings slut punkter.|Inget|
+|Routning: data som levereras till lagring|D2C. endpoints. utgående. Storage. byte|Byte|Totalt|Mängden data (byte) IoT Hub routning som levereras till lagrings slut punkter.|Inget|
+|Routning: meddelande fördröjning för Event Hub|D2C. endpoints. latens. eventHubs|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelandet intränger i anpassade slut punkter av typen Event Hub. Detta inkluderar inte meddelanden vägar till den inbyggda slut punkten (händelser).|Inget|
+|Routning: meddelande fördröjning för Service Bus kö|D2C. endpoints. latens. serviceBusQueues|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelandet intränger i en Service Bus Queue-slutpunkt.|Inget|
+|Routning: meddelande fördröjning för Service Bus ämne|D2C. endpoints. latens. serviceBusTopics|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelandet intränger i en Service Bus avsnitts slut punkt.|Inget|
+|Routning: meddelande fördröjning för meddelanden/händelser|D2C. endpoints. latens. Builtin. events|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelandet intränger i den inbyggda slut punkten (meddelanden/händelser) och återställnings väg.|Inget|
+|Routning: meddelande fördröjning för lagring|D2C. endpoints. svars tid. Storage|Millisekunder|Genomsnitt|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelandet intränger i en lagrings slut punkt.|Inget|
+|Routning: meddelanden levererade till Händelsehubben|D2C. endpoints. utgående. eventHubs|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till anpassade slut punkter av typen Event Hub. Detta inkluderar inte meddelanden vägar till den inbyggda slut punkten (händelser).|Inget|
+|Routning: meddelanden levererade till Service Bus kö|D2C. endpoints. utgående. serviceBusQueues|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus-köns slut punkter.|Inget|
+|Routning: meddelanden levererade till Service Bus ämnet|D2C. endpoints. utgående. serviceBusTopics|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus ämnes slut punkter.|Inget|
+|Routning: meddelanden levererade till reserv|D2C. telemetri. utgående. fallback|Antal|Totalt|Antalet gånger IoT Hub vidarebefordran av meddelanden till slut punkten som är kopplad till återställnings vägen.|Inget|
+|Routning: meddelanden som levereras till meddelanden/händelser|D2C. endpoints. utgående. Builtity. events|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till den inbyggda slut punkten (meddelanden/händelser) och återställnings väg.|Inget|
+|Routning: meddelanden som levereras till lagring|D2C. endpoints. utgående. Storage|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till lagrings slut punkter.|Inget|
+|Routning: telemetri meddelanden levereras|D2C. telemetri. utgående. lyckades|Antal|Totalt|Antalet gånger som meddelanden har levererats till alla slut punkter med hjälp av IoT Hub routning. Om ett meddelande dirigeras till flera slut punkter ökar det här värdet med ett för varje lyckad leverans. Om ett meddelande skickas till samma slut punkt flera gånger ökar det här värdet med ett för varje lyckad leverans.|Inget|
+|Routning: telemetri ignoreras |D2C. telemetri. utgående.|Antal|Totalt|Antalet gånger som meddelanden släpptes genom IoT Hub routning på grund av död slut punkter. Det här värdet räknar inte meddelanden som levereras till återställnings vägen eftersom ignorerade meddelanden inte levereras där.|Inget|
+|Routning: telemetri-meddelanden är inkompatibla|D2C. telemetri. utgående. ogiltig|Antal|Totalt|Antalet gånger IoT Hub routningen kunde inte leverera meddelanden på grund av inkompatibilitet med slut punkten. Ett meddelande är inkompatibelt med en slut punkt när IoT Hub försöker leverera meddelandet till en slut punkt och det Miss lyckas med ett icke-tillfälligt fel. Ogiltiga meddelanden har inte gjorts om. Det här värdet omfattar inte återförsök.|Inget|
+|Routning: telemetri-meddelanden har överblivna |D2C. telemetri. utgående. överblivna|Antal|Totalt|Antalet gånger som meddelanden har överblivnas av IoT Hub routning eftersom de inte matchade någon cirkulations fråga när reserv vägen är inaktive rad.|Inget|
 
 För mått med ett **enhets** **värde antal är** endast total summan (sum) agg regeringen giltig. Lägsta, högsta och genomsnittliga agg regeringar returnerar alltid 1. Mer information finns i [agg regeringar som stöds](#supported-aggregations).
 

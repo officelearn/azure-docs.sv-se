@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 58ecca6251e4c428ae5f834379e8b45059b0efc9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014417"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042765"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -41,9 +41,9 @@ Om du vill börja använda Azure Media Services ska du ha följande:
 
 * Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
 * Ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-portal-create-account.md).
-* Slutpunkten för direktuppspelning som du vill spela upp innehåll från måste ha tillståndet **Körs**.
+* Slutpunkten för direktuppspelning som du vill spela upp innehåll från måste ha tillståndet **Körs** .
 
-    När ditt AMS-konto skapas läggs en **standard** slut punkt för direkt uppspelning till på ditt konto i **stoppat** tillstånd. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning ha tillståndet **Körs**.
+    När ditt AMS-konto skapas läggs en **standard** slut punkt för direkt uppspelning till på ditt konto i **stoppat** tillstånd. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning ha tillståndet **Körs** .
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>Vanliga objekt när du utvecklar mot AMS OData-modellen
 
@@ -121,9 +121,9 @@ Vid liveuppspelning kan du välja någon av följande vägar:
 
 ### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare (genomströmning)
 
-I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i arbetsflödet **Genomströmning**.
+I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i arbetsflödet **Genomströmning** .
 
-![Live-arbetsflöde](./media/scenarios-and-availability/media-services-live-streaming-current.png)
+![Diagram som visar de viktigaste delarna av en M S-plattform som ingår i "genom strömning"-arbets flödet.](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
 Mer information finns i [Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -149,11 +149,11 @@ Media Services stöder integration med Azure CDN. Information om hur du aktivera
 
 AMS-kunder kan skala slutpunkter för direktuppspelning, mediebearbetning och lagring i sina AMS-konton.
 
-* Media Services-kunder kan antingen välja en **Standard**-slutpunkt för direktuppspelning eller en **Premium**-slutpunkt för direktuppspelning. En **Standard**-slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Innehåller samma funktioner som **Premium**-slutpunkter för direktuppspelning och skalar utgående bandbredd automatiskt. 
+* Media Services-kunder kan antingen välja en **Standard** -slutpunkt för direktuppspelning eller en **Premium** -slutpunkt för direktuppspelning. En **Standard** -slutpunkt för direktuppspelning passar de flesta arbetsbelastningar för direktuppspelning. Innehåller samma funktioner som **Premium** -slutpunkter för direktuppspelning och skalar utgående bandbredd automatiskt. 
 
-    **Premium**-slutpunkter för direktuppspelning passar för avancerade arbetsbelastningar och tillhandahåller dedikerad och skalbar bandbreddskapacitet. Kunder som har en **Premium**-slutpunkt för direktuppspelning får som standard en direktuppspelande enhet (SU). Du kan skala slutpunkten för direktuppspelning genom att lägga till direktuppspelande enheter. Varje direktuppspelande enhet ger ytterligare bandbreddskapacitet till programmet. Mer information om hur du skalar **Premium**-slutpunkter för direktuppspelning finns i avsnittet [Scaling streaming endpoints](media-services-portal-scale-streaming-endpoints.md) (Skala slutpunkter för direktuppspelning).
+    **Premium** -slutpunkter för direktuppspelning passar för avancerade arbetsbelastningar och tillhandahåller dedikerad och skalbar bandbreddskapacitet. Kunder som har en **Premium** -slutpunkt för direktuppspelning får som standard en direktuppspelande enhet (SU). Du kan skala slutpunkten för direktuppspelning genom att lägga till direktuppspelande enheter. Varje direktuppspelande enhet ger ytterligare bandbreddskapacitet till programmet. Mer information om hur du skalar **Premium** -slutpunkter för direktuppspelning finns i avsnittet [Scaling streaming endpoints](media-services-portal-scale-streaming-endpoints.md) (Skala slutpunkter för direktuppspelning).
 
-* Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** och **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**.
+* Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1** , **S2** och **S3** . Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1** .
 
     Förutom att ange typ av reserverad enhet kan du ange att ditt konto ska etableras med **reserverade enheter** (ru: er). Antalet etablerade RU:er anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto.
 
@@ -169,15 +169,15 @@ Det här avsnittet innehåller information om tillgängligheten för Media Servi
 
 ### <a name="ams-accounts"></a>AMS-konton
 
-#### <a name="availability"></a>Tillgängligt
+#### <a name="availability"></a>Tillgänglighet
 
 Använd [Azure-produkter per region](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) för att avgöra om Media Services är tillgängligt i ett särskilt data Center.
 
 ### <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning 
 
-Media Services-kunder kan antingen välja en **Standard**-slutpunkt för direktuppspelning eller en **Premium**-slutpunkt för direktuppspelning. Mer information finns i avsnittet om [skalning](#scaling).
+Media Services-kunder kan antingen välja en **Standard** -slutpunkt för direktuppspelning eller en **Premium** -slutpunkt för direktuppspelning. Mer information finns i avsnittet om [skalning](#scaling).
 
-#### <a name="availability"></a>Tillgängligt
+#### <a name="availability"></a>Tillgänglighet
 
 |Name|Status|Datacenter
 |---|---|---|
@@ -186,15 +186,15 @@ Media Services-kunder kan antingen välja en **Standard**-slutpunkt för direktu
 
 ### <a name="live-encoding"></a>Live Encoding
 
-#### <a name="availability"></a>Tillgängligt
+#### <a name="availability"></a>Tillgänglighet
 
 Tillgängligt i alla data Center förutom: Tyskland, södra Brasilien, västra Indien, södra Indien och centrala Indien. 
 
 ### <a name="encoding-media-processors"></a>Mediebearbetare för kodning
 
-AMS erbjuder två kodare på begäran: **Media Encoder Standard** och **Media Encoder Premium Workflow**. Mer information finns i [Overview and comparison of Azure on-demand media encoders](media-services-encode-asset.md) (Översikt och jämförelse av Azures mediekodare på begäran). 
+AMS erbjuder två kodare på begäran: **Media Encoder Standard** och **Media Encoder Premium Workflow** . Mer information finns i [Overview and comparison of Azure on-demand media encoders](media-services-encode-asset.md) (Översikt och jämförelse av Azures mediekodare på begäran). 
 
-#### <a name="availability"></a>Tillgängligt
+#### <a name="availability"></a>Tillgänglighet
 
 |Namn på mediebearbetare|Status|Datacenter
 |---|---|---|
@@ -208,7 +208,7 @@ Media Analytics är en samling tal- och visionskomponenter som gör det enklare 
 > [!NOTE]
 > Vissa analys medie processorer kommer att dras tillbaka. Information om datum för indragning finns i avsnittet om [äldre komponenter](legacy-components.md) .
 
-#### <a name="availability"></a>Tillgängligt
+#### <a name="availability"></a>Tillgänglighet
 
 |Namn på mediebearbetare|Status|Datacenter
 |---|---|---|
@@ -223,7 +223,7 @@ Media Analytics är en samling tal- och visionskomponenter som gör det enklare 
 
 Med Microsoft Azure Media Services kan du skydda dina mediefiler från att filerna lämnar din dator och medan de lagras, bearbetas och levereras. Mer information finns i avsnittet om att [skydda AMS-innehåll](media-services-content-protection-overview.md).
 
-#### <a name="availability"></a>Tillgängligt
+#### <a name="availability"></a>Tillgänglighet
 
 |Kryptering|Status|Datacenter|
 |---|---|---| 
@@ -239,7 +239,7 @@ Antalet etablerade reserverade enheter anger antalet medieuppgifter som kan bear
 
 Mer information finns i avsnittet om [skalning](#scaling).
 
-#### <a name="availability"></a>Tillgängligt
+#### <a name="availability"></a>Tillgänglighet
 
 Tillgängligt i alla datacenter.
 
@@ -249,7 +249,7 @@ Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestäm
 
 Mer information finns i avsnittet om [skalning](#scaling).
 
-#### <a name="availability"></a>Tillgängligt
+#### <a name="availability"></a>Tillgänglighet
 
 |Namn på RU-typ|Status|Datacenter
 |---|---|---|

@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 300c4bcdb948665b2cdf4ce0eb429499208660b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0e8540d9488e9cc3756eb09c69349ac90d20b83
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970755"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043376"
 ---
 # <a name="availability-alerts"></a>Tillgänglighetsaviseringar
 
@@ -28,11 +28,11 @@ Aviseringar är nu automatiskt aktiverade som standard, men för att helt kunna 
 
 1. När du har sparat tillgänglighets testet går du till fliken information och klickar på ellipsen efter det test du nyss gjort. Klicka på "Redigera avisering".
 
-   ![Redigera efter Spara](./media/availability-alerts/edit-alert.png)
+   ![Skärm bild som visar redigerings avisering som valts på menyn.](./media/availability-alerts/edit-alert.png)
 
 2. Ange önskad allvarlighets grad, regel beskrivning och viktigast av de åtgärds grupper som har de aviserings inställningar som du vill använda för den här varnings regeln.
 
-   ![Redigera efter Spara](./media/availability-alerts/set-action-group.png)
+   ![Skärm bild som visar sidan för hantering av regler där du kan redigera regeln.](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
 > Tillgänglighets aviseringar som skapats i den här miljön är tillstånds baserade. Det innebär att när aviserings villkoret uppfylls genereras en avisering när platsen identifieras som otillgänglig. Om platsen fortfarande visas nästa gången aviserings villkoret utvärderas genererar detta inte en ny avisering. Så om din webbplats har varit nere i en timme och du har angett en e-postavisering, får du bara ett e-postmeddelande när platsen gick ned och en efterföljande e-postadress när platsen säkerhetskopierades. Du får inga varningar om att webbplatsen fortfarande inte är tillgänglig.

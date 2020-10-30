@@ -7,18 +7,17 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 248b61530b80a00aa10272dcb3d28b85c6ee04e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd4af178d6e70d910d4643fc30c29fc8eb85303c
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82143620"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043170"
 ---
 I det här steget behöver du dina autentiseringsuppgifter för Azure-prenumerationen.
 
-Den kärn resurs som ska konfigureras för Azure File Sync kallas för en *tjänst för synkronisering av lagring*. Vi rekommenderar att du endast distribuerar en för alla servrar som synkroniserar samma uppsättning filer nu eller i framtiden. Skapa bara flera tjänster för synkronisering av lagring om du har distinkta uppsättningar av servrar som aldrig måste utbyta data (till exempel: synkronisera samma Azure-filresurs). I annat fall är en enda tjänst för synkronisering av tjänster det bästa sättet.
+Den kärn resurs som ska konfigureras för Azure File Sync kallas för en *tjänst för synkronisering av lagring* . Vi rekommenderar att du endast distribuerar en för alla servrar som synkroniserar samma uppsättning filer nu eller i framtiden. Skapa bara flera tjänster för synkronisering av lagring om du har distinkta uppsättningar av servrar som aldrig måste utbyta data. Du kan till exempel ha servrar som aldrig måste synkronisera samma Azure-filresurs. I annat fall är en enda tjänst för synkronisering av tjänster det bästa sättet.
 
-Välj en Azure-region för din lagrings synkroniseringstjänst som ligger nära din plats. Alla andra moln resurser måste distribueras i samma region.
-Du kan förenkla hanteringen genom att skapa en ny resurs grupp i din prenumeration som lagrar synkroniserings-och lagrings resurser.
+Välj en Azure-region för din lagrings synkroniseringstjänst som ligger nära din plats. Alla andra moln resurser måste distribueras i samma region. Du kan förenkla hanteringen genom att skapa en ny resurs grupp i din prenumeration som lagrar synkroniserings-och lagrings resurser.
 
 Mer information finns i [avsnittet om hur du distribuerar Storage Sync-tjänsten](../articles/storage/files/storage-sync-files-deployment-guide.md#deploy-the-storage-sync-service) i artikeln om hur du distribuerar Azure File Sync. Följ bara den här delen av artikeln. Det kommer att finnas länkar till andra avsnitt i artikeln i senare steg.

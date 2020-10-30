@@ -8,15 +8,15 @@
 - name: Självstudier
   items:
     - name: Skapa CF i Azure
-      href: /azure/cloudfoundry/create-cloud-foundry-on-azure
+      href: ./create-cloud-foundry-on-azure.md
     - name: Distribuera CF-app till Azure
-      href: /azure/cloudfoundry/cloudfoundry-deploy-your-first-app
+      href: ./cloudfoundry-deploy-your-first-app.md
     - name: CloudFoundry på Azure
-      href: /azure/cloudfoundry/cloudfoundry-get-started
+      href: ./cloudfoundry-get-started.md
     - name: Distribuera CF OMS Nozzle
-      href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+      href: ./cloudfoundry-oms-nozzle.md
     - name: Integrera Cloud Foundry med Azure
-      href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
+      href: ./how-cloud-foundry-integrates-with-azure.md
 - name: Resurser
   items:
     - name: Azure-översikt

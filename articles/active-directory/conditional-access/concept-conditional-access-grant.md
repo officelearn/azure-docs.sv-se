@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87274688"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042799"
 ---
 # <a name="conditional-access-grant"></a>Villkorlig åtkomst: bevilja
 
@@ -70,7 +70,7 @@ När du använder [enhets kod OAuth-flödet](../develop/v2-oauth2-device-code.md
 
 Organisationer kan kräva att ett åtkomst försök till de valda molnappar måste göras från en godkänd klient app. Dessa godkända klient program har stöd för [Intune App Protection-principer](/intune/app-protection-policy) oberoende av alla lösningar för hantering av mobila enheter (MDM).
 
-För att kunna utnyttja denna beviljande kontroll, kräver villkorlig åtkomst att enheten registreras i Azure Active Directory som kräver att en Service Broker-app används. Koordinatorappen kan antingen vara Microsoft Authenticator för iOS eller Microsofts företagsportal för Android-enheter. Om en Service Broker-app inte är installerad på enheten när användaren försöker autentisera, omdirigeras användaren till App Store för att installera Service Broker-appen.
+För att kunna utnyttja denna beviljande kontroll, kräver villkorlig åtkomst att enheten registreras i Azure Active Directory som kräver att en Service Broker-app används. Service Broker-appen kan vara Microsoft Authenticator för iOS eller antingen Microsoft Authenticator eller Microsofts företags Portal för Android-enheter. Om en Service Broker-app inte är installerad på enheten när användaren försöker autentisera, omdirigeras användaren till lämpligt app/Play-Arkiv för att installera den begärda Broker-appen.
 
 Den här inställningen gäller för följande iOS-och Android-appar:
 

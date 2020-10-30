@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1da7221b511cb07e5000f09e4015fc8bd4a0a928
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745705"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043320"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 
@@ -57,7 +57,7 @@ Innan du kan skapa en anslutning måste du lägga till ITSM-anslutningsprogram-l
 3. I avsnittet **OMS-arbetsyta** väljer du den Azure Log Analytics-arbetsyta där du vill installera lösningen.
    >[!NOTE]
    > * Som en del av den pågående över gången från Microsoft Operations Management Suite (OMS) till Azure Monitor, kallas OMS-arbetsytor nu Log Analytics arbets ytor.
-   > * ITSM-anslutningsprogram kan bara installeras i Log Analytics arbets ytor i följande regioner: östra USA, västra 2; USA, södra centrala USA, västra centrala USA, Fairfax, centrala Kanada, Västeuropa, södra Storbritannien, Sydostasien, Östra Japan, centrala Indien, sydöstra Australien.
+   > * ITSM-anslutningsprogram kan bara installeras i Log Analytics arbets ytor i följande regioner: östra USA, västra 2; USA, södra centrala USA, västra centrala USA, US Gov, Arizona, US Gov, Virginia, centrala Kanada, Västeuropa, södra Storbritannien, Sydostasien, Östra Japan, centrala Indien, sydöstra Australien.
 
 4. I avsnittet **Inställningar för OMS-arbetsyta** väljer du den ResourceGroup där du vill skapa lösnings resursen.
 
@@ -246,7 +246,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 - Planerat slutdatum
 - Start datum för arbete
 - Slutdatum för arbete
-- Beskrivning
+- Description
 - Dator
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Utdata för en ServiceNow-incident
@@ -293,7 +293,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | PlannedEndDate_t  |   Planerat slutdatum |
 | WorkStartDate_t  | Verkligt start datum |
 | WorkEndDate_t | Verkligt slutdatum|
-| Description_s | Beskrivning |
+| Description_s | Description |
 | Dator  | Konfigurations objekt |
 
 

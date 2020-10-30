@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
-ms.openlocfilehash: 22732ae10fb328839c47194e0a33faf18514ff45
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 14b361ae2163636864b37d2a063ad10886a9e3c8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018489"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93029525"
 ---
 Kom igång med klient biblioteket för avvikelse detektor för .NET. Följ de här stegen för att installera paket starten med hjälp av algoritmerna som tillhandahålls av tjänsten. Med tjänsten avvikelse detektor kan du hitta avvikelser i dina Time Series-data genom att automatiskt använda de bästa passnings modellerna, oavsett bransch, scenario eller data volym.
 
@@ -39,7 +39,7 @@ Dokumentation om biblioteks [referens](https://aka.ms/anomaly-detector-dotnet-re
 
 ### <a name="create-a-new-net-core-application"></a>Skapa ett nytt .NET Core-program
 
-I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet `anomaly-detector-quickstart` . Det här kommandot skapar ett enkelt "Hello World"-projekt med en enda C#-källfil: *program.cs*.
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet `anomaly-detector-quickstart` . Det här kommandot skapar ett enkelt "Hello World"-projekt med en enda C#-källfil: *program.cs* .
 
 ```dotnetcli
 dotnet new console -n anomaly-detector-quickstart
@@ -66,7 +66,7 @@ Build succeeded.
 I program katalogen installerar du klient biblioteket för avvikelse detektor för .NET med följande kommando:
 
 ```dotnetcli
-dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.2
+dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector
 ```
 
 Öppna *program.cs* -filen från projekt katalogen och Lägg till följande med `directives` :
@@ -104,8 +104,8 @@ I en ny metod instansierar du en klient med din slut punkt och nyckel. Skapa ett
 ## <a name="load-time-series-data-from-a-file"></a>Läsa in tids serie data från en fil
 
 Hämta exempel data för den här snabb starten från [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
-1. Högerklicka på **RAW**i webbläsaren.
-2. Klicka på **Spara länk som**.
+1. Högerklicka på **RAW** i webbläsaren.
+2. Klicka på **Spara länk som** .
 3. Spara filen i program katalogen som en CSV-fil.
 
 Denna tids serie data formateras som en. csv-fil och skickas till API: t för avvikelse identifiering.

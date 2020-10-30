@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 12c9b1226e3ba928a4062049c7839d4e46ef727d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 239fcc1e57cb4bd56a8704f8a840689d44617fcf
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91025339"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93029524"
 ---
 ## <a name="for-users-in-your-directory"></a>För användare i din katalog
 
-Följ dessa steg om du vill tillåta att användare i katalogen kan begära det här åtkomst paketet. När du definierar en princip för begäran kan du ange enskilda användare eller flera vanliga grupper av användare. Din organisation kanske redan har en grupp, till exempel **alla anställda**.  Om gruppen läggs till i principen för användare som kan begära åtkomst, kan alla medlemmar i gruppen sedan begära åtkomst.
+Följ dessa steg om du vill tillåta att användare i katalogen kan begära det här åtkomst paketet. När du definierar en princip för begäran kan du ange enskilda användare eller flera vanliga grupper av användare. Din organisation kanske redan har en grupp, till exempel **alla anställda** .  Om gruppen läggs till i principen för användare som kan begära åtkomst, kan alla medlemmar i gruppen sedan begära åtkomst.
 
-1. I avsnittet **användare som kan begära åtkomst** klickar du på **för användare i din katalog**.
+1. I avsnittet **användare som kan begära åtkomst** klickar du på **för användare i din katalog** .
 
     När du väljer det här alternativet visas nya alternativ för att ytterligare finjustera vem i din katalog som kan begära det här åtkomst paketet.
 
@@ -35,7 +35,7 @@ Följ dessa steg om du vill tillåta att användare i katalogen kan begära det 
 
     Gäst användare refererar till externa användare som har bjudits in till din katalog med [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). Mer information om skillnaderna mellan medlems användare och gäst användare finns i [Vad är standard användar behörigheter i Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
 
-1. Om du har valt **vissa användare och grupper**klickar du på **Lägg till användare och grupper**.
+1. Om du har valt **vissa användare och grupper** klickar du på **Lägg till användare och grupper** .
 
 1. I fönstret Välj användare och grupper väljer du de användare och grupper som du vill lägga till.
 
@@ -47,14 +47,14 @@ Följ dessa steg om du vill tillåta att användare i katalogen kan begära det 
 
 ## <a name="for-users-not-in-your-directory"></a>För användare som inte är i din katalog
 
- **Användare som inte finns i din katalog** refererar till användare som finns i en annan Azure AD-katalog eller domän. Dessa användare har kanske inte bjudits in till din katalog än. Azure AD-kataloger måste konfigureras för att tillåta inbjudningar i **samarbets begränsningar**. Mer information finns i [Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster](../articles/active-directory/b2b/delegate-invitations.md).
+ **Användare som inte finns i din katalog** refererar till användare som finns i en annan Azure AD-katalog eller domän. Dessa användare har kanske inte bjudits in till din katalog än. Azure AD-kataloger måste konfigureras för att tillåta inbjudningar i **samarbets begränsningar** . Mer information finns i [Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster](../articles/active-directory/b2b/delegate-invitations.md).
 
 > [!NOTE]
 > Ett gäst användar konto skapas för en användare som ännu inte finns i katalogen vars förfrågan godkänns eller godkänns automatiskt. Gästen kommer att bjudas in, men får ingen inbjudan via e-post. I stället får de ett e-postmeddelande när deras tilldelning av åtkomst paket levereras. Senare när gäst användaren inte längre har några åtkomst paket tilldelningar, eftersom deras senaste tilldelning har gått ut eller avbrutits, kommer gäst användar kontot att blockeras från att logga in och sedan tas bort. Om du vill att gäst användare ska finnas kvar i din katalog på obestämd tid, även om de inte har några åtkomst paket, kan du ändra inställningarna för konfiguration av rättighets hantering. Mer information om gäst användar objekt finns i [Egenskaper för en Azure Active Directory B2B-samarbets användare](../articles/active-directory/b2b/user-properties.md).
 
 Följ de här stegen om du vill tillåta att användare som inte tillhör din katalog begär det här åtkomst paketet:
 
-1. I avsnittet **användare som kan begära åtkomst** klickar du på **för användare som inte finns i din katalog**.
+1. I avsnittet **användare som kan begära åtkomst** klickar du på **för användare som inte finns i din katalog** .
 
     När du väljer det här alternativet visas nya alternativ.
 
@@ -70,7 +70,7 @@ Följ de här stegen om du vill tillåta att användare som inte tillhör din ka
 
     En ansluten organisation är en extern Azure AD-katalog eller domän som du har en relation med.
 
-1. Om du har valt **vissa anslutna organisationer**klickar du på **Lägg till kataloger** för att välja från en lista över anslutna organisationer som administratören har lagt till tidigare.
+1. Om du har valt **vissa anslutna organisationer** klickar du på **Lägg till kataloger** för att välja från en lista över anslutna organisationer som administratören har lagt till tidigare.
 
 1. Skriv namnet eller domän namnet för att söka efter en tidigare ansluten organisation.
 
@@ -78,7 +78,7 @@ Följ de här stegen om du vill tillåta att användare som inte tillhör din ka
 
     Om den organisation som du vill samar beta med inte finns med i listan kan du be administratören att lägga till den som en ansluten organisation. Mer information finns i [lägga till en ansluten organisation](../articles/active-directory/governance/entitlement-management-organization.md).
 
-1. När du har valt alla anslutna organisationer klickar du på **Välj**.
+1. När du har valt alla anslutna organisationer klickar du på **Välj** .
 
     > [!NOTE]
     > Alla användare från de valda anslutna organisationerna kommer att kunna begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är kopplade till organisationen, om inte dessa domäner blockeras av listan Tillåt eller neka i Azure B2B. Mer information finns i [tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer](../articles/active-directory/b2b/allow-deny-list.md).
@@ -89,7 +89,7 @@ Följ de här stegen om du vill tillåta att användare som inte tillhör din ka
 
 Följ de här stegen om du vill kringgå åtkomst begär Anden och låta administratörer direkt tilldela vissa användare till det här Access-paketet. Användarna behöver inte begära åtkomst paketet. Du kan fortfarande ange livs cykel inställningar, men det finns inga inställningar för begäran.
 
-1. I avsnittet **användare som kan begära åtkomst** klickar du på **Ingen (endast administratörs direkta tilldelningar**).
+1. I avsnittet **användare som kan begära åtkomst** klickar du på **Ingen (endast administratörs direkta tilldelningar** ).
 
     ![Åtkomst till paket-begär Anden-inga enbart administratörs direkta tilldelningar](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
@@ -117,9 +117,9 @@ En demonstration av hur du lägger till ett godkännande med flera steg i en pri
 
 Följ de här stegen för att ange godkännande inställningarna för begär Anden för Access-paketet:
 
-1. Om du vill kräva godkännande för förfrågningar från de valda användarna anger du alternativet **Kräv godkännande** för att växla till **Ja**. Eller, om du vill att begär Anden ska godkännas automatiskt, anger du växla till **Nej**.
+1. Om du vill kräva godkännande för förfrågningar från de valda användarna anger du alternativet **Kräv godkännande** för att växla till **Ja** . Eller, om du vill att begär Anden ska godkännas automatiskt, anger du växla till **Nej** .
 
-1. Om du vill kräva att användarna anger en motivering för att begära åtkomst paketet, ställer du in **justeringen Kräv ändring av begär ande** för att växla till **Ja**.
+1. Om du vill kräva att användarna anger en motivering för att begära åtkomst paketet, ställer du in **justeringen Kräv ändring av begär ande** för att växla till **Ja** .
     
 1. Kontrol lera nu om begär Anden kräver ett enda eller 2-stegs godkännande. Ange **hur många steg** som ska växlas till **1** för godkännande av enstaka steg eller ange växla till **2** för godkännande i två steg.
 
@@ -129,13 +129,13 @@ Använd följande steg för att lägga till god kännare när du har valt hur m�
 
 ### <a name="single-stage-approval"></a>Godkännande med ett enda steg
 
-1. Lägg till den **första god kännaren**:
+1. Lägg till den **första god kännaren** :
     
-    Om principen är inställd för att styra åtkomsten för användare i din katalog, kan du välja **chef som god kännare**. Eller Lägg till en speciell användare genom att klicka på **Lägg till god kännare** när du har valt Välj vissa god kännare i list menyn.
+    Om principen är inställd för att styra åtkomsten för användare i din katalog, kan du välja **chef som god kännare** . Eller Lägg till en speciell användare genom att klicka på **Lägg till god kännare** när du har valt Välj vissa god kännare i list menyn.
     
     ![Åtkomst till paket-begär Anden – för användare i katalog-första god kännare](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
-    Om den här principen är inställd för att styra åtkomsten för användare som inte finns i din katalog, kan du välja **extern sponsor** eller **intern sponsor**. Eller Lägg till en speciell användare genom att klicka på **Lägg till god kännare** eller grupper under Välj vissa god kännare.
+    Om den här principen är inställd för att styra åtkomsten för användare som inte finns i din katalog, kan du välja **extern sponsor** eller **intern sponsor** . Eller Lägg till en speciell användare genom att klicka på **Lägg till god kännare** eller grupper under Välj vissa god kännare.
     
     ![Åtkomst till paket-begär Anden – för användare som inte är i katalog-första god kännare](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
     
@@ -143,13 +143,13 @@ Använd följande steg för att lägga till god kännare när du har valt hur m�
 
     Hanteraren hittas genom rättighets hantering med attributet **Manager** . Attributet finns i användarens profil i Azure AD. Mer information finns i [lägga till eller uppdatera en användares profil information med hjälp av Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-1. Om du har valt **Välj en viss god kännare**klickar du på **Lägg till god kännare** för att välja en eller flera användare eller grupper i din katalog som ska vara god kännare.
+1. Om du har valt **Välj en viss god kännare** klickar du på **Lägg till god kännare** för att välja en eller flera användare eller grupper i din katalog som ska vara god kännare.
 
 1. I rutan under **beslut måste fattas i hur många dagar?** anger du antalet dagar som en god kännare måste granska en begäran om det här åtkomst paketet.
 
     Om en begäran inte godkänns inom den här tids perioden kommer den automatiskt att nekas. Användaren måste skicka en annan begäran om åtkomst paketet.
 
-1. Om du vill att god kännare ska kunna ge en motivering för sitt beslut anger du **Ja**som krav på god kännare.
+1. Om du vill att god kännare ska kunna ge en motivering för sitt beslut anger du **Ja** som krav på god kännare.
 
     Motiveringen är synlig för andra god kännare och begär Ande.
 
@@ -157,7 +157,7 @@ Använd följande steg för att lägga till god kännare när du har valt hur m�
 
 Om du valde ett 2-stegs godkännande måste du lägga till en andra god kännare.
 
-1. Lägg till den **andra god kännaren**: 
+1. Lägg till den **andra god kännaren** : 
     
     Om användarna finns i din katalog lägger du till en speciell användare som den andra god kännaren genom att klicka på **Lägg till god kännare** under Välj vissa god kännare.
 
@@ -167,9 +167,9 @@ Om du valde ett 2-stegs godkännande måste du lägga till en andra god kännare
 
     ![Åtkomst till paket-begär Anden – för användare utanför katalog-andra god kännare](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
 
-1. Ange antalet dagar som den andra god kännaren måste godkänna begäran i rutan under **beslut måste fattas i hur många dagar?**. 
+1. Ange antalet dagar som den andra god kännaren måste godkänna begäran i rutan under **beslut måste fattas i hur många dagar?** . 
 
-1. Ange justeringen Kräv god kännare för att växla till **Ja** eller **Nej**.
+1. Ange justeringen Kräv god kännare för att växla till **Ja** eller **Nej** .
 
 ### <a name="alternate-approvers"></a>Alternativa god kännare
 
@@ -182,11 +182,11 @@ När begäran har vidarebefordrats till alternativa god kännare kan de första 
 Vi kan lista personer eller grupper med personer som ska vara god kännare och alternativa god kännare. Se till att du listar olika uppsättningar med personer som de första, andra och alternativa god kännarna.
 Om du till exempel har listat Alice och Bob som första god kännare, anger du Carol och Dave som alternativa god kännare. Använd följande steg för att lägga till alternativa god kännare i ett Access-paket:
 
-1. Under den första god kännaren, andra god kännaren eller båda klickar du på **Visa avancerade inställningar för begäran**.
+1. Under den första god kännaren, andra god kännaren eller båda klickar du på **Visa avancerade inställningar för begäran** .
 
     ![Åtkomst paket – princip – Visa avancerade inställningar för begäran](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
-1. Ange **om ingen åtgärd har vidtagits, vidarebefordra till alternativa god kännare?** växla till **Ja**.
+1. Ange **om ingen åtgärd har vidtagits, vidarebefordra till alternativa god kännare?** växla till **Ja** .
 
 1. Klicka på **Lägg till alternativa god kännare** och välj alternativa god kännare i listan.
 
@@ -198,15 +198,15 @@ Om du till exempel har listat Alice och Bob som första god kännare, anger du C
 
 ## <a name="enable-requests"></a>Aktivera begär Anden
 
-1. Om du vill att Access-paketet ska göras omedelbart tillgängligt för användare i förfrågnings principen att begära, flytta aktivera växla till **Ja**.
+1. Om du vill att Access-paketet ska göras omedelbart tillgängligt för användare i förfrågnings principen att begära, flytta aktivera växla till **Ja** .
 
     Du kan alltid aktivera det i framtiden när du är klar med att skapa åtkomst paketet.
 
-    Om du har valt **Ingen (endast administratörers direkta tilldelningar)** och du anger Tillåt till **Nej**kan administratörer inte tilldela det här åtkomst paketet direkt.
+    Om du har valt **Ingen (endast administratörers direkta tilldelningar)** och du anger Tillåt till **Nej** kan administratörer inte tilldela det här åtkomst paketet direkt.
 
-    ![Åtkomst paket-princip-aktivera princip inställning](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+    ![Skärm bild som visar alternativet för att aktivera nya begär Anden och tilldelningar.](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
-1. Klicka på **Nästa**.
+1. Klicka på **Nästa** .
 
 ## <a name="add-requestor-information-preview-to-an-access-package"></a>Lägg till information om beställare (för hands version) i ett Access-paket
 
@@ -216,24 +216,24 @@ Om du till exempel har listat Alice och Bob som första god kännare, anger du C
 
     ![Åtkomst paket – princip – aktivera inställning för begär ande information](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
-1. Om du vill lägga till dina egna lokaliserings alternativ klickar du på **Lägg till lokalisering**.
+1. Om du vill lägga till dina egna lokaliserings alternativ klickar du på **Lägg till lokalisering** .
     1. I fönstret **Lägg till lokaliseringar för fråga** väljer du **språk koden** för det språk som du vill lokalisera frågan i.
     1. Skriv frågan i den **lokaliserade text** rutan på det språk som du har konfigurerat.
-    1. När du har lagt till alla nödvändiga lokaliseringar klickar du på **Spara**.
+    1. När du har lagt till alla nödvändiga lokaliseringar klickar du på **Spara** .
 
     ![Åtkomst paket – princip – konfigurera lokaliserad text](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
 
-1. Välj det **svars format** som du vill att beställare ska besvara. Svars formaten är: *kort text*, *flera alternativ*och *långt text*.
+1. Välj det **svars format** som du vill att beställare ska besvara. Svars formaten är: *kort text* , *flera alternativ* och *långt text* .
  
     ![Åtkomst paket-princip – Välj Visa och redigera flera alternativ svars format](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
 1. Om du väljer flera alternativ klickar du på knappen **Visa och redigera** för att konfigurera svars alternativen.
     1. När du har valt Visa och redigera fönstret **Visa/redigera fråga** öppnas.
     1. Ange de svars alternativ som du vill ge den begär Ande när du besvarar frågan i rutan **svars värden** .
-    1. Skriv in så många svar som du behöver och klicka sedan på **Spara**.
+    1. Skriv in så många svar som du behöver och klicka sedan på **Spara** .
     
     ![Åtkomst paket-princip – ange flera alternativ](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   
-1. Om du vill kräva att beställare besvarar den här frågan när du begär åtkomst till ett Access-paket, klickar du på kryss rutan under **obligatorisk**.
+1. Om du vill kräva att beställare besvarar den här frågan när du begär åtkomst till ett Access-paket, klickar du på kryss rutan under **obligatorisk** .
 
 1. Klicka på Nästa

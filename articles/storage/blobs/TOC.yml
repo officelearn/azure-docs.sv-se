@@ -679,6 +679,8 @@
           href: data-lake-storage-best-practices.md
         - name: Frågeacceleration
           href: data-lake-storage-query-acceleration.md
+        - name: Premium-nivån för Data Lake Storage
+          href: premium-tier-for-data-lake-storage.md
         - name: Arkitektur
           items:
             - name: Drivrutin för Azure Blob-filsystemet för Hadoop

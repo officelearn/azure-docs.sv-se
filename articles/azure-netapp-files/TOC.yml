@@ -11,7 +11,8 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Konfigurera Azure NetApp Files och skapa en NFS-volym
+    - name: Konfigurera Azure NetApp Files och skapa en NFS-volym – ARM-mall
+      displayName: Resource Manager
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Begrepp
   items:

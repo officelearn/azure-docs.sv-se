@@ -59,6 +59,8 @@
           href: container-registry-geo-replication.md
         - name: Registrera metodtips
           href: container-registry-best-practices.md
+        - name: Hantera offentliga avbildningar
+          href: buffer-gate-public-content.md
     - name: Anvisningar
       expanded: false
       items:

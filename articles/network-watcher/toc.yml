@@ -13,7 +13,8 @@
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: Diagnostisera problem med VM-trafikfilter – Azure CLI
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
-    - name: Konfigurera NSG Flow-loggar med ARM-mall
+    - name: Konfigurera NSG-flödesloggar med ARM-mall
+      displayName: Resource Manager
       href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Självstudier
   items:
@@ -85,7 +86,7 @@
               href: diagnose-vm-network-routing-problem-cli.md
         - name: Diagnosticera problem med utgående anslutningar
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: network-watcher-connectivity-portal.md
             - name: Azure PowerShell
               href: network-watcher-connectivity-powershell.md

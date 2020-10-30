@@ -1,24 +1,25 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0068bd151c3d7d243b05c326ec73a201f4131296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 393b29245141b2970e7c1a227d6e8b1b131c445c
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67187235"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93061664"
 ---
 Om du vill skapa en P2S-anslutning från en annan klientdator än den som du använde för att generera klientcertifikat, måste du installera ett klientcertifikat. När du installerar ett klientcertifikat behöver du lösenordet som skapades när klientcertifikatet exporterades.
 
-1. Leta upp och kopiera *.pfx*-filen till klientdatorn. Installera *.pfx*-filen genom att dubbelklicka på den på klientdatorn. Lämna **Lagringsplats** som **Aktuell användare** och klicka sedan på **Nästa**.
-2. Gör inga ändringar på sidan för den **Fil** som ska importeras. Klicka på **Nästa**.
-3. På sidan **skydd av privat nyckel** skriver du in lösen ordet för certifikatet eller kontrollerar att säkerhetsobjektet är korrekt och klickar sedan på **Nästa**.
-4. På sidan **Certifikatarkiv** låter du standardplatsen stå kvar och klickar sedan på **Nästa**.
-5. Klicka på **Finish**. På sidan **Säkerhetsvarning** för certifikatinstallationen klickar du på **Ja**. Eftersom du har genererat certifikatet kan du klicka på ”Ja” utan att oroa dig. Certifikatet har nu importerats.
+1. Leta upp och kopiera *.pfx* -filen till klientdatorn. Installera *.pfx* -filen genom att dubbelklicka på den på klientdatorn. Lämna **lagrings platsen** som **Aktuell användare** och välj sedan **Nästa** .
+1. Gör inga ändringar på sidan för den **Fil** som ska importeras. Välj **Nästa** .
+1. På sidan **skydd av privat nyckel** anger du lösen ordet för certifikatet eller kontrollerar att säkerhetsobjektet är korrekt och väljer sedan **Nästa** .
+1. På sidan **certifikat Arkiv** lämnar du standard platsen och väljer sedan **Nästa** .
+1. Välj **Slutför** . Välj **Ja** i **säkerhets varningen** för certifikat installationen. Du kan bekvämt välja Ja för den här säkerhets varningen eftersom du har genererat certifikatet.
+1. Certifikatet har nu importerats.

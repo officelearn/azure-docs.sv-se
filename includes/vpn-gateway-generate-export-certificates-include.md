@@ -1,26 +1,28 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/19/2020
+ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e85dc8c079205484db9b7b7c43a0086f69feb3be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8e3df77df53b887c4367e46b05d8a7ea4eed2f6
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80059922"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93061661"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Skapa ett självsignerat rot certifikat
 
 Använd New-SelfSignedCertificate-cmdlet för att skapa ett självsignerat rot certifikat. Mer parameter information finns i [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
 1. Från en dator som kör Windows 10 eller Windows Server 2016 öppnar du en Windows PowerShell-konsol med utökade privilegier. Dessa exempel fungerar inte i Azure Cloud Shell "testa". Du måste köra dessa exempel lokalt.
-2. Använd följande exempel för att skapa det självsignerade rot certifikatet. I följande exempel skapas ett självsignerat rot certifikat med namnet ' P2SRootCert ' som installeras automatiskt i ' certificates-Current User\Personal\Certificates '. Du kan visa certifikatet genom att öppna *certmgr. msc*eller *hantera användar certifikat*.
+1. Använd följande exempel för att skapa det självsignerade rot certifikatet. I följande exempel skapas ett självsignerat rot certifikat med namnet ' P2SRootCert ' som installeras automatiskt i ' certificates-Current User\Personal\Certificates '. Du kan visa certifikatet genom att öppna *certmgr. msc* eller *hantera användar certifikat* .
+
+   Logga in med `Connect-AzAccount` cmdleten. Kör sedan följande exempel med eventuella nödvändiga ändringar.
 
    ```powershell
    $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
@@ -28,7 +30,8 @@ Använd New-SelfSignedCertificate-cmdlet för att skapa ett självsignerat rot c
    -HashAlgorithm sha256 -KeyLength 2048 `
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
- 3. Låt PowerShell-konsolen vara öppen om du vill skapa ett klient certifikat direkt efter att du har skapat rot certifikatet.
+
+1. Låt PowerShell-konsolen vara öppen och fortsätt med nästa steg för att generera ett klient certifikat.
 
 ## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Generera ett klientcertifikat
 
@@ -61,7 +64,8 @@ Använd följande steg om du skapar ytterligare klient certifikat eller inte anv
    ```powershell
    Get-ChildItem -Path "Cert:\CurrentUser\My"
    ```
-2. Leta upp ämnes namnet i den returnerade listan och kopiera sedan det tumavtryck som finns bredvid den till en textfil. I följande exempel finns det två certifikat. CN-namnet är namnet på det självsignerade rot certifikat som du vill skapa ett underordnat certifikat från. I det här fallet "P2SRootCert".
+
+1. Leta upp ämnes namnet i den returnerade listan och kopiera sedan det tumavtryck som finns bredvid den till en textfil. I följande exempel finns det två certifikat. CN-namnet är namnet på det självsignerade rot certifikat som du vill skapa ett underordnat certifikat från. I det här fallet "P2SRootCert".
 
    ```
    Thumbprint                                Subject
@@ -69,7 +73,8 @@ Använd följande steg om du skapar ytterligare klient certifikat eller inte anv
    AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
    7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
    ```
-3. Deklarera en variabel för rot certifikatet med tumavtrycket från föregående steg. Ersätt TUMAVTRYCKET med tumavtrycket för det rot certifikat som du vill skapa ett underordnat certifikat från.
+
+1. Deklarera en variabel för rot certifikatet med tumavtrycket från föregående steg. Ersätt TUMAVTRYCKET med tumavtrycket för det rot certifikat som du vill skapa ett underordnat certifikat från.
 
    ```powershell
    $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
@@ -80,7 +85,8 @@ Använd följande steg om du skapar ytterligare klient certifikat eller inte anv
    ```powershell
    $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
    ```
-4. Ändra och kör exemplet för att generera ett klient certifikat. Om du kör följande exempel utan att ändra det, är resultatet ett klient certifikat med namnet ' P2SChildCert '. Om du vill namnge det underordnade certifikatet något annat ändrar du värdet för CN. Ändra inte TextExtension när du kör det här exemplet. Det klient certifikat som du skapar installeras automatiskt i "certificates-Current User\Personal\Certificates" på din dator.
+
+1. Ändra och kör exemplet för att generera ett klient certifikat. Om du kör följande exempel utan att ändra det, är resultatet ett klient certifikat med namnet ' P2SChildCert '. Om du vill namnge det underordnade certifikatet något annat ändrar du värdet för CN. Ändra inte TextExtension när du kör det här exemplet. Det klient certifikat som du skapar installeras automatiskt i "certificates-Current User\Personal\Certificates" på din dator.
 
    ```powershell
    New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `

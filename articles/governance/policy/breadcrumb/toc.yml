@@ -18,3 +18,9 @@
         - name: Princip
           tocHref: /azure/aks
           topicHref: /azure/governance/policy
+        - name: Princip
+          tocHref: /azure/storage
+          topicHref: /azure/governance/policy
+        - name: Princip
+          tocHref: /azure/web-application-firewall
+          topicHref: /azure/governance/policy

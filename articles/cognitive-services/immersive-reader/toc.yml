@@ -38,6 +38,8 @@
   items:
     - name: JavaScript SDK
       href: reference.md
+    - name: Viktig information
+      href: release-notes.md
 - name: Resurser
   items:
     - name: Alternativ för support och hjälp

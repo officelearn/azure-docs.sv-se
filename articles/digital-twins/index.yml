@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Dokumentation om förhandsversionen av Azure Digital Twins
+title: Dokumentation om Azure Digital Twins
 summary: Lär dig hur du skapar en digital representation av tillgångar, miljöer och affärssystem med Azure Digital Twins för att bygga nästa generations IoT-lösningar med modeller av verkligheten.
 metadata:
-  title: Dokumentation om förhandsversionen av Azure Digital Twins – självstudier, API-referens | Microsoft Docs
+  title: Dokumentation om Azure Digital Twins – Självstudier, API-referens | Microsoft Docs
   description: Lär dig hur du använder Azure Digital Twins för att ansluta personer, platser och saker och för att skapa IoT-lösningar med spatial intelligens.
   ms.service: digital-twins
   ms.topic: landing-page
@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: b9d6067fe8c5c81024f6fa211d32e0ecc92f5a47
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: a05f168b18f32e2b4730e5ef50624d41fb48e147
+  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92358992"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93099104"
 landingContent:
 - title: Om Azure Digital Twins
   linkLists:

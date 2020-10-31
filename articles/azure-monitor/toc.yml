@@ -123,8 +123,6 @@
           href: platform/data-platform-metrics.md
         - name: Strömma data till Event Hubs
           href: platform/stream-monitoring-data-event-hubs.md
-    - name: Insikter
-      href: insights/insights-overview.md
     - name: Datasäkerhet
       items:
         - name: Loggdata
@@ -1062,7 +1060,7 @@
               href: insights/container-insights-optout-hybrid.md
         - name: Felsökning
           href: insights/container-insights-troubleshoot.md
-    - name: Andra insikter
+    - name: Insikter
       items:
         - name: Azure Cache for Redis (förhandsversion)
           href: insights/redis-cache-insights-overview.md
@@ -1079,61 +1077,61 @@
           href: insights/resource-group-insights.md
         - name: Felsöka insikter
           href: insights/troubleshoot-workbooks.md
-    - name: Lösningar
-      items:
-        - name: Översikt
-          href: insights/solutions.md
-          displayName: 'Azure CLI, az monitor log-analytics'
-        - name: Mållösningar
-          href: insights/solution-targeting.md
-        - name: Tillgängliga lösningar
+        - name: Lösningar
           items:
-            - name: Utvärdering av AD-hälsa
-              href: insights/ad-assessment.md
-            - name: AD-replikeringsstatus
-              href: insights/ad-replication-status.md
-            - name: Kapacitet och prestandalösning
-              href: insights/capacity-performance.md
-            - name: Övervakning av Docker- och Windows-containrar
-              href: insights/containers.md
-            - name: Nätverk
+            - name: Översikt
+              href: insights/solutions.md
+              displayName: 'Azure CLI, az monitor log-analytics'
+            - name: Mållösningar
+              href: insights/solution-targeting.md
+            - name: Tillgängliga lösningar
               items:
-                - name: Nätverksanalys
-                  href: insights/azure-networking-analytics.md
-                - name: DNS
-                  href: insights/dns-analytics.md
-                - name: Övervakning av nätverksprestanda
+                - name: Utvärdering av AD-hälsa
+                  href: insights/ad-assessment.md
+                - name: AD-replikeringsstatus
+                  href: insights/ad-replication-status.md
+                - name: Kapacitet och prestandalösning
+                  href: insights/capacity-performance.md
+                - name: Övervakning av Docker- och Windows-containrar
+                  href: insights/containers.md
+                - name: Nätverk
                   items:
-                    - name: Lösningsöversikt
-                      href: insights/network-performance-monitor.md
-                    - name: Prestandaövervakaren
-                      href: insights/network-performance-monitor-performance-monitor.md
-                    - name: Övervakare av tjänstanslutning
-                      href: insights/network-performance-monitor-service-connectivity.md
-                    - name: ExpressRoute
-                      href: insights/network-performance-monitor-expressroute.md
-                    - name: Prissättning
-                      href: insights/network-performance-monitor-pricing-faq.md
-                    - name: VANLIGA FRÅGOR OCH SVAR
-                      href: insights/network-performance-monitor-faq.md
-            - name: Office 365
-              href: insights/solution-office-365.md
-            - name: Lösningen Tjänstkarta
-              href: insights/service-map.md
-            - name: Tjänstkarta och Operations Manager
-              href: insights/service-map-scom.md
-            - name: Azure SQL
-              href: insights/azure-sql.md
-            - name: SQL Server
-              href: insights/sql-assessment.md
-            - name: Surface Hub
-              href: insights/surface-hubs.md
-            - name: VMware Analytics-lösning
-              href: insights/vmware.md
-            - name: Wire Data-lösning
-              href: insights/wire-data.md
-            - name: Lösning för aviseringshantering
-              href: platform/alert-management-solution.md
+                    - name: Nätverksanalys
+                      href: insights/azure-networking-analytics.md
+                    - name: DNS
+                      href: insights/dns-analytics.md
+                    - name: Övervakning av nätverksprestanda
+                      items:
+                        - name: Lösningsöversikt
+                          href: insights/network-performance-monitor.md
+                        - name: Prestandaövervakaren
+                          href: insights/network-performance-monitor-performance-monitor.md
+                        - name: Övervakare av tjänstanslutning
+                          href: insights/network-performance-monitor-service-connectivity.md
+                        - name: ExpressRoute
+                          href: insights/network-performance-monitor-expressroute.md
+                        - name: Prissättning
+                          href: insights/network-performance-monitor-pricing-faq.md
+                        - name: VANLIGA FRÅGOR OCH SVAR
+                          href: insights/network-performance-monitor-faq.md
+                - name: Office 365
+                  href: insights/solution-office-365.md
+                - name: Lösningen Tjänstkarta
+                  href: insights/service-map.md
+                - name: Tjänstkarta och Operations Manager
+                  href: insights/service-map-scom.md
+                - name: Azure SQL
+                  href: insights/azure-sql.md
+                - name: SQL Server
+                  href: insights/sql-assessment.md
+                - name: Surface Hub
+                  href: insights/surface-hubs.md
+                - name: VMware Analytics-lösning
+                  href: insights/vmware.md
+                - name: Wire Data-lösning
+                  href: insights/wire-data.md
+                - name: Lösning för aviseringshantering
+                  href: platform/alert-management-solution.md
     - name: Arbetsböcker
       items:
         - name: Översikt

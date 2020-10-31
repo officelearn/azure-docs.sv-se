@@ -5,10 +5,6 @@
       items:
         - name: Vad är Azure Dev Spaces?
           href: about.md
-    - name: Självstudier
-      items:
-        - name: Komma igång med Visual Studio
-          href: get-started-netcore-visualstudio.md
     - name: Begrepp
       items:
         - name: Migrera till Bridge to Kubernetes

@@ -731,6 +731,10 @@
               items:
                 - name: Felsöka Java-SDK v4
                   href: troubleshoot-java-sdk-v4-sql.md
+                - name: Felsöka timeout för begäran
+                  href: troubleshoot-request-timeout-java-sdk-v4-sql.md
+                - name: Felsöka tjänsten är inte tillgänglig
+                  href: troubleshoot-service-unavailable-java-sdk-v4-sql.md
                 - name: Felsöka – asynkron Java SDK v2
                   href: troubleshoot-java-async-sdk.md
         - name: Ändringsfeed
@@ -877,8 +881,6 @@
         - name: Resource Manager-mall
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
-        - name: Publiceringsinformation om emulatorn
-          href: local-emulator-release-notes.md
         - name: Inbyggda Azure Policy-program
           displayName: 'samples, policies, definitions'
           href: ./policy-reference.md
@@ -1233,7 +1235,7 @@
       items:
         - name: VANLIGA FRÅGOR OCH SVAR
           href: table-api-faq.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       items:
         - name: Skapa appar med tabell-API
           href: table-support.md
@@ -1279,6 +1281,8 @@
               href: emulator-command-line-parameters.md
             - name: Felsökning för emulatorn
               href: troubleshoot-local-emulator.md
+            - name: Publiceringsinformation om emulatorn
+              href: local-emulator-release-notes.md
             - name: Visual Studio Code-tillägg
               href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
         - name: Konfigurera pipeline för Azure DevOps CI/CD

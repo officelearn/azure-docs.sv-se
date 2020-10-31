@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 35b1b07bd4d9eef555be26e1c24356b7c352bf38
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100702"
+ms.locfileid: "93130348"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Översikt över Ändringsspårning och inventering
 
@@ -93,7 +93,7 @@ För att spåra ändringar i filer på både Windows och Linux använder Ändrin
 
 ## <a name="tracking-file-content-changes"></a>Spåra ändringar i fil innehåll
 
-Med Ändringsspårning och inventering kan du visa innehållet i en Windows-eller Linux-fil. För varje ändring i en fil lagrar Ändringsspårning och lager innehållet i filen i ett [Azure Storage konto](/azure/storage/common/storage-account-create). När du spårar en fil kan du visa dess innehåll före eller efter en ändring. Fil innehållet kan visas antingen i rad eller sida vid sida.
+Med Ändringsspårning och inventering kan du visa innehållet i en Windows-eller Linux-fil. För varje ändring i en fil lagrar Ändringsspårning och lager innehållet i filen i ett [Azure Storage konto](../../storage/common/storage-account-create.md). När du spårar en fil kan du visa dess innehåll före eller efter en ändring. Fil innehållet kan visas antingen i rad eller sida vid sida.
 
 ![Visa ändringar i en fil](./media/overview/view-file-changes.png)
 
@@ -158,7 +158,7 @@ I följande tabell visas gränserna för spårade objekt per dator för Ändring
 |Tjänster|250|
 |Daemons|250|
 
-Genomsnitts Log Analytics data användningen för en dator som använder Ändringsspårning och inventering är cirka 40 MB per månad, beroende på din miljö. Med funktionen användning och uppskattade kostnader i arbets ytan Log Analytics kan du visa data som matas in av Ändringsspårning och inventering i ett användnings diagram. Använd den här datavyn för att utvärdera din data användning och ta reda på hur den påverkar din faktura. Se [förstå användningen och beräkna kostnaderna](/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+Genomsnitts Log Analytics data användningen för en dator som använder Ändringsspårning och inventering är cirka 40 MB per månad, beroende på din miljö. Med funktionen användning och uppskattade kostnader i arbets ytan Log Analytics kan du visa data som matas in av Ändringsspårning och inventering i ett användnings diagram. Använd den här datavyn för att utvärdera din data användning och ta reda på hur den påverkar din faktura. Se [förstå användningen och beräkna kostnaderna](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Microsoft-tjänstedata
 

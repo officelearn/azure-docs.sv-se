@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c32ba468979e4566d8e349d481eddca7d407b659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218263"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130994"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Felsöka Azure Stream Analytics frågor lokalt med hjälp av jobb diagram i Visual Studio
 
@@ -32,7 +32,7 @@ Använd den här [snabb](stream-analytics-quick-create-vs.md) starten för att l
 > [!NOTE]
 > Om du exporterar ett jobb till ett lokalt projekt och vill testa mot en Live-indataströmmen måste du ange autentiseringsuppgifterna för alla indata igen.  
 
-Välj indata och utdata från skript redigeraren och välj **Kör lokalt**. Jobb diagrammet visas på den högra sidan.
+Välj indata och utdata från skript redigeraren och välj **Kör lokalt** . Jobb diagrammet visas på den högra sidan.
 
 ### <a name="view-the-intermediate-result-set"></a>Visa den mellanliggande resultat uppsättningen  
 
@@ -119,7 +119,7 @@ Andra mått på jobb nivå visas i pop up-konsolen. Tryck på **CTRL + C** i kon
 
 * Power BI och Azure Data Lake Storage Gen1 utgående mottagare stöds inte på grund av begränsningar för autentiserings modellen.
 
-* Endast moln indatatyper har stöd för [tids principer](stream-analytics-out-of-order-and-late-events.md) , medan alternativ för lokal indatamängd inte gör det.
+* Endast moln indatatyper har stöd för [tids principer](./stream-analytics-time-handling.md) , medan alternativ för lokal indatamängd inte gör det.
 
 ## <a name="next-steps"></a>Nästa steg
 

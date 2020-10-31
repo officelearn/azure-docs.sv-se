@@ -6,21 +6,18 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: 9704ff7dec02a0de044863ec2da6280d65b30ef0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dc0b620629b5dce651e02e5fe95b0619c1d42a78
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043548"
+ms.locfileid: "93131164"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Premium-nivå för Azure Data Lake Storage
 
-Azure Data Lake Storage Gen2 stöder nu [prestanda nivån Premium](storage-blob-performance-tiers.md#premium-performance). Premium Performance-nivån är idealisk för Big data Analytics-program och arbets belastningar som kräver låg konsekvent svars tid och har ett stort antal transaktioner. 
-
-> [!NOTE]
-> Premium-nivån för Azure Data Lake Storage finns i offentlig för hands version. Se [regional tillgänglighet](#regional-availability).
+Azure Data Lake Storage Gen2 stöder nu [prestanda nivån Premium](storage-blob-performance-tiers.md#premium-performance). Premium Performance-nivån är idealisk för Big data Analytics-program och arbets belastningar som kräver låg konsekvent svars tid och har ett stort antal transaktioner.
 
 ## <a name="workloads-that-can-benefit-from-the-premium-performance-tier"></a>Arbets belastningar som kan dra nytta av Premium prestanda nivån
 
@@ -106,8 +103,3 @@ Premium-nivån för Azure Data Lake Storage är tillgänglig i följande regione
 |Australien, östra|LRS, ZRS|
 |Sydöstra Australien|LRS|
 |Brasilien, södra|LRS|
-
-
-## <a name="next-steps"></a>Nästa steg
-
-Se Premium-nivån för Azure Data Lake Storage [blogg meddelande](https://www.microsoft.com).

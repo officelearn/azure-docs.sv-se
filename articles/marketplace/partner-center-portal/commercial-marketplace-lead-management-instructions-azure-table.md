@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
-ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 925bc79d54def3f2aec4657196b8cea53704396f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030805"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130654"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Använd Azure Table Storage för att hantera leads på kommersiella marknads platser
 
@@ -26,7 +26,7 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
     1. Välj **+ skapa en resurs** i den vänstra meny raden. Fönstret **nytt** visas till höger.
     1. Välj **lagring** i det **nya** fönstret. En **aktuell** lista visas till höger.
-    1. Välj **lagrings konto** för att börja skapa konto. Följ instruktionerna i [skapa ett lagrings konto](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    1. Välj **lagrings konto** för att börja skapa konto. Följ instruktionerna i [skapa ett lagrings konto](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
         :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Steg för att skapa ett Azure Storage-konto.":::
 
@@ -51,7 +51,7 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
     :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Steg för att skapa ett Azure Storage-konto.":::
 
 
-1. I fönstret lagrings konto väljer du **tabeller**och sedan **+ tabell** för att skapa en tabell. Ange ett namn för tabellen och välj **OK**. Spara det här värdet eftersom du behöver det om du vill konfigurera ett flöde för att ta emot e-postaviseringar när leads tas emot.
+1. I fönstret lagrings konto väljer du **tabeller** och sedan **+ tabell** för att skapa en tabell. Ange ett namn för tabellen och välj **OK** . Spara det här värdet eftersom du behöver det om du vill konfigurera ett flöde för att ta emot e-postaviseringar när leads tas emot.
 
     ![Azure-tabeller](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
@@ -59,32 +59,32 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
 ## <a name="optional-use-power-automate-to-get-lead-notifications"></a>Valfritt Använd energi automatisering för att få aviseringar om lead
 
-Du kan använda automatisk [Energis par](https://docs.microsoft.com/flow/) för att automatisera meddelanden varje gång ett lead läggs till i Azure Storages tabellen. Om du inte har ett konto kan du [Registrera dig för ett kostnads fritt konto](https://flow.microsoft.com/).
+Du kan använda automatisk [Energis par](/flow/) för att automatisera meddelanden varje gång ett lead läggs till i Azure Storages tabellen. Om du inte har ett konto kan du [Registrera dig för ett kostnads fritt konto](https://flow.microsoft.com/).
 
 ### <a name="lead-notification-example"></a>Exempel på lead-avisering
 
 Exemplet skapar ett flöde som automatiskt skickar ett e-postmeddelande när ett nytt lead läggs till i Azure Table Storage. Det här exemplet ställer in en upprepning för att skicka lead-information varje timme om tabell lagringen uppdateras.
 
 1. Logga in på ditt energi automatiserade konto.
-1. I det vänstra fältet väljer du **mina flöden**.
-1. I det översta fältet väljer du **+ ny**.
-1. I list rutan väljer du **+ schemalagd--från Tom**.
+1. I det vänstra fältet väljer du **mina flöden** .
+1. I det översta fältet väljer du **+ ny** .
+1. I list rutan väljer du **+ schemalagd--från Tom** .
 
    ![Mina flöden + schemalagda – från Tom](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-1. I fönstret **skapa ett schemalagt flöde** , för **Upprepa var**, väljer du **1** för intervallet och **timmen** för frekvensen. Ge också flödet ett namn om du vill. Välj **Skapa**.
+1. I fönstret **skapa ett schemalagt flöde** , för **Upprepa var** , väljer du **1** för intervallet och **timmen** för frekvensen. Ge också flödet ett namn om du vill. Välj **Skapa** .
 
    >[!NOTE]
    >Även om det här exemplet använder ett intervall på en timme kan du välja det intervall och den frekvens som passar dina affärs behov bäst.
 
    ![Bygg ett schemalagt flöde](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
-1. Välj **+ Nytt steg**.
-1. I fönstret **Välj en åtgärd** söker du efter **Hämta tidigare tid**. Under **åtgärder**väljer du **Hämta tidigare tid**.
+1. Välj **+ Nytt steg** .
+1. I fönstret **Välj en åtgärd** söker du efter **Hämta tidigare tid** . Under **åtgärder** väljer du **Hämta tidigare tid** .
 
    ![Välj en åtgärd](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
-1. I fönstret **Hämta tidigare tid** anger du **intervall** till **1**. I list rutan **tidsenhet** väljer du **timme**.
+1. I fönstret **Hämta tidigare tid** anger du **intervall** till **1** . I list rutan **tidsenhet** väljer du **timme** .
 
     >[!IMPORTANT]
     >Kontrol lera att intervallet och tidsenheten som du skickade i steg 8 matchar intervallet och frekvensen som du konfigurerade för upprepning i steg 5.
@@ -96,33 +96,33 @@ Exemplet skapar ett flöde som automatiskt skickar ett e-postmeddelande när ett
 
    I nästa uppsättning steg ansluter du till din tabell och konfigurerar bearbetnings logiken för att hantera nya leads.
 
-1. Välj **+ Nytt steg**. Sök sedan efter **Hämta entiteter** i fönstret **Välj en åtgärd** .
-1. Under **åtgärder**väljer du **Hämta entiteter (Azure Table Storage)**.
-1. I fönstret **Azure Table Storage** anger du information för följande rutor och väljer **skapa**:
+1. Välj **+ Nytt steg** . Sök sedan efter **Hämta entiteter** i fönstret **Välj en åtgärd** .
+1. Under **åtgärder** väljer du **Hämta entiteter (Azure Table Storage)** .
+1. I fönstret **Azure Table Storage** anger du information för följande rutor och väljer **skapa** :
 
-    * **Anslutnings namn**: Ange ett beskrivande namn för anslutningen som du etablerar mellan det här flödet och tabellen.
-    * **Lagrings konto namn**: Ange namnet på lagrings kontot för din tabell. Du kan hitta det här namnet på lagrings kontots **åtkomst nycklar** sida.
-    * **Delad lagrings nyckel**: Ange nyckel värdet för ditt lagrings konto för din tabell. Du hittar det här värdet på sidan **åtkomst nycklar** för lagrings kontot.
+    * **Anslutnings namn** : Ange ett beskrivande namn för anslutningen som du etablerar mellan det här flödet och tabellen.
+    * **Lagrings konto namn** : Ange namnet på lagrings kontot för din tabell. Du kan hitta det här namnet på lagrings kontots **åtkomst nycklar** sida.
+    * **Delad lagrings nyckel** : Ange nyckel värdet för ditt lagrings konto för din tabell. Du hittar det här värdet på sidan **åtkomst nycklar** för lagrings kontot.
 
       ![Fönstret Azure Table Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-   När du har valt **skapa**visas fönstret **Hämta enheter** . Här väljer du **Visa avancerade alternativ**och ange information för följande rutor:
+   När du har valt **skapa** visas fönstret **Hämta enheter** . Här väljer du **Visa avancerade alternativ** och ange information för följande rutor:
 
-   * **Tabell**: Välj namnet på din tabell (från [skapa en tabell](#create-a-table-in-your-storage-account)). Följande bild visar frågan när `marketplaceleads` tabellen är markerad i det här exemplet.
+   * **Tabell** : Välj namnet på din tabell (från [skapa en tabell](#create-a-table-in-your-storage-account)). Följande bild visar frågan när `marketplaceleads` tabellen är markerad i det här exemplet.
 
      ![Fönstret Hämta entiteter](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-   * **Filter fråga**: Markera den här rutan och klistra in den här funktionen i rutan: `Timestamp gt datetime'@{body('Get_past_time')}'`
+   * **Filter fråga** : Markera den här rutan och klistra in den här funktionen i rutan: `Timestamp gt datetime'@{body('Get_past_time')}'`
 
      ![Hämta entiteter, filtrera fråga rutan](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
 1. Nu när du har slutfört konfigurationen av anslutningen till Azure-tabellen väljer du **nytt steg** för att lägga till ett villkor för att söka igenom Azure-tabellen efter nya leads.
 
-1. I fönstret **Välj en åtgärd** väljer du **åtgärder**. Välj sedan **villkors kontroll**.
+1. I fönstret **Välj en åtgärd** väljer du **åtgärder** . Välj sedan **villkors kontroll** .
 
     ![Välj ett åtgärds fönster](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-action.png)
 
-1. I fönstret **villkor** väljer du **Välj ett värde**. Välj sedan **uttryck** i popup-fönstret.
+1. I fönstret **villkor** väljer du **Välj ett värde** . Välj sedan **uttryck** i popup-fönstret.
 
 1. Klistra in `length(body('Get_entities')?['value'])` i **FX** -rutan. Välj **OK** för att lägga till den här funktionen.
 
@@ -134,14 +134,14 @@ Exemplet skapar ett flöde som automatiskt skickar ett e-postmeddelande när ett
 
    I de följande stegen ställer du in åtgärden som ska utföras baserat på resultatet av villkoret:
 
-   * Om villkoret matchar **om nej**, gör ingenting.
-   * Om villkoret är uppfyllt vid **Ja**, Utlös en åtgärd som ansluter ditt arbets-eller skol konto för att skicka ett e-postmeddelande. 
+   * Om villkoret matchar **om nej** , gör ingenting.
+   * Om villkoret är uppfyllt vid **Ja** , Utlös en åtgärd som ansluter ditt arbets-eller skol konto för att skicka ett e-postmeddelande. 
 
-1. Välj **Lägg till en åtgärd** under **om ja**.
+1. Välj **Lägg till en åtgärd** under **om ja** .
 
     ![Villkors fönster, om ja, Lägg till en åtgärd](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes.png)
 
-1. Välj **Skicka ett e-postmeddelande (Office 365 Outlook)**.
+1. Välj **Skicka ett e-postmeddelande (Office 365 Outlook)** .
 
     ![Villkors fönster, om ja, skicka ett e-postmeddelande](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-send-email.png)
 
@@ -150,16 +150,16 @@ Exemplet skapar ett flöde som automatiskt skickar ett e-postmeddelande när ett
 
 1. I Outlook-fönstret för Office 365 anger du information för följande rutor:
 
-    1. **Till**: Ange en e-postadress för alla som får det här meddelandet.
-    1. **Ämne**: Ange ett ämne för e-postmeddelandet. Ett exempel är **nya leads!**
-    1. **Brödtext**: Lägg till den text som du vill inkludera i varje e-post (valfritt) och klistra in `body('Get_entities')?['value']` .
+    1. **Till** : Ange en e-postadress för alla som får det här meddelandet.
+    1. **Ämne** : Ange ett ämne för e-postmeddelandet. Ett exempel är **nya leads!**
+    1. **Brödtext** : Lägg till den text som du vill inkludera i varje e-post (valfritt) och klistra in `body('Get_entities')?['value']` .
 
     >[!NOTE]
     >Du kan infoga ytterligare statiska eller dynamiska data punkter i bröd texten i det här e-postmeddelandet.
 
     ![Fönstret villkor, om ja, Office 365 Outlook-fönstret](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
 
-1. Spara flödet genom att klicka på **Spara**. Automatisk avstängning testar flödet för fel. Om det inte finns några fel börjar flödet att köras när det har sparats.
+1. Spara flödet genom att klicka på **Spara** . Automatisk avstängning testar flödet för fel. Om det inte finns några fel börjar flödet att köras när det har sparats.
 
 Följande bild visar ett exempel på hur det slutliga flödet ska se ut.
 
@@ -183,19 +183,19 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 
 1. Gå till installations sidan för **erbjudandet** för ditt erbjudande.
 
-1. Under avsnittet **kund leads** väljer du **Anslut**.
+1. Under avsnittet **kund leads** väljer du **Anslut** .
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Steg för att skapa ett Azure Storage-konto.":::
 
-1. I popup-fönstret **anslutnings information** väljer du Azure- **tabell** för lead- **målet**. 
+1. I popup-fönstret **anslutnings information** väljer du Azure- **tabell** för lead- **målet** . 
      ![Lead-hantering, anslutnings information](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
 
 1. Klistra in anslutnings strängen från Azure Storage-kontot som du skapade genom att följa de tidigare stegen i rutan **anslutnings sträng för lagrings konto** .
      ![Hantering av leads, anslutnings information lagrings konto](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
 
-1. **Kontakta e-post**: Ange e-postmeddelanden för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postmeddelanden genom att avgränsa dem med semikolon.
+1. **Kontakta e-post** : Ange e-postmeddelanden för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postmeddelanden genom att avgränsa dem med semikolon.
 
-1. Välj **OK**.
+1. Välj **OK** .
 
 Om du vill kontrol lera att du har anslutit till ett lead-mål väljer du knappen **Verifiera** . Om det lyckas har du ett test lead i lead-målet.
 

@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: eed10f13b9495ab2cccfd9c57ae14ccc5d8e4a63
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 40f8a63481adc2e5641337c41dee1cf55d1f39ae
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043552"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130314"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrera virtuella VMware-datorer till Azure (utan agent) – PowerShell
 
@@ -31,9 +31,9 @@ Lär dig att:
 > [!NOTE]
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudierna använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar de här självstudierna bör du:
 
@@ -114,10 +114,10 @@ $DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.
 
 [Azure Migrate: Server migreringen](migrate-services-overview.md#azure-migrate-server-migration-tool) utnyttjar flera Azure-resurser för att migrera virtuella datorer. Server migrationen etablerar följande resurser i samma resurs grupp som projektet.
 
-- **Service Bus**: Server-migreringen använder Service Bus för att skicka meddelanden om dirigering av replikering till enheten.
-- **Gateway Storage-konto**: Server Migration använder Gateway Storage-kontot för att lagra statusinformation om de virtuella datorer som replikeras.
-- **Logg lagrings konto**: Azure Migrate-installationen överför replik loggar för virtuella datorer till ett logg lagrings konto. Azure Migrate använder replikeringsinformation på de replik hanterade diskarna.
-- **Nyckel valv**: Azure Migrates enheten använder nyckel valvet för att hantera anslutnings strängar för Service Bus och åtkomst nycklar för de lagrings konton som används i replikeringen.
+- **Service Bus** : Server-migreringen använder Service Bus för att skicka meddelanden om dirigering av replikering till enheten.
+- **Gateway Storage-konto** : Server Migration använder Gateway Storage-kontot för att lagra statusinformation om de virtuella datorer som replikeras.
+- **Logg lagrings konto** : Azure Migrate-installationen överför replik loggar för virtuella datorer till ett logg lagrings konto. Azure Migrate använder replikeringsinformation på de replik hanterade diskarna.
+- **Nyckel valv** : Azure Migrates enheten använder nyckel valvet för att hantera anslutnings strängar för Service Bus och åtkomst nycklar för de lagrings konton som används i replikeringen.
 
 Innan du replikerar den första virtuella datorn i Azure Migrate-projektet kör du följande skript för att etablera infrastrukturen för replikering. Det här skriptet etablerar och konfigurerar de ovannämnda resurserna så att du kan börja migrera dina virtuella VMware-datorer.
 
@@ -146,7 +146,7 @@ Du kan ange egenskaperna för replikering enligt följande.
 - **Målets virtuella nätverk och undernät** – ange ID: t för Azure-Virtual Network och namnet på under nätet som den virtuella datorn ska migreras till med `TargetNetworkId` respektive `TargetSubnetName` parametrar. 
 - **Namn på virtuell måldator** – ange namnet på den virtuella Azure-dator som ska skapas med hjälp av `TargetVMName` parametern.
 - **Storlek på virtuell måldator** – ange storleken på den virtuella Azure-datorn som ska användas för den REPLIKERADE virtuella datorn med hjälp av `TargetVMSize` parametern. Om du till exempel vill migrera en virtuell dator till D2_v2 virtuell dator i Azure anger du värdet `TargetVMSize` som "Standard_D2_v2".  
-- **Licens** – om du vill använda Azure Hybrid-förmån för dina Windows Server-datorer som omfattas av aktiva Software Assurance-eller Windows Server-prenumerationer anger du värdet för `LicenseType` parametern "AHUB". Annars anger du värdet för `LicenseType` parametern "NoLicenseType".
+- **Licens** – om du vill använda Azure Hybrid-förmån för dina Windows Server-datorer som omfattas av aktiva Software Assurance-eller Windows Server-prenumerationer anger du värdet för `LicenseType` parametern "Windows Server". Annars anger du värdet för `LicenseType` parametern "NoLicenseType".
 - **OS-disk** – ange den unika identifieraren för den disk som innehåller operativ systemets start program och installations program. Det disk-ID som ska användas är egenskapen unik identifierare (UUID) för disken som hämtats med `Get-AzMigrateServer` cmdleten.
 - **Typ av disk** – ange värdet för `DiskType` parametern enligt följande.
     - Om du vill använda Premium-hanterade diskar anger du "Premium_LRS" som värde för `DiskType` parametern. 
@@ -156,6 +156,7 @@ Du kan ange egenskaperna för replikering enligt följande.
     - Tillgänglighets zon för att fästa den migrerade datorn i en angiven tillgänglighets zon i regionen. Använd det här alternativet för att distribuera servrar som utgör en program nivå med flera noder i Tillgänglighetszoner. Det här alternativet är bara tillgängligt om det valda mål området för migreringen stöder Tillgänglighetszoner. Om du vill använda tillgänglighets zoner anger du värdet tillgänglighets zon för `TargetAvailabilityZone` parametern.
     - Tillgänglighets uppsättning för att placera den migrerade datorn i en tillgänglighets uppsättning. Den valda mål resurs gruppen måste ha en eller flera tillgänglighets uppsättningar för att kunna använda det här alternativet. Ange tillgänglighets uppsättnings-ID för parametern om du vill använda tillgänglighets uppsättning `TargetAvailabilitySet` . 
 
+### <a name="replicate-vms-with-all-disks"></a>Replikera virtuella datorer med alla diskar
 I den här självstudien replikerar vi alla diskar för den identifierade virtuella datorn och anger ett nytt namn för den virtuella datorn i Azure. Vi anger den första disken i den identifierade servern som OS-disk och migrerar alla diskar som Standard HDD. Operativsystemdisken är den disk där operativsystemets bootloader och installationsprogram finns.
 
 ```azurepowershell
@@ -178,6 +179,7 @@ while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStart
 Write-Output $MigrateJob.State
 ```
 
+### <a name="replicate-vms-with-select-disks"></a>Replikera virtuella datorer med Välj diskar
 Du kan också selektivt replikera diskarna för den identifierade virtuella datorn med hjälp av `New-AzMigrateDiskMapping` cmdlet och tillhandahålla den som inmatad till `DiskToInclude` parametern i `New-AzMigrateServerReplication` cmdleten. Du kan också använda `New-AzMigrateDiskMapping` cmdlet för att ange olika mål disk typer för varje enskild disk som ska replikeras. 
 
 Ange värden för följande parametrar för `New-AzMigrateDiskMapping` cmdleten.

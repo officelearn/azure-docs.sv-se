@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 2808f0d3b99257d52b2d400424f256f980005863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bb5dccfc99a693ec89ed08ac31b77eb16442f73
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88607198"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129974"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Privata erbjudanden på Microsofts kommersiella marknads plats
 
@@ -30,18 +30,18 @@ Privata erbjudanden gör att utgivare kan dra nytta av skalbarheten och den glob
 
 Privata erbjudanden är nu tillgängliga för virtuell dator, Azure Application (implementeras som lösningsfiler eller hanterade program) och SaaS-appar erbjuder.
 
-<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). Customers can be granted or revoked access to private offers in minutes.
+<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](). Customers can be granted or revoked access to private offers in minutes.
 --->
 
 ## <a name="creating-private-offers-using-plans"></a>Skapa privata erbjudanden med hjälp av planer
 
-För *nya eller befintliga erbjudanden med planer*kan utgivare enkelt skapa nya, privata variationer genom att skapa nya planer (tidigare kallade SKU: er) och markera dem som privata. Varje erbjudande kan ha upp till 45 privata planer.
+För *nya eller befintliga erbjudanden med planer* kan utgivare enkelt skapa nya, privata variationer genom att skapa nya planer (tidigare kallade SKU: er) och markera dem som privata. Varje erbjudande kan ha upp till 45 privata planer.
 
-<!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) --->
+<!--- [Private SKUs]() --->
 
 Privata planer är komponenter i ett erbjudande och är bara synliga och köpbara av de riktade kunderna. Privata planer kan återanvända bas avbildningar och/eller erbjudna metadata som redan har publicerats för ett offentligt abonnemang. Med det här alternativet kan utgivare skapa flera privata varianter av ett offentligt erbjudande utan att behöva publicera flera versioner av samma bas avbildning och erbjuda metadata. När en privat plan delar en bas avbildning med en offentlig plan för en virtuell dator och Azure-program, kommer eventuella ändringar i bas avbildningen för erbjudandet att spridas över alla offentliga och privata planer med den bas avbildningen.
 
-För *nya erbjudanden som bara omfattar privata planer*kan utgivare skapa sina erbjudanden som ett annat erbjudande och sedan markera planerna som privata. Erbjudanden som bara har privata planer kommer inte att kunna identifieras eller nås via Microsofts kommersiella marknads plats eller [Azure Portal](https://azure.microsoft.com/features/azure-portal/) av kunder som inte är associerade med erbjudandet.
+För *nya erbjudanden som bara omfattar privata planer* kan utgivare skapa sina erbjudanden som ett annat erbjudande och sedan markera planerna som privata. Erbjudanden som bara har privata planer kommer inte att kunna identifieras eller nås via Microsofts kommersiella marknads plats eller [Azure Portal](https://azure.microsoft.com/features/azure-portal/) av kunder som inte är associerade med erbjudandet.
 
 >[!NOTE]
 >Ett erbjudande som bara innehåller privata planer visas inte i den offentliga Azure Marketplace eller AppSource.
@@ -69,5 +69,5 @@ Privata erbjudanden visas också i Sök resultaten. Leta bara efter det **privat
 <!---
 ## Next steps
 
-To start using private offers, follow the steps in the [Private SKUs and Plans](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) guide.
+To start using private offers, follow the steps in the [Private SKUs and Plans]() guide.
 --->

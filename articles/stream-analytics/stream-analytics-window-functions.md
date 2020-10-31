@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 4c8d2143d2b6e18de2669a6b45961e601cc394bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4ddffa5f9e9ff4b313f05c9cedb3cb207695225
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707565"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129711"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduktion till Stream Analytics fönster funktioner
 
 I tids strömnings scenarier är det ett vanligt mönster att utföra åtgärder på data som finns i temporala fönster. Stream Analytics har inbyggt stöd för fönster funktioner, vilket gör det möjligt för utvecklare att skapa komplexa data bearbetnings jobb med minimal ansträngning.
 
-Det finns fem typer av temporala fönster som du kan välja mellan: [**rullande**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), [**hoppande**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), [**glidning**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics), [**session**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)och [**Snapshot**](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) Windows.  Du använder fönster funktionerna i [**Group by**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) -satsen i frågesyntaxen i Stream Analytics jobben. Du kan också aggregera händelser över flera fönster med funktionen [ **Windows ()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
+Det finns fem typer av temporala fönster som du kan välja mellan: [**rullande**](/stream-analytics-query/tumbling-window-azure-stream-analytics), [**hoppande**](/stream-analytics-query/hopping-window-azure-stream-analytics), [**glidning**](/stream-analytics-query/sliding-window-azure-stream-analytics), [**session**](/stream-analytics-query/session-window-azure-stream-analytics)och [**Snapshot**](/stream-analytics-query/snapshot-window-azure-stream-analytics) Windows.  Du använder fönster funktionerna i [**Group by**](/stream-analytics-query/group-by-azure-stream-analytics) -satsen i frågesyntaxen i Stream Analytics jobben. Du kan också aggregera händelser över flera fönster med funktionen [ **Windows ()**](/stream-analytics-query/windows-azure-stream-analytics).
 
-Alla [fönster](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) åtgärdar resultatet i **slutet** av fönstret. Observera att när du startar ett Stream Analytics-jobb kan du ange *Start tiden för jobbets utdata* och systemet hämtar automatiskt tidigare händelser i inkommande strömmar för att mata ut det första fönstret vid den angivna tiden. När du till exempel startar med alternativet *nu* börjar det att generera data direkt. Utdata från fönstret är en enskild händelse baserad på den mängd funktion som används. Händelsen utdata kommer att ha tidstämpeln för slutet av fönstret och alla fönster funktioner definieras med en fast längd. 
+Alla [fönster](/stream-analytics-query/windowing-azure-stream-analytics) åtgärdar resultatet i **slutet** av fönstret. Observera att när du startar ett Stream Analytics-jobb kan du ange *Start tiden för jobbets utdata* och systemet hämtar automatiskt tidigare händelser i inkommande strömmar för att mata ut det första fönstret vid den angivna tiden. När du till exempel startar med alternativet *nu* börjar det att generera data direkt. Utdata från fönstret är en enskild händelse baserad på den mängd funktion som används. Händelsen utdata kommer att ha tidstämpeln för slutet av fönstret och alla fönster funktioner definieras med en fast längd. 
 
 ![Stream Analyticss fönster funktions metoder](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -53,7 +53,7 @@ När du har angett en partitionsnyckel grupperas händelserna tillsammans av fö
 
 ## <a name="snapshot-window"></a>Snapshot-fönster
 
-Windows-ögonblicksbilder grupperar händelser som har samma tidsstämpel. Till skillnad från andra typer av fönster, som kräver en speciell fönster funktion (till exempel [SessionWindow ()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), kan du använda ett ögonblicks bilds fönster genom att lägga till system. timestamp () i Group by-satsen.
+Windows-ögonblicksbilder grupperar händelser som har samma tidsstämpel. Till skillnad från andra typer av fönster, som kräver en speciell fönster funktion (till exempel [SessionWindow ()](/stream-analytics-query/session-window-azure-stream-analytics), kan du använda ett ögonblicks bilds fönster genom att lägga till system. timestamp () i Group by-satsen.
 
 ![Stream Analytics Snapshot-fönster](media/stream-analytics-window-functions/snapshot.png)
 
@@ -61,6 +61,5 @@ Windows-ögonblicksbilder grupperar händelser som har samma tidsstämpel. Till 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Referens för Azure Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Azure Stream Analytics Management REST-API:et](/rest/api/streamanalytics/)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 10/06/2020
-ms.openlocfilehash: ff31e29b8c2a36c9aaa3d72eab86340ed405b1ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54775d7e9923505c6e68a47feed6726b9cb84c47
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772659"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129940"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Publiceringsguide efter erbjudandetyp
 
@@ -37,7 +37,7 @@ I följande tabell visas de kommersiella Marketplace-erbjudande typerna i Partne
 | [**Konsult tjänst**](consulting-services.md) | Konsult tjänster hjälper till att ansluta kunder till tjänster som stöder och utökar användningen av Azure, Dynamics 365 eller Power Suite-tjänster.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Du kan publicera AppSource-erbjudanden som bygger på eller utökar Dynamics 365 Business Central, Dynamics 365 kund engagemang, Power Apps och finans-och verksamhets appar.|
 | [**IoT Edge modul**](iot-edge-module.md) | Azure IoT Edge moduler är de minsta beräknings enheter som hanteras av IoT Edge, och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösnings-specifika kod. |
-| [**Hanterad tjänst**](partner-center-portal/create-new-managed-service-offer.md) | Du kan skapa hanterade tjänster och hantera kund delegerade prenumerationer eller resurs grupper via [Azure Lighthouse](/azure/lighthouse/overview).|
+| [**Hanterad tjänst**](partner-center-portal/create-new-managed-service-offer.md) | Du kan skapa hanterade tjänster och hantera kund delegerade prenumerationer eller resurs grupper via [Azure Lighthouse](../lighthouse/overview.md).|
 | [**Power BI app** <br/> **Microsoft 365**](appsource-offer-publishing-guide.md) | Du kan publicera AppSource-erbjudanden som bygger på eller utökar Power BI och Microsoft 365.|
 | [**Program vara som en tjänst**](plan-saas-offer.md) | Använd SaaS-typen (Software as a Service) för att göra det möjligt för kunden att köpa din SaaS-baserade, tekniska lösning som en prenumeration. |
 

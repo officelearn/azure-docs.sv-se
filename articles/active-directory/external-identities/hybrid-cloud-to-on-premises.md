@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/10/2018
+ms.date: 10/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896474"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131028"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Bevilja B2B-användare i Azure AD åtkomst till dina lokala program
 
@@ -64,7 +64,7 @@ Följande diagram innehåller en översikt över hur Azure AD-programproxy och g
 
 ### <a name="lifecycle-management-policies"></a>Principer för livs cykel hantering
 
-Du kan hantera lokala B2B-användar objekt via principer för livs cykel hantering. Till exempel:
+Du kan hantera lokala B2B-användar objekt via principer för livs cykel hantering. Exempel:
 
 - Du kan ställa in Multi-Factor Authentication-principer (MFA) för gäst användaren så att MFA används vid autentisering i Application Proxy. Mer information finns i [villkorlig åtkomst för B2B-samarbets användare](conditional-access.md).
 - Alla sponsring, åtkomst granskningar, konto verifieringar osv. som utförs i Cloud B2B-användaren gäller för lokala användare. Om till exempel moln användaren tas bort via livs cykel hanterings principerna, tas den lokala användaren också bort av MIM Sync eller genom Azure AD Connect Sync. Mer information finns i [Hantera gäst åtkomst med åtkomst granskningar för Azure AD](../governance/manage-guest-access-with-access-reviews.md).
@@ -77,7 +77,7 @@ Information om hur du använder MIM 2016 Service Pack 1 och MIM Management Agent
 
 Det finns ett PowerShell-exempel skript som du kan använda som utgångs punkt för att skapa gäst användar objekt i din lokala Active Directory.
 
-Du kan ladda ned skriptet och Readme-filen från [Download Center](https://www.microsoft.com/download/details.aspx?id=51495). Välj **skriptet och viktigt för att hämta Azure AD B2B-användare on-prem.zip** -fil.
+Du kan ladda ned skriptet och Readme-filen från [kopplingar för Microsoft Identity Manager 2016 och Forefront Identity Manager 2010 R2](https://www.microsoft.com/download/details.aspx?id=51495). I hämtnings paketet väljer du **skriptet och viktigt för att hämta Azure AD B2B-användare on-prem.zips** fil.
 
 Innan du använder skriptet måste du kontrol lera att du har granskat nödvändiga komponenter och viktiga överväganden i den tillhör ande Readme-filen. Förstå också att skriptet endast är tillgängligt som ett exempel. Utvecklings teamet eller en partner måste anpassa och granska skriptet innan du kör det.
 

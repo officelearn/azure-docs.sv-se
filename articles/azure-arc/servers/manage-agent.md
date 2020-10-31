@@ -1,18 +1,18 @@
 ---
 title: Hantera Azure Arc-aktiverade servrar-agenten
 description: I den här artikeln beskrivs de olika hanterings aktiviteter som du vanligt vis utför under livs cykeln för Azure Arc-aktiverade servrar som är anslutna till dator agenten.
-ms.date: 10/21/2020
+ms.date: 10/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 63db1177b193cad66208964ec377fab0779f23ba
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371434"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130977"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Hantera och underhålla den anslutna dator agenten
 
-Efter den första distributionen av Azure Arc-aktiverade servrar som är anslutna till dator agent för Windows eller Linux, kan du behöva konfigurera om agenten, uppgradera den eller ta bort den från datorn om den har nått indragnings fasen i livs cykeln. Du kan enkelt hantera dessa rutin underhålls aktiviteter manuellt eller via Automation, vilket minskar både drift fel och kostnader.
+Efter den första distributionen av Azure Arc-aktiverade servrar som är anslutna till dator agent för Windows eller Linux kan du behöva konfigurera om agenten, uppgradera den eller ta bort den från datorn. Du kan enkelt hantera dessa rutin underhålls aktiviteter manuellt eller via Automation, vilket minskar både drift fel och kostnader.
 
 ## <a name="before-uninstalling-agent"></a>Innan du avinstallerar agenten
 
@@ -38,7 +38,11 @@ För servrar eller datorer som du inte längre vill hantera med Azure Arc-aktive
 
 ## <a name="upgrading-agent"></a>Uppgraderar agent
 
-Azure Connected Machine agent för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på dina behov. I följande tabell beskrivs de metoder som stöds för att utföra agent uppgraderingen.
+Den Azure-anslutna dator agenten uppdateras regelbundet för att åtgärda fel korrigeringar, stabilitets förbättringar och nya funktioner. [Azure Advisor](../../advisor/advisor-overview.md) identifierar resurser som inte använder den senaste versionen av dator agenten och rekommenderar att du uppgraderar till den senaste versionen. Det meddelar dig när du väljer den Arc-aktiverade servern genom att presentera en banderoll på sidan **Översikt** eller när du använder Advisor via Azure Portal.
+
+Azure Connected Machine agent för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på dina behov.
+
+I följande tabell beskrivs de metoder som stöds för att utföra agent uppgraderingen.
 
 | Operativsystem | Uppgraderingsmetod |
 |------------------|----------------|
@@ -163,7 +167,7 @@ Azcmagent-verktyget (Azcmagent.exe) används för att konfigurera Azure Arc-akti
 Du kan utföra en **anslutning** och koppla **från** manuellt när du är inloggad interaktivt eller automatisera med samma tjänst huvud namn som du använde för att publicera flera agenter eller med [en åtkomsttoken för Microsoft Identity Platform.](../../active-directory/develop/access-tokens.md) Om du inte använde ett huvud namn för tjänsten för att registrera datorn med Azure Arc-aktiverade servrar, kan du läsa följande [artikel](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) för att skapa ett huvud namn för tjänsten.
 
 >[!NOTE]
->Du måste ha *rot* åtkomst behörighet på Linux-datorer för att kunna köra **azcmagent**.
+>Du måste ha *rot* åtkomst behörighet på Linux-datorer för att kunna köra **azcmagent** .
 
 ### <a name="connect"></a>Ansluta
 
@@ -215,8 +219,8 @@ Följande metoder tar bort agenten, men tar inte bort mappen *C:\Program Files\A
 1. Om du vill avinstallera Windows-agenten från datorn gör du följande:
 
     a. Logga in på datorn med ett konto som har administratörs behörighet.  
-    b. Välj **program och funktioner**på **kontroll panelen**.  
-    c. I **program och funktioner**väljer du **Azure Connected Machine agent**, väljer **Avinstallera**och väljer sedan **Ja**.  
+    b. Välj **program och funktioner** på **kontroll panelen** .  
+    c. I **program och funktioner** väljer du **Azure Connected Machine agent** , väljer **Avinstallera** och väljer sedan **Ja** .  
 
     >[!NOTE]
     > Du kan också köra installations guiden för agenten genom att dubbelklicka på installations paketet för **AzureConnectedMachineAgent.msi** .
@@ -277,7 +281,7 @@ Om du planerar att sluta hantera datorn med stöd tjänster i Azure utför du f�
 
 1. Öppna Azure Arc-aktiverade servrar genom att gå till [Azure Portal](https://aka.ms/hybridmachineportal).
 
-2. Välj datorn i listan, Välj ellipsen (..**.**) och välj sedan **ta bort**.
+2. Välj datorn i listan, Välj ellipsen (.. **.** ) och välj sedan **ta bort** .
 
 ## <a name="update-or-remove-proxy-settings"></a>Uppdatera eller ta bort proxyinställningar
 

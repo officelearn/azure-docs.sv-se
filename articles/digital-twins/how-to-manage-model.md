@@ -7,18 +7,22 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 399ae682028479f801b82b6273f7d1429cfa1b97
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: e50c2bb73f56017a047e6c657c866b61e5eaa465
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494844"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130392"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
 Du kan hantera de [modeller](concepts-models.md) som Azure Digitals-instansen är medveten om att använda [**DigitalTwinModels-API: er**](/rest/api/digital-twins/dataplane/models), [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)eller [Azure Digitals flätat CLI](how-to-use-cli.md). 
 
 Hanterings åtgärder omfattar överföring, validering, hämtning och borttagning av modeller. 
+
+## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## <a name="create-models"></a>Skapa modeller
 
@@ -61,7 +65,7 @@ Det första steget i lösningen är att skapa modeller som visar aspekter av sju
 > [!NOTE]
 > Detta är en exempel text för en. JSON-fil där en modell definieras och sparas, som ska laddas upp som en del av ett klient projekt. REST API-anropet använder å andra sidan en matris med modell definitioner som ovan (som är mappad till en `IEnumerable<string>` i .NET SDK). Om du vill använda den här modellen i REST API direkt omger du den med hakparenteser.
 
-Den här modellen definierar ett namn och ett unikt ID för patient rummet och egenskaper för att representera antal besökare och status för manuell tvättning (dessa räknare kommer att uppdateras från rörelse sensorer och smarta SOAP-behållare och används tillsammans för att beräkna en *handwash procents ATS* -egenskap). Modellen definierar också en Relations- *hasDevices*, som kommer att användas för att ansluta alla [digitala](concepts-twins-graph.md) enheter baserat på den här *rums* modellen till de faktiska enheterna.
+Den här modellen definierar ett namn och ett unikt ID för patient rummet och egenskaper för att representera antal besökare och status för manuell tvättning (dessa räknare kommer att uppdateras från rörelse sensorer och smarta SOAP-behållare och används tillsammans för att beräkna en *handwash procents ATS* -egenskap). Modellen definierar också en Relations- *hasDevices* , som kommer att användas för att ansluta alla [digitala](concepts-twins-graph.md) enheter baserat på den här *rums* modellen till de faktiska enheterna.
 
 Efter den här metoden kan du gå vidare till för att definiera modeller för sjukhuss rapporter, zoner eller själva sjukhus.
 
@@ -200,7 +204,7 @@ När du skapar en ny dubbla, eftersom den nya modell versionen och den gamla mod
 
 Det innebär också att uppladdning av en ny version av en modell inte automatiskt påverkar befintliga dubbla. De befintliga dubbla är helt enkelt fortfarande instanser av den gamla modell versionen.
 
-Du kan uppdatera de här befintliga dubblarna till den nya modell versionen genom att uppdatera dem, enligt beskrivningen i avsnittet [*Uppdatera en digital-enhets modell*](how-to-manage-twin.md#update-a-digital-twins-model) i *instruktionen så här: hantera digitala dubbla*. I samma korrigering måste du uppdatera båda **modell-ID: t** (till den nya versionen) och **alla fält som måste ändras på den dubbla för att den ska överensstämma med den nya modellen**.
+Du kan uppdatera de här befintliga dubblarna till den nya modell versionen genom att uppdatera dem, enligt beskrivningen i avsnittet [*Uppdatera en digital-enhets modell*](how-to-manage-twin.md#update-a-digital-twins-model) i *instruktionen så här: hantera digitala dubbla* . I samma korrigering måste du uppdatera båda **modell-ID: t** (till den nya versionen) och **alla fält som måste ändras på den dubbla för att den ska överensstämma med den nya modellen** .
 
 ### <a name="remove-models"></a>Ta bort modeller
 

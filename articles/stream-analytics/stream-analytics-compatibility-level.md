@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 1b49cdb423e8fd2e70175d4ac71f6dcd07b459f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 87ee8a9c57fc456ba02f97bf56db25e4c91e9398
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097744"
+ms.locfileid: "93129821"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivå för Azure Stream Analytics jobb
 
@@ -33,7 +33,7 @@ När du skapar ett nytt Stream Analytics jobb är det en bra idé att skapa det 
 
 ## <a name="set-the-compatibility-level"></a>Ange kompatibilitetsnivå
 
-Du kan ange kompatibilitetsnivån för ett Stream Analytics jobb i Azure Portal eller med hjälp av [anropet skapa jobb REST API](/azure/stream-analytics/stream-analytics-quick-create-portal).
+Du kan ange kompatibilitetsnivån för ett Stream Analytics jobb i Azure Portal eller med hjälp av [anropet skapa jobb REST API](./stream-analytics-quick-create-portal.md).
 
 Så här uppdaterar du kompatibilitetsnivån för jobbet i Azure Portal:
 
@@ -77,13 +77,13 @@ Mer information finns i [uppdateringar av geospatiala funktioner i Azure Stream 
 
 **Tidigare nivåer:** Upsert beteendet *infogades eller sammanfogades* .
 
-**1,2-nivå:** Intern Mass-API-integrering med CosmosDB-utdata maximerar data flödet och hanterar begränsnings begär Anden effektivt. Mer information finns [på sidan Azure Stream Analytics utdata till Azure Cosmos DB](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
+**1,2-nivå:** Intern Mass-API-integrering med CosmosDB-utdata maximerar data flödet och hanterar begränsnings begär Anden effektivt. Mer information finns [på sidan Azure Stream Analytics utdata till Azure Cosmos DB](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
 Upsert beteende är *Infoga eller Ersätt* .
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset vid skrivning till SQL-utdata
 
-**Tidigare nivåer:** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) -typerna justerades till UTC.
+**Tidigare nivåer:** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) -typerna justerades till UTC.
 
 **1,2-nivå:** DateTimeOffset är inte längre justerad.
 
@@ -151,4 +151,4 @@ Följande större ändringar introduceras i kompatibilitetsnivån 1,1:
 ## <a name="next-steps"></a>Nästa steg
 
 * [Felsöka Azure Stream Analytics-indata](stream-analytics-troubleshoot-input.md)
-* [Stream Analytics resurs hälsa](stream-analytics-resource-health.md)
+* [Stream Analytics resurs hälsa](./stream-analytics-troubleshoot-query.md)

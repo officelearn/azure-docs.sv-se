@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 3b74f3ecdc048b6468906fb46a848d27cd1f23b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7008c305525c7564e57fd225e961b462bf6939f2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275414"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130841"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Support för Microsofts kommersiella marknads plats
 
@@ -32,7 +32,7 @@ Har du frågor om att komma igång som Microsoft-utgivare för extern Marketplac
 
 | Supportkanal | Beskrivning |  
 |:--- |:--- |  
-| MSDN-Forum: Marketplace som finns på [Microsoft Q&sidan en fråga](https://docs.microsoft.com/answers/products/azure) | Forum för Microsoft Developer Network. |  
+| MSDN-Forum: Marketplace som finns på [Microsoft Q&sidan en fråga](/answers/products/azure) | Forum för Microsoft Developer Network. |  
 | Stack Overflow: Azure finns på [StackOverflow.com/Questions/Tagged/Azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflows miljö för att få lösningar och ställa frågor om allt som är relaterat till Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace finns på [StackOverflow.com/Questions/Tagged/Azure-Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager finns på [StackOverflow.com/Questions/Tagged/Azure-Resource-Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtual Machines på Azure finns på [StackOverflow.com/Questions/Tagged/Azure-Virtual-Machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: behållare på Azure finns på [StackOverflow.com/search?q=Azure+Container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
 ## <a name="marketing-resources"></a>Marknadsförings resurser  

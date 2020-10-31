@@ -5,12 +5,12 @@ description: Lär dig hur du installerar och konfigurerar en NGINX ingress Contr
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 2055946728231452b5359bbe4c98892cba72cfec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ef83c25f4af85fcf8dbb1ee78bd3f797e5a3581
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855817"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131147"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Skapa en ingångs kontroll för ett internt virtuellt nätverk i Azure Kubernetes service (AKS)
 
@@ -50,10 +50,10 @@ Distribuera nu *nginx-ingress-* diagrammet med Helm. Om du vill använda manifes
 Ingresskontrollanten måste också schemaläggas på en Linux-nod. Windows Server-noder bör inte köra ingresskontrollanten. En nodväljare anges med parametern `--set nodeSelector` för att instruera Kubernetes-schemaläggaren att köra NGINX-ingresskontrollanten på en Linux-baserad nod.
 
 > [!TIP]
-> I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic*. Ange ett namn område för din egen miljö efter behov. Om ditt AKS-kluster inte är RBAC-aktiverat lägger du till dem `--set rbac.create=false` i Helm-kommandona.
+> I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic* . Ange ett namn område för din egen miljö efter behov. Om ditt AKS-kluster inte är RBAC-aktiverat lägger du till dem `--set rbac.create=false` i Helm-kommandona.
 
 > [!TIP]
-> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för förfrågningar till behållare i klustret, lägger `--set controller.service.externalTrafficPolicy=Local` du till det i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for*. TLS-vidarekoppling fungerar inte när du använder en ingångs kontroll för att aktivera IP-konservering i klient källan.
+> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för förfrågningar till behållare i klustret, lägger `--set controller.service.externalTrafficPolicy=Local` du till det i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for* . TLS-vidarekoppling fungerar inte när du använder en ingångs kontroll för att aktivera IP-konservering i klient källan.
 
 ```console
 # Create a namespace for your ingress resources
@@ -111,7 +111,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -149,7 +149,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -292,7 +292,7 @@ Alternativt är en mer detaljerad metod att ta bort de enskilda resurserna som s
 helm list --namespace ingress-basic
 ```
 
-Leta efter diagram med namnet *nginx – ingress* och *AKS-HelloWorld*, som du ser i följande exempel resultat:
+Leta efter diagram med namnet *nginx – ingress* och *AKS-HelloWorld* , som du ser i följande exempel resultat:
 
 ```
 $ helm list --namespace ingress-basic

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 2679d24a9e8c821dae73114f32adbeb3d22a1458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f689993ce56a1125a1d1de8f65ce05d01f776ea9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708908"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130076"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Så här skapar du ett SaaS-erbjudande på den kommersiella Marketplace
 
@@ -21,47 +21,47 @@ Som en kommersiell Marketplace-utgivare kan du skapa ett SaaS-erbjudande (Softwa
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om du inte redan har gjort det, Läs [planera ett SaaS-erbjudande för den kommersiella marknads platsen](plan-saas-offer.md). Den förklarar de tekniska kraven för din SaaS-app och den information och de till gångar du behöver när du skapar ditt erbjudande. Om du inte planerar att publicera en enkel lista (alternativ för att**kontakta mig** ) på den kommersiella Marketplace måste ditt SaaS-program uppfylla tekniska krav kring autentisering.
+Om du inte redan har gjort det, Läs [planera ett SaaS-erbjudande för den kommersiella marknads platsen](plan-saas-offer.md). Den förklarar de tekniska kraven för din SaaS-app och den information och de till gångar du behöver när du skapar ditt erbjudande. Om du inte planerar att publicera en enkel lista (alternativ för att **kontakta mig** ) på den kommersiella Marketplace måste ditt SaaS-program uppfylla tekniska krav kring autentisering.
 
 ## <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-1. På den vänstra navigerings menyn väljer du **kommersiell Marketplace**-  >  **Översikt**.
-1. På fliken **Översikt** väljer du **+ ny erbjudande**  >  **program vara som en tjänst**.
+1. På den vänstra navigerings menyn väljer du **kommersiell Marketplace** -  >  **Översikt** .
+1. På fliken **Översikt** väljer du **+ ny erbjudande**  >  **program vara som en tjänst** .
 
    :::image type="content" source="media/new-offer-saas.png" alt-text="Visar den vänstra navigerings menyn och den nya erbjudande listan.":::
 
-1. I dialog rutan **nytt erbjudande** anger du ett **erbjudande-ID**. Detta ID visas i URL: en för den kommersiella Marketplace-listan och Azure Resource Manager mallar, om tillämpligt. Om du till exempel anger **test-erbjudande-1** i den här rutan, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
+1. I dialog rutan **nytt erbjudande** anger du ett **erbjudande-ID** . Detta ID visas i URL: en för den kommersiella Marketplace-listan och Azure Resource Manager mallar, om tillämpligt. Om du till exempel anger **test-erbjudande-1** i den här rutan, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
    + Varje erbjudande i ditt konto måste ha ett unikt erbjudande-ID.
    + Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken.
-   + Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
+   + Erbjudande-ID: t kan inte ändras när du har valt **skapa** .
 
-1. Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
+1. Ange ett **erbjudande alias** . Detta är det namn som används för erbjudandet i Partner Center.
 
    + Det här namnet visas inte i den kommersiella marknads platsen och det skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
-   + Det går inte att ändra namnet på erbjudandet när du har valt **skapa**.
-1. Om du vill generera erbjudandet och fortsätta väljer du **skapa**.
+   + Det går inte att ändra namnet på erbjudandet när du har valt **skapa** .
+1. Om du vill generera erbjudandet och fortsätta väljer du **skapa** .
 
 ## <a name="configure-your-saas-offer-setup-details"></a>Konfigurera konfigurations information för SaaS-erbjudandet
 
-På fliken **erbjudande konfiguration** , under **installations information**, väljer du om du vill sälja ditt erbjudande via Microsoft eller hantera dina transaktioner oberoende av varandra. Erbjudanden som säljs via Microsoft kallas för _transacte erbjudanden_, vilket innebär att Microsoft underlättar utbytet av pengar för en program varu licens för utgivarens räkning. Mer information om de här alternativen finns i [list alternativ](plan-saas-offer.md#listing-options) och [avgör publicerings alternativet](determine-your-listing-type.md).
+På fliken **erbjudande konfiguration** , under **installations information** , väljer du om du vill sälja ditt erbjudande via Microsoft eller hantera dina transaktioner oberoende av varandra. Erbjudanden som säljs via Microsoft kallas för _transacte erbjudanden_ , vilket innebär att Microsoft underlättar utbytet av pengar för en program varu licens för utgivarens räkning. Mer information om de här alternativen finns i [list alternativ](plan-saas-offer.md#listing-options) och [avgör publicerings alternativet](determine-your-listing-type.md).
 
-1. Om du vill sälja via Microsoft och få oss att förenkla transaktionerna väljer du **Ja**. Fortsätt att [Aktivera en testen het](#enable-a-test-drive-optional).
+1. Om du vill sälja via Microsoft och få oss att förenkla transaktionerna väljer du **Ja** . Fortsätt att [Aktivera en testen het](#enable-a-test-drive-optional).
 
-1. Om du vill visa ditt erbjudande via de kommersiella marknads marknads platser och bearbeta transaktioner oberoende av varandra väljer du **Nej**och gör sedan något av följande:
-   + Om du vill tillhandahålla en kostnads fri prenumeration för ditt erbjudande väljer du **Hämta nu (kostnads fri)**. I rutan **erbjudande-URL** som visas anger du URL: en (från och med *http* eller *https*) där kunderna kan få en utvärderings version genom att [använda Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Exempelvis `https://contoso.com/saas-app`.
-   + Om du vill tillhandahålla en 30-dagars kostnads fri utvärderings version väljer du den **kostnads fria utvärderings**versionen. i rutan **utvärderings-URL** som visas anger du URL (från och med *http* eller *https*) där kunder kan komma åt din kostnads fria utvärderings version genom att [använda Azure Active Directory (Azure AD)](marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials). Exempelvis `https://contoso.com/trial/saas-app`.
-   + Om du vill få potentiella kunder att kontakta dig för att köpa ditt erbjudande väljer du **kontakta mig**.
+1. Om du vill visa ditt erbjudande via de kommersiella marknads marknads platser och bearbeta transaktioner oberoende av varandra väljer du **Nej** och gör sedan något av följande:
+   + Om du vill tillhandahålla en kostnads fri prenumeration för ditt erbjudande väljer du **Hämta nu (kostnads fri)** . I rutan **erbjudande-URL** som visas anger du URL: en (från och med *http* eller *https* ) där kunderna kan få en utvärderings version genom att [använda Azure Active Directory (Azure AD)](azure-ad-saas.md). Till exempel `https://contoso.com/saas-app`.
+   + Om du vill tillhandahålla en 30-dagars kostnads fri utvärderings version väljer du den **kostnads fria utvärderings** versionen. i rutan **utvärderings-URL** som visas anger du URL (från och med *http* eller *https* ) där kunder kan komma åt din kostnads fria utvärderings version genom att [använda Azure Active Directory (Azure AD)](azure-ad-saas.md). Till exempel `https://contoso.com/trial/saas-app`.
+   + Om du vill få potentiella kunder att kontakta dig för att köpa ditt erbjudande väljer du **kontakta mig** .
 
 ### <a name="enable-a-test-drive-optional"></a>Aktivera en testen het (valfritt)
 
-En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem till gång till en förkonfigurerad miljö för ett fast antal timmar. Att erbjuda en testen het resulterar i en ökad konverterings takt och genererar hög kvalificerade leads. Mer information om test enheter finns i [Vad är en test enhet?](partner-center-portal/test-drive.md).
+En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem till gång till en förkonfigurerad miljö för ett fast antal timmar. Att erbjuda en testen het resulterar i en ökad konverterings takt och genererar hög kvalificerade leads. Mer information om test enheter finns i [Vad är en test enhet?](./what-is-test-drive.md).
 
 > [!TIP]
 > En testen het skiljer sig från en kostnads fri utvärderings version. Du kan erbjuda antingen en testad enhet, en kostnads fri utvärderings version eller både och. De förser båda kunderna med din lösning för en fast tids period. Men en testenhet innehåller även en praktisk guidad rundtur i produktens viktiga funktioner och fördelar som visas i ett verkligt implementerings scenario.
 
 **Så här aktiverar du en testen het**
-1.  Under **test enhet**markerar du kryss rutan **Aktivera en testenhet** .
+1.  Under **test enhet** markerar du kryss rutan **Aktivera en testenhet** .
 1.  Välj typen av test enhet i listan som visas.
 
 ### <a name="configure-lead-management"></a>Konfigurera hantering av leads
@@ -73,7 +73,7 @@ Anslut ditt CRM-system (Customer Relations hip Management) till ditt kommersiell
 
 #### <a name="to-configure-the-connection-details-in-partner-center"></a>Så här konfigurerar du anslutnings informationen i Partner Center
 
-1.  Under **kund ledare**väljer du länken **Anslut** .
+1.  Under **kund ledare** väljer du länken **Anslut** .
 1. I dialog rutan **anslutnings information** väljer du ett lead-mål i listan.
 1. Fyll i fälten som visas. Detaljerade anvisningar finns i följande artiklar:
 
@@ -84,7 +84,7 @@ Anslut ditt CRM-system (Customer Relations hip Management) till ditt kommersiell
    - [Konfigurera ditt erbjudande för att skicka leads till Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
 1. Om du vill verifiera konfigurationen som du har angett väljer du länken **Verifiera** .
-1. Stäng dialog rutan genom att välja **OK**.
+1. Stäng dialog rutan genom att välja **OK** .
 
 ## <a name="next-steps"></a>Nästa steg
 

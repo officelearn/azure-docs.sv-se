@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 8b5c106c1464ec6d77305b1985cc8dbd51e2b4db
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: c703dd4053cc27d469d83d344da910e8e5b23ddb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519485"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129906"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Använda hanterade identiteter för att få åtkomst till Azure SQL Database från ett Azure Stream Analytics jobb (förhands granskning)
 
@@ -33,7 +33,7 @@ Först skapar du en hanterad identitet för ditt Azure Stream Analytics jobb.
 
 1. Öppna Azure Stream Analytics-jobbet i [Azure Portal](https://portal.azure.com).
 
-1. I den vänstra navigerings menyn väljer du **hanterad identitet** som finns under **Konfigurera**. Markera sedan kryss rutan bredvid **Använd tilldelad hanterad identitet** och välj **Spara**.
+1. I den vänstra navigerings menyn väljer du **hanterad identitet** som finns under **Konfigurera** . Markera sedan kryss rutan bredvid **Använd tilldelad hanterad identitet** och välj **Spara** .
 
    ![Välj systemtilldelad hanterad identitet](./media/sql-db-output-managed-identity/system-assigned-managed-identity.png)
 
@@ -44,7 +44,7 @@ Först skapar du en hanterad identitet för ditt Azure Stream Analytics jobb.
 
    ![Objekt-ID som visas som huvud-ID](./media/sql-db-output-managed-identity/principal-id.png)
 
-   Tjänstens huvud namn har samma namn som Stream Analyticss jobbet. Om namnet på ditt jobb till exempel är *MyASAJob*, är namnet på tjänstens huvud namn också *MyASAJob*.
+   Tjänstens huvud namn har samma namn som Stream Analyticss jobbet. Om namnet på ditt jobb till exempel är *MyASAJob* , är namnet på tjänstens huvud namn också *MyASAJob* .
 
 ## <a name="select-an-active-directory-admin"></a>Välj en Active Directory administratör
 
@@ -52,15 +52,15 @@ När du har skapat en hanterad identitet väljer du en Active Directory administ
 
 1. Navigera till Azure SQL Database resurs och välj den SQL Server som databasen finns under. Du hittar SQL Server namnet bredvid *Server namnet* på resurs översikts sidan. 
 
-1. Välj **Active Directory admin** under **Inställningar**. Välj sedan **Ange administratör**. 
+1. Välj **Active Directory admin** under **Inställningar** . Välj sedan **Ange administratör** . 
 
    ![Sidan Active Directory administratör](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
  
-1. På sidan Active Directory administratör söker du efter en användare eller grupp som administratör för SQL Server och klickar på **Välj**.
+1. På sidan Active Directory administratör söker du efter en användare eller grupp som administratör för SQL Server och klickar på **Välj** .
 
    ![Lägg till Active Directory administratör](./media/sql-db-output-managed-identity/add-admin.png)
 
-   På sidan Active Directory admin visas alla medlemmar och grupper av din Active Directory. Det går inte att välja användare eller grupper som är nedtonade eftersom de inte stöds som Azure Active Directory-administratörer. Se listan över administratörer som stöds i avsnittet **Azure Active Directory funktioner och begränsningar**   i [använda Azure Active Directory autentisering för autentisering med SQL Database eller Azure-Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). Rollbaserad åtkomst kontroll i Azure (Azure RBAC) gäller endast för portalen och har inte spridits till SQL Server. Den valda användaren eller gruppen är också den användare som kommer att kunna skapa den **inneslutna databas användaren** i nästa avsnitt.
+   På sidan Active Directory admin visas alla medlemmar och grupper av din Active Directory. Det går inte att välja användare eller grupper som är nedtonade eftersom de inte stöds som Azure Active Directory-administratörer. Se listan över administratörer som stöds i avsnittet **Azure Active Directory funktioner och begränsningar**   i [använda Azure Active Directory autentisering för autentisering med SQL Database eller Azure-Synapse](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations). Rollbaserad åtkomst kontroll i Azure (Azure RBAC) gäller endast för portalen och har inte spridits till SQL Server. Den valda användaren eller gruppen är också den användare som kommer att kunna skapa den **inneslutna databas användaren** i nästa avsnitt.
 
 1. Välj **Spara** på sidan **Active Directory administratör** . Processen för att ändra admin tar några minuter.
 
@@ -76,7 +76,7 @@ Därefter skapar du en innesluten databas användare i SQL Database som är mapp
 
    Server namnet `<SQL Server name>.database.windows.net` kan vara ett annat i olika regioner. Till exempel bör regionen Kina använda `<SQL Server name>.database.chinacloudapi.cn` .
  
-   Du kan ange en speciell SQL Database genom att gå till **alternativ > anslutnings egenskaper > ansluta till databasen**.  
+   Du kan ange en speciell SQL Database genom att gå till **alternativ > anslutnings egenskaper > ansluta till databasen** .  
 
    ![SQL Server anslutnings egenskaper](./media/sql-db-output-managed-identity/sql-server-connection-properties.png)
 
@@ -86,11 +86,11 @@ Därefter skapar du en innesluten databas användare i SQL Database som är mapp
 
    1. I så fall, går du till SQL Server resursen på Azure Portal. Öppna sidan **brand väggar och virtuellt nätverk** under avsnittet **säkerhet** . 
    1. Lägg till en ny regel med valfritt regel namn.
-   1. Använd IP *-adressen från fönstret* **ny brand Väggs regel** för *Start-IP*.
-   1. Använd *till* -IP-adress från fönstret **ny regel för brand vägg** för *slut-IP*. 
+   1. Använd IP *-adressen från fönstret* **ny brand Väggs regel** för *Start-IP* .
+   1. Använd *till* -IP-adress från fönstret **ny regel för brand vägg** för *slut-IP* . 
    1. Välj **Spara** och försök att ansluta från SQL Server Management Studio igen. 
 
-1. När du är ansluten skapar du den inneslutna databas användaren. Följande SQL-kommando skapar en innesluten databas användare som har samma namn som ditt Stream Analytics-jobb. Se till att inkludera hakparenteser runt *ASA_JOB_NAME*. Använd följande T-SQL-syntax och kör frågan. 
+1. När du är ansluten skapar du den inneslutna databas användaren. Följande SQL-kommando skapar en innesluten databas användare som har samma namn som ditt Stream Analytics-jobb. Se till att inkludera hakparenteser runt *ASA_JOB_NAME* . Använd följande T-SQL-syntax och kör frågan. 
 
    ```sql
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
@@ -110,7 +110,7 @@ Om du bara vill bevilja behörighet till en viss tabell eller ett visst objekt i
 GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME; 
 ```
 
-Du kan också högerklicka på din SQL-databas i SQL Server Management Studio och välja **egenskaper > behörigheter**. Från menyn behörigheter kan du se Stream Analytics jobb som du har lagt till tidigare och du kan manuellt bevilja eller neka behörigheter när du ser anpassa.
+Du kan också högerklicka på din SQL-databas i SQL Server Management Studio och välja **egenskaper > behörigheter** . Från menyn behörigheter kan du se Stream Analytics jobb som du har lagt till tidigare och du kan manuellt bevilja eller neka behörigheter när du ser anpassa.
 
 ## <a name="create-an-azure-sql-database-output"></a>Skapa en Azure SQL Database utdata
 
@@ -118,11 +118,11 @@ Nu när din hanterade identitet har kon figurer ATS är du redo att lägga till 
 
 Se till att du har skapat en tabell i SQL Database med lämpligt schema för utdata. Namnet på den här tabellen är en av de obligatoriska egenskaper som måste fyllas i när du lägger till SQL Database-utdata till Stream Analytics-jobbet. Se också till att jobbet har **valt** och **Infoga** behörigheter för att testa anslutningen och köra Stream Analytics frågor. Se avsnittet [bevilja Stream Analytics jobb behörigheter](#grant-stream-analytics-job-permissions) om du inte redan har gjort det. 
 
-1. Gå tillbaka till Stream Analytics jobbet och gå till sidan **utdata** under **jobb sto pol Ogin**. 
+1. Gå tillbaka till Stream Analytics jobbet och gå till sidan **utdata** under **jobb sto pol Ogin** . 
 
-1. Välj **Lägg till > SQL Database**. Välj **hanterad identitet** i list rutan autentiseringsläge i fönstret utmatnings egenskaper i SQL Database utgående mottagare.
+1. Välj **Lägg till > SQL Database** . Välj **hanterad identitet** i list rutan autentiseringsläge i fönstret utmatnings egenskaper i SQL Database utgående mottagare.
 
-1. Fyll i resten av egenskaperna. Mer information om hur du skapar en SQL Database utdata finns i [skapa ett SQL Database utdata med Stream Analytics](sql-database-output.md). När du är färdig väljer du **Spara**. 
+1. Fyll i resten av egenskaperna. Mer information om hur du skapar en SQL Database utdata finns i [skapa ett SQL Database utdata med Stream Analytics](sql-database-output.md). När du är färdig väljer du **Spara** . 
 
 ## <a name="next-steps"></a>Nästa steg
 

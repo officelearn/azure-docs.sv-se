@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 08/12/2020
-ms.openlocfilehash: 47d82982bbb7546b53dd4754c49bd22fe958d5ef
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 10/27/2020
+ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976494"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129583"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Granska och publicera ett erbjudande på den kommersiella Marketplace
 
@@ -42,7 +42,7 @@ När du är redo att skicka in ett erbjudande om publicering väljer du **Gransk
    - **Ofullständig** – sidan saknar nödvändig information eller innehåller fel som behöver åtgärdas. Du måste gå tillbaka till sidan och uppdatera den.
    - **Klar** – sidan har slutförts. Alla nödvändiga data har angetts och det finns inga fel.
 
-Om någon av sidorna har en annan status än **fullständig**, måste du korrigera problemet på sidan och sedan gå tillbaka till sidan **Granska och publicera** för att kontrol lera att statusen nu visas som **slutförd**. Vissa erbjudande typer kräver testning. I så fall visas ett fält **för certifiering** där du måste ange test instruktioner till certifierings teamet och eventuella kompletterande kommentarer som hjälper dig att förstå din app.
+Om någon av sidorna har en annan status än **fullständig** , måste du korrigera problemet på sidan och sedan gå tillbaka till sidan **Granska och publicera** för att kontrol lera att statusen nu visas som **slutförd** . Vissa erbjudande typer kräver testning. I så fall visas ett fält **för certifiering** där du måste ange test instruktioner till certifierings teamet och eventuella kompletterande kommentarer som hjälper dig att förstå din app.
 
 När alla sidor har slutförts och du har angett tillämpliga test anteckningar väljer du **publicera** för att påbörja processerna för validering och publicering. Faserna och den övergripande sekvensen kan variera beroende på vilken typ av erbjudande du publicerar. I följande tabell visas ett möjligt publicerings flöde. Varje fas förklaras i detalj i följande avsnitt.
 
@@ -77,7 +77,7 @@ Det första steget i publicerings processen är en uppsättning automatiserade v
 
 ## <a name="certification-phase"></a>Certifierings fas
 
-Erbjudanden som skickas till den kommersiella marknaden måste certifieras innan de kan publiceras. Erbjudanden genomgå rigorös testning, vissa automatiserade och andra manuella. Mer information finns i [certifierings principer för kommersiella Marketplace](https://aka.ms/commercial-marketplace-certification-policies).
+Erbjudanden som skickas till den kommersiella marknaden måste certifieras innan de kan publiceras. Erbjudanden genomgå rigorös testning, vissa automatiserade och andra manuella. Mer information finns i [certifierings principer för kommersiella Marketplace](/legal/marketplace/certification-policies).
 
 ### <a name="types-of-validation-that-take-place-during-certification"></a>Typer av verifieringar som sker under certifieringen
 
@@ -100,7 +100,7 @@ Informationen som angavs när du skapade erbjudandet kontrol leras för kvalitet
 - Kvalitets skärm bilder och videor
 - En förklaring av hur erbjudandet använder Microsoft-plattformar och-verktyg.
 
-Läs mer om kriterierna för innehålls validering genom att läsa [allmänna registrerings principer](https://aka.ms/commercial-marketplace-certification-policies#100-general).
+Läs mer om kriterierna för innehålls validering genom att läsa [allmänna registrerings principer](/legal/marketplace/certification-policies#100-general).
 
 #### <a name="technical-validation"></a>Teknisk validering
 
@@ -126,6 +126,19 @@ Under skapandet av för hands versionen skapar vi en version av ditt erbjudande 
 > [!NOTE]
 > Använd inte förhands gransknings gruppen för att ge personer utanför organisationen insyn i ett erbjudande. Använd alternativet för privat erbjudande i stället. I det här läget har ditt erbjudande inte testats fullständigt och godkänts och är inte redo för distribution utanför företaget.
 
+## <a name="cancel-publishing"></a>Avbryt publicering
+
+Så här avbryter du ett erbjudande med status **publicering pågår** :
+
+1. Välj namnet på erbjudandet för att öppna sidan **erbjudande översikt** .
+1. Välj **Avbryt publicera** i det övre högra hörnet på sidan.
+1. Bekräfta att du vill stoppa att erbjudandet publiceras.
+
+Om du vill publicera erbjudandet vid ett senare tillfälle måste du starta publicerings processen.
+
+> [!NOTE]
+> Du kan förhindra att ett erbjudande bara publiceras om erbjudandet ännu inte har gått vidare till utgivarens signerings steg. När du har valt **gå live** har du inte möjlighet att avbryta publiceringen längre.
+
 ## <a name="publisher-sign-off-phase"></a>Utgivar signerings fas
 
 När erbjudandet är klart för att du ska kunna granska och vara inloggad skickar vi ett e-postmeddelande till dig om att granska och godkänna din för hands version av erbjudandet. Du kan också uppdatera sidan **erbjudande översikt** i webbläsaren för att se om ditt erbjudande har nått utgivarens signerings fas. Om den har det är knappen **Go Live** och för hands versions länkarna tillgänglig.
@@ -143,7 +156,7 @@ På sidan **erbjudande översikt** visas förhands gransknings länkar under kna
 
 När du har godkänt din för hands version väljer du **Go Live** för att publicera erbjudandet Live på den kommersiella marknads platsen. 
 
-Om du vill göra ändringar efter att ha granskat erbjudandet kan du redigera och skicka begäran om publicering. Om ditt erbjudande redan är aktivt och tillgängligt för allmänheten på Marketplace, är de uppdateringar du gör inte aktiva förrän du väljer **Go Live*. Mer information finns i [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](./partner-center-portal/update-existing-offer.md)
+Om du vill göra ändringar efter att ha granskat erbjudandet kan du redigera och skicka begäran om publicering. Om ditt erbjudande redan är aktivt och tillgängligt för allmänheten på Marketplace, är de uppdateringar du gör inte aktiva förrän du väljer * *Go Live* . Mer information finns i [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](partner-center-portal/update-existing-offer.md)
 
 ## <a name="publish-phase"></a>Publicerings fas
 
@@ -178,24 +191,24 @@ Sidan **Historik** i Partner Center visar publicerings händelser för dina komm
 Så här visar du historiken för ditt erbjudande:
 
 1.    Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2.    I navigerings menyn till vänster väljer du **kommersiell Marketplace**-  >  **Översikt**.
+2.    I navigerings menyn till vänster väljer du **kommersiell Marketplace** -  >  **Översikt** .
 3.    Välj ditt erbjudande.
 4.    Välj fliken **Historik** i navigerings menyn till vänster. Sidan innehåller information om följande händelser, efter vad som är tillämpligt för ditt erbjudande:
 
 |Händelse    |Beskrivning    |
 |---------|---------------|
-|Skapat erbjudande    |Erbjudandet skapades i Partner Center. En användare har valt erbjudande typ, erbjudande-ID och erbjudande-alias i den **kommersiella Marketplace**-  >  **översikten**.    |
-|Skapad plan: *plan namn*    |En användare skapade en ny plan genom att ange plan-ID och plan namn på fliken **plan översikt** .</br>*Den här händelsen gäller endast för de typer av erbjudanden som har stöd för planer*.    |
-|Borttagen plan    |En användare tog bort en utkast plan som inte har publicerats genom att välja **ta bort utkast** från sidan **plan översikt** .</br>*Den här händelsen gäller endast för de typer av erbjudanden som har stöd för planer*.    |
-|Initierad plan slutar sälja: *planerat namn*    |En användare initierade en plan-Stop-säljning genom att välja **sluta sälja** från sidan **plan översikt** .</br>*Den här händelsen gäller endast för de typer av erbjudanden som har stöd för planer*.    |
-|Ångra plan stoppa Sälj: *plan namn*    |En användare avbröt en plans topp-försäljning genom att välja **Ångra sluta sälja** från sidan **plan översikt** .</br>*Den här händelsen gäller endast för de typer av erbjudanden som har stöd för planer*.    |
+|Skapat erbjudande    |Erbjudandet skapades i Partner Center. En användare har valt erbjudande typ, erbjudande-ID och erbjudande-alias i den **kommersiella Marketplace** -  >  **översikten** .    |
+|Skapad plan: *plan namn*    |En användare skapade en ny plan genom att ange plan-ID och plan namn på fliken **plan översikt** .</br>*Den här händelsen gäller endast för de typer av erbjudanden som har stöd för planer* .    |
+|Borttagen plan    |En användare tog bort en utkast plan som inte har publicerats genom att välja **ta bort utkast** från sidan **plan översikt** .</br>*Den här händelsen gäller endast för de typer av erbjudanden som har stöd för planer* .    |
+|Initierad plan slutar sälja: *planerat namn*    |En användare initierade en plan-Stop-säljning genom att välja **sluta sälja** från sidan **plan översikt** .</br>*Den här händelsen gäller endast för de typer av erbjudanden som har stöd för planer* .    |
+|Ångra plan stoppa Sälj: *plan namn*    |En användare avbröt en plans topp-försäljning genom att välja **Ångra sluta sälja** från sidan **plan översikt** .</br>*Den här händelsen gäller endast för de typer av erbjudanden som har stöd för planer* .    |
 |Skickat erbjudande till för hands version    |En användare skickade erbjudandet till för hands versionen genom att välja **publicera** på sidan **Granska och publicera** .    |
-|Initierad sändning för att avbryta för hands version    |En användare begärde att avbryta publiceringen av erbjudandet till för hands versionen genom att välja **Avbryt publicering** på sidan **erbjudande översikt** efter att du har skickat in den för hands version.</br>*Den här händelsen visas när begäran om annullering bearbetas*.    |
-|Överföringen avbröts för för hands versionen    |En användare avbröt erbjudande publikationen till för hands versionen genom att välja **Avbryt publicering** på sidan **erbjudande översikt** efter att du har skickat in den för hands version.</br>*Den här händelsen visas när begäran om annullering har bearbetats*.    |
+|Initierad sändning för att avbryta för hands version    |En användare begärde att avbryta publiceringen av erbjudandet till för hands versionen genom att välja **Avbryt publicering** på sidan **erbjudande översikt** efter att du har skickat in den för hands version.</br>*Den här händelsen visas när begäran om annullering bearbetas* .    |
+|Överföringen avbröts för för hands versionen    |En användare avbröt erbjudande publikationen till för hands versionen genom att välja **Avbryt publicering** på sidan **erbjudande översikt** efter att du har skickat in den för hands version.</br>*Den här händelsen visas när begäran om annullering har bearbetats* .    |
 |Logga ut för att gå live    |En användare publicerade erbjudandet till den kommersiella marknads platsen genom att välja **Go Live** på sidan **erbjudande översikt** .    |
-|Startade annullering av publicera på Marketplace    |En användare begärde att avbryta publiceringen av erbjudandet genom att välja **Avbryt publicering** på sidan **erbjudande översikt** efter att du är inloggad.</br>*Den här händelsen visas när begäran om annullering bearbetas*.    |
-|Avbruten publicering till den kommersiella marknads platsen    |En användare avbröt erbjudandet genom att välja **Avbryt publicering** på sidan **erbjudande översikt** efter att du är inloggad.</br>*Den här händelsen visas när begäran om annullering har bearbetats*.    |
-|Synkronisera privat mål grupp    |En användare uppdaterade och synkroniserade den privata mål gruppen genom att välja **Synkronisera privat publik** på sidan **plan översikt** eller på sidan **prenumerations pris & tillgänglighet** .</br>*Den här händelsen gäller endast för typer av erbjudanden som stöder privata planer*.    |
+|Startade annullering av publicera på Marketplace    |En användare begärde att avbryta publiceringen av erbjudandet genom att välja **Avbryt publicering** på sidan **erbjudande översikt** efter att du är inloggad.</br>*Den här händelsen visas när begäran om annullering bearbetas* .    |
+|Avbruten publicering till den kommersiella marknads platsen    |En användare avbröt erbjudandet genom att välja **Avbryt publicering** på sidan **erbjudande översikt** efter att du är inloggad.</br>*Den här händelsen visas när begäran om annullering har bearbetats* .    |
+|Synkronisera privat mål grupp    |En användare uppdaterade och synkroniserade den privata mål gruppen genom att välja **Synkronisera privat publik** på sidan **plan översikt** eller på sidan **prenumerations pris & tillgänglighet** .</br>*Den här händelsen gäller endast för typer av erbjudanden som stöder privata planer* .    |
 |Stoppa Sälj erbjudandet    |En användare slutade sälja erbjudandet genom att välja **sluta sälja** från sidan **erbjudande översikt** .    |
 
 > [!NOTE]
@@ -212,7 +225,7 @@ Du kan använda filter för att begränsa den fullständiga historiken för ditt
 Det finns fyra filter:
 * Händelser
 * Användare
-* Datum
+* Date
 * Sidor
 
 När du väljer filtret **sidor** kan du välja någon av de partner Center-sidor som gäller för din erbjudande typ. När detta används visar filtret **Pages** alla **skickade erbjudanden för för hands versions** händelser med ändringar på sidan som du har valt.

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44e445f6d1dce8193109d6b5ad1742210458e74c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75426227"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130416"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introduktion till Stream Analytics geospatiala funktioner
 
@@ -26,7 +26,7 @@ Exempel på scenarier som kan dra nytta av geospatiala funktioner är:
 * Geo-staket
 * Telefon spårning över cell platser
 
-Stream Analytics frågespråk har sju inbyggda geospatiala funktioner: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS**och **ST_WITHIN**.
+Stream Analytics frågespråk har sju inbyggda geospatiala funktioner: **CreateLineString** , **CreatePoint** , **CreatePolygon** , **ST_DISTANCE** , **ST_OVERLAPS** , **ST_INTERSECTS** och **ST_WITHIN** .
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -42,9 +42,9 @@ FROM input
 
 ### <a name="input-example"></a>Exempel på inmatade  
   
-|latitud|Long|  
+|latitude|Long|  
 |--------------|---------------|  
-|3,0|– 10,2|  
+|3.0|– 10,2|  
 |– 87,33|20,2321|  
   
 ### <a name="output-example"></a>Exempel på utdata  
@@ -53,7 +53,7 @@ FROM input
 
  {"typ": "lin Est ring", "koordinater": [[20,2321,-87,33], [10,0, 10,0], [10,5, 10,5]]}
 
-Mer information finns på [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) -referensen.
+Mer information finns på [CreateLineString](/stream-analytics-query/createlinestring) -referensen.
 
 ## <a name="createpoint"></a>CreatePoint
 
@@ -69,9 +69,9 @@ FROM input
 
 ### <a name="input-example"></a>Exempel på inmatade  
   
-|latitud|Long|  
+|latitude|Long|  
 |--------------|---------------|  
-|3,0|– 10,2|  
+|3.0|– 10,2|  
 |– 87,33|20,2321|  
   
 ### <a name="output-example"></a>Exempel på utdata
@@ -80,7 +80,7 @@ FROM input
   
  {"typ": "punkt", "koordinater": [20,2321,-87,33]}  
 
-Mer information finns på [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint) -referensen.
+Mer information finns på [CreatePoint](/stream-analytics-query/createpoint) -referensen.
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -96,9 +96,9 @@ FROM input
 
 ### <a name="input-example"></a>Exempel på inmatade  
   
-|latitud|Long|  
+|latitude|Long|  
 |--------------|---------------|  
-|3,0|– 10,2|  
+|3.0|– 10,2|  
 |– 87,33|20,2321|  
   
 ### <a name="output-example"></a>Exempel på utdata  
@@ -107,7 +107,7 @@ FROM input
  
  {"typ": "polygon", "koordinater": [[[20,2321,-87,33], [10,0, 10,0], [10,5, 10,5], [20,2321,-87,33]]]}
 
-Mer information finns på [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) -referensen.
+Mer information finns på [CreatePolygon](/stream-analytics-query/createpolygon) -referensen.
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
@@ -121,7 +121,7 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-Mer information finns på [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) referens.
+Mer information finns på [ST_DISTANCE](/stream-analytics-query/st-distance) referens.
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
 `ST_OVERLAPS`Funktionen Jämför två polygoner. Om polygonerna överlappar varandra returnerar funktionen 1. Funktionen returnerar 0 om polygonerna inte överlappar varandra. 
@@ -142,7 +142,7 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-Mer information finns på [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) referens.
+Mer information finns på [ST_OVERLAPS](/stream-analytics-query/st-overlaps) referens.
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
 `ST_INTERSECTS`Funktionen Jämför två lin Est ring. Om lin Est ring korsar, returnerar funktionen 1. Funktionen returnerar 0 om lin Est Ring inte överlappar varandra.
@@ -168,7 +168,7 @@ FROM input
   
  0  
 
-Mer information finns på [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) referens.
+Mer information finns på [ST_INTERSECTS](/stream-analytics-query/st-intersects) referens.
 
 ## <a name="st_within"></a>ST_WITHIN
 `ST_WITHIN`Funktionen avgör om en punkt eller polygon är i en polygon. Om polygonen innehåller punkten eller polygonen kommer funktionen att returnera 1. Funktionen kommer att returnera 0 om punkten eller polygonen inte finns i den deklarerade polygonen.
@@ -194,12 +194,12 @@ FROM input
   
  1  
 
-Mer information finns på [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) referens.
+Mer information finns på [ST_WITHIN](/stream-analytics-query/st-within) referens.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Azure Stream Analytics Management REST-API:et](/rest/api/streamanalytics/)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ce256db907589ace7e77157397257732564fb6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006405"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130331"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Transact-funktioner för kommersiella Marketplace
 
@@ -24,7 +24,7 @@ Antingen utgivaren eller Microsoft ansvarar för att hantera program licens tran
 
 ### <a name="contact-me-free-trial-and-byol-options"></a>Kontakta mig, kostnads fri utvärdering och BYOL-alternativ
 
-Utgivare kan välja _kontakten mig_ och den _kostnads fria utvärderings versionen_, alternativ för kampanj-och användar förvärv. För vissa erbjudande typer kan utgivare välja alternativet ta med din egen licens (BYOL) för att göra det möjligt för kunder att köpa en prenumeration på ditt erbjudande med en licens som de har köpt direkt från dig. Med dessa alternativ deltar inte Microsoft direkt i utgivarens program licens transaktioner och det finns ingen kopplad transaktions avgift. 
+Utgivare kan välja _kontakten mig_ och den _kostnads fria utvärderings versionen_ , alternativ för kampanj-och användar förvärv. För vissa erbjudande typer kan utgivare välja alternativet ta med din egen licens (BYOL) för att göra det möjligt för kunder att köpa en prenumeration på ditt erbjudande med en licens som de har köpt direkt från dig. Med dessa alternativ deltar inte Microsoft direkt i utgivarens program licens transaktioner och det finns ingen kopplad transaktions avgift. 
 
 Utgivare ansvarar för att stödja alla aspekter av program licens transaktionen. Detta omfattar men är inte begränsat till order, uppfyllelse, avläsning, fakturering, fakturering, betalning och insamling. Med alternativet kontakta mig List behåller utgivaren 100% av licens avgifterna för Publisher-programvaran som samlas in från kunden.
 
@@ -46,9 +46,9 @@ Alternativet för Transact-publicering stöds för närvarande för följande er
 
 ### <a name="billing-infrastructure-costs"></a>Kostnader för fakturerings infrastruktur
 
-För **virtuella datorer** och **Azure-program**debiteras Azure Infrastructure Usage avgifter till kundens Azure-prenumeration. Avgifter för infrastruktur användning priss ätts och presenteras separat från program varu leverantörens licens avgifter på kundens faktura.
+För **virtuella datorer** och **Azure-program** debiteras Azure Infrastructure Usage avgifter till kundens Azure-prenumeration. Avgifter för infrastruktur användning priss ätts och presenteras separat från program varu leverantörens licens avgifter på kundens faktura.
 
-För **SaaS-appar**måste utgivaren beakta Azure-infrastrukturens användnings avgifter och program licens avgifter som ett enda kostnads objekt.  Den representeras som en fast avgift för kunden. Användningen av Azure-infrastrukturen hanteras och debiteras för utgivaren direkt. Den faktiska infrastruktur användnings avgiften ses inte av kunden. Utgivare väljer vanligt vis att paketera användnings avgifter för Azure-infrastruktur i sina priser för program varu licenser. Avgifterna för program varu licenser är inte avgiftsbelagda eller baseras på användar förbrukning.
+För **SaaS-appar** måste utgivaren beakta Azure-infrastrukturens användnings avgifter och program licens avgifter som ett enda kostnads objekt.  Den representeras som en fast avgift för kunden. Användningen av Azure-infrastrukturen hanteras och debiteras för utgivaren direkt. Den faktiska infrastruktur användnings avgiften ses inte av kunden. Utgivare väljer vanligt vis att paketera användnings avgifter för Azure-infrastruktur i sina priser för program varu licenser. Avgifterna för program varu licenser är inte avgiftsbelagda eller baseras på användar förbrukning.
 
 ## <a name="pricing-models"></a>Prissättningsmodeller
 
@@ -107,7 +107,7 @@ I det här scenariot faktureras Microsoft $1,14 per timme för användning av de
 |Microsoft håller 100% av Azures användnings kostnad | $0,14 per timme |
 ||
 
-**Ta med din egen licens (BYOL)**
+**Bring Your Own License (BYOL)**
 
 BYOL har följande kostnads struktur:
 
@@ -197,7 +197,7 @@ Alternativet för att använda Transact-publicering är bara tillgängligt för 
 
 - **Azure-program: lösnings mal len eller hanterad app** – du måste etablera en eller flera virtuella datorer och hämta genom summan av priserna för den virtuella datorn. För hanterade appar i en enda plan kan en månatlig månatlig prenumeration väljas som pris modell i stället för prissättningen för den virtuella datorn. I vissa fall skickas Azure Infrastructure användnings avgifter till kunden separat från licens avgifter för program vara, men på samma fakturerings instruktion. Men om du konfigurerar ett hanterat program erbjudande för ISV-infrastruktur debiteras Azure-resurserna för utgivaren och kunden får en fast avgift som omfattar kostnaden för infrastruktur, program varu licenser och hanterings tjänster.
 
-- **SaaS-program** – måste vara en lösning för flera innehavare, använda [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) för autentisering och integrera med [API: er för SaaS-utförande](partner-center-portal/pc-saas-fulfillment-api-v2.md). Användningen av Azure-infrastrukturen hanteras och faktureras direkt till dig (partnern), så du måste kontots användnings avgifter för Azure-infrastrukturen och licens avgifter för program vara som ett enda kostnads objekt. Detaljerad vägledning finns [i skapa ett nytt SaaS-erbjudande i den kommersiella Marketplace](partner-center-portal/create-new-saas-offer.md).
+- **SaaS-program** – måste vara en lösning för flera innehavare, använda [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) för autentisering och integrera med [API: er för SaaS-utförande](partner-center-portal/pc-saas-fulfillment-api-v2.md). Användningen av Azure-infrastrukturen hanteras och faktureras direkt till dig (partnern), så du måste kontots användnings avgifter för Azure-infrastrukturen och licens avgifter för program vara som ett enda kostnads objekt. Detaljerad vägledning finns [i skapa ett nytt SaaS-erbjudande i den kommersiella Marketplace](./create-new-saas-offer.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5cff53ee9e742e93a6183eb5d506bf8f1a08deb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115109"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130195"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Felkoder för Azure AD-autentisering och -auktorisering
 
@@ -156,7 +156,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS50136 | RedirectMsaSessionToApp – en MSA-session har identifierats. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken-sessionen är ogiltig på grund av att en extern uppdateringstoken saknas. |
 | AADSTS50140 | KmsiInterrupt – det här felet inträffade på grund av "Håll mig inloggad" Avbryt när användaren loggade in. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) med korrelations-ID, ID för begäran och felkod för mer information. |
-| AADSTS50143 | Felaktig matchning av sessioner – sessionen är ogiltig eftersom användar klienten inte matchar domän tipset på grund av en annan resurs.  [Öppna ett support ärende](../fundamentals/active-directory-troubleshooting-support-howto.md) med KORRELATIONS-ID, fråge-ID och felkod för att få mer information. |
+| AADSTS50143 | Felaktig matchning av session – sessionen är ogiltig eftersom användarens klientorganisation inte matchar domäntipset på grund av en annan resurs. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) med korrelations-ID, ID för begäran och felkod för mer information. |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword-användarens Active Directory lösen ord har upphört att gälla. Skapa ett nytt lösen ord för användaren eller låt användaren använda verktyget för självbetjänings återställning för att återställa lösen ordet. |
 | AADSTS50146 | MissingCustomSigningKey – den här appen måste konfigureras med en app-Specific Sign Key. Det har antingen inte konfigurerats med en sådan eller så har nyckeln upphört att gälla/är inte giltig än. |
 | AADSTS50147 | MissingCodeChallenge-kodnings parameterns storlek är ogiltig. |
@@ -200,7 +200,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS70007 | UnsupportedResponseMode – appen returnerade ett värde som inte stöds `response_mode` när en token begärdes.  |
 | AADSTS70008 | ExpiredOrRevokedGrant-uppdateringstoken har gått ut på grund av inaktivitet. Token utfärdades på XXX och var inaktiv under en viss tid. |
 | AADSTS70011 | InvalidScope-definitions området som begärdes av appen är ogiltigt. |
-| AADSTS70012 | MsaServerError-ett Server fel uppstod vid autentisering av en MSA-användare (Consumer). Försök igen. Om den fortfarande inte fungerar, [öppnar du ett support ärende](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError-ett Server fel uppstod vid autentisering av en MSA-användare (Consumer). Försök igen. Om det fortfarande misslyckas [skapar du ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending – fel i OAuth 2,0-enhets flöde. Auktorisering väntar. Enheten försöker att söka efter begäran igen. |
 | AADSTS70018 | BadVerificationCode-ogiltig verifierings kod på grund av att användaren skriver in fel användar kod för enhets kod flödet. Auktorisering är inte godkänd. |
 | AADSTS70019 | CodeExpired-verifierings koden har gått ut. Låt användaren försöka logga in igen. |
@@ -320,6 +320,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS1000000 | UserNotBoundError – bindnings-API: t kräver att Azure AD-användaren också autentiseras med en extern IDP, vilket inte har hänt än. |
 | AADSTS1000002 | BindCompleteInterruptError – bindningen har slutförts, men användaren måste vara informerad. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled – programmet är inaktiverat. |
+| AADSTS7000114| Programmet ' appIdentifier ' får inte göra program på uppdrag av anrop.|
 | AADSTS7500529 | Värdet "SAMLId-GUID" är inte ett giltigt SAML-ID – Azure AD använder det här attributet för att fylla i InResponseTo-attributet för det returnerade svaret. ID får inte börja med en siffra, så en gemensam strategi är att lägga en sträng som "ID" till sträng representationen av ett GUID. Till exempel är id6c1c178c166d486687be4aaf5e482730 ett giltigt ID. |
 
 ## <a name="next-steps"></a>Nästa steg

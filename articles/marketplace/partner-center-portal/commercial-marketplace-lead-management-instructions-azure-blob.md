@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
-ms.openlocfilehash: cd0b708ac3a1b16804430584dfcb01b3d2a4fae2
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dea9c0eec275c6a0596636c8625e52b8978bb9a6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042372"
+ms.locfileid: "93130552"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Använd Azure Blob Storage för att hantera affärs marknads platser
 
@@ -33,7 +33,7 @@ ms.locfileid: "93042372"
 3. I Azure Portal skapar du ett lagrings konto med hjälp av följande procedur.  
     1. Välj **+ skapa en resurs** i den vänstra meny raden.  Det **nya** fönstret (bladet) kommer att visas till höger.
     2. Välj **lagring** i det **nya** fönstret.  En **aktuell** lista visas till höger.
-    3. Välj **lagrings kontot** för att börja skapa konto.  Följ anvisningarna i artikeln [skapa ett lagrings konto](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    3. Välj **lagrings kontot** för att börja skapa konto.  Följ anvisningarna i artikeln [skapa ett lagrings konto](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
     ![Steg för att skapa ett Azure Storage-konto](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "93042372"
 
 5. I fönstret lagrings konto väljer du **åtkomst nycklar** och kopierar värdet för *anslutnings strängen* för nyckeln. Spara det här värdet eftersom det är det *lagrings kontots anslutnings sträng* värde som du måste ange i publicerings portalen för att ta emot leads för ditt Marketplace-erbjudande.
 
-     Ett exempel på en anslutning STING är:
+     Ett exempel på en anslutnings sträng är:
 
      ```sql
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
@@ -55,11 +55,11 @@ ms.locfileid: "93042372"
 
 6. På sidan lagrings konto väljer du **blobbar** .
 
-   ![Azure Storage-nyckel](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
+   ![Skärm bild av sidan Azure Storage-konto med blobbar valda](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
 7. På sidan blobbar väljer du knappen **+ container** .
 
-8. Ange ett **namn** för den nya behållaren. Containernamnet får bara innehålla gemener, måste börja med en bokstav eller siffra och får bara innehålla bokstäver, siffror och bindestreck (-). Mer information om behållare och blob-namn finns i [namngivning och referens av behållare, blobbar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+8. Ange ett **namn** för den nya behållaren. Containernamnet får bara innehålla gemener, måste börja med en bokstav eller siffra och får bara innehålla bokstäver, siffror och bindestreck (-). Mer information om behållare och blob-namn finns i [namngivning och referens av behållare, blobbar och metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
     Spara det här värdet eftersom det är det *behållar namns* värde som du måste ange i publicerings portalen för att ta emot leads för ditt Marketplace-erbjudande.
 
@@ -91,5 +91,3 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 
     > [!NOTE]
     > Du måste slutföra konfigurationen av resten av erbjudandet och publicera den innan du kan ta emot leads för erbjudandet.
-
-

@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: c7beddda0d344f6b7606f3e2d3624bee39009c66
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043545"
+ms.locfileid: "93130858"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Hantera offentligt innehåll med Azure Container Registry
 
@@ -21,7 +21,7 @@ Den här artikeln är en översikt över metoder och arbets flöden för att anv
 
 Din miljö kan ha beroenden av offentligt innehåll, till exempel offentliga behållar avbildningar, [Helm-diagram](https://helm.sh/), OPA-principer ( [Open Policy Agent](https://www.openpolicyagent.org/) ) eller andra artefakter. Du kan till exempel köra [nginx](https://hub.docker.com/_/nginx) för tjänst routning eller genom att hämta `docker build FROM alpine` avbildningar direkt från Docker Hub eller ett annat offentligt register. 
 
-Utan rätt kontroller kan du med beroenden av offentligt register innehåll lägga till risker för dina bild utvecklings-och distributions arbets flöden. För att minimera riskerna bör du behålla lokala kopior av offentligt innehåll när det är möjligt. Mer information finns i [bloggen öppna container Initiative](https://opencontainers.org/posts/blog). 
+Utan rätt kontroller kan du med beroenden av offentligt register innehåll lägga till risker för dina bild utvecklings-och distributions arbets flöden. För att minimera riskerna bör du behålla lokala kopior av offentligt innehåll när det är möjligt. Mer information finns i [bloggen öppna container Initiative](https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/). 
 
 ## <a name="authenticate-with-docker-hub"></a>Autentisera med Docker Hub
 
@@ -33,8 +33,6 @@ Som ett första steg, om du för närvarande hämtar offentliga avbildningar fr�
 > När du uppskattar antalet pull-begäranden bör du ta hänsyn till att när du använder moln leverantörs tjänster eller arbetar bakom en företags-NAT, visas flera användare för Docker-hubben i mängd som en del av IP-adresserna.  Om du lägger till Docker-inbetald konto autentisering till förfrågningar som görs i Docker Hub kan du undvika avbrott i tjänsten på grund av hastighets begränsning.
 >
 > Mer information finns i [Docker-priser och prenumerationer](https://www.docker.com/pricing) och [Docker-villkoren](https://www.docker.com/legal/docker-terms-service).
-
-
 
 För autentiserings exempel och scenarier, se [nedladdnings frekvensen](https://docs.docker.com/docker-hub/download-rate-limit/).
 
@@ -72,7 +70,7 @@ Om du vill börja hantera kopior av offentliga avbildningar kan du skapa ett Azu
 
 Du rekommenderas att [Importera](container-registry-import-images.md) bas avbildningar och annat offentligt innehåll till ditt Azure Container Registry som ett rekommenderat steg i taget. [Import kommandot AZ ACR](/cli/azure/acr#az_acr_import) i Azure CLI stöder avbildnings import från offentliga register som Docker Hub och Microsoft container Registry och från andra register med privat behållare. 
 
-`az acr import` kräver inte en lokal Docker-installation. Du kan köra den med en lokal installation av Azure CLI eller direkt i Azure Cloud Shell stöd för valfri OS-typ av avbildningar, bilder med flera arkitektur eller OCI-artefakter som Helm-diagram.
+`az acr import` kräver inte en lokal Docker-installation. Du kan köra den med en lokal installation av Azure CLI eller direkt i Azure Cloud Shell. Det stöder avbildningar av alla OS-typer, avbildningar med flera arkitektur eller OCI-artefakter som Helm-diagram.
 
 Exempel:
 
@@ -82,7 +80,7 @@ az acr import \
   --source docker.io/library/hello-world:latest \
   --image hello-world:latest \
   --username <Docker Hub username> \
-  --password <Docker Hub password>
+  --password <Docker Hub token>
 ```
 
 Beroende på organisationens behov kan du importera till ett dedikerat register eller en lagrings plats i ett delat register.
@@ -93,7 +91,7 @@ Utvecklare av program avbildningar bör se till att deras kod refererar till lok
 
 Expandera vid bild import, konfigurera en [Azure Container Registry uppgift](container-registry-tasks-overview.md) för att automatisera program avbildningar när bas avbildningar uppdateras. En automatiserad versions uppgift kan spåra både [bas avbildnings uppdateringar](container-registry-tasks-base-images.md) och [käll kods uppdateringar](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
 
-Ett detaljerat exempel finns i [så här använder och underhåller du offentligt innehåll med Azure Container Registry uppgifter](https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md). 
+Ett detaljerat exempel finns i [så här använder och underhåller du offentligt innehåll med Azure Container Registry uppgifter](tasks-consume-public-content.md). 
 
 > [!NOTE]
 > En förkonfigurerad uppgift kan automatiskt återskapa varje program avbildning som refererar till en beroende bas avbildning. 
@@ -101,4 +99,5 @@ Ett detaljerat exempel finns i [så här använder och underhåller du offentlig
 ## <a name="next-steps"></a>Nästa steg
  
 * Lär dig mer om [ACR-uppgifter](container-registry-tasks-overview.md) för att skapa, köra, push-och korrigerings behållar avbildningar i Azure.
+* Se [hur du använder och underhåller offentligt innehåll med Azure Container Registry uppgifter](tasks-consume-public-content.md) för ett automatiserat hantera-arbetsflöde för att uppdatera bas avbildningar till din miljö. 
 * I [självstudierna om ACR tasks](container-registry-tutorial-quick-task.md) hittar du fler exempel på hur du automatiserar avbildnings versioner och uppdateringar.

@@ -8,18 +8,18 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329040"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129600"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Planera ett erbjudande för virtuell dator
 
 I den här artikeln beskrivs de olika alternativen och kraven för att publicera ett erbjudande för virtuell dator (VM) på den kommersiella marknads platsen. VM-erbjudanden är Transact-bara erbjudanden som distribueras och debiteras via Azure Marketplace.
 
-Innan du börjar ska du [skapa ett konto för kommersiell marknads plats i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och se till att ditt konto registreras i programmet för kommersiella marknads platser.
+Innan du börjar ska du [skapa ett konto för kommersiell marknads plats i Partner Center](./partner-center-portal/create-account.md) och se till att ditt konto registreras i programmet för kommersiella marknads platser.
 
 ### <a name="technical-fundamentals"></a>Tekniska grunderna
 
@@ -70,7 +70,7 @@ Du kan skicka inbjudningar till Microsoft-konto (MSA) eller Azure Active Directo
 
 VM-erbjudanden kräver minst en plan. En plan definierar lösningens omfattning och begränsningar samt tillhör ande prissättning. Du kan skapa flera planer för ditt erbjudande för att ge dina kunder olika tekniska och licensierings alternativ, samt kostnads fria utvärderings versioner. Se [planer och priser för kommersiella Marketplace-erbjudanden](plans-pricing.md) för allmän vägledning om planer, inklusive pris modeller, kostnads fria utvärderingar och privata planer. 
 
-Virtuella datorer är helt handelsaktiverade med hjälp av "betala per användning"-eller "BYOL-licensierings modeller". Microsoft är värd för handels transaktionen och fakturerar kunden för din räkning. Du får fördelen med att använda den prioriterade betalnings relationen mellan kunden och Microsoft, inklusive eventuella företags avtal. Mer information finns i [Transact-funktioner för kommersiella Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
+Virtuella datorer är helt handelsaktiverade med hjälp av "betala per användning"-eller "BYOL-licensierings modeller". Microsoft är värd för handels transaktionen och fakturerar kunden för din räkning. Du får fördelen med att använda den prioriterade betalnings relationen mellan kunden och Microsoft, inklusive eventuella företags avtal. Mer information finns i [Transact-funktioner för kommersiella Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
 > De penning åtaganden som är kopplade till en Enterprise-avtal kan användas mot Azures användning av din virtuella dator, men inte mot licens avgifterna för program varan.
@@ -84,7 +84,7 @@ Detta är de tillgängliga licens alternativen för VM-erbjudanden:
 | Licensieringsalternativ | Transaktions process |
 | --- | --- |
 | Kostnadsfri utvärderingsversion | Erbjud dina kunder en en-, tre-eller sex månaders kostnads fri utvärderings version. |
-| Test enhet | Med det här alternativet kan dina kunder utvärdera virtuella datorer utan extra kostnad. De behöver inte vara en befintlig Azure-kund för att kunna kommunicera med utvärderings versionen. Mer information finns i [Vad är en test-enhet?](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
+| Test enhet | Med det här alternativet kan dina kunder utvärdera virtuella datorer utan extra kostnad. De behöver inte vara en befintlig Azure-kund för att kunna kommunicera med utvärderings versionen. Mer information finns i [Vad är en test-enhet?](./what-is-test-drive.md) |
 | BYOL | Med alternativet för att ta med din egen licens kan kunderna hämta befintliga program licenser till Azure.\* |
 | Användning-baserad | Med det här alternativet, även kallat betala per användning, kan kunderna betala per timme. |
 | Interaktiv demo  | Ge kunderna en guidad upplevelse av din lösning med hjälp av en interaktiv demonstration. Fördelen är att du kan erbjuda en utvärderings upplevelse utan att behöva tillhandahålla en komplicerad konfiguration av din komplexa lösning. |
@@ -129,7 +129,7 @@ Om du väljer att använda standard kontraktet har du möjlighet att lägga till
 När du skapar erbjudandet i Partner Center visas fliken åter försäljning **via kryptografiproviders** . Med det här alternativet kan partner som ingår i CSP-programmet (Microsoft Cloud solution providers) återförsälja den virtuella datorn som en del av ett sammanställt erbjudande. Alla BYOL-planer () är automatiskt inloggade i programmet. Du kan också välja att välja icke-BYOL planer. Mer information finns i [Cloud Solution Provider-programmet](cloud-solution-providers.md) . 
 
 > [!NOTE]
-> Du kan välja att välja partner kanal för CSP (Cloud Solution Provider) nu. Mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner Channels finns i [**moln lösnings leverantörer**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+> Du kan välja att välja partner kanal för CSP (Cloud Solution Provider) nu. Mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner Channels finns i [**moln lösnings leverantörer**](./cloud-solution-providers.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

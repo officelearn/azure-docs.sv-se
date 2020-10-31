@@ -7,21 +7,25 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b8dafd6d2347cf7cca4100f577476b8dfdf6c81
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 28551cb201ab964a21461d6b3f97ce439e446011
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495763"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130297"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Hantera en graf med digitala dubbla med relationer
 
-Hjärtat i Azure Digitals flätas är det [dubbla diagrammet](concepts-twins-graph.md) som representerar hela miljön. Det dubbla grafen består av enskilda digitala dubbla anslutningar via **relationer**. 
+Hjärtat i Azure Digitals flätas är det [dubbla diagrammet](concepts-twins-graph.md) som representerar hela miljön. Det dubbla grafen består av enskilda digitala dubbla anslutningar via **relationer** . 
 
 När du har en fungerande [Azure Digital-instansen](how-to-set-up-instance-portal.md) och har konfigurerat [autentiserings](how-to-authenticate-client.md) kod i din klient app, kan du använda [**DigitalTwins-API: er**](/rest/api/digital-twins/dataplane/twins) för att skapa, ändra och ta bort digitala dubbla och deras relationer i en digital Azure-instans. Du kan också använda [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)eller [Azure Digitals flätat CLI](how-to-use-cli.md).
 
 Den här artikeln fokuserar på att hantera relationer och diagrammet som helhet. information om hur du arbetar med enskilda digitala dubbla, finns i [*så här gör du: hantera digitala dubbla*](how-to-manage-twin.md).
 
+## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+    
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Skapa relationer
@@ -33,11 +37,11 @@ Relationer skapas med hjälp av `CreateRelationship()` anropet.
 Om du vill skapa en relation måste du ange:
 * Källans dubbla ID ( `srcId` i kod exemplet nedan): ID: t för den dubbla där relationen kommer.
 * Målets dubbla ID ( `targetId` i kod exemplet nedan): ID: t för den dubbla där relationen kommer.
-* Ett Relations namn ( `relName` i kod exemplet nedan): den generiska typen av relation, något som _innehåller_.
-* Ett relations-ID ( `relId` i kod exemplet nedan): det angivna namnet för den här relationen, t. ex. _Relationship1_.
+* Ett Relations namn ( `relName` i kod exemplet nedan): den generiska typen av relation, något som _innehåller_ .
+* Ett relations-ID ( `relId` i kod exemplet nedan): det angivna namnet för den här relationen, t. ex. _Relationship1_ .
 
 Relations-ID: t måste vara unikt inom den aktuella källan. Det behöver inte vara globalt unikt.
-Till exempel måste varje ID för en speciell relation vara unikt för den dubbla *foo*. En annan rad dubbla *staplar* kan dock ha en utgående relation som matchar samma ID för en *foo* -relation.
+Till exempel måste varje ID för en speciell relation vara unikt för den dubbla *foo* . En annan rad dubbla *staplar* kan dock ha en utgående relation som matchar samma ID för en *foo* -relation.
 
 Följande kod exempel illustrerar hur du skapar en relation i din Azure Digital-instansen.
 
@@ -81,9 +85,9 @@ Relationer kan klassificeras som antingen:
 
 Det finns ingen begränsning för antalet relationer som du kan ha mellan två dubbla, och du kan ha så många relationer som du vill. 
 
-Det innebär att du kan uttrycka flera olika typer av relationer mellan två dubblas samtidigt. Till exempel kan *dubbla a* ha både en *lagrad* *relation och en* relation med *dubbla B*.
+Det innebär att du kan uttrycka flera olika typer av relationer mellan två dubblas samtidigt. Till exempel kan *dubbla a* ha både en *lagrad* *relation och en* relation med *dubbla B* .
 
-Du kan till och med skapa flera instanser av samma typ av relation mellan samma två dubbla, om du vill. I det här exemplet kan *dubbla A* ha två olika *lagrade* relationer med *dubbla B*, så länge relationerna har olika relations-ID.
+Du kan till och med skapa flera instanser av samma typ av relation mellan samma två dubbla, om du vill. I det här exemplet kan *dubbla A* ha två olika *lagrade* relationer med *dubbla B* , så länge relationerna har olika relations-ID.
 
 ## <a name="list-relationships"></a>List relationer
 
@@ -132,7 +136,7 @@ Du kan använda de hämtade relationerna för att navigera till andra dubbla i g
 
 ### <a name="find-incoming-relationships-to-a-digital-twin"></a>Hitta inkommande relationer till en digital, dubbel
 
-Azure Digitals dubbla är också ett API för att hitta alla _*inkommande**-relationer till en specifik dubbel. Detta är ofta användbart för omvänd navigering, eller när du tar bort en dubbel.
+Azure Digitals dubbla är också ett API för att hitta alla _ *inkommande* *-relationer till en specifik dubbel. Detta är ofta användbart för omvänd navigering, eller när du tar bort en dubbel.
 
 Föregående kod exempel fokuserade på att hitta utgående relationer från en dubbel. Följande exempel är strukturerat på samma sätt, men hittar *inkommande* relationer till den dubbla i stället.
 

@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84196430"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129736"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referens data för sökningar i Stream Analytics
 
-Referens data (kallas även en uppslags tabell) är en begränsad data uppsättning som är statisk eller långsamt föränderlig i natur, som används för att utföra en sökning eller för att utöka dina data strömmar. I ett IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referens data och ansluta dem med IoT-dataströmmar i real tid. Azure Stream Analytics läser in referens data i minnet för att uppnå låg latens för strömnings bearbetning. Om du vill använda referens data i ditt Azure Stream Analytics jobb använder du vanligt vis en [referens data koppling](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) i din fråga. 
+Referens data (kallas även en uppslags tabell) är en begränsad data uppsättning som är statisk eller långsamt föränderlig i natur, som används för att utföra en sökning eller för att utöka dina data strömmar. I ett IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referens data och ansluta dem med IoT-dataströmmar i real tid. Azure Stream Analytics läser in referens data i minnet för att uppnå låg latens för strömnings bearbetning. Om du vill använda referens data i ditt Azure Stream Analytics jobb använder du vanligt vis en [referens data koppling](/stream-analytics-query/reference-data-join-azure-stream-analytics) i din fråga. 
 
 ## <a name="example"></a>Exempel  
 Du kan ha en real tids ström med händelser som genereras när bilar överför en väg-monter. Avgiftsbelagt monter kan fånga upp licens skylten i real tid och gå med i en statisk data uppsättning som har registrerings information för att identifiera licens plattor som har upphört att gälla.  
@@ -37,7 +37,7 @@ Referens data modelleras som en sekvens av blobbar (definieras i inmatnings konf
 
 ### <a name="configure-blob-reference-data"></a>Konfigurera referens data för BLOB
 
-Om du vill konfigurera dina referens data måste du först skapa en indata som är av typen **referens data**. I tabellen nedan förklaras varje egenskap som du måste ange när du skapar referens data inmatningen med beskrivningen:
+Om du vill konfigurera dina referens data måste du först skapa en indata som är av typen **referens data** . I tabellen nedan förklaras varje egenskap som du måste ange när du skapar referens data inmatningen med beskrivningen:
 
 |**Egenskaps namn**  |**Beskrivning**  |
 |---------|---------|
@@ -96,7 +96,7 @@ Med alternativet delta fråga kör Stream Analytics ögonblicks bild frågan fr�
 
 Om du vill konfigurera dina SQL Database referens data måste du först skapa **referenser för data** inmatning. I tabellen nedan förklaras varje egenskap som du måste ange när du skapar referens data indata med en beskrivning. Mer information finns i [använda referens data från en SQL Database för ett Azure Stream Analytics jobb](sql-reference-data.md).
 
-Du kan använda en [hanterad Azure SQL-instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) som referens data inmatning. Du måste [Konfigurera den offentliga slut punkten i SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) och manuellt konfigurera följande inställningar i Azure Stream Analytics. Den virtuella Azure-datorn som kör SQL Server med en databas ansluten stöds också genom att konfigurera inställningarna manuellt nedan.
+Du kan använda en [hanterad Azure SQL-instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) som referens data inmatning. Du måste [Konfigurera den offentliga slut punkten i SQL-hanterad instans](../azure-sql/managed-instance/public-endpoint-configure.md) och manuellt konfigurera följande inställningar i Azure Stream Analytics. Den virtuella Azure-datorn som kör SQL Server med en databas ansluten stöds också genom att konfigurera inställningarna manuellt nedan.
 
 |**Egenskaps namn**|**Beskrivning**  |
 |---------|---------|
@@ -104,7 +104,7 @@ Du kan använda en [hanterad Azure SQL-instans](https://docs.microsoft.com/azure
 |Prenumeration|Välj din prenumeration|
 |Databas|Azure SQL Database som innehåller dina referens data. För SQL-hanterad instans måste du ange port 3342. Till exempel *sampleserver. public. Database. Windows. net, 3342*|
 |Användarnamn|Det användar namn som är associerat med din Azure SQL Database.|
-|lösenordsinställning|Lösen ordet som är kopplat till Azure SQL Database.|
+|Lösenord|Lösen ordet som är kopplat till Azure SQL Database.|
 |Uppdatera regelbundet|Med det här alternativet kan du välja ett uppdaterings intervall. Om du väljer "på" kan du ange uppdaterings frekvensen i DD: HH: MM.|
 |Ögonblicks bild fråga|Detta är standard alternativet fråga som hämtar referens data från SQL Database.|
 |Delta fråga|För avancerade scenarier med stora data uppsättningar och en kort uppdaterings takt väljer du att lägga till en delta fråga.|
@@ -146,6 +146,6 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.get.started]: ./stream-analytics-real-time-fraud-detection.md
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

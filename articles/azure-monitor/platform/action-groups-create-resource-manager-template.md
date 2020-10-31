@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5c02812d4c97b94667fcddcb275243e7a9b36b29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01fb93a4b74a35501d0684b822ea83fc7b20770a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321912"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130586"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Skapa en åtgärds grupp med en Resource Manager-mall
 Den här artikeln visar hur du använder en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera åtgärds grupper. Med hjälp av mallar kan du automatiskt konfigurera åtgärds grupper som kan återanvändas i vissa typer av aviseringar. Dessa åtgärds grupper säkerställer att alla rätt parter meddelas när en avisering utlöses.
@@ -23,11 +23,11 @@ De grundläggande stegen är:
 
 2. Distribuera mallen med hjälp av [valfri distributions metod](../../azure-resource-manager/templates/deploy-powershell.md).
 
-Först beskriver vi hur du skapar en Resource Manager-mall för en åtgärds grupp där åtgärds definitionerna är hårdkodade i mallen. För det andra beskriver vi hur du skapar en mall som hämtar konfigurations informationen för webhooken som indataparametrar när mallen distribueras.
-
 ## <a name="resource-manager-templates-for-an-action-group"></a>Resource Manager-mallar för en åtgärds grupp
 
 Om du vill skapa en åtgärds grupp med hjälp av en Resource Manager-mall skapar du en resurs av typen `Microsoft.Insights/actionGroups` . Fyll sedan i alla relaterade egenskaper. Här följer två exempel på mallar som skapar en åtgärds grupp.
+
+Den första mallen beskriver hur du skapar en Resource Manager-mall för en åtgärds grupp där åtgärds definitionerna är hårdkodade i mallen. Andra mallen beskriver hur du skapar en mall som använder webhook-konfigurationsinformation som indataparametrar när mallen distribueras.
 
 ```json
 {

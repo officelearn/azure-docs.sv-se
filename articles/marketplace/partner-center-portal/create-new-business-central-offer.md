@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71cbc09f21e21c325665809953f209615d835124
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91774586"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130161"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Skapa ett erbjudande för Dynamics 365 for Business Central
 
@@ -23,8 +23,8 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
-3. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Dynamics 365 Business Central**.
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** -  >  **Översikt** .
+3. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Dynamics 365 Business Central** .
 
     ![Visar menyn till vänster-navigering.](./media/new-offer-dynamics-365-business-central.png)
 
@@ -33,17 +33,17 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 
 ## <a name="new-offer"></a>Nytt erbjudande
 
-Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
+Ange ett **erbjudande-ID** . Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
 - Erbjudande-ID: t kombinerat med utgivar-ID: t måste vara under 40 tecken långt.
 - Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inga blank steg. Om ditt utgivar-ID t. ex. är testpublisherid och du anger **test-erbjudandet-1** så är webb adressen för erbjudandet `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
+- Erbjudande-ID: t kan inte ändras när du har valt **skapa** .
 
-Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
+Ange ett **erbjudande alias** . Detta är det namn som används för erbjudandet i Partner Center.
 
 - Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
-- Det går inte att ändra namnet på erbjudandet när du har valt **skapa**.
+- Det går inte att ändra namnet på erbjudandet när du har valt **skapa** .
 
 Välj **skapa** för att generera erbjudandet och fortsätt.
 
@@ -91,7 +91,7 @@ På den här sidan kan du definiera de kategorier och branscher som ska använda
 Välj kategorier och under Kategorier för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Se till att du beskriver hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. Välj:
 
 - Minst en och upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
-- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt**.
+- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt** .
 
 Se den fullständiga listan över kategorier och under Kategorier i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md).
 
@@ -171,9 +171,9 @@ Ange URL: en till din organisations sekretess policy. Du ansvarar för att se ti
 
 ### <a name="contact-information"></a>Kontaktinformation
 
-I det här avsnittet måste du ange namn, e-postadress och telefonnummer för en **support kontakt** och en **teknisk kontakt**. Den här informationen visas inte för kunder, men är tillgänglig för Microsoft och kan tillhandahållas till CSP-partner.
+I det här avsnittet måste du ange namn, e-postadress och telefonnummer för en **support kontakt** och en **teknisk kontakt** . Den här informationen visas inte för kunder, men är tillgänglig för Microsoft och kan tillhandahållas till CSP-partner.
 
-I avsnittet **support kontakt** måste du också ange **Support-URL:** en där CSP-partner kan hitta support för ditt erbjudande. Support-URL: en får inte vara samma som **Hjälp länken**.
+I avsnittet **support kontakt** måste du också ange **Support-URL:** en där CSP-partner kan hitta support för ditt erbjudande. Support-URL: en får inte vara samma som **Hjälp länken** .
 
 ### <a name="supporting-documents"></a>Stöd dokument
 
@@ -215,7 +215,7 @@ På den här sidan får du alternativ för var och hur du gör ditt erbjudande t
 
 ### <a name="markets"></a>Marknaden
 
-I det här avsnittet kan du ange vilka marknader som ditt erbjudande ska vara tillgängligt för. Det gör du genom att välja **Redigera marknader**, så visas popup-fönstret för **marknads val** .
+I det här avsnittet kan du ange vilka marknader som ditt erbjudande ska vara tillgängligt för. Det gör du genom att välja **Redigera marknader** , så visas popup-fönstret för **marknads val** .
 
 Välj minst en marknad för att publicera erbjudandet. Välj **Välj alla** om du vill göra ditt erbjudande tillgängligt på alla möjliga marknader eller Välj de olika marknader som du vill lägga till.
 
@@ -228,7 +228,7 @@ Tänk på att även om du väljer alla marknader, lokala lagar, begränsningar e
 
 ### <a name="preview-audience"></a>Förhandsgranska mål grupp
 
-Innan du publicerar erbjudandet Live på det bredare Marketplace-erbjudandet måste du först göra det tillgängligt för en begränsad **förhands gransknings publik**. Ange en **Dölj nyckel** (valfri sträng med endast gemener och/eller siffror) här. Medlemmar i din förhands visnings publik kan använda denna Dölj-nyckel som en token för att visa en förhands granskning av ditt erbjudande i Marketplace.
+Innan du publicerar erbjudandet Live på det bredare Marketplace-erbjudandet måste du först göra det tillgängligt för en begränsad **förhands gransknings publik** . Ange en **Dölj nyckel** (valfri sträng med endast gemener och/eller siffror) här. Medlemmar i din förhands visnings publik kan använda denna Dölj-nyckel som en token för att visa en förhands granskning av ditt erbjudande i Marketplace.
 
 När du är redo att göra ditt erbjudande tillgängligt och ta bort begränsningen för för hands versionen måste du ta bort **Dölj-tangenten** och publicera igen.
 
@@ -242,8 +242,8 @@ Den här sidan definierar de tekniska uppgifter som används för att ansluta ti
 
 Välj det alternativ som gäller för ditt erbjudande:
 
-* **Lägg till** – en app för tillägg utökar upplevelsen och de befintliga funktionerna i Dynamics 365 Business Central. Mer information finns i [lägga till appar](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
-* **Anslut** – en Connect-app kan användas i scenariot där det måste upprättas en punkt-till-punkt-anslutning mellan Dynamics 365 Business Central och en lösning eller tjänst från tredje part. Mer information finns i [ansluta appar](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
+* **Lägg till** – en app för tillägg utökar upplevelsen och de befintliga funktionerna i Dynamics 365 Business Central. Mer information finns i [lägga till appar](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
+* **Anslut** – en Connect-app kan användas i scenariot där det måste upprättas en punkt-till-punkt-anslutning mellan Dynamics 365 Business Central och en lösning eller tjänst från tredje part. Mer information finns i [ansluta appar](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
 
 ### <a name="file-upload"></a>Fil uppladdning
 
@@ -280,11 +280,11 @@ På den här sidan kan du ange ytterligare information om ditt erbjudande för a
 
 ### <a name="target-release"></a>Målversion
 
-Ange vilken version av Microsoft Dynamics Business Central din lösnings mål: **aktuell**, **nästa större**eller **Nästa mindre**. Med den här informationen kan vi testa din lösning på lämpligt sätt.
+Ange vilken version av Microsoft Dynamics Business Central din lösnings mål: **aktuell** , **nästa större** eller **Nästa mindre** . Med den här informationen kan vi testa din lösning på lämpligt sätt.
 
 ### <a name="supported-editions"></a>Versioner som stöds
 
-Om ditt erbjudande kräver Premium-versionen av Microsoft Dynamics 365 Business Central väljer du endast **Premium** . Annars väljer du både **Essentials** och **Premium**.
+Om ditt erbjudande kräver Premium-versionen av Microsoft Dynamics 365 Business Central väljer du endast **Premium** . Annars väljer du både **Essentials** och **Premium** .
 
 ### <a name="key-usage-scenario"></a>Scenario för nyckel användning
 
@@ -311,7 +311,7 @@ Om det är första gången du publicerar det här erbjudandet kan du:
     - *Uncompleted* – innebär att avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Gå tillbaka till avsnitten och uppdatera det.
     - *Complete* – innebär att avsnittet har slutförts, att alla nödvändiga data har angetts och att det inte finns några fel. Alla avsnitt i erbjudandet måste vara i ett komplett tillstånd innan du kan skicka in erbjudandet.
 - I avsnittet **Obs!-certifiering** anger du test instruktioner till certifierings teamet för att kontrol lera att appen är korrekt testad, förutom eventuella kompletterande anteckningar som hjälper dig att förstå din app.
-- Skicka in erbjudandet om publicering genom att välja **Skicka**. Vi kommer att skicka ett e-postmeddelande till dig när en för hands version av erbjudandet är tillgänglig för att granska och godkänna. Gå tillbaka till Partner Center och välj **Go-Live** för erbjudandet om att publicera ditt erbjudande till allmänheten.
+- Skicka in erbjudandet om publicering genom att välja **Skicka** . Vi kommer att skicka ett e-postmeddelande till dig när en för hands version av erbjudandet är tillgänglig för att granska och godkänna. Gå tillbaka till Partner Center och välj **Go-Live** för erbjudandet om att publicera ditt erbjudande till allmänheten.
 
 ## <a name="next-steps"></a>Nästa steg
 

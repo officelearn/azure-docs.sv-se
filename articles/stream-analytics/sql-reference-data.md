@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1ae5908fe3ab95dcd62da976988bd7ce107217e5
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 1826b66b0548b7567af59de64549c7eb700025c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027414"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130909"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Använda referens data från en SQL Database för ett Azure Stream Analytics jobb
 
@@ -173,11 +173,11 @@ När du använder delta frågan rekommenderas [temporala tabeller i Azure SQL Da
    Observera att Stream Analytics runtime kan köra ögonblicks bilds frågan med jämna mellanrum förutom delta-frågan för att lagra kontroll punkter.
 
 ## <a name="test-your-query"></a>Testa frågan
-   Det är viktigt att kontrol lera att din fråga returnerar den förväntade data uppsättning som Stream Analyticss jobbet kommer att använda som referens data. Om du vill testa din fråga går du till ininformation under jobb sto sektion på portalen. Du kan sedan välja exempel data på SQL Database referens indata. När exemplet blir tillgängligt kan du hämta filen och kontrol lera om de data som returneras är som förväntat. Om du vill optimera dina utvecklings-och test iterationer rekommenderar vi att du använder [Stream Analytics verktyg för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). Du kan också använda andra verktyg för att först se till att frågan returnerar rätt resultat från dig Azure SQL Database och sedan använder du den i ditt Stream Analytics-jobb. 
+   Det är viktigt att kontrol lera att din fråga returnerar den förväntade data uppsättning som Stream Analyticss jobbet kommer att använda som referens data. Om du vill testa din fråga går du till ininformation under jobb sto sektion på portalen. Du kan sedan välja exempel data på SQL Database referens indata. När exemplet blir tillgängligt kan du hämta filen och kontrol lera om de data som returneras är som förväntat. Om du vill optimera dina utvecklings-och test iterationer rekommenderar vi att du använder [Stream Analytics verktyg för Visual Studio](./stream-analytics-tools-for-visual-studio-install.md). Du kan också använda andra verktyg för att först se till att frågan returnerar rätt resultat från dig Azure SQL Database och sedan använder du den i ditt Stream Analytics-jobb. 
 
 ### <a name="test-your-query-with-visual-studio-code"></a>Testa din fråga med Visual Studio Code
 
-   Installera [Azure Stream Analytics verktyg](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) och [SQL Server (MSSQL)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) i Visual Studio Code och konfigurera ditt ASA-projekt. Mer information finns i [snabb start: skapa ett Azure Stream Analytics jobb i Visual Studio Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code) och [själv studie kursen för SQL Server (MSSQL)](https://aka.ms/mssql-getting-started).
+   Installera [Azure Stream Analytics verktyg](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) och [SQL Server (MSSQL)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) i Visual Studio Code och konfigurera ditt ASA-projekt. Mer information finns i [snabb start: skapa ett Azure Stream Analytics jobb i Visual Studio Code](./quick-create-visual-studio-code.md) och [själv studie kursen för SQL Server (MSSQL)](/sql/tools/visual-studio-code/sql-server-develop-use-vscode).
 
 1. Konfigurera dina SQL-referenser för data inmatning.
    

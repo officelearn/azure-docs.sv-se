@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: ead175cbcaa9467cb5263ad95100facdda096991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337814"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130263"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Felsöka Azure Stream Analytics frågor
 
@@ -25,26 +25,26 @@ I den här artikeln beskrivs vanliga problem med att utveckla Azure Stream Analy
 
 1.  Undersök fel genom att testa lokalt:
 
-    - På Azure Portal väljer du **test**på fliken **fråga** . Använd de hämtade exempel data för att [testa frågan](stream-analytics-test-query.md). Undersök eventuella fel och försök att åtgärda dem.   
+    - På Azure Portal väljer du **test** på fliken **fråga** . Använd de hämtade exempel data för att [testa frågan](stream-analytics-test-query.md). Undersök eventuella fel och försök att åtgärda dem.   
     - Du kan också [testa din fråga lokalt](stream-analytics-live-data-local-testing.md) med Azure Stream Analytics verktyg för Visual Studio eller [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
 2.  [Felsök frågor steg för steg lokalt med hjälp av jobb diagram](debug-locally-using-job-diagram-vs-code.md) i Azure Stream Analytics verktyg för Visual Studio Code. Jobb diagrammet visar hur data flödar från inmatnings källor (Händelsehubben, IoT Hub osv.) genom flera fråge steg och slutligen för att generera mottagare. Varje fråge steg mappas till en temporär resultat uppsättning som definierats i skriptet med instruktionen WITH. Du kan visa informationen, samt mått, i varje mellanliggande resultat uppsättning för att hitta källan till problemet.
 
     ![Resultat för förhands granskning av jobb diagram](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
-3.  Om du använder [**timestamp by**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)kontrollerar du att händelserna har tidsstämplar som är större än [jobbets start tid](stream-analytics-out-of-order-and-late-events.md).
+3.  Om du använder [**timestamp by**](/stream-analytics-query/timestamp-by-azure-stream-analytics)kontrollerar du att händelserna har tidsstämplar som är större än [jobbets start tid](./stream-analytics-time-handling.md).
 
 4.  Eliminera vanliga fall GRO par, till exempel:
-    - En [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) -sats i frågan filtrerade ut alla händelser och förhindrar att utdata genereras.
-    - En [**Cast**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) -funktion Miss lyckas, vilket medför att jobbet Miss lyckas. Undvik typ konverterings felen genom att använda [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) i stället.
+    - En [**WHERE**](/stream-analytics-query/where-azure-stream-analytics) -sats i frågan filtrerade ut alla händelser och förhindrar att utdata genereras.
+    - En [**Cast**](/stream-analytics-query/cast-azure-stream-analytics) -funktion Miss lyckas, vilket medför att jobbet Miss lyckas. Undvik typ konverterings felen genom att använda [**TRY_CAST**](/stream-analytics-query/try-cast-azure-stream-analytics) i stället.
     - När du använder fönster funktioner väntar du tills hela fönstrets varaktighet visar utdata från frågan.
     - Tidsstämpeln för händelser innan jobbets start tid och händelser tas bort.
-    - [**Kopplings**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) villkor stämmer inte överens. Om det inte finns några matchningar visas inga utdata.
+    - [**Kopplings**](/stream-analytics-query/join-azure-stream-analytics) villkor stämmer inte överens. Om det inte finns några matchningar visas inga utdata.
 
-5.  Se till att principer för händelse ordning konfigureras som förväntat. Gå till **Inställningar** och välj [**händelse ordning**](stream-analytics-out-of-order-and-late-events.md). Principen tillämpas *inte* när du använder **test** knappen för att testa frågan. Resultatet är en skillnad mellan testning i webbläsaren jämfört med att köra jobbet i produktion. 
+5.  Se till att principer för händelse ordning konfigureras som förväntat. Gå till **Inställningar** och välj [**händelse ordning**](./stream-analytics-time-handling.md). Principen tillämpas *inte* när du använder **test** knappen för att testa frågan. Resultatet är en skillnad mellan testning i webbläsaren jämfört med att köra jobbet i produktion. 
 
 6. Felsök med hjälp av aktivitets-och resurs loggar:
-    - Använd [aktivitets loggar](../azure-resource-manager/resource-group-audit.md)och filtrera för att identifiera och felsöka fel.
+    - Använd [aktivitets loggar](../azure-resource-manager/management/view-activity-logs.md)och filtrera för att identifiera och felsöka fel.
     - Använd [jobb resurs loggar](stream-analytics-job-diagnostic-logs.md) för att identifiera och felsöka fel.
 
 ## <a name="resource-utilization-is-high"></a>Resursutnyttjande är hög
@@ -103,12 +103,12 @@ Den här gången är data i utdata formaterade och ifyllda som förväntat.
 
 ## <a name="get-help"></a>Få hjälp
 
-Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Azure Stream Analytics Management REST-API:et](/rest/api/streamanalytics/)

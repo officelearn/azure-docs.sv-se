@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: Azure App Service, webbapp, Linux, Windows, Docker, container
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: f3c687d5c8b4e4c6d0b7f4ff912137066fe10bbb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b5682275a9e5f3993de715ab5f23a708d5df47ae
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743722"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130127"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrera anpassad program vara till Azure App Service med en anpassad behållare
 
@@ -318,6 +318,10 @@ ENTRYPOINT ["init.sh"]
 * Den sista raden, `ENTRYPOINT ["init.sh"]` , startar `init.sh` för att starta SSH-tjänsten och python-servern.
 
 ## <a name="build-and-test-the-image-locally"></a>Bygg och testa avbildningen lokalt
+
+> [!NOTE]
+> Docker Hub har [kvoter för antalet anonyma hämtningar per IP och antalet autentiserade hämtningar per kostnads fri användare (se **data överföring** )](https://www.docker.com/pricing). Om du märker att dina hämtningar från Docker Hub begränsas, kan `docker login` du prova om du inte redan är inloggad.
+> 
 
 1. Kör följande kommando för att skapa avbildningen:
 

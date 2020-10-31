@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 14f0c7177953e43b0c58b4f5432d0c08c5f03f45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cf86824bef5b6f521df0f0446d5337e2b7c418a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87876622"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130144"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Konfigurera den interaktiva PySpark-miljön för Visual Studio Code
 
@@ -26,9 +26,7 @@ Vi använder kommandot **python/pip** för att bygga en virtuell miljö i din St
 
    * Installera python från [https://www.python.org/downloads/](https://www.python.org/downloads/) . 
    * Installera pip från [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) (om det inte är installerat från python-installationen).
-   * Kontrol lera att python och pip har installerats med hjälp av följande kommandon. (Valfritt)
-
-        ![Kontrol lera kommandot python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+   * Du kan också kontrol lera att python och pip har installerats med hjälp av kommandona `python --version` , `pip --version` respektive. 
 
      > [!NOTE]
      > Vi rekommenderar att du installerar python manuellt i stället för att använda macOS-standardversionen.

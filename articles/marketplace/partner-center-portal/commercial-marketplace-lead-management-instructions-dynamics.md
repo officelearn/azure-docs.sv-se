@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: 31dba5489db3778d738fc2856cf6aacfd6987711
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54754f4c7753661b247f3f90942fb3074c34a38b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030760"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130620"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Konfigurera lead-hantering för Dynamics 365 kund engagemang
 
-Den här artikeln beskriver hur du konfigurerar Dynamics 365 kund engagemang (tidigare namngiven Dynamics CRM Online). Läs mer om ändringen i [Konfigurera serverbaserad autentisering med kund engagemang och SharePoint Online](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) för att bearbeta försäljnings leads från ditt kommersiella Marketplace-erbjudande.
+Den här artikeln beskriver hur du konfigurerar Dynamics 365 kund engagemang (tidigare namngiven Dynamics CRM Online). Läs mer om ändringen i [Konfigurera serverbaserad autentisering med kund engagemang och SharePoint Online](/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) för att bearbeta försäljnings leads från ditt kommersiella Marketplace-erbjudande.
 
 >[!NOTE]
 >De här anvisningarna är specifika för den Microsoft-värdbaserade moln miljön för Dynamics 365-kund engagemang. Anslutning direkt till en lokal Dynamics-miljö stöds inte för närvarande. Det finns andra alternativ för att ta emot leads, till exempel konfigurera en [https-slutpunkt](./commercial-marketplace-lead-management-instructions-https.md) eller en Azure- [tabell](./commercial-marketplace-lead-management-instructions-azure-table.md).
@@ -36,11 +36,11 @@ Följande användar behörigheter krävs för att slutföra stegen i den här ar
 
 1. Öppna Dynamics 365 kund engagemang genom att gå till URL: en för din Dynamics-instans, till exempel `https://tenant.crm.dynamics.com` .
 
-1. Välj kugg hjuls ikonen i det översta fältet och välj sedan **Avancerade inställningar**.
+1. Välj kugg hjuls ikonen i det översta fältet och välj sedan **Avancerade inställningar** .
  
     ![Meny alternativ för Dynamics 365 avancerade inställningar](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-advanced-settings.png)
 
-1. På sidan **Inställningar** öppnar du menyn **Inställningar** i det översta fältet och väljer **lösningar**.
+1. På sidan **Inställningar** öppnar du menyn **Inställningar** i det översta fältet och väljer **lösningar** .
 
     >[!NOTE]
     >Om du inte ser alternativen på följande skärm har du inte de behörigheter som krävs för att fortsätta. Kontakta en administratör på din Dynamics 365 kund engagemang instans.
@@ -70,13 +70,13 @@ Så här konfigurerar du Azure Active Directory för Dynamics 365-kund engageman
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/). Välj **Azure Active Directory** i den vänstra rutan.
 
-1. Välj **Egenskaper**och kopiera värdet för **katalog-ID** på sidan **katalog egenskaper** . Spara det här värdet eftersom du måste ange det i publicerings portalen för att ta emot leads för ditt Marketplace-erbjudande.
+1. Välj **Egenskaper** och kopiera värdet för **katalog-ID** på sidan **katalog egenskaper** . Spara det här värdet eftersom du måste ange det i publicerings portalen för att ta emot leads för ditt Marketplace-erbjudande.
 
     ![Meny alternativet Azure Active Directory egenskaper](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-properties.png)
 
 1. Välj **Appregistreringar** i den Azure Active Directory vänstra rutan och välj sedan **ny registrering** på sidan.
 1. Ange ett meningsfullt namn på program namnet.
-1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog**.
+1. Under **konto typer som stöds** väljer du **konton i valfri organisations katalog** .
 1. Under **omdirigerings-URI (valfritt)** väljer du **webb** och anger en URI, till exempel `https://contosoapp1/auth` . 
 1. Välj **Register** (Registrera).
 
@@ -86,22 +86,22 @@ Så här konfigurerar du Azure Active Directory för Dynamics 365-kund engageman
 
     ![ID-ruta för program (klient)](./media/commercial-marketplace-lead-management-instructions-dynamics/application-id.png)
 
-1. Välj **certifikat & hemligheter** i appens vänstra ruta och välj knappen **ny klient hemlighet** . Ange en meningsfull beskrivning för klient hemligheten och välj alternativet **aldrig** under **upphör att gälla**. Välj **Lägg till** för att skapa klient hemligheten.
+1. Välj **certifikat & hemligheter** i appens vänstra ruta och välj knappen **ny klient hemlighet** . Ange en meningsfull beskrivning för klient hemligheten och välj alternativet **aldrig** under **upphör att gälla** . Välj **Lägg till** för att skapa klient hemligheten.
 
     ![Meny alternativet certifikat & hemligheter](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-certificates-secrets.png)
 
 1. Kopiera **klientens hemliga** värde så fort klient hemligheten har skapats. Du kommer inte att kunna hämta värdet när du har lämnat sidan. Spara det här värdet eftersom du måste ange det i publicerings portalen för att ta emot leads för ditt Marketplace-erbjudande. 
-1. Välj **API-behörigheter** i appens vänstra ruta och välj sedan **+ Lägg till en behörighet**.
-1. Välj **Microsoft API: er**och välj sedan **Dynamics CRM** som API.
-1. Se till att **delegerade behörigheter** är markerat under **vilken typ av behörigheter som krävs för programmet?**. 
-1. Under **behörighet**markerar du kryss rutan **user_impersonation** för **åtkomst common data service som organisations användare**. Välj sedan **Lägg till behörigheter**.
+1. Välj **API-behörigheter** i appens vänstra ruta och välj sedan **+ Lägg till en behörighet** .
+1. Välj **Microsoft API: er** och välj sedan **Dynamics CRM** som API.
+1. Se till att **delegerade behörigheter** är markerat under **vilken typ av behörigheter som krävs för programmet?** . 
+1. Under **behörighet** markerar du kryss rutan **user_impersonation** för **åtkomst common data service som organisations användare** . Välj sedan **Lägg till behörigheter** .
 
     ![Knappen Lägg till behörigheter](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
 1. När du har slutfört steg 1 till 14 i Azure Portal går du till din Dynamics 365 kund engagemang-instans genom att gå till URL: en, till exempel `https://tenant.crm.dynamics.com` .
-1. Välj kugg hjuls ikonen i det översta fältet och välj sedan **Avancerade inställningar**.
-1. På sidan **Inställningar** öppnar du menyn **Inställningar** i det översta fältet och väljer **säkerhet**.
-1. På sidan **säkerhet** väljer du **användare**. På sidan **användare** väljer du List rutan **aktiverade användare** och väljer sedan **program användare**.
+1. Välj kugg hjuls ikonen i det översta fältet och välj sedan **Avancerade inställningar** .
+1. På sidan **Inställningar** öppnar du menyn **Inställningar** i det översta fältet och väljer **säkerhet** .
+1. På sidan **säkerhet** väljer du **användare** . På sidan **användare** väljer du List rutan **aktiverade användare** och väljer sedan **program användare** .
 1. Välj **ny** för att skapa en ny användare. 
 
     ![Skapa en ny användare](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
@@ -120,7 +120,7 @@ Så här konfigurerar du Office 365 för Dynamics 365 kund engagemang:
 
 1. Logga in på [Administrationscenter för Microsoft 365](https://admin.microsoft.com).
 
-1. Välj **Lägg till en användare**.
+1. Välj **Lägg till en användare** .
 
     ![Microsoft 365 administrations Center Lägg till ett användar alternativ](./media/commercial-marketplace-lead-management-instructions-dynamics/ms-365-add-user.png)
 
@@ -140,20 +140,20 @@ Spara dessa värden eftersom du måste ange värdena för **användar namn** och
 Det sista steget är att aktivera den användare som du skapade för att skriva leads.
 
 1. Öppna Dynamics 365 kund engagemang genom att gå till URL: en för din Dynamics-instans, till exempel `https://tenant.crm.dynamics.com` .
-1. Välj kugg hjuls ikonen i det översta fältet och välj sedan **Avancerade inställningar**.
-1. På sidan **Inställningar** öppnar du menyn **Inställningar** i det översta fältet och väljer **säkerhet**.
-1. På sidan **säkerhet** väljer du **användare** och väljer den användare som du skapade i avsnittet "konfigurera användar behörigheter" i det här dokumentet. Välj sedan **hantera roller**. 
+1. Välj kugg hjuls ikonen i det översta fältet och välj sedan **Avancerade inställningar** .
+1. På sidan **Inställningar** öppnar du menyn **Inställningar** i det översta fältet och väljer **säkerhet** .
+1. På sidan **säkerhet** väljer du **användare** och väljer den användare som du skapade i avsnittet "konfigurera användar behörigheter" i det här dokumentet. Välj sedan **hantera roller** . 
 
     ![Fliken hantera roller](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-roles.png)
 
-1. Sök efter roll namnet **Microsoft Marketplace lead Writer**och välj den för att tilldela användaren rollen.
+1. Sök efter roll namnet **Microsoft Marketplace lead Writer** och välj den för att tilldela användaren rollen.
 
     ![Fönstret hantera användar roller](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-user-roles.png)
 
     >[!NOTE]
     >Den här rollen skapas av den lösning som du har importerat och har bara behörighet att skriva leads och spåra lösnings versionen för att säkerställa kompatibiliteten.
 
-1. Gå tillbaka till sidan **säkerhet** och välj **säkerhets roller**. Sök efter rollen **Microsoft Marketplace lead Writer**och markera den.
+1. Gå tillbaka till sidan **säkerhet** och välj **säkerhets roller** . Sök efter rollen **Microsoft Marketplace lead Writer** och markera den.
 
     ![Fönstret säkerhets roller](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
@@ -165,14 +165,14 @@ Det sista steget är att aktivera den användare som du skapade för att skriva 
 
     ![Microsoft Marketplace anpassning av lead Writer-fliken](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 
-1. Välj **Spara och stäng**.
+1. Välj **Spara och stäng** .
 
 ## <a name="configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement"></a>Konfigurera ditt erbjudande för att skicka leads till Dynamics 365 kund engagemang 
 
 Så här konfigurerar du information om lead-hantering för ditt erbjudande i publicerings portalen:
 
 1. Gå till installations sidan för **erbjudandet** för ditt erbjudande.
-1. Under avsnittet **kund leads** väljer du **Anslut**.
+1. Under avsnittet **kund leads** väljer du **Anslut** .
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-dynamics/customer-leads.png" alt-text="Kund ledare":::
 
@@ -182,17 +182,17 @@ Så här konfigurerar du information om lead-hantering för ditt erbjudande i pu
 
 1. Ange **URL: en** för Dynamics 365-instansen, till exempel `https://contoso.crm4.dynamics.com` .
 
-1. Välj **autentiseringsmetod, antingen**Azure Active Directory eller Office 365. 
-1. Om du har valt **Azure Active Directory**anger du **programmets (klient) ID** (till exempel `23456052-aaaa-bbbb-8662-1234df56788f` ), **katalog-ID** (till exempel `12345678-8af1-4asf-1234-12234d01db47` ) och **klient hemlighet** (till exempel `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=` ).
+1. Välj **autentiseringsmetod, antingen** Azure Active Directory eller Office 365. 
+1. Om du har valt **Azure Active Directory** anger du **programmets (klient) ID** (till exempel `23456052-aaaa-bbbb-8662-1234df56788f` ), **katalog-ID** (till exempel `12345678-8af1-4asf-1234-12234d01db47` ) och **klient hemlighet** (till exempel `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=` ).
 
     ![Autentisering med Azure Active Directory vald](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-application-id.png)
 
-1. Om du har valt **Office 365**anger du **användar namnet** (till exempel `contoso@contoso.onmicrosoft.com` ) och **lösen ordet** (till exempel `P@ssw0rd` ).
+1. Om du har valt **Office 365** anger du **användar namnet** (till exempel `contoso@contoso.onmicrosoft.com` ) och **lösen ordet** (till exempel `P@ssw0rd` ).
 
     ![Office 365-användar namn Box](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 
-1. Ange e- **postadresser för personer**i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postadresser genom att avgränsa dem med semikolon.
-1. Välj **OK**.
+1. Ange e- **postadresser för personer** i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postadresser genom att avgränsa dem med semikolon.
+1. Välj **OK** .
 
 Om du vill kontrol lera att du har anslutit till ett lead-mål väljer du knappen **Verifiera** . Om det lyckas har du ett test lead i lead-målet.
 

@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperfq2
-ms.openlocfilehash: f7c08172f3a60487ae6e15260a0cd5fc5e4a712c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c4fdf8e986b9c98588689a57bde8ca9464667abe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740739"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129549"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Azure-förbrukningsåtagandeförmån
 
@@ -57,4 +57,4 @@ Om du är osäker på om din organisation har ett kvalificerings avtal loggar du
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta mer om hur din organisation kan utnyttja Azure Marketplace, fyller du i vår Microsoft Learn modul: [förenkla moln inköp och styrning med Azure Marketplace](https://aka.ms/cm.marketplaceprocurement).
+- Om du vill veta mer om hur din organisation kan utnyttja Azure Marketplace, fyller du i vår Microsoft Learn modul: [förenkla moln inköp och styrning med Azure Marketplace](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/).

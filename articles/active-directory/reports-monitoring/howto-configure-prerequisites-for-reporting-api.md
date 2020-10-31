@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22a8a0efe16b4ab2ea7b8a647284a3449741ac02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cabf5f40bc17828bc37b5c094de7b90de3ec8b26
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226972"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130229"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Krav för att få åtkomst till API: et för Azure Active Directory rapportering
 
@@ -55,7 +55,7 @@ För att få åtkomst till inloggnings rapporterna för en klient organisation m
 
 ## <a name="register-an-application"></a>Registrera ett program
 
-Registreringen behövs även om du ansluter till rapporterings-API: et med hjälp av ett skript. Registreringen ger dig ett **program-ID**, vilket krävs för auktoriseringen och gör att din kod kan ta emot tokens.
+Registreringen behövs även om du ansluter till rapporterings-API: et med hjälp av ett skript. Registreringen ger dig ett **program-ID** , vilket krävs för auktoriseringen och gör att din kod kan ta emot tokens.
 
 Om du vill konfigurera din katalog för att få åtkomst till Azure AD repor ting API måste du logga in på [Azure Portal](https://portal.azure.com) med ett Azure-administratörskonto som också är medlem i katalog rollen **Global administratör** i din Azure AD-klient.
 
@@ -67,23 +67,23 @@ Om du vill konfigurera din katalog för att få åtkomst till Azure AD repor tin
 
 1. I [Azure Portal](https://portal.azure.com)väljer du **Azure Active Directory** i det vänstra navigerings fönstret.
    
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Skärm bild som visar Azure Active Directory valt från Azure Portal-menyn.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
-2. På sidan **Azure Active Directory** väljer du **Appregistreringar**.
+2. På sidan **Azure Active Directory** väljer du **Appregistreringar** .
 
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
+    ![Skärm bild som visar Appregistreringar valt från menyn hantera.](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
 
-3. På sidan **Appregistreringar** väljer du **ny registrering**.
+3. På sidan **Appregistreringar** väljer du **ny registrering** .
 
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/03.png)
+    ![Skärm bild som visar ny registrering vald.](./media/howto-configure-prerequisites-for-reporting-api/03.png)
 
 4. Sidan **Registrera en app** :
 
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/04.png)
+    ![Skärm bild som visar sidan Registrera ett program där du kan ange värden i det här steget.](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
     a. I text rutan **namn** skriver du `Reporting API application` .
 
-    b. För **konto typer som stöds**väljer du **konton endast i den här organisationen**.
+    b. För **konto typer som stöds** väljer du **konton endast i den här organisationen** .
 
     c. I **URL: en för omdirigering**  väljer du **webb** text rutan, skriver `https://localhost` .
 
@@ -99,33 +99,32 @@ Beroende på vilket API du vill ha åtkomst till måste du ge appen följande be
 | Windows Azure Active Directory | Läs katalogdata |
 | Microsoft Graph | Läs alla Gransknings logg data |
 
-
-![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/36.png)
+![Skärm bild som visar var du kan välja Lägg till en behörighet i behörighets rutan för t. ex.](./media/howto-configure-prerequisites-for-reporting-api/36.png)
 
 I följande avsnitt visas stegen för båda API: erna. Om du inte vill använda något av API: erna kan du hoppa över de relaterade stegen.
 
 **Så här beviljar du dina program behörigheter att använda API: erna:**
 
 
-1. Välj **API-behörigheter** och **Lägg sedan till en behörighet**. 
+1. Välj **API-behörigheter** och **Lägg sedan till en behörighet** . 
 
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/05.png)
+    ![Skärm bild som visar sidan för P-I-behörigheter där du kan välja Lägg till en behörighet.](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-2. På **sidan begär API-behörigheter**letar du upp **stöd för äldre API** **Azure Active Directory Graph**. 
+2. På **sidan begär API-behörigheter** letar du upp **stöd för äldre API** **Azure Active Directory Graph** . 
 
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/06.png)
+    ![Skärm bild som visar sidan begär en P-behörighet där du kan välja Azure Active Directory graf.](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-3. På sidan **nödvändiga behörigheter** väljer du **program behörigheter**, expandera **katalog** kryss rutan **katalog. ReadAll**.  Välj **Lägg till behörigheter**.
+3. På sidan **nödvändiga behörigheter** väljer du **program behörigheter** , expandera **katalog** kryss rutan **katalog. ReadAll** .  Välj **Lägg till behörigheter** .
 
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/07.png)
+    ![Skärm bild som visar sidan begär en P-behörighet där du kan välja program behörigheter.](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
-4. På sidan **rapporterings-API application-API-behörigheter** väljer du **bevilja administratörs medgivande**. 
+4. På sidan **rapporterings-API application-API-behörigheter** väljer du **bevilja administratörs medgivande** . 
 
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/08.png)
+    ![Skärm bild som visar rapporten A P I program A P I-behörighet där du kan välja bevilja administrativt medgivande.](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
 5. Obs: **Microsoft Graph** läggs till som standard under API-registrering.
 
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/15.png)
+    ![Skärm bild som visar sidan för P-I-behörigheter där du kan välja Lägg till en behörighet.](./media/howto-configure-prerequisites-for-reporting-api/15.png)
 
 ## <a name="gather-configuration-settings"></a>Samla in konfigurations inställningar 
 
@@ -141,13 +140,13 @@ Du behöver dessa värden när du konfigurerar anrop till rapporterings-API: et.
 
 **Så här hämtar du ditt domän namn:**
 
-1. I [Azure Portal](https://portal.azure.com)i det vänstra navigerings fönstret väljer du **Azure Active Directory**.
+1. I [Azure Portal](https://portal.azure.com)i det vänstra navigerings fönstret väljer du **Azure Active Directory** .
    
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Skärm bild som visar Azure Active Directory valt från Azure Portal-menyn.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
-2. På sidan **Azure Active Directory** väljer du **anpassade domän namn**.
+2. På sidan **Azure Active Directory** väljer du **anpassade domän namn** .
 
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
+    ![Skärm bild som visar anpassade domän namn som valts från Azure Active Directory.](./media/howto-configure-prerequisites-for-reporting-api/09.png) 
 
 3. Kopiera domän namnet från listan över domäner.
 
@@ -156,15 +155,15 @@ Du behöver dessa värden när du konfigurerar anrop till rapporterings-API: et.
 
 **Hämta klient-ID: t för ditt program:**
 
-1. I [Azure Portal](https://portal.azure.com)i det vänstra navigerings fönstret klickar du på **Azure Active Directory**.
+1. I [Azure Portal](https://portal.azure.com)i det vänstra navigerings fönstret klickar du på **Azure Active Directory** .
    
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Skärm bild som visar Azure Active Directory valt från Azure Portal-menyn.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2. Välj ditt program på sidan **registreringar för appen** .
 
-3. Från program sidan, navigerar du till **program-ID** och väljer **Klicka för att kopiera**.
+3. Från program sidan, navigerar du till **program-ID** och väljer **Klicka för att kopiera** .
 
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/11.png) 
+    ![Skärm bild som visar sidan rapportera en P I-program där du kan kopiera programmet I D.](./media/howto-configure-prerequisites-for-reporting-api/11.png) 
 
 
 ### <a name="get-your-applications-client-secret"></a>Hämta programmets klient hemlighet
@@ -172,23 +171,23 @@ Du behöver dessa värden när du konfigurerar anrop till rapporterings-API: et.
 
 **Så här hämtar du programmets klient hemlighet:**
 
-1. I [Azure Portal](https://portal.azure.com)i det vänstra navigerings fönstret klickar du på **Azure Active Directory**.
+1. I [Azure Portal](https://portal.azure.com)i det vänstra navigerings fönstret klickar du på **Azure Active Directory** .
    
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
+    ![Skärm bild som visar Azure Active Directory valt från Azure Portal-menyn.](./media/howto-configure-prerequisites-for-reporting-api/01.png) 
 
 2.  Välj ditt program på sidan **registreringar för appen** .
 
-3.  Välj **certifikat och hemligheter** på sidan **API-program** , i avsnittet **klient hemligheter** , klickar du på **+ ny klient hemlighet**. 
+3.  Välj **certifikat och hemligheter** på sidan **API-program** , i avsnittet **klient hemligheter** , klickar du på **+ ny klient hemlighet** . 
 
-    ![Registrera program](./media/howto-configure-prerequisites-for-reporting-api/12.png)
+    ![Skärm bild som visar sidan certifikat & hemligheter där du kan lägga till en klient hemlighet.](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
 5. På sidan **Lägg till en klient hemlighet** lägger du till:
 
     a. I text rutan **Beskrivning** skriver du `Reporting API` .
 
-    b. Välj **i två år**som **förfaller**.
+    b. Välj **i två år** som **förfaller** .
 
-    c. Klicka på **Spara**.
+    c. Klicka på **Spara** .
 
     d. Kopiera nyckelvärdet.
 
@@ -204,7 +203,7 @@ I det här avsnittet visas de vanliga fel meddelanden som du kan köra i när du
 
 ### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>Fel: det gick inte att checka beta licens från Microsoft Graph 
 
-Om du stöter på det här fel meddelandet när du försöker få åtkomst till inloggningar med Graph Explorer väljer du **ändra behörigheter** under ditt konto i det vänstra navigerings fältet och väljer **Tasks. readwrite** och **Directory. Read. all**. 
+Om du stöter på det här fel meddelandet när du försöker få åtkomst till inloggningar med Graph Explorer väljer du **ändra behörigheter** under ditt konto i det vänstra navigerings fältet och väljer **Tasks. readwrite** och **Directory. Read. all** . 
 
 ![Ändra behörighets gränssnitt](./media/troubleshoot-graph-api/modify-permissions.png)
 

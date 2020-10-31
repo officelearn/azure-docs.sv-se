@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 9ea85449d3980f46e88eddc7e06e4a5384b8cea3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 3fbd9016bcbfa83574d894af7ca728b863f54344
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027558"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129328"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrera med Logic Apps med hjälp av en anpassad anslutning
 
@@ -33,34 +33,11 @@ Logga in på [Azure Portal](https://portal.azure.com) med det här kontot.
 
 Du måste också utföra följande objekt som en del av den nödvändiga installationen. Resten av det här avsnittet beskriver hur du gör följande:
 - Konfigurera en digital Azure-instans
-- Hämta klient hemlighet för app-registrering
 - Lägg till en digital delad
 
 ### <a name="set-up-azure-digital-twins-instance"></a>Konfigurera Azure Digitals dubbla instanser
 
-Om du vill ansluta en Azure Digitals-instans till Logic Apps i den här artikeln måste du redan har konfigurerat **Azure Digital-instansen** . 
-
-Börja med att **Konfigurera en digital Azure-instans** och autentisering som krävs för att kunna arbeta med den. Det gör du genom att följa anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md).
-* När du har konfigurerat din Azure Digital-instansen behöver du instansen **_värdnamn_** ( [hitta i Azure Portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
-
-För att autentisera anslutningen måste du också konfigurera en **app-registrering** . Följ instruktionerna i [*instruktion: skapa en app-registrering*](how-to-create-app-registration.md) för att konfigurera den här. 
-* När du har registrerat en app behöver du registreringens **_program_** -ID och **_katalog (klient)-ID_** ( [hitta i Azure Portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
-
-### <a name="get-app-registration-client-secret"></a>Hämta klient hemlighet för app-registrering
-
-Du måste också skapa en **_klient hemlighet_** för din Azure AD-App-registrering. Det gör du genom att gå till sidan [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Portal (du kan använda den här länken eller leta efter den i portalens Sök fält). Välj din registrering som du skapade i föregående avsnitt i listan för att öppna dess information. 
-
-Besök *certifikat och hemligheter* från registrerings menyn och välj *+ ny klient hemlighet* .
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
-
-Ange de värden som du vill ha som beskrivning och förfaller, och tryck sedan på *Lägg till* .
-
-:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
-
-Kontrol lera nu att klient hemligheten är synlig på sidan _certifikat & hemligheter_ med _förfallo datum_ och _värde_ fält. Anteckna _värdet_ för att använda senare (du kan också kopiera det till Urklipp med kopierings ikonen)
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ### <a name="add-a-digital-twin"></a>Lägg till en digital delad
 
@@ -70,9 +47,29 @@ Du kan lägga till dubbla med [DigitalTwins-API: er](/rest/api/digital-twins/dat
 
 Du behöver det **_dubbla ID: t_** för en som är dubbel i din instans som du har skapat.
 
+## <a name="set-up-app-registration"></a>Konfigurera registrering av appar
+
+[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
+
+### <a name="get-app-registration-client-secret"></a>Hämta klient hemlighet för app-registrering
+
+Du måste också skapa en **_klient hemlighet_** för din Azure AD-App-registrering. Det gör du genom att gå till sidan [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Portal (du kan använda den här länken eller leta efter den i portalens Sök fält). Välj din registrering som du skapade i föregående avsnitt i listan för att öppna dess information. 
+
+Besök *certifikat och hemligheter* från registrerings menyn och välj *+ ny klient hemlighet* .
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
+
+Ange de värden som du vill ha som *Beskrivning* och *förfaller* , och tryck sedan på *Lägg till* .
+
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
+
+Kontrol lera nu att klient hemligheten är synlig på sidan _certifikat & hemligheter_ med _förfallo datum_ och _värde_ fält. Anteckna _värdet_ för att använda senare (du kan också kopiera det till Urklipp med kopierings ikonen)
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Portal visning av en Azure AD App-registrering. Det finns en markering runt &quot;certifikat och hemligheter&quot; på resurs menyn och en markering på sidan runt &quot;ny klient hemlighet&quot;":::
+
 ## <a name="create-custom-logic-apps-connector"></a>Skapa anpassad Logic Apps-koppling
 
-I det här steget ska du skapa en [anpassad Logic Apps-anslutning](../logic-apps/custom-connector-overview.md) för Azure Digitals dubbla API: er. När du har gjort det kan du ansluta Azure Digital-luren när du skapar en Logic-app i nästa avsnitt.
+Nu är du redo att skapa en [anpassad Logic Apps-anslutning](../logic-apps/custom-connector-overview.md) för Azure Digitals dubbla API: er. När du har gjort det kan du ansluta Azure Digital-luren när du skapar en Logic-app i nästa avsnitt.
 
 Gå till sidan [Logic Apps anpassad anslutning](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) i Azure Portal (du kan använda den här länken eller Sök efter den i portalens Sök fält). Tryck på *+ Lägg till* .
 

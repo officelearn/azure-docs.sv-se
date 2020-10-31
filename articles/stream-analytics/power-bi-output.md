@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29bd4dc5cabe8b29efe7b89395c5e7d36bd0347a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823000"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129787"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI utdata från Azure Stream Analytics
 
@@ -51,7 +51,7 @@ Power BI använder bevarande principen First-in, First-Out (FIFO). Data samlas i
 
 Azure Stream Analytics uppdaterar data modellen dynamiskt vid körning om schemat ändras. Kolumn namns ändringar, kolumn typ ändringar och tillägg eller borttagning av kolumner spåras.
 
-Den här tabellen innehåller data typ konverteringar från [Stream Analytics data typer](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) till Power BI [typer av enhets data modeller (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model)om det inte finns någon Power BI data uppsättning och tabell.
+Den här tabellen innehåller data typ konverteringar från [Stream Analytics data typer](/stream-analytics-query/data-types-azure-stream-analytics) till Power BI [typer av enhets data modeller (EDM)](/dotnet/framework/data/adonet/entity-data-model)om det inte finns någon Power BI data uppsättning och tabell.
 
 Från Stream Analytics | För att Power BI
 -----|-----
@@ -76,7 +76,7 @@ Datumtid | Sträng | Sträng |  Datumtid | Sträng
 
 ## <a name="output-batch-size"></a>Batchstorlek för utdata
 
-För batch-storlek för utdata, se [Power BI REST API-gränser](https://msdn.microsoft.com/library/dn950053.aspx).
+För batch-storlek för utdata, se [Power BI REST API-gränser](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Nästa steg
 

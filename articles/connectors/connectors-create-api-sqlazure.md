@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: f8dccca1d1264492a4e7c8dab568e13eec9d2557
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ce7679fff86d2c96588cf2b704d44238535963b3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100719"
+ms.locfileid: "93130943"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatisera arbets flöden för en SQL-databas med hjälp av Azure Logic Apps
 
@@ -96,9 +96,14 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
    ||||
 
    > [!TIP]
-   > Du hittar den här informationen i databasens anslutnings sträng. I Azure Portal kan du till exempel söka efter och öppna databasen. På menyn databas väljer du antingen **anslutnings strängar** eller **Egenskaper** där du hittar den här strängen:
+   > För att tillhandahålla din databas-och tabell information har du följande alternativ:
+   > 
+   > * Hitta den här informationen i databasens anslutnings sträng. I Azure Portal kan du till exempel söka efter och öppna databasen. På menyn databas väljer du antingen **anslutnings strängar** eller **Egenskaper** , där du hittar den här strängen:
    >
-   > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >
+   > * Som standard filtreras tabeller i system databaser ut, så de kanske inte visas automatiskt när du väljer en system databas. Alternativt kan du ange tabell namnet manuellt när du har valt **Ange anpassat värde** från databas listan.
+   >
 
    Det här exemplet visar hur dessa värden kan se ut:
 

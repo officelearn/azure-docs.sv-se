@@ -5,12 +5,12 @@ description: Lär dig hur du installerar och konfigurerar en NGINX ingress-kontr
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 42e9f2128063caa13cf3fca1a28ec7e6465ba74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8ea245444fa5e8e042644bd3f7a34ed021ccd1d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855702"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131045"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Skapa en inkommande styrenhet för HTTPS och använd dina egna TLS-certifikat på Azure Kubernetes Service (AKS)
 
@@ -33,15 +33,15 @@ Den här artikeln kräver också att du kör Azure CLI-version 2.0.64 eller sena
 
 ## <a name="create-an-ingress-controller"></a>Skapa en ingångs kontroll enhet
 
-Om du vill skapa en ingångs kontroll, använder `Helm` du för att installera *nginx-ingress*. För ytterligare redundans distribueras två repliker av NGINX-ingresskontrollanterna med parametern `--set controller.replicaCount`. Se till att det finns fler än en nod i ditt AKS-kluster för att få full nytta av att köra repliker av ingångs styrenheten.
+Om du vill skapa en ingångs kontroll, använder `Helm` du för att installera *nginx-ingress* . För ytterligare redundans distribueras två repliker av NGINX-ingresskontrollanterna med parametern `--set controller.replicaCount`. Se till att det finns fler än en nod i ditt AKS-kluster för att få full nytta av att köra repliker av ingångs styrenheten.
 
 Ingresskontrollanten måste också schemaläggas på en Linux-nod. Windows Server-noder bör inte köra ingresskontrollanten. En nodväljare anges med parametern `--set nodeSelector` för att instruera Kubernetes-schemaläggaren att köra NGINX-ingresskontrollanten på en Linux-baserad nod.
 
 > [!TIP]
-> I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic*. Ange ett namn område för din egen miljö efter behov. Om ditt AKS-kluster inte är RBAC-aktiverat lägger du till dem `--set rbac.create=false` i Helm-kommandona.
+> I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic* . Ange ett namn område för din egen miljö efter behov. Om ditt AKS-kluster inte är RBAC-aktiverat lägger du till dem `--set rbac.create=false` i Helm-kommandona.
 
 > [!TIP]
-> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för förfrågningar till behållare i klustret, lägger `--set controller.service.externalTrafficPolicy=Local` du till det i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for*. TLS-vidarekoppling fungerar inte när du använder en ingångs kontroll för att aktivera IP-konservering i klient källan.
+> Om du vill aktivera [IP-konservering för klient källa][client-source-ip] för förfrågningar till behållare i klustret, lägger `--set controller.service.externalTrafficPolicy=Local` du till det i Helm install-kommandot. Klientens käll-IP lagras i begär ande huvudet under *X-forwarded – for* . TLS-vidarekoppling fungerar inte när du använder en ingångs kontroll för att aktivera IP-konservering i klient källan.
 
 ```console
 # Create a namespace for your ingress resources
@@ -83,7 +83,7 @@ Inga ingress-regler har skapats ännu. Om du bläddrar till den offentliga IP-ad
 
 I den här artikeln ska vi generera ett självsignerat certifikat med `openssl` . För produktions användningen bör du begära ett betrott signerat certifikat via en provider eller din egen certifikat utfärdare (CA). I nästa steg genererar du en Kubernetes- *hemlighet* med TLS-certifikatet och den privata nyckeln som genereras av OpenSSL.
 
-I följande exempel genereras ett 2048-bitars RSA X509-certifikat giltigt i 365 dagar med namnet *AKS-ingress-TLS. CRT*. Den privata nyckel filen heter *AKS-ingress-TLS. Key*. En Kubernetes TLS-hemlighet kräver båda dessa filer.
+I följande exempel genereras ett 2048-bitars RSA X509-certifikat giltigt i 365 dagar med namnet *AKS-ingress-TLS. CRT* . Den privata nyckel filen heter *AKS-ingress-TLS. Key* . En Kubernetes TLS-hemlighet kräver båda dessa filer.
 
 Den här artikeln fungerar med det *demo.Azure.com* ämnets gemensamma namn och behöver inte ändras. För produktions användning anger du dina egna organisations värden för `-subj` parametern:
 
@@ -98,7 +98,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 
 Om du vill tillåta att Kubernetes använder TLS-certifikatet och den privata nyckeln för ingångs styrenheten skapar du och använder en hemlighet. Hemligheten definieras en gång och använder certifikatet och nyckel filen som skapades i föregående steg. Du refererar sedan till den här hemligheten när du definierar ingress-vägar.
 
-I följande exempel skapas ett hemligt namn *AKS – ingress-TLS*:
+I följande exempel skapas ett hemligt namn *AKS – ingress-TLS* :
 
 ```console
 kubectl create secret tls aks-ingress-tls \
@@ -132,7 +132,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -170,7 +170,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -205,7 +205,7 @@ I följande exempel dirigeras trafik till adressen `https://demo.azure.com/` til
 > [!TIP]
 > Om det värdnamn som anges under processen för certifikatbegäran, CN-namnet, inte matchar den angivna värden i din ingångs väg visas ingångs enheten i en Kubernetes ingångs *kontroll enhet falsk certifikat* varning. Kontrol lera att ditt certifikat och att dirigera värdnamn matchar.
 
-Avsnittet *TLS* instruerar ingångs vägen att använda hemligheten med namnet *AKS-ingress-tls* för värden *demo.Azure.com*. För produktions användning anger du din egen värd adress.
+Avsnittet *TLS* instruerar ingångs vägen att använda hemligheten med namnet *AKS-ingress-tls* för värden *demo.Azure.com* . För produktions användning anger du din egen värd adress.
 
 Skapa en fil med namnet `hello-world-ingress.yaml` och kopiera i följande exempel yaml.
 

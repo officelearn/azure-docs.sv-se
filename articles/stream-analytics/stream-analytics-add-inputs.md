@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 843e05a68a9fd9a72f14847a941d69c672094b66
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a9f48d95281971fc49a6a3fda93e4ee13ed8d753
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077021"
+ms.locfileid: "93130790"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Förstå indata för Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Stream Analytics har förstklassig integrering med fyra typer av resurser som in
 
 De här ingångs resurserna kan leva i samma Azure-prenumeration som din Stream Analytics jobb eller från en annan prenumeration.
 
-Du kan använda [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET-API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs)och [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) för att skapa, redigera och testa Stream Analytics jobb indata.
+Du kan använda [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET-API](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](./stream-analytics-define-inputs.md)och [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) för att skapa, redigera och testa Stream Analytics jobb indata.
 
 ## <a name="stream-and-reference-inputs"></a>Data ström-och referens indata
 När data skickas till en data källa förbrukas den av Stream Analytics jobb och bearbetas i real tid. Indata är uppdelade i två typer: inkommande dataströmmar och inkommande referensdata.

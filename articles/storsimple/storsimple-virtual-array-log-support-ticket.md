@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 0ed8533b093c5af0d8aefdcd5175bed63f37a76c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57cd9b55f529bde3f6bcb0a25a95c70333f6d8dd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507678"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130960"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Använda tjänsten StorSimple Enhetshanteraren för att logga en Supportbegäran för den virtuella StorSimple-matrisen
 
@@ -33,27 +33,27 @@ Beroende på ditt [support](https://azure.microsoft.com/support/plans/)avtal kan
 
 #### <a name="to-log-a-new-request"></a>Så här loggar du en ny begäran
 
-1. Gå till StorSimple Device Manager-tjänsten. I bladet tjänst Sammanfattning går du till avsnittet **support + fel sökning** och klickar sedan på **ny supportbegäran**.
+1. Gå till StorSimple Device Manager-tjänsten. I bladet tjänst Sammanfattning går du till avsnittet **support + fel sökning** och klickar sedan på **ny supportbegäran** .
    
-    ![Ny supportbegäran](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
+    ![Skärm bild som visar fönstret grundläggande för en ny supportbegäran.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
 2. Gör följande på bladet **grundläggande** :
 
-    1. I list rutan **ärende typ** väljer du **teknisk**. 
+    1. I list rutan **ärende typ** väljer du **teknisk** . 
     
-    2. Den aktuella **prenumerationen**, **tjänst** typen och **resursen** (StorSimple Enhetshanteraren-tjänsten) väljs automatiskt. 
+    2. Den aktuella **prenumerationen** , **tjänst** typen och **resursen** (StorSimple Enhetshanteraren-tjänsten) väljs automatiskt. 
 
     3. Ange en eller flera enheter som är registrerade för din tjänst och som har problem.
 
     4. Välj lämplig **Support plan** om du har flera planer som är kopplade till din prenumeration. Du behöver ett betalt support avtal för att aktivera teknisk support.
 
-3. I **steg 2**väljer du **allvarlighets grad** och anger om problemet är relaterat till matrisen eller tjänsten StorSimple Enhetshanteraren. Välj också en **kategori** för det här problemet och ange mer **information** om problemet.
+3. I **steg 2** väljer du **allvarlighets grad** och anger om problemet är relaterat till matrisen eller tjänsten StorSimple Enhetshanteraren. Välj också en **kategori** för det här problemet och ange mer **information** om problemet.
    
-    ![Ny supportbegäran](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
+    ![Skärm bild som visar problem fönstret där du kan ange problem typ, kategori och information för din support förfrågan.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
-4. Ange din kontakt information i **steg 3**. Microsoft Support kommer att använda den här informationen för att kontakta dig för ytterligare information, diagnos och lösning.
+4. Ange din kontakt information i **steg 3** . Microsoft Support kommer att använda den här informationen för att kontakta dig för ytterligare information, diagnos och lösning.
    
-    ![Ny supportbegäran](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
+    ![Skärm bild som visar rutan kontakt information.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
 ## <a name="manage-a-support-request"></a>Hantera en support förfrågan
 
@@ -61,7 +61,7 @@ När du har skapat ett supportärende kan du hantera ärendets livscykel på por
 
 #### <a name="to-manage-your-support-requests"></a>Så här hanterar du dina support ärenden
 
-Öppna sidan hjälp och support genom att gå till **bläddra > hjälp + support**.
+Öppna sidan hjälp och support genom att gå till **bläddra > hjälp + support** .
 
 ![Hantera support förfrågningar](./media/storsimple-virtual-array-log-support-ticket/manage-support-tickets.png)
 

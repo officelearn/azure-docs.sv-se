@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: bad81e8929cd0c5c66c87fd9f6cc11dc746b3e5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bba7da0343f234d8cc057ac4ecfa2a4f2e5b7242
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317807"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129889"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Service Bus köer utdata från Azure Stream Analytics
 
@@ -34,7 +34,7 @@ I följande tabell visas egenskaps namnen och deras beskrivningar för att skapa
 | Händelseserialiseringsformat |Serialiserings formatet för utdata. JSON, CSV och Avro stöds. |
 | Kodning |För CSV och JSON är UTF-8 det enda kodnings format som stöds just nu. |
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal vanliga avgränsare för serialisering av data i CSV-format. Värden som stöds är komma, semikolon, blank steg, TABB och lodrätt fält. |
-| Format |Gäller endast för JSON-typ. **Raden separerad** anger att utdata är formaterade genom att ha varje JSON-objekt avgränsat med en ny rad. Om du väljer **rad avgränsad**läses ett objekt i taget av JSON. Själva hela innehållet skulle inte vara en giltig JSON. **Matris** anger att utdata är formaterad som en matris med JSON-objekt. |
+| Format |Gäller endast för JSON-typ. **Raden separerad** anger att utdata är formaterade genom att ha varje JSON-objekt avgränsat med en ny rad. Om du väljer **rad avgränsad** läses ett objekt i taget av JSON. Själva hela innehållet skulle inte vara en giltig JSON. **Matris** anger att utdata är formaterad som en matris med JSON-objekt. |
 | Egenskaps kolumner | Valfritt. Kommaavgränsade kolumner som måste bifogas som användar egenskaper för det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [anpassade metadata för utdata](#custom-metadata-properties-for-output). |
 | Kolumner i system egenskap | Valfritt. Nyckel värdes par med system egenskaper och motsvarande kolumn namn som måste kopplas till det utgående meddelandet i stället för nytto lasten.  |
 
@@ -70,9 +70,9 @@ Följande bild visar förväntade egenskaper för utmatnings meddelande som insp
 
 ## <a name="system-properties"></a>Systemegenskaper
 
-Du kan koppla frågenoder som [system egenskaper](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) till den utgående Service Bus-kön eller ämnes meddelanden.
+Du kan koppla frågenoder som [system egenskaper](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) till den utgående Service Bus-kön eller ämnes meddelanden.
 
-De här kolumnerna hamnar inte i nytto lasten i stället för motsvarande BrokeredMessage [system egenskap](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) fylls med värdena i kolumnen fråga.
+De här kolumnerna hamnar inte i nytto lasten i stället för motsvarande BrokeredMessage [system egenskap](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) fylls med värdena i kolumnen fråga.
 Dessa system egenskaper stöds – `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc` .
 
 Sträng värden för de här kolumnerna tolkas som motsvarande typ av system egenskaps värde och eventuella tolknings fel behandlas som data fel.

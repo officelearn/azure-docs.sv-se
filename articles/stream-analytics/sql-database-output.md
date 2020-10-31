@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 4310bd94edd5ebe14eab40b6d19e2bacbdd1b03c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d5ddb508740cf5fec670d258926419512e3d549
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906215"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129838"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Azure SQL Database utdata från Azure Stream Analytics
 
 Du kan använda [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) som utdata för data som är i relation till typ eller för program som är beroende av innehåll som finns i en Relations databas. Azure Stream Analytics jobb skriver till en befintlig tabell i SQL Database. Tabell schemat måste exakt matcha fälten och deras typer i jobbets utdata. Du kan också ange [Azure Synapse Analytics](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) som utdata via alternativet SQL Database utdata. Information om hur du kan förbättra Skriv data flödet finns i artikeln [Stream Analytics med Azure SQL Database som utdata](stream-analytics-sql-output-perf.md) .
 
-Du kan också använda en [hanterad Azure SQL-instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) som utdata. Du måste [Konfigurera den offentliga slut punkten i SQL-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) och manuellt konfigurera följande inställningar i Azure Stream Analytics. Den virtuella Azure-datorn som kör SQL Server med en databas ansluten stöds också genom att konfigurera inställningarna manuellt nedan.
+Du kan också använda en [hanterad Azure SQL-instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) som utdata. Du måste [Konfigurera den offentliga slut punkten i SQL-hanterad instans](../azure-sql/managed-instance/public-endpoint-configure.md) och manuellt konfigurera följande inställningar i Azure Stream Analytics. Den virtuella Azure-datorn som kör SQL Server med en databas ansluten stöds också genom att konfigurera inställningarna manuellt nedan.
 
 ## <a name="output-configuration"></a>Konfiguration av utdata
 
@@ -30,16 +30,16 @@ I följande tabell visas egenskaps namnen och deras beskrivning för att skapa e
 | Databas | Namnet på databasen dit du skickar dina utdata. |
 | Servernamn | Det logiska SQL Server-namnet eller namnet på den hanterade instansen. För SQL-hanterad instans måste du ange port 3342. Till exempel *sampleserver. public. Database. Windows. net, 3342* |
 | Användarnamn | Det användar namn som har Skriv behörighet till databasen. Stream Analytics stöder endast SQL-autentisering. |
-| lösenordsinställning | Lösen ordet för att ansluta till databasen. |
-| Tabell | Tabell namnet där utdata skrivs. Tabell namnet är Skift läges känsligt. Schemat för den här tabellen ska exakt matcha det antal fält och deras typer som jobbets utdata genererar. |
+| Lösenord | Lösen ordet för att ansluta till databasen. |
+| Tabeller | Tabell namnet där utdata skrivs. Tabell namnet är Skift läges känsligt. Schemat för den här tabellen ska exakt matcha det antal fält och deras typer som jobbets utdata genererar. |
 |Ärv partitionsschema| Ett alternativ för att ärva partitionerings schema i föregående fråga-steg för att aktivera helt parallell topologi med flera skrivare till tabellen. Mer information finns i [Azure Stream Analytics utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Max antal batchar| Den rekommenderade övre gränsen för antalet poster som skickas med varje Mass infognings transaktion.|
 
 Det finns två kort som aktiverar utdata från Azure Stream Analytics till Azure Synapse Analytics (tidigare SQL Data Warehouse): SQL Database och Azure Synapse. Vi rekommenderar att du väljer Azure Synapse Analytics-kortet i stället för SQL Database kort om något av följande villkor är uppfyllt:
 
-* **Data flöde**: om det förväntade data flödet nu eller i framtiden är större än 10 MB/SEK, använder du alternativet för Azure Synapse-utdata för bättre prestanda.
+* **Data flöde** : om det förväntade data flödet nu eller i framtiden är större än 10 MB/SEK, använder du alternativet för Azure Synapse-utdata för bättre prestanda.
 
-* **Indata-partitioner**: om du har åtta eller fler indata-partitioner använder du alternativet för Azure Synapse-utdata för att få bättre skalbarhet.
+* **Indata-partitioner** : om du har åtta eller fler indata-partitioner använder du alternativet för Azure Synapse-utdata för att få bättre skalbarhet.
 
 ## <a name="partitioning"></a>Partitionering
 
@@ -47,7 +47,7 @@ Partitionering måste aktive ras och baseras på PARTITION BY-satsen i frågan. 
 
 ## <a name="output-batch-size"></a>Batchstorlek för utdata
 
-Du kan konfigurera Max storleken för meddelanden genom att använda **maximalt antal batchar**. Standardvärdet är 10 000 och standardvärdet är 100 rader per enskild Mass infogning. Mer information finns i [begränsningar för Azure SQL](../sql-database/sql-database-resource-limits.md). Varje batch infogas från början med maximalt antal batchar. Batch är uppdelad i mitten (till lägsta antal batchar) baserat på nya försök att köra fel från SQL.
+Du kan konfigurera Max storleken för meddelanden genom att använda **maximalt antal batchar** . Standardvärdet är 10 000 och standardvärdet är 100 rader per enskild Mass infogning. Mer information finns i [begränsningar för Azure SQL](../azure-sql/database/resource-limits-logical-server.md). Varje batch infogas från början med maximalt antal batchar. Batch är uppdelad i mitten (till lägsta antal batchar) baserat på nya försök att köra fel från SQL.
 
 ## <a name="next-steps"></a>Nästa steg
 

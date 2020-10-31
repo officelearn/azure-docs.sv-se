@@ -17,12 +17,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: bc763a99c945925b80171738f4076e6305d92df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3443cb73e85fc69349e7293597a5f4a723959d3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229467"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130059"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Självstudie: Hämta data med hjälp av Azure Active Directory rapporterings-API med certifikat
 
@@ -30,11 +30,11 @@ ms.locfileid: "89229467"
 
 I den här självstudien får du lära dig hur du använder ett test certifikat för att komma åt MS-Graph API för rapportering. Vi rekommenderar inte att du använder test certifikat i en produktions miljö. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Kontrol lera att du har en Azure Active Directory-klient med en Premium-licens (P1/P2) för att få åtkomst till inloggnings data. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version. Observera att om du inte har några aktivitetsdata före uppgraderingen tar det ett par dagar innan data visas i rapporterna när du har uppgraderat till en premiumlicens. 
 
-2. Skapa eller växla till ett användar konto i rollen **Global administratör**, **säkerhets administratör**, **säkerhets läsare** eller **rapport läsare** för klienten. 
+2. Skapa eller växla till ett användar konto i rollen **Global administratör** , **säkerhets administratör** , **säkerhets läsare** eller **rapport läsare** för klienten. 
 
 3. Slutför [kraven för att få åtkomst till Azure Active Directory rapporterings-API: et](howto-configure-prerequisites-for-reporting-api.md). 
 
@@ -45,7 +45,7 @@ I den här självstudien får du lära dig hur du använder ett test certifikat 
     - Åtkomsttoken från användare, programnycklar och certifikat med ADAL
     - Växlingsbara resultat för Graph API-hantering
 
-6. Om det är första gången du använder modulen kör **install-MSCloudIdUtilsModule**, annars importerar du den med hjälp av PowerShell **-kommandot Import-Module** . Din session bör se ut ungefär som den här skärmen: ![ Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. Om det är första gången du använder modulen kör **install-MSCloudIdUtilsModule** , annars importerar du den med hjälp av PowerShell **-kommandot Import-Module** . Din session bör se ut ungefär som den här skärmen: ![ Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
 7. Använd PowerShell **-kommandot New-SelfSignedCertificate** för att skapa ett test certifikat.
 
@@ -62,11 +62,11 @@ I den här självstudien får du lära dig hur du använder ett test certifikat 
 
 ## <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Hämta data med hjälp av Azure Active Directory Reporting-API:et med certifikat
 
-1. Gå till [Azure Portal](https://portal.azure.com), Välj **Azure Active Directory**och välj sedan **Appregistreringar** och välj ditt program i listan. 
+1. Gå till [Azure Portal](https://portal.azure.com), Välj **Azure Active Directory** och välj sedan **Appregistreringar** och välj ditt program i listan. 
 
-2. Välj **certifikat & hemligheter** under **Hantera** avsnitt på program registrerings bladet och välj **Ladda upp certifikat**.
+2. Välj **certifikat & hemligheter** under **Hantera** avsnitt på program registrerings bladet och välj **Ladda upp certifikat** .
 
-3. Välj certifikat filen i föregående steg och välj **Lägg till**. 
+3. Välj certifikat filen i föregående steg och välj **Lägg till** . 
 
 4. Anteckna program-ID och tumavtrycket för det certifikat som du precis har registrerat i ditt program. Om du vill hitta tumavtrycket från din program sida i portalen går du till **certifikat & hemligheter** under avsnittet **Hantera** . Tumavtrycket kommer att finnas i listan **certifikat** .
 
@@ -85,15 +85,17 @@ I den här självstudien får du lära dig hur du använder ett test certifikat 
    ``` 
 6. Nu kan du hämta en åtkomsttoken för MS Graph API att använda det här certifikatet. Använd cmdleten **Get-MSCloudIdMSGraphAccessTokenFromCert** från MSCloudIdUtils PowerShell-modulen för att skicka in program-ID och det tumavtryck som du fick från föregående steg. 
 
-   ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Skärm bild som visar ett PowerShell-fönster med ett kommando som skapar en åtkomsttoken.](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 7. Använd åtkomsttoken i PowerShell-skriptet för att fråga Graph API. Använd cmdleten **Invoke-MSCloudIdMSGraphQuery** från MSCloudIDUtils för att räkna upp inloggningar och directoryAudits-slutpunkten. Denna cmdlet hanterar flera växlade resultat och skickar dessa resultat till PowerShell-pipeline.
 
 8. Fråga directoryAudits-slutpunkten för att hämta gransknings loggarna. 
-   ![Azure-portalen](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+
+   ![Skärm bild som visar ett PowerShell-fönster med ett kommando för att fråga directoryAudits-slutpunkten med hjälp av åtkomsttoken från tidigare i den här proceduren.](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 9. Fråga inloggningar-slutpunkten för att hämta inloggnings loggarna.
-    ![Azure-portalen](./media/tutorial-access-api-with-certificates/query-signins.png)
+
+    ![Skärm bild som visar ett PowerShell-fönster med ett kommando för att fråga inloggningar-slutpunkten med hjälp av åtkomsttoken från tidigare i den här proceduren.](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 10. Du kan nu välja att exportera dessa data till en CSV-fil och spara dem i ett SIEM-system. Du kan också ta med skriptet i en schemalagd aktivitet för att regelbundet hämta Azure AD-data från din klientorganisation utan att behöva lagra programnycklar i källkoden. 
 

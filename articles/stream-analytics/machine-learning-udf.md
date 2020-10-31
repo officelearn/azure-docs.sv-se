@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: a24d1716448363a199151a50a260bbdbd1e8e634
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14f7462aec65d2a13eb36b291331c347b995d281
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249492"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130688"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrera Azure Stream Analytics med Azure Machine Learning (förhands granskning)
 
@@ -23,13 +23,13 @@ Du kan implementera maskin inlärnings modeller som en användardefinierad funkt
 
 Slutför följande steg innan du lägger till en Machine Learning-modell som en funktion i Stream Analytics jobbet:
 
-1. Använd Azure Machine Learning för att [distribuera din modell som en webb tjänst](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+1. Använd Azure Machine Learning för att [distribuera din modell som en webb tjänst](../machine-learning/how-to-deploy-and-where.md).
 
 2. Ditt bedömnings skript ska ha [exempel på indata och utdata](../machine-learning/how-to-deploy-and-where.md) som används av Azure Machine Learning för att generera en schema specifikation. Stream Analytics använder schemat för att förstå funktions signaturen för webb tjänsten. Du kan använda den här [exempel Swagger-definitionen](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) som en referens för att kontrol lera att du har konfigurerat den korrekt.
 
 3. Kontrol lera att din webb tjänst accepterar och returnerar JSON-serialiserade data.
 
-4. Distribuera din modell på [Azure Kubernetes service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) för storskaliga produktions distributioner. Om webb tjänsten inte kan hantera antalet begär Anden som kommer från jobbet försämras prestanda för ditt Stream Analytics jobb, vilket påverkar svars tiden. Modeller som distribueras på Azure Container Instances stöds bara när du använder Azure Portal. Modeller som skapats med [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) stöds ännu inte i Stream Analytics.
+4. Distribuera din modell på [Azure Kubernetes service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) för storskaliga produktions distributioner. Om webb tjänsten inte kan hantera antalet begär Anden som kommer från jobbet försämras prestanda för ditt Stream Analytics jobb, vilket påverkar svars tiden. Modeller som distribueras på Azure Container Instances stöds bara när du använder Azure Portal. Modeller som skapats med [Azure Machine Learning designer](../machine-learning/concept-designer.md) stöds ännu inte i Stream Analytics.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Lägga till en maskin inlärnings modell i ditt jobb
 
@@ -37,7 +37,7 @@ Du kan lägga till Azure Machine Learning funktioner till ditt Stream Analytics-
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Navigera till Stream Analytics jobb i Azure Portal och välj **funktioner** under **jobb sto pol Ogin**. Välj sedan **Azure Machine Learning tjänst** på list menyn **+ Lägg till** .
+1. Navigera till Stream Analytics jobb i Azure Portal och välj **funktioner** under **jobb sto pol Ogin** . Välj sedan **Azure Machine Learning tjänst** på list menyn **+ Lägg till** .
 
    ![Lägg till Azure Machine Learning UDF](./media/machine-learning-udf/add-azure-machine-learning-udf.png)
 
@@ -45,9 +45,9 @@ Du kan lägga till Azure Machine Learning funktioner till ditt Stream Analytics-
 
    ![Konfigurera Azure Machine Learning UDF](./media/machine-learning-udf/configure-azure-machine-learning-udf.png)
 
-### <a name="visual-studio-code"></a>Visual Studio-koden
+### <a name="visual-studio-code"></a>Visuell Studio-kod
 
-1. Öppna ditt Stream Analytics-projekt i Visual Studio Code och högerklicka på mappen **Functions** . Välj sedan **Lägg till funktion**. Välj **Machine Learning UDF** i list rutan.
+1. Öppna ditt Stream Analytics-projekt i Visual Studio Code och högerklicka på mappen **Functions** . Välj sedan **Lägg till funktion** . Välj **Machine Learning UDF** i list rutan.
 
    :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Lägg till UDF i VS Code":::
 

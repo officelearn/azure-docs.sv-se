@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: dec0711c4763983e520d247fd8b775b1810e0479
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d55186874e6f5be67a04e4a04d54a89dc09f9cd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324649"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130450"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Förbered din IoT Edge module tekniska till gångar
 
@@ -107,10 +107,10 @@ Moduler som använder IoT module SDK måste ange den unika modulens identifierar
 
 Använd någon av följande metoder i IoT-modulens SDK: er för att ange ProductInfo till den här identifieraren:
 
-- [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
+- [C#](/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
 - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-- [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
+- [Java](/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
 
 För moduler som inte använder sig av IoT module SDK är mindre exakta insikter tillgängliga via partner Center, till exempel antalet hämtningar.
 

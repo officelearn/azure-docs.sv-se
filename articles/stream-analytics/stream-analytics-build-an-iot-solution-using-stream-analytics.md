@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044591"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130807"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Bygg en IoT-lösning med hjälp av Stream Analytics
 
@@ -28,7 +28,7 @@ När du har slutfört den här lösningen kan du:
 * Utveckla strömmande lösningar för dina kunder med hjälp av Stream Analytics med förtroende.
 * Använd övervaknings-och loggnings upplevelsen för att felsöka problem.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande krav för att slutföra den här lösningen:
 * En [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -134,7 +134,7 @@ Det finns flera resurser som enkelt kan distribueras i en resurs grupp tillsamma
 
 9. Välj **köp** för att distribuera exempel mal len.
 
-10. Efter en liten stund visas ett meddelande för att bekräfta att **distributionen har slutförts**.
+10. Efter en liten stund visas ett meddelande för att bekräfta att **distributionen har slutförts** .
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Granska Azure Stream Analytics TollApp-resurser
 
@@ -163,7 +163,7 @@ Det finns flera resurser som enkelt kan distribueras i en resurs grupp tillsamma
 
    För att parafrasera avsikten med frågan ska vi säga att du måste räkna antalet fordon som anger en väg på väg. Eftersom en väg avgifts hytt har en kontinuerlig ström av fordon som anges, är de ingångs händelser analoga till en ström som aldrig stoppar. Om du vill kvantifiera strömmen måste du definiera en "tids period" för att mäta över. Nu ska vi förfina frågan ytterligare till "hur många fordon kan du ange en avgifts Monte var tredje minut?" Detta kallas vanligt vis för antalet rullande.
 
-   Som du kan se använder Azure Stream Analytics ett frågespråk som är som SQL och lägger till några tillägg för att ange tidsrelaterade aspekter av frågan.  Mer information finns i om [tids hantering](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) och [fönster](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) konstruktioner som används i frågan.
+   Som du kan se använder Azure Stream Analytics ett frågespråk som är som SQL och lägger till några tillägg för att ange tidsrelaterade aspekter av frågan.  Mer information finns i om [tids hantering](/stream-analytics-query/time-management-azure-stream-analytics) och [fönster](/stream-analytics-query/windowing-azure-stream-analytics) konstruktioner som används i frågan.
 
 3. Granska indata för TollApp-exempel jobbet. Endast EntryStream-indatamängden används i den aktuella frågan.
    - **EntryStream** -indata är en Event Hub-anslutning som köar data som representerar varje gång en bil inträder i en Tollbooth på väg. En webbapp som är en del av exemplet skapar händelserna och data placeras i kö i den här händelsehubben. Observera att den här indatan frågas i from-satsen i direkt uppspelnings frågan.
@@ -176,20 +176,20 @@ Det finns flera resurser som enkelt kan distribueras i en resurs grupp tillsamma
 ## <a name="start-the-tollapp-streaming-job"></a>Starta TollApp streaming-jobbet
 Följ de här stegen för att starta direkt uppspelnings jobbet:
 
-1. På **översikts** sidan för jobbet väljer du **Start**.
+1. På **översikts** sidan för jobbet väljer du **Start** .
 
-2. I fönstret **starta jobb** väljer du **nu**.
+2. I fönstret **starta jobb** väljer du **nu** .
 
 3. Efter en liten stund visas **övervaknings** diagrammet på sidan **Översikt** för strömnings jobbet när jobbet körs. Grafen bör visa flera tusen inmatnings händelser och massor av utdata.
 
 ## <a name="review-the-cosmosdb-output-data"></a>Granska CosmosDB utgående data
 1. Leta upp resurs gruppen som innehåller TollApp-resurserna.
 
-2. Välj Azure Cosmos DB kontot med namn mönstret **tollapp \<random\> -Cosmos**.
+2. Välj Azure Cosmos DB kontot med namn mönstret **tollapp \<random\> -Cosmos** .
 
 3. Välj **datautforskaren** rubriken för att öppna sidan datautforskaren.
 
-4. Expandera **tollAppDatabase**  >  **tollAppCollection**-  >  **dokument**.
+4. Expandera **tollAppDatabase**  >  **tollAppCollection** -  >  **dokument** .
 
 5. I listan med ID: n visas flera dokument när utdata är tillgängliga.
 
@@ -214,7 +214,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 ### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>Så här uppdaterar du TollApp-strömnings jobbets frågesyntax:
 
-1. På **översikts** sidan för jobbet väljer du **stoppa**.
+1. På **översikts** sidan för jobbet väljer du **stoppa** .
 
 2. Vänta en stund för meddelandet att jobbet har stoppats.
 
@@ -224,9 +224,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 5. Välj **Spara** för att spara frågan. Bekräfta **Ja** för att spara ändringarna.
 
-6. På **översikts** sidan för jobbet väljer du **Start**.
+6. På **översikts** sidan för jobbet väljer du **Start** .
 
-7. I fönstret **starta jobb** väljer du **nu**.
+7. I fönstret **starta jobb** väljer du **nu** .
 
 ### <a name="review-the-total-time-in-the-output"></a>Granska den totala tiden i utdata
 Upprepa stegen i föregående avsnitt om du vill granska CosmosDB-utdata från direkt uppspelnings jobbet. Granska de senaste JSON-dokumenten.
@@ -301,9 +301,9 @@ Skala upp strömnings jobbet till fler enheter för strömning:
 
 2. Uppdatera frågesyntaxen på sidan **< > fråga** och spara ändringarna.
 
-3. Under Konfigurera rubriken för strömnings jobbet väljer du **skala**.
+3. Under Konfigurera rubriken för strömnings jobbet väljer du **skala** .
 
-4. Dra skjutreglaget för **strömnings enheter** från 1 till 6. Strömnings enheter definierar mängden beräknings kraft som jobbet kan ta emot. Välj **Spara**.
+4. Dra skjutreglaget för **strömnings enheter** från 1 till 6. Strömnings enheter definierar mängden beräknings kraft som jobbet kan ta emot. Välj **Spara** .
 
 5. **Starta** direkt uppspelnings jobbet för att demonstrera den ytterligare skalningen. Azure Stream Analytics distribuerar arbetet över fler beräknings resurser och ger bättre data flöde, vilket partitionerar arbetet mellan resurserna med hjälp av kolumnen som anges i partitionen PARTITION BY.
 
@@ -319,7 +319,7 @@ Du kan också komma åt **aktivitets loggar** från området **Inställningar** 
 
 2. Leta upp resurs gruppen som innehåller åtta resurser som är relaterade till TollApp-mallen.
 
-3. Välj **Ta bort resursgrupp**. Skriv namnet på resurs gruppen för att bekräfta borttagningen.
+3. Välj **Ta bort resursgrupp** . Skriv namnet på resurs gruppen för att bekräfta borttagningen.
 
 ## <a name="conclusion"></a>Slutsats
 Den här lösningen introducerade dig för Azure Stream Analytics tjänsten. Det visade hur du konfigurerar indata och utdata för Stream Analytics jobbet. Med hjälp av det här scenariot kan lösningen förklara vanliga typer av problem som uppstår i informations utrymmet i rörelse och hur de kan lösas med enkla SQL-liknande frågor i Azure Stream Analytics. Den lösning som beskrivs i SQL-tillägget för att arbeta med temporala data. Den visade hur du ansluter data strömmar, hur du kan utöka data strömmen med statiska referens data och hur du skalar upp en fråga för att uppnå högre data flöde.

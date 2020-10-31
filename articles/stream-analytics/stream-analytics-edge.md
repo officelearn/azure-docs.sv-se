@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7a084b2d0582f53d4372ba3332194629ad29a4ec
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: cba81b8415f0f9cf7253e674e90ae09718b94d54
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041861"
+ms.locfileid: "93130484"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics på IoT Edge
  
@@ -32,11 +32,11 @@ Azure Stream Analytics på IoT Edge körs i [Azure IoT Edge](https://azure.micro
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Edge-jobb i Azure Stream Analytics
 ### <a name="what-is-an-edge-job"></a>Vad är ett "Edge"-jobb?
 
-ASA Edge-jobb körs i behållare som distribuerats till [Azure IoT Edge enheter](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works). De består av två delar:
+ASA Edge-jobb körs i behållare som distribuerats till [Azure IoT Edge enheter](../iot-edge/about-iot-edge.md). De består av två delar:
 1.  En moln del som är ansvarig för jobb definition: användare definierar indata, utdata, fråga och andra inställningar (i händelse av ordnings händelser osv.) i molnet.
 2.  En modul som körs på dina IoT-enheter. Den innehåller ASA-motorn och tar emot jobb definitionen från molnet. 
 
-ASA använder IoT Hub för att distribuera Edge-jobb till enhet (er). Mer information om [IoT Edge distribution kan ses här](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+ASA använder IoT Hub för att distribuera Edge-jobb till enhet (er). Mer information om [IoT Edge distribution kan ses här](../iot-edge/module-deployment-monitoring.md).
 
 ![Azure Stream Analytics Edge-jobb](media/stream-analytics-edge/stream-analytics-edge-job.png)
 
@@ -48,24 +48,24 @@ De övergripande stegen beskrivs i följande tabell. Mer information ges i följ
 | --- | --- |
 | **Skapa en lagringscontainer** | Lagrings behållare används för att spara din jobb definition där de kan nås av dina IoT-enheter. <br>  Du kan återanvända alla befintliga lagrings behållare. |
 | **Skapa ett ASA Edge-jobb** | Skapa ett nytt jobb, Välj **Edge** som **värd miljö** . <br> De här jobben skapas/hanteras från molnet och körs på dina egna IoT Edge enheter. |
-| **Konfigurera din IoT Edge-miljö på din enhet (er)** | Instruktioner för [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) eller [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).|
+| **Konfigurera din IoT Edge-miljö på din enhet (er)** | Instruktioner för [Windows](../iot-edge/quickstart.md) eller [Linux](../iot-edge/quickstart-linux.md).|
 | **Distribuera ASA på IoT Edge enhet (er)** | Jobb definitionen för ASA exporteras till den lagrings behållare som skapades tidigare. |
 
-Du kan följa de [här steg-för-steg-självstudierna](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) för att distribuera ditt första ASA-jobb på IoT Edge. Följande video bör hjälpa dig att förstå processen att köra ett Stream Analytics jobb på en IoT Edge-enhet:  
+Du kan följa de [här steg-för-steg-självstudierna](../iot-edge/tutorial-deploy-stream-analytics.md) för att distribuera ditt första ASA-jobb på IoT Edge. Följande video bör hjälpa dig att förstå processen att köra ett Stream Analytics jobb på en IoT Edge-enhet:  
 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
 #### <a name="create-a-storage-container"></a>Skapa en lagringscontainer
 Det krävs en lagrings behållare för att exportera den kompilerade ASA-frågan och jobb konfigurationen. Den används för att konfigurera den Docker-avbildningen för ASA med din speciella fråga. 
-1. Följ [de här anvisningarna](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) för att skapa ett lagrings konto från Azure Portal. Du kan behålla alla standard alternativ för att använda det här kontot med ASA.
+1. Följ [de här anvisningarna](../storage/common/storage-account-create.md) för att skapa ett lagrings konto från Azure Portal. Du kan behålla alla standard alternativ för att använda det här kontot med ASA.
 2. Skapa en Blob Storage-behållare i det nyligen skapade lagrings kontot:
     1. Klicka på **blobbar** och sedan på **+ container** . 
     2. Ange ett namn och behåll behållaren som **privat** .
 
 #### <a name="create-an-asa-edge-job"></a>Skapa ett ASA Edge-jobb
 > [!Note]
-> Den här självstudien fokuserar på att skapa ASA-jobb med Azure Portal. Du kan också [använda Visual Studio-plugin-programmet för att skapa ett ASA Edge-jobb](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+> Den här självstudien fokuserar på att skapa ASA-jobb med Azure Portal. Du kan också [använda Visual Studio-plugin-programmet för att skapa ett ASA Edge-jobb](./stream-analytics-tools-for-visual-studio-edge-jobs.md)
 
 1. Skapa ett nytt "Stream Analytics jobb" från Azure Portal. [Direkt länk för att skapa ett nytt ASA-jobb här](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
@@ -81,7 +81,7 @@ Det krävs en lagrings behållare för att exportera den kompilerade ASA-frågan
 4. Ange information om lagrings behållare på menyn **IoT Edge inställningar** .
 
 5. Ange valfria inställningar
-    1. **Händelse ordning** . Du kan konfigurera en princip för inaktuella principer i portalen. Dokumentation finns [här](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+    1. **Händelse ordning** . Du kan konfigurera en princip för inaktuella principer i portalen. Dokumentation finns [här](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
     2. **Locale** . Ange Internalization-formatet.
 
 
@@ -97,7 +97,7 @@ För detta måste du följa dessa steg:
 - Installera Docker och IoT Edge runtime på dina gräns enheter.
 - Ange enheterna som **IoT Edge enheter** i IoT Hub.
 
-De här stegen beskrivs i IoT Edge dokumentationen för [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) eller [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
+De här stegen beskrivs i IoT Edge dokumentationen för [Windows](../iot-edge/quickstart.md) eller [Linux](../iot-edge/quickstart-linux.md).  
 
 
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>Distributions-ASA på IoT Edge enhet (er)
@@ -113,11 +113,11 @@ De här stegen beskrivs i IoT Edge dokumentationen för [Windows](https://docs.m
 > När du distribuerar jobbet till IoT Edge enheter skapar ASA en signatur för delad åtkomst (SAS) för jobb definitions filen. SAS-nyckeln överförs säkert till IoT Edge enheter med enhets anslutning. Den här nyckelns förfallo datum är tre år från dagen då den skapades. När du uppdaterar ett IoT Edge jobb kommer SAS att ändras, men avbildnings versionen ändras inte. När du har **uppdaterat** följer du distributions arbets flödet och ett uppdaterings meddelande loggas på enheten.
 
 
-Mer information om IoT Edge distributioner finns på [den här sidan](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+Mer information om IoT Edge distributioner finns på [den här sidan](../iot-edge/module-deployment-monitoring.md).
 
 
 ##### <a name="configure-routes"></a>Konfigurera vägar
-IoT Edge är ett sätt att deklarativ skicka meddelanden mellan moduler och mellan moduler och IoT Hub. Den fullständiga syntaxen beskrivs [här](https://docs.microsoft.com/azure/iot-edge/module-composition).
+IoT Edge är ett sätt att deklarativ skicka meddelanden mellan moduler och mellan moduler och IoT Hub. Den fullständiga syntaxen beskrivs [här](../iot-edge/module-composition.md).
 Namn på indata och utdata som skapats i ASA-jobbet kan användas som slut punkter för routning.  
 
 ###### <a name="example"></a>Exempel
@@ -145,7 +145,7 @@ I det här exemplet definieras följande vägar:
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Aktuella begränsningar för IoT Edge jobb jämfört med moln jobb
 Målet är att ha paritet mellan IoT Edge jobb och moln jobb. De flesta funktioner i SQL-frågespråket stöds, vilket möjliggör körning av samma logik både i molnet och IoT Edge.
 Följande funktioner stöds dock ännu inte för Edge-jobb:
-* Användardefinierade funktioner (UDF) i Java Script. UDF är tillgänglig i [C# för IoT Edge jobb](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (för hands version).
+* Användardefinierade funktioner (UDF) i Java Script. UDF är tillgänglig i [C# för IoT Edge jobb](./stream-analytics-edge-csharp-udf.md) (för hands version).
 * Användardefinierade agg regeringar (UDA).
 * Azure ML-funktioner.
 * Använda fler än 14 mängder i ett enda steg.
@@ -165,7 +165,7 @@ ASA på IoT Edge görs tillgängligt som Windows-och Linux-avbildningar som kör
 
 ### <a name="input-and-output"></a>Indata och utdata
 #### <a name="input-and-output-streams"></a>Strömmar för indata och utdata
-ASA Edge-jobb kan hämta indata och utdata från andra moduler som körs på IoT Edge enheter. Om du vill ansluta från och till vissa moduler kan du ange konfiguration för routning vid distribution. Mer information finns i [dokumentationen för IoT Edge module-sammansättning](https://docs.microsoft.com/azure/iot-edge/module-composition).
+ASA Edge-jobb kan hämta indata och utdata från andra moduler som körs på IoT Edge enheter. Om du vill ansluta från och till vissa moduler kan du ange konfiguration för routning vid distribution. Mer information finns i [dokumentationen för IoT Edge module-sammansättning](../iot-edge/module-composition.md).
 
 För både indata och utdata stöds CSV-och JSON-format.
 
@@ -176,7 +176,7 @@ För närvarande är de enda utströmnings-och strömmande utmatnings typerna Ed
 
 
 ##### <a name="reference-data"></a>Referens data
-Referens data (kallas även en uppslags tabell) är en begränsad data uppsättning som är statisk eller långsam ändring i natur. Den används för att utföra en sökning eller korrelera med din data ström. Om du vill använda referens data i ditt Azure Stream Analytics jobb använder du vanligt vis en [referens data koppling](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) i din fråga. Mer information finns i [använda referens data för sökningar i Stream Analytics](stream-analytics-use-reference-data.md).
+Referens data (kallas även en uppslags tabell) är en begränsad data uppsättning som är statisk eller långsam ändring i natur. Den används för att utföra en sökning eller korrelera med din data ström. Om du vill använda referens data i ditt Azure Stream Analytics jobb använder du vanligt vis en [referens data koppling](/stream-analytics-query/reference-data-join-azure-stream-analytics) i din fråga. Mer information finns i [använda referens data för sökningar i Stream Analytics](stream-analytics-use-reference-data.md).
 
 Endast lokala referens data stöds. När ett jobb distribueras till IoT Edge enhet laddar det referens data från den användardefinierade fil Sök vägen.
 
@@ -226,13 +226,13 @@ Den här versions informationen uppdaterades senast den 2019-06-27:
       
       
 ## <a name="get-help"></a>Få hjälp
-Om du behöver ytterligare hjälp kan du testa [sidan Microsoft Q&en fråga för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Om du behöver ytterligare hjälp kan du testa [sidan Microsoft Q&en fråga för Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Mer information om Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
-* [ASA på IoT Edge självstudie](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
-* [Utveckla Stream Analytics Edge-jobb med Visual Studio-verktyg](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+* [Mer information om Azure IoT Edge](../iot-edge/about-iot-edge.md)
+* [ASA på IoT Edge självstudie](../iot-edge/tutorial-deploy-stream-analytics.md)
+* [Utveckla Stream Analytics Edge-jobb med Visual Studio-verktyg](./stream-analytics-tools-for-visual-studio-edge-jobs.md)
 * [Implementera CI/CD för Stream Analytics med API: er](stream-analytics-cicd-api.md)
 
 <!--Link references-->
@@ -240,5 +240,5 @@ Om du behöver ytterligare hjälp kan du testa [sidan Microsoft Q&en fråga för
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

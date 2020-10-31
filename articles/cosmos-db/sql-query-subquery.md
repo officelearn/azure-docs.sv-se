@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16be1b91d007ca2dbc88405cfc55ff519f51ee41
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74870572"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081544"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exempel på SQL-underfrågan för Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 En under fråga är en fråga som är kapslad i en annan fråga. En under fråga kallas även för en inre fråga eller inre Select. Den instruktion som innehåller en under fråga kallas vanligt vis för en yttre fråga.
 
@@ -23,16 +24,16 @@ I den här artikeln beskrivs SQL-underfrågor och deras vanliga användnings fal
 
 Det finns två huvud typer av under frågor:
 
-* **Korrelerade**: en under fråga som refererar till värden från den yttre frågan. Under frågan utvärderas en gång för varje rad som den yttre frågan bearbetar.
-* **Icke-korrelerad**: en under fråga som är oberoende av den yttre frågan. Den kan köras på egen hand utan att det förlitar sig på den yttre frågan.
+* **Korrelerade** : en under fråga som refererar till värden från den yttre frågan. Under frågan utvärderas en gång för varje rad som den yttre frågan bearbetar.
+* **Icke-korrelerad** : en under fråga som är oberoende av den yttre frågan. Den kan köras på egen hand utan att det förlitar sig på den yttre frågan.
 
 > [!NOTE]
 > Azure Cosmos DB stöder endast korrelerade under frågor.
 
 Under frågor kan klassificeras ytterligare baserat på antalet rader och kolumner som de returnerar. Det finns tre typer:
-* **Tabell**: returnerar flera rader och flera kolumner.
-* **Flera värden**: returnerar flera rader och en kolumn.
-* **Skalär**: returnerar en enskild rad och en enskild kolumn.
+* **Tabell** : returnerar flera rader och flera kolumner.
+* **Flera värden** : returnerar flera rader och en kolumn.
+* **Skalär** : returnerar en enskild rad och en enskild kolumn.
 
 SQL-frågor i Azure Cosmos DB returnerar alltid en enda kolumn (antingen ett enkelt värde eller ett komplext dokument). Därför kan bara flera värden och skalära under frågor användas i Azure Cosmos DB. Du kan bara använda en under fråga med flera värden i FROM-satsen som ett Relations uttryck. Du kan använda en skalär under fråga som ett skalärt uttryck i SELECT-eller WHERE-satsen eller som ett Relations uttryck i from-satsen.
 

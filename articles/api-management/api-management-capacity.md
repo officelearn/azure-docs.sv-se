@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e907a3ec2e2521524cdf23e1403ae38a19275aa6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c7c002b57f2220ac0a9fba43a8081b2a4ed800e7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071327"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081067"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Kapacitet hos en Azure API Management-instans
 
@@ -42,7 +42,7 @@ För att följa stegen i den här artikeln måste du ha:
 
 ## <a name="what-is-capacity"></a>Vad är kapacitet
 
-![Kapacitetsmått](./media/api-management-capacity/capacity-ingredients.png)
+![Diagram som förklarar kapacitets måttet.](./media/api-management-capacity/capacity-ingredients.png)
 
 **Kapacitet** är en indikator för belastningen på en API Management-instans. Den visar resursernas användning (processor, minne) och Kölängd-nätverk. PROCESSOR-och minnes användningen visar resurser förbrukningen genom att:
 
@@ -52,7 +52,7 @@ För att följa stegen i den här artikeln måste du ha:
 
 Total **kapacitet** är ett genomsnitt av sina egna värden från varje enhet i en API Management instans.
 
-Även om **kapacitets måttet** är utformat för att visa problem med API Management-instansen, finns det fall när problem inte återspeglas i förändringar i **kapacitets måttet**.
+Även om **kapacitets måttet** är utformat för att visa problem med API Management-instansen, finns det fall när problem inte återspeglas i förändringar i **kapacitets måttet** .
 
 ## <a name="capacity-metric-behavior"></a>Beteende för kapacitets mått
 
@@ -78,7 +78,7 @@ Låg **kapacitets mått** innebär inte nödvändigt vis att API Management inst
 ![Kapacitetsmått](./media/api-management-capacity/capacity-metric.png)  
 
 1. Navigera till din APIM-instans i [Azure Portal](https://portal.azure.com/).
-2. Välj **Mått**.
+2. Välj **Mått** .
 3. I det lila avsnittet väljer du **kapacitets** mått från tillgängliga mått och **lämnar standard agg** regeringen.
 
     > [!TIP]
@@ -99,7 +99,7 @@ Låg **kapacitets mått** innebär inte nödvändigt vis att API Management inst
 
 + Titta på långsiktiga trender och genomsnitt.
 + Ignorera plötsliga toppar som troligen inte är relaterade till någon ökning i belastningen (se avsnittet "kapacitets måttets beteende" för förklaring).
-+ Att uppgradera eller skala din instans när **kapacitet**svärdet överstiger 60% eller 70% under en längre tid (till exempel 30 minuter). Olika värden kan fungera bättre för din tjänst eller ditt scenario.
++ Att uppgradera eller skala din instans när **kapacitet** svärdet överstiger 60% eller 70% under en längre tid (till exempel 30 minuter). Olika värden kan fungera bättre för din tjänst eller ditt scenario.
 
 >[!TIP]  
 > Om du kan beräkna din trafik i förväg testar du APIM-instansen på de arbets belastningar du förväntar dig. Du kan öka belastningen på begäran på din klient gradvis och övervaka vilket värde som kapacitets måttet motsvarar din högsta belastning. Följ stegen i föregående avsnitt för att använda Azure Portal för att förstå hur mycket kapacitet som används vid en specifik tidpunkt.

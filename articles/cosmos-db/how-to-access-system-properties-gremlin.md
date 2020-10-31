@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/10/2019
 author: SnehaGunda
 ms.author: sngun
-ms.openlocfilehash: c03e4db30d590df21a8ceb3c483ece4b59e548d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61814082ebe9828a08da1e8786890b500c239082
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397325"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081849"
 ---
 # <a name="system-document-properties"></a>System dokument egenskaper
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB har [system egenskaper](/rest/api/cosmos-db/databases) som,,, ```_ts``` ```_self``` ```_attachments``` ```_rid``` och ```_etag``` i varje dokument. Gremlin-motorn har dessutom egenskaperna ```inVPartition``` och ```outVPartition``` för kanter. Som standard är dessa egenskaper tillgängliga för Traversal. Det är dock möjligt att inkludera vissa egenskaper, eller alla, i Gremlin Traversal.
 
@@ -34,7 +35,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 Om insamlingen av dokument har förfallit och dokument har en ```ttl``` egenskap som har angetts för dem, blir den här egenskapen tillgänglig i Gremlin Traversal som en vanlig hörn-eller kant egenskap. ```ProjectionStrategy``` är inte nödvändigt för att aktivera exponering för TTL (Time to Live).
 
-Hörn som skapats med bläddringen nedan tas automatiskt bort efter **123 sekunder**.
+Hörn som skapats med bläddringen nedan tas automatiskt bort efter **123 sekunder** .
 
 ```
 g.addV('vertex-one').property('ttl', 123)

@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 0adb346a693beaa905438cfdc1249c1646c28811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d16343864d9602d644b31d34a2b66e39211b6ece
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88608865"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079347"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Välja mellan ett allokerat data flöde och Server lös
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB finns i två olika kapacitets lägen: [etablerade data flöden](set-throughput.md) och [Server](serverless.md)lös. Du kan utföra exakt samma databas åtgärder i båda lägena, men det sätt som du debiteras för dessa åtgärder är radikalt annorlunda. I följande videoklipp förklaras de grundläggande skillnaderna mellan dessa lägen och hur de passar olika typer av arbets belastningar:
 
@@ -42,20 +43,20 @@ Azure Cosmos DB finns i två olika kapacitets lägen: [etablerade data flöden](
 I vissa situationer kan det vara oklart om det etablerade data flödet eller Server lösa ska väljas för en viss arbets belastning. För att få hjälp med det här beslutet kan du uppskatta följande:
 
 - Arbets Belastningens **krav på** begränsning, det vill säga hur många ru: er du kan behöva använda på en sekund
-- Den övergripande **förväntad förbrukning**, det vill säga det totala antalet ru: er som du kan använda under en månad (du kan beräkna detta med hjälp av tabellen som visas [här](plan-manage-costs.md#estimating-serverless-costs))
+- Den övergripande **förväntad förbrukning** , det vill säga det totala antalet ru: er som du kan använda under en månad (du kan beräkna detta med hjälp av tabellen som visas [här](plan-manage-costs.md#estimating-serverless-costs))
 
 Om din arbets belastning kräver burst över 5 000 RU per sekund, ska det allokerade data flödet väljas eftersom Server behållare som inte kan överföras över den här gränsen. Om inte, kan du jämföra kostnaden för båda lägena baserat på din förväntade förbrukning.
 
-**Exempel 1**: en arbets belastning förväntas överföras till maximalt 10 000 ru/s och förbruka totalt 20 000 000 ru: er under en månad.
+**Exempel 1** : en arbets belastning förväntas överföras till maximalt 10 000 ru/s och förbruka totalt 20 000 000 ru: er under en månad.
 
 - Endast tillhandahållet data flödes läge kan leverera ett data flöde på 10 000 RU/s
 
-**Exempel 2**: en arbets belastning förväntas överföras till maximalt 500 ru/s och förbruka totalt 20 000 000 ru: er under en månad.
+**Exempel 2** : en arbets belastning förväntas överföras till maximalt 500 ru/s och förbruka totalt 20 000 000 ru: er under en månad.
 
 - I etablerat data flödes läge skulle du tillhandahålla en behållare med 500 RU/s för en månatlig kostnad av: $0,008 * 5 * 730 = **$29,20**
 - I Server fritt läge betalar du för den förbrukade ru: er: $0,25 * 20 = **$5,00**
 
-**Exempel 3**: en arbets belastning förväntas överföras till maximalt 500 ru/s och förbruka totalt 250 000 000 ru: er under en månad.
+**Exempel 3** : en arbets belastning förväntas överföras till maximalt 500 ru/s och förbruka totalt 250 000 000 ru: er under en månad.
 
 - I etablerat data flödes läge skulle du tillhandahålla en behållare med 500 RU/s för en månatlig kostnad av: $0,008 * 5 * 730 = **$29,20**
 - I Server fritt läge betalar du för den förbrukade ru: er: $0,25 * 250 = **$62,50**

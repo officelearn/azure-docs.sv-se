@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 8032833df3e0912bab93bd9ccc695c4ca6688e69
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5ac9c4cc28e3cb87307e032f4cd15afb7c687652
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748106"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079095"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>ExpressRoute-anslutningspartner och peering-platser
 
@@ -116,7 +116,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Stöds| Stöds | Chennai, Mumbai |
 | **Intelsat** | Stöds | Stöds | Washington DC2 |
 | **[InterCloud](https://www.intercloud.com/)** |Stöds |Stöds |Amsterdam, Chicago, Frankfurt, Hongkong, London, New York, Paris, kisel dal, Singapore, Washington DC, Zürich |
-| **[Internet2](https://www.internet2.edu/products-services/cloud-services-applications/microsoft-azure/#service-cloud-connect)** |Stöds |Stöds |Chicago, Borås, Silicon dal, Washington DC |
+| **[Internet2](https://internet2.edu/services/cloud-connect/#service-cloud-connect)** |Stöds |Stöds |Chicago, Borås, Silicon dal, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Stöds |Stöds |Osaka, Tokyo |
 | **[Internet-lösningar – moln anslutning](https://www.is.co.za/solution/cloud-connect/)** |Stöds |Stöds |Kapstaden, Johannesburg, London |
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Stöds |Stöds |Amsterdam, Amsterdam2, köpen hamn, Dublin, Frankfurt, London, Marseille, Paris, Zürich |

@@ -8,14 +8,16 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d5d66ca05390af5f6fef91ca959f1db3d547d3fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fff9bc55b324875601a2c4e68835a17c61c3769b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89014055"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079265"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Diagnostisera och Felsök Azure Cosmos DB meddelande rubriken är för stor
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 Meddelandet "begär ande huvud är för stort" har genererats med en HTTP-felkod 400. Det här felet uppstår om storleken på begär ande rubriken har vuxit så stor att den överskrider den maximalt tillåtna storleken. Vi rekommenderar att du använder den senaste versionen av SDK. Använd minst version 3. x eller 2. x, eftersom dessa versioner lägger till huvud storleks spårning i undantags meddelandet.
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar

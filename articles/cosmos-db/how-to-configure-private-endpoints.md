@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9821e53abcdf95c6cf235cb9d39cd310fcfb66f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4ba4e5f462a3cc88de5b23b32a5e749f9363e93f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279716"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081900"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Med hjälp av en privat Azure-länk kan du ansluta till ett Azure Cosmos-konto via en privat slut punkt. Den privata slut punkten är en uppsättning privata IP-adresser i ett undernät i det virtuella nätverket. Du kan sedan begränsa åtkomsten till ett Azure Cosmos-konto via privata IP-adresser. När en privat länk kombineras med begränsade NSG-principer bidrar den till att minska risken för data exfiltrering. Mer information om privata slut punkter finns i artikeln [Azure Private Link](../private-link/private-link-overview.md) .
 
@@ -33,7 +34,7 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
 
 1. I fönstret **alla resurser** väljer du ett Azure Cosmos-konto.
 
-1. Välj **privata slut punkts anslutningar** i listan över inställningar och välj sedan **privat slut punkt**:
+1. Välj **privata slut punkts anslutningar** i listan över inställningar och välj sedan **privat slut punkt** :
 
    :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Val för att skapa en privat slut punkt i Azure Portal":::
 
@@ -48,20 +49,20 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
     | Name | Ange ett namn för din privata slut punkt. Om det här namnet tas skapar du ett unikt. |
     |Region| Välj den region där du vill distribuera privat länk. Skapa den privata slut punkten på samma plats som det virtuella nätverket finns på.|
     |||
-1. Välj **Nästa: resurs**.
-1. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
+1. Välj **Nästa: resurs** .
+1. I **skapa en privat slut punkt – resurs** , anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
-    |Anslutningsmetod  | Välj **Anslut till en Azure-resurs i min katalog**. <br/><br/> Du kan sedan välja en av dina resurser för att konfigurera en privat länk. Eller så kan du ansluta till någon annans resurs genom att använda ett resurs-ID eller alias som de har delat med dig.|
+    |Anslutningsmetod  | Välj **Anslut till en Azure-resurs i min katalog** . <br/><br/> Du kan sedan välja en av dina resurser för att konfigurera en privat länk. Eller så kan du ansluta till någon annans resurs genom att använda ett resurs-ID eller alias som de har delat med dig.|
     | Prenumeration| Välj din prenumeration. |
-    | Resurstyp | Välj **Microsoft. AzureCosmosDB/databaseAccounts**. |
+    | Resurstyp | Välj **Microsoft. AzureCosmosDB/databaseAccounts** . |
     | Resurs |Välj ditt Azure Cosmos-konto. |
     |Målunderresurs |Välj den Azure Cosmos DB API-typ som du vill mappa. Standardvärdet är bara ett alternativ för SQL-, MongoDB-och Cassandra-API: er. För Gremlin-och tabell-API: er kan du också välja **SQL** eftersom dessa API: er är kompatibla med SQL-API: et. |
     |||
 
-1. Välj **Nästa: konfiguration**.
-1. I **skapa en privat slut punkt – konfiguration**anger eller väljer du den här informationen:
+1. Välj **Nästa: konfiguration** .
+1. I **skapa en privat slut punkt – konfiguration** anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -69,12 +70,12 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
     | Virtuellt nätverk| Välj ditt virtuella nätverk. |
     | Undernät | Välj ditt undernät. |
     |**Privat DNS-integrering**||
-    |Integrera med privat DNS-zon |Välj **Ja**. <br><br/> För att kunna ansluta privat med din privata slut punkt behöver du en DNS-post. Vi rekommenderar att du integrerar din privata slut punkt med en privat DNS-zon. Du kan också använda dina egna DNS-servrar eller skapa DNS-poster med hjälp av värd filerna på dina virtuella datorer. |
-    |Privat DNS-zon |Välj **privatelink.documents.Azure.com**. <br><br/> Den privata DNS-zonen fastställs automatiskt. Du kan inte ändra den med hjälp av Azure Portal.|
+    |Integrera med privat DNS-zon |Välj **Ja** . <br><br/> För att kunna ansluta privat med din privata slut punkt behöver du en DNS-post. Vi rekommenderar att du integrerar din privata slut punkt med en privat DNS-zon. Du kan också använda dina egna DNS-servrar eller skapa DNS-poster med hjälp av värd filerna på dina virtuella datorer. |
+    |Privat DNS-zon |Välj **privatelink.documents.Azure.com** . <br><br/> Den privata DNS-zonen fastställs automatiskt. Du kan inte ändra den med hjälp av Azure Portal.|
     |||
 
-1. Välj **Granska + skapa**. På sidan **Granska + skapa** verifierar Azure konfigurationen.
-1. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**.
+1. Välj **Granska + skapa** . På sidan **Granska + skapa** verifierar Azure konfigurationen.
+1. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa** .
 
 När du har godkänt en privat länk för ett Azure Cosmos-Azure Portal konto är alternativet **alla nätverk** i rutan **brand vägg och virtuella nätverk** inte tillgängligt.
 
@@ -94,8 +95,8 @@ Följande tabell visar mappningen mellan olika Azure Cosmos-kontos API-typer, un
 
 När den privata slut punkten har allokerats kan du fråga IP-adresserna. Så här visar du IP-adresserna från Azure Portal:
 
-1. Välj **Alla resurser**.
-1. Sök efter den privata slut punkt som du skapade tidigare. I det här fallet är det **cdbPrivateEndpoint3**.
+1. Välj **Alla resurser** .
+1. Sök efter den privata slut punkt som du skapade tidigare. I det här fallet är det **cdbPrivateEndpoint3** .
 1. Välj fliken **Översikt** för att se DNS-inställningar och IP-adresser.
 
 :::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Val för att skapa en privat slut punkt i Azure Portal":::

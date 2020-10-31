@@ -1,14 +1,14 @@
 ---
 title: Länka ditt partner-ID för att spåra påverkan på delegerade resurser
 description: Lär dig hur du associerar ditt partner-ID för att få partner intjänad kredit (PEC) för kund resurser som du hanterar via Azure Lighthouse.
-ms.date: 10/13/2020
+ms.date: 10/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 95483cfabb7632182a7c23ae4963f2d38a2bd2c3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fcbcc70e380116b8e9f9b1c1e365dee1adb87a99
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019925"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080285"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Länka ditt partner-ID för att spåra påverkan på delegerade resurser 
 
@@ -22,7 +22,7 @@ Om du registrerar [kunder med hjälp av Azure Resource Management-mallar](onboar
 
 När du registrerar kunder genom Azure Resource Manager mallar (ARM-mallar) använder du följande process för att länka ditt partner-ID (och aktiverar partner intjänad kredit, om tillämpligt). Du måste känna till ditt [MPN-partner-ID](/partner-center/partner-center-account-setup#locate-your-mpn-id) för att kunna utföra dessa steg. Se till att använda **associerat MPN-ID** som visas i din partnerprofil.
 
-För enkelhetens skull rekommenderar vi att du skapar ett tjänst huvud namns konto i din klient organisation, länkar det till ditt **associerade MPN-ID**och sedan beviljar åtkomst till varje kund som du har registrerat med en [inbyggd Azure-roll som är berättigad till PEC](/partner-center/azure-roles-perms-pec).
+För enkelhetens skull rekommenderar vi att du skapar ett tjänst huvud namns konto i din klient organisation, länkar det till ditt **associerade MPN-ID** och sedan beviljar åtkomst till varje kund som du har registrerat med en [inbyggd Azure-roll som är berättigad till PEC](/partner-center/azure-roles-perms-pec).
 
 1. [Skapa ett tjänst huvud konto](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) i hanterings klienten. I det här exemplet använder vi *Automation-kontot namn Provider* för detta tjänst objekt.
 1. Med hjälp av kontot för tjänstens huvud namn [länkar du till ditt associerade MPN-ID](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) i hanterings klienten. Du behöver bara göra detta en gången.
@@ -42,7 +42,9 @@ När kontot har [länkats till ditt associerade MPN-ID](../../cost-management-bi
 
 Du kan [Visa PEC-information i Azure Portal](/partner-center/partner-earned-credit-explanation#azure-cost-management) och bekräfta vilka kostnader som har fått fördelen med PEC. Kom ihåg att PEC endast gäller för CSP-kunder som har signerat MCA och som finns i Azure-planen.
 
-Om du har följt stegen ovan och inte ser associationen öppnar du en supportbegäran i Azure Portal.
+Om du har följt stegen ovan och inte ser den förväntade associationen öppnar du en supportbegäran i Azure Portal.
+
+Du kan också använda [partner Center SDK](/partner-center/develop/get-invoice-unbilled-consumption-lineitems) och filtrera på `rateOfPartnerEarnedCredit` för att automatisera PEC-verifiering för en prenumeration.
 
 ## <a name="next-steps"></a>Nästa steg
 

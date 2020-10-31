@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072810"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080982"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Konfigurera din anpassade automatiska förslags upplevelse
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Anpassad automatiska förslag returnerar en lista med föreslagna Sök frågesträngar som är relevanta för din Sök funktion. De föreslagna frågesträngarna baseras på en partiell frågesträng som användaren anger i sökrutan. Listan får innehålla högst 10 förslag. 
 
@@ -36,7 +41,7 @@ Aktivera Bing-förslag genom att växla skjutreglaget för **Automatisk Bing-fö
 
 ## <a name="add-your-own-suggestions"></a>Lägg till egna förslag
 
-Lägg till dina egna fråge Strängs förslag genom att lägga till dem i listan under **användardefinierade förslag**. När du har lagt till ett förslag i listan trycker du på RETUR-tangenten eller på **+** ikonen. Du kan ange förslaget på valfritt språk. Du kan lägga till högst 5 000 fråge Strängs förslag.
+Lägg till dina egna fråge Strängs förslag genom att lägga till dem i listan under **användardefinierade förslag** . När du har lagt till ett förslag i listan trycker du på RETUR-tangenten eller på **+** ikonen. Du kan ange förslaget på valfritt språk. Du kan lägga till högst 5 000 fråge Strängs förslag.
 
 ## <a name="upload-suggestions"></a>Ladda upp förslag
 
@@ -48,7 +53,7 @@ Om du vill ta bort ett fråge Strängs förslag klickar du på ikonen Ta bort br
 
 ## <a name="block-suggestions"></a>Blockera förslag
 
-Om du inkluderar Bing-förslag kan du lägga till en lista med Sök fråga-strängar som du inte vill att Bing ska returnera. Om du vill lägga till blockerade frågesträngar klickar du på **Visa blockerade förslag**. Lägg till frågesträngen i listan och tryck på RETUR eller klicka på **+** ikonen. Du kan lägga till högst 50 blockerade frågesträngar.
+Om du inkluderar Bing-förslag kan du lägga till en lista med Sök fråga-strängar som du inte vill att Bing ska returnera. Om du vill lägga till blockerade frågesträngar klickar du på **Visa blockerade förslag** . Lägg till frågesträngen i listan och tryck på RETUR eller klicka på **+** ikonen. Du kan lägga till högst 50 blockerade frågesträngar.
 
 
 
@@ -60,7 +65,7 @@ Om du inkluderar Bing-förslag kan du lägga till en lista med Sök fråga-strä
 
 ## <a name="enabling-autosuggest-in-hosted-ui"></a>Aktivera automatiska förslag i värdbaserade gränssnitt
 
-Om du vill aktivera fråge Strängs förslag för ditt värdbaserade användar gränssnitt klickar du på **VÄRDBASERAD gränssnitt**. Rulla ned till avsnittet **ytterligare konfiguration** . Under **Webbs ökning**väljer du **på** för **Aktivera automatiska förslag**. Om du vill aktivera automatiska förslag måste du välja en layout som innehåller en sökruta.
+Om du vill aktivera fråge Strängs förslag för ditt värdbaserade användar gränssnitt klickar du på **VÄRDBASERAD gränssnitt** . Rulla ned till avsnittet **ytterligare konfiguration** . Under **Webbs ökning** väljer du **på** för **Aktivera automatiska förslag** . Om du vill aktivera automatiska förslag måste du välja en layout som innehåller en sökruta.
 
 
 ## <a name="calling-the-autosuggest-api"></a>Anropar API: et för automatiska förslag

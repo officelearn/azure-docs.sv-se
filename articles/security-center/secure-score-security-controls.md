@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 0bc8b4f7bd2bf02d4d034ebacc0fc45b17cd3e15
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 55a4e50e3a85eccb9517cf682b67268e633abecc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928101"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081237"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Säkerhetspoäng i Azure Security Center
 
@@ -190,7 +190,7 @@ Vi rekommenderar att varje organisation noggrant granskar sina tilldelade Azure 
     <td class="tg-lboi"; width=55%>- Hanterings portar för virtuella datorer bör skyddas med just-in-Time-kontroll för nätverks åtkomst<br>- Virtuella datorer ska associeras med en nätverks säkerhets grupp<br>- Hanterings portar bör stängas på dina virtuella datorer</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Tillämpa system uppdateringar (Max poäng 6)</p></strong>System uppdateringar ger organisationer möjlighet att underhålla drifts effektivitet, minska säkerhets risker och tillhandahålla en mer stabil miljö för slutanvändare. Att inte tillämpa uppdateringar lämnar uppdateringar som inte har uppdaterats och resulterar i miljöer som är mottagliga för attacker. Dessa sårbarheter kan utnyttjas och leda till data förlust, data exfiltrering, utpressnings tro och resurs missbruk. Om du vill distribuera system uppdateringar kan du använda <a href="/azure/automation/automation-update-management">uppdateringshantering-lösningen för att hantera korrigeringar och uppdateringar</a> för dina virtuella datorer. Uppdaterings hantering är en process för att kontrol lera distribution och underhåll av program varu versioner.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Tillämpa system uppdateringar (Max poäng 6)</p></strong>System uppdateringar ger organisationer möjlighet att underhålla drifts effektivitet, minska säkerhets risker och tillhandahålla en mer stabil miljö för slutanvändare. Att inte tillämpa uppdateringar lämnar uppdateringar som inte har uppdaterats och resulterar i miljöer som är mottagliga för attacker. Dessa sårbarheter kan utnyttjas och leda till data förlust, data exfiltrering, utpressnings tro och resurs missbruk. Om du vill distribuera system uppdateringar kan du använda <a href="/azure/automation/update-management/overview">uppdateringshantering-lösningen för att hantera korrigeringar och uppdateringar</a> för dina virtuella datorer. Uppdaterings hantering är en process för att kontrol lera distribution och underhåll av program varu versioner.</td>
     <td class="tg-lboi"; width=55%>- Övervaknings agentens hälso problem bör lösas på dina datorer<br>- Övervaknings agenten ska installeras på virtuella datorers skalnings uppsättningar<br>- Övervaknings agenten ska installeras på dina datorer<br>- OS-versionen bör uppdateras för dina moln tjänst roller<br>- System uppdateringar på virtuella datorers skalnings uppsättningar bör installeras<br>- System uppdateringar bör installeras på dina datorer<br>- Datorerna måste startas om för att tillämpa system uppdateringar<br>- Kubernetes Services bör uppgraderas till en icke-sårbar Kubernetes-version<br>- Övervaknings agenten ska installeras på dina virtuella datorer<br>- Log Analytics agenten ska installeras på dina Windows-baserade Azure Arc-datorer (för hands version)<br>- Log Analytics agent ska installeras på Linux-baserade Azure Arc-datorer (för hands version)</td>
   </tr>
   <tr>

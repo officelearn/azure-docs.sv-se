@@ -10,14 +10,15 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: 0dd56b285401bd99a173700be6d6eb7c1fc97faa
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 341615bf8fe231eafa606411948ad014399b8261
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477257"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079554"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Komma igång med Azure Table Storage och Azure Cosmos DB Table-API:et med hjälp av Python
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -118,7 +119,7 @@ table_service.insert_entity('tasktable', task)
 
 ### <a name="partitionkey-and-rowkey"></a>PartitionKey och RowKey
 
-Du måste ange både en **PartitionKey**- och en **RowKey**-egenskap för varje entitet. Dessa är entiteternas unika identifierare eftersom de tillsammans bildar primärnyckeln för en entitet. Du kan fråga mycket snabbare med dessa värden än du kan fråga andra entitetsegenskaper eftersom endast dessa egenskaper indexeras.
+Du måste ange både en **PartitionKey** - och en **RowKey** -egenskap för varje entitet. Dessa är entiteternas unika identifierare eftersom de tillsammans bildar primärnyckeln för en entitet. Du kan fråga mycket snabbare med dessa värden än du kan fråga andra entitetsegenskaper eftersom endast dessa egenskaper indexeras.
 
 Table Storage använder tabellen **PartitionKey** för att effektivt distribuera tabellentiteter mellan lagringsnoder. Entiteter som har samma **PartitionKey** lagras på samma nod. **RowKey** är det unika ID:t för entiteten i den partition som egenskapen hör till.
 
@@ -192,7 +193,7 @@ print(task.priority)
 
 ## <a name="query-a-set-of-entities"></a>Fråga efter en uppsättning entiteter
 
-Du kan hämta en uppsättning entiteter genom att ange en filtersträng med parametern **filter**. Det här exemplet hämtar alla aktiviteter i Seattle genom att tillämpa ett filter på PartitionKey:
+Du kan hämta en uppsättning entiteter genom att ange en filtersträng med parametern **filter** . Det här exemplet hämtar alla aktiviteter i Seattle genom att tillämpa ett filter på PartitionKey:
 
 ```python
 tasks = table_service.query_entities(
@@ -204,7 +205,7 @@ for task in tasks:
 
 ## <a name="query-a-subset-of-entity-properties"></a>Fråga en deluppsättning entitetsegenskaper
 
-Du kan också begränsa vilka egenskaper som returneras för varje entitet i en fråga. Den här tekniken, kallad *projektion*, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter eller resultatuppsättningar. Använd parametern **select** och ange namnen på egenskaperna som ska returneras till klienten.
+Du kan också begränsa vilka egenskaper som returneras för varje entitet i en fråga. Den här tekniken, kallad *projektion* , minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter eller resultatuppsättningar. Använd parametern **select** och ange namnen på egenskaperna som ska returneras till klienten.
 
 Frågan i följande kod returnerar bara beskrivningarna av entiteter i tabellen.
 

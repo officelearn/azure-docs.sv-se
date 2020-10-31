@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0fb783a6ad65ce17bff14b72e8d94d284769779f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 824c48646ab32e02c627fb623dbab60c3050ad96
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475166"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080727"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Prestandatips för Azure Cosmos DB och .NET SDK v2
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -46,12 +47,12 @@ Vi rekommenderar Windows 64-bitars värd bearbetning för bättre prestanda. SQL
 
 - För VSTest-baserade test projekt kan du ändra värd bearbetningen genom att välja **testa**  >  **standardinställningar**  >  **standard processor arkitektur som x64** på **test** menyn i Visual Studio.
 
-- För lokalt distribuerade ASP.NET-webbprogram kan du ändra värd bearbetningen genom att välja **Använd 64-bitars versionen av IIS Express för webbplatser och projekt** under **verktyg**  >  **alternativ**  >  **projekt och**  >  **webb projekt**för lösningar.
+- För lokalt distribuerade ASP.NET-webbprogram kan du ändra värd bearbetningen genom att välja **Använd 64-bitars versionen av IIS Express för webbplatser och projekt** under **verktyg**  >  **alternativ**  >  **projekt och**  >  **webb projekt** för lösningar.
 
 - För ASP.NET-webbprogram som distribueras i Azure kan du ändra värd bearbetningen genom att välja **64-bitars** plattform i **program inställningar** i Azure Portal.
 
 > [!NOTE] 
-> Som standard har nya Visual Studio-projekt angetts till **valfri processor**. Vi rekommenderar att du ställer in projektet på **x64** så att det inte växlar till **x86**. Ett projekt som är inställt på **valfri processor** kan enkelt växla till **x86** om ett x86-endast beroende läggs till.<br/>
+> Som standard har nya Visual Studio-projekt angetts till **valfri processor** . Vi rekommenderar att du ställer in projektet på **x64** så att det inte växlar till **x86** . Ett projekt som är inställt på **valfri processor** kan enkelt växla till **x86** om ett x86-endast beroende läggs till.<br/>
 > ServiceInterop.dll måste finnas i mappen som SDK-DLL-filen körs från. Detta bör endast vara en risk om du manuellt kopierar dll: er eller har anpassade Bygg-/distributions system.
     
 **Aktivera skräp insamling på Server sidan (GC)**
@@ -135,7 +136,7 @@ SQL .NET SDK-1.9.0 och senare stöder parallella frågor som gör att du kan fr�
 - `MaxDegreeOfParallelism` kontrollerar det högsta antalet partitioner som kan frågas parallellt. 
 - `MaxBufferedItemCount` styr antalet i förväg hämtade resultat.
 
-**_Justerings grad för parallellitet_*_
+**_Justerings grad för parallellitet_* _
 
 Parallell fråga fungerar genom att fråga flera partitioner parallellt. Men data från en enskild partition hämtas seriellt i förhållande till frågan. Inställningen `MaxDegreeOfParallelism` i [SDK v2](sql-api-sdk-dotnet.md) till antalet partitioner har den bästa möjligheten att nå den mest utförda frågan, förutsatt att alla andra system villkor är desamma. Om du inte vet antalet partitioner kan du ange graden av parallellitet till ett högt tal. Systemet väljer det lägsta (antal partitioner, indata från användaren) som graden av parallellitet.
 
@@ -147,7 +148,7 @@ Parallell fråga är utformad för att hämta resultat när den aktuella gruppen
 
 För hämtning fungerar på samma sätt oavsett graden av parallellitet och det finns en enda buffert för data från alla partitioner.  
 
-_*Implementera backoff vid RetryAfter-intervall**
+_ *Implementera backoff vid RetryAfter-intervall**
 
 Under prestanda testningen bör du öka belastningen tills en låg frekvens av begär Anden begränsas. Om begär Anden begränsas bör klient programmet stängas av vid begränsningen för det Server-angivna återförsöksintervallet. Att respektera backoff garanterar att du ägnar en liten stund åt att vänta mellan återförsök. 
 

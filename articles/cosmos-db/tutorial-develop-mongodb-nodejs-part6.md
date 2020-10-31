@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: 3116038939a07084f13db22819726dcbb2622a10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8e2c707566b08219b495e76be7f6f6130d876ab
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292430"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081322"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Lägga till CRUD-funktioner i appen
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Den här självstudien i flera delar visar hur du skapar en ny app skriven i Node.js med Express och Angular och sedan ansluter den till ditt [Cosmos-konto konfigurerat med Cosmos DB:s API för MongoDB](mongodb-introduction.md). Del 6 av självstudiekursen bygger vidare på [del 5](tutorial-develop-mongodb-nodejs-part5.md) och består av följande uppgifter:
 
@@ -27,7 +28,7 @@ Den här självstudien i flera delar visar hur du skapar en ny app skriven i Nod
 
 > [!VIDEO https://www.youtube.com/embed/Y5mdAlFGZjc]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudiekursen innan du påbörjar den här delen.
 
@@ -38,7 +39,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
 
 1. I Visual Studio Code öppnar du **routes.js** och **hero.service.js** sida vid sida genom att trycka på knappen **dela redigeraren** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png"::: .
 
-    Notera att rad 7 i routes.js anropar funktionen `getHeroes` på rad 5 i **hero.service.js**.  Vi måste skapa samma koppling för post-, put- och delete-funktionerna. 
+    Notera att rad 7 i routes.js anropar funktionen `getHeroes` på rad 5 i **hero.service.js** .  Vi måste skapa samma koppling för post-, put- och delete-funktionerna. 
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/routes-heroservicejs.png" alt-text="routes.js och hero.service.js i Visual Studio Code":::
     
@@ -76,7 +77,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
     };
     ```
 
-4. I **routes.js** lägger du till ett router-element för funktionen `post` efter router-elementet för `get`. Det här router-elementet publicerar en hero i taget. Den här strukturen i router-filen visar tydligt alla tillgängliga API-slutpunkter och överlåter det riktiga arbetet åt **hero.service.js**-filen.
+4. I **routes.js** lägger du till ett router-element för funktionen `post` efter router-elementet för `get`. Det här router-elementet publicerar en hero i taget. Den här strukturen i router-filen visar tydligt alla tillgängliga API-slutpunkter och överlåter det riktiga arbetet åt **hero.service.js** -filen.
 
     ```javascript
     router.post('/hero', (req, res) => {
@@ -90,7 +91,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="routes.js och hero.service.js i Visual Studio Code":::
 
-7. Lägg till en ny hero genom att välja knappen **Add New Hero** (Lägg till ny hero). Ange ID = "999", name = "Fred" och saying = "Hello" och välj sedan **Spara**. På fliken Nätverk kan du se att du har skickat en POST-begäran om en ny hero. 
+7. Lägg till en ny hero genom att välja knappen **Add New Hero** (Lägg till ny hero). Ange ID = "999", name = "Fred" och saying = "Hello" och välj sedan **Spara** . På fliken Nätverk kan du se att du har skickat en POST-begäran om en ny hero. 
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="routes.js och hero.service.js i Visual Studio Code":::
 
@@ -98,7 +99,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
 
 ## <a name="add-the-put-and-delete-functions"></a>Lägga till Put- och Delete-funktionerna
 
-1. Lägg till router-elementen för `put` och `delete` efter router-elementet för post i **routes.js**.
+1. Lägg till router-elementen för `put` och `delete` efter router-elementet för post i **routes.js** .
 
     ```javascript
     router.put('/hero/:uid', (req, res) => {
@@ -158,7 +159,7 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
    }
    ```
 
-3. Exportera de nya modulerna i **hero.service.js**:
+3. Exportera de nya modulerna i **hero.service.js** :
 
    ```javascript
     module.exports = {
@@ -171,9 +172,9 @@ Utför stegen i [del 5](tutorial-develop-mongodb-nodejs-part5.md) av självstudi
 
 4. Nu när vi har uppdaterat koden väljer du knappen **starta om** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png"::: i Visual Studio Code.
 
-5. Uppdatera sidan i webbläsaren och välj knappen **Add New Hero** (Lägg till ny hero). Lägg till en ny hero med ID = "9", name = "Starlord" och saying = "Hi". Välj den nya hero-komponenten genom att klicka på **Spara**.
+5. Uppdatera sidan i webbläsaren och välj knappen **Add New Hero** (Lägg till ny hero). Lägg till en ny hero med ID = "9", name = "Starlord" och saying = "Hi". Välj den nya hero-komponenten genom att klicka på **Spara** .
 
-6. Välj hero-komponenten **Starlord**, ändra saying från "Hi" till "Bye" och välj sedan knappen **Spara**. 
+6. Välj hero-komponenten **Starlord** , ändra saying från "Hi" till "Bye" och välj sedan knappen **Spara** . 
 
     Nu kan du visa nyttolasten genom att välja ID:t på fliken Nätverk. Som du ser i nyttolasten har saying nu värdet "Bye".
 

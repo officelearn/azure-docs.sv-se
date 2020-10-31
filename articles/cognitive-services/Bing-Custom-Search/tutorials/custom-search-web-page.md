@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: a07365dd313f75a844e41b71427d8ddcf78ded85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25d716513c7ceb9311588b75b0fad1c68bf71bfd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742510"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081118"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Självstudie: Skapa en webbsida för anpassad sökning
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Med anpassad sökning i Bing kan du skapa skräddarsydda sökningar om ämnen som intresserar dig. Om du till exempel äger en kamp-webbplats som tillhandahåller en Sök funktion kan du ange domäner, underordnade platser och webb sidor som Bing-sökningar. Användarna ser sökresultat som skräddarsytts efter det innehåll som intresserar dem, i stället för att behöva bläddra bland sökresultat som kan vara irrelevant. 
 
@@ -32,7 +37,7 @@ Här är några av uppgifterna:
 > - Lägga till fästa poster
 > - Integrera anpassad sökning i en webbsida
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API för anpassad Bing-sökning.  Om du vill hämta en nyckel [skapar du en anpassad sökning i Bing resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) i Azure Portal.
 - Om du inte redan har installerat Visual Studio 2017 eller senare kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/).
@@ -45,9 +50,9 @@ Så här skapar du en instans för anpassad sökning i Bing:
   
 2. Navigera till den anpassade sökningens [portal](https://customsearch.ai).  
   
-3. Logga in på portalen med ett Microsoft-konto (MSA). Om du inte har en MSA klickar du på **skapa en Microsoft-konto**. Om det är första gången du använder portalen uppmanas du att ha behörighet att komma åt dina data. Klicka på **Ja**.  
+3. Logga in på portalen med ett Microsoft-konto (MSA). Om du inte har en MSA klickar du på **skapa en Microsoft-konto** . Om det är första gången du använder portalen uppmanas du att ha behörighet att komma åt dina data. Klicka på **Ja** .  
   
-4. När du har loggat in klickar du på **Ny anpassad sökning**. I fönstret **skapa en ny anpassad Sök instans** anger du ett namn som är meningsfullt och beskriver vilken typ av innehåll sökningen returnerar. Du kan ändra namnet när som helst.  
+4. När du har loggat in klickar du på **Ny anpassad sökning** . I fönstret **skapa en ny anpassad Sök instans** anger du ett namn som är meningsfullt och beskriver vilken typ av innehåll sökningen returnerar. Du kan ändra namnet när som helst.  
   
    ![Skärmbild för rutan Skapa en ny anpassad sökinstans](../media/newCustomSrch.png)  
   
@@ -58,7 +63,7 @@ Så här skapar du en instans för anpassad sökning i Bing:
 
 ## <a name="add-active-entries"></a>Lägga till aktiva poster
 
-Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du lägga till dem på fliken **Aktiv**.
+Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du lägga till dem på fliken **Aktiv** .
 
 1. På sidan **Konfiguration** klickar du på fliken **Aktiv** och anger webbadressen till en eller flera webbplatser som du vill inkludera i sökningen.
 
@@ -68,7 +73,7 @@ Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du l
 
 ## <a name="add-blocked-entries"></a>Lägga till blockerade poster
 
-Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du lägga till dem på fliken **Blockerad**.
+Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du lägga till dem på fliken **Blockerad** .
 
 1. På sidan **Konfiguration** klickar du på fliken **Blockerad** och anger webbadressen till en eller flera webbplatser som du vill undanta från sökningen.
 
@@ -93,7 +98,7 @@ Lägg till webb sidan och fråge termen till den **fästa** fliken om du vill f�
 
 Anpassad sökning ger ett värdbaserat gränssnitt för att rendera JSON-svar för din anpassade sökinstans. Så här definierar du UI-miljön:
 
-1. Klicka på fliken för **värdbaserat användargränssnitt**.  
+1. Klicka på fliken för **värdbaserat användargränssnitt** .  
   
 2. Välj en layout.  
   
@@ -103,7 +108,7 @@ Anpassad sökning ger ett värdbaserat gränssnitt för att rendera JSON-svar f�
   
    ![Skärmbild av val av färgtema för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-   Om du behöver finjustera färgtemat så att det bättre integrerar med din webbapp klickar du på **Anpassa tema**. Alla färgkonfigurationer finns inte för alla layoutteman. Om du vill ändra en färg anger du färgens RGB HEX-värde (till exempel #366eb8) i motsvarande textruta. Eller så kan du klicka på färgknappen och klicka på nyansen som passar dig. Tänk alltid på tillgänglighet när du väljer färger.
+   Om du behöver finjustera färgtemat så att det bättre integrerar med din webbapp klickar du på **Anpassa tema** . Alla färgkonfigurationer finns inte för alla layoutteman. Om du vill ändra en färg anger du färgens RGB HEX-värde (till exempel #366eb8) i motsvarande textruta. Eller så kan du klicka på färgknappen och klicka på nyansen som passar dig. Tänk alltid på tillgänglighet när du väljer färger.
   
    ![Skärmbild av anpassa tema för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
@@ -112,7 +117,7 @@ Anpassad sökning ger ett värdbaserat gränssnitt för att rendera JSON-svar f�
   
    ![Skärmbild av ytterligare konfigurationssteg för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-additional-configurations.png)  
   
-   Om du vill få avancerade konfigurationer klickar du på **Visa avancerade konfigurationer**. Detta lägger till konfigurationer som *Länkmål* till webbsökningsalternativ, *Aktivera filter* för bild- och videoalternativ och *Textplatshållare för sökruta* till övriga alternativ.
+   Om du vill få avancerade konfigurationer klickar du på **Visa avancerade konfigurationer** . Detta lägger till konfigurationer som *Länkmål* till webbsökningsalternativ, *Aktivera filter* för bild- och videoalternativ och *Textplatshållare för sökruta* till övriga alternativ.
 
    ![Skärmbild av avancerade konfigurationssteg för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
@@ -130,25 +135,25 @@ Det finns två sätt att använda det värdbaserade användargränssnittet.
 - Alternativ 1: Integrera medföljande JavaScript-kodfragment i programmet.
 - Alternativ 2: Använda HTML-slutpunkten som medföljer.
 
-Resten av den här självstudien illustrerar **alternativ 1: JavaScript-kodfragment**.  
+Resten av den här självstudien illustrerar **alternativ 1: JavaScript-kodfragment** .  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Konfigurera din Visual Studio-lösning
 
 1. Öppna **Visual Studio** på datorn.  
   
-2. I menyn **Arkiv** väljer du **Nytt** och sedan **Projekt**.  
+2. I menyn **Arkiv** väljer du **Nytt** och sedan **Projekt** .  
   
-3. I fönstret **Nytt projekt** väljer du **Visual C# / Webb / ASP.NET Core-webbprogram**, namnger ditt projekt och klickar på **OK**.  
+3. I fönstret **Nytt projekt** väljer du **Visual C# / Webb / ASP.NET Core-webbprogram** , namnger ditt projekt och klickar på **OK** .  
   
    ![Skärmbild av fönstret Nytt projekt](./media/custom-search-new-project.png)  
   
-4. I fönstret **Nytt ASP.NET-webbprogram** väljer du **Webbprogram** och klickar på **OK**.  
+4. I fönstret **Nytt ASP.NET-webbprogram** väljer du **Webbprogram** och klickar på **OK** .  
   
    ![Skärm bild av nytt webapp-fönster](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Redigera index.cshtml
 
-1. I **Solution Explorer** expanderar du **Sidor** och öppnar filen genom att dubbelklicka på **index.cshtml**.  
+1. I **Solution Explorer** expanderar du **Sidor** och öppnar filen genom att dubbelklicka på **index.cshtml** .  
   
    ![Skärmbild av Solution Explorer med Sidor expanderat och index.cshtml vald](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
@@ -174,7 +179,7 @@ Resten av den här självstudien illustrerar **alternativ 1: JavaScript-kodfragm
    <div id="customSearch"></div>
    ```  
   
-4. På sidan för **värdbaserat användargränssnitt** rullar du ned till avsnittet om att **använda användargränssnittet**. Klicka på *Slutpunkter* för att få åtkomst till JavaScript-kodavsnittet. Du kan också få kodfragmentet genom att klicka på **Produktion** och sedan på fliken för **värdbaserat användargränssnitt**.
+4. På sidan för **värdbaserat användargränssnitt** rullar du ned till avsnittet om att **använda användargränssnittet** . Klicka på *Slutpunkter* för att få åtkomst till JavaScript-kodavsnittet. Du kan också få kodfragmentet genom att klicka på **Produktion** och sedan på fliken för **värdbaserat användargränssnitt** .
   
    <!-- Get new screenshot after prod gets new bits
    ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
@@ -197,7 +202,7 @@ Resten av den här självstudien illustrerar **alternativ 1: JavaScript-kodfragm
    </div>
    ```  
   
-6. I **Solution Explorer** högerklickar du på **wwwroot** och sedan på **Visa i webbläsare**.  
+6. I **Solution Explorer** högerklickar du på **wwwroot** och sedan på **Visa i webbläsare** .  
   
    ![Skärmbild av när Solution Explorer väljer Visa i webbläsare på snabbmenyn wwwroot](./media/custom-search-webapp-view-in-browser.png)  
 

@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: af9122aaa0233fe5248f31ffe805e01a98831eae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf174d45f33c50ce93b45b19c6030cf42cb20983
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447427"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081458"
 ---
 # <a name="troubleshoot-issues-when-using-the-azure-cosmos-emulator"></a>Felsöka problem när du använder Azure Cosmos-emulatorn
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos-emulatorn tillhandahåller en lokal miljö som emulerar Azure Cosmos DB tjänst i utvecklings syfte. Använd tipsen i den här artikeln för att felsöka problem som du kan stöta på när du installerar eller använder Azure Cosmos-emulatorn. 
 
@@ -36,9 +37,9 @@ Om du har installerat en ny version av emulatorn och fel uppstår ska du återst
 
 * Om du ser ett meddelande om att **tjänsten inte är tillgänglig** kanske emulatorn misslyckas med att initiera nätverksstacken. Se efter om du har Pulse Secure-klienten eller Juniper-nätverksklienten installerad, eftersom deras nätverksfilterdrivrutiner kan orsaka problemet. Avinstallation av nätverksfilterdrivrutiner från tredje part åtgärdar vanligen problemet. Du kan också starta emulatorn med/DisableRIO, som växlar kommunikationen mellan emulatorn och den vanliga Winsock-anslutningen. 
 
-* Om du stöter på **"förbjuden", "meddelande": "begäran görs med en otillåten kryptering i överförings protokoll eller Cipher. Kontrol lera kontot SSL/TLS lägsta tillåtna protokoll inställning... "** anslutnings problem, detta kan bero på globala ändringar i operativ systemet (till exempel Insider Preview version 20170) eller webb läsar inställningarna som aktiverar TLS 1,3 som standard. Liknande fel kan uppstå när du använder SDK för att köra en begäran mot Cosmos-emulatorn, till exempel **Microsoft.Azure.Documents.DocumentClientException: begäran görs med en otillåten kryptering i överförings protokoll eller chiffer. Kontrol lera konto inställningen SSL/TLS lägsta tillåtna protokoll**. För närvarande är detta förväntat eftersom Cosmos-emulatorn bara accepterar och fungerar med TLS 1.2-protokollet. Det rekommenderade arbetet – runt är att ändra inställningarna och standardvärdet för TLS 1,2; i IIS-hanteraren navigerar du exempelvis till "platser" – > "standard webbplatser" och letar upp "webbplats bindningar" för port 8081 och redigerar dem för att inaktivera TLS 1,3. En liknande åtgärd kan utföras för webbläsaren via alternativen i Inställningar.
+* Om du stöter på **"förbjuden", "meddelande": "begäran görs med en otillåten kryptering i överförings protokoll eller Cipher. Kontrol lera kontot SSL/TLS lägsta tillåtna protokoll inställning... "** anslutnings problem, detta kan bero på globala ändringar i operativ systemet (till exempel Insider Preview version 20170) eller webb läsar inställningarna som aktiverar TLS 1,3 som standard. Liknande fel kan uppstå när du använder SDK för att köra en begäran mot Cosmos-emulatorn, till exempel **Microsoft.Azure.Documents.DocumentClientException: begäran görs med en otillåten kryptering i överförings protokoll eller chiffer. Kontrol lera konto inställningen SSL/TLS lägsta tillåtna protokoll** . För närvarande är detta förväntat eftersom Cosmos-emulatorn bara accepterar och fungerar med TLS 1.2-protokollet. Det rekommenderade arbetet – runt är att ändra inställningarna och standardvärdet för TLS 1,2; i IIS-hanteraren navigerar du exempelvis till "platser" – > "standard webbplatser" och letar upp "webbplats bindningar" för port 8081 och redigerar dem för att inaktivera TLS 1,3. En liknande åtgärd kan utföras för webbläsaren via alternativen i Inställningar.
 
-* Om datorn försätts i viloläge eller om operativsystemet uppdateras när emulatorn körs kan du se meddelandet **Tjänsten är inte tillgänglig just nu**. Återställ emulatorns data genom att högerklicka på ikonen som visas i meddelande fältet i Windows och välj **Återställ data**.
+* Om datorn försätts i viloläge eller om operativsystemet uppdateras när emulatorn körs kan du se meddelandet **Tjänsten är inte tillgänglig just nu** . Återställ emulatorns data genom att högerklicka på ikonen som visas i meddelande fältet i Windows och välj **Återställ data** .
 
 ## <a name="collect-trace-files"></a><a id="trace-files"></a>Samla in spårningsfiler
 

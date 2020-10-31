@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f0dfa137e42d60246ce8f5281f002d5ca567c2ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ac134e6a371ea85a20094e688adc57da8550a03d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427533"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078993"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Skapa och hantera en Azure Machine Learning beräknings instans
 
@@ -34,7 +34,7 @@ I den här artikeln kan du se hur du:
 
 Beräknings instanser kan köra jobb på ett säkert sätt i en [virtuell nätverks miljö](how-to-secure-training-vnet.md), utan att företag behöver öppna SSH-portar. Jobbet körs i en behållare miljö och paketerar dina modell beroenden i en Docker-behållare. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -42,7 +42,7 @@ Beräknings instanser kan köra jobb på ett säkert sätt i en [virtuell nätve
 
 ## <a name="create"></a>Skapa
 
-**Tids uppskattning**: cirka 5 minuter.
+**Tids uppskattning** : cirka 5 minuter.
 
 Att skapa en beräknings instans är en process som en gång för din arbets yta. Du kan återanvända den här beräkningen som en utvecklings arbets Station eller som ett beräknings mål för träning. Du kan ha flera beräknings instanser kopplade till din arbets yta.
 
@@ -109,7 +109,7 @@ Du kan också skapa en beräknings instans med en [Azure Resource Manager-mall](
 
 Som administratör kan du skapa en beräknings instans på uppdrag av en data expert och tilldela den instansen till dem med:
 * [Azure Resource Manager mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Information om hur du hittar TenantID och ObjectID som behövs i den här mallen finns i [hitta ID-objekt-ID: n för konfiguration av autentisering](../healthcare-apis/find-identity-object-ids.md).  Du kan också hitta dessa värden i Azure Active Directory-portalen.
-* REST API
+* REST-API
 
 Data expert som du skapar beräknings instansen för behöver följande är [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/overview.md) -behörigheter: 
 * *Microsoft. MachineLearningServices/arbets ytor/beräkningar/start/åtgärd*
@@ -206,7 +206,7 @@ I exemplen nedan är namnet på beräknings instansen **instansen**
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
-I arbets ytan i Azure Machine Learning Studio väljer du **Compute**och sedan **beräknings instans** överst.
+I arbets ytan i Azure Machine Learning Studio väljer du **Compute** och sedan **beräknings instans** överst.
 
 ![Hantera en beräknings instans](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -256,7 +256,9 @@ Du kan installera paket direkt i Jupyter Notebook eller RStudio:
 * Python: Lägg till installations kod och kör i en Jupyter Notebook cell.
 
 Eller så kan du installera från ett terminalfönster. Installera python-paket i **python 3,6-azureml-** miljön.  Installera R-paket i **R** -miljön.
-% PIP och% Conda Magic Functions installerar automatiskt paket i den för närvarande pågående kärnan i Jupyter Notebook-sessionen.
+
+> [!NOTE]
+> För paket hantering i en bärbar dator använder du **% pip** eller **% Conda** Magic Functions för att automatiskt installera paket i den **aktuella kerneln** i stället för **! pip** eller **! Conda** som refererar till alla paket (inklusive paket utanför den aktuella kerneln som körs)
 
 ## <a name="add-new-kernels"></a>Lägg till nya kärnor
 

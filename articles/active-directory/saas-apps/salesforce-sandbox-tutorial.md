@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: bc27b1fea97471e9ca1991467902e666c1451605
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 12a282b1f53dde570f5f6647a45df82808b20350
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675542"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080863"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med begränsat läge för Salesforce
 
@@ -149,35 +149,35 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Klicka på **Setup** (Konfiguration) under **inställningsikonen** i det övre högra hörnet på sidan.
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Skärm bild som visar ikonen "Inställningar" längst upp till höger och "Setup" som valts i list rutan.](./media/salesforce-sandbox-tutorial/configure1.png)
 
 3. Rulla ned till **inställningarna** i det vänstra navigerings fönstret och klicka på **identitet** för att expandera det relaterade avsnittet. Klicka sedan på **Inställningar för enkel inloggning** .
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Skärm bild som visar menyn "Inställningar" i det vänstra fönstret med inställningen "Single Sign-On Settings" på "Identity"-menyn.](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 4. På sidan med **Inställningar för enkel inloggning** klickar du på **Redigera** .
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Skärm bild som visar sidan "inställningar för enskilda Sign-On" med knappen "redigera" markerad.](./media/salesforce-sandbox-tutorial/configure3.png)
 
 5. Välj **SAML-aktiverat** och klicka på **Spara** .
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Skärm bild som visar sidan "Single Sign-On Settings" med kryss rutan "S A M L Enabled" markerad och knappen "Spara" markerad.](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 6. Konfigurera inställningarna för enkel inloggning med SAML genom att klicka på **Nytt från metadatafil** .
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Skärm bild som visar sidan "enkla Sign-On inställningar" med knappen "nytt från metadatafil" markerad.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 7. Klicka på **Välj fil** för att ladda upp XML-filen med metadata som du har laddat ned från Azure-portalen och klicka på **Skapa** .
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Skärm bild som visar sidan "Single Sign-On Settings" med knapparna "Välj fil" och "skapa" markerade.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 8. På sidan med **inställningar för enkel inloggning med SAML** fylls fälten i automatiskt. Klicka på Spara.
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/salesforcexml.png)
+    ![Skärm bild som visar sidan "enkla Sign-On inställningar" med fält ifyllda och knappen "Spara" markerad.](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
 9. På sidan **Inställningar för enkel Sign-On** klickar du på knappen **Hämta metadata** för att ladda ned metadata-filen för tjänste leverantören. Använd den här filen i avsnittet **grundläggande SAML-konfiguration** i Azure Portal för att konfigurera de nödvändiga URL: erna enligt beskrivningen ovan.
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/configure4.png)
+    ![Skärm bild som visar sidan "enskilda Sign-On inställningar" med knappen "hämta metadata" vald.](./media/salesforce-sandbox-tutorial/configure4.png)
 
 10. Om du vill konfigurera programmet i **SP** -initierat läge måste följande vara uppfyllda för:
 
@@ -202,31 +202,31 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 13. Klicka på **Setup** (Konfiguration) under **inställningsikonen** i det övre högra hörnet på sidan.
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Skärm bild som visar ikonen "Inställningar" längst upp till höger och "Setup" vald på den nedrullningsbara menyn.](./media/salesforce-sandbox-tutorial/configure1.png)
 
 14. Rulla ned till **inställningarna** i det vänstra navigerings fönstret och klicka på **identitet** för att expandera det relaterade avsnittet. Klicka sedan på **Inställningar för enkel inloggning** .
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Skärm bild som visar menyn "Inställningar" i det vänstra navigerings fönstret med inställningen "Single Sign-On Settings" på "Identity"-menyn.](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 15. På sidan med **Inställningar för enkel inloggning** klickar du på **Redigera** .
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Skärm bild som visar sidan "inställningar för enskilda Sign-On" med knappen "redigera" markerad.](./media/salesforce-sandbox-tutorial/configure3.png)
 
 16. Välj **SAML-aktiverat** och klicka på **Spara** .
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Skärm bild som visar sidan "Single Sign-On Settings" med rutan "S A M L Enabled" markerad och knappen "Spara" markerad.](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 17. Konfigurera inställningarna för enkel inloggning med SAML genom att klicka på **Nytt från metadatafil** .
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Skärm bild som visar sidan "inställningar för enskilda Sign-On" och knappen "nytt från metadatafil" vald.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 18. Klicka på **Välj fil** för att ladda upp metadata-XML-filen och klicka på **skapa** .
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Skärm bild som visar sidan "enkla Sign-On inställningar" med knappen "Välj fil" och knappen "skapa" vald.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 19. På sidan **Inställningar för SAML Single Sign-On** , fyller du i fält automatiskt, skriver namnet på konfigurationen (till exempel: *SPSSOWAAD_Test* ), i text rutan **namn** och klickar på Spara.
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
+    ![Skärm bild som visar sidan "enkla Sign-On inställningar" med ifyllda fält, ett exempel namn i text rutan "namn" och knappen "Spara" markerad.](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
 20. Utför följande steg för att aktivera din domän i Salesforce-Sandbox:
 
@@ -235,11 +235,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 21. I det vänstra navigerings fönstret i Salesforce Sandbox klickar du på **företags inställningar** för att expandera det relaterade avsnittet och klicka sedan på **min domän** .
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
+    ![Skärm bild som visar "företags inställningar" och "min domän" som valts i det vänstra navigerings fönstret.](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
 
 22. I avsnittet **konfiguration av autentisering** klickar du på **Redigera** .
 
-    ![Konfigurera enkel inloggning](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
+    ![Skärm bild som visar avsnittet "Authentication Configuration" med knappen "redigera" markerad.](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 23. I avsnittet **konfiguration av autentisering** , som **Autentiseringstjänsten** , väljer du namnet på den enda SAML-Sign-On inställningen som du angav under SSO-konfigurationen i Salesforce-Sandbox och klickar på **Spara** .
 

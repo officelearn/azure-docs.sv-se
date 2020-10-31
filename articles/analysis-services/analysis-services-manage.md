@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 697e5484c007c095201344fb4829a92eb642a6e3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 91ffcac98b2b919a8fc131d235e699aad4fa215d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014859"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078908"
 ---
 # <a name="manage-analysis-services"></a>Manage Analysis Services
 När du har skapat en Analysis Services-server i Azure kan det finnas några administrations-och hanterings uppgifter som du behöver utföra direkt eller vid en stund. Du kan till exempel köra bearbetning av uppdatera data, kontrol lera vem som har åtkomst till modellerna på servern eller övervaka serverns hälsa. Vissa hanterings uppgifter kan endast utföras i Azure Portal, andra i SQL Server Management Studio (SSMS) och vissa uppgifter kan göras i båda.
@@ -20,7 +20,7 @@ När du har skapat en Analysis Services-server i Azure kan det finnas några adm
 ## <a name="azure-portal"></a>Azure Portal
 [Azure Portal](https://portal.azure.com/) är där du kan skapa och ta bort servrar, övervaka server resurser, ändra storlek och hantera vem som har åtkomst till dina servrar.  Om du har problem kan du också skicka in en support förfrågan.
 
-![Hämta servernamnet i Azure](./media/analysis-services-manage/aas-manage-portal.png)
+![Skärm bild som visar Azure Portal där du kan skapa och ta bort servrar, övervaka server resurser, ändra storlek och hantera vem som har åtkomst till dina servrar.](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
 Att ansluta till din server i Azure är precis som att ansluta till en Server instans i din organisation. Från SSMS kan du utföra många av samma uppgifter, till exempel process data eller skapa ett bearbetnings skript, hantera roller och använda PowerShell.
@@ -39,10 +39,10 @@ Se till att du använder den senaste versionen av SSMS för att få alla de sena
 1. Innan du ansluter måste du hämta server namnet. Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera servernamnet.
    
     ![Hämta servernamnet i Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. I SSMS > **Object Explorer** klickar du på **Anslut** > **Analysis Services**.
-3. I dialog rutan **Anslut till Server** klistrar du in namnet på servern och väljer sedan någon av följande autentiseringstyper i **autentisering**:   
+2. I SSMS > **Object Explorer** klickar du på **Anslut** > **Analysis Services** .
+3. I dialog rutan **Anslut till Server** klistrar du in namnet på servern och väljer sedan någon av följande autentiseringstyper i **autentisering** :   
     > [!NOTE]
-    > Autentiseringstypen, **Active Directory-Universal med MFA-support**, rekommenderas.
+    > Autentiseringstypen, **Active Directory-Universal med MFA-support** , rekommenderas.
 
     > [!NOTE]
     > Om du loggar in med ett Microsoft-konto, Live ID, Yahoo, Gmail osv. lämnar du fältet lösen ord tomt. Du uppmanas att ange ett lösen ord när du har klickat på Anslut.

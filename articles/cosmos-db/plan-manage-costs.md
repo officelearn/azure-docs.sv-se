@@ -7,14 +7,15 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 278603887fe7d47b4be52b04f9f0864be1a1b75b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3a1bb36910b09d24c3328c8fc8ae94e1e3321642
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482255"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080710"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planera och hantera kostnader för Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 I den här artikeln beskrivs hur du kan planera och hantera kostnader för Azure Cosmos DB:
 
@@ -45,7 +46,7 @@ Följande skärm bild visar data flödet och kostnads uppskattningen med hjälp 
 
 Om du planerar att använda Azure Cosmos DB i Server lös läge måste du uppskatta hur många enheter för [programbegäran](request-units.md) och GB lagrings utrymme som du kan använda varje månad. Du kan beräkna den nödvändiga mängden enheter för programbegäran genom att utvärdera antalet databas åtgärder som ska utfärdas under en månad och multiplicera deras belopp med motsvarande RU-kostnad. I följande tabell visas de uppskattade RU-avgifterna för vanliga databas åtgärder:
 
-| Åtgärd | Beräknad kostnad | Anteckningar |
+| Åtgärd | Beräknad kostnad | Kommentarer |
 | --- | --- | --- |
 | Skapa ett objekt | 5 ru: er | Genomsnittlig kostnad för ett 1 KB-objekt med färre än 5 egenskaper att indexera |
 | Uppdatera ett objekt | 10 RU:er | Genomsnittlig kostnad för ett 1 KB-objekt med färre än 5 egenskaper att indexera |
@@ -56,7 +57,7 @@ Om du planerar att använda Azure Cosmos DB i Server lös läge måste du uppska
 > [!IMPORTANT] 
 > Var uppmärksam på anteckningarna från tabellen ovan. För en mer exakt uppskattning av de faktiska kostnaderna för dina åtgärder kan du använda [Azure Cosmos-emulatorn](local-emulator.md) och [mäta den exakta ru-kostnaden för dina åtgärder](find-request-unit-charge.md). Även om Azure Cosmos-emulatorn inte stöder Server lös rapporteras en standard-avgift för databas åtgärder och kan användas för denna uppskattning.
 
-När du har beräknat det totala antalet enheter för programbegäran och GB lagrings utrymme som du sannolikt kommer att förbruka under en månad, returnerar följande formel din kostnads uppskattning: **([antal enheter för programbegäran]/1 000 000 * $0,25) + ([GB lagrings utrymme] * $0,25)**.
+När du har beräknat det totala antalet enheter för programbegäran och GB lagrings utrymme som du sannolikt kommer att förbruka under en månad, returnerar följande formel din kostnads uppskattning: **([antal enheter för programbegäran]/1 000 000 * $0,25) + ([GB lagrings utrymme] * $0,25)** .
 
 > [!NOTE]
 > Kostnaderna som visas i föregående exempel är endast i demonstrations syfte. På [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) finns den senaste pris informationen.
@@ -87,11 +88,11 @@ När du använder kostnads analys kan du Visa Azure Cosmos DB kostnader i grafer
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Öppna fönstret **Cost Management + fakturering** , Välj **kostnads hantering** på menyn och välj sedan **kostnads analys**. Du kan sedan ändra omfånget för en speciell prenumeration från List rutan **omfattning** .
+1. Öppna fönstret **Cost Management + fakturering** , Välj **kostnads hantering** på menyn och välj sedan **kostnads analys** . Du kan sedan ändra omfånget för en speciell prenumeration från List rutan **omfattning** .
 
 1. Som standard visas kostnaden för alla tjänster i det första Ring diagrammet. Markera ytan i diagrammet med etiketten "Azure Cosmos DB".
 
-1. Om du vill begränsa kostnaderna för en enskild tjänst, till exempel Azure Cosmos DB, väljer du **Lägg till filter** och väljer sedan **tjänst namn**. Välj sedan **Azure Cosmos DB** i listan. Här är ett exempel som visar kostnader för just Azure Cosmos DB:
+1. Om du vill begränsa kostnaderna för en enskild tjänst, till exempel Azure Cosmos DB, väljer du **Lägg till filter** och väljer sedan **tjänst namn** . Välj sedan **Azure Cosmos DB** i listan. Här är ett exempel som visar kostnader för just Azure Cosmos DB:
  
    :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Kostnads uppskattning i Azure Cosmos DB kapacitets kalkylator":::
 

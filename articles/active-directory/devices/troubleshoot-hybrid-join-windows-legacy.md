@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a4e8ec75d6610e19f241d2047518c3a43132a6e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627380"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079027"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter med äldre versioner 
 
 Den här artikeln gäller endast för följande enheter: 
 
 - Windows 7 
-- Windows 8,1 
+- Windows 8.1 
 - Windows Server 2008 R2 
 - Windows Server 2012 
 - Windows Server 2012 R2 
@@ -55,7 +55,7 @@ Den här artikeln innehåller fel söknings vägledning för hur du löser event
 
 Det här kommandot visar en dialog ruta som innehåller information om anslutnings status.
 
-![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/01.png" alt-text="Skärm bild av dialog rutan Workplace Join för Windows. Text som innehåller en e-postadress som anger att en viss enhet är ansluten till en arbets plats." border="false":::
 
 ## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Steg 2: utvärdera status för Hybrid Azure AD-anslutning 
 
@@ -65,7 +65,7 @@ Om enheten inte var hybrid Azure AD-ansluten kan du försöka göra en hybrid Az
 
 - Ett felkonfigurerat AD FS-eller Azure AD-eller nätverks problem
 
-    ![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/02.png" alt-text="Skärm bild av dialog rutan Workplace Join för Windows. Text som innehåller en e-postadress som anger att en viss enhet är ansluten till en arbets plats." border="false":::
     
    - Autoworkplace.exe kan inte tyst autentisera med Azure AD eller AD FS. Detta kan orsakas av saknade eller felkonfigurerade AD FS (för federerade domäner) eller saknade eller felkonfigurerade Azure AD sömlösa enskilda Sign-On (för hanterade domäner) eller nätverks problem. 
    - Det kan bero på att Multi-Factor Authentication (MFA) är aktiverat/konfigurerat för användaren och WIAORMULTIAUTHN inte har kon figurer ATS på den AD FS servern. 
@@ -76,7 +76,7 @@ Om enheten inte var hybrid Azure AD-ansluten kan du försöka göra en hybrid Az
    - Din organisation använder Azure AD sömlös enkel inloggning `https://autologon.microsoftazuread-sso.com` eller finns `https://aadg.windows.net.nsatc.net` inte på enhetens intranäts inställningar på Internet och **Tillåt att uppdateringar av statusfältet via skript** inte har Aktiver ATS för zonen Intranät.
 - Du är inte inloggad som domän användare
 
-   ![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)
+   :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Skärm bild av dialog rutan Workplace Join för Windows. Text som innehåller en e-postadress som anger att en viss enhet är ansluten till en arbets plats." border="false":::
 
    Det finns några olika orsaker till varför detta kan inträffa:
 
@@ -84,11 +84,11 @@ Om enheten inte var hybrid Azure AD-ansluten kan du försöka göra en hybrid Az
    - Klienten kan inte ansluta till en domänkontrollant.    
 - En kvot har nåtts
 
-    ![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/04.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/04.png" alt-text="Skärm bild av dialog rutan Workplace Join för Windows. Text som innehåller en e-postadress som anger att en viss enhet är ansluten till en arbets plats." border="false":::
 
 - Tjänsten svarar inte 
 
-    ![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/05.png" alt-text="Skärm bild av dialog rutan Workplace Join för Windows. Text som innehåller en e-postadress som anger att en viss enhet är ansluten till en arbets plats." border="false":::
 
 Du kan också hitta statusinformation i händelse loggen under: **program och tjänster Log\Microsoft-Workplace Join**
   
@@ -97,7 +97,7 @@ Du kan också hitta statusinformation i händelse loggen under: **program och tj
 - Datorn är inte ansluten till din organisations interna nätverk eller till ett VPN med en anslutning till din lokala AD-domänkontrollant.
 - Du är inloggad på datorn med ett lokalt dator konto. 
 - Tjänst konfigurations problem: 
-   - AD FS-servern har inte kon figurer ATS för att stödja **WIAORMULTIAUTHN**. 
+   - AD FS-servern har inte kon figurer ATS för att stödja **WIAORMULTIAUTHN** . 
    - Datorns skog har inget objekt för tjänst anslutnings punkt som pekar på ditt verifierade domän namn i Azure AD 
    - Eller om din domän hanteras, har sömlöst SSO inte kon figurer ATS eller fungerar.
    - En användare har nått gränsen för enheter. 

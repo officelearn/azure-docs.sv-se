@@ -8,14 +8,15 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 94aa699d8daab7e5e7ff4ae82e5d09ab1475c07e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 709b83ad3e71a932202cebb9c9cb6187feae4ed7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477597"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080013"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Tabelldesignguide för Azure Table Storage: Skalbara och högpresterande tabeller
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -123,7 +124,7 @@ I följande exempel visas en enkel tabell design där du kan lagra personal-och 
 </table>
 
 
-Hittills ser den här designen ut ungefär som en tabell i en Relations databas. De viktigaste skillnaderna är de obligatoriska kolumnerna och möjligheten att lagra flera entitetstyper i samma tabell. Dessutom har var och en av de användardefinierade egenskaperna, till exempel **FirstName** eller **Age**, en datatyp, till exempel Integer eller string, precis som en kolumn i en Relations databas. Till skillnad från i en Relations databas innebär dock schema fri form av tabell lagring att en egenskap inte behöver ha samma datatyp på varje entitet. Om du vill lagra komplexa data typer i en enskild egenskap måste du använda ett serialiserat format, till exempel JSON eller XML. Mer information finns i [förstå tabell lagrings data modell](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
+Hittills ser den här designen ut ungefär som en tabell i en Relations databas. De viktigaste skillnaderna är de obligatoriska kolumnerna och möjligheten att lagra flera entitetstyper i samma tabell. Dessutom har var och en av de användardefinierade egenskaperna, till exempel **FirstName** eller **Age** , en datatyp, till exempel Integer eller string, precis som en kolumn i en Relations databas. Till skillnad från i en Relations databas innebär dock schema fri form av tabell lagring att en egenskap inte behöver ha samma datatyp på varje entitet. Om du vill lagra komplexa data typer i en enskild egenskap måste du använda ett serialiserat format, till exempel JSON eller XML. Mer information finns i [förstå tabell lagrings data modell](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Ditt val av `PartitionKey` och `RowKey` är grundläggande för bra tabell design. Varje entitet som lagras i en tabell måste ha en unik kombination av `PartitionKey` och `RowKey` . Precis som med nycklar i en Relations databas tabell `PartitionKey` `RowKey` indexeras värdena och skapar ett grupperat index som aktiverar snabb sökning. Table Storage skapar dock inte några sekundära index, så dessa är de enda två indexerade egenskaperna (några av mönstren som beskrivs senare visar hur du kan kringgå den här synliga begränsningen).  
 
@@ -137,7 +138,7 @@ I Table Storage är en enskild nod en eller flera fullständiga partitioner, och
 Mer information om intern information om Table Storage och hur den hanterar partitioner finns i [Microsoft Azure Storage: en moln lagrings tjänst med hög tillgänglighet med stark konsekvens](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Enhets grupp transaktioner
-I Table Storage är enhets grupp transaktioner (EGTs) den enda inbyggda mekanismen för att utföra atomiska uppdateringar över flera entiteter. EGTs kallas även *batch-transaktioner*. EGTs kan bara användas på entiteter som är lagrade i samma partition (som delar samma partitionsnyckel i en viss tabell), så när som helst behöver du Atomic-transaktionell beteende över flera entiteter, se till att dessa entiteter finns i samma partition. Detta är ofta en orsak till att hålla flera entitetstyper i samma tabell (och partition) och inte använda flera tabeller för olika typer av enheter. En enda avställning kan köras på högst 100 entiteter.  Om du skickar flera samtidiga EGTs för bearbetning är det viktigt att se till att dessa EGTs inte körs på entiteter som är gemensamma för EGTs. Annars riskerar du att fördröja bearbetningen.
+I Table Storage är enhets grupp transaktioner (EGTs) den enda inbyggda mekanismen för att utföra atomiska uppdateringar över flera entiteter. EGTs kallas även *batch-transaktioner* . EGTs kan bara användas på entiteter som är lagrade i samma partition (som delar samma partitionsnyckel i en viss tabell), så när som helst behöver du Atomic-transaktionell beteende över flera entiteter, se till att dessa entiteter finns i samma partition. Detta är ofta en orsak till att hålla flera entitetstyper i samma tabell (och partition) och inte använda flera tabeller för olika typer av enheter. En enda avställning kan köras på högst 100 entiteter.  Om du skickar flera samtidiga EGTs för bearbetning är det viktigt att se till att dessa EGTs inte körs på entiteter som är gemensamma för EGTs. Annars riskerar du att fördröja bearbetningen.
 
 EGTs introducerar också en potentiell kompromiss som du kan använda för att utvärdera i din design. Genom att använda fler partitioner ökar du skalbarheten för ditt program eftersom Azure har fler möjligheter till belastnings Utjämnings begär Anden mellan noder. Men detta kan begränsa möjligheten för ditt program att utföra atomiska transaktioner och upprätthålla stark konsekvens för dina data. Dessutom finns det vissa skalbara mål på nivån för en partition som kan begränsa data flödet för transaktioner som du kan förväntar dig för en enda nod.
 
@@ -204,13 +205,13 @@ I följande exempel förutsätts att Table Storage lagrar anställdas entiteter 
 
 Här följer några allmänna rikt linjer för att utforma tabell lagrings frågor. Filter-syntaxen som används i följande exempel är från tabell lagrings REST API. Mer information finns i [fråga entiteter](/rest/api/storageservices/Query-Entities).  
 
-* En *punkt fråga* är den mest effektiva sökningen som används och rekommenderas för sökning efter stora volymer eller uppslag som kräver lägsta latens. En sådan fråga kan använda indexen för att hitta en enskild entitet effektivt genom att ange både `PartitionKey` `RowKey` värdena och. Till exempel: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
-* Det andra bästa är en *Range-fråga*. Det använder `PartitionKey` och filtrerar på ett värde intervall `RowKey` för att returnera mer än en entitet. `PartitionKey`Värdet identifierar en viss partition och `RowKey` värdena identifierar en delmängd av entiteterna i partitionen. Till exempel: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
-* Det tredje bästa är en *partitions ökning*. Det använder och `PartitionKey` filtrerar på en annan icke-nyckel-egenskap och kan returnera fler än en entitet. `PartitionKey`Värdet identifierar en viss partition och egenskaps värden väljer för en delmängd av entiteterna i den partitionen. Till exempel: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
-* En *tabells ökning* omfattar inte `PartitionKey` och är ineffektiv eftersom den söker igenom alla partitioner som utgör tabellen för matchande entiteter. Den utför en tabells ökning oavsett om filtret använder eller inte `RowKey` . Till exempel: `$filter=LastName eq 'Jones'`.  
+* En *punkt fråga* är den mest effektiva sökningen som används och rekommenderas för sökning efter stora volymer eller uppslag som kräver lägsta latens. En sådan fråga kan använda indexen för att hitta en enskild entitet effektivt genom att ange både `PartitionKey` `RowKey` värdena och. Till exempel `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
+* Det andra bästa är en *Range-fråga* . Det använder `PartitionKey` och filtrerar på ett värde intervall `RowKey` för att returnera mer än en entitet. `PartitionKey`Värdet identifierar en viss partition och `RowKey` värdena identifierar en delmängd av entiteterna i partitionen. Till exempel `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
+* Det tredje bästa är en *partitions ökning* . Det använder och `PartitionKey` filtrerar på en annan icke-nyckel-egenskap och kan returnera fler än en entitet. `PartitionKey`Värdet identifierar en viss partition och egenskaps värden väljer för en delmängd av entiteterna i den partitionen. Till exempel `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
+* En *tabells ökning* omfattar inte `PartitionKey` och är ineffektiv eftersom den söker igenom alla partitioner som utgör tabellen för matchande entiteter. Den utför en tabells ökning oavsett om filtret använder eller inte `RowKey` . Till exempel `$filter=LastName eq 'Jones'`.  
 * Azure Table Storage-frågor som returnerar flera entiteter sorterar dem i `PartitionKey` och `RowKey` ordning. Välj en `RowKey` som definierar den vanligaste sorterings ordningen för att undvika att enheterna i klienten används. Frågeresultat som returneras av Azure-Tabell-API i Azure Cosmos DB sorteras inte efter partitionsnyckel eller rad nyckel. En detaljerad lista över funktions skillnader finns i [skillnader mellan tabell-API i Azure Cosmos DB och Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
-Om du använder en "**eller**" för att ange ett filter baserat på `RowKey` värden resulterar det i en partitions ökning och behandlas inte som en områdes fråga. Undvik därför frågor som använder filter som till exempel: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')` .  
+Om du använder en " **eller** " för att ange ett filter baserat på `RowKey` värden resulterar det i en partitions ökning och behandlas inte som en områdes fråga. Undvik därför frågor som använder filter som till exempel: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')` .  
 
 Exempel på kod på klient sidan som använder lagrings klient biblioteket för att köra effektiva frågor finns i:  
 
@@ -252,7 +253,7 @@ Table Storage returnerar frågeresultat sorterade i stigande ordning, baserat p�
 > [!NOTE]
 > Frågeresultat som returneras av Azure-Tabell-API i Azure Cosmos DB sorteras inte efter partitionsnyckel eller rad nyckel. En detaljerad lista över funktions skillnader finns i [skillnader mellan tabell-API i Azure Cosmos DB och Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
-Nycklar i Table Storage är sträng värden. För att se till att numeriska värden sorteras korrekt bör du omvandla dem till en fast längd och fylla dem med nollor. Om till exempel det medarbetar-ID-värde som du använder som `RowKey` är ett heltals värde, bör du konvertera anställnings-id **123** till **00000123**. 
+Nycklar i Table Storage är sträng värden. För att se till att numeriska värden sorteras korrekt bör du omvandla dem till en fast längd och fylla dem med nollor. Om till exempel det medarbetar-ID-värde som du använder som `RowKey` är ett heltals värde, bör du konvertera anställnings-id **123** till **00000123** . 
 
 Många program har krav för att använda data sorterade i olika ordningar: till exempel att sortera anställda efter namn eller genom att ansluta till datum. Följande mönster i avsnittets [design mönster](#table-design-patterns) för avsnitts design gör hur du kan använda alternativa sorterings ordningar för entiteterna:  
 
@@ -494,7 +495,7 @@ Följande två filter villkor (en sökning efter anställnings-ID och en söknin
 
 Om du frågar efter ett intervall med anställdas entiteter kan du ange ett intervall som sorteras i anställnings-ID-ordning, eller ett intervall som sorteras i e-postadressen. Fråga efter entiteter med lämpligt prefix i `RowKey` .  
 
-* Om du vill hitta alla anställda på försäljnings avdelningen med ett anställnings-ID i intervallet **000100** till **000199**, sorterade i anställnings-ID-ordning, använder du: $filter = (PartitionKey EQ ' empid_Sales ') och (RowKey ge ' 000100 ') och (RowKey Le ' 000199 ')  
+* Om du vill hitta alla anställda på försäljnings avdelningen med ett anställnings-ID i intervallet **000100** till **000199** , sorterade i anställnings-ID-ordning, använder du: $filter = (PartitionKey EQ ' empid_Sales ') och (RowKey ge ' 000100 ') och (RowKey Le ' 000199 ')  
 * Om du vill hitta alla anställda på försäljnings avdelningen med en e-postadress som börjar med "a", sorterade i e-postadressen, använder du: $filter = (PartitionKey EQ email_Sales) och (RowKey ge "a") och (RowKey lt ' b ')  
 
 Observera att filter syntaxen som används i föregående exempel är från tabellen Storage REST API. Mer information finns i [fråga entiteter](/rest/api/storageservices/Query-Entities).  
@@ -700,7 +701,7 @@ $filter = (PartitionKey EQ ' Sales ') och (RowKey ge ' empid_000123 ') och (RowK
 #### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
 
-* Du bör använda ett lämpligt avgränsnings tecken som gör det enkelt att parsa `RowKey` värdet: till exempel **000123_2012**.  
+* Du bör använda ett lämpligt avgränsnings tecken som gör det enkelt att parsa `RowKey` värdet: till exempel **000123_2012** .  
 * Du lagrar även den här entiteten i samma partition som andra entiteter som innehåller relaterade data för samma anställd. Det innebär att du kan använda EGTs för att upprätthålla stark konsekvens.
 * Du bör fundera över hur ofta du ska fråga data för att avgöra om det här mönstret är lämpligt. Om du till exempel får åtkomst till gransknings data och data för huvud anställda ofta, bör du behålla dem som separata entiteter.  
 

@@ -7,18 +7,19 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6ec1d83b97fadf3954a936847e8e8faeb47d1458
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 26f1a402c4ad070b0834efe545bebea0ee3c2f0a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276089"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079809"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>Sträng funktioner (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Med funktionen sträng kan du utföra åtgärder på strängar i Azure Cosmos DB.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
 Följande skalära funktioner utför en åtgärd på ett sträng indatavärde och returnerar ett sträng värde, ett numeriskt värde eller ett booleskt värde:
   

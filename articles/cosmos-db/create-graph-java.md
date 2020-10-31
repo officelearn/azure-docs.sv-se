@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: jasonh
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ad00fcc0c7b871210b29400821808b6729d953f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dd992478365faf23f46ad839c3887485cb6b09b7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409416"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076511"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Snabb start: bygga en graf-databas med Java SDK och Azure Cosmos DB Gremlin-API: et
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
@@ -100,7 +101,7 @@ Den här Java-konsolen använder en [Gremlin-API](graph-introduction.md) -databa
 
 Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kopiera den till appen. De här inställningarna gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. I ditt Azure Cosmos DB konto i [Azure Portal](https://portal.azure.com/)väljer du **nycklar**. 
+1. I ditt Azure Cosmos DB konto i [Azure Portal](https://portal.azure.com/)väljer du **nycklar** . 
 
     Kopiera den första delen av URI-värdet.
 
@@ -167,7 +168,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
 Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i grafen, och lägga till ytterligare datapunkter.
 
-1. I ditt Azure Cosmos DB konto i Azure Portal väljer du **datautforskaren**, expanderar **exempel diagram**, väljer **diagram**och väljer sedan **Använd filter**. 
+1. I ditt Azure Cosmos DB konto i Azure Portal väljer du **datautforskaren** , expanderar **exempel diagram** , väljer **diagram** och väljer sedan **Använd filter** . 
 
    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
 
@@ -192,11 +193,11 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
     > [!NOTE]
     > I den här snabbstartsguiden skapar du en icke-partitionerad samling. Men om du skapar en partitionerad samling genom att ange en partitionsnyckel när samlingen skapas, måste du lägga till partitionsnyckeln som nyckel i varje nytt hörn. 
 
-6. Välj **OK**. Du kan behöva expandera skärmen för att se **OK** längst ned på skärmen.
+6. Välj **OK** . Du kan behöva expandera skärmen för att se **OK** längst ned på skärmen.
 
 7. Välj **nytt hörn** igen och Lägg till ytterligare en ny användare. 
 
-8. Ange en etikett för *person*.
+8. Ange en etikett för *person* .
 
 9. Välj **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
 
@@ -206,9 +207,9 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
     kön|man| 
     skola|MIT| 
 
-10. Välj **OK**. 
+10. Välj **OK** . 
 
-11. Välj knappen **Använd filter** med standard `g.V()` filtret för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat**. 
+11. Välj knappen **Använd filter** med standard `g.V()` filtret för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat** . 
 
     Allteftersom du lägger till data kan du använda filter för att begränsa resultaten. Som standard använder Datautforskaren `g.V()` för att hämta alla hörnen i ett diagram. Du kan ändra till en annan [diagramfråga](tutorial-query-graph.md), t.ex. `g.V().count()`, för att returnera en uppräkning av alla hörn i diagrammet i JSON-format. Om du har ändrat filtret ändrar du tillbaka filtret till `g.V()` och väljer **Använd filter** för att visa alla resultat igen.
 
@@ -216,7 +217,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
     :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
 
-13. I rutan **mål** anger du *Rakesh*och i rutan **kant etikett** anger du *känner*till och markerar sedan kryss rutan.
+13. I rutan **mål** anger du *Rakesh* och i rutan **kant etikett** anger du *känner* till och markerar sedan kryss rutan.
 
     :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
 

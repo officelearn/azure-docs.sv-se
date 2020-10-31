@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 3064672dc9eafbabda896f56f4881302980585b0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 53171fedac23401b7d696a9e611c53da86b1bb60
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475387"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078075"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Prestanda tips för Azure Cosmos DB asynkron Java SDK v2
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -39,7 +40,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
 * **Anslutnings läge: Använd direkt läge**
     
-  Hur en klient ansluter till Azure Cosmos DB har viktiga konsekvenser för prestanda, särskilt vad gäller svars tid på klient sidan. *ConnectionMode* är en nyckel konfigurations inställning som är tillgänglig för konfigurering av klientens *ConnectionPolicy*. För Azure Cosmos DB asynkron Java SDK v2 är de två tillgängliga ConnectionModes:  
+  Hur en klient ansluter till Azure Cosmos DB har viktiga konsekvenser för prestanda, särskilt vad gäller svars tid på klient sidan. *ConnectionMode* är en nyckel konfigurations inställning som är tillgänglig för konfigurering av klientens *ConnectionPolicy* . För Azure Cosmos DB asynkron Java SDK v2 är de två tillgängliga ConnectionModes:  
       
   * [Gateway (standard)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
   * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
@@ -84,20 +85,20 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
   I Azure Cosmos DB asynkron Java SDK v2 är Direct-läget det bästa valet för att förbättra databasens prestanda med de flesta arbets belastningar. 
 
-  * ***Översikt över direkt läge**_
+  * ***Översikt över direkt läge** _
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Bild av Azure Cosmos DB anslutnings princip" border="false":::
   
-  Arkitekturen på klient sidan som används i direkt läge möjliggör förutsägbar nätverks användning och multiplex-åtkomst till Azure Cosmos DB repliker. Diagrammet ovan visar hur Direct-läge dirigerar klient begär anden till repliker i Cosmos DB-backend-servern. Arkitekturen för direkt läge allokerar upp till 10 _*kanaler** på klient sidan per DB-replik. En kanal är en TCP-anslutning som föregås av en buffert för begäran, som är en djup på 30 begär Anden. Kanaler som tillhör en replik allokeras dynamiskt efter behov av replikens **tjänst slut punkt**. När användaren utfärdar en begäran i direkt läge dirigerar **TransportClient** begäran till rätt tjänst slut punkt utifrån partitionsnyckel. **Begär ande kön** buffrar begär Anden före tjänst slut punkten.
+  Arkitekturen på klient sidan som används i direkt läge möjliggör förutsägbar nätverks användning och multiplex-åtkomst till Azure Cosmos DB repliker. Diagrammet ovan visar hur Direct-läge dirigerar klient begär anden till repliker i Cosmos DB-backend-servern. Arkitekturen för direkt läge allokerar upp till 10 _ *kanaler* * på klient sidan per DB-replik. En kanal är en TCP-anslutning som föregås av en buffert för begäran, som är en djup på 30 begär Anden. Kanaler som tillhör en replik allokeras dynamiskt efter behov av replikens **tjänst slut punkt** . När användaren utfärdar en begäran i direkt läge dirigerar **TransportClient** begäran till rätt tjänst slut punkt utifrån partitionsnyckel. **Begär ande kön** buffrar begär Anden före tjänst slut punkten.
 
-  * ***ConnectionPolicy konfigurations alternativ för direkt läge**_
+  * ***ConnectionPolicy konfigurations alternativ för direkt läge** _
 
     I det första steget använder du följande rekommenderade konfigurations inställningar nedan. Kontakta Azure Cosmos DB- [teamet](mailto:CosmosDBPerformanceSupport@service.microsoft.com) om du stöter på problem på det här specifika ämnet.
 
     Om du använder Azure Cosmos DB som en referens databas (det vill säga databasen används för många punkt läsnings åtgärder och få Skriv åtgärder) kan det vara acceptabelt att ange _idleEndpointTimeout * till 0 (det vill säga ingen tids gräns).
 
 
-    | Konfigurations alternativ       | Standard    |
+    | Konfigurations alternativ       | Default    |
     | :------------------:       | :-----:    |
     | bufferPageSize             | 8192       |
     | connectionTimeout          | "PT1M"     |
@@ -113,7 +114,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
     | sendHangDetectionTime      | "PT10S"    |
     | shutdownTimeout            | "PT15S"    |
 
-* ***Programmerings tips för Direct-läge**_
+* ***Programmerings tips för Direct-läge** _
 
   Läs artikeln Azure Cosmos DB async Java SDK v2- [Felsökning](troubleshoot-java-async-sdk.md) som en bas linje för att lösa eventuella SDK-problem.
   
@@ -131,13 +132,13 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
   Azure Cosmos DB asynkron Java SDK v2 stöder parallella frågor som gör att du kan fråga en partitionerad samling parallellt. Mer information finns i [kod exempel](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) för att arbeta med SDK: er. Parallella frågor är utformade för att förbättra svars tid och data flöde för deras serie motsvarighet.
 
-  * ***Justera setMaxDegreeOfParallelism \: ** _
+  * ***Justera setMaxDegreeOfParallelism \:** _
     
     Parallella frågor fungerar genom att fråga flera partitioner parallellt. Data från en enskild partitionerad samling hämtas dock i serie med avseende på frågan. Använd setMaxDegreeOfParallelism för att ställa in antalet partitioner som har maximal chans att uppnå den mest utförda frågan, förutsatt att alla andra system villkor är desamma. Om du inte känner till antalet partitioner kan du använda setMaxDegreeOfParallelism för att ange ett högt antal, och systemet väljer det lägsta (antal partitioner, indata från användaren) som den högsta graden av parallellitet.
 
     Det är viktigt att Observera att parallella frågor ger de bästa fördelarna om data är jämnt fördelade över alla partitioner med avseende på frågan. Om den partitionerade samlingen är partitionerad, så att alla eller en majoritet av de data som returneras av en fråga är koncentrerade i några partitioner (en partition i värsta fall), skulle prestandan för frågan bli Flask hals av dessa partitioner.
 
-  _ ***Justering setMaxBufferedItemCount \: **_
+  _ * **Justering setMaxBufferedItemCount \:** _
     
     Parallell fråga är utformad för att hämta resultat när den aktuella gruppen med resultat bearbetas av klienten. För hämtning bidrar till den totala tids fördröjnings förbättringen av en fråga. setMaxBufferedItemCount begränsar antalet i förväg hämtade resultat. Om du anger setMaxBufferedItemCount till det förväntade antalet returnerade resultat (eller en högre siffra) kan frågan ta emot maximal nytta av för hämtning.
 

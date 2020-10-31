@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 10/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f78dadc0eb1570018320aa77a390f94adf708a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371910"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077973"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Distributionsguide för Azure Active Directory-funktion
 
@@ -26,16 +26,16 @@ En välplanerad och utförd identitets infrastruktur paves det sätt för säker
 
 Dessutom kan kunderna kontrol lera sina [identiteter](identity-secure-score.md) för att se hur justerade de är till Microsofts bästa praxis. Kontrol lera dina säkra poäng innan och efter att du har implementerat rekommendationerna för att se hur väl du jämför med andra i din bransch och andra organisationer av din storlek.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Många av rekommendationerna i den här hand boken kan implementeras med Azure AD Free eller ingen licens alls. Om licenserna krävs får vi tillstånd för vilken licens som krävs för att utföra uppgiften minst.
 
 Ytterligare information om licensiering finns på följande sidor:
 
 * [Azure AD-licensiering](https://azure.microsoft.com/pricing/details/active-directory/)
-* [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
+* [Microsoft 365 Företag](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
-* [Vägledning för Azure AD B2B-licensiering](../external-identities/licensing-guidance.md)
+* [Priser för externa Azure AD-identiteter](../external-identities/external-identities-pricing.md)
 
 ## <a name="phase-1-build-a-foundation-of-security"></a>Fas 1: Bygg grunden för säkerhet
 
@@ -70,7 +70,7 @@ Därefter lägger vi till den grund som anges i fas 1 genom att importera våra 
 | [Implementera tillbakaskrivning av lösen ord](../authentication/tutorial-enable-sspr-writeback.md) | Tillåt att lösen ords ändringar i molnet skrivs tillbaka till en lokal Windows Server Active Directory-miljö. | Azure AD Premium P1 |
 | [Implementera Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Aktivera övervakning av statistik för viktiga hälso tillstånd för dina Azure AD Connect-servrar, AD FS-servrar och domänkontrollanter. | Azure AD Premium P1 |
 | [Tilldela licenser till användare efter grupp medlemskap i Azure Active Directory](../enterprise-users/licensing-groups-assign.md) | Spara tid och ansträngning genom att skapa licens grupper som aktiverar eller inaktiverar funktioner efter grupp i stället för att ställa in per användare. | |
-| [Skapa en plan för åtkomst till gäst användare](../external-identities/what-is-b2b.md) | Samar beta med gäst användare genom att låta dem logga in på dina appar och tjänster med sina egna arbets-, skol-eller sociala identiteter. | [Vägledning för Azure AD B2B-licensiering](../external-identities/licensing-guidance.md) |
+| [Skapa en plan för åtkomst till gäst användare](../external-identities/what-is-b2b.md) | Samar beta med gäst användare genom att låta dem logga in på dina appar och tjänster med sina egna arbets-, skol-eller sociala identiteter. | [Priser för externa Azure AD-identiteter](../external-identities/external-identities-pricing.md) |
 | [Bestäm strategi för enhets hantering](../devices/overview.md) | Bestäm vad din organisation tillåter för enheter. Registrera vs-anslutning, ta med din egen enhet kontra företaget. | |
 | [Distribuera Windows Hello för företag i din organisation](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Förbered för lösenordsbaserad autentisering med Windows Hello | |
 | [Distribuera autentiseringsmetoder för lösen ord för dina användare](../authentication/concept-authentication-passwordless.md) | Ge dina användare med praktiska metoder för lösen ords kryptering | Azure AD Premium P1 |

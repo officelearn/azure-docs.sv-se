@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0cb5091b9b7d36c70454a65213113d34b29d76c2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 510ff971c5d5924f2266dc93035f42e545906761
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478957"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076247"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: bygga en .NET-webbapp med Azure Cosmos DB s API för MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -133,21 +134,21 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. Klicka på **Anslutningssträng** och därefter på **Läs- och skrivnycklar** i den vänstra navigeringen i ditt Cosmos-konto i [Azure Portal](https://portal.azure.com/). Använd kopieringsknapparna till höger på skärmen och kopiera Användarnamn, Lösenord och Värd till filen Dal.cs i nästa steg.
 
-2. Öppna filen **Dal.cs** i katalogen **DAL**. 
+2. Öppna filen **Dal.cs** i katalogen **DAL** . 
 
-3. Kopiera ditt **användarnamn** från portalen (med kopieringsknappen) och gör det till värdet för **username** i filen **Dal.cs**. 
+3. Kopiera ditt **användarnamn** från portalen (med kopieringsknappen) och gör det till värdet för **username** i filen **Dal.cs** . 
 
-4. Kopiera sedan **värden** från portalen och gör den till värdet för **host** i filen **Dal.cs**. 
+4. Kopiera sedan **värden** från portalen och gör den till värdet för **host** i filen **Dal.cs** . 
 
-5. Kopiera slutligen **lösenordet** från portalen och gör den till värdet för **password** i filen **Dal.cs**. 
+5. Kopiera slutligen **lösenordet** från portalen och gör den till värdet för **password** i filen **Dal.cs** . 
 
 Du har nu uppdaterat din app med all information den behöver för att kommunicera med Cosmos DB. 
     
 ## <a name="run-the-web-app"></a>Kör webbappen
 
-1. I Visual Studio högerklickar du på projektet i **Solution Explorer** och därefter på **Hantera NuGet-paket**. 
+1. I Visual Studio högerklickar du på projektet i **Solution Explorer** och därefter på **Hantera NuGet-paket** . 
 
-2. I NuGet-rutan **Bläddra** skriver du in *MongoDB.Driver*.
+2. I NuGet-rutan **Bläddra** skriver du in *MongoDB.Driver* .
 
 3. Installera biblioteket **MongoDB.Driver** från resultaten. Det här installerar MongoDB.Driver-paketet samt alla beroenden.
 

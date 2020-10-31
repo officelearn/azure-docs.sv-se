@@ -12,14 +12,19 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8bfd7b6e5c9a2a7e3d9ed750e544036f3874271f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9131dbff9b732ecfc7f6edb62b42959abcc17da8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933230"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078687"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Bygg en klients öknings klient i C #
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Den här självstudien visar hur du skapar en enkel .NET Core-konsol som gör det möjligt för användarna att fråga API för webbsökning i Bing och Visa rankade resultat.
 
@@ -28,42 +33,42 @@ Den här självstudien visar hur du:
 - Skapa en enkel fråga till API för webbsökning i Bing
 - Visa frågeresultat i rangordnad ordning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa med i själv studie kursen behöver du:
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
-* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" skapar du en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" skapar du en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs** .
 * [Visual Studio IDE](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-new-console-app-project"></a>Skapa ett nytt konsol program projekt
 
 Skapa ett projekt i Visual Studio med `Ctrl`+`Shift`+`N`.
 
-I dialog rutan **nytt projekt** klickar du på **Visual C# > Windows klassisk Desktop > Console-appen (.NET Framework)**.
+I dialog rutan **nytt projekt** klickar du på **Visual C# > Windows klassisk Desktop > Console-appen (.NET Framework)** .
 
-Ge programmet namnet **MyConsoleSearchApp**och klicka sedan på **OK**.
+Ge programmet namnet **MyConsoleSearchApp** och klicka sedan på **OK** .
 
 ## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Lägg till JSON.net NuGet-paketet i projektet
 
 Med JSON.net kan du arbeta med de JSON-svar som returneras av API: et. Lägg till dess NuGet-paket i projektet:
 
-- I **Solution Explorer** högerklickar du på projektet och väljer **Hantera NuGet-paket...**.
-- Sök efter på fliken  **Bläddra** `Newtonsoft.Json` . Välj den senaste versionen och klicka sedan på **Installera**.
+- I **Solution Explorer** högerklickar du på projektet och väljer **Hantera NuGet-paket...** .
+- Sök efter på fliken  **Bläddra** `Newtonsoft.Json` . Välj den senaste versionen och klicka sedan på **Installera** .
 - Klicka på **OK** -knappen i fönstret **Granska ändringar** .
-- Stäng Visual Studio-fliken med namnet **NuGet: MyConsoleSearchApp**.
+- Stäng Visual Studio-fliken med namnet **NuGet: MyConsoleSearchApp** .
 
 ## <a name="add-a-reference-to-systemweb"></a>Lägg till en referens i system. Web
 
 Den här självstudien är beroende av `System.Web` sammansättningen. Lägg till en referens till den här sammansättningen i ditt projekt:
 
-- Högerklicka på **referenser** i **Solution Explorer**och välj **Lägg till referens...**
-- Välj **sammansättningar > Framework**och rulla sedan ned och kontrol lera **system. Web**
+- Högerklicka på **referenser** i **Solution Explorer** och välj **Lägg till referens...**
+- Välj **sammansättningar > Framework** och rulla sedan ned och kontrol lera **system. Web**
 - Välj **OK**
 
 ## <a name="add-some-necessary-using-statements"></a>Lägg till några nödvändiga using-instruktioner
 
-Koden i den här självstudien kräver tre ytterligare using-instruktioner. Lägg till dessa uttryck under de befintliga- `using` satserna överst i **program.cs**:
+Koden i den här självstudien kräver tre ytterligare using-instruktioner. Lägg till dessa uttryck under de befintliga- `using` satserna överst i **program.cs** :
 
 ```csharp
 using System.Web;
@@ -72,7 +77,7 @@ using System.Net.Http;
 
 ## <a name="ask-the-user-for-a-query"></a>Fråga användaren om en fråga
 
-Öppna **program.cs**i **Solution Explorer**. Uppdatera `Main()` metoden:
+Öppna **program.cs** i **Solution Explorer** . Uppdatera `Main()` metoden:
 
 ```csharp
 static void Main()
@@ -231,7 +236,7 @@ Innan du visar hur resultatet visas i rangordningen kan du ta en titt på ett ex
 
 JSON för ranknings svar kan innehålla en eller flera av grupperna.
 
-I **program.cs**lägger du till följande metod för att visa resultat i korrekt rankad ordning:
+I **program.cs** lägger du till följande metod för att visa resultat i korrekt rankad ordning:
 
 ```csharp
 static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects)
@@ -278,7 +283,7 @@ Den här metoden:
 - Slingor över `rankingResponse` grupper som svaret innehåller
 - Visar objekten i varje grupp genom att anropa `DisplaySpecificResults(...)`
 
-I **program.cs**lägger du till följande två metoder:
+I **program.cs** lägger du till följande två metoder:
 
 ```csharp
 static void DisplaySpecificResults(Newtonsoft.Json.Linq.JToken resultIndex, Newtonsoft.Json.Linq.JToken items, string title, params string[] fields)

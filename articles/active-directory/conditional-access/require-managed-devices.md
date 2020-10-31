@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c650c2b828e2742df5dd92657003460bcda66a0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c11b58954eefda67f981d618b04ab2bd69fa6b43
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145103"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077769"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst
 
@@ -50,7 +50,7 @@ Med villkorlig åtkomst i Azure AD kan du hantera det här kravet med en enda pr
 
 I enkla termer är hanterade enheter enheter som har *en viss typ* av organisations kontroll. I Azure AD är förutsättningen för en hanterad enhet att den har registrerats med Azure AD. När du registrerar en enhet skapas en identitet för enheten i form av ett enhets objekt. Det här objektet används av Azure för att spåra statusinformation om en enhet. Som Azure AD-administratör kan du redan använda det här objektet för att växla (aktivera/inaktivera) status för en enhet.
   
-![Enhets baserade villkor](./media/require-managed-devices/32.png)
+:::image type="content" source="./media/require-managed-devices/32.png" alt-text="Skärm bild av enhets fönstret i Azure A D. Aktivera och inaktivera objekt är markerade." border="false":::
 
 Om du vill hämta en enhet som är registrerad i Azure AD har du tre alternativ: 
 
@@ -60,19 +60,19 @@ Om du vill hämta en enhet som är registrerad i Azure AD har du tre alternativ:
 
 De här tre alternativen beskrivs i artikeln [Vad är en enhets identitet?](../devices/overview.md)
 
-För att bli en hanterad enhet måste en registrerad enhet antingen vara en **hybrid Azure AD-ansluten enhet** eller en **enhet som har marker ATS som kompatibel**.  
+För att bli en hanterad enhet måste en registrerad enhet antingen vara en **hybrid Azure AD-ansluten enhet** eller en **enhet som har marker ATS som kompatibel** .  
 
-![Enhets baserade villkor](./media/require-managed-devices/47.png)
+:::image type="content" source="./media/require-managed-devices/47.png" alt-text="Skärm bild av enhets fönstret i Azure A D. Aktivera och inaktivera objekt är markerade." border="false":::
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Kräv hybrid Azure AD-anslutna enheter
 
 I din princip för villkorlig åtkomst kan du välja **Kräv att hybrid Azure AD-ansluten enhet** ska ange att de valda molnappar bara kan nås med en hanterad enhet. 
 
-![Enhets baserade villkor](./media/require-managed-devices/10.png)
+:::image type="content" source="./media/require-managed-devices/10.png" alt-text="Skärm bild av enhets fönstret i Azure A D. Aktivera och inaktivera objekt är markerade." border="false":::
 
 Den här inställningen gäller endast för Windows 10-enheter eller äldre enheter, till exempel Windows 7 eller Windows 8 som är anslutna till en lokal AD. Du kan bara registrera dessa enheter med Azure AD med en hybrid Azure AD-anslutning, som är en [automatiserad process](../devices/hybrid-azuread-join-plan.md) för att få en Windows 10-enhet registrerad. 
 
-![Enhets baserade villkor](./media/require-managed-devices/45.png)
+:::image type="content" source="./media/require-managed-devices/45.png" alt-text="Skärm bild av enhets fönstret i Azure A D. Aktivera och inaktivera objekt är markerade." border="false":::
 
 Vad gör en hybrid Azure AD-ansluten enhet till en hanterad enhet?  För enheter som är anslutna till en lokal AD antas det att kontrollen över dessa enheter upprätthålls med hjälp av hanterings lösningar som **Configuration Manager** eller **grup princip (GP)** för att hantera dem. Eftersom det inte finns någon metod för Azure AD för att avgöra om någon av dessa metoder har tillämpats på en enhet, är en hybrid Azure AD-ansluten enhet en relativt svag mekanism för att kräva en hanterad enhet. Det är upp till dig som administratör att bedöma om de metoder som tillämpas på dina lokala domänanslutna enheter är tillräckligt starka för att utgöra en hanterad enhet om en sådan enhet också är en hybrid Azure AD-ansluten enhet.
 
@@ -80,14 +80,14 @@ Vad gör en hybrid Azure AD-ansluten enhet till en hanterad enhet?  För enheter
 
 Alternativet att *kräva att en enhet markeras som kompatibel* är den starkaste formen för att begära en hanterad enhet.
 
-![Enhets baserade villkor](./media/require-managed-devices/11.png)
+:::image type="content" source="./media/require-managed-devices/11.png" alt-text="Skärm bild av enhets fönstret i Azure A D. Aktivera och inaktivera objekt är markerade." border="false":::
 
 Det här alternativet kräver att en enhet registreras med Azure AD och också markeras som kompatibel av:
          
 - Intune
 - Ett MDM-system (Mobile Device Management) från tredje part som hanterar Windows 10-enheter via Azure AD-integrering. MDM-system från tredje part för andra typer av enhets operativ system än Windows 10 stöds inte.
  
-![Enhets baserade villkor](./media/require-managed-devices/46.png)
+:::image type="content" source="./media/require-managed-devices/46.png" alt-text="Skärm bild av enhets fönstret i Azure A D. Aktivera och inaktivera objekt är markerade." border="false":::
 
 För en enhet som har marker ATS som kompatibel kan du anta att: 
 
@@ -103,19 +103,19 @@ I det här scenariot har contoso beslutat att all mobil åtkomst till Microsoft 
 Organisationer måste utföra följande steg för att kräva att en registrerad mobil enhet används.
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
-1. Välj **ny princip**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst** .
+1. Välj **ny princip** .
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
-1. Under **tilldelningar**väljer **du användare och grupper**
-   1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
+1. Under **tilldelningar** väljer **du användare och grupper**
+   1. Under **Inkludera** väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
    1. Välj **Done** (Klar).
-1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365**.
-1. Under **villkor**väljer du **enhets plattformar**.
-   1. **Konfigurera** till **Ja**.
-   1. Ta med **Android** och **iOS**.
-1. Under **åtkomst kontrolls**  >  **beviljande**väljer du följande alternativ:
+1. Under **molnappar eller åtgärder**  >  **inkluderar** väljer du **Office 365** .
+1. Under **villkor** väljer du **enhets plattformar** .
+   1. **Konfigurera** till **Ja** .
+   1. Ta med **Android** och **iOS** .
+1. Under **åtkomst kontrolls**  >  **beviljande** väljer du följande alternativ:
    - **Kräv att enheten ska markeras som kompatibel**
-1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
+1. Bekräfta inställningarna och ange **Aktivera princip** till **på** .
 1. Välj **skapa** för att skapa och aktivera din princip.
 
 ### <a name="known-behavior"></a>Känt beteende

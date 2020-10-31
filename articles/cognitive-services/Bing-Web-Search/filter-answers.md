@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad021b4d219353a6037988c164bb34cac6761682
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696719"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078636"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrera svaren som Sök svaret innehåller  
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 När du frågar på webben, returnerar Bing allt relevant innehåll som hittas för sökningen. Om Sök frågan till exempel är "segling + dinghies" kan svaret innehålla följande svar:
 
@@ -131,7 +136,7 @@ Resultaten kan vara webb sidor som ligger utanför den angivna perioden om antal
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Begränsa antalet svar i svaret
 
-Bing kan returnera flera svars typer i JSON-svaret. Om du till exempel frågar *uppsegling + dinghies*kan Bing returnera `webpages` , `images` , `videos` , och `relatedSearches` .
+Bing kan returnera flera svars typer i JSON-svaret. Om du till exempel frågar *uppsegling + dinghies* kan Bing returnera `webpages` , `images` , `videos` , och `relatedSearches` .
 
 ```json
 {

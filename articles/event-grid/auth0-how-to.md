@@ -3,12 +3,12 @@ title: Skicka händelser från Auth0 till Azure med hjälp av Azure Event Grid
 description: Hur du slutför händelser från Auth0 till Azure-tjänster med Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 6cd440075c6400b58c23f879b53da26abe4f9e75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a66a60cb926b933a6b0628a67506d0d52ab7a905
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103288"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077871"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Integrera Azure Event Grid med Auth0
 
@@ -90,5 +90,5 @@ Auth0-händelser levereras till Azure via en strömmande mekanism. Varje händel
 ## <a name="next-steps"></a>Nästa steg
 
 - [Auth0-partner ämne](auth0-overview.md)
-- [Översikt över partner ämnen](partner-topics-overview.md)
+- [Översikt över partner ämnen](partner-events-overview.md)
 - [Bli en Event Grid-partner](partner-onboarding-overview.md)

@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 34f71dfeb0b4e5f94d953137fd45777bf14baa4e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 11c3de703a4b37318b7b99f60d74190fe8ec8610
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790771"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077378"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Översikt över resursbegränsningar för SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -65,14 +65,14 @@ SQL-hanterad instans har två tjänst nivåer: [generell användning](../databas
 > [!Important]
 > Affärskritisk Service Tier tillhandahåller en ytterligare inbyggd kopia av SQL-hanterad instans (sekundär replik) som kan användas för skrivskyddade arbets belastningar. Om du kan separera Skriv-och analys-/rapporterings frågor får du två gånger virtuella kärnor och minne för samma pris. Den sekundära repliken kan vänta några sekunder bakom den primära instansen, så den är utformad för att avlasta rapporter/analytiska arbets belastningar som inte behöver exakt det aktuella data läget. I tabellen nedan är **skrivskyddade frågor** de frågor som körs på den sekundära repliken.
 
-| **Funktion** | **Generell användning** | **Affärskritisk** |
+| **Visning av aktuellt objekt** | **Generell användning** | **Affärskritisk** |
 | --- | --- | --- |
 | Antal v-kärnor\* | Gen4:8, 16, 24<br/>Gen5:4, 8, 16, 24, 32, 40, 64, 80 | Gen4:8, 16, 24 <br/> Gen5:4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Samma antal virtuella kärnor är dedicerat för skrivskyddade frågor. |
 | Högsta mängd minne | Gen4:56 GB-168 GB (7GB/vCore)<br/>Gen5:20,4 GB-408 GB (5,1 GB/vCore)<br/>Lägg till fler virtuella kärnor för att få mer minne. | Gen4:56 GB-168 GB (7GB/vCore)<br/>Gen5:20,4 GB-408 GB (5,1 GB/vCore) för Läs-och skriv frågor<br/>+ ytterligare 20,4 GB-408 GB (5,1 GB/vCore) för skrivskyddade frågor.<br/>Lägg till fler virtuella kärnor för att få mer minne. |
 | Maximal instans lagrings storlek (reserverad) | -2 TB för 4 virtuella kärnor (endast Gen5)<br/>– 8 TB för andra storlekar | Gen4:1 TB <br/> Gen5 <br/>-1 TB för 4, 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>– 4 TB för 32, 40, 64, 80 virtuella kärnor |
 | Maximal databasstorlek | Upp till tillgänglig instans storlek (max 2 TB-8 TB beroende på antalet virtuella kärnor). | Upp till tillgänglig instans storlek (max 1 TB – 4 TB beroende på antalet virtuella kärnor). |
 | Maximal tempDB-storlek | Begränsad till 24 GB/vCore (96-1 920 GB) och för tillfället tillgänglig instans lagrings storlek.<br/>Lägg till fler virtuella kärnor för att få mer TempDB-utrymme.<br/> Logg filens storlek är begränsad till 120 GB.| Upp till tillgänglig instans lagrings storlek för närvarande. |
-| Maximalt antal databaser per instans | 100, om inte storleks gränsen för instans lagring har uppnåtts. | 100, om inte storleks gränsen för instans lagring har uppnåtts. |
+| Maximalt antal databaser per instans | 100 användar databaser, om inte storleks gränsen för instans lagring har uppnåtts. | 100 användar databaser, om inte storleks gränsen för instans lagring har uppnåtts. |
 | Maximalt antal databasfiler per instans | Upp till 280, om inte instansens lagrings storlek eller [Azure Premium disk](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) utrymmes gräns har nåtts. | 32 767 filer per databas, om inte storleks gränsen för instans lagring har uppnåtts. |
 | Maximal data fil storlek | Begränsad till tillgänglig instans lagrings storlek (högst 2 TB-8 TB) och [lagrings utrymme för Azure Premium-disk](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Begränsad till tillfället tillgänglig instans lagrings storlek (upp till 1 TB-4 TB). |
 | Största logg fils storlek | Begränsad till 2 TB och tillgänglig instans lagrings storlek för närvarande. | Begränsad till 2 TB och tillgänglig instans lagrings storlek för närvarande. |

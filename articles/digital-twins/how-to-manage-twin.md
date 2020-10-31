@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 425ee90306de3961c64766f42bd28f668fc9396e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494784"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077956"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
@@ -35,14 +35,19 @@ Om du vill skapa en digital Digital måste du ange:
 * Önskat ID för den digitala dubbla
 * Den [modell](concepts-models.md) som du vill använda
 
-Om du vill kan du ange startvärden för alla egenskaper för den digitala, dubbla. 
+Om du vill kan du ange startvärden för alla egenskaper för den digitala, dubbla. Egenskaperna behandlas som valfria och kan ställas in senare, men **de visas inte som en del av den dubbla tills de har angetts.**
 
-Värdena modell och initial egenskap anges via `initData` parametern, som är en JSON-sträng som innehåller relevanta data. Fortsätt till nästa avsnitt om du vill ha mer information om att strukturera objektet.
+>[!NOTE]
+>Även om dubbla egenskaper **inte behöver initieras, måste** alla [komponenter](concepts-models.md#elements-of-a-model) på den dubbla anges när den skapas. De kan vara tomma objekt, men själva komponenterna måste finnas.
+
+Modellen och eventuella inledande egenskaps värden tillhandahålls via `initData` parametern, som är en JSON-sträng som innehåller relevanta data. Fortsätt till nästa avsnitt om du vill ha mer information om att strukturera objektet.
 
 > [!TIP]
 > När du har skapat eller uppdaterat en dubbel, kan det finnas en fördröjning på upp till 10 sekunder innan ändringarna visas i [frågor](how-to-query-graph.md). `GetDigitalTwin`API (beskrivs [längre fram i den här artikeln](#get-data-for-a-digital-twin)) förväntar sig inte den här fördröjningen, så om du behöver ett direkt svar använder du API-anropet i stället för att fråga för att se dina nyligen skapade dubbla. 
 
 ### <a name="initialize-model-and-properties"></a>Initiera modell och egenskaper
+
+Du kan initiera egenskaperna för en dubbel vid den tidpunkt då den dubbla skapas. 
 
 Det dubbla skapande-API: et accepterar ett objekt som är serialiserat i en giltig JSON-Beskrivning av de dubbla egenskaperna. Se [*begrepp: digitala garn och den dubbla grafen*](concepts-twins-graph.md) för en beskrivning av JSON-formatet för en dubbel. 
 
@@ -110,7 +115,7 @@ Endast egenskaper som har angetts minst en gång returneras när du hämtar en d
 
 Om du vill hämta flera multiplar med ett enda API-anrop, se fråge-API-exemplen i [*How-to: fråga det dubbla diagrammet*](how-to-query-graph.md).
 
-Tänk på följande modell (skrivet i [Digitals definitions språk (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) som definierar en *måne*:
+Tänk på följande modell (skrivet i [Digitals definitions språk (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) som definierar en *måne* :
 
 ```json
 {
@@ -133,7 +138,7 @@ Tänk på följande modell (skrivet i [Digitals definitions språk (DTDL)](https
     ]
 }
 ```
-Resultatet av att ringa `object result = await client.GetDigitalTwinAsync("my-moon");` på en *måne*-typ kan se ut så här:
+Resultatet av att ringa `object result = await client.GetDigitalTwinAsync("my-moon");` på en *måne* -typ kan se ut så här:
 
 ```json
 {
@@ -164,7 +169,7 @@ Resultatet av att ringa `object result = await client.GetDigitalTwinAsync("my-mo
 De definierade egenskaperna för den digitala kanten returneras som toppnivå egenskaper på den digitala dubbla. Metadata-eller system information som inte ingår i DTDL-definitionen returneras med ett `$` prefix. Metadata-egenskaper inkluderar:
 * ID: t för den digitala dubbla i den här Azure Digital-instansen, som `$dtId` .
 * `$etag`, ett standard-HTTP-fält som tilldelas av webb servern.
-* Andra egenskaper i ett `$metadata` avsnitt. Exempel:
+* Andra egenskaper i ett `$metadata` avsnitt. Exempel på dessa är:
     - DTMI för den digitala dubbla.
     - Synkroniseringsstatus för varje skrivbar egenskap. Detta är mest användbart för enheter, där det är möjligt att tjänsten och enheten har avvikande status (till exempel när en enhet är offline). Den här egenskapen gäller för närvarande endast för fysiska enheter som är anslutna till IoT Hub. Med data i avsnittet metadata är det möjligt att förstå fullständig status för en egenskap samt de senast ändrade tidsstämplar. Mer information om synkroniseringsstatus finns i [den här IoT Hub själv studie kursen](../iot-hub/tutorial-device-twins.md) om synkronisering av enhets status.
     - Tjänstspecifika metadata, t. ex. från IoT Hub eller Azure digitala dubbla. 
@@ -276,8 +281,8 @@ Anta till exempel följande JSON-korrigerings dokument som ersätter det digital
 Den här åtgärden kan bara utföras om den digitala filen som ändras av korrigeringen överensstämmer med den nya modellen. 
 
 Se följande exempel:
-1. Föreställ dig ett digitalt med en modell av *foo_old*. *foo_old* definierar en obligatorisk egenskaps *vikt*.
-2. Den nya modell *foo_new* definierar en egenskaps vikt och lägger till en ny obligatorisk egenskaps *temperatur*.
+1. Föreställ dig ett digitalt med en modell av *foo_old* . *foo_old* definierar en obligatorisk egenskaps *vikt* .
+2. Den nya modell *foo_new* definierar en egenskaps vikt och lägger till en ny obligatorisk egenskaps *temperatur* .
 3. Efter korrigeringen måste den digitala, dubbla, ha både en egenskap för massa och temperatur. 
 
 Korrigeringen för den här situationen måste uppdatera både modellen och den dubbla egenskapen temperatur, så här:

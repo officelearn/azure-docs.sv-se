@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f24eb64a5418a9963fd58611314ccbc6b72ec4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 27075af51c8deb886a060c81927f30bb70b5f638
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968471"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077667"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Password Protection på plats
 
@@ -32,9 +32,9 @@ Microsofts aktuella vägledning om det här avsnittet finns på följande länk:
 
 **F: finns ett lokalt Azure AD-lösenord som stöds i icke-offentliga moln?**
 
-Inget lokalt Azure AD-lösenord för lösen ords skydd stöds bara i det offentliga molnet. Inget datum har angivits för tillgänglighet för icke-offentligt moln.
+Lokal Azure AD-lösenords skydd stöds i det offentliga molnet och Arlington-molnet. Inget datum har presenter ATS för tillgänglighet i andra moln.
 
-Azure AD-portalen tillåter ändringar av konfigurationen lokalt "lösen ords skydd för Windows Server Active Directory" även i icke-offentliga moln. sådana ändringar kommer att bevaras, men annars börjar detta aldrig gälla. Registrering av lokala proxyservrar eller skogar stöds inte när autentiseringsuppgifter för icke-offentliga moln används, och alla sådana registrerings försök kommer alltid att Miss lyckas.
+Azure AD-portalen tillåter ändringar av konfigurationen lokalt "lösen ords skydd för Windows Server Active Directory" även i moln som inte stöds. sådana ändringar kommer att bevaras, men annars börjar detta aldrig gälla. Registrering av lokala proxy agenter eller skogar stöds inte i moln som inte stöds, och alla sådana registrerings försök kommer alltid att Miss lyckas.
 
 **F: Hur kan jag använda fördelarna med lösen ords skydd i Azure AD på en delmängd av mina lokala användare?**
 

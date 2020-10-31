@@ -13,14 +13,15 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: aa23f6d5d7b81e93145fd7db3fb5b45e46918d21
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c74da5e612609ce6a0525b24e5868059f06da179
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487593"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078806"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Snabb start: bygga ett python-program med ett Azure Cosmos DB SQL API-konto
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -57,7 +58,7 @@ I den här snabb starten skapar och hanterar du ett Azure Cosmos DB SQL API-kont
 
 Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en databas och behållare. 
 
-1. Välj **datautforskaren**  >  **ny behållare**. 
+1. Välj **datautforskaren**  >  **ny behållare** . 
     
     Avsnittet **Lägg till behållare** visas längst till höger. du kan behöva rulla åt höger för att se det.
 
@@ -74,7 +75,7 @@ Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en da
     
     Förutom de föregående inställningarna kan du också lägga till **unika nycklar** för behållaren. Vi lämnar fältet tomt i det här exemplet. Unika nycklar ger utvecklarna möjlighet att lägga till ett lager med dataintegritet till databasen. Genom att skapa en unik nyckel princip när du skapar en behållare, säkerställer du att ett eller flera värden är unika per partitionsnyckel. Läs mer i artikeln om [unika nycklar i Azure Cosmos DB](unique-keys.md).
     
-    Välj **OK**. Datautforskaren visar den nya databasen och containern.
+    Välj **OK** . Datautforskaren visar den nya databasen och containern.
 
 ## <a name="add-sample-data"></a>Lägga till exempeldata
 
@@ -119,13 +120,13 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Datautforskaren på Azure-portalen, fönstret Lägg till container":::
 
-2. Öppna filen *cosmos_get_started. py* i *\Git-samples\azure-Cosmos-DB-python-Getting-Started*i Visual Studio Code.
+2. Öppna filen *cosmos_get_started. py* i *\Git-samples\azure-Cosmos-DB-python-Getting-Started* i Visual Studio Code.
 
-3. Kopiera ditt **URI** -värde från portalen (med kopierings knappen) och gör det till värdet för **slut punkts** variabeln i *cosmos_get_started. py*. 
+3. Kopiera ditt **URI** -värde från portalen (med kopierings knappen) och gör det till värdet för **slut punkts** variabeln i *cosmos_get_started. py* . 
 
     `endpoint = 'https://FILLME.documents.azure.com',`
 
-4. Kopiera sedan värdet för **primär nyckeln** från portalen och gör det till värdet för **nyckeln** i *cosmos_get_started. py*. Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
+4. Kopiera sedan värdet för **primär nyckeln** från portalen och gör det till värdet för **nyckeln** i *cosmos_get_started. py* . Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
 
     `key = 'FILLME'`
 
@@ -163,7 +164,7 @@ Följande kodfragment är alla hämtade från filen *cosmos_get_started. py* .
    
 ## <a name="run-the-app"></a>Kör appen
 
-1. I Visual Studio Code väljer du **Visa**  >  **kommando palett**. 
+1. I Visual Studio Code väljer du **Visa**  >  **kommando palett** . 
 
 2. I kommandotolken anger du **Python: Välj tolk** och välj sedan den version av Python som ska användas.
 
@@ -191,7 +192,7 @@ Följande kodfragment är alla hämtade från filen *cosmos_get_started. py* .
     python cosmos_get_started.py
     ```
 
-7. Om du vill bekräfta att de nya objekten har skapats och sparats väljer du **datautforskaren**  >  **AzureSampleFamilyDatabase**  >  **objekt**i rutan Azure Portal. Visa de objekt som har skapats. Här är ett exempel på JSON-dokument för Andersen-serien:
+7. Om du vill bekräfta att de nya objekten har skapats och sparats väljer du **datautforskaren**  >  **AzureSampleFamilyDatabase**  >  **objekt** i rutan Azure Portal. Visa de objekt som har skapats. Här är ett exempel på JSON-dokument för Andersen-serien:
    
    ```json
    {

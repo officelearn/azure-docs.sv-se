@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3aee10c0682feeea7c74133f908452d1c5595f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968607"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077735"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planera och distribuera lokala Azure Active Directory lösen ords skydd
 
@@ -125,7 +125,7 @@ Följande krav gäller för proxy för Azure AD Password Protection-proxy:
     * .NET 4,7 bör redan vara installerat på en helt uppdaterad Windows Server. Vid behov kan du hämta och köra installations programmet som finns i [.NET Framework 4,7 Offline Installer för Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Alla datorer som är värdar för tjänsten Azure AD Password Protection proxy måste konfigureras för att ge domän kontrol Lanterna möjlighet att logga in på proxy-tjänsten. Den här funktionen styrs via privilegie tilldelningen "åtkomst till den här datorn från nätverket".
 * Alla datorer som är värdar för tjänsten Azure AD Password Protection proxy måste konfigureras för att tillåta utgående TLS 1,2 HTTP-trafik.
-* Ett *globalt administratörs* konto för att registrera Azure AD-proxy för lösen ords skydd och skogen med Azure AD.
+* Ett *globalt administratörs* konto eller *säkerhets administratörs* konto för att registrera Azure AD-proxy för lösen ords skydd och skogen med Azure AD.
 * Nätverks åtkomst måste vara aktiverat för den uppsättning portar och URL: er som anges i [installations procedurerna för programproxy-miljön](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Krav för Microsoft Azure AD Connect agent Updater
@@ -142,8 +142,8 @@ Uppdaterings tjänsten för Microsoft Azure AD Connect Agent installeras sida vi
 
 Det finns två obligatoriska installations program för en lokal distribution av lösen ords skydd i Azure AD:
 
-* Azure AD Password Protection DC-agent (*AzureADPasswordProtectionDCAgentSetup.msi*)
-* Azure AD-proxy för lösen ords skydd (*AzureADPasswordProtectionProxySetup.exe*)
+* Azure AD Password Protection DC-agent ( *AzureADPasswordProtectionDCAgentSetup.msi* )
+* Azure AD-proxy för lösen ords skydd ( *AzureADPasswordProtectionProxySetup.exe* )
 
 Hämta båda installations program från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -155,9 +155,11 @@ I nästa avsnitt installerar du Azure AD Password Protection DC-agenter på dom�
 
 Välj en eller flera servrar som ska vara värdar för Azure AD Password Protection proxy-tjänsten. Följande överväganden gäller för Server (erna):
 
-* Varje sådan tjänst kan bara tillhandahålla lösen ords principer för en enda skog. Värd datorn måste vara ansluten till en domän i den skogen. Både rot-och underordnade domäner stöds. Du behöver en nätverks anslutning mellan minst en DOMÄNKONTROLLANT i varje domän i skogen och på datorn med lösen ords skydd.
+* Varje sådan tjänst kan bara tillhandahålla lösen ords principer för en enda skog. Värddatorn måste vara ansluten till en domän i skogen.
+* Den har stöd för att installera proxy tjänsten i antingen rot-eller underordnade domäner, eller en kombination av dessa.
+* Du behöver en nätverks anslutning mellan minst en DOMÄNKONTROLLANT i varje domän i skogen och en proxyserver för lösen ords skydd.
 * Du kan köra tjänsten Azure AD Password Protection proxy på en domänkontrollant för testning, men den domänkontrollanten kräver sedan Internet anslutning. Den här anslutningen kan vara en säkerhets risk. Vi rekommenderar den här konfigurationen endast för testning.
-* Vi rekommenderar minst två proxyservrar för lösen ords skydd i Azure AD för redundans, enligt vad som anges i föregående avsnitt om [överväganden för hög tillgänglighet](#high-availability-considerations).
+* Vi rekommenderar minst två proxyservrar för Azure AD-lösenordsautentisering per skog för redundans, enligt vad som anges i föregående avsnitt om [överväganden för hög tillgänglighet](#high-availability-considerations).
 * Det finns inte stöd för att köra proxy tjänsten Azure AD Password Protection på en skrivskyddad domänkontrollant.
 
 Slutför följande steg för att installera proxy-tjänsten för lösen ords skydd i Azure AD:
@@ -191,11 +193,11 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
     Get-Service AzureADPasswordProtectionProxy | fl
     ```
 
-    Resultatet bör visa **statusen** *körs*.
+    Resultatet bör visa **statusen** *körs* .
 
 1. Proxy-tjänsten körs på datorn, men saknar autentiseringsuppgifter för att kommunicera med Azure AD. Registrera proxyservern för lösen ords skydd för Azure AD med Azure AD med hjälp av `Register-AzureADPasswordProtectionProxy` cmdleten.
 
-    Denna cmdlet kräver globala administratörsautentiseringsuppgifter för din Azure-klient. Du måste också ha lokala Active Directory domän administratörs behörighet i skogs rots domänen. Denna cmdlet måste också köras med ett konto med lokal administratörs behörighet:
+    Denna cmdlet kräver antingen *Global administratörs* -eller *säkerhets administratörs* behörighet för din Azure-klient. Denna cmdlet måste också köras med ett konto med lokal administratörs behörighet.
 
     När det här kommandot har slutförts en gång för en Azure AD-proxy för lösen ords skydd, lyckas ytterligare anrop till den, men är onödigt.
 
@@ -233,7 +235,7 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
         >
         > Du kan också se MFA krävs om Azure Device Registration (som används under försättsblad av Azure AD Password Protection) har kon figurer ATS för globalt Kräv MFA. För att undvika det här kravet kan du använda ett annat konto som har stöd för MFA med något av de tidigare två autentiseringsläget, eller så kan du också tillfälligt minska kraven för MFA-krav för Azure Device Registration.
         >
-        > Om du vill göra den här ändringen söker du efter och väljer **Azure Active Directory** i Azure Portal och väljer sedan **enheter > enhets inställningar**. Ange **Kräv Multi-factor auth för att ansluta enheter** till *Nej*. Se till att konfigurera om den här inställningen igen till *Ja* när registreringen är klar.
+        > Om du vill göra den här ändringen söker du efter och väljer **Azure Active Directory** i Azure Portal och väljer sedan **enheter > enhets inställningar** . Ange **Kräv Multi-factor auth för att ansluta enheter** till *Nej* . Se till att konfigurera om den här inställningen igen till *Ja* när registreringen är klar.
         >
         > Vi rekommenderar att MFA-kraven kringgås endast i test syfte.
 
@@ -246,7 +248,9 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
     > [!NOTE]
     > Om flera Azure AD-proxyservrar för lösen ords skydd är installerade i din miljö spelar det ingen roll vilken proxyserver du använder för att registrera skogen.
 
-    Cmdleten kräver autentiseringsuppgifter för global administratör för din Azure-klient. Du måste också köra denna cmdlet med ett konto med lokal administratörs behörighet. Det kräver också lokala Active Directory företags administratörs behörighet. Det här steget körs en gång per skog.
+    Cmdleten kräver antingen *Global administratör* eller *säkerhets administratörs* behörighet för din Azure-klient. Det kräver också lokala Active Directory företags administratörs behörighet. Du måste också köra denna cmdlet med ett konto med lokal administratörs behörighet. Det Azure-konto som används för att registrera skogen kan skilja sig från det lokala Active Directory kontot.
+    
+    Det här steget körs en gång per skog.
 
     `Register-AzureADPasswordProtectionForest`Cmdleten stöder följande tre autentiseringsläge. De två första lägena har stöd för Azure Multi-Factor Authentication men det tredje läget.
 
@@ -282,7 +286,7 @@ Slutför följande steg för att installera proxy-tjänsten för lösen ords sky
         >
         > Du kan också se MFA krävs om Azure Device Registration (som används under försättsblad av Azure AD Password Protection) har kon figurer ATS för globalt Kräv MFA. För att undvika det här kravet kan du använda ett annat konto som har stöd för MFA med något av de tidigare två autentiseringsläget, eller så kan du också tillfälligt minska kraven för MFA-krav för Azure Device Registration.
         >
-        > Om du vill göra den här ändringen söker du efter och väljer **Azure Active Directory** i Azure Portal och väljer sedan **enheter > enhets inställningar**. Ange **Kräv Multi-factor auth för att ansluta enheter** till *Nej*. Se till att konfigurera om den här inställningen igen till *Ja* när registreringen är klar.
+        > Om du vill göra den här ändringen söker du efter och väljer **Azure Active Directory** i Azure Portal och väljer sedan **enheter > enhets inställningar** . Ange **Kräv Multi-factor auth för att ansluta enheter** till *Nej* . Se till att konfigurera om den här inställningen igen till *Ja* när registreringen är klar.
         >
         > Vi rekommenderar att MFA-kraven kringgås endast i test syfte.
 

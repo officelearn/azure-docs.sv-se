@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 6b1e2d6e9d5d06410596a40f16869d7c1a0f094e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b7d880183ac5f920bbed1a85d7660db6a8f21462
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490704"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078483"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Sök efter begär ande enhets avgiften för åtgärder som körs i Azure Cosmos DB API för MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB stöder många API: er, till exempel SQL, MongoDB, Cassandra, Gremlin och Table. Varje API har en egen uppsättning databas åtgärder. Dessa åtgärder sträcker sig från enkla punkter som läser och skriver till komplexa frågor. Varje databas åtgärd förbrukar system resurser baserat på åtgärdens komplexitet.
 
@@ -33,9 +34,9 @@ Avgiften för RU visas med ett anpassat [databas kommando](https://docs.mongodb.
 
 1. Gå till fönstret **datautforskaren** och välj den behållare som du vill arbeta med.
 
-1. Välj **Ny fråga**.
+1. Välj **Ny fråga** .
 
-1. Ange en giltig fråga och välj sedan **Kör fråga**.
+1. Ange en giltig fråga och välj sedan **Kör fråga** .
 
 1. Välj **fråga statistik** för att visa den faktiska begär ande avgiften för den begäran du utförde.
 

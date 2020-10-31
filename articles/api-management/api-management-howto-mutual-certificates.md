@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 419de27ad87b113de62dacb0dc384702420afbd6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 980d3ca52016c65301ea72e4e669c4bafea4c053
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071123"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077208"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Så skyddar du backend-tjänster genom att autentisera klientcertifikat i Azure API Management
 
@@ -43,15 +43,15 @@ Följ stegen nedan för att ladda upp ett nytt klient certifikat. Om du inte har
 
 1. Gå till Azure API Management Service-instansen i Azure Portal.
 2. Välj **certifikat** på menyn.
-3. Klicka på knappen **+ Lägg till**.
-    ![Lägg till klient certifikat](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+3. Klicka på knappen **+ Lägg till** .
+    ![Skärm bild som visar knappen + Lägg till.](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
 4. Bläddra efter certifikatet, ange dess ID och lösen ord.
-5. Klicka på **Skapa**.
+5. Klicka på **Skapa** .
 
 > [!NOTE]
 > Certifikatet måste vara i **PFX** -format. Självsignerade certifikat är tillåtna.
 
-När certifikatet har laddats upp visas det i **certifikaten**.  Om du har många certifikat ska du anteckna tumavtrycket för det önskade certifikatet för att [Konfigurera ett API för att använda ett klient certifikat för gateway-autentisering][Configure an API to use a client certificate for gateway authentication].
+När certifikatet har laddats upp visas det i **certifikaten** .  Om du har många certifikat ska du anteckna tumavtrycket för det önskade certifikatet för att [Konfigurera ett API för att använda ett klient certifikat för gateway-autentisering][Configure an API to use a client certificate for gateway authentication].
 
 > [!NOTE]
 > Om du vill inaktivera verifiering av certifikat kedjan när du använder, till exempel ett självsignerat certifikat, följer du stegen som beskrivs i den här [artikeln](api-management-faq.md#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end)om vanliga frågor och svar.
@@ -73,9 +73,9 @@ Om certifikatet används av ett API visas en varnings skärm. Om du vill ta bort
 
 2. På fliken **design** klickar du på en Penn ikon i **Server delen** .
 3. Ändra **Gateway-autentiseringsuppgifterna** till **klient certifikat** och välj ditt certifikat i list rutan.
-    ![Aktivera klient certifikat](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
+    ![Skärm bild som visar var du ändrar Gateway-autentiseringsuppgifterna och väljer ditt certifikat.](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. Klicka på **Spara**.
+4. Klicka på **Spara** .
 
 > [!WARNING]
 > Den här ändringen börjar gälla omedelbart och anrop till åtgärder i detta API använder certifikatet för att autentisera på backend-servern.

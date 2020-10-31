@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 05fe22ed0dc7d03148f66fd02aa648e1b63ab319
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 21821bbb41126a53c2b137bf1f5e5684ff1ae267
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475336"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096299"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -39,16 +40,16 @@ För Linux och andra plattformar som inte stöds, där ServiceInterop.dll inte �
 
 De fyra program typerna som anges här använder 32-bitars värd bearbetning som standard. Om du vill ändra värd bearbetningen till 64-bitars bearbetning för din program typ gör du följande:
 
-- **För körbara program**: i fönstret **projekt egenskaper** går du till fönstret **skapa** och anger [plattforms målet](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) till **x64**.
+- **För körbara program** : i fönstret **projekt egenskaper** går du till fönstret **skapa** och anger [plattforms målet](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) till **x64** .
 
-- **För VSTest-baserade test projekt**: på **test** -menyn i Visual Studio väljer du **testa**  >  **test inställningar**och anger sedan **standard processor arkitekturen** till **x64**.
+- **För VSTest-baserade test projekt** : på **test** -menyn i Visual Studio väljer du **testa**  >  **test inställningar** och anger sedan **standard processor arkitekturen** till **x64** .
 
-- **För lokalt distribuerade ASP.net-webb program**: Välj **verktyg**  >  **alternativ**  >  **projekt och lösningar**  >  **webb projekt**och välj sedan **Använd 64-bitars versionen av IIS Express för webbplatser och projekt**.
+- **För lokalt distribuerade ASP.net-webb program** : Välj **verktyg**  >  **alternativ**  >  **projekt och lösningar**  >  **webb projekt** och välj sedan **Använd 64-bitars versionen av IIS Express för webbplatser och projekt** .
 
-- **För ASP.net webb program som distribueras på Azure**: i Azure Portal väljer du **64-bitars** plattformen i **program inställningar**.
+- **För ASP.net webb program som distribueras på Azure** : i Azure Portal väljer du **64-bitars** plattformen i **program inställningar** .
 
 > [!NOTE] 
-> Som standard har nya Visual Studio-projekt angetts till **valfri processor**. Vi rekommenderar att du ställer in projektet på **x64** så att det inte växlar till **x86**. Ett projekt som är inställt på **valfri CPU** kan enkelt växla till **x86** om ett x86-enda beroende läggs till.<br/>
+> Som standard har nya Visual Studio-projekt angetts till **valfri processor** . Vi rekommenderar att du ställer in projektet på **x64** så att det inte växlar till **x86** . Ett projekt som är inställt på **valfri CPU** kan enkelt växla till **x86** om ett x86-enda beroende läggs till.<br/>
 > ServiceInterop.dll-filen måste finnas i den mapp som SDK-DLL-filen körs från. Detta bör endast vara en risk om du manuellt kopierar dll: er eller har anpassade bygg-och distributions system.
     
 **Aktivera skräp insamling på Server Sidan**
@@ -154,13 +155,13 @@ SQL .NET SDK stöder parallella frågor, vilket gör att du kan fråga en partit
 
 Parallella frågor ger två parametrar som du kan justera för att passa dina behov: 
 
-- **MaxConcurrency**: styr det högsta antalet partitioner som kan frågas parallellt.
+- **MaxConcurrency** : styr det högsta antalet partitioner som kan frågas parallellt.
 
    Parallell fråga fungerar genom att fråga flera partitioner parallellt. Men data från en enskild partition hämtas seriellt i förhållande till frågan. Inställningen `MaxConcurrency` i [SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3) till antalet partitioner har bästa möjliga chans att nå den mest utförda frågan, förutsatt att alla andra system villkor är desamma. Om du inte vet antalet partitioner kan du ange graden av parallellitet till ett högt tal. Systemet väljer det lägsta (antal partitioner, indata från användaren) som graden av parallellitet.
 
     Parallella frågor ger flest fördelar om data är jämnt fördelade över alla partitioner med avseende på frågan. Om den partitionerade samlingen är partitionerad, så att alla eller de flesta data som returneras av en fråga är koncentrerade i några partitioner (en partition är det värsta fallet), kommer dessa partitioner att översätta prestandan hos frågan.
    
-- **MaxBufferedItemCount**: styr antalet förhämtade resultat.
+- **MaxBufferedItemCount** : styr antalet förhämtade resultat.
 
    Parallell fråga är utformad för att hämta resultat när den aktuella gruppen med resultat bearbetas av klienten. Den här för hämtningen hjälper till att förbättra den övergripande svars tiden för en fråga. `MaxBufferedItemCount`Parametern begränsar antalet i förväg hämtade resultat. Ange `MaxBufferedItemCount` till det förväntade antalet returnerade resultat (eller ett högre antal) för att tillåta att frågan tar emot den maximala fördelen med för hämtning.
 

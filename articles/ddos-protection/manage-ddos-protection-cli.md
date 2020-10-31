@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 0307fcee207f045c2808b3c66e9911623391d486
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 47733f4b141b0064e966d0c083fd6414405f65f9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905662"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095551"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Snabb start: skapa och konfigurera Azure DDoS Protection standard med hjälp av Azure CLI
 
@@ -107,8 +107,6 @@ az network ddos-protection show \
 
 Kontrol lera att kommandot returnerar rätt information om din DDoS-skydds plan.
 
-Testa genom simuleringar
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Du kan behålla dina resurser för nästa självstudie. Om du inte längre behöver tar du bort resurs gruppen _MyResourceGroup_ . När du tar bort resurs gruppen tar du även bort DDoS-skydds planen och alla relaterade resurser. 
@@ -136,4 +134,4 @@ Om du vill ta bort en DDoS skydds plan måste du först ta bort alla virtuella n
 Om du vill lära dig att visa och konfigurera telemetri för din DDoS-skydds plan fortsätter du till självstudierna.
 
 > [!div class="nextstepaction"]
-> [Visa och konfigurera DDoS Protection-telemetri](telemetry-monitoring-alerting.md)
+> [Visa och konfigurera telemetri för DDoS-skydd](telemetry-monitoring-alerting.md)

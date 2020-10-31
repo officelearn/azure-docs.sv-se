@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 19dcc0f7605ae771e2ff826299413eaa073f212b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 37c128a42ca68134b770b32c940d59834261ce44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284616"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096588"
 ---
 # <a name="consistency-levels-for-azure-cosmos-db-and-the-api-for-mongodb"></a>Konsekvens nivåer för Azure Cosmos DB och API för MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Till skillnad från Azure Cosmos DB ger det inbyggda MongoDB inte exakt definierade konsekvens garantier. I stället tillåter interna MongoDB att användare konfigurerar följande konsekvens garantier: en Skriv angelägenhet, en läsning och isMaster-direktivet – för att dirigera Läs åtgärder till antingen primära eller sekundära repliker för att uppnå önskad konsekvens nivå.
 
@@ -31,7 +32,7 @@ När du använder Azure Cosmos DBs API för MongoDB:
 
 * Du kan kommentera en speciell region som är kopplad till ditt Azure Cosmos-konto som "primär" genom att göra regionen till den första skrivbara regionen. 
 
-## <a name="mapping-consistency-levels"></a>Mappa konsekvens nivåer
+## <a name="mapping-consistency-levels"></a>Mappning av konsekvensnivåer
 
 I följande tabell illustreras hur de inbyggda Skriv-och Läs problemen i MongoDB mappas till konsekvens nivåerna i Azure Cosmos när du använder Azure Cosmos DB s API för MongoDB:
 

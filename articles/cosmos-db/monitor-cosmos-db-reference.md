@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/28/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: c17d660c75fdfd6f1eb429db3a8b55f3e3db1b2d
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: eb06fda43590198f1b2643c8362f774a031eaef9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925959"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096292"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referens till Azure Cosmos DB-övervakningsdata
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Den här artikeln är en referens till de logg- och måttdata som samlas in för att analysera prestanda och tillgänglighet för Azure Cosmos DB. Se artikeln [övervaka Azure Cosmos DB](monitor-cosmos-db.md) för hur du samlar in och analyserar övervaknings data för Azure Cosmos dB.
 
@@ -23,7 +24,7 @@ Den här artikeln är en referens till de logg- och måttdata som samlas in för
 
 I följande tabell visas egenskaperna för resurs loggar i Azure Cosmos DB. Resurs loggarna samlas in i Azure Monitor loggar eller Azure Storage. I Azure Monitor samlas loggar in i tabellen **AzureDiagnostics** under resurs leverantören * * namnet på `MICROSOFT.DOCUMENTDB` .
 
-| Azure Storage fält eller egenskap | Azure Monitor loggar egenskap | Description |
+| Azure Storage fält eller egenskap | Azure Monitor loggar egenskap | Beskrivning |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
 | **resourceId** | **Resurs** | Azure Cosmos DB konto för vilka loggar är aktiverade.|
@@ -55,7 +56,7 @@ En lista över alla Azure Monitor support mått (inklusive Azure Cosmos DB) finn
 
 #### <a name="request-metrics"></a>Begär mått
             
-|Mått (måttets visnings namn)|Enhet (agg regerings typ) |Description|Dimensioner| Tids kornig het| Legacy mått mappning | Användning |
+|Mått (måttets visnings namn)|Enhet (agg regerings typ) |Beskrivning|Dimensioner| Tids kornig het| Legacy mått mappning | Användning |
 |---|---|---|---| ---| ---| ---|
 | TotalRequests (totalt antal förfrågningar) | Antal (antal) | Antal begär Anden som gjorts| DatabaseName, samlings namn, region, StatusCode| Alla | TotalRequests, http-2xx, http-3xx, http 400, HTTP 401, internt Server fel, tjänsten är inte tillgänglig, begränsade begär Anden, genomsnittliga begär Anden per sekund | Används för att övervaka begär Anden per status kod, behållare på en minuts kornig het. Om du vill få genomsnittlig begär Anden per sekund använder du Count-aggregering på minut och dividerar med 60. |
 | MetadataRequests (begär Anden om metadata) |Antal (antal) | Antal metadata-begäranden. Azure Cosmos DB underhåller systemets metadata-behållare för varje konto, så att du kan räkna upp samlingar, databaser osv. och deras konfigurationer kostnads fritt. | DatabaseName, samlings namn, region, StatusCode| Alla| |Används för att övervaka begränsningar på grund av metadata-begäranden.|
@@ -63,7 +64,7 @@ En lista över alla Azure Monitor support mått (inklusive Azure Cosmos DB) finn
 
 #### <a name="request-unit-metrics"></a>Enhets mått för begäran
 
-|Mått (måttets visnings namn)|Enhet (agg regerings typ)|Description|Dimensioner| Tids kornig het| Legacy mått mappning | Användning |
+|Mått (måttets visnings namn)|Enhet (agg regerings typ)|Beskrivning|Dimensioner| Tids kornig het| Legacy mått mappning | Användning |
 |---|---|---|---| ---| ---| ---|
 | MongoRequestCharge (Mongo Request Charge) | Antal (totalt) |Mongo enheter för förbrukad begäran| DatabaseName, samlings namn, region, CommandName, ErrorCode| Alla |Mongo begär ande avgift, Mongo uppdaterings avgift, Mongo ta bort begär ande avgift, Mongo infoga begär ande avgift, antal Mongo avgift för begäran| Används för att övervaka Mongo Resource ru: er på en minut.|
 | TotalRequestUnits (totalt antal enheter för programbegäran)| Antal (totalt) | Förbrukade enheter för begär Ande| DatabaseName, samlings namn, region, StatusCode |Alla| TotalRequestUnits| Används för att övervaka total användning av RU med en minuts kornig het. Använd total agg regering vid minut och dividera med 60 för att få Genomsnittligt antal RU-förbrukade per sekund.|
@@ -71,7 +72,7 @@ En lista över alla Azure Monitor support mått (inklusive Azure Cosmos DB) finn
 
 #### <a name="storage-metrics"></a>Lagrings mått
 
-|Mått (måttets visnings namn)|Enhet (agg regerings typ)|Description|Dimensioner| Tids kornig het| Legacy mått mappning | Användning |
+|Mått (måttets visnings namn)|Enhet (agg regerings typ)|Beskrivning|Dimensioner| Tids kornig het| Legacy mått mappning | Användning |
 |---|---|---|---| ---| ---| ---|
 | AvailableStorage (tillgängligt lagrings utrymme) |Byte (totalt) | Totalt tillgängligt lagrings utrymme som har rapporter ATS enligt 5 minuters kornig het per region| DatabaseName, samlings region| 5M| Tillgängligt lagringsutrymme| Används för att övervaka tillgänglig lagrings kapacitet (gäller endast för fasta lagrings samlingar) minimal kornig het är 5 minuter.| 
 | DataUsage (data användning) |Byte (totalt) |Total data användning rapporterad enligt 5-minuters kornig het per region| DatabaseName, samlings region| 5M |Data storlek | Används för att övervaka total data användning i behållare och region, minsta kornig het är 5 minuter.|
@@ -81,7 +82,7 @@ En lista över alla Azure Monitor support mått (inklusive Azure Cosmos DB) finn
 
 #### <a name="latency-metrics"></a>Svars tids mått
 
-|Mått (måttets visnings namn)|Enhet (agg regerings typ)|Description|Dimensioner| Tids kornig het| Användning |
+|Mått (måttets visnings namn)|Enhet (agg regerings typ)|Beskrivning|Dimensioner| Tids kornig het| Användning |
 |---|---|---|---| ---| ---|
 | ReplicationLatency (replikeringsfördröjning)| Millisekunder (lägsta, högsta, genomsnitt) | P99 för replikering i käll-och mål regioner för geo-aktiverat konto| SourceRegion, TargetRegion| Alla | Används för att övervaka P99 för replikering mellan två regioner för ett geo-replikerat konto. |
 | Svars tid på Server Sidan| Millisekunder (genomsnitt) | Tiden det tar för servern att bearbeta begäran. | Samlings namn, ConnectionMode, DatabaseName, OperationType, PublicAPIType, region | Alla | Används för att övervaka svars tiden för begäran på Azure Cosmos DB-servern. |
@@ -90,14 +91,14 @@ En lista över alla Azure Monitor support mått (inklusive Azure Cosmos DB) finn
 
 #### <a name="availability-metrics"></a>Tillgänglighets mått
 
-|Mått (måttets visnings namn) |Enhet (agg regerings typ)|Description| Tids kornig het| Legacy mått mappning | Användning |
+|Mått (måttets visnings namn) |Enhet (agg regerings typ)|Beskrivning| Tids kornig het| Legacy mått mappning | Användning |
 |---|---|---|---| ---| ---|
 | ServiceAvailability (tjänst tillgänglighet)| Procent (minimum, max) | Konto begär tillgänglighet med en timkostnad| 1H | Tjänst tillgänglighet | Visar procent andelen slutförda begär Anden som skickats. En begäran anses vara misslyckad på grund av systemfel om status koden är 410, 500 eller 503 som används för att övervaka tillgängligheten för kontot med tids kornig het. |
 
 
 #### <a name="cassandra-api-metrics"></a>API för Cassandra mått
 
-|Mått (måttets visnings namn)|Enhet (agg regerings typ)|Description|Dimensioner| Tids kornig het| Användning |
+|Mått (måttets visnings namn)|Enhet (agg regerings typ)|Beskrivning|Dimensioner| Tids kornig het| Användning |
 |---|---|---|---| ---| ---|
 | CassandraRequests (Cassandra-begäranden) | Antal (antal) | Antal API för Cassandra begär Anden som gjorts| DatabaseName, samlings namn, ErrorCode, region, OperationType, ResourceType| Alla| Används för att övervaka Cassandra-begäranden på en minuts kornig het. Om du vill få genomsnittlig begär Anden per sekund använder du Count-aggregering på minut och dividerar med 60.|
 | CassandraRequestCharges (Cassandra Request avgifter) | Count (sum, min, Max, AVG) | Enheter för programbegäran som konsumeras av API för Cassandra | DatabaseName, samlings namn, region, OperationType, ResourceType| Alla| Används för att övervaka ru: er som används per minut av ett API för Cassandra-konto.|

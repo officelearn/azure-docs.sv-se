@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475472"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097472"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera kostnaden för etablerat dataflöde i Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Genom att erbjuda en etablerad data flödes modell erbjuder Azure Cosmos DB förutsägbar prestanda i vilken skala som helst. Reservering eller etablering av genom strömning i förväg eliminerar den "störningarnas grann effekt" i prestandan. Du anger den exakta mängden data flöde som du behöver och Azure Cosmos DB garanterar det konfigurerade genomflödet, som backas upp av SLA.
 
@@ -30,7 +31,7 @@ Du kan etablera dataflöden för databaser och containrar, och de olika strategi
 
 Här följer några rikt linjer som du kan välja för en etablerad data flödes strategi:
 
-**Överväg att tillhandahålla data flöde för en Azure Cosmos-databas (som innehåller en uppsättning behållare) om**:
+**Överväg att tillhandahålla data flöde för en Azure Cosmos-databas (som innehåller en uppsättning behållare) om** :
 
 1. Du har några dussin Azure Cosmos-behållare och vill dela data flödet i vissa eller alla. 
 

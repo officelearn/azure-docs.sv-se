@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 7118a12a5a92912c51bb35d8b516d5b8e2f45388
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 329c4b40f11b36de80581d4a1396813bc8de5c73
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478158"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097336"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Bli social med Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Boende i ett massivt sammankopplat samhälle innebär att du vid en viss tidpunkt kommer att bli en del av ett **socialt nätverk**. Du använder sociala nätverk för att hålla kontakt med vänner, kollegor, familj eller ibland att dela din passion med personer som har vanliga intressen.
+Boende i ett massivt sammankopplat samhälle innebär att du vid en viss tidpunkt kommer att bli en del av ett **socialt nätverk** . Du använder sociala nätverk för att hålla kontakt med vänner, kollegor, familj eller ibland att dela din passion med personer som har vanliga intressen.
 
 Som ingenjörer eller utvecklare kan du ha funderat på hur dessa nätverk lagrar och sammankopplar dina data. Eller så kanske du har gjort en uppgift för att skapa eller skapa ett nytt socialt nätverk för en bestämd nischmarknader-marknad. Det är när den viktiga frågan uppstår: Hur lagras alla dessa data?
 
@@ -238,9 +239,9 @@ Ett annat tillgängligt alternativ är att använda [Azure Cognitive Services](h
 
 ## <a name="a-planet-scale-social-experience"></a>En social upplevelse på planet nivå
 
-Det finns en sista, men minst, viktig artikel som jag måste åtgärda: **skalbarhet**. När du utformar en arkitektur bör varje komponent skalas separat. Du kommer att behöva bearbeta mer data, eller så vill du ha en större geografisk täckning. Thankfully för att uppnå båda uppgifterna är en **nyckel färdig upplevelse** med Cosmos dB.
+Det finns en sista, men minst, viktig artikel som jag måste åtgärda: **skalbarhet** . När du utformar en arkitektur bör varje komponent skalas separat. Du kommer att behöva bearbeta mer data, eller så vill du ha en större geografisk täckning. Thankfully för att uppnå båda uppgifterna är en **nyckel färdig upplevelse** med Cosmos dB.
 
-Cosmos DB stöder dynamisk partitionering direkt. Det skapar automatiskt partitioner baserat på en viss **partitionsnyckel**, som definieras som ett attribut i dina dokument. Du måste göra en korrekt partitionsnyckel i design läge. Mer information finns i [partitionering i Azure Cosmos DB](partitioning-overview.md).
+Cosmos DB stöder dynamisk partitionering direkt. Det skapar automatiskt partitioner baserat på en viss **partitionsnyckel** , som definieras som ett attribut i dina dokument. Du måste göra en korrekt partitionsnyckel i design läge. Mer information finns i [partitionering i Azure Cosmos DB](partitioning-overview.md).
 
 För en social erfarenhet måste du justera din partitionerings strategi med hur du frågar och skriver. (Läsningar inom samma partition är till exempel önskvärda och Undvik "heta fläckar" genom att sprida skrivningar på flera partitioner.) Vissa alternativ är: partitioner baserade på en temporal nyckel (dag/månad/vecka), efter innehålls kategori, efter geografiskt område eller per användare. Allt det är verkligen beroende av hur du ska fråga data och visa data i din sociala erfarenhet.
 
@@ -252,7 +253,7 @@ Med tiden kan du komma att växa i trafik och resursförbrukning (mätt i [ru: e
 
 Vad händer om saker fortfarande kommer att bli bättre? Anta att användare från en annan region, ett land eller ett kontinents meddelande till din plattform och börjar använda den. Vad är en fantastisk överraskning!
 
-Men vänta! Du inser snart att deras upplevelse med din plattform inte är optimal. De är så långt bort från din operativa region att svars tiden är Terrible. Det är självklart att du inte vill avsluta. Om det bara fanns ett enkelt sätt att **Utöka din globala räckvidd**? Det finns!
+Men vänta! Du inser snart att deras upplevelse med din plattform inte är optimal. De är så långt bort från din operativa region att svars tiden är Terrible. Det är självklart att du inte vill avsluta. Om det bara fanns ett enkelt sätt att **Utöka din globala räckvidd** ? Det finns!
 
 Med Cosmos DB kan du [Replikera dina data globalt](../cosmos-db/tutorial-global-distribution-sql-api.md) och transparent med ett par klick och automatiskt välja bland de tillgängliga regionerna från din [klient kod](../cosmos-db/tutorial-global-distribution-sql-api.md). Den här processen innebär också att du kan ha [flera områden för växling vid fel](high-availability.md).
 

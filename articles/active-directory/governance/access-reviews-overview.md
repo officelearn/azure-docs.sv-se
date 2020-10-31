@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594347"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096010"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-åtkomstgranskningar?
 
@@ -81,7 +81,7 @@ Katalogen kräver minst så många Azure AD Premium P2-licenser som antalet anst
 
 Azure AD Premium P2-licenser krävs **inte** för användare med rollerna global administratör eller användar administratör som konfigurerar åtkomst granskningar, konfigurerar inställningar eller tillämpar besluten från granskningarna.
 
-För varje betald Azure AD Premium P2-licens som du tilldelar till en av dina egna organisations användare kan du använda Azure AD Business-to-Business (B2B) för att bjuda in upp till fem gäst användare under tilldelningen av externa användare. Dessa gäst användare kan också använda Azure AD Premium P2-funktioner. Mer information finns i [rikt linjer för Azure AD B2B-samarbets licensiering](../external-identities/licensing-guidance.md).
+Åtkomst till Azure AD-gästen baseras på en MAU-fakturerings modell (månatlig aktiva användare) som ersätter fakturerings modellen för 1:5-förhållandet. Mer information finns i [priser för externa Azure AD-identiteter](../external-identities/external-identities-pricing.md).
 
 Mer information om licenser finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
 

@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 923c69c12ca8cb7ceb9b570121f661e4c4e6e7f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 18764e0cd77ab9726e88ab28da98109ee12fcf58
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91298040"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096843"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Snabb start: Hämta image Insights med hjälp av Visuell sökning i Bing REST API och gå
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Använd den här snabb starten för att göra ditt första anrop till API för visuell sökning i Bing med hjälp av programmeringsspråket go. En POST-begäran laddar upp en avbildning till API-slutpunkten. Resultaten innehåller URL: er och beskrivande information om bilder som liknar den överförda avbildningen.
 

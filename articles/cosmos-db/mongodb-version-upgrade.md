@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
-ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb12fc909b5165cbc759bbb7c531864cde16bb88
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409671"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096316"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Uppgradera MongoDB Wire Protocol-versionen av din Azure Cosmos DBs API för MongoDB-konto
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 I den här artikeln beskrivs hur du uppgraderar överförings protokoll versionen av din Azure Cosmos DBs API för MongoDB-konto. När du har uppgraderat Wire Protocol-versionen kan du använda de senaste funktionerna i Azure Cosmos DBs API för MongoDB. Uppgraderings processen avbryter inte tillgängligheten för ditt konto och den förbrukar inte RU/s eller minskar kapaciteten för databasen när som helst. Inga befintliga data eller index påverkas av den här processen.
 
@@ -37,7 +38,7 @@ Följande är de nya funktionerna som ingår i version 3,6:
 
 ### <a name="changes-from-version-32"></a>Ändringar från version 3,2
 
-- **RequestRateIsLarge-fel har tagits bort**. Begär Anden från klient programmet kommer inte att returnera 16500-fel längre. I stället kommer förfrågningar att återupptas tills de har slutfört eller uppfyllt tids gränsen.
+- **RequestRateIsLarge-fel har tagits bort** . Begär Anden från klient programmet kommer inte att returnera 16500-fel längre. I stället kommer förfrågningar att återupptas tills de har slutfört eller uppfyllt tids gränsen.
 - Tids gränsen för begäran har angetts till 60 sekunder.
 - MongoDB-samlingar som skapats i den nya versionen av överförings protokollet har `_id` som standard inte egenskapen indexerad.
 
@@ -49,7 +50,7 @@ För uppgraderingen till version 3,6 kommer databas kontots slut punkts suffix a
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-Du måste ersätta den befintliga slut punkten i dina program och driv rutiner som ansluter till det här databas kontot. **Endast anslutningar som använder den nya slut punkten får åtkomst till funktionerna i MongoDB version 3,6**. Den tidigare slut punkten ska ha suffixet `.documents.azure.com` .
+Du måste ersätta den befintliga slut punkten i dina program och driv rutiner som ansluter till det här databas kontot. **Endast anslutningar som använder den nya slut punkten får åtkomst till funktionerna i MongoDB version 3,6** . Den tidigare slut punkten ska ha suffixet `.documents.azure.com` .
 
 >[!Note]
 > Den här slut punkten kan ha små skillnader om ditt konto har skapats i en suverän, myndighets eller begränsad Azure-moln.
@@ -80,7 +81,7 @@ Du måste ersätta den befintliga slut punkten i dina program och driv rutiner s
 
     :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Översikt över Azure Portal med MongoDB-konto" border="false":::
 
-7. **Om du vill börja använda den uppgraderade versionen av ditt databas konto**går du tillbaka till `Overview` bladet och kopierar den nya anslutnings strängen som ska användas i ditt program. Programmen kommer att börja använda den uppgraderade versionen så fort de ansluter till den nya slut punkten. Befintliga anslutningar avbryts inte och kan uppdateras när du vill. För att säkerställa en konsekvent upplevelse måste alla program använda den nya slut punkten.
+7. **Om du vill börja använda den uppgraderade versionen av ditt databas konto** går du tillbaka till `Overview` bladet och kopierar den nya anslutnings strängen som ska användas i ditt program. Programmen kommer att börja använda den uppgraderade versionen så fort de ansluter till den nya slut punkten. Befintliga anslutningar avbryts inte och kan uppdateras när du vill. För att säkerställa en konsekvent upplevelse måste alla program använda den nya slut punkten.
 
     :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Översikt över Azure Portal med MongoDB-konto" border="false":::
 

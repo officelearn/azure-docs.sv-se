@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e1dd1e94bd9747bb0961c09ce2f281c433b4b4fd
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e4e2ba15dad7459ba3f7926a965292be37249054
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488222"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097370"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudie: utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -67,15 +68,15 @@ I nästa avsnitt skapar du ett nytt ASP.NET Core MVC-program.
 
 ## <a name="step-2-create-a-new-aspnet-core-mvc-application"></a><a name="create-a-new-mvc-application"></a>Steg 2: skapa ett nytt ASP.NET Core MVC-program
 
-1. Öppna Visual Studio och välj **skapa ett nytt projekt**.
+1. Öppna Visual Studio och välj **skapa ett nytt projekt** .
 
-1. I **skapa ett nytt projekt**söker du efter och väljer **ASP.net Core webb program** för C#. Fortsätt genom att välja **Nästa**.
+1. I **skapa ett nytt projekt** söker du efter och väljer **ASP.net Core webb program** för C#. Fortsätt genom att välja **Nästa** .
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="Skärm bild av MVC-webbappen för att göra-listan som skapats i den här självstudien – guiden för ASP NET Core MVC-steg":::
 
-1. I **Konfigurera ditt nya projekt**namnger du *projektet och väljer* **skapa**.
+1. I **Konfigurera ditt nya projekt** namnger du *projektet och väljer* **skapa** .
 
-1. I **skapa en ny ASP.net Core webb program**väljer du **webb program (modell-Visa-kontrollant)**. Fortsätt genom att välja **skapa** .
+1. I **skapa en ny ASP.net Core webb program** väljer du **webb program (modell-Visa-kontrollant)** . Fortsätt genom att välja **skapa** .
 
    Visual Studio skapar ett tomt MVC-program.
 
@@ -85,15 +86,15 @@ I nästa avsnitt skapar du ett nytt ASP.NET Core MVC-program.
 
 Nu när vi har flest den ASP.NET Core MVC Framework-kod som vi behöver för den här lösningen ska vi lägga till de NuGet-paket som krävs för att ansluta till Azure Cosmos DB.
 
-1. I **Solution Explorer**högerklickar du på projektet och väljer **Hantera NuGet-paket**.
+1. I **Solution Explorer** högerklickar du på projektet och väljer **Hantera NuGet-paket** .
 
-1. I **NuGet Package Manager**söker du efter och väljer **Microsoft. Azure. Cosmos**. Välj **installera**.
+1. I **NuGet Package Manager** söker du efter och väljer **Microsoft. Azure. Cosmos** . Välj **installera** .
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="Skärm bild av MVC-webbappen för att göra-listan som skapats i den här självstudien – guiden för ASP NET Core MVC-steg":::
 
    Visual Studio laddar ned och installerar Azure Cosmos DB-paketet och dess beroenden.
 
-   Du kan också använda **Package Manager-konsolen** för att installera NuGet-paketet. Det gör du genom att välja **verktyg**  >  **NuGet Package Manager**  >  **Package**Manager-konsolen. Skriv följande kommando i prompten:
+   Du kan också använda **Package Manager-konsolen** för att installera NuGet-paketet. Det gör du genom att välja **verktyg**  >  **NuGet Package Manager**  >  **Package** Manager-konsolen. Skriv följande kommando i prompten:
 
    ```ps
    Install-Package Microsoft.Azure.Cosmos
@@ -105,9 +106,9 @@ Nu ska vi lägga till modeller, vyer och styrenheter för det här MVC-programme
 
 ### <a name="add-a-model"></a><a name="add-a-model"></a> Lägga till en modell
 
-1. I **Solution Explorer**högerklickar du på mappen **modeller** , väljer **Lägg till**  >  **klass**.
+1. I **Solution Explorer** högerklickar du på mappen **modeller** , väljer **Lägg till**  >  **klass** .
 
-1. I **Lägg till nytt objekt**namnger du den nya klassen *Item.cs* och väljer **Lägg till**.
+1. I **Lägg till nytt objekt** namnger du den nya klassen *Item.cs* och väljer **Lägg till** .
 
 1. Ersätt innehållet i *Item.cs* -klassen med följande kod:
 
@@ -127,17 +128,17 @@ Nu ska vi lägga till följande vyer.
 
 #### <a name="create-item-view"></a><a name="AddNewIndexView"></a>Vyn skapa objekt
 
-1. I **Solution Explorer**högerklickar du på mappen **vyer** och väljer **Lägg till**  >  **ny mapp**. Namnge *objektet*Folder.
+1. I **Solution Explorer** högerklickar du på mappen **vyer** och väljer **Lägg till**  >  **ny mapp** . Namnge *objektet* Folder.
 
-1. Högerklicka på mappen tomt **objekt** och välj sedan **Lägg till**  >  **vy**.
+1. Högerklicka på mappen tomt **objekt** och välj sedan **Lägg till**  >  **vy** .
 
-1. I **Lägg till MVC-vy**gör du följande ändringar:
+1. I **Lägg till MVC-vy** gör du följande ändringar:
 
-   * Skriv *skapa*i **vynamn**.
-   * I **mall**väljer du **skapa**.
-   * I **modell klass**väljer du **objekt (att göra. Modeller)**.
-   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
-   * Välj **Lägg till**.
+   * Skriv *skapa* i **vynamn** .
+   * I **mall** väljer du **skapa** .
+   * I **modell klass** väljer du **objekt (att göra. Modeller)** .
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml* .
+   * Välj **Lägg till** .
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Skärm bild av MVC-webbappen för att göra-listan som skapats i den här självstudien – guiden för ASP NET Core MVC-steg":::
 
@@ -147,15 +148,15 @@ Nu ska vi lägga till följande vyer.
 
 #### <a name="delete-item-view"></a><a name="AddEditIndexView"></a>Ta bort objekt-vy
 
-1. Från **Solution Explorer**högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy**.
+1. Från **Solution Explorer** högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy** .
 
-1. I **Lägg till MVC-vy**gör du följande ändringar:
+1. I **Lägg till MVC-vy** gör du följande ändringar:
 
-   * I rutan **vynamn** skriver du *ta bort*.
-   * I rutan **mall** väljer du **ta bort**.
-   * I rutan **Modellklass** väljer du **Objekt (todo.Models)**.
-   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
-   * Välj **Lägg till**.
+   * I rutan **vynamn** skriver du *ta bort* .
+   * I rutan **mall** väljer du **ta bort** .
+   * I rutan **Modellklass** väljer du **Objekt (todo.Models)** .
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml* .
+   * Välj **Lägg till** .
 
 1. Välj sedan **Lägg till** och låt Visual Studio skapa en ny mall. Ersätt koden i den genererade filen med följande innehåll:
 
@@ -163,14 +164,14 @@ Nu ska vi lägga till följande vyer.
 
 #### <a name="add-a-view-to-get-an-item-details"></a><a name="AddItemIndexView"></a>Lägga till en vy för att hämta information om objektet
 
-1. I **Solution Explorer**högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy**.
+1. I **Solution Explorer** högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy** .
 
-1. I **Lägg till MVC-vy**anger du följande värden:
+1. I **Lägg till MVC-vy** anger du följande värden:
 
-   * I **namn på vy**anger du *information*.
-   * I **mall**väljer du **information**.
-   * I **modell klass**väljer du **objekt (att göra. Modeller)**.
-   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
+   * I **namn på vy** anger du *information* .
+   * I **mall** väljer du **information** .
+   * I **modell klass** väljer du **objekt (att göra. Modeller)** .
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml* .
 
 1. Välj sedan **Lägg till** och låt Visual Studio skapa en ny mall. Ersätt koden i den genererade filen med följande innehåll:
 
@@ -178,15 +179,15 @@ Nu ska vi lägga till följande vyer.
 
 #### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Lägga till vyn Redigera objekt
 
-1. Från **Solution Explorer**högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy**.
+1. Från **Solution Explorer** högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy** .
 
-1. I **Lägg till MVC-vy**gör du följande ändringar:
+1. I **Lägg till MVC-vy** gör du följande ändringar:
 
-   * I rutan **Vynamn** skriver du *Redigera*.
-   * I rutan**Mall** väljer du **Redigera**.
-   * I rutan **Modellklass** väljer du **Objekt (todo.Models)**.
-   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
-   * Välj **Lägg till**.
+   * I rutan **Vynamn** skriver du *Redigera* .
+   * I rutan **Mall** väljer du **Redigera** .
+   * I rutan **Modellklass** väljer du **Objekt (todo.Models)** .
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml* .
+   * Välj **Lägg till** .
 
 1. Välj sedan **Lägg till** och låt Visual Studio skapa en ny mall. Ersätt koden i den genererade filen med följande innehåll:
 
@@ -196,15 +197,15 @@ Nu ska vi lägga till följande vyer.
 
 Slutligen lägger du till en vy för att hämta alla objekt med följande steg:
 
-1. Från **Solution Explorer**högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy**.
+1. Från **Solution Explorer** högerklickar du på mappen **objekt** igen och väljer **Lägg till**  >  **vy** .
 
-1. I **Lägg till MVC-vy**gör du följande ändringar:
+1. I **Lägg till MVC-vy** gör du följande ändringar:
 
-   * I rutan **Vynamn** skriver du *Index*.
-   * I rutan**Mall** väljer du **Lista**.
-   * I rutan **Modellklass** väljer du **Objekt (todo.Models)**.
-   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml*.
-   * Välj **Lägg till**.
+   * I rutan **Vynamn** skriver du *Index* .
+   * I rutan **Mall** väljer du **Lista** .
+   * I rutan **Modellklass** väljer du **Objekt (todo.Models)** .
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout. cshtml* .
+   * Välj **Lägg till** .
 
 1. Välj sedan **Lägg till** och låt Visual Studio skapa en ny mall. Ersätt koden i den genererade filen med följande innehåll:
 
@@ -216,21 +217,21 @@ När du har slutfört de här stegen stänger du alla *cshtml* -dokument i Visua
 
 Först lägger vi till en klass som innehåller logiken för att ansluta till och använda Azure Cosmos DB. I den här självstudien kommer vi att kapsla in den här logiken i en klass `CosmosDbService` som kallas och ett gränssnitt som kallas `ICosmosDbService` . Den här tjänsten utför CRUD-åtgärderna. Den läser också feed-åtgärder, till exempel att inte Visa ofullständiga objekt, skapa, redigera och ta bort objekt.
 
-1. I **Solution Explorer**högerklickar du på projektet och väljer **Lägg till**  >  **ny mapp**. Namnge mappen *Services*.
+1. I **Solution Explorer** högerklickar du på projektet och väljer **Lägg till**  >  **ny mapp** . Namnge mappen *Services* .
 
-1. Högerklicka på mappen **tjänster** , Välj **Lägg till**  >  **klass**. Ge den nya klassen namnet *CosmosDbService* och välj **Lägg till**.
+1. Högerklicka på mappen **tjänster** , Välj **Lägg till**  >  **klass** . Ge den nya klassen namnet *CosmosDbService* och välj **Lägg till** .
 
 1. Ersätt innehållet i *CosmosDbService.cs* med följande kod:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
-1. Högerklicka på mappen **tjänster** , Välj **Lägg till**  >  **klass**. Ge den nya klassen namnet *ICosmosDbService* och välj **Lägg till**.
+1. Högerklicka på mappen **tjänster** , Välj **Lägg till**  >  **klass** . Ge den nya klassen namnet *ICosmosDbService* och välj **Lägg till** .
 
 1. Lägg till följande kod i *ICosmosDbService* -klassen:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
-1. Öppna filen *startup.cs* i lösningen och Lägg till följande metod **InitializeCosmosClientInstanceAsync**, som läser konfigurationen och initierar klienten.
+1. Öppna filen *startup.cs* i lösningen och Lägg till följande metod **InitializeCosmosClientInstanceAsync** , som läser konfigurationen och initierar klienten.
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync" :::
 
@@ -258,13 +259,13 @@ Först lägger vi till en klass som innehåller logiken för att ansluta till oc
 
 ### <a name="add-a-controller"></a><a name="add-a-controller"></a>Lägg till en controller
 
-1. I **Solution Explorer**högerklickar du på mappen **kontrollanter** och väljer **Lägg till**  >  **kontrollant**.
+1. I **Solution Explorer** högerklickar du på mappen **kontrollanter** och väljer **Lägg till**  >  **kontrollant** .
 
-1. I **Lägg till Autogenerera**väljer du **MVC-kontrollant-tom** och väljer **Lägg till**.
+1. I **Lägg till Autogenerera** väljer du **MVC-kontrollant-tom** och väljer **Lägg till** .
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="Skärm bild av MVC-webbappen för att göra-listan som skapats i den här självstudien – guiden för ASP NET Core MVC-steg":::
 
-1. Namnge din nya kontrollants *ItemController*.
+1. Namnge din nya kontrollants *ItemController* .
 
 1. Ersätt innehållet i *ItemController.cs* med följande kod:
 
@@ -286,11 +287,11 @@ Gör så här om du vill testa programmet på den lokala datorn:
 
 1. Välj länken **Skapa ny** och Lägg till värden i fälten **namn** och **Beskrivning** . Lämna kryss rutan **slutförd** omarkerad. Om du väljer den lägger appen till det nya objektet i ett slutfört tillstånd. Objektet visas inte längre i den inledande listan.
 
-1. Välj **Skapa**. Appen skickar tillbaka till vyn **index** och ditt objekt visas i listan. Du kan lägga till fler objekt i din **att göra-** lista.
+1. Välj **Skapa** . Appen skickar tillbaka till vyn **index** och ditt objekt visas i listan. Du kan lägga till fler objekt i din **att göra-** lista.
 
     :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="Skärm bild av MVC-webbappen för att göra-listan som skapats i den här självstudien – guiden för ASP NET Core MVC-steg":::
   
-1. Välj **Redigera** bredvid ett **objekt** i listan. Appen öppnar vyn **Redigera** där du kan uppdatera alla egenskaper för ditt objekt, inklusive flaggan **slutförd** . Om du väljer **slutförd** och väljer **Spara**, visar appen **objektet** som slutfört i listan.
+1. Välj **Redigera** bredvid ett **objekt** i listan. Appen öppnar vyn **Redigera** där du kan uppdatera alla egenskaper för ditt objekt, inklusive flaggan **slutförd** . Om du väljer **slutförd** och väljer **Spara** , visar appen **objektet** som slutfört i listan.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="Skärm bild av MVC-webbappen för att göra-listan som skapats i den här självstudien – guiden för ASP NET Core MVC-steg":::
 
@@ -302,27 +303,27 @@ Gör så här om du vill testa programmet på den lokala datorn:
 
 När hela programmet fungerar som det ska med Azure Cosmos DB är det dags att distribuera webbappen till Azure App Service.  
 
-1. Om du vill publicera det här programmet högerklickar du på projektet i **Solution Explorer** och väljer **publicera**.
+1. Om du vill publicera det här programmet högerklickar du på projektet i **Solution Explorer** och väljer **publicera** .
 
-1. I Välj **ett publicerings mål**väljer du **App Service**.
+1. I Välj **ett publicerings mål** väljer du **App Service** .
 
-1. Om du vill använda en befintlig App Service profil väljer du **Välj befintlig**och sedan **publicera**.
+1. Om du vill använda en befintlig App Service profil väljer du **Välj befintlig** och sedan **publicera** .
 
-1. I **App Service**väljer du en **prenumeration**. Använd filtret **Visa** om du vill sortera efter resursgrupp eller resurstyp.
+1. I **App Service** väljer du en **prenumeration** . Använd filtret **Visa** om du vill sortera efter resursgrupp eller resurstyp.
 
-1. Hitta din profil och välj sedan **OK**. Sök sedan efter den Azure App Service som krävs och välj **OK**.
+1. Hitta din profil och välj sedan **OK** . Sök sedan efter den Azure App Service som krävs och välj **OK** .
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png" alt-text="Skärm bild av MVC-webbappen för att göra-listan som skapats i den här självstudien – guiden för ASP NET Core MVC-steg":::
 
 Ett annat alternativ är att skapa en ny profil:
 
-1. Som i föregående procedur högerklickar du på projektet i **Solution Explorer** och väljer **publicera**.
+1. Som i föregående procedur högerklickar du på projektet i **Solution Explorer** och väljer **publicera** .
   
-1. I Välj **ett publicerings mål**väljer du **App Service**.
+1. I Välj **ett publicerings mål** väljer du **App Service** .
 
-1. I **Välj ett publicerings mål**väljer du **Skapa nytt** och sedan **publicera**.
+1. I **Välj ett publicerings mål** väljer du **Skapa nytt** och sedan **publicera** .
 
-1. I **App Service**anger du namnet på din webbapp och lämplig prenumeration, resurs grupp och värd plan och väljer sedan **skapa**.
+1. I **App Service** anger du namnet på din webbapp och lämplig prenumeration, resurs grupp och värd plan och väljer sedan **skapa** .
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="Skärm bild av MVC-webbappen för att göra-listan som skapats i den här självstudien – guiden för ASP NET Core MVC-steg":::
 

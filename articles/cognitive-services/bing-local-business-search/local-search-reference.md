@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: d5de1cc606f97655427c0c86aea0c5c722e1bab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbd4f32e77dc8d386067987a0ab0436a7875c15e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84171471"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095398"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>V7-referens för Bing Local Business Search API
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Det lokala Business Search-API: et skickar en Sök fråga till Bing för att få resultat som omfattar restauranger, hotell eller andra lokala företag. För platser kan frågan ange namnet på den lokala verksamheten eller en kategori (till exempel restauranger i närheten). Entitetsresultat omfattar personer, platser eller saker. Plats i det här sammanhanget är affär senheter, stater, länder/regioner osv.  
 
@@ -71,16 +76,16 @@ Följande är huvuden som en begäran och ett svar kan innehålla.
 Begäran kan innehålla följande frågeparametrar. Se kolumnen obligatorisk för obligatoriska parametrar. Du måste URL-koda parametrarna för frågan.  
   
   
-|Name|Värde|Typ|Obligatorisk|  
+|Namn|Värde|Typ|Obligatorisk|  
 |----------|-----------|----------|--------------|
-|<a name="count"></a>reparationer|Antalet resultat som ska returneras, med början på det index som anges av `offset` parametern.|Sträng|Inga|   
-|<a name="localCategories"></a>localCategories|Lista med alternativ som definierar Sök efter affärs kategori.  Se [Sök efter lokala affärs kategorier](local-categories.md)|Sträng|Inga|  
-|<a name="mkt"></a>mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknads värden finns i marknads koder.<br /><br /> **Obs:** Det lokala Business Search-API: t stöder för närvarande endast en-US-marknad och-språk.<br /><br />|Sträng|Ja|
-|<a name="offset"></a>redovisningsmotkonto|Indexet att starta resultat som anges av `count` parametern.|Heltal|Inga|  
-|<a name="query"></a>c|Användarens sökterm.|Sträng|Inga|  
-|<a name="responseformat"></a>responseFormat|Den medietyp som ska användas för svaret. Följande är möjliga Skift läges känsliga värden.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Standardvärdet är JSON. Information om JSON-objekt som svaret innehåller finns i [Response Objects](#response-objects).<br /><br />  Om du anger JsonLd innehåller svars texten JSON-LD objekt som innehåller Sök resultaten. Information om JSON-LD finns i [JSON-LD](https://json-ld.org/).|Sträng|Inga|  
-|<a name="safesearch"></a>safeSearch|Ett filter som används för att filtrera innehåll som är olämpligt för barn. Här följer de möjliga skiftlägeskänsliga filtervärdena.<br /><ul><li>Inaktivera &mdash; RETUR webb sidor med vuxen text, bilder eller videor.<br /><br/></li><li>Måttliga &mdash; RETUR webb sidor med vuxen text, men inte vuxna bilder eller videor.<br /><br/></li><li>Strict &mdash; returnerar inte webb sidor med vuxen text, bilder eller videor.</li></ul><br /> Standardinställningen är Måttlig.<br /><br /> **Obs:** Om begäran kommer från en marknad som Bing: s vuxen princip kräver att `safeSearch` är inställd på Strict, ignorerar Bing `safeSearch` värdet och använder strikt.<br/><br/>**Obs!** Beroende på om du använder frågeoperator `site:` finns det en risk att svaret har innehåll som är olämpligt för barn oberoende av vad frågeparametern `safeSearch` är inställd på. Använd endast `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn. |Sträng|Inga|  
-|<a name="setlang"></a>setLang|Språket som ska användas för användargränssnittssträngar. Ange språk med hjälp av den tvåstaviga språkkoden ISO 639-1. Språkkoden för engelska är till exempel EN. Standardvärdet är EN (engelska).<br /><br /> Även om det är valfritt bör du alltid ange språket. Normalt anger du `setLang` på samma språk som anges av `mkt` om inte användaren vill att gränssnittets strängar ska visas på ett annat språk.<br /><br /> Den här parametern och [Accept-Language](#acceptlanguage)-huvudet utesluter varandra&mdash;ange inte båda två.<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.|Sträng|Inga| 
+|<a name="count"></a>reparationer|Antalet resultat som ska returneras, med början på det index som anges av `offset` parametern.|Sträng|No|   
+|<a name="localCategories"></a>localCategories|Lista med alternativ som definierar Sök efter affärs kategori.  Se [Sök efter lokala affärs kategorier](local-categories.md)|Sträng|No|  
+|<a name="mkt"></a>mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknads värden finns i marknads koder.<br /><br /> **Obs:** Det lokala Business Search-API: t stöder för närvarande endast en-US-marknad och-språk.<br /><br />|Sträng|Yes|
+|<a name="offset"></a>redovisningsmotkonto|Indexet att starta resultat som anges av `count` parametern.|Integer|No|  
+|<a name="query"></a>c|Användarens sökterm.|Sträng|No|  
+|<a name="responseformat"></a>responseFormat|Den medietyp som ska användas för svaret. Följande är möjliga Skift läges känsliga värden.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Standardvärdet är JSON. Information om JSON-objekt som svaret innehåller finns i [Response Objects](#response-objects).<br /><br />  Om du anger JsonLd innehåller svars texten JSON-LD objekt som innehåller Sök resultaten. Information om JSON-LD finns i [JSON-LD](https://json-ld.org/).|Sträng|No|  
+|<a name="safesearch"></a>safeSearch|Ett filter som används för att filtrera innehåll som är olämpligt för barn. Här följer de möjliga skiftlägeskänsliga filtervärdena.<br /><ul><li>Inaktivera &mdash; RETUR webb sidor med vuxen text, bilder eller videor.<br /><br/></li><li>Måttliga &mdash; RETUR webb sidor med vuxen text, men inte vuxna bilder eller videor.<br /><br/></li><li>Strict &mdash; returnerar inte webb sidor med vuxen text, bilder eller videor.</li></ul><br /> Standardinställningen är Måttlig.<br /><br /> **Obs:** Om begäran kommer från en marknad som Bing: s vuxen princip kräver att `safeSearch` är inställd på Strict, ignorerar Bing `safeSearch` värdet och använder strikt.<br/><br/>**Obs!** Beroende på om du använder frågeoperator `site:` finns det en risk att svaret har innehåll som är olämpligt för barn oberoende av vad frågeparametern `safeSearch` är inställd på. Använd endast `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn. |Sträng|No|  
+|<a name="setlang"></a>setLang|Språket som ska användas för användargränssnittssträngar. Ange språk med hjälp av den tvåstaviga språkkoden ISO 639-1. Språkkoden för engelska är till exempel EN. Standardvärdet är EN (engelska).<br /><br /> Även om det är valfritt bör du alltid ange språket. Normalt anger du `setLang` på samma språk som anges av `mkt` om inte användaren vill att gränssnittets strängar ska visas på ett annat språk.<br /><br /> Den här parametern och [Accept-Language](#acceptlanguage)-huvudet utesluter varandra&mdash;ange inte båda två.<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.|Sträng|No| 
 
 
 ## <a name="response-objects"></a>Svars objekt  
@@ -108,7 +113,7 @@ Definierar det fel som inträffat.
 ### <a name="errorresponse"></a>ErrorResponse  
 Objektet på den översta nivån som svaret innehåller när begäran Miss lyckas.  
   
-|Name|Värde|Typ|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_type|Typ tips.|Sträng|  
 |<a name="errors"></a>kompileringsfel|En lista med fel som beskriver orsakerna till att begäran misslyckades.|[Fel](#error)[]|  
@@ -118,7 +123,7 @@ Objektet på den översta nivån som svaret innehåller när begäran Miss lycka
 ### <a name="license"></a>Licens  
 Definierar under vilken licens texten eller fotot kan användas.  
   
-|Name|Värde|Typ|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |name|Namnet på licensen.|Sträng|  
 |url|URL: en till en webbplats där användaren kan få mer information om licensen.<br /><br /> Använd namnet och URL: en för att skapa en hyperlänk.|Sträng|  
@@ -127,7 +132,7 @@ Definierar under vilken licens texten eller fotot kan användas.
 ### <a name="link"></a>Länk  
 Definierar komponenterna i en hyperlänk.  
   
-|Name|Värde|Typ|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_type|Typ tips.|Sträng|  
 |text|Visnings texten.|Sträng|  
@@ -141,7 +146,7 @@ Definierar en utgivare.
   
 Observera att en utgivare kan ange sitt namn eller deras webbplats eller både och.  
   
-|Name|Värde|Typ|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |name|Utgivarens namn.|Sträng|  
 |url|URL: en till utgivarens webbplats.<br /><br /> Observera att utgivaren inte kan tillhandahålla en webbplats.|Sträng|  
@@ -151,7 +156,7 @@ Observera att en utgivare kan ange sitt namn eller deras webbplats eller både o
 ### <a name="place"></a>Plats  
 Definierar information om en lokal verksamhet, till exempel en restaurang eller hotell.  
   
-|Name|Värde|Typ|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_type|Typ tips, som kan ställas in på något av följande:<br /><br /><ul><li>Hotell</li><li>LocalBusiness<br /></li><li>Restauranger</ul><li>|Sträng|  
 |adress|Post adressen till den plats där entiteten finns.|PostalAddress|  
@@ -167,31 +172,31 @@ Definierar den frågeterm som Bing används för begäran.
   
 |Element|Beskrivning|Typ|  
 |-------------|-----------------|----------|  
-|adultIntent|Ett booleskt värde som anger om den angivna frågan har vuxen avsikt. Värdet är **True** om frågan har vuxen avsikt; annars **false**.|Boolesk|  
-|alterationOverrideQuery|Frågesträngen som ska användas för att tvinga Bing att använda den ursprungliga strängen. Om frågesträngen t. ex. är *Saling downwind*, kommer frågesträngen för åsidosättning *+ Saling downwind*. Kom ihåg att koda frågesträngen som resulterar i *% 2Bsaling + downwind*.<br /><br /> Det här fältet tas med endast om den ursprungliga frågesträngen innehåller en stavnings fel.|Sträng|  
+|adultIntent|Ett booleskt värde som anger om den angivna frågan har vuxen avsikt. Värdet är **True** om frågan har vuxen avsikt; annars **false** .|Boolesk|  
+|alterationOverrideQuery|Frågesträngen som ska användas för att tvinga Bing att använda den ursprungliga strängen. Om frågesträngen t. ex. är *Saling downwind* , kommer frågesträngen för åsidosättning *+ Saling downwind* . Kom ihåg att koda frågesträngen som resulterar i *% 2Bsaling + downwind* .<br /><br /> Det här fältet tas med endast om den ursprungliga frågesträngen innehåller en stavnings fel.|Sträng|  
 |alteredQuery|Frågesträngen som används av Bing för att utföra frågan. Bing använder den ändrade frågesträngen om den ursprungliga frågesträngen innehåller stavfel. Om frågesträngen t. ex. är `saling downwind` , kommer den ändrade frågesträngen att vara `sailing downwind` .<br /><br /> Det här fältet tas med endast om den ursprungliga frågesträngen innehåller en stavnings fel.|Sträng|  
-|askUserForLocation|Ett booleskt värde som anger om Bing kräver användarens plats för att ge korrekta resultat. Om du har angett användarens plats med hjälp av huvudena [X-MSEdge-ClientIP](#clientip) och [X-search-location](#location) kan du ignorera det här fältet.<br /><br /> För plats medveten frågor, till exempel "Dagens väder" eller "restauranger nära mig" som behöver användarens plats för att ge korrekta resultat, är det här fältet inställt på **Sant**.<br /><br /> För plats medveten frågor som omfattar platsen (till exempel "Seattle-väder") är det här fältet inställt på **falskt**. Det här fältet är också inställt på **falskt** för frågor som inte är medvetna, till exempel "bästa säljare".|Boolesk|  
+|askUserForLocation|Ett booleskt värde som anger om Bing kräver användarens plats för att ge korrekta resultat. Om du har angett användarens plats med hjälp av huvudena [X-MSEdge-ClientIP](#clientip) och [X-search-location](#location) kan du ignorera det här fältet.<br /><br /> För plats medveten frågor, till exempel "Dagens väder" eller "restauranger nära mig" som behöver användarens plats för att ge korrekta resultat, är det här fältet inställt på **Sant** .<br /><br /> För plats medveten frågor som omfattar platsen (till exempel "Seattle-väder") är det här fältet inställt på **falskt** . Det här fältet är också inställt på **falskt** för frågor som inte är medvetna, till exempel "bästa säljare".|Boolesk|  
 |originalQuery|Frågesträngen som anges i begäran.|Sträng|  
 
 ### <a name="identifiable"></a>Särskilj
 
-|Name|Värde|Typ|  
+|Namn|Värde|Typ|  
 |-------------|-----------------|----------|
 |id|Ett resurs-ID|Sträng|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definierar en Sök Resultat grupp, till exempel Mainline.
 
-|Name|Värde|Typ|  
+|Namn|Värde|Typ|  
 |-------------|-----------------|----------|
 |objekt|En lista med Sök resultat som ska visas i gruppen.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definierar ett Sök Resultat objekt som ska visas.
 
-|Name|Värde|Typ|  
+|Namn|Värde|Typ|  
 |-------------|-----------------|----------|
-|resultIndex|Ett nollbaserat index för objektet i svaret som ska visas. Om objektet inte innehåller det här fältet, visar du alla objekt i svaret. Du kan till exempel Visa alla nyhets artiklar i svaret på diskussions gruppen.|Heltal|
+|resultIndex|Ett nollbaserat index för objektet i svaret som ska visas. Om objektet inte innehåller det här fältet, visar du alla objekt i svaret. Du kan till exempel Visa alla nyhets artiklar i svaret på diskussions gruppen.|Integer|
 |answerType|Svaret som innehåller objektet som ska visas. Till exempel nyheter.<br /><br />Använd typen för att hitta svaret i SearchResponse-objektet. Typen är namnet på ett SearchResponse-fält.<br /><br /> Använd bara svars typen om det här objektet innehåller fältet värde. Annars kan du ignorera det.|Sträng|
 |textualIndex|Index för det svar i textualAnswers som ska visas.| Osignerat heltal|
 |värde|Det ID som identifierar antingen ett svar för att visa eller ett objekt i ett svar att visa. Om ID: t identifierar ett svar visas alla svars objekt.|Särskilj|
@@ -199,7 +204,7 @@ Definierar ett Sök Resultat objekt som ska visas.
 ### <a name="rankingresponse"></a>RankingResponse  
 Definierar var på sidan med Sök Resultat sidans innehåll ska placeras och i vilken ordning.  
   
-|Name|Värde|  
+|Namn|Värde|  
 |----------|-----------|  
 |<a name="ranking-mainline"></a>mainline|Sök resultaten som ska visas i Mainline.|  
 |<a name="ranking-pole"></a>Polen|Sök resultaten som ska få den mest synliga behandlingen (till exempel, som visas ovanför Mainline och sido panelen).|  
@@ -210,7 +215,7 @@ Definierar objektet på den översta nivån som svaret innehåller när begäran
   
 Observera att om tjänsten misstänker en denial of service-attack kommer begäran att lyckas (HTTP-statuskod är 200 OK). bröd texten i svaret är dock tom.  
   
-|Name|Värde|Typ|  
+|Namn|Värde|Typ|  
 |----------|-----------|----------|  
 |_type|Typ tips, som är inställt på SearchResponse.|Sträng|  
 |placerar|En lista med entiteter som är relevanta för Sök frågan.|JSON-objekt|  

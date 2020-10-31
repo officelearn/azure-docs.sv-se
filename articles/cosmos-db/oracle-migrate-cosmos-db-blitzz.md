@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 882ba7f0b8f896c51e340fe921e53b27dd07ff8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 263c38e330bad00833bd31bc8a43208c3784bcf4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262471"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097489"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrera data från Oracle till Azure Cosmos DB API för Cassandra konto med Blitzz
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 API för Cassandra i Azure Cosmos DB har blivit ett bra val för företags arbets belastningar som körs på Oracle av en rad olika orsaker, till exempel:
 
@@ -100,7 +101,7 @@ I det här avsnittet beskrivs de steg som krävs för att konfigurera Blitzz och
 
    Du måste minska data flödet när migreringen är klar. Baserat på mängden data som lagras och ru: er krävs för varje åtgärd kan du beräkna data flödet som krävs efter datamigreringen. Mer information om hur du uppskattar de ru: er som krävs finns i [etablera data flöde på behållare och databaser](set-throughput.md) och [Beräkna ru/s med hjälp av artiklar om kapacitets planering för Azure Cosmos DB](estimate-ru-with-capacity-planner.md) .
 
-1. Hämta **kontakt punkt, port, användar namn**och **primärt lösen ord** för ditt Azure Cosmos-konto från fönstret **anslutnings sträng** . Du kommer att använda dessa värden i konfigurations filen.
+1. Hämta **kontakt punkt, port, användar namn** och **primärt lösen ord** för ditt Azure Cosmos-konto från fönstret **anslutnings sträng** . Du kommer att använda dessa värden i konfigurations filen.
 
 1. Konfigurera mål databas konfigurationen från CLI-terminalen. Öppna konfigurations filen med **`vi conf/conn/cosmosdb.yml`** kommandot och Lägg till en kommaavgränsad lista över värd-URI, port nummer, användar namn, lösen ord och andra obligatoriska parametrar. Följande är ett exempel på innehåll i konfigurations filen:
 

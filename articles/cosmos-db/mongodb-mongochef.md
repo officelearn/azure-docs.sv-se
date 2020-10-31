@@ -8,14 +8,15 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: 6c9ea401a4a62f617b5acf6f96c60532d929ff1c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a02aaadf8c774557eb182acf041b6f19337a0de8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167976"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096528"
 ---
 # <a name="connect-to-an-azure-cosmos-account-using-studio-3t"></a>Ansluta till ett Azure Cosmos-konto med Studio 3T
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 För att ansluta till en Azure Cosmos DBs API för MongoDB med Studio 3T måste du:
 
@@ -42,23 +43,23 @@ Använd följande steg för att lägga till ditt Azure Cosmos-konto i anslutning
 5. I fönstret **ny anslutning** går du till fliken **SSL** och markerar kryss rutan **Använd SSL-protokoll för att ansluta** och alternativ knappen **acceptera serverns självsignerade SSL-certifikat** .
 
     :::image type="content" source="./media/mongodb-mongochef/ConnectionManagerSSLTab.png" alt-text="Skärm bild av sidan anslutnings sträng":::
-6. Klicka på knappen **Testa anslutning** för att kontrol lera anslutnings informationen, klicka på **OK** för att återgå till fönstret ny anslutning och klicka sedan på **Spara**.
+6. Klicka på knappen **Testa anslutning** för att kontrol lera anslutnings informationen, klicka på **OK** för att återgå till fönstret ny anslutning och klicka sedan på **Spara** .
 
     :::image type="content" source="./media/mongodb-mongochef/TestConnectionResults.png" alt-text="Skärm bild av sidan anslutnings sträng":::
 
 ## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Använd Studio 3T för att skapa en databas, samling och dokument
 Utför följande steg för att skapa en databas, samling och dokument med Studio 3T:
 
-1. I **anslutnings hanteraren**markerar du anslutningen och klickar på **Anslut**.
+1. I **anslutnings hanteraren** markerar du anslutningen och klickar på **Anslut** .
 
     :::image type="content" source="./media/mongodb-mongochef/ConnectToAccount.png" alt-text="Skärm bild av sidan anslutnings sträng":::
-2. Högerklicka på värden och välj **Lägg till databas**.  Ange ett databas namn och klicka på **OK**.
+2. Högerklicka på värden och välj **Lägg till databas** .  Ange ett databas namn och klicka på **OK** .
 
     :::image type="content" source="./media/mongodb-mongochef/AddDatabase1.png" alt-text="Skärm bild av sidan anslutnings sträng":::
-3. Högerklicka på databasen och välj **Lägg till samling**.  Ange ett samlings namn och klicka på **skapa**.
+3. Högerklicka på databasen och välj **Lägg till samling** .  Ange ett samlings namn och klicka på **skapa** .
 
     :::image type="content" source="./media/mongodb-mongochef/AddCollection.png" alt-text="Skärm bild av sidan anslutnings sträng":::
-4. Klicka på meny alternativet **samling** och klicka sedan på **Lägg till dokument**.
+4. Klicka på meny alternativet **samling** och klicka sedan på **Lägg till dokument** .
 
     :::image type="content" source="./media/mongodb-mongochef/AddDocument1.png" alt-text="Skärm bild av sidan anslutnings sträng" och returnera fälten föräldrar och State.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: victorh
-ms.openlocfilehash: e7c4842494c144f5cd64d46f53f7a99266064680
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3569ae130813eb0aaf14ec3d8d4e5cfac3e98c6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993638"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095655"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>TLS-avslutning med Key Vault certifikat
 
@@ -49,6 +49,9 @@ Application Gateway-integrering med Key Vault kräver en konfigurations process 
 
    Du kan antingen importera ett befintligt certifikat eller skapa ett nytt i ditt nyckel valv. Certifikatet kommer att användas av program som körs via programgatewayen. I det här steget kan du också använda en nyckel valvs hemlighet som lagras som en lösen ords fri, bas-64-kodad PFX-fil. Vi rekommenderar att du använder en certifikat typ på grund av den funktion för förnyad förnyelse som är tillgänglig med certifikat typs objekt i nyckel valvet. När du har skapat ett certifikat eller en hemlighet definierar du åtkomst principer i nyckel valvet för att ge identiteten behörighet att *få* åtkomst till hemligheten.
    
+   > [!IMPORTANT]
+   > Application Gateway kräver för närvarande Key Vault för att tillåta åtkomst från alla nätverk, för att kunna utnyttja integrationen. Den har inte stöd för Key Vault-integration när Key Vault har angetts att endast tillåta privata slut punkter och välj nätverks åtkomst. Stöd för privata och utvalda nätverk är i arbetet för fullständig integrering av Key Vault med Application Gateway. 
+
    > [!NOTE]
    > Om du distribuerar programgatewayen via en ARM-mall, antingen med hjälp av Azure CLI eller PowerShell eller via ett Azure-program som distribueras från Azure Portal, lagras SSL-certifikatet i nyckel valvet som en Base64-kodad PFX-fil. Du måste slutföra stegen i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](../azure-resource-manager/templates/key-vault-parameter.md). 
    >

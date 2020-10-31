@@ -6,20 +6,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 05b0ff7d4f56a61c5c91848044a30cb9bf1d0f46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03c47b398a715a128a32fb6a6fd9d99564ccb891
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565317"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096639"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>Vanliga frågor och svar om Azure Cosmos DBs API för MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DBs API för MongoDB är ett protokoll för högpresterande protokoll som gör det möjligt för program att enkelt och transparent kommunicera med den inbyggda Azure Cosmos-databasmotorn genom att använda befintliga SDK: er och driv rutiner som stöds av communityn för MongoDB. Utvecklare kan nu använda befintliga MongoDB-verktygs kedjor och-kunskaper för att skapa program som utnyttjar Azure Cosmos DB. Utvecklare drar nytta av de unika funktionerna i Azure Cosmos DB, som inkluderar global distribution med Skriv replikering i flera regioner, automatisk indexering, säkerhets kopierings underhåll, ekonomiskt säkerhetskopierade service avtal (service avtal) osv.
 
 ## <a name="how-do-i-connect-to-my-database"></a>Hur gör jag för att ansluta till min databas?
 
-Det snabbaste sättet att ansluta till en Cosmos-databas med Azure Cosmos DB s API för MongoDB är att gå vidare till [Azure Portal](https://portal.azure.com). Gå till ditt konto och klicka sedan på **Snabbstart**på den vänstra navigerings menyn. Snabb start är det bästa sättet att hämta kodfragment för att ansluta till databasen.
+Det snabbaste sättet att ansluta till en Cosmos-databas med Azure Cosmos DB s API för MongoDB är att gå vidare till [Azure Portal](https://portal.azure.com). Gå till ditt konto och klicka sedan på **Snabbstart** på den vänstra navigerings menyn. Snabb start är det bästa sättet att hämta kodfragment för att ansluta till databasen.
 
 Azure Cosmos DB tillämpar strikta säkerhets krav och standarder. Azure Cosmos DB konton kräver autentisering och säker kommunikation via TLS, så se till att använda TLSv 1.2.
 

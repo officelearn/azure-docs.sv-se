@@ -8,34 +8,34 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/2/2020
-ms.openlocfilehash: 5f109ad719ada9728938f6e37d4ec854d3950a24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95607b78ff80566b76b8e6aa20462957249015b4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708443"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097659"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Utdata från Azure Stream Analytics
 
 Ett Azure Stream Analytics jobb består av indata, frågor och utdata. Det finns flera typer av utdata som du kan skicka transformerade data till. Den här artikeln innehåller Stream Analytics utdata som stöds. När du utformar din Stream Analytics fråga kan du se namnet på utdata genom att använda into- [satsen](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Du kan använda en enda utmatning per jobb eller flera utdata per direkt uppspelnings jobb (om du behöver dem) genom att lägga till flera INTO-satser i frågan.
 
-Om du vill skapa, redigera och testa Stream Analytics jobb-utdata kan du använda [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure POWERSHELL](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output)och [Visual Studio](stream-analytics-quick-create-vs.md).
+Om du vill skapa, redigera och testa Stream Analytics jobb-utdata kan du använda [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure POWERSHELL](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/)och [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Vissa utmatnings typer stöder [partitionering](#partitioning)och [utgående batch-storlekar](#output-batch-size) är beroende av att optimera data flödet. I följande tabell visas de funktioner som stöds för varje Utdatatyp:
 
 | Utdatatyp | Partitionering | Säkerhet | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Ja|Azure Active Directory användare </br> MSI|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory användare </br> MSI|
 |[Azure SQL Database](sql-database-output.md)|Ja, valfritt.|SQL User auth </br> MSI (för hands version)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Ja|SQL User auth|
-|[Blob Storage och Azure Data Lake gen 2](blob-storage-azure-data-lake-gen2-output.md)|Ja|MSI </br> Åtkomstnyckel|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL User auth|
+|[Blob Storage och Azure Data Lake gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI </br> Åtkomstnyckel|
 |[Azure Event Hubs](event-hubs-output.md)|Ja, du måste ange en kolumn för partitionsnyckel i konfigurationen av utdata.|Åtkomstnyckel|
-|[Power BI](power-bi-output.md)|Inga|Azure Active Directory användare </br> MSI|
-|[Azure Table Storage](table-storage-output.md)|Ja|Kontonyckel|
-|[Azure Service Bus-köer](service-bus-queues-output.md)|Ja|Åtkomstnyckel|
-|[Azure Service Bus ämnen](service-bus-topics-output.md)|Ja|Åtkomstnyckel|
-|[Azure Cosmos DB](azure-cosmos-db-output.md)|Ja|Åtkomstnyckel|
-|[Azure Functions](azure-functions-output.md)|Ja|Åtkomstnyckel|
+|[Power BI](power-bi-output.md)|No|Azure Active Directory användare </br> MSI|
+|[Azure Table Storage](table-storage-output.md)|Yes|Kontonyckel|
+|[Azure Service Bus-köer](service-bus-queues-output.md)|Yes|Åtkomstnyckel|
+|[Azure Service Bus ämnen](service-bus-topics-output.md)|Yes|Åtkomstnyckel|
+|[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Åtkomstnyckel|
+|[Azure Functions](azure-functions-output.md)|Yes|Åtkomstnyckel|
 
 ## <a name="partitioning"></a>Partitionering
 
@@ -59,7 +59,7 @@ När du använder Azure Resource Manager mal Lav drift sättning eller REST API,
 
    Antalet minsta rader per batch. För Parquet skapar varje batch en ny fil. Det aktuella standardvärdet är 2 000 rader och det tillåtna Max värdet är 10 000 rader.
 
-Dessa egenskaper för batch-fönster stöds endast av API **-versionen 2017-04-01-Preview**. Nedan visas ett exempel på JSON-nyttolasten för ett REST API-anrop:
+Dessa egenskaper för batch-fönster stöds endast av API **-versionen 2017-04-01-Preview** . Nedan visas ett exempel på JSON-nyttolasten för ett REST API-anrop:
 
 ```json
 "type": "stream",

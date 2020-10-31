@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: a11bf408f06b5c4e621f0af1f71f23c335dc2069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5df94f95ea486f069ece264b8d09de1d9fc8607
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512647"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095024"
 ---
 # <a name="default-insights-tag"></a>Standard insikts-tagg
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Standard insikts tag gen är den som har `displayName` fältet inställt på en tom sträng. I följande exempel visas en lista med standard insikter (åtgärder). Listan med åtgärder som svaret innehåller beror på avbildningen. Och för varje åtgärd kan listan över egenskaper variera beroende på bild, så kontrol lera om egenskapen finns innan du försöker använda den.
 

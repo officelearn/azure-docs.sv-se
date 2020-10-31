@@ -8,14 +8,15 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 57d319d54d15b72747da029d365137f5b5bb384c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d8398dbded8753bac193f973026fb63d5f1fc6b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489259"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097727"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Avancerat skydd för Azure Cosmos DB (för hands version)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Avancerat skydd för Azure Cosmos DB ger ytterligare ett lager med säkerhets information som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja Azure Cosmos DB-konton. Det här skydds lagret gör att du kan åtgärda hot, även utan att vara säkerhets expert, och integrera dem med centrala säkerhets övervaknings system.
 
@@ -32,9 +33,9 @@ För en fullständig utredning av säkerhets aviseringar rekommenderar vi att du
 
 Avancerat skydd för Azure Cosmos DB identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. Den kan för närvarande utlösa följande aviseringar:
 
-- **Åtkomst från ovanliga platser**: den här aviseringen utlöses när åtkomst mönstret i ett Azure Cosmos-konto ändras, där någon har anslutit till Azure Cosmos DB slut punkten från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en legitim åtgärd, vilket innebär ett nytt program eller en utvecklares underhålls åtgärd. I andra fall identifierar aviseringen en skadlig åtgärd från en tidigare anställd, extern angripare osv.
+- **Åtkomst från ovanliga platser** : den här aviseringen utlöses när åtkomst mönstret i ett Azure Cosmos-konto ändras, där någon har anslutit till Azure Cosmos DB slut punkten från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en legitim åtgärd, vilket innebär ett nytt program eller en utvecklares underhålls åtgärd. I andra fall identifierar aviseringen en skadlig åtgärd från en tidigare anställd, extern angripare osv.
 
-- **Ovanlig data extrahering**: den här aviseringen utlöses när en klient extraherar en ovanlig mängd data från ett Azure Cosmos DB-konto. Detta kan vara symptom på vissa data exfiltrering som utförs för att överföra alla data som lagras i kontot till ett externt data lager.
+- **Ovanlig data extrahering** : den här aviseringen utlöses när en klient extraherar en ovanlig mängd data från ett Azure Cosmos DB-konto. Detta kan vara symptom på vissa data exfiltrering som utförs för att överföra alla data som lagras i kontot till ett externt data lager.
 
 
 
@@ -46,13 +47,13 @@ Du kan konfigurera Avancerat skydd på flera sätt, som beskrivs i följande avs
 
 1. Starta Azure Portal på  [https://portal.azure.com](https://portal.azure.com/) .
 
-2. Från Azure Cosmos DB-kontot går du till menyn **Inställningar** och väljer **avancerad säkerhet**.
+2. Från Azure Cosmos DB-kontot går du till menyn **Inställningar** och väljer **avancerad säkerhet** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png" alt-text="Konfigurera ATP":::
 
 3. På bladet **Avancerad säkerhets** konfiguration:
 
-    * Klicka på alternativet **Avancerat skydd** för att ställa in det på **på**.
+    * Klicka på alternativet **Avancerat skydd** för att ställa in det på **på** .
     * Klicka på **Spara** för att spara den nya eller uppdaterade Advanced Threat Protection-principen.   
 
 ### <a name="rest-api"></a>[REST-API](#tab/rest-api)
@@ -83,17 +84,17 @@ Använd en Azure Policy för att aktivera avancerat skydd mot Cosmos DB.
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="Konfigurera ATP"::: 
 
-1. Klicka på principen **distribuera Avancerat skydd för CosmosDB** och klicka sedan på **tilldela**.
+1. Klicka på principen **distribuera Avancerat skydd för CosmosDB** och klicka sedan på **tilldela** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="Konfigurera ATP":::
 
 
-1. Klicka på de tre punkterna i fältet **scope** , Välj en Azure-prenumeration eller resurs grupp och klicka sedan på **Välj**.
+1. Klicka på de tre punkterna i fältet **scope** , Välj en Azure-prenumeration eller resurs grupp och klicka sedan på **Välj** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="Konfigurera ATP":::
 
 
-1. Ange de andra parametrarna och klicka på **tilldela**.
+1. Ange de andra parametrarna och klicka på **tilldela** .
 
 
 

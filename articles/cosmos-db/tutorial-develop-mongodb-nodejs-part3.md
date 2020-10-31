@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: c16d7ccba24680604bc7f083f7242edd53abe102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181af5cf26d19a9f51e8d456e777badf7efa224d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282909"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097830"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa användargränssnittet med Angular
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Den här självstudien i flera delar visar hur du skapar en ny app skriven i Node.js med Express och Angular och sedan ansluter den till ditt [Cosmos-konto konfigurerat med Cosmos DB:s API för MongoDB](mongodb-introduction.md).
 
@@ -32,7 +33,7 @@ Del 3 av självstudiekursen bygger vidare på [del 2](tutorial-develop-mongodb-n
 
 > [!VIDEO https://www.youtube.com/embed/MnxHuqcJVoM]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Utför stegen i [del 2](tutorial-develop-mongodb-nodejs-part2.md) av självstudiekursen innan du påbörjar den här delen.
 
@@ -55,10 +56,10 @@ Utför stegen i [del 2](tutorial-develop-mongodb-nodejs-part2.md) av självstudi
 
     Nu ska vi titta på filerna som skapats och uppdaterats. 
 
-3. Gå till den nya **src\app**-mappen i **Explorer**-fönstret i Visual Studio Code och öppna den nya **heroes.component.ts**-filen som skapades i appmappen. Den här TypeScript-komponentfilen skapades med det föregående kommandot.
+3. Gå till den nya **src\app** -mappen i **Explorer** -fönstret i Visual Studio Code och öppna den nya **heroes.component.ts** -filen som skapades i appmappen. Den här TypeScript-komponentfilen skapades med det föregående kommandot.
 
     > [!TIP]
-    > Om mappen inte visas i Visual Studio Code trycker du på CMD + SKIFT P på en Mac-dator eller på CTRL + SKIFT + P i Windows för att öppna kommandopaletten och hämtar sedan systemändringen genom att skriva *Reload Window*.
+    > Om mappen inte visas i Visual Studio Code trycker du på CMD + SKIFT P på en Mac-dator eller på CTRL + SKIFT + P i Windows för att öppna kommandopaletten och hämtar sedan systemändringen genom att skriva *Reload Window* .
 
 4. Öppna filen **app.module.ts** i samma mapp och notera att `HeroesComponent` har lagts till i deklarationerna på rad 5 och att den även har importerats på rad 10.
 
@@ -103,7 +104,7 @@ Utför stegen i [del 2](tutorial-develop-mongodb-nodejs-part2.md) av självstudi
     </div>
     ```
 
-7. Nu när HTML-koden är på plats måste vi lägga till den i **heroes.component.ts**-filen så att vi kan interagera med mallen. Mallen läggs till i komponentfilen med följande kod: En konstruktor har lagts till som hämtar några heroes-komponenter och initierar hero-tjänstkomponenten för att hämta alla data. Den här koden lägger också till alla nödvändiga metoder för hanteringen av händelser i användargränssnittet. Du kan kopiera följande kod över den befintliga koden i **heroes.component.ts**. Det är normalt att det finns fel i områdena Hero och HeroService eftersom motsvarande komponenter inte importerats än, men du kommer att åtgärda dessa fel i nästa avsnitt. 
+7. Nu när HTML-koden är på plats måste vi lägga till den i **heroes.component.ts** -filen så att vi kan interagera med mallen. Mallen läggs till i komponentfilen med följande kod: En konstruktor har lagts till som hämtar några heroes-komponenter och initierar hero-tjänstkomponenten för att hämta alla data. Den här koden lägger också till alla nödvändiga metoder för hanteringen av händelser i användargränssnittet. Du kan kopiera följande kod över den befintliga koden i **heroes.component.ts** . Det är normalt att det finns fel i områdena Hero och HeroService eftersom motsvarande komponenter inte importerats än, men du kommer att åtgärda dessa fel i nästa avsnitt. 
 
     ```ts
     import { Component, OnInit } from '@angular/core';
@@ -180,7 +181,7 @@ Utför stegen i [del 2](tutorial-develop-mongodb-nodejs-part2.md) av självstudi
     ],
     ```
 
-9. Lägg till en import för den nya FormsModule-modulen på rad 3 i filen **app/app.module.ts**. 
+9. Lägg till en import för den nya FormsModule-modulen på rad 3 i filen **app/app.module.ts** . 
 
     ```
     import { BrowserModule } from '@angular/platform-browser';
@@ -351,7 +352,7 @@ Utför stegen i [del 2](tutorial-develop-mongodb-nodejs-part2.md) av självstudi
 
 ## <a name="display-the-component"></a>Visa komponenten
 
-Nu när vi har komponenten, hur gör vi så att den visas på skärmen? Vi ska ändra standardkomponenterna i **app.component.ts**.
+Nu när vi har komponenten, hur gör vi så att den visas på skärmen? Vi ska ändra standardkomponenterna i **app.component.ts** .
 
 1. Öppna filen **/app/app.component.ts** i Explorer-fönstret och ändra rubriken till Heroes och lägg sedan till namnet på komponenten som vi skapade i **heroes.components.ts** (app-heroes) så att vi refererar till den nya komponenten. Innehållet i filen bör nu se ut så här: 
 
@@ -374,7 +375,7 @@ Nu när vi har komponenten, hur gör vi så att den visas på skärmen? Vi ska �
 
     ```
 
-2. Det finns andra komponenter i **heroes.components.ts** som vi refererar till, t.ex. Hero-komponenten, så vi måste skapa även detta. Kör följande kommando i kommandotolken i Angular CLI för att skapa en hero-modell och en fil med namnet **hero.ts**, där g = generera, cl = klass och hero = namnet på klassen.
+2. Det finns andra komponenter i **heroes.components.ts** som vi refererar till, t.ex. Hero-komponenten, så vi måste skapa även detta. Kör följande kommando i kommandotolken i Angular CLI för att skapa en hero-modell och en fil med namnet **hero.ts** , där g = generera, cl = klass och hero = namnet på klassen.
 
     ```bash
     ng g cl hero
@@ -408,7 +409,7 @@ Nu när vi har komponenten, hur gör vi så att den visas på skärmen? Vi ska �
 
 ## <a name="create-the-service"></a>Skapa tjänsten
 
-1. Skriv följande kommando i kommandotolken i Angular CLI för att skapa en hero-tjänst i **app.module.ts**, där g = generera, s = tjänst, hero = namnet på tjänsten och -m = lägg till i app.module.
+1. Skriv följande kommando i kommandotolken i Angular CLI för att skapa en hero-tjänst i **app.module.ts** , där g = generera, s = tjänst, hero = namnet på tjänsten och -m = lägg till i app.module.
 
     ```bash
     ng g s hero -m app.module
@@ -482,7 +483,7 @@ Nu när vi har komponenten, hur gör vi så att den visas på skärmen? Vi ska �
     ng b
     ``` 
 
-    Om det uppstår problem visas information om de filer som behöver åtgärdas. När appen har skapats läggs de nya filerna till i mappen **dist**. Du kan granska de nya filerna i mappen **dist** om du vill.
+    Om det uppstår problem visas information om de filer som behöver åtgärdas. När appen har skapats läggs de nya filerna till i mappen **dist** . Du kan granska de nya filerna i mappen **dist** om du vill.
 
     Nu ska vi köra appen.
 

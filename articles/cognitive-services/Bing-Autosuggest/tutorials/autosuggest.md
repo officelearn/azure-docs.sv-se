@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 9a5749d115a4d5d9ce1e0ac454609c7b639c2f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1b666e8929309778fc7b72e034a425c841fc2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309780"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095925"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Självstudie: Hämta Sök förslag på en webb sida
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 I den här självstudien skapar vi en webbsida där användarna kan fråga API:et Automatiska förslag i Bing.
 
@@ -28,7 +33,7 @@ I den här självstudiekursen lär du dig att:
 > - Skicka en enkel fråga till API:et Automatiska förslag i Bing
 > - Visa frågeresultatet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API:et Automatiska förslag i Bing. Om du inte har ett kan du [skapa en automatiska förslag i Bing resurs](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7) i Azure Portal.
 
@@ -119,7 +124,7 @@ Hjälpfunktionen getSubscriptionKeyLocalStorage försöker först hämta nyckeln
     }
 ```
 
-getSubscriptionKey-hjälpfunktionen stöder en parameter, **invalidate**. Om **invalidate** är **true** tar getSubscriptionKey bort cookien som innehåller nyckeln för API:et Automatiska förslag i Bing. Om **invalidate** är **false** returnerar getSubscriptionKey värdet för nyckeln för API:et Automatiska förslag i Bing.
+getSubscriptionKey-hjälpfunktionen stöder en parameter, **invalidate** . Om **invalidate** är **true** tar getSubscriptionKey bort cookien som innehåller nyckeln för API:et Automatiska förslag i Bing. Om **invalidate** är **false** returnerar getSubscriptionKey värdet för nyckeln för API:et Automatiska förslag i Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -233,7 +238,7 @@ Hantera även möjliga felhändelser från XMLHttpRequest-objektet.
     });
 ```
 
-Skicka begäran. Stäng funktionen bingAutosuggest i **script**-taggen och **head**-taggen.
+Skicka begäran. Stäng funktionen bingAutosuggest i **script** -taggen och **head** -taggen.
 
 ```html
     request.send();
@@ -267,7 +272,7 @@ Skapa ett HTML-formulär med ett textfält. Hantera `oninput` händelsen och anr
 </form>
 ```
 
-Lägg till HTML-taggen **div** som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div**-taggen.
+Lägg till HTML-taggen **div** som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div** -taggen.
 
 ```html
 <h2>Results</h2>
@@ -284,7 +289,7 @@ Spara filen.
 
 ## <a name="display-results"></a>Visa resultat
 
-Öppna webbsidan i webbläsaren. Ange din prenumerationsnyckel för API:et Automatiska förslag i Bing i Kommandotolken. Ange sedan en fråga (till exempel ”segla”) i textrutan **Automatiska förslag**. När du skriver uppdateras webbsidan automatiskt och visar de automatiska förslagen.
+Öppna webbsidan i webbläsaren. Ange din prenumerationsnyckel för API:et Automatiska förslag i Bing i Kommandotolken. Ange sedan en fråga (till exempel ”segla”) i textrutan **Automatiska förslag** . När du skriver uppdateras webbsidan automatiskt och visar de automatiska förslagen.
 
 ```json
 {

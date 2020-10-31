@@ -7,14 +7,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: ae0bf6836fd08e20d97f1cfd85627b25e31bf380
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0868b0d3e917b857d09c89e3a35d03872c42a23e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278406"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096656"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Data modellering i Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 När schema fria databaser, t. ex. Azure Cosmos DB, gör det mycket enkelt att lagra och fråga ostrukturerade och delvis strukturerade data, bör du ägna lite tid åt att tänka på din data modell för att få ut mesta möjliga av tjänsten när det gäller prestanda och skalbarhet och lägsta kostnad.
 
@@ -35,7 +36,7 @@ För jämförelse ska vi först se hur vi kan modellera data i en Relations data
 
 :::image type="content" source="./media/sql-api-modeling-data/relational-data-model.png" alt-text="Relations databas modell" border="false":::
 
-När du arbetar med relations databaser, är strategin att normalisera alla dina data. Att normalisera dina data innebär vanligt vis att ta en entitet, till exempel en person, och dela upp den i diskreta komponenter. I exemplet ovan kan en person ha flera kontakt informations poster, samt flera adress poster. Kontakt uppgifter kan delas vidare genom att ytterligare extrahera vanliga fält som en typ. Samma sak gäller för adress, varje post kan vara av typen *Start* eller *företag*.
+När du arbetar med relations databaser, är strategin att normalisera alla dina data. Att normalisera dina data innebär vanligt vis att ta en entitet, till exempel en person, och dela upp den i diskreta komponenter. I exemplet ovan kan en person ha flera kontakt informations poster, samt flera adress poster. Kontakt uppgifter kan delas vidare genom att ytterligare extrahera vanliga fält som en typ. Samma sak gäller för adress, varje post kan vara av typen *Start* eller *företag* .
 
 Den GUID som är lokal vid normaliserade data är att **undvika att lagra redundanta data** på varje post och i stället referera till data. I det här exemplet, för att läsa en person, med alla sina kontakt uppgifter och adresser, måste du använda kopplingar för att effektivt skriva tillbaka (eller avnormalisera) dina data vid körning.
 
@@ -85,9 +86,9 @@ I allmänhet använder du inbäddade data modeller när:
 
 * Det finns **inneslutna** relationer mellan entiteter.
 * Det finns **en-till-lite-** relationer mellan entiteter.
-* Det finns inbäddade data som **ändras sällan**.
-* Det finns inbäddade data som inte kommer att växa **utan bindning**.
-* Det finns inbäddade data som **frågas ofta tillsammans**.
+* Det finns inbäddade data som **ändras sällan** .
+* Det finns inbäddade data som inte kommer att växa **utan bindning** .
+* Det finns inbäddade data som **frågas ofta tillsammans** .
 
 > [!NOTE]
 > Normalt ger denormaliserade data modeller bättre **Läs** prestanda.
@@ -116,7 +117,7 @@ Ta det här JSON-kodfragmentet.
 }
 ```
 
-Detta kan vara vad en post-entitet med inbäddade kommentarer skulle se ut om vi modellerar en typisk blogg eller CMS, system. Problemet i det här exemplet är att kommentars mat ris är **obunden**, vilket innebär att det inte finns någon (praktisk) gräns för antalet kommentarer som kan ha ett enskilt inlägg. Detta kan bli ett problem eftersom storleken på objektet kan växa oändligt stor.
+Detta kan vara vad en post-entitet med inbäddade kommentarer skulle se ut om vi modellerar en typisk blogg eller CMS, system. Problemet i det här exemplet är att kommentars mat ris är **obunden** , vilket innebär att det inte finns någon (praktisk) gräns för antalet kommentarer som kan ha ett enskilt inlägg. Detta kan bli ett problem eftersom storleken på objektet kan växa oändligt stor.
 
 Eftersom storleken på objektet ökar möjligheten att överföra data via kabeln, samt läsning och uppdatering av objektet, i skala, kommer att påverkas.
 
@@ -241,8 +242,8 @@ I allmänhet använder du normaliserade data modeller när:
 
 * Representerar **en-till-många-** relationer.
 * Representerar **många-till-många** -relationer.
-* Relaterade data **ändringar ofta**.
-* Det gick inte att **binda**data som refereras till.
+* Relaterade data **ändringar ofta** .
+* Det gick inte att **binda** data som refereras till.
 
 > [!NOTE]
 > Normalt ger normalt bättre **Skriv** prestanda.
@@ -402,7 +403,7 @@ Om författarens namn har ändrats eller om han ville uppdatera sitt foto måste
 
 I exemplet finns det **förberäknade mängd** värden för att spara dyrbar bearbetning vid en Läs åtgärd. I exemplet är några av de data som är inbäddade i författar dokumentet data som beräknas i körnings tid. Varje gång en ny bok publiceras skapas ett bok dokument **och** fältet countOfBooks anges till ett beräknat värde baserat på antalet bok dokument som finns för en viss författare. Den här optimeringen skulle vara lämplig för att läsa tunga system där vi kan ge beräkningar av skrivningar för att optimera läsningar.
 
-Möjligheten att ha en modell med förberäknade fält görs möjlig eftersom Azure Cosmos DB stöder **transaktioner med flera dokument**. Många NoSQL-butiker kan inte utföra transaktioner i flera dokument och därför bör du tänka igenom design beslut, till exempel "alltid bädda in allt", på grund av den här begränsningen. Med Azure Cosmos DB kan du använda utlösare på Server sidan eller lagrade procedurer som infogar böcker och uppdaterar författare i en syra transaktion. Nu **behöver du inte bädda** in allt i ett dokument bara för att vara säker på att dina data är konsekventa.
+Möjligheten att ha en modell med förberäknade fält görs möjlig eftersom Azure Cosmos DB stöder **transaktioner med flera dokument** . Många NoSQL-butiker kan inte utföra transaktioner i flera dokument och därför bör du tänka igenom design beslut, till exempel "alltid bädda in allt", på grund av den här begränsningen. Med Azure Cosmos DB kan du använda utlösare på Server sidan eller lagrade procedurer som infogar böcker och uppdaterar författare i en syra transaktion. Nu **behöver du inte bädda** in allt i ett dokument bara för att vara säker på att dina data är konsekventa.
 
 ## <a name="distinguishing-between-different-document-types"></a>Skilja mellan olika dokument typer
 

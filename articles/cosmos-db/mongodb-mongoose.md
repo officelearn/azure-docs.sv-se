@@ -9,14 +9,15 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 84d96344f20c56c9fab9eb5b3affcca3a437c096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eab24c317513382afdd452843bc09e845ca90452
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324560"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096503"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ansluta ett Node.js Mongoose-program till Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Den här självstudien visar hur du använder [Mongoose-ramverket](https://mongoosejs.com/) när du lagrar data i Cosmos dB. Vi använder Azure Cosmos DBs API för MongoDB för den här genom gången. För dem som inte vet är Mongoose ett ramverk för modellering av objekt för MongoDB i Node.js och tillhandahåller en enkel och schemabaserad lösning för att modellera dina programdata.
 
@@ -38,11 +39,11 @@ Nu ska vi skapa ett Cosmos-konto. Om du redan har ett konto som du vill använda
 
 ### <a name="create-a-database"></a>Skapa en databas 
 I det här programmet kommer vi att gå igenom två sätt att skapa samlingar i Azure Cosmos DB: 
-- **Lagring av varje objekt modell i en separat samling**: Vi rekommenderar att du [skapar en databas med dedikerat data flöde](set-throughput.md#set-throughput-on-a-database). Med den här kapacitets modellen får du bättre kostnads effektivitet.
+- **Lagring av varje objekt modell i en separat samling** : Vi rekommenderar att du [skapar en databas med dedikerat data flöde](set-throughput.md#set-throughput-on-a-database). Med den här kapacitets modellen får du bättre kostnads effektivitet.
 
     :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node.js självstudie – skärm bild av Azure Portal, som visar hur du skapar en databas i Datautforskaren för ett Azure Cosmos DB konto, för användning med Mongoose Node-modulen":::
 
-- **Lagra alla objekt modeller i en enda Cosmos DB samling**: om du vill lagra alla modeller i en enda samling kan du bara skapa en ny databas utan att välja alternativet Tillhandahåll data flöde. Genom att använda den här kapacitets modellen skapas varje samling med sin egen data flödes kapacitet för varje objekt modell.
+- **Lagra alla objekt modeller i en enda Cosmos DB samling** : om du vill lagra alla modeller i en enda samling kan du bara skapa en ny databas utan att välja alternativet Tillhandahåll data flöde. Genom att använda den här kapacitets modellen skapas varje samling med sin egen data flödes kapacitet för varje objekt modell.
 
 När du har skapat databasen använder du namnet i `COSMOSDB_DBNAME` miljö variabeln nedan.
 

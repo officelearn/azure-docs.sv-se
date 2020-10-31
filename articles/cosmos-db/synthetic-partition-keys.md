@@ -6,16 +6,17 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: a50de7154bd768f5cc4c25062ec3ce05c0f37328
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6868859247fc430ee96581ae85fb7077af04999
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279863"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098033"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Skapa en syntetisk partitionsnyckel
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Vi rekommenderar att du har en partitionsnyckel med många distinkta värden, till exempel hundratals eller tusentals. Målet är att distribuera data och arbets belastning jämnt mellan objekten som är kopplade till dessa nyckel värden. Om sådan egenskap inte finns i dina data, kan du skapa en *syntetisk partitionsnyckel*. I det här dokumentet beskrivs flera grundläggande metoder för att skapa en syntetisk partitionsnyckel för Cosmos-behållaren.
+Vi rekommenderar att du har en partitionsnyckel med många distinkta värden, till exempel hundratals eller tusentals. Målet är att distribuera data och arbets belastning jämnt mellan objekten som är kopplade till dessa nyckel värden. Om sådan egenskap inte finns i dina data, kan du skapa en *syntetisk partitionsnyckel* . I det här dokumentet beskrivs flera grundläggande metoder för att skapa en syntetisk partitionsnyckel för Cosmos-behållaren.
 
 ## <a name="concatenate-multiple-properties-of-an-item"></a>Sammanfoga flera egenskaper för ett objekt
 

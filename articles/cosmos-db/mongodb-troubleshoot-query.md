@@ -7,14 +7,15 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ece814ea316fe62bc2b8b64036b08983f65ccbef
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488392"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096367"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Felsök problem med frågor när du använder Azure Cosmos DB API för MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Den här artikeln vägleder dig genom en allmänt rekommenderad metod för fel sökning av frågor i Azure Cosmos DB. Även om du inte bör tänka på de steg som beskrivs i den här artikeln får du ett fullständigt försvar mot potentiella frågor, men vi har inkluderat de vanligaste prestanda tipsen här. Du bör använda den här artikeln som en start plats för fel sökning av långsamma eller kostsamma frågor i Azure Cosmos DBs API för MongoDB. Om du använder API: et för Azure Cosmos DB Core (SQL) läser du artikeln om [fel söknings guiden för SQL API-frågor](troubleshoot-query-performance.md) .
 

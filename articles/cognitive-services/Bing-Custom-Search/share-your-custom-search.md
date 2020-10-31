@@ -10,21 +10,26 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 5a08ee7f5ea3d5e8c393ea4c1a64c353e24777e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90b6619a5a0c3d59b09eeb5a5002d15cf0c21e19
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072702"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095908"
 ---
 # <a name="share-your-custom-search-instance"></a>Dela din anpassade Sök instans
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Du kan möjliggöra samarbetsbaserad redigering och testning av din instans genom att helt enkelt dela den med medlemmar i ditt team. Du kan dela din instans med någon som bara använder sin e-postadress. Så här delar du en instans:
 
 - Logga in på [Anpassad sökning](https://customsearch.ai)
 - Välj en anpassad Sök instans
 - Klicka på inställnings ikonen (visas som ett kugg hjul). 
-- Under **dela din instans**anger du e-postadressen till den person som du vill dela din instans med och klickar på **dela**. 
+- Under **dela din instans** anger du e-postadressen till den person som du vill dela din instans med och klickar på **dela** . 
 
 När du har lagt till e-postadressen läggs den till i den **instans som delas med** -listan. Upprepa processen för varje person som du vill dela din instans med. 
 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: d48d16d13bf35636950366cba7cd946f01afcff0
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4594f1d3f33f3fc20bfc5582f58945e5382a7db8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92285119"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096180"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-table-api"></a>Azure PowerShell exempel för Azure Cosmos DB Tabell-API
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Följande tabell innehåller länkar till vanliga Azure PowerShell skript för Azure Cosmos DB. Använd länkarna till höger för att navigera till API-/regionsspecifika exempel. Vanliga exempel är samma för alla API: er. Referens sidor för alla Azure Cosmos DB PowerShell-cmdletar finns i [referensen Azure PowerShell](/powershell/module/az.cosmosdb). Sök efter uppdateringar `Az.CosmosDB` regelbundet. Du kan också förgrena dessa PowerShell-exempel för Cosmos DB från vår GitHub-lagringsplats [Cosmos DB PowerShell-exempel på GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb).
 

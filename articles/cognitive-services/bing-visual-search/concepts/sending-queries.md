@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: d9be654b014b00a9d906210f484c2620e688838d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 331b2ffde8d034ba94f5b1adcae5efa223f57594
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84169142"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095126"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Skicka Sök frågor till API för visuell sökning i Bing
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 I den här artikeln beskrivs parametrarna och attributen för begär Anden som skickas till API för visuell sökning i Bing, samt objektet Response. 
 
@@ -73,12 +78,12 @@ Begäranden måste skickas som HTTP POST-begäranden.
 
 Här följer frågeparametrarna som din begäran bör ange. Du bör minst ta med `mkt` Frågeparametern:
 
-| Name | Värde | Typ | Obligatorisk |
+| Namn | Värde | Typ | Obligatorisk |
 | --- | --- | --- | --- |
-| <a name="cc"></a>cc  | En landskod med två tecken som representerar var resultatet kommer från.<br /><br /> Om du anger parametern måste du även ange huvudet [Accept-Language](#acceptlanguage). Bing använder det första språket som stöds på listan över språk och kombinerar språket med landskoden som du anger för att fastställa vilken marknad som resultatet som returneras från. Om listan över språk inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran. Eller så kan den använda en sammansatt eller standardmarknad för resultatet i stället för den angivna.<br /><br /> Du bör endast använda den här frågeparametern och `Accept-Language`-frågeparametern om du anger flera språk. I annat fall bör du använda frågeparametrarna `mkt` och `setLang`.<br /><br /> Den här parametern och [mkt](#mkt)-frågeparametern utesluter varandra&mdash;ange inte båda två. | Sträng | Inga       |
-| <a name="mkt"></a>mkt   | Marknaden som resultatet kommer från. <br /><br /> **Obs:** Du bör alltid ange marknaden, om det är känt. Om du anger marknaden gör det enklare för Bing att dirigera begäran och returnera ett lämpligt och optimalt svar.<br /><br /> Den här parametern och [cc](#cc)-frågeparametern utesluter varandra&mdash;ange inte båda två. | Sträng | Ja      |
-| <a name="safesearch"></a>safeSearch | Ett filter för vuxen innehåll. Här följer de möjliga skiftlägeskänsliga filtervärdena.<br /><ul><li>Av&mdash;Returnerar inte webbsidor med text eller bilder med innehåll som är olämpligt för barn.<br /><br/></li><li>Måttlig&mdash;Returnera webbsidor med vuxet innehåll, men inte vuxna avbildningar.<br /><br/></li><li>Strikt&mdash;Returnerar inte webbsidor med text eller bilder med innehåll som är olämpligt för barn.</li></ul><br /> Standardinställningen är Måttlig.<br /><br /> **Obs!** Om förfrågan kommer från en marknad för vilken Bings princip för vuxet innehåll kräver att `safeSearch` ska vara inställd på Strikt ignorerar Bing värdet `safeSearch` och använder Strikt.<br/><br/>**Obs:** Om du använder `site:` fråga-operatorn, finns det en risk att svaret innehåller innehåll som inte är vuxna, oavsett vad `safeSearch` frågeparametern är inställd på. Använd endast `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn.  | Sträng | Inga       |
-| <a name="setlang"></a>setLang  | Språket som ska användas för användargränssnittssträngar. Ange språket med ISO 639-1-språk koden med två bokstäver. Språkkoden för engelska är till exempel EN. Standardvärdet är EN (engelska).<br /><br /> Även om det är valfritt bör du alltid ange språket. Normalt anger du `setLang` på samma språk som anges av `mkt` om inte användaren vill att gränssnittets strängar ska visas på ett annat språk.<br /><br /> Den här parametern och [Accept-Language](#acceptlanguage)-huvudet utesluter varandra&mdash;ange inte båda två.<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket. | Sträng | Inga   |
+| <a name="cc"></a>cc  | En landskod med två tecken som representerar var resultatet kommer från.<br /><br /> Om du anger parametern måste du även ange huvudet [Accept-Language](#acceptlanguage). Bing använder det första språket som stöds på listan över språk och kombinerar språket med landskoden som du anger för att fastställa vilken marknad som resultatet som returneras från. Om listan över språk inte innehåller något språk som stöds hittar Bing det närmaste språket och marknaden som har stöd för begäran. Eller så kan den använda en sammansatt eller standardmarknad för resultatet i stället för den angivna.<br /><br /> Du bör endast använda den här frågeparametern och `Accept-Language`-frågeparametern om du anger flera språk. I annat fall bör du använda frågeparametrarna `mkt` och `setLang`.<br /><br /> Den här parametern och [mkt](#mkt)-frågeparametern utesluter varandra&mdash;ange inte båda två. | Sträng | No       |
+| <a name="mkt"></a>mkt   | Marknaden som resultatet kommer från. <br /><br /> **Obs:** Du bör alltid ange marknaden, om det är känt. Om du anger marknaden gör det enklare för Bing att dirigera begäran och returnera ett lämpligt och optimalt svar.<br /><br /> Den här parametern och [cc](#cc)-frågeparametern utesluter varandra&mdash;ange inte båda två. | Sträng | Yes      |
+| <a name="safesearch"></a>safeSearch | Ett filter för vuxen innehåll. Här följer de möjliga skiftlägeskänsliga filtervärdena.<br /><ul><li>Av&mdash;Returnerar inte webbsidor med text eller bilder med innehåll som är olämpligt för barn.<br /><br/></li><li>Måttlig&mdash;Returnera webbsidor med vuxet innehåll, men inte vuxna avbildningar.<br /><br/></li><li>Strikt&mdash;Returnerar inte webbsidor med text eller bilder med innehåll som är olämpligt för barn.</li></ul><br /> Standardinställningen är Måttlig.<br /><br /> **Obs!** Om förfrågan kommer från en marknad för vilken Bings princip för vuxet innehåll kräver att `safeSearch` ska vara inställd på Strikt ignorerar Bing värdet `safeSearch` och använder Strikt.<br/><br/>**Obs:** Om du använder `site:` fråga-operatorn, finns det en risk att svaret innehåller innehåll som inte är vuxna, oavsett vad `safeSearch` frågeparametern är inställd på. Använd endast `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn.  | Sträng | No       |
+| <a name="setlang"></a>setLang  | Språket som ska användas för användargränssnittssträngar. Ange språket med ISO 639-1-språk koden med två bokstäver. Språkkoden för engelska är till exempel EN. Standardvärdet är EN (engelska).<br /><br /> Även om det är valfritt bör du alltid ange språket. Normalt anger du `setLang` på samma språk som anges av `mkt` om inte användaren vill att gränssnittets strängar ska visas på ett annat språk.<br /><br /> Den här parametern och [Accept-Language](#acceptlanguage)-huvudet utesluter varandra&mdash;ange inte båda två.<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket. | Sträng | No   |
 
 ## <a name="headers"></a>Sidhuvuden
 
@@ -104,7 +109,7 @@ Här följer huvudena som din begäran bör ange. `Content-Type` `Ocp-Apim-Subsc
 
 ### <a name="content-form-types"></a>Typer av innehållsformulär
 
-Varje begäran måste innehålla `Content-Type` rubriken. Huvudet måste vara inställt på: `multipart/form-data; boundary=\<boundary string\>` , där \<boundary string\> är en unik, ogenomskinlig sträng som identifierar gränserna för formulär data. Exempelvis `boundary=boundary_1234-abcd`.
+Varje begäran måste innehålla `Content-Type` rubriken. Huvudet måste vara inställt på: `multipart/form-data; boundary=\<boundary string\>` , där \<boundary string\> är en unik, ogenomskinlig sträng som identifierar gränserna för formulär data. Till exempel `boundary=boundary_1234-abcd`.
 
 Om du skickar Visuell sökning en bildtoken eller URL, visar följande fragment de formulär data som du måste inkludera i POSTens brödtext. Formulär data måste innehålla `Content-Disposition` rubriken och du måste ange dess `name` parameter till "knowledgeRequest". Mer information om `imageInfo` objektet finns i begäran.
 
@@ -148,7 +153,7 @@ Om du överför en lokal avbildning visar följande fragment de formulär data s
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 Content-Type: image/jpeg
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -175,7 +180,7 @@ Content-Disposition: form-data; name="image"; filename="image"
 Content-Type: image/jpeg
 
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```

@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3af713d6e120e66a0cde5116f4556bb8caedf55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523493"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097863"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa en Node.js Express-app
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Den här självstudien i flera delar visar hur du skapar en ny app skriven i Node.js med Express och Angular och sedan ansluter den till ditt [Cosmos-konto konfigurerat med Cosmos DB:s API för MongoDB](mongodb-introduction.md).
 
@@ -33,7 +34,7 @@ Del 2 av kursen bygger vidare på [introduktionen](tutorial-develop-mongodb-node
 
 > [!VIDEO https://www.youtube.com/embed/lIwJIYcGSUg]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Titta på [introduktionsvideon](tutorial-develop-mongodb-nodejs.md) innan du påbörjar den här delen av självstudiekursen.
 
@@ -81,9 +82,9 @@ Den här kursen kräver även följande:
 
 ## <a name="build-the-app-using-the-express-framework"></a>Utveckla appen med hjälp av Express-ramverket
 
-1. Högerklicka på mappen **src** i **Explorer**-fönstret i Visual Studio Code, klicka på **Ny mapp** och ge den nya mappen namnet *server*.
+1. Högerklicka på mappen **src** i **Explorer** -fönstret i Visual Studio Code, klicka på **Ny mapp** och ge den nya mappen namnet *server* .
 
-2. Högerklicka på mappen **server** i **Explorer**-fönstret, klicka på **Ny fil** och ge den nya filen namnet *index.js*.
+2. Högerklicka på mappen **server** i **Explorer** -fönstret, klicka på **Ny fil** och ge den nya filen namnet *index.js* .
 
 3. Tillbaka i kommandotolken installerar du body-parser genom att köra följande kommando. På så sätt kan appen parsa JSON-data som skickas via API:erna.
 
@@ -125,9 +126,9 @@ Den här kursen kräver även följande:
    app.listen(port, () => console.log(`API running on localhost:${port}`));
    ```
 
-5. Högerklicka på mappen **server** i **Explorer**-fönstret i Visual Studio Code och klicka på **Ny fil**. Ge den nya filen namnet *routes.js*. 
+5. Högerklicka på mappen **server** i **Explorer** -fönstret i Visual Studio Code och klicka på **Ny fil** . Ge den nya filen namnet *routes.js* . 
 
-6. Kopiera följande kod till **routes.js**. Den här koden:
+6. Kopiera följande kod till **routes.js** . Den här koden:
    * Refererar till Express-routern
    * Hämtar heroes-komponenterna
    * Skickar tillbaka JSON för en definierad hero-komponent

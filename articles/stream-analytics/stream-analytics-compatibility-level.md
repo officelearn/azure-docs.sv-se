@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b49cdb423e8fd2e70175d4ac71f6dcd07b459f9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056524"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097744"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivå för Azure Stream Analytics jobb
 
@@ -33,13 +33,13 @@ När du skapar ett nytt Stream Analytics jobb är det en bra idé att skapa det 
 
 ## <a name="set-the-compatibility-level"></a>Ange kompatibilitetsnivå
 
-Du kan ange kompatibilitetsnivån för ett Stream Analytics jobb i Azure Portal eller med hjälp av [anropet skapa jobb REST API](/rest/api/streamanalytics/stream-analytics-job).
+Du kan ange kompatibilitetsnivån för ett Stream Analytics jobb i Azure Portal eller med hjälp av [anropet skapa jobb REST API](/azure/stream-analytics/stream-analytics-quick-create-portal).
 
 Så här uppdaterar du kompatibilitetsnivån för jobbet i Azure Portal:
 
 1. Använd [Azure Portal](https://portal.azure.com) för att leta upp Stream Analytics jobb.
 2. **Stoppa** jobbet innan du uppdaterar kompatibilitetsnivån. Du kan inte uppdatera kompatibilitetsnivån om jobbet är i ett körnings läge.
-3. Under **Konfigurera** rubrik väljer du **kompatibilitetsnivå**.
+3. Under **Konfigurera** rubrik väljer du **kompatibilitetsnivå** .
 4. Välj det värde för kompatibilitetsnivå som du vill använda.
 5. Välj **Spara** längst ned på sidan.
 
@@ -53,7 +53,7 @@ Följande större ändringar introduceras i kompatibilitetsnivån 1,2:
 
 ###  <a name="amqp-messaging-protocol"></a>AMQP meddelande protokoll
 
-**1,2 nivå**: Azure Stream Analytics använder meddelande protokollet [Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) för att skriva till Service Bus köer och ämnen. Med AMQP kan du skapa hybrid program mellan plattformar med ett öppet standard protokoll.
+**1,2 nivå** : Azure Stream Analytics använder meddelande protokollet [Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) för att skriva till Service Bus köer och ämnen. Med AMQP kan du skapa hybrid program mellan plattformar med ett öppet standard protokoll.
 
 ### <a name="geospatial-functions"></a>Geospatiala funktioner
 
@@ -75,11 +75,11 @@ Mer information finns i [uppdateringar av geospatiala funktioner i Azure Stream 
 
 ### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Intern Mass-API-integrering med CosmosDB-utdata
 
-**Tidigare nivåer:** Upsert beteendet *infogades eller sammanfogades*.
+**Tidigare nivåer:** Upsert beteendet *infogades eller sammanfogades* .
 
 **1,2-nivå:** Intern Mass-API-integrering med CosmosDB-utdata maximerar data flödet och hanterar begränsnings begär Anden effektivt. Mer information finns [på sidan Azure Stream Analytics utdata till Azure Cosmos DB](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
 
-Upsert beteende är *Infoga eller Ersätt*.
+Upsert beteende är *Infoga eller Ersätt* .
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset vid skrivning till SQL-utdata
 

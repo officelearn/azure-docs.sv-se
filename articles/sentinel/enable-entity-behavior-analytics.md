@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2020
+ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: c55ea0e7753faa6dc21b955d63a57d96e3849f70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4587ab5e2cf36dce65cd02b167656c88cfde10a1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997114"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096962"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Aktivera användar-och enhets beteende analys (UEBA) i Azure Sentinel 
 
@@ -27,17 +27,27 @@ ms.locfileid: "90997114"
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Användaren måste tilldelas rollen som **Global administratör** eller **säkerhets administratör** i Azure AD för att kunna aktivera eller inaktivera UEBA, men inte köra den.
+Om du vill aktivera eller inaktivera den här funktionen (dessa krav krävs inte för att använda funktionen):
+
+- Användaren måste vara medlem i din organisations Azure Active Directory och inte en gäst användare.
+
+- Användaren måste tilldelas rollen som **Global administratör** eller **säkerhets administratör** i Azure AD.
+
+- Användaren måste tilldelas minst en av följande **Azure-roller** ( [Läs mer om Azure RBAC](roles.md)):
+    - **Azure Sentinel-deltagare** på arbets ytans eller resurs grupps nivåerna.
+    - **Log Analytics deltagare** i resurs gruppen eller prenumerations nivåerna.
+
+- Arbets ytan får inte ha några Azure-resurs lås. [Lär dig mer om resurs låsning i Azure](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Så här aktiverar du användar-och enhets beteende analyser
 
-1. På navigerings menyn i Azure Sentinel väljer du **enhets beteende (för hands version)**.
+1. På navigerings menyn i Azure Sentinel väljer du **enhets beteende (för hands version)** .
 
-1. Under rubriken **aktiverar du den**och växlar sedan till **på**.
+1. Under rubriken **aktiverar du den** och växlar sedan till **på** .
 
 1. Klicka på knappen **Välj data källor** .
 
-1. Markera kryss rutorna bredvid de data källor som du vill aktivera UEBA för i fönstret **Val av data källa** och välj sedan **Använd**.
+1. Markera kryss rutorna bredvid de data källor som du vill aktivera UEBA för i fönstret **Val av data källa** och välj sedan **Använd** .
 
     > [!NOTE]
     >
@@ -45,7 +55,7 @@ ms.locfileid: "90997114"
     >
     > När du har aktiverat UEBA kan du välja att när du ansluter nya data källor så att de kan UEBA direkt från data anslutnings fönstret om de är UEBA-kompatibla.
 
-1. Välj **gå till enhets sökning**. Då kommer du till entitetens sökfönster, som nu är det du ser när du väljer **enhets beteende** från huvud menyn i Azure Sentinel.
+1. Välj **gå till enhets sökning** . Då kommer du till entitetens sökfönster, som nu är det du ser när du väljer **enhets beteende** från huvud menyn i Azure Sentinel.
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du aktiverar och konfigurerar användar-och enhets beteende analys (UEBA) i Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:

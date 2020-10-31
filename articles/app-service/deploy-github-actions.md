@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 638dfc63b6a37bae3905703bbd5ecabaa94d2020
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6c768df964d46364a8ca501c078dbecaf1aaa21f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783087"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095568"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
@@ -74,6 +74,9 @@ En publicerings profil är en autentiseringsuppgift på program nivå. Konfigure
 1. På sidan **Översikt** väljer du **Hämta publicerings profil** .
 
 1. Spara den hämtade filen. Du använder filens innehåll för att skapa en GitHub-hemlighet.
+
+> [!NOTE]
+> Från och med oktober 2020 behöver Linux-webbapparna appens inställning `WEBSITE_WEBDEPLOY_USE_SCM` inställt på `true` **innan publicerings profilen laddas ned** . Detta krav kommer att tas bort i framtiden.
 
 # <a name="service-principal"></a>[Tjänstens huvudnamn](#tab/userlevel)
 

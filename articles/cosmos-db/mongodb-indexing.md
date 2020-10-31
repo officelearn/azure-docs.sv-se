@@ -9,14 +9,15 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a1144560b8bd8638477828f1aeafcacbc8b77f1d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487389"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096486"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Hantera indexering i Azure Cosmos DBs API för MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DBs API för MongoDB drar nytta av kärn funktionerna för hantering av Azure Cosmos DB. Den här artikeln fokuserar på hur du lägger till index med Azure Cosmos DB s API för MongoDB. Du kan också läsa en [Översikt över indexering i Azure Cosmos DB](index-overview.md) som är relevant för alla API: er.
 
@@ -121,7 +122,7 @@ Följande kommando skapar ett Wildcard-index för alla egenskaper i `children` :
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-**Till skillnad från i MongoDB kan jokertecken indexeras ha stöd för flera fält i frågesyntaxen**. Det kommer inte att finnas någon skillnad i frågans prestanda om du använder ett enda index i ett jokertecken i stället för att skapa ett separat index för varje egenskap.
+**Till skillnad från i MongoDB kan jokertecken indexeras ha stöd för flera fält i frågesyntaxen** . Det kommer inte att finnas någon skillnad i frågans prestanda om du använder ett enda index i ett jokertecken i stället för att skapa ett separat index för varje egenskap.
 
 Du kan skapa följande index typer med syntaxen jokertecken:
 
@@ -147,7 +148,7 @@ Jokertecken index stöder inte någon av följande index typer eller egenskaper:
 - TTL
 - Unik
 
-Till **skillnad från i MongoDB**, i Azure Cosmos DB s API för MongoDB, **kan du inte** använda jokertecken index för:
+Till **skillnad från i MongoDB** , i Azure Cosmos DB s API för MongoDB, **kan du inte** använda jokertecken index för:
 
 - Skapa ett Wildcard-index som innehåller flera olika fält
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: aecc64c5fa923bc29d34efd3969c2c12f30153c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 351a9742e9d839a8e217fdea35cad922acc3339f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320110"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095680"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Hantera gransknings feedback för Azure-programerbjudanden
 
@@ -39,11 +39,11 @@ Använd följande procedur för att granska problem som dokumenteras i pull-beg�
     [![Start sida för pull-begäran](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Klicka på bilden för att expandera.*
 
-1. Valfritt På höger sida av fönstret, i avsnittet **principer**, väljer du ärende meddelandet (i det här exemplet: **princip valideringen misslyckades**) för att undersöka lågnivå information om problemet, inklusive de associerade loggfilerna. Fel visas vanligt vis längst ned i loggfilerna.
+1. Valfritt På höger sida av fönstret, i avsnittet **principer** , väljer du ärende meddelandet (i det här exemplet: **princip valideringen misslyckades** ) för att undersöka lågnivå information om problemet, inklusive de associerade loggfilerna. Fel visas vanligt vis längst ned i loggfilerna.
 
 1. På menyn på vänster sida av start sidan väljer du **filer** för att visa de filer som utgör de tekniska till gångarna för det här erbjudandet. Microsoft-granskarna bör ha lagt till kommentarer som beskriver de identifierade kritiska problemen. I följande exempel har två problem identifierats.
 
-    [![Start sida för pull-begäran](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![Skärm bild som markerar filer och de två problem som har identifierats.](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Klicka på bilden för att expandera.*
 
 1. Välj varje kommentar-nod i det vänstra trädet för att navigera till kommentaren i kontexten för den omgivande koden. Åtgärda problemet som beskrivs i kommentaren genom att korrigera käll koden i teamets projekt.

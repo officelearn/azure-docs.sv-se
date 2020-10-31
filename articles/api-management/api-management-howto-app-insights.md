@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8c9df3393a0554d2e65b3918c6760885f89e11ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adb221c12af436135b1e740fdef7c5c0a0a7f0cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254752"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096044"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Så integrerar du Azure API Management med Azure Application Insights
 
 Azure API Management möjliggör enkel integrering med Azure Application Insights – en utöknings bar tjänst för webbutvecklare som skapar och hanterar appar på flera plattformar. Den här guiden går igenom alla steg i denna integrering och beskriver strategier för att minska prestanda påverkan på din API Management tjänst instans.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa den här guiden måste du ha en Azure API Management-instans. Om du inte har någon, slutför du [själv studie kursen](get-started-create-service-instance.md) först.
 
@@ -32,39 +32,39 @@ Om du vill följa den här guiden måste du ha en Azure API Management-instans. 
 
 Innan du kan använda Azure Application insikter måste du först skapa en instans av tjänsten.
 
-1. Öppna **Azure Portal** och gå till **Application Insights**.  
-    ![Skapa App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
-2. Klicka på **+ Lägg till**.  
+1. Öppna **Azure Portal** och gå till **Application Insights** .  
+    ![Skärm bild som visar hur du navigerar till Application Insights.](media/api-management-howto-app-insights/apim-app-insights-instance-1.png)  
+2. Klicka på **+ Lägg till** .  
     ![Skapa App Insights](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
-3. Fyll i formuläret. Välj **Allmänt** som **program typ**.
-4. Klicka på **Skapa**.
+3. Fyll i formuläret. Välj **Allmänt** som **program typ** .
+4. Klicka på **Skapa** .
 
 ## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Skapa en anslutning mellan Azure Application Insights och Azure API Management-tjänstinstans
 
-1. Gå till **Azure API Management Service-instansen** i **Azure Portal**.
+1. Gå till **Azure API Management Service-instansen** i **Azure Portal** .
 2. Välj **Application Insights** på menyn till vänster.
-3. Klicka på **+ Lägg till**.  
-    ![App Insights-loggning](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
+3. Klicka på **+ Lägg till** .  
+    ![Skärm bild som visar var du kan lägga till en ny anslutning.](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
 4. Välj den tidigare skapade **Application Insights** -instansen och ange en kort beskrivning.
-5. Klicka på **Skapa**.
+5. Klicka på **Skapa** .
 6. Du har precis skapat en Azure Application Insights-logg med en Instrumentation-nyckel. Den bör nu visas i listan.  
-    ![App Insights-loggning](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
+    ![Skärm bild som visar var du kan visa den nyligen skapade Azure Application Insights-loggaren med Instrumentation-tangenten.](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
 > Efter scenen skapas en [loggad](/rest/api/apimanagement/2019-12-01/logger/createorupdate) entitet i API Management-instansen som innehåller Instrumentation-nyckeln för Application Insights-instansen.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Aktivera Application Insights loggning för ditt API
 
-1. Gå till **Azure API Management Service-instansen** i **Azure Portal**.
+1. Gå till **Azure API Management Service-instansen** i **Azure Portal** .
 2. Välj **API:er** i menyn till vänster.
-3. Klicka på ditt API, i det här fallet **demo konferens-API**.
+3. Klicka på ditt API, i det här fallet **demo konferens-API** .
 4. Gå till fliken **Inställningar** från det översta fältet.
 5. Rulla ned till avsnittet **diagnostiska loggar** .  
     ![App Insights-loggning](media/api-management-howto-app-insights/apim-app-insights-api-1.png)  
 6. Markera kryss rutan **Aktivera** .
 7. Välj din anslutna logg i list rutan **destination** .
 8. Indata **100** som **sampling (%)** och kryssa i kryss rutan **Logga alltid in fel** .
-9. Klicka på **Spara**.
+9. Klicka på **Spara** .
 
 > [!WARNING]
 > Att åsidosätta standardvärdet **0** i fältet **första byte i brödtext** kan avsevärt minska prestandan för dina API: er.
@@ -97,8 +97,8 @@ Innan du kan använda Azure Application insikter måste du först skapa en insta
 
 Azure Application insikter tar emot:
 
-+ *Begär* telemetri-objekt, för varje inkommande begäran (*frontend-begäran*, frontend- *svar*).
-+ Objekt för *beroende* telemetri, för alla begär Anden som vidarebefordras till en backend-tjänst (*backend-begäran*, *Server dels svar*)
++ *Begär* telemetri-objekt, för varje inkommande begäran ( *frontend-begäran* , frontend- *svar* ).
++ Objekt för *beroende* telemetri, för alla begär Anden som vidarebefordras till en backend-tjänst ( *backend-begäran* , *Server dels svar* )
 + Objekt för *undantag* av telemetri, för varje misslyckad begäran.
 
 En misslyckad begäran är en begäran som:

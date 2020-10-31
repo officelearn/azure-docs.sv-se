@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: b35e8e11c93ad7f48dc24d8bd13fcd7dc706acb9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e2724fb3b077b833d4e1097188b636afea486347
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90970380"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095245"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Snabb start: skicka en fråga till API: et för lokal sökning i Bing med Java
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Använd den här snabb starten för att lära dig hur du skickar begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet är skrivet i Java, är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
 
@@ -28,11 +33,11 @@ Det här exempel programmet hämtar lokala svars data från API: et för en Sök
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
-* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" skapar du en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
+* När du har en Azure-prenumeration <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" skapar du en Bing-sökning resurs "  target="_blank"> skapa en Bing-sökning resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs** .
 
 ## <a name="create-the-request"></a>Skapa begäran 
 
-Följande kod skapar en `WebRequest` , ställer in åtkomst nyckel rubriken och lägger till en frågesträng för *hotell i Bellevue*.  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
+Följande kod skapar en `WebRequest` , ställer in åtkomst nyckel rubriken och lägger till en frågesträng för *hotell i Bellevue* .  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
 
 ```java
     // construct URL of search request (endpoint + query string)
@@ -86,8 +91,8 @@ import com.google.gson.JsonParser;
 public class LocalSearchCls {
 
     // ***********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
+    // **_ Update or verify the following values. _*_
+    // _*********************************************
 
         // Replace the subscriptionKey string value with your valid subscription key.
         static String subscriptionKey = "YOUR-ACCESS-KEY";

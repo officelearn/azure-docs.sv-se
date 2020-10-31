@@ -7,14 +7,15 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: cd2d9ddf17cf100e1a211785b9cc62c9f08352f9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 399c078481fb205221a683e44f74b4d70c383cbe
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282422"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096571"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB (version 3.6): Funktioner och syntax som stöds
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med Azure Cosmos DBens API för MongoDB med någon av MongoDB-klient [driv rutinerna](https://docs.mongodb.org/ecosystem/drivers)med öppen källkod. Azure Cosmos DB:s API för MongoDB tillåter gör det möjligt att använda befintliga klientdrivrutiner genom att följa MongoDB-[trådprotokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
@@ -36,75 +37,75 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|delete | Ja |
-|find | Ja     |
-|findAndModify | Ja  |
-|getLastError|   Ja |
-|getMore  |  Ja  |
-|getPrevError | Nej  |
-|insert  |   Ja  |
-|parallelCollectionScan  | Ja   |
-|resetError |    Nej  |
-|update  |   Ja  |
-|[Ändra dataströmmar](mongodb-change-streams.md)  |  Ja  |
-|GridFS |   Ja  |
+|delete | Yes |
+|find | Yes     |
+|findAndModify | Yes  |
+|getLastError|   Yes |
+|getMore  |  Yes  |
+|getPrevError | No  |
+|insert  |   Yes  |
+|parallelCollectionScan  | Yes   |
+|resetError |    No  |
+|update  |   Yes  |
+|[Ändra dataströmmar](mongodb-change-streams.md)  |  Yes  |
+|GridFS |   Yes  |
 
 ### <a name="authentication-commands"></a>Autentiseringskommandon
 
 |Kommando  |Stöds |
 |---------|---------|
-|authenticate    |   Ja      |
-|logout    |      Ja   |
-|getnonce   |    Ja     |
+|authenticate    |   Yes      |
+|logout    |      Yes   |
+|getnonce   |    Yes     |
 
 
 ### <a name="administration-commands"></a>Administrationskommandon
 
 |Kommando  |Stöds |
 |---------|---------|
-|Tak samlingar   |   Nej      |
-|cloneCollectionAsCapped     |   Nej      |
-|collMod     |   Nej      |
-|collMod: expireAfterSeconds   |   Nej      |
-|convertToCapped   |  Nej       |
-|copydb     |  Nej       |
-|skapa   |    Ja     |
-|createIndexes     |  Ja       |
-|currentOp     |  Ja       |
-|drop     |   Ja      |
-|dropDatabase     |  Ja       |
-|dropIndexes     |   Ja      |
-|filemd5    |   Ja      |
-|killCursors    |  Ja       |
-|killOp     |   Nej      |
-|listCollections     |  Ja       |
-|listDatabases     |  Ja       |
-|listIndexes     |  Ja       |
-|reIndex     |    Ja     |
-|renameCollection     |    Nej     |
-|connectionStatus    |     Nej    |
+|Tak samlingar   |   No      |
+|cloneCollectionAsCapped     |   No      |
+|collMod     |   No      |
+|collMod: expireAfterSeconds   |   No      |
+|convertToCapped   |  No       |
+|copydb     |  No       |
+|skapa   |    Yes     |
+|createIndexes     |  Yes       |
+|currentOp     |  Yes       |
+|drop     |   Yes      |
+|dropDatabase     |  Yes       |
+|dropIndexes     |   Yes      |
+|filemd5    |   Yes      |
+|killCursors    |  Yes       |
+|killOp     |   No      |
+|listCollections     |  Yes       |
+|listDatabases     |  Yes       |
+|listIndexes     |  Yes       |
+|reIndex     |    Yes     |
+|renameCollection     |    No     |
+|connectionStatus    |     No    |
 
 ### <a name="diagnostics-commands"></a>Diagnostiska kommandon
 
 |Kommando  |Stöds |
 |---------|---------|
-|buildInfo         |   Ja      |
-|collStats    |  Ja       |
-|connPoolStats     |  Nej       |
-|connectionStatus     |  Nej       |
-|dataSize     |   Nej      |
-|dbHash    |    Nej     |
-|dbStats     |   Ja      |
-|Vad     |   Ja      |
-|förklaring: executionStats     |   Ja      |
-|funktioner     |    Nej     |
-|hostInfo     |   Nej      |
-|listDatabases         |   Ja      |
-|listCommands     |  Nej       |
-|profiler     |  Nej       |
-|serverStatus     |  Nej       |
-|top     |    Nej     |
-|whatsmyuri     |   Ja      |
+|buildInfo         |   Yes      |
+|collStats    |  Yes       |
+|connPoolStats     |  No       |
+|connectionStatus     |  No       |
+|dataSize     |   No      |
+|dbHash    |    No     |
+|dbStats     |   Yes      |
+|Vad     |   Yes      |
+|förklaring: executionStats     |   Yes      |
+|funktioner     |    No     |
+|hostInfo     |   No      |
+|listDatabases         |   Yes      |
+|listCommands     |  No       |
+|profiler     |  No       |
+|serverStatus     |  No       |
+|top     |    No     |
+|whatsmyuri     |   Yes      |
 
 <a name="aggregation-pipeline"></a>
 
@@ -114,241 +115,241 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|aggregate |   Ja  |
-|count     |   Ja  |
-|distinct  | Ja |
-|mapReduce | Nej |
+|aggregate |   Yes  |
+|count     |   Yes  |
+|distinct  | Yes |
+|mapReduce | No |
 
 ### <a name="aggregation-stages"></a>Sammansättningsfaser
 
 |Kommando  |Stöds |
 |---------|---------|
-|$collStats    |Nej|
-|$project    |Ja|
-|$match    |Ja|
-|$redact|    Ja|
-|$limit    |Ja|
-|$skip    |Ja|
-|$unwind|    Ja|
-|$group    |    Ja|
-|$sample|        Ja|
-|$sort    |Ja|
-|$geoNear|    Nej|
-|$lookup    |    Ja|
-|$out        |Ja|
-|$indexStats|        Nej|
-|$facet    |Ja|
-|$bucket|    Nej|
-|$bucketAuto|    Nej|
-|$sortByCount|    Ja|
-|$addFields    |Ja|
-|$replaceRoot|    Ja|
-|$count    |Ja|
-|$currentOp|    Nej|
-|$listLocalSessions    |Nej|
-|$listSessions    |Nej|
-|$graphLookup    |Nej|
+|$collStats    |No|
+|$project    |Yes|
+|$match    |Yes|
+|$redact|    Yes|
+|$limit    |Yes|
+|$skip    |Yes|
+|$unwind|    Yes|
+|$group    |    Yes|
+|$sample|        Yes|
+|$sort    |Yes|
+|$geoNear|    No|
+|$lookup    |    Yes|
+|$out        |Yes|
+|$indexStats|        No|
+|$facet    |Yes|
+|$bucket|    No|
+|$bucketAuto|    No|
+|$sortByCount|    Yes|
+|$addFields    |Yes|
+|$replaceRoot|    Yes|
+|$count    |Yes|
+|$currentOp|    No|
+|$listLocalSessions    |No|
+|$listSessions    |No|
+|$graphLookup    |No|
 
 ### <a name="boolean-expressions"></a>Booleska uttryck
 
 |Kommando  |Stöds |
 |---------|---------|
-|$and| Ja|
-|$or|Ja|
-|$not|Ja|
+|$and| Yes|
+|$or|Yes|
+|$not|Yes|
 
 ### <a name="set-expressions"></a>Uttryck för angivelse
 
 |Kommando  |Stöds |
 |---------|---------|
-| $setEquals | Ja|
-|$setIntersection|Ja|
-| $setUnion|Ja|
-| $setDifference|Ja|
-| $setIsSubset|Ja|
-| $anyElementTrue|Ja|
-| $allElementsTrue|Ja|
+| $setEquals | Yes|
+|$setIntersection|Yes|
+| $setUnion|Yes|
+| $setDifference|Yes|
+| $setIsSubset|Yes|
+| $anyElementTrue|Yes|
+| $allElementsTrue|Yes|
 
 ### <a name="comparison-expressions"></a>Jämförelseuttryck
 
 |Kommando  |Stöds |
 |---------|---------|
-|$cmp     |  Ja       |
-|$eq|    Ja| 
-|$gt |    Ja| 
-|$gte|    Ja| 
-|$lt    |Ja|
-|$lte|    Ja| 
-|$ne    |    Ja| 
-|$in    |    Ja| 
-|$nin    |    Ja| 
+|$cmp     |  Yes       |
+|$eq|    Yes| 
+|$gt |    Yes| 
+|$gte|    Yes| 
+|$lt    |Yes|
+|$lte|    Yes| 
+|$ne    |    Yes| 
+|$in    |    Yes| 
+|$nin    |    Yes| 
 
 ### <a name="arithmetic-expressions"></a>Aritmetiska uttryck
 
 |Kommando  |Stöds |
 |---------|---------|
-|$abs |  Ja       |
-| $add |  Ja       |
-| $ceil |  Ja       |
-| $divide |  Ja       |
-| $exp |  Ja       |
-| $floor |  Ja       |
-| $ln |  Ja       |
-| $log |  Ja       |
-| $log10 |  Ja       |
-| $mod |  Ja       |
-| $multiply |  Ja       |
-| $pow |  Ja       |
-| $sqrt |  Ja       |
-| $subtract |  Ja       |
-| $trunc |  Ja       |
+|$abs |  Yes       |
+| $add |  Yes       |
+| $ceil |  Yes       |
+| $divide |  Yes       |
+| $exp |  Yes       |
+| $floor |  Yes       |
+| $ln |  Yes       |
+| $log |  Yes       |
+| $log10 |  Yes       |
+| $mod |  Yes       |
+| $multiply |  Yes       |
+| $pow |  Yes       |
+| $sqrt |  Yes       |
+| $subtract |  Yes       |
+| $trunc |  Yes       |
 
 ### <a name="string-expressions"></a>Stränguttryck
 
 |Kommando  |Stöds |
 |---------|---------|
-|$concat |  Ja       |
-| $indexOfBytes|  Ja       |
-| $indexOfCP|  Ja       |
-| $split|  Ja       |
-| $strLenBytes|  Ja       |
-| $strLenCP|  Ja       |
-| $strcasecmp|  Ja       |
-| $substr|  Ja       |
-| $substrBytes|  Ja       |
-| $substrCP|  Ja       |
-| $toLower|  Ja       |
-| $toUpper|  Ja       |
+|$concat |  Yes       |
+| $indexOfBytes|  Yes       |
+| $indexOfCP|  Yes       |
+| $split|  Yes       |
+| $strLenBytes|  Yes       |
+| $strLenCP|  Yes       |
+| $strcasecmp|  Yes       |
+| $substr|  Yes       |
+| $substrBytes|  Yes       |
+| $substrCP|  Yes       |
+| $toLower|  Yes       |
+| $toUpper|  Yes       |
 
 ### <a name="text-search-operator"></a>Text Sök operator
 
 |Kommando  |Stöds |
 |---------|---------|
-| $meta | Nej|
+| $meta | No|
 
 ### <a name="array-expressions"></a>Matrisuttryck
 
 |Kommando  |Stöds |
 |---------|---------|
-|$arrayElemAt    |    Ja|
-|$arrayToObject|    Ja|
-|$concatArrays    |    Ja|
-|$filter    |    Ja|
-|$indexOfArray    |Ja|
-|$isArray    |    Ja|
-|$objectToArray    |Ja|
-|$range    |Ja|
-|$reverseArray    |    Ja|
-|$reduce|    Ja|
-|$size    |    Ja|
-|$slice    |    Ja|
-|$zip    |    Ja|
-|$in    |    Ja|
+|$arrayElemAt    |    Yes|
+|$arrayToObject|    Yes|
+|$concatArrays    |    Yes|
+|$filter    |    Yes|
+|$indexOfArray    |Yes|
+|$isArray    |    Yes|
+|$objectToArray    |Yes|
+|$range    |Yes|
+|$reverseArray    |    Yes|
+|$reduce|    Yes|
+|$size    |    Yes|
+|$slice    |    Yes|
+|$zip    |    Yes|
+|$in    |    Yes|
 
 ### <a name="variable-operators"></a>Variabel operatörer
 
 |Kommando  |Stöds |
 |---------|---------|
-|$map    |Nej|
-|$let    |Ja|
+|$map    |No|
+|$let    |Yes|
 
 ### <a name="system-variables"></a>Systemvariabler
 
 |Kommando  |Stöds |
 |---------|---------|
-|$ $CURRENT|    Ja|
-|$ $DESCEND|        Ja|
-|$ $KEEP        |Ja|
-|$ $PRUNE    |    Ja|
-|$ $REMOVE    |Ja|
-|$ $ROOT        |Ja|
+|$ $CURRENT|    Yes|
+|$ $DESCEND|        Yes|
+|$ $KEEP        |Yes|
+|$ $PRUNE    |    Yes|
+|$ $REMOVE    |Yes|
+|$ $ROOT        |Yes|
 
 ### <a name="literal-operator"></a>Litteral operator
 
 |Kommando  |Stöds |
 |---------|---------|
-|$literal    |Ja|
+|$literal    |Yes|
 
 ### <a name="date-expressions"></a>Datumuttryck
 
 |Kommando  |Stöds |
 |---------|---------|
-|$dayOfYear    |Ja    |
-|$dayOfMonth|    Ja    |
-|$dayOfWeek    |Ja    |
-|$year    |Ja    |
-|$month    |Ja|    
-|$week    |Ja    |
-|$hour    |Ja    |
-|$minute|    Ja|    
-|$second    |Ja    |
-|$millisecond|    Ja|    
-|$dateToString    |Ja    |
-|$isoDayOfWeek    |Ja    |
-|$isoWeek    |Ja    |
-|$dateFromParts|    Nej|    
-|$dateToParts    |Nej    |
-|$dateFromString|    Nej|
-|$isoWeekYear    |Ja    |
+|$dayOfYear    |Yes    |
+|$dayOfMonth|    Yes    |
+|$dayOfWeek    |Yes    |
+|$year    |Yes    |
+|$month    |Yes|    
+|$week    |Yes    |
+|$hour    |Yes    |
+|$minute|    Yes|    
+|$second    |Yes    |
+|$millisecond|    Yes|    
+|$dateToString    |Yes    |
+|$isoDayOfWeek    |Yes    |
+|$isoWeek    |Yes    |
+|$dateFromParts|    No|    
+|$dateToParts    |No    |
+|$dateFromString|    No|
+|$isoWeekYear    |Yes    |
 
 ### <a name="conditional-expressions"></a>Villkorliga uttryck
 
 |Kommando  |Stöds |
 |---------|---------|
-| $cond| Ja|
-| $ifNull| Ja|
-| $switch |Ja|
+| $cond| Yes|
+| $ifNull| Yes|
+| $switch |Yes|
 
 ### <a name="data-type-operator"></a>Data typs operator
 
 |Kommando  |Stöds |
 |---------|---------|
-| $type| Ja|
+| $type| Yes|
 
 ### <a name="accumulator-expressions"></a>Ackumulator uttryck
 
 |Kommando  |Stöds |
 |---------|---------|
-|$sum    |Ja    |
-|$avg    |Ja    |
-|$first|    Ja|
-|$last    |Ja    |
-|$max    |Ja    |
-|$min    |Ja    |
-|$push|    Ja|
-|$addToSet|    Ja|
-|$stdDevPop|    Nej    |
-|$stdDevSamp|    Nej|
+|$sum    |Yes    |
+|$avg    |Yes    |
+|$first|    Yes|
+|$last    |Yes    |
+|$max    |Yes    |
+|$min    |Yes    |
+|$push|    Yes|
+|$addToSet|    Yes|
+|$stdDevPop|    No    |
+|$stdDevSamp|    No|
 
 ### <a name="merge-operator"></a>Slå samman operatör
 
 |Kommando  |Stöds |
 |---------|---------|
-| $mergeObjects | Ja|
+| $mergeObjects | Yes|
 
 ## <a name="data-types"></a>Datatyper
 
 |Kommando  |Stöds |
 |---------|---------|
 |Double    |Ja    |
-|Sträng    |Ja    |
-|Objekt    |Ja    |
-|Matris    |Ja    |
-|Binära data    |Ja|    
-|ObjectId    |Ja    |
-|Boolesk    |Ja    |
-|Date    |Ja    |
-|Null    |Ja    |
-|32-bitars heltal (int)    |Ja    |
-|Timestamp    |Ja    |
-|64-bitars heltal (långt)    |Ja    |
-|MinKey    |Ja    |
-|MaxKey    |Ja    |
-|Decimal128    |Ja|    
-|Reguljärt uttryck    |Ja|
-|JavaScript    |Ja|
-|Java Script (med omfång)|    Ja    |
-|Undefined (Odefinierad)    |Ja    |
+|Sträng    |Yes    |
+|Objekt    |Yes    |
+|Matris    |Yes    |
+|Binära data    |Yes|    
+|ObjectId    |Yes    |
+|Boolesk    |Yes    |
+|Date    |Yes    |
+|Null    |Yes    |
+|32-bitars heltal (int)    |Yes    |
+|Timestamp    |Yes    |
+|64-bitars heltal (långt)    |Yes    |
+|MinKey    |Yes    |
+|MaxKey    |Yes    |
+|Decimal128    |Yes|    
+|Reguljärt uttryck    |Yes|
+|JavaScript    |Yes|
+|Java Script (med omfång)|    Yes    |
+|Undefined (Odefinierad)    |Yes    |
 
 ## <a name="indexes-and-index-properties"></a>Index och index egenskaper
 
@@ -356,24 +357,24 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|Index för enskilt fält    |Ja    |
-|Sammansatt index    |Ja    |
-|MultiKey-index    |Ja    |
-|Text index    |Nej|
-|2dsphere    |Ja    |
-|2D-index    |Nej    |
-|Hashed index    | Ja|
+|Index för enskilt fält    |Yes    |
+|Sammansatt index    |Yes    |
+|MultiKey-index    |Yes    |
+|Text index    |No|
+|2dsphere    |Yes    |
+|2D-index    |No    |
+|Hashed index    | Yes|
 
 ### <a name="index-properties"></a>Index egenskaper
 
 |Kommando  |Stöds |
 |---------|---------|
-|TTL|    Ja    |
-|Unik    |Ja|
-|Delvis|    Nej|
-|Skift läges okänslig    |Nej|
-|Utspridda    |Nej |
-|Bakgrund|    Ja |
+|TTL|    Yes    |
+|Unik    |Yes|
+|Delvis|    No|
+|Skift läges okänslig    |No|
+|Utspridda    |No |
+|Bakgrund|    Yes |
 
 ## <a name="operators"></a>Operatorer
 
@@ -381,28 +382,28 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|$or    |    Ja|
-|$and    |    Ja|
-|$not    |    Ja|
-|$nor    |    Ja| 
+|$or    |    Yes|
+|$and    |    Yes|
+|$not    |    Yes|
+|$nor    |    Yes| 
 
 ### <a name="element-operators"></a>Element operatörer
 
 |Kommando  |Stöds |
 |---------|---------|
-|$exists|    Ja|
-|$type    |    Ja|
+|$exists|    Yes|
+|$type    |    Yes|
 
 ### <a name="evaluation-query-operators"></a>Operatorer för utvärderings fråga
 
 |Kommando  |Stöds |
 |---------|---------|
-|$expr    |    Nej|
-|$jsonSchema    |    Nej|
-|$mod    |    Ja|
-|$regex |    Ja|
+|$expr    |    No|
+|$jsonSchema    |    No|
+|$mod    |    Yes|
+|$regex |    Yes|
 |$text    | Nej (stöds inte. Använd $regex i stället.)| 
-|$where    |Nej| 
+|$where    |No| 
 
 I $regex-frågor tillåter vänster-förankrade uttryck indexs ökning. Om du använder modifierarna i (skiftlägesokänsligt) och m (flera rader) så får du dock samlingsskanningen i alla uttryck.
 
@@ -416,23 +417,23 @@ Den första delen använder indexet för att begränsa sökningen till dokument 
 
 |Kommando  |Stöds | 
 |---------|---------|
-| $all | Ja| 
-| $elemMatch | Ja| 
-| $size | Ja | 
+| $all | Yes| 
+| $elemMatch | Yes| 
+| $size | Yes | 
 
 ### <a name="comment-operator"></a>Kommentars operator
 
 |Kommando  |Stöds | 
 |---------|---------|
-$comment |Ja| 
+$comment |Yes| 
 
 ### <a name="projection-operators"></a>Projektions operatörer
 
 |Kommando  |Stöds |
 |---------|---------|
-|$elemMatch    |Ja|
-|$meta|    Nej|
-|$slice    | Ja|
+|$elemMatch    |Yes|
+|$meta|    No|
+|$slice    | Yes|
 
 ### <a name="update-operators"></a>Uppdateringsoperatorer
 
@@ -440,101 +441,101 @@ $comment |Ja|
 
 |Kommando  |Stöds |
 |---------|---------|
-|$inc    |    Ja|
-|$mul    |    Ja|
-|$rename    |    Ja|
-|$setOnInsert|    Ja|
-|$set    |Ja|
-|$unset| Ja|
-|$min    |Ja|
-|$max    |Ja|
-|$currentDate    | Ja|
+|$inc    |    Yes|
+|$mul    |    Yes|
+|$rename    |    Yes|
+|$setOnInsert|    Yes|
+|$set    |Yes|
+|$unset| Yes|
+|$min    |Yes|
+|$max    |Yes|
+|$currentDate    | Yes|
 
 #### <a name="array-update-operators"></a>Matrisuppdateringsoperatorer
 
 |Kommando  |Stöds |
 |---------|---------|
-|$    |Ja|
-|$[]|    Ja|
-|$[<identifier>]|    Ja|
-|$addToSet    |Ja|
-|$pop    |Ja|
-|$pullAll|    Ja|
-|$pull    |Ja|
-|$push    |Ja|
-|$pushAll| Ja|
+|$    |Yes|
+|$[]|    Yes|
+|$[<identifier>]|    Yes|
+|$addToSet    |Yes|
+|$pop    |Yes|
+|$pullAll|    Yes|
+|$pull    |Yes|
+|$push    |Yes|
+|$pushAll| Yes|
 
 
 #### <a name="update-modifiers"></a>Uppdatera modifierare
 
 |Kommando  |Stöds |
 |---------|---------|
-|$each    |    Ja|
-|$slice    |Ja|
-|$sort    |Ja|
-|$position    |Ja|
+|$each    |    Yes|
+|$slice    |Yes|
+|$sort    |Yes|
+|$position    |Yes|
 
 #### <a name="bitwise-update-operator"></a>Binär uppdateringsoperator
 
 |Kommando  |Stöds |
 |---------|---------|
-| $bit    |    Ja|    
-|$bitsAllSet    |    Nej|
-|$bitsAnySet    |    Nej|
-|$bitsAllClear    |Nej|
-|$bitsAnyClear    |Nej|
+| $bit    |    Yes|    
+|$bitsAllSet    |    No|
+|$bitsAnySet    |    No|
+|$bitsAllClear    |No|
+|$bitsAnyClear    |No|
 
 ### <a name="geospatial-operators"></a>Geospatiala operatorer
 
 Operator | Stöds| 
 --- | --- |
-$geoWithin | Ja |
-$geoIntersects | Ja | 
-$near |  Ja |
-$nearSphere |  Ja |
-$geometry |  Ja |
-$minDistance | Ja |
-$maxDistance | Ja |
-$center | Nej |
-$centerSphere | Nej |
-$box | Nej |
-$polygon |  Nej |
+$geoWithin | Yes |
+$geoIntersects | Yes | 
+$near |  Yes |
+$nearSphere |  Yes |
+$geometry |  Yes |
+$minDistance | Yes |
+$maxDistance | Yes |
+$center | No |
+$centerSphere | No |
+$box | No |
+$polygon |  No |
 
 ## <a name="cursor-methods"></a>Markör-metoder
 
 |Kommando  |Stöds |
 |---------|---------|
-|cursor.batchSize ()    |    Ja|
-|cursor. Close ()    |Ja|
-|cursor. isClosed ()|        Ja|
-|cursor. COLLATE ()|    Nej|
-|cursor. comment ()    |Ja|
-|cursor. Count ()    |Ja|
-|cursor. förklaring ()|    Nej|
-|cursor. ()    |Ja|
-|cursor. hasNext ()    |Ja|
-|cursor. ledtråd ()    |Ja|
-|cursor. isExhausted ()|    Ja|
-|cursor. itcount ()    |Ja|
-|cursor. Limit ()    |Ja|
-|cursor. map ()    |Ja|
-|cursor. maxScan ()    |Ja|
-|cursor. maxTimeMS ()|    Ja|
-|markör. Max ()    |Ja|
-|cursor. min ()    |Ja|
-|markör. Next ()|    Ja|
-|cursor. noCursorTimeout ()    |Nej|
-|cursor. objsLeftInBatch ()    |Ja|
-|cursor. Pretty ()|    Ja|
-|cursor. readConcern ()|    Ja|
-|cursor. readPref ()        |Ja|
-|markör. renyckels ()    |Nej|
-|cursor. showRecordId ()|    Nej|
-|cursor. size ()    |Ja|
-|cursor. SKIP ()    |Ja|
-|cursor.sort()    |    Ja|
-|cursor. ensidigt ()|    Nej|
-|cursor. toArray ()    |Ja|
+|cursor.batchSize ()    |    Yes|
+|cursor. Close ()    |Yes|
+|cursor. isClosed ()|        Yes|
+|cursor. COLLATE ()|    No|
+|cursor. comment ()    |Yes|
+|cursor. Count ()    |Yes|
+|cursor. förklaring ()|    No|
+|cursor. ()    |Yes|
+|cursor. hasNext ()    |Yes|
+|cursor. ledtråd ()    |Yes|
+|cursor. isExhausted ()|    Yes|
+|cursor. itcount ()    |Yes|
+|cursor. Limit ()    |Yes|
+|cursor. map ()    |Yes|
+|cursor. maxScan ()    |Yes|
+|cursor. maxTimeMS ()|    Yes|
+|markör. Max ()    |Yes|
+|cursor. min ()    |Yes|
+|markör. Next ()|    Yes|
+|cursor. noCursorTimeout ()    |No|
+|cursor. objsLeftInBatch ()    |Yes|
+|cursor. Pretty ()|    Yes|
+|cursor. readConcern ()|    Yes|
+|cursor. readPref ()        |Yes|
+|markör. renyckels ()    |No|
+|cursor. showRecordId ()|    No|
+|cursor. size ()    |Yes|
+|cursor. SKIP ()    |Yes|
+|cursor.sort()    |    Yes|
+|cursor. ensidigt ()|    No|
+|cursor. toArray ()    |Yes|
 
 ## <a name="sort-operations"></a>Sorterings åtgärder
 

@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 3aec6cf2fa515d71b93d84cf8c4fc901fc847162
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 53a3317f38cc22ffa3745f5f0e58cc01a54b825c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487440"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096758"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Migrera ett-till-lite-relationellt data till Azure Cosmos DB SQL API-konto
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 För att kunna migrera från en Relations databas till Azure Cosmos DB SQL API kan det vara nödvändigt att göra ändringar i data modellen för optimering.
 
@@ -54,7 +55,7 @@ Vi rekommenderar att du vill använda en enda Azure Data Factory (ADF) kopiering
 
 Vi kan komma runt denna aktuella begränsning på något av följande sätt:
 
-* **Använd Azure Data Factory med två kopierings aktiviteter**: 
+* **Använd Azure Data Factory med två kopierings aktiviteter** : 
   1. Hämta JSON-formaterade data från SQL till en textfil i en mellanliggande Blob Storage-plats och 
   2. Läs in data från JSON-textfilen till en behållare i Azure Cosmos DB.
 

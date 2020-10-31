@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5ebe0bcf1e491166c5fc61597904056307f9679c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461727"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098016"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Anslutningsarkitektur för Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,14 +104,14 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 - **Under näts delegering:** Det SQL-hanterade instans under nätet måste delegeras till `Microsoft.Sql/managedInstances` resurs leverantören.
 - **Nätverks säkerhets grupp (NSG):** En NSG måste vara kopplad till under nätet för SQL-hanterad instans. Du kan använda en NSG för att styra åtkomsten till data slut punkten för SQL-hanterad instans genom att filtrera trafik på port 1433 och portar 11000-11999 när SQL-hanterad instans har kon figurer ATS för att omdirigera anslutningar. Tjänsten etablerar och behåller automatiskt de aktuella [reglerna](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) för att tillåta oavbrutet flöde av hanterings trafik.
 - **Användardefinierad routningstabell (UDR):** En UDR-tabell måste vara kopplad till under nätet för SQL-hanterad instans. Du kan lägga till poster i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål via den virtuella nätverksgatewayen eller den virtuella nätverksapparaten (NVA). Tjänsten etablerar automatiskt och upprätthåller de aktuella [poster](#user-defined-routes-with-service-aided-subnet-configuration) som krävs för att tillåta oavbruten hanteringstrafik.
-- **Tillräckligt med IP-adresser:** Under nätet för SQL-hanterad instans måste ha minst 16 IP-adresser. Det rekommenderade minimiantalet är 32 IP-adresser. Mer information finns i [bestämma storleken på under nätet för SQL-hanterad instans](vnet-subnet-determine-size.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](vnet-existing-add-subnet.md) när du har konfigurerat det för att uppfylla [nätverks kraven för SQL-hanterad instans](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](virtual-network-subnet-create-arm-template.md).
+- **Tillräckligt med IP-adresser:** Under nätet för SQL-hanterad instans måste ha minst 32 IP-adresser. Mer information finns i [bestämma storleken på under nätet för SQL-hanterad instans](vnet-subnet-determine-size.md). Du kan distribuera hanterade instanser i [det befintliga nätverket](vnet-existing-add-subnet.md) när du har konfigurerat det för att uppfylla [nätverks kraven för SQL-hanterad instans](#network-requirements). Annars skapar du ett [nytt nätverk och undernät](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
 > När du skapar en hanterad instans tillämpas en princip för nätverks avsikt i under nätet för att förhindra inkompatibla ändringar av nätverks konfigurationen. När den sista instansen har tagits bort från under nätet tas även principen för nätverks avsikt bort.
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Obligatoriska inkommande säkerhets regler med konfiguration för tjänstens under näts undernät
 
-| Name       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
+| Namn       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI-UNDERNÄT  |Tillåt |
 |            |9000, 9003                  |TCP     |CorpnetSaw       |MI-UNDERNÄT  |Tillåt |
@@ -121,14 +121,14 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Obligatoriska utgående säkerhets regler med konfiguration för tjänstens under näts undernät
 
-| Name       |Port          |Protokoll|Källa           |Mål|Åtgärd|
+| Namn       |Port          |Protokoll|Källa           |Mål|Åtgärd|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI-UNDERNÄT        |AzureCloud |Tillåt |
 |mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Användardefinierade vägar med konfiguration av tjänstestyrt undernät
 
-|Name|Adressprefix|Nästa hopp|
+|Namn|Adressprefix|Nästa hopp|
 |----|--------------|-------|
 |undernät-till-vnetlocal|MI-UNDERNÄT|Virtuellt nätverk|
 |mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|
@@ -301,20 +301,22 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 \* MI-UNDERNÄT syftar på IP-adressintervallet för under nätet i formatet x. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
 
+\** Om mål adressen är för en av Azures tjänster dirigerar Azure trafiken direkt till tjänsten via Azures stamnät nätverk, i stället för att dirigera trafiken till Internet. Trafik mellan Azure-tjänster sker inte via Internet, oavsett vilken Azure-region det virtuella nätverket finns i eller vilken Azure-region en instans av Azure-tjänsten har distribuerats i. Mer information finns i [dokumentations sidan för UDR](../../virtual-network/virtual-networks-udr-overview.md).
+
 Dessutom kan du lägga till poster i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål via den virtuella Nätverksgatewayen eller Virtual Network-apparaten (NVA).
 
 Om det virtuella nätverket innehåller en anpassad DNS-server måste den anpassade DNS-servern kunna matcha offentliga DNS-poster. Om du använder fler funktioner som Azure AD-autentisering kan det krävas att ytterligare FQDN-namn matchas. Mer information finns i [Konfigurera en anpassad DNS](custom-dns-configure.md).
 
 ### <a name="networking-constraints"></a>Nätverks begränsningar
 
-**TLS 1,2 tillämpas på utgående anslutningar**: i januari 2020 Microsoft genomdriven TLS 1,2 för trafik inom tjänster i alla Azure-tjänster. För Azure SQL-hanterad instans ledde detta till att TLS 1,2 tillämpas på utgående anslutningar som används för replikering och länkade Server anslutningar till SQL Server. Om du använder versioner av SQL Server äldre än 2016 med SQL-hanterad instans kontrollerar du att [TLS 1,2 vissa uppdateringar](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) har tillämpats.
+**TLS 1,2 tillämpas på utgående anslutningar** : i januari 2020 Microsoft genomdriven TLS 1,2 för trafik inom tjänster i alla Azure-tjänster. För Azure SQL-hanterad instans ledde detta till att TLS 1,2 tillämpas på utgående anslutningar som används för replikering och länkade Server anslutningar till SQL Server. Om du använder versioner av SQL Server äldre än 2016 med SQL-hanterad instans kontrollerar du att [TLS 1,2 vissa uppdateringar](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) har tillämpats.
 
 Följande funktioner för virtuella nätverk stöds för närvarande inte med SQL-hanterad instans:
 
-- **Microsoft-peering**: aktivering av [Microsoft-peering](../../expressroute/expressroute-faqs.md#microsoft-peering) på ExpressRoute-kretsar som är direkt eller transitivt med ett virtuellt nätverk där SQL-hanterad instans finns påverkar trafikflöde mellan SQL-hanterade instans komponenter i det virtuella nätverket och de tjänster som den är beroende av, vilket orsakar tillgänglighets problem. SQL-hanterade instans distributioner till virtuella nätverk med Microsoft-peering som redan är aktiverade förväntas fungera.
-- **Global virtuell nätverks-peering**: anslutning till [virtuellt nätverk](../../virtual-network/virtual-network-peering-overview.md) i Azure-regioner fungerar inte för SQL-hanterade instanser som placerats i undernät som skapats före 9/22/2020.
-- **AzurePlatformDNS**: att använda AzurePlatformDNS- [tjänst tag gen](../../virtual-network/service-tags-overview.md) för att blockera DNS-matchning av plattformar skulle resultera i SQL-hanterad instans inte tillgänglig. Även om SQL-hanterad instans stöder kunddefinierad DNS för DNS-matchning i motorn, finns det ett beroende på plattforms-DNS för plattforms åtgärder.
-- **NAT-gateway**: med hjälp av [Azure Virtual Network NAT](../../virtual-network/nat-overview.md) för att kontrol lera utgående anslutningar med en speciell offentlig IP-adress skulle SQL-hanterad instans renderas otillgängligt. SQL Managed instance service är för närvarande begränsad till användning av Basic Load Balancer som inte tillhandahåller samtidiga inkommande och utgående flöden med Virtual Network NAT.
+- **Microsoft-peering** : aktivering av [Microsoft-peering](../../expressroute/expressroute-faqs.md#microsoft-peering) på ExpressRoute-kretsar som är direkt eller transitivt med ett virtuellt nätverk där SQL-hanterad instans finns påverkar trafikflöde mellan SQL-hanterade instans komponenter i det virtuella nätverket och de tjänster som den är beroende av, vilket orsakar tillgänglighets problem. SQL-hanterade instans distributioner till virtuella nätverk med Microsoft-peering som redan är aktiverade förväntas fungera.
+- **Global virtuell nätverks-peering** : anslutning till [virtuellt nätverk](../../virtual-network/virtual-network-peering-overview.md) i Azure-regioner fungerar inte för SQL-hanterade instanser som placerats i undernät som skapats före 9/22/2020.
+- **AzurePlatformDNS** : att använda AzurePlatformDNS- [tjänst tag gen](../../virtual-network/service-tags-overview.md) för att blockera DNS-matchning av plattformar skulle resultera i SQL-hanterad instans inte tillgänglig. Även om SQL-hanterad instans stöder kunddefinierad DNS för DNS-matchning i motorn, finns det ett beroende på plattforms-DNS för plattforms åtgärder.
+- **NAT-gateway** : med hjälp av [Azure Virtual Network NAT](../../virtual-network/nat-overview.md) för att kontrol lera utgående anslutningar med en speciell offentlig IP-adress skulle SQL-hanterad instans renderas otillgängligt. SQL Managed instance service är för närvarande begränsad till användning av Basic Load Balancer som inte tillhandahåller samtidiga inkommande och utgående flöden med Virtual Network NAT.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>Föråldrad Nätverks krav utan konfiguration av service-stödda undernät
 
@@ -331,7 +333,7 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="mandatory-inbound-security-rules"></a>Obligatoriska inkommande säkerhets regler
 
-| Name       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
+| Namn       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |MI-UNDERNÄT  |Tillåt |
 |mi_subnet   |Alla                         |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
@@ -339,7 +341,7 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatoriska utgående säkerhets regler
 
-| Name       |Port          |Protokoll|Källa           |Mål|Åtgärd|
+| Namn       |Port          |Protokoll|Källa           |Mål|Åtgärd|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI-UNDERNÄT        |AzureCloud |Tillåt |
 |mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
@@ -357,7 +359,7 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="user-defined-routes"></a>Användardefinierade vägar
 
-|Name|Adressprefix|Nästa hopp|
+|Namn|Adressprefix|Nästa hopp|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI-UNDERNÄT|Virtuellt nätverk|
 |mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|

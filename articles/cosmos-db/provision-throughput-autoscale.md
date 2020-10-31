@@ -6,14 +6,15 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: b9d645a16a59e34d1915cf9febde6b1f8a789355
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 78fbdbb91925bbe9954cc7a17e194de9c78c6389
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282098"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097353"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Skapa Azure Cosmos-behållare och databaser med autoskalning av data flöde
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Med Azure Cosmos DB kan du ange standardmässigt (manuell) dataflöde eller dataflöde som etablerats med autoskalning på dina databaser och containrar. I den här artikeln beskrivs fördelarna med och användningsfallen för autoskalningsetablerat dataflöde. 
 

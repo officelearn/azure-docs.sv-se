@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e26d128fea7208206be8a7329522f8202051215
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74326727"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095415"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Skicka och använda Bing API-frågor och svar för lokal sökning i Bing
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Du kan få lokala resultat från Bing-API: et för lokal sökning genom att skicka en Sök fråga till dess slut punkt och inkludera `Ocp-Apim-Subscription-Key` rubriken, vilket krävs. Förutom tillgängliga [rubriker](local-search-reference.md#headers) och [parametrar](local-search-reference.md#query-parameters)kan du anpassa sökningarna genom att ange [geografiska gränser](specify-geographic-search.md) för det område som ska genomsökas och vilka [Kategorier](local-search-query-response.md) av platser som returneras.
 

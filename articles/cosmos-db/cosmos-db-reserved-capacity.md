@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 90717f329cc366dbb951b24da0ffc1b65881a865
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 27725b1a3dd6059010ce67977c39891a012c037e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487525"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097642"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimera kostnaden för reserverad kapacitet i Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Reserverad Azure Cosmos DB-kapacitet hjälper dig att spara pengar genom att allokera till en reservation för Azure Cosmos DB-resurser i ett år eller tre år. Med reserverad Azure Cosmos DB-kapacitet kan du få rabatt på det dataflöde som tillhandahålls för Cosmos DB-resurser. Exempel på resurser är databaser och containrar (tabeller, samlingar och diagram).
 
@@ -36,9 +37,9 @@ Vi beräknar inköps rekommendationer baserat på ditt användnings mönster per
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).  
 
-2. Välj **alla tjänster**-  >  **reservationer**  >  **Lägg till**.
+2. Välj **alla tjänster** -  >  **reservationer**  >  **Lägg till** .
 
-3. I fönstret **inköps reservationer** väljer du **Azure Cosmos DB**.
+3. I fönstret **inköps reservationer** väljer du **Azure Cosmos DB** .
 
 4. Välj fliken **rekommenderas** för att Visa rekommenderade reservationer:
 
@@ -60,7 +61,7 @@ Den här rekommendationen att köpa en 30 000 RU/s-reservation anger att, mellan
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).  
 
-2. Välj **alla tjänster**-  >  **reservationer**  >  **Lägg till**.  
+2. Välj **alla tjänster** -  >  **reservationer**  >  **Lägg till** .  
 
 3. I fönstret **inköps reservationer** väljer du **Azure Cosmos DB** för att köpa en ny reservation.  
 
@@ -70,7 +71,7 @@ Den här rekommendationen att köpa en 30 000 RU/s-reservation anger att, mellan
 
    |Fält  |Beskrivning  |
    |---------|---------|
-   |Omfång   |   Alternativ som styr hur många prenumerationer som kan använda fakturerings förmånen som är associerad med reservationen. Den styr också hur reservationen tillämpas på vissa prenumerationer. <br/><br/>  Om du väljer **delad**tillämpas reservations rabatten på Azure Cosmos DB instanser som körs i en prenumeration i din fakturerings kontext. Fakturerings kontexten baseras på hur du registrerade dig för Azure. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För kunder som betalar per användning är det delade omfånget alla enskilda prenumerationer med priser enligt principen betala per användning som har skapats av konto administratören.  <br/><br/>  Om du väljer **enskild prenumeration**tillämpas reservations rabatten på Azure Cosmos DB instanser i den valda prenumerationen. <br/><br/> Om du väljer **enskild resurs grupp**tillämpas reservations rabatten på Azure Cosmos DB instanser i den valda prenumerationen och den valda resurs gruppen i den prenumerationen. <br/><br/> Du kan ändra reservations omfånget när du har köpt den reserverade kapaciteten.  |
+   |Omfång   |   Alternativ som styr hur många prenumerationer som kan använda fakturerings förmånen som är associerad med reservationen. Den styr också hur reservationen tillämpas på vissa prenumerationer. <br/><br/>  Om du väljer **delad** tillämpas reservations rabatten på Azure Cosmos DB instanser som körs i en prenumeration i din fakturerings kontext. Fakturerings kontexten baseras på hur du registrerade dig för Azure. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För kunder som betalar per användning är det delade omfånget alla enskilda prenumerationer med priser enligt principen betala per användning som har skapats av konto administratören.  <br/><br/>  Om du väljer **enskild prenumeration** tillämpas reservations rabatten på Azure Cosmos DB instanser i den valda prenumerationen. <br/><br/> Om du väljer **enskild resurs grupp** tillämpas reservations rabatten på Azure Cosmos DB instanser i den valda prenumerationen och den valda resurs gruppen i den prenumerationen. <br/><br/> Du kan ändra reservations omfånget när du har köpt den reserverade kapaciteten.  |
    |Prenumeration  |   Prenumeration som används för att betala för Azure Cosmos DB reserverad kapacitet. Betalnings metoden för den valda prenumerationen används för att debitera kostnaderna. Prenumerationen måste vara någon av följande typer: <br/><br/>  Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P): för en företags prenumeration dras avgifterna från registreringen av betalnings åtagande belopp eller debiteras som överanvändning. <br/><br/> Individuell prenumeration med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P): för en enskild prenumeration med taxan betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.    |
    | Resursgrupp | Resurs grupp som den reserverade kapacitets rabatten tillämpas på. |
    |Period  |   Ett år eller tre år.   |
@@ -84,7 +85,7 @@ Den här rekommendationen att köpa en 30 000 RU/s-reservation anger att, mellan
 
    :::image type="content" source="./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png" alt-text="Rekommendationer för reserverad kapacitet":::
 
-7. Välj **Granska + köp** och **Köp nu**. Följande sida visas när köpet har slutförts:
+7. Välj **Granska + köp** och **Köp nu** . Följande sida visas när köpet har slutförts:
 
 När du har köpt en reservation tillämpas den omedelbart på befintliga Azure Cosmos DB resurser som matchar villkoren i reservationen. Om du inte har några befintliga Azure Cosmos DB-resurser kommer reservationen att gälla när du distribuerar en ny Cosmos DB-instans som matchar villkoren i reservationen. I båda fallen startar reservations perioden direkt efter ett lyckat köp.
 

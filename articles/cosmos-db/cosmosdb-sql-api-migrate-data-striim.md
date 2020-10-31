@@ -7,18 +7,19 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 1e190c9f06dc2c662760421b7240eafdf22986b0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a77f039ea266e10130b6460855f989ab317a20ba
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491316"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097676"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migrera data till Azure Cosmos DB SQL API-konto med Striims
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
  
 Striims-avbildningen på Azure Marketplace erbjuder kontinuerlig data förflyttning i real tid från informations lager och databaser till Azure. När du flyttar data kan du utföra en rad avnormalisering, data omvandling, aktivera real tids analys och data rapporterings scenarier. Det är enkelt att komma igång med Striims för att kontinuerligt flytta företags data till Azure Cosmos DB SQL API. Azure tillhandahåller ett Marketplace-erbjudande som gör det enkelt att distribuera Striims och migrera data till Azure Cosmos DB. 
 
-Den här artikeln visar hur du använder Striims för att migrera data från en **Oracle-databas** till ett **Azure Cosmos DB SQL API-konto**.
+Den här artikeln visar hur du använder Striims för att migrera data från en **Oracle-databas** till ett **Azure Cosmos DB SQL API-konto** .
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -30,11 +31,11 @@ Den här artikeln visar hur du använder Striims för att migrera data från en 
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. Välj **skapa en resurs** och Sök efter **striims** på Azure Marketplace. Välj det första alternativet och **skapa**.
+1. Välj **skapa en resurs** och Sök efter **striims** på Azure Marketplace. Välj det första alternativet och **skapa** .
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Hitta Striims Marketplace-objekt":::
 
-1. Ange sedan konfigurations egenskaperna för Striims-instansen. Striims-miljön har distribuerats på en virtuell dator. I fönstret **grundläggande** anger du **användar namnet för den virtuella datorn**, **lösen ord för virtuell dator** (detta lösen ord används för att använda SSH i den virtuella datorn). Välj din **prenumeration**, **resurs grupp**och **plats information** där du vill distribuera striims. När du är klar väljer du **OK**.
+1. Ange sedan konfigurations egenskaperna för Striims-instansen. Striims-miljön har distribuerats på en virtuell dator. I fönstret **grundläggande** anger du **användar namnet för den virtuella datorn** , **lösen ord för virtuell dator** (detta lösen ord används för att använda SSH i den virtuella datorn). Välj din **prenumeration** , **resurs grupp** och **plats information** där du vill distribuera striims. När du är klar väljer du **OK** .
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Hitta Striims Marketplace-objekt" för den virtuella datorn.  | 
    | Namnet på Striims-klustret|    <Striim_cluster_Name>|  Namnet på Striims-klustret.|
@@ -42,11 +43,11 @@ Den här artikeln visar hur du använder Striims för att migrera data från en 
 
    När du har fyllt formuläret väljer du **OK** för att fortsätta.
 
-1. I fönstret **åtkomst inställningar för striims** konfigurerar du den **offentliga IP-adressen** (Välj standardvärden), **domän namn för striims**, **Administratörs lösen ord** som du vill använda för att logga in på striims-användargränssnittet. Konfigurera ett VNET och undernät (Välj standardvärden). När du har fyllt i informationen väljer du **OK** för att fortsätta.
+1. I fönstret **åtkomst inställningar för striims** konfigurerar du den **offentliga IP-adressen** (Välj standardvärden), **domän namn för striims** , **Administratörs lösen ord** som du vill använda för att logga in på striims-användargränssnittet. Konfigurera ett VNET och undernät (Välj standardvärden). När du har fyllt i informationen väljer du **OK** för att fortsätta.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Hitta Striims Marketplace-objekt":::
 
-1. Azure kommer att validera distributionen och se till att allt ser bra ut. Det tar några minuter att utföra verifieringen. När verifieringen är klar väljer du **OK**.
+1. Azure kommer att validera distributionen och se till att allt ser bra ut. Det tar några minuter att utföra verifieringen. När verifieringen är klar väljer du **OK** .
   
 1. Granska slutligen användnings villkoren och välj **skapa** för att skapa din striims-instans. 
 
@@ -62,7 +63,7 @@ I det här avsnittet ska du konfigurera Azure Cosmos DB SQL API-konto som mål f
 
 1. Skapa ett [Azure Cosmos DB SQL API-konto](create-cosmosdb-resources-portal.md) med hjälp av Azure Portal.
 
-1. Navigera till fönstret **datautforskaren** i ditt Azure Cosmos-konto. Välj **ny behållare** för att skapa en ny behållare. Anta att du migrerar *produkter* och *ordnar* data från Oracle Database till Azure Cosmos dB. Skapa en ny databas med namnet **StriimDemo** med en behållare med namnet **Orders**. Etablera behållaren med **1000 ru: er** (det här exemplet använder 1000 ru: er, men du bör använda data flödet som beräknas för din arbets belastning) och **/ORDER_ID** som partitionsnyckel. Dessa värden varierar beroende på dina källdata. 
+1. Navigera till fönstret **datautforskaren** i ditt Azure Cosmos-konto. Välj **ny behållare** för att skapa en ny behållare. Anta att du migrerar *produkter* och *ordnar* data från Oracle Database till Azure Cosmos dB. Skapa en ny databas med namnet **StriimDemo** med en behållare med namnet **Orders** . Etablera behållaren med **1000 ru: er** (det här exemplet använder 1000 ru: er, men du bör använda data flödet som beräknas för din arbets belastning) och **/ORDER_ID** som partitionsnyckel. Dessa värden varierar beroende på dina källdata. 
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/create-sql-api-account.png" alt-text="Hitta Striims Marketplace-objekt":::
 
@@ -122,7 +123,7 @@ I det här avsnittet ska du konfigurera Azure Cosmos DB SQL API-konto som mål f
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Hitta Striims Marketplace-objekt":::
 
-1. Nu kommer du till start sidan för Striims. Det finns tre olika fönster – **instrument paneler**, **appar**och **SourcePreview**. I fönstret instrument paneler kan du flytta data i real tid och visualisera dem. Fönstret appar innehåller pipelines för strömmande data eller data flöden. Till höger på sidan finns SourcePreview där du kan förhandsgranska dina data innan du flyttar dem.
+1. Nu kommer du till start sidan för Striims. Det finns tre olika fönster – **instrument paneler** , **appar** och **SourcePreview** . I fönstret instrument paneler kan du flytta data i real tid och visualisera dem. Fönstret appar innehåller pipelines för strömmande data eller data flöden. Till höger på sidan finns SourcePreview där du kan förhandsgranska dina data innan du flyttar dem.
 
 1. Välj fönstret **appar** , vi fokuserar på det här fönstret för tillfället. Det finns en mängd olika exempel på appar som du kan använda för att lära dig mer om Striims, men i den här artikeln skapar du vår egen. Välj knappen **Lägg till app** i det övre högra hörnet.
 
@@ -130,21 +131,21 @@ I det här avsnittet ska du konfigurera Azure Cosmos DB SQL API-konto som mål f
 
 1. Det finns flera olika sätt att skapa Striims-program. Välj **börja** med en mall för att börja med en befintlig mall.
 
-   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/start-with-template.png" alt-text="Hitta Striims Marketplace-objekt" och väljer **mål: Azure Cosmos DB** och väljer sedan **Oracle CDC för att Azure Cosmos DB**.
+   :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/start-with-template.png" alt-text="Hitta Striims Marketplace-objekt" och väljer **mål: Azure Cosmos DB** och väljer sedan **Oracle CDC för att Azure Cosmos DB** .
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/oracle-cdc-cosmosdb.png" alt-text="Hitta Striims Marketplace-objekt":::
 
-1. På nästa sida namnger du ditt program. Du kan ange ett namn som **oraToCosmosDB** och sedan välja **Spara**.
+1. På nästa sida namnger du ditt program. Du kan ange ett namn som **oraToCosmosDB** och sedan välja **Spara** .
 
-1. Ange sedan käll konfigurationen för din käll-Oracle-instans. Ange ett värde för **källans namn**. Käll namnet är bara en namn konvention för Striims-programmet. du kan använda något som liknar **src_onPremOracle**. Ange värden för resten av käll parametrarna **URL**, **användar namn**, **lösen ord**och välj **LogMiner** som läsare för att läsa data från Oracle. Fortsätt genom att välja **Nästa**.
+1. Ange sedan käll konfigurationen för din käll-Oracle-instans. Ange ett värde för **källans namn** . Käll namnet är bara en namn konvention för Striims-programmet. du kan använda något som liknar **src_onPremOracle** . Ange värden för resten av käll parametrarna **URL** , **användar namn** , **lösen ord** och välj **LogMiner** som läsare för att läsa data från Oracle. Fortsätt genom att välja **Nästa** .
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-source-parameters.png" alt-text="Hitta Striims Marketplace-objekt":::
 
-1. Striims kommer att kontrol lera din miljö och kontrol lera att den kan ansluta till din käll-Oracle-instans, har rätt behörigheter och att CDC har kon figurer ATS korrekt. När alla värden har verifierats väljer du **Nästa**.
+1. Striims kommer att kontrol lera din miljö och kontrol lera att den kan ansluta till din käll-Oracle-instans, har rätt behörigheter och att CDC har kon figurer ATS korrekt. När alla värden har verifierats väljer du **Nästa** .
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/validate-source-parameters.png" alt-text="Hitta Striims Marketplace-objekt":::
 
-1. Välj de tabeller från Oracle-databasen som du vill migrera. Låt oss till exempel välja tabellen Orders och välj **Nästa**. 
+1. Välj de tabeller från Oracle-databasen som du vill migrera. Låt oss till exempel välja tabellen Orders och välj **Nästa** . 
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/select-source-tables.png" alt-text="Hitta Striims Marketplace-objekt":::
 
@@ -154,11 +155,11 @@ I det här avsnittet ska du konfigurera Azure Cosmos DB SQL API-konto som mål f
 
    * **Målnamn** – ange ett eget namn för målet. 
    * **Mata in från** – från List rutan väljer du den indataströmmen som du skapade i käll-Oracle-konfigurationen. 
-   * **Samlingar**– ange konfigurations egenskaperna för mål Azure Cosmos dB. Collection-syntaxen är **SourceSchema. SourceTable, TargetDatabase. TargetContainer**. I det här exemplet är värdet "SYSTEM. ORDER, StriimDemo. Orders ". 
+   * **Samlingar** – ange konfigurations egenskaperna för mål Azure Cosmos dB. Collection-syntaxen är **SourceSchema. SourceTable, TargetDatabase. TargetContainer** . I det här exemplet är värdet "SYSTEM. ORDER, StriimDemo. Orders ". 
    * **Accesskey** – PrimaryKey för ditt Azure Cosmos-konto.
    * **ServiceEndpoint** – URI för ditt Azure Cosmos-konto finns i avsnittet **nycklar** i Azure Portal. 
 
-   Välj **Spara** och **Nästa**.
+   Välj **Spara** och **Nästa** .
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-target-parameters.png" alt-text="Hitta Striims Marketplace-objekt":::
 
@@ -171,7 +172,7 @@ I det här avsnittet ska du konfigurera Azure Cosmos DB SQL API-konto som mål f
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/deploy-using-default-option.png" alt-text="Hitta Striims Marketplace-objekt":::
 
-1. När du har distribuerat kan du förhandsgranska data strömmen för att se data som passerar. Välj **våg** ikonen och ögonglobsikonen bredvid den. Välj knappen **distribuerad** i det övre meny fältet och välj **Starta App**.
+1. När du har distribuerat kan du förhandsgranska data strömmen för att se data som passerar. Välj **våg** ikonen och ögonglobsikonen bredvid den. Välj knappen **distribuerad** i det övre meny fältet och välj **Starta App** .
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/start-app.png" alt-text="Hitta Striims Marketplace-objekt":::
 

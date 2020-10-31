@@ -6,14 +6,15 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: 38129c920b422babfedf5d40bb362c7552f6f712
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8721c0eb728f568521e86baecb658dc9c869a7f6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951969"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097591"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Alternativ för att migrera dina lokala eller molnbaserade data till Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Du kan läsa in data från olika data källor till Azure Cosmos DB. Eftersom Azure Cosmos DB stöder flera API: er kan målen vara alla befintliga API: er. Här följer några scenarier där du migrerar data till Azure Cosmos DB:
 
@@ -28,19 +29,19 @@ För att stödja migrations vägar från olika källor till de olika Azure Cosmo
 
 Följande faktorer avgör valet av Migreringsverktyg:
 
-* **Online vs offline-migrering**: många Migreringsverktyg tillhandahåller en sökväg för endast en migrering. Det innebär att program som har åtkomst till databasen kan råka ut för en drifts tid. Vissa migrations lösningar är ett sätt att utföra en Direktmigrering där en replikerings-pipeline har kon figurer ATS mellan källan och målet.
+* **Online vs offline-migrering** : många Migreringsverktyg tillhandahåller en sökväg för endast en migrering. Det innebär att program som har åtkomst till databasen kan råka ut för en drifts tid. Vissa migrations lösningar är ett sätt att utföra en Direktmigrering där en replikerings-pipeline har kon figurer ATS mellan källan och målet.
 
-* **Data källa**: befintliga data kan finnas i olika data källor som Oracle DB2, DataStax Cassanda, Azure SQL Database, postgresql osv. Data kan också finnas i ett befintligt Azure Cosmos DB konto och syftet med migreringen kan vara att ändra data modellen eller partitionera om data i en behållare med en annan partitionsnyckel.
+* **Data källa** : befintliga data kan finnas i olika data källor som Oracle DB2, DataStax Cassanda, Azure SQL Database, postgresql osv. Data kan också finnas i ett befintligt Azure Cosmos DB konto och syftet med migreringen kan vara att ändra data modellen eller partitionera om data i en behållare med en annan partitionsnyckel.
 
-* **Azure Cosmos DB-API**: för SQL-API: et i Azure Cosmos DB finns det flera olika verktyg som har utvecklats av Azure Cosmos DB teamet som har stöd för olika migrerings scenarier. Alla andra API: er har sina egna specialiserade verktyg som utvecklats och underhålls av communityn. Eftersom Azure Cosmos DB stöder dessa API: er på nivån Wire Protocol, bör dessa verktyg fungera som de är medan man migrerar data till Azure Cosmos DB. De kan dock kräva anpassad hantering för begränsningar eftersom det här konceptet är begränsat till Azure Cosmos DB.
+* **Azure Cosmos DB-API** : för SQL-API: et i Azure Cosmos DB finns det flera olika verktyg som har utvecklats av Azure Cosmos DB teamet som har stöd för olika migrerings scenarier. Alla andra API: er har sina egna specialiserade verktyg som utvecklats och underhålls av communityn. Eftersom Azure Cosmos DB stöder dessa API: er på nivån Wire Protocol, bör dessa verktyg fungera som de är medan man migrerar data till Azure Cosmos DB. De kan dock kräva anpassad hantering för begränsningar eftersom det här konceptet är begränsat till Azure Cosmos DB.
 
-* **Storlek på data**: de flesta Migreringsverktyg fungerar bra för mindre data uppsättningar. När data uppsättningen överstiger några hundra gigabyte är alternativen för migrering begränsade. 
+* **Storlek på data** : de flesta Migreringsverktyg fungerar bra för mindre data uppsättningar. När data uppsättningen överstiger några hundra gigabyte är alternativen för migrering begränsade. 
 
-* **Förväntad varaktighet för migrering**: migreringar kan konfigureras för att ske i en långsam, stegvis hastighet som förbrukar mindre data flöde eller kan använda hela data flödet som har allokerats på mål Azure Cosmos DBS behållaren och slutföra migreringen på kortare tid.
+* **Förväntad varaktighet för migrering** : migreringar kan konfigureras för att ske i en långsam, stegvis hastighet som förbrukar mindre data flöde eller kan använda hela data flödet som har allokerats på mål Azure Cosmos DBS behållaren och slutföra migreringen på kortare tid.
 
 ## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API
 
-|Typ av migrering|Lösning|Källor som stöds|Mål som stöds|Att tänka på|
+|Typ av migrering|Lösning|Källor som stöds|Mål som stöds|Överväganden|
 |---------|---------|---------|---------|---------|
 |Offline|[Datamigreringsverktyget](import-data.md)| &bull;JSON/CSV-filer<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;AWS DynamoDB<br/>&bull;Azure-Blob Storage|&bull;Azure Cosmos DB SQL API<br/>&bull;API för Azure Cosmos DB tabeller<br/>&bull;JSON-filer |&bull; Enkelt att konfigurera och stödja flera källor. <br/>&bull; Passar inte för stora data mängder.|
 |Offline|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)| &bull;JSON/CSV-filer<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;API för Azure Cosmos DB för MongoDB<br/>&bull;MongoDB <br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;Azure-Blob Storage <br/> <br/>Se [Azure Data Factory](../data-factory/connector-overview.md) -artikeln för andra källor som stöds.|&bull;Azure Cosmos DB SQL API<br/>&bull;API för Azure Cosmos DB för MongoDB<br/>&bull;JSON-filer <br/><br/> Se [Azure Data Factory](../data-factory/connector-overview.md) -artikeln för andra mål som stöds. |&bull; Enkelt att konfigurera och stödja flera källor.<br/>&bull; Använder Azure Cosmos DB bulk utförar-biblioteket. <br/>&bull; Lämplig för stora data uppsättningar. <br/>&bull; Brist på kontroll punkt – det innebär att om ett problem inträffar under migreringen måste du starta om hela migreringsprocessen.<br/>&bull; Avsaknad av kö för obeställbara meddelanden – det innebär att några felaktiga filer kan stoppa hela migreringsprocessen.|
@@ -52,7 +53,7 @@ Följande faktorer avgör valet av Migreringsverktyg:
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure Cosmos DB Mongo-API
 
-|Typ av migrering|Lösning|Källor som stöds|Mål som stöds|Att tänka på|
+|Typ av migrering|Lösning|Källor som stöds|Mål som stöds|Överväganden|
 |---------|---------|---------|---------|---------|
 |Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB|API för Azure Cosmos DB för MongoDB |&bull; Använder Azure Cosmos DB bulk utförar-biblioteket. <br/>&bull; Lämplig för stora data uppsättningar och sköter att replikera Live-ändringar. <br/>&bull; Fungerar endast med andra MongoDB-källor.|
 |Offline|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB| API för Azure Cosmos DB för MongoDB| &bull; Använder Azure Cosmos DB bulk utförar-biblioteket. <br/>&bull; Lämplig för stora data uppsättningar och sköter att replikera Live-ändringar. <br/>&bull; Fungerar endast med andra MongoDB-källor.|
@@ -61,7 +62,7 @@ Följande faktorer avgör valet av Migreringsverktyg:
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API
 
-|Typ av migrering|Lösning|Källor som stöds|Mål som stöds|Att tänka på|
+|Typ av migrering|Lösning|Källor som stöds|Mål som stöds|Överväganden|
 |---------|---------|---------|---------|---------|
 |Offline|[cqlsh COPY-kommando](cassandra-import-data.md#migrate-data-using-cqlsh-copy-command)|CSV-filer | Azure Cosmos DB Cassandra API| &bull; Enkelt att konfigurera. <br/>&bull; Passar inte för stora data mängder. <br/>&bull; Fungerar bara när källan är en Cassandra-tabell.|
 |Offline|[Kopiera tabell med Spark](cassandra-import-data.md#migrate-data-using-spark) | &bull;Apache Cassandra<br/>&bull;Azure Cosmos DB Cassandra API| Azure Cosmos DB Cassandra API | &bull; Kan använda Spark-funktioner för att parallellisera omvandling och inmatning. <br/>&bull; Behöver konfigureras med en anpassad princip för återförsök för att hantera begränsningar.|

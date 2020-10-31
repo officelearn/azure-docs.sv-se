@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f44a8d82ea2588abad6855fd8eaf7aed34256d87
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fc285599176057c57621dc6bfefbe9188d3badd7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370771"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096894"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Skapa en instrument panel i real tid med hjälp av Azure Cosmos DB och Power BI
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 I den här artikeln beskrivs de steg som krävs för att skapa en Live väder instrument panel i Power BI att använda Azure Cosmos DB och Azure Analysis Services. Instrument panelen för Power BI visar diagram för att visa information i real tid om temperatur-och Rainfall i en region.
 
@@ -63,7 +64,7 @@ Konfigurera en pipeline för inmatning för att läsa in [väder data](https://c
    Beroende på vilken kolumn och datatyp som finns i käll data uppsättningen kan du ändra fälten rang Est art och RangeEnd enligt detta
 
    
-   |Egenskap  |Datatyp  |Filter  |
+   |Egenskap  |Datatyp  |Filtrera  |
    |---------|---------|---------|
    |_ts     |   Numeriskt      |  [_ts] > varaktighet. TotalSeconds (rang-The-#datetime (1970, 1,0) och [_ts] < duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 0, 0)))       |
    |Datum (till exempel:-2019-08-19)     |   Sträng      | [Document. Date] > DateTime. ToText (rang, "åååå-MM-DD") och [Document. Date] < DateTime. ToText (RangeEnd, "åååå-MM-DD")        |
@@ -74,7 +75,7 @@ Konfigurera en pipeline för inmatning för att läsa in [väder data](https://c
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/define-refresh-policy.png" alt-text="Azure Cosmos DB Power BI-anslutningsprogram":::
 
-   Ignorera varningen som säger att *M-frågan inte kan bekräftas vara viktad*. Azure Cosmos DB Connector viker filter frågor.
+   Ignorera varningen som säger att *M-frågan inte kan bekräftas vara viktad* . Azure Cosmos DB Connector viker filter frågor.
 
 1. **Läs in data och generera rapporter** – genom att använda de data som du har läst in tidigare skapar du diagrammen för att rapportera om temperatur-och Rainfall.
 
@@ -105,7 +106,7 @@ Konfigurera en pipeline för inmatning för att läsa in [väder data](https://c
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="Azure Cosmos DB Power BI-anslutningsprogram":::
 
-   Anslut till Azure Cosmos DB genom att ange **konto-URI**, **databas namn**och **behållar namn**. Nu kan du se data från Azure Cosmos-behållaren som importeras till Power BI.
+   Anslut till Azure Cosmos DB genom att ange **konto-URI** , **databas namn** och **behållar namn** . Nu kan du se data från Azure Cosmos-behållaren som importeras till Power BI.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="Azure Cosmos DB Power BI-anslutningsprogram":::
 
@@ -140,7 +141,7 @@ Konfigurera en pipeline för inmatning för att läsa in [väder data](https://c
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-partitions.png" alt-text="Azure Cosmos DB Power BI-anslutningsprogram" = Table.SelectRows(#"Sorted Rows", each [Document.month] = "2019-07")`
    * **Historik** -  `#"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each [Document.month] <> "2019-07")`
 
-1. **Distribuera modellen till Azure Analysis Server** -högerklicka på Azure Analysis Services projektet och välj **distribuera**. Lägg till Server namnet i rutan **Egenskaper för distributions Server** .
+1. **Distribuera modellen till Azure Analysis Server** -högerklicka på Azure Analysis Services projektet och välj **distribuera** . Lägg till Server namnet i rutan **Egenskaper för distributions Server** .
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/analysis-services-deploy-model.png" alt-text="Azure Cosmos DB Power BI-anslutningsprogram":::
 

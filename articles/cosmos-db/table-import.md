@@ -8,14 +8,15 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f99d7430b76c0b1c4e9c07835267a4a0807efdb1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e876ca028532bb3721146e90a91d68c4c12bf79f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481371"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096089"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrera data till Azure Cosmos DB Table-API-konto
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Den här självstudien innehåller instruktioner om hur du importerar data för användning med Azure Cosmos DB [tabell-API](table-introduction.md). Om du har lagrade data i Azure Table Storage kan du använda datamigreringsverktyget eller AzCopy för att importera dina data till Azure Cosmos DB Table-API:t. Om du har data som lagras i ett Azure Cosmos DB Table API-konto (förhandsversion) måste du använda datamigreringsverktyget för att migrera data. 
 
@@ -66,11 +67,11 @@ Använd följande alternativ för källan när du definierar Azure Table Storage
 * **/s.filter:** Valfritt. Filter sträng som ska användas
 * **/s.Projection:** Valfritt. Lista med kolumner som ska väljas
 
-Om du vill hämta käll anslutnings strängen när du importerar från Azure Table Storage öppnar du Azure Portal och klickar på **lagrings konton**  >  **konto**  >  **åtkomst nycklar**och använder sedan kopierings knappen för att kopiera **anslutnings strängen**.
+Om du vill hämta käll anslutnings strängen när du importerar från Azure Table Storage öppnar du Azure Portal och klickar på **lagrings konton**  >  **konto**  >  **åtkomst nycklar** och använder sedan kopierings knappen för att kopiera **anslutnings strängen** .
 
 :::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Skärm bild som visar alternativ för lagrings konton > konto > åtkomst nycklar och markerar knappen Kopiera.":::
 
-Om du vill hämta käll anslutnings strängen när du importerar från ett Azure Cosmos DB tabell-API (förhands granskning), öppnar du Azure Portal, klickar på **Azure Cosmos DB**  >  **kontots**  >  **anslutnings sträng** och använder kopierings knappen för att kopiera **anslutnings strängen**.
+Om du vill hämta käll anslutnings strängen när du importerar från ett Azure Cosmos DB tabell-API (förhands granskning), öppnar du Azure Portal, klickar på **Azure Cosmos DB**  >  **kontots**  >  **anslutnings sträng** och använder kopierings knappen för att kopiera **anslutnings strängen** .
 
 :::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Skärm bild som visar alternativ för lagrings konton > konto > åtkomst nycklar och markerar knappen Kopiera.":::
 

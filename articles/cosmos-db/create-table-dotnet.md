@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 65a3e9a1e60ad28fbc0357c5b04007ce4da37895
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 513af71384fd1fa5d38ee3ec367a42892a662444
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487610"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096945"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Snabb start: Bygg en Tabell-API-app med .NET SDK och Azure Cosmos DB 
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -72,7 +73,7 @@ Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra a
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Öppna exempelappen i Visual Studio
 
-1. I Visual Studio: Välj **Öppna** på **Arkiv**-menyn och välj sedan **Projekt/lösning**. 
+1. I Visual Studio: Välj **Öppna** på **Arkiv** -menyn och välj sedan **Projekt/lösning** . 
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-open-solution.png" alt-text="Öppna lösningen"::: 
 
@@ -102,7 +103,7 @@ Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen. På så vis kan appen kommunicera med den värdbaserade databasen. 
 
-1. I [Azure-portalen](https://portal.azure.com/) klickar du på **Anslutningssträng**. Använd knapparna på höger sida av fönstret för att kopiera **PRIMÄR ANSLUTNINGSSTRÄNG**.
+1. I [Azure-portalen](https://portal.azure.com/) klickar du på **Anslutningssträng** . Använd knapparna på höger sida av fönstret för att kopiera **PRIMÄR ANSLUTNINGSSTRÄNG** .
 
    :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="Öppna lösningen"
    }
@@ -114,7 +115,7 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 ## <a name="build-and-deploy-the-app"></a>Skapa och distribuera appen
 
-1. I Visual Studio högerklickar du på projektet **CosmosTableSamples** i **Solution Explorer** och klickar sedan på **Hantera NuGet-paket**. 
+1. I Visual Studio högerklickar du på projektet **CosmosTableSamples** i **Solution Explorer** och klickar sedan på **Hantera NuGet-paket** . 
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-manage-nuget.png" alt-text="Öppna lösningen":::
 
@@ -124,7 +125,7 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 3. Klicka på **Installera** för att installera **Microsoft. Azure. Cosmos. table** -biblioteket. Därmed installeras Azure Cosmos DB Table API-paketet och alla beroenden.
 
-4. När du kör hela appen infogas exempel data i entiteten tabell och tas bort i slutet så att du inte ser några data som infogas om du kör hela exemplet. Du kan dock infoga vissa Bryt punkter för att visa data. Öppna BasicSamples.cs-filen och högerklicka på rad 52, Välj **Bryt punkt**och välj sedan **Infoga Bryt punkt**. Infoga en annan brytpunkt på rad 55.
+4. När du kör hela appen infogas exempel data i entiteten tabell och tas bort i slutet så att du inte ser några data som infogas om du kör hela exemplet. Du kan dock infoga vissa Bryt punkter för att visa data. Öppna BasicSamples.cs-filen och högerklicka på rad 52, Välj **Bryt punkt** och välj sedan **Infoga Bryt punkt** . Infoga en annan brytpunkt på rad 55.
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-breakpoint.png" alt-text="Öppna lösningen"::: 
 
@@ -132,7 +133,7 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
     
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-console.png" alt-text="Öppna lösningen":::
 
-   När du kommer till den första brytpunkten går du tillbaka till Datautforskaren i Azure Portal. Klicka på **Uppdatera**, expandera demotabellen* och klicka på **Entiteter**. Fliken **Entiteter** till höger visar den nya entiteten som har lagts till för Walter Harp. Lägg märke till att telefonnumret för den nya entiteten är 425-555-0101.
+   När du kommer till den första brytpunkten går du tillbaka till Datautforskaren i Azure Portal. Klicka på **Uppdatera** , expandera demotabellen* och klicka på **Entiteter** . Fliken **Entiteter** till höger visar den nya entiteten som har lagts till för Walter Harp. Lägg märke till att telefonnumret för den nya entiteten är 425-555-0101.
 
    :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-entity.png" alt-text="Öppna lösningen":::
     
@@ -150,7 +151,7 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
     
 7. Tryck på F5 för att köra appen till nästa brytpunkt. 
 
-    När du kommer till brytpunkten växlar du tillbaka till Azure Portal och klickar på **Entiteter** igen för att öppna fliken **Entiteter**. Du kan nu se att telefonnumret har uppdaterats till 425-555-0105.
+    När du kommer till brytpunkten växlar du tillbaka till Azure Portal och klickar på **Entiteter** igen för att öppna fliken **Entiteter** . Du kan nu se att telefonnumret har uppdaterats till 425-555-0105.
 
 8. Tryck på F5 för att köra appen. 
  

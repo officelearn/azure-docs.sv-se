@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 0167dc0b1cbf8cf3b95995645ef24548a05c4343
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5264fb44f8088ae8f942abf95bc8c0ef6d917413
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538654"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096146"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Databas bearbetning utan server med hjälp av Azure Cosmos DB och Azure Functions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Data behandling utan server är allt om möjligheten att fokusera på enskilda delar av logiken som är repeterbara och tillstånds lösa. Dessa delar kräver ingen infrastruktur hantering och de använder bara resurser för de sekunder eller millisekunder som de körs för. I kärnan av den server fria data bearbetningen är funktioner som är tillgängliga i Azures eko system genom att [Azure Functions](https://azure.microsoft.com/services/functions). Om du vill veta mer om andra miljöer utan server i Azure ser du [Server lösa på Azure](https://azure.microsoft.com/solutions/serverless/) -sidan. 
 

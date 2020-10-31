@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: f469196f96b97903f69e29d1a38900369653e02f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41acc956d4eca2accc16c46cdc52336c3cd89065
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86200504"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095432"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Sök efter kategorier för API för lokal sökning i Bing
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Med API: t för lokal sökning i Bing kan du söka efter lokala affär senheter i en mängd olika kategorier, med prioritet till resultat som stänger en användares plats. Du kan inkludera dessa sökningar i sökningar tillsammans med `localCircularView` `localMapView` [parametrarna](specify-geographic-search.md)och.
 

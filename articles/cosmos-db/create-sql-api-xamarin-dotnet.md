@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d82b7f618757fbf77072bd7147595eec3083885
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 91e89eaf215468f171974e5f3fd383691fdd6ebe
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487644"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096992"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Snabb start: Bygg en att göra-app med Xamarin med Azure Cosmos DB SQL API-konto
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -89,11 +90,11 @@ Nu ska vi klona SQL API-appen i Xamarin från GitHub, granska koden, hämta API-
 
 Gå tillbaka till Azure Portal för att hämta API-nyckelinformationen och kopiera den till appen.
 
-1. I [Azure Portal](https://portal.azure.com/) går du till ditt SQL API-konto i Azure Cosmos DB. Klicka på **Nycklar** i den vänstra navigeringen och sedan på **Läs- och skrivnycklar**. Använd kopieringsknapparna till höger på skärmen till att kopiera URI:n och primärnyckeln till filen APIKeys.cs i nästa steg.
+1. I [Azure Portal](https://portal.azure.com/) går du till ditt SQL API-konto i Azure Cosmos DB. Klicka på **Nycklar** i den vänstra navigeringen och sedan på **Läs- och skrivnycklar** . Använd kopieringsknapparna till höger på skärmen till att kopiera URI:n och primärnyckeln till filen APIKeys.cs i nästa steg.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Att göra-app i Xamarin som körs på iOS":::
 
-2. Öppna **ToDoItems. Core/helpers/APIKeys. cs**i Visual Studio.
+2. Öppna **ToDoItems. Core/helpers/APIKeys. cs** i Visual Studio.
 
 3. Kopiera **URI** -värdet i Azure-portalen med kopierings knappen och gör det till värdet för `CosmosEndpointUrl` variabeln i APIKeys.cs.
 
@@ -191,7 +192,7 @@ Följande steg visar hur du kör appen med felsökningsprogrammet i Visual Studi
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Att göra-app i Xamarin som körs på iOS":::
 
-4. Om du vill slutföra ett att göra-objekt i iOS drar du det till vänster > och trycker på knappen **Slutför**. Om du vill slutföra ett att göra-objekt i Android trycker du länge på objektet > tryck sedan på knappen Slutför.
+4. Om du vill slutföra ett att göra-objekt i iOS drar du det till vänster > och trycker på knappen **Slutför** . Om du vill slutföra ett att göra-objekt i Android trycker du länge på objektet > tryck sedan på knappen Slutför.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Att göra-app i Xamarin som körs på iOS":::
 

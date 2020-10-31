@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 9ddee5991efd5bde3bd139257ad154f02f5d0371
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071310"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095959"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Skala en Azure API Management-instans automatiskt  
 
@@ -66,7 +66,7 @@ Följ stegen nedan för att konfigurera autoskalning för en Azure API Managemen
 
     ![Aktivera Azure Monitor autoskalning](media/api-management-howto-autoscale/03.png)
 
-6. Klicka på **+ Lägg till en regel**i avsnittet **regler** .
+6. Klicka på **+ Lägg till en regel** i avsnittet **regler** .
 
     ![Azure Monitor tilläggs regel för autoskalning](media/api-management-howto-autoscale/04.png)
 
@@ -93,7 +93,7 @@ Följ stegen nedan för att konfigurera autoskalning för en Azure API Managemen
 
     ![Regel för Azure Monitor skala ut](media/api-management-howto-autoscale/05.png)
 
-9. Klicka på igen på **+ Lägg till en regel**.
+9. Klicka på igen på **+ Lägg till en regel** .
 
     Den här gången måste en skala i regeln definieras. Det ser till att resurserna inte slösas om, när användningen av API: er minskar.
 
@@ -125,9 +125,9 @@ Följ stegen nedan för att konfigurera autoskalning för en Azure API Managemen
     > [!NOTE]
     > Azure API Management har en gräns för enheter som en instans kan skala ut till. Gränsen är beroende av en tjänst nivå.
 
-    ![Azure Monitor skala i regel](media/api-management-howto-autoscale/07.png)
+    ![Skärm bild som visar var du anger det maximala antalet Azure API Management-enheter.](media/api-management-howto-autoscale/07.png)
 
-13. Klicka på **Spara**. Autoskalning har kon figurer ATS.
+13. Klicka på **Spara** . Autoskalning har kon figurer ATS.
 
 ## <a name="next-steps"></a>Nästa steg
 

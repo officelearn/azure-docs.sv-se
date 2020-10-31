@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6ddc428a1b2228c7e6e15093c12deb25ddd65c27
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b89c48b5040c198cb1b4a6ce383baed51dfac19e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281027"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097421"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Prestanda-och skalnings testning med Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Prestanda-och skalnings testning är ett viktigt steg i program utveckling. För många program har databas nivån en betydande inverkan på övergripande prestanda och skalbarhet. Därför är det en viktig komponent i prestanda testningen. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) är syfte-byggt för elastisk skalning och förutsägbar prestanda. Dessa funktioner gör att den passar bra för program som behöver en databas nivå med hög prestanda. 
 

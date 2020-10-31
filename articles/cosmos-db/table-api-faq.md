@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b2aab6579f9cc78e44454407f1f4ddeed605086b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485009"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096112"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Vanliga frågor och svar om Tabell-API i Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 Azure Cosmos DB Tabell-API finns i [Azure Portal](https://portal.azure.com) först måste du registrera dig för en Azure-prenumeration. När du har registrerat dig kan du lägga till ett Azure Cosmos DB Tabell-API-konto till din Azure-prenumeration och sedan lägga till tabeller i ditt konto. Du hittar de språk som stöds och de kopplade snabb starterna i [introduktionen till Azure Cosmos DB tabell-API](table-introduction.md).
 
@@ -195,7 +196,7 @@ Ja, Azure Cosmos DB Tabell-API tillhandahåller automatisk indexering av alla at
 
 Ja, du kan ändra indexerings principen genom att tillhandahålla index definitionen. Du måste koda och kringgå inställningarna korrekt.
 
-För non-.NET SDK: er kan indexerings principen bara ställas in i portalen på **datautforskaren**, navigera till den speciella tabell som du vill ändra och sedan gå till **skalnings & inställningar**->indexerings princip, göra önskade ändringar och sedan **Spara**.
+För non-.NET SDK: er kan indexerings principen bara ställas in i portalen på **datautforskaren** , navigera till den speciella tabell som du vill ändra och sedan gå till **skalnings & inställningar** ->indexerings princip, göra önskade ändringar och sedan **Spara** .
 
 I .NET SDK kan den skickas i app.config-filen:
 

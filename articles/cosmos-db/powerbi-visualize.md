@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: a7e5443869efd7f37153b47e4d9c3eaa39f9c41d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c6da4eef15f8f0946e17e910fa39aee1f34fccf0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475285"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096384"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualisera Azure Cosmos DB-data med hjälp av anslutningsprogrammet för Power BI
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 [Power BI](https://powerbi.microsoft.com/) är en online tjänst där du kan skapa och dela instrument paneler och rapporter. Power BI Desktop är ett verktyg för rapportredigering som gör att du kan hämta data från olika datakällor. Azure Cosmos DB är en av de datakällor som du kan använda med Power BI Desktop. Du kan ansluta Power BI Desktop till ett Azure Cosmos DB-konto med Azure Cosmos DB-anslutningsprogrammet för Power BI.  När du har importerat Azure Cosmos DB-data till Power BI kan du omvandla dem, skapa rapporter och publicera rapporterna till Power BI.   
 
@@ -74,21 +75,21 @@ Du hämtar Volcano-data från Azure Cosmos DB-kontot och visualiserar data i en 
 
 1. Kör Power BI Desktop.
 
-2. Du kan **Hämta data**, se de **senaste källorna**eller **öppna andra rapporter** direkt från välkomst skärmen. Välj "X" i det övre högra hörnet för att stänga skärmen. **Rapportvyn** för Power BI Desktop visas.
+2. Du kan **Hämta data** , se de **senaste källorna** eller **öppna andra rapporter** direkt från välkomst skärmen. Välj "X" i det övre högra hörnet för att stänga skärmen. **Rapportvyn** för Power BI Desktop visas.
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
-3. Välj menyfliksområdet **Start** och klicka på **Hämta data**.  Fönstret **Hämta data** ska visas.
+3. Välj menyfliksområdet **Start** och klicka på **Hämta data** .  Fönstret **Hämta data** ska visas.
 
-4. Klicka på **Azure**, Välj **Azure Cosmos dB (beta)** och klicka sedan på **Anslut**. 
+4. Klicka på **Azure** , Välj **Azure Cosmos dB (beta)** och klicka sedan på **Anslut** . 
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
-5. På sidan för **hands versions koppling** klickar du på **Fortsätt**. Fönstret **Azure Cosmos DB** visas.
+5. På sidan för **hands versions koppling** klickar du på **Fortsätt** . Fönstret **Azure Cosmos DB** visas.
 
-6. Ange Azure Cosmos DB kontots slut punkts-URL som du vill hämta data från enligt nedan och klicka sedan på **OK**. Om du vill använda ditt eget konto kan du hämta URL: en från rutan URI i bladet **nycklar** i Azure Portal. Alternativt kan du ange databasens namn, samlings namn eller använda navigatören för att välja databasen och samlingen för att identifiera var data kommer från.
+6. Ange Azure Cosmos DB kontots slut punkts-URL som du vill hämta data från enligt nedan och klicka sedan på **OK** . Om du vill använda ditt eget konto kan du hämta URL: en från rutan URI i bladet **nycklar** i Azure Portal. Alternativt kan du ange databasens namn, samlings namn eller använda navigatören för att välja databasen och samlingen för att identifiera var data kommer från.
    
-7. Om du ansluter till den här slut punkten för första gången uppmanas du att ange konto nyckeln. Hämta nyckeln från **primär nyckel** rutan på bladet **skrivskyddade nycklar** i Azure Portal för ditt eget konto. Ange lämplig nyckel och klicka sedan på **Anslut**.
+7. Om du ansluter till den här slut punkten för första gången uppmanas du att ange konto nyckeln. Hämta nyckeln från **primär nyckel** rutan på bladet **skrivskyddade nycklar** i Azure Portal för ditt eget konto. Ange lämplig nyckel och klicka sedan på **Anslut** .
    
    Vi rekommenderar att du använder den skrivskyddade nyckeln när du skapar rapporter. Detta förhindrar onödig exponering av primär nyckeln för potentiella säkerhets risker. Den skrivskyddade nyckeln är tillgänglig från bladet **nycklar** i Azure Portal. 
     
@@ -98,7 +99,7 @@ Du hämtar Volcano-data från Azure Cosmos DB-kontot och visualiserar data i en 
 
 10. Välj nu en samling som innehåller de data som ska hämtas och välj **volcano1** (ditt samlings namn kan vara olika).
     
-    I förhands gransknings fönstret visas en lista över **post** objekt.  Ett dokument visas som en **post** typ i Power BI. På samma sätt är ett kapslat JSON-block i ett dokument också en **post**.
+    I förhands gransknings fönstret visas en lista över **post** objekt.  Ett dokument visas som en **post** typ i Power BI. På samma sätt är ett kapslat JSON-block i ett dokument också en **post** .
     
     :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
@@ -109,7 +110,7 @@ Du hämtar Volcano-data från Azure Cosmos DB-kontot och visualiserar data i en 
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
-1. Klicka på expanderaen på höger sida av **dokumentets** kolumn rubrik.  Snabb menyn med en lista över fält visas.  Välj de fält som du behöver för rapporten, t. ex. Volcano namn, land, region, plats, höjning, typ, status och senaste resultat. Avmarkera rutan **Använd ursprungligt kolumn namn som prefix** och klicka sedan på **OK**.
+1. Klicka på expanderaen på höger sida av **dokumentets** kolumn rubrik.  Snabb menyn med en lista över fält visas.  Välj de fält som du behöver för rapporten, t. ex. Volcano namn, land, region, plats, höjning, typ, status och senaste resultat. Avmarkera rutan **Använd ursprungligt kolumn namn som prefix** och klicka sedan på **OK** .
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
@@ -119,7 +120,7 @@ Du hämtar Volcano-data från Azure Cosmos DB-kontot och visualiserar data i en 
 
 1. I vårt exempel är egenskapen location ett interjson-block i ett dokument.  Som du kan se visas platsen som en **post** typ i Power BI Desktop.  
 
-1. Klicka på expanderaen på höger sida av dokumentets. plats kolumn rubrik.  Snabb menyn med fälten typ och koordinater visas.  Nu ska vi välja fältet koordinater, se till att **använda ursprungligt kolumn namn som prefix** inte är markerat och klicka på **OK**.
+1. Klicka på expanderaen på höger sida av dokumentets. plats kolumn rubrik.  Snabb menyn med fälten typ och koordinater visas.  Nu ska vi välja fältet koordinater, se till att **använda ursprungligt kolumn namn som prefix** inte är markerat och klicka på **OK** .
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
@@ -129,11 +130,11 @@ Du hämtar Volcano-data från Azure Cosmos DB-kontot och visualiserar data i en 
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Power BI Desktop Report View-Power BI koppling":::
 
-1. Skapa en **anpassad kolumn** med namnet LatLong för att förenkla koordinaten.  Välj menyfliksområdet **Lägg till kolumn** och klicka på **anpassad kolumn**.  Fönstret **anpassad kolumn** visas.
+1. Skapa en **anpassad kolumn** med namnet LatLong för att förenkla koordinaten.  Välj menyfliksområdet **Lägg till kolumn** och klicka på **anpassad kolumn** .  Fönstret **anpassad kolumn** visas.
 
 1. Ange ett namn för den nya kolumnen, t. ex. LatLong.
 
-1. Ange sedan den anpassade formeln för den nya kolumnen.  I vårt exempel sammanfogar vi värdena för latitud och longitud, avgränsade med kommatecken, som du ser nedan med hjälp av följande formel: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})` . Klicka på **OK**.
+1. Ange sedan den anpassade formeln för den nya kolumnen.  I vårt exempel sammanfogar vi värdena för latitud och longitud, avgränsade med kommatecken, som du ser nedan med hjälp av följande formel: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})` . Klicka på **OK** .
    
    Mer information om data analys uttryck (DAX) inklusive DAX-funktioner finns [i grunderna för DAX i Power BI Desktop](/power-bi/desktop-quickstart-learn-dax-basics).
    
@@ -182,7 +183,7 @@ Nedan visas de grundläggande stegen för att skapa en enkel interaktiv kart vis
 Om du vill dela rapporten måste du ha ett konto i PowerBI.com.
 
 1. Klicka på menyfliksområdet **Start** i Power BI Desktop.
-1. Klicka på **Publicera**.  Du uppmanas att ange användar namn och lösen ord för ditt PowerBI.com-konto.
+1. Klicka på **Publicera** .  Du uppmanas att ange användar namn och lösen ord för ditt PowerBI.com-konto.
 1. När autentiseringsuppgiften har autentiserats publiceras rapporten till ditt mål som du har valt.
 1. Klicka på **Öppna "PowerBITutorial. pbix" i Power BI** för att se och dela din rapport på PowerBI.com.
    

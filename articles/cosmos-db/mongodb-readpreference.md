@@ -9,14 +9,15 @@ ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: e86c48695c732b27f5032c1e3780cc24c8d3dc39
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3d21aadd8174bf933e55320c8596c57274140582
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482272"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096401"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Distribuera läsningar globalt med Azure Cosmos DB s API för MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Den här artikeln visar hur du distribuerar Läs åtgärder globalt med [MongoDB](https://docs.mongodb.com/manual/core/read-preference/) med hjälp av Azure Cosmos DB s API för MongoDB.
 
@@ -43,7 +44,7 @@ Kör följande kommandon för att klona exempellagringsplatsen. Använd någon a
 git clone <sample repo url>
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Beroende på vilken plattform som används installerar du de nödvändiga paketen och startar programmet. Om du vill installera beroenden följer du README-filen som ingår i exempel programmets lagrings plats. I exempel programmet NodeJS använder du exempelvis följande kommandon för att installera de nödvändiga paketen och starta programmet.
 
@@ -145,7 +146,7 @@ Förutom läsa inställnings läget tillåter MongoDB-protokollet att Taggar anv
       }
 ```
 
-Därför kan MongoClient använda `region` taggen tillsammans med region namnet för att dirigera Läs åtgärder till vissa regioner. För Cosmos-konton finns regions namn i Azure Portal till vänster under **Inställningar – >replik data globalt**. Den här inställningen är användbar för att uppnå **Läs isolering** – fall där klient programmet bara vill dirigera Läs åtgärder till en specifik region. Den här inställningen är idealisk för scenarier som inte är produktion/analys, som körs i bakgrunden och som inte är produktions kritiska tjänster.
+Därför kan MongoClient använda `region` taggen tillsammans med region namnet för att dirigera Läs åtgärder till vissa regioner. För Cosmos-konton finns regions namn i Azure Portal till vänster under **Inställningar – >replik data globalt** . Den här inställningen är användbar för att uppnå **Läs isolering** – fall där klient programmet bara vill dirigera Läs åtgärder till en specifik region. Den här inställningen är idealisk för scenarier som inte är produktion/analys, som körs i bakgrunden och som inte är produktions kritiska tjänster.
 
 Följande kodfragment från exempel programmet visar hur du konfigurerar inställningen läsa med taggar i NodeJS:
 
@@ -167,7 +168,7 @@ I den här artikeln har du lärt dig hur du globalt distribuerar Läs åtgärder
 Om du inte kommer att fortsätta att använda den här appen tar du bort alla resurser som skapats i den här artikeln i Azure Portal med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade. 
-2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
+2. På sidan med resursgrupper klickar du på **Ta bort** , skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort** .
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: ed11488f397704be782a092d6cdc6463449cc71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18817a426bacc1ddf144c1d64b611c55245cc21e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039083"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097795"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementera CI/CD för Stream Analytics på IoT Edge med API: er
 
@@ -59,7 +59,7 @@ Om du vill skapa Stream Analytics jobb anropar du metoden för att skicka med hj
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
-Exempel på kommando som använder **sväng**:
+Exempel på kommando som använder **sväng** :
 
 ```curl
 curl -u { <username:password> } -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
@@ -136,7 +136,7 @@ Exempel på begär ande text i JSON:
 } 
 ```
  
-Mer information finns i API- [dokumentationen](/rest/api/streamanalytics/stream-analytics-job).  
+Mer information finns i API- [dokumentationen](/rest/api/streamanalytics/).  
  
 ## <a name="publish-edge-package"></a>Publicera Edge-paket 
  
@@ -148,7 +148,7 @@ Om du vill publicera ett Stream Analytics jobb på IoT Edge anropar du POST-meto
 
 Den här asynkrona åtgärden returnerar statusen 202 tills jobbet har publicerats. Plats svars huvudet innehåller den URI som används för att hämta status för processen. Medan processen körs returnerar ett anrop till URI: n i plats huvudet statusen 202. När processen har slutförts returnerar URI: n i plats huvudet statusen 200. 
 
-Exempel på ett Edge-paket publicera samtal med hjälp av **sväng**: 
+Exempel på ett Edge-paket publicera samtal med hjälp av **sväng** : 
 
 ```bash
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
@@ -163,7 +163,7 @@ https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{
 ```
 Vänta i en till två minuter innan du kör följande kommando för att göra ett API-anrop med den URL som du hittade i svarets huvud. Försök att köra kommandot igen om du inte får ett 200-svar.
  
-Exempel på hur du gör API-anrop med returnerad URL med **sväng**:
+Exempel på hur du gör API-anrop med returnerad URL med **sväng** :
 
 ```bash
 curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 

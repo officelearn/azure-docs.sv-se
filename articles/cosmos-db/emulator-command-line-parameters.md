@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f8bcadf25ac8e001657f2be012f99ddb507e672d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6d1cb684f4c2e3f563d5690c804d64c97ff70c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445187"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096745"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Kommando rads-och PowerShell-referens för Azure Cosmos DB emulator
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos-emulatorn tillhandahåller en lokal miljö som emulerar den Azure Cosmos DB tjänsten för lokala utvecklings behov. När du har [installerat emulatorn](local-emulator.md)kan du kontrol lera emulatorn med kommando rads-och PowerShell-kommandon. Den här artikeln beskriver hur du använder kommando rads-och PowerShell-kommandon för att starta och stoppa emulatorn, konfigurera alternativ och utföra andra åtgärder. Du måste köra kommandona från installations platsen.
 
@@ -53,7 +54,7 @@ Om du vill visa en lista över alternativ skriver du `Microsoft.Azure.Cosmos.Emu
 |FailOnSslCertificateNameMismatch | Som standard återskapar emulatorn sitt självsignerade TLS/SSL-certifikat om certifikatets SAN inte innehåller emulatorns domän namn, lokal IPv4-adress, localhost och 127.0.0.1. Med det här alternativet går det inte att starta emulatorn vid start i stället. Du bör sedan använda alternativet/GenCert för att skapa och installera ett nytt självsignerat TLS/SSL-certifikat. | Microsoft.Azure.Cosmos.Emulator.exe/FailOnSslCertificateNameMismatch  | |
 | GenCert | Skapa och installera ett nytt självsignerat TLS/SSL-certifikat. Du kan också inkludera en kommaavgränsad lista över ytterligare DNS-namn för att få åtkomst till emulatorn över nätverket. | Microsoft.Azure.Cosmos.Emulator.exe/GenCert =\<dns-names\> |\<dns-names\>: Valfri kommaavgränsad lista över ytterligare DNS-namn  |
 | DirectPorts |Anger portarna som ska användas för direktanslutning. Standardvärdena är 10251, 10252, 10253, 10254. | Microsoft.Azure.Cosmos.Emulator.exe/DirectPorts:\<directports\> | \<directports\>: Kommaavgränsad lista över 4 portar |
-| Tangent |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
+| Nyckel |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
 | EnableRateLimiting | Anger att begränsande beteende för förfrågningsfrekvens är aktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/EnableRateLimiting | |
 | DisableRateLimiting |Anger att begränsande beteende för förfrågningsfrekvens är inaktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/DisableRateLimiting | |
 | NoUI | Visa inte emulatorns användargränssnitt. | Microsoft.Azure.Cosmos.Emulator.exe/NoUI | |
@@ -135,15 +136,15 @@ Om du försöker skapa en behållare när det aktuella antalet partitioner har �
 
 Kör följande steg för att ändra antalet behållare som är tillgängliga i Azure Cosmos-emulatorn:
 
-1. Ta bort alla lokala Azure Cosmos-emulator-data genom att högerklicka på ikonen **Azure Cosmos DB emulator** i system fältet och sedan klicka på **Återställ data..**..
+1. Ta bort alla lokala Azure Cosmos-emulator-data genom att högerklicka på ikonen **Azure Cosmos DB emulator** i system fältet och sedan klicka på **Återställ data..** ..
 
 1. Ta bort alla emulator-data i den här mappen `%LOCALAPPDATA%\CosmosDBEmulator` .
 
-1. Avsluta alla öppna instanser genom att högerklicka på ikonen för **Azure Cosmos DB-emulator** i meddelandefältet och klicka sedan på **Avsluta**. Det kan ta någon minut för alla instanser att avslutas.
+1. Avsluta alla öppna instanser genom att högerklicka på ikonen för **Azure Cosmos DB-emulator** i meddelandefältet och klicka sedan på **Avsluta** . Det kan ta någon minut för alla instanser att avslutas.
 
 1. Installera den senaste versionen av [Azure Cosmos-emulatorn](https://aka.ms/cosmosdb-emulator).
 
-1. Starta emulatorn med PartitionCount-flaggan genom att ställa in ett värde <= 250. Exempel: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
+1. Starta emulatorn med PartitionCount-flaggan genom att ställa in ett värde <= 250. Till exempel `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
  
 ## <a name="next-steps"></a>Nästa steg
 

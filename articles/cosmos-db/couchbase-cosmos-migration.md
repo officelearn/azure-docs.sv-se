@@ -7,14 +7,15 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0f286b5586a0d74afed0bb185179454bb1efff95
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282467"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097557"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrera från CouchBase till Azure Cosmos DB SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB är en skalbar, globalt distribuerad, fullständigt hanterad databas. Den ger garanterad låg latens åtkomst till dina data. Mer information om Azure Cosmos DB finns i [översikts](introduction.md) artikeln. Den här artikeln innehåller anvisningar för att migrera Java-program som är anslutna till Couchbase till ett SQL API-konto i Azure Cosmos DB.
 
@@ -25,7 +26,7 @@ Följande är viktiga funktioner som fungerar annorlunda i Azure Cosmos DB jämf
 |   Couchbase     |   Azure Cosmos DB   |
 | ---------------|-------------------|
 |Couchbase-Server| Konto       |
-|Bucket           | Databasen      |
+|Bucket           | Databas      |
 |Bucket           | Container/samling |
 |JSON-dokument    | Objekt/dokument |
 
@@ -37,7 +38,7 @@ Följande är viktiga funktioner som fungerar annorlunda i Azure Cosmos DB jämf
 
 * I Azure Cosmos DB krävs det inte för att hierarkin på den översta nivån ska beteckna samlingen, eftersom samlings namnet redan finns. Den här funktionen gör JSON-strukturen mycket enklare. Följande är ett exempel som visar skillnader i data modellen mellan Couchbase och Azure Cosmos DB:
 
-   **Couchbase**: dokument-ID = "99FF4444"
+   **Couchbase** : dokument-ID = "99FF4444"
 
     ```json
     {
@@ -67,7 +68,7 @@ Följande är viktiga funktioner som fungerar annorlunda i Azure Cosmos DB jämf
     }
    ```
 
-   **Azure Cosmos DB**: se "ID" i dokumentet på det sätt som visas nedan
+   **Azure Cosmos DB** : se "ID" i dokumentet på det sätt som visas nedan
 
     ```json
     {
@@ -311,7 +312,7 @@ Det här är en enkel typ av arbets belastning där du kan utföra sökningar i 
 
 1. Överväg att använda "/ID" som primär nyckel, vilket ser till att du kan utföra söknings åtgärder direkt i den angivna partitionen. Skapa en samling och ange "/ID" som partitionsnyckel.
 
-1. Stäng av indexeringen helt. Eftersom du kommer att köra söknings åtgärder finns det ingen punkt för att utföra indexerings kostnader. Om du vill stänga av indexeringen loggar du in på Azure Portal, goto Azure Cosmos DB-konto. Öppna **datautforskaren**, välj din **databas** och **behållaren**. Öppna fliken **skalnings & inställningar** och välj  **indexerings princip**. Index princip som är för närvarande ser ut så här:
+1. Stäng av indexeringen helt. Eftersom du kommer att köra söknings åtgärder finns det ingen punkt för att utföra indexerings kostnader. Om du vill stänga av indexeringen loggar du in på Azure Portal, goto Azure Cosmos DB-konto. Öppna **datautforskaren** , välj din **databas** och **behållaren** . Öppna fliken **skalnings & inställningar** och välj  **indexerings princip** . Index princip som är för närvarande ser ut så här:
     
    ```json
    {
@@ -435,7 +436,7 @@ Det finns två sätt att migrera data.
 
 * **Använd verktyget Azure Cosmos db data import:** Det här alternativet rekommenderas för att migrera med virtuella datorer med mindre mängd data. Detaljerade anvisningar finns i artikeln om [data import](./import-data.md) .
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * För att utföra prestanda testning, se [prestanda-och skalnings testning med Azure Cosmos DB](./performance-testing.md) artikel.
 * Information om hur du optimerar koden finns i [prestanda tips för Azure Cosmos DB](./performance-tips-async-java.md) artikel.

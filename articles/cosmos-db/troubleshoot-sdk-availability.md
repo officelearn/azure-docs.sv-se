@@ -8,14 +8,15 @@ ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b1c2377ba26b4ca64f5028fb1a51ca4e64f6a67c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319368"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097897"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnostisera och Felsök tillgängligheten för Azure Cosmos SDK: er i multiregionala miljöer
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här artikeln beskriver beteendet för den senaste versionen av Azure Cosmos SDK: er när du ser ett anslutnings problem till en viss region eller när en regions växling inträffar.
 
@@ -34,7 +35,7 @@ När du anger den regionala inställningen ansluter klienten till en region som 
 | Enskild Skriv region | Önskad region | Primär region  |
 | Flera Skriv regioner | Önskad region | Önskad region  |
 
-Om du **inte anger någon önskad region**använder SDK-klienten som standard den primära regionen:
+Om du **inte anger någon önskad region** använder SDK-klienten som standard den primära regionen:
 
 |Kontotyp |Läsningar |Skrivningar |
 |------------------------|--|--|
@@ -46,7 +47,7 @@ Om du **inte anger någon önskad region**använder SDK-klienten som standard de
 
 Under normala omständigheter ansluter SDK-klienten till den önskade regionen (om en regional inställning har angetts) eller till den primära regionen (om ingen inställning har angetts) och åtgärderna kommer att begränsas till den regionen, om inte något av nedanstående scenarier inträffar.
 
-I dessa fall exponerar klienten som använder Azure Cosmos SDK loggar och innehåller information om återförsöket som en del av **åtgärdens diagnostiska information**:
+I dessa fall exponerar klienten som använder Azure Cosmos SDK loggar och innehåller information om återförsöket som en del av **åtgärdens diagnostiska information** :
 
 * Egenskapen *RequestDiagnosticsString* i svar i .NET v2 SDK.
 * Egenskapen *diagnostik* för svar och undantag i .net v3 SDK.

@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bf8563274d7aa677249335612d0156d6a5ecbd95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eee59d906da46e315ede52796bd89c7827833ede
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018458"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095738"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET standard-API: Hämta och viktig information
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 > [!div class="op_single_selector"]
 > 
 > * [.NET](table-sdk-dotnet.md)
@@ -27,10 +28,10 @@ ms.locfileid: "89018458"
 
 |   |   |
 |---|---|
-|**SDK-hämtning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
+|**SDK-nedladdning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
 |**Urvalsundersökningar**|[Cosmos DB Tabell-API .NET-exempel](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Snabbstart**|[Snabbstart](create-table-dotnet.md)|
-|**Självstudier**|[Självstudier](tutorial-develop-table-dotnet.md)|
+|**Självstudie**|[Självstudie](tutorial-develop-table-dotnet.md)|
 |**Aktuellt ramverk som stöds**|[Microsoft .NET standard 2,0](https://www.nuget.org/packages/NETStandard.Library)|
 |**Rapportera problem**|[Rapportera problem](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
@@ -100,12 +101,12 @@ Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för 
 Detta plattforms oberoende .NET standard-bibliotek [Microsoft. Azure. Cosmos. table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) kommer att ersätta .NET Framework-biblioteket [Microsoft. Azure. CosmosDB. table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
 
 ### <a name="200-series"></a>2.0.0-serien
-| Version | Lanserings datum | Förfallodatum |
+| Version | Utgivningsdatum | Förfallodatum |
 | --- | --- | --- |
 | [2.0.0 – för hands version](#2.0.0-preview) |Auguest 22, 2019 |--- |
 
 ### <a name="100-series"></a>1.0.0-serien
-| Version | Lanserings datum | Förfallodatum |
+| Version | Utgivningsdatum | Förfallodatum |
 | --- | --- | --- |
 | [1.0.5](#1.0.5) |13 september 2019 |--- |
 | [1.0.5 – för hands version](#1.0.5-preview) |Auguest 20, 2019 |--- |

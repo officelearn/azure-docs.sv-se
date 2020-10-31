@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/05/2020
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: 15b4e6515f98a4d5a65bb5a56bdd5a5f40f90fe8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2016f00249da9abfa2f0904b14d6a34298973f99
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408619"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096622"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Använd MongoDB kompass för att ansluta till Azure Cosmos DB s API för MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Den här självstudien visar hur du använder [MongoDB kompass](https://www.mongodb.com/products/compass) när du lagrar och/eller hanterar data i Cosmos dB. Vi använder Azure Cosmos DBs API för MongoDB för den här genom gången. För dem som inte är välkända är kompass ett GUI för MongoDB. Den används ofta för att visualisera dina data, köra Ad hoc-frågor, tillsammans med hantera dina data.
 
@@ -42,7 +43,7 @@ Om du vill ansluta ditt Cosmos DB konto till kompass kan du följa stegen nedan:
 
     :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="Skärm bild av bladet anslutnings sträng":::
 
-3. Öppna kompassen på Skriv bordet/datorn och klicka på **Anslut** och **Anslut sedan till.**...
+3. Öppna kompassen på Skriv bordet/datorn och klicka på **Anslut** och **Anslut sedan till.** ...
 
 4. Kompass identifierar automatiskt en anslutnings sträng i Urklipp och frågar om du vill använda den för att ansluta. Klicka på **Ja** så som visas på skärm bilden nedan.
 

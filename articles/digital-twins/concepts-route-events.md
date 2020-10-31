@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f124eb24dcdc9e6437c803d1066d6ca86d5c32ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9c7b08b92fad07cddbdb2783f2d68cdb9be034a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440815"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097081"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
 Azure Digitals dubbla använder **händelse vägar** för att skicka data till konsumenter utanför tjänsten. 
 
-Under för hands versionen finns det två viktiga fall för att skicka Azure Digitals dubbla data:
+Det finns två viktiga fall för att skicka Azure Digitals dubbla data:
 * Skicka data från en mitt i det digitala Azure-diagrammet till en annan. Om du till exempel har en egenskap på en digital, dubbla ändringar kanske du vill meddela och uppdatera en annan digital i enlighet med detta.
-* Skicka data till underordnade data tjänster för ytterligare lagring eller bearbetning (kallas även *utgående data*). Till exempel,
+* Skicka data till underordnade data tjänster för ytterligare lagring eller bearbetning (kallas även *utgående data* ). Till exempel,
   - Ett sjukhus kan vilja skicka data för Azure Digitals dubbla data till [Time Series Insights (TSD)](../time-series-insights/overview-what-is-tsi.md)för att registrera Time Series-data för handwashing-relaterade händelser för Mass analys.
   - En verksamhet som redan använder [Azure Maps](../azure-maps/about-azure-maps.md) kanske vill använda Azure Digital-dubbla för att förbättra sin lösning. De kan snabbt aktivera en Azure-karta när du har konfigurerat Azure Digitals-enheter, ta Azure Map-entiteter i Azure Digitals-enheter som [digitala](concepts-twins-graph.md) delar i den dubbla grafen eller kör kraftfulla frågor som använder sina Azure Maps och Azure Digitals sammanställda data tillsammans.
 
@@ -38,7 +38,7 @@ Vanliga underordnade mål för händelse vägar är resurser som TSD, Azure Maps
 
 ### <a name="event-routes-for-internal-digital-twin-events"></a>Händelse vägar för interna digitala dubbla händelser
 
-Under den aktuella för hands versionen används händelse vägar också för att hantera händelser i den dubbla grafen och skicka data från digitala dubbla till digitala. Detta görs genom att du ansluter händelse vägar via Event Grid för att beräkna resurser, till exempel [Azure Functions](../azure-functions/functions-overview.md). Dessa funktioner definierar sedan hur dubbla ska ta emot och svara på händelser. 
+Händelse vägar används också för att hantera händelser i den dubbla grafen och skicka data från digitala dubbla till digitala dubbla. Detta görs genom att du ansluter händelse vägar via Event Grid för att beräkna resurser, till exempel [Azure Functions](../azure-functions/functions-overview.md). Dessa funktioner definierar sedan hur dubbla ska ta emot och svara på händelser. 
 
 När en beräknings resurs vill ändra det dubbla diagrammet baserat på en händelse som tas emot via händelse vägen, är det bra att veta vilken som är den som ska ändras i förväg. 
 
@@ -50,7 +50,7 @@ Information om hur du konfigurerar en Azure-funktion för att bearbeta digitala 
 
 ## <a name="create-an-endpoint"></a>Skapa en slutpunkt
 
-För att definiera en händelse väg måste utvecklare först definiera slut punkter. En **slut punkt** är ett mål utanför Azures digitala dubbla, som har stöd för en väg anslutning. Destinationer som stöds i den aktuella för hands versionen är:
+För att definiera en händelse väg måste utvecklare först definiera slut punkter. En **slut punkt** är ett mål utanför Azures digitala dubbla, som har stöd för en väg anslutning. Destinationer som stöds är:
 * Event Grid anpassade ämnen
 * Händelsehubb
 * Service Bus
@@ -73,7 +73,7 @@ Slut punkts-API: erna som är tillgängliga i kontroll planet är:
  
 Om du vill skapa en händelse väg kan du använda Azure Digitals dubbla [**data Plans-API: er**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI-kommandon**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)eller [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Här är ett exempel på hur du skapar en händelse väg i ett klient program med hjälp av `CreateEventRoute` [.net (C#) SDK-](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview) anropet: 
+Här är ett exempel på hur du skapar en händelse väg i ett klient program med hjälp av `CreateEventRoute` [.net (C#) SDK-](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) anropet: 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
@@ -94,7 +94,7 @@ Vägar kan också skapas med hjälp av [Azure Digitals flätade CLI](how-to-use-
 
 ## <a name="dead-letter-events"></a>Händelser för obeställbara meddelanden
 
-När en slut punkt inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden**. Digitala Azure-dubblare kommer att döda en händelse när **något av följande** villkor uppfylls. 
+När en slut punkt inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden** . Digitala Azure-dubblare kommer att döda en händelse när **något av följande** villkor uppfylls. 
 
 * Händelsen har inte levererats inom Time-to-Live-perioden
 * Antalet försök att leverera händelsen har överskridit gränsen

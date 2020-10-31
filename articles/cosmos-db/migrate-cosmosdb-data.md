@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 02fd0a4c7d931f439ab85af8d90de323105e21f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480929"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096707"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrera hundratals terabyte data till Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB kan lagra flera terabyte data. Du kan utföra en storskalig datamigrering för att flytta din produktionsarbetsbelastning till Azure Cosmos DB. I den här artikeln beskriver vi utmaningarna med att flytta storskaliga data till Azure Cosmos DB och introducerar ett verktyg som hjälper dig med migreringen. I den här fallstudien använde kunden Cosmos DB SQL API.  
 
@@ -28,11 +29,11 @@ Azure Cosmos DB migrations strategier skiljer sig för närvarande baserat på A
 
 De befintliga verktygen för att migrera data till Azure Cosmos DB har vissa begränsningar som är särskilt synliga vid stora skalor:
 
- * **Funktioner för begränsad skalning**: för att kunna migrera terabyte data till Azure Cosmos DB så snabbt som möjligt och för att effektivt förbruka hela det etablerade data flödet bör migrerings klienterna ha möjlighet att skala ut på obestämd tid.  
+ * **Funktioner för begränsad skalning** : för att kunna migrera terabyte data till Azure Cosmos DB så snabbt som möjligt och för att effektivt förbruka hela det etablerade data flödet bör migrerings klienterna ha möjlighet att skala ut på obestämd tid.  
 
-* **Brist på förlopps spårning och kontroll pekare**: det är viktigt att spåra migreringens förlopp och kontrol lera att de har en kontroll som pekar samtidigt som du migrerar stora data mängder. Annars stoppas migreringen av ett fel som inträffar under migreringen och du måste starta processen från grunden. Det skulle inte vara produktivt att starta om hela migreringsprocessen när 99% av den redan har slutförts.  
+* **Brist på förlopps spårning och kontroll pekare** : det är viktigt att spåra migreringens förlopp och kontrol lera att de har en kontroll som pekar samtidigt som du migrerar stora data mängder. Annars stoppas migreringen av ett fel som inträffar under migreringen och du måste starta processen från grunden. Det skulle inte vara produktivt att starta om hela migreringsprocessen när 99% av den redan har slutförts.  
 
-* **Avsaknad av kön för obeställbara meddelanden**: i stora data mängder kan det finnas problem med delar av data källan. Dessutom kan det finnas tillfälliga problem med klienten eller nätverket. Något av dessa fall bör inte medföra att hela migreringen fungerar. Även om de flesta Migreringsverktyg har robusta återförsöks funktioner som skyddar mot tillfälliga problem, är det inte alltid tillräckligt. Om till exempel mindre än 0,01% av käll data dokumenten är större än 2 MB, kommer det att göra att dokumentet skrivs för att Miss Miss Azure Cosmos DB. Vi rekommenderar att du använder Migreringsverktyget för att spara dessa "misslyckade" dokument i en annan kö för obeställbara meddelanden, som kan bearbetas efter migreringen. 
+* **Avsaknad av kön för obeställbara meddelanden** : i stora data mängder kan det finnas problem med delar av data källan. Dessutom kan det finnas tillfälliga problem med klienten eller nätverket. Något av dessa fall bör inte medföra att hela migreringen fungerar. Även om de flesta Migreringsverktyg har robusta återförsöks funktioner som skyddar mot tillfälliga problem, är det inte alltid tillräckligt. Om till exempel mindre än 0,01% av käll data dokumenten är större än 2 MB, kommer det att göra att dokumentet skrivs för att Miss Miss Azure Cosmos DB. Vi rekommenderar att du använder Migreringsverktyget för att spara dessa "misslyckade" dokument i en annan kö för obeställbara meddelanden, som kan bearbetas efter migreringen. 
 
 Många av de här begränsningarna är fasta för verktyg som Azure Data Factory, Azure Data Migration Services. 
 

@@ -4,12 +4,12 @@ description: Självstudie – Så renderar du en Autodesk 3ds Max-scen med Arnol
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 516f5a3f80f1252dbf63e3b254f0c7200de16e11
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fbaa56ab444b9d686e5054a3668604bd40f7a262
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747046"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097704"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Självstudie: Rendera en scen med Azure Batch 
 
@@ -26,13 +26,13 @@ I den här självstudien renderar du en 3ds Max-scen med Batch med ray-tracing-r
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en användningsbaserad prenumeration eller annat Azure-köpalternativ för att använda renderingsprogram i Batch för betalning per användningstillfälle. **Användningsbaserad licensiering stöds inte om du använder ett kostnadsfritt Azure-erbjudande som ger penningkredit.**
+ - Du behöver en användningsbaserad prenumeration eller annat Azure-köpalternativ för att använda renderingsprogram i Batch för betalning per användningstillfälle. **Användningsbaserad licensiering stöds inte om du använder ett kostnadsfritt Azure-erbjudande som ger penningkredit.**
 
-3ds Max-exempelscenen till den här självstudien finns på [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), tillsammans med ett Bash-exempelskript och JSON-konfigurationsfiler. 3ds Max-scenen kommer från [Autodesk 3ds Max-exempelfilerna](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max-exempelfilerna är tillgängliga under en Creative Commons Attribution-NonCommercial-Share Alike-licens. Copyright &copy; Autodesk, Inc.)
+ - 3ds Max-exempelscenen till den här självstudien finns på [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), tillsammans med ett Bash-exempelskript och JSON-konfigurationsfiler. 3ds Max-scenen kommer från [Autodesk 3ds Max-exempelfilerna](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max-exempelfilerna är tillgängliga under en Creative Commons Attribution-NonCommercial-Share Alike-licens. Copyright &copy; Autodesk, Inc.)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.20 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+- I den här självstudien krävs version 2.0.20 eller senare av Azure CLI. Om du använder Azure Cloud Shell är den senaste versionen redan installerad.
 
 ## <a name="create-a-batch-account"></a>Skapa ett Batch-konto
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 7b96bc456d2dc0e3f1a1110f36b61be4accfbd8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12c4b9f4a3757a3974e4aff7699d0265bfd7840
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488515"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124381"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skala ett Azure Stream Analytics jobb för att öka data flödet
 Den här artikeln visar hur du ställer in en Stream Analytics-fråga för att öka data flödet för strömnings analys jobb. Du kan använda följande guide för att skala jobbet för att hantera högre belastning och dra nytta av mer system resurser (till exempel mer bandbredd, mer processor resurser, mer minne).
@@ -24,7 +24,7 @@ Som ett krav kan du behöva läsa följande artiklar:
 Om frågan är helt kan göras parallella över inpartitioner, kan du följa stegen nedan:
 1.  Redigera frågan så att den blir köras parallell genom att använda **partition med** nyckelord. Mer information finns i avsnittet köras Parallel Jobs [på den här sidan](stream-analytics-parallelization.md).
 2.  Beroende på vilka utdatatyper som används i din fråga kan vissa utdata antingen inte kan göras parallella eller så behöver du ytterligare konfiguration för att vara köras parallell. PowerBI-utdata är till exempel inte kan göras parallella. Utdata slås alltid samman innan skickas till utgående mottagare. Blobbar, tabeller, ADLS, Service Bus och Azure-funktionen är automatiskt parallellt. SQL-och Azure Synapse Analytics-utdata har ett alternativ för parallellisering. Event Hub måste ha PartitionKey-konfigurationen inställd så att den matchar fältet **partition by** (vanligt vis PartitionID). För Event Hub ska du också betala extra uppmärksamhet för att matcha antalet partitioner för alla indata och alla utdata för att undvika över-över-partitioner mellan partitioner. 
-3.  Kör din fråga med **6 Su** (vilket är den fulla kapaciteten för en enskild dator) för att mäta maximalt data flöde, och om du använder **Group by**, mäter du hur många grupper (kardinalitet) jobbet kan hantera. Allmänna symtom på system resurs gränser är följande:
+3.  Kör din fråga med **6 Su** (vilket är den fulla kapaciteten för en enskild dator) för att mäta maximalt data flöde, och om du använder **Group by** , mäter du hur många grupper (kardinalitet) jobbet kan hantera. Allmänna symtom på system resurs gränser är följande:
     - Måttet SU% är över 80%. Detta indikerar att minnes användningen är hög. De faktorer som bidrar till ökningen av det här måttet beskrivs [här](stream-analytics-streaming-unit-consumption.md). 
     -   Tidsstämpeln för utdata faller bakom i förhållande till väggens Klock tid. Beroende på din fråge logik kan tidsstämpeln för utdata ha en logisk förskjutning från väggens klock klocka. De bör dock förfalla i ungefär samma takt. Om tidsstämpeln för utdata faller ytterligare och ytterligare bakom, är det en indikator att systemet är överarbetat. Det kan vara ett resultat av begränsning av utgående mottagare eller hög processor användning. Vi tillhandahåller inte mått för processor användning just nu, så det kan vara svårt att särskilja de två.
         - Om problemet beror på mottagar begränsningen kan du behöva öka antalet utgående partitioner (och även ange partitioner för att hålla jobbet fullständigt kan göras parallella) eller öka mängden resurser för mottagaren (till exempel antalet enheter för programbegäran för CosmosDB).
@@ -42,7 +42,7 @@ Om frågan inte är köras parallell kan du följa stegen nedan.
 2.  Om du kan uppnå din förväntade belastning i data flödes perioden är du färdig. Alternativt kan du välja att mäta samma jobb som körs på 3 SU och 1 SU för att ta reda på det minsta antalet SU som fungerar för ditt scenario.
 3.  Om du inte kan uppnå det önskade data flödet kan du försöka dela upp frågan i flera steg om möjligt, om det inte finns flera steg och allokera upp till 6 SU för varje steg i frågan. Om du till exempel har tre steg tilldelar du 18 SU i alternativet "skala".
 4.  När du kör ett sådant jobb placerar Stream Analytics varje steg på en egen nod med dedikerade 6 SU-resurser. 
-5.  Om du fortfarande inte har uppnått ditt belastnings mål kan du försöka använda en **partition genom** att börja med steg närmare inaktuella inaktuella. För **Group by** -operatorer som kanske inte är naturligt partitionerable kan du använda det lokala/globala samlings mönstret för att utföra en partitionerad **grupp genom** att följa av en icke-partitionerad **grupp av**. Om du till exempel vill räkna hur många bilar som passerar varje väg på varje 3 minuter, och data volymen ligger bortom vad som kan hanteras av 6 SU.
+5.  Om du fortfarande inte har uppnått ditt belastnings mål kan du försöka använda en **partition genom** att börja med steg närmare inaktuella inaktuella. För **Group by** -operatorer som kanske inte är naturligt partitionerable kan du använda det lokala/globala samlings mönstret för att utföra en partitionerad **grupp genom** att följa av en icke-partitionerad **grupp av** . Om du till exempel vill räkna hur många bilar som passerar varje väg på varje 3 minuter, och data volymen ligger bortom vad som kan hanteras av 6 SU.
 
 Fråga:
 
@@ -78,13 +78,13 @@ För vissa ISV-användningsfall, där det är mer kostnads effektivt att bearbet
 
 
 ## <a name="get-help"></a>Få hjälp
-Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Azure Stream Analytics Management REST-API:et](/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -97,10 +97,9 @@ Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida 
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

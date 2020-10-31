@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: 18270a2f435428824714067749fc18ce2addc535
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 0e7777cba93706baea815521757b495209431ce6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913049"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124025"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Felsöka Azure Stream Analytics med hjälp av resurs loggar
 
@@ -48,7 +48,7 @@ Aktivitets loggarna är aktiverat som standard och ger höga insikter om åtgär
 
    ![Sammanfattning av Stream Analytics aktivitets loggs åtgärd](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Rulla ned till avsnittet **Egenskaper** i JSON, där det finns information om felet som orsakade åtgärden. I det här exemplet berodde felet på ett körnings fel från de kopplade Latitude-värdena. En avvikelse i data som bearbetas av ett Stream Analytics jobb orsakar ett data fel. Du kan lära dig mer om olika [indata och fel i utdata och varför de inträffar](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+4. Rulla ned till avsnittet **Egenskaper** i JSON, där det finns information om felet som orsakade åtgärden. I det här exemplet berodde felet på ett körnings fel från de kopplade Latitude-värdena. En avvikelse i data som bearbetas av ett Stream Analytics jobb orsakar ett data fel. Du kan lära dig mer om olika [indata och fel i utdata och varför de inträffar](./data-errors.md).
 
    ![JSON-fel information](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -111,7 +111,7 @@ Körnings loggarna innehåller information om händelser som har inträffat unde
 
 ### <a name="data-errors"></a>Datafel
 
-Eventuella fel som inträffar när jobbet bearbetar data finns i den här kategorin av loggar. Loggarna skapas oftast när data läses, serialiseras och skrivs. Dessa loggar innehåller inte anslutnings fel. Anslutnings fel behandlas som allmänna händelser. Du kan lära dig mer om orsaken till olika [fel i indata och utdata](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+Eventuella fel som inträffar när jobbet bearbetar data finns i den här kategorin av loggar. Loggarna skapas oftast när data läses, serialiseras och skrivs. Dessa loggar innehåller inte anslutnings fel. Anslutnings fel behandlas som allmänna händelser. Du kan lära dig mer om orsaken till olika [fel i indata och utdata](./data-errors.md).
 
 Namn | Beskrivning
 ------- | -------
@@ -143,5 +143,5 @@ Korrelations-ID | GUID som unikt identifierar jobb körningen. Alla körnings lo
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Stream Analytics data fel](https://docs.microsoft.com/azure/stream-analytics/data-errors)
-* [Språk referens för Stream Analytics-fråga](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Stream Analytics data fel](./data-errors.md)
+* [Språk referens för Stream Analytics-fråga](/stream-analytics-query/stream-analytics-query-language-reference)

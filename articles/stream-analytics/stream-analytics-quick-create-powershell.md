@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 69571afceddab61c2a6134516e237facfb7a5073
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b36a71899be43f40ec16c76b5e53c8c3e7fb3552
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746888"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124534"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Snabb start: skapa ett Stream Analytics jobb med Azure PowerShell
 
@@ -26,9 +26,9 @@ Exempeljobbet läser strömmande data från en IoT Hub-enhet. Indata genereras a
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto.](https://azure.microsoft.com/free/)
 
-* Den här snabbstarten kräver Azure PowerShell-modulen. Hitta versionen som är installerad på den lokala datorn genom att köra `Get-Module -ListAvailable Az`. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
+* Den här snabbstarten kräver Azure PowerShell-modulen. Hitta versionen som är installerad på den lokala datorn genom att köra `Get-Module -ListAvailable Az`. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
-* Vissa IoT Hub åtgärder stöds inte av Azure PowerShell och måste slutföras med hjälp av Azure CLI version 2.0.70 eller senare och IoT-tillägget för Azure CLI. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och använd `az extension add --name azure-iot` för att installera IoT-tillägget.
+* Vissa IoT Hub åtgärder stöds inte av Azure PowerShell och måste slutföras med hjälp av Azure CLI version 2.0.70 eller senare och IoT-tillägget för Azure CLI. [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) och använd `az extension add --name azure-iot` för att installera IoT-tillägget.
 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -52,7 +52,7 @@ Get-AzSubscription -SubscriptionName "<your subscription name>" | Select-AzSubsc
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en Azure-resursgrupp med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+Skapa en Azure-resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 ```powershell
 $resourceGroup = "StreamAnalyticsRG"
@@ -68,9 +68,9 @@ Innan du definierar Stream Analytics-jobbet förbereder du de data som har konfi
 
 Följande Azure CLI-kodblock utför många kommandon som förbereder de indata som krävs för jobbet. Läs avsnitten för att förstå koden.
 
-1. I PowerShell-fönstret kör du kommandot [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) för att logga in på ditt Azure-konto.
+1. I PowerShell-fönstret kör du kommandot [az login](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) för att logga in på ditt Azure-konto.
 
-    När du har loggat in returnerar Azure CLI en lista över dina prenumerationer. Kopiera den prenumeration som du använder för den här snabbstarten och kör kommandot [az account set](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) för att välja den prenumerationen. Välj samma prenumeration som du valde i föregående avsnitt med PowerShell. Ersätt `<your subscription name>` med namnet på prenumerationen.
+    När du har loggat in returnerar Azure CLI en lista över dina prenumerationer. Kopiera den prenumeration som du använder för den här snabbstarten och kör kommandot [az account set](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) för att välja den prenumerationen. Välj samma prenumeration som du valde i föregående avsnitt med PowerShell. Ersätt `<your subscription name>` med namnet på prenumerationen.
 
     ```azurecli
     az login
@@ -84,7 +84,7 @@ Följande Azure CLI-kodblock utför många kommandon som förbereder de indata s
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    När IoT-hubben har skapats hämtar du anslutningssträngen för IoT-hubben med hjälp av kommandot [az iot hub show-connection-string](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest). Kopiera hela anslutningssträngen och spara den för användning när du lägger till IoT-hubben som indata i ditt Stream Analytics-jobb.
+    När IoT-hubben har skapats hämtar du anslutningssträngen för IoT-hubben med hjälp av kommandot [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest). Kopiera hela anslutningssträngen och spara den för användning när du lägger till IoT-hubben som indata i ditt Stream Analytics-jobb.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
@@ -112,11 +112,11 @@ Följande Azure CLI-kodblock utför många kommandon som förbereder de indata s
 
 Följande Azure PowerShell-kodblock använder kommandon för att skapa bloblagring som används för jobbutdata. Läs avsnitten för att förstå koden.
 
-1. Skapa ett allmänt lagringskonto för generell användning med hjälp av cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount).  I det här exemplet skapas ett lagringskonto med namnet **myasaquickstartstorage** med lokalt redundant lagring (LRS) och blobkryptering (aktiverat som standard).
+1. Skapa ett allmänt lagringskonto för generell användning med hjälp av cmdleten [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount).  I det här exemplet skapas ett lagringskonto med namnet **myasaquickstartstorage** med lokalt redundant lagring (LRS) och blobkryptering (aktiverat som standard).
 
 2. Hämta lagringskontokontexten `$storageAccount.Context` som definierar det lagringskonto som ska användas. När du arbetar med lagringskonton refererar du till kontexten i stället för att ange autentiseringsuppgifterna flera gånger.
 
-3. Skapa en lagringscontainer med hjälp av [New-AzStorageContainer](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer).
+3. Skapa en lagringscontainer med hjälp av [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer).
 
 4. Kopiera den lagringsnyckel som koden ger som utdata och spara nyckeln för att skapa utdata för strömningsjobbet senare.
 
@@ -146,7 +146,7 @@ Följande Azure PowerShell-kodblock använder kommandon för att skapa bloblagri
 
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 
-Skapa ett Stream Analytics-jobb med cmdleten [New-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob). Den här cmdleten tar jobbnamnet, resursgruppens namn och jobbdefinitionen som parametrar. Jobbnamnet kan vara ett eget namn som identifierar jobbet. Det får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3 och 63 tecken långt. Jobbdefinitionen är en JSON-fil som innehåller de egenskaper som krävs för att skapa ett jobb. Skapa en fil med namnet `JobDefinition.json` på den lokala datorn och lägg till följande JSON-data i den:
+Skapa ett Stream Analytics-jobb med cmdleten [New-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/new-azstreamanalyticsjob). Den här cmdleten tar jobbnamnet, resursgruppens namn och jobbdefinitionen som parametrar. Jobbnamnet kan vara ett eget namn som identifierar jobbet. Det får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3 och 63 tecken långt. Jobbdefinitionen är en JSON-fil som innehåller de egenskaper som krävs för att skapa ett jobb. Skapa en fil med namnet `JobDefinition.json` på den lokala datorn och lägg till följande JSON-data i den:
 
 ```json
 {
@@ -176,7 +176,7 @@ New-AzStreamAnalyticsJob `
 
 ## <a name="configure-input-to-the-job"></a>Konfigurera indata för jobbet
 
-Lägg till indata för jobbet med hjälp av cmdleten [New-AzStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput). Den här cmdleten tar jobbnamnet, jobbindatanamnet, resursgruppens namn och jobbindatadefinitionen som parametrar. Jobbets indatadefinition är en JSON-fil som innehåller de egenskaper som krävs för att konfigurera jobbets indata. I det här exemplet skapar du en bloblagring som indata.
+Lägg till indata för jobbet med hjälp av cmdleten [New-AzStreamAnalyticsInput](/powershell/module/az.streamanalytics/new-azstreamanalyticsinput). Den här cmdleten tar jobbnamnet, jobbindatanamnet, resursgruppens namn och jobbindatadefinitionen som parametrar. Jobbets indatadefinition är en JSON-fil som innehåller de egenskaper som krävs för att konfigurera jobbets indata. I det här exemplet skapar du en bloblagring som indata.
 
 Skapa en fil med namnet `JobInputDefinition.json` på den lokala datorn och lägg till följande JSON-data i den. Ersätt värdet för `accesspolicykey` med `SharedAccessKey`-delen i den anslutningssträng för IoT Hub som du sparade i ett tidigare avsnitt.
 
@@ -223,7 +223,7 @@ New-AzStreamAnalyticsInput `
 
 ## <a name="configure-output-to-the-job"></a>Konfigurera utdata för jobbet
 
-Lägg till utdata för jobbet med hjälp av cmdleten [New-AzStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput). Den här cmdleten tar jobbnamnet, jobbutdatanamnet, resursgruppens namn och jobbutdatadefinitionen som parametrar. Jobbets utdatadefinition är en JSON-fil som innehåller de egenskaper som krävs för att konfigurera jobbets utdata. Det här exemplet använder bloblagring som utdata.
+Lägg till utdata för jobbet med hjälp av cmdleten [New-AzStreamAnalyticsOutput](/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput). Den här cmdleten tar jobbnamnet, jobbutdatanamnet, resursgruppens namn och jobbutdatadefinitionen som parametrar. Jobbets utdatadefinition är en JSON-fil som innehåller de egenskaper som krävs för att konfigurera jobbets utdata. Det här exemplet använder bloblagring som utdata.
 
 Skapa en fil med namnet `JobOutputDefinition.json` på den lokala datorn och lägg till följande JSON-data i den. Ersätt värdet för `accountKey` med åtkomstnyckeln för ditt lagringskonto, vilket är det värde som lagras i $storageAccountKey.
 
@@ -272,7 +272,7 @@ New-AzStreamAnalyticsOutput `
 
 ## <a name="define-the-transformation-query"></a>Definiera transformationsfrågan
 
-Lägg till en transformation för jobbet med hjälp av cmdleten [New-AzStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation). Den här cmdleten tar jobbnamnet, jobbtransformationsnamnet, resursgruppens namn och jobbtransformationsdefinitionen som parametrar. Skapa en fil med namnet `JobTransformationDefinition.json` på den lokala datorn och lägg till följande JSON-data i den. JSON-filen innehåller en frågeparameter som definierar transformationsfrågan:
+Lägg till en transformation för jobbet med hjälp av cmdleten [New-AzStreamAnalyticsTransformation](/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation). Den här cmdleten tar jobbnamnet, jobbtransformationsnamnet, resursgruppens namn och jobbtransformationsdefinitionen som parametrar. Skapa en fil med namnet `JobTransformationDefinition.json` på den lokala datorn och lägg till följande JSON-data i den. JSON-filen innehåller en frågeparameter som definierar transformationsfrågan:
 
 ```json
 {
@@ -310,7 +310,7 @@ New-AzStreamAnalyticsTransformation `
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Starta Stream Analytics-jobbet och kontrollera utdata
 
-Starta jobbet med hjälp av cmdleten [Start-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob). Den här cmdleten tar jobbnamnet, resursgruppens namn, startläget för utdata och starttiden som parametrar. `OutputStartMode` godkänner värden för `JobStartTime`, `CustomTime` eller `LastOutputEventTime`. Mer information om vad dessa värden refererar till finns i avsnittet om [parametrar](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) i PowerShell-dokumentationen.
+Starta jobbet med hjälp av cmdleten [Start-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob). Den här cmdleten tar jobbnamnet, resursgruppens namn, startläget för utdata och starttiden som parametrar. `OutputStartMode` godkänner värden för `JobStartTime`, `CustomTime` eller `LastOutputEventTime`. Mer information om vad dessa värden refererar till finns i avsnittet om [parametrar](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) i PowerShell-dokumentationen.
 
 När du har kört följande cmdlet returnerar den `True` som utdata om jobbet startar. En utdatamapp skapas i lagringscontainern med de data som har transformerats.
 

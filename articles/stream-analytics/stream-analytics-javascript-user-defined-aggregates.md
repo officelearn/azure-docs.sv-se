@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e43a43d929d256bc2a12b6b243d9620c5bd1aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8891bb5cd3b8bd8ae9e02c871d6d0ffe42078c0b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317709"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124772"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Azure Stream Analytics användardefinierade JavaScript-mängder
  
@@ -83,7 +83,7 @@ Funktions Ali Aset är UDA-identifieraren. När det anropas i Stream Analytics f
 
 ### <a name="function-type"></a>Funktions typ
 
-För UDA ska funktions typen vara JavaScript- **Uda**.
+För UDA ska funktions typen vara JavaScript- **Uda** .
 
 ### <a name="output-type"></a>Utdatatyp
 
@@ -123,7 +123,7 @@ Nedan går vi igenom processen med att skapa en UDA från portalen. Exemplet som
 Nu ska vi skapa en JavaScript-UDA under ett befintligt ASA-jobb genom att följa stegen nedan.
 
 1. Logga in på Azure Portal och leta upp ditt befintliga Stream Analytics-jobb.
-1. Klicka sedan på Functions-länken under **jobb sto pol Ogin**.
+1. Klicka sedan på Functions-länken under **jobb sto pol Ogin** .
 1. Klicka på ikonen **Lägg** till för att lägga till en ny funktion.
 1. I den nya Function-vyn väljer du **Java Script Uda** som funktions typ. därefter visas en standard-Uda-mall i redigeraren.
 1. Fyll i "TWA" som UDA-alias och ändra funktions implementeringen enligt följande:
@@ -226,12 +226,12 @@ Skapa en lokal JSON-fil med innehållet nedan, ladda upp filen till Stream Analy
 
 ## <a name="get-help"></a>Få hjälp
 
-Om du behöver ytterligare hjälp kan du prova vår [sida om Microsoft Q&en fråga för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Om du behöver ytterligare hjälp kan du prova vår [sida om Microsoft Q&en fråga för Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Språk referens för Azure Stream Analytics-fråga](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics hanterings REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Språk referens för Azure Stream Analytics-fråga](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Azure Stream Analytics hanterings REST API](/rest/api/streamanalytics/)

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 10/9/2020
-ms.openlocfilehash: 10ffe7c2544be2bf2c09ae39f323b1e643063d27
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 8e11611e679b4a900da0fd09d60ea33be4e15c98
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892888"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124874"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Vad är Azure Stream Analytics?
 
@@ -47,9 +47,9 @@ Azure Stream Analytics är avsett att vara enkelt att använda samt flexibelt, t
 
 ## <a name="ease-of-getting-started"></a>Lätt att komma igång
 
-Azure Stream Analytics är enkelt att starta. Det tar bara några klick att ansluta till flera källor och mottagare, vilket skapar en pipeline från slut punkt till slut punkt. Stream Analytics kan ansluta till [azure Event Hubs](/azure/event-hubs/) och [Azure-IoT Hub](/azure/iot-hub/) för att strömma data inmatning, samt [Azure Blob Storage](/azure/storage/common/storage-introduction) för att mata in historiska data. Jobb indata kan också innehålla statiska eller långsamma referens data från Azure Blob Storage eller [SQL Database](stream-analytics-use-reference-data.md#azure-sql-database) som du kan ansluta till strömmande data för att utföra söknings åtgärder.
+Azure Stream Analytics är enkelt att starta. Det tar bara några klick att ansluta till flera källor och mottagare, vilket skapar en pipeline från slut punkt till slut punkt. Stream Analytics kan ansluta till [azure Event Hubs](../event-hubs/index.yml) och [Azure-IoT Hub](../iot-hub/index.yml) för att strömma data inmatning, samt [Azure Blob Storage](../storage/common/storage-introduction.md) för att mata in historiska data. Jobb indata kan också innehålla statiska eller långsamma referens data från Azure Blob Storage eller [SQL Database](stream-analytics-use-reference-data.md#azure-sql-database) som du kan ansluta till strömmande data för att utföra söknings åtgärder.
 
-Stream Analytics kan dirigera jobb utdata till många lagrings system, till exempel [Azure Blob Storage](/azure/storage/common/storage-introduction), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](/azure/data-lake-store/)och [Azure CosmosDB](/azure/cosmos-db/introduction). Du kan också köra batch Analytics på Stream-outpust med Azure Synapse Analytics eller HDInsight, eller så kan du skicka utdata till en annan tjänst, t. ex. Event Hubs för förbrukning eller [Power BI](https://docs.microsoft.com/power-bi/) för visualisering i real tid.
+Stream Analytics kan dirigera jobb utdata till många lagrings system, till exempel [Azure Blob Storage](../storage/common/storage-introduction.md), [Azure SQL Database](/azure/sql-database/), [Azure Data Lake Store](../data-lake-store/index.yml)och [Azure CosmosDB](../cosmos-db/introduction.md). Du kan också köra batch Analytics på Stream-outpust med Azure Synapse Analytics eller HDInsight, eller så kan du skicka utdata till en annan tjänst, t. ex. Event Hubs för förbrukning eller [Power BI](/power-bi/) för visualisering i real tid.
 
 Hela listan med Stream Analytics utdata finns i [förstå utdata från Azure Stream Analytics](stream-analytics-define-outputs.md).
 
@@ -57,7 +57,7 @@ Hela listan med Stream Analytics utdata finns i [förstå utdata från Azure Str
 
 Azure Stream Analytics använder ett SQL-frågespråk som har förbättrats med kraftfulla temporala begränsningar för att analysera data i rörelse. Du kan också skapa jobb med hjälp av utvecklarverktyg som Azure PowerShell, Azure CLI, [Stream Analytics Visual Studio-verktyg](stream-analytics-tools-for-visual-studio-install.md), [Stream Analytics Visual Studio Code Extension](quick-create-visual-studio-code.md)eller Azure Resource Manager mallar. Med utvecklarverktyg kan du utveckla omvandlings frågor offline och använda [CI/CD-pipeline](stream-analytics-tools-for-visual-studio-cicd.md) för att skicka jobb till Azure.
 
-Med Stream Analytics frågespråk kan du utföra CEP (komplex Event procssing) genom att erbjuda en mängd olika funktioner för analys av strömmande data. Det här frågespråket stöder enkel data manipulation, agg regerings-och analys funktioner, [geospatiala funktioner](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-geospatial-functions), [mönster matchning](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics) och [avvikelse identifiering](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection). Du kan redigera frågor i portalen eller med hjälp av våra utvecklingsverktyg och testa dem med hjälp av exempel data som extraheras från en Live-dataström.
+Med Stream Analytics frågespråk kan du utföra CEP (komplex Event procssing) genom att erbjuda en mängd olika funktioner för analys av strömmande data. Det här frågespråket stöder enkel data manipulation, agg regerings-och analys funktioner, [geospatiala funktioner](./stream-analytics-geospatial-functions.md), [mönster matchning](/stream-analytics-query/match-recognize-stream-analytics) och [avvikelse identifiering](./stream-analytics-machine-learning-anomaly-detection.md). Du kan redigera frågor i portalen eller med hjälp av våra utvecklingsverktyg och testa dem med hjälp av exempel data som extraheras från en Live-dataström.
 
 Du kan utöka funktionerna i frågespråket genom att definiera och anropa ytterligare funktioner. Du kan definiera funktions anrop i Azure Machine Learning för att dra nytta av Azure Machine Learning lösningar och integrera JavaScript-eller C#-användardefinierade funktioner (UDF: er) eller användardefinierade agg regeringar för att utföra komplexa beräkningar som en del av en Stream Analytics fråga.
 
@@ -88,7 +88,7 @@ Som en hanterad tjänst garanterar Stream Analytics händelse bearbetningen med 
 
 ### <a name="security"></a>Säkerhet
 
-När det gäller säkerhet krypterar Azure Stream Analytics all inkommande och utgående kommunikation och har stöd för TLS 1.2. Inbyggda kontrollpunkter krypteras också. Stream Analytics lagrar inte inkommande data eftersom all bearbetning sker i minnet. Stream Analytics stöder också virtuella Azure-nätverk (VNET) när ett jobb körs i ett [Stream Analytics-kluster](https://docs.microsoft.com/azure/stream-analytics/cluster-overview).
+När det gäller säkerhet krypterar Azure Stream Analytics all inkommande och utgående kommunikation och har stöd för TLS 1.2. Inbyggda kontrollpunkter krypteras också. Stream Analytics lagrar inte inkommande data eftersom all bearbetning sker i minnet. Stream Analytics stöder också virtuella Azure-nätverk (VNET) när ett jobb körs i ett [Stream Analytics-kluster](./cluster-overview.md).
 
 ### <a name="compliance"></a>Efterlevnad
 

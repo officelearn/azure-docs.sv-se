@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 6bfea42c6fca3369485ccf7a47158f7420df9c9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5714a2fd79d01f4cbc445c1ec1a726209ab6d427
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790040"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124942"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurera en tillgänglighets grupp för arbets gruppen 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,11 +62,11 @@ Följ dessa steg om du vill konfigurera DNS-suffixet:
 1. Välj **mer...** för att öppna dialog rutan **DNS-suffix och NetBIOS-** datornamn. 
 1. Skriv namnet på ditt DNS-suffix under **primärt DNS-suffix för den här datorn** , till exempel `ag.wgcluster.example.com` och välj sedan **OK** : 
 
-   ![Lägg till DNS-suffix](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
+   ![Skärm bild som visar dialog rutan D N S suffix och NetBIOS-datornamn där du kan ange värdet.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
 1. Bekräfta att det **fullständiga dator namnet** nu visar DNS-suffixet och välj sedan **OK** för att spara ändringarna: 
 
-   ![Lägg till DNS-suffix](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
+   ![Skärm bild som visar var du kan se det fullständiga dator namnet.](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
 
 1. Starta om servern när du uppmanas att göra det. 
 1. Upprepa de här stegen på alla andra noder som ska användas för tillgänglighets gruppen. 

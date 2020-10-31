@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: fbea4ef39b970f667c5dddec52f56a428d401f65
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8da9e97aaa2c6d99990df4221d8b6e99ab18ac83
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277454"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124820"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Utföra en åtkomst granskning från portalen Mina appar
 
@@ -62,11 +62,11 @@ Om din administratör har gett dig behörighet att utföra dina egna åtkomst gr
 
 6. Välj **Ja** om du vill behålla åtkomsten eller **Nej** om du vill ta bort åtkomsten.
 
-    Om du väljer **Ja**kan du behöva ange en motivering i rutan **orsak** .
+    Om du väljer **Ja** kan du behöva ange en motivering i rutan **orsak** .
 
     ![Sidan åtkomst granskning, som visar rutan orsak med exempel text](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
-7. Välj **Skicka**.
+7. Välj **Skicka** .
 
     Åtkomst granskningen är klar och du kommer tillbaka till portalen för **Mina appar** .
 
@@ -76,5 +76,5 @@ Om din administratör har gett dig behörighet att utföra dina egna åtkomst gr
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma åt och använda appar på portalen Mina appar](my-apps-portal-end-user-access.md)
-- [Ändra din profilinformation](my-apps-portal-end-user-update-profile.md)
+- [Ändra din profilinformation](./my-account-portal-settings.md)
 - [Visa och uppdatera dina grupper – relaterad information](my-apps-portal-end-user-groups.md)

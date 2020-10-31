@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0cc3a335e5fbe037742767a3b59243e366f094ee
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: c169f10ac0444f5bca67d76e8e8ebc0f0b145ee1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495922"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124255"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Anslut Azure Functions appar för bearbetning av data
 
@@ -30,17 +30,21 @@ Här är en översikt över de steg som den innehåller:
 4. Publicera Function-appen till Azure
 5. Konfigurera [säkerhets](concepts-security.md) åtkomst för Azure Function-appen
 
+## <a name="prerequisite-set-up-azure-digital-twins-instance"></a>Förutsättning: Konfigurera Azure Digitals dubbla instanser
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
 ## <a name="create-an-azure-functions-app-in-visual-studio"></a>Skapa en Azure Functions-app i Visual Studio
 
-Välj _fil > nytt > projekt_ i Visual Studio 2019 och sök efter _Azure Functions_ -mallen genom att välja _Nästa_.
+Välj _fil > nytt > projekt_ i Visual Studio 2019 och sök efter _Azure Functions_ -mallen genom att välja _Nästa_ .
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
 
-Ange ett namn för Function-appen och välj _skapa_.
+Ange ett namn för Function-appen och välj _skapa_ .
 
 :::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
 
-Välj typen av Function-appen *Event Grid utlösare* och välj _skapa_.
+Välj typen av Function-appen *Event Grid utlösare* och välj _skapa_ .
 
 :::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
 
@@ -155,14 +159,14 @@ namespace adtIngestFunctionSample
 
 ## <a name="publish-the-function-app-to-azure"></a>Publicera Function-appen till Azure
 
-Om du vill publicera Function-appen till Azure högerklickar du på funktions projektet (inte lösningen) i Solution Explorer och väljer **publicera**.
+Om du vill publicera Function-appen till Azure högerklickar du på funktions projektet (inte lösningen) i Solution Explorer och väljer **publicera** .
 
 > [!IMPORTANT] 
 > Att publicera en Azure-funktion debiteras ytterligare avgifter för din prenumeration, oberoende av Azures digitala dubbla.
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
 
-Välj **Azure** som publicerings mål och välj **Nästa**.
+Välj **Azure** som publicerings mål och välj **Nästa** .
 
 :::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
 
@@ -205,7 +209,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 Slutligen kan du göra webb adressen till din Azure Digital-instansen tillgänglig för din funktion genom att ange en miljö variabel. Mer information om hur du ställer in miljövariabler finns i [*miljövariabler*](/sandbox/functions-recipes/environment-variables). 
 
 > [!TIP]
-> URL: en för Azure Digitals dubbla instanser görs genom att lägga till *https://* i början av *värd namnet*för Azure Digital-instansen. Om du vill se värd namnet, tillsammans med alla egenskaper för din instans, kan du köra `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
+> URL: en för Azure Digitals dubbla instanser görs genom att lägga till *https://* i början av *värd namnet* för Azure Digital-instansen. Om du vill se värd namnet, tillsammans med alla egenskaper för din instans, kan du köra `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
 
 ```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
@@ -219,7 +223,7 @@ I [Azure Portal](https://portal.azure.com/)söker du efter _Function-appen_ i S�
 :::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
 
 I fönstret Function-app väljer du _identitet_ i navigerings fältet till vänster för att aktivera hanterad identitet.
-Under fliken _tilldelade system_ växlar du _statusen_ till på och _sparar_ den. Du kommer att se ett popup-fönster för att _Aktivera systemtilldelad hanterad identitet_.
+Under fliken _tilldelade system_ växlar du _statusen_ till på och _sparar_ den. Du kommer att se ett popup-fönster för att _Aktivera systemtilldelad hanterad identitet_ .
 Välj _Ja_ -knapp. 
 
 :::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
@@ -234,16 +238,16 @@ Observera också det **objekt-ID** som visas på sidan _identitet_ , eftersom de
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Tilldela åtkomst roller med Azure Portal
 
-Välj knappen _Azure Role-tilldelningar_ som öppnar sidan *roll tilldelningar för Azure* . Välj sedan _+ Lägg till roll tilldelning (för hands version)_.
+Välj knappen _Azure Role-tilldelningar_ som öppnar sidan *roll tilldelningar för Azure* . Välj sedan _+ Lägg till roll tilldelning (för hands version)_ .
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
 
 På sidan _Lägg till roll tilldelning (förhands granskning)_ som öppnas väljer du:
 
-* _Omfång_: Resursgrupp
-* _Prenumeration_: Välj din Azure-prenumeration
-* _Resurs grupp_: Välj din resurs grupp i list rutan
-* _Roll_: Välj _Azure Digitals sammanflätade data ägare_ i list rutan
+* _Omfång_ : Resursgrupp
+* _Prenumeration_ : Välj din Azure-prenumeration
+* _Resurs grupp_ : Välj din resurs grupp i list rutan
+* _Roll_ : Välj _Azure Digitals sammanflätade data ägare_ i list rutan
 
 Spara sedan informationen genom att trycka på knappen _Spara_ .
 
@@ -255,7 +259,7 @@ Du kan göra webb adressen till din Azure Digital-instansen tillgänglig för di
 
 Du behöver ADT_INSTANCE_URL för att skapa en program inställning.
 
-Du kan få ADT_INSTANCE_URL genom att lägga till **_https://_** till ditt instans värd namn. I Azure Portal kan du hitta värd namnet för den digitala dubbla instansen genom att söka efter din instans i Sök fältet. Välj sedan _Översikt_ i det vänstra navigerings fältet för att visa _värd namnet_. Kopiera det här värdet om du vill skapa en program inställning.
+Du kan få ADT_INSTANCE_URL genom att lägga till **_https://_** till ditt instans värd namn. I Azure Portal kan du hitta värd namnet för den digitala dubbla instansen genom att söka efter din instans i Sök fältet. Välj sedan _Översikt_ i det vänstra navigerings fältet för att visa _värd namnet_ . Kopiera det här värdet om du vill skapa en program inställning.
 
 :::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
 

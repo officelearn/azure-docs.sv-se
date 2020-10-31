@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: f2774750b61ce92b3b34f6a5cbd961e4faa7d3e7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277477"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124160"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Uppdatera dina grupp information på portalen Mina appar
 
@@ -88,7 +88,7 @@ Om administratören har gett dig behörighet att visa panelen **grupper** kan du
 
     - **Grup princip.** Välj antingen om du vill att alla ska kunna ansluta till gruppen eller bara tillåta ägare av gruppen att lägga till medlemmar.
 
-3. Välj **Skapa**.
+3. Välj **Skapa** .
 
     Den nya gruppen skapas med dig som ägare och visas i **grupper** i listan. Eftersom du är ägare visas den här gruppen även i **grupperna** i listan.
 
@@ -96,27 +96,27 @@ Om administratören har gett dig behörighet att visa panelen **grupper** kan du
 
 När du har skapat en grupp kan du redigera dess information, inklusive uppdatera all befintlig information.
 
-1. Välj den grupp som du vill redigera på sidan **grupper** och välj sedan **Redigera information** på sidan * &lt; GROUP_NAME &gt; * .
+1. Välj den grupp som du vill redigera på sidan **grupper** och välj sedan **Redigera information** på sidan *&lt; GROUP_NAME &gt;* .
 
     Rutan **Redigera information** visas och du kan uppdatera den information som du lade till när du skapade gruppen första gången.
 
-2. Gör alla ändringar och välj sedan **Uppdatera**.
+2. Gör alla ändringar och välj sedan **Uppdatera** .
 
 ## <a name="add-or-remove-a-member"></a>Lägga till eller ta bort en medlem
 
 Du kan lägga till eller ta bort medlemmar för alla grupper som du äger.
 
-1. Välj den grupp som du vill lägga till medlemmar i och välj sedan **+** på sidan * &lt; GROUP_NAME &gt; * .
+1. Välj den grupp som du vill lägga till medlemmar i och välj sedan **+** på sidan *&lt; GROUP_NAME &gt;* .
 
     ![Lägg till en grupp medlem med plus tecken markerat](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
-2. Sök efter den medlem som du vill lägga till från rutan **Lägg till medlemmar** och välj sedan **Lägg till**.
+2. Sök efter den medlem som du vill lägga till från rutan **Lägg till medlemmar** och välj sedan **Lägg till** .
 
     ![Rutan Lägg till medlemmar med ny medlem att lägga till](media/my-apps-portal/my-apps-portal-add-member-page.png)
 
     En inbjudan skickas till den nya medlemmen för att komma igång med att komma åt organisationens appar.
 
-3. Om du har lagt till en medlem av misstag, eller om en medlem har lämnat din organisation, kan du ta bort medlemmen genom att välja **ta bort medlem** bredvid medlemmens namn på sidan * &lt; GROUP_NAME &gt; * .
+3. Om du har lagt till en medlem av misstag, eller om en medlem har lämnat din organisation, kan du ta bort medlemmen genom att välja **ta bort medlem** bredvid medlemmens namn på sidan *&lt; GROUP_NAME &gt;* .
 
     ![Ta bort en medlem med länken borttagnings länk markerad](media/my-apps-portal/my-apps-portal-remove-member-link.png)
 
@@ -124,7 +124,7 @@ Du kan lägga till eller ta bort medlemmar för alla grupper som du äger.
 
 Om din organisation tillåter det kan du förnya en Office 365-grupp och förlänga ditt förfallo datum.
 
-1. Välj den Office 365-grupp som du vill förnya och välj sedan **förnya grupp**.
+1. Välj den Office 365-grupp som du vill förnya och välj sedan **förnya grupp** .
 
     ![Förnya en Office 365-grupp och utöka förfallo datumet](media/my-apps-portal/my-apps-portal-renew-group-link.png)
 
@@ -136,7 +136,7 @@ Om din organisation tillåter det kan du förnya en Office 365-grupp och förlä
 
 Du kan när som helst ta bort alla egna grupper. Men om du tar bort en grupp av misstag måste du skapa den och lägga till medlemmar igen.
 
-1. Välj den grupp som du vill ta bort permanent och välj sedan **ta bort grupp** på sidan * &lt; &gt; GROUP_NAME* .
+1. Välj den grupp som du vill ta bort permanent och välj sedan **ta bort grupp** på sidan *&lt; &gt; GROUP_NAME* .
 
     ![Sidan <Group_name> med länken Ta bort grupp markerad](media/my-apps-portal/my-apps-portal-delete-group-link.png)
 
@@ -154,11 +154,11 @@ Du kan koppla eller lämna en befintlig grupp från sidan **grupper** .
 
     ![Sidan Anslut till grupper, med knappen ansluts grupp markerad](media/my-apps-portal/my-apps-portal-join-group-link.png)
 
-2. På sidan **Anslut grupper** väljer du namnet på den grupp som du vill ansluta till, visar de associerade grupp detaljerna och väljer sedan **Anslut grupp**om gruppen är tillgänglig.
+2. På sidan **Anslut grupper** väljer du namnet på den grupp som du vill ansluta till, visar de associerade grupp detaljerna och väljer sedan **Anslut grupp** om gruppen är tillgänglig.
 
-    Om gruppen kräver att grupp ägaren godkänner medlemskap, uppmanas du att ange en affärs motivering för varför du behöver delta i gruppen och väljer sedan **begäran**. Om gruppen inte kräver godkännande läggs du omedelbart till som medlem och gruppen visas i **grupper** i listan.
+    Om gruppen kräver att grupp ägaren godkänner medlemskap, uppmanas du att ange en affärs motivering för varför du behöver delta i gruppen och väljer sedan **begäran** . Om gruppen inte kräver godkännande läggs du omedelbart till som medlem och gruppen visas i **grupper** i listan.
 
-3. Om du har anslutit en grupp av misstag eller om du inte längre behöver vara en del av den, kan du välja grupp namnet på sidan **Anslut grupper** och sedan välja **lämna grupp**.
+3. Om du har anslutit en grupp av misstag eller om du inte längre behöver vara en del av den, kan du välja grupp namnet på sidan **Anslut grupper** och sedan välja **lämna grupp** .
 
     ![Sidan Anslut till grupper med knappen lämna grupp markerad](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 
@@ -166,6 +166,6 @@ Du kan koppla eller lämna en befintlig grupp från sidan **grupper** .
 
 - [Få åtkomst till och använda appar på Mina appar-portalen](my-apps-portal-end-user-access.md).
 
-- [Ändra din profil information](my-apps-portal-end-user-update-profile.md).
+- [Ändra din profil information](./my-account-portal-settings.md).
 
 - [Utför dina egna åtkomst granskningar](my-apps-portal-end-user-access-reviews.md).

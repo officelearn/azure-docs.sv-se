@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c57a3920dac3e18e248109fafdf61fdfa871c54d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044387"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123718"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelse identifiering i Azure Stream Analytics
 
@@ -42,7 +42,7 @@ En avvikelse generator som är tillgänglig [här](https://aka.ms/asaanomalygene
 
 ## <a name="spike-and-dip"></a>Insamling och DIP
 
-Tillfälliga avvikelser i en tids serie händelse ström kallas för toppar och DIP. Toppar och DIP kan övervakas med hjälp av Machine Learning-baserad operator [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+Tillfälliga avvikelser i en tids serie händelse ström kallas för toppar och DIP. Toppar och DIP kan övervakas med hjälp av Machine Learning-baserad operator [AnomalyDetection_SpikeAndDip](/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
 ).
 
 ![Exempel på insamling och DIP-avvikelse](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
@@ -74,7 +74,7 @@ FROM AnomalyDetectionStep
 
 ## <a name="change-point"></a>Ändra punkt
 
-Beständiga avvikelser i en tids serie händelse ström är ändringar i distributionen av värden i händelse strömmen, t. ex. nivå ändringar och trender. I Stream Analytics identifieras sådana avvikelser med Machine Learning-baserade [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) -operatören.
+Beständiga avvikelser i en tids serie händelse ström är ändringar i distributionen av värden i händelse strömmen, t. ex. nivå ändringar och trender. I Stream Analytics identifieras sådana avvikelser med Machine Learning-baserade [AnomalyDetection_ChangePoint](/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) -operatören.
 
 Beständiga ändringar de senaste mycket längre än toppar och DIP och kan tyda på oåterkalleliga händelser. Beständiga ändringar syns vanligt vis inte för blott ögat, men kan identifieras med **AnomalyDetection_ChangePoint** -operatören.
 
@@ -114,9 +114,9 @@ FROM AnomalyDetectionStep
 
 Prestandan för dessa modeller beror på Historik storlek, fönster varaktighet, händelse belastning och om partitionering på funktions nivå används. I det här avsnittet beskrivs dessa konfigurationer och innehåller exempel på hur du kan upprätthålla förbruknings frekvensen på 1 KB, 5 K och 10 000 händelser per sekund.
 
-* **Historik storlek** – dessa modeller utför linjärt med **Historik storlek**. Om historikens storlek är längre, tar det längre tid för modeller att skapa en ny händelse. Detta beror på att modellerna jämför den nya händelsen med var och en av de tidigare händelserna i kommandobufferten.
+* **Historik storlek** – dessa modeller utför linjärt med **Historik storlek** . Om historikens storlek är längre, tar det längre tid för modeller att skapa en ny händelse. Detta beror på att modellerna jämför den nya händelsen med var och en av de tidigare händelserna i kommandobufferten.
 * **Fönster varaktighet** – **fönstrets varaktighet** ska motsvara hur lång tid det tar att ta emot så många händelser som anges i historik storleken. Utan att många händelser visas i fönstret Azure Stream Analytics skulle tillräkna saknade värden. CPU-förbrukningen är därför en funktion av historik storleken.
-* **Händelse inläsning** – den större **händelse inläsningen**, desto mer arbete som utförs av modellerna, vilket påverkar CPU-förbrukningen. Jobbet kan skalas ut genom att göra det köras parallellt, förutsatt att affärs logiken använder fler ingångs partitioner.
+* **Händelse inläsning** – den större **händelse inläsningen** , desto mer arbete som utförs av modellerna, vilket påverkar CPU-förbrukningen. Jobbet kan skalas ut genom att göra det köras parallellt, förutsatt att affärs logiken använder fler ingångs partitioner.
 * Partitionering på funktions **nivå**  -  **Partitionering på funktions nivå** görs med hjälp av ```PARTITION BY``` funktions anropet avvikelse identifiering. Den här typen av partitionering lägger till en överordnad status som måste behållas för flera modeller på samma tidpunkt. Partitionering på funktions nivå används i scenarier som partitionering på enhets nivå.
 
 ### <a name="relationship"></a>Relation
@@ -152,13 +152,12 @@ Exempel kod för att köra icke-partitionerade konfigurationer ovan finns i [str
 > Om du vill ha en mer exakt uppskattning kan du anpassa exemplen efter ditt scenario.
 
 ### <a name="identifying-bottlenecks"></a>Identifiera Flask halsar
-Använd fönstret mått i ditt Azure Stream Analytics jobb för att identifiera Flask halsar i din pipeline. Granska **indata/utdata-händelser** för data flöde och ["fördröjning av vattenstämpel"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) eller **eftersläpande händelser** för att se om jobbet hålls i takt med indata. För Event Hub-mått söker du efter **begränsade begär Anden** och justerar tröskel enheterna enligt detta. För Cosmos DB Mät värden granskar du **Max förbrukade ru/s per nyckel intervall** under genomflödet för att se till att dina partitionerings nyckel intervall är enhetligt förbrukade. Övervaka **logg-i/o** och **CPU**för Azure SQL DB.
+Använd fönstret mått i ditt Azure Stream Analytics jobb för att identifiera Flask halsar i din pipeline. Granska **indata/utdata-händelser** för data flöde och ["fördröjning av vattenstämpel"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) eller **eftersläpande händelser** för att se om jobbet hålls i takt med indata. För Event Hub-mått söker du efter **begränsade begär Anden** och justerar tröskel enheterna enligt detta. För Cosmos DB Mät värden granskar du **Max förbrukade ru/s per nyckel intervall** under genomflödet för att se till att dina partitionerings nyckel intervall är enhetligt förbrukade. Övervaka **logg-i/o** och **CPU** för Azure SQL DB.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Referens för Azure Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Azure Stream Analytics Management REST-API:et](/rest/api/streamanalytics/)

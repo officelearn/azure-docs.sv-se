@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
-ms.openlocfilehash: 8ccc4cb6a6f95cfc51fb7e265e455131bc6393c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1af2793bc32c1f3cdbdcd016562b761e05427073
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735616"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125146"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager testen het
 
 Använd den här typen om du har ett erbjudande på Azure Marketplace eller AppSource, men vill bygga en testen het med endast Azure-resurser. En Azure Resource Manager ARM-mall (ARM) är en kodad behållare för Azure-resurser som du utformar till att bäst representera din lösning. Test enheten tar den angivna ARM-mallen och distribuerar alla resurser som krävs till en resurs grupp. Det här är den enda alternativet test enhet för virtuella datorer eller Azure App-erbjudanden.
 
-Om du inte känner till vad en ARM-mall är kan du läsa [Vad är Azure Resource Manager?](../azure-resource-manager/resource-group-overview.md) och [förstå strukturen och SYNTAXen för ARM-mallar](../azure-resource-manager/resource-group-authoring-templates.md) för att bättre förstå hur du skapar och testar dina egna mallar.
+Om du inte känner till vad en ARM-mall är kan du läsa [Vad är Azure Resource Manager?](../azure-resource-manager/management/overview.md) och [förstå strukturen och SYNTAXen för ARM-mallar](../azure-resource-manager/templates/template-syntax.md) för att bättre förstå hur du skapar och testar dina egna mallar.
 
 Information om en **värd** **app** -testenhet finns i [Vad är en test enhet?](what-is-test-drive.md)
 
@@ -34,7 +34,7 @@ En distributions mall innehåller alla Azure-resurser som utgör din lösning. P
 
   - **Kall** – den här typen av instans representerar det totala antalet instanser som eventuellt kan distribueras per region. Kalla instanser kräver att hela test enhetens Resource Manager-mall distribueras när en kund begär test enheten, så att *kalla* instanser är mycket långsammare att läsa in än *varma* instanser. Kompromissen är att du bara behöver betala under test enhetens varaktighet, den körs *inte* alltid på din Azure-prenumeration som en *aktiv* instans.
 
-- **Testa enhet Azure Resource Manager mall** – Ladda upp zip-filen som innehåller din Azure Resource Manager-mall. Lär dig mer om hur du skapar en Azure Resource Manager-mall i snabb starts artikeln [skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+- **Testa enhet Azure Resource Manager mall** – Ladda upp zip-filen som innehåller din Azure Resource Manager-mall. Lär dig mer om hur du skapar en Azure Resource Manager-mall i snabb starts artikeln [skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
     > För att publicera fungerar är det viktigt att verifiera formateringen av ARM-mallen. Två sätt att göra detta är (1) med hjälp av ett [online-API-verktyg](https://docs.microsoft.com/rest/api/resources/deployments/validate) eller (2) med en [test distribution](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).

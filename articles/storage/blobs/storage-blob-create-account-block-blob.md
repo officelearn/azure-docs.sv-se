@@ -5,16 +5,16 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 19d70642a6c76239f62b2fd6f7e713430a7adfbb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043088"
+ms.locfileid: "93124976"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Skapa ett BlockBlobStorage-konto
 
@@ -118,9 +118,6 @@ Följ dessa steg om du vill skapa ett BlockBlobStorage-konto i Azure Portal:
 
 9. Om du vill optimera ditt lagrings konto för data analys ska du ange **hierarkiskt namn område** till **aktiverat** . Annars lämnar du det här alternativet inställt på standardvärdet. Om du aktiverar den här inställningen med ditt BlockBlobStorage-konto får du [Premium-nivån för data Lake Storage](premium-tier-for-data-lake-storage.md).  Mer information om Data Lake Storage finns i [Introduktion till Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
-   > [!NOTE]
-   > Funktionen för hierarkiskt namn område i ett Block Blob Storage-konto finns i en offentlig för hands version. Information om regional tillgänglighet finns i [regional tillgänglighet](premium-tier-for-data-lake-storage.md#regional-availability).
-
 8. Välj **Granska + skapa** för att granska inställningarna för lagrings kontot.
 
 9. Välj **Skapa** .
@@ -162,9 +159,6 @@ Följ dessa steg om du vill skapa ett BlockBlobStorage-konto i Azure Portal:
    ```
    Om du vill optimera ditt lagrings konto för data analys kan du lägga till `-EnableHierarchicalNamespace $True` i kommandot. Om du aktiverar den här inställningen med ditt BlockBlobStorage-konto får du [Premium-nivån för data Lake Storage](premium-tier-for-data-lake-storage.md).  Mer information om Data Lake Storage finns i [Introduktion till Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
-   > [!NOTE]
-   > Funktionen för hierarkiskt namn område i ett Block Blob Storage-konto finns i en offentlig för hands version. Information om regional tillgänglighet finns i [regional tillgänglighet](premium-tier-for-data-lake-storage.md#regional-availability).
-
 ## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Om du vill skapa ett block-BLOB-konto med hjälp av Azure CLI måste du först installera Azure CLI v. 2.0.46 eller en senare version. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
@@ -195,10 +189,7 @@ Om du vill skapa ett block-BLOB-konto med hjälp av Azure CLI måste du först i
    ```
 
    Om du vill optimera ditt lagrings konto för data analys kan du lägga till `--hierarchical-namespace true` i kommandot. Om du aktiverar den här inställningen med ditt BlockBlobStorage-konto får du [Premium-nivån för data Lake Storage](premium-tier-for-data-lake-storage.md).  Mer information om Data Lake Storage finns i [Introduktion till Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
-   
-   > [!NOTE]
-   > Funktionen för hierarkiskt namn område i ett Block Blob Storage-konto finns i en offentlig för hands version. Information om regional tillgänglighet finns i [regional tillgänglighet](premium-tier-for-data-lake-storage.md#regional-availability).
-   
+
 ---
 
 ## <a name="next-steps"></a>Nästa steg

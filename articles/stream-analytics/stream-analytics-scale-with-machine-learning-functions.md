@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: d2fe8445d41f88852c6c9d4db84f4e1b03183a2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: feeb709f67a0e75f5980ec0520b95feb7edd5960
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015540"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124415"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Skala ditt Stream Analytics jobb med Azure Machine Learning Studio (klassiska) funktioner
 
@@ -40,7 +40,7 @@ Fastställ latens *toleransen* för ditt Stream Analytics jobb. Om du ökar batc
 
 Om du ökar batchstorleken kan Stream Analytics jobbet bearbeta **Fler händelser** med **samma antal** webb tjänst begär anden i Studio (klassisk). Ökningen av den klassiska webb tjänst svars tiden i Studio är vanligt vis under streck till ökningen av batchstorleken. 
 
-Det är viktigt att tänka på den mest kostnads effektiva batchstorleken för en Studio (klassisk) webb tjänst i en specifik situation. Standard grupp storleken för webb tjänst begär Anden är 1000. Du kan ändra standard storleken med hjälp av [Stream Analytics REST API](https://docs.microsoft.com/previous-versions/azure/mt653706(v=azure.100) "REST-API för Stream Analytics") eller [PowerShell-klienten för Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
+Det är viktigt att tänka på den mest kostnads effektiva batchstorleken för en Studio (klassisk) webb tjänst i en specifik situation. Standard grupp storleken för webb tjänst begär Anden är 1000. Du kan ändra standard storleken med hjälp av [Stream Analytics REST API](/previous-versions/azure/mt653706(v=azure.100) "REST-API för Stream Analytics") eller [PowerShell-klienten för Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
 
 När du har bestämt dig för en batchstorlek kan du ange antalet enheter för strömning (SUs) baserat på antalet händelser som funktionen måste bearbeta per sekund. Mer information om enheter för strömning finns i [Stream Analytics skalnings jobb](stream-analytics-scale-jobs.md).
 
@@ -52,7 +52,7 @@ För att bearbeta 200 000-händelser per sekund behöver Stream Analyticss jobbe
 
 ![Skala Stream Analytics med Studio (klassisk) funktioner två jobb exempel](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Skala Stream Analytics med Studio (klassisk) funktioner två jobb exempel")
 
-I allmänhet, ***b*** för batchstorlek, ***L*** för webb tjänstens svars tid vid batch-storlek B i millisekunder, är data flödet för ett Stream Analytics jobb med ***N*** SUS:
+I allmänhet, * *_B_* _ för batchstorlek, _*_L_*_ för webb tjänstens svars tid vid batch-storlek B i millisekunder, är data flödet för ett Stream Analytics jobb med _*_N_*_ SUS:
 
 ![Skala Stream Analytics med funktions formeln Studio (klassisk)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Skala Stream Analytics med funktions formeln Studio (klassisk)")
 
@@ -63,7 +63,7 @@ Mer information om den här inställningen finns i [skalnings artikeln för Mach
 ## <a name="example--sentiment-analysis"></a>Exempel – Attitydanalys
 I följande exempel finns ett Stream Analytics jobb med funktionen sentiment Analysis Studio (klassisk), enligt beskrivningen i [själv studie kursen om Stream Analytics Machine Learning Studio (klassisk)](stream-analytics-machine-learning-integration-tutorial.md).
 
-Frågan är en helt partitionerad fråga som följs av **sentiment** -funktionen, som visas i följande exempel:
+Frågan är en helt partitionerad fråga som följs av funktionen _ *sentiment* *, som visas i följande exempel:
 
 ```SQL
     WITH subquery AS (
@@ -88,7 +88,7 @@ Om frekvensen för inaktiva händelser ökar med 100x måste Stream Analyticss j
 
 Med det första alternativet ökar jobb **svars tiden** .
 
-Med det andra alternativet måste du etablera mer SUs om du vill ha fler samtidiga WebService-begäranden (klassiska Studio). Detta är ett större antal SUs-jobb, vilket ökar jobb **kostnaden**.
+Med det andra alternativet måste du etablera mer SUs om du vill ha fler samtidiga WebService-begäranden (klassiska Studio). Detta är ett större antal SUs-jobb, vilket ökar jobb **kostnaden** .
 
 Nu ska vi titta på skalningen med följande tids fördröjnings mått för varje batchstorlek:
 
@@ -99,7 +99,7 @@ Nu ska vi titta på skalningen med följande tids fördröjnings mått för varj
 | 300 MS | 10 000 – händelse batchar |
 | 500 ms | 25 000 – händelse batchar |
 
-1. Med det första alternativet (**inte** etablering av mer SUS). Batchstorleken kan höjas till **25 000**. Om du ökar batchstorleken på det här sättet kan jobbet bearbeta 1 000 000-händelser med 20 samtidiga anslutningar till webb tjänsten Studio (klassisk) (med en svars tid på 500 ms per anrop). Ytterligare svars tid för Stream Analytics jobb på grund av sentiment-funktionen mot WebService-begärandena för Studio (klassisk) skulle öka från **200 MS** till **500 ms**. Batchstorleken **kan dock inte** ökas oändligt eftersom Studio (klassiska) webb tjänster kräver en begärans nytto Last storlek 4 MB eller mindre och webb tjänst begär timeout efter 100 sekunders åtgärd.
+1. Med det första alternativet ( **inte** etablering av mer SUS). Batchstorleken kan höjas till **25 000** . Om du ökar batchstorleken på det här sättet kan jobbet bearbeta 1 000 000-händelser med 20 samtidiga anslutningar till webb tjänsten Studio (klassisk) (med en svars tid på 500 ms per anrop). Ytterligare svars tid för Stream Analytics jobb på grund av sentiment-funktionen mot WebService-begärandena för Studio (klassisk) skulle öka från **200 MS** till **500 ms** . Batchstorleken **kan dock inte** ökas oändligt eftersom Studio (klassiska) webb tjänster kräver en begärans nytto Last storlek 4 MB eller mindre och webb tjänst begär timeout efter 100 sekunders åtgärd.
 1. Med det andra alternativet lämnas batchstorleken på 1000, med 200-MS-webbtjänstens svars tid, var 20 samtidiga anslutningar till webb tjänsten att kunna bearbeta 1000 * 20 * 5 händelser = 100 000 per sekund. För att bearbeta 1 000 000-händelser per sekund behöver jobbet 60 SUs. Jämfört med det första alternativet skulle Stream Analytics jobb göra fler webb tjänst begär Anden, vilket i sin tur genererar en ökad kostnad.
 
 Nedan visas en tabell för data flödet för Stream Analytics jobb för olika SUs-och batch-storlekar (i antal händelser per sekund).
@@ -120,17 +120,17 @@ Nu bör du redan ha en god förståelse för hur Studio (klassiska) funktioner i
 Normalt är batchstorleken som vi anger för Studio (klassisk) funktioner inte exakt delbar med antalet händelser som returneras av varje Stream Analytics jobb "pull". När detta inträffar anropas webb tjänsten Studio (klassisk) med del-batchar. Genom att använda del batchar slipper du ytterligare jobb fördröjning i sammanslagning av händelser från pull till pull.
 
 ## <a name="new-function-related-monitoring-metrics"></a>Nya funktions relaterade övervaknings mått
-I övervaknings ytan i ett Stream Analytics jobb har tre ytterligare Function-relaterade mått lagts till. De är **funktions begär Anden**, **funktions händelser** och **misslyckade funktions begär Anden**, som visas i bilden nedan.
+I övervaknings ytan i ett Stream Analytics jobb har tre ytterligare Function-relaterade mått lagts till. De är **funktions begär Anden** , **funktions händelser** och **misslyckade funktions begär Anden** , som visas i bilden nedan.
 
 ![Skala Stream Analytics med Studio (klassisk) funktions mått](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Skala Stream Analytics med Studio (klassisk) funktions mått")
 
 Definieras enligt följande:
 
-**Funktions begär Anden**: antalet funktions begär Anden.
+**Funktions begär Anden** : antalet funktions begär Anden.
 
-**Funktions händelser**: antalet händelser i funktions begär Anden.
+**Funktions händelser** : antalet händelser i funktions begär Anden.
 
-**Misslyckade funktions begär Anden**: antal misslyckade funktions begär Anden.
+**Misslyckade funktions begär Anden** : antal misslyckade funktions begär Anden.
 
 ## <a name="key-takeaways"></a>Key takeaways
 
@@ -140,12 +140,12 @@ Om du vill skala ett Stream Analytics jobb med Studio (klassiska) funktioner bö
 2. Den tolererade svars tiden för Stream Analytics jobb som körs (och därmed batch-storleken för de Studio (klassiska) webb tjänst begär Anden).
 3. Den tillhandahållna Stream Analytics SUs och antalet WebService-begäranden för Studio (klassisk) (ytterligare funktions relaterade kostnader).
 
-En helt partitionerad Stream Analytics-fråga användes som ett exempel. Om en mer komplex fråga krävs är webbplatsen [Microsoft Q&en fråga för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html) en bra resurs för att få ytterligare hjälp från Stream Analyticss teamet.
+En helt partitionerad Stream Analytics-fråga användes som ett exempel. Om en mer komplex fråga krävs är webbplatsen [Microsoft Q&en fråga för Azure Stream Analytics](/answers/topics/azure-stream-analytics.html) en bra resurs för att få ytterligare hjälp från Stream Analyticss teamet.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Stream Analytics finns i:
 
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Azure Stream Analytics Management REST-API:et](/rest/api/streamanalytics/)

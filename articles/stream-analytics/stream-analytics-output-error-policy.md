@@ -8,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 22112272bb302769e5969cf6995d486438deb41f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923e8d1ffc3e606c16226b4b2ccbdcfaf4d3e9f1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75431614"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123429"
 ---
 # <a name="azure-stream-analytics-output-error-policy"></a>Azure Stream Analytics fel princip för utdata
 I den här artikeln beskrivs de fel hanterings principer för utdata som kan konfigureras i Azure Stream Analytics.
 
-Hanterings principer för utgående data gäller endast för data konverterings fel som uppstår när utdata som genereras av ett Stream Analytics jobb inte följer schemat för mål mottagaren. Du kan konfigurera den här principen genom att välja antingen **försök igen** eller **ta bort**. I Azure Portal, i ett Stream Analytics jobb, under **Konfigurera**väljer du **fel princip** för att göra ditt val.
+Hanterings principer för utgående data gäller endast för data konverterings fel som uppstår när utdata som genereras av ett Stream Analytics jobb inte följer schemat för mål mottagaren. Du kan konfigurera den här principen genom att välja antingen **försök igen** eller **ta bort** . I Azure Portal, i ett Stream Analytics jobb, under **Konfigurera** väljer du **fel princip** för att göra ditt val.
 
 ![Azure Stream Analytics plats för fel princip för utdata](./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png)
 
@@ -34,4 +34,4 @@ Alla tillfälliga fel (t. ex. nätverks fel) görs nya försök oavsett princip 
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Fel söknings guide för Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
+[Fel söknings guide för Azure Stream Analytics](./stream-analytics-troubleshoot-query.md)

@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 131cd9b1de82213d89ee07f30aed25544f6fcb18
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 88ec58ca9bcfa5c64036d3b65e77f3248e26357d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284911"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124959"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Vanliga frågor om VM på Azure Marketplace
 
@@ -22,7 +22,7 @@ Vanliga frågor och svar (FAQ) omfattar vanliga problem som kan uppstå när du 
 
 Om du använder Azure Resource Manager distributions modell har du tre alternativ:
 
-- [Skapa en Route-baserad VPN-gateway med hjälp av Azure Portal](../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+- [Skapa en Route-baserad VPN-gateway med hjälp av Azure Portal](../vpn-gateway/tutorial-create-gateway-portal.md)
 - [Skapa en Route-baserad VPN-gateway med hjälp av Azure PowerShell](../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
 - [Skapa en Route-baserad VPN-gateway med CLI](../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
@@ -32,7 +32,7 @@ Du hittar information på [Microsoft Server Software support för Microsoft Azur
 
 ## <a name="in-a-vm-how-do-i-manage-the-custom-script-extension-in-the-startup-task"></a>Hur hanterar jag det anpassade skript tillägget i en virtuell dator i Start aktiviteten?
 
-Mer information om hur du använder tillägget för anpassat skript med hjälp av Azure PowerShell modul, Azure Resource Manager mallar och fel söknings steg i Windows-system, finns i [anpassat skript tillägg för Windows](/azure/virtual-machines/extensions/custom-script-windows).
+Mer information om hur du använder tillägget för anpassat skript med hjälp av Azure PowerShell modul, Azure Resource Manager mallar och fel söknings steg i Windows-system, finns i [anpassat skript tillägg för Windows](../virtual-machines/extensions/custom-script-windows.md).
 
 ## <a name="are-32-bit-applications-or-services-supported-in-azure-marketplace"></a>Är 32-bitars program eller tjänster som stöds i Azure Marketplace?
 
@@ -40,7 +40,7 @@ Nej. De operativ system och standard tjänster som stöds för virtuella Azure-d
 
 Mer information finns i de här artiklarna:
 
-- [Köra 32-bitars program](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
+- [Köra 32-bitars program](/windows/desktop/WinProg64/running-32-bit-applications)
 - [Stöd för 32-bitars operativsystem i Azure Virtual Machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Microsofts serverprogramsupport för Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 
@@ -52,4 +52,4 @@ Det här problemet uppstår vanligt vis om du har skapat en virtuell dator från
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Fel sökning av VM-certifiering](azure-vm-create-certification-faq.md)
+- [Felsökning av VM-certifiering](azure-vm-create-certification-faq.md)

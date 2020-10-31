@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 09/01/2020
+ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 167c2f091d4d8a7d7d5c32009b484125d7275796
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 91de9aff154dec1a61360477edebc90b7a13cf24
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282357"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125180"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Marknads plats partner och kund användnings behörighet
 
@@ -33,15 +33,18 @@ Kund användnings behörighet stöder tre distributions alternativ:
 >- Kund användnings behörighet är för nya distributioner och stöder inte taggning av befintliga resurser som redan har distribuerats.
 >
 >- Kund användnings behörighet krävs för [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) erbjudanden som publicerats på Azure Marketplace.
+>
+>- Alla Azure-tjänster är inte kompatibla med kund användnings behörighet. Azure Kubernetes Services (AKS) och VM Scale Sets har kända problem idag som orsakar rapportering av användning.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-guids"></a>Skapa GUID
 
-Ett GUID är ett unikt referens-ID som innehåller 32 hexadecimala siffror. Om du vill skapa GUID för spårning bör du använda en GUID-Generator. Azure Storages teamet har skapat ett [GUID Generator-formulär](https://aka.ms/StoragePartners) som kommer att skicka ett GUID till rätt format och kan återanvändas över olika spårnings system.
+Ett GUID är ett unikt referens-ID som innehåller 32 hexadecimala siffror. Om du vill skapa GUID för spårning bör du använda en GUID-generator, till exempel via PowerShell.
 
-> [!NOTE]
-> Vi rekommenderar starkt att du använder [Azure Storage s GUID Generator form](https://aka.ms/StoragePartners) för att skapa ditt GUID. Mer information finns i [vanliga frågor och svar](#faq).
+```powershell
+[guid]::NewGuid()]
+```
 
 Vi rekommenderar att du skapar ett unikt GUID för varje erbjudande och distributions kanal för varje produkt. Du kan välja att använda ett enda GUID för produktens flera distributions kanaler om du inte vill att rapportering ska delas.
 
@@ -67,19 +70,19 @@ När du har lagt till ett GUID i mallen eller i användar agenten och registrera
 
 1. Registrera dig som en [extern Marketplace-utgivare](https://aka.ms/JoinMarketplace).
 
-   * Partner måste [ha en profil i Partner Center](become-publisher.md). Du uppmanas att ange erbjudandet i Azure Marketplace eller AppSource.
+   * Partner måste [ha en profil i Partner Center](./partner-center-portal/create-account.md). Du uppmanas att ange erbjudandet i Azure Marketplace eller AppSource.
    * Partner kan registrera flera GUID.
    * Partner kan registrera GUID för mallar och erbjudanden för icke-Marketplace-lösningar.
 
-1. I det övre högra hörnet väljer du kugg hjuls ikonen Inställningar och väljer sedan **Inställningar för utvecklare**.
+1. I det övre högra hörnet väljer du kugg hjuls ikonen Inställningar och väljer sedan **Inställningar för utvecklare** .
 
-1. På **sidan konto inställningar**väljer du **Lägg till spårnings-GUID.**
+1. På **sidan konto inställningar** väljer du **Lägg till spårnings-GUID.**
 
 1. I rutan **GUID** anger du ditt spårnings-GUID. Ange bara GUID utan `pid-` prefixet. I rutan **Beskrivning** anger du namnet eller beskrivningen för erbjudandet.
 
 1. Om du vill registrera fler än ett GUID väljer du **Lägg till spårnings-GUID** igen. Fler rutor visas på sidan.
 
-1. Välj **Spara**.
+1. Välj **Spara** .
 
 ## <a name="use-resource-manager-templates"></a>Använda Resource Manager-mallar
 Många partner lösningar distribueras med hjälp av Azure Resource Manager mallar. Om du har en Resource Manager-mall som är tillgänglig i Azure Marketplace, på GitHub eller som en snabb start, kan du ändra mallen så att du kan göra det rakt framåt i kund användnings behörighet.
@@ -97,9 +100,9 @@ Om du vill lägga till en globalt unik identifierare (GUID) gör du en enskild �
 
 1. Öppna Resource Manager-mallen.
 
-1. Lägg till en ny resurs av typen [Microsoft. Resources/distributioner](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) i filen main Template. Resursen måste vara i **mainTemplate.jspå** eller **azuredeploy.jsendast på** fil och inte i några kapslade eller länkade mallar.
+1. Lägg till en ny resurs av typen [Microsoft. Resources/distributioner](/azure/templates/microsoft.resources/deployments) i filen main Template. Resursen måste vara i **mainTemplate.jspå** eller **azuredeploy.jsendast på** fil och inte i några kapslade eller länkade mallar.
 
-1. Ange GUID-värdet efter `pid-` prefixet som namnet på resursen. Om GUID till exempel är eb7927c8-dd66-43e1-b0cf-c346a422063 blir resurs namnet _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_.
+1. Ange GUID-värdet efter `pid-` prefixet som namnet på resursen. Om GUID till exempel är eb7927c8-dd66-43e1-b0cf-c346a422063 blir resurs namnet _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_ .
 
 1. Kontrol lera om det finns några fel i mallen.
 
@@ -132,7 +135,7 @@ Resursen måste läggas till i **mainTemplate.jspå** eller **azuredeploy.jsenda
 
 ## <a name="use-the-resource-manager-apis"></a>Använda Resource Manager-API: er
 
-I vissa fall kanske du föredrar att ringa direkt till Resource Manager REST-API: er för att distribuera Azure-tjänster. [Azure stöder flera SDK](https://docs.microsoft.com/azure/?pivot=sdkstools) : er för att aktivera dessa anrop. Du kan använda en av SDK: erna eller anropa REST-API: er direkt för att distribuera resurser.
+I vissa fall kanske du föredrar att ringa direkt till Resource Manager REST-API: er för att distribuera Azure-tjänster. [Azure stöder flera SDK](../index.yml?pivot=sdkstools) : er för att aktivera dessa anrop. Du kan använda en av SDK: erna eller anropa REST-API: er direkt för att distribuera resurser.
 
 Om du använder en Resource Manager-mall bör du tagga lösningen genom att följa anvisningarna ovan. Om du inte använder en Resource Manager-mall och gör direkta API-anrop kan du fortfarande tagga distributionen för att associera användningen av Azure-resurser.
 
@@ -156,7 +159,7 @@ För python använder du **config** -attributet. Du kan bara lägga till attribu
 
 #### <a name="example-the-net-sdk"></a>Exempel: .NET SDK
 
-För .NET, se till att ange användar agenten. Du kan använda [Microsoft. Azure. Management. Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) -biblioteket för att ange användar agenten med följande kod (exempel i C#):
+För .NET, se till att ange användar agenten. Du kan använda [Microsoft. Azure. Management. Fluent](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) -biblioteket för att ange användar agenten med följande kod (exempel i C#):
 
 ```csharp
 
@@ -183,7 +186,7 @@ När du använder Azure CLI för att lägga till ditt GUID, anger du **AZURE_HTT
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Mer information finns i [Azure SDK för go](https://docs.microsoft.com/azure/developer/go/).
+Mer information finns i [Azure SDK för go](/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Använd terraform
 

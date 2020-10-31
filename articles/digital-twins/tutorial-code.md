@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 47b7eaacc8aba3655223eb1f0cde4a5516e370fd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9ccde8ea5453e3e553a020707ecde6e60f29b3dd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091607"
+ms.locfileid: "93124721"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Självstudie: koda med Azure Digitals dubbla API: er
 
@@ -33,7 +33,9 @@ Vad du behöver för att börja:
 * Valfri kod redigerare
 * **.Net Core 3,1** på din utvecklings dator. Du kan hämta den här versionen av .NET Core SDK för flera plattformar från [Hämta .net Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
-[!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
+### <a name="prepare-an-azure-digital-twins-instance"></a>Förbered en digital Azure-instans
+
+[!INCLUDE [Azure Digital Twins: instance prereq](../../includes/digital-twins-prereq-instance.md)]
 
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
@@ -260,7 +262,7 @@ Från och med nu kommer kursen att figursättas alla anrop till tjänst metoder 
 
 Nu när du har laddat upp en modell till Azure Digitals, kan du använda den här modell definitionen för att skapa **digitala dubbla** . [Digitala dubbla](concepts-twins-graph.md) är instanser av en modell och representerar entiteterna i din affärs miljö – saker som sensorer i en grupp, rum i en byggnad eller lampor i en bil. Det här avsnittet skapar några digitala dubbla, baserat på den modell som du laddade upp tidigare.
 
-Lägg till dessa nya `using` instruktioner längst upp, eftersom det här kod exemplet använder den inbyggda .net JSON-serialiseringen i `System.Text.Json` och `Serialization` namn området från [Azure Digital-SDK för .net (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview).
+Lägg till dessa nya `using` instruktioner längst upp, eftersom det här kod exemplet använder den inbyggda .net JSON-serialiseringen i `System.Text.Json` och `Serialization` namn området från [Azure Digital-SDK för .net (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview&preserve-view=true).
 
 ```csharp
 using System.Text.Json;

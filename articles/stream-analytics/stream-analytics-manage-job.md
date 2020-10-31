@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: cc9b91ce7e40d8f1efab060376a9641642a10472
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a07fccc79c34509d9d5b7073b1c28b3f60fe8f61
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101332"
+ms.locfileid: "93123701"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Självstudie: analysera samtals data med Stream Analytics och visualisera resultat i Power BI instrument panel
 
@@ -39,7 +39,7 @@ Innan du börjar utför du följande åtgärder:
 
 ## <a name="create-an-azure-event-hub"></a>Skapa en Azure-händelsehubb
 
-Innan Stream Analytics kan analysera dataströmmen med bedrägliga samtal behöver data skickas till Azure. I den här självstudien skickar du data till Azure med  [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs).
+Innan Stream Analytics kan analysera dataströmmen med bedrägliga samtal behöver data skickas till Azure. I den här självstudien skickar du data till Azure med  [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 Använd följande steg för att skapa en händelsehubb och skickar samtalsdata till den händelsehubben:
 
@@ -189,7 +189,7 @@ Det sista steget är att definiera en utdatamottagare för jobbet där det kan s
 
 ## <a name="define-a-query-to-analyze-input-data"></a>Definiera en fråga för att analysera indata
 
-Nästa steg är att skapa en transformering som analyserar data i realtid. Du definierar transformationsfrågan med [Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Den fråga som används i den här självstudien identifierar bedrägliga samtal från telefondata.
+Nästa steg är att skapa en transformering som analyserar data i realtid. Du definierar transformationsfrågan med [Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference). Den fråga som används i den här självstudien identifierar bedrägliga samtal från telefondata.
 
 I det här exemplet görs bedrägliga samtal från samma användare inom fem sekunder, men på olika platser. Samma användare kan till exempel inte legitimt ringa ett samtal från USA och Australien samtidigt. Så här definierar du transformationsfrågan för ditt Stream Analytics-jobb:
 
@@ -210,7 +210,7 @@ I det här exemplet görs bedrägliga samtal från samma användare inom fem sek
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Om du vill söka efter bedrägliga samtal kan du upprätta en självkoppling för strömmande data baserat på värdet `CallRecTime`. Sedan kan du söka efter anrops poster där `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (ursprungsland/region) är olika. När du använder en JOIN-åtgärd med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. Eftersom strömmande data är oändliga anges tidsgränserna för relationen inom **ON** -satsen för kopplingen med hjälp av funktionen [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
+   Om du vill söka efter bedrägliga samtal kan du upprätta en självkoppling för strömmande data baserat på värdet `CallRecTime`. Sedan kan du söka efter anrops poster där `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (ursprungsland/region) är olika. När du använder en JOIN-åtgärd med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. Eftersom strömmande data är oändliga anges tidsgränserna för relationen inom **ON** -satsen för kopplingen med hjälp av funktionen [DATEDIFF](/stream-analytics-query/datediff-azure-stream-analytics).
 
    Frågan är som en vanlig SQL-koppling förutom funktionen **DATEDIFF** . Den **DATEDIFF** -funktion som används i den här frågan är specifik för Streaming Analytics och måste visas i `ON...BETWEEN`-satsen.
 
@@ -262,7 +262,7 @@ Du kan testa en fråga från frågeredigeraren med hjälp av exempeldata. Kör f
 
 ## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>Bädda in din Power BI-instrumentpanel i ett webb program
 
-I den här delen av självstudien använder du ett exempel på [ASP.net](https://asp.net/) -webbprogram som skapats av Power BI-teamet för att bädda in instrument panelen. Mer information om att bädda in instrumentpaneler finns i artikeln [inbäddning med Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
+I den här delen av självstudien använder du ett exempel på [ASP.net](https://asp.net/) -webbprogram som skapats av Power BI-teamet för att bädda in instrument panelen. Mer information om att bädda in instrumentpaneler finns i artikeln [inbäddning med Power BI](/power-bi/developer/embedding).
 
 Om du vill konfigurera programmet går du till GitHub [-lagringsplatsen PowerBI-Developer-samples](https://github.com/Microsoft/PowerBI-Developer-Samples) och följer anvisningarna under avsnittet **användare äger data** (Använd URL: erna för omdirigering och start sidan under underavsnittet **integrera-Web-App** ). Eftersom vi använder exempel på instrument panelen använder du exempel koden **integrera-Web-App** som finns i [GitHub-lagringsplatsen](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/).
 När du har fått igång programmet i webbläsaren följer du anvisningarna för att bädda in instrumentpanelen du skapade tidigare på webbsidan:

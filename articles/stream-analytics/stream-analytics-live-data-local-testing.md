@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: fe1caca11ec0a3d89ddae140d00cd3556b9d3d89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0788d8b4f659364fcedc690185c9159a24434125
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044472"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123922"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Testa Live data lokalt med Azure Stream Analytics verktyg för Visual Studio (för hands version)
 
@@ -31,7 +31,7 @@ Följande lokala test alternativ stöds:
 
 ## <a name="local-testing-with-live-data"></a>Lokal testning med real tids data
 
-1. När du har skapat ett [Azure Stream Analytics Cloud-projekt i Visual Studio](stream-analytics-quick-create-vs.md)öppnar du **script. asaql**. Den lokala testningen använder som standard lokala indata och lokala utdata.
+1. När du har skapat ett [Azure Stream Analytics Cloud-projekt i Visual Studio](stream-analytics-quick-create-vs.md)öppnar du **script. asaql** . Den lokala testningen använder som standard lokala indata och lokala utdata.
 
    ![Azure Stream Analytics Visual Studio lokal indata och lokal utdata](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-local-input-output.png)
 
@@ -43,7 +43,7 @@ Följande lokala test alternativ stöds:
 
    ![Start tid för Azure Stream Analytics Visual Studio Live data](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
 
-4. Klicka på **Kör lokalt**. Ett konsol fönster visas med pågående förlopp och jobb mått. Om du vill stoppa processen kan du göra det manuellt. 
+4. Klicka på **Kör lokalt** . Ett konsol fönster visas med pågående förlopp och jobb mått. Om du vill stoppa processen kan du göra det manuellt. 
 
    ![Azure Stream Analytics Visual Studio Live data process-fönstret](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
 
@@ -59,7 +59,7 @@ Följande lokala test alternativ stöds:
 
 * Power BI och Azure Data Lake Storage stöds inte utgående mottagare på grund av begränsningar för autentiserings modell.
 
-* Endast moln indatatyper har stöd för [tids principer](stream-analytics-out-of-order-and-late-events.md) , medan alternativ för lokal indatamängd inte gör det.
+* Endast moln indatatyper har stöd för [tids principer](./stream-analytics-time-handling.md) , medan alternativ för lokal indatamängd inte gör det.
 
 ## <a name="next-steps"></a>Nästa steg
 

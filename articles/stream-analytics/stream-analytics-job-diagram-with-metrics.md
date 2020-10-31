@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/01/2017
-ms.openlocfilehash: fdb3c5c12af8e9022f5babc84126badda890dce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4ee868125ee30d40ef0d9ca5a42881ad003e9a8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044489"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123990"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Datadriven felsökning med hjälp av jobbdiagrammet
 
@@ -20,7 +20,7 @@ Jobb diagrammet på bladet **övervakning** i Azure Portal kan hjälpa dig att v
 
 ## <a name="using-the-job-diagram"></a>Använda jobb diagrammet
 
-I Azure Portal, i ett Stream Analytics jobb, under **support + fel sökning**väljer du **jobb diagram**:
+I Azure Portal, i ett Stream Analytics jobb, under **support + fel sökning** väljer du **jobb diagram** :
 
 ![Jobb diagram med mått – plats](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 
@@ -75,15 +75,15 @@ Om föregående processteg är en ingångs processor använder du måtten för i
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Faller vi bakom att läsa data?
 
-*   **Inloggade inloggade händelser (totalt)** visar hur många meddelanden som behöver läsas för Event Hubs och Azure IoT Hub indata. När det här värdet är större än 0 innebär det att jobbet inte kan bearbeta data så snabbt som det kommer i. I det här fallet kan du behöva öka antalet enheter för strömning och/eller se till att jobbet kan vara parallellt. Du kan se mer information på det här på  [sidan Query parallellisering](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
+*   **Inloggade inloggade händelser (totalt)** visar hur många meddelanden som behöver läsas för Event Hubs och Azure IoT Hub indata. När det här värdet är större än 0 innebär det att jobbet inte kan bearbeta data så snabbt som det kommer i. I det här fallet kan du behöva öka antalet enheter för strömning och/eller se till att jobbet kan vara parallellt. Du kan se mer information på det här på  [sidan Query parallellisering](./stream-analytics-parallelization.md). 
 
 
 ## <a name="get-help"></a>Få hjälp
-Om du behöver ytterligare hjälp kan du prova vår [sida om Microsoft Q&en fråga för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
+Om du behöver ytterligare hjälp kan du prova vår [sida om Microsoft Q&en fråga för Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Stream Analytics](stream-analytics-introduction.md)
 * [Kom igång med Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Språk referens för Stream Analytics-fråga](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Stream Analytics hanterings REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Språk referens för Stream Analytics-fråga](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Stream Analytics hanterings REST API](/rest/api/streamanalytics/)

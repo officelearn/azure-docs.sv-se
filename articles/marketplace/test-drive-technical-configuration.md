@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 1772a61f45d88e0b63346c41d557cfddf35ab4a7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892629"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125690"
 ---
 # <a name="test-drive-technical-configuration"></a>Teknisk konfiguration för provkörning
 
@@ -50,7 +50,7 @@ Den här typen av test enhet är inte Microsoft-värd. Använd den för att ansl
 
 - **Test enhetens varaktighet** (krävs) – ange hur lång tid test enheten ska vara aktiv, i antal timmar. Test enheten avslutas automatiskt när den här tids perioden är slut.
 
-- **Namn på Azure-resurs grupp** (obligatoriskt) – Ange namnet på den [Azure-resurs grupp](../azure-resource-manager/resource-group-overview.md#resource-groups)) där din Logic app-testenhet sparas.
+- **Namn på Azure-resurs grupp** (obligatoriskt) – Ange namnet på den [Azure-resurs grupp](../azure-resource-manager/management/overview.md#resource-groups)) där din Logic app-testenhet sparas.
 
 - **Azure Logic app-namn** (obligatoriskt) – Ange namnet på den Logic-app som tilldelar användaren till användaren. Den här Logic-appen måste sparas i gruppen Azure-resurser ovan.
 
@@ -60,7 +60,7 @@ Den här typen av test enhet är inte Microsoft-värd. Använd den för att ansl
 
 Produkter som vill demonstrera ett interaktivt Power BI visuellt objekt kan använda en inbäddad länk för att dela en anpassad instrument panel som test enhet, ingen ytterligare teknisk konfiguration krävs. Allt du behöver göra här är att ladda upp din inbäddade Power BI-URL.
 
-Mer information om hur du konfigurerar Power BI appar finns i [Vad är Power BI appar?](https://docs.microsoft.com/power-bi/service-template-apps-overview)
+Mer information om hur du konfigurerar Power BI appar finns i [Vad är Power BI appar?](/power-bi/service-template-apps-overview)
 
 ## <a name="deployment-subscription-details"></a>Information om distributions prenumeration
 

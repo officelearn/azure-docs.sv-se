@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 46adbfee24ab463acdc4687c0465bbf50527a329
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f681c6c453c9c0955092c4f1574a54ea2c9973f5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790652"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126659"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Program mönster och utvecklings strategier för SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -191,11 +191,11 @@ Följande diagram visar ett lokalt scenario och dess moln aktiverade lösning. I
 
 Som det visas i diagrammet, Azure Load Balancer distribuerar trafik över flera virtuella datorer och avgör även vilken webb server eller program server som ska anslutas till. Om du har flera instanser av webb-och program servrarna bakom en belastningsutjämnare säkerställs hög tillgänglighet för presentations nivån och affärs nivån. Mer information finns i [metod tips för program mönster som kräver SQL-hadr](#best-practices-for-application-patterns-requiring-sql-hadr).
 
-![Program mönster med Cloud Services](./media/application-patterns-development-strategies/IC728013.png)
+![Diagrammet visar lokala fysiska eller virtuella datorer som är anslutna till webb roll instanser i ett virtuellt Azure-nätverk via en Azure Load Balancer.](./media/application-patterns-development-strategies/IC728013.png)
 
 En annan metod för att implementera det här program mönstret är att använda en konsol IDE rad webb roll som innehåller både presentations nivå och affärs nivå komponenter som visas i följande diagram. Det här program mönstret är användbart för program som kräver tillstånds känslig design. Eftersom Azure tillhandahåller tillstånds lösa Compute-noder i Web-och Worker-roller rekommenderar vi att du implementerar en logik för att lagra sessionstillstånd med någon av följande tekniker: [Azure caching](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [azure Table Storage](../../../cosmos-db/tutorial-develop-table-dotnet.md) eller [Azure SQL Database](../../database/sql-database-paas-overview.md).
 
-![Program mönster med Cloud Services](./media/application-patterns-development-strategies/IC728014.png)
+![Diagrammet visar lokala fysiska eller virtuella datorer som är anslutna till de konsoliderade webb-och arbets roll instanserna i ett virtuellt Azure-nätverk.](./media/application-patterns-development-strategies/IC728014.png)
 
 ## <a name="pattern-with-azure-virtual-machines-azure-sql-database-and-azure-app-service-web-apps"></a>Mönster med Azure Virtual Machines, Azure SQL Database och Azure App Service (Web Apps)
 Det främsta målet med det här program mönstret är att visa hur du kombinerar IaaS-komponenter (Azure Infrastructure as a Service) med Azures PaaS (Platform-as-a-service Components) i din lösning. Det här mönstret fokuserar på Azure SQL Database för Relations data lagring. Den omfattar inte SQL Server på en virtuell Azure-dator, som är en del av Azure-infrastrukturen som ett tjänst erbjudande.

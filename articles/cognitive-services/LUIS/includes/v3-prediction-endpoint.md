@@ -7,18 +7,20 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: include
 ms.date: 05/05/2020
-ms.openlocfilehash: a607ad71915606d6046b4c71291a49b8641bdcc9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 85fcd0308083350a02afd4eadac2b361337f3b33
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91545421"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128226"
 ---
-1. I LUIS-portalen i avsnittet **Hantera** (översta högra menyn) på sidan **Azure-resurser** (menyn till vänster) på fliken **förutsägelse resurser** , kopierar du **exempel frågan** längst ned på sidan.
+1. I LUIS-portalen i avsnittet **Hantera** (översta högra menyn) på sidan **Azure-resurser** (menyn till vänster) på fliken **förutsägelse resurser** , kopierar du **exempel frågan** längst ned på sidan. URL: en har ditt app-ID, nyckel och plats namn. Slutpunkts-URL: en för v3-förutsägelse har formatet: `https://YOUR-RESOURCE-NAME.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/APP-ID/slots/SLOT-NAME/predict?subscription-key=YOUR-PREDICTION-KEY&<optional-name-value-pairs>&query=YOUR_QUERY_HERE`
 
-    Klistra in webb adressen i en ny flik i webbläsaren.
+    :::image type="content" source="../media/prediction-resources-example-query.png" alt-text="exempel fråga i avsnittet förutsägelse resurser" lightbox="../media/prediction-resources-example-query.png":::
+    
+    Klistra in webb adressen i en ny flik i webbläsaren. Om du inte ser webb adressen har du ingen förutsägelse resurs och behöver skapa en. 
 
-    URL: en har ditt app-ID, nyckel och plats namn. URL: en för v3-förutsägelsen ser ut så här:
+    
 
-    `https://YOUR-RESOURCE-NAME.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/APP-ID/slots/SLOT-NAME/predict?subscription-key=YOUR-PREDICTION-KEY&<optional-name-value-pairs>&query=YOUR_QUERY_HERE`
+    
 

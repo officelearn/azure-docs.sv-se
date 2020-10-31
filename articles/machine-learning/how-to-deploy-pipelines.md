@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 46a5f4036be2d670689f7e936a31dc63e0690ddc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de2b12bca10382d7e885626222fe463af27f9953
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302391"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128783"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicera och spåra maskin inlärnings pipeliner
 
@@ -87,7 +87,7 @@ response = requests.post(published_pipeline1.endpoint,
 
 `json`Argumentet till post-begäran måste innehålla, för `ParameterAssignments` nyckeln, en ord lista som innehåller pipeline-parametrarna och deras värden. Dessutom `json` kan argumentet innehålla följande nycklar:
 
-| Tangent | Beskrivning |
+| Nyckel | Beskrivning |
 | --- | --- | 
 | `ExperimentName` | Namnet på experimentet som är associerat med den här slut punkten |
 | `Description` | Fri hands text som beskriver slut punkten | 
@@ -95,9 +95,148 @@ response = requests.post(published_pipeline1.endpoint,
 | `DataSetDefinitionValueAssignments` | Ord lista som används för att ändra data uppsättningar utan omträning (se diskussionen nedan) | 
 | `DataPathAssignments` | Ord lista som används för att ändra datapaths utan omträning (se diskussionen nedan) | 
 
+### <a name="run-a-published-pipeline-using-c"></a>Köra en publicerad pipeline med hjälp av C # 
+
+Följande kod visar hur du anropar en pipeline asynkront från C#. Det partiella kodfragmentet visar bara anrops strukturen och ingår inte i ett Microsoft-exempel. Det visar inte fullständiga klasser eller fel hantering. 
+
+```csharp
+[DataContract]
+public class SubmitPipelineRunRequest
+{
+    [DataMember]
+    public string ExperimentName { get; set; }
+
+    [DataMember]
+    public string Description { get; set; }
+
+    [DataMember(IsRequired = false)]
+    public IDictionary<string, string> ParameterAssignments { get; set; }
+}
+
+// ... in its own class and method ... 
+const string RestEndpoint = "your-pipeline-endpoint";
+
+using (HttpClient client = new HttpClient())
+{
+    var submitPipelineRunRequest = new SubmitPipelineRunRequest()
+    {
+        ExperimentName = "YourExperimentName", 
+        Description = "Asynchronous C# REST api call", 
+        ParameterAssignments = new Dictionary<string, string>
+        {
+            {
+                // Replace with your pipeline parameter keys and values
+                "your-pipeline-parameter", "default-value"
+            }
+        }
+    };
+
+    string auth_key = "your-auth-key"; 
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth_key);
+
+    // submit the job
+    var requestPayload = JsonConvert.SerializeObject(submitPipelineRunRequest);
+    var httpContent = new StringContent(requestPayload, Encoding.UTF8, "application/json");
+    var submitResponse = await client.PostAsync(RestEndpoint, httpContent).ConfigureAwait(false);
+    if (!submitResponse.IsSuccessStatusCode)
+    {
+        await WriteFailedResponse(submitResponse); // ... method not shown ...
+        return;
+    }
+
+    var result = await submitResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+    var obj = JObject.Parse(result);
+    // ... use `obj` dictionary to access results
+}
+```
+
+### <a name="run-a-published-pipeline-using-java"></a>Köra en publicerad pipeline med Java
+
+Följande kod visar ett anrop till en pipeline som kräver autentisering (se [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](how-to-setup-authentication.md)). Om din pipeline distribueras offentligt behöver du inte de anrop som skapas `authKey` . Det partiella kodfragmentet visar inte något exempel på Java-klass och undantags hantering. Koden används `Optional.flatMap` för att länka samman funktioner som kan returnera ett tomt `Optional` . Användningen av `flatMap` förkortar och klargör koden, men Observera att `getRequestBody()` förtäring-undantag.
+
+```java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Optional;
+// JSON library
+import com.google.gson.Gson;
+
+String scoringUri = "scoring-endpoint";
+String tenantId = "your-tenant-id";
+String clientId = "your-client-id";
+String clientSecret = "your-client-secret";
+String resourceManagerUrl = "https://management.azure.com";
+String dataToBeScored = "{ \"ExperimentName\" : \"My_Pipeline\", \"ParameterAssignments\" : { \"pipeline_arg\" : \"20\" }}";
+
+HttpClient client = HttpClient.newBuilder().build();
+Gson gson = new Gson();
+
+HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
+Optional<String> authBody = getRequestBody(client, tokenAuthenticationRequest);
+Optional<String> authKey = authBody.flatMap(body -> Optional.of(gson.fromJson(body, AuthenticationBody.class).access_token);;
+Optional<HttpRequest> scoringRequest = authKey.flatMap(key -> Optional.of(scoringRequest(key, scoringUri, dataToBeScored)));
+Optional<String> scoringResult = scoringRequest.flatMap(req -> getRequestBody(client, req));
+// ... etc (`scoringResult.orElse()`) ... 
+
+static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl)
+{
+    String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
+    String clientIdParam = String.format("client_id=%s", clientId);
+    String resourceParam = String.format("resource=%s", resourceManagerUrl);
+    String clientSecretParam = String.format("client_secret=%s", clientSecret);
+
+    String bodyString = String.format("grant_type=client_credentials&%s&%s&%s", clientIdParam, resourceParam, clientSecretParam);
+
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(authUrl))
+        .POST(HttpRequest.BodyPublishers.ofString(bodyString))
+        .build();
+    return request;
+}
+
+static HttpRequest scoringRequest(String authKey, String scoringUri, String dataToBeScored)
+{
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(scoringUri))
+        .header("Authorization", String.format("Token %s", authKey))
+        .POST(HttpRequest.BodyPublishers.ofString(dataToBeScored))
+        .build();
+    return request;
+
+}
+
+static Optional<String> getRequestBody(HttpClient client, HttpRequest request) {
+    try {
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        if (response.statusCode() != 200) {
+            System.out.println(String.format("Unexpected server response %d", response.statusCode()));
+            return Optional.empty();
+        }
+        return Optional.of(response.body());
+    }catch(Exception x)
+    {
+        System.out.println(x.toString());
+        return Optional.empty();
+    }
+}
+
+class AuthenticationBody {
+    String access_token;
+    String token_type;
+    int expires_in;
+    String scope;
+    String refresh_token;
+    String id_token;
+    
+    AuthenticationBody() {}
+}
+```
+
 ### <a name="changing-datasets-and-datapaths-without-retraining"></a>Ändra data uppsättningar och datapaths utan omträning
 
-Du kanske vill träna och få en härledning på olika data uppsättningar och datapaths. Du kanske exempelvis vill träna på en mindre sparse-datauppsättning men en härledning på hela data uppsättningen. Du växlar data uppsättningar med `DataSetDefinitionValueAssignments` nyckeln i begärans `json` argument. Du växlar datapaths med `DataPathAssignments` . Tekniken för båda är liknande:
+Du kanske vill träna och få en härledning på olika data uppsättningar och datapaths. Du kanske exempelvis vill träna på en mindre data uppsättning men en härledning på hela data uppsättningen. Du växlar data uppsättningar med `DataSetDefinitionValueAssignments` nyckeln i begärans `json` argument. Du växlar datapaths med `DataPathAssignments` . Tekniken för båda är liknande:
 
 1. I definitions skriptet för pipelinen skapar du en `PipelineParameter` för data uppsättningen. Skapa en `DatasetConsumptionConfig` eller `DataPath` från `PipelineParameter` :
 
@@ -155,7 +294,7 @@ Antecknings böckerna som [demonstrerar data uppsättningen och PipelineParamete
 
 ## <a name="create-a-versioned-pipeline-endpoint"></a>Skapa en slut punkt för en versions pipeline
 
-Du kan skapa en pipeline-slutpunkt med flera publicerade pipeliner bakom den. Detta ger dig en fast REST-slutpunkt när du itererar och uppdaterar dina ML-pipeliner.
+Du kan skapa en pipeline-slutpunkt med flera publicerade pipeliner bakom den. Den här tekniken ger dig en fast REST-slutpunkt när du itererar och uppdaterar dina ML-pipeliner.
 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
@@ -201,9 +340,9 @@ Du kan också köra en publicerad pipeline från Studio:
 
 1. [Visa din arbets yta](how-to-manage-workspace.md#view).
 
-1. Välj **slut punkter**till vänster.
+1. Välj **slut punkter** till vänster.
 
-1. Välj **pipeline-slutpunkter**högst upp.
+1. Välj **pipeline-slutpunkter** högst upp.
  ![lista över de publicerade pipelinen för Machine Learning](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
 
 1. Välj en pipeline för att köra, använda eller Granska resultat från tidigare körningar av pipelinens slut punkt.

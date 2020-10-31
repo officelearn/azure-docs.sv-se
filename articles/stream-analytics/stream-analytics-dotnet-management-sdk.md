@@ -8,22 +8,22 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 5776c741bb69d345f191e5673fe388328d0fe7bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93e10baa5281481b57e945f93b7375060b574de5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89015602"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126863"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Hantering av .NET SDK: Konfigurera och kör analys jobb med hjälp av Azure Stream Analytics API för .NET
 Lär dig hur du konfigurerar och kör analys jobb med hjälp av Stream Analytics API för .NET med hjälp av Management .NET SDK. Konfigurera ett projekt, skapa indata och utdata, transformeringar och start-och stopp jobb. För dina analys jobb kan du strömma data från Blob Storage eller från en Event Hub.
 
-Se [hanterings referens dokumentationen för Stream Analytics API för .net](https://msdn.microsoft.com/library/azure/dn889315.aspx).
+Se [hanterings referens dokumentationen för Stream Analytics API för .net](/previous-versions/azure/dn889315(v=azure.100)).
 
 Azure Stream Analytics är en helt hanterad tjänst som tillhandahåller låg latens, skalbar, komplex händelse bearbetning med hög tillgänglighet för strömning av data i molnet. Stream Analytics gör det möjligt för kunderna att ställa in strömmande jobb för att analysera data strömmar och göra det möjligt för dem att köra analyser i nära real tid.  
 
 > [!NOTE]
-> Vi har uppdaterat exempel koden i den här artikeln med Azure Stream Analytics Management .NET SDK v2. x-version. Exempel kod som använder SDK-versionen för lagecy (1. x) finns i [Använd Management .NET SDK v1. x för Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
+> Vi har uppdaterat exempel koden i den här artikeln med Azure Stream Analytics Management .NET SDK v2. x-version. Exempel kod som använder SDK-versionen för lagecy (1. x) finns i [Använd Management .NET SDK v1. x för Stream Analytics]().
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar den här artikeln måste du ha följande krav:
@@ -167,7 +167,7 @@ Följande kod skapar ett Stream Analytics jobb under den resurs grupp som du har
    ```
 
 ## <a name="create-a-stream-analytics-input-source"></a>Skapa en indatakälla för Stream Analytics
-I följande kod skapas en Stream Analytics indatakälla med typ av BLOB-datakälla och CSV-serialisering. Om du vill skapa en indatakälla för Event Hub använder du **EventHubStreamInputDataSource** i stället för **BlobStreamInputDataSource**. På samma sätt kan du anpassa serialiserings typen för Indatakällan.
+I följande kod skapas en Stream Analytics indatakälla med typ av BLOB-datakälla och CSV-serialisering. Om du vill skapa en indatakälla för Event Hub använder du **EventHubStreamInputDataSource** i stället för **BlobStreamInputDataSource** . På samma sätt kan du anpassa serialiserings typen för Indatakällan.
 
    ```csharp
    // Create an input
@@ -285,7 +285,7 @@ Metoden **Delete** tar bort jobbet och de underliggande under resurserna, inklus
    ```
 
 ## <a name="get-support"></a>Få support
-Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 Du har lärt dig grunderna i att använda en .NET SDK för att skapa och köra analys jobb. Mer information finns i följande artiklar:
@@ -293,9 +293,9 @@ Du har lärt dig grunderna i att använda en .NET SDK för att skapa och köra a
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics hantering av .NET SDK](https://msdn.microsoft.com/library/azure/dn889315.aspx).
-* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics hantering av .NET SDK](/previous-versions/azure/dn889315(v=azure.100)).
+* [Referens för Azure Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Azure Stream Analytics Management REST-API:et](/rest/api/streamanalytics/)
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
@@ -305,17 +305,17 @@ Du har lärt dig grunderna i att använda en .NET SDK för att skapa och köra a
 
 <!--Link references-->
 [azure.blob.storage]: https://azure.microsoft.com/documentation/services/storage/
-[azure.blob.storage.use]: https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
+[azure.blob.storage.use]: ../storage/blobs/storage-quickstart-blobs-dotnet.md
 
 [azure.event.hubs]: https://azure.microsoft.com/services/event-hubs/
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
 [stream.analytics.forum]: https://go.microsoft.com/fwlink/?LinkId=512151
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.developer.guide]: stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

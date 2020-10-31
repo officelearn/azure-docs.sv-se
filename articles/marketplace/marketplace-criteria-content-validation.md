@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 51f226443e6f21b6c333cacf6c88f0d00208f5f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75bf1e3d81b466098884a354826019aa94a94174
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484280"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126115"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Rikt linjer för Azure Marketplace-lista
 
@@ -40,7 +40,7 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 
 | Nej. | List element | Bas krav | Optimalt krav | 
 |:--- |:--- |:--- |:--- |
-|  | Lista status (list alternativ) | Länken måste leda till en *utvärderings version* av kund LED. | Andra List alternativ (till exempel *Köp nu*) är också tillgängliga. | 
+|  | Lista status (list alternativ) | Länken måste leda till en *utvärderings version* av kund LED. | Andra List alternativ (till exempel *Köp nu* ) är också tillgängliga. | 
 |||
 
 ## <a name="saas-application-requirements"></a>Krav för SaaS-program
@@ -48,7 +48,7 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 | Nej. | List element | Bas krav | Optimalt krav | 
 |:--- |:--- |:--- |:--- |
 | 1 | Erbjudande rubrik |<ul><li>Får bara bestå av gemena bokstäver, alfanumeriska tecken, bindestreck eller under streck. Det går inte att ändra rubriken när den har publicerats.</li><li>Beskriver lösnings erbjudande.</li><li>Matchar online-befordran av lösningen på partnerns webbplats. | Innehåller ord för nyckels ökning. |
-| 2 | Teknisk information: konfiguration |<ul><li>För SaaS-appar (program vara som en tjänst) väljer du om du bara vill visa en lista över din app eller om du vill att kunderna ska kunna köpa din app via Azure.</li><li>Välj den text som du vill använda på erbjudandet för erbjudandet: *kostnads fri*, *kostnads fri utvärdering*eller *kontakta mig*.</li><li>I popup-fönstret väljer du bara en lämplig produkt om din app använder tekniken: Cortana Intelligence, Power BI Solution templates eller Power Apps. |  |
+| 2 | Teknisk information: konfiguration |<ul><li>För SaaS-appar (program vara som en tjänst) väljer du om du bara vill visa en lista över din app eller om du vill att kunderna ska kunna köpa din app via Azure.</li><li>Välj den text som du vill använda på erbjudandet för erbjudandet: *kostnads fri* , *kostnads fri utvärdering* eller *kontakta mig* .</li><li>I popup-fönstret väljer du bara en lämplig produkt om din app använder tekniken: Cortana Intelligence, Power BI Solution templates eller Power Apps. |  |
 | 3 | Test enhet | Välj *Ja* eller *Nej* | Kunden kan enkelt förstå vad nästa steg är: <ol><li>Testa utvärderings versionen.</li><li>Köp nu.</li><li>Kontakta via e-post eller telefonnummer för att ordna för POC, utvärdering eller korthet.</li></ol> |
 | 4 | Information om onlinebutik: erbjudande Sammanfattning | Visas på appens Sök sida och innehåller högst 100 tecken. | |
 | 5 | Information om onlinebutik: branscher | Branscher (max. 2): Välj de branscher som din app är bäst justerad och tillämplig för. | |
@@ -78,7 +78,7 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 | 2 | Beskrivning av erbjudande  |<ul><li>Se till att [Microsofts produkt namn](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx)används korrekt.</li><li>Erbjudanden som marker ATS som *pris: uppskattat* måste ha en anteckning antingen överst eller underst för att förklara variationen (resa till klienten, antalet servrar som migreras och så vidare).</li><li>Varje erbjudande typ har beskrivnings krav, enligt följande: <ul><li>Det måste finnas minst fyra eller fem punkter, med information om ämnen som ska omfattas.</li><li>Alla workshops behöver en agenda.</li><li>Alla dag ordningar måste delas upp per dag eller per vecka, beroende på workshopens varaktighet.</li><li>Utvärdering, POC, ideella workshops och implementerings erbjudanden behöver slut produkter.</li><li>Utbildnings workshops behöver inte slut produkter, men de behöver en mer detaljerad agenda med ämnen som kommer att omfattas.</li></ul></ul> | <ul><li>Alla erbjudanden har dag ordning och slut produkter.</li><li>Erbjudandet innehåller ett stycke med kontext om företaget som tillhandahåller tjänsten i det övre avsnittet.</li><li>Erbjudandet innehåller ett stycke om värdet för själva tjänsten som ett övre avsnitt. |
 | 3 | Markdown-formatering  | Alla erbjudanden måste använda markdown-formatering så att erbjudandet återges korrekt när det konverteras till HTML.  |  |
 | 4 | Kategorier och branscher | Kategorierna är inte relevanta. |  | 
-| 5 | Lista status (list alternativ) | Visas automatiskt som *kontakta mig*. |  | 
+| 5 | Lista status (list alternativ) | Visas automatiskt som *kontakta mig* . |  | 
 | 6 | Lösnings support och hjälp  | Support och hjälp behöver inte anges.  | | 
 | 7 | Sekretess policy och användnings villkor  |  Principer eller villkor är inte obligatoriska.  | | 
 | 8 | Tjänst typer | Se till att tjänst typen matchar titeln. | |
@@ -91,7 +91,7 @@ I den här artikeln beskrivs kraven och rikt linjerna för att lista nya erbjuda
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om olika typer av erbjudanden i Azure Marketplace:
-  * [SaaS-appar](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)
-  * [Containrar](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
-  * [Konsulttjänster](https://docs.microsoft.com/azure/marketplace/consulting-services)
-* [Fastställa publiceringsalternativ](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+  * [SaaS-appar](./plan-saas-offer.md)
+  * [Containrar](./marketplace-containers.md)
+  * [Konsulttjänster](./consulting-services.md)
+* [Fastställa publiceringsalternativ](./determine-your-listing-type.md)

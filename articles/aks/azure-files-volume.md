@@ -5,12 +5,12 @@ description: Lär dig hur du manuellt skapar en volym med Azure Files för anvä
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 227b592a2384d82fde78258a97ede9d318aaaf40
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 89976211763f5d4729718c4e4c6503650f27f7cc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900429"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126281"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Skapa och använda en volym med Azure Files resurs i Azure Kubernetes service (AKS) manuellt
 
@@ -110,7 +110,7 @@ Nu har du en aktiv Pod med en Azure Files resurs som är monterad på */mnt/Azur
 Containers:
   mypod:
     Container ID:   docker://86d244cfc7c4822401e88f55fd75217d213aa9c3c6a3df169e76e8e25ed28166
-    Image:          nginx:1.15.5
+    Image:          mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     Image ID:       docker-pullable://nginx@sha256:9ad0746d8f2ea6df3a17ba89eca40b48c47066dfab55a75e08e2b70fc80d929e
     State:          Running
       Started:      Sat, 02 Mar 2019 00:05:47 +0000
@@ -161,7 +161,7 @@ spec:
 
 Om du använder ett kluster av version 1.8.0-1.8.4 kan du ange en säkerhets kontext med värdet för *runAsUser* inställt på *0* . Mer information om säkerhets kontexten för Pod finns i [Konfigurera en säkerhets kontext][kubernetes-security-context].
 
-Om du vill uppdatera monterings alternativen skapar du en *azurefile-Mount-Options-PV. yaml-* fil med en *PersistentVolume* . Till exempel:
+Om du vill uppdatera monterings alternativen skapar du en *azurefile-Mount-Options-PV. yaml-* fil med en *PersistentVolume* . Exempel:
 
 ```yaml
 apiVersion: v1
@@ -187,7 +187,7 @@ spec:
   - nobrl
 ```
 
-Skapa en *azurefile-Mount-Options-PVC. yaml-* fil med en *PersistentVolumeClaim* som använder *PersistentVolume* . Till exempel:
+Skapa en *azurefile-Mount-Options-PVC. yaml-* fil med en *PersistentVolumeClaim* som använder *PersistentVolume* . Exempel:
 
 ```yaml
 apiVersion: v1
@@ -219,7 +219,7 @@ NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 ```
 
-Uppdatera din container specifikation för att referera till din *PersistentVolumeClaim* och uppdatera din POD. Till exempel:
+Uppdatera din container specifikation för att referera till din *PersistentVolumeClaim* och uppdatera din POD. Exempel:
 
 ```yaml
 ...

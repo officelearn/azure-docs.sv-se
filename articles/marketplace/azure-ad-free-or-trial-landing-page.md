@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/04/2020
-ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfa5d77077b8827bed1cbd8c7a46a5dbf361f139
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488617"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125724"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Bygg in landnings sidan för ditt kostnads fria eller utvärderings SaaS-erbjudande på den kommersiella Marketplace
 
@@ -43,23 +43,23 @@ Följande avsnitt i den här artikeln vägleder dig genom processen för att ska
 
 ## <a name="create-an-azure-ad-app-registration"></a>Skapa en Azure AD-App-registrering
 
-Den kommersiella marknads platsen är helt integrerad med Azure AD. Användare som kommer till Marketplace autentiseras med ett [Azure AD-konto eller Microsoft-konto (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). När du har skaffat en kostnads fri eller kostnads fri utvärderings prenumeration via listan med endast ett erbjudande, går användaren från den kommersiella Marketplace till din landnings sidas URL för att aktivera och hantera prenumerationen på SaaS-programmet. Du måste låta användaren logga in till ditt program med Azure AD SSO. (Landnings sidans URL anges på erbjudandets [tekniska konfigurations](plan-saas-offer.md#technical-information) sida.
+Den kommersiella marknads platsen är helt integrerad med Azure AD. Användare som kommer till Marketplace autentiseras med ett [Azure AD-konto eller Microsoft-konto (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). När du har skaffat en kostnads fri eller kostnads fri utvärderings prenumeration via listan med endast ett erbjudande, går användaren från den kommersiella Marketplace till din landnings sidas URL för att aktivera och hantera prenumerationen på SaaS-programmet. Du måste låta användaren logga in till ditt program med Azure AD SSO. (Landnings sidans URL anges på erbjudandets [tekniska konfigurations](plan-saas-offer.md#technical-information) sida.
 
 Det första steget för att använda identiteten är att se till att din landnings sida registreras som ett Azure AD-program. Genom att registrera programmet kan du använda Azure AD för att autentisera användare och begära åtkomst till användar resurser. Det kan anses vara programmets definition, som gör att tjänsten vet hur token ska utfärdas till appen baserat på appens inställningar.
 
 ### <a name="register-a-new-application-using-the-azure-portal"></a>Registrera ett nytt program med hjälp av Azure-portalen
 
-Kom igång genom att följa anvisningarna för att [Registrera ett nytt program](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Om du vill låta användare från andra företag besöka appen måste du välja **konton i valfri organisations katalog (alla Azure AD-kataloger – flera innehavare) och personliga Microsoft-konton (t. ex. Skype eller Xbox)** när de uppmanas att använda programmet.
+Kom igång genom att följa anvisningarna för att [Registrera ett nytt program](../active-directory/develop/quickstart-register-app.md). Om du vill låta användare från andra företag besöka appen måste du välja **konton i valfri organisations katalog (alla Azure AD-kataloger – flera innehavare) och personliga Microsoft-konton (t. ex. Skype eller Xbox)** när de uppmanas att använda programmet.
 
-Om du tänker fråga Microsoft Graph-API: t [konfigurerar du ditt nya program för att få åtkomst till webb-API: er](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). När du väljer API-behörigheter för det här programmet är standardvärdet **User. Read** tillräckligt för att samla in grundläggande information om användaren för att göra onboarding-processen smidig och automatisk. Begär inte några API-behörigheter som är märkta **kräver administratörs medgivande**, eftersom detta hindrar alla användare som inte är administratörer att besöka din landnings sida.
+Om du tänker fråga Microsoft Graph-API: t [konfigurerar du ditt nya program för att få åtkomst till webb-API: er](../active-directory/develop/quickstart-configure-app-access-web-apis.md). När du väljer API-behörigheter för det här programmet är standardvärdet **User. Read** tillräckligt för att samla in grundläggande information om användaren för att göra onboarding-processen smidig och automatisk. Begär inte några API-behörigheter som är märkta **kräver administratörs medgivande** , eftersom detta hindrar alla användare som inte är administratörer att besöka din landnings sida.
 
-Om du behöver utökade behörigheter som en del av din onboarding-eller etablerings process bör du överväga att använda de [stegvisa medgivande](https://aka.ms/incremental-consent) funktionerna i Azure AD så att alla användare som skickas från Marketplace kan interagera från början med landnings sidan.
+Om du behöver utökade behörigheter som en del av din onboarding-eller etablerings process bör du överväga att använda de [stegvisa medgivande](../active-directory/azuread-dev/azure-ad-endpoint-comparison.md) funktionerna i Azure AD så att alla användare som skickas från Marketplace kan interagera från början med landnings sidan.
 
 ## <a name="use-a-code-sample-as-a-starting-point"></a>Använda ett kod exempel som utgångs punkt
 
 Microsoft tillhandahåller flera exempel på appar som implementerar en enkel webbplats där Azure AD-inloggning är aktive rad. När programmet har registrerats i Azure AD erbjuder **snabb starts** bladet en lista över vanliga program typer och utvecklings stackar (bild 1). Välj den som matchar din miljö och följ anvisningarna för hämtning och installation.
 
-***Bild 1: snabb starts bladet i Azure Portal***
+**_Bild 1: snabb starts bladet i Azure Portal_* _
 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Visar bladet snabb start i Azure Portal.":::
 
@@ -67,7 +67,7 @@ När du har laddat ned koden och konfigurerat din utvecklings miljö ändrar du 
 
 ## <a name="read-information-from-claims-encoded-in-the-id-token"></a>Läsa information från anspråk som är kodade i ID-token
 
-Som en del av [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) -flödet lägger Azure AD till en [ID-token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) i begäran när användaren skickas till landnings sidan. Denna token innehåller flera delar av grundläggande information som kan vara användbar vid aktiverings processen, inklusive den information som visas i den här tabellen.
+Som en del av [OpenID Connect](../active-directory/develop/v2-protocols-oidc.md) -flödet lägger Azure AD till en [ID-token](../active-directory/develop/id-tokens.md) i begäran när användaren skickas till landnings sidan. Denna token innehåller flera delar av grundläggande information som kan vara användbar vid aktiverings processen, inklusive den information som visas i den här tabellen.
 
 | Värde | Beskrivning |
 | ------------ | ------------- |
@@ -82,7 +82,7 @@ Som en del av [OpenID Connect](https://docs.microsoft.com/azure/active-directory
 
 ## <a name="use-the-microsoft-graph-api"></a>Använda Microsoft Graph API
 
-ID-token innehåller grundläggande information för att identifiera användaren, men din aktiverings process kan kräva ytterligare information, t. ex. användarens företag, för att slutföra onboarding-processen. Använd [Microsoft Graph-API: et](https://docs.microsoft.com/graph/use-the-api) för att begära den här informationen för att undvika att användaren kan ange informationen igen. Standard **användaren. Läs** behörighet innehåller följande information, som standard:
+ID-token innehåller grundläggande information för att identifiera användaren, men din aktiverings process kan kräva ytterligare information, t. ex. användarens företag, för att slutföra onboarding-processen. Använd [Microsoft Graph-API: et](/graph/use-the-api) för att begära den här informationen för att undvika att användaren kan ange informationen igen. Standard _ *User. Read* *-behörighet innehåller följande information, som standard:
 
 | Värde | Beskrivning |
 | ------------ | ------------- |
@@ -95,9 +95,9 @@ ID-token innehåller grundläggande information för att identifiera användaren
 | surname | Användarens efter namn. |
 |||
 
-Ytterligare egenskaper, till exempel namnet på användarens företag eller användarens plats (land), kan väljas för att inkluderas i begäran. Mer information finns i [Egenskaper för användar resurs typen](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties).
+Ytterligare egenskaper, till exempel namnet på användarens företag eller användarens plats (land), kan väljas för att inkluderas i begäran. Mer information finns i [Egenskaper för användar resurs typen](/graph/api/resources/user?view=graph-rest-1.0#properties).
 
-De flesta appar som är registrerade med Azure AD tilldelar delegerade behörigheter för att läsa användarens information från företagets Azure AD-klient. Alla begär Anden om att Microsoft Graph för den informationen måste åtföljas av en åtkomsttoken som autentisering. De olika stegen för att generera åtkomsttoken beror på vilken teknik stack du använder, men exempel koden innehåller ett exempel. Mer information finns i [få åtkomst för en användares räkning](https://docs.microsoft.com/graph/auth-v2-user).
+De flesta appar som är registrerade med Azure AD tilldelar delegerade behörigheter för att läsa användarens information från företagets Azure AD-klient. Alla begär Anden om att Microsoft Graph för den informationen måste åtföljas av en åtkomsttoken som autentisering. De olika stegen för att generera åtkomsttoken beror på vilken teknik stack du använder, men exempel koden innehåller ett exempel. Mer information finns i [få åtkomst för en användares räkning](/graph/auth-v2-user).
 
 > [!NOTE]
 > Konton från MSA-klienten (med klient-ID `9188040d-6c67-4c5b-b112-36a304b66dad` ) returnerar inte mer information än vad som redan har samlats in med ID-token. Så du kan hoppa över det här anropet till Graph API för dessa konton.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: 879ea141a4621fac9e1774df64a63e9e56549012
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026963"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126727"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads plats
 
@@ -46,7 +46,7 @@ Läs mer i [Microsofts hubb för kommersiella marknads platser](https://aka.ms/c
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Finns det en registrerings avgift för Microsoft Commercial Marketplace?
 
-Nej, det kostar inget att publicera erbjudanden på vår kommersiella marknads plats. Vi behåller en liten procent andel av försäljningen, som en transaktions avgift och investerar den i Marketplace-anslags programmet, plattforms innovation och kommersiella Marketplace-åtgärder. Den här transaktions avgiften är minskad för [Azure IP Co-Sälj motiverade-](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) erbjudanden och för betalda SaaS-erbjudanden på AppSource som är kopplade till en Microsoft Teams-app eller minst två Microsoft 365-tillägg (Excel, PowerPoint, Word, Outlook och SharePoint).
+Nej, det kostar inget att publicera erbjudanden på vår kommersiella marknads plats. Vi behåller en liten procent andel av försäljningen, som en transaktions avgift och investerar den i Marketplace-anslags programmet, plattforms innovation och kommersiella Marketplace-åtgärder. Den här transaktions avgiften är minskad för [Azure IP Co-Sälj motiverade-](./marketplace-co-sell.md) erbjudanden och för betalda SaaS-erbjudanden på AppSource som är kopplade till en Microsoft Teams-app eller minst två Microsoft 365-tillägg (Excel, PowerPoint, Word, Outlook och SharePoint).
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Hur gör jag för att registrera dig för att vara utgivare på Microsoft Commercial Marketplace?
 
@@ -106,7 +106,7 @@ Det finns fyra relevanta roller som reglerar åtkomst till Partner Center.
 
 Azure Active Directory (Azure AD) *globala administratörs* behörigheter krävs för att skapa nya användar konton eller bjuda in gäst konton i den underliggande katalogen. Partner Center använder Azure AD till identitets modellen och en organisations Azure AD-instans hanteras ofta och styrs ofta av IT-eller säkerhets teamen.
 
-Läs mer i [Tilldela användar roller och behörigheter](https://docs.microsoft.com/partner-center/permissions-overview).
+Läs mer i [Tilldela användar roller och behörigheter](/partner-center/permissions-overview).
 
 ### <a name="do-customers-need-a-subscription-for-microsoft-azure-cloud-services"></a>Behöver kunderna en prenumeration för Microsoft Azure Cloud Services?
 

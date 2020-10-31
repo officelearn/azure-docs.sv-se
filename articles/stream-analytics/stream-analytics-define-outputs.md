@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/2/2020
-ms.openlocfilehash: 95607b78ff80566b76b8e6aa20462957249015b4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fdd610be1dd7c5fe9c7aa574fde33df866116dd2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097659"
+ms.locfileid: "93128842"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Utdata från Azure Stream Analytics
 
-Ett Azure Stream Analytics jobb består av indata, frågor och utdata. Det finns flera typer av utdata som du kan skicka transformerade data till. Den här artikeln innehåller Stream Analytics utdata som stöds. När du utformar din Stream Analytics fråga kan du se namnet på utdata genom att använda into- [satsen](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Du kan använda en enda utmatning per jobb eller flera utdata per direkt uppspelnings jobb (om du behöver dem) genom att lägga till flera INTO-satser i frågan.
+Ett Azure Stream Analytics jobb består av indata, frågor och utdata. Det finns flera typer av utdata som du kan skicka transformerade data till. Den här artikeln innehåller Stream Analytics utdata som stöds. När du utformar din Stream Analytics fråga kan du se namnet på utdata genom att använda into- [satsen](/stream-analytics-query/into-azure-stream-analytics). Du kan använda en enda utmatning per jobb eller flera utdata per direkt uppspelnings jobb (om du behöver dem) genom att lägga till flera INTO-satser i frågan.
 
-Om du vill skapa, redigera och testa Stream Analytics jobb-utdata kan du använda [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure POWERSHELL](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/)och [Visual Studio](stream-analytics-quick-create-vs.md).
+Om du vill skapa, redigera och testa Stream Analytics jobb-utdata kan du använda [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure POWERSHELL](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](/rest/api/streamanalytics/)och [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Vissa utmatnings typer stöder [partitionering](#partitioning)och [utgående batch-storlekar](#output-batch-size) är beroende av att optimera data flödet. I följande tabell visas de funktioner som stöds för varje Utdatatyp:
 
@@ -41,7 +41,7 @@ Vissa utmatnings typer stöder [partitionering](#partitioning)och [utgående bat
 
 Stream Analytics stöder partitioner för alla utdata förutom Power BI. Mer information om partitionerings nycklar och antalet utgående skrivare finns i artikeln för den angivna utdatatypen som du är intresse rad av. Alla utdata-artiklar är länkade i föregående avsnitt.  
 
-För mer avancerad justering av partitionerna kan dessutom antalet utgående skrivare kontrol leras med hjälp av en `INTO <partition count>` (se [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count))-sats i din fråga, vilket kan vara till hjälp när du vill uppnå en önskad jobb sto pol Ogin. Om ditt utmatnings kort inte är partitionerat, orsakar brist på data i en partition upp till den sena tiden. I sådana fall slås utdata samman till en enda skrivare, vilket kan orsaka Flask halsar i din pipeline. Om du vill veta mer om principen för att komma i beaktande, se [Azure Stream Analytics händelse ordning](stream-analytics-out-of-order-and-late-events.md).
+För mer avancerad justering av partitionerna kan dessutom antalet utgående skrivare kontrol leras med hjälp av en `INTO <partition count>` (se [into](/stream-analytics-query/into-azure-stream-analytics#into-shard-count))-sats i din fråga, vilket kan vara till hjälp när du vill uppnå en önskad jobb sto pol Ogin. Om ditt utmatnings kort inte är partitionerat, orsakar brist på data i en partition upp till den sena tiden. I sådana fall slås utdata samman till en enda skrivare, vilket kan orsaka Flask halsar i din pipeline. Om du vill veta mer om principen för att komma i beaktande, se [Azure Stream Analytics händelse ordning](./stream-analytics-time-handling.md).
 
 ## <a name="output-batch-size"></a>Batchstorlek för utdata
 
@@ -91,5 +91,5 @@ Dessa egenskaper för batch-fönster stöds endast av API **-versionen 2017-04-0
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

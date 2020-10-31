@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: e791e4ca3481bc0aea931abe946751415f1e1614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4e184f827875ebebd40ab976ef63e77ee702d49
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311826"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126047"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Använd ett TLS/SSL-certifikat i koden i Azure App Service
 
@@ -29,9 +29,9 @@ För att följa den här instruktions guiden:
 
 ## <a name="find-the-thumbprint"></a>Hitta tumavtrycket
 
-I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services**på menyn till vänster  >  **\<app-name>** .
+I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services** på menyn till vänster  >  **\<app-name>** .
 
-Välj **TLS/SSL-inställningar**i den vänstra navigeringen i din app och välj sedan **privat nyckel certifikat (. pfx)** eller **certifikat för offentlig nyckel (. cer)**.
+Välj **TLS/SSL-inställningar** i den vänstra navigeringen i din app och välj sedan **privat nyckel certifikat (. pfx)** eller **certifikat för offentlig nyckel (. cer)** .
 
 Hitta det certifikat som du vill använda och kopiera tumavtrycket.
 
@@ -49,10 +49,7 @@ Ange värdet till om du vill göra alla dina certifikat tillgängliga `*` .
 
 ## <a name="load-certificate-in-windows-apps"></a>Läs in certifikat i Windows-appar
 
-`WEBSITE_LOAD_CERTIFICATES`App-inställningen gör de angivna certifikaten tillgängliga för din Windows-värdbaserade app i Windows certifikat Arkiv och platsen är beroende av [pris nivån](overview-hosting-plans.md):
-
-- **Isolerad** nivå – i [lokalt Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
-- Alla andra nivåer – i [aktuell User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
+`WEBSITE_LOAD_CERTIFICATES`App-inställningen gör de angivna certifikaten tillgängliga för din Windows-värdbaserade app i Windows certifikat Arkiv, i [aktuell User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
 I C#-koden får du åtkomst till certifikatet med tumavtrycket för certifikatet. Följande kod läser in ett certifikat med tumavtrycket `E661583E8FABEF4C0BEF694CBC41C28FB81CD870` .
 
@@ -151,7 +148,7 @@ Certifikat fil namnen är tumavtrycken.
 > App Service mata in certifikat Sök vägar i Windows-behållare som följande miljövariabler `WEBSITE_PRIVATE_CERTS_PATH` , `WEBSITE_INTERMEDIATE_CERTS_PATH` , `WEBSITE_PUBLIC_CERTS_PATH` och `WEBSITE_ROOT_CERTS_PATH` . Det är bättre att referera till certifikat Sök vägen med miljövariablerna i stället för att hårdkoda certifikat Sök vägen, om certifikat Sök vägarna ändras i framtiden.
 >
 
-Dessutom laddar [Windows Server Core-behållare](configure-custom-container.md#supported-parent-images) certifikaten till certifikat arkivet automatiskt i **LocalMachine\My**. Om du vill läsa in certifikaten följer du samma mönster som [inläsnings certifikat i Windows-appar](#load-certificate-in-windows-apps). För Windows nano-baserade behållare använder du de fil Sök vägar som anges ovan för att [läsa in certifikatet direkt från filen](#load-certificate-from-file).
+Dessutom laddar [Windows Server Core-behållare](configure-custom-container.md#supported-parent-images) certifikaten till certifikat arkivet automatiskt i **LocalMachine\My** . Om du vill läsa in certifikaten följer du samma mönster som [inläsnings certifikat i Windows-appar](#load-certificate-in-windows-apps). För Windows nano-baserade behållare använder du de fil Sök vägar som anges ovan för att [läsa in certifikatet direkt från filen](#load-certificate-from-file).
 
 Följande C#-kod visar hur du läser in ett offentligt certifikat i en Linux-app.
 

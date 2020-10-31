@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 849f25f6fdd3fef2e1ebca7dae397d96e6849f10
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 921c3b8afdb6b196e001cdb7c190529e6238c1f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748856"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127101"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Självstudie: använda Key Vault referenser i en Java våren-app
 
@@ -51,7 +51,7 @@ I de här självstudierna får du lära dig att
 
 1. Välj alternativet **skapa en resurs** i det övre vänstra hörnet i Azure Portal:
 
-    ![Utdata efter att nyckel valvet har skapats](./media/quickstarts/search-services.png)
+    ![Skärm bild som visar alternativet Skapa en resurs i Azure Portal.](./media/quickstarts/search-services.png)
 1. I rutan Sök anger du **Key Vault** .
 1. Välj **nyckel valv** till vänster i listan resultat.
 1. I **nyckel valv** väljer du **Lägg till** .
@@ -65,7 +65,7 @@ I de här självstudierna får du lära dig att
 
 I det här läget är ditt Azure-konto det enda som har behörighet att komma åt det här nya valvet.
 
-![Utdata efter att nyckel valvet har skapats](./media/quickstarts/vault-properties.png)
+![Skärm bilden visar ditt nyckel valv.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Lägga till en hemlighet i Key Vault
 

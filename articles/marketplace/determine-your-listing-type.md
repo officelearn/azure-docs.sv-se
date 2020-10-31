@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b4941d326359a51ff6a75385a74a8bcdabfa075
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032392"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129005"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa publiceringsalternativ
 
@@ -49,14 +49,14 @@ I följande tabell visas publicerings alternativen för erbjudande typer i Micro
 
 ## <a name="choose-a-listing-option"></a>Välj ett List alternativ
 
-De List alternativ som är tillgängliga erbjuder differentierade kund engagemang samtidigt som du får åtkomst till lead-delning och [fördelarna med kommersiell marknads](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)plats. Observera de List alternativ som motsvarar publicerings alternativet:
+De List alternativ som är tillgängliga erbjuder differentierade kund engagemang samtidigt som du får åtkomst till lead-delning och [fördelarna med kommersiell marknads](./gtm-your-marketplace-benefits.md)plats. Observera de List alternativ som motsvarar publicerings alternativet:
 
 | **Publicerings alternativ**    | **Beskrivning**  |
 | :------------------- | :-------------------|
 | **Lista** | En enkel lista över ditt program eller din tjänst som gör det möjligt för en kommersiell Marketplace-användare att begära att du ansluter till kunden via alternativ för **kontakt** listan. |
-| **Utvärdering** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av lösningens utvärderings version, vilket gör det möjligt för potentiella användare att använda din SaaS, IaaS eller Microsoft app-upplevelse utan kostnad under en begränsad tid innan de köper. De List alternativ som används för publicerings alternativet för utvärdering är antingen **kostnads fria utvärderings versioner** eller **test enheter**. |
-| **BYOL** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av din lösning och slutföra den finansiella transaktionen separat. Typer av BYOL-erbjudanden är idealiska för lokala och molnbaserade migreringar. List alternativet hämtas **nu**.
-| **Transaktion** | Transact-erbjudanden säljs via den kommersiella marknads platsen. Microsoft ansvarar för fakturering och samlingar. List alternativet hämtas **nu**.|
+| **Utvärdering** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av lösningens utvärderings version, vilket gör det möjligt för potentiella användare att använda din SaaS, IaaS eller Microsoft app-upplevelse utan kostnad under en begränsad tid innan de köper. De List alternativ som används för publicerings alternativet för utvärdering är antingen **kostnads fria utvärderings versioner** eller **test enheter** . |
+| **BYOL** | Använd den kommersiella Marketplace för att förbättra identifieringen och automatisera etableringen av din lösning och slutföra den finansiella transaktionen separat. Typer av BYOL-erbjudanden är idealiska för lokala och molnbaserade migreringar. List alternativet hämtas **nu** .
+| **Transaktion** | Transact-erbjudanden säljs via den kommersiella marknads platsen. Microsoft ansvarar för fakturering och samlingar. List alternativet hämtas **nu** .|
 
 > [!Note]
 > När du använder alternativet för Transact-publicering är det viktigt att förstå pris-, fakturerings-, fakturerings-och utbetalnings aspekter innan du väljer en erbjudande typ och skapar ditt erbjudande. Läs mer i artikeln om de [kommersiella Transact-funktionerna i Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).
@@ -80,10 +80,10 @@ SaaS-erbjudanden kan publiceras på Azure Marketplace eller AppSource. Om ditt S
 
 | Avgiftsbelagd fakturering | Offentligt abonnemang | Privat plan | Tillgängligt i: |
 |---|---|---|---|
-| Ja             | Ja         | Inga           | Azure Marketplace och Azure Portal |
+| Ja             | Ja         | Nej           | Azure Marketplace och Azure Portal |
 | Ja             | Ja         | Ja          | Azure Marketplace och Azure Portal * |
-| Ja             | Inga          | Ja          | Endast Azure Portal |
-| Inga              | Inga          | Ja          | Endast Azure Portal |
+| Ja             | Nej          | Ja          | Endast Azure Portal |
+| Nej              | Nej          | Ja          | Endast Azure Portal |
 
 &#42; privat plan för erbjudandet är endast tillgängligt via Azure Portal
 

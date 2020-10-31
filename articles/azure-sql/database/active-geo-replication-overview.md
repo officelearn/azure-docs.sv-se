@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 35aff26eac3dd456db55204b662cb9b8a6bb9f2b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7c16e3b991bffd9c6bbcc4759a07b9e122ef5b72
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672974"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125350"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Skapa och använda aktiv geo-replikering – Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ Som standard är den sekundära lagringen för säkerhets kopieringen densamma s
 > Transaktions logg frekvensen på den primära kan begränsas av orsaker som inte är relaterade till lägre beräknings storlek på en sekundär. Den här typen av begränsning kan inträffa även om den sekundära har samma eller högre beräknings storlek än den primära. Mer information, inklusive vänte typer för olika typer av logg frekvenss begränsning, finns i [transaktions logg frekvens styrning](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> Azure SQL Database konfigurerbar redundans för säkerhets kopiering är för närvarande endast tillgängligt i Sydostasien Azure-region. När käll databasen skapas med lokalt redundant eller zon-redundant lagring redundans, stöds inte att skapa en sekundär databas i en annan Azure-region. 
+> Azure SQL Database konfigurerbar redundans för säkerhets kopiering är för närvarande tillgängligt i offentlig för hands version i södra Brasilien och är allmänt tillgängligt i Sydostasien Azure-region. När käll databasen skapas med lokalt redundant eller zon-redundant lagring redundans, stöds inte att skapa en sekundär databas i en annan Azure-region. 
 
 Mer information om SQL Database beräknings storlekarna finns i [SQL Database Service nivåer](purchasing-models.md).
 

@@ -4,13 +4,13 @@ description: Den här snabb starten visar hur du skapar en LUIS-app som använde
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: 28bf79b61c0278a3f45820a23cd2c69f0b609700
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/13/2020
+ms.openlocfilehash: 60151e97c64a3d61044e4b82299573ee59951d46
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316501"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128210"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda en färdig hemautomatiseringsapp
 
@@ -21,27 +21,30 @@ I den här snabbstarten skapar du en LUIS-app som använder den fördefinierade 
 [!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
 
 ## <a name="create-a-new-app"></a>Skapa en ny app
-Du kan skapa och hantera dina appar på **Mina appar**.
+Du kan skapa och hantera dina appar på **Mina appar** .
 
-1. I listan Mina appar väljer du **+ ny app för konversation**. Välj sedan **+ ny app för konversation** i listan med alternativ.
+### <a name="create-an-application"></a>Skapa ett program
 
-1. I dialog rutan namnger du ditt program `Home Automation` .
-1. Välj **engelska** som kultur.
-1. Ange en valfri beskrivning.
-1. Välj inte en förutsägelse resurs om du inte redan har skapat resursen. Om du vill använda appens förutsägelse slut punkt (mellanlagring eller produktion) måste du tilldela en förutsägelse resurs.
-1. Välj **Klar**.
+Om du vill skapa ett program klickar du på  **+ ny app** . 
 
-    LUIS skapar appen.
+I fönstret som visas anger du följande information:
 
-    ![I dialog rutan namnger du appens hem automatisering](./media/create-new-app-details.png)
+|Namn  |Beskrivning  |
+|---------|---------|
+|AName     | Ett namn för din app. Till exempel "Start automatisering".        |
+|Kultur     | Det språk som din app förstår och pratar med.   |
+|Beskrivning | En beskrivning av din app.
+|Förutsägelse resurs | Den förutsägelse resurs som tar emot frågor. |
 
-    >[!NOTE]
-    >Kulturen kan inte ändras när appen har skapats.
+Välj **Done** (Klar).
+
+>[!NOTE]
+>Kulturen kan inte ändras när appen har skapats.
 
 ## <a name="add-prebuilt-domain"></a>Lägga till fördefinierad domän
 
-1. I det vänstra navigerings fältet väljer du **fördefinierade domäner**.
-1. Sök efter **HomeAutomation**.
+1. I det vänstra navigerings fältet väljer du **fördefinierade domäner** .
+1. Sök efter **HomeAutomation** .
 1. Välj **Lägg till domän** på HomeAutomation-kortet.
 
     > [!div class="mx-imgBorder"]
@@ -51,10 +54,7 @@ Du kan skapa och hantera dina appar på **Mina appar**.
 
 ## <a name="intents-and-entities"></a>Avsikter och entiteter
 
-1. Välj **avsikter** för att granska HomeAutomation domän avsikter. De fördefinierade domän exemplen har exempel yttranden.
-
-    > [!div class="mx-imgBorder"]
-    > ![Skärm bild av listan med HomeAutomation-intentor](media/luis-quickstart-new-app/home-automation-intents.png "Skärm bild av listan med HomeAutomation-intentor")
+1. Välj **avsikter** i den vänstra navigerings menyn för att se HomeAutomation domän avsikter. Den har exempel yttranden, till exempel `HomeAutomation.QueryState` och     `HomeAutomation.SetDevice` .
 
     > [!NOTE]
     > **None** (Ingen) är en avsikt som tillhandahålls av alla LUIS-appar. Du kan använda den till att hantera yttranden som inte motsvarar funktioner som finns i din app.
@@ -63,6 +63,10 @@ Du kan skapa och hantera dina appar på **Mina appar**.
 
     > [!div class="mx-imgBorder"]
     > [![Skärmbild av avsikten HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Skärmbild av avsikten HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+
+1. Om du vill visa entiteternas entiteter väljer du **entiteter** . Om du klickar på en av entiteterna, till exempel **HomeAutomation. enhets** namn, visas en lista över värden som är kopplade till den. 
+ 
+    :::image type="content" source="media/luis-quickstart-new-app/entities-page.png" alt-text="Alternativ text för bild" lightbox="media/luis-quickstart-new-app/entities-page.png":::
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
 
@@ -73,13 +77,9 @@ När du har tränat appen kan du testa den.
 
 1. Välj **test** i det övre högra navigerings fönstret.
 
-1. Skriv ett test-uttryck som `Turn off the lights` i det interaktiva test fönstret och tryck på RETUR.
+1. Skriv ett test-uttryck som `Turn off the lights` i det interaktiva test fönstret och tryck på RETUR. Stäng till exempel *ljuset* .
 
-    ```
-    Turn off the lights
-    ```
-
-    I det här exemplet `Turn off the lights` identifieras korrekt som det främsta bedömnings syftet för **HomeAutomation. TurnOff**.
+    I det här exemplet `Turn off the lights` identifieras korrekt som det främsta bedömnings syftet för **HomeAutomation. TurnOff** .
 
     ![Skärmbild av testpanel med yttranden markerade](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
@@ -94,7 +94,18 @@ När du har tränat appen kan du testa den.
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicera appen för att få slutpunkts-URL
 
-[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
+För att kunna ta emot en LUIS förutsägelse i en chatt-robot eller något annat klient program måste du publicera appen till förutsägelse slut punkten.
+
+1. Välj **publicera** i det övre högra hörnet i fönstret.
+
+1. Välj **produktions** plats och välj sedan **Slutför** .
+
+    > [!div class="mx-imgBorder"]
+    > ![Skärm bild av LUIS publicera till slut punkt](media/howto-publish/publish-app-popup.png)
+
+1. Välj länken **åtkomst till slut punkts-URL: er** i meddelandet för att gå till sidan **Azure-resurser** . Slut punkts-URL: erna visas som **exempel fråga** .
+
+<!-- [!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)] -->
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 

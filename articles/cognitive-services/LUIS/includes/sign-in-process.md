@@ -1,47 +1,39 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: cognitive-services
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/05/2020
+ms.date: 10/30/2020
 ms.topic: include
-ms.openlocfilehash: fda9df6c7e9651bbd3b0b70ad9d47f23c0c19d01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e592c11062e81d48014a90895a0e42b460d4b77c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541447"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128242"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Logga in på LUIS-portalen
 
 En ny användare av LUIS måste följa den här proceduren:
 
-1. Logga in på [Luis-portalen](https://www.luis.ai), Välj land/region och godkänn användnings villkoren. Om du ser **Mina appar** i stället finns det redan en Luis-resurs och du bör gå vidare till skapa en app. För regioner som stöds, gå till [redigerings-och publicerings regioner och tillhör ande nycklar](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions).
+1. Logga in på [Luis-portalen](https://www.luis.ai), Välj land/region och godkänn användnings villkoren. Om du ser **Mina appar** i stället finns det redan en Luis-resurs och du bör gå vidare till skapa en app. Du har två alternativ för att registrera dig:
 
-1. Välj **Skapa Azure-resurs** och välj sedan **skapa en redigerings resurs för att migrera dina appar till.**
+    * Med hjälp av en Azure-resurs (rekommenderas) – kan du länka ditt LUIS-konto till en ny eller befintlig Azure Authoring-resurs. Detta motsvarar att registrera redan migrerat. Du behöver inte gå igenom [migreringsprocessen](../luis-migration-authoring.md#what-is-migration) senare.
 
-    ![Välj en typ av Language Understanding redigering av resurs](../media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+    * Använda en utvärderings nyckel. På så sätt kan du logga in på LUIS med en utvärderings resurs som du inte behöver konfigurera. Om du väljer det här alternativet kommer du att behöva [migrera ditt konto](../luis-migration-authoring.md#migration-steps) och länka dina program till en redigerings resurs.
 
-1. Fyll i informationen för resursen.
+1. I fönstret **Välj ett redigerings** fönster som visas letar du reda på din Azure-prenumeration och Luis Authoring-resurs. Om du inte har någon resurs kan du skapa en ny.
 
-    ![Skärm bild som visar fönstret Skapa en ny resurs för redigering.](../media/migrate-authoring-key/choose-authoring-resource-form.png)
-
-    När du **skapar en ny redigerings resurs**anger du följande information:
-
-    * **Resurs namn** – ett anpassat namn som du väljer, används som en del av URL: en för din redigering och förutsägelse slut punkts frågor.
-    * **Klient** organisation – klienten som din Azure-prenumeration är associerad med.
-    * **Prenumerations namn** – den prenumeration som ska faktureras för resursen.
-    * **Resurs grupp** – ett namn på en anpassad resurs grupp som du väljer eller skapar. Med resurs grupper kan du gruppera Azure-resurser för åtkomst och hantering.
-    * **Plats** – plats valet baseras på **resurs grupps** valet.
+    :::image type="content" source="../media/luis-how-to-azure-subscription/choose-authoring-resource.png" alt-text="Välj en typ av Language Understanding redigering av resurs.":::
+    
+    När du skapar en ny redigerings resurs anger du följande information:
+    * **Klient** organisations namn – klienten som din Azure-prenumeration är associerad med.
+    * **Namn på Azure-prenumeration** – den prenumeration som ska faktureras för resursen.
+    * **Namn på Azure-resurs grupp** – ett namn på en anpassad resurs grupp som du väljer eller skapar. Med resurs grupper kan du gruppera Azure-resurser för åtkomst och hantering.
+    * **Azure-resurs namn** – ett anpassat namn som du väljer, används som en del av URL: en för din redigerings-och förutsägelse slut punkts fråga.
     * **Pris nivå** – pris nivån avgör den högsta transaktionen per sekund och månad.
 
-1. En sammanfattning av den resurs som ska skapas visas. Välj **Nästa**.
 
-    ![Skärm bild som visar Välkomst sidan med alternativet att länka till ditt Azure-konto.](../media/sign-in/sign-in-confirm-key-selection.png)
-
-1. Bekräfta genom att välja **Fortsätt**.
-
-    ![Skärm bilden visar Välkomst sidan när du har länkat till ditt Azure-konto.](../media/sign-in/sign-in-confirm-continue.png)

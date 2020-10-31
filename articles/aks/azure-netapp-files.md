@@ -4,12 +4,12 @@ description: Lär dig att integrera Azure NetApp Files med Azure Kubernetes-tjä
 services: container-service
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 78119d3d7ff83ca237c1e668785439d943dcfd14
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: bc65c3dfad4c27c1650054c6836fbbbf07a7dbf2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900417"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126261"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrera Azure NetApp Files med Azure Kubernetes-tjänsten
 
@@ -29,7 +29,6 @@ Följande begränsningar gäller när du använder Azure NetApp Files:
 
 * Azure NetApp Files är endast tillgängligt [i valda Azure-regioner][anf-regions].
 * Innan du kan använda Azure NetApp Files måste du beviljas åtkomst till tjänsten Azure NetApp Files. Om du vill använda för åtkomst kan du använda [Waitlist-formuläret för överföring av Azure NetApp Files][anf-waitlist]. Du har inte åtkomst till tjänsten Azure NetApp Files förrän du får e-postmeddelandet från Azure NetApp Files teamet.
-* Din Azure NetApp Files-tjänst måste skapas i samma virtuella nätverk som ditt AKS-kluster.
 * Efter den första distributionen av ett AKS-kluster stöds endast statisk etablering för Azure NetApp Files.
 * Om du vill använda dynamisk etablering med Azure NetApp Files installerar och konfigurerar du [NetApp Trident](https://netapp-trident.readthedocs.io/) version 19,07 eller senare.
 
@@ -146,7 +145,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-Skapa en `pv-nfs.yaml` definition av en PersistentVolume. Ersätt `path` med *creationToken* och `server` med *ipAddress* från föregående kommando. Till exempel:
+Skapa en `pv-nfs.yaml` definition av en PersistentVolume. Ersätt `path` med *creationToken* och `server` med *ipAddress* från föregående kommando. Exempel:
 
 ```yaml
 ---
@@ -178,7 +177,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>Skapa PersistentVolumeClaim
 
-Skapa en `pvc-nfs.yaml` definition av en PersistentVolume. Till exempel:
+Skapa en `pvc-nfs.yaml` definition av en PersistentVolume. Exempel:
 
 ```yaml
 apiVersion: v1
@@ -208,7 +207,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Montera med en POD
 
-Skapa en `nginx-nfs.yaml` definition av en pod som använder PersistentVolumeClaim. Till exempel:
+Skapa en `nginx-nfs.yaml` definition av en pod som använder PersistentVolumeClaim. Exempel:
 
 ```yaml
 kind: Pod

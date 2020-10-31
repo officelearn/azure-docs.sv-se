@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 6ef4d63e30aeceec9cba3ae97f69afa1c299ec65
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 37cbd1b05249c694aaaa4ff5196a3b6328ccda7f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742728"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126303"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Snabb start: skapa ett Azure Stream Analytics jobb med hjälp av Azure CLI
 
@@ -77,7 +77,7 @@ Följande kod block i Azure CLI är kommandon som förbereder de indata som krä
     az iot hub create --name "MyASAIoTHub" --resource-group streamanalyticsrg --sku S1
     ```
 
-    När IoT-hubben har skapats hämtar du anslutningssträngen för IoT-hubben med hjälp av kommandot [az iot hub show-connection-string](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest). Kopiera hela anslutningssträngen och spara den för användning när du lägger till IoT-hubben som indata i ditt Stream Analytics-jobb.
+    När IoT-hubben har skapats hämtar du anslutningssträngen för IoT-hubben med hjälp av kommandot [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest). Kopiera hela anslutningssträngen och spara den för användning när du lägger till IoT-hubben som indata i ditt Stream Analytics-jobb.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
@@ -124,7 +124,7 @@ Följande kod block i Azure CLI skapar ett Blob Storage-konto som används för 
    az storage account keys list -g streamanalyticsrg -n <storage-account>
    ```
 
-3. Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container). Du kan använda lagrings konto nyckeln för att ge åtgärden att skapa behållaren. Mer information om hur du auktoriserar data åtgärder med Azure CLI finns i [bevilja åtkomst till BLOB-eller köa data med Azure CLI](/azure/storage/common/authorize-data-operations-cli).
+3. Skapa en behållare för att lagra blobar med kommandot [az storage container create](/cli/azure/storage/container). Du kan använda lagrings konto nyckeln för att ge åtgärden att skapa behållaren. Mer information om hur du auktoriserar data åtgärder med Azure CLI finns i [bevilja åtkomst till BLOB-eller köa data med Azure CLI](../storage/common/authorize-data-operations-cli.md).
 
    ```azurecli
    az storage container create \

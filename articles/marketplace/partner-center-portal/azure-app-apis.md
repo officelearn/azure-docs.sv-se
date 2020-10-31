@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 51de1ab26318a02381ed95f00eadcc4e892f2f57
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 87f27f316914f3efce5a750f50471c65dceca84e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371638"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127849"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Partner Center-överförings-API till att publicera Azure-appar i Partner Center
 
@@ -29,9 +29,9 @@ Det finns några programmerings resurser som du behöver för att kunna använda
 
 Innan du börjar skriva kod som anropar API: t för partner Center-sändning kontrollerar du att du har slutfört följande krav.
 
-- Du (eller din organisation) måste ha en Azure AD-katalog och du måste ha [Global administratörs](../../active-directory/roles/permissions-reference.md) behörighet för katalogen. Om du redan använder Microsoft 365 eller andra företags tjänster från Microsoft har du redan Azure AD-katalogen. Annars kan du [skapa en ny Azure AD i Partner Center](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) utan extra kostnad.
+- Du (eller din organisation) måste ha en Azure AD-katalog och du måste ha [Global administratörs](../../active-directory/roles/permissions-reference.md) behörighet för katalogen. Om du redan använder Microsoft 365 eller andra företags tjänster från Microsoft har du redan Azure AD-katalogen. Annars kan du [skapa en ny Azure AD i Partner Center](/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) utan extra kostnad.
 
-- Du måste [associera ett Azure AD-program med ditt partner Center-konto](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) och hämta klient-ID, klient-ID och nyckel. Du behöver dessa värden för att få en Azure AD-åtkomsttoken, som du kommer att använda i anrop till Microsoft Store sändnings-API: et.
+- Du måste [associera ett Azure AD-program med ditt partner Center-konto](/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) och hämta klient-ID, klient-ID och nyckel. Du behöver dessa värden för att få en Azure AD-åtkomsttoken, som du kommer att använda i anrop till Microsoft Store sändnings-API: et.
 
 #### <a name="how-to-associate-an-azure-ad-application-with-your-partner-center-account"></a>Så här kopplar du ett Azure AD-program till ditt partner Center-konto
 
@@ -40,16 +40,16 @@ Om du vill använda API: et för Microsoft Store sändning måste du associera e
 >[!Note]
 >Du behöver bara utföra den här uppgiften en gång. När du har klient-ID, klient-ID och nyckel kan du återanvända dem varje gång du behöver skapa en ny Azure AD-åtkomsttoken.
 
-1. [Koppla din organisations Partner Center-konto till din organisations Azure AD-katalog](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center)i Partner Center.
-1. Gå sedan till sidan **användare** i avsnittet **konto inställningar** i Partner Center och [Lägg till Azure AD-programmet](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) som representerar den app eller tjänst som du kommer att använda för att få åtkomst till bidrag för ditt partner Center-konto. Se till att tilldela det här programmet rollen **chef** . Om programmet inte finns än i Azure AD-katalogen kan du [skapa ett nytt Azure AD-program i Partner Center](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
+1. [Koppla din organisations Partner Center-konto till din organisations Azure AD-katalog](/windows/uwp/publish/associate-azure-ad-with-partner-center)i Partner Center.
+1. Gå sedan till sidan **användare** i avsnittet **konto inställningar** i Partner Center och [Lägg till Azure AD-programmet](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) som representerar den app eller tjänst som du kommer att använda för att få åtkomst till bidrag för ditt partner Center-konto. Se till att tilldela det här programmet rollen **chef** . Om programmet inte finns än i Azure AD-katalogen kan du [skapa ett nytt Azure AD-program i Partner Center](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
 1. Gå tillbaka till sidan **användare** , klicka på namnet på ditt Azure AD-program för att gå till program inställningarna och kopiera klient **-ID: t** och **klient-ID** -värdena.
-1. Klicka på **Lägg till ny nyckel**. På följande skärm kopierar du värdet för **nyckel** . Du kommer inte att kunna komma åt den här informationen igen när du lämnar den här sidan. Mer information finns i [Hantera nycklar för ett Azure AD-program](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
+1. Klicka på **Lägg till ny nyckel** . På följande skärm kopierar du värdet för **nyckel** . Du kommer inte att kunna komma åt den här informationen igen när du lämnar den här sidan. Mer information finns i [Hantera nycklar för ett Azure AD-program](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
 ### <a name="step-2-obtain-an-azure-ad-access-token"></a>Steg 2: skaffa en Azure AD-åtkomsttoken
 
 Innan du anropar någon av metoderna i överförings-API: et för partner Center måste du först skaffa en Azure AD-åtkomsttoken som du skickar till **Authorization** -huvudet för varje metod i API: et. När du har fått en åtkomsttoken har du 60 minuter att använda den innan den upphör att gälla. När token har gått ut kan du uppdatera token så att du kan fortsätta att använda den i framtida anrop till API: et.
 
-Hämta åtkomsttoken genom att följa anvisningarna i [tjänst-till-tjänst-anrop med klientautentiseringsuppgifterna](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-service-to-service/) för att skicka en `HTTP POST` till `https://login.microsoftonline.com/<tenant_id>/oauth2/token` slut punkten. Här är en exempel förfrågan:
+Hämta åtkomsttoken genom att följa anvisningarna i [tjänst-till-tjänst-anrop med klientautentiseringsuppgifterna](../../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) för att skicka en `HTTP POST` till `https://login.microsoftonline.com/<tenant_id>/oauth2/token` slut punkten. Här är en exempel förfrågan:
 
 JSONCopy
 ```Json

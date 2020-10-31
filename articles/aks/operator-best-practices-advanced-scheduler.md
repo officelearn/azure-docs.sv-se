@@ -5,12 +5,12 @@ description: Lär dig metod tipsen för kluster operatorn för att använda avan
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c1f587b4e52607e9466300f976a52874c9e5ad
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87530069"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125639"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Bästa praxis för avancerade schemaläggningsfunktioner i Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Kubernetes Scheduler kan använda utsmakar och tolereras för att begränsa vilk
 * En **bismak** tillämpas på en nod som endast anger att vissa poddar kan schemaläggas på dem.
 * En **tolererande** tillämpas sedan på en pod som gör det möjligt för dem att *tolerera* en nods smak.
 
-När du distribuerar en POD till ett AKS-kluster kan Kubernetes bara schemalägga poddar på noder där en tolererad av bismaken är justerad. Anta till exempel att du har en Node-pool i ditt AKS-kluster för noder med GPU-stöd. Du definierar namn, till exempel *GPU*, och sedan ett värde för schemaläggning. Om du ställer in det här värdet på *noschema*kan Kubernetes Scheduler inte schemalägga poddar på noden om Pod inte definierar lämplig tolerera.
+När du distribuerar en POD till ett AKS-kluster kan Kubernetes bara schemalägga poddar på noder där en tolererad av bismaken är justerad. Anta till exempel att du har en Node-pool i ditt AKS-kluster för noder med GPU-stöd. Du definierar namn, till exempel *GPU* , och sedan ett värde för schemaläggning. Om du ställer in det här värdet på *noschema* kan Kubernetes Scheduler inte schemalägga poddar på noden om Pod inte definierar lämplig tolerera.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -52,7 +52,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -79,15 +79,15 @@ När du uppgraderar en Node-pool i AKS följer smakarna och tolererarna ett upps
 
 - **Standard kluster som använder skalnings uppsättningar för virtuella datorer**
   - Du kan använda [en nodepool][taint-node-pool] från AKS-API: n, så att nyligen utskalade noder får den API som anges för nodens smak.
-  - Vi antar att du har ett kluster med två noder, *Nod1* och *NOD2*. Du uppgraderar Node-poolen.
-  - Två ytterligare noder skapas, *nod3* och *nod4*och smakarna skickas på respektive.
+  - Vi antar att du har ett kluster med två noder, *Nod1* och *NOD2* . Du uppgraderar Node-poolen.
+  - Två ytterligare noder skapas, *nod3* och *nod4* och smakarna skickas på respektive.
   - De ursprungliga *Nod1* och *NOD2* tas bort.
 
 - **Kluster utan stöd för skalnings uppsättning för virtuella datorer**
-  - Nu antar vi att du har ett kluster med två noder, *Nod1* och *NOD2*. När du uppgraderar skapas en ytterligare nod (*nod3*).
-  - De bismakerna från *Nod1* tillämpas på *nod3*. därefter raderas *Nod1* .
-  - En annan ny nod skapas (med namnet *Nod1*, eftersom den tidigare *Nod1* togs bort) och *NOD2* -smakarna tillämpas på den nya *Nod1*. Sedan tas *NOD2* bort.
-  - I själva verket *Nod1* blir *nod3*och *NOD2* blir *Nod1*.
+  - Nu antar vi att du har ett kluster med två noder, *Nod1* och *NOD2* . När du uppgraderar skapas en ytterligare nod ( *nod3* ).
+  - De bismakerna från *Nod1* tillämpas på *nod3* . därefter raderas *Nod1* .
+  - En annan ny nod skapas (med namnet *Nod1* , eftersom den tidigare *Nod1* togs bort) och *NOD2* -smakarna tillämpas på den nya *Nod1* . Sedan tas *NOD2* bort.
+  - I själva verket *Nod1* blir *nod3* och *NOD2* blir *Nod1* .
 
 När du skalar en Node-pool i AKS överförs inte smakarna och tolererarna genom design.
 
@@ -113,7 +113,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -131,9 +131,9 @@ Mer information om hur du använder Node-väljare finns i [tilldela poddar till 
 
 ### <a name="node-affinity"></a>Node-tillhörighet
 
-En Node-selektor är ett grundläggande sätt att tilldela poddar till en specifik nod. Mer flexibilitet är tillgänglig med hjälp av *Node tillhörighet*. Med Node Affinity definierar du vad som händer om Pod inte kan matchas med en nod. Du kan *kräva* att Kubernetes Scheduler matchar en POD med en etikettad värd. Du kan också *föredra* en matchning men tillåta att Pod schemaläggs på en annan värd om den inte matchar är tillgänglig.
+En Node-selektor är ett grundläggande sätt att tilldela poddar till en specifik nod. Mer flexibilitet är tillgänglig med hjälp av *Node tillhörighet* . Med Node Affinity definierar du vad som händer om Pod inte kan matchas med en nod. Du kan *kräva* att Kubernetes Scheduler matchar en POD med en etikettad värd. Du kan också *föredra* en matchning men tillåta att Pod schemaläggs på en annan värd om den inte matchar är tillgänglig.
 
-I följande exempel anges nodens tillhörighet till *requiredDuringSchedulingIgnoredDuringExecution*. Den här tillhörigheten kräver att Kubernetes-schemat använder en nod med en matchande etikett. Om ingen nod är tillgänglig, måste Pod vänta på schemaläggning för att fortsätta. Om du vill tillåta att Pod schemaläggs på en annan nod kan du i stället ange värdet till *preferredDuringSchedulingIgnoreDuringExecution*:
+I följande exempel anges nodens tillhörighet till *requiredDuringSchedulingIgnoredDuringExecution* . Den här tillhörigheten kräver att Kubernetes-schemat använder en nod med en matchande etikett. Om ingen nod är tillgänglig, måste Pod vänta på schemaläggning för att fortsätta. Om du vill tillåta att Pod schemaläggs på en annan nod kan du i stället ange värdet till *preferredDuringSchedulingIgnoreDuringExecution* :
 
 ```yaml
 kind: Pod
@@ -143,7 +143,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5

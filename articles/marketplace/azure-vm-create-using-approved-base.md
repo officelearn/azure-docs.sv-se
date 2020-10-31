@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 34d64d70c657712bb44aa6331b53f014349a0dda
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c28595458fea61f66b6930ce72fa0702e00aecd9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284824"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129312"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Så här skapar du en virtuell dator med en godkänd bas
 
@@ -32,12 +32,12 @@ Välj en av följande Windows-eller Linux-avbildningar som bas.
 
 ### <a name="linux"></a>Linux
 
-Azure erbjuder ett antal godkända Linux-distributioner. En aktuell lista finns i [Linux on distributioner som har godkänts av Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+Azure erbjuder ett antal godkända Linux-distributioner. En aktuell lista finns i [Linux on distributioner som har godkänts av Azure](../virtual-machines/linux/endorsed-distros.md).
 
 ## <a name="create-vm-on-the-azure-portal"></a>Skapa en virtuell dator på Azure Portal
 
 1. Logga in på [Azure-portalen](https://ms.portal.azure.com/).
-2. Välj **Virtuella datorer**.
+2. Välj **Virtuella datorer** .
 3. Välj **+ Lägg** till för att öppna skärmen **skapa en virtuell dator** .
 4. Välj avbildningen i list rutan eller Välj **Bläddra bland alla offentliga och privata avbildningar** för att söka eller bläddra bland alla tillgängliga avbildningar av virtuella datorer.
 5. Om du vill skapa en virtuell dator i **generation 2** går du till fliken **Avancerat** och väljer alternativet **gen 2** .
@@ -49,9 +49,9 @@ Azure erbjuder ett antal godkända Linux-distributioner. En aktuell lista finns 
     :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Välj gen 1 eller gen 2.":::
 
 7. Ange övrig information som krävs för att skapa den virtuella datorn.
-8. Välj **Granska + skapa** för att granska dina val. När meddelandet **verifieringen lyckades** visas väljer du  **skapa**.
+8. Välj **Granska + skapa** för att granska dina val. När meddelandet **verifieringen lyckades** visas väljer du  **skapa** .
 
-Azure börjar etablering av den virtuella dator som du har angett. Spåra förloppet genom att välja fliken **Virtual Machines** på den vänstra menyn. När den har skapats ändras statusen för den virtuella datorn till att **köras**.
+Azure börjar etablering av den virtuella dator som du har angett. Spåra förloppet genom att välja fliken **Virtual Machines** på den vänstra menyn. När den har skapats ändras statusen för den virtuella datorn till att **köras** .
 
 
 ## <a name="configure-the-vm"></a>Konfigurera den virtuella datorn

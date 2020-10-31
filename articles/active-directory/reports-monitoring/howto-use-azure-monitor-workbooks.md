@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76dc7693b1773038d610f9ed42eddad2c81e3eaf
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226989"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126642"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Använda Azure Monitor-arbetsböcker för Azure Active Directory rapporter
 
@@ -83,15 +83,15 @@ För att få åtkomst till arbets böcker:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Navigera till **Azure Active Directory**  >  **övervakning**av  >  **arbets böcker**. 
+1. Navigera till **Azure Active Directory**  >  **övervakning** av  >  **arbets böcker** . 
 
-1. Välj en rapport eller mall eller Välj **Öppna**i verktygsfältet. 
+1. Välj en rapport eller mall eller Välj **Öppna** i verktygsfältet. 
 
 ![Hitta Azure Monitor arbets böcker i Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## <a name="sign-in-analysis"></a>Inloggnings analys
 
-För att få åtkomst till arbets boken för inloggnings analys går du till avsnittet **användning** och väljer **inloggnings program**. 
+För att få åtkomst till arbets boken för inloggnings analys går du till avsnittet **användning** och väljer **inloggnings program** . 
 
 I den här arbets boken visas följande trender:
 
@@ -128,7 +128,7 @@ För varje trend får du en uppdelning med följande kategorier:
 ## <a name="sign-ins-using-legacy-authentication"></a>Inloggningar med äldre autentisering 
 
 
-För att få åtkomst till arbets boken för inloggningar som använder [äldre autentisering](../conditional-access/block-legacy-authentication.md), i avsnittet **användning** väljer du **inloggningar med äldre autentisering**. 
+För att få åtkomst till arbets boken för inloggningar som använder [äldre autentisering](../conditional-access/block-legacy-authentication.md), i avsnittet **användning** väljer du **inloggningar med äldre autentisering** . 
 
 I den här arbets boken visas följande trender:
 
@@ -159,7 +159,7 @@ För varje trend får du en uppdelning efter app och protokoll.
 ## <a name="sign-ins-by-conditional-access"></a>Inloggningar efter villkorlig åtkomst 
 
 
-Om du vill komma åt arbets boken för inloggningar via [principer för villkorlig åtkomst](../conditional-access/overview.md)i avsnittet **villkorlig åtkomst** väljer du **inloggningar med villkorlig åtkomst**. 
+Om du vill komma åt arbets boken för inloggningar via [principer för villkorlig åtkomst](../conditional-access/overview.md)i avsnittet **villkorlig åtkomst** väljer du **inloggningar med villkorlig åtkomst** . 
 
 I den här arbets boken visas trender för inaktiverade inloggningar. Du kan filtrera varje trend enligt följande kategorier:
 
@@ -174,7 +174,7 @@ I den här arbets boken visas trender för inaktiverade inloggningar. Du kan fil
 
 För inaktiverade inloggningar får du en uppdelning av status för villkorlig åtkomst.
 
-![Status för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![Skärm bild som visar status för villkorlig åtkomst och de senaste inloggningarna.](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 ## <a name="conditional-access-insights"></a>Conditional Access Insights
@@ -194,12 +194,12 @@ Om du vill få åtkomst till arbets boken för villkorlig åtkomst insikter väl
 
 - **Datavy**
 
-![Status för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+![Skärm bild som visar fönstret villkorlig åtkomst där du kan välja en princip för villkorlig åtkomst.](./media/howto-use-azure-monitor-workbooks/access-insights.png)
 
 
 Effekt sammanfattningen visar antalet användare eller inloggningar för vilka de valda principerna har ett visst resultat. Totalt antal användare eller inloggningar för vilka de valda principerna utvärderades under det valda tidsintervallet. Klicka på en panel för att filtrera data i arbets boken med den resultat typen. 
 
-![Status för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+![Skärm bild som visar paneler som används för att filtrera resultat som till exempel total, lyckad och misslyckad.](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
 
 I den här arbets boken visas även effekten av de valda principerna uppdelade efter vart och ett av sex villkor: 
 - **Enhets tillstånd**
@@ -209,19 +209,15 @@ I den här arbets boken visas även effekten av de valda principerna uppdelade e
 - **Plats**
 - **Program**
 
-![Status för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+![Skärm bild som visar information från filtret för totalt antal inloggningar.](./media/howto-use-azure-monitor-workbooks/device-platform.png)
 
 Du kan också undersöka enskilda inloggningar som filtrerats efter de parametrar som valts i arbets boken. Sök efter enskilda användare, sorterade efter inloggnings frekvens och Visa motsvarande inloggnings händelser. 
 
-![Status för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/filtered.png)
-
-
-
-
+![Skärm bild som visar enskilda inloggningar som du kan granska.](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 ## <a name="sign-ins-by-grant-controls"></a>Inloggningar genom att tilldela kontroller
 
-Om du vill komma åt arbets boken för inloggningar genom att [bevilja kontroller](../conditional-access/controls.md)i avsnittet **villkorlig åtkomst** väljer du **inloggningar genom att bevilja kontroller**. 
+Om du vill komma åt arbets boken för inloggningar genom att [bevilja kontroller](../conditional-access/controls.md)i avsnittet **villkorlig åtkomst** väljer du **inloggningar genom att bevilja kontroller** . 
 
 Den här arbets boken visar följande inaktiverade inloggnings trender:
 
@@ -261,7 +257,7 @@ Använd analys arbets boken för **inloggnings fel** för att felsöka fel med:
 - Äldre autentisering 
 
 
-Om du vill komma åt inloggnings uppgifterna med hjälp av villkorlig åtkomst i avsnittet **fel sökning** väljer du **inloggningar med äldre autentisering**. 
+Om du vill komma åt inloggnings uppgifterna med hjälp av villkorlig åtkomst i avsnittet **fel sökning** väljer du **inloggningar med äldre autentisering** . 
 
 I den här arbets boken visas följande trender:
 

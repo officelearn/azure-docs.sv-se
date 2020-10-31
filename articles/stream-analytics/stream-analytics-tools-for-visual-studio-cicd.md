@@ -7,26 +7,26 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 175abe54ce5476bece309bbfaf7858cd2e214f52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c05db2d9ba184da89665a236994c851355cc2644
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187667"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127441"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Använd Azure Stream Analytics CI/CD NuGet-paketet för integrering och utveckling 
 Den här artikeln beskriver hur du använder Azure Stream Analytics CI/CD NuGet-paketet för att skapa en kontinuerlig integrering och distributions process.
 
-Använd version 2.3.0000.0 eller senare av [Stream Analytics verktyg för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) för att få stöd för MSBuild.
+Använd version 2.3.0000.0 eller senare av [Stream Analytics verktyg för Visual Studio](./stream-analytics-quick-create-vs.md) för att få stöd för MSBuild.
 
 Det finns ett NuGet-paket: [Microsoft. Azure. Stream Analytics. CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Det tillhandahåller de MSBuild-, lokala körnings-och distributions verktyg som har stöd för kontinuerlig integrering och distributions processen för [Stream Analytics Visual Studio-projekt](stream-analytics-vs-tools.md). 
 > [!NOTE]
 > NuGet-paketet kan bara användas med 2.3.0000.0 eller över versionen av Stream Analytics Tools för Visual Studio. Om du har projekt som skapats i tidigare versioner av Visual Studio-verktyg öppnar du dem bara med 2.3.0000.0 eller över-versionen och sparar. De nya funktionerna är aktiverade. 
 
-Mer information finns i [Stream Analytics Tools för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Mer information finns i [Stream Analytics Tools för Visual Studio](./stream-analytics-quick-create-vs.md).
 
 ## <a name="msbuild"></a>MSBuild
-Precis som med standard Visual Studio MSBuild-upplevelsen kan du bygga ett projekt med två alternativ. Du kan högerklicka på projektet och välja **build**. Du kan också använda **MSBuild** i NuGet-paketet från kommando raden.
+Precis som med standard Visual Studio MSBuild-upplevelsen kan du bygga ett projekt med två alternativ. Du kan högerklicka på projektet och välja **build** . Du kan också använda **MSBuild** i NuGet-paketet från kommando raden.
 ```
 ./build/msbuild /t:build [Your Project Full Path] /p:CompilerTaskAssemblyFile=Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll  /p:ASATargetsFilePath="[NuGet Package Local Path]\build\StreamAnalytics.targets"
 
@@ -52,7 +52,7 @@ Standard parametrarna i parameters.jsi filen är från inställningarna i Visual
       "value": null
     },
 ```
-Lär dig mer om hur du [distribuerar med en Resource Manager-mallfil och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Lär dig mer om hur du [använder ett objekt som en parameter i en Resource Manager-mall](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Lär dig mer om hur du [distribuerar med en Resource Manager-mallfil och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Lär dig mer om hur du [använder ett objekt som en parameter i en Resource Manager-mall](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 Om du vill använda hanterad identitet för Azure Data Lake Store gen1 som utgående mottagare måste du ge åtkomst till tjänstens huvud namn med hjälp av PowerShell innan du distribuerar till Azure. Lär dig mer om hur du [distribuerar ADLS gen1 med hanterad identitet med Resource Manager-mall](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 
@@ -60,7 +60,7 @@ Om du vill använda hanterad identitet för Azure Data Lake Store gen1 som utgå
 ## <a name="command-line-tool"></a>Kommando rads verktyg
 
 ### <a name="build-the-project"></a>Bygga projektet
-NuGet-paketet har ett kommando rads verktyg som heter **SA.exe**. Den har stöd för projekt utveckling och lokal testning på en godtycklig dator, som du kan använda i den kontinuerliga integreringen och den kontinuerliga leverans processen. 
+NuGet-paketet har ett kommando rads verktyg som heter **SA.exe** . Den har stöd för projekt utveckling och lokal testning på en godtycklig dator, som du kan använda i den kontinuerliga integreringen och den kontinuerliga leverans processen. 
 
 Distributions-filerna placeras under den aktuella katalogen som standard. Du kan ange en sökväg för utdata genom att använda följande-OutputPath-parameter:
 

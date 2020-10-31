@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/26/2019
-ms.openlocfilehash: a40f92e88d2d8e5ca253446b9c67ad30df538a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 311aca139220622a0436d490e73a536c3fc898c9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86043435"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129023"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Bearbeta IoT-dataströmmar i real tid med Azure Stream Analytics
 
 I den här artikeln får du lära dig hur du skapar Stream-bearbetnings logik för att samla in data från Sakernas Internet-enheter (IoT). Du kan använda ett IoT-användningsfall (Real-World Sakernas Internet) för att demonstrera hur du skapar din lösning snabbt och ekonomiskt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa en kostnads fri [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/).
 * Hämta exempel fråga och datafiler från [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot).
@@ -44,13 +44,13 @@ För att förenkla användningen av den här komma igång-guiden ingår en exemp
 
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **+ skapa en resurs** i den vänstra navigerings menyn. Välj sedan **Stream Analytics jobb** från **Analytics**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **+ skapa en resurs** i den vänstra navigerings menyn. Välj sedan **Stream Analytics jobb** från **Analytics** .
    
     ![Skapa ett nytt Stream Analytics-jobb](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 
 1. Ange ett unikt jobbnamn och kontrollera att prenumerationen är korrekt för jobbet. Skapa en ny resurs grupp eller Välj en befintlig från din prenumeration.
 
-1. Välj en plats för jobbet. Använd samma plats för resurs gruppen och alla resurser för att öka bearbetnings hastigheten och minska kostnaderna. När du har gjort konfigurationerna väljer du **skapa**.
+1. Välj en plats för jobbet. Använd samma plats för resurs gruppen och alla resurser för att öka bearbetnings hastigheten och minska kostnaderna. När du har gjort konfigurationerna väljer du **skapa** .
    
     ![Information om att skapa ett nytt Stream Analytics-jobb](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.png)
 
@@ -60,7 +60,7 @@ Nästa steg när jobbet har skapats är att skriva en fråga. Du kan testa fråg
 Ladda ned [HelloWorldASA-InputStream.js](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json
 ) från GitHub. Navigera sedan till ditt Azure Stream Analytics jobb i Azure Portal.
 
-Välj **fråga** under **jobb sto pol Ogin** på den vänstra menyn. Välj sedan **överför inmatade exempel**. Ladda upp `HelloWorldASA-InputStream.json` filen och välj **OK**.
+Välj **fråga** under **jobb sto pol Ogin** på den vänstra menyn. Välj sedan **överför inmatade exempel** . Ladda upp `HelloWorldASA-InputStream.json` filen och välj **OK** .
 
 ![Panels fråga för Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
@@ -125,7 +125,7 @@ HAVING Avg(temp)>100
 
 ![30 sekunders-filterfråga](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-Du bör se resultat som bara innehåller 245 rader och namn på sensorer där genomsnitts temperaturen är större än 100. Den här frågan grupperar händelseströmmen efter **dspl**, vilket är sensornamnet, under ett **Rullande fönster** på 30 sekunder. Temporala frågor måste ange hur lång tid som ska förloppet. Med hjälp av **timestamp by** -satsen har du angett kolumnen **OUTPUTTIME** för att associera tider med alla temporala beräkningar. Detaljerad information finns i [tids hantering](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) och [fönster funktioner](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics).
+Du bör se resultat som bara innehåller 245 rader och namn på sensorer där genomsnitts temperaturen är större än 100. Den här frågan grupperar händelseströmmen efter **dspl** , vilket är sensornamnet, under ett **Rullande fönster** på 30 sekunder. Temporala frågor måste ange hur lång tid som ska förloppet. Med hjälp av **timestamp by** -satsen har du angett kolumnen **OUTPUTTIME** för att associera tider med alla temporala beräkningar. Detaljerad information finns i [tids hantering](/stream-analytics-query/time-management-azure-stream-analytics) och [fönster funktioner](/stream-analytics-query/windowing-azure-stream-analytics).
 
 ### <a name="query-detect-absence-of-events"></a>Fråga: Identifiera avsaknad av händelser
 
@@ -148,9 +148,8 @@ WHERE t2.dspl IS NULL
 
 ![Identifiera avsaknad av händelser](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-Här använder vi en **VÄNSTER YTTRE** koppling för samma dataström (självkoppling). För en **INRE** koppling returneras resultatet bara om en matchning hittas.  Om en händelse från vänster sida i kopplingen är omatchad i en **VÄNSTER YTTRE** koppling returneras en rad med NULL för alla kolumner i den högra sidan. Den här tekniken är väldigt användbar för att hitta frånvaro av händelser. Mer information finns i [delta](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics).
+Här använder vi en **VÄNSTER YTTRE** koppling för samma dataström (självkoppling). För en **INRE** koppling returneras resultatet bara om en matchning hittas.  Om en händelse från vänster sida i kopplingen är omatchad i en **VÄNSTER YTTRE** koppling returneras en rad med NULL för alla kolumner i den högra sidan. Den här tekniken är väldigt användbar för att hitta frånvaro av händelser. Mer information finns i [delta](/stream-analytics-query/join-azure-stream-analytics).
 
 ## <a name="conclusion"></a>Slutsats
 
 Syftet med den här artikeln är att demonstrera hur du skriver olika frågor för Stream Analytics frågor och se resultatet i webbläsaren. Detta är dock bara att komma igång. Stream Analytics stöder olika typer av indata och utdata och kan även använda funktioner i Azure Machine Learning, vilket gör det till ett stabilt verktyg för att analysera dataströmmar. Mer information om hur du skriver frågor finns i artikeln om [vanliga frågemönster](stream-analytics-stream-analytics-query-patterns.md).
-

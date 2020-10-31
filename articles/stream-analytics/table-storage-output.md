@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 3e5b747e55c8f246167bcf8bbde3542146e69706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea775ef472687485dbd2f30c4f60adc33c0eaa73
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891963"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127356"
 ---
 # <a name="table-storage-output-from-azure-stream-analytics"></a>Tabell lagrings resultat från Azure Stream Analytics
 
@@ -28,7 +28,7 @@ I följande tabell visas egenskaps namnen och deras beskrivningar för att skapa
 | Tabellnamn |Namnet på tabellen. Tabellen skapas om den inte finns. |
 | Partitionsnyckel |Namnet på kolumnen utdata som innehåller partitionsnyckel. Partitionsnyckel är en unik identifierare för partitionen i en tabell som utgör den första delen av en entitets primära nyckel. Det är ett sträng värde som kan vara upp till 1 KB stort. |
 | Rad nyckel |Namnet på kolumnen utdata som innehåller rad nyckeln. Rad nyckeln är en unik identifierare för en entitet i en partition. Den utgör den andra delen av en entitets primära nyckel. Rad nyckeln är ett sträng värde som kan vara upp till 1 KB stort. |
-| Batchstorlek |Antalet poster för en batch-åtgärd. Standardvärdet (100) är tillräckligt för de flesta jobb. Mer information om hur du ändrar den här inställningen finns i [specifikationen tabell åtgärds åtgärd](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) . |
+| Batchstorlek |Antalet poster för en batch-åtgärd. Standardvärdet (100) är tillräckligt för de flesta jobb. Mer information om hur du ändrar den här inställningen finns i [specifikationen tabell åtgärds åtgärd](/java/api/com.microsoft.azure.storage.table.tablebatchoperation) . |
 
 ## <a name="partitioning"></a>Partitionering
 

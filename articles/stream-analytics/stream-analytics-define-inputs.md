@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 467b8506eb0cafc61731a69804c70b8080ab21c2
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 649abf6d07a95c7f20f6416f7d3155f8d115782b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042442"
+ms.locfileid: "93127577"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Strömma data som indata till Stream Analytics
 
@@ -38,7 +38,7 @@ Du kan använda [Azure Portal](stream-analytics-quick-create-portal.md), [Visual
 
 Azure Event Hubs tillhandahåller mycket skalbara evenemang som publicerar prenumerationer. En Event Hub kan samla in miljon tals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. Tillsammans är Event Hubs och Stream Analytics tillhandahålla en heltäckande lösning för real tids analys. Med Event Hubs kan du mata in händelser i Azure i real tid och Stream Analytics jobb kan bearbeta dessa händelser i real tid. Du kan till exempel skicka webb klick, sensor avläsningar eller logg händelser online till Event Hubs. Du kan sedan skapa Stream Analytics jobb för att använda Event Hubs som indata strömmar för real tids filtrering, agg regering och korrelation.
 
-`EventEnqueuedUtcTime` är tidsstämpeln för en händelses ankomst i en Event Hub och är standard tidsstämpeln för händelser som kommer från Event Hubs till Stream Analytics. Om du vill bearbeta data som en data ström med en tidstämpel i händelse nytto lasten måste du använda [tids stämplingen med](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) nyckelord.
+`EventEnqueuedUtcTime` är tidsstämpeln för en händelses ankomst i en Event Hub och är standard tidsstämpeln för händelser som kommer från Event Hubs till Stream Analytics. Om du vill bearbeta data som en data ström med en tidstämpel i händelse nytto lasten måste du använda [tids stämplingen med](/stream-analytics-query/timestamp-by-azure-stream-analytics) nyckelord.
 
 ### <a name="event-hubs-consumer-groups"></a>Event Hubs konsument grupper
 
@@ -56,7 +56,7 @@ I följande tabell förklaras varje egenskap på den **nya inmatnings** sidan i 
 | **Namn på händelsehubb** | Namnet på händelsehubben som ska användas som indatamängd. |
 | **Principnamn för Event Hub** | Principen för delad åtkomst som ger åtkomst till Händelsehubben. Varje princip för delad åtkomst har ett namn, behörigheter som du anger och åtkomst nycklar. Det här alternativet fylls i automatiskt, om du inte väljer alternativet att ange inställningar för Händelsehubben manuellt.|
 | **Konsument grupp för Event Hub** (rekommenderas) | Vi rekommenderar starkt att du använder en distinkt konsument grupp för varje Stream Analytics jobb. Den här strängen identifierar den konsument grupp som ska användas för att mata in data från händelsehubben. Om ingen konsument grupp har angetts använder Stream Analytics jobbet $Default konsument gruppen.  |
-| **Partitionsnyckel** | Detta är ett valfritt fält som bara är tillgängligt om jobbet är konfigurerat för att använda [kompatibilitetsnivån](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 eller högre. Om din inaktuella information har partitionerats av en egenskap kan du lägga till namnet på den här egenskapen här. Detta används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. Om det här jobbet använder kompatibilitetsnivå 1,2 eller högre är det här fältet standardvärdet "PartitionId". |
+| **Partitionsnyckel** | Detta är ett valfritt fält som bara är tillgängligt om jobbet är konfigurerat för att använda [kompatibilitetsnivån](./stream-analytics-compatibility-level.md) 1,2 eller högre. Om din inaktuella information har partitionerats av en egenskap kan du lägga till namnet på den här egenskapen här. Detta används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. Om det här jobbet använder kompatibilitetsnivå 1,2 eller högre är det här fältet standardvärdet "PartitionId". |
 | **Händelseserialiseringsformat** | Serialization-formatet (JSON, CSV, Avro eller [Other (protobuf, XML, tillverkarspecifika...)](custom-deserializer.md)) för den inkommande data strömmen.  Se till att JSON-formatet överensstämmer med specifikationen och inte innehåller inledande 0 för decimal tal. |
 | **Kodning** | UTF-8 är för närvarande det enda kodnings format som stöds. |
 | **Händelse komprimerings typ** | Komprimerings typen som används för att läsa inkommande data ström, till exempel ingen (standard), GZip eller DEFLATE. |
@@ -80,14 +80,14 @@ FROM Input
 ```
 
 > [!NOTE]
-> När du använder Event Hub som en slut punkt för IoT Hub vägar, kan du komma åt IoT Hub metadata med [funktionen GetMetadataPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue).
+> När du använder Event Hub som en slut punkt för IoT Hub vägar, kan du komma åt IoT Hub metadata med [funktionen GetMetadataPropertyValue](/stream-analytics-query/getmetadatapropertyvalue).
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Strömma data från IoT Hub
 
 Azure IoT Hub är en mycket skalbar händelse för att publicera prenumerationer som är optimerade för IoT-scenarier.
 
-Standard tidsstämpeln för händelser som kommer från en IoT Hub i Stream Analytics är tidsstämpeln som händelsen anlänt i IoT Hub, vilket är `EventEnqueuedUtcTime` . Om du vill bearbeta data som en data ström med en tidstämpel i händelse nytto lasten måste du använda [tids stämplingen med](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) nyckelord.
+Standard tidsstämpeln för händelser som kommer från en IoT Hub i Stream Analytics är tidsstämpeln som händelsen anlänt i IoT Hub, vilket är `EventEnqueuedUtcTime` . Om du vill bearbeta data som en data ström med en tidstämpel i händelse nytto lasten måste du använda [tids stämplingen med](/stream-analytics-query/timestamp-by-azure-stream-analytics) nyckelord.
 
 ### <a name="iot-hub-consumer-groups"></a>Konsument grupper för IoT Hub
 
@@ -106,7 +106,7 @@ I följande tabell förklaras varje egenskap på den **nya indata** -sidan i Azu
 | **Namn på princip för delad åtkomst** | Principen för delad åtkomst som ger åtkomst till IoT Hub. Varje princip för delad åtkomst har ett namn, behörigheter som du anger och åtkomst nycklar. |
 | **Nyckel för delad åtkomst princip** | Den delade åtkomst nyckeln som används för att ge åtkomst till IoT Hub.  Det här alternativet fylls i automatiskt om du inte väljer alternativet att tillhandahålla IoT Hub-inställningarna manuellt. |
 | **Konsument grupp** | Vi rekommenderar starkt att du använder en annan konsument grupp för varje Stream Analytics jobb. Konsument gruppen används för att mata in data från IoT Hub. Stream Analytics använder $Default konsument gruppen om du inte anger något annat.  |
-| **Partitionsnyckel** | Detta är ett valfritt fält som bara är tillgängligt om jobbet är konfigurerat för att använda [kompatibilitetsnivån](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 eller högre. Om din inaktuella information har partitionerats av en egenskap kan du lägga till namnet på den här egenskapen här. Detta används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. Om det här jobbet använder kompatibilitetsnivå 1,2 eller högre är det här fältet standardvärdet "PartitionId". |
+| **Partitionsnyckel** | Detta är ett valfritt fält som bara är tillgängligt om jobbet är konfigurerat för att använda [kompatibilitetsnivån](./stream-analytics-compatibility-level.md) 1,2 eller högre. Om din inaktuella information har partitionerats av en egenskap kan du lägga till namnet på den här egenskapen här. Detta används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. Om det här jobbet använder kompatibilitetsnivå 1,2 eller högre är det här fältet standardvärdet "PartitionId". |
 | **Händelseserialiseringsformat** | Serialization-formatet (JSON, CSV, Avro eller [Other (protobuf, XML, tillverkarspecifika...)](custom-deserializer.md)) för den inkommande data strömmen.  Se till att JSON-formatet överensstämmer med specifikationen och inte innehåller inledande 0 för decimal tal. |
 | **Kodning** | UTF-8 är för närvarande det enda kodnings format som stöds. |
 | **Händelse komprimerings typ** | Komprimerings typen som används för att läsa inkommande data ström, till exempel ingen (standard), GZip eller DEFLATE. |
@@ -137,7 +137,7 @@ Om en BLOB laddas upp till en lagrings konto behållare på 13:00 och Azure Stre
 
 Om ett Azure Stream Analytics jobb har startats med *nu* vid 13:00 och en BLOB överförs till lagrings konto behållaren vid 13:01, kommer Azure Stream Analytics att hämta bloben. Tidsstämpeln som tilldelas varje BLOB baseras bara på `BlobLastModifiedTime` . Mappen som blobben är i har ingen relation till den tidsstämpel som tilldelats. Om det till exempel finns en BLOB *2019/10-01/00/b1.txt* med en `BlobLastModifiedTime` 2019-11-11, är tidsstämpeln som är kopplad till denna BLOB 2019-11-11.
 
-Om du vill bearbeta data som en data ström med en tidstämpel i händelse nytto lasten måste du använda [tids stämplingen med](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) nyckelord. Ett Stream Analytics-jobb hämtar data från Azure Blob Storage eller ADLS Gen2 indata varje sekund om BLOB-filen är tillgänglig. Om BLOB-filen inte är tillgänglig finns det en exponentiell backoff med en maximal tids fördröjning på 90 sekunder.
+Om du vill bearbeta data som en data ström med en tidstämpel i händelse nytto lasten måste du använda [tids stämplingen med](/stream-analytics-query/stream-analytics-query-language-reference) nyckelord. Ett Stream Analytics-jobb hämtar data från Azure Blob Storage eller ADLS Gen2 indata varje sekund om BLOB-filen är tillgänglig. Om BLOB-filen inte är tillgänglig finns det en exponentiell backoff med en maximal tids fördröjning på 90 sekunder.
 
 CSV-formaterade indata kräver en rubrik rad för att definiera fält för data uppsättningen och alla rubrik rads fält måste vara unika.
 
@@ -157,10 +157,10 @@ I följande tabell beskrivs varje egenskap på den **nya indata** -sidan i Azure
 | **Lagringskonto** | Namnet på det lagrings konto där BLOB-filerna finns. |
 | **Lagrings konto nyckel** | Den hemliga nyckeln som är kopplad till lagrings kontot. Det här alternativet fylls i automatiskt om du inte väljer alternativet för att ange inställningarna manuellt. |
 | **Container** | Behållare tillhandahåller en logisk gruppering för blobbar. Du kan välja antingen **Använd befintlig** behållare eller  **Skapa ny** för att skapa en ny behållare.|
-| **Sök vägs mönster** (valfritt) | Den fil Sök väg som används för att hitta Blobbarna i den angivna behållaren. Om du vill läsa blobbar från behållarens rot ska du inte ange ett Sök vägs mönster. I sökvägen kan du ange en eller flera instanser av följande tre variabler: `{date}` , `{time}` eller `{partition}`<br/><br/>Exempel 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exempel 2: `cluster1/logs/{date}`<br/><br/>`*`Specialtecknet är inte ett tillåtet värde för Path-prefixet. Endast giltiga <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob-tecken</a> tillåts. Lägg inte till behållar namn eller fil namn. |
+| **Sök vägs mönster** (valfritt) | Den fil Sök väg som används för att hitta Blobbarna i den angivna behållaren. Om du vill läsa blobbar från behållarens rot ska du inte ange ett Sök vägs mönster. I sökvägen kan du ange en eller flera instanser av följande tre variabler: `{date}` , `{time}` eller `{partition}`<br/><br/>Exempel 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exempel 2: `cluster1/logs/{date}`<br/><br/>`*`Specialtecknet är inte ett tillåtet värde för Path-prefixet. Endast giltiga <a HREF="/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata">Azure Blob-tecken</a> tillåts. Lägg inte till behållar namn eller fil namn. |
 | **Datum format** (valfritt) | Om du använder date-variabeln i sökvägen är datum formatet där filerna är ordnade. Exempel: `YYYY/MM/DD` <br/><br/> När BLOB-indatatypen har `{date}` eller `{time}` i sin sökväg tittar mapparna i stigande tids ordning.|
 | **Tids format** (valfritt) |  Om du använder tids variabeln i sökvägen är det tids formatet som filerna är ordnade i. För närvarande är det enda värde som stöds `HH` för timmar. |
-| **Partitionsnyckel** | Detta är ett valfritt fält som bara är tillgängligt om jobbet är konfigurerat för att använda [kompatibilitetsnivån](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 eller högre. Om din inaktuella information har partitionerats av en egenskap kan du lägga till namnet på den här egenskapen här. Detta används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. Om det här jobbet använder kompatibilitetsnivå 1,2 eller högre är det här fältet standardvärdet "PartitionId". |
+| **Partitionsnyckel** | Detta är ett valfritt fält som bara är tillgängligt om jobbet är konfigurerat för att använda [kompatibilitetsnivån](./stream-analytics-compatibility-level.md) 1,2 eller högre. Om din inaktuella information har partitionerats av en egenskap kan du lägga till namnet på den här egenskapen här. Detta används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. Om det här jobbet använder kompatibilitetsnivå 1,2 eller högre är det här fältet standardvärdet "PartitionId". |
 | **Antal inpartitioner** | Det här fältet finns bara när {partition} finns i Sök vägs mönstret. Värdet för den här egenskapen är ett heltal >= 1. Var {partition} visas i pathPattern, ett tal mellan 0 och värdet för det här fältet-1 kommer att användas. |
 | **Händelseserialiseringsformat** | Serialization-formatet (JSON, CSV, Avro eller [Other (protobuf, XML, tillverkarspecifika...)](custom-deserializer.md)) för den inkommande data strömmen.  Se till att JSON-formatet överensstämmer med specifikationen och inte innehåller inledande 0 för decimal tal. |
 | **Kodning** | För CSV och JSON är UTF-8 för närvarande det enda kodnings format som stöds. |
@@ -194,5 +194,5 @@ FROM Input
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

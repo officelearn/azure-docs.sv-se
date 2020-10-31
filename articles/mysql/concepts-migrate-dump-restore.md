@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 2/27/2020
-ms.openlocfilehash: 7cc18980d1dddc33ddf98f06de70449dee22e2ac
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.date: 10/30/2020
+ms.openlocfilehash: 336021792b7e5340e35a0c59e0f113d4dad9307d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484601"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128971"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrera MySQL-databasen till Azure Database för MySQL med säkerhetskopiering och återställning
 
@@ -20,6 +20,8 @@ ms.locfileid: "92484601"
 I den här artikeln beskrivs två vanliga sätt att säkerhetskopiera och återställa databaser i Azure Database for MySQL
 - Dumpa och Återställ från kommando raden (med mysqldump)
 - Dumpa och Återställ med PHPMyAdmin
+
+Du kan också läsa mer om hur du migrerar databaser till Azure Database for MySQL med hjälp av [Database migration guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) . Den här guiden ger vägledning som leder till en lyckad planering och körning av en MySQL-migrering till Azure.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 För att gå igenom den här instruktions guiden måste du ha:
@@ -168,5 +170,5 @@ För kända problem, tips och trick rekommenderar vi att du tittar på vår [tec
 
 ## <a name="next-steps"></a>Nästa steg
 - [Anslut program till Azure Database for MySQL](./howto-connection-string.md).
-- Mer information om hur du migrerar databaser till Azure Database for MySQL finns i [Guide för databas migrering](https://aka.ms/datamigration).
+- Mer information om hur du migrerar databaser till Azure Database for MySQL finns i [Guide för databas migrering](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
 - Om du vill migrera stora databaser med databas storlekar på över 1 TBs kanske du vill överväga att använda community-verktyg som t. ex. en **dumpare/för-belastningsutjämnare** som stöder parallell export och import. Lär dig [hur du migrerar stora MySQL-databaser](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

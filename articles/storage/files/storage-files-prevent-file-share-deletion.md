@@ -8,18 +8,18 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 50dbca7e32548380c6dbf338260b98ce59cda715
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 0fecc9fc954a1ac648e8f60badf69ad1d2e8f1cc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122423"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126948"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Förhindra oavsiktlig borttagning av Azure-filresurser
 
-Azure Storage har nu mjuk borttagning för fil resurser (för hands version). Med mjuk borttagning kan du återställa fil resursen när den tas bort av misstag av ett program eller någon annan lagrings konto användare.
+Azure Storage har nu mjuk borttagning för fil resurser. Med mjuk borttagning kan du återställa fil resursen när den tas bort av misstag av ett program eller någon annan lagrings konto användare.
 
-## <a name="how-soft-delete-preview-works"></a>Så här fungerar mjuk borttagning (för hands version)
+## <a name="how-soft-delete-works"></a>Så här fungerar mjuk borttagning
 
 När mjuk borttagning för Azure-filresurser är aktiverat, om en fil resurs tas bort, övergår den över till ett mjukt borttaget tillstånd i stället för att raderas permanent. Du kan konfigurera hur lång tid det tar för mjuka borttagna data att återställas innan den tas bort permanent och ta bort resursen när den kvarhålls. När det har tagits bort återställs delningen och allt innehåll, inklusive ögonblicks bilder, till det tillstånd som den var i innan borttagning. Mjuk borttagning fungerar bara på en fil resurs nivå – enskilda filer som tas bort kommer fortfarande att raderas permanent.
 
@@ -29,15 +29,11 @@ Om du vill ta bort en fil resurs permanent i läget för mjuk borttagning innan 
 
 För mjuk borttagning av Premium-filresurser används fil resurs kvoten (den allokerade storleken på en fil resurs) i den totala kvot beräkningen för lagrings kontot tills den förfallna resursen upphör att gälla när resursen har tagits bort helt.
 
-## <a name="availability"></a>Tillgänglighet
-
-Mjuk borttagning för Azure-filresurser (för hands version) är tillgängligt på alla lagrings nivåer, alla typer av lagrings konton och i varje region som Azure Files är tillgänglig i.
-
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 
 ### <a name="enabling-or-disabling-soft-delete"></a>Aktivera eller inaktivera mjuk borttagning
 
-Mjuk borttagning för fil resurser har Aktiver ATS på lagrings konto nivå, på grund av detta gäller inställningarna för mjuk borttagning för alla fil resurser i ett lagrings konto. Du kan aktivera eller inaktivera mjuk borttagning när som helst. När du skapar ett nytt lagrings konto är mjuk borttagning av fil resurser inaktive rad som standard medan funktionen finns i en offentlig för hands version. När mjuk borttagning blir allmänt tillgänglig, aktive ras den som standard. Mjuk borttagning är inaktiverat som standard för befintliga lagrings konton. Om du har konfigurerat [Azure-filresursens säkerhets kopiering](../../backup/azure-file-share-backup-overview.md) för en Azure-filresurs, aktive ras mjuk borttagning för Azure-filresurser automatiskt på den resursens lagrings konto.
+Mjuk borttagning för fil resurser har Aktiver ATS på lagrings konto nivå, på grund av detta gäller inställningarna för mjuk borttagning för alla fil resurser i ett lagrings konto. Du kan aktivera eller inaktivera mjuk borttagning när som helst. När du skapar ett nytt lagrings konto är mjuk borttagning av fil resurser inaktive rad som standard, så du kan aktivera det under distributionen eller när som helst efteråt. Mjuk borttagning är inaktiverat som standard för befintliga lagrings konton. Om du har konfigurerat [Azure-filresursens säkerhets kopiering](../../backup/azure-file-share-backup-overview.md) för en Azure-filresurs, aktive ras mjuk borttagning för Azure-filresurser automatiskt på den resursens lagrings konto.
 
 Om du aktiverar mjuk borttagning för fil resurser tar du bort vissa fil resurser och inaktiverar sedan mjuk borttagning, om resurserna har sparats under den tiden kan du fortfarande komma åt och återställa dessa fil resurser. När du aktiverar mjuk borttagning måste du också konfigurera kvarhållningsperioden.
 

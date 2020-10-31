@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 7b91cf3d49d88501fb908d157892ec3eb24bee6e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1c89887117c10ca77ec4c04b3adbe3e2d9923479
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284536"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126846"
 ---
 # <a name="virtual-machine-sas-failure-messages"></a>SAS-felmeddelanden för virtuella datorer
 
@@ -29,7 +29,7 @@ Följande är vanliga problem som uppstår när du arbetar med signaturer för d
 | SAS-URI: n "St" och "se"-parametrarna har ingen fullständig datum-och tids specifikation | `Failure: Copying Images. Not able to download blob due to incorrect SAS Uri.` | SAS-URI **start datum** och **slutdatum** parametrar ( `st` och `se` del strängar) måste ha ett fullständigt datum-och tids format, t. ex `11-02-2017T00:00:00Z` .. Förkortade versioner är ogiltiga (vissa kommandon i Azure CLI kan generera förkortade värden som standard). |
 |  |  |  |
 
-Mer information finns i [använda signaturer för delad åtkomst (SAS)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+Mer information finns i [använda signaturer för delad åtkomst (SAS)](../storage/common/storage-sas-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

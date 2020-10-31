@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: e54f153738d232eaddff8b0fc499a763581ca726
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 61dd185d00cef2382763e7435c081e1d412cdb92
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277421"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127884"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Logga in och starta appar från portalen Mina appar
 
@@ -60,7 +60,7 @@ Om du har åtkomst behörighet till och använder din organisations molnbaserade
 
 ### <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Ladda ned och installera säkra inloggnings tillägg för Mina appar
 
-Hämta och installera **säker inloggnings tillägg för Mina appar**om du uppmanas att göra det. Med det här tillägget får du hjälp med att använda enkel inloggning med din organisations molnappar. Hovra bara över en app i portalen för **Mina appar** **.** Välj sedan **Hantera ditt program**.
+Hämta och installera **säker inloggnings tillägg för Mina appar** om du uppmanas att göra det. Med det här tillägget får du hjälp med att använda enkel inloggning med din organisations molnappar. Hovra bara över en app i portalen för **Mina appar** **.** Välj sedan **Hantera ditt program** .
 
 Om din organisation redan har konfigurerat dig för enkel inloggning installeras tillägget automatiskt och du kan hoppa över det här avsnittet.
 
@@ -77,9 +77,9 @@ Hämta och installera tillägget, baserat på den webbläsare som du använder.
 
 - **Microsoft Edge** – från Microsoft Store går du till funktionen [Mina appar säker inloggnings tillägg](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl) och väljer **Hämta** för att hämta tillägget för Microsoft Edge Legacy-webbläsare.
 
-- **Google Chrome** – från Chrome Web Store går du till funktionen [Mina appar säker inloggnings tillägg](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) och väljer sedan **Lägg till i Chrome**.
+- **Google Chrome** – från Chrome Web Store går du till funktionen [Mina appar säker inloggnings tillägg](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) och väljer sedan **Lägg till i Chrome** .
 
-- **Mozilla Firefox** – från sidan **Firefox-tillägg** går du till funktionen [Mina appar säker inloggnings tillägg](https://addons.mozilla.org/firefox/addon/access-panel-extension/) och väljer sedan **Lägg till i Firefox**.
+- **Mozilla Firefox** – från sidan **Firefox-tillägg** går du till funktionen [Mina appar säker inloggnings tillägg](https://addons.mozilla.org/firefox/addon/access-panel-extension/) och väljer sedan **Lägg till i Firefox** .
 
 En ikon läggs till till höger i **adress** fältet, så att du kan logga in och anpassa tillägget.
 
@@ -87,9 +87,9 @@ En ikon läggs till till höger i **adress** fältet, så att du kan logga in oc
 
 Du kan välja hur många appar som ska visas i avsnittet som **används nyligen** och bestämma om du vill tillåta att organisationens interna URL: er omdirigeras.
 
-1. Välj ikonen för den nya ikonen **Mina appar säker inloggnings** tillägg ![ ](media/my-apps-portal/my-apps-portal-extension-icon.png) till höger om **adress** fältet och välj sedan **Logga in för att komma igång**.
+1. Välj ikonen för den nya ikonen **Mina appar säker inloggnings** tillägg ![ ](media/my-apps-portal/my-apps-portal-extension-icon.png) till höger om **adress** fältet och välj sedan **Logga in för att komma igång** .
 
-1. Högerklicka på ikonen Inställningar **inställnings ikon** ![ ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) och välj sedan **Inställningar**.
+1. Högerklicka på ikonen Inställningar **inställnings ikon** ![ ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) och välj sedan **Inställningar** .
 
 1. I rutan **Inställningar** väljer du det antal senaste appar som du vill se på portalen, och om du vill att organisationens interna URL: er ska omdirigeras så att du kan använda dem via en fjärr anslutning.
 
@@ -113,11 +113,11 @@ Visa och Använd din organisations appar från den mobila versionen av Edge-webb
 
 Om din administratör har gett dig behörighet kan du lägga till en ny app på sidan **appar** .
 
-1. Välj **Lägg till självbetjänings program**på sidan **appar** .
+1. Välj **Lägg till självbetjänings program** på sidan **appar** .
 
    ![Sidan Lägg till appar i portalen Mina appar på myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
 
-1. Välj den app som du vill lägga till i listan och välj sedan **Lägg till**.
+1. Välj den app som du vill lägga till i listan och välj sedan **Lägg till** .
 
 1. Appen läggs till i listan på sidan **appar** .
 
@@ -151,7 +151,7 @@ När du har gå till **Mina Apps** -portalen kan du:
 
 När du kommer till sidan **appar** kan du:
 
-- [Ändra din profilinformation](my-apps-portal-end-user-update-profile.md)
+- [Ändra din profilinformation](./my-account-portal-settings.md)
 
 - [Visa och uppdatera dina grupper – relaterad information](my-apps-portal-end-user-groups.md)
 

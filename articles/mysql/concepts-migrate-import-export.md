@@ -5,17 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/22/2020
-ms.openlocfilehash: 6d0a29d8ef8123eafd6a1616a24003c1e36e6e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: 1b4959cbf082a589c90034f48d597907c9b7e6cc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905926"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128937"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrera MySQL-databasen med hjälp av import och export
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 I den här artikeln beskrivs två vanliga metoder för att importera och exportera data till en Azure Database for MySQL-server med hjälp av MySQL Workbench.
+
+Du kan också läsa mer om hur du migrerar databaser till Azure Database for MySQL med hjälp av [Database migration guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) . Den här guiden ger vägledning som leder till en lyckad planering och körning av en MySQL-migrering till Azure.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 För att gå igenom den här instruktions guiden behöver du:
@@ -45,7 +47,7 @@ Använd MySQL-verktyg för att importera och exportera databaser till Azure MySQ
 - När du migrerar data från externa data källor som inte är en MySQL-databas skapar du Flat Files och importerar dem med hjälp av [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
 > [!Important]
-> Både en server och en flexibel Server stöder **bara InnoDB-lagrings motorn**. Se till att alla tabeller i databasen använder InnoDB lagrings motor när du läser in data i Azure Database for MySQL.
+> Både en server och en flexibel Server stöder **bara InnoDB-lagrings motorn** . Se till att alla tabeller i databasen använder InnoDB lagrings motor när du läser in data i Azure Database for MySQL.
 > Om käll databasen använder en annan lagrings motor kan du konvertera till InnoDB-motorn innan du migrerar databasen. Om du till exempel har en WordPress-eller webbapp som använder sig av en ISAM-motor måste du först konvertera tabellerna genom att migrera data till InnoDB-tabeller. Använd satsen för `ENGINE=INNODB` att ställa in motorn för att skapa en tabell och överför sedan data till den kompatibla tabellen innan migreringen.
 
    ```sql
@@ -72,26 +74,26 @@ Det finns två sätt att exportera och importera data i MySQL Workbench. Var och
 
 Guiderna för tabell data stöder import-och export åtgärder med hjälp av CSV-och JSON-filer. De innehåller flera konfigurations alternativ, till exempel avgränsare, val av kolumn och kodning. Du kan utföra varje guide mot lokala eller fjärranslutna MySQL-servrar. Import åtgärden inkluderar tabell-, kolumn-och typ mappning.
 
-Du kan komma åt dessa guider från snabb menyn i objekt läsaren genom att högerklicka på en tabell. Välj antingen guiden **tabell data export** eller **guiden tabell data import**.
+Du kan komma åt dessa guider från snabb menyn i objekt läsaren genom att högerklicka på en tabell. Välj antingen guiden **tabell data export** eller **guiden tabell data import** .
 
 #### <a name="table-data-export-wizard"></a>Guiden Exportera tabell data
 I följande exempel exporteras tabellen till en CSV-fil:
 1. Högerklicka på tabellen i databasen som ska exporteras.
-2. Välj **guiden för tabell data export**. Markera de kolumner som ska exporteras, rad förskjutning (om sådana finns) och antal (om det finns några).
-3. På sidan **Välj data för export** klickar du på **Nästa**. Välj fil Sök väg, CSV eller JSON-filtypen. Välj också rad avgränsaren, metoden för att omsluta strängar och fält avgränsare.
-4. På sidan **Välj sökväg för utdatafil** klickar du på **Nästa**.
-5. På sidan **Exportera data** klickar du på **Nästa**.
+2. Välj **guiden för tabell data export** . Markera de kolumner som ska exporteras, rad förskjutning (om sådana finns) och antal (om det finns några).
+3. På sidan **Välj data för export** klickar du på **Nästa** . Välj fil Sök väg, CSV eller JSON-filtypen. Välj också rad avgränsaren, metoden för att omsluta strängar och fält avgränsare.
+4. På sidan **Välj sökväg för utdatafil** klickar du på **Nästa** .
+5. På sidan **Exportera data** klickar du på **Nästa** .
 
 #### <a name="table-data-import-wizard"></a>Guiden Importera tabell data
 I följande exempel importeras tabellen från en CSV-fil:
 1. Högerklicka på tabellen i databasen som ska importeras.
-2. Bläddra till och välj den CSV-fil som ska importeras och klicka sedan på **Nästa**.
-3. Välj mål tabellen (ny eller befintlig) och markera eller avmarkera kryss rutan **trunkera tabellen innan du importerar** . Klicka på **Nästa**.
-4. Välj kodning och kolumner som ska importeras och klicka sedan på **Nästa**.
-5. På sidan **Importera data** klickar du på **Nästa**. Guiden importerar data enligt detta.
+2. Bläddra till och välj den CSV-fil som ska importeras och klicka sedan på **Nästa** .
+3. Välj mål tabellen (ny eller befintlig) och markera eller avmarkera kryss rutan **trunkera tabellen innan du importerar** . Klicka på **Nästa** .
+4. Välj kodning och kolumner som ska importeras och klicka sedan på **Nästa** .
+5. På sidan **Importera data** klickar du på **Nästa** . Guiden importerar data enligt detta.
 
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>SQL data export-och import guider från fönstret navigatör
-Använd en guide för att exportera eller importera SQL som skapats av MySQL Workbench eller genererats från mysqldump-kommandot. Öppna de här guiderna från fönstret **Navigator** eller genom att välja **Server** på huvud menyn. Välj sedan **data export** eller **data import**.
+Använd en guide för att exportera eller importera SQL som skapats av MySQL Workbench eller genererats från mysqldump-kommandot. Öppna de här guiderna från fönstret **Navigator** eller genom att välja **Server** på huvud menyn. Välj sedan **data export** eller **data import** .
 
 #### <a name="data-export"></a>Dataexport
 :::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="Hitta anslutnings informationen i Azure Portal":::
@@ -115,4 +117,4 @@ Du kan använda fliken **data import** för att importera eller återställa exp
 
 ## <a name="next-steps"></a>Nästa steg
 - Som en annan metod för migrering läser [du migrera MySQL-databasen med dump och Återställ i Azure Database for MySQL](concepts-migrate-dump-restore.md).
-- Mer information om hur du migrerar databaser till Azure Database for MySQL finns i [Guide för databas migrering](https://aka.ms/datamigration).
+- Mer information om hur du migrerar databaser till Azure Database for MySQL finns i [Guide för databas migrering](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).

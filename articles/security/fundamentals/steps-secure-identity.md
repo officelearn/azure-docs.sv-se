@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 43974258008e3813a368ab31891251db15060aff
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364124"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127067"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -145,7 +145,7 @@ Azure Active Directory har många funktioner som automatiskt fångar upp attacke
 
 Användar risken indikerar sannolikheten för att en användares identitet har komprometterats och beräknas utifrån de [användar risk identifieringar](../../active-directory/identity-protection/overview.md) som är associerade med en användares identitet. En användar risk princip är en princip för villkorlig åtkomst som utvärderar risk nivån för en speciell användare eller grupp. Utifrån låg, medel, hög risk nivå kan en princip konfigureras för att blockera åtkomst eller kräva en säker ändring av lösen ord med hjälp av Multi-Factor Authentication. Microsofts rekommendation är att kräva en säker lösen ords ändring för användare med hög risk.
 
-![Användare som har flaggats för risk](./media/steps-secure-identity/azure-ad-sec-steps1.png)
+![Skärm bild som visar användare som har flaggats för risk, med en vald användare.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Implementera inloggnings risk princip med Azure AD Identity Protection
 
@@ -175,7 +175,7 @@ Azure AD Identity Protection ger två viktiga rapporter som du bör övervaka da
 1. Riskfyllda inloggnings rapporter kan användas för användarnas inloggnings aktiviteter som du bör undersöka, den legitima ägaren kanske inte har utfört inloggningen.
 2. Riskfyllda användar rapporter kommer att påverka användar konton som kan ha komprometterats, till exempel läckta autentiseringsuppgifter som identifierats eller användaren som är inloggad från olika platser och som orsakar en omöjlig resa-händelse.
 
-![Användare som har flaggats för risk](./media/steps-secure-identity/azure-ad-sec-steps3.png)
+![Skärm bild som visar fönstret Azure ett D Identity Protection med användare och deras risk nivåer.](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>Granska appar och samskickade behörigheter
 

@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: ca5bdf606b51b4019bd9e655d172733074febd39
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: bd5e05f38d34199d9012c52ca3fdad33af231aad
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078023"
+ms.locfileid: "93127993"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Snabb start: skapa en cacheminne för företags nivå (för hands version)
 
@@ -29,7 +29,7 @@ Du behöver en Azure-prenumeration innan du börjar. Om du inte har ett konto ka
 
 1. Välj **databaser** på sidan **nytt** och välj sedan **Azure cache för Redis** .
    
-   ![Välj Azure-cache för Redis](media/cache-create/new-cache-menu.png)
+   :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Välj Azure-cache för Redis":::
    
 1. På sidan **ny Redis cache** konfigurerar du inställningarna för din nya cache.
    
@@ -41,10 +41,7 @@ Du behöver en Azure-prenumeration innan du börjar. Om du inte har ett konto ka
    | **Plats** | List rutan och välj en plats. | Företags nivåer är tillgängliga i begränsade Azure-regioner under för hands versionen. |
    | **Cachestorlek** | List rutan och välj en *Enterprise* -eller *Enterprise Flash* -nivå och en storlek. |  Nivån avgör storlek, prestanda och funktioner som är tillgängliga för cachen. |
    
-   ![Grundläggande information om företags nivå](media/cache-create/enterprise-tier-basics.png) 
-
-   > [!NOTE] 
-   > Se till att markera kryss rutan under "villkor" innan du fortsätter.
+   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Välj Azure-cache för Redis" innan du fortsätter.
    >
 
 1. Välj **Nästa: nätverk** och hoppa över.
@@ -53,11 +50,11 @@ Du behöver en Azure-prenumeration innan du börjar. Om du inte har ett konto ka
    > Alternativet för privat länk hämtas och kanske inte är tillgängligt omedelbart i din region.
    >
 
-1. Välj **Nästa: Avancerat** .
+1. Välj **Nästa: Avancerat** och ange **kluster princip** till **företag** .
    
    Du kan behålla standardinställningarna eller ändra dem efter behov. När du aktiverar **Tillåt endast åtkomst via TLS** måste du använda TLS för att komma åt den nya cachen från ditt program.
 
-   ![Avancerad företags nivå](media/cache-create/enterprise-tier-advanced.png) 
+   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Välj Azure-cache för Redis":::
 
    > [!NOTE] 
    > Redis-moduler stöds inte i Enterprise Flash-nivån ännu. Om du planerar att använda en Redis-modul ser du till att välja en cacheminne för företags nivå.
@@ -67,7 +64,7 @@ Du behöver en Azure-prenumeration innan du börjar. Om du inte har ett konto ka
 
 1. Välj **Nästa: Granska + skapa** .
 
-   ![Sammanfattning för företags nivå](media/cache-create/enterprise-tier-summary.png) 
+   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Välj Azure-cache för Redis":::
 
 1. Granska inställningarna och klicka på **skapa** .
    

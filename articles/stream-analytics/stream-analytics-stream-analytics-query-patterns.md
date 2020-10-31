@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 84e3ced20b828087cd3f2b9e7534826debf1706a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0c5363cfec42ba78ee6c41a1970211518b74a71
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279985"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127543"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Vanliga fråge mönster i Azure Stream Analytics
 
@@ -34,7 +34,7 @@ Både JSON och Avro kan innehålla komplexa typer som kapslade objekt (poster) e
 
 Flera **Select** -uttryck kan användas för att mata ut data till olika utgående mottagare. En **Select** kan till exempel generera en tröskel-baserad avisering medan en annan kan spara händelser till Blob Storage.
 
-**Inmatade**:
+**Inmatade** :
 
 | Modell | Tid |
 | --- | --- |
@@ -44,7 +44,7 @@ Flera **Select** -uttryck kan användas för att mata ut data till olika utgåen
 | Make2 |2015-01-01T00:00:02.0000000 Z |
 | Make2 |2015-01-01T00:00:03.0000000 Z |
 
-**Utgående ArchiveOutput**:
+**Utgående ArchiveOutput** :
 
 | Modell | Tid |
 | --- | --- |
@@ -54,13 +54,13 @@ Flera **Select** -uttryck kan användas för att mata ut data till olika utgåen
 | Make2 |2015-01-01T00:00:02.0000000 Z |
 | Make2 |2015-01-01T00:00:03.0000000 Z |
 
-**Utgående AlertOutput**:
+**Utgående AlertOutput** :
 
 | Modell | Tid | Antal |
 | --- | --- | --- |
 | Make2 |2015-01-01T00:00:10.0000000 Z |3 |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT
@@ -85,11 +85,11 @@ HAVING
     [Count] >= 3
 ```
 
-**Into** -satsen visar Stream Analytics vilka utdata som data ska skrivas till. Den första **Select** definierar en direkt fråga som tar emot data från indata och skickar den till utdata med namnet **ArchiveOutput**. Den andra frågan gör viss enkel agg regering och filtrering innan resultatet skickas till en underordnad varnings system utdata som kallas **AlertOutput**.
+**Into** -satsen visar Stream Analytics vilka utdata som data ska skrivas till. Den första **Select** definierar en direkt fråga som tar emot data från indata och skickar den till utdata med namnet **ArchiveOutput** . Den andra frågan gör viss enkel agg regering och filtrering innan resultatet skickas till en underordnad varnings system utdata som kallas **AlertOutput** .
 
 Observera att **with** -satsen kan användas för att definiera flera under frågor. Det här alternativet har fördelen att öppna färre läsare till Indatakällan.
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 WITH ReaderQuery AS (
@@ -119,21 +119,21 @@ Mer information finns i [ **with** -satsen](/stream-analytics-query/with-azure-s
 
 Du kan använda en enkel direkt sändnings fråga för att kopiera data Ströms data till utdata. Om t. ex. en data ström som innehåller information om vehikel måste sparas i en SQL-databas för bokstavs analys, kommer en enkel direkt fråga att utföra jobbet.
 
-**Inmatade**:
+**Inmatade** :
 
 | Modell | Tid | Vikt |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
 
-**Utdata**:
+**Utdata** :
 
 | Modell | Tid | Vikt |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT
@@ -144,7 +144,7 @@ FROM Input
 
 En **Select** *-fråga projekterar alla fält i en inkommande händelse och skickar dem till utdata. På samma sätt kan du också **välja** att endast använda projekt som krävs för att ange fält från indatatyperna. I det här exemplet, om fordons *märke* och- *tid* är de enda obligatoriska fält som ska sparas, kan dessa fält anges i **Select** -instruktionen.
 
-**Inmatade**:
+**Inmatade** :
 
 | Modell | Tid | Vikt |
 | --- | --- | --- |
@@ -152,7 +152,7 @@ En **Select** *-fråga projekterar alla fält i en inkommande händelse och skic
 | Make1 |2015-01-01T00:00:02.0000000 Z |2000 |
 | Make2 |2015-01-01T00:00:04.0000000 Z |1500 |
 
-**Utdata**:
+**Utdata** :
 
 | Modell | Tid |
 | --- | --- |
@@ -160,7 +160,7 @@ En **Select** *-fråga projekterar alla fält i en inkommande händelse och skic
 | Make1 |2015-01-01T00:00:02.0000000 Z |
 | Make2 |2015-01-01T00:00:04.0000000 Z |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT
@@ -173,7 +173,7 @@ FROM Input
 
 **Gilla** och **inte gilla** kan användas för att kontrol lera om ett fält matchar ett visst mönster. Ett filter kan till exempel skapas för att endast returnera de licens plattor som börjar med bokstaven A och slutar med siffran 9.
 
-**Inmatade**:
+**Inmatade** :
 
 | Modell | License_plate | Tid |
 | --- | --- | --- |
@@ -181,14 +181,14 @@ FROM Input
 | Make2 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
 | Make3 |ABC – 369 |2015-01-01T00:00:03.0000000 Z |
 
-**Utdata**:
+**Utdata** :
 
 | Modell | License_plate | Tid |
 | --- | --- | --- |
 | Make2 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
 | Make3 |ABC – 369 |2015-01-01T00:00:03.0000000 Z |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT
@@ -205,20 +205,20 @@ Använd **like** -instruktionen för att kontrol lera värdet för **License_pla
 
 Du kan använda funktionen **fördröjning** för att titta på tidigare händelser i ett tids fönster och jämföra dem med den aktuella händelsen. Till exempel kan den aktuella bil-varan vara utlämnad om den skiljer sig från den sista bilen som gick igenom avgifts meddelandet.
 
-**Inmatade**:
+**Inmatade** :
 
 | Modell | Tid |
 | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |
 | Make2 |2015-01-01T00:00:02.0000000 Z |
 
-**Utdata**:
+**Utdata** :
 
 | Modell | Tid |
 | --- | --- |
 | Make2 |2015-01-01T00:00:02.0000000 Z |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT
@@ -238,7 +238,7 @@ Mer information finns i [**fördröjning**](/stream-analytics-query/lag-azure-st
 
 När händelser används av systemet i real tid, finns det ingen funktion som kan avgöra om en händelse är den sista som ska tas emot för tids perioden. För att uppnå detta måste indataströmmen vara ansluten till en annan där tiden för en händelse är den maximala tiden för alla händelser i fönstret.
 
-**Inmatade**:
+**Inmatade** :
 
 | License_plate | Modell | Tid |
 | --- | --- | --- |
@@ -250,14 +250,14 @@ När händelser används av systemet i real tid, finns det ingen funktion som ka
 | QYF 9358 |Make1 |2015-07-27T00:12:02.0000000 Z |
 | MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
 
-**Utdata**:
+**Utdata** :
 
 | License_plate | Modell | Tid |
 | --- | --- | --- |
 | VFE 1616 |Make2 |2015-07-27T00:09:31.0000000 Z |
 | MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 WITH LastInWindow AS
@@ -283,7 +283,7 @@ FROM
 
 Det första steget i frågan hittar den maximala tidsstämpeln i 10-minuters fönster, det vill säga tidsstämpeln för den senaste händelsen för fönstret. I det andra steget kopplas resultatet från den första frågan med den ursprungliga data strömmen för att hitta den händelse som matchar de senaste tidsstämplar i varje fönster. 
 
-**DateDiff** är en programbestämd funktion som jämför och returnerar tids skillnaden mellan två DATETIME-fält, för mer information, se [datum funktioner](https://docs.microsoft.com/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
+**DateDiff** är en programbestämd funktion som jämför och returnerar tids skillnaden mellan två DATETIME-fält, för mer information, se [datum funktioner](/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
 
 Mer information om att ansluta till strömmar finns i [**delta**](/stream-analytics-query/join-azure-stream-analytics).
 
@@ -291,7 +291,7 @@ Mer information om att ansluta till strömmar finns i [**delta**](/stream-analyt
 
 Om du vill beräkna information över ett tidsfönster kan data aggregeras tillsammans. I det här exemplet beräknas ett antal under de senaste 10 sekundernas tid för varje speciell bil.
 
-**Inmatade**:
+**Inmatade** :
 
 | Modell | Tid | Vikt |
 | --- | --- | --- |
@@ -299,14 +299,14 @@ Om du vill beräkna information över ett tidsfönster kan data aggregeras tills
 | Make1 |2015-01-01T00:00:02.0000000 Z |2000 |
 | Make2 |2015-01-01T00:00:04.0000000 Z |1500 |
 
-**Utdata**:
+**Utdata** :
 
 | Modell | Antal |
 | --- | --- |
 | Make1 | 2 |
 | Make2 | 1 |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT
@@ -329,7 +329,7 @@ Mer information om agg regering finns i [mängd funktioner](/stream-analytics-qu
 
 I händelse av oregelbundna eller saknade händelser kan ett vanligt intervall med utdata genereras från en mer sparse-indata. Du kan till exempel generera en händelse var femte sekund som rapporterar den senast visade data punkten.
 
-**Inmatade**:
+**Inmatade** :
 
 | Tid | Värde |
 | --- | --- |
@@ -340,7 +340,7 @@ I händelse av oregelbundna eller saknade händelser kan ett vanligt intervall m
 | "2014-01-01T06:01:30" |5 |
 | "2014-01-01T06:01:35" |6 |
 
-**Utdata (första 10 raderna)**:
+**Utdata (första 10 raderna)** :
 
 | Window_end | Last_event. Tid | Last_event. Värde |
 | --- | --- | --- |
@@ -355,7 +355,7 @@ I händelse av oregelbundna eller saknade händelser kan ett vanligt intervall m
 | 2014-01-01T14:01:40.000 Z |2014-01-01T14:01:35.000 Z |6 |
 | 2014-01-01T14:01:45.000 Z |2014-01-01T14:01:35.000 Z |6 |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT
@@ -375,7 +375,7 @@ Mer information finns i hoppande- [fönstret](/stream-analytics-query/hopping-wi
 
 Att korrelera händelser i samma data ström kan göras genom att titta på tidigare händelser med funktionen **lag** . Till exempel kan en utmatning skapas varje gång två på varandra följande bilar *från samma sätt* gå igenom avgift under de senaste 90 sekunderna.
 
-**Inmatade**:
+**Inmatade** :
 
 | Modell | License_plate | Tid |
 | --- | --- | --- |
@@ -384,13 +384,13 @@ Att korrelera händelser i samma data ström kan göras genom att titta på tidi
 | Make2 |DEF-987 |2015-01-01T00:00:03.0000000 Z |
 | Make1 |GHI – 345 |2015-01-01T00:00:04.0000000 Z |
 
-**Utdata**:
+**Utdata** :
 
 | Modell | Tid | Current_car_license_plate | First_car_license_plate | First_car_time |
 | --- | --- | --- | --- | --- |
 | Make1 |2015-01-01T00:00:02.0000000 Z |AAA-999 |ABC – 123 |2015-01-01T00:00:01.0000000 Z |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT
@@ -413,20 +413,20 @@ Mer information finns i [fördröjning](/stream-analytics-query/lag-azure-stream
 
 Varaktigheten för en händelse kan beräknas genom att titta på den sista start händelsen när en slut händelse tas emot. Den här frågan kan vara användbar för att avgöra hur lång tid en användare lägger på en sida eller en funktion.
 
-**Inmatade**:  
+**Inmatade** :  
 
-| Användare | Funktion | Händelse | Tid |
+| Användare | Visning av aktuellt objekt | Händelse | Tid |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000 Z |
 | user@location.com |RightMenu |Slut |2015-01-01T00:00:08.0000000 Z |
 
-**Utdata**:  
+**Utdata** :  
 
-| Användare | Funktion | Varaktighet |
+| Användare | Visning av aktuellt objekt | Varaktighet |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT
@@ -447,7 +447,7 @@ Den **sista** funktionen kan användas för att hämta den sista händelsen inom
 
 **Count** och **DISTINCT** kan användas för att räkna antalet unika fält värden som visas i data strömmen i ett tids fönster. En fråga kan skapas för att beräkna hur *många unika bilar av bilar som skickas* genom väg-och ett 2-sekunders fönster.
 
-**Inmatade**:
+**Inmatade** :
 
 | Modell | Tid |
 | --- | --- |
@@ -476,13 +476,13 @@ GROUP BY
 ```
 
 **Count (DISTINCT-fabrikat)** returnerar antalet distinkta värden i kolumnen **skapa** i ett tids fönster.
-Mer information finns i [mängd funktionen **Count** ](/stream-analytics-query/count-azure-stream-analytics).
+Mer information finns i [mängd funktionen **Count**](/stream-analytics-query/count-azure-stream-analytics).
 
 ## <a name="retrieve-the-first-event-in-a-window"></a>Hämta den första händelsen i ett fönster
 
 **IsFirst** kan användas för att hämta den första händelsen i ett tids fönster. Du kan till exempel placera den första bil informationen i intervallet 10: e minut.
 
-**Inmatade**:
+**Inmatade** :
 
 | License_plate | Modell | Tid |
 | --- | --- | --- |
@@ -494,14 +494,14 @@ Mer information finns i [mängd funktionen **Count** ](/stream-analytics-query/c
 | QYF 9358 |Make1 |2015-07-27T00:12:02.0000000 Z |
 | MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
 
-**Utdata**:
+**Utdata** :
 
 | License_plate | Modell | Tid |
 | --- | --- | --- |
 | DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
 | QYF 9358 |Make1 |2015-07-27T00:12:02.0000000 Z |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT 
@@ -516,7 +516,7 @@ WHERE
 
 **IsFirst** kan också partitionera data och beräkna den första händelsen för varje *enskild bil som du hittar* vid varje 10-minuters intervall.
 
-**Utdata**:
+**Utdata** :
 
 | License_plate | Modell | Tid |
 | --- | --- | --- |
@@ -526,7 +526,7 @@ WHERE
 | QYF 9358 |Make1 |2015-07-27T00:12:02.0000000 Z |
 | MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT 
@@ -545,7 +545,7 @@ Mer information finns på [**IsFirst**](/stream-analytics-query/isfirst-azure-st
 
 När du utför en åtgärd, till exempel beräkning av genomsnitt över händelser inom ett angivet tidsintervall, ska duplicerade händelser filtreras. I följande exempel är den andra händelsen en dubblett av den första.
 
-**Inmatade**:  
+**Inmatade** :  
 
 | DeviceId | Tid | Attribut | Värde |
 | --- | --- | --- | --- |
@@ -556,14 +556,14 @@ När du utför en åtgärd, till exempel beräkning av genomsnitt över händels
 | 2 |2018-07-27T00:00:05.0000000 Z |Temperatur |50 |
 | 1 |2018-07-27T00:00:10.0000000 Z |Temperatur |100 |
 
-**Utdata**:  
+**Utdata** :  
 
 | AverageValue | DeviceId |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 With Temp AS (
@@ -594,7 +594,7 @@ Mer information finns i [Count (DISTINCT Time)](/stream-analytics-query/count-az
 
 **Case** -instruktioner kan ge olika beräkningar för olika fält, baserat på specifika kriterier. Du kan till exempel tilldela Lane "A" till bilar av *Make1* och Lane "B" till något annat.
 
-**Inmatade**:
+**Inmatade** :
 
 | Modell | Tid |
 | --- | --- |
@@ -602,14 +602,14 @@ Mer information finns i [Count (DISTINCT Time)](/stream-analytics-query/count-az
 | Make2 |2015-01-01T00:00:02.0000000 Z |
 | Make2 |2015-01-01T00:00:03.0000000 Z |
 
-**Utdata**:
+**Utdata** :
 
 | Modell |Dispatch_to_lane | Tid |
 | --- | --- | --- |
 | Make1 |En |2015-01-01T00:00:01.0000000 Z |
 | Make2 |T |2015-01-01T00:00:02.0000000 Z |
 
-**Lösning**:
+**Lösning** :
 
 ```SQL
 SELECT
@@ -631,20 +631,20 @@ Mer information finns i Case- [uttryck](/stream-analytics-query/case-azure-strea
 
 Data kan omvandlas i real tid med hjälp av **Cast** -metoden. Bil vikt kan till exempel konverteras från Type **nvarchar (max)** för att skriva **bigint** och användas i en numerisk beräkning.
 
-**Inmatade**:
+**Inmatade** :
 
 | Modell | Tid | Vikt |
 | --- | --- | --- |
 | Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
 | Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
 
-**Utdata**:
+**Utdata** :
 
 | Modell | Vikt |
 | --- | --- |
 | Make1 |3000 |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT
@@ -665,7 +665,7 @@ Mer information om [data konverterings funktioner](/stream-analytics-query/conve
 
 För villkor som sträcker sig över flera händelser kan du använda funktionen **fördröjning** för att identifiera villkorets varaktighet. Anta till exempel att en bugg ledde till att alla bilar har en felaktig vikt (över 20 000 kg) och varaktigheten för denna bugg måste beräknas.
 
-**Inmatade**:
+**Inmatade** :
 
 | Modell | Tid | Vikt |
 | --- | --- | --- |
@@ -678,13 +678,13 @@ För villkor som sträcker sig över flera händelser kan du använda funktionen
 | Make1 |2015-01-01T00:00:07.0000000 Z |26000 |
 | Make2 |2015-01-01T00:00:08.0000000 Z |2000 |
 
-**Utdata**:
+**Utdata** :
 
 | Start_fault | End_fault |
 | --- | --- |
 | 2015-01-01T00:00:02.000 Z |2015-01-01T00:00:07.000 Z |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 WITH SelectPreviousEvent AS
@@ -713,7 +713,7 @@ End_fault är den aktuella händelsen utan fel där föregående händelse var t
 Händelser kan komma in i försenat eller ur ordning på grund av fördröjningar mellan evenemangs producenter, klockor mellan partitioner eller nätverks fördröjning.
 Till exempel är enhets klockan för *TollID* 2 fem sekunder bakom *TollID* 1 och enhets klockan för *TollID* 3 är tio sekunder bakom *TollID* 1. En beräkning kan ske oberoende för varje avgift, och endast överväger sina egna klock data som en tidsstämpel.
 
-**Inmatade**:
+**Inmatade** :
 
 | LicensePlate | Modell | Tid | TollID |
 | --- | --- | --- | --- |
@@ -726,7 +726,7 @@ Till exempel är enhets klockan för *TollID* 2 fem sekunder bakom *TollID* 1 oc
 | MDR 6128 |Make3 |2015-07-27T00:00:11.0000000 Z | 2 |
 | YZK 5704 |Make4 |2015-07-27T00:00:07.0000000 Z | 3 |
 
-**Utdata**:
+**Utdata** :
 
 | TollID | Antal |
 | --- | --- |
@@ -737,7 +737,7 @@ Till exempel är enhets klockan för *TollID* 2 fem sekunder bakom *TollID* 1 oc
 | 2 | 1 |
 | 3 | 1 |
 
-**Fråga**:
+**Fråga** :
 
 ```SQL
 SELECT
@@ -758,7 +758,7 @@ Ett sessions fönster är ett fönster som håller på att expanderas när händ
 Det här fönstret är särskilt användbart när du beräknar användar interaktions data. Ett fönster startar när en användare börjar interagera med systemet och stängs när inga fler händelser observeras, vilket innebär att användaren har slutat fungera.
 Till exempel är en användare som interagerar med en webb sida där antalet klickningar loggas, ett session-fönster som kan användas för att ta reda på hur lång tid användaren interagerar med webbplatsen.
 
-**Inmatade**:
+**Inmatade** :
 
 | User_id | Tid | URL |
 | --- | --- | --- |
@@ -768,14 +768,14 @@ Till exempel är en användare som interagerar med en webb sida där antalet kli
 | 0 | 2017-01-26T00:01:10.0000000 Z | "www.example.com/d.html" |
 | 1 | 2017-01-26T00:01:15.0000000 Z | "www.example.com/e.html" |
 
-**Utdata**:
+**Utdata** :
 
 | User_id | StartTime | EndTime | Duration_in_seconds |
 | --- | --- | --- | --- |
 | 0 | 2017-01-26T00:00:00.0000000 Z | 2017-01-26T00:01:10.0000000 Z | 70 |
 | 1 | 2017-01-26T00:00:55.0000000 Z | 2017-01-26T00:01:15.0000000 Z | 20 |
 
-**Fråga**:
+**Fråga** :
 
 ``` SQL
 SELECT
@@ -791,13 +791,13 @@ GROUP BY
 
 I **Välj** projekt visas de data som är relevanta för användar interaktionen tillsammans med varaktigheten för interaktionen. Gruppera data efter användare och en **SessionWindow** som stängs om ingen interaktion sker inom 1 minut, med en maximal fönster storlek på 60 minuter.
 
-Mer information om **SessionWindow**finns i session- [fönstret](/stream-analytics-query/session-window-azure-stream-analytics) .
+Mer information om **SessionWindow** finns i session- [fönstret](/stream-analytics-query/session-window-azure-stream-analytics) .
 
 ## <a name="language-extensibility-with-user-defined-function-in-javascript-and-c"></a>Språk utöknings Bart med användardefinierad funktion i Java Script och C #
 
 Azure Stream Analytics frågespråk kan utökas med anpassade funktioner skrivna antingen i Java Script eller C#-språk. UDF (User Defined Functions) är anpassade/komplexa beräkningar som inte lätt kan uttryckas med **SQL** -språket. Dessa UDF: er kan definieras en gång och användas flera gånger i en fråga. En UDF kan till exempel användas för att konvertera ett hexadecimalt *nvarchar (max)* -värde till ett *bigint* -värde.
 
-**Inmatade**:
+**Inmatade** :
 
 | Device_id | HexValue |
 | --- | --- |
@@ -805,7 +805,7 @@ Azure Stream Analytics frågespråk kan utökas med anpassade funktioner skrivna
 | 2 | "11B" |
 | 3 | "121" |
 
-**Utdata**:
+**Utdata** :
 
 | Device_id | Decimal |
 | --- | --- |
@@ -837,14 +837,14 @@ From
 
 Den användardefinierade funktionen beräknar *bigint* -värdet från HexValue vid varje händelse som används.
 
-Mer information finns i [Java Script](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) och [C#](/azure/stream-analytics/stream-analytics-edge-csharp-udf).
+Mer information finns i [Java Script](./stream-analytics-javascript-user-defined-functions.md) och [C#](./stream-analytics-edge-csharp-udf.md).
 
 ## <a name="advanced-pattern-matching-with-match_recognize"></a>Avancerad mönster matchning med MATCH_RECOGNIZE
 
 **MATCH_RECOGNIZE** är en avancerad mönster matchnings funktion som kan användas för att matcha en sekvens med händelser till ett väldefinierat mönster för reguljära uttryck.
 Till exempel övervakas en ATM i real tid för fel, under driften av ATM om det finns två varnings meddelanden i följd som administratören måste meddelas.
 
-**Inmatade**:
+**Inmatade** :
 
 | ATM_id | Operation_id | Return_Code | Tid |
 | --- | --- | --- | --- |
@@ -855,7 +855,7 @@ Till exempel övervakas en ATM i real tid för fel, under driften av ATM om det 
 | 1 | "Ingående Money-kortplats" | Honom | 2017-01-26T00:10:14.0000000 Z |
 | 1 | "Skriva ut bank saldo" | Honom | 2017-01-26T00:10:19.0000000 Z |
 
-**Utdata**:
+**Utdata** :
 
 | ATM_id | First_Warning_Operation_id | Warning_Time |
 | --- | --- | --- |
@@ -881,7 +881,7 @@ MATCH_RECOGNIZE (
 
 Den här frågan matchar minst två efterföljande fel händelser och genererar ett larm när villkoren är uppfyllda.
 **Pattern** definierar det reguljära uttryck som ska användas för matchning, i det här fallet ett valfritt antal lyckade åtgärder följt av minst två efterföljande avbrott.
-Lyckade och misslyckade åtgärder definieras med Return_Code värde och när villkoret är uppfyllt projiceras **måtten** med *ATM_id*, den första varningen och första varnings tiden.
+Lyckade och misslyckade åtgärder definieras med Return_Code värde och när villkoret är uppfyllt projiceras **måtten** med *ATM_id* , den första varningen och första varnings tiden.
 
 Mer information finns i [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics).
 
@@ -892,7 +892,7 @@ Geospatiala data kan matas in i antingen interjson-eller well-format som en del 
 Till exempel ett företag som är specialiserat på Manufacturing Machines för att skriva ut Passport, leasa sina datorer till myndigheter och Consulates. Platsen för dessa datorer är kraftigt kontrollerad för att undvika problem med att placera och kunna använda för förfalskning av Passport. Varje dator är utrustad med en GPS-Spårare, den informationen vidarebefordras tillbaka till ett Azure Stream Analytics jobb.
 Tillverkningen vill hålla koll på platsen för dessa datorer och bli aviserad om en av dem lämnar ett godkänt område, på det här sättet att de fjärrinaktiverar, varnar myndigheterna och hämtar utrustningen.
 
-**Inmatade**:
+**Inmatade** :
 
 | Equipment_id | Equipment_current_location | Tid |
 | --- | --- | --- |
@@ -901,13 +901,13 @@ Tillverkningen vill hålla koll på platsen för dessa datorer och bli aviserad 
 | 1 | "PUNKT (-122.13308862313283 47.6406508603241)" | 2017-01-26T00:12:00.0000000 Z |
 | 1 | "PUNKT (-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00.0000000 Z |
 
-**Referens data inmatning**:
+**Referens data inmatning** :
 
 | Equipment_id | Equipment_lease_location |
 | --- | --- |
 | 1 | "POLYGON ((-122.13326028450979 47.6409833866794,-122.13261655434621 47.6409833866794,-122.13261655434621 47.64061471602751,-122.13326028450979 47.64061471602751,-122.13326028450979 47.6409833866794))" |
 
-**Utdata**:
+**Utdata** :
 
 | Equipment_id | Equipment_alert_location | Tid |
 | --- | --- | --- |
@@ -932,11 +932,11 @@ Mer information finns i avsnittet om [avgränsnings-och geospatiala agg regering
 
 ## <a name="get-help"></a>Få hjälp
 
-Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Azure Stream Analytics Management REST-API:et](/rest/api/streamanalytics/)

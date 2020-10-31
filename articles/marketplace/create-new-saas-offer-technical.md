@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 78a81a2d392363ac45979fd28138f838653a2358
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84e1508dec4d4a5802f7a2ac8c0e6ada5a8044c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381182"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128699"
 ---
 # <a name="how-to-add-technical-details-for-your-saas-offer"></a>Så här lägger du till teknisk information för ditt SaaS-erbjudande
 
@@ -38,7 +38,7 @@ På fliken **teknisk konfiguration** definierar du de tekniska uppgifter som den
 
 - **Azure Active Directory klient-ID** (krävs) – du hittar klient-ID: t för din Azure Active Directory-app (Azure AD) genom att gå till bladet [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Active Directory. I kolumnen **visnings namn** väljer du appen. Leta sedan efter den **katalog (klient) ID-** nummer som anges (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Azure Active Directory program-ID** (obligatoriskt) – om du vill hitta ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)går du till bladet [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Active Directory. I kolumnen **visnings namn** väljer du appen. Leta sedan reda på det program-ID (klient) som visas (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **Azure Active Directory program-ID** (obligatoriskt) – om du vill hitta ditt [program-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)går du till bladet [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Active Directory. I kolumnen **visnings namn** väljer du appen. Leta sedan reda på det program-ID (klient) som visas (till exempel `50c464d3-4930-494c-963c-1e951d15360e` ).
 
 Välj **Spara utkast** innan du fortsätter till nästa flik: plan översikt.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 10/19/2020
-ms.openlocfilehash: b927e90c60110d6922649b75b6549528a2a9a40f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284771"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129124"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Så här skapar du en SAS-URI för en VM-avbildning
 
@@ -34,12 +34,12 @@ Det finns två vanliga verktyg som används för att skapa en SAS-adress (URL):
 
 ### <a name="using-tool-1-azure-storage-explorer"></a>Använda verktyg 1: Azure Storage Explorer
 
-1. Gå till ditt **lagrings konto**.
-1. Öppna **Storage Explorer**.
+1. Gå till ditt **lagrings konto** .
+1. Öppna **Storage Explorer** .
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Fönstret lagrings konto.":::
 
-3. I **behållaren**högerklickar du på VHD-filen och väljer **Hämta signatur för resurs åtkomst**.
+3. I **behållaren** högerklickar du på VHD-filen och väljer **Hämta signatur för resurs åtkomst** .
 4. I dialog rutan **signatur för delad åtkomst** fyller du i följande fält:
 
     1. Start tid – behörighetens start datum för VHD-åtkomst. Ange ett datum som infaller en dag före det aktuella datumet.
@@ -49,7 +49,7 @@ Det finns två vanliga verktyg som används för att skapa en SAS-adress (URL):
 
     ![Dialog rutan signatur för delad åtkomst.](media/vm/create-sas-uri-storage-explorer.png)
 
-5. Om du vill skapa en tillhör ande SAS-URI för den här virtuella hård disken väljer du **skapa**.
+5. Om du vill skapa en tillhör ande SAS-URI för den här virtuella hård disken väljer du **skapa** .
 6. Kopiera URI: n och spara den i en textfil på en säker plats. Den här genererade SAS-URI: n är för åtkomst på container nivå. Om du vill göra det speciellt kan du redigera text filen och lägga till VHD-namnet.
 7. Infoga ditt VHD-namn efter VHD-strängen i SAS-URI: n (inklusive ett snedstreck). Den sista SAS-URI: n bör se ut så här:
 
@@ -59,7 +59,7 @@ Det finns två vanliga verktyg som används för att skapa en SAS-adress (URL):
 
 ### <a name="using-tool-2-azure-cli"></a>Använda verktyg 2: Azure CLI
 
-1. Hämta och installera [Microsoft Azure kl](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Versioner är tillgängliga för Windows, macOS och olika distributioner i Linux.
+1. Hämta och installera [Microsoft Azure kl](/cli/azure/install-azure-cli). Versioner är tillgängliga för Windows, macOS och olika distributioner i Linux.
 2. Skapa en PowerShell-fil (fil namns tillägget. ps1), kopiera i följande kod och spara den lokalt.
 
     ```JSON
@@ -81,8 +81,8 @@ Det finns två vanliga verktyg som används för att skapa en SAS-adress (URL):
 1. Spara ändringarna.
 2. Använd någon av följande metoder för att köra det här skriptet med administratörs behörighet för att skapa en SAS-anslutningssträng för åtkomst på behållare nivå:
 
-    - Kör skriptet från-konsolen. I Windows högerklickar du på skriptet och väljer **Kör som administratör**.
-    - Kör skriptet från en PowerShell-skriptfil som [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Den här skärmen visar hur en SAS-anslutningssträng skapas i den här redigeraren:
+    - Kör skriptet från-konsolen. I Windows högerklickar du på skriptet och väljer **Kör som administratör** .
+    - Kör skriptet från en PowerShell-skriptfil som [Windows PowerShell ISE](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Den här skärmen visar hur en SAS-anslutningssträng skapas i den här redigeraren:
 
     [![skapa en SAS-anslutningssträng i PowerShell-redigeraren](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 

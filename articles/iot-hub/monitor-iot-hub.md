@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 577ec9e01310787dacb45a03e1efae128cbab872
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078228"
+ms.locfileid: "93128887"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Övervaka Azure-IoT Hub
 
@@ -23,7 +23,9 @@ När du har viktiga program och affärs processer som förlitar sig på Azure-re
 
 :::image type="content" source="media/monitor-iot-hub/overview-portal.png" alt-text="Översikts sidan standard mått diagram på IoT Hub.":::
 
-Den här informationen är användbar, men representerar bara en liten mängd övervaknings data som är tillgängliga för en IoT-hubb. Vissa övervaknings data samlas in automatiskt och är tillgängliga för analys så snart du skapar din IoT Hub. Du kan aktivera ytterligare typer av data insamling med en del konfiguration.
+Tänk på att värdet för antal meddelanden kan fördröjas med 1 minut och IoT Hub att värdet kan ibland studsa mellan högre och lägre värden vid uppdatering. Den här räknaren bör bara vara felaktig för värden som räknats över den senaste minuten.
+
+Informationen som visas i översikts fönstret är användbar, men representerar bara en liten mängd övervaknings data som är tillgängliga för en IoT-hubb. Vissa övervaknings data samlas in automatiskt och är tillgängliga för analys så snart du skapar din IoT Hub. Du kan aktivera ytterligare typer av data insamling med en del konfiguration.
 
 ## <a name="what-is-azure-monitor"></a>Vad är Azure Monitor?
 

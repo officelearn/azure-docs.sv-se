@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 11fde4480f4e2ed9feda00fa2af0e5937a77b9ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd8da9ae7e31fb60ba0ca553f5aa304ccd3621d2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986885"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127186"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Installera Micro Focus Enterprise Server 5,0 och Enterprise Developer 5,0 på Azure
 
@@ -47,7 +47,7 @@ Innan du börjar bör du gå igenom följande krav:
 
 ## <a name="install-enterprise-server"></a>Installera Enterprise Server
 
-1.  Överväg att skapa en ny resurs grupp för det här projektet, till exempel **RGMicroFocusEntServer**, för bättre säkerhet och hanterbarhet. Använd den första delen av namnet i Azure om du vill välja typ av resurs för att göra det lättare att hitta dem i en lista.
+1.  Överväg att skapa en ny resurs grupp för det här projektet, till exempel **RGMicroFocusEntServer** , för bättre säkerhet och hanterbarhet. Använd den första delen av namnet i Azure om du vill välja typ av resurs för att göra det lättare att hitta dem i en lista.
 
 2.  Skapa en virtuell dator. Från Azure Marketplace väljer du den virtuella dator och det operativ system som du vill använda. Här är en rekommenderad installation:
 
@@ -73,11 +73,11 @@ Innan du börjar bör du gå igenom följande krav:
 
 9.  Starta installationen genom att dubbelklicka på filen. I det första fönstret väljer du installations platsen och accepterar slut användar avtalet.
 
-    ![Installations skärmen för Micro Focus Enterprise Server](media/install-image-1.png)
+    ![Skärm bild som visar dialog rutan Micro Focus Enterprise Server där du kan starta installationen.](media/install-image-1.png)
 
     När installationen är klar visas följande meddelande:
 
-    ![Installations skärmen för Micro Focus Enterprise Server](media/install-image-2.png)
+    ![Skärm bild som visar ett meddelande om att ett meddelande visas i dialog rutan för Micro Focus Enterprise Server.](media/install-image-2.png)
 
  ### <a name="check-for-updates"></a>Sök efter uppdateringar
 
@@ -87,9 +87,9 @@ Efter installationen måste du kontrol lera om det finns fler uppdateringar som 
 
 1.  Starta licens administration för Micro Focus.
 
-2.  Välj **Starta** \> **Micro Focus License Manager** \> **License administration**och klicka sedan på fliken **Installera** . Välj vilken typ av licens format som ska överföras: en licens fil eller en licens kod på 16 tecken. Till exempel, i **licens fil**, bläddrar du till * `mflic` filen överfördes tidigare till den virtuella datorn och väljer **Installera licenser**.
+2.  Välj **Starta** \> **Micro Focus License Manager** \> **License administration** och klicka sedan på fliken **Installera** . Välj vilken typ av licens format som ska överföras: en licens fil eller en licens kod på 16 tecken. Till exempel, i **licens fil** , bläddrar du till * `mflic` filen överfördes tidigare till den virtuella datorn och väljer **Installera licenser** .
 
-    ![Dialog rutan licens administration för Micro Focus](media/install-image-3.png)
+    ![Skärm bild som visar dialog rutan licens administration för Micro Focus där du kan välja Installera licenser.](media/install-image-3.png)
 
 3.  Kontrol lera att Enterprise Server läser in. Försök att starta administrations webbplatsen för företags servern från en webbläsare med följande URL: `http://localhost:86/` . Sidan administration av företags server visas som visas.
 
@@ -97,9 +97,9 @@ Efter installationen måste du kontrol lera om det finns fler uppdateringar som 
 
 ## <a name="install-enterprise-developer-on-the-developer-machine"></a>Installera Enterprise Developer på Developer Machine
 
-1.  Välj den resurs grupp som skapades tidigare (till exempel **RGMicroFocusEntServer**) och välj sedan Developer-avbildningen.
+1.  Välj den resurs grupp som skapades tidigare (till exempel **RGMicroFocusEntServer** ) och välj sedan Developer-avbildningen.
 
-2.  Logga in på den virtuella datorn genom att gå till avsnittet **Översikt** och välj **Anslut**. Den här inloggningen startar en RDP-session. Logga in med de autentiseringsuppgifter som du skapade för den virtuella datorn.
+2.  Logga in på den virtuella datorn genom att gå till avsnittet **Översikt** och välj **Anslut** . Den här inloggningen startar en RDP-session. Logga in med de autentiseringsuppgifter som du skapade för den virtuella datorn.
 
 3.  Läs in följande två filer från RDP-sessionen (dra och släpp om du vill):
 
@@ -107,7 +107,7 @@ Efter installationen måste du kontrol lera om det finns fler uppdateringar som 
 
     -   `mflic`kommer motsvarande licens fil (Enterprise Developer inte att läsas in utan den).
 
-4.  Starta installationen genom att dubbelklicka på **edvs2017.exes ** filen. I det första fönstret väljer du installations platsen och accepterar slut användar avtalet. Om du vill kan du välja **Installera Rumba 9,5** för att installera denna termin Ale mula Tor som du förmodligen behöver.
+4.  Starta installationen genom att dubbelklicka på **edvs2017.exes** filen. I det första fönstret väljer du installations platsen och accepterar slut användar avtalet. Om du vill kan du välja **Installera Rumba 9,5** för att installera denna termin Ale mula Tor som du förmodligen behöver.
 
     ![Konfigurations dialog rutan för Micro Focus Enterprise Developer för Visual Studio 2017](media/install-image-5.png)
 
@@ -115,9 +115,9 @@ Efter installationen måste du kontrol lera om det finns fler uppdateringar som 
 
     ![Installations meddelandet har slutförts](media/install-image-6.png)
 
-6.  Starta Micro Focus License Manager precis som du gjorde för företags servern. Välj **Starta** \> **Micro Focus License Manager** \> **License administration**och klicka på fliken **Installera** .
+6.  Starta Micro Focus License Manager precis som du gjorde för företags servern. Välj **Starta** \> **Micro Focus License Manager** \> **License administration** och klicka på fliken **Installera** .
 
-7.  Välj typ av licens format som ska överföras: en licens fil eller en licens kod på 16 tecken. Till exempel, i **licens fil**, bläddrar du till den fil som `mflic` laddats upp tidigare till den virtuella datorn och väljer  **Installera licenser**.
+7.  Välj typ av licens format som ska överföras: en licens fil eller en licens kod på 16 tecken. Till exempel, i **licens fil** , bläddrar du till den fil som `mflic` laddats upp tidigare till den virtuella datorn och väljer  **Installera licenser** .
 
     ![Dialog rutan licens administration för Micro Focus](media/install-image-7.png)
 

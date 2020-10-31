@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: 613ee87064cc3b0bbbae8b8ac2e31a5ed60d39f2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: eae4aece79cd387aaa7e708591ca31442eaa05c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097209"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135682"
 ---
 Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för python. Om du bara vill att paket namnet ska komma igång med ditt eget kör du `pip install azure-cognitiveservices-speech` .
 
@@ -20,25 +20,20 @@ Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services
 - Python Speech SDK-paketet är tillgängligt för dessa operativsystem:
   - Windows: x64 och x86
   - Mac: macOS X version 10,12 eller senare
-  - Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 på x64
+  - Linux Se listan över [Linux-distributioner och mål arkitekturer som stöds](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Linux-plattformar som stöds kräver vissa bibliotek installerade ( `libssl` för Secure Sockets Layer-stöd och `libasound2` för ljud support). Se distributionen nedan för de kommandon som behövs för att installera rätt versioner av dessa bibliotek.
 
-  - På Ubuntu kör du följande kommandon för att installera de nödvändiga paketen:
+  - På Ubuntu/Debian kör du följande kommandon för att installera de nödvändiga paketen:
 
     ```sh
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-  - På Debian 9 kör du följande kommandon för att installera de nödvändiga paketen:
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
+    Om libssl 1.0.0 inte är tillgängligt installerar du libssl 1.0. x (där x är större än 0) eller libssl 1.1 i stället.
 
   - På RHEL/CentOS kör du följande kommandon för att installera de nödvändiga paketen:
 
@@ -79,12 +74,12 @@ import azure.cognitiveservices.speech as speechsdk
 1. Hämta och installera den senaste versionen av [python](https://www.python.org/downloads/) som stöds för din plattform, 3,5 till 3,8.
    - Windows-användare ser till att välja "Lägg till python i sökvägen" under installations processen.
 1. Ladda ned och installera [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Öppna Visual Studio Code och installera Python-tillägget. Välj **fil**  >  **Inställningar**  >  **tillägg** på menyn. Sök efter **python** och klicka på **Installera**.
+1. Öppna Visual Studio Code och installera Python-tillägget. Välj **fil**  >  **Inställningar**  >  **tillägg** på menyn. Sök efter **python** och klicka på **Installera** .
 
    ![Installera Python-tillägget](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
 1. I Visual Studio Code ska du också installera python-paketet för tal-SDK från den integrerade kommando raden:
-   1. Öppna en Terminal (från List menyerna, **Terminal**  >  **New Terminal**)
+   1. Öppna en Terminal (från List menyerna, **Terminal**  >  **New Terminal** )
    1. I terminalen som öppnas anger du kommandot `python -m pip install azure-cognitiveservices-speech`
 
 Om du är nybörjare på Visual Studio Code kan du läsa mer i [dokumentationen för Visual Studio Code](https://code.visualstudio.com/docs). Mer information om Visual Studio Code och python finns i [själv studie kursen om Visual Studio Code python](https://code.visualstudio.com/docs/python/python-tutorial).

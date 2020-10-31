@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: a93c478f0621bf62b710f58f3e6f06298bad9954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0298bcd675b1b94999dab3a1ad1c40a6feb7438
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83673058"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135898"
 ---
 :::row:::
     :::column span="3":::
-        Tal-SDK: n stöder endast **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8**och **CentOS 7/8** i följande mål arkitekturer när de används med Linux:
+        Tal-SDK: n stöder endast **Ubuntu 16.04/18.04/20.04** , **Debian 9/10** , **Red Hat Enterprise Linux (RHEL) 7/8** och **CentOS 7/8** för följande mål arkitekturer vid användning med Linux:
     :::column-end:::
     :::column:::
         <br>
@@ -39,19 +39,25 @@ För ett inbyggt program är tal-SDK: n beroende av `libMicrosoft.CognitiveServi
 - OpenSSL-biblioteket ( `libssl.so.1.0.0` eller `libssl.so.1.0.2` )
 - Det delade biblioteket för ALSA-program ( `libasound.so.2` )
 
-# <a name="ubuntu-16041804"></a>[Ubuntu 16.04/18.04](#tab/ubuntu)
+# <a name="ubuntu-160418042004"></a>[Ubuntu 16.04/18.04/20.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2
 ```
 
-# <a name="debian-9"></a>[Debian 9](#tab/debian)
+> [!NOTE]
+> Om libssl 1.0. x inte är tillgängligt installerar du libssl 1.1 i stället.
+
+# <a name="debian-910"></a>[Debian 9/10](#tab/debian)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.2 libasound2
 ```
+
+> [!NOTE]
+> Om libssl 1.0. x inte är tillgängligt installerar du libssl 1.1 i stället.
 
 # <a name="rhel-78-and-centos-78"></a>[RHEL 7/8 och CentOS 7/8](#tab/rhel-centos)
 

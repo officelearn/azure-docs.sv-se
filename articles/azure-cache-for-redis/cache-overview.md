@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 47c4fbada4bb4e7019cb2fa619d97bbb38843dd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3bea474ae61ba4a0213d880934d9536d6ad71796
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085113"
+ms.locfileid: "93131640"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 Azure cache för Redis tillhandahåller ett minnes intern data lager baserat på [Redis](https://redis.io/) -programvaran. Redis förbättrar prestanda och skalbarhet för ett program som använder på backend-data lagrar mycket. Det går att bearbeta stora mängder programbegäran genom att lagra data som används ofta i Server minnet som kan skrivas till och läsas från snabbt. Redis ger en kritisk data lagrings lösning med låg latens och hög data flöde till moderna program.
@@ -48,7 +48,7 @@ Azure Cache for Redis är tillgänglig på följande nivåer:
 | Standard | En OSS Redis-cache som körs på två virtuella datorer i en replikerad konfiguration. |
 | Premium | Högpresterande OSS Redis-cache. Den här nivån ger högre data flöde, lägre latens, bättre tillgänglighet och fler funktioner. Premium-cacheminnen distribueras på mer kraftfulla virtuella datorer jämfört med dem för Basic-eller standard-cacheminnen. |
 | Enterprise | Högpresterande cacheminnen som drivs av Redis Labs Redis Enterprise-programvara. Den här nivån stöder Redis-moduler, inklusive RediSearch, RedisBloom och RedisTimeSeries. Dessutom erbjuder den ännu högre tillgänglighet än Premium nivån. |
-| Enterprise | Kostnads effektiva stora cacheminnen som drivs av Redis Labs Redis Enterprise-programvara. Den här nivån utökar Redis data lagring till beständigt minne, vilket är billigare än DRAM, på en virtuell dator. Det minskar den totala minnes kostnaden per GB. |
+| Enterprise Flash | Kostnads effektiva stora cacheminnen som drivs av Redis Labs Redis Enterprise-programvara. Den här nivån utökar Redis data lagring till beständigt minne, vilket är billigare än DRAM, på en virtuell dator. Det minskar den totala minnes kostnaden per GB. |
 
 ### <a name="feature-comparison"></a>Jämför funktioner
 [Azure cache för Redis-prissättning](https://azure.microsoft.com/pricing/details/cache/) ger en detaljerad jämförelse mellan varje nivå. Följande tabell beskriver några av de funktioner som stöds på respektive nivå:

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
-ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c70d976a05cbeed058243829d0658693341636e9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88607424"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131215"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integrera din handels Marketplace-lista med Azure Active Directory
 
@@ -33,12 +33,12 @@ De olika [listorna över försäljnings platser och erbjudande typer](determine-
 
 | Erbjudandetyp    | Behöver du ringa till Azure AD SSO för att kontakta mig?  | Azure AD SSO krävs för utvärderings versionen? | Vill du att Azure AD SSO krävs för test enheten?  | Azure AD SSO krävs för Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-| Virtuell dator | E.t. | Inga | Inga | Inga |
+| Virtuell dator | Saknas | Nej | Nej | Nej |
 | Azure-appar (lösnings mal len)  | Saknas | Saknas | Saknas | Saknas |
-| Hanterade appar  | Saknas | Saknas | Saknas | Inga |
-| SaaS  | Inga | Ja | Ja | Ja |
-| Containrar  | Saknas | Saknas | Saknas | Inga |
-| Rådgivningstjänster  | Inga | Saknas | Saknas | Saknas |
+| Hanterade appar  | Saknas | Saknas | Saknas | No |
+| SaaS  | Nej | Ja | Ja | Ja |
+| Containrar  | Saknas | Saknas | Saknas | No |
+| Rådgivningstjänster  | No | Saknas | Saknas | Saknas |
 
 Mer information om tekniska krav för SaaS finns [i Azure AD och transactable SaaS-erbjudanden på den kommersiella marknaden](./azure-ad-saas.md).
 
@@ -80,7 +80,7 @@ Gör så här om du inte har använt Azure AD federerad enkel inloggning:
 
 Använd Azure AD för att stödja någon av följande åtgärder:
 
-- Lägg till gäst användare i din katalog med hjälp av [Azure AD B2B](../active-directory/b2b/what-is-b2b.md).
+- Lägg till gäst användare i din katalog med hjälp av [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md).
 - Konfigurera utvärderings versioner manuellt för kunder med hjälp av publicerings alternativet **kontakta mig** .
 - Utveckla en test enhet per kund.
 - Bygg en app med flera klient exempel demonstrationer som använder SSO.

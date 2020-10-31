@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 19e441334395f600c3adaa867660345164537f96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a9e4c8f3dd9e4cf291388bc102ae9a73d8de6dd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88799459"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131572"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Logga in på dina konton med Microsoft Authenticator-appen
 
@@ -51,15 +51,15 @@ Telefonin loggning är bara tillgängligt på iOS-och Android-enheter som kör A
 
 Öppna appen Microsoft Authenticator, gå till ditt arbets-eller skol konto och aktivera telefonin loggning.
 
-- **När du trycker på panelen konto**visas en hel skärms visning av kontot. Om du ser att **telefonin loggning är aktiverat** , vilket innebär att du är helt konfigurerad för inloggning utan lösen ord. Om du ser **Aktivera telefonin loggning**trycker du på den för att aktivera telefonin loggning.
-- **Om du redan har använt appen för tvåstegsverifiering**kan du trycka på panelen konto om du vill se en hel skärms visning av kontot. Tryck sedan på **Aktivera telefonin loggning** för att aktivera telefonin loggning.
+- **När du trycker på panelen konto** visas en hel skärms visning av kontot. Om du ser att **telefonin loggning är aktiverat** , vilket innebär att du är helt konfigurerad för inloggning utan lösen ord. Om du ser **Aktivera telefonin loggning** trycker du på den för att aktivera telefonin loggning.
+- **Om du redan har använt appen för tvåstegsverifiering** kan du trycka på panelen konto om du vill se en hel skärms visning av kontot. Tryck sedan på **Aktivera telefonin loggning** för att aktivera telefonin loggning.
 - **Om du inte hittar ditt arbets-eller skol konto** på skärmen **konton** i appen, innebär det att du inte har lagt till det i appen ännu. Lägg till ditt arbets-eller skol konto genom att följa stegen i [hjälpen för Lägg till ditt arbets-eller skol konto](user-help-auth-app-add-work-school-account.md).
 
 När du har aktiverat telefonin loggning kan du bara logga in med Microsoft Authenticator-appen. Gör så här:
 
 1. Logga in på ditt arbets-eller skol konto.
 
-    När du har skrivit ditt användar namn visas en **Godkänn inloggnings** skärm som visar dig ett tvåsiffrigt nummer och du uppmanas att logga in via Microsoft Authenticator-appen. Om du inte vill använda den här inloggnings metoden kan du välja **Använd ditt lösen ord i stället**och logga in med ditt lösen ord.
+    När du har skrivit ditt användar namn visas en **Godkänn inloggnings** skärm som visar dig ett tvåsiffrigt nummer och du uppmanas att logga in via Microsoft Authenticator-appen. Om du inte vill använda den här inloggnings metoden kan du välja **Använd ditt lösen ord i stället** och logga in med ditt lösen ord.
 
     ![Godkänn inloggnings rutan på datorn](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
 
@@ -67,7 +67,7 @@ När du har aktiverat telefonin loggning kan du bara logga in med Microsoft Auth
 
     ![Godkänn inloggnings rutan på enheten](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in-numbers.png)
 
-3. Välj **Godkänn** om du känner igen inloggningsförsöket. Annars väljer du **Neka**.
+3. Välj **Godkänn** om du känner igen inloggningsförsöket. Annars väljer du **Neka** .
 
 4. Använd telefonens PIN-kod eller bio metriska nyckel för att slutföra autentiseringen.
 
@@ -82,8 +82,8 @@ Du kan aktivera telefonin loggning för din personliga Microsoft-konto, till exe
 
 Öppna appen Microsoft Authenticator, gå till ditt arbets-eller skol konto och aktivera telefonin loggning.
 
-- **När du trycker på panelen konto**visas en hel skärms visning av kontot. Om du ser att **telefonin loggning är aktiverat** , vilket innebär att du är helt konfigurerad för inloggning utan lösen ord. Om du ser **Aktivera telefonin loggning**trycker du på den för att aktivera telefonin loggning.
-- **Om du redan använder appen för tvåstegsverifiering**kan du trycka på panelen konto om du vill se en hel skärms visning av kontot. Tryck sedan på **Aktivera telefonin loggning** för att aktivera telefonin loggning.
+- **När du trycker på panelen konto** visas en hel skärms visning av kontot. Om du ser att **telefonin loggning är aktiverat** , vilket innebär att du är helt konfigurerad för inloggning utan lösen ord. Om du ser **Aktivera telefonin loggning** trycker du på den för att aktivera telefonin loggning.
+- **Om du redan använder appen för tvåstegsverifiering** kan du trycka på panelen konto om du vill se en hel skärms visning av kontot. Tryck sedan på **Aktivera telefonin loggning** för att aktivera telefonin loggning.
 - **Om du inte hittar ditt konto** på skärmen **konton** i appen, innebär det att du inte har lagt till det i appen ännu. Lägg till din personliga Microsoft-konto genom att följa anvisningarna i artikeln [Lägg till personliga Microsoft-konton](user-help-auth-app-add-personal-ms-account.md) .
 
 ### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Logga in på ditt konto med telefonin loggning
@@ -111,7 +111,7 @@ De steg som krävs för att logga in på ditt arbete eller din skola eller ditt 
 | Ersätter telefonin loggningen tvåstegsverifiering? Bör jag stänga av den? | Telefonin loggning är en typ av två steg-verifiering där båda stegen sker på den mobila enheten. Du bör ha två stegs verifiering aktiverat för att ge ytterligare säkerhet för ditt konto. |
 | Måste jag godkänna två meddelanden om jag vill att tvåstegsverifiering ska vara aktiverat för mitt konto? | Nej. Att logga in på din Microsoft-konto att använda din telefon räknas också som tvåstegsverifiering, så inga andra godkännanden krävs. |
 | Vad händer om jag tappar bort min telefon eller inte? Hur gör jag för att åtkomst till mitt konto? | Du kan alltid välja länken Använd ett lösen ord i stället på inloggnings sidan för att växla tillbaka till med ditt lösen ord. Men om du använder tvåstegsverifiering behöver du fortfarande använda en andra metod för att verifiera din identitet.<br><br>**Viktigt**<br>Vi rekommenderar starkt att du ser till att du har mer än en, uppdaterad, verifieringsmetod som är kopplad till ditt konto.<br><br>Du kan hantera dina verifierings metoder för personliga konton från sidan [säkerhets inställningar](https://account.live.com/proofs/manage) . För arbets-eller skol konton kan du gå till din organisations [ytterligare säkerhets verifierings](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) sida eller sidan **skydda ditt konto** om administratören har aktiverat säkerhets information. Mer information om säkerhets information finns i [Översikt över säkerhets information (för hands version)](./security-info-setup-signin.md).<br><br>Om du inte kan hantera dina verifierings metoder måste du kontakta administratören. |
-| Vill du Hur gör jag för att sluta använda den här funktionen och gå tillbaka till att använda mitt lösen ord? | För personliga konton väljer du länken **Använd ett lösen ord i stället** vid inloggning. Ditt senaste val sparas och erbjuds som standard nästa gången du loggar in. Om du vill gå tillbaka till Använd telefonin loggning väljer du länken **Använd en app i stället** under Logga in.<br><br>För arbets-eller skol konton måste du antingen avregistrera enheten från sidan **Inställningar** i Microsoft Authenticator-appen eller inaktivera enheten från avsnittet **enheter & aktivitet** i din profil. Mer information om hur du inaktiverar din enhet från din profil finns i [Uppdatera din profil och konto information från portalen Mina appar](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
+| Vill du Hur gör jag för att sluta använda den här funktionen och gå tillbaka till att använda mitt lösen ord? | För personliga konton väljer du länken **Använd ett lösen ord i stället** vid inloggning. Ditt senaste val sparas och erbjuds som standard nästa gången du loggar in. Om du vill gå tillbaka till Använd telefonin loggning väljer du länken **Använd en app i stället** under Logga in.<br><br>För arbets-eller skol konton måste du antingen avregistrera enheten från sidan **Inställningar** i Microsoft Authenticator-appen eller inaktivera enheten från avsnittet **enheter & aktivitet** i din profil. Mer information om hur du inaktiverar din enhet från din profil finns i [Uppdatera din profil och konto information från portalen Mina appar](./my-account-portal-devices-page.md#disable-a-device). |
 | Varför kan jag inte använda mer än ett arbets-eller skol konto för telefonin loggning? | En telefon måste vara registrerad på ett arbets-eller skol konto. Om du vill aktivera telefonin loggning för ett annat arbets-eller skol konto måste du avregistrera ditt konto från den här enheten via sidan **Inställningar** . |
 | Kan jag logga in på min dator med min telefon? | För datorn rekommenderar vi att du loggar in med Windows Hello i Windows 10. Med Windows Hello kan du använda ditt ansikte, finger avtryck eller PIN-kod för att logga in. |
 

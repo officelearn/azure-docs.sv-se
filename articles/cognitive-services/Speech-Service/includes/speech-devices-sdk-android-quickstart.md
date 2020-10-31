@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: dc027d034c50b49044f4a350fe4d239c18060fc7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5e83650bc9861f982c4905e26fbb674abbd4de97
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226227"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136242"
 ---
 I den här snabb starten lär du dig att använda tal enheter SDK för Android för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation.
 
@@ -35,7 +35,7 @@ Innan du börjar använda tal enheter SDK måste du:
 
 - Om du planerar att använda tal tjänsten för att identifiera avsikter (eller åtgärder) från användarens yttranden behöver du en [Luis-prenumeration (Language Understanding service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) . Om du vill veta mer om LUIS och avsikts igenkänning läser du [känna igen tal avsikter med Luis, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
-  Du kan [skapa en enkel Luis-modell](https://docs.microsoft.com/azure/cognitive-services/luis/) eller använda exempel Luis-modellen LUIS-example.jspå. Exempel modellen för LUIS finns på [hämtnings platsen för tal enheter SDK](https://aka.ms/sdsdk-luis). Om du vill överföra modellens JSON-fil till [Luis-portalen](https://www.luis.ai/home)väljer du **Importera ny app**och väljer sedan JSON-filen.
+  Du kan [skapa en enkel Luis-modell](https://docs.microsoft.com/azure/cognitive-services/luis/) eller använda exempel Luis-modellen LUIS-example.jspå. Exempel modellen för LUIS finns på [hämtnings platsen för tal enheter SDK](https://aka.ms/sdsdk-luis). Om du vill överföra modellens JSON-fil till [Luis-portalen](https://www.luis.ai/home)väljer du **Importera ny app** och väljer sedan JSON-filen.
 
 - Installera [Android Studio](https://developer.android.com/studio/) och [VYSOR](https://vysor.io/download/) på din dator.
 
@@ -45,24 +45,24 @@ Innan du börjar använda tal enheter SDK måste du:
 
    ![Vysor](../media/speech-devices-sdk/qsg-3.png)
 
-1. Enheten ska visas under **Välj en enhet**. Välj knappen **Visa** bredvid enheten.
+1. Enheten ska visas under **Välj en enhet** . Välj knappen **Visa** bredvid enheten.
 
-1. Anslut till ditt trådlösa nätverk genom att välja mappikonen och välj sedan **Inställningar**  >  **WLAN**.
+1. Anslut till ditt trådlösa nätverk genom att välja mappikonen och välj sedan **Inställningar**  >  **WLAN** .
 
    ![Vysor WLAN](../media/speech-devices-sdk/qsg-4.png)
 
    > [!NOTE]
-   > Om ditt företag har principer för att ansluta enheter till Wi-Fi-systemet måste du skaffa MAC-adressen och kontakta IT-avdelningen om hur du ansluter den till företagets Wi-Fi.
+   > Om ditt företag har principer för att ansluta enheter till Wi-Fi systemet måste du skaffa MAC-adressen och kontakta IT-avdelningen om hur du ansluter den till företagets Wi-Fi.
    >
    > Du hittar MAC-adressen för dev kit genom att välja ikonen filmapp på Skriv bordet i dev kit.
    >
    > ![Filmapp för Vysor](../media/speech-devices-sdk/qsg-10.png)
    >
-   > Välj **Inställningar**. Sök efter "Mac-adress" och välj sedan **MAC-adress**  >  **Advanced WLAN**. Skriv ned MAC-adressen som visas längst ned i dialog rutan.
+   > Välj **Inställningar** . Sök efter "Mac-adress" och välj sedan **MAC-adress**  >  **Advanced WLAN** . Skriv ned MAC-adressen som visas längst ned i dialog rutan.
    >
    > ![Vysor MAC-adress](../media/speech-devices-sdk/qsg-11.png)
    >
-   > Vissa företag kan ha en tids gräns för hur länge en enhet kan anslutas till Wi-Fi-systemet. Du kan behöva utöka dev-paketets registrering med ditt Wi-Fi-system efter ett angivet antal dagar.
+   > Vissa företag kan ha en tids gräns för hur länge en enhet kan anslutas till Wi-Fi systemet. Du kan behöva utöka dev-paketets registrering med Wi-Fi systemet efter ett angivet antal dagar.
 
 ## <a name="run-the-sample-application"></a>Köra exempelprogrammet
 
@@ -70,7 +70,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 
 1. Starta Android Studio.
 
-1. Välja **Öppna ett befintligt Android Studio-projekt**.
+1. Välja **Öppna ett befintligt Android Studio-projekt** .
 
    ![Android Studio – öppna ett befintligt projekt](../media/speech-devices-sdk/qsg-5.png)
 
@@ -78,7 +78,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 
 1. Konfigurera gradle för att referera till tal-SDK: n. Följande filer finns under **Gradle-skript** i Android Studio.
 
-    Uppdatera **build. gradle (projekt: exempel)**, allprojects-blocket måste matcha nedan, genom att lägga till maven-raderna.
+    Uppdatera **build. gradle (projekt: exempel)** , allprojects-blocket måste matcha nedan, genom att lägga till maven-raderna.
 
     ```xml
     allprojects {
@@ -96,7 +96,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
     Uppdatera **build. gradle (modulen: app)** genom att lägga till den här raden i avsnittet beroenden. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.13.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.14.0'
     ```
     
 1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova avsikts igenkänning lägger du också till din [language Understanding tjänst](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerations nyckel och program-ID.
@@ -152,7 +152,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
    |          |         | För en linjär dev-sats som använder alla MICS: `Linear4` |
    |          |         | För en linjär dev-sats som använder två MICS: `Linear2` |
 
-1. Om du vill skapa programmet väljer du **kör app**på menyn **Kör** . Dialog rutan **Välj distributions mål** visas.
+1. Om du vill skapa programmet väljer du **kör app** på menyn **Kör** . Dialog rutan **Välj distributions mål** visas.
 
 1. Välj din enhet och välj sedan **OK** för att distribuera programmet till enheten.
 

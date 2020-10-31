@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 61ced7eda78d3ce56d78dfd6cc54e0e92d376e68
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b79fa22d3203504e63161aba03b32830d74d016
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100685"
+ms.locfileid: "93131283"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>Ta bort virtuella datorer från Ändringsspårning och inventering
 
@@ -22,7 +22,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="to-remove-your-vms"></a>Ta bort dina virtuella datorer
 
-1. Starta **Cloud Shell** i Azure Portal i det övre navigerings fönstret för Azure Portal. Om du inte känner till Azure Cloud Shell kan du läsa [Översikt över Azure Cloud Shell](/azure/cloud-shell/overview).
+1. Starta **Cloud Shell** i Azure Portal i det övre navigerings fönstret för Azure Portal. Om du inte känner till Azure Cloud Shell kan du läsa [Översikt över Azure Cloud Shell](../../cloud-shell/overview.md).
 
 2. Använd följande kommando för att identifiera UUID för en dator som du vill ta bort från hanteringen.
 

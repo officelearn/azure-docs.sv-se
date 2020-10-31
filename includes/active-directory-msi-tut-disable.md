@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: active-directory
 author: MarkusVi
 ms.service: active-directory
@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
-ms.openlocfilehash: 6a50faee2d557c39e9bd371caa98a4bcb2016e0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b907eb1f9240156cdb1d9c9cf44d77d4738aff1a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75971911"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135755"
 ---
-Om du vill inaktivera den systemtilldelade identiteten på den virtuella datorn **anger du statusen**för den systemtilldelade identiteten. 
+Om du vill inaktivera den systemtilldelade identiteten på den virtuella datorn **anger du statusen** för den systemtilldelade identiteten. 
 
-![Skapa ett nytt lagringskonto](./media/active-directory-msi-tut-disable/identity.png)
+![Skärm bild som visar fliken systemtilldelad för en virtuell dator där du kan stänga av systemets tilldelade status.](./media/active-directory-msi-tut-disable/identity.png)

@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 8c0aef1817581e2b09297d8807676cf0049e1d3e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 5766eb821800568b567350e1360ca4cf5403be6d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169086"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136098"
 ---
 I den här snabb starten lär du dig att använda tal enheter SDK för Linux för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation. För närvarande stöds endast [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) .
 
@@ -68,19 +68,19 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 1. Starta Eclipse.
 
-1. I fältet **arbets yta** i **sol förmörkelses IDE-start**, anger du namnet på en ny arbets ytans katalog. Välj sedan **Starta**.
+1. I fältet **arbets yta** i **sol förmörkelses IDE-start** , anger du namnet på en ny arbets ytans katalog. Välj sedan **Starta** .
 
    ![Skärm bild som visar Start programmet för Sol förmörkelse.](../media/speech-devices-sdk/eclipse-launcher-linux.png)
 
 1. Efter en liten stund visas huvudfönstret i Eclipse IDE. Stäng välkomstskärmen om en sådan visas.
 
-1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **Arkiv**  >  **nytt**  >  **Java-projekt**. Om det inte är tillgängligt väljer du **projekt** och sedan **Java-projekt**.
+1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **Arkiv**  >  **nytt**  >  **Java-projekt** . Om det inte är tillgängligt väljer du **projekt** och sedan **Java-projekt** .
 
-1. Guiden **nytt Java-projekt** startar. **Bläddra** efter exempel projektets plats. Välj **Slutför**.
+1. Guiden **nytt Java-projekt** startar. **Bläddra** efter exempel projektets plats. Välj **Slutför** .
 
    ![Skärmbild av guiden Nytt Java-projekt](../media/speech-devices-sdk/eclipse-new-java-project-linux.png)
 
-1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Konfigurera**  >  **konvertera till Maven-projekt** från snabb menyn. Välj **Slutför**.
+1. Högerklicka på ditt projekt i **Package Explorer** . Välj **Konfigurera**  >  **konvertera till Maven-projekt** från snabb menyn. Välj **Slutför** .
 
    ![Skärmbild av Paketutforskaren](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
@@ -100,20 +100,20 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.13.0</version>
+             <version>1.14.0</version>
         </dependency>
     </dependencies>
    ```
 
-1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Egenskaper**och sedan **Kör/Felsök inställningar**  >  **ny...** > **Java-program**. 
+1. Högerklicka på ditt projekt i **Package Explorer** . Välj **Egenskaper** och sedan **Kör/Felsök inställningar**  >  **ny...** > **Java-program** . 
 
-1. Fönstret **Redigera konfiguration** visas. I fältet **namn** anger du **main**och använder **Sök** efter **huvud klassen** för att hitta och välja **com. Microsoft. cognitiveservices. Speech. Samples. FunctionsList**.
+1. Fönstret **Redigera konfiguration** visas. I fältet **namn** anger du **main** och använder **Sök** efter **huvud klassen** för att hitta och välja **com. Microsoft. cognitiveservices. Speech. Samples. FunctionsList** .
 
    ![Skärm bild av redigera start konfiguration](../media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
 
-1. Kopiera ljud binärfilerna för mål arkitekturen från **Linux-arm** eller **linux-x64**till Java-projektets plats, t. ex. **/Home/wcaltest/JRE-Sample-release**
+1. Kopiera ljud binärfilerna för mål arkitekturen från **Linux-arm** eller **linux-x64** till Java-projektets plats, t. ex. **/Home/wcaltest/JRE-Sample-release**
 
-1. I fönstret **Redigera konfiguration** väljer du också sidan **miljö** och **ny**. Fönstret **ny miljö variabel** visas. I fältet **namn** anger du **LD_LIBRARY_PATH** och i fältet **värde** anger du mappen som innehåller *. so-filer, till exempel **/Home/wcaltest/JRE-Sample-release**
+1. I fönstret **Redigera konfiguration** väljer du också sidan **miljö** och **ny** . Fönstret **ny miljö variabel** visas. I fältet **namn** anger du **LD_LIBRARY_PATH** och i fältet **värde** anger du mappen som innehåller *. so-filer, till exempel **/Home/wcaltest/JRE-Sample-release**
 
 1. Kopiera `kws.table` och `participants.properties` till Project-mappens **mål/klasser**
 
@@ -147,7 +147,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
     Om du vill använda ett nytt nyckelord uppdaterar du följande rad i `FunctionsList.java` och kopierar nyckelordet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords paketet `machine.zip` :
 
-   * Kopiera `kws.table` filen från zip-paketet till projektmappen **/-klasserna**i Project-mappen.
+   * Kopiera `kws.table` filen från zip-paketet till projektmappen **/-klasserna** i Project-mappen.
 
    * Uppdatera `FunctionsList.java` med nyckelords namnet:
 
@@ -163,18 +163,18 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
    ![Skärm bild som visar ett exempel på ett exempel på ett tal för exempel program och alternativ.](../media/speech-devices-sdk/java-sample-app-linux.png)
 
-1. Prova den nya demonstrationen av **konversations avskrift** . Börja skriva med **session**  >  **Start**. Som standard är alla gäst. Men om du har deltagares röst under skrifter kan de placeras `participants.properties` i i projektmappen i Project **-** mappen. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Prova den nya demonstrationen av **konversations avskrift** . Börja skriva med **session**  >  **Start** . Som standard är alla gäst. Men om du har deltagares röst under skrifter kan de placeras `participants.properties` i i projektmappen i Project **-** mappen. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](../how-to-use-conversation-transcription-service.md).
 
    ![Skärm bild som visar ett program för demo konversations avskrifter.](../media/speech-devices-sdk/cts-sample-app-linux.png)
 
 ## <a name="create-and-run-standalone-the-application"></a>Skapa och kör fristående program
 
-1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Exportera**. 
-1. **Export** fönstret visas. Expandera **Java** och välj **körbara jar-fil** och välj sedan **Nästa**.
+1. Högerklicka på ditt projekt i **Package Explorer** . Välj **Exportera** . 
+1. **Export** fönstret visas. Expandera **Java** och välj **körbara jar-fil** och välj sedan **Nästa** .
 
    ![Skärm bild som visar export fönstret.](../media/speech-devices-sdk/eclipse-export-linux.png) 
 
-1. **KÖRBARA jar File export** -fönstret visas. Välj ett **export mål** för programmet och välj sedan **Slutför**.
+1. **KÖRBARA jar File export** -fönstret visas. Välj ett **export mål** för programmet och välj sedan **Slutför** .
  
    ![Skärm bild som visar körbara JAR File export-fönstret.](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
 

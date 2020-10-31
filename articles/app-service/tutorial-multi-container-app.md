@@ -4,15 +4,15 @@ description: Lär dig hur du använder Bygg en app med flera behållare på Azur
 keywords: Azure App Service, webbapp, Linux, Docker, skapa, flera behållare, flera behållare, webbapp för behållare, flera behållare, behållare, WordPress, Azure dB för MySQL, produktions databas med behållare
 author: msangapu-msft
 ms.topic: tutorial
-ms.date: 04/29/2019
+ms.date: 10/31/2020
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-ms.openlocfilehash: 7945c6c6f834de068665e3400440d2be5dd713ff
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f2f1713866eb06b4b514ff988ef3e010491e1efc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743443"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131351"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Självstudie: Skapa en app med flera behållare (förhandsversion) med Web App for Containers
 
@@ -151,7 +151,7 @@ Skapa en Azure Database for MySQL-server med [`az mysql server create`](/cli/azu
 I följande kommando byter du namn på MySQL-servern där du ser plats hållaren _&lt; MySQL-Server-Name>_ placeholder (giltiga tecken är `a-z` , `0-9` och `-` ). Det här namnet är en del av MySQL-serverns värdnamn (`<mysql-server-name>.database.windows.net`) och den måste vara globalt unik.
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
+az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen5_1 --version 5.7
 ```
 
 Det kan ta några minuter att skapa servern. När MySQL-servern skapas visar Cloud Shell information som ser ut ungefär så här:
@@ -262,14 +262,14 @@ Följande ändringar har gjorts för Redis (används i ett senare avsnitt):
 * [Lägger till WordPress-pluginprogrammet Redis Object Cache 1.3.8.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [Använder appinställningen för Redis-värdnamnet i WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-Om du vill använda den anpassade avbildningen uppdaterar du filen docker-compose-wordpress.yml. I Cloud Shell skriver du `nano docker-compose-wordpress.yml` för att öppna nanotextredigerare. Ändra `image: wordpress` för att använda `image: microsoft/multicontainerwordpress`. Du behöver inte längre databascontainern. Ta bort avsnittet  `db`, `environment`, `depends_on` och `volumes` från konfigurationsfilen. Din fil ska se ut som följande kod:
+Om du vill använda den anpassade avbildningen uppdaterar du filen docker-compose-wordpress.yml. I Cloud Shell skriver du `nano docker-compose-wordpress.yml` för att öppna nanotextredigerare. Ändra `image: wordpress` för att använda `image: mcr.microsoft.com/azuredocs/multicontainerwordpress`. Du behöver inte längre databascontainern. Ta bort avsnittet  `db`, `environment`, `depends_on` och `volumes` från konfigurationsfilen. Din fil ska se ut som följande kod:
 
 ```yaml
 version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
@@ -345,7 +345,7 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      volumes:
       - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
      ports:
@@ -401,13 +401,15 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
 
    redis:
-     image: redis:3-alpine
+     image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+     environment: 
+      - ALLOW_EMPTY_PASSWORD=yes
      restart: always
 ```
 

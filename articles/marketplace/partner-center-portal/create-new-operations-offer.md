@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: a7a77cc18ddc1ab8664d49aa3c2ac049a683ed3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c28b4edab1e1033bf9ac7df6b1249b549bb4fe1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710642"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131521"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Skapa ett erbjudande för Dynamics 365 for Operations
 
@@ -26,8 +26,8 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
-3. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Dynamics 365 för åtgärder**.
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** -  >  **Översikt** .
+3. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Dynamics 365 för åtgärder** .
 
     ![Visar menyn till vänster-navigering.](./media/new-offer-dynamics-365-operations.png)
 
@@ -36,14 +36,14 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 
 ## <a name="new-offer"></a>Nytt erbjudande
 
-Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
+Ange ett **erbjudande-ID** . Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
 - Erbjudande-ID: t kombinerat med utgivar-ID: t måste vara under 40 tecken långt.
 - Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inga blank steg. Om ditt utgivar-ID t. ex. är testpublisherid och du anger **test-erbjudandet-1** så är webb adressen för erbjudandet `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
+- Erbjudande-ID: t kan inte ändras när du har valt **skapa** .
 
-Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
+Ange ett **erbjudande alias** . Detta är det namn som används för erbjudandet i Partner Center.
 
 - Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
 
@@ -93,7 +93,7 @@ På den här sidan kan du definiera de kategorier och branscher som ska använda
 Välj kategorier och under Kategorier för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Se till att du beskriver hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. Välj:
 
 - Minst en och upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
-- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt**.
+- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt** .
 
 Se den fullständiga listan över kategorier och under Kategorier i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md).
 
@@ -175,7 +175,7 @@ Ange URL: en till din organisations sekretess policy. Du ansvarar för att se ti
 
 ### <a name="contacts"></a>Kontakter
 
-I det här avsnittet anger du namn, e-postadress och telefonnummer för en **support kontakt** och en **teknisk kontakt**. Den här informationen visas inte för kunder, men är tillgänglig för Microsoft och kan tillhandahållas till CSP-partner.
+I det här avsnittet anger du namn, e-postadress och telefonnummer för en **support kontakt** och en **teknisk kontakt** . Den här informationen visas inte för kunder, men är tillgänglig för Microsoft och kan tillhandahållas till CSP-partner.
 
 I avsnittet **support kontakt** anger du support- **URL: en** där CSP-partner kan hitta support för ditt erbjudande.
 
@@ -227,7 +227,7 @@ På den här sidan får du alternativ om var och hur du gör ditt erbjudande til
 
 I det här avsnittet kan du ange vilka marknader som ditt erbjudande ska vara tillgängligt för. Det gör du genom att välja **Redigera marknader,** så visas popup-fönstret för **marknads val** .
 
-Som standard är inga marknader markerade. Välj minst en marknad för att publicera ditt erbjudande. Klicka på  **Välj alla** för att göra ditt erbjudande tillgängligt på alla möjliga marknader eller Välj de olika marknader som du vill lägga till. När du är klar väljer du **Spara**.
+Som standard är inga marknader markerade. Välj minst en marknad för att publicera ditt erbjudande. Klicka på  **Välj alla** för att göra ditt erbjudande tillgängligt på alla möjliga marknader eller Välj de olika marknader som du vill lägga till. När du är klar väljer du **Spara** .
 
 Dina val gäller endast för nya förvärv. om någon redan har din app på en viss marknad och du senare tar bort marknaden, kan de personer som redan har erbjudandet på marknaden fortsätta att använda den, men inga nya kunder på den marknaden kommer att kunna få ditt erbjudande.
 
@@ -238,7 +238,7 @@ Tänk på att även om du väljer alla marknader kan lokala lagar och restriktio
 
 ### <a name="preview-audience"></a>Förhandsgranska mål grupp
 
-Innan du publicerar erbjudandet Live på det bredare Marketplace-erbjudandet måste du först göra det tillgängligt för en begränsad **förhands gransknings publik**. Ange en **Dölj nyckel** (valfri sträng med endast gemener och/eller siffror) här. Medlemmar i din förhands visnings publik kan använda denna Dölj-nyckel som en token för att visa en förhands granskning av ditt erbjudande i Marketplace.
+Innan du publicerar erbjudandet Live på det bredare Marketplace-erbjudandet måste du först göra det tillgängligt för en begränsad **förhands gransknings publik** . Ange en **Dölj nyckel** (valfri sträng med endast gemener och/eller siffror) här. Medlemmar i din förhands visnings publik kan använda denna Dölj-nyckel som en token för att visa en förhands granskning av ditt erbjudande i Marketplace.
 
 När du är redo att göra ditt erbjudande tillgängligt och ta bort begränsningen för för hands versionen måste du ta bort **Dölj-tangenten** och publicera igen.
 
@@ -254,8 +254,8 @@ Ange lösnings identifieraren (GUID) för din lösning.
 
 Hitta lösnings-ID:
 
-1. I Microsoft Dynamics Lifecycle Services (LCS) väljer du **lösnings hantering**.
-2. Välj din lösning och leta efter **lösnings identifieraren** i **paket översikten**. Om identifieraren är tom väljer du **Redigera** och publicera om ditt paket och försöker igen.
+1. I Microsoft Dynamics Lifecycle Services (LCS) väljer du **lösnings hantering** .
+2. Välj din lösning och leta efter **lösnings identifieraren** i **paket översikten** . Om identifieraren är tom väljer du **Redigera** och publicera om ditt paket och försöker igen.
 
 ### <a name="release-version"></a>Version
 
@@ -277,17 +277,17 @@ På den här sidan kan du ange ytterligare information om ditt erbjudande för a
 
 ### <a name="validation-assets"></a>Validerings till gångar
 
-Ladda upp en [anpassnings analys rapport (Car)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) i det här avsnittet. Den här rapporten genereras genom att analysera anpassnings-och tilläggs modeller baserat på en fördefinierad uppsättning regler för bästa praxis.
+Ladda upp en [anpassnings analys rapport (Car)](/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) i det här avsnittet. Den här rapporten genereras genom att analysera anpassnings-och tilläggs modeller baserat på en fördefinierad uppsättning regler för bästa praxis.
 
 Den här filen måste vara i formatet. xls eller. xlsx. Om du har mer än en rapport kan du ladda upp en zip-fil som innehåller alla rapporter.
 
 ### <a name="does-solution-include-localizations"></a>Innehåller lösningen lokaliseringar?
 
-Välj **Ja** om lösningen aktiverar användning av lokala standarder och principer (till exempel om den hanterar de olika löne regler som krävs av olika länder/regioner). Annars väljer du **Nej**.
+Välj **Ja** om lösningen aktiverar användning av lokala standarder och principer (till exempel om den hanterar de olika löne regler som krävs av olika länder/regioner). Annars väljer du **Nej** .
 
 ### <a name="does-solution-enable-translations"></a>Aktiverar lösningen översättningar?
 
-Svara **Ja** om texten i lösningen kan översättas till andra språk. Annars väljer du **Nej**.
+Svara **Ja** om texten i lösningen kan översättas till andra språk. Annars väljer du **Nej** .
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -303,8 +303,8 @@ Om det är första gången du publicerar det här erbjudandet kan du:
     - **Inte startat** – avsnittet har inte vidrör ATS och bör slutföras.
     - **Ofullständig** – avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Gå tillbaka till avsnitten och uppdatera det.
     - **Slutfört** – avsnittet är slutfört, alla data som krävs har angetts och det finns inga fel. Alla avsnitt i erbjudandet måste vara i ett komplett tillstånd innan du kan skicka in erbjudandet.
-- I avsnittet **Obs!-certifiering** anger du test instruktioner till certifierings teamet för att kontrol lera att appen är korrekt testad, förutom eventuella kompletterande anteckningar som hjälper dig att förstå din app. Mer information om testnings instruktioner och hur du slutför en första publicering finns i [AppSource Dynamics 365 finans och Operations funktionell validering](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
-- Skicka in erbjudandet om publicering genom att välja **Skicka**. Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Gå tillbaka till Partner Center och välj **Go-Live** för erbjudandet om att publicera ditt erbjudande till allmänheten.
+- I avsnittet **Obs!-certifiering** anger du test instruktioner till certifierings teamet för att kontrol lera att appen är korrekt testad, förutom eventuella kompletterande anteckningar som hjälper dig att förstå din app. Mer information om testnings instruktioner och hur du slutför en första publicering finns i [AppSource Dynamics 365 finans och Operations funktionell validering](../dynamics-365-finance-operations-functional-validation.md).
+- Skicka in erbjudandet om publicering genom att välja **Skicka** . Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Gå tillbaka till Partner Center och välj **Go-Live** för erbjudandet om att publicera ditt erbjudande till allmänheten.
 
 ## <a name="next-step"></a>Nästa steg
 

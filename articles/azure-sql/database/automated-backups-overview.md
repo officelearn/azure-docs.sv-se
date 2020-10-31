@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/05/2020
-ms.openlocfilehash: dc6d083efd1d39d96f9df995fe5e7e4bcc95abff
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/30/2020
+ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675308"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131368"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -50,7 +50,7 @@ För en SQL Database kan du konfigurera redundans för säkerhets kopiering när
 > Zon-redundant lagring är för närvarande endast tillgängligt i [vissa regioner](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Det går för närvarande endast att konfigurera redundans för lagring av säkerhets kopior för Azure SQL Database i Sydostasien Azure-region. Den här funktionen är inte tillgänglig ännu för skalnings nivån. 
+> Det går att konfigurera redundans för lagring av säkerhets kopior för Azure SQL Database för närvarande i offentlig för hands version i Brasilien, södra och allmänt tillgängliga i Sydostasien Azure-region. Den här funktionen är inte tillgänglig ännu för skalnings nivån. 
 
 ### <a name="backup-usage"></a>Säkerhets kopierings användning
 
@@ -371,7 +371,7 @@ Mer information finns i [kvarhållning av säkerhets kopior REST API](/rest/api/
 ## <a name="configure-backup-storage-redundancy"></a>Konfigurera redundans för lagring av säkerhets kopior
 
 > [!NOTE]
-> Konfigurerbar redundans för säkerhets kopieringar för SQL-hanterad instans kan bara anges under processen för att skapa hanterade instanser. När resursen har allokerats kan du inte ändra redundans alternativet för lagring av säkerhets kopior. För SQL Database är den offentliga för hands versionen av den här funktionen för närvarande endast tillgänglig i Sydostasien Azure-region. 
+> Konfigurerbar redundans för säkerhets kopieringar för SQL-hanterad instans kan bara anges under processen för att skapa hanterade instanser. När resursen har allokerats kan du inte ändra redundans alternativet för lagring av säkerhets kopior. För SQL Database är den offentliga för hands versionen av den här funktionen för närvarande tillgänglig i Brasilien, södra och är allmänt tillgänglig i Sydostasien Azure-region. 
 
 Det går bara att ange en redundans för säkerhets kopiering av en hanterad instans när en instans skapas. För en SQL Database kan den anges när du skapar databasen eller kan uppdateras för en befintlig databas. Standardvärdet är Geo-redundant lagring (RA-GRS). Om du vill ha skillnader i prissättningen mellan lokalt redundant (LRS), zon-redundant (ZRS) och Geo-redundant (RA-GRS) säkerhets kopierings lagring besöker du [pris sidan för hanterade instanser](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 

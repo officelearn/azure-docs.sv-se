@@ -4,12 +4,12 @@ ms.topic: include
 ms.date: 11/09/2018
 author: linda33wj
 ms.author: jingwang
-ms.openlocfilehash: c0fcdf1cf69c55f63288138bc7377a78295cb2be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34848b638ff0c7f7b9d1a2f3e5894339f8310ccc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86544840"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135987"
 ---
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
@@ -17,13 +17,13 @@ Pipelinen skapar automatiskt utdatamappen i blobcontainern adftutorial. Filen em
 
 1. I Azure Portal på sidan behållare för **adftutorial** väljer du **Uppdatera** för att visa mappen utdata. 
     
-    ![Uppdatera](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
+    ![Skärm bilden visar behållar sidan där du kan uppdatera sidan.](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
 
 2. Välj **utdata** i mapplistan. 
 
 3. Kontrollera att **emp.txt** har kopierats till utdatamappen. 
 
-    ![Uppdatera](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
+    ![Skärm bild som visar innehållet i mappen utdata.](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: 2f34723bec6dc2212f8897eca849e6535d737fc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af77f18771d8e18ee86b79360ac03307d3330cb0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397427"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131436"
 ---
 # <a name="power-bi-app-creation-overview"></a>Översikt över skapande av Power BI app
 
@@ -33,22 +33,22 @@ Fördelar med att publicera till den kommersiella marknads platsen:
 
 Dessa är viktiga publicerings steg:
 
-1. Skapa ditt program i Power BI. Du får en paket installations länk, som är den viktigaste tekniska till gången för erbjudandet. Skicka test paketet till för produktion innan du skapar erbjudandet i Partner Center. Mer information finns i [Vad är Power BI appar?](https://docs.microsoft.com/power-bi/service-template-apps-overview).
+1. Skapa ditt program i Power BI. Du får en paket installations länk, som är den viktigaste tekniska till gången för erbjudandet. Skicka test paketet till för produktion innan du skapar erbjudandet i Partner Center. Mer information finns i [Vad är Power BI appar?](/power-bi/service-template-apps-overview).
 2. Lägg till marknadsförings material, till exempel officiellt namn, beskrivning och logo typer.
 3. Ta med erbjudandena juridiska och stöd dokument, till exempel användnings villkor, sekretess policy, support princip och användar hjälp.
 4. Skapa erbjudandet – Använd partner Center för att redigera informationen, inklusive erbjudande beskrivning, marknadsförings material, juridisk information, supportinformation och till gångs uppgifter.
 5. Skicka den för publicering.
 6. Övervaka processen i Partner Center där AppSource onboarding-teamet testar, validerar och certifierar appen.
 7. När det är certifierat granskar du appen i dess test miljö och släpper den. Detta visar den på AppSource (den "är Live").
-8. Skicka paketet till produktion i Power BI. Mer information finns i [hantera Power BI app-versionen](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release).
+8. Skicka paketet till produktion i Power BI. Mer information finns i [hantera Power BI app-versionen](/power-bi/service-template-apps-create#manage-the-template-app-release).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Granska länkarna nedan, som innehåller mallar, tips och exempel.
 
-- [Skapa en Power BI-app](https://docs.microsoft.com/power-bi/service-template-apps-create)
-- [Tips för att redigera en Power BI app](https://docs.microsoft.com/power-bi/service-template-apps-tips)
-- [Exempel](https://docs.microsoft.com/power-bi/service-template-apps-samples)
+- [Skapa en Power BI-app](/power-bi/service-template-apps-create)
+- [Tips för att redigera en Power BI app](/power-bi/service-template-apps-tips)
+- [Exempel](/power-bi/service-template-apps-samples)
 
 ## <a name="requirements"></a>Krav
 
@@ -56,13 +56,13 @@ För att kunna publiceras på den kommersiella marknads platsen måste ditt Powe
 
 ### <a name="technical-requirements"></a>Tekniska krav
 
-Den viktigaste tekniska till gången du behöver är en [Power BI app](https://go.microsoft.com/fwlink/?linkid=2028636). Detta är en samling primära data uppsättningar, rapporter eller instrument paneler. Den innehåller också valfria anslutna tjänster och inbäddade data uppsättningar, tidigare kallade [innehålls paket](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). Mer information om hur du utvecklar den här typen av app finns i [Vad är Power BI appar?](https://go.microsoft.com/fwlink/?linkid=2028636).
+Den viktigaste tekniska till gången du behöver är en [Power BI app](/power-bi/connect-data/service-template-apps-overview). Detta är en samling primära data uppsättningar, rapporter eller instrument paneler. Den innehåller också valfria anslutna tjänster och inbäddade data uppsättningar, tidigare kallade [innehålls paket](/power-bi/service-organizational-content-pack-introduction). Mer information om hur du utvecklar den här typen av app finns i [Vad är Power BI appar?](/power-bi/connect-data/service-template-apps-overview).
 
 #### <a name="get-an-installation-web-address"></a>Hämta en installations webb adress
 
 Du kan bara bygga en Power BI-app i [Power BIs](https://powerbi.microsoft.com/) miljön.
 
-1. Logga in med en [Power BI Pro-licens](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro).
+1. Logga in med en [Power BI Pro-licens](/power-bi/service-admin-purchasing-power-bi-pro).
 2. Skapa och testa din app i Power BI.
 3. När du får appens installations webb adress lägger du till den på sidan **teknisk konfiguration** i Partner Center.
 

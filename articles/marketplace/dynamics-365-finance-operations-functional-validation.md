@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9685081c0beacd745a83067b9d9876384933377
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651164"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131249"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 finansiering och drift funktions validering
 
@@ -22,7 +22,7 @@ För att du ska kunna slutföra en första publicering i [partner Center](https:
 - Presentera skärm bilder som demonstrerar lösningens [livs cykel tjänst](https://lcs.dynamics.com/) (LCS)-miljö.
 
 > [!NOTE]
-> Efterföljande omcertifierings publiceringar kräver inte demonstration. Läs mer i [AppSource-princip dokumentet](https://docs.microsoft.com/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops).
+> Efterföljande omcertifierings publiceringar kräver inte demonstration. Läs mer i [AppSource-princip dokumentet](/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops).
 
 ## <a name="how-to-validate"></a>Så här verifierar du
 
@@ -50,13 +50,13 @@ Om du vill schemalägga ett slutligt gransknings samtal kontaktar du [appsourceC
 
 2. Ta följande skärm bilder av [LCS](https://lcs.dynamics.com/) -miljön som matchar det erbjudande eller den lösning som du vill publicera. De måste vara tillräckligt tydliga för att certifierings teamet ska kunna läsa texten. Spara skärm bilderna som JPG-filer. Du kan ge [appSourceCRM@microsoft.com](mailto:appSourceCRM@microsoft.com) behörighet till din LCS-miljö så att vi kan verifiera installationen i stället för att tillhandahålla skärm bilder.
 
-    1. Gå till **LCS**för  >  **affärs process modelleraren**  >  **Project library**. Ta skärm bilder av alla process steg. Ta med **diagrammen** och **granskade** kolumner, som du ser här:
+    1. Gå till **LCS** för  >  **affärs process modelleraren**  >  **Project library** . Ta skärm bilder av alla process steg. Ta med **diagrammen** och **granskade** kolumner, som du ser här:
 
        :::image type="content" source="media/dynamics-365-finance-operations/project-library.png" alt-text="Visar projekt biblioteks fönstret.":::
 
-      2. Gå till **LCS**  >  **lösnings hanterings**  >  **test lösnings paket**. Ta skärm bilder som innehåller paket översikt och innehåll som visas i följande exempel:
+      2. Gå till **LCS**  >  **lösnings hanterings**  >  **test lösnings paket** . Ta skärm bilder som innehåller paket översikt och innehåll som visas i följande exempel:
 
-    | Field | Bild <img src="" width="400px">|
+    | Fält | Bild <img src="" width="400px">|
     | --- | --- |
     | Paketöversikt | [![Skärm bild som visar fönstret "paket översikt".](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Lösnings god kännare</li></ul> | [![Paket översikts skärmen](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
@@ -65,7 +65,7 @@ Om du vill schemalägga ett slutligt gransknings samtal kontaktar du [appsourceC
     | <ul><li>Power BI rapport modell</li><li>BPM-artefakt</li></ul><br>Artefakter krävs inte i **Power BI** -avsnittet. | [![Skärm för paket innehåll tre](media/dynamics-365-finance-operations/package-contents-3-45.png)](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
     | <ul><li>Bearbeta data paket</li><li>Lösnings licens avtal och sekretess policy</li></ul><br>Avsnittet **ty-konfiguration** och **Power BI rapport modell** är valfria att inkludera för ekonomi-och drift erbjudanden. | [![Paket innehåll, skärm fyra](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
 
-    Mer information om varje avsnitt i LCS-portalen finns i [användar handboken för LCS](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
+    Mer information om varje avsnitt i LCS-portalen finns i [användar handboken för LCS](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
 
 3. Ladda upp till Partner Center.
 
@@ -76,4 +76,4 @@ Om du vill schemalägga ett slutligt gransknings samtal kontaktar du [appsourceC
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du skapar ett erbjudande finns i: [skapa en Dynamics 365 för drift erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
+Information om hur du skapar ett erbjudande finns i: [skapa en Dynamics 365 för drift erbjudande](./partner-center-portal/create-new-operations-offer.md).

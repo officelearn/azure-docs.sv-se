@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 416e6cb29ab2816d53cb837f72233a9fe098f659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072007"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131385"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics data fel
 
@@ -168,7 +168,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 * Orsak: skillnaden mellan kopplings tid och införsel tid är större än fönstret för sent införsel tolerans.
 * Portal meddelande har angetts: Nej
 * Resurs logg nivå: information
-* Påverkan: sena ingångs händelser hanteras enligt inställningen hantera andra händelser i avsnittet händelse ordning i jobb konfigurationen. Mer information finns i [tids hanterings principer](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Påverkan: sena ingångs händelser hanteras enligt inställningen hantera andra händelser i avsnittet händelse ordning i jobb konfigurationen. Mer information finns i [tids hanterings principer](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Logg information
    * Tid för program och tid för införsel. 
    * Faktisk nytto Last upp till några kilobyte.
@@ -184,7 +184,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 * Orsak: skillnaden mellan program tid och införsel tid är större än 5 minuter.
 * Portal meddelande har angetts: Nej
 * Resurs logg nivå: information
-* Påverkan: tidiga ingångs händelser hanteras enligt inställningen hantera andra händelser i avsnittet händelse ordning i jobb konfigurationen. Mer information finns i [tids hanterings principer](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Påverkan: tidiga ingångs händelser hanteras enligt inställningen hantera andra händelser i avsnittet händelse ordning i jobb konfigurationen. Mer information finns i [tids hanterings principer](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Logg information
    * Tid för program och tid för införsel. 
    * Faktisk nytto Last upp till några kilobyte.
@@ -200,7 +200,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 * Orsak: händelsen anses vara i ordning enligt den definierade tolerans perioden.
 * Portal meddelande har angetts: Nej
 * Resurs logg nivå: information
-* Påverkan: händelser som inte är i ordning hanteras enligt inställningen hantera andra händelser i avsnittet händelse ordning i jobb konfigurationen. Mer information finns i [tids hanterings principer](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Påverkan: händelser som inte är i ordning hanteras enligt inställningen hantera andra händelser i avsnittet händelse ordning i jobb konfigurationen. Mer information finns i [tids hanterings principer](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Logg information
    * Faktisk nytto Last upp till några kilobyte.
 
@@ -221,7 +221,7 @@ Det finns flera datafel som bara kan identifieras efter ett anrop till utgående
 * Orsak: kolumnen som krävs för utdata finns inte. Till exempel finns en kolumn som definierats som Azure Table PartitionKey does't.
 * Portal meddelande har angetts: Ja
 * Resurs logg nivå: varning
-* Påverkan: alla fel konverterings fel, inklusive saknade obligatoriska kolumner, hanteras enligt princip inställningen för [utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Påverkan: alla fel konverterings fel, inklusive saknade obligatoriska kolumner, hanteras enligt princip inställningen för [utdata](./stream-analytics-output-error-policy.md) .
 * Logg information
    * Kolumnens namn och antingen post-ID eller del av posten.
 
@@ -236,7 +236,7 @@ Det finns flera datafel som bara kan identifieras efter ett anrop till utgående
 * Orsak: kolumnens värde stämmer inte med utdata. Kolumn namnet är till exempel inte en giltig Azure Table-kolumn.
 * Portal meddelande har angetts: Ja
 * Resurs logg nivå: varning
-* Påverkan: alla fel vid konvertering av utdata, inklusive Ogiltigt kolumn namn hanteras enligt princip inställningen för [utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Påverkan: alla fel vid konvertering av utdata, inklusive Ogiltigt kolumn namn hanteras enligt princip inställningen för [utdata](./stream-analytics-output-error-policy.md) .
 * Logg information
    * Kolumnens namn och antingen post-ID eller del av posten.
 
@@ -251,7 +251,7 @@ Det finns flera datafel som bara kan identifieras efter ett anrop till utgående
 * Orsak: det går inte att konvertera en kolumn till en giltig typ i utdata. Värdet för kolumnen är till exempel inte kompatibelt med begränsningar eller typ som definierats i SQL-tabellen.
 * Portal meddelande har angetts: Ja
 * Resurs logg nivå: varning
-* Påverkan: alla fel vid konvertering av utdata, inklusive typ konverterings fel, hanteras enligt [princip](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) inställningen för utdata.
+* Påverkan: alla fel vid konvertering av utdata, inklusive typ konverterings fel, hanteras enligt [princip](./stream-analytics-output-error-policy.md) inställningen för utdata.
 * Logg information
    * Kolumnens namn.
    * Antingen post-ID eller del av posten.
@@ -267,7 +267,7 @@ Det finns flera datafel som bara kan identifieras efter ett anrop till utgående
 * Orsak: meddelandets värde är större än den tillåtna storleken för utdata. En post är till exempel större än 1 MB för en Event Hub-utdata.
 * Portal meddelande har angetts: Ja
 * Resurs logg nivå: varning
-* Effekt: alla fel vid utgående data konvertering, inklusive poster som överskrider storleks gränsen, hanteras enligt princip inställningen för [utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Effekt: alla fel vid utgående data konvertering, inklusive poster som överskrider storleks gränsen, hanteras enligt princip inställningen för [utdata](./stream-analytics-output-error-policy.md) .
 * Logg information
    * Antingen post-ID eller del av posten.
 
@@ -282,7 +282,7 @@ Det finns flera datafel som bara kan identifieras efter ett anrop till utgående
 * Orsak: en post innehåller redan en kolumn med samma namn som en system kolumn. Till exempel är CosmosDB-utdata med en kolumn med namnet ID när ID kolumnen är till en annan kolumn.
 * Portal meddelande har angetts: Ja
 * Resurs logg nivå: varning
-* Påverkan: alla fel vid konvertering av utdata, inklusive dubblettnyckel, hanteras enligt princip inställningen för [utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Påverkan: alla fel vid konvertering av utdata, inklusive dubblettnyckel, hanteras enligt princip inställningen för [utdata](./stream-analytics-output-error-policy.md) .
 * Logg information
    * Kolumnens namn.
    * Antingen post-ID eller del av posten.

@@ -5,36 +5,37 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 38fffd7793e1f5bd59ac6dde4499b2eb25009b52
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303870"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131487"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabb start: skapa en ny app i LUIS-portalen
 
-I den här snabb starten skapar du en ny app i LUIS-portalen. Börja med att skapa grundläggande delar av en app, **avsikter**och **entiteter**. Testa sedan appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten.
+I den här snabb starten skapar du en ny app i LUIS-portalen. Börja med att skapa grundläggande delar av en app, **avsikter** och **entiteter** . Testa sedan appen genom att tillhandahålla ett exempel på användarens uttryck i den interaktiva test panelen för att få den förväntade avsikten.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-an-app"></a>Skapa en app
 
-1. Välj **+ ny app för konversation** i verktygsfältet kontext och välj sedan **+ ny app för konversation** igen.
+Om du vill skapa ett program klickar du på  **+ ny app** . 
 
-    > [!div class="mx-imgBorder"]
-    > [![Skärm bild av att skapa en ny app i LUIS-portalen](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+I fönstret som visas anger du följande information:
 
-1. I popup-fönstret konfigurerar du appen med följande inställningar och väljer sedan **Slutför**.
+|Namn  |Beskrivning  |
+|---------|---------|
+|Namn     | Ett namn för din app. Till exempel "Start automatisering". Krävs.        |
+|Kultur     | Det språk som din app förstår och pratar med. Krävs.   |
+|Beskrivning | En beskrivning av din app. Valfritt.
+|Förutsägelse resurs | Den förutsägelse resurs som tar emot frågor. Valfritt. |
 
-   |Inställningsnamn| Värde | Syfte|
-   |--|--|--|
-   |Namn|`myEnglishApp`|Unikt namn på LUIS-app<br>krävs|
-   |Kultur|**Engelska**|Språk för yttranden från användare, **en-US**<br>krävs|
-   |Beskrivning (valfritt)|`App made with LUIS Portal`|Beskrivning av app<br>valfri|
-   |Förutsägelse resurs (valfritt) |-  |Välj inte. LUIS ger dig en start nyckel som du kan använda utan kostnad för redigering och 1 000 förutsägelse slut punkts begär Anden. |
+Välj **Done** (Klar).
 
-   ![Skärm bild av att ange nya inställningar för appar](./media/get-started-portal-build-app/create-new-app-settings.png)
+>[!NOTE]
+>Kulturen kan inte ändras när appen har skapats.
+
 
 ## <a name="create-intents"></a>Skapa avsikter
 
@@ -52,22 +53,17 @@ Appens två olika _avsikter_ anpassas till följande syften:
 
 Utför följande steg för att skapa avsikter:
 
-1. När appen har skapats finns du på sidan **syften** i avsnittet **build** . Välj **Skapa**.
+1. När appen har skapats kontrollerar du att du är på sidan **syften** i avsnittet **build** . Välj **Skapa** .
 
    [![Skärm bild som visar hur du väljer Skapa för att skapa ny avsikt](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
-1. Ange namnet på avsikten `FindForm` och välj sedan **färdig**.
+1. Ange namnet på avsikten `FindForm` och välj sedan **färdig** .
 
 ## <a name="add-an-example-utterance"></a>Lägg till ett exempel uttryck
 
-Du lägger till exempel yttranden när du har skapat avsikter. Exempel på yttranden är text som en användare anger i en chat-robot eller något annat klient program. De mappar avsikten med användarens text till ett LUISt syfte.
+Du lägger till exempel yttranden när du har skapat avsikter. Exempel på yttranden är text som en användare anger i en chat-robot eller något annat klient program. De mappar avsikten med användarens text till ett LUISt syfte. I det här exempel programmets `FindForm` syfte innehåller exempel yttranden formulär numret. Klient programmet behöver formulär numret för att uppfylla användarens begäran, så det är viktigt att inkludera det i uttryck.
 
-I det här exempel programmets `FindForm` syfte innehåller exempel yttranden formulär numret. Klient programmet behöver formulär numret för att uppfylla användarens begäran, så det är viktigt att inkludera det i uttryck.
-
-> [!div class="mx-imgBorder"]
-> [![Skärm bild av att ange exempel yttranden för FindForm-avsikten](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
-
-Lägg till följande 15 exempel yttranden i `FindForm` avsikten.
+På sidan **avsikter** för `FindForm` lägger du till följande exempel yttranden under **exempel uttryck** , 
 
 |#|Exempel på yttranden|
 |--|--|
@@ -106,7 +102,7 @@ Om du vill returnera formulär numret i svars förutsägelsens svar måste formu
 
 1. Ange namnet `FormNumber` och välj typ av **regex** -enhet.
 
-1. Ange det reguljära uttrycket `hrf-[0-9]{6}` i fältet **regex** . Den här posten matchar litteral tecken, `hrf-` och tillåter exakt sex siffror och väljer sedan **skapa**.
+1. Ange det reguljära uttrycket `hrf-[0-9]{6}` i fältet **regex** . Den här posten matchar litteral tecken, `hrf-` och tillåter exakt sex siffror och väljer sedan **skapa** .
 
     > [!div class="mx-imgBorder"]
     > ![Skärm bild av entiteten för att skapa reguljära uttryck](./media/get-started-portal-build-app/create-regular-expression-entity.png)

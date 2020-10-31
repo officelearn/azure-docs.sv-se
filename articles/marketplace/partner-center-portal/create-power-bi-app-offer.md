@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710659"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131504"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Skapa erbjudande om Power BI-app
 
@@ -23,8 +23,8 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
-3. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Power BI tjänst program**.
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** -  >  **Översikt** .
+3. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Power BI tjänst program** .
 
    ![Visar menyn till vänster-navigering.](./media/new-offer-power-bi-app.png)
 
@@ -36,16 +36,16 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 
 ## <a name="new-offer"></a>Nytt erbjudande
 
-Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
+Ange ett **erbjudande-ID** . Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
 - Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudandet-1** här, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-- Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
+- Erbjudande-ID: t kan inte ändras när du har valt **skapa** .
 
-Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
+Ange ett **erbjudande alias** . Detta är det namn som används för erbjudandet i Partner Center.
 
 - Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
-- Det går inte att ändra namnet på erbjudandet när du har valt **skapa**.
+- Det går inte att ändra namnet på erbjudandet när du har valt **skapa** .
 
 Välj **skapa** för att generera erbjudandet och fortsätt.
 
@@ -55,10 +55,10 @@ På den här sidan visas en visuell representation av de steg som krävs för at
 
 Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
 
-- Om erbjudandet är ett utkast – [ta bort utkast erbjudande](update-existing-offer.md#delete-a-draft-offer)
+- Om erbjudandet är ett utkast – ta bort utkast erbjudande
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Om erbjudandet är i för hands version- [Go-Live](publishing-status.md#publisher-approval)
-- Om du inte har slutfört publicering – [Avbryt publicering](update-existing-offer.md#cancel-publishing)
+- Om erbjudandet är i för hands version- [Go-Live](../review-publish-offer.md#previewing-and-approving-your-offer)
+- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering.](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
 
@@ -97,7 +97,7 @@ På den här sidan kan du definiera kategorier och branscher som används för a
 Välj kategorier och under Kategorier för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Se till att du beskriver hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. Välj:
 
 - Minst en och upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
-- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt**.
+- Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt** .
 
 Se den fullständiga listan över kategorier och under Kategorier i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md).
 
@@ -186,7 +186,7 @@ Ange webb adressen till din organisations sekretess policy. Du är ansvarig för
 
 ### <a name="contact-information"></a>Kontaktinformation
 
-Du måste ange namn, e-postadress och telefonnummer för en **support kontakt** och en **teknisk kontakt**. Den här informationen visas inte för kunderna. Den är tillgänglig för Microsoft och kan tillhandahållas av CSP-partner (Cloud Solution Provider).
+Du måste ange namn, e-postadress och telefonnummer för en **support kontakt** och en **teknisk kontakt** . Den här informationen visas inte för kunderna. Den är tillgänglig för Microsoft och kan tillhandahållas av CSP-partner (Cloud Solution Provider).
 
 - Support kontakt (krävs): för allmänna supportfrågor.
 - Teknisk kontakt (krävs): för tekniska frågor och certifierings problem.
@@ -234,7 +234,7 @@ Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bä
 
 ## <a name="technical-configuration"></a>Teknisk konfiguration
 
-Flytta upp din app i Power BI tjänst till produktion och ange den Power BI App Installer-länken som gör det möjligt för kunderna att installera din app. Mer information finns i [publicera appar med instrument paneler och rapporter i Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).
+Flytta upp din app i Power BI tjänst till produktion och ange den Power BI App Installer-länken som gör det möjligt för kunderna att installera din app. Mer information finns i [publicera appar med instrument paneler och rapporter i Power BI](/power-bi/service-create-distribute-apps).
 
 ## <a name="supplemental-content"></a>Kompletterande innehåll
 
@@ -248,7 +248,7 @@ Du kan också lägga till instruktioner (upp till 3 000 tecken) för att hjälpa
 
 När du har slutfört alla obligatoriska avsnitt i erbjudandet kan du skicka ditt erbjudande till granskning och publicering.
 
-I det övre högra hörnet av portalen väljer du **Granska och publicera**.
+I det övre högra hörnet av portalen väljer du **Granska och publicera** .
 
 På sidan Granska kan du:
 
@@ -258,6 +258,6 @@ På sidan Granska kan du:
   - **Slutfört** -avsnittet innehåller alla data som krävs och det finns inga fel. Alla avsnitt i erbjudandet måste slutföras innan du kan skicka in erbjudandet.
 - Ange test instruktioner till certifierings teamet för att se till att appen testas korrekt. Ange också eventuella kompletterande kommentarer som hjälper dig att förstå ditt erbjudande.
 
-Om du vill skicka publicerings erbjudandet väljer du **publicera**.
+Om du vill skicka publicerings erbjudandet väljer du **publicera** .
 
-Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Om du vill publicera ditt erbjudande till allmänheten går du till Partner Center och väljer **Go-Live**.
+Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Om du vill publicera ditt erbjudande till allmänheten går du till Partner Center och väljer **Go-Live** .

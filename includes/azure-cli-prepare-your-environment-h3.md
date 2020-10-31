@@ -8,16 +8,20 @@ ms.technology: azure-cli
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f7e067d663145e2edc39f8d4b90fdd91ff2f75d0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f354a982cb134bbee032b2ea408bdbe127a5067c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440745"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135508"
 ---
 ### <a name="prepare-your-environment-for-the-azure-cli"></a>Förbereda din miljö för Azure CLI
 
-- Kör Azure CLI-kommandon genom att göra en [lokal installation](/cli/azure/install-azure-cli) av Azure CLI eller starta [Azure Cloud Shell](/azure/cloud-shell/quickstart) med bash-miljön.
+- Använd [Azure Cloud Shell](/azure/cloud-shell/quickstart) med bash-miljön.
 
-- Om du använder en lokal installation loggar du in med Azure CLI med hjälp av kommandot [AZ login](/cli/azure/reference-index#az-login) .  Slutför autentiseringsprocessen genom att följa anvisningarna i terminalen.  Se [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli) för ytterligare inloggnings alternativ.
-- När du uppmanas installerar du Azure CLI-tillägg vid första användningen.  Läs mer om tillägg i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
+   [![Bädda in start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)   
+- Om du föredrar det gör du en [lokal installation](/cli/azure/install-azure-cli) av Azure CLI för att köra CLI-referens kommandon.
+   - Om du använder en lokal installation loggar du in med Azure CLI med hjälp av kommandot [AZ login](/cli/azure/reference-index#az-login) .  Slutför autentiseringsprocessen genom att följa anvisningarna i terminalen.  Se [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli) för ytterligare inloggnings alternativ.
+  - När du uppmanas installerar du Azure CLI-tillägg vid första användningen.  Läs mer om tillägg i [använda tillägg med Azure CLI](/cli/azure/azure-cli-extensions-overview).
+  - Kör [AZ-versionen](/cli/azure/reference-index?#az_version) för att hitta den version och beroende bibliotek som är installerade. Uppgradera till den senaste versionen genom att köra [AZ Upgrade](/cli/azure/reference-index?#az_upgrade).
+

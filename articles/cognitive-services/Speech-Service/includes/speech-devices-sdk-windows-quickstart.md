@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 6ce0006c493228d99131ca564a34600800f0ab5e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0fae0172467bb4499c2710c49553d9134a32fa9b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169095"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136071"
 ---
 I den här snabb starten lär du dig att använda tal enheter SDK för Windows för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation. För konversations avskrift stöds endast [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) . För andra tal använder du linjära MIC-matriser som tillhandahåller en mikrofon mat ris geometri.
 
@@ -42,19 +42,19 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 1. Starta Eclipse.
 
-1. I fältet **arbets yta** i **sol förmörkelses IDE-start**, anger du namnet på en ny arbets ytans katalog. Välj sedan **Starta**.
+1. I fältet **arbets yta** i **sol förmörkelses IDE-start** , anger du namnet på en ny arbets ytans katalog. Välj sedan **Starta** .
 
    ![Skärm bild som visar Start programmet för Sol förmörkelse där du anger namnet på arbets ytans katalog.](../media/speech-devices-sdk/eclipse-launcher.png)
 
 1. Efter en liten stund visas huvudfönstret i Eclipse IDE. Stäng välkomstskärmen om en sådan visas.
 
-1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **Arkiv**  >  **nytt**  >  **Java-projekt**. Om det inte är tillgängligt väljer du **projekt** och sedan **Java-projekt**.
+1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **Arkiv**  >  **nytt**  >  **Java-projekt** . Om det inte är tillgängligt väljer du **projekt** och sedan **Java-projekt** .
 
-1. Guiden **nytt Java-projekt** startar. **Bläddra** efter exempel projektets plats. Välj **Slutför**.
+1. Guiden **nytt Java-projekt** startar. **Bläddra** efter exempel projektets plats. Välj **Slutför** .
 
    ![Skärm bild som visar guiden Nytt Java-projekt.](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
-1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Konfigurera**  >  **konvertera till Maven-projekt** från snabb menyn. Välj **Slutför**.
+1. Högerklicka på ditt projekt i **Package Explorer** . Välj **Konfigurera**  >  **konvertera till Maven-projekt** från snabb menyn. Välj **Slutför** .
 
    ![Skärmbild av Paketutforskaren](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
@@ -74,7 +74,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.13.0</version>
+             <version>1.14.0</version>
         </dependency>
     </dependencies>
    ```
@@ -112,7 +112,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
     Om du vill använda ett nytt nyckelord uppdaterar du följande rad i `FunctionsList.java` och kopierar nyckelordet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords paketet `machine.zip` :
 
-   * Kopiera `kws.table` filen från zip-paketet till projektmappen **/-klasserna**i Project-mappen.
+   * Kopiera `kws.table` filen från zip-paketet till projektmappen **/-klasserna** i Project-mappen.
    * Uppdatera `FunctionsList.java` med nyckelords namnet:
 
      ```java
@@ -121,7 +121,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Köra exempel programmet från Sol förmörkelse
 
-1. I meny raden för Sol förmörkelse **Kör**du  >  **Kör som**  >  **Java-program**. Välj sedan **FunctionsList** och **OK**.
+1. I meny raden för Sol förmörkelse **Kör** du  >  **Kör som**  >  **Java-program** . Välj sedan **FunctionsList** och **OK** .
 
    ![Skärm bild av Välj Java-program](../media/speech-devices-sdk/eclipse-run-sample.png)
 
@@ -129,19 +129,19 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
    ![Skärm bild av ett exempel på ett exempel på ett tal som är SDK-program och alternativ](../media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Prova den nya demonstrationen av **konversations avskrift** . Börja skriva med **session**  >  **Start**. Som standard är alla gäst. Men om du har deltagares röst-signaturer kan de placeras i en fil `participants.properties` i projektmappen **mål/klasser**. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Prova den nya demonstrationen av **konversations avskrift** . Börja skriva med **session**  >  **Start** . Som standard är alla gäst. Men om du har deltagares röst-signaturer kan de placeras i en fil `participants.properties` i projektmappen **mål/klasser** . Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](../how-to-use-conversation-transcription-service.md).
 
    ![Skärm bild av ett avskrifts program för demo konversation.](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
 ## <a name="create-and-run-a-standalone-application"></a>Skapa och köra ett fristående program
 
-1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Exportera**.
+1. Högerklicka på ditt projekt i **Package Explorer** . Välj **Exportera** .
 
-1. **Export** fönstret visas. Expandera **Java** och välj **körbara jar-fil** och välj sedan **Nästa**.
+1. **Export** fönstret visas. Expandera **Java** och välj **körbara jar-fil** och välj sedan **Nästa** .
 
    ![Skärm bild som visar export fönstret där du väljer körbara JAR-fil.](../media/speech-devices-sdk/eclipse-export-windows.png)
 
-1. **KÖRBARA jar File export** -fönstret visas. Välj ett **export mål** för programmet och välj sedan **Slutför**.
+1. **KÖRBARA jar File export** -fönstret visas. Välj ett **export mål** för programmet och välj sedan **Slutför** .
 
    ![Skärm bild som visar körbara JAR File export-fönstret där du väljer export målet.](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
 

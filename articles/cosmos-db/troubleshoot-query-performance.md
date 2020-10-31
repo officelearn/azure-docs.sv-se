@@ -8,14 +8,15 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3979e5e904eb54db9566eb014f7e455ebaceaff0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476713"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087187"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsöka problem med frågor när du använder Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här artikeln vägleder dig genom en allmänt rekommenderad metod för fel sökning av frågor i Azure Cosmos DB. Även om du inte bör tänka på de steg som beskrivs i den här artikeln får du ett fullständigt försvar mot potentiella frågor, men vi har inkluderat de vanligaste prestanda tipsen här. Använd den här artikeln som utgångspunkt vid felsökning av långsamma eller resurskrävande frågor i SQL-API:et i Azure Cosmos DB. Du kan också använda [diagnostikloggarna](cosmosdb-monitor-resource-logs.md) till att identifiera vilka frågor som är långsamma eller som förbrukar stora mängder dataflöde. Om du använder Azure Cosmos DBs API för MongoDB bör du använda [Azure Cosmos DB s API för fel söknings guide för MongoDB-frågor](mongodb-troubleshoot-query.md)
 
@@ -50,7 +51,7 @@ När du optimerar en fråga i Azure Cosmos DB, är det första steget alltid att
 
 När du har hämtat frågeresultaten jämför du **antalet hämtade dokument** med **antalet utdata** i frågan. Använd den här jämförelsen för att identifiera relevanta avsnitt som ska granskas i den här artikeln.
 
-**Antalet hämtade dokument** är antalet dokument som frågemotor behöver läsa in. **Antalet utgående dokument** är antalet dokument som behövdes för frågeresultatet. Om **antalet hämtade dokument** är betydligt högre än **antalet utgående dokument**, fanns det minst en del av din fråga som inte kunde använda ett index och behövdes för att göra en genomsökning.
+**Antalet hämtade dokument** är antalet dokument som frågemotor behöver läsa in. **Antalet utgående dokument** är antalet dokument som behövdes för frågeresultatet. Om **antalet hämtade dokument** är betydligt högre än **antalet utgående dokument** , fanns det minst en del av din fråga som inte kunde använda ett index och behövdes för att göra en genomsökning.
 
 Se följande avsnitt för att förstå relevanta optimeringar av frågor för ditt scenario.
 
@@ -92,7 +93,7 @@ Se följande avsnitt för att förstå relevanta optimeringar av frågor för di
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Frågor där antal hämtade dokument överskrider antalet utgående dokument
 
- **Antalet hämtade dokument** är antalet dokument som frågemotor behöver läsa in. Antalet **Utgående dokument** är antalet dokument som returneras av frågan. Om **antalet hämtade dokument** är betydligt högre än **antalet utgående dokument**, fanns det minst en del av din fråga som inte kunde använda ett index och behövdes för att göra en genomsökning.
+ **Antalet hämtade dokument** är antalet dokument som frågemotor behöver läsa in. Antalet **Utgående dokument** är antalet dokument som returneras av frågan. Om **antalet hämtade dokument** är betydligt högre än **antalet utgående dokument** , fanns det minst en del av din fråga som inte kunde använda ett index och behövdes för att göra en genomsökning.
 
 Här är ett exempel på en genomsöknings fråga som inte helt hanterades av indexet:
 
@@ -384,7 +385,7 @@ Anta att endast ett objekt i matrisen taggar matchar filtret och att det finns f
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Frågor där antal hämtade dokument är lika med antalet utgående dokument
 
-Om **antalet hämtade dokument** är ungefär lika med **antalet utgående dokument**, behövde inte frågemotor genomsöka många onödiga dokument. För många frågor, t. ex. de som använder `TOP` nyckelordet, kan **antalet hämtade dokument** överstiga **antalet utgående dokument** med 1. Du behöver inte bekymra dig om detta.
+Om **antalet hämtade dokument** är ungefär lika med **antalet utgående dokument** , behövde inte frågemotor genomsöka många onödiga dokument. För många frågor, t. ex. de som använder `TOP` nyckelordet, kan **antalet hämtade dokument** överstiga **antalet utgående dokument** med 1. Du behöver inte bekymra dig om detta.
 
 ### <a name="minimize-cross-partition-queries"></a>Minimera kors partitions frågor
 

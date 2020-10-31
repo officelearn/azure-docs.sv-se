@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: c86207af51ebd1a9442afe6fa609598ec917bf15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f19e009341ac0e9556cef36f8da6ef19cde0447f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570452"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087527"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Global data distribution med Azure Cosmos DB – under huven
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB är en grundläggande tjänst i Azure, så den distribueras i alla Azure-regioner över hela världen, inklusive offentlig, suverän, departementet försvar (DoD) och myndigheter. I ett Data Center distribuerar och hanterar vi Azure Cosmos DB på massiv stämpel av datorer, var och en med dedikerad lokal lagring. I ett Data Center har Azure Cosmos DB distribuerats över flera kluster, som var och en kan köra flera generationer av maskin vara. Datorer i ett kluster sprids vanligt vis över 10-20 fel domäner för hög tillgänglighet inom en region. Följande bild visar Cosmos DB global distribution system sto pol Ogin:
 
@@ -22,9 +23,9 @@ Azure Cosmos DB är en grundläggande tjänst i Azure, så den distribueras i al
 
 **Global distribution i Azure Cosmos DB är nyckel färdiga:** När som helst, med några klick eller program mässigt med ett enda API-anrop, kan du lägga till eller ta bort de geografiska regioner som är kopplade till Cosmos-databasen. En Cosmos-databas, i sin tur, består av en uppsättning Cosmos-behållare. I Cosmos DB fungerar behållare som logiska enheter för distribution och skalbarhet. Samlingarna, tabellerna och graferna som du skapar är (internt) bara Cosmos behållare. Behållare är fullständigt schema-oberoende och anger en omfattning för en fråga. Data i en Cosmos-behållare indexeras automatiskt vid inmatning. Med automatisk indexering kan användare fråga data utan besvär i schema-eller index hantering, särskilt i en globalt distribuerad installation.  
 
-- I en specifik region distribueras data i en behållare med hjälp av en partitionsnyckel som du anger och som hanteras transparent av de underliggande fysiska partitionerna (*lokal distribution*).  
+- I en specifik region distribueras data i en behållare med hjälp av en partitionsnyckel som du anger och som hanteras transparent av de underliggande fysiska partitionerna ( *lokal distribution* ).  
 
-- Varje fysisk partition replikeras också över geografiska regioner (*global distribution*). 
+- Varje fysisk partition replikeras också över geografiska regioner ( *global distribution* ). 
 
 När en app som använder Cosmos DB elastiskt skala data flödet i en Cosmos-behållare eller använder mer lagrings utrymme, hanterar Cosmos DB transparent hanterings åtgärder för partitioner (dela, klona och ta bort) över alla regioner. Oberoende av skalan, distributionen eller felen fortsätter Cosmos DB att tillhandahålla en enda system avbildning av data i behållarna, som globalt distribueras över valfritt antal regioner.  
 
@@ -32,13 +33,13 @@ Som du ser i följande bild distribueras data i en behållare längs två dimens
 
 :::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="System sto pol Ogin" border="false":::
 
-En fysisk partition implementeras av en grupp repliker, som kallas *replik uppsättning*. Varje dator är värd för hundratals repliker som motsvarar olika fysiska partitioner i en fast uppsättning processer som visas i bilden ovan. Repliker som motsvarar de fysiska partitionerna placeras och bal anse ras dynamiskt på datorerna i ett kluster och data Center inom en region.  
+En fysisk partition implementeras av en grupp repliker, som kallas *replik uppsättning* . Varje dator är värd för hundratals repliker som motsvarar olika fysiska partitioner i en fast uppsättning processer som visas i bilden ovan. Repliker som motsvarar de fysiska partitionerna placeras och bal anse ras dynamiskt på datorerna i ett kluster och data Center inom en region.  
 
 En replik som unikt tillhör en Azure Cosmos DB klient. Varje replik är värd för en instans av Cosmos DB [databas motor](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)som hanterar resurserna samt associerade index. Cosmos-databasmotorn använder sig av en-baserad (Atom-Record-Sequence)-baserad typ system. Motorn är oberoende till begreppet schema, vilket gör att det går att minska gränserna mellan struktur-och instans värden för poster. Cosmos DB uppnår fullständig schema-Agnosticism genom att automatiskt indexera allt vid inmatning på ett effektivt sätt, vilket gör att användarna kan fråga sina globalt distribuerade data utan att behöva hantera schema-eller index hantering.
 
 Cosmos-databasmotorn består av komponenter, inklusive implementering av flera koordinerande primitiver, språk körningar, frågeprocessorn och de lagrings-och indexerings under system som ansvarar för transaktions lagring och indexering av data. För att tillhandahålla hållbarhet och hög tillgänglighet behåller databas motorn sina data och index på SSD och replikerar den mellan databas motor instanserna i replikerna. Större klienter motsvarar högre skalbarhet och lagrings utrymme och har antingen större eller fler repliker eller både och. Varje komponent i systemet är helt asynkron – inga trådar någonsin blockeras, och varje tråd utför kortvarigt arbete utan att det medför onödiga tråd byten. Hastighets begränsning och mottryck rör sig över hela stacken från åtkomst kontrollen till alla I/O-sökvägar. Cosmos-databasmotorn är utformad för att utnyttja detaljerad samtidighet och leverera högt data flöde samtidigt som du arbetar inom Frugal-mängder system resurser.
 
-Cosmos DB global distribution är beroende av två nyckel abstraktioner – *replik uppsättningar* och *partitionsuppsättningar*. En replik uppsättning är ett modulärt LEGO-block för samordning, och en partitionsuppsättning är ett dynamiskt överlägg av en eller flera geografiskt distribuerade fysiska partitioner. För att förstå hur global distribution fungerar måste vi förstå dessa två nyckel abstraktioner. 
+Cosmos DB global distribution är beroende av två nyckel abstraktioner – *replik uppsättningar* och *partitionsuppsättningar* . En replik uppsättning är ett modulärt LEGO-block för samordning, och en partitionsuppsättning är ett dynamiskt överlägg av en eller flera geografiskt distribuerade fysiska partitioner. För att förstå hur global distribution fungerar måste vi förstå dessa två nyckel abstraktioner. 
 
 ## <a name="replica-sets"></a>Replik – uppsättningar
 
@@ -68,7 +69,7 @@ Vi använder kodade vektor klockor (som innehåller regions-ID och logiska klock
 
 För Cosmos-databaser som kon figurer ATS med flera Skriv regioner erbjuder systemet ett antal flexibla lösnings principer för automatisk konflikt som utvecklare kan välja bland, inklusive: 
 
-- **Senaste-skrivning-WINS (LWW)**, som standard använder en systemdefinierad timestamp-egenskap (som baseras på Time-Synchronize Clock-protokollet). Med Cosmos DB kan du också ange andra anpassade numeriska egenskaper som ska användas för konflikt lösning.  
+- **Senaste-skrivning-WINS (LWW)** , som standard använder en systemdefinierad timestamp-egenskap (som baseras på Time-Synchronize Clock-protokollet). Med Cosmos DB kan du också ange andra anpassade numeriska egenskaper som ska användas för konflikt lösning.  
 - **Programdefinierad (anpassad) konflikt lösnings princip** (uttrycks via sammanslagnings procedurer) som är utformad för programdefinierad semantik för konflikter. De här procedurerna anropas vid identifiering av de Skriv-och skriv åtgärder som uppstår under överinseende av en databas transaktion på Server sidan. Systemet ger exakt en garanti för körning av en sammanfognings procedur som en del av åtagande protokollet. Det finns [flera olika lösnings exempel för konflikter](how-to-manage-conflicts.md) som du kan spela med.  
 
 ## <a name="consistency-models"></a>Konsekvens modeller

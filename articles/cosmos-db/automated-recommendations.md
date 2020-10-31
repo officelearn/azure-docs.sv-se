@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8fa2fdf23a0d71b854e043b66c0aed7e944c5f39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9eb55030c7ec52f9b2ac79fbab19944f0a3e190
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87450834"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087833"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Automatiserade rekommendationer för Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Alla moln tjänster, inklusive Azure Cosmos DB få frekventa uppdateringar med nya funktioner, funktioner och förbättringar. Det är viktigt att ditt program håller sig uppdaterad med de senaste prestanda-och säkerhets uppdateringarna. Azure Portal erbjuder anpassade rekommendationer som gör att du kan maximera programmets prestanda. Azure Cosmos DBs råd givande motor analyserar kontinuerligt användnings historiken för dina Azure Cosmos DB resurser och ger rekommendationer baserat på dina arbets belastnings mönster. Dessa rekommendationer motsvarar områden som partitionering, indexering, nätverk, säkerhet osv. Med dessa anpassade rekommendationer kan du förbättra programmets prestanda.
 
@@ -26,7 +27,7 @@ Du kan visa rekommendationer för Azure Cosmos DB på följande sätt:
 
    :::image type="content" source="./media/automated-recommendations/cosmos-db-pane-recommendations.png" alt-text="Visa rekommendationer från Azure Cosmos DBs fönstret":::
 
-- Du kan också hitta rekommendationerna genom [Azure Advisor](../advisor/advisor-overview.md) i Kategoriserad med olika buckets, till exempel kostnader, säkerhet, tillförlitlighet, prestanda och drift kvalitet. Du kan välja vissa prenumerationer och filtrera efter resurs typ, som är **Azure Cosmos DB konton**.  När du väljer en speciell rekommendation visas de åtgärder som du kan vidta för att dra nytta av dina arbets belastningar.
+- Du kan också hitta rekommendationerna genom [Azure Advisor](../advisor/advisor-overview.md) i Kategoriserad med olika buckets, till exempel kostnader, säkerhet, tillförlitlighet, prestanda och drift kvalitet. Du kan välja vissa prenumerationer och filtrera efter resurs typ, som är **Azure Cosmos DB konton** .  När du väljer en speciell rekommendation visas de åtgärder som du kan vidta för att dra nytta av dina arbets belastningar.
 
    :::image type="content" source="./media/automated-recommendations/advisor-pane-recommendations.png" alt-text="Visa rekommendationer från Azure Cosmos DBs fönstret":::
 

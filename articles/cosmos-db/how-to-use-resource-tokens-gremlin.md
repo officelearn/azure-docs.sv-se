@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df25ab4b0f5593ab21336d002ad2f9f10795bdcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d851a28712beb80bf2a7aa196e471ef4f15074
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570558"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085742"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Använd Azure Cosmos DB-Gremlin med SDK för
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Den här artikeln förklarar hur du använder [Azure Cosmos DB-resursfiler](secure-access-to-data.md) för att komma åt graf-databasen via Gremlin SDK.
 
@@ -100,7 +101,7 @@ Med ett enda Gremlin-konto kan du utfärda ett obegränsat antal tokens. Du kan 
 
 ## <a name="permission"></a>Behörighet
 
-Ett vanligt fel som uppstår när de använder resurs-token är "otillräcklig behörighet i Authorization-huvudet för motsvarande begäran. Försök igen med ett annat Authorization-huvud. " Det här felet returneras när en Gremlin-överträdelse försöker skriva en gräns eller ett hörn, men resurs-token beviljar endast *Läs* behörighet. Granska din genom gång för att se om den innehåller något av följande steg: *. addV ()*, *. addE ()*, *. drop ()* eller *. Property ()*.
+Ett vanligt fel som uppstår när de använder resurs-token är "otillräcklig behörighet i Authorization-huvudet för motsvarande begäran. Försök igen med ett annat Authorization-huvud. " Det här felet returneras när en Gremlin-överträdelse försöker skriva en gräns eller ett hörn, men resurs-token beviljar endast *Läs* behörighet. Granska din genom gång för att se om den innehåller något av följande steg: *. addV ()* , *. addE ()* , *. drop ()* eller *. Property ()* .
 
 ## <a name="next-steps"></a>Nästa steg
 * [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](role-based-access-control.md) i Azure Cosmos DB

@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: chrande
-ms.openlocfilehash: ff49889977bc4e5d9097d81ea7b05387900bedd4
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926384"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087493"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Använda stegen i körningsprofilen för att utvärdera Gremlin-frågor
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Den här artikeln innehåller en översikt över hur du använder steget körningsprofil för Azure Cosmos DB Gremlin-API-grafdatabaser. Det här steget ger relevant information för felsökning och frågekörning, och den är kompatibel med alla Gremlin-frågor som kan utföras mot ett Cosmos DB Gremlin API-konto.
 
@@ -154,7 +155,7 @@ Svaret på en executionProfile ()-funktion kommer att ge en hierarki med JSON-ob
     - `storeOps.count`: Representerar antalet resultat som den här lagrings åtgärden returnerade.
     - `storeOps.size`: Representerar storleken i byte för resultatet av en specifik lagrings åtgärd.
 
-Cosmos DB Gremlin runtime-operator|Description
+Cosmos DB Gremlin runtime-operator|Beskrivning
 ---|---
 `GetVertices`| Det här steget hämtar en predikat uppsättning objekt från beständiga skiktet. 
 `GetEdges`| Det här steget hämtar de kanter som gränsar till en uppsättning formhörn. Det här steget kan resultera i en eller flera lagrings åtgärder.

@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB resurs modell
+title: Resursmodell för Azure Cosmos DB
 description: I den här artikeln beskrivs Azure Cosmos DB resurs modell som innehåller Azure Cosmos-kontot, databasen, behållaren och objekten. Den omfattar också hierarkin för dessa element i ett Azure Cosmos-konto.
 author: markjbrown
 ms.author: mjbrown
@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1178a5e2850279820925c9bd02554ec7d5adf9e6
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 23adbd289ae2be484f1aef86b2224097c6ba489c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284603"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087935"
 ---
-# <a name="azure-cosmos-db-resource-model"></a>Azure Cosmos DB resurs modell
+# <a name="azure-cosmos-db-resource-model"></a>Resursmodell för Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB är en fullständigt hanterad PaaS-tjänst (Platform-as-a-Service). Om du vill börja använda Azure Cosmos DB bör du först skapa ett Azure Cosmos-konto i din Azure-prenumeration och databaser, behållare, objekt under det. I den här artikeln beskrivs Azure Cosmos DB resurs modell och olika entiteter i resurs modellens hierarki.
 
@@ -41,7 +42,7 @@ Du kan skapa en eller flera Azure Cosmos-databaser under ditt konto. En databas 
 
 | Azure Cosmos-entitet | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-databas | Databasen | Keyspace | Databasen | Databasen | Ej tillämpligt |
+|Azure Cosmos-databas | Databas | Keyspace | Databas | Databas | Ej tillämpligt |
 
 > [!NOTE]
 > När du skapar din första tabell med Tabell-API-konton skapas en standard databas automatiskt i ditt Azure Cosmos-konto.
@@ -52,10 +53,10 @@ Du kan interagera med en Azure Cosmos-databas med Azure Cosmos-API: er enligt be
 
 | Åtgärd | Azure CLI | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- |
-|Räkna upp alla databaser| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | Ej tillämpligt |
-|Läs databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | Ej tillämpligt |
-|Skapa ny databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | Ej tillämpligt |
-|Uppdatera databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | Ej tillämpligt |
+|Räkna upp alla databaser| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | Ej tillämpligt |
+|Läs databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | Ej tillämpligt |
+|Skapa ny databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | Ej tillämpligt |
+|Uppdatera databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | Ej tillämpligt |
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos-containrar
 
@@ -63,16 +64,16 @@ En Azure Cosmos-behållare är enhets skalbarhet både för allokerat data flöd
 
 När du skapar en behållare konfigurerar du data flödet i något av följande lägen:
 
-* **Dedikerat allokerat data flödes läge**: det data flöde som har allokerats på en behållare är exklusivt reserverat för den behållaren och den backas upp av service avtal. Mer information finns i [så här etablerar du data flöde på en behållare](how-to-provision-container-throughput.md).
+* **Dedikerat allokerat data flödes läge** : det data flöde som har allokerats på en behållare är exklusivt reserverat för den behållaren och den backas upp av service avtal. Mer information finns i [så här etablerar du data flöde på en behållare](how-to-provision-container-throughput.md).
 
-* **Delat etablerat data flödes läge**: de här behållarna delar det etablerade data flödet med andra behållare i samma databas (exklusive behållare som har kon figurer ATS med dedikerat etablerat data flöde). Med andra ord delas det etablerade data flödet på databasen över alla "delade data flöde"-behållare. Mer information finns i [så här etablerar du data flöde i en databas](how-to-provision-database-throughput.md).
+* **Delat etablerat data flödes läge** : de här behållarna delar det etablerade data flödet med andra behållare i samma databas (exklusive behållare som har kon figurer ATS med dedikerat etablerat data flöde). Med andra ord delas det etablerade data flödet på databasen över alla "delade data flöde"-behållare. Mer information finns i [så här etablerar du data flöde i en databas](how-to-provision-database-throughput.md).
 
 > [!NOTE]
 > Du kan bara konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. Om du vill byta från dedikerat dataflödesläge till delat dataflödesläge (och vice versa) efter det att containern har skapats måste du skapa en ny container och migrera data till den nya containern. Du kan migrera data med hjälp av funktionen Azure Cosmos DB ändra feed.
 
 En Azure Cosmos-behållare kan skala elastiskt, oavsett om du skapar behållare med hjälp av dedikerade eller delade allokerade data flödes lägen.
 
-En behållare är en schema-oberoende behållare med objekt. Objekt i en behållare kan ha godtyckliga scheman. Till exempel kan ett objekt som representerar en person och ett objekt som representerar en bil placeras i *samma behållare*. Som standard indexeras alla objekt som du lägger till i en behållare automatiskt utan att det krävs explicita index eller schema hantering. Du kan anpassa indexerings beteendet genom att konfigurera [indexerings principen](index-overview.md) på en behållare. 
+En behållare är en schema-oberoende behållare med objekt. Objekt i en behållare kan ha godtyckliga scheman. Till exempel kan ett objekt som representerar en person och ett objekt som representerar en bil placeras i *samma behållare* . Som standard indexeras alla objekt som du lägger till i en behållare automatiskt utan att det krävs explicita index eller schema hantering. Du kan anpassa indexerings beteendet genom att konfigurera [indexerings principen](index-overview.md) på en behållare. 
 
 Du kan ställa in [Time to Live (TTL)](time-to-live.md) på valda objekt i en behållare eller för hela behållaren för att på ett städat sätt Rensa objekten från systemet. Azure Cosmos DB tar automatiskt bort objekten när de upphör att gälla. Det garanterar också att en fråga som utförs på behållaren inte returnerar de inaktuella objekten inom en fast bindning. Läs mer i [Konfigurera TTL på din behållare](how-to-time-to-live.md).
 

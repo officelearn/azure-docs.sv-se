@@ -12,14 +12,19 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: eb657c16f6f3ff67f4379134f3aa478f10d8ef94
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1cdcf6a7aeee6618177440aaef6f488a31870b49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85603544"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087850"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Vad är API:et för bildsökning i Bing?
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Med API:et för bildsökning i Bing kan du använda Bings bildsökningsfunktioner i programmet. Genom att skicka sökfrågor till API:et kan du hämta högkvalitativa bilder på samma sätt som på [bing.com/images](https://www.bing.com/images).
 

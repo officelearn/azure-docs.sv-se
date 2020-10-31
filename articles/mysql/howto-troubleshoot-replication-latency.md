@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791587"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087034"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Felsök replikeringsfördröjning i Azure Database for MySQL
 
@@ -236,6 +236,9 @@ I Azure Database for MySQL optimeras replikeringen som standard för att köras 
 Parametern binlog_group_commit_sync_delay styr hur många mikrosekunder den binära loggen ska vänta innan den binära logg filen synkroniseras. Fördelen med den här parametern är att i stället för att omedelbart tillämpa varje genomförd transaktion skickar käll servern de binära logg uppdateringarna i bulk. Den här fördröjningen minskar IO på repliken och förbättrar prestandan. 
 
 Det kan vara praktiskt att ange binlog_group_commit_sync_delay parametern till 1000 eller så. Övervaka sedan replikeringsfördröjning. Ange den här parametern försiktigt och Använd den endast för arbets belastningar med hög samtidighet. 
+
+> [!IMPORTANT] 
+> I replik servern rekommenderas binlog_group_commit_sync_delay parameter vara 0. Detta rekommenderas eftersom till skillnad från käll servern, men replik servern inte har hög samtidighet och ökning av värdet för binlog_group_commit_sync_delay på replik servern kan oavsiktligt orsaka att fördröjningen för replikering ökar.
 
 För arbets belastningar med låg concurrency som innehåller många singleton-transaktioner kan binlog_group_commit_sync_delays inställningen öka svars tiden. Svars tiden kan öka eftersom IO-tråden väntar på Mass binära logg uppdateringar, även om bara några få transaktioner har genomförts. 
 

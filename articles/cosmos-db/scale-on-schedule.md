@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 56fa87cfec7f50253dfce7d7c296ff7cb980aebe
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1db64ecc231a55e59321a5c94097668f3ddc91d8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482017"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085419"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Skala Azure Cosmos DB genom att använda Azure Functions timer-utlösare
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Prestanda för ett Azure Cosmos-konto baseras på mängden allokerat data flöde som uttrycks i enheter för programbegäran per sekund (RU/s). Etableringen är i en andra kornig het och faktureras baserat på flest RU/s per timme. Den här etablerade kapacitets modellen gör det möjligt för tjänsten att tillhandahålla ett förutsägbart och konsekvent data flöde, garanterad låg latens och hög tillgänglighet. De flesta produktions arbets belastningar de här funktionerna. I utvecklings-och testnings miljöer där Azure Cosmos DB endast används under arbets tid kan du skala upp data flödet i morgon och skala upp i kväll efter arbets tid.
 
@@ -25,6 +26,6 @@ För att förenkla processen att skala Azure Cosmos DB enligt ett schema har vi 
 
 Du kan klona det här projektet lokalt, ändra det för att ange Azure Cosmos DB resurser som ska skalas upp och ned och schemat ska köras. Senare kan du distribuera den i en Azure-prenumeration och skydda den med hjälp av hanterad tjänst identitet med [Azures rollbaserade åtkomst kontroll (Azure RBAC)](role-based-access-control.md) -behörigheter med rollen "Azure Cosmos DB operatör" för att ange data flöde för dina Azure Cosmos-konton.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Läs mer och hämta exemplet från [Azure Cosmos DB Scheduler Scheduler](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler).

@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357224"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085181"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
 
@@ -69,7 +69,7 @@ Klustret innehåller två under träd: ett för program och ett annat för noder
 
 Du kan använda vyn program för att navigera genom Service Fabricens logiska hierarki: program, tjänster, partitioner och repliker.
 
-I exemplet nedan består programmet **MyApp** av två tjänster, **MyStatefulService** och **WebService**. Eftersom **MyStatefulService** är tillstånds känsligt, innehåller den en partition med en primär och två sekundära repliker. Däremot är WebSvcService tillstånds lös och innehåller en enda instans.
+I exemplet nedan består programmet **MyApp** av två tjänster, **MyStatefulService** och **WebService** . Eftersom **MyStatefulService** är tillstånds känsligt, innehåller den en partition med en primär och två sekundära repliker. Däremot är WebSvcService tillstånds lös och innehåller en enda instans.
 
 ![Service Fabric Explorer programvy][sfx-application-tree]
 
@@ -83,7 +83,7 @@ Nodvyn visar klustrets fysiska layout. För en viss nod kan du inspektera vilka 
 ## <a name="actions"></a>Åtgärder
 Service Fabric Explorer erbjuder ett snabbt sätt att anropa åtgärder på noder, program och tjänster i klustret.
 
-Om du till exempel vill ta bort en program instans väljer du programmet i trädet till vänster och väljer sedan **åtgärder**  >  **ta bort program**.
+Om du till exempel vill ta bort en program instans väljer du programmet i trädet till vänster och väljer sedan **åtgärder**  >  **ta bort program** .
 
 ![Ta bort ett program i Service Fabric Explorer][sfx-delete-application]
 
@@ -117,7 +117,7 @@ EventStore är en funktion som erbjuds av plattformen som tillhandahåller Servi
 ## <a name="image-store-viewer"></a>Avbildningsarkiv Viewer
 Image Store Viewer är en funktion som erbjuds om du använder interna Avbildningsarkiv som gör det möjligt att visa det aktuella innehållet i avbildnings arkivet och Hämta fil-och resursinformation, tillsammans med att ta bort filer/mappar.
 
-![Service Fabric Explorer kluster mappning][sfx-imagestore]
+![Skärm bild som visar Avbildningsarkiv Viewer.][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Säkerhetskopiera och återställ
 Service Fabric Explorer ger möjlighet att gränssnitt för [säkerhets kopiering och återställning](./service-fabric-reliable-services-backup-restore.md). För att kunna se säkerhets kopierings-och återställnings funktioner i SFX måste du aktivera avancerat läge.

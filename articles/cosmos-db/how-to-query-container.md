@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3c363552d1a196bed49e1ef3448a8216b7bcae2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276118"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086065"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Köra frågor mot en Azure Cosmos-container
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här artikeln beskriver hur du kör frågor mot en container (samling, graf eller tabell) i Azure Cosmos DB. I synnerhet täcker det hur frågor på partition och kors partition fungerar i Azure Cosmos DB.
 
@@ -57,9 +58,9 @@ Azure Cosmos DB SDK:erna 1.9.0 och senare stöder alternativ för parallell frå
 
 Du kan hantera parallell frågekörning genom att justera följande parametrar:
 
-- **MaxConcurrency**: anger det högsta antalet samtidiga nätverks anslutningar till behållarens partitioner. Om du ställer in den här egenskapen på `-1` , hanterar SDK graden av parallellitet. Om det  `MaxConcurrency` är inställt på `0` , finns det en enda nätverks anslutning till behållarens partitioner.
+- **MaxConcurrency** : anger det högsta antalet samtidiga nätverks anslutningar till behållarens partitioner. Om du ställer in den här egenskapen på `-1` , hanterar SDK graden av parallellitet. Om det  `MaxConcurrency` är inställt på `0` , finns det en enda nätverks anslutning till behållarens partitioner.
 
-- **MaxBufferedItemCount**: Avväger frågesvarstid kontra minnesanvändning på klientsidan. Om det här alternativet utelämnas eller anges till -1 hanterar SDK:n antalet objekt som buffras under en parallell frågekörning.
+- **MaxBufferedItemCount** : Avväger frågesvarstid kontra minnesanvändning på klientsidan. Om det här alternativet utelämnas eller anges till -1 hanterar SDK:n antalet objekt som buffras under en parallell frågekörning.
 
 På grund av Azure Cosmos DBs möjlighet att parallellisera frågor över olika partitioner, kommer fråge svars tiden ofta att skalas och systemet lägger till [fysiska partitioner](partitioning-overview.md#physical-partitions). Avgifterna för RU kommer dock att öka markant eftersom det totala antalet fysiska partitioner ökar.
 

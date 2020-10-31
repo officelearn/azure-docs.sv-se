@@ -7,14 +7,15 @@ ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperfq1
-ms.openlocfilehash: f747cc6405cef07510766bcfa4c826aec9d9857b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 79e2b58ea342c9449faba108881c65d0bd8de856
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490415"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085810"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Exportera Azure Cosmos DB emulator-certifikat för användning med Java-, python-och Node.js-appar
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB-emulatorn ger en lokal miljö som emulerar Azure Cosmos DB-tjänsten för utveckling. Azure Cosmos-emulatorn har endast stöd för säker kommunikation via TLS-anslutningar.
 
@@ -30,35 +31,35 @@ Den här artikeln visar hur du exporterar TLS/SSL-certifikat för användning i 
 
 Du måste exportera emulator-certifikatet för att kunna använda emulatorns slut punkt från språk och körnings miljöer som inte integreras med Windows certifikat arkiv. Du kan exportera certifikatet med hjälp av certifikat hanteraren i Windows. Använd följande steg-för-steg-instruktioner för att exportera "DocumentDBEmulatorCertificate"-certifikatet som en BASE-64-kodad X. 509-fil (. cer):
 
-1. Starta certifikathanteraren i Windows genom att köra certlm.msc och gå till mappen Personligt -> Certifikat. Öppna certifikatet med namnet **DocumentDbEmulatorCertificate**.
+1. Starta certifikathanteraren i Windows genom att köra certlm.msc och gå till mappen Personligt -> Certifikat. Öppna certifikatet med namnet **DocumentDbEmulatorCertificate** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png" alt-text="Steg 1 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 
-1. Klicka på **Detaljer** och sedan **OK**.
+1. Klicka på **Detaljer** och sedan **OK** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png" alt-text="Steg 1 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 
-1. Klicka på **Kopiera till fil...**.
+1. Klicka på **Kopiera till fil...** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png" alt-text="Steg 1 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 
-1. Klicka på **Nästa**.
+1. Klicka på **Nästa** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png" alt-text="Steg 1 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 
-1. Klicka på **Nej, exportera inte den privata nyckeln** och sedan på **Nästa**.
+1. Klicka på **Nej, exportera inte den privata nyckeln** och sedan på **Nästa** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png" alt-text="Steg 1 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 
-1. Klicka på **Base-64 encoded X.509 (.CER)** och sedan på **Nästa**.
+1. Klicka på **Base-64 encoded X.509 (.CER)** och sedan på **Nästa** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png" alt-text="Steg 1 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 
-1. Ge certifikatet ett namn. I det här fallet är det **documentdbemulatorcert**. Klicka sedan på **Nästa**.
+1. Ge certifikatet ett namn. I det här fallet är det **documentdbemulatorcert** . Klicka sedan på **Nästa** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png" alt-text="Steg 1 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 
-1. Klicka på **Finish**.
+1. Klicka på **Finish** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png" alt-text="Steg 1 för att exportera den lokala Azure Cosmos DB-emulatorn":::
 

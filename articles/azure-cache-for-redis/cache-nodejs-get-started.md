@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Använd Azure cache för Redis med Node.js'
+title: 'Snabb start: Använd Azure cache för Redis i Node.js'
 description: I den här snabbstarten lär du dig att använda Azure Cache for Redis med Node.js och node_redis.
 author: yegu-ms
 ms.service: cache
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: ce570475617236bb99f1bca7a07dc95e1f3285aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa22cffc1fc38e055c6c2bb504c311c012f31ac2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91331003"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087153"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Snabb start: Använd Azure cache för Redis med Node.js
+# <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>Snabb start: Använd Azure cache för Redis i Node.js
 
 I den här snabb starten införlivar du Azure cache för Redis i en Node.js-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
 
@@ -51,11 +51,11 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
     {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
 ```
 
-Skapa inte nya anslutningar för alla åtgärder i koden. Återanvänd istället anslutningar så mycket som möjligt. 
+Skapa inte en ny anslutning för varje åtgärd i din kod. Återanvänd istället anslutningar så mycket som möjligt. 
 
 ## <a name="create-a-new-nodejs-app"></a>Skapa en ny Node.js-app
 
-Skapa en ny skriptfil med namnet *redistest.js*. Använd kommandot `npm install redis bluebird` för att installera nödvändiga paket.
+Skapa en ny skriptfil med namnet *redistest.js* . Använd kommandot `npm install redis bluebird` för att installera nödvändiga paket.
 
 Lägg till följande JavaScript-exempel i filen. Den här koden visar hur du ansluter till en Azure Cache for Redis-instans med hjälp av cache-värdnamnet och viktiga miljövariabler. Koden lagrar och hämtar även ett strängvärde i cacheminnet. Kommandona `PING` och `CLIENT LIST` körs också. Fler exempel på hur du använder Redis med [node_redis](https://github.com/mranney/node_redis)-klienten finns på [https://redis.js.org/](https://redis.js.org/).
 
@@ -119,13 +119,13 @@ Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna 
 > Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 >
 
-Logga in på [Azure Portal](https://portal.azure.com) och välj **Resursgrupper**.
+Logga in på [Azure Portal](https://portal.azure.com) och välj **Resursgrupper** .
 
-I text rutan **Filtrera efter namn** anger du namnet på din resurs grupp. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. I resurs gruppen i resultat listan väljer du **...** och sedan **ta bort resurs grupp**.
+I text rutan **Filtrera efter namn** anger du namnet på din resurs grupp. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources* . I resurs gruppen i resultat listan väljer du **...** och sedan **ta bort resurs grupp** .
 
 ![Ta bort Azure-resurs grupp](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
-Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på resurs gruppen som ska bekräftas och välj **ta bort**.
+Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på resurs gruppen som ska bekräftas och välj **ta bort** .
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 

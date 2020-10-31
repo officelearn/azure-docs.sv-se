@@ -10,20 +10,25 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 532bf806789476c1ec901c1e4ac8522451819625
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872076"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085130"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Söka efter entiteter med entitets-API:t i Bing
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 ## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Föreslå söktermer med API:t Automatiska förslag i Bing
 
 Om du tillhandahåller en sökruta där användaren anger sin sökterm bör du använda [API för automatiska förslag i Bing ](../../bing-autosuggest/get-suggested-search-terms.md) för att ge bättre funktioner. API:t returnerar föreslagna frågesträngar baserat på partiella söktermer som användaren skriver in.
 
-När användaren har angett sin sökterm kodar URL:en termen innan den ställer in [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query) frågeparametern. Om användaren till exempel anger *Marcus Appel* anger du `q` till *Marcus + Appel* eller *Marcus%20Appel*.
+När användaren har angett sin sökterm kodar URL:en termen innan den ställer in [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query) frågeparametern. Om användaren till exempel anger *Marcus Appel* anger du `q` till *Marcus + Appel* eller *Marcus%20Appel* .
 
 Om söktermen innehåller en felstavning inkluderar söksvaret ett [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext)-objekt. Objektet visar den ursprungliga stavningen och den korrigerade stavningen som Bing använde för sökningen.
 
@@ -189,7 +194,7 @@ Platser omfattar restauranger, hotell och lokala företag. Fältet [entityPresen
 > [!NOTE]
 > Entitetssvar stöder flera marknader, men svaret för platser stöder endast företagsplatser i USA. 
 
-Platsmedvetna entitetsfrågor såsom *restaurang nära mig* kräver användarens plats för att tillhandahålla korrekta resultat. Dina begäranden bör alltid använda sidhuvidena X-Search-Location och X-MSEdge-ClientIP för att ange användarens plats. Om Bing tror frågan skulle kunna dra nytta av användarens plats anger fältet `askUserForLocation` i [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) till **sant**. 
+Platsmedvetna entitetsfrågor såsom *restaurang nära mig* kräver användarens plats för att tillhandahålla korrekta resultat. Dina begäranden bör alltid använda sidhuvidena X-Search-Location och X-MSEdge-ClientIP för att ange användarens plats. Om Bing tror frågan skulle kunna dra nytta av användarens plats anger fältet `askUserForLocation` i [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) till **sant** . 
 
 ```json
 {

@@ -8,14 +8,16 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5537b70f9852f5b5a17362c13e2c9b8e8e9fc43c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9350682f7c636979df4dcde0c43a3b4941ad6ebb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570613"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085780"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Regionala slut punkter för Azure Cosmos DB diagram konto
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 Azure Cosmos DB Graph Database [distribueras globalt](distribute-data-globally.md) så att program kan använda flera Läs-slut punkter. Program som behöver skriv åtkomst på flera platser bör aktivera kapacitet för [flera regioner](how-to-multi-master.md) .
 
 Skäl att välja fler än en region:
@@ -28,7 +30,7 @@ Krav för **data placering** uppnås genom att ange Azure Resource Manager princ
 
 Cosmos DB Graph Database Engine körs i flera regioner, som var och en innehåller flera kluster. Varje kluster har hundratals datorer. Cosmos DB Graph-konto DNS CNAME- *AccountName.Gremlin.Cosmos.Azure.com* matchas mot DNS A-post för ett kluster. En enskild IP-adress för en belastningsutjämnare döljer intern kluster sto pol Ogin.
 
-En regional DNS CNAME-post skapas för alla regioner i Cosmos DB Graph-konto. Formatet på den regionala slut punkten är *AccountName-region.Gremlin.Cosmos.Azure.com*. Region segmentet för den regionala slut punkten erhålls genom att ta bort alla blank steg från [Azures region](https://azure.microsoft.com/global-infrastructure/regions) namn. `"East US 2"`Region för `"contoso"` globalt databas konto skulle till exempel ha en DNS CNAME- *contoso-eastus2.Gremlin.Cosmos.Azure.com*
+En regional DNS CNAME-post skapas för alla regioner i Cosmos DB Graph-konto. Formatet på den regionala slut punkten är *AccountName-region.Gremlin.Cosmos.Azure.com* . Region segmentet för den regionala slut punkten erhålls genom att ta bort alla blank steg från [Azures region](https://azure.microsoft.com/global-infrastructure/regions) namn. `"East US 2"`Region för `"contoso"` globalt databas konto skulle till exempel ha en DNS CNAME- *contoso-eastus2.Gremlin.Cosmos.Azure.com*
 
 TinkerPop Gremlin-klienten är utformad för att fungera med en enda server. Programmet kan använda global skrivbar DNS CNAME för Läs-och Skriv trafik. Region medveten program ska använda regionala slut punkter för Läs trafik. Använd endast regional slut punkt för Skriv trafik om en speciell region har kon figurer ATS för att godkänna skrivningar. 
 

@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 70eecc7843867a5832d962b7efaecda1b6ab4ae4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3c2af7f33135a8c6621db233451231ffa89c2d64
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284515"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086167"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-gremlin-api-resources"></a>Etablera databas, container eller autoskalning av data flöde på Azure Cosmos DB Gremlin API-resurser
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Den här artikeln beskriver hur du etablerar data flöde i Azure Cosmos DB Gremlin-API. Du kan etablera standard (manuell) eller autoskalning genom strömning på en behållare, eller en databas och dela den mellan behållarna i databasen. Du kan etablera data flöde med hjälp av Azure Portal, Azure CLI eller Azure Cosmos DB SDK: er.
 
@@ -27,13 +28,13 @@ Om du använder ett annat API, se [SQL API](how-to-provision-container-throughpu
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-mongodb-dotnet.md#create-a-database-account)eller Välj ett befintligt Azure Cosmos-konto.
 
-1. Öppna rutan **Datautforskaren** och välj **Ny graf**. Ange därefter följande information:
+1. Öppna rutan **Datautforskaren** och välj **Ny graf** . Ange därefter följande information:
 
    * Ange om du skapar en ny databas eller använder en befintlig. Välj **data flödes alternativet etablera databas** om du vill etablera data flöde på databas nivå.
    * Ange ett graf-ID.
    * Ange ett partitionsnyckelvärde (till exempel `/ItemID`).
    * Ange ett data flöde som du vill etablera (till exempel 1000 ru: er).
-   * Välj **OK**.
+   * Välj **OK** .
 
     :::image type="content" source="./media/how-to-provision-throughput-gremlin/provision-database-throughput-portal-gremlin-api.png" alt-text="Skärm bild av Datautforskaren när du skapar en ny graf med data flöde på databas nivå":::
 

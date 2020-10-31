@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 347da75d8e3f58d3875b02000d74533b36a9b18c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 63de1c970a118ddf24c52e7e14a0632a4eee7fba
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486114"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086303"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Etablera standard (manuell) genom strömning på en databas i Azure Cosmos DB-SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här artikeln beskriver hur du etablerar standard-genomflödet (manuellt) i en databas i Azure Cosmos DB SQL API. Du kan etablera data flöde för en enskild [behållare](how-to-provision-container-throughput.md), eller för en databas och dela data flödet bland behållare i den. Information om hur du använder data flödes nivå och databas nivå genom strömning finns i avsnittet [användnings fall för etablering av data flöde på behållare och databaser](set-throughput.md) . Du kan etablera dataflöde på databasnivå med hjälp av Azure-portalen eller Azure Cosmos DB-SDK:er.
 
@@ -26,12 +27,12 @@ Om du använder ett annat API, se [API för MongoDB](how-to-provision-throughput
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account)eller Välj ett befintligt Azure Cosmos-konto.
 
-1. Öppna rutan **Data Explorer** och välj **Ny databas**. Ange följande information:
+1. Öppna rutan **Data Explorer** och välj **Ny databas** . Ange följande information:
 
    * Ange ett databas-ID.
    * Välj **data flödes alternativet etablera databas** .
    * Ange ett dataflöde (till exempel 1000 RU:er).
-   * Välj **OK**.
+   * Välj **OK** .
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Skärmbild av dialogrutan Ny databas":::
 

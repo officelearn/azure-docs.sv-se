@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5a8351b8c74f9219cf14575cc326fa8049264ed7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4977a9ef8af75797f1e1989975688d7904f0c7b1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491129"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086456"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Hantera ett Azure Cosmos-konto
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här artikeln beskriver hur du hanterar olika uppgifter i ett Azure Cosmos-konto med hjälp av Azure-portalen, Azure PowerShell, Azure CLI och Azure Resource Manager-mallar.
 
@@ -47,7 +48,7 @@ Information om hur du [skapar Azure Cosmos DB konto med Azure Resource Manager m
 
 1. Om du vill ta bort regioner avmarkerar du en eller flera regioner från kartan genom att välja de blå sexhörningarna med kryssmarkeringar. Eller välj ”papperskorgsikonen” (🗑) intill regionen på höger sida.
 
-1. Spara ändringarna genom att välja **OK**.
+1. Spara ändringarna genom att välja **OK** .
 
    :::image type="content" source="./media/how-to-manage-database-account/add-region.png" alt-text="Lägga till eller ta bort regionsmenyn":::
 
@@ -147,13 +148,13 @@ Med alternativet automatisk redundans kan Azure Cosmos DB redundansväxla till d
 
 1. Öppna fönstret **replikera data globalt** från ditt Azure Cosmos-konto.
 
-2. Längst upp i fönsterrutan väljer du **Automatisk redundans**.
+2. Längst upp i fönsterrutan väljer du **Automatisk redundans** .
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Lägga till eller ta bort regionsmenyn":::
 
-3. I fönsterrutan **Automatisk redundans** ser du till att **Aktivera automatisk redundans** är inställt på **PÅ**. 
+3. I fönsterrutan **Automatisk redundans** ser du till att **Aktivera automatisk redundans** är inställt på **PÅ** . 
 
-4. Välj **Spara**.
+4. Välj **Spara** .
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Lägga till eller ta bort regionsmenyn":::
 
@@ -176,15 +177,15 @@ När ett Cosmos-konto har kon figurer ATS för automatisk redundans kan växling
 
 1. Öppna fönstret **replikera data globalt** från ditt Azure Cosmos-konto.
 
-2. Längst upp i fönsterrutan väljer du **Automatisk redundans**.
+2. Längst upp i fönsterrutan väljer du **Automatisk redundans** .
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Lägga till eller ta bort regionsmenyn":::
 
-3. I fönsterrutan **Automatisk redundans** ser du till att **Aktivera automatisk redundans** är inställt på **PÅ**.
+3. I fönsterrutan **Automatisk redundans** ser du till att **Aktivera automatisk redundans** är inställt på **PÅ** .
 
 4. Du ändrar redundansprioritet genom att dra läsregionerna via de tre punkterna till vänster om raden som visas när du hovrar över dem.
 
-5. Välj **Spara**.
+5. Välj **Spara** .
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Lägga till eller ta bort regionsmenyn":::
 
@@ -210,13 +211,13 @@ Processen för att utföra en manuell redundansväxling innebär att ändra kont
 
 1. Gå till ditt Azure Cosmos-konto och öppna menyn **replikera data globalt** .
 
-2. Längst upp på menyn väljer du **Manuell redundans**.
+2. Längst upp på menyn väljer du **Manuell redundans** .
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Lägga till eller ta bort regionsmenyn":::
 
 3. På menyn **Manuell redundans** väljer du din nya skrivregion. Markera kryssrutan för att bekräfta att du förstår att det här alternativet ändrar din skrivregion.
 
-4. Utlös redundansväxlingen genom att välja **OK**.
+4. Utlös redundansväxlingen genom att välja **OK** .
 
    :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Lägga till eller ta bort regionsmenyn":::
 

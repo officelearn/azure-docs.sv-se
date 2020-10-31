@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 5db5cc515e2fbecfaeb58b9e1c02dd0bc6eda375
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5939690d3f2c0bb9affa3e2fb425b909b96cf002
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86503361"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087629"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Aggregate operations on Azure Cosmos DB Cassandra API tables from Spark (Mängdåtgärder i Azure Cosmos DB med API för Cassandra-tabeller från Spark) 
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 I den här artikeln beskrivs grundläggande aggregeringsåtgärder mot Azure Cosmos DB med API för Cassandra-tabeller från Spark. 
 

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 340ec7c16c5ed3e477cc2c4505c8b018d2d39a06
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7cf0f91a655901373b02a51004cf77eb25c8cf8e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486012"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085895"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurera Time to Live i Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Du kan välja att konfigurera Time to Live (TTL) på containernivån i Azure Cosmos DB, eller så kan du åsidosätta det på en objektnivå när du har ställt in containern. Du kan konfigurera TTL för en container med hjälp av Azure-portalen eller språkspecifika SDK:er. Åsidosättningar av TTL på objektnivå kan konfigureras med hjälp av SDK:erna.
 
@@ -28,12 +29,12 @@ Använd följande steg för att aktivera TTL för en container utan upphörande.
 
 2. Skapa ett nytt Azure Cosmos DB-konto eller välj ett befintligt konto.
 
-3. Öppna fönstret **Datautforskaren**.
+3. Öppna fönstret **Datautforskaren** .
 
 4. Välj en befintlig container, expandera den och ändra följande värden:
 
    * Öppna fönstret **Scale & Settings** (Skalning och inställningar).
-   * Under **Inställning** letar du upp **Time to Live**.
+   * Under **Inställning** letar du upp **Time to Live** .
    * Välj **På (inte standard)** eller välj **På** och ange ett TTL-värde
    * Klicka på **Spara** för att spara ändringarna.
 
@@ -212,16 +213,16 @@ Använd följande steg för att aktivera Time to Live på ett objekt:
 
 2. Skapa ett nytt Azure Cosmos DB-konto eller välj ett befintligt konto.
 
-3. Öppna fönstret **Datautforskaren**.
+3. Öppna fönstret **Datautforskaren** .
 
 4. Välj en befintlig container, expandera den och ändra följande värden:
 
    * Öppna fönstret **Scale & Settings** (Skalning och inställningar).
-   * Under **Inställning** letar du upp **Time to Live**.
+   * Under **Inställning** letar du upp **Time to Live** .
    * Välj **på (inget standardvärde)** eller Välj **på** och ange ett TTL-värde. 
    * Klicka på **Spara** för att spara ändringarna.
 
-5. Gå sedan till det objekt som du vill ange TTL för, Lägg till `ttl` egenskapen och välj **Uppdatera**. 
+5. Gå sedan till det objekt som du vill ange TTL för, Lägg till `ttl` egenskapen och välj **Uppdatera** . 
 
    ```json
    {

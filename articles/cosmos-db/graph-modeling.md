@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
-ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0d77c93e4103082a759df64fcafaefc1a1069de8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490636"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087391"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Diagram data modellering för Azure Cosmos DB Gremlin-API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Följande dokument är utformat för att ge rekommendationer för diagram data modellering. Det här steget är viktigt för att säkerställa skalbarheten och prestandan i ett diagram system som data utvecklas. En effektiv data modell är särskilt viktig med storskaliga diagram.
 
@@ -30,22 +31,22 @@ Den process som beskrivs i den här guiden baseras på följande antaganden:
 En diagram databas lösning kan tillämpas optimalt om entiteterna och relationerna i en data domän har någon av följande egenskaper: 
 
 * Entiteterna är **mycket anslutna** via beskrivande relationer. Fördelen med det här scenariot är att relationerna är bestående av lagring.
-* Det finns **cykliska relationer** eller **självrefererade entiteter**. Det här mönstret är ofta en utmaning när du använder Relations-eller dokument databaser.
+* Det finns **cykliska relationer** eller **självrefererade entiteter** . Det här mönstret är ofta en utmaning när du använder Relations-eller dokument databaser.
 * Det finns **dynamiskt växande relationer** mellan entiteter. Det här mönstret gäller särskilt för hierarkiska eller träd strukturerade data med många nivåer.
 * Det finns **många-till-många-relationer** mellan entiteter.
-* Det finns **Skriv-och Läs krav för både entiteter och relationer**. 
+* Det finns **Skriv-och Läs krav för både entiteter och relationer** . 
 
-Om ovanstående villkor är uppfyllt är det troligt att en diagram databas metod ger fördelar för att **fråga komplexitet**, **skalbarhet för data modeller**och **fråga om prestanda**.
+Om ovanstående villkor är uppfyllt är det troligt att en diagram databas metod ger fördelar för att **fråga komplexitet** , **skalbarhet för data modeller** och **fråga om prestanda** .
 
 Nästa steg är att avgöra om grafen ska användas för analys-eller transaktions syfte. Om grafen är avsedd att användas för tung beräkning och data bearbetnings arbets belastningar, skulle det vara värt att utforska [Cosmos DB Spark-anslutaren](./spark-connector.md) och användningen av [Graphx-biblioteket](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Använda diagram objekt
 
-[Apache Tinkerpop-egenskapen Graph standard](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) definierar två typer av objekt **hörn** och **kanter**. 
+[Apache Tinkerpop-egenskapen Graph standard](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) definierar två typer av objekt **hörn** och **kanter** . 
 
 Här följer de rekommenderade metoderna för egenskaperna i graf-objekten:
 
-| Objekt | Egenskap | Typ | Anteckningar |
+| Objekt | Egenskap | Typ | Kommentarer |
 | --- | --- | --- |  --- |
 | Punkten | ID | Sträng | Används unikt per partition. Om ett värde inte anges vid infogning, lagras ett GUID som genereras automatiskt. |
 | Punkten | etikett | Sträng | Den här egenskapen används för att definiera den typ av entitet som hörnen representerar. Om ett värde inte anges används ett standardvärde "hörn". |
@@ -67,15 +68,15 @@ Följande är en uppsättning rikt linjer för att använda data modellering fö
 
 ### <a name="modeling-vertices-and-properties"></a>Modellerings hörn och egenskaper 
 
-Det första steget för en diagram data modell är att mappa varje identifierad entitet till ett **hörn objekt**. En en-till-en-mappning av alla entiteter till hörn måste vara ett inledande steg och komma att ändras.
+Det första steget för en diagram data modell är att mappa varje identifierad entitet till ett **hörn objekt** . En en-till-en-mappning av alla entiteter till hörn måste vara ett inledande steg och komma att ändras.
 
 En gemensam Pitfall är att mappa egenskaper för en enskild entitet som separata hörn. Tänk på exemplet nedan, där samma entitet representeras på två olika sätt:
 
-* **Hörnbaserade egenskaper**: i den här metoden använder entiteten tre separata hörn och två kanter för att beskriva dess egenskaper. Även om den här metoden kan minska redundansen ökar modell komplexiteten. En ökning av modell komplexiteten kan leda till ökad latens, fråga om komplexitet och beräknings kostnader. Den här modellen kan också presentera utmaningar vid partitionering.
+* **Hörnbaserade egenskaper** : i den här metoden använder entiteten tre separata hörn och två kanter för att beskriva dess egenskaper. Även om den här metoden kan minska redundansen ökar modell komplexiteten. En ökning av modell komplexiteten kan leda till ökad latens, fråga om komplexitet och beräknings kostnader. Den här modellen kan också presentera utmaningar vid partitionering.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Enhets modell med hörn för egenskaper." border="false":::
 
-* **Egenskap – inbäddade hörn**: den här metoden utnyttjar nyckel värde par listan för att representera alla egenskaper för entiteten i ett hörn. Den här metoden ger minskad modell komplexitet, vilket leder till enklare frågor och kostnads effektiva bläddringskontroll.
+* **Egenskap – inbäddade hörn** : den här metoden utnyttjar nyckel värde par listan för att representera alla egenskaper för entiteten i ett hörn. Den här metoden ger minskad modell komplexitet, vilket leder till enklare frågor och kostnads effektiva bläddringskontroll.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Enhets modell med hörn för egenskaper." border="false":::
 
@@ -88,7 +89,7 @@ Det finns dock scenarier där referenser till en egenskap kan ge fördelar. Exem
 
 ### <a name="relationship-modeling-with-edge-directions"></a>Relations modellering med kant riktningar
 
-När hörnen har modeller ATS kan kanterna läggas till för att beteckna relationerna mellan dem. Den första aspekt som måste utvärderas är **riktningen på relationen**. 
+När hörnen har modeller ATS kan kanterna läggas till för att beteckna relationerna mellan dem. Den första aspekt som måste utvärderas är **riktningen på relationen** . 
 
 Kant objekt har en standard riktning som följs av en genom gång när `out()` funktionen eller används `outE()` . Att använda den här naturliga riktningen resulterar i en effektiv åtgärd, eftersom alla formhörn lagras med sina utgående kanter. 
 

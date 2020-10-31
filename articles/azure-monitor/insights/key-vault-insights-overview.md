@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4b91a9a73035b3add309e72ce544375520cf279e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d28138b251cf159b7cbc5cc6942bb287e57a95d7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278625"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088105"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Övervaka Key Vault-tjänsten med Azure Monitor för Key Vault
 Azure Monitor för Key Vault ger omfattande övervakning av dina nyckel valv genom att leverera en enhetlig vy över dina Key Vault förfrågningar, prestanda, misslyckade och svars tider.
@@ -34,7 +34,7 @@ Utför följande steg för att visa användning och åtgärder för nyckel valv 
 
 1. Logga in på [Azure Portal](https://portal.azure.com/)
 
-2. Välj **övervaka** i den vänstra rutan i Azure Portal och välj **nyckel valv**under avsnittet insikter.
+2. Välj **övervaka** i den vänstra rutan i Azure Portal och välj **nyckel valv** under avsnittet insikter.
 
 ![Skärm bild av översikts upplevelse med flera grafer](./media/key-vaults-insights-overview/overview.png)
 
@@ -90,7 +90,7 @@ Arbets boken fel sammangraderar resultaten av alla Key Vault-begäranden inom de
 
 Med arbets boken för åtgärder kan användarna få detaljerad information om alla transaktioner, som kan filtreras efter resultat status med hjälp av toppnivå panelerna.
 
-![Skärm bild av vyn operationer](./media/key-vaults-insights-overview/info.png)
+![Skärm bild som visar arbets boken för åtgärder som innehåller fullständig information om alla transaktioner.](./media/key-vaults-insights-overview/info.png)
 
 Användarna kan också begränsa vyer baserat på vissa transaktions typer i den övre tabellen, vilket dynamiskt uppdaterar den nedre tabellen, där användarna kan Visa fullständig åtgärds information i ett popup-fönster.
 
@@ -126,7 +126,7 @@ Anpassningar sparas i en anpassad arbets bok för att förhindra att standard ko
 Du kan konfigurera översikten över flera prenumerationer och nyckel valv, så att arbets böcker kan omfattas av en viss prenumeration eller nyckel valv på varje körning, genom att utföra följande steg:
 
 1. Välj **övervakare** från portalen och välj sedan **nyckel valv** i det vänstra fönstret.
-2. I **översikts** arbets boken väljer du **Redigera**i kommando fältet.
+2. I **översikts** arbets boken väljer du **Redigera** i kommando fältet.
 3. Välj i list rutan **prenumerationer** en eller flera prenumerationer som du vill att Yo ska använda som standard. Kom ihåg att arbets boken har stöd för att välja upp till totalt 10 prenumerationer.
 4. Välj från List rutan **nyckel valv** ett eller flera konton som du vill att den ska använda som standard. Kom ihåg att arbets boken har stöd för att välja upp till totalt 200 lagrings konton.
 5. Välj **Spara som** från kommando fältet för att spara en kopia av arbets boken med dina anpassningar och klicka sedan på **klar redigering** för att återgå till läsläge.

@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 30e1a9e4b82971180f375a006f4825832e6179e9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 98ad02c134df919c593c87dd96a9a71d73371a1c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490619"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087425"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introduktion till Gremlin-API i Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 [Azure Cosmos DB](introduction.md)   är den globalt distribuerade databas tjänsten för flera modeller från Microsoft för verksamhets kritiska program. Det är en databas med flera modeller och stöd för dokument, nyckel värdes-, graf-och kolumn serie data modeller. "Azure Cosmos DB tillhandahåller en Graph Database-tjänst via Gremlin-API: et i en fullständigt hanterad databas tjänst utformad för alla skalor.  
 
@@ -110,19 +111,19 @@ Nu ska vi använda ett exempeldiagram för att förstå hur frågor kan uttrycka
 
 Det här diagrammet har följande *hörn* typer (dessa kallas även "etikett" i Gremlin):
 
-* **Personer**: grafen har tre personer, Robin, Thomas och ben
-* **Intressen**: deras intressen, i det här exemplet spel på fotboll
-* **Enheter**: enheterna som människor använder
-* **Operativ system**: de operativ system som enheterna kör på
-* **Plats**: platser som enheterna ska nås från
+* **Personer** : grafen har tre personer, Robin, Thomas och ben
+* **Intressen** : deras intressen, i det här exemplet spel på fotboll
+* **Enheter** : enheterna som människor använder
+* **Operativ system** : de operativ system som enheterna kör på
+* **Plats** : platser som enheterna ska nås från
 
 Vi representerar relationerna mellan dessa entiteter via följande *gräns* typer:
 
-* **Känner**: till exempel "Thomas vet Robin"
-* **Intresse rad**: att representera deltagarnas intressen i vårt diagram, till exempel "ben är intresserade av fotboll"
-* **Körs**: den bärbara datorn kör Windows OS
-* **Använder**: för att representera vilken enhet en person använder. Till exempel Robin använder en Motorola-telefon med serienummer 77
-* **Finns**: för att representera platsen som enheterna används från
+* **Känner** : till exempel "Thomas vet Robin"
+* **Intresse rad** : att representera deltagarnas intressen i vårt diagram, till exempel "ben är intresserade av fotboll"
+* **Körs** : den bärbara datorn kör Windows OS
+* **Använder** : för att representera vilken enhet en person använder. Till exempel Robin använder en Motorola-telefon med serienummer 77
+* **Finns** : för att representera platsen som enheterna används från
 
 Gremlin-konsolen är en interaktiv Terminal som erbjuds av Apache TinkerPop och den här terminalen används för att interagera med Graf-data. Mer information finns i snabb starts dokumentet om [hur du använder Gremlin-konsolen](create-graph-gremlin-console.md). Du kan också utföra dessa åtgärder med hjälp av Gremlin-drivrutinerna i den plattform du vill (Java, Node.js, Python eller .NET). I följande exempel visas hur du kör frågor mot dessa diagram data med hjälp av Gremlin-konsolen.
 

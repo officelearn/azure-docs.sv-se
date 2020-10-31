@@ -1,26 +1,22 @@
 ---
 title: Aktivera zon redundans för Azure cache för Redis (för hands version)
-description: Lär dig hur du ställer in zon redundans för din Premium-nivå i Azure-cache för Redis-instanser
+description: Lär dig hur du ställer in zon redundans för din Premium-och Enterprise-nivå Azure-cache för Redis-instanser
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 3f40c21fdd5144b325a8dd94eed2c9cbbe8c7877
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0cb7ee5b9fa02e726d03bf1ae9935c07ded6e4a6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537770"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088020"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis-preview"></a>Aktivera zon redundans för Azure cache för Redis (för hands version)
 I den här artikeln får du lära dig hur du konfigurerar en zon-redundant Azure-cache-instans med hjälp av Azure Portal.
 
-Azure cache för Redis standard-och Premium-nivåer ger inbyggd redundans genom att vara värd för varje cache på två dedikerade virtuella datorer (VM). Även om de här virtuella datorerna finns i separata [Azure-fel och uppdaterings domäner](../virtual-machines/manage-availability.md) och har hög tillgänglighet, är de utsatta för fel på data center nivå. Azure cache för Redis stöder också zon-redundans på Premium-nivån. En zon – redundant cache körs på virtuella datorer som sprids över flera [tillgänglighets zoner](../virtual-machines/manage-availability.md#use-availability-zones-to-protect-from-datacenter-level-failures). Den ger högre återhämtning och tillgänglighet.
-
-> [!IMPORTANT]
-> Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands versionerna.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
-> 
+Azure cache för Redis-nivåerna standard, Premium och Enterprise tillhandahåller inbyggd redundans genom att vara värd för varje cache på två dedikerade virtuella datorer (VM). Även om de här virtuella datorerna finns i separata [Azure-fel och uppdaterings domäner](../virtual-machines/manage-availability.md) och har hög tillgänglighet, är de utsatta för fel på data center nivå. Azure cache för Redis stöder också zon-redundans på dess Premium-och Enterprise-nivåer. En zon – redundant cache körs på virtuella datorer som sprids över flera [tillgänglighets zoner](../virtual-machines/manage-availability.md#use-availability-zones-to-protect-from-datacenter-level-failures). Den ger högre återhämtning och tillgänglighet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
@@ -46,9 +42,9 @@ Följ dessa steg om du vill skapa en cache:
     | **Resursgrupp** | Välj en resurs grupp eller Välj **Skapa ny** och ange ett nytt resurs grupp namn. | Namnet på resurs gruppen där du vill skapa cachen och andra resurser. Genom att lägga till alla dina app-resurser i en resurs grupp kan du enkelt hantera eller ta bort dem tillsammans. | 
     | **DNS-namn** | Ange ett globalt unikt namn. | Cache-namnet måste vara en sträng mellan 1 och 63 tecken som bara innehåller siffror, bokstäver eller bindestreck. Namnet måste börja och sluta med en siffra eller en bokstav och får inte innehålla flera bindestreck i rad. Din cacheposts *värdnamn* är *\<DNS name> . Redis.cache.Windows.net* . | 
     | **Plats** | Välj en plats. | Välj en [region](https://azure.microsoft.com/regions/) nära andra tjänster som ska använda din cache. |
-    | **Cachestorlek** | Välj ett cacheminne för [Premium-nivån](https://azure.microsoft.com/pricing/details/cache/) . |  Prisnivån avgör storlek, prestanda och funktioner som är tillgängliga för cacheminnet. Mer information finns i [Översikt över Azure Cache for Redis](cache-overview.md). |
+    | **Cachestorlek** | Välj en [Premium-eller Enterprise-nivå](https://azure.microsoft.com/pricing/details/cache/) -cache. |  Prisnivån avgör storlek, prestanda och funktioner som är tillgängliga för cacheminnet. Mer information finns i [Översikt över Azure Cache for Redis](cache-overview.md). |
    
-1. På sidan **Avancerat** väljer du **replik antal** .
+1. På sidan **Avancerat** väljer du **antal repliker** för cache på Premium-nivå.
    
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Välj Azure-cache för Redis.":::
 
@@ -70,7 +66,7 @@ Följ dessa steg om du vill skapa en cache:
     > Tillgänglighets zoner kan inte ändras efter att en cache har skapats.
     >
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Läs mer om Azure cache för Redis-funktioner.
 
 > [!div class="nextstepaction"]

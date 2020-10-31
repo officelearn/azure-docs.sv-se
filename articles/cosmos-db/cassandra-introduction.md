@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 05/21/2019
-ms.openlocfilehash: 6e31150a15996d9c6e77c772e6d703a39adfa91f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: dc2bf5126ba85eeaec2e66bae8b15c7821805e32
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278922"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087680"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introduktion till Cassandra-API:et för Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Cassandra-API:et för Azure Cosmos DB kan användas som datalager för appar som är skrivna för [Apache Cassandra](https://cassandra.apache.org). Det betyder att ditt befintliga Cassandra-program, genom att använda befintliga [Apache-drivrutiner](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) som är kompatibla med CQLv4, nu kan kommunicera med Cassandra-API:et för Azure Cosmos DB. I många fall kan du växla från att använda Apache Cassandra för att använda Azure Cosmos DB API för Cassandra, genom att bara ändra en anslutnings sträng. 
 
@@ -23,23 +24,23 @@ Med API för Cassandra kan du interagera med data som lagras i Azure Cosmos DB m
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Vad är fördelen med att använda Apache Cassandra API:t för Azure Cosmos DB?
 
-**Ingen åtgärdshantering**: Som en fullständigt hanterad molntjänst eliminerar Cassandra-API:et för Azure Cosmos DB det tidskrävande arbetet med att hantera och övervaka en mängd olika inställningar i operativsystem, JVM och yaml-filer och deras interaktioner. Azure Cosmos DB erbjuder övervakning av dataflödet, svarstider, lagring, tillgänglighet och konfigurerbara aviseringar.
+**Ingen åtgärdshantering** : Som en fullständigt hanterad molntjänst eliminerar Cassandra-API:et för Azure Cosmos DB det tidskrävande arbetet med att hantera och övervaka en mängd olika inställningar i operativsystem, JVM och yaml-filer och deras interaktioner. Azure Cosmos DB erbjuder övervakning av dataflödet, svarstider, lagring, tillgänglighet och konfigurerbara aviseringar.
 
-**Öppen källkod**: trots att den är en helt hanterad tjänst har API för Cassandra fortfarande stöd för en stor yta i det inbyggda [Apache Cassandra Wire-protokollet](cassandra-support.md), vilket gör att du kan skapa program på ett mycket använt och ett moln oberoende med öppen källkod.
+**Öppen källkod** : trots att den är en helt hanterad tjänst har API för Cassandra fortfarande stöd för en stor yta i det inbyggda [Apache Cassandra Wire-protokollet](cassandra-support.md), vilket gör att du kan skapa program på ett mycket använt och ett moln oberoende med öppen källkod.
 
-**Prestandahantering**: Azure Cosmos DB tillhandahåller läsningar och skrivningar med garanterat korta svarstider inom den 99:e percentilen, backade av serviceavtalen. Användarna behöver inte bekymra sig om driftsomkostnader för att säkerställa höga prestanda och snabba läsningar och skrivningar. Det innebär att användarna inte behöver lösa schemaläggningsproblem, hantera tombstones eller skapa bloomfilter och repliker manuellt. Med Azure Cosmos DB slipper du ägna tid åt dessa problem så att du kan fokusera på programlogiken.
+**Prestandahantering** : Azure Cosmos DB tillhandahåller läsningar och skrivningar med garanterat korta svarstider inom den 99:e percentilen, backade av serviceavtalen. Användarna behöver inte bekymra sig om driftsomkostnader för att säkerställa höga prestanda och snabba läsningar och skrivningar. Det innebär att användarna inte behöver lösa schemaläggningsproblem, hantera tombstones eller skapa bloomfilter och repliker manuellt. Med Azure Cosmos DB slipper du ägna tid åt dessa problem så att du kan fokusera på programlogiken.
 
-**Möjlighet att använda befintlig kod och verktyg**: Azure Cosmos DB erbjuder kompatibilitet på trådprotokollsnivå med befintliga SDK:er och verktyg för Cassandra. Den här kompatibiliteten garanterar att du kan använda din befintliga kodbas med Cassandra-API:et för Azure Cosmos DB med minimala ändringar.
+**Möjlighet att använda befintlig kod och verktyg** : Azure Cosmos DB erbjuder kompatibilitet på trådprotokollsnivå med befintliga SDK:er och verktyg för Cassandra. Den här kompatibiliteten garanterar att du kan använda din befintliga kodbas med Cassandra-API:et för Azure Cosmos DB med minimala ändringar.
 
-**Elastiskhet för data flöde och lagring**: Azure Cosmos DB tillhandahåller data flöde i alla regioner och kan skala det etablerade data flödet med Azure Portal-, PowerShell-eller CLI-åtgärder. Du kan skala lagring och data flöde [elastiskt](manage-scale-cassandra.md) i dina tabeller efter behov med förutsägbar prestanda.
+**Elastiskhet för data flöde och lagring** : Azure Cosmos DB tillhandahåller data flöde i alla regioner och kan skala det etablerade data flödet med Azure Portal-, PowerShell-eller CLI-åtgärder. Du kan skala lagring och data flöde [elastiskt](manage-scale-cassandra.md) i dina tabeller efter behov med förutsägbar prestanda.
 
-**Global distribution och tillgänglighet**: Med Azure Cosmos DB kan du distribuera data över alla Azure-regioner globalt och tillhandahålla data lokalt med snabb dataåtkomst och hög tillgänglighet. Azure Cosmos DB erbjuder 99,99 % hög tillgänglighet inom en region och 99,999 % läs- och skrivtillgänglighet i flera regioner utan ytterligare driftkostnader. Läs mer i artikeln [Distribuera data globalt](distribute-data-globally.md). 
+**Global distribution och tillgänglighet** : Med Azure Cosmos DB kan du distribuera data över alla Azure-regioner globalt och tillhandahålla data lokalt med snabb dataåtkomst och hög tillgänglighet. Azure Cosmos DB erbjuder 99,99 % hög tillgänglighet inom en region och 99,999 % läs- och skrivtillgänglighet i flera regioner utan ytterligare driftkostnader. Läs mer i artikeln [Distribuera data globalt](distribute-data-globally.md). 
 
 **Val av konsekvensnivåer:** Azure Cosmos DB låter dig välja mellan fem väldefinierade konsekvensnivåer för bästa möjliga balans mellan konsekvens och prestanda. Dessa konsekvensnivåer är stark, begränsat föråldrad, session, konsekvent prefix och eventuell. Dessa väldefinierade, praktiska och intuitiva konsekvensnivåer hjälper utvecklare att göra exakta avvägningarna mellan konsekvens, tillgänglighet och svarstider. Läs mer i artikeln om [konsekvensnivåer](consistency-levels.md). 
 
-**Enterprise-klass**: Azure Cosmos DB erbjuder [kompatibilitetscertifieringar](https://www.microsoft.com/trustcenter) så att användare kan använda plattformen på ett säkert sätt. Azure Cosmos DB erbjuder även kryptering i vila och i rörelse, IP-brandvägg och granskningsloggar för kontrollplansaktiviteter.
+**Enterprise-klass** : Azure Cosmos DB erbjuder [kompatibilitetscertifieringar](https://www.microsoft.com/trustcenter) så att användare kan använda plattformen på ett säkert sätt. Azure Cosmos DB erbjuder även kryptering i vila och i rörelse, IP-brandvägg och granskningsloggar för kontrollplansaktiviteter.
 
-**Händelse källa**: API för Cassandra ger åtkomst till en beständig ändrings logg, [ändrings flödet](cassandra-change-feed.md), som kan under lätta händelse källan direkt från databasen. I Apache Cassandra är den enda motsvarigheten för registrering av ändrings data (CDC), som bara är en mekanism för att flagga vissa tabeller för arkivering, samt för att avvisa skrivningar till dessa tabeller när en konfigurerbar storlek-på disk för CDC-loggen nås (dessa funktioner är överflödiga i Cosmos DB att de relevanta aspekterna regleras automatiskt).
+**Händelse källa** : API för Cassandra ger åtkomst till en beständig ändrings logg, [ändrings flödet](cassandra-change-feed.md), som kan under lätta händelse källan direkt från databasen. I Apache Cassandra är den enda motsvarigheten för registrering av ändrings data (CDC), som bara är en mekanism för att flagga vissa tabeller för arkivering, samt för att avvisa skrivningar till dessa tabeller när en konfigurerbar storlek-på disk för CDC-loggen nås (dessa funktioner är överflödiga i Cosmos DB att de relevanta aspekterna regleras automatiskt).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: f3a5106fcc7f1b55db22ee13ced34328cc38096d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 21bb594f4e374d41cfc4184f3a72aea1717c85d8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486216"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086150"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurera kundhanterade nycklar för ditt Azure Cosmos-konto med Azure Key Vault
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Data som lagras i ditt Azure Cosmos-konto är automatiskt och sömlöst krypterade med nycklar som hanteras av Microsoft (**tjänst hanterade nycklar**). Du kan också välja att lägga till ett andra lager av kryptering med nycklar som du hanterar (**Kundhanterade nycklar**).
+Data som lagras i ditt Azure Cosmos-konto är automatiskt och sömlöst krypterade med nycklar som hanteras av Microsoft ( **tjänst hanterade nycklar** ). Du kan också välja att lägga till ett andra lager av kryptering med nycklar som du hanterar ( **Kundhanterade nycklar** ).
 
 :::image type="content" source="./media/how-to-setup-cmk/cmk-intro.png" alt-text="Lager för kryptering runt kund information":::
 
@@ -30,13 +31,13 @@ Du måste lagra Kundhanterade nycklar i [Azure Key Vault](../key-vault/general/o
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Lager för kryptering runt kund information":::
 
-1. Sök efter **Microsoft.DocumentDB** Resource Provider. Kontrol lera att resurs leverantören redan har marker ATS som registrerad. Annars väljer du resurs leverantören och väljer **Registrera**:
+1. Sök efter **Microsoft.DocumentDB** Resource Provider. Kontrol lera att resurs leverantören redan har marker ATS som registrerad. Annars väljer du resurs leverantören och väljer **Registrera** :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Lager för kryptering runt kund information":::
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Konfigurera Azure Key Vault-instansen
 
-Om du använder Kundhanterade nycklar med Azure Cosmos DB måste du ange två egenskaper för Azure Key Vault-instansen som du planerar att använda som värd för dina krypterings nycklar: **mjuk borttagning** och **tömning av skydd**.
+Om du använder Kundhanterade nycklar med Azure Cosmos DB måste du ange två egenskaper för Azure Key Vault-instansen som du planerar att använda som värd för dina krypterings nycklar: **mjuk borttagning** och **tömning av skydd** .
 
 Om du skapar en ny Azure Key Vault-instans aktiverar du dessa egenskaper när de skapas:
 
@@ -51,13 +52,13 @@ Om du skapar en ny Azure Key Vault-instans aktiverar du dessa egenskaper när de
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Lager för kryptering runt kund information":::
 
-1. Välj **+ Lägg till åtkomst princip**.
+1. Välj **+ Lägg till åtkomst princip** .
 
-1. Under List rutan **nyckel behörigheter** väljer du **Hämta**, **packa upp nyckel**och packa upp **nyckel** behörigheter:
+1. Under List rutan **nyckel behörigheter** väljer du **Hämta** , **packa upp nyckel** och packa upp **nyckel** behörigheter:
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Lager för kryptering runt kund information":::
 
-1. Under **Välj huvud konto**väljer du **ingen vald**. Sök sedan efter **Azure Cosmos DB** huvud konto och välj det (för att göra det lättare att hitta, kan du också söka efter huvud-ID: `a232010e-820c-4083-83bb-3ace5fc29d0b` för alla Azure-regioner utom Azure Government regioner där ägar-ID är `57506a73-e302-42a9-b869-6f12d9ec29e9` ). Slutligen väljer du **Välj** längst ned. Om **Azure Cosmos DB** -huvudobjektet inte finns i listan kan du behöva registrera om **Microsoft.DocumentDB** Resource Provider enligt beskrivningen i avsnittet [Registrera resurs leverantören](#register-resource-provider) i den här artikeln.
+1. Under **Välj huvud konto** väljer du **ingen vald** . Sök sedan efter **Azure Cosmos DB** huvud konto och välj det (för att göra det lättare att hitta, kan du också söka efter huvud-ID: `a232010e-820c-4083-83bb-3ace5fc29d0b` för alla Azure-regioner utom Azure Government regioner där ägar-ID är `57506a73-e302-42a9-b869-6f12d9ec29e9` ). Slutligen väljer du **Välj** längst ned. Om **Azure Cosmos DB** -huvudobjektet inte finns i listan kan du behöva registrera om **Microsoft.DocumentDB** Resource Provider enligt beskrivningen i avsnittet [Registrera resurs leverantören](#register-resource-provider) i den här artikeln.
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Lager för kryptering runt kund information":::
 
@@ -71,19 +72,19 @@ Om du skapar en ny Azure Key Vault-instans aktiverar du dessa egenskaper när de
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Lager för kryptering runt kund information":::
 
-1. Välj **generera/importera**, ange ett namn för den nya nyckeln och välj en nyckel storlek för RSA. Minst 3072 rekommenderas för bästa säkerhet. Välj sedan **skapa**:
+1. Välj **generera/importera** , ange ett namn för den nya nyckeln och välj en nyckel storlek för RSA. Minst 3072 rekommenderas för bästa säkerhet. Välj sedan **skapa** :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="Lager för kryptering runt kund information":::
 
 1. När nyckeln har skapats väljer du den nya nyckeln och sedan dess aktuella version.
 
-1. Kopiera nyckelns **nyckel identifierare**, förutom delen efter det sista snedstrecket:
+1. Kopiera nyckelns **nyckel identifierare** , förutom delen efter det sista snedstrecket:
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="Lager för kryptering runt kund information":::
 
 ## <a name="create-a-new-azure-cosmos-account"></a>Skapa ett nytt Azure Cosmos-konto
 
-### <a name="using-the-azure-portal"></a>Använda Azure-portalen
+### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
 När du skapar ett nytt Azure Cosmos DB konto från Azure Portal väljer du **kundhanterad nyckel** i **krypterings** steget. I fältet **nyckel-URI** klistrar du in URI/nyckel-ID för den Azure Key Vault nyckel som du kopierade från föregående steg:
 
@@ -93,7 +94,7 @@ När du skapar ett nytt Azure Cosmos DB konto från Azure Portal väljer du **ku
 
 När du skapar ett nytt Azure Cosmos DB-konto med PowerShell:
 
-- Skicka URI: n för den Azure Key Vault nyckel som kopierats tidigare under egenskapen **keyVaultKeyUri** i **PropertyObject**.
+- Skicka URI: n för den Azure Key Vault nyckel som kopierats tidigare under egenskapen **keyVaultKeyUri** i **PropertyObject** .
 
 - Använd **2019-12-12** eller senare som API-version.
 
@@ -232,7 +233,7 @@ Att rotera den Kundhanterade nyckeln som används av ditt Azure Cosmos-konto kan
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Lager för kryptering runt kund information":::
 
-    Ersätt sedan nyckel- **URI: n** med den nya nyckel som du vill använda och välj **Spara**:
+    Ersätt sedan nyckel- **URI: n** med den nya nyckel som du vill använda och välj **Spara** :
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Lager för kryptering runt kund information":::
 

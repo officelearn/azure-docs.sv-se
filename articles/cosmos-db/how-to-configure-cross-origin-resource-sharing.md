@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: eb1cbed7b974b6f0015591df01674e40aac2d8c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 863c31ecac13337ea3f91d7a7ced49b0f7141e58
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390881"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086422"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Konfigurera resurs delning mellan ursprung (CORS)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Resurs delning mellan ursprung (CORS) är en HTTP-funktion som gör det möjligt för ett webb program att köras under en domän för att få åtkomst till resurser i en annan domän. Webbläsare implementerar en säkerhets begränsning som kallas samma-Origin-princip som förhindrar att en webb sida anropar API: er i en annan domän. CORS är dock ett säkert sätt att tillåta att ursprungs domänen anropar API: er i en annan domän. Huvud-API: n (SQL) i Azure Cosmos DB stöder nu resurs delning mellan ursprung (CORS) med hjälp av rubriken "allowedOrigins". När du har aktiverat CORS-stöd för ditt Azure Cosmos-konto utvärderas bara autentiserade begär Anden för att avgöra om de är tillåtna enligt de regler som du har angett.
 
@@ -28,7 +29,7 @@ Använd följande steg för att aktivera resurs delning mellan ursprung genom at
 
 1. Gå till ditt Azure Cosmos DB-konto. Öppna **CORS** -bladet.
 
-2. Ange en kommaavgränsad lista över ursprung som kan göra cross-origin-anrop till ditt Azure Cosmos DB-konto. Till exempel,,, `https://www.mydomain.com` `https://mydomain.com` `https://api.mydomain.com` . Du kan också använda jokertecken \* för att tillåta alla ursprung och välja **Skicka**. 
+2. Ange en kommaavgränsad lista över ursprung som kan göra cross-origin-anrop till ditt Azure Cosmos DB-konto. Till exempel,,, `https://www.mydomain.com` `https://mydomain.com` `https://api.mydomain.com` . Du kan också använda jokertecken \* för att tillåta alla ursprung och välja **Skicka** . 
 
    > [!NOTE]
    > För närvarande kan du inte använda jokertecken som en del av domän namnet. `https://*.mydomain.net`Formatet stöds till exempel inte ännu. 

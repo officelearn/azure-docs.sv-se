@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 30a6a73768db7b073258487435ddbe6c0daccf16
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317829"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074805"
 ---
 # <a name="overview-of-the-developer-portal"></a>Översikt över Developer-portalen
 
@@ -62,7 +62,7 @@ När du först startade för hands versionen av Developer-portalen etablerade du
 
 Om du har anpassat din portal baserat på för hands versionen av innehållet kan du fortsätta att använda den som den är och placera nya widgetar manuellt på portalens sidor. Annars rekommenderar vi att du ersätter portalens innehåll med det nya standard innehållet.
 
-Om du vill återställa innehållet i en hanterad Portal väljer du **Återställ innehåll** i menyn **åtgärder** . Den här åtgärden tar bort allt innehåll i portalen och etablerar nytt standard innehåll. Du kommer att förlora alla anpassningar och ändringar i utvecklings portalen. Det **går inte att ångra den här åtgärden**.
+Om du vill återställa innehållet i en hanterad Portal väljer du **Återställ innehåll** i menyn **åtgärder** . Den här åtgärden tar bort allt innehåll i portalen och etablerar nytt standard innehåll. Du kommer att förlora alla anpassningar och ändringar i utvecklings portalen. Det **går inte att ångra den här åtgärden** .
 
 ![Återställ Portal innehåll](media/api-management-howto-developer-portal/reset-content.png)
 
@@ -126,7 +126,7 @@ Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsare
 
 Du kan kontrol lera status för CORS-principen i avsnittet **Portal översikt** i API Management tjänsten i Azure Portal. En varnings ruta anger att en princip saknas eller är felkonfigurerad.
 
-![API Management Developer-portalen](media/api-management-howto-developer-portal/cors-azure-portal.png)
+![Skärm bild som visar var du kan kontrol lera status för din CORS-princip.](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
 Tillämpa CORS-principen automatiskt genom att klicka på knappen **Aktivera CORS** .
 
@@ -196,7 +196,7 @@ Anrops felen kan också orsakas av ett TLS/SSL-certifikat, som är tilldelat en 
 | Apple Safari                | Ja<sup>1</sup> |
 | Google Chrome               | Ja<sup>1</sup> |
 | Microsoft Edge              | Ja<sup>1</sup> |
-| Microsoft Internet Explorer | Nej              |
+| Microsoft Internet Explorer | No              |
 | Mozilla Firefox             | Ja<sup>1</sup> |
 
  <small><sup>1</sup> stöds i de två senaste produktions versionerna.</small>

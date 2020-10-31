@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7613f4b6bb301c603ae5ded98f271f3cb98b340
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73481741"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074105"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Så här bläddrar du genom resultat från API:er för Bing-sökresultat
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 När du skickar ett anrop till webb-, anpassade-, bild-, diskussions-eller Videosökning-API: er för Bing returnerar Bing en delmängd av det totala antalet resultat som kan vara relevanta för frågan. Om du vill få det uppskattade totala antalet tillgängliga resultat kan du komma åt svars objektets `totalEstimatedMatches` fält. 
 

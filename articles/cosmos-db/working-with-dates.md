@@ -7,14 +7,15 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a876c5ba9c289f0edbbfdf8727e9957e7937b781
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c9df71763c610f9773949ef618de7840ae752d82
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476254"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073578"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Arbeta med datum i Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB ger flexibilitet i schema och omfattande indexering via en intern [JSON](https://www.json.org) -datamodell. Alla Azure Cosmos DB resurser, inklusive databaser, behållare, dokument och lagrade procedurer, modelleras och lagras som JSON-dokument. Som ett krav för portabelt stöder JSON (och Azure Cosmos DB) bara en liten uppsättning grundläggande typer: sträng, tal, boolesk, matris, objekt och null. JSON är dock flexibel och gör det möjligt för utvecklare och ramverk att representera mer komplexa typer med hjälp av dessa primitiver och att skriva dem som objekt eller matriser.
 
@@ -90,7 +91,7 @@ Frågor är vanliga med DateTime-värden. Om du vill köra dessa frågor effekti
 
 Du kan lära dig mer om hur du konfigurerar indexerings principer på [Azure Cosmos DB indexerings principer](index-policy.md). 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * Hämta och kör [kod exemplen på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
 * Läs mer om [SQL-frågor](sql-query-getting-started.md)

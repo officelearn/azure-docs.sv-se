@@ -8,14 +8,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa0586ab2a0ff21e3187bba070dd4be7ef325288
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d2f39eae94b217ad1f95a6a559aa3e1044d10da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784685"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072690"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Ändra flödes hämtnings modell i Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Med pull-modellen för ändrings flöden kan du använda Azure Cosmos DB ändra feed i din egen takt. Eftersom du redan kan göra med en [bytes processor](change-feed-processor.md)kan du använda pull-modellen för ändrings flöden för att parallellisera bearbetningen av ändringar i flera bytes konsumenter.
 
@@ -39,14 +40,14 @@ Du bör överväga att använda pull-modellen i följande scenarier:
 
 Här är några viktiga skillnader mellan processorn för förändrings matnings processor och pull-modell:
 
-|Funktion  | Ändringsflödesprocessor| Hämta modell |
+|Visning av aktuellt objekt  | Ändringsflödesprocessor| Hämta modell |
 | --- | --- | --- |
 | Hålla koll på den aktuella punkten vid bearbetning av ändrings flöde | Lån (lagras i en Azure Cosmos DB container) | Fortsättnings-token (lagras i minnet eller sparas manuellt) |
 | Möjlighet att spela upp tidigare ändringar | Ja, med push-modell | Ja, med pull-modell|
 | Söker efter framtida ändringar | Söker automatiskt efter ändringar baserat på användardefinierad `WithPollInterval` | Manuell |
 | Beteende där det inte finns några nya ändringar | Vänta `WithPollInterval` och kontrol lera automatiskt | Måste fånga upp undantag och manuellt kontrol lera manuellt |
 | Bearbeta ändringar från hela behållaren | Ja, och automatiskt parallellt över flera trådar/datorer som konsumeras från samma behållare| Ja, och manuellt parallellt med FeedTokens |
-| Bearbeta ändringar från bara en enda partitionsnyckel | Stöds inte | Ja|
+| Bearbeta ändringar från bara en enda partitionsnyckel | Stöds inte | Yes|
 | Support nivå | Allmänt tillgänglig | Förhandsgranskning |
 
 > [!NOTE]

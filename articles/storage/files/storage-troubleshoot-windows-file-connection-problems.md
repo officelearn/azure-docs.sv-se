@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17b2ab53c0154a29f9084f9dd999a53bcf477b72
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715994"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075134"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Felsöka Azure Files problem i Windows (SMB)
 
-Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure filer när du ansluter från Windows-klienter. Den innehåller också möjliga orsaker och lösningar på problemen. Förutom fel söknings stegen i den här artikeln kan du också använda [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   för att kontrol lera att Windows-klientens miljö uppfyller rätt krav. AzFileDiagnostics automatiserar identifiering av de flesta av de symtom som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda.
+Den här artikeln innehåller vanliga problem som är relaterade till Microsoft Azure filer när du ansluter från Windows-klienter. Den innehåller också möjliga orsaker och lösningar på problemen. Förutom fel söknings stegen i den här artikeln kan du också använda [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) för att kontrol lera att Windows-klientens miljö uppfyller rätt krav. AzFileDiagnostics automatiserar identifiering av de flesta av de symtom som nämns i den här artikeln och hjälper dig att konfigurera din miljö för att få bästa möjliga prestanda.
 
 > [!IMPORTANT]
 > Innehållet i den här artikeln gäller endast SMB-resurser. Mer information om NFS-resurser finns i [Felsöka Azure NFS-filresurser](storage-troubleshooting-files-nfs.md).
@@ -45,7 +45,7 @@ Om virtuellt nätverk (VNET) och brandväggsregler har konfigurerats på lagring
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
-Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk** . Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ### <a name="cause-3-share-level-permissions-are-incorrect-when-using-identity-based-authentication"></a>Orsak 3: behörigheter på resurs nivå är felaktiga vid användning av Identity-baserad autentisering
 
@@ -167,7 +167,7 @@ Felkod: 403
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
-Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk** . Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 2: ditt användar konto har inte åtkomst till lagrings kontot
 
@@ -177,23 +177,82 @@ Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtk
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Det går inte att ta bort en fil eller katalog i en Azure-filresurs
-När du försöker ta bort en fil kan du få följande fel meddelande:
+Ett av nyckel syftet med en fil resurs är att flera användare och program samtidigt kan interagera med filer och kataloger i resursen. För att hjälpa till med den här interaktionen ger fil resurser flera sätt att åtgärda åtkomst till filer och kataloger.
 
-Den angivna resursen har markerats för borttagning av en SMB-klient.
+När du öppnar en fil från en monterad Azure-filresurs via SMB begär ditt program/operativ system en fil referens, som är en referens till filen. Bland annat anger ditt program ett fildelnings läge när det begär en fil referens, som anger exklusivitet för din åtkomst till filen som tillämpas av Azure Files: 
 
-### <a name="cause"></a>Orsak
-Det här problemet uppstår vanligt vis om filen eller katalogen har en öppen referens. 
+- `None`: du har exklusiv åtkomst. 
+- `Read`: andra kan läsa filen när den är öppen.
+- `Write`: andra kan skriva till filen när den är öppen. 
+- `ReadWrite`: en kombination av både `Read` `Write` delnings lägena och.
+- `Delete`: andra kan ta bort filen när den är öppen. 
 
-### <a name="solution"></a>Lösning
+Även om tillstånds lösa protokoll inte har ett tillstånds lösa protokoll, har det inte ett koncept för fil referenser, det ger en liknande mekanism för att tjänstassisterad åtkomst till filer och mappar som skriptet, programmet eller tjänsten kan använda: fil lån. När en fil lånas, behandlas den som likvärdig med en fil hantering med fildelnings läge `None` . 
 
-Om SMB-klienterna har stängt alla öppna referenser och problemet fortsätter att inträffa, gör du följande:
+Även om fil handtag och lån är ett viktigt syfte, kan ibland fil referenser och lån bli överblivna. När detta inträffar kan det orsaka problem med att ändra eller ta bort filer. Du kan se fel meddelanden som:
 
-- Använd PowerShell [-cmdleten Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) för att visa öppna referenser.
+- Processen kan inte komma åt filen eftersom den används i en annan process.
+- Åtgärden kan inte slutföras eftersom filen är öppen i ett annat program.
+- Dokumentet är låst för redigering av en annan användare.
+- Den angivna resursen har markerats för borttagning av en SMB-klient.
 
-- Använd PowerShell [-cmdleten Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) för att stänga öppna referenser. 
+Lösningen på det här problemet beror på om detta orsakas av en överbliven fil hantering eller ett lån. 
+
+### <a name="cause-1"></a>Orsak 1
+En fil referens hindrar en fil/katalog från att ändras eller tas bort. Du kan använda PowerShell [-cmdleten Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) för att visa öppna referenser. 
+
+Om alla SMB-klienter har stängt sina öppna referenser på en fil/katalog och problemet fortsätter att inträffa, kan du tvinga en fil referens att stängas av.
+
+### <a name="solution-1"></a>Lösning 1
+Använd PowerShell-cmdleten [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) för att tvinga en fil referens att stängas. 
 
 > [!Note]  
 > De Get-AzStorageFileHandle-och Close-AzStorageFileHandle-cmdletarna ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+### <a name="cause-2"></a>Orsak 2
+Ett fil lån förhindrar att en fil ändras eller tas bort. Du kan kontrol lera om en fil har ett fil lån med följande PowerShell, ersätta `<resource-group>` , `<storage-account>` , `<file-share>` och `<path-to-file>` med lämpliga värden för din miljö:
+
+```PowerShell
+# Set variables 
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$fileShareName = "<file-share>"
+$fileForLease = "<path-to-file>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName
+
+# Get reference to file
+$file = Get-AzStorageFile `
+        -Context $storageAccount.Context `
+        -ShareName $fileShareName `
+        -Path $fileForLease
+
+$fileClient = $file.ShareFileClient
+
+# Check if the file has a file lease
+$fileClient.GetProperties().Value
+```
+
+Om en fil har ett lån måste det returnerade objektet innehålla följande egenskaper:
+
+```Output
+LeaseDuration         : Infinite
+LeaseState            : Leased
+LeaseStatus           : Locked
+```
+
+### <a name="solution-2"></a>Lösning 2
+Om du vill ta bort ett lån från en fil kan du frigöra lånet eller avbryta lånet. Om du vill frigöra lånet behöver du LeaseId för lånet som du anger när du skapar lånet. Du behöver inte LeaseId för att avbryta lånet.
+
+I följande exempel visas hur du bryter lånet för filen som anges i orsak 2 (det här exemplet fortsätter med PowerShell-variablerna från orsak 2):
+
+```PowerShell
+$leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($fileClient)
+$leaseClient.Break() | Out-Null
+```
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Långsam filkopiering till och från Azure Files i Windows

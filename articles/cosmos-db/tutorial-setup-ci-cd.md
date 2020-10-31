@@ -8,14 +8,15 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7aace0b1ee6963aa220a60a11d02c370bf4d822a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2b74198f83ef972540038269d83048bfd1adda62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476560"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073901"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Konfigurera en CI/CD-pipeline med Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB-emulatorn ger en lokal miljö som emulerar Azure Cosmos DB-tjänsten för utveckling. Med emulatorn kan du utveckla och testa programmet lokalt, utan att skapa en Azure-prenumeration och utan att det kostar något. 
 
@@ -44,11 +45,11 @@ Nu när tillägget har installerats loggar du in på din Azure DevOps-organisati
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png" alt-text="Hitta och installera Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps Marketplace":::
 
-2. Välj **källa**, **Team project** (Teamprojekt), **Repository** (Lagringsplats) och **Default branch for manual and scheduled builds** (Standardgren för manuella och schemalagda byggen). När du har valt de alternativ som krävs väljer du **Continue** (Fortsätt)
+2. Välj **källa** , **Team project** (Teamprojekt), **Repository** (Lagringsplats) och **Default branch for manual and scheduled builds** (Standardgren för manuella och schemalagda byggen). När du har valt de alternativ som krävs väljer du **Continue** (Fortsätt)
 
    :::image type="content" source="./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png" alt-text="Hitta och installera Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps Marketplace":::
 
-3. Välj slutligen den mall du vill använda för bygg-pipeline. Vi väljer **ASP.NET**-mallen i den här kursen. Nu har du en pipeline för bygge som du kan konfigurera för att använda Azure Cosmos DB emulatorns build-aktivitet. 
+3. Välj slutligen den mall du vill använda för bygg-pipeline. Vi väljer **ASP.NET** -mallen i den här kursen. Nu har du en pipeline för bygge som du kan konfigurera för att använda Azure Cosmos DB emulatorns build-aktivitet. 
 
 > [!NOTE]
 > Den agent-pool som ska väljas för det här CI ska ha Docker för Windows installerat om inte installationen görs manuellt i en tidigare aktivitet som en del av CI. Se artikeln [Microsoft Hosted](/azure/devops/pipelines/agents/hosted?preserve-view=true&tabs=yaml&view=azure-devops) agents för ett urval av agent-pooler. Vi rekommenderar att du börjar med `Hosted VS2017` .
@@ -92,9 +93,9 @@ Det här steget är valfritt och det krävs bara om du konfigurerar CI/CD-pipeli
 
 Nu kan konfigurerar vi våra tester för att använda emulatorn. Emulatorns build-uppgift exporterar en miljövariabel – CosmosDbEmulator.Endpoint – som uppgifter längre in i bygg-pipeline kan utfärda begäranden mot. 
 
-I den här självstudiekursen använder vi [Visual Studio Test-uppgiften](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) för att köra enhetstester konfigurerade via en **.runsettings**-fil. Mer information om konfiguration av enhetstester finns i [dokumentationen](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?preserve-view=true&view=vs-2017). Kod exemplet fullständig program kod som du använder i det här dokumentet finns på [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
+I den här självstudiekursen använder vi [Visual Studio Test-uppgiften](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) för att köra enhetstester konfigurerade via en **.runsettings** -fil. Mer information om konfiguration av enhetstester finns i [dokumentationen](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?preserve-view=true&view=vs-2017). Kod exemplet fullständig program kod som du använder i det här dokumentet finns på [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
-Nedan är ett exempel på en **.runsettings**-fil som definierar parametrar som ska skickas till ett programs enhetstester. Observera att `authKey`-variabeln som används är den [välkända nyckeln](./local-emulator.md#authenticate-requests) för emulatorn. Denna `authKey` är nyckeln som förväntas av emulatorns build-uppgift och ska definieras i **.runsettings**-filen.
+Nedan är ett exempel på en **.runsettings** -fil som definierar parametrar som ska skickas till ett programs enhetstester. Observera att `authKey`-variabeln som används är den [välkända nyckeln](./local-emulator.md#authenticate-requests) för emulatorn. Denna `authKey` är nyckeln som förväntas av emulatorns build-uppgift och ska definieras i **.runsettings** -filen.
 
 ```csharp
 <RunSettings>
@@ -157,7 +158,7 @@ namespace todo.Tests
 }
 ```
 
-Gå till körningsalternativen i Visual Studio-Test-uppgiften. I alternativet **Settings file** (Inställningsfil) anger du att testerna har konfigurerats med **.runsettings**-filen. I alternativet **Override test run parameters** (Åsidosätt testkörningsparametrar) lägger du till i `-endpoint $(CosmosDbEmulator.Endpoint)`. När du gör det konfigureras Test-uppgiften så att den refererar till emulatorns build-uppgift, istället för den som definieras i **.runsettings**-filen.  
+Gå till körningsalternativen i Visual Studio-Test-uppgiften. I alternativet **Settings file** (Inställningsfil) anger du att testerna har konfigurerats med **.runsettings** -filen. I alternativet **Override test run parameters** (Åsidosätt testkörningsparametrar) lägger du till i `-endpoint $(CosmosDbEmulator.Endpoint)`. När du gör det konfigureras Test-uppgiften så att den refererar till emulatorns build-uppgift, istället för den som definieras i **.runsettings** -filen.  
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_5.png" alt-text="Hitta och installera Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps Marketplace":::
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 896caae2dfd79c4678ffb34c531fb56835e9bd66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d81419721e94a2e181f094c0e0e64b1b23544a8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886848"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073527"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
 
@@ -41,16 +41,19 @@ Den del av *datumet* som används med parametern "tal". Till exempel År, månad
   
 |*datePart*|Förkortningar|  
 |---|---|
-|**dagen**|**DD**, **d**|  
-|**vecka**|**veckor**, **WW**|  
+|**dagen**|**DD** , **d**|  
+|**vecka**|**veckor** , **WW**| 
+|**månad**|**mm** , **m**|
+|**början**|**QQ** , **q**|  
+|**år**|**yy** , **åååå**|  
 |**timkostnad**|**hh**|  
-|**minut**|**mi**, **n**|  
-|**senare**|**SS**, **s**|  
+|**minut**|**mi** , **n**|  
+|**senare**|**SS** , **s**|  
 |**tiden**|**millisekund**|  
 
-*många*
+*nummer*
 
-Det heltals värde som bestämmer bredden på Bucket tillsammans med argumentet *DatumDel* . Detta representerar bredden på dataPart-buckets från ursprungs tiden. **`This argument cannot be a negative integer value`**. 
+Det heltals värde som bestämmer bredden på Bucket tillsammans med argumentet *DatumDel* . Detta representerar bredden på dataPart-buckets från ursprungs tiden. **`This argument cannot be a negative integer value`** . 
 
 *ikraftträdande*
 
@@ -122,7 +125,7 @@ Select DATE_BUCKET(wk, 5, @date, @origin)
 
 ## <a name="datepart-argument"></a>DatumDel-argument
 
-**DAYOFYEAR**, **Day**och **veckodag** returnerar samma värde. Varje *DatumDel* och dess förkortningar returnerar samma värde.
+**DAYOFYEAR** , **Day** och **veckodag** returnerar samma värde. Varje *DatumDel* och dess förkortningar returnerar samma värde.
   
 ## <a name="number-argument"></a>tal argument
 
@@ -197,7 +200,7 @@ De här exemplen använder olika typer av uttryck som argument för parametrarna
   
 #### <a name="specifying-user-defined-variables-as-number-and-date"></a>Ange användardefinierade variabler som tal och datum  
 
-I det här exemplet anges användardefinierade variabler som argument för *tal* och *datum*:
+I det här exemplet anges användardefinierade variabler som argument för *tal* och *datum* :
   
 ```sql
 DECLARE @days int = 365,
@@ -247,7 +250,7 @@ ShippedDateBucket           SumOrderQuantity SumUnitPrice
 
 #### <a name="specifying-scalar-system-function-as-date"></a>Ange skalär system funktion som datum
 
-I det här exemplet anges `SYSDATETIME` *datum*. Det exakta värde som returneras beror på dag och tidpunkt för körning av instruktionen:
+I det här exemplet anges `SYSDATETIME` *datum* . Det exakta värde som returneras beror på dag och tidpunkt för körning av instruktionen:
   
 ```sql
 SELECT Date_Bucket(wk, 10, SYSDATETIME());  
@@ -264,7 +267,7 @@ Här är resultatuppsättningen.
 
 #### <a name="specifying-scalar-subqueries-and-scalar-functions-as-number-and-date"></a>Ange skalära under frågor och skalära funktioner som tal och datum
 
-I det här exemplet används skalära `MAX(OrderDate)` under frågor, som argument för *tal* och *datum*. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` fungerar som ett artificiellt argument för parametern Number, för att visa hur du väljer ett *tal* argument från en värde lista.
+I det här exemplet används skalära `MAX(OrderDate)` under frågor, som argument för *tal* och *datum* . `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` fungerar som ett artificiellt argument för parametern Number, för att visa hur du väljer ett *tal* argument från en värde lista.
   
 ```sql
 SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100),  
@@ -281,7 +284,7 @@ SELECT Date_Bucket(week,(10/2), SYSDATETIME());
 
 #### <a name="specifying-an-aggregate-window-function-as-number"></a>Ange en sammansatt fönster funktion som antal
 
-I det här exemplet används en mängd fönster funktion som ett argument för *tal*.
+I det här exemplet används en mängd fönster funktion som ett argument för *tal* .
   
 ```sql
 Select 

@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 84a39ade902bd22d67e9b3a7d40b392bfd83dfd3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1206d67b6a9d3823220b1ce1b7bd5b4b45e672fe
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475923"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072713"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB ändra feed för att visualisera data analyser i real tid
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB ändra feed är en mekanism för att få ett kontinuerligt och stegvist flöde av poster från en Azure Cosmos-behållare när dessa poster skapas eller ändras. Ändra feed-stöd genom att lyssna på behållare för eventuella ändringar. Funktionen returnerar sedan den sorterade listan över dokument som ändrats i den ordning de ändrades. Mer information om ändrings flöde finns i [arbeta med artikeln om ändrings flöde](change-feed.md) . 
 
@@ -72,7 +73,7 @@ Följande diagram representerar det data flöde och de komponenter som ingår i 
 
 Skapa Azure-resurserna – Azure Cosmos DB, lagrings konto, Händelsehubben, Stream Analytics som krävs av lösningen. Du kommer att distribuera dessa resurser via en Azure Resource Manager-mall. Använd följande steg för att distribuera dessa resurser: 
 
-1. Ange körnings principen för Windows PowerShell till **obegränsad**. Det gör du genom att öppna **Windows PowerShell som administratör** och köra följande kommandon:
+1. Ange körnings principen för Windows PowerShell till **obegränsad** . Det gör du genom att öppna **Windows PowerShell som administratör** och köra följande kommandon:
 
    ```powershell
    Get-ExecutionPolicy
@@ -83,12 +84,12 @@ Skapa Azure-resurserna – Azure Cosmos DB, lagrings konto, Händelsehubben, Str
 
 3. Ange värden för cosmosdbaccount_name, eventhubnamespace_name, storageaccount_name, parametrar som anges i **parameters.jsi** filen. Du måste använda de namn du ger till var och en av dina resurser senare.  
 
-4. Från **Windows PowerShell**navigerar du till mappen **Azure Resource Manager** och kör följande kommando:
+4. Från **Windows PowerShell** navigerar du till mappen **Azure Resource Manager** och kör följande kommando:
 
    ```powershell
    .\deploy.ps1
    ```
-5. När du uppmanas till det anger du ditt Azure **-prenumerations-ID**, **changefeedlab** för resurs grupps namnet och **Run1** för distributions namnet. När resurserna börjar distribuera kan det ta upp till 10 minuter innan det har slutförts.
+5. När du uppmanas till det anger du ditt Azure **-prenumerations-ID** , **changefeedlab** för resurs grupps namnet och **Run1** för distributions namnet. När resurserna börjar distribuera kan det ta upp till 10 minuter innan det har slutförts.
 
 ## <a name="create-a-database-and-the-collection"></a>Skapa en databas och samlingen
 
@@ -98,21 +99,21 @@ Nu ska du skapa en samling för att lagra händelser för e-handelsplats. När e
 
 2. I fönstret **datautforskaren** väljer du **ny samling** och fyller i formuläret med följande information:  
 
-   * I fältet **databas-ID** väljer du **Skapa ny**och anger sedan **changefeedlabdatabase**. Lämna rutan **etablera databasens data flöde** omarkerad.  
-   * I fältet **samlings** -ID anger du **changefeedlabcollection**.  
-   * För fältet **partitionsnyckel** anger du **/item**. Detta är Skift läges känsligt, så se till att du anger rätt.  
-   * I **data flödes** fältet anger du **10000**.  
-   * Välj knappen **OK**.  
+   * I fältet **databas-ID** väljer du **Skapa ny** och anger sedan **changefeedlabdatabase** . Lämna rutan **etablera databasens data flöde** omarkerad.  
+   * I fältet **samlings** -ID anger du **changefeedlabcollection** .  
+   * För fältet **partitionsnyckel** anger du **/item** . Detta är Skift läges känsligt, så se till att du anger rätt.  
+   * I **data flödes** fältet anger du **10000** .  
+   * Välj knappen **OK** .  
 
 3. Skapa sedan en annan samling med namnet **lån** för bearbetning av ändrings flöden. Låne insamlingen samordnar bearbetning av ändrings flödet över flera arbetare. En separat samling används för att lagra lån med ett lån per partition.  
 
 4. Gå tillbaka till **datautforskaren** fönstret och välj **ny samling** och fyll i formuläret med följande information:
 
-   * I fältet **databas-ID** väljer du **Använd befintlig**och anger sedan **changefeedlabdatabase**.  
-   * I fältet **samlings-ID** anger du **lån**.  
-   * För **lagrings kapacitet**väljer du **fast**.  
+   * I fältet **databas-ID** väljer du **Använd befintlig** och anger sedan **changefeedlabdatabase** .  
+   * I fältet **samlings-ID** anger du **lån** .  
+   * För **lagrings kapacitet** väljer du **fast** .  
    * Lämna fältet **data flöde** inställt på standardvärdet.  
-   * Välj knappen **OK**.
+   * Välj knappen **OK** .
 
 ## <a name="get-the-connection-string-and-keys"></a>Hämta anslutnings strängen och nycklarna
 
@@ -120,7 +121,7 @@ Nu ska du skapa en samling för att lagra händelser för e-handelsplats. När e
 
 1. Gå till [Azure Portal](https://portal.azure.com/) och hitta det **Azure Cosmos DBS konto** som har skapats av mall distributionen.  
 
-2. Navigera till rutan **nycklar** , kopiera den primära anslutnings strängen och kopiera den till ett anteckningar eller ett annat dokument som du kommer att ha åtkomst till i hela labbet. Du bör märka det **Cosmos DB anslutnings strängen**. Du måste kopiera strängen till koden senare, så ta en anteckning och komma ihåg var du lagrar den.
+2. Navigera till rutan **nycklar** , kopiera den primära anslutnings strängen och kopiera den till ett anteckningar eller ett annat dokument som du kommer att ha åtkomst till i hela labbet. Du bör märka det **Cosmos DB anslutnings strängen** . Du måste kopiera strängen till koden senare, så ta en anteckning och komma ihåg var du lagrar den.
 
 ### <a name="get-the-storage-account-key-and-connection-string"></a>Hämta lagrings konto nyckeln och anslutnings strängen
 
@@ -130,7 +131,7 @@ Azure Storage-konton gör det möjligt för användare att lagra data. I det hä
 
 2. Välj **åtkomst nycklar** på menyn till vänster.  
 
-3. Kopiera värdena under **nyckel 1** till ett anteckningar eller ett annat dokument som du kommer att ha åtkomst till i labbet. Du bör märka **nyckeln** som **lagrings nyckel** och **anslutnings strängen** som **lagrings anslutnings sträng**. Du måste kopiera dessa strängar till din kod senare, så ta en anteckning och kom ihåg var du lagrar dem.  
+3. Kopiera värdena under **nyckel 1** till ett anteckningar eller ett annat dokument som du kommer att ha åtkomst till i labbet. Du bör märka **nyckeln** som **lagrings nyckel** och **anslutnings strängen** som **lagrings anslutnings sträng** . Du måste kopiera dessa strängar till din kod senare, så ta en anteckning och kom ihåg var du lagrar dem.  
 
 ### <a name="get-the-event-hub-namespace-connection-string"></a>Hämta anslutnings strängen för Event Hub-namnområdet
 
@@ -140,7 +141,7 @@ En Azure Event Hub tar emot händelse data, butiker, processer och vidarebefordr
 
 2. Välj **principer för delad åtkomst** på menyn på vänster sida.  
 
-3. Välj **RootManageSharedAccessKey**. Kopiera **anslutnings strängen – primär nyckel** till ett anteckningar eller ett annat dokument som du kommer att ha åtkomst till i labbet. Du bör märka den till anslutnings strängen för **Event Hub-namnområdet** . Du måste kopiera strängen till koden senare, så ta en anteckning och komma ihåg var du lagrar den.
+3. Välj **RootManageSharedAccessKey** . Kopiera **anslutnings strängen – primär nyckel** till ett anteckningar eller ett annat dokument som du kommer att ha åtkomst till i labbet. Du bör märka den till anslutnings strängen för **Event Hub-namnområdet** . Du måste kopiera strängen till koden senare, så ta en anteckning och komma ihåg var du lagrar den.
 
 ## <a name="set-up-azure-function-to-read-the-change-feed"></a>Konfigurera Azure-funktionen för att läsa ändrings flödet
 
@@ -148,15 +149,15 @@ När ett nytt dokument skapas, eller om ett aktuellt dokument ändras i en Cosmo
 
 1. Gå tillbaka till den lagrings plats som du har klonat på enheten.  
 
-2. Högerklicka på filen med namnet **ChangeFeedLabSolution. SLN** och välj **Öppna med Visual Studio**.  
+2. Högerklicka på filen med namnet **ChangeFeedLabSolution. SLN** och välj **Öppna med Visual Studio** .  
 
 3. Navigera till **local.settings.js** i Visual Studio. Använd sedan de värden du registrerade tidigare för att fylla i de tomma.  
 
-4. Navigera till **ChangeFeedProcessor.cs**. I parametrarna för **Run** -funktionen utför du följande åtgärder:  
+4. Navigera till **ChangeFeedProcessor.cs** . I parametrarna för **Run** -funktionen utför du följande åtgärder:  
 
    * Ersätt texten **ditt samlings namn här** med namnet på din samling. Om du har följt tidigare instruktioner är namnet på din samling changefeedlabcollection.  
-   * Ersätt texten som **ditt leasing avtals samlings namn här** med namnet på din låne samling. Om du har följt tidigare instruktioner är namnet på din leasing uppsättning **lån**.  
-   * Överst i Visual Studio ser du till att rutan Start projekt till vänster om den gröna pilen står **ChangeFeedFunction**.  
+   * Ersätt texten som **ditt leasing avtals samlings namn här** med namnet på din låne samling. Om du har följt tidigare instruktioner är namnet på din leasing uppsättning **lån** .  
+   * Överst i Visual Studio ser du till att rutan Start projekt till vänster om den gröna pilen står **ChangeFeedFunction** .  
    * Välj **Starta**  överst på sidan för att köra programmet  
    * Du kan bekräfta att funktionen körs när-konsol programmet säger att "jobb värden har startats".
 
@@ -174,11 +175,11 @@ Om du vill se hur ändrings flödet bearbetar nya åtgärder på en e-handelspla
  
 4. Spara ändringarna på alla filer som har redigerats.  
 
-5. Överst i Visual Studio ser du till att rutan **Start projekt** till vänster om den gröna pilen står **DataGenerator**. Välj sedan **Starta** överst på sidan för att köra programmet.  
+5. Överst i Visual Studio ser du till att rutan **Start projekt** till vänster om den gröna pilen står **DataGenerator** . Välj sedan **Starta** överst på sidan för att köra programmet.  
  
 6. Vänta tills programmet körs. Stjärnorna innebär att data kommer in! Se till att programmet körs – det är viktigt att många data samlas in.  
 
-7. Om du går till [Azure Portal](https://portal.azure.com/) och sedan till Cosmos DBS kontot i resurs gruppen, kommer du till **datautforskaren**att se de slumpmässiga data som importer ATS i din **changefeedlabcollection** .
+7. Om du går till [Azure Portal](https://portal.azure.com/) och sedan till Cosmos DBS kontot i resurs gruppen, kommer du till **datautforskaren** att se de slumpmässiga data som importer ATS i din **changefeedlabcollection** .
  
    :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Visuellt projekt":::
 
@@ -192,35 +193,35 @@ Azure Stream Analytics är en helt hanterad moln tjänst för bearbetning av str
 
    :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="Visuellt projekt":::
 
-3. Välj **+ Lägg till strömmande data**. Välj sedan **Event Hub** i den nedrullningsbara menyn.  
+3. Välj **+ Lägg till strömmande data** . Välj sedan **Event Hub** i den nedrullningsbara menyn.  
 
 4. Fyll i det nya indata-formuläret med följande information:
 
-   * I fältet **inmatat** alias anger du **ininformation**.  
-   * Välj alternativet för **Välj Event Hub från dina prenumerationer**.  
+   * I fältet **inmatat** alias anger du **ininformation** .  
+   * Välj alternativet för **Välj Event Hub från dina prenumerationer** .  
    * Ange fältet **prenumeration** för din prenumeration.  
    * I fältet **namn område för händelsehubben** anger du namnet på den Event Hub-namnrymd som du skapade under prelab.  
    * I fältet **namn på händelsehubben** väljer du alternativet för att **använda befintlig** och sedan **Event-hub1** på den nedrullningsbara menyn.  
    * Lämna fältet princip namn för **Event Hub** inställt på standardvärdet.  
-   * Lämna **format för händelse serialisering** som **JSON**.  
-   * Lämna **encoding-fältet** inställt på **UTF-8**.  
-   * Lämna fältet **händelse komprimerings typ** inställt på **ingen**.  
-   * Välj knappen **Spara**.
+   * Lämna **format för händelse serialisering** som **JSON** .  
+   * Lämna **encoding-fältet** inställt på **UTF-8** .  
+   * Lämna fältet **händelse komprimerings typ** inställt på **ingen** .  
+   * Välj knappen **Spara** .
 
-5. Gå tillbaka till sidan Stream Analytics-jobb och välj **utdata**.  
+5. Gå tillbaka till sidan Stream Analytics-jobb och välj **utdata** .  
 
-6. Välj **+ Lägg till**. Välj **Power BI** på den nedrullningsbara menyn.  
+6. Välj **+ Lägg till** . Välj **Power BI** på den nedrullningsbara menyn.  
 
 7. Utför följande åtgärder för att skapa en ny Power BI utdata för att visualisera genomsnitts priset:
 
-   * I fältet **utdata-alias** anger du **averagePriceOutput**.  
-   * Lämna fältet **grupp arbets yta** inställt på att **tillåta anslutning till att läsa in arbets ytor**.  
-   * I fältet **data uppsättnings namn** anger du **averagePrice**.  
-   * I fältet **tabell namn** anger du **averagePrice**.  
+   * I fältet **utdata-alias** anger du **averagePriceOutput** .  
+   * Lämna fältet **grupp arbets yta** inställt på att **tillåta anslutning till att läsa in arbets ytor** .  
+   * I fältet **data uppsättnings namn** anger du **averagePrice** .  
+   * I fältet **tabell namn** anger du **averagePrice** .  
    * Välj knappen **auktorisera** och följ sedan anvisningarna för att auktorisera anslutningen till Power BI.  
-   * Välj knappen **Spara**.  
+   * Välj knappen **Spara** .  
 
-8. Gå sedan tillbaka till **streamjob1** och välj **Redigera fråga**.
+8. Gå sedan tillbaka till **streamjob1** och välj **Redigera fråga** .
 
    :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="Visuellt projekt" till "körs".
 
@@ -234,11 +235,11 @@ Power BI är en uppsättning verktyg för företagsanalys för att analysera och
 
 3. Välj **+ Lägg till panelen** i det övre högra hörnet.  
 
-4. Välj **anpassade strömmande data**och välj sedan knappen **Nästa** .  
+4. Välj **anpassade strömmande data** och välj sedan knappen **Nästa** .  
  
-5. Välj **averagePrice** från **dina data uppsättningar**och välj sedan **Nästa**.  
+5. Välj **averagePrice** från **dina data uppsättningar** och välj sedan **Nästa** .  
 
-6. I fältet **typ av visualisering** väljer du **grupperat liggande diagram** på den nedrullningsbara menyn. Lägg till åtgärd under **axel**. Hoppa över **förklaring** utan att lägga till något. Lägg sedan till **AVG**i nästa avsnitt med namnet **Value**. Välj **Nästa**, sedan titel på diagrammet och välj **Använd**. Du bör se ett nytt diagram på instrument panelen!  
+6. I fältet **typ av visualisering** väljer du **grupperat liggande diagram** på den nedrullningsbara menyn. Lägg till åtgärd under **axel** . Hoppa över **förklaring** utan att lägga till något. Lägg sedan till **AVG** i nästa avsnitt med namnet **Value** . Välj **Nästa** , sedan titel på diagrammet och välj **Använd** . Du bör se ett nytt diagram på instrument panelen!  
 
 7. Om du nu vill visualisera fler mått kan du gå tillbaka till **streamjob1** och skapa tre fler utdata med följande fält.
 
@@ -308,9 +309,9 @@ Power BI är en uppsättning verktyg för företagsanalys för att analysera och
 
 Nu kommer du att se hur du kan använda det nya data analys verktyget för att ansluta till en riktig e-handelswebbplats. För att bygga e-Handelswebbplatsen använder du en Azure Cosmos-databas för att lagra listan över produkt kategorier (kvinno, män, unisex), produkt katalogen och en lista över de populäraste objekten.
 
-1. Gå tillbaka till [Azure Portal](https://portal.azure.com/)och sedan till ditt **Cosmos DB-konto**och **datautforskaren**.  
+1. Gå tillbaka till [Azure Portal](https://portal.azure.com/)och sedan till ditt **Cosmos DB-konto** och **datautforskaren** .  
 
-   Lägg till två samlingar under **changefeedlabdatabase**-  -  **produkter** och- **Kategorier** med fast lagrings kapacitet.
+   Lägg till två samlingar under **changefeedlabdatabase** -  -  **produkter** och- **Kategorier** med fast lagrings kapacitet.
 
    Lägg till en annan samling under **changefeedlabdatabase** med namnet **topItems** och **/item** som partitionsnyckel.
 
@@ -318,7 +319,7 @@ Nu kommer du att se hur du kan använda det nya data analys verktyget för att a
 
    :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Visuellt projekt":::
 
-3. För att fylla i **topItems** -samlingen med de mest köpta objekten går du tillbaka till **streamjob1** och lägger till en ny **utmatning**. Välj **Cosmos DB**.
+3. För att fylla i **topItems** -samlingen med de mest köpta objekten går du tillbaka till **streamjob1** och lägger till en ny **utmatning** . Välj **Cosmos DB** .
 
 4. Fyll i de obligatoriska fälten enligt bilden nedan.
 
@@ -326,14 +327,14 @@ Nu kommer du att se hur du kan använda det nya data analys verktyget för att a
  
 5. Om du har lagt till den valfria översta 5 frågan i föregående del av labbet fortsätter du till del 5a. Fortsätt annars till del 5b.
 
-   5a. I **streamjob1**väljer du **Redigera fråga** och klistrar in följande fråga i din Azure Stream Analytics Frågeredigeraren under den översta 5 frågan, men ovanför resten av frågorna.
+   5a. I **streamjob1** väljer du **Redigera fråga** och klistrar in följande fråga i din Azure Stream Analytics Frågeredigeraren under den översta 5 frågan, men ovanför resten av frågorna.
 
    ```sql
    SELECT arrayvalue.value.item AS Item, arrayvalue.value.price, arrayvalue.value.countEvents
    INTO topItems
    FROM arrayselect
    ```
-   5b. I **streamjob1**väljer du **Redigera fråga** och klistrar in följande fråga i Azure Stream Analytics Frågeredigeraren ovanför alla andra frågor.
+   5b. I **streamjob1** väljer du **Redigera fråga** och klistrar in följande fråga i Azure Stream Analytics Frågeredigeraren ovanför alla andra frågor.
 
    ```sql
    /*TOP 5*/
@@ -362,11 +363,11 @@ Nu kommer du att se hur du kan använda det nya data analys verktyget för att a
    FROM arrayselect
    ```
 
-6. Öppna **EcommerceWebApp. SLN** och navigera till **Web.config** -filen i **Solution Explorer**.  
+6. Öppna **EcommerceWebApp. SLN** och navigera till **Web.config** -filen i **Solution Explorer** .  
 
-7. I `<appSettings>` blocket lägger du till den **URI** och **primär nyckel** som du sparade tidigare där det står **din URI här** och **din primär nyckel här**. Lägg sedan till i ditt **databas namn** och **samlings namn** enligt vad som anges. (Dessa namn ska vara **changefeedlabdatabase** och **changefeedlabcollection** om du inte har valt att namnge ditt eget namn.)
+7. I `<appSettings>` blocket lägger du till den **URI** och **primär nyckel** som du sparade tidigare där det står **din URI här** och **din primär nyckel här** . Lägg sedan till i ditt **databas namn** och **samlings namn** enligt vad som anges. (Dessa namn ska vara **changefeedlabdatabase** och **changefeedlabcollection** om du inte har valt att namnge ditt eget namn.)
 
-   Fyll i samlings **namn**, **Kategorier samlings namn**och **samlings namn för främsta objekt** enligt vad som anges. (Dessa namn bör vara **produkter, kategorier och topItems** om du inte har valt att namnge ditt eget namn.)  
+   Fyll i samlings **namn** , **Kategorier samlings namn** och **samlings namn för främsta objekt** enligt vad som anges. (Dessa namn bör vara **produkter, kategorier och topItems** om du inte har valt att namnge ditt eget namn.)  
 
 8. Navigera till och öppna **mappen utcheckning** i **EcommerceWebApp. SLN.** Öppna sedan **Web.config** -filen i den mappen.  
 

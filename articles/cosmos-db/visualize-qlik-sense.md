@@ -7,14 +7,15 @@ ms.author: sngun
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 986db85ddbf741dc459625dbd763b9cbbba1c429
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccd9f10bcf8be5539528be1f513f7e7dd74549e7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263355"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073697"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Anslut Qlik Sense till Azure Cosmos DB och visualisera dina data
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 Qlik Sense är ett verktyg för data visualisering som kombinerar data från olika källor i en enda vy. Qlik Sense indexerar varje möjlig relation i dina data så att du kan få omedelbara insikter om data. Du kan visualisera Azure Cosmos DB data med hjälp av Qlik Sense. I den här artikeln beskrivs de steg som krävs för att ansluta Azure Cosmos DB till Qlik Sense och visualisera dina data. 
 
@@ -34,7 +35,7 @@ I den här artikeln beskrivs hur du ansluter till Cosmos DB SQL-API med hjälp a
 
 I den här artikeln beskrivs hur du ansluter till Cosmos DB SQL-API med hjälp av ODBC-anslutningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du följer anvisningarna i den här artikeln ser du till att du har följande resurser klara:
 
@@ -52,15 +53,15 @@ Innan du följer anvisningarna i den här artikeln ser du till att du har följa
 
 ## <a name="connect-qlik-sense-to-cosmos-db"></a>Anslut Qlik Sense till Cosmos DB
 
-1. Öppna Qlik Sense och välj **Skapa ny app**. Ange ett namn för din app och välj **skapa**.
+1. Öppna Qlik Sense och välj **Skapa ny app** . Ange ett namn för din app och välj **skapa** .
 
    :::image type="content" source="./media/visualize-qlik-sense/create-new-qlik-sense-app.png" alt-text="Skapa en ny Qlik Sense-app":::
 
-2. När den nya appen har skapats väljer du **Öppna App** och väljer **Lägg till data från filer och andra källor**. 
+2. När den nya appen har skapats väljer du **Öppna App** och väljer **Lägg till data från filer och andra källor** . 
 
 3. Från data källorna väljer du **ODBC** för att öppna fönstret ny anslutnings konfiguration. 
 
-4. Växla till **användar-DSN** och välj den ODBC-anslutning som du skapade tidigare. Ange ett namn för anslutningen och välj **skapa**. 
+4. Växla till **användar-DSN** och välj den ODBC-anslutning som du skapade tidigare. Ange ett namn för anslutningen och välj **skapa** . 
 
    :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Skapa en ny Qlik Sense-app":::
 

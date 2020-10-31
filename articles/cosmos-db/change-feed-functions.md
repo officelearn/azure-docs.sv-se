@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: e452f03721551adada69a36b1ce69e57f1111f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83a422bbdc4e33ecd955451bb3c1e305cee2b2f4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85834071"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072849"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Händelsebaserade arkitekturer utan server med Azure Cosmos DB och Azure Functions
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Functions är det enklaste sättet att ansluta till [ändrings flödet](change-feed.md). Du kan skapa små reaktiva Azure Functions som aktive ras automatiskt vid varje ny händelse i din Azure Cosmos-behållares ändrings flöde.
 
@@ -29,8 +30,8 @@ Med [Azure Functions-utlösaren för Cosmos DB](../azure-functions/functions-bin
 
 Om du vill implementera ett Server lös händelsebaserat flöde måste du:
 
-* **Den övervakade behållaren**: den övervakade behållaren är den Azure Cosmos-behållare som övervakas, och den lagrar data som ändrings flödet genereras från. Eventuella infogningar, uppdateringar av den övervakade behållaren visas i behållarens ändrings flöde.
-* **Leasing container**: Lease-containern upprätthåller tillstånd för flera och dynamiska Azure Function-instanser i Server och möjliggör dynamisk skalning. Denna Lease-behållare kan skapas manuellt eller skapas automatiskt av Azure Functions-utlösaren för Cosmos DB. Om du vill skapa en låne container automatiskt anger du flaggan *CreateLeaseCollectionIfNotExists* i [konfigurationen](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Partitionerade leasing behållare måste ha en definition av `/id` partitionsnyckel.
+* **Den övervakade behållaren** : den övervakade behållaren är den Azure Cosmos-behållare som övervakas, och den lagrar data som ändrings flödet genereras från. Eventuella infogningar, uppdateringar av den övervakade behållaren visas i behållarens ändrings flöde.
+* **Leasing container** : Lease-containern upprätthåller tillstånd för flera och dynamiska Azure Function-instanser i Server och möjliggör dynamisk skalning. Denna Lease-behållare kan skapas manuellt eller skapas automatiskt av Azure Functions-utlösaren för Cosmos DB. Om du vill skapa en låne container automatiskt anger du flaggan *CreateLeaseCollectionIfNotExists* i [konfigurationen](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Partitionerade leasing behållare måste ha en definition av `/id` partitionsnyckel.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Skapa din Azure Functions-utlösare för Cosmos DB
 

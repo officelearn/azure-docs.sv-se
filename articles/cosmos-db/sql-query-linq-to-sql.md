@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: 4f5e88e7201c4097e2f8d654b8780ea12816b15d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c7d47b0bb167b3211b3859a47b0c8e11876b1614
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485111"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075409"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL-översättning
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB Query-providern utför en mappning från en LINQ-fråga till en Cosmos DB SQL-fråga. Om du vill hämta SQL-frågan som har översatts från LINQ använder du `ToString()` metoden på det genererade `IQueryable` objektet. Följande beskrivning förutsätter en grundläggande kunskap om [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
 
@@ -79,19 +80,19 @@ using (FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
 
 LINQ-providern som ingår i SQL .NET SDK stöder följande operatorer:
 
-- **Välj**: projektioner översätts till [Välj](sql-query-select.md), inklusive objekt konstruktion.
-- **Där**: filter översätter till [WHERE](sql-query-where.md), och stöder översättning mellan `&&` , `||` , och `!` till SQL-operatörerna
-- **SelectMany**: tillåter avlindning av matriser till [Join](sql-query-join.md) -satsen. Används för att kedja eller kapsla uttryck för att filtrera på mat ris element.
-- **OrderBy** och **OrderByDescending**: Översätt till [order by](sql-query-order-by.md) med ASC eller DESC.
-- **Count**-, **Sum**-, **min**-, **Max**-och **genomsnitts** operatorer för [agg regering](sql-query-aggregates.md)och deras async-motsvarigheter **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**och **AverageAsync**.
-- **CompareTo**: Översätts till intervalljämförelser. Används ofta för strängar, eftersom de inte är jämförbara i .NET.
-- **Hoppa över** och **vidta**: översätts till [förskjutning och gräns](sql-query-offset-limit.md) för begränsning av resultat från en fråga och sid brytning.
-- **Matematiska funktioner**: stöder översättning från .net,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` , `Floor` , `Log` , `Log10` , `Pow` , `Round` , `Sign` , `Sin` , `Sqrt` , `Tan` , och `Truncate` motsvarande [inbyggda matematiska funktioner](sql-query-mathematical-functions.md).
-- **Sträng funktioner**: stöder översättning från .net `Concat` , `Contains` ,,,,, `Count` `EndsWith` `IndexOf` `Replace` `Reverse` , `StartsWith` , `SubString` , `ToLower` , `ToUpper` , `TrimEnd` , och `TrimStart` till motsvarande [inbyggda sträng funktioner](sql-query-string-functions.md).
-- **Mat ris funktioner**: stöder översättning från .net `Concat` , `Contains` och `Count` till motsvarande [inbyggda mat ris funktioner](sql-query-array-functions.md).
-- **Geospatiala utöknings funktioner**: stöder översättning från stub `Distance` -metoder, `IsValid` ,, `IsValidDetailed` och `Within` till motsvarande [inbyggda geospatiala funktioner](sql-query-geospatial-query.md).
-- **Användardefinierad funktions utöknings funktion**: stöder översättning från stub-metoden `UserDefinedFunctionProvider.Invoke` till motsvarande [användardefinierade funktion](sql-query-udfs.md).
-- **Diverse**: stöder översättning av `Coalesce` och villkorliga [operatorer](sql-query-operators.md). Kan översättas `Contains` till sträng innehåller, ARRAY_CONTAINS eller i, beroende på kontext.
+- **Välj** : projektioner översätts till [Välj](sql-query-select.md), inklusive objekt konstruktion.
+- **Där** : filter översätter till [WHERE](sql-query-where.md), och stöder översättning mellan `&&` , `||` , och `!` till SQL-operatörerna
+- **SelectMany** : tillåter avlindning av matriser till [Join](sql-query-join.md) -satsen. Används för att kedja eller kapsla uttryck för att filtrera på mat ris element.
+- **OrderBy** och **OrderByDescending** : Översätt till [order by](sql-query-order-by.md) med ASC eller DESC.
+- **Count** -, **Sum** -, **min** -, **Max** -och **genomsnitts** operatorer för [agg regering](sql-query-aggregates.md)och deras async-motsvarigheter **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** och **AverageAsync** .
+- **CompareTo** : Översätts till intervalljämförelser. Används ofta för strängar, eftersom de inte är jämförbara i .NET.
+- **Hoppa över** och **vidta** : översätts till [förskjutning och gräns](sql-query-offset-limit.md) för begränsning av resultat från en fråga och sid brytning.
+- **Matematiska funktioner** : stöder översättning från .net,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` , `Floor` , `Log` , `Log10` , `Pow` , `Round` , `Sign` , `Sin` , `Sqrt` , `Tan` , och `Truncate` motsvarande [inbyggda matematiska funktioner](sql-query-mathematical-functions.md).
+- **Sträng funktioner** : stöder översättning från .net `Concat` , `Contains` ,,,,, `Count` `EndsWith` `IndexOf` `Replace` `Reverse` , `StartsWith` , `SubString` , `ToLower` , `ToUpper` , `TrimEnd` , och `TrimStart` till motsvarande [inbyggda sträng funktioner](sql-query-string-functions.md).
+- **Mat ris funktioner** : stöder översättning från .net `Concat` , `Contains` och `Count` till motsvarande [inbyggda mat ris funktioner](sql-query-array-functions.md).
+- **Geospatiala utöknings funktioner** : stöder översättning från stub `Distance` -metoder, `IsValid` ,, `IsValidDetailed` och `Within` till motsvarande [inbyggda geospatiala funktioner](sql-query-geospatial-query.md).
+- **Användardefinierad funktions utöknings funktion** : stöder översättning från stub-metoden `UserDefinedFunctionProvider.Invoke` till motsvarande [användardefinierade funktion](sql-query-udfs.md).
+- **Diverse** : stöder översättning av `Coalesce` och villkorliga [operatorer](sql-query-operators.md). Kan översättas `Contains` till sträng innehåller, ARRAY_CONTAINS eller i, beroende på kontext.
 
 ## <a name="examples"></a>Exempel
 

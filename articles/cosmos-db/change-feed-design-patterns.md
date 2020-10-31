@@ -6,14 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0c890d50bbfe498f9d90698394b2cc2d373c0d8b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489361"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073002"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Ändra feed design mönster i Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB ändra feed möjliggör effektiv bearbetning av stora data uppsättningar med en stor mängd skrivningar. Ändra feed erbjuder också ett alternativ till att fråga en hel data uppsättning för att identifiera vad som har ändrats. Det här dokumentet fokuserar på vanliga design mönster för ändrings flöden, design kompromisser och ändra begränsningar för feed.
 

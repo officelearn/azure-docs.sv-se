@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f5d3542527f73d4a172e26a0d9222eaa077523c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13b2664ea65c880915c95afa095ff86379474cf5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409467"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073867"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Självstudie: Fråga Azure Cosmos DB Gremlin-API med hjälp av Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB [Gremlin-API](graph-introduction.md) stöder [Gremlin](https://github.com/tinkerpop/gremlin/wiki)-frågor. Den här artikeln innehåller exempeldokument och frågor för att komma igång. En detaljerad Gremlin-referens finns i artikeln [Gremlin-support](gremlin-support.md).
 
@@ -25,7 +26,7 @@ Den här artikeln beskriver följande uppgifter:
 > [!div class="checklist"]
 > * Fråga efter data med Gremlin
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB och ha diagramdata i containern. Har du detta? Slutför [snabbstarten på 5 minuter](create-graph-dotnet.md) eller [självstudien för utvecklare](tutorial-query-graph.md) om du behöver skapa ett konto och fylla i databasen. Du kan köra följande frågor från [Gremlin-konsolen](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) eller din favoritdrivrutin för Gremlin.
 

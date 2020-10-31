@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2a7645950fd7a239376f07d6c6f4689c1a3f3da5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8694a884b26194c61cc77d00848692a24e3009be
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476322"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073714"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Övervaka och felsöka med mått i Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB tillhandahåller mått för dataflöde, lagring, konsekvens, tillgänglighet och svarstid. Azure-portalen innehåller en sammanställd vy över dessa mått. Du kan också Visa Azure Cosmos DB-mått från Azure Monitor-API:et. Dimensionsvärdena för måtten, till exempel container Name, är Skift läges okänsliga. Du måste därför använda Skift läges okänslig jämförelse när du utför sträng jämförelser på dessa dimensions värden. Information om hur du visar mått från Azure Monitor finns i artikeln [Hämta mått från Azure Monitor](./monitor-cosmos-db.md) .
 

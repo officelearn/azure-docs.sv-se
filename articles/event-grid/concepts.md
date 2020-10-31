@@ -2,13 +2,13 @@
 title: Azure Event Grid begrepp
 description: Beskriver Azure Event Grid och dess begrepp. Definierar flera viktiga komponenter i Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 003139374a056da6ddc22dd1453d28761ff58871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86116496"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075117"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Begrepp i Azure Event Grid
 
@@ -37,11 +37,11 @@ Information om hur du implementerar någon av de Event Grid källorna som stöds
 
 Avsnittet Event Grid innehåller en slut punkt där källan skickar händelser. Avsnittet Event Grid skapas i utgivaren och avgör om en händelse källa behöver ett ämne eller mer än ett ämne. Ett ämne används för en samling relaterade händelser. För att svara på vissa typer av händelser, bestämmer prenumeranter vilka ämnen som ska prenumerera på.
 
-System ämnen är inbyggda ämnen som tillhandahålls av Azure-tjänster som Azure Storage, Azure Event Hubs och Azure Service Bus. Du kan skapa system ämnen i din Azure-prenumeration och prenumerera på dem. Mer information finns i [Översikt över system ämnen](system-topics.md). 
+**System ämnen** är inbyggda ämnen som tillhandahålls av Azure-tjänster som Azure Storage, Azure Event Hubs och Azure Service Bus. Du kan skapa system ämnen i din Azure-prenumeration och prenumerera på dem. Mer information finns i [Översikt över system ämnen](system-topics.md). 
 
-Anpassade ämnen kommer från program och tredje part. När du skapar eller tilldelas åtkomst till ett anpassat ämne visas detta anpassade ämne i din prenumeration. Mer information finns i avsnittet om [anpassade ämnen](custom-topics.md).
+**Anpassade ämnen** är program-och tredje parts ämnen. När du skapar eller tilldelas åtkomst till ett anpassat ämne visas detta anpassade ämne i din prenumeration. Mer information finns i avsnittet om [anpassade ämnen](custom-topics.md). När du designar ditt program är du flexibel när du bestämmer hur många ämnen som ska skapas. Skapa ett anpassat ämne för varje kategori av relaterade händelser för stora lösningar. Tänk dig ett program som skickar händelser som handlar om att ändra användarkonton och bearbeta beställningar. Det är osannolikt alla händelsehanteraren vill ha båda händelsekategorier. Skapa två anpassade ämnen och låt händelsehanteraren prenumerera på det mest relevanta. För små lösningar kanske du föredrar att skicka alla händelser till ett enda ämne. Händelse prenumeranter kan filtrera efter de händelse typer som de vill ha.
 
-När du designar ditt program är du flexibel när du bestämmer hur många ämnen som ska skapas. Skapa ett anpassat ämne för varje kategori av relaterade händelser för stora lösningar. Tänk dig ett program som skickar händelser som handlar om att ändra användarkonton och bearbeta beställningar. Det är osannolikt alla händelsehanteraren vill ha båda händelsekategorier. Skapa två anpassade ämnen och låt händelsehanteraren prenumerera på det mest relevanta. För små lösningar kanske du föredrar att skicka alla händelser till ett enda ämne. Händelse prenumeranter kan filtrera efter de händelse typer som de vill ha.
+Det finns en annan typ av ämne: **partner ämne** . Med funktionen [partner händelser](partner-events-overview.md) kan en SaaS-provider från tredje part publicera händelser från sina tjänster så att de blir tillgängliga för konsumenter som kan prenumerera på dessa händelser. SaaS-providern visar en ämnes typ, ett **partner ämne** , som prenumeranter använder för att använda händelser. Den erbjuder även en ren pub-sub-modell genom att åtskilja problem och ägarskap av resurser som används av händelse utgivare och prenumeranter.
 
 ## <a name="event-subscriptions"></a>Prenumerationer på händelser
 

@@ -7,23 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476407"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073833"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå Azure Cosmos DB-fakturan
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Som en fullständigt hanterad molnbaserad databas tjänst, Azure Cosmos DB fören klar faktureringen genom att endast debiteras för databas åtgärder och förbrukad lagring. Det finns inga ytterligare licens avgifter, kostnader för maskin vara, verktyg eller kostnader jämfört med lokala eller IaaS alternativ. När du funderar på funktionerna i flera regioner i Azure Cosmos DB ger databas tjänsten en betydande minskning av kostnaderna jämfört med befintliga lokala eller IaaS-lösningar.
 
-- **Databas åtgärder**: hur du debiteras för dina databas åtgärder beror på vilken typ av Azure Cosmos-konto du använder.
+- **Databas åtgärder** : hur du debiteras för dina databas åtgärder beror på vilken typ av Azure Cosmos-konto du använder.
 
-  - **Etablerade data flöde**: du debiteras per timme för det högsta etablerade data flödet för en specifik timme, i steg om 100 ru/s.
-  - Utan **Server**: du debiteras per timme för den totala mängden enheter för programbegäran som används av databas åtgärderna.
+  - **Etablerade data flöde** : du debiteras per timme för det högsta etablerade data flödet för en specifik timme, i steg om 100 ru/s.
+  - Utan **Server** : du debiteras per timme för den totala mängden enheter för programbegäran som används av databas åtgärderna.
 
-- **Lagring**: du debiteras ett fast pris för den totala mängden lagrings utrymme (i GB) som används av dina data och index för en specifik timme.
+- **Lagring** : du debiteras ett fast pris för den totala mängden lagrings utrymme (i GB) som används av dina data och index för en specifik timme.
 
 På [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) finns den senaste pris informationen.
 
@@ -304,7 +305,7 @@ Det du har köpt på ett effektivt sätt är en kredit på $8 per timme, för 10
 |Köpt reserverad kapacitet|$0,0064 (20% rabatt) |100 RU/SEK eller $8 kapacitet för inköpt |– $8|– $5 760 |
 |Netto faktura|||0,50 USD |$360 |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Härnäst kan du fortsätta med att lära dig mer om kostnads optimering i Azure Cosmos DB med följande artiklar:
 

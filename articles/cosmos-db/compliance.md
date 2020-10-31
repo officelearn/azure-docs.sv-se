@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 32266695770f627f7044bce92e4505f45776fd28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a013e07ada0ba88b20598c23f706eb5ee71d49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83747351"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073071"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Efterlevnad i Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB är tillgängligt i alla Azure-regioner. Microsoft gör fem olika Azure Cloud-miljöer tillgängliga för kunder:
 
@@ -47,12 +48,12 @@ Azure Cosmos DB utökar kontinuerligt dess certifieringstäckning. Azure Cosmos 
 | ISO 27701:2019| | | |
 | SOC 1, 2, 3 | | | |
 
-Om du vill veta mer om vart och ett av dessa erbjudanden för efterlevnad och hur de gynnar dig, se [Översikt över sidan Microsoft Azure efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) .
+Om du vill lära dig mer om var och en av dessa erbjudanden för efterlevnad och hur de förmånen ger dig, se [Microsoft Azure erbjudanden för regelefterlevnad](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), bilaga A & B.
 
 I följande tabell visas de certifieringar som stöds av Azure Cosmos DB i Azure Government:
 
 | **Globalt tillämpligt** | **AMERIKANSKA myndigheter** | **Bransch Specific** | 
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | CSA STAR-certifiering | CJIS| HIPAA BAA | 
 | CSA-stjärn attestering| DoD SRG nivå 2| HITRUST  | 
 | ISO 20000-1:2011 | DoD SRG nivå 4 | PCI DSS | 
@@ -68,8 +69,14 @@ I följande tabell visas de certifieringar som stöds av Azure Cosmos DB i Azure
 
 Mer information om certifieringar för Azure-kompatibilitet finns i följande artiklar:
 
-* För att ta reda på de senaste certifierings certifieringarna för Azure Cosmos DB, se [Översikt över Azure-kompatibilitet](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).  
+* Om du vill ta reda på de senaste certifierings certifieringarna för Azure Cosmos DB, se [Microsoft Azure erbjudanden för regelefterlevnad](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), bilaga A & B.  
 
-* En översikt över Azure Cosmos DB säkerhet och de senaste förbättringarna finns i [säkerhets artikeln om Azure Cosmos Database](database-security.md) .
+* En översikt över Azure Cosmos DB säkerhet och de senaste förbättringarna finns i [säkerhet för Azure Cosmos Database](database-security.md).
+
+* Rekommendationer för att förbättra säkerhets position för din Azure Cosmos DB-distribution finns i [säkerhets bas linjen för Azure Cosmos DB](security-baseline.md). 
 
 * Mer information om Microsoft-certifieringar finns i [Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/).
+
+* Information om FedRAMP finns i [Azure-tjänster av FedRAMP och DoD CC SRG audit-omfattning](../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
+
+* Information om DoD-kompatibilitet finns i [DoD Compliance-erbjudanden](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide).

@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: a955f035933955b88200e49e343f7dd0c257c89b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e807cde2d99cf23d459b395444d642e46ada32ab
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816362"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071461"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Snabb start: Konfigurera Data Science Virtual Machine för Windows
 
@@ -36,18 +36,18 @@ Så här skapar du en DSVM-instans:
 1. Du bör omdirigeras till bladet "skapa en virtuell dator".
 
 1. Fyll i fliken **grundläggande** :
-      * **Prenumeration**: om du har mer än en prenumeration väljer du den som datorn ska skapas i och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
-      * **Resurs grupp**: skapa en ny grupp eller Använd en befintlig grupp.
-      * **Namn på virtuell dator**: Ange namnet på den virtuella datorn. Så här kommer det att visas i Azure Portal.
-      * **Plats**: Välj det data Center som är lämpligast. För snabbast nätverks åtkomst är det data Center som har de flesta data eller som är närmast din fysiska plats. Lär dig mer om [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/).
-      * **Bild**: låt standardvärdet vara kvar.
-      * **Storlek**: detta bör fyllas i automatiskt med en storlek som passar för allmänna arbets belastningar. Läs mer om [storlekar för virtuella Windows-datorer i Azure](../../virtual-machines/windows/sizes.md).
-      * **Användar namn**: Ange administratörens användar namn. Detta är det användar namn som du ska använda för att logga in på den virtuella datorn och behöver inte vara samma som ditt Azure-användarnamn.
-      * **Lösen ord**: Ange det lösen ord som du ska använda för att logga in på den virtuella datorn.    
-1. Välj **Granska + skapa**.
+      * **Prenumeration** : om du har mer än en prenumeration väljer du den som datorn ska skapas i och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
+      * **Resurs grupp** : skapa en ny grupp eller Använd en befintlig grupp.
+      * **Namn på virtuell dator** : Ange namnet på den virtuella datorn. Så här kommer det att visas i Azure Portal.
+      * **Plats** : Välj det data Center som är lämpligast. För snabbast nätverks åtkomst är det data Center som har de flesta data eller som är närmast din fysiska plats. Lär dig mer om [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/).
+      * **Bild** : låt standardvärdet vara kvar.
+      * **Storlek** : detta bör fyllas i automatiskt med en storlek som passar för allmänna arbets belastningar. Läs mer om [storlekar för virtuella Windows-datorer i Azure](../../virtual-machines/windows/sizes.md).
+      * **Användar namn** : Ange administratörens användar namn. Detta är det användar namn som du ska använda för att logga in på den virtuella datorn och behöver inte vara samma som ditt Azure-användarnamn.
+      * **Lösen ord** : Ange det lösen ord som du ska använda för att logga in på den virtuella datorn.    
+1. Välj **Granska + skapa** .
 1. **Granska + skapa**
    * Kontrol lera att all information som du har angett är korrekt. 
-   * Välj **Skapa**.
+   * Välj **Skapa** .
 
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Så här skapar du en DSVM-instans:
 
 ## <a name="access-the-dsvm"></a>Åtkomst till DSVM
 
-När den virtuella datorn har skapats och allokerats följer du stegen som visas för att [ansluta till din Azure-baserade virtuella dator](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md). Använd de autentiseringsuppgifter för administratörs kontot som du konfigurerade i **grundläggande** steg för att skapa en virtuell dator. 
+När den virtuella datorn har skapats och allokerats följer du stegen som visas för att [ansluta till din Azure-baserade virtuella dator](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base). Använd de autentiseringsuppgifter för administratörs kontot som du konfigurerade i **grundläggande** steg för att skapa en virtuell dator. 
 
 Du är redo att börja använda de verktyg som är installerade och konfigurerade på den virtuella datorn. Många av verktygen kan nås via **Start** -menyns paneler och skriv bords ikoner.
 

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 3f787840422e61d6f43081d991ffc3ef28da6976
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a25cd2c0a9205dc184640e95f122c770b29cf24a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486539"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073255"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Certifikatbaserad autentisering för en Azure AD-identitet för åtkomst till nycklar från ett Azure Cosmos DB konto
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Med certifikatbaserad autentisering kan klientprogrammet autentiseras med hjälp av Azure Active Directory (Azure AD) med ett klientcertifikat. Du kan utföra certifikatbaserad autentisering på en dator där du behöver en identitet, till exempel en lokal dator eller en virtuell dator i Azure. Ditt program kan sedan läsa Azure Cosmos DB nycklar utan att ha nycklarna direkt i programmet. Den här artikeln beskriver hur du skapar ett exempel på Azure AD-program, konfigurerar det för certifikatbaserad autentisering, loggar in på Azure med den nya program identiteten och hämtar sedan nycklarna från ditt Azure Cosmos-konto. Den här artikeln använder Azure PowerShell för att ställa in identiteter och innehåller en C#-exempel app som autentiserar och använder nycklar från ditt Azure Cosmos-konto.  
 
@@ -30,7 +31,7 @@ I det här steget ska du registrera ett exempel webb program i ditt Azure AD-kon
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. Öppna fönstret Azure **Active Directory** , gå till **Appregistreringar** fönstret och välj **ny registrering**. 
+1. Öppna fönstret Azure **Active Directory** , gå till **Appregistreringar** fönstret och välj **ny registrering** . 
 
    :::image type="content" source="./media/certificate-based-authentication/new-app-registration.png" alt-text="Ny program registrering i Active Directory":::
 
@@ -44,7 +45,7 @@ I det här steget ska du registrera ett exempel webb program i ditt Azure AD-kon
 
 1. Välj **Registrera** när du har fyllt i formuläret.
 
-1. När appen har registrerats ska du anteckna **program-ID: t** och **objekt-ID**: t. du kommer att använda informationen i nästa steg. 
+1. När appen har registrerats ska du anteckna **program-ID: t** och **objekt-ID** : t. du kommer att använda informationen i nästa steg. 
 
    :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Ny program registrering i Active Directory":::
 
@@ -107,7 +108,7 @@ Kommandot ovan resulterar i utdata som liknar skärm bilden nedan:
 
 1. Gå till ditt Azure Cosmos-konto och öppna bladet **åtkomst kontroll (IAM)** .
 
-1. Välj **Lägg till** och **Lägg till roll tilldelning**. Lägg till fråga som du skapade i föregående steg med **deltagar** rollen som visas på följande skärm bild:
+1. Välj **Lägg till** och **Lägg till roll tilldelning** . Lägg till fråga som du skapade i föregående steg med **deltagar** rollen som visas på följande skärm bild:
 
    :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Ny program registrering i Active Directory":::
 
@@ -123,9 +124,9 @@ I Azure App-registreringen för klient programmet:
 
 1. Öppna fönstret Azure **Active Directory** , gå till fönstret **Appregistreringar** och öppna den exempel app som du skapade i föregående steg. 
 
-1. Välj **certifikat & hemligheter** och **Ladda upp certifikat**. Bläddra till den certifikat fil som du skapade i föregående steg för att ladda upp.
+1. Välj **certifikat & hemligheter** och **Ladda upp certifikat** . Bläddra till den certifikat fil som du skapade i föregående steg för att ladda upp.
 
-1. Välj **Lägg till**. När certifikatet har laddats upp visas tumavtryck, start datum och förfallo värden.
+1. Välj **Lägg till** . När certifikatet har laddats upp visas tumavtryck, start datum och förfallo värden.
 
 ## <a name="access-the-keys-from-powershell"></a>Åtkomst till nycklarna från PowerShell
 

@@ -6,14 +6,15 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 9c266e42804a12403e446bf024e93fe879497570
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec6a9db63504958640137fcd0fcfc904eb01afa5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803270"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074737"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Övervaka Server sidans svars tid för åtgärder i en Azure Cosmos DB behållare eller ett konto
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Monitor för Azure Cosmos DB ger en mått vy för att övervaka ditt konto och skapa instrument paneler. De Azure Cosmos DB måtten samlas in som standard, men den här funktionen kräver inte att du aktiverar eller konfigurerar något explicit. Måttet på Server sidans svars tid används för att Visa svars tiden på Server sidan för en åtgärd. Azure Cosmos DB tillhandahåller service avtal på mindre än 10 ms för punkt-Läs/skriv-åtgärder med direkt anslutning. För punkt läsnings-och skriv åtgärder beräknas service avtal så som beskrivs i [SLA-dokumentet](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
@@ -29,11 +30,11 @@ Du kan söka efter Diagnostic-loggen för att se storleken på de data som retur
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Välj **övervaka** i det vänstra navigerings fältet och välj **mått**.
+1. Välj **övervaka** i det vänstra navigerings fältet och välj **mått** .
 
    :::image type="content" source="./media/monitor-server-side-latency/monitor-metrics-blade.png" alt-text="Mått fönstret i Azure Monitor":::
 
-1. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen**och **resurs gruppen**. För **resurs typen**väljer du **Azure Cosmos DB konton**, väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd**.
+1. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen** och **resurs gruppen** . För **resurs typen** väljer du **Azure Cosmos DB konton** , väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd** .
    
    :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Mått fönstret i Azure Monitor":::
 
@@ -43,9 +44,9 @@ Du kan söka efter Diagnostic-loggen för att se storleken på de data som retur
 
 ## <a name="filters-for-server-side-latency"></a>Filter för svars tid på Server Sidan
 
-Du kan också filtrera mått och hämta diagram som visas av en speciell **samlings**-, **ConnectionMode**-, **databasename**-, **OperationType**-, **region**-och **PublicAPIType**. 
+Du kan också filtrera mått och hämta diagram som visas av en speciell **samlings** -, **ConnectionMode** -, **databasename** -, **OperationType** -, **region** -och **PublicAPIType** . 
 
-Om du vill filtrera måtten väljer du **Lägg till filter** och väljer den obligatoriska egenskapen som **PublicAPIType** och väljer värdet **SQL**. Lägg till ett annat filter för **OperationType**. Diagrammet visar sedan svars tiden på Server sidan för olika åtgärder under den valda perioden. De åtgärder som utförs via den lagrade proceduren loggas inte, så de är inte tillgängliga i OperationType-måttet.
+Om du vill filtrera måtten väljer du **Lägg till filter** och väljer den obligatoriska egenskapen som **PublicAPIType** och väljer värdet **SQL** . Lägg till ett annat filter för **OperationType** . Diagrammet visar sedan svars tiden på Server sidan för olika åtgärder under den valda perioden. De åtgärder som utförs via den lagrade proceduren loggas inte, så de är inte tillgängliga i OperationType-måttet.
 
 **Server sidans svars** värden för varje åtgärd visas enligt följande bild:
 

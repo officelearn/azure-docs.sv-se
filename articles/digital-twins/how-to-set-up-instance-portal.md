@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperfq
-ms.openlocfilehash: 2dc19432d2185b95376717c570cd3165ebc85075
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: da0eb80352409bbbbe29a80fe18a52f54540ae62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027297"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071495"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurera en digital Azure-instans och autentisering (portal)
 
@@ -36,7 +36,7 @@ Börja med att välja _skapa en resurs_ på Start sidan för Azure-tjänster en 
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
 
-Sök efter *Azure Digitals dubbla* i sökrutan och välj tjänsten **Azure Digitals (för hands version)** från resultaten. Välj knappen _skapa_ för att skapa en ny instans av tjänsten.
+Sök efter *Azure Digital-dubbla* i sökrutan och välj tjänsten **Azure Digitals dubblare** i resultatet. Välj knappen _skapa_ för att skapa en ny instans av tjänsten.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
 

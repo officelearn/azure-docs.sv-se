@@ -4,12 +4,12 @@ description: I den här snabb starten aktiverar du Event Grid händelser för be
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3e9e9a7d6016f53225c1b2f31fb8eef91e202c7a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 6058fceb873e2b26da2d30dadba456e2a625f3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736846"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074224"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Snabb start: skicka händelser från privat container Registry till Event Grid
 
@@ -19,11 +19,11 @@ När du har slutfört stegen i den här artikeln visas händelser som skickas fr
 
 ![Webbläsaren återger exempel webb programmet med tre mottagna händelser][sample-app-01]
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto][azure-account] innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Azure CLI-kommandona i den här artikeln är formaterade för **bash** -gränssnittet. Om du använder ett annat gränssnitt som PowerShell eller kommando tolken kan du behöva justera rad fortsättnings tecken eller variabla tilldelnings rader i enlighet med detta. I den här artikeln används variabler för att minimera mängden kommando redigering som krävs.
+- Azure CLI-kommandona i den här artikeln är formaterade för **bash** -gränssnittet. Om du använder ett annat gränssnitt som PowerShell eller kommando tolken kan du behöva justera rad fortsättnings tecken eller variabla tilldelnings rader i enlighet med detta. I den här artikeln används variabler för att minimera mängden kommando redigering som krävs.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

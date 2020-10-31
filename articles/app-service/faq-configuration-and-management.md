@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb193637525722bf227241a614cd977fbf70c9ac
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962357"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074190"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om konfiguration och hantering för Web Apps i Azure
 
@@ -60,23 +60,25 @@ Mer information finns i [App Service begränsningar](../azure-resource-manager/m
 Så här ställer du in serverns tidszon för din webbapp:
 
 1. I App Service prenumeration i Azure Portal går du till **program inställningar** -menyn.
-2. Under **appinställningar**lägger du till den här inställningen:
+2. Under **appinställningar** lägger du till den här inställningen:
     * Nyckel = WEBSITE_TIME_ZONE
     * Värde = *den tidszon du vill använda*
-3. Välj **Spara**.
+3. Välj **Spara** .
 
-För de app Services som körs på Windows, se kolumnen **timezone** i artikeln [standard tids zoner](/windows-hardware/manufacture/desktop/default-time-zones) för godkända värden. För de app Services som körs på Linux anger du [namnet på TZ-databasen](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) som tids zons värde. Här är ett exempel på ett TZ-databas namn: America/Adak.
+För de app Services som körs på Windows, se utdata från Windows- `tzutil /L` kommandot. Använd värdet från den andra raden i varje post. Exempel: "Tonga, normal tid". En del av dessa värden visas också i kolumnen **timezone** i [standard tids zoner](/windows-hardware/manufacture/desktop/default-time-zones).
+
+Ange ett värde från [IANA TZ-databasen](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)för de app Services som körs på Linux. Till exempel: "America/Adak".
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Varför kan mina kontinuerliga WebJobs ibland inte fungera?
 
-Som standard inaktive ras Web Apps om de är inaktiva under en angiven tids period. På så sätt kan systemet Spara resurser. I Basic-och standard-planer kan du aktivera inställningen **Always on** för att hålla webbappen inläst för hela tiden. Om din webbapp kör kontinuerliga WebJobs, bör du aktivera **Always on**eller också körs inte webbjobben på ett tillförlitligt sätt. Mer information finns i [skapa ett jobb som körs kontinuerligt](webjobs-create.md#CreateContinuous).
+Som standard inaktive ras Web Apps om de är inaktiva under en angiven tids period. På så sätt kan systemet Spara resurser. I Basic-och standard-planer kan du aktivera inställningen **Always on** för att hålla webbappen inläst för hela tiden. Om din webbapp kör kontinuerliga WebJobs, bör du aktivera **Always on** eller också körs inte webbjobben på ett tillförlitligt sätt. Mer information finns i [skapa ett jobb som körs kontinuerligt](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Hur gör jag för att hämta den utgående IP-adressen för min webbapp?
 
 Hämta listan över utgående IP-adresser för din webbapp:
 
 1. I Azure Portal går du till menyn **Egenskaper** på bladet webbapp.
-2. Sök efter **utgående IP-adresser**.
+2. Sök efter **utgående IP-adresser** .
 
 Listan över utgående IP-adresser visas.
 
@@ -129,7 +131,7 @@ Så här granskar du webb jobb loggar:
 2. Välj webb jobbet.
 3. Välj knappen **Växla utdata** .
 4. Hämta utdatafilen genom att välja länken **Hämta** .
-5. För enskilda körningar väljer du **individuell Invoke**.
+5. För enskilda körningar väljer du **individuell Invoke** .
 6. Välj knappen **Växla utdata** .
 7. Välj länken Hämta.
 
@@ -183,8 +185,8 @@ Du har två alternativ för att fånga en F12-spårning:
 ### <a name="f12-console-output"></a>F12-konsolens utdata
 
 1. Välj fliken **konsol** .
-2. Välj fliken (**fel**, **Varning**eller **information**) för varje flik som innehåller fler än noll objekt. Om fliken inte är markerad är fliken nedtonad eller svart när du flyttar markören bort från den.
-3. Högerklicka på meddelande ytan i fönstret och välj **Kopiera alla**.
+2. Välj fliken ( **fel** , **Varning** eller **information** ) för varje flik som innehåller fler än noll objekt. Om fliken inte är markerad är fliken nedtonad eller svart när du flyttar markören bort från den.
+3. Högerklicka på meddelande ytan i fönstret och välj **Kopiera alla** .
 4. Klistra in den kopierade texten i en fil och spara sedan filen.
 
 Om du vill visa en har-fil kan du använda [visaren har visats](http://www.softwareishard.com/har/viewer/).
@@ -282,7 +284,7 @@ Detaljerad dokumentation för autentisering och auktorisering i App Service finn
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Hur gör jag för att omdirigera standard domänen *. azurewebsites.net till min Azure Web Apps anpassade domän?
 
-När du skapar en ny webbplats genom att använda Web Apps i Azure, tilldelas *en standard plats*. azurewebsites.net-domän till din webbplats. Om du lägger till ett anpassat värdnamn på din webbplats och inte vill att användarna ska kunna komma åt din standard-azurewebsites.net-domän, kan du omdirigera standard-URL: en. Information om hur du omdirigerar all trafik från din webbplats standard domän till din anpassade domän finns i [dirigera om standard domänen till din anpassade domän i Azure Web Apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+När du skapar en ny webbplats genom att använda Web Apps i Azure, tilldelas *en standard plats* . azurewebsites.net-domän till din webbplats. Om du lägger till ett anpassat värdnamn på din webbplats och inte vill att användarna ska kunna komma åt din standard-azurewebsites.net-domän, kan du omdirigera standard-URL: en. Information om hur du omdirigerar all trafik från din webbplats standard domän till din anpassade domän finns i [dirigera om standard domänen till din anpassade domän i Azure Web Apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Hur gör jag för att ta reda på vilken version av .NET-versionen som är installerad i App Service?
 

@@ -10,14 +10,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68a64ad1ddb955ccebdcddca996959f1bb5f932b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceede96cbf3be12a6129e27d34e318e4c4163458
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840971"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073504"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Läsa data från Azure Cosmos DB API för Cassandra tabeller med Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
  Den här artikeln beskriver hur du läser data som lagras i Azure Cosmos DB API för Cassandra från Spark.
 

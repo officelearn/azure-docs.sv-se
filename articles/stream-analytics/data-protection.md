@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e823322803958f092cee3b6d77e6a0ca7bc6e3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746399"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074258"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Data skydd i Azure Stream Analytics 
 
@@ -73,6 +73,27 @@ Använd följande steg för att konfigurera ditt lagrings konto för privata dat
 
    ![Inställningar för lagrings konto för privata data](./media/data-protection/storage-account-create.png)
 
+## <a name="private-data-assets-that-are-stored"></a>Privata data till gångar som lagras
+
+Alla privata data som måste behållas av Stream Analytics lagras i ditt lagrings konto. Exempel på privata data till gångar är: 
+
+* Frågor som du har skapat och tillhör ande konfigurationer  
+
+* Användardefinierade funktioner 
+
+* Kontroll punkter som krävs av Stream Analytics runtime
+
+* Ögonblicks bilder av referens data 
+
+Anslutnings information för dina resurser, som används av ditt Stream Analytics jobb, lagras också. Kryptera ditt lagrings konto för att skydda alla dina data. 
+
+För att hjälpa dig att uppfylla dina krav på efterlevnad i en reglerad bransch eller miljö kan du läsa mer om [Microsofts erbjudanden för efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="enables-data-residency"></a>Aktiverar data placering 
+Du kan använda den här funktionen för att genomdriva data placering-krav som du kan ha genom att ange ett lagrings konto på motsvarande sätt.
+
+## <a name="known-issues"></a>Kända problem
+Det finns ett känt problem där ett jobb som använder kundhanterad nyckel körs i fel när hanterad identitet används för att autentisera till eventuella indata eller utdata. 
 
 ## <a name="next-steps"></a>Nästa steg
 

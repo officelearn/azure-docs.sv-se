@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: a6855a1c730c33a835e5033041ee7978be28fc6b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4caf43cb972b44dd1482b9e6e467e41cae294708
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278685"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100107"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Etablera standard (manuell) data flöde i en Azure Cosmos-behållare – SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här artikeln beskriver hur du etablerar standard-genomflödet (manuellt) i en behållare i Azure Cosmos DB SQL API. Du kan etablera data flöde på en enskild behållare eller [etablera data flöde på en databas](how-to-provision-database-throughput.md) och dela den mellan behållarna i databasen. Du kan etablera data flöde på en behållare med hjälp av Azure Portal, Azure CLI eller Azure Cosmos DB SDK: er.
 
@@ -27,13 +28,13 @@ Om du använder ett annat API, se [API för MongoDB](how-to-provision-throughput
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account)eller Välj ett befintligt Azure Cosmos-konto.
 
-1. Öppna fönstret **datautforskaren** och välj **ny behållare**. Ange därefter följande information:
+1. Öppna fönstret **datautforskaren** och välj **ny behållare** . Ange därefter följande information:
 
    * Ange om du skapar en ny databas eller använder en befintlig.
    * Ange ett container-ID.
    * Ange ett partitionsnyckelvärde (till exempel `/ItemID`).
    * Ange ett data flöde som du vill etablera (till exempel 1000 ru: er).
-   * Välj **OK**.
+   * Välj **OK** .
 
     :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Skärmbild av Data Explorer med Ny samling markerat":::
 

@@ -1,24 +1,24 @@
 ---
-title: Hantera Azure Storage livs cykeln
-description: Lär dig hur du skapar policy regler för livs cykeln för att överföra ålders data från frekvent till låg frekvent lagring och Arkiv lag ring.
+title: Optimera kostnader genom att automatisera Azure-Blob Storage åtkomst nivåer
+description: Skapa automatiserade regler för att flytta data mellan frekventa, låg frekventa och Arkiv lag rings nivåer.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/15/2020
+ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: ee04ad28d6b52e63becd2991d77b453cd411f683
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309803"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100077"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
+# <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optimera kostnader genom att automatisera Azure-Blob Storage åtkomst nivåer
 
-Data uppsättningar har unika livscykler. Tidigt i livs cykeln får människor ofta åtkomst till vissa data. Men behovet av åtkomst sjunker drastiskt när data åldras. Vissa data förblir inaktiva i molnet och används sällan när de lagras. Vissa data upphör att gälla dagar eller månader efter att de har skapats, medan andra data uppsättningar har lästs och ändrats under hela sin livs längd. Azure Blob Storage livs cykel hantering ger en omfattande, regel-baserad princip för GPv2-och Blob Storage-konton. Använd principen för att överföra data till lämpliga åtkomst nivåer eller förfaller i slutet av data livs cykeln.
+Data uppsättningar har unika livscykler. Tidigt i livs cykeln får människor ofta åtkomst till vissa data. Men behovet av åtkomst sjunker drastiskt när data åldras. Vissa data förblir inaktiva i molnet och används sällan när de lagras. Vissa data upphör att gälla dagar eller månader efter att de har skapats, medan andra data uppsättningar har lästs och ändrats under hela sin livs längd. Azure Blob Storage Lifecycle-hanteringen erbjuder en omfattande, regelbaserade princip för GPv2-och Blob Storage-konton. Använd principen för att överföra data till lämpliga åtkomst nivåer eller förfaller i slutet av data livs cykeln.
 
 Med policyn för livs cykel hantering kan du:
 
@@ -31,6 +31,7 @@ Med policyn för livs cykel hantering kan du:
 Tänk dig ett scenario där data får frekvent åtkomst under de tidiga faserna i livs cykeln, men bara ibland efter två veckor. Utöver den första månaden kommer data uppsättningen sällan att användas. I det här scenariot är frekvent lagring bäst i de tidiga faserna. Låg frekvent lagring är lämplig för tillfällig åtkomst. Arkiv lag ring är det bästa alternativet på nivån efter att data har funnits under en månad. Genom att justera lagrings nivåer avseende ålder på data kan du utforma de billigaste lagrings alternativen för dina behov. För att uppnå den här över gången är policy regler för livs cykel hantering tillgängliga för att flytta ålders data till låg frekventa nivåer.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 >[!NOTE]
 >Om du behöver data för att kunna läsas, till exempel när det används av StorSimple, ska du inte ange någon princip för att flytta blobbar till Arkiv nivån.
 
@@ -69,11 +70,11 @@ Det finns två sätt att lägga till en princip via Azure Portal.
 
 1. I Azure Portal söker du efter och väljer ditt lagrings konto. 
 
-1. Under **BLOB service**väljer du **livs cykel hantering** för att visa eller ändra dina regler.
+1. Under **BLOB service** väljer du **livs cykel hantering** för att visa eller ändra dina regler.
 
 1. Välj fliken **listvy** .
 
-1. Välj **Lägg till en regel** och ge regeln ett namn i formuläret **information** . Du kan också ange **regel omfång**, **Blob-typ**och värden för BLOB- **undertyper** . I följande exempel anges omfånget för att filtrera blobbar. Detta gör att fliken **filter uppsättning** läggs till.
+1. Välj **Lägg till en regel** och ge regeln ett namn i formuläret **information** . Du kan också ange **regel omfång** , **Blob-typ** och värden för BLOB- **undertyper** . I följande exempel anges omfånget för att filtrera blobbar. Detta gör att fliken **filter uppsättning** läggs till.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Livs cykel hantering Lägg till en regel informations sida i Azure Portal":::
 
@@ -103,7 +104,7 @@ Det finns två sätt att lägga till en princip via Azure Portal.
 
 1. I Azure Portal söker du efter och väljer ditt lagrings konto.
 
-1. Under **BLOB service**väljer du **livs cykel hantering** för att visa eller ändra principen.
+1. Under **BLOB service** väljer du **livs cykel hantering** för att visa eller ändra principen.
 
 1. Följande JSON är ett exempel på en princip som kan klistras in på fliken **kodvy** .
 
@@ -136,7 +137,7 @@ Det finns två sätt att lägga till en princip via Azure Portal.
    }
    ```
 
-1. Välj **Spara**.
+1. Välj **Spara** .
 
 1. Mer information om det här JSON-exemplet finns i avsnittet [principer](#policy) och [regler](#rules) .
 
@@ -214,7 +215,7 @@ Du kan definiera livs cykel hantering genom att använda Azure Resource Manager 
 
 ---
 
-## <a name="policy"></a>Princip
+## <a name="policy"></a>Policy
 
 En princip för livs cykel hantering är en samling regler i ett JSON-dokument:
 
@@ -244,7 +245,7 @@ En princip är en samling regler:
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parameter typ | Kommentarer | Krävs |
+| Parameternamn | Parameter typ | Kommentarer | Obligatorisk |
 |----------------|----------------|-------|----------|
 | `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt. Det måste vara unikt inom en princip. | Sant |
 | `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | Falskt | 
@@ -316,12 +317,12 @@ Filtren är:
 
 | Filternamn | Filtertyp | Kommentarer | Krävs |
 |-------------|-------------|-------|-------------|
-| blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob` och `appendBlob` . Endast borttagning stöds för `appendBlob` , Set-nivån stöds inte. | Ja |
-| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo` . | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot. | Nej |
-| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}` . | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | Nej |
+| blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob` och `appendBlob` . Endast borttagning stöds för `appendBlob` , Set-nivån stöds inte. | Yes |
+| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo` . | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot. | No |
+| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}` . | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | No |
 
 > [!NOTE]
-> BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada**, **östra**, **centrala Frankrike**och **södra Frankrike** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
+> BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada** , **östra** , **centrala Frankrike** och **södra Frankrike** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Regel åtgärder
 

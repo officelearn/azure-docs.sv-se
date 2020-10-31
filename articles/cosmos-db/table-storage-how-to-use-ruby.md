@@ -9,14 +9,15 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 2229eea7b91168507ea9568a1e53930cf983b1df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d0c8433fff58854cb77a4e806058eae1937e71b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171948"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101127"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Använda Azure Table Storage och Azure Cosmos DB Table-API:et med Ruby
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -42,7 +43,7 @@ För att kunna använda Azure Storage eller Azure Cosmos DB måste du ladda ned 
 ### <a name="use-rubygems-to-obtain-the-package"></a>Hämta paketet med hjälp av RubyGems
 
 1. Använd ett kommandoradsgränssnitt som **PowerShell** (Windows), **Terminal** (Mac) eller **Bash** (Unix).
-2. Installera paketet och beroendena genom att skriva **gem install azure-storage-table**.
+2. Installera paketet och beroendena genom att skriva **gem install azure-storage-table** .
 
 ### <a name="import-the-package"></a>Importera paketet
 
@@ -75,7 +76,7 @@ Du kan hämta dessa värden från ett klassiskt eller Resource Manager-baserat l
 
 ### <a name="add-an-azure-cosmos-db-connection"></a>Lägga till en Azure Cosmos DB-anslutning
 
-Du ansluter till Azure Cosmos DB genom att kopiera den primära anslutningssträngen från Azure Portal och skapar sedan ett **Client**-objekt med hjälp av den kopierade anslutningssträngen. Du kan definiera **Client**-objektet när du skapar ett **TableService**-objekt:
+Du ansluter till Azure Cosmos DB genom att kopiera den primära anslutningssträngen från Azure Portal och skapar sedan ett **Client** -objekt med hjälp av den kopierade anslutningssträngen. Du kan definiera **Client** -objektet när du skapar ett **TableService** -objekt:
 
 ```ruby
 common_client = Azure::Storage::Common::Client.create(storage_account_name:'myaccount', storage_access_key:'mykey', storage_table_host:'mycosmosdb_endpoint')
@@ -84,7 +85,7 @@ table_client = Azure::Storage::Table::TableService.new(client: common_client)
 
 ## <a name="create-a-table"></a>Skapa en tabell
 
-Du kan arbeta med tabeller och entiteter med objektet **Azure::Storage::Table::TableService**. Du skapar en tabell med hjälp av metoden **create_table()**. Koden i följande exempel skapar en tabell eller returnerar eventuella fel.
+Du kan arbeta med tabeller och entiteter med objektet **Azure::Storage::Table::TableService** . Du skapar en tabell med hjälp av metoden **create_table()** . Koden i följande exempel skapar en tabell eller returnerar eventuella fel.
 
 ```ruby
 azure_table_service = Azure::Storage::Table::TableService.new
@@ -114,7 +115,7 @@ Du kan uppdatera en befintlig entitet med hjälp av olika metoder:
 * **insert_or_merge_entity():** Uppdaterar en befintlig entitet genom att ersätta den. Om det inte finns någon entitet, infogas en ny:
 * **insert_or_replace_entity():** Uppdaterar en befintlig entitet genom att sammanfoga nya egenskapsvärden i den befintliga entiteten. Om det inte finns någon entitet, infogas en ny.
 
-Exemplet nedan visar hur en entitet uppdateras med hjälp av **update_entity()**:
+Exemplet nedan visar hur en entitet uppdateras med hjälp av **update_entity()** :
 
 ```ruby
 entity = { "content" => "test entity with updated content",
@@ -126,7 +127,7 @@ azure_table_service.update_entity("testtable", entity)
 
 ## <a name="work-with-groups-of-entities"></a>Arbeta med grupper av entiteter
 
-Ibland är det praktiskt att skicka flera åtgärder tillsammans i en batch för att säkerställa atomisk bearbetning av servern. För att åstadkomma det skapar du först ett **Batch**-objekt och använder sedan metoden **execute_batch()** i **TableService**. Exemplet nedan visar hur du skickar två entiteter med RowKey 2 och 3 i en batch. Observera att detta endast fungerar för entiteter med samma PartitionKey.
+Ibland är det praktiskt att skicka flera åtgärder tillsammans i en batch för att säkerställa atomisk bearbetning av servern. För att åstadkomma det skapar du först ett **Batch** -objekt och använder sedan metoden **execute_batch()** i **TableService** . Exemplet nedan visar hur du skickar två entiteter med RowKey 2 och 3 i en batch. Observera att detta endast fungerar för entiteter med samma PartitionKey.
 
 ```ruby
 azure_table_service = Azure::TableService.new
@@ -140,7 +141,7 @@ results = azure_table_service.execute_batch(batch)
 
 ## <a name="query-for-an-entity"></a>Fråga efter en entitet
 
-Om du vill fråga efter en entitet i en tabell använder du metoden **get_entity()** genom att skicka tabellnamnet, **PartitionKey** och **RowKey**.
+Om du vill fråga efter en entitet i en tabell använder du metoden **get_entity()** genom att skicka tabellnamnet, **PartitionKey** och **RowKey** .
 
 ```ruby
 result = azure_table_service.get_entity("testtable", "test-partition-key",
@@ -149,7 +150,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
 
 ## <a name="query-a-set-of-entities"></a>Fråga efter en uppsättning entiteter
 
-Om du vill fråga efter en uppsättning enheter i en tabell skapar du ett hash-objekt för frågan och använder metoden **query_entities()**. Exemplet nedan visar hur du hämtar alla entiteter med samma **PartitionKey**:
+Om du vill fråga efter en uppsättning enheter i en tabell skapar du ett hash-objekt för frågan och använder metoden **query_entities()** . Exemplet nedan visar hur du hämtar alla entiteter med samma **PartitionKey** :
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }
@@ -172,7 +173,7 @@ result, token = azure_table_service.query_entities("testtable", query)
 
 ## <a name="delete-an-entity"></a>Ta bort en entitet
 
-Om du vill ta bort en entitet använder du metoden **delete_entity()**. Ange namnet på tabellen som innehåller entiteten, samt PartitionKey och RowKey för entiteten.
+Om du vill ta bort en entitet använder du metoden **delete_entity()** . Ange namnet på tabellen som innehåller entiteten, samt PartitionKey och RowKey för entiteten.
 
 ```ruby
 azure_table_service.delete_entity("testtable", "test-partition-key", "1")

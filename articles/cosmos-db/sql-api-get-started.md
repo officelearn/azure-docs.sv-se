@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 804330d44d63aa70076a7387aacfbbd3b4f742c9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 49fa928285b29eaff806b009cf327e84e17491c6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480997"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098730"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Självstudie: Bygg en .NET-konsol-app för att hantera data i Azure Cosmos DB SQL API-konto
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -61,14 +62,14 @@ Nu ska vi skapa ett Azure Cosmos DB-konto. Hoppa över det här avsnittet om du 
 
 ## <a name="step-2-set-up-your-visual-studio-project"></a><a id="SetupVS"></a>Steg 2: Konfigurera ditt Visual Studio-projekt
 
-1. Öppna Visual Studio och välj **skapa ett nytt projekt**.
-1. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)** för C# och väljer sedan **Nästa**.
-1. Namnge projektet *CosmosGettingStartedTutorial*och välj sedan **skapa**.
+1. Öppna Visual Studio och välj **skapa ett nytt projekt** .
+1. I **skapa ett nytt projekt** väljer du **konsol program (.NET Framework)** för C# och väljer sedan **Nästa** .
+1. Namnge projektet *CosmosGettingStartedTutorial* och välj sedan **skapa** .
 
     :::image type="content" source="./media/sql-api-get-started/configure-cosmos-getting-started-2019.png" alt-text="Konfigurera projektet":::
 
-1. I **Solution Explorer**högerklickar du på det nya konsol programmet, som finns under din Visual Studio-lösning, och väljer **Hantera NuGet-paket**.
-1. I **NuGet Package Manager**väljer du **Bläddra** och söker efter *Microsoft. Azure. Cosmos*. Välj **Microsoft. Azure. Cosmos** och välj **Installera**.
+1. I **Solution Explorer** högerklickar du på det nya konsol programmet, som finns under din Visual Studio-lösning, och väljer **Hantera NuGet-paket** .
+1. I **NuGet Package Manager** väljer du **Bläddra** och söker efter *Microsoft. Azure. Cosmos* . Välj **Microsoft. Azure. Cosmos** och välj **Installera** .
 
    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png" alt-text="Konfigurera projektet":::
 
@@ -117,15 +118,15 @@ Toppen! Konfigurationen är slutförd, så vi kan börja skriva kod. Ett slutfö
     ```
 
    > [!NOTE]
-   > Om du är bekant med den tidigare versionen av .NET SDK kan du vara bekant med villkors *samlingen* och *dokumentet*. Eftersom Azure Cosmos DB stöder flera API-modeller, använder version 3,0 av .NET SDK de allmänna termerna *container* och *item*. En *behållare* kan vara en samling, Graf eller tabell. Ett *objekt* kan vara ett dokument, en kant/ett hörn eller en rad och är innehållet i en behållare. Mer information finns i [arbeta med databaser, behållare och objekt i Azure Cosmos DB](account-databases-containers-items.md).
+   > Om du är bekant med den tidigare versionen av .NET SDK kan du vara bekant med villkors *samlingen* och *dokumentet* . Eftersom Azure Cosmos DB stöder flera API-modeller, använder version 3,0 av .NET SDK de allmänna termerna *container* och *item* . En *behållare* kan vara en samling, Graf eller tabell. Ett *objekt* kan vara ett dokument, en kant/ett hörn eller en rad och är innehållet i en behållare. Mer information finns i [arbeta med databaser, behållare och objekt i Azure Cosmos DB](account-databases-containers-items.md).
 
-1. Öppna [Azure-portalen](https://portal.azure.com). Hitta ditt Azure Cosmos DB konto och välj sedan **nycklar**.
+1. Öppna [Azure-portalen](https://portal.azure.com). Hitta ditt Azure Cosmos DB konto och välj sedan **nycklar** .
 
    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="Konfigurera projektet":::
 
-1. Ersätt *Program.cs* `<your endpoint URL>` med värdet för **URI**i program.cs. Ersätt `<your primary key>` med värdet för **primär nyckel**.
+1. Ersätt *Program.cs* `<your endpoint URL>` med värdet för **URI** i program.cs. Ersätt `<your primary key>` med värdet för **primär nyckel** .
 
-1. Under **main** -metoden lägger du till en ny asynkron aktivitet som heter **GetStartedDemoAsync**, som skapar en instans av vår nya `CosmosClient` .
+1. Under **main** -metoden lägger du till en ny asynkron aktivitet som heter **GetStartedDemoAsync** , som skapar en instans av vår nya `CosmosClient` .
 
     ```csharp
     public static async Task Main(string[] args)
@@ -145,7 +146,7 @@ Toppen! Konfigurationen är slutförd, så vi kan börja skriva kod. Ett slutfö
 
     Vi använder **GetStartedDemoAsync** som start punkt som anropar metoder som körs på Azure Cosmos DB resurser.
 
-1. Lägg till följande kod för att köra den asynkrona uppgiften **GetStartedDemoAsync** via **Main**-metoden. Metoden **Main** fångar upp undantag och skriver dem till konsolen.
+1. Lägg till följande kod för att köra den asynkrona uppgiften **GetStartedDemoAsync** via **Main** -metoden. Metoden **Main** fångar upp undantag och skriver dem till konsolen.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=Main)]
 
@@ -308,7 +309,7 @@ Grattis! Du har skapat en Azure Cosmos-behållare.
 
 Först ska vi skapa en `Family` klass som representerar objekt som lagras i Azure Cosmos db i det här exemplet. Vi ska också skapa `Parent` , `Child` , `Pet` , `Address` underklasser som används i `Family` . Objektet måste ha en `Id` egenskap som är serialiserad som `id` i JSON.
 
-1. Välj Ctrl + Skift + A för att öppna **Lägg till nytt objekt**. Lägg till en ny klass `Family.cs` i projektet.
+1. Välj Ctrl + Skift + A för att öppna **Lägg till nytt objekt** . Lägg till en ny klass `Family.cs` i projektet.
 
     :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="Konfigurera projektet":::
 
@@ -317,12 +318,12 @@ Först ska vi skapa en `Family` klass som representerar objekt som lagras i Azur
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs)]
 
 
-1. Gå tillbaka till *program.cs*och Lägg till `AddItemsToContainerAsync` metoden efter din `CreateContainerAsync` metod.
+1. Gå tillbaka till *program.cs* och Lägg till `AddItemsToContainerAsync` metoden efter din `CreateContainerAsync` metod.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=AddItemsToContainerAsync)]
 
 
-    Koden kontrollerar att det inte redan finns ett objekt med samma ID. Vi infogar två objekt, ett för *Andersen-serien* och *Wakefield-serien*.
+    Koden kontrollerar att det inte redan finns ett objekt med samma ID. Vi infogar två objekt, ett för *Andersen-serien* och *Wakefield-serien* .
 
 1. Lägg till ett anrop till `AddItemsToContainerAsync` i metoden `GetStartedDemoAsync`.
 
@@ -489,7 +490,7 @@ För att bygga `GetStarted` lösningen behöver du följande förutsättningar:
 * Ett [Azure Cosmos DB-konto][cosmos-db-create-account].
 * [GetStarted](https://github.com/Azure-Samples/cosmos-dotnet-getting-started)-lösningen som finns på GitHub.
 
-Om du vill återställa referenserna till Azure Cosmos DB .NET SDK i Visual Studio högerklickar du på lösningen i **Solution Explorer**och väljer sedan **Återställ NuGet-paket**. Sedan uppdaterar du och-värdena i *App.config* - `EndPointUri` filen `PrimaryKey` enligt beskrivningen i [steg 3: Anslut till ett Azure Cosmos DB konto](#Connect).
+Om du vill återställa referenserna till Azure Cosmos DB .NET SDK i Visual Studio högerklickar du på lösningen i **Solution Explorer** och väljer sedan **Återställ NuGet-paket** . Sedan uppdaterar du och-värdena i *App.config* - `EndPointUri` filen `PrimaryKey` enligt beskrivningen i [steg 3: Anslut till ett Azure Cosmos DB konto](#Connect).
 
 Då är det bara att bygga den, så är du på väg!
 

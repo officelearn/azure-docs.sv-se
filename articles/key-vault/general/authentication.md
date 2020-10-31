@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ec831bada19aa8d3872440ba628ac06bc64f749
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89481383"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099427"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autentisera till Azure Key Vault
 
@@ -20,7 +20,7 @@ Med Azure Key Vault kan du lagra hemligheter och kontrol lera deras distribution
 
 ## <a name="app-identity-and-security-principals"></a>App-identitet och säkerhets objekt
 
-Autentisering med Key Vault fungerar tillsammans med [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), som ansvarar för att autentisera identiteten för ett specifikt **säkerhets objekt**.
+Autentisering med Key Vault fungerar tillsammans med [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), som ansvarar för att autentisera identiteten för ett specifikt **säkerhets objekt** .
 
 Ett säkerhets objekt är ett objekt som representerar en användare, grupp, tjänst eller ett program som begär åtkomst till Azure-resurser. Azure tilldelar ett unikt **objekt-ID** till varje säkerhets objekt.
 
@@ -48,7 +48,7 @@ Key Vault fungerar med två olika nivåer av auktorisering:
 
     Information om hur du tilldelar åtkomst principer finns i följande artiklar:
 
-    - [Azure Portal](assign-access-policy-portal.md)
+    - [Azure-portalen](assign-access-policy-portal.md)
     - [Azure CLI](assign-access-policy-cli.md)
     - [Azure PowerShell](assign-access-policy-portal.md)
 
@@ -56,7 +56,7 @@ Key Vault fungerar med två olika nivåer av auktorisering:
  
     Information om hur du tilldelar och hanterar roller finns i följande artiklar:
 
-    - [Azure Portal](/azure/role-based-access-control/role-assignments-portal)
+    - [Azure-portalen](/azure/role-based-access-control/role-assignments-portal)
     - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
     - [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 
@@ -111,11 +111,11 @@ Följande tabell länkar till olika artiklar som visar hur du arbetar med Key Va
 |  --- | --- | --- |
 | [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
 | [.NET (SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
-| [.NET (SDK v3)](/azure/key-vault/secrets/quick-create-net-v3) | -- | -- |
+| [.NET (SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
 | [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
 | [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
 | | | |
-| [Azure Portal](/azure/key-vault/secrets/quick-create-portal) | [Azure Portal](/azure/key-vault/keys/quick-create-portal) | [Azure Portal](/azure/key-vault/certificates/quick-create-portal) |
+| [Azure-portalen](/azure/key-vault/secrets/quick-create-portal) | [Azure-portalen](/azure/key-vault/keys/quick-create-portal) | [Azure-portalen](/azure/key-vault/certificates/quick-create-portal) |
 | [Azure CLI](/azure/key-vault/secrets/quick-create-cli) | [Azure CLI](/azure/key-vault/keys/quick-create-cli) | [Azure CLI](/azure/key-vault/certificates/quick-create-cli) |
 | [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
 | [ARM-mall](/azure/key-vault/secrets/quick-create-net) | -- | -- |

@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367133"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098781"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Med Azure Cosmos DB kan du ange tillhandahållet data flöde på dina databaser och behållare. Det finns två typer av tillhandahållet data flöde, standard (manuell) eller autoskalning. Den här artikeln ger en översikt över hur det etablerade data flödet fungerar. 
 
@@ -79,11 +80,11 @@ Om arbets belastningarna innebär att du tar bort och återskapar alla samlingar
 Du kan kombinera de två modellerna. Etablering av data flöde på både databasen och behållaren tillåts. Följande exempel visar hur du etablerar standard (manuellt) etablerat data flöde på en Azure Cosmos-databas och en behållare:
 
 * Du kan skapa en Azure Cosmos-databas med namnet *Z* med standard (manuellt) allokerat data flöde för *"K"* ru: er. 
-* Skapa sedan fem behållare med namnet *A*, *B*, *C*, *D*och *E* i databasen. När du skapar container B, se till att aktivera **etablera dedikerat data flöde för det här behållar** alternativet och konfigurera *"P"* -ru: er av etablerat data flöde på den här behållaren. Du kan bara konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. 
+* Skapa sedan fem behållare med namnet *A* , *B* , *C* , *D* och *E* i databasen. När du skapar container B, se till att aktivera **etablera dedikerat data flöde för det här behållar** alternativet och konfigurera *"P"* -ru: er av etablerat data flöde på den här behållaren. Du kan bara konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Fysisk partition som är värd för en eller flera logiska partitioner i en behållare":::
 
-* *"K"* ru: er-dataflödet delas mellan de fyra behållarna *A*, *C*, *D*, och *E*. Den exakta mängden data flöde som är tillgängliga för *A*, *C*, *D*eller *E* varierar. Det finns inga service avtal för varje enskild behållares data flöde.
+* *"K"* ru: er-dataflödet delas mellan de fyra behållarna *A* , *C* , *D* , och *E* . Den exakta mängden data flöde som är tillgängliga för *A* , *C* , *D* eller *E* varierar. Det finns inga service avtal för varje enskild behållares data flöde.
 * Behållaren med namnet *B* garanterar att du kan hämta *"P"* ru: er-dataflöde hela tiden. Den backas upp av service avtal.
 
 > [!NOTE]
@@ -119,9 +120,9 @@ Du kan skala det etablerade data flödet för en behållare eller en databas via
 * [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) på .NET SDK.
 * [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) i Java SDK.
 
-Om du **minskar det etablerade data flödet**kommer du att kunna göra det till ett [minimum](#current-provisioned-throughput).
+Om du **minskar det etablerade data flödet** kommer du att kunna göra det till ett [minimum](#current-provisioned-throughput).
 
-Om du **ökar det etablerade data flödet**, är det mesta av tiden att göra en omedelbar åtgärd. Det finns dock fall där åtgärden kan ta längre tid på grund av system aktiviteterna för att etablera nödvändiga resurser. I det här fallet kommer ett försök att ändra det etablerade data flödet medan den här åtgärden pågår att ge ett HTTP 423-svar med ett fel meddelande som förklarar att en annan skalnings åtgärd pågår.
+Om du **ökar det etablerade data flödet** , är det mesta av tiden att göra en omedelbar åtgärd. Det finns dock fall där åtgärden kan ta längre tid på grund av system aktiviteterna för att etablera nödvändiga resurser. I det här fallet kommer ett försök att ändra det etablerade data flödet medan den här åtgärden pågår att ge ett HTTP 423-svar med ett fel meddelande som förklarar att en annan skalnings åtgärd pågår.
 
 > [!NOTE]
 > Om du planerar för en mycket stor inmatnings arbets belastning som kräver en stor ökning av det etablerade data flödet, bör du tänka på att skalnings åtgärden inte har något service avtal och, vilket beskrivs i föregående stycke, kan ta lång tid när ökningen är stor. Du kanske vill planera framåt och påbörja skalningen innan arbets belastningen startar och använda nedanstående metoder för att kontrol lera förloppet.

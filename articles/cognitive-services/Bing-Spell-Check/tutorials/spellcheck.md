@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: b87a2cd3e6edc6a47de77f475c40d30ce1606e01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8fa86ef33fe7b0d9e97aebca96b3aa5465f24a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316621"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099869"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Självstudie: Skapa en klient för en webbsida med stavningskontroll
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 I den här självstudien ska vi skapa en webbsida där användarna kan fråga API:et för stavningskontroll i Bing. Käll koden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -28,7 +33,7 @@ I den här självstudiekursen lär du dig att:
 > - Skicka en enkel fråga till API:et för stavningskontroll i Bing
 > - Visa frågeresultatet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 
 För att kunna följa med i självstudiekursen behöver du en prenumerationsnyckel för API:et för stavningskontroll i Bing. Om du inte har någon behöver du:
@@ -123,7 +128,7 @@ getSubscriptionKeyLocalStorage-hjälpfunktionen försöker först hämta nyckeln
     }
 ```
 
-getSubscriptionKey-hjälpfunktionen stöder en parameter, **invalidate**. Om **invalidate** är **true** tar getSubscriptionKey bort cookien som innehåller nyckeln för API:et för stavningskontroll i Bing. Om **invalidate** är **false** returnerar getSubscriptionKey värdet för nyckeln för API:et för stavningskontroll i Bing.
+getSubscriptionKey-hjälpfunktionen stöder en parameter, **invalidate** . Om **invalidate** är **true** tar getSubscriptionKey bort cookien som innehåller nyckeln för API:et för stavningskontroll i Bing. Om **invalidate** är **false** returnerar getSubscriptionKey värdet för nyckeln för API:et för stavningskontroll i Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -205,7 +210,7 @@ Ange slutpunkten för API:et för stavningskontroll i Bing och deklarera ett XML
     }
 ```
 
-Ange **Ocp-Apim-Subscription-Key**-huvudet till värdet på nyckeln för API:et för stavningskontroll i Bing.
+Ange **Ocp-Apim-Subscription-Key** -huvudet till värdet på nyckeln för API:et för stavningskontroll i Bing.
 
 ```html
     request.setRequestHeader("Ocp-Apim-Subscription-Key", key);
@@ -237,7 +242,7 @@ Hantera även möjliga felhändelser från XMLHttpRequest-objektet.
     });
 ```
 
-Skicka begäran. Stäng bingSpellCheck-funktionen i **script**-taggen och **head**-taggen.
+Skicka begäran. Stäng bingSpellCheck-funktionen i **script** -taggen och **head** -taggen.
 
 ```html
     request.send();
@@ -271,7 +276,7 @@ Skapa ett HTML-formulär med ett textfält. Hantera `onsubmit` händelsen och an
 </form>
 ```
 
-Lägg till HTML-taggen **div** som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div**-taggen.
+Lägg till HTML-taggen **div** som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div** -taggen.
 
 ```html
 <h2>Results</h2>
@@ -288,7 +293,7 @@ Spara filen.
 
 ## <a name="display-results"></a>Visa resultat
 
-Öppna webbsidan i webbläsaren. Ange din prenumerationsnyckel för API:et för stavningskontroll i Bing i Kommandotolken. Skriv en fråga (till exempel ”Hollo, wlrd!”) i textrutan **Stavningskontroll** och tryck på **Retur**. Webbsidan visar resultatet från frågan.
+Öppna webbsidan i webbläsaren. Ange din prenumerationsnyckel för API:et för stavningskontroll i Bing i Kommandotolken. Skriv en fråga (till exempel ”Hollo, wlrd!”) i textrutan **Stavningskontroll** och tryck på **Retur** . Webbsidan visar resultatet från frågan.
 
 ```json
 {

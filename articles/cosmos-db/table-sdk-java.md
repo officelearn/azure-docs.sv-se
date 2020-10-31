@@ -9,14 +9,16 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: 40722053d28a0479e3f9ebaadd0fd04478a4f1aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a94064be54c1d957d6e7acb030ffae6a39634f55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261897"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101195"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Azure Cosmos DB Tabell-API för java: viktig information och resurser
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -27,7 +29,7 @@ ms.locfileid: "91261897"
 
 |   |   |
 |---|---|
-|**SDK-hämtning**|[Nedladdnings alternativ](https://github.com/azure/azure-storage-java#download)|
+|**SDK-nedladdning**|[Nedladdnings alternativ](https://github.com/azure/azure-storage-java#download)|
 |**API-dokumentation**|[Referens dokumentation för Java API](https://azure.github.io/azure-storage-java/)|
 |**Bidra till SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
@@ -41,11 +43,11 @@ ms.locfileid: "91261897"
 * Allmän tillgänglighets utgåva
 
 ## <a name="release-and-retirement-dates"></a>Datum för lansering och indragning
-Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds.
+Microsoft meddelar kunder minst **12 månader** innan en SDK-version dras tillbaka för att säkerställa en smidig övergång till en nyare version eller en version som stöds.
 
 Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt. 
 
-| Version | Lanserings datum | Förfallodatum |
+| Version | Utgivningsdatum | Förfallodatum |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 november 2017 |--- |
 
@@ -53,5 +55,5 @@ Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella S
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även
-Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan. 
+Mer information om Cosmos DB finns på sidan om tjänsten [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

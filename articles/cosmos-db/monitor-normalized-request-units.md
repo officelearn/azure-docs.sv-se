@@ -6,14 +6,15 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 06/25/2020
-ms.openlocfilehash: 183b161039b86ce824fd0bfde82cf291d54024fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc47f2f7a0f1586b197d14015fe2167293c806c6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801485"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099359"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Övervaka normaliserade RU/s för en Azure Cosmos-behållare eller ett konto
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Monitor för Azure Cosmos DB ger en mått vy för att övervaka ditt konto och skapa instrument paneler. De Azure Cosmos DB måtten samlas in som standard, men den här funktionen kräver inte att du aktiverar eller konfigurerar något explicit.
 
@@ -23,7 +24,7 @@ Det **normaliserade ru-förbruknings** måttet används för att se hur väl mä
 
 När den normaliserade RU/s-förbrukningen når 100% för det angivna partitionsnumret, och om en klient fortfarande skickar begär anden i tidsfönstret på 1 sekund till det särskilda partitionsnyckel, får det ett begränsat fel. Klienten bör respektera den föreslagna vänte tiden och försöka utföra begäran igen. SDK gör det enkelt att hantera den här situationen genom att försöka med förkonfigurerade tider på lämpligt sätt.  Det är inte nödvändigt att du ser begränsningen för RU-frekvensen eftersom den normaliserade RU har nått 100%. Det beror på att normaliserat RU är ett enda värde som representerar Max användningen för alla partitionsnyckel, men ett nyckel intervall kan vara upptaget, men de andra partition nyckel intervallen kan hantera begär Anden utan problem. Till exempel kan en enskild åtgärd, till exempel en lagrad procedur som förbrukar alla RU/s på ett nyckel intervall, leda till en kort insamling i den normaliserade RU/s-förbrukningen. I sådana fall uppstår inga omedelbara hastighets begränsnings fel om begär ande frekvensen är låg eller om begär Anden görs till andra partitioner på olika nyckel intervall. 
 
-Azure Monitor måtten hjälper dig att hitta åtgärder per status kod för SQL-API med hjälp av måttet **Totalt antal begär Anden** . Senare kan du filtrera efter dessa förfrågningar med status koden 429 och dela upp dem efter **Åtgärds typ**.  
+Azure Monitor måtten hjälper dig att hitta åtgärder per status kod för SQL-API med hjälp av måttet **Totalt antal begär Anden** . Senare kan du filtrera efter dessa förfrågningar med status koden 429 och dela upp dem efter **Åtgärds typ** .  
 
 Det rekommenderade sättet är att hämta den här informationen via diagnostikloggar för att hitta de begär Anden som är begränsade.
 
@@ -37,11 +38,11 @@ I sammanfattning används det **normaliserade ru-förbruknings** måttet för at
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Välj **övervaka** i det vänstra navigerings fältet och välj **mått**.
+2. Välj **övervaka** i det vänstra navigerings fältet och välj **mått** .
 
    :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Mått fönstret i Azure Monitor":::
 
-3. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen**och **resurs gruppen**. För **resurs typen**väljer du **Azure Cosmos DB konton**, väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd**.
+3. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen** och **resurs gruppen** . För **resurs typen** väljer du **Azure Cosmos DB konton** , väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd** .
 
    :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Mått fönstret i Azure Monitor":::
 
@@ -53,7 +54,7 @@ I sammanfattning används det **normaliserade ru-förbruknings** måttet för at
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filter för normaliserad förbrukning av begär ande enheter
 
-Du kan också filtrera mått och diagrammet som visas av en speciell **samlings**-, **databasename**-, **PartitionKeyRangeID**-och **region**. Om du vill filtrera måtten väljer du **Lägg till filter** och väljer den obligatoriska egenskapen, till exempel **samlings** namn och motsvarande värde som du är intresse rad av. Diagrammet visar sedan de normaliserade RU-konsumtions enheter som förbrukas för behållaren för den valda perioden.  
+Du kan också filtrera mått och diagrammet som visas av en speciell **samlings** -, **databasename** -, **PartitionKeyRangeID** -och **region** . Om du vill filtrera måtten väljer du **Lägg till filter** och väljer den obligatoriska egenskapen, till exempel **samlings** namn och motsvarande värde som du är intresse rad av. Diagrammet visar sedan de normaliserade RU-konsumtions enheter som förbrukas för behållaren för den valda perioden.  
 
 Du kan gruppera mått med hjälp av alternativet **Använd delning** .  
 

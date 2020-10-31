@@ -9,14 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: 902980d7c145d5150214b7d4f4433e5da344e30b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb057637ff546356cde6e0ef107fe784fed2e610
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570053"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099886"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Självstudie: skapa ett API för Cassandra konto i Azure Cosmos DB genom att använda ett Java-program för att lagra nyckel/värde-data
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Som utvecklare kan du ha program som använder nyckel/värde-par. Du kan använda ett API för Cassandra-konto i Azure Cosmos DB för att lagra nyckel/värde-data. Den här självstudien beskriver hur du använder ett Java-program för att skapa ett API för Cassandra-konto i Azure Cosmos DB, samt lägga till en databas (kallas även ett nyckelutrymme) och en tabell. Java-programmet använder [Java-drivrutinen](https://github.com/datastax/java-driver) för att skapa en användardatabas med information som användar-ID, användarnamn och användarens stad.  
 
@@ -42,21 +43,21 @@ Den här självstudien omfattar följande uppgifter:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/). 
 
-2. Välj **skapa en resurs**  >  **databas**  >  **Azure Cosmos DB**. 
+2. Välj **skapa en resurs**  >  **databas**  >  **Azure Cosmos DB** . 
 
 3. I fönstret **Nytt konto** anger du inställningarna för det nya Azure Cosmos-kontot. 
 
    |Inställning   |Föreslaget värde  |Beskrivning  |
    |---------|---------|---------|
    |ID   |   Ange ett unikt namn    | Ange ett unikt namn som identifierar Azure Cosmos-kontot. <br/><br/>Eftersomcassandra.cosmosdb.azure.com läggs till det ID du anger för att skapa din kontaktpunkt bör du använda ett unikt men identifierbart ID.         |
-   |API    |  Cassandra   |  API:et avgör vilken typ av konto som skapas. <br/> Välj **Cassandra**, eftersom du i den här artikeln skapar en databas med breda kolumner som kan frågas med hjälp av CQL-syntaxen (Cassandra Query Language).  |
+   |API    |  Cassandra   |  API:et avgör vilken typ av konto som skapas. <br/> Välj **Cassandra** , eftersom du i den här artikeln skapar en databas med breda kolumner som kan frågas med hjälp av CQL-syntaxen (Cassandra Query Language).  |
    |Prenumeration    |  Din prenumeration        |  Välj den Azure-prenumeration som ska användas för Azure Cosmos-kontot.        |
    |Resursgrupp   | Ange ett namn    |  Välj **Skapa ny** och ange sedan ett nytt resursgruppnamn för ditt konto. För enkelhetens skull kan du använda samma namn som för ditt ID.    |
-   |Location    |  Välj den region som är närmast dina användare    |  Välj den geografiska plats som ska vara värd för ditt Azure Cosmos-konto. Använd den plats som är närmast dina användare så att de får så snabb åtkomst till data som möjligt.    |
+   |Plats    |  Välj den region som är närmast dina användare    |  Välj den geografiska plats som ska vara värd för ditt Azure Cosmos-konto. Använd den plats som är närmast dina användare så att de får så snabb åtkomst till data som möjligt.    |
 
    :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="Skapa konto med portalen":::
 
-4. Välj **Skapa**. <br/>Det tar några minuter att skapa kontot. När resursen har skapats visas meddelandet **Distributionen lyckades** till höger i portalen.
+4. Välj **Skapa** . <br/>Det tar några minuter att skapa kontot. När resursen har skapats visas meddelandet **Distributionen lyckades** till höger i portalen.
 
 ## <a name="get-the-connection-details-of-your-account"></a>Hämta anslutningsinformationen för ditt konto  
 
@@ -66,7 +67,7 @@ Hämta information om anslutningssträngen från Azure Portal och kopiera den ti
 
 2. Öppna fönstret **anslutnings sträng** .  
 
-3. Kopiera värdena **KONTAKTPUNKT**, **PORT**, **ANVÄNDARNAMN** och **PRIMÄRT LÖSENORD** för användning i nästa steg.
+3. Kopiera värdena **KONTAKTPUNKT** , **PORT** , **ANVÄNDARNAMN** och **PRIMÄRT LÖSENORD** för användning i nästa steg.
 
 ## <a name="create-the-project-and-the-dependencies"></a>Skapa projektet och dess beroenden 
 

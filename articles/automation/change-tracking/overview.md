@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 35b1b07bd4d9eef555be26e1c24356b7c352bf38
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670729"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100702"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Översikt över Ändringsspårning och inventering
 
@@ -93,7 +93,7 @@ För att spåra ändringar i filer på både Windows och Linux använder Ändrin
 
 ## <a name="tracking-file-content-changes"></a>Spåra ändringar i fil innehåll
 
-Med Ändringsspårning och inventering kan du visa innehållet i en Windows-eller Linux-fil. För varje ändring i en fil lagrar Ändringsspårning och lager innehållet i filen i ett [Azure Storage konto](/storage/common/storage-account-create). När du spårar en fil kan du visa dess innehåll före eller efter en ändring. Fil innehållet kan visas antingen i rad eller sida vid sida.
+Med Ändringsspårning och inventering kan du visa innehållet i en Windows-eller Linux-fil. För varje ändring i en fil lagrar Ändringsspårning och lager innehållet i filen i ett [Azure Storage konto](/azure/storage/common/storage-account-create). När du spårar en fil kan du visa dess innehåll före eller efter en ändring. Fil innehållet kan visas antingen i rad eller sida vid sida.
 
 ![Visa ändringar i en fil](./media/overview/view-file-changes.png)
 

@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3d37786c7364b07228d1d8d6540e7b6d8a174eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd34a41fd9757d91845eb53626b00381c7ddda7a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84322694"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100294"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Returnerar ett booleskt värde som anger om det första sträng uttrycket slutar med det andra.  
   
@@ -30,7 +31,7 @@ ENDSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
    Är ett sträng uttryck.  
   
 *str_expr2*  
-   Är ett sträng uttryck som ska jämföras med slutet av *str_expr1*.
+   Är ett sträng uttryck som ska jämföras med slutet av *str_expr1* .
 
 *bool_expr* Valfritt värde för att ignorera Skift läge. När värdet är true kommer ENDSWITH att göra en Skift läges känslig sökning. Värdet är false när det har angetts.
   

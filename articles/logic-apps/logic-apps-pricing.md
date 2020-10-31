@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 486930776b4b4b6d852102be723ac1047ebd5e0a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078164"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098492"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Pris modell för Azure Logic Apps
 
@@ -85,13 +85,13 @@ Azure Logic Apps kopplingar hjälper dig att komma åt appar, tjänster och syst
 
 En utlösare är alltid det första steget i ett Logic app-arbetsflöde och är en särskild åtgärd som skapar och kör en Logic App-instans när särskilda villkor uppfylls eller en viss händelse inträffar. Utlösare fungerar på olika sätt, vilket påverkar hur Logic app mäts. Här är de olika typerna av utlösare som finns i Azure Logic Apps:
 
-* **Upprepnings utlösare**: du kan använda den här generiska utlösaren, som inte är speciell för någon tjänst eller ett system, för att starta ett Logic app-arbetsflöde och skapa en Logic App-instans som körs baserat på upprepnings intervallet som du har skapat i utlösaren. Du kan till exempel ställa in en upprepnings utlösare som körs var tredje dag eller ett mer komplext schema.
+* **Upprepnings utlösare** : du kan använda den här generiska utlösaren, som inte är speciell för någon tjänst eller ett system, för att starta ett Logic app-arbetsflöde och skapa en Logic App-instans som körs baserat på upprepnings intervallet som du har skapat i utlösaren. Du kan till exempel ställa in en upprepnings utlösare som körs var tredje dag eller ett mer komplext schema.
 
-* **Avsöknings utlösare**: du kan använda den här mer specialiserade återkommande utlösaren, som vanligt vis är kopplad till den hanterade anslutningen för en specifik tjänst eller ett system, för att söka efter händelser eller meddelanden som uppfyller kriterierna för att skapa och köra Logi Kap par-instansen baserat på upprepnings intervallet som du har konfigurerat i utlösaren. Även om ingen Logic App-instans skapas, till exempel när utlösare hoppas över, Logic Apps service mätarna för varje avsöknings förfrågan som en körning. Ange avsöknings intervallet genom att ställa in utlösaren via Logic App Designer.
+* **Avsöknings utlösare** : du kan använda den här mer specialiserade återkommande utlösaren, som vanligt vis är kopplad till den hanterade anslutningen för en specifik tjänst eller ett system, för att söka efter händelser eller meddelanden som uppfyller kriterierna för att skapa och köra Logi Kap par-instansen baserat på upprepnings intervallet som du har konfigurerat i utlösaren. Även om ingen Logic App-instans skapas, till exempel när utlösare hoppas över, Logic Apps service mätarna för varje avsöknings förfrågan som en körning. Ange avsöknings intervallet genom att ställa in utlösaren via Logic App Designer.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhook-utlösare**: i stället för att använda en avsöknings utlösare kan du använda en webhook-utlösare för att vänta tills klienten skickar en begäran till din Logic app på en viss slut punkts-URL. Varje begäran som skickas till webhook-slutpunkten räknas som en åtgärds körning. Till exempel är begäran och HTTP webhook-utlösaren båda allmänna webhook-utlösare. Vissa anslutningar för tjänster eller system har också webhook-utlösare.
+* **Webhook-utlösare** : i stället för att använda en avsöknings utlösare kan du använda en webhook-utlösare för att vänta tills klienten skickar en begäran till din Logic app på en viss slut punkts-URL. Varje begäran som skickas till webhook-slutpunkten räknas som en åtgärds körning. Till exempel är begäran och HTTP webhook-utlösaren båda allmänna webhook-utlösare. Vissa anslutningar för tjänster eller system har också webhook-utlösare.
 
 <a name="actions"></a>
 
@@ -122,11 +122,11 @@ Om du har en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtua
 
 Om du vill välja mellan ett kostnads fritt, Basic-eller standard integrations konto granskar du följande användnings Falls beskrivningar:
 
-* **Kostnads fri**: när du vill testa exempel scenarier, inte produktions scenarier. Den här nivån är endast tillgänglig för offentliga regioner i Azure, till exempel västra USA eller Sydostasien, men inte för [Azure Kina 21Vianet](/azure/china/overview-operations) eller [Azure Government](../azure-government/documentation-government-welcome.md).
+* **Kostnads fri** : när du vill testa exempel scenarier, inte produktions scenarier. Den här nivån är endast tillgänglig för offentliga regioner i Azure, till exempel västra USA eller Sydostasien, men inte för [Azure Kina 21Vianet](/azure/china/overview-operations) eller [Azure Government](../azure-government/documentation-government-welcome.md).
 
-* **Basic**: när du vill att endast meddelande hantering eller ska fungera som en liten affärs partner som har en handels partner relation med en större affär senhet
+* **Basic** : när du vill att endast meddelande hantering eller ska fungera som en liten affärs partner som har en handels partner relation med en större affär senhet
 
-* **Standard**: när du har mer komplexa B2B-relationer och ökat antal entiteter som du måste hantera
+* **Standard** : när du har mer komplexa B2B-relationer och ökat antal entiteter som du måste hantera
 
 <a name="data-retention"></a>
 
@@ -137,6 +137,7 @@ Förutom för logi Kap par som körs i en integrerings tjänst miljö (ISE) debi
 För att hjälpa dig att övervaka din Logic Apps lagrings förbrukning kan du:
 
 * Visa antalet lagrings enheter i GB som din Logic app använder varje månad.
+
 * Visa storlekarna för en speciell åtgärds indata och utdata i din Logic Apps körnings historik.
 
 <a name="storage-consumption"></a>
@@ -145,11 +146,14 @@ För att hjälpa dig att övervaka din Logic Apps lagrings förbrukning kan du:
 
 1. Leta upp och öppna din Logic app i Azure Portal.
 
-1. Från din Logic Apps-meny, under **övervakning**, väljer du **mått**.
+1. Från din Logic Apps-meny, under **övervakning** , väljer du **mått** .
 
-1. I den högra rutan, under **diagram rubrik**, i listan **mått** väljer du **fakturerings användning för körning av lagrings förbrukning**.
+1. I den högra rutan, under **diagram rubrik** , i listan **mått** väljer du **fakturerings användning för körning av lagrings förbrukning** .
 
    Med det här måttet får du antalet lagrings förbruknings enheter i GB per månad som debiteras.
+
+   > [!NOTE]
+   > Körningar som förbrukar mindre än 500 MB i lagringen kanske inte visas i vyn övervakning, men de faktureras fortfarande.
 
 <a name="input-output-sizes"></a>
 
@@ -157,15 +161,18 @@ För att hjälpa dig att övervaka din Logic Apps lagrings förbrukning kan du:
 
 1. Leta upp och öppna din Logic app i Azure Portal.
 
-1. På din Logic Apps-meny väljer du **Översikt**.
+1. På din Logic Apps-meny väljer du **Översikt** .
 
-1. I den högra rutan under **körnings historik**väljer du den körning som har de indata och utdata som du vill kontrol lera.
+1. I den högra rutan under **körnings historik** väljer du den körning som har de indata och utdata som du vill kontrol lera.
 
-1. Under **Logic app-körning**väljer du **Kör information**.
+1. Under **Logic app-körning** väljer du **Kör information** .
 
 1. Välj den åtgärd som du vill visa i tabellen åtgärder i fönstret för att **köra information i Logic app** .
 
-1. I fönstret **åtgärd för Logic app-åtgärd** hittar du storlekarna för åtgärdens indata och utdata visas under länken **indata** och **länken utdata**.
+1. I fönstret **åtgärd för Logic app-åtgärd** hittar du storlekarna för åtgärdens indata och utdata. Leta upp länkarna till dessa indata och utdata under **indata-länken** och **utdata-länken** .
+
+   > [!NOTE]
+   > För slingor är det bara de toppnivå åtgärderna som visar storlekarna för indata och utdata. För åtgärder i kapslade slingor visar indata och utdata noll storlek och inga länkar.
 
 ## <a name="next-steps"></a>Nästa steg
 

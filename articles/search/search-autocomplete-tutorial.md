@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 04123d06d22786c9dd2aa08c2dab1153f6d43375
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951408"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098458"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Lägg till komplettera automatiskt och förslag till klient program
 
-Sökning efter typ är en vanlig teknik för att förbättra produktiviteten för användarinitierade frågor. I Azure Kognitiv sökning stöds den här upplevelsen genom *Autoavsluta*, som avslutar en term eller fras baserat på inaktuella inleveranser (som slutförs med "Micro" med "Microsoft"). Ett annat formulär är *förslag*: en kort lista med matchande dokument (som returnerar bok titlar med ett ID så att du kan länka till en informations sida). Både Autoavsluta och förslag är predikat på en matchning i indexet. Tjänsten erbjuder inte frågor som returnerar noll resultat.
+Sökning efter typ är en vanlig teknik för att förbättra produktiviteten för användarinitierade frågor. I Azure Kognitiv sökning stöds den här upplevelsen genom *Autoavsluta* , som avslutar en term eller fras baserat på inaktuella inleveranser (som slutförs med "Micro" med "Microsoft"). Ett annat formulär är *förslag* : en kort lista med matchande dokument (som returnerar bok titlar med ett ID så att du kan länka till en informations sida). Både Autoavsluta och förslag är predikat på en matchning i indexet. Tjänsten erbjuder inte frågor som returnerar noll resultat.
 
 Om du vill implementera dessa upplevelser i Azure Kognitiv sökning behöver du:
 
@@ -131,7 +131,7 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 ### <a name="enable-highlighting"></a>Aktivera markering
 
-Markeringen använder tecken formatet för de tecken i resultatet som motsvarar indatatypen. Om t. ex. den partiella indatamängden är "Micro" visas resultatet **som**mikrosoft, **Micro**-omfattning och så vidare. Markering baseras på parametrarna HighlightPreTag och HighlightPostTag, definierade infogade med förslags funktionen.
+Markeringen använder tecken formatet för de tecken i resultatet som motsvarar indatatypen. Om t. ex. den partiella indatamängden är "Micro" visas resultatet **som** mikrosoft, **Micro** -omfattning och så vidare. Markering baseras på parametrarna HighlightPreTag och HighlightPostTag, definierade infogade med förslags funktionen.
 
 ```javascript
 source: "/home/suggest?highlights=true&fuzzy=true&",
@@ -181,7 +181,7 @@ Funktionen Suggest (Föreslå) tar två parametrar som bestämmer om träffmarke
 
 ## <a name="autocomplete"></a>Komplettera automatiskt
 
-Hittills har Sök-UX-koden centrerats på förslag. Nästa kodblock visar komplettera automatiskt med funktionen XDSoft jQuery UI komplettera automatiskt och skickar en begäran om automatisk komplettering av Azure-Kognitiv sökning. Som med förslag, i ett C#-program, går kod som stöder användar interaktionen i **index. cshtml**.
+Hittills har Sök-UX-koden centrerats på förslag. Nästa kodblock visar komplettera automatiskt med funktionen XDSoft jQuery UI komplettera automatiskt och skickar en begäran om automatisk komplettering av Azure-Kognitiv sökning. Som med förslag, i ett C#-program, går kod som stöder användar interaktionen i **index. cshtml** .
 
 ```javascript
 $(function () {
@@ -253,4 +253,4 @@ Följ dessa länkar för slut punkt till slut punkts instruktioner eller kod som
 
 + [Självstudie: skapa din första app i C# (Lektion 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [C#-kod exempel: Azure-Search-dotNet-samples/Create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [C# och Java Script med REST sida vid sida-kod exempel](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)
++ [C# och Java Script med REST sida vid sida-kod exempel](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

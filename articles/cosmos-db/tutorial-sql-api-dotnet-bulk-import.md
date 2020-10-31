@@ -8,14 +8,15 @@ ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfab8ba88c7da84efb3f6aed6f95bb100507f8da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e80a67890dcf76d115464ea62c0729aedd444667
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981921"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099240"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Mass import av data till Azure Cosmos DB SQL API-konto med hjälp av .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här självstudien visar hur du skapar ett .NET-konsol program som optimerar det allokerade data flöde (RU/s) som krävs för att importera data till Azure Cosmos DB. I den här artikeln ska du läsa data från en exempel data källa och importera den till en Azure Cosmos-behållare.
 I den här självstudien används [version 3.0 +](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) av Azure Cosmos dB .NET SDK, som kan vara avsedd för .NET Framework eller .net Core.
@@ -28,7 +29,7 @@ Den här självstudiekursen omfattar:
 > * Ansluta till ett Azure Cosmos-konto med Mass stöd aktiverat
 > * Utföra en data import via samtidiga skapande åtgärder
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande resurser innan du följer anvisningarna i den här artikeln:
 
@@ -44,7 +45,7 @@ Se till att du har följande resurser innan du följer anvisningarna i den här 
 
 ## <a name="step-2-set-up-your-net-project"></a>Steg 2: Konfigurera ditt .NET-projekt
 
-Öppna kommando tolken i Windows eller ett terminalfönster från den lokala datorn. Du kommer att köra alla kommandon i nästa avsnitt från kommando tolken eller terminalen. Kör följande dotNet New-kommando för att skapa en ny app med namnet *bulk-import-demo*. `--langVersion`Parametern anger egenskapen *LangVersion* i den skapade projekt filen.
+Öppna kommando tolken i Windows eller ett terminalfönster från den lokala datorn. Du kommer att köra alla kommandon i nästa avsnitt från kommando tolken eller terminalen. Kör följande dotNet New-kommando för att skapa en ny app med namnet *bulk-import-demo* . `--langVersion`Parametern anger egenskapen *LangVersion* i den skapade projekt filen.
 
    ```bash
    dotnet new console –langVersion:8 -n bulk-import-demo

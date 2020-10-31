@@ -9,14 +9,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: a831921ec3b3fa755496c08c02665b1c0fe99557
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2dcd72f9231726d5a2f473dbbfa4d8fd81e64b97
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475965"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098996"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Snabb start: skapa en konsol app med Java och MongoDB-API: et i Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -41,7 +42,7 @@ I den här snabb starten skapar du och hanterar en Azure Cosmos DB för MongoDB-
 
 ## <a name="add-a-collection"></a>Lägga till en samling
 
-Namnge din **nya databas databas och din**nya samlings **Coll**.
+Namnge din **nya databas databas och din** nya samlings **Coll** .
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-mongodb-create-collection.md)] 
 
@@ -111,7 +112,7 @@ Den här konsol programmet använder [Java-drivrutinen MongoDB](https://docs.mon
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. Från ditt Azure Cosmos DB konto väljer du **Snabbstart**, väljer **Java**och kopierar sedan anslutnings strängen till Urklipp.
+1. Från ditt Azure Cosmos DB konto väljer du **Snabbstart** , väljer **Java** och kopierar sedan anslutnings strängen till Urklipp.
 
 2. Öppna filen *program. java* och ersätt argumentet till MongoClientURI-konstruktorn med anslutnings strängen. Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
     

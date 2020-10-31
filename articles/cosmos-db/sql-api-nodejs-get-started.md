@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
-ms.openlocfilehash: b1e0f8c301d40ff10dbf977731d457a31b096328
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1115d7bb0d6857aa39f246743df54a6cf3fd3676
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478005"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098671"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Självstudie: Skapa en Node.js-konsolapp med JavaScript SDK för att hantera data från SQL-API:et för Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -85,7 +86,7 @@ Nu när din app finns behöver du se till att den kan kommunicera med Azure Cosm
 
 1. Öppna *config.js* -filen i din favorit text redigerare.
 
-1. Kopiera och klistra in följande kodfragment i *config.js* -filen och ange egenskaperna `endpoint` och `key` till din Azure Cosmos DB slut punkts-URI och primär nyckel. Databasen, behållar namn anges till **uppgifter** och **objekt**. Den partitionsnyckel som du ska använda för det här programmet är **/Category**.
+1. Kopiera och klistra in följande kodfragment i *config.js* -filen och ange egenskaperna `endpoint` och `key` till din Azure Cosmos DB slut punkts-URI och primär nyckel. Databasen, behållar namn anges till **uppgifter** och **objekt** . Den partitionsnyckel som du ska använda för det här programmet är **/Category** .
 
    :::code language="javascript" source="~/cosmosdb-nodejs-get-started/config.js":::
 
@@ -93,7 +94,7 @@ Nu när din app finns behöver du se till att den kan kommunicera med Azure Cosm
 
    :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Hämta nycklar från Azure-portalen, skärmbild":::
 
-Java Script SDK använder *behållaren* för allmänna villkor och *objektet*. En container kan vara en samling, ett diagram eller en tabell. Ett objekt kan vara ett dokument, en kant/ett hörn eller en rad, och är innehållet i en container. I föregående kodfragment `module.exports = config;` används koden för att exportera config-objektet, så att du kan referera till det i *app.js* -filen.
+Java Script SDK använder *behållaren* för allmänna villkor och *objektet* . En container kan vara en samling, ett diagram eller en tabell. Ett objekt kan vara ett dokument, en kant/ett hörn eller en rad, och är innehållet i en container. I föregående kodfragment `module.exports = config;` används koden för att exportera config-objektet, så att du kan referera till det i *app.js* -filen.
 
 ## <a name="create-a-database-and-a-container"></a>Skapa en databas och en container
 
@@ -123,7 +124,7 @@ I *app.js* -filen kopierar du och klistrar in följande kod för att använda de
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="CreateClientObjectDatabaseContainer":::
 
 > [!Note]
-> Om du ansluter till **Cosmos DB emulatorn**inaktiverar du TLS-verifiering för din nods process:
+> Om du ansluter till **Cosmos DB emulatorn** inaktiverar du TLS-verifiering för din nods process:
 >   ```javascript
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 >   const client = new CosmosClient({ endpoint, key });

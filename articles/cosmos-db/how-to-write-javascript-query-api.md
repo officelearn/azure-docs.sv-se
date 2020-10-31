@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 4251a9ec0766f6e1956e4885b58dc874e01b0960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ad2b9bcbfdd4353c16d890d1857727b685a5e59
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253079"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098866"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Skriva lagrade procedurer och utlösare med hjälp fråge-API:et för Javascript i Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Med Azure Cosmos DB kan du utföra optimerade frågor med hjälp av ett flytande JavaScript-gränssnitt utan att behöva kunna SQL-språk som kan användas för att skriva lagrade procedurer eller utlösare. Mer information om stöd för JavaScript fråge-API i Azure Cosmos DB finns i artikeln [arbeta med JavaScript-språkintegrerade fråge-API i Azure Cosmos DB](javascript-query-api.md).
 

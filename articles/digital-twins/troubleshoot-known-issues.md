@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 549e1808a3b449f7d29b968cde76ef29391880b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489021"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100624"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Kända problem i Azure Digitals, dubbla
 
@@ -32,7 +32,7 @@ Detta kan lösas genom att köra `az login` kommandot i Cloud Shell och slutför
 
 Du kan också öppna fönstret Cloud Shell i Azure Portal och slutföra din Cloud Shell arbete därifrån:
 
-:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vy av Azure Portal med ikonen &quot;Cloud Shell&quot; markerad och Cloud Shell visas längst ned i Portal fönstret":::
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vy av Azure Portal med ikonen &quot;Cloud Shell&quot; markerad och Cloud Shell visas längst ned i Portal fönstret" lightbox="media/includes/portal-cloud-shell.png":::
 
 Slutligen är en annan lösning att [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) på datorn så att du kan köra Azure CLI-kommandon lokalt. Den lokala CLI: en drabbas inte av det här problemet.
 

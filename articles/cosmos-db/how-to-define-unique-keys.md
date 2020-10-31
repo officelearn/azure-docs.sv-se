@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b814100097897aff6047b8b6d6cc0e8ebaa409ba
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279556"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101535"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definiera unika nycklar för en Azure Cosmos-behållare
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här artikeln visar olika sätt att definiera [unika nycklar](unique-keys.md) när du skapar en Azure Cosmos-behållare. Det är för närvarande möjligt att utföra den här åtgärden antingen genom att använda Azure Portal eller via någon av SDK: erna.
 
@@ -26,7 +27,7 @@ Den här artikeln visar olika sätt att definiera [unika nycklar](unique-keys.md
 
 1. Öppna fönstret **datautforskaren** och välj den behållare som du vill arbeta med.
 
-1. Klicka på **ny behållare**.
+1. Klicka på **ny behållare** .
 
 1. I dialog rutan **Lägg till behållare** klickar du på **+ Lägg till unik nyckel** för att lägga till en unik nyckel post.
 

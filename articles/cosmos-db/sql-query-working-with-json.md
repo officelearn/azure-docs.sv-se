@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: 355f73d46215aa9e05f4ea6d91bb173c77509b63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cc79862bccee3253e41ce5f1c6bc8c149d9b3ae
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270864"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100651"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Arbeta med JSON i Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 I SQL-API:et i Azure Cosmos DB lagras objekt som JSON. Typsystem och uttryck är begränsade till att endast hantera JSON-typer. Mer information finns i JSON- [specifikationen](https://www.json.org/).
 
@@ -305,4 +306,4 @@ Här är ett exempel:
 
 - [Komma igång](sql-query-getting-started.md)
 - [SELECT-sats](sql-query-select.md)
-- [WHERE-sats](sql-query-where.md)
+- [WHERE-satsen](sql-query-where.md)

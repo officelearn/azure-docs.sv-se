@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: be93df10614e32fb14e5ca7497461f0f2d6fc93e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409399"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099729"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Snabbstart: Skapa, köra frågor mot och gå igenom en Azure Cosmos DB-grafdatabas med hjälp av Gremlin-konsolen
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
@@ -52,22 +53,22 @@ Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/down
 ## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>Anslut till din app service/Graf
 
 1. Innan du startar Gremlin-konsolen ska du skapa eller ändra konfigurationsfilen remote-secure.yaml i katalogen `apache-tinkerpop-gremlin-console-3.2.5/conf`.
-2. Fyll i konfigurationen för *värd*, *port*, *användarnamn*, *lösenord*, *anslutningspool* och *serialiserare* enligt definitionerna i följande tabell:
+2. Fyll i konfigurationen för *värd* , *port* , *användarnamn* , *lösenord* , *anslutningspool* och *serialiserare* enligt definitionerna i följande tabell:
 
     Inställning|Föreslaget värde|Beskrivning
     ---|---|---
-    värdar|[*konto namn*. **Gremlin**. Cosmos.Azure.com]|Se följande skärmbild. Detta är **GREMLIN URI** -värdet på översikts sidan för Azure Portal, inom hakparenteser, med efterföljande: 443/borttaget. Obs! se till att använda Gremlin-värdet och **inte** URI: n som slutar med [*Account-name*. Documents.Azure.com] vilket troligen skulle resultera i att "värden inte svarade i tid"-undantag vid försök att köra Gremlin-frågor senare. 
+    värdar|[ *konto namn* . **Gremlin** . Cosmos.Azure.com]|Se följande skärmbild. Detta är **GREMLIN URI** -värdet på översikts sidan för Azure Portal, inom hakparenteser, med efterföljande: 443/borttaget. Obs! se till att använda Gremlin-värdet och **inte** URI: n som slutar med [ *Account-name* . Documents.Azure.com] vilket troligen skulle resultera i att "värden inte svarade i tid"-undantag vid försök att köra Gremlin-frågor senare. 
     port|443|Ställ in på 443.
     användarnamn|*Ditt användarnamn*|Resursen i formuläret `/dbs/<db>/colls/<coll>` där `<db>` är databasnamnet och `<coll>` är samlingens namn.
     password|*Din primärnyckel*| Se andra skärmbilden nedan. Det här är din primärnyckel som du kan hämta från sidan Nycklar i Azure-portalen i rutan Primärnyckel. Använd kopieringsknappen till vänster om rutan för att kopiera värdet.
     ConnectionPool|{enableSsl: true}|Inställningen för anslutningspoolen för TLS.
     Serialiserare|{ className: org.apache.tinkerpop.gremlin.<br>driv rutin. ser. GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Ange detta värde och ta bort alla `\n`-radbrytningar när du klistrar in värdet.
 
-   Som Värd kopierar du värdet **Gremlin-URI** från **översiktssidan**:
+   Som Värd kopierar du värdet **Gremlin-URI** från **översiktssidan** :
 
    :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Azure Cosmos DB från konsolen Apache Gremlin":::
 
-   Som lösenordsvärde kopierar du **primärnyckeln** från sidan **Nycklar**:
+   Som lösenordsvärde kopierar du **primärnyckeln** från sidan **Nycklar** :
 
    :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Azure Cosmos DB från konsolen Apache Gremlin":::
 
@@ -98,7 +99,7 @@ Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/down
    > [!NOTE]
    > Om du inte kör kommandot `:remote console` men vill omdirigera alla konsolkommandon till fjärrservern bör du lägga till prefixet `:>` till kommandot och till exempel köra kommandot som `:> g.V().count()`. Det här prefixet är en del av kommandot och är viktigt när du använder Gremlin-konsolen med Azure Cosmos DB. Om du utesluter det här prefixet instrueras konsolen att köra kommandot lokalt, ofta mot en InMemory-graf. Med det här prefixet beordrar `:>` konsolen att köra fjärrkommandon, i det här fallet mot Azure Cosmos DB (antingen localhost-emulatorn eller en Azure-instans).
 
-Bra! Konfigurationen är slutförd, så vi kan börja köra några konsolkommandon.
+Toppen! Konfigurationen är slutförd, så vi kan börja köra några konsolkommandon.
 
 Prova med ett enkelt count()-kommando. Skriv följande i konsolen:
 
@@ -108,7 +109,7 @@ g.V().count()
 
 ## <a name="create-vertices-and-edges"></a>Skapa hörn och gränser
 
-Vi börjar med att lägga till fem personhörn för *Thomas*, *Mary Kay*, *Robin*, *Ben* och *Jack*.
+Vi börjar med att lägga till fem personhörn för *Thomas* , *Mary Kay* , *Robin* , *Ben* och *Jack* .
 
 Indata (Thomas):
 
@@ -214,7 +215,7 @@ Utdata:
 
 ## <a name="update-a-vertex"></a>Uppdatera ett hörn
 
-Nu ska vi uppdatera *Thomas* hörn med den nya åldern *45*.
+Nu ska vi uppdatera *Thomas* hörn med den nya åldern *45* .
 
 Indata:
 ```java

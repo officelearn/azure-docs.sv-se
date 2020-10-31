@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebc1f66e68d4cf37546e7d33a9b723385330395c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74873428"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100872"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL Query-konstanter  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  En konstant, som även kallas en literal eller ett skalärt värde, är en symbol som representerar ett visst data värde. Formatet på en konstant beror på data typen för värdet som den representerar.  
   
@@ -23,11 +24,11 @@ ms.locfileid: "74873428"
 |-|-|  
 |**Odefinierad**|Enskilt värde: **odefinierat**|  
 |**Null**|Enskilt värde: **Null**|  
-|**Boolesk**|Värden: **false**, **True**.|  
+|**Booleskt**|Värden: **false** , **True** .|  
 |**Nummer**|Ett flyttal med dubbel precision, IEEE 754-standard.|  
 |**Sträng**|En sekvens med noll eller flera Unicode-tecken. Strängar måste omges av enkla eller dubbla citat tecken.|  
-|**Lagringsmatriser**|En sekvens med noll eller flera element. Varje-element kan vara ett värde av vilken skalär datatyp som helst, förutom **Odefinierad**.|  
-|**Jobbobjektet**|En oordnad uppsättning med noll eller flera namn/värde-par. Namnet är en Unicode-sträng, värdet kan vara av vilken skalär datatyp som helst, förutom **Odefinierad**.|  
+|**Lagringsmatriser**|En sekvens med noll eller flera element. Varje-element kan vara ett värde av vilken skalär datatyp som helst, förutom **Odefinierad** .|  
+|**Jobbobjektet**|En oordnad uppsättning med noll eller flera namn/värde-par. Namnet är en Unicode-sträng, värdet kan vara av vilken skalär datatyp som helst, förutom **Odefinierad** .|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Syntax
   
@@ -67,7 +68,7 @@ ms.locfileid: "74873428"
   
 * `<null_constant>; null`  
   
-  Representerar **Null** -värde av typen **Null**.  
+  Representerar **Null** -värde av typen **Null** .  
   
 * `<boolean_constant>`  
   
@@ -112,8 +113,8 @@ ms.locfileid: "74873428"
 |\b|Backsteg|U + 0008|  
 |f|formulär inmatning|U + 000C|  
 |\n|rad matning|U + 000A|  
-|\r|vagn retur|U + 000D|  
-|\|tabbtecken|U + 0009|  
+|\r| vagnretur|U + 000D|  
+|\| tabb|U + 0009|  
 |\uXXXX|Ett Unicode-tecken som definieras av 4 hexadecimala siffror.|U + XXXX|  
 
 ## <a name="next-steps"></a>Nästa steg

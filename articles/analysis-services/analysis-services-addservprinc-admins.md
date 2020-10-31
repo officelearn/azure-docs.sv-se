@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8e751d210ab472d82e4abd613d37069a8c591f52
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013941"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100736"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Lägg till ett huvud namn för tjänsten i Server administratörs rollen 
 
@@ -33,14 +33,14 @@ Innan du slutför den här uppgiften måste du ha ett huvud namn för tjänsten 
 Du kan konfigurera Server administratörer med SQL Server Management Studio (SSMS). För att slutföra den här uppgiften måste du ha [Server administratörs](analysis-services-server-admins.md) behörighet på Azure as Server. 
 
 1. I SSMS ansluter du till din Azure AS-Server.
-2. I **Server egenskaper**  >  **säkerhet**klickar du på **Lägg till**.
-3. I **Välj en användare eller grupp**söker du efter din registrerade app efter namn, väljer och klickar sedan på **Lägg till**.
+2. I **Server egenskaper**  >  **säkerhet** klickar du på **Lägg till** .
+3. I **Välj en användare eller grupp** söker du efter din registrerade app efter namn, väljer och klickar sedan på **Lägg till** .
 
     ![Sök efter tjänstens huvud konto](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. Kontrol lera konto-ID för tjänstens huvud namn och klicka sedan på **OK**.
+4. Kontrol lera konto-ID för tjänstens huvud namn och klicka sedan på **OK** .
     
-    ![Sök efter tjänstens huvud konto](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Skärm bild som visar konto-ID för tjänstens huvud namn och markerar knappen OK.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## <a name="using-a-resource-manager-template"></a>Använda en Resource Manager-mall
 

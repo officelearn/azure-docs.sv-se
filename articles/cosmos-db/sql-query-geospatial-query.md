@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ee221acb9ff045716e3a8015b20b467ab6d0b10
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764986"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098560"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Fråga geospatiala data med Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här artikeln beskriver hur du frågar geospatiala data i Azure Cosmos DB att använda SQL och LINQ. För närvarande stöds endast att lagra och komma åt geospatiala data i Azure Cosmos DB SQL API-konton. Azure Cosmos DB stöder följande Open Geospatial Consortium (OGC) inbyggda funktioner för geospatiala frågor. Mer information om den fullständiga uppsättningen inbyggda funktioner i SQL-språket finns [i fråga system funktioner i Azure Cosmos DB](sql-query-system-functions.md).
 

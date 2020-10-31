@@ -7,14 +7,15 @@ ms.date: 03/13/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7bf7d418e3f2680b32f61e42cffc76c921068508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9da07dc76bdd9273b70f68ee1abcddfa04519fda
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79365516"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101042"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostisera och Felsök problem när du använder Azure Functions utlösare för Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här artikeln beskriver vanliga problem, lösningar och diagnostiska steg när du använder [Azure Functions utlösare för Cosmos DB](change-feed-functions.md).
 
@@ -31,7 +32,7 @@ Den här artikeln kommer alltid att referera till Azure Functions v2 När körni
 
 De viktigaste funktionerna i tilläggs paketet är att tillhandahålla stöd för Azure Functions utlösare och bindningar för Cosmos DB. Den innehåller också [Azure Cosmos dB .NET SDK](sql-api-sdk-dotnet-core.md), vilket är användbart om du vill interagera med Azure Cosmos DB program mässigt utan att använda utlösare och bindningar.
 
-Om du vill använda Azure Cosmos DB SDK ser du till att du inte lägger till ett annat NuGet-paket referens i projektet. I stället kan **SDK-referensen lösas via Azure Functions tilläggs paketet**. Använda Azure Cosmos DB SDK separat från utlösaren och bindningarna
+Om du vill använda Azure Cosmos DB SDK ser du till att du inte lägger till ett annat NuGet-paket referens i projektet. I stället kan **SDK-referensen lösas via Azure Functions tilläggs paketet** . Använda Azure Cosmos DB SDK separat från utlösaren och bindningarna
 
 Om du dessutom skapar en egen instans av [Azure Cosmos DB SDK-klienten](./sql-api-sdk-dotnet-core.md)manuellt bör du följa mönstret för att bara ha en instans av klienten [med hjälp av en metod för singleton-mönster](../azure-functions/manage-connections.md#documentclient-code-example-c). Den här processen kommer att undvika potentiella problem med socketen i dina åtgärder.
 
@@ -43,7 +44,7 @@ Azure Function Miss lyckas med fel meddelandet "det finns ingen käll samlings s
 
 Det innebär att antingen en eller båda av de Azure Cosmos-behållare som krävs för att utlösaren ska fungera, inte finns eller inte kan komma åt Azure-funktionen. **Själva felet anger vilken Azure Cosmos-databas och container som är den utlösare som söker efter** baserat på din konfiguration.
 
-1. Kontrol lera `ConnectionStringSetting` attributet och att det **refererar till en inställning som finns i din Azure-Funktionsapp**. Värdet för det här attributet får inte vara själva anslutnings strängen, utan namnet på konfigurations inställningen.
+1. Kontrol lera `ConnectionStringSetting` attributet och att det **refererar till en inställning som finns i din Azure-Funktionsapp** . Värdet för det här attributet får inte vara själva anslutnings strängen, utan namnet på konfigurations inställningen.
 2. Kontrol lera att `databaseName` och `collectionName` finns i ditt Azure Cosmos-konto. Om du använder automatisk ersättning (med `%settingName%` mönster) ser du till att namnet på inställningen finns i Azure-Funktionsapp.
 3. Om du inte anger någon `LeaseCollectionName/leaseCollectionName` är standardvärdet "lån". Kontrol lera att behållaren finns. Du kan också ställa in `CreateLeaseCollectionIfNotExists` attributet i utlösaren så att `true` det skapas automatiskt.
 4. Verifiera ditt [Azure Cosmos-kontos brand Väggs konfiguration](how-to-configure-firewall.md) för att se att den inte blockerar Azure-funktionen.
@@ -94,7 +95,7 @@ I det här scenariot är det bästa sättet att lägga till `try/catch` block i 
 > [!NOTE]
 > Som standard kör Azure Functions-utlösaren inte en ändringssats om det inträffar ett ohanterat undantag under körningen av din kod. Det innebär att det inte går att bearbeta ändringarna på grund av att det inte gick att bearbeta dem.
 
-Om du upptäcker att vissa ändringar inte tagits emot alls av utlösaren är det vanligaste scenariot att **en annan Azure-funktion körs**. Det kan vara en annan Azure Function som distribuerats i Azure eller en Azure-funktion som körs lokalt på en utvecklares dator som har **exakt samma konfiguration** (samma övervakade och lånade behållare) och den här Azure-funktionen stjäl en del av de ändringar som du förväntar dig att Azure-funktionen ska bearbeta.
+Om du upptäcker att vissa ändringar inte tagits emot alls av utlösaren är det vanligaste scenariot att **en annan Azure-funktion körs** . Det kan vara en annan Azure Function som distribuerats i Azure eller en Azure-funktion som körs lokalt på en utvecklares dator som har **exakt samma konfiguration** (samma övervakade och lånade behållare) och den här Azure-funktionen stjäl en del av de ändringar som du förväntar dig att Azure-funktionen ska bearbeta.
 
 Scenariot kan också verifieras om du vet hur många Azure Funktionsapp-instanser som du kör. Om du inspekterar din lån behållare och räknar antalet låne objekt i, ska de distinkta värdena för `Owner` egenskapen i dem vara lika med antalet instanser av Funktionsapp. Om det finns fler ägare än de kända Azure Funktionsapp-instanserna innebär det att dessa extra ägare är de som "stjäl" ändringarna.
 

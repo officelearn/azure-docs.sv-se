@@ -11,14 +11,19 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cea88c2e20c9e96c5ad5504815886b2cc771e44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297798"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100566"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>API för webbsökning i Bing svars struktur och svars typer  
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 När du skickar Webbsökning i Bing en Sök förfrågan returneras ett [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) objekt i svars texten. Objektet innehåller ett fält för varje svar som Bing bestämt var relevant för fråga. Det här exemplet illustrerar ett Response-objekt om Bing returnerade alla svar:
 
@@ -38,7 +43,7 @@ När du skickar Webbsökning i Bing en Sök förfrågan returneras ett [`SearchR
 }, ...
 ```
 
-Vanligt vis returnerar Webbsökning i Bing en delmängd av svaren. Om till exempel termen har *seglings-dinghies*kan svaret omfatta `webPages` , `images` och `rankingResponse` . Om du inte har använt [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) för att filtrera ut webb sidor, innehåller svaret alltid `webpages` och `rankingResponse` svaren.
+Vanligt vis returnerar Webbsökning i Bing en delmängd av svaren. Om till exempel termen har *seglings-dinghies* kan svaret omfatta `webPages` , `images` och `rankingResponse` . Om du inte har använt [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) för att filtrera ut webb sidor, innehåller svaret alltid `webpages` och `rankingResponse` svaren.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -316,7 +321,7 @@ Ett matematiskt uttryck kan innehålla följande funktioner:
 
 |Symbol|Beskrivning|
 |------------|-----------------|
-|Sortering|Kvadratrot|
+|Sortera|Kvadratrot|
 |Sin [x], cos [x], Tan [x]<br />CSC [x], SEK [x], COT [x]|Trigonometriska funktioner (med argument i radianer)|
 |Bågar i [x], ArcCos [x], ArcTan [x]<br />ArcCsc [x], ArcSec [x], ArcCot [x]|Invertera trigonometriska funktioner (ger resultat i radianer)|
 |EXP [x], E ^ x|Exponentiell funktion|
@@ -328,7 +333,7 @@ Matematiska uttryck som innehåller variabler (till exempel 4x + 6 = 18, där x 
 
 ## <a name="timezone-answer"></a>Svar på tidszon
 
-Om användaren anger en tid eller datum fråga kan svaret innehålla ett [tids zons](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) svar. Det här svaret stöder implicita eller explicita frågor. En implicit fråga, till exempel *vilken tid är den?*, returnerar den lokala tiden baserat på användarens plats. En explicit fråga, till exempel *vilken tid som finns i Seattle?*, returnerar den lokala tiden för Seattle, WA.
+Om användaren anger en tid eller datum fråga kan svaret innehålla ett [tids zons](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) svar. Det här svaret stöder implicita eller explicita frågor. En implicit fråga, till exempel *vilken tid är den?* , returnerar den lokala tiden baserat på användarens plats. En explicit fråga, till exempel *vilken tid som finns i Seattle?* , returnerar den lokala tiden för Seattle, WA.
 
 `timeZone`Svaret innehåller namnet på platsen, aktuellt UTC-datum och tid på den angivna platsen och UTC-förskjutningen. Om platsens gräns ligger inom flera tids zoner, innehåller svaret det aktuella UTC-datumet och-tiden för alla tids zoner inom gränsen. Eftersom Florida-tillstånd ligger inom två tids zoner, innehåller svaret till exempel det lokala datumet och tiden för båda tids zonerna.  
 
@@ -419,7 +424,7 @@ Query: What time is it in the U.S.
 
 ## <a name="spellsuggestion-answer"></a>SpellSuggestion-svar
 
-Om Bing avgör att användaren kan ha tänkt att söka efter något annat, innehåller svaret ett [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) -objekt. Om användaren till exempel söker efter Carlos- *penna*kan Bing se till att användaren förmodligen vill söka efter Carlos-Pena i stället (baserat på tidigare sökningar av andra av *Carlos-pennan*). Nedan visas ett exempel på ett stavnings svar.
+Om Bing avgör att användaren kan ha tänkt att söka efter något annat, innehåller svaret ett [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) -objekt. Om användaren till exempel söker efter Carlos- *penna* kan Bing se till att användaren förmodligen vill söka efter Carlos-Pena i stället (baserat på tidigare sökningar av andra av *Carlos-pennan* ). Nedan visas ett exempel på ett stavnings svar.
 
 ```json
 "spellSuggestions": {

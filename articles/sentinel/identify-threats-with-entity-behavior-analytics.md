@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 6597baa67bcd2e26f3b8aeaa98c1776b5fc47430
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0486c9d2eb6c651b507f4b0a44f4a6fc2b018f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997149"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100668"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identifiera avancerade hot med användar-och enhets beteende analys (UEBA) i Azure Sentinel
 
@@ -62,11 +62,43 @@ Varje aktivitet får poäng enligt "bedömnings prioritet Poäng", som avgör sa
 
 Se hur beteende analys används i [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) för ett exempel på hur det fungerar.
 
+## <a name="entities-in-azure-sentinel"></a>Entiteter i Azure Sentinel
 
+### <a name="entity-identifiers"></a>Enhets identifierare
 
-## <a name="entity-pages"></a>Enhets sidor
+När aviseringar skickas till Azure Sentinel innehåller de data element som Azure Sentinel identifierar och klassificerar som entiteter, till exempel användar konton, värdar, IP-adresser och andra. Vid detta tillfälle kan denna identifiering vara en utmaning, om aviseringen inte innehåller tillräckligt med information om entiteten.
 
-När du stöter på en entitet (som för närvarande är begränsad till användare och värdar) i en sökning, en avisering eller en undersökning, kan du välja entiteten och gå till en **entitet**, ett datablad som är fullt värdefullt information om entiteten. De typer av information som du hittar på den här sidan är grundläggande fakta om entiteten, en tids linje för viktiga händelser som är relaterade till den här entiteten och insikter om entitetens beteende.
+Användar konton kan till exempel identifieras på fler än ett sätt: med hjälp av ett Azure AD-kontos numeriska identifierare (GUID) eller dess UPN-värde (User Principal Name) eller alternativt kan du använda en kombination av sitt användar namn och dess NT-domännamn. Olika data källor kan identifiera samma användare på olika sätt. Det innebär att när så är möjligt sammanfogar Azure Sentinel dessa identifierare till en enda entitet, så att den kan identifieras korrekt.
+
+Det kan hända att en av dina resurs leverantörer skapar en avisering i vilken en entitet inte är tillräckligt identifierad, till exempel ett användar namn utan domän namns kontext. I sådana fall kan entiteten användare inte slås samman med andra instanser av samma användar konto, som skulle identifieras som en separat entitet, och dessa två entiteter förblir separata i stället för Unified.
+
+För att minimera risken för detta händer bör du kontrol lera att alla dina aviserings leverantörer identifierar enheterna korrekt i de aviseringar som de skapar. Dessutom kan synkronisering av entiteter för användar konton med Azure Active Directory skapa en enhetlig katalog som kan slå samman entiteter för användar konton.
+
+Följande typer av entiteter identifieras för närvarande i Azure Sentinel:
+
+- Användar konto (konto)
+- Värd
+- IP-adress (IP)
+- Skadlig kod
+- Fil
+- Process
+- Moln program (CloudApplication)
+- Domän namn (DNS)
+- Azure-resurs
+- Fil (FileHash)
+- Registernyckel
+- Registervärde
+- Säkerhets grupp
+- URL
+- IoT-enhet
+- Mailbox
+- E-postkluster
+- E-postmeddelande
+- Skicka e-post
+
+### <a name="entity-pages"></a>Enhets sidor
+
+När du stöter på en entitet (som för närvarande är begränsad till användare och värdar) i en sökning, en avisering eller en undersökning, kan du välja entiteten och gå till en **entitet** , ett datablad som är fullt värdefullt information om entiteten. De typer av information som du hittar på den här sidan är grundläggande fakta om entiteten, en tids linje för viktiga händelser som är relaterade till den här entiteten och insikter om entitetens beteende.
  
 Enhets sidor består av tre delar:
 - Den vänstra panelen innehåller entitetens identifierings information som samlas in från data källor som Azure Active Directory, Azure Monitor, Azure Security Center och Microsoft Defender.
@@ -81,11 +113,11 @@ Enhets sidor består av tre delar:
 
 Tids linjen är en stor del av enhets sidans bidrag till beteende analys i Azure Sentinel. Den innehåller en berättelse om entiteter-relaterade händelser, som hjälper dig att förstå entitetens aktivitet inom en bestämd tidsram.
 
-Du kan välja **tidsintervallet** bland flera förinställda alternativ (till exempel de *senaste 24 timmarna*) eller ange det som en anpassad tidsram. Dessutom kan du ange filter som begränsar informationen i tids linjen till vissa typer av händelser eller aviseringar.
+Du kan välja **tidsintervallet** bland flera förinställda alternativ (till exempel de *senaste 24 timmarna* ) eller ange det som en anpassad tidsram. Dessutom kan du ange filter som begränsar informationen i tids linjen till vissa typer av händelser eller aviseringar.
 
 Följande typer av objekt ingår i tids linjen:
 
-- Aviseringar – alla varningar där entiteten definieras som en **mappad entitet**. Observera att om din organisation har skapat [anpassade aviseringar med analys regler](./tutorial-detect-threats-custom.md)bör du kontrol lera att enhets mappningen för reglerna är korrekt.
+- Aviseringar – alla varningar där entiteten definieras som en **mappad entitet** . Observera att om din organisation har skapat [anpassade aviseringar med analys regler](./tutorial-detect-threats-custom.md)bör du kontrol lera att enhets mappningen för reglerna är korrekt.
 
 - Bok märken – alla bok märken som innehåller den angivna entiteten som visas på sidan.
 
@@ -112,7 +144,7 @@ Entitetsformulär är utformade för att ingå i flera användnings scenarier oc
 
 ### <a name="behavior-analytics-table"></a>Beteende analys tabell
 
-| Field                     | Beskrivning                                                         |
+| Fält                     | Beskrivning                                                         |
 |---------------------------|---------------------------------------------------------------------|
 | TenantId                  | unikt ID-nummer för klient organisationen                                      |
 | SourceRecordId            | unikt ID-nummer för EBA-händelsen                                   |
@@ -162,7 +194,7 @@ Du kan använda den [bärbara datorn Jupyter](https://github.com/Azure/Azure-Sen
 
 Med behörighets analys kan du ta reda på den potentiella effekten av en organisations till gångs intrång av en angripare. Den här effekten kallas även för till gångens "Mas radie". Säkerhets analytiker kan använda den här informationen för att prioritera undersökningar och incident hantering.
 
-Azure Sentinel avgör de direkta och transitiva åtkomst rättigheter som innehas av en specifik användare till Azure-resurser genom att utvärdera de Azure-prenumerationer som användaren kan komma åt direkt eller via grupper eller tjänstens huvud namn. Den här informationen, samt den fullständiga listan över användarens medlemskap i Azure AD-säkerhetsgruppen, lagras sedan i **UserAccessAnalytics** -tabellen. Skärm bilden nedan visar en exempel rad i UserAccessAnalytics-tabellen för användaren Alex Johnson. **Källentiteten** är användarens eller tjänstens huvud konto och **målentiteten** är den resurs som käll enheten har åtkomst till. Värdena för **åtkomst nivå** och **åtkomst typ** beror på åtkomst kontrollens modell för målentiteten. Du kan se att Alex har deltagar åtkomst till Azure-prenumerationen *contoso hotell-klient*. Åtkomst kontroll modellen för prenumerationen är RBAC.   
+Azure Sentinel avgör de direkta och transitiva åtkomst rättigheter som innehas av en specifik användare till Azure-resurser genom att utvärdera de Azure-prenumerationer som användaren kan komma åt direkt eller via grupper eller tjänstens huvud namn. Den här informationen, samt den fullständiga listan över användarens medlemskap i Azure AD-säkerhetsgruppen, lagras sedan i **UserAccessAnalytics** -tabellen. Skärm bilden nedan visar en exempel rad i UserAccessAnalytics-tabellen för användaren Alex Johnson. **Källentiteten** är användarens eller tjänstens huvud konto och **målentiteten** är den resurs som käll enheten har åtkomst till. Värdena för **åtkomst nivå** och **åtkomst typ** beror på åtkomst kontrollens modell för målentiteten. Du kan se att Alex har deltagar åtkomst till Azure-prenumerationen *contoso hotell-klient* . Åtkomst kontroll modellen för prenumerationen är RBAC.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Arkitektur för enhets beteende analys":::
 

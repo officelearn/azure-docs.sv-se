@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 07/29/2020
-ms.openlocfilehash: 879dd060f3de7a638a9191178c3bc1fb8b371de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa3d14be3a7a9392ca721fa3de52b8f92dbe986e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432140"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098157"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Skapa ett resurs lås för Azure Cosmos DB s API för MongoDB med hjälp av Azure CLI
+[!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
@@ -31,7 +32,7 @@ Om du väljer att installera och använda CLI lokalt, kräver det här avsnittet
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [AZ lås skapa](/cli/azure/lock#az-lock-create) | Skapar ett lås. |
 | [AZ lås lista](/cli/azure/lock#az-lock-list) | Visa information om lås. |

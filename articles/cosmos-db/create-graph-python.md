@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: jasonh
 ms.custom: devx-track-python
-ms.openlocfilehash: 624aa946df5e637c98a11ada3b455c50dec896f5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cc73fcd076bde23bed19a71641cb50e36a40820b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409348"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099699"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Snabb start: skapa en diagram databas i Azure Cosmos DB med python och Azure Portal
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
@@ -72,9 +73,9 @@ Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en Gremlin-API-app f
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kod avsnitt hämtas från filen *Connect.py* i mappen *C:\git-samples\azure-Cosmos-DB-Graph-python-Getting-Started \\ * . Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information). 
+Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kod avsnitt hämtas från filen *Connect.py* i mappen *C:\git-samples\azure-Cosmos-DB-Graph-python-Getting-Started \\* . Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information). 
 
-* Gremlin `client` initieras på rad 104 i *Connect.py*:
+* Gremlin `client` initieras på rad 104 i *Connect.py* :
 
     ```python
     ...
@@ -94,7 +95,7 @@ Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden
 
 Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kopiera den till appen. De här inställningarna gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. I ditt Azure Cosmos DB konto i [Azure Portal](https://portal.azure.com/)väljer du **nycklar**. 
+1. I ditt Azure Cosmos DB konto i [Azure Portal](https://portal.azure.com/)väljer du **nycklar** . 
 
     Kopiera den första delen av URI-värdet.
 
@@ -170,7 +171,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
 När hörnen och kanterna har infogats kan du nu gå tillbaka till Datautforskaren och se de hörn som har lagts till i grafen och lägga till ytterligare data punkter.
 
-1. I ditt Azure Cosmos DB konto i Azure Portal väljer du **datautforskaren**, expanderar **exempel diagram**, väljer **diagram**och väljer sedan **Använd filter**. 
+1. I ditt Azure Cosmos DB konto i Azure Portal väljer du **datautforskaren** , expanderar **exempel diagram** , väljer **diagram** och väljer sedan **Använd filter** . 
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
 
@@ -182,7 +183,7 @@ När hörnen och kanterna har infogats kan du nu gå tillbaka till Datautforskar
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
 
-4. Ange en etikett för *person*.
+4. Ange en etikett för *person* .
 
 5. Välj **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast id-nyckeln krävs.
 
@@ -196,11 +197,11 @@ När hörnen och kanterna har infogats kan du nu gå tillbaka till Datautforskar
     > [!NOTE]
     > I den här snabbstartsguiden skapar vi en icke-partitionerad samling. Men om du skapar en partitionerad samling genom att ange en partitionsnyckel när samlingen skapas, måste du lägga till partitionsnyckeln som nyckel i varje nytt hörn. 
 
-6. Välj **OK**. Du kan behöva expandera skärmen för att se **OK** längst ned på skärmen.
+6. Välj **OK** . Du kan behöva expandera skärmen för att se **OK** längst ned på skärmen.
 
 7. Välj **nytt hörn** igen och Lägg till ytterligare en ny användare. 
 
-8. Ange en etikett för *person*.
+8. Ange en etikett för *person* .
 
 9. Välj **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
 
@@ -211,17 +212,17 @@ När hörnen och kanterna har infogats kan du nu gå tillbaka till Datautforskar
     kön|man| 
     skola|MIT| 
 
-10. Välj **OK**. 
+10. Välj **OK** . 
 
-11. Välj knappen **Använd filter** med standard `g.V()` filtret för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat**. 
+11. Välj knappen **Använd filter** med standard `g.V()` filtret för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat** . 
 
     Allteftersom du lägger till data kan du använda filter för att begränsa resultaten. Som standard använder Datautforskaren `g.V()` för att hämta alla hörnen i ett diagram. Du kan ändra till en annan [diagramfråga](tutorial-query-graph.md), t.ex. `g.V().count()`, för att returnera en uppräkning av alla hörn i diagrammet i JSON-format. Om du har ändrat filtret ändrar du tillbaka filtret till `g.V()` och väljer **Använd filter** för att visa alla resultat igen.
 
-12. Nu kan vi koppla ihop Rakesh och Ashley. Se till att **Ashley** är markerat i **resultat** listan och välj sedan knappen Redigera bredvid **mål** nere till höger. Du kan behöva bredda fönstret för att se området **Egenskaper**.
+12. Nu kan vi koppla ihop Rakesh och Ashley. Se till att **Ashley** är markerat i **resultat** listan och välj sedan knappen Redigera bredvid **mål** nere till höger. Du kan behöva bredda fönstret för att se området **Egenskaper** .
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
 
-13. I rutan **mål** skriver du *Rakesh*och i rutan **kant etikett** skriver du *vet*och markerar sedan kryss rutan.
+13. I rutan **mål** skriver du *Rakesh* och i rutan **kant etikett** skriver du *vet* och markerar sedan kryss rutan.
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar":::
 

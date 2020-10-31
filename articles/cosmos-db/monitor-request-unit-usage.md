@@ -6,14 +6,15 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/09/2020
-ms.openlocfilehash: e3ec3bc0e0c6028eb5d7a90ee1920938d792941b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6f0f30d7437b6f8ecc1d915eb3d3195f2504fec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260754"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098254"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Så här övervakar du genomflödet eller begär enhets användning av en åtgärd i Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Monitor för Azure Cosmos DB ger en mått vy för att övervaka ditt konto och skapa instrument paneler. De Azure Cosmos DB måtten samlas in som standard, men den här funktionen kräver inte att du aktiverar eller konfigurerar något explicit. Det totala måttet för **enhets begär** Anden används för att hämta enhets användning för olika typer av åtgärder. Senare kan du analysera vilka åtgärder som har använt merparten av data flödet. Data flödes data sammanställs som standard med ett minuters intervall. Du kan dock ändra agg regerings enheten genom att ändra alternativet tids kornig het.
 
@@ -36,11 +37,11 @@ Om du märker att vissa frågor tar fler enheter för programbegäran kan du vid
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Välj **övervaka** i det vänstra navigerings fältet och välj **mått**.
+1. Välj **övervaka** i det vänstra navigerings fältet och välj **mått** .
 
    :::image type="content" source="./media/monitor-request-unit-usage/monitor-metrics-blade.png" alt-text="Mått fönstret i Azure Monitor":::
 
-1. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen**och **resurs gruppen**. För **resurs typen**väljer du **Azure Cosmos DB konton**, väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd**.
+1. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen** och **resurs gruppen** . För **resurs typen** väljer du **Azure Cosmos DB konton** , väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd** .
 
    :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Mått fönstret i Azure Monitor":::
 
@@ -50,7 +51,7 @@ Om du märker att vissa frågor tar fler enheter för programbegäran kan du vid
 
 ## <a name="filters-for-request-unit-usage"></a>Filter för att begära enhets användning
 
-Du kan också filtrera mått och hämta diagram som visas av en speciell **samlings**-, **databasename**-, **OperationType**-, **region**, **status**och **StatusCode**. Med alternativen **Lägg till filter** och **Använd delning** kan du filtrera enhets användningen för begäran och gruppera måtten.
+Du kan också filtrera mått och hämta diagram som visas av en speciell **samlings** -, **databasename** -, **OperationType** -, **region** , **status** och **StatusCode** . Med alternativen **Lägg till filter** och **Använd delning** kan du filtrera enhets användningen för begäran och gruppera måtten.
 
 Om du vill hämta den begärda enhets användningen för varje åtgärd, antingen av total summan (sum) eller medelvärdet väljer du **tillämpa delning** och väljer **Åtgärds typ** och filter värde enligt följande bild:
 

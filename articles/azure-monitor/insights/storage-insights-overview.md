@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: c030c1548a931bc749ad799a5aa88813c35d19cd
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 250a06d81f929d0e3d3befa1e7494db13044fc97
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997030"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101280"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring
 
@@ -48,7 +48,7 @@ Utför följande steg för att visa användning och tillgänglighet för dina la
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Välj **övervaka** i rutan till vänster i Azure Portal och välj **lagrings konton**under avsnittet **insikter** .
+2. Välj **övervaka** i rutan till vänster i Azure Portal och välj **lagrings konton** under avsnittet **insikter** .
 
     ![Vy över flera lagrings konton](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -64,10 +64,10 @@ I tabellen **Översikt** för den valda prenumerationen visar tabellen interakti
 
 Panelen räknare under List rutorna slår upp det totala antalet lagrings konton i prenumerationen och visar hur många av summan som väljs. Det finns en villkorsstyrd färg kodning eller termiska kartor för kolumner i arbets boken som rapporterar transaktions mått eller fel. Den djupaste färgen har det högsta värdet och en ljusare färg baseras på de lägsta värdena. För de felbaserade kolumnerna är värdet i rött och för måttbaserade kolumner är värdet i blått.
 
-Välj ett värde i kolumn **tillgänglighet**, **E2E-latens**, **Server svars tid**och **transaktions fel typ/fel** för att dirigera dig till en rapport som är anpassad till den angivna typen av lagrings mått som matchar den valda kolumnen för det lagrings kontot. Mer information om arbets böckerna för varje kategori finns i avsnittet [detaljerade lagrings arbets böcker](#detailed-storage-workbooks) nedan. 
+Välj ett värde i kolumn **tillgänglighet** , **E2E-latens** , **Server svars tid** och **transaktions fel typ/fel** för att dirigera dig till en rapport som är anpassad till den angivna typen av lagrings mått som matchar den valda kolumnen för det lagrings kontot. Mer information om arbets böckerna för varje kategori finns i avsnittet [detaljerade lagrings arbets böcker](#detailed-storage-workbooks) nedan. 
 
 >[!NOTE]
->Information om vilka fel som kan visas i rapporten finns i schema för [svars typ](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) och Sök efter svars typer som **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Beroende på vilka lagrings konton som valts, om det finns fler än tre typer av fel som rapporter ATS, visas **alla andra fel i kategorin.**
+>Information om vilka fel som kan visas i rapporten finns i schema för [svars typ](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) och Sök efter svars typer som **ServerOtherError** , **ClientOtherError** , **ClientThrottlingError** . Beroende på vilka lagrings konton som valts, om det finns fler än tre typer av fel som rapporter ATS, visas **alla andra fel i kategorin.**
 
 Standard tröskelvärdet för **tillgänglighet** är:
 
@@ -94,7 +94,7 @@ Få åtkomst till Azure Monitor for VMs direkt från ett lagrings konto:
 
 2. Välj ett lagrings konto i listan. I avsnittet övervakning väljer du insikter.
 
-    ![Sidan vald översikt över lagrings konto](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Skärm bild som visar sidan översikts arbets bok för lagrings kontot.](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
 I arbets boken **Översikt** för lagrings kontot visar det flera lagrings prestanda mått som hjälper dig att snabbt utvärdera:
 
@@ -104,13 +104,13 @@ I arbets boken **Översikt** för lagrings kontot visar det flera lagrings prest
 
 * Panelerna för mått-och status paneler markerar tjänstens tillgänglighet, totalt antal transaktioner till lagrings tjänsten, E2E-svars tid och Server svars tid.
 
-Om du markerar någon av knapparna för att **Miss lyckas**, **prestanda**, **tillgänglighet**och **kapacitet** öppnas respektive arbets bok. 
+Om du markerar någon av knapparna för att **Miss lyckas** , **prestanda** , **tillgänglighet** och **kapacitet** öppnas respektive arbets bok. 
 
 ![Sidan vald översikt över lagrings konto](./media/storage-insights-overview/storage-account-capacity-01.png)
 
 ## <a name="detailed-storage-workbooks"></a>Detaljerade lagrings arbets böcker
 
-Oavsett om du har valt ett värde i kolumnernas **tillgänglighet**, **E2E svars tid**, **Server svars tid**och **transaktions fel typ/fel** från arbets boken för flera lagrings konton, eller om du väljer någon av knapparna för **fel**, **prestanda**, **tillgänglighet**och **kapacitet** i **översikts** **arbets boken från** ett särskilt lagrings konto, ger vardera en uppsättning interaktiv lagrings information som är anpassad till den kategorin.  
+Oavsett om du har valt ett värde i kolumnernas **tillgänglighet** , **E2E svars tid** , **Server svars tid** och **transaktions fel typ/fel** från arbets boken för flera lagrings konton, eller om du väljer någon av knapparna för **fel** , **prestanda** , **tillgänglighet** och **kapacitet** i **översikts** **arbets boken från** ett särskilt lagrings konto, ger vardera en uppsättning interaktiv lagrings information som är anpassad till den kategorin.  
 
 * **Tillgänglighet** öppnar **tillgänglighets** arbets boken. Den visar det aktuella hälso tillståndet för Azure Storage tjänst, en tabell som visar det tillgängliga hälso tillståndet för varje objekt kategoriserade efter data tjänst som definierats i lagrings kontot med en trend linje som representerar tidsintervallet som valts och ett tillgänglighets trend diagram för varje data tjänst i kontot.  
 
@@ -120,7 +120,7 @@ Oavsett om du har valt ett värde i kolumnernas **tillgänglighet**, **E2E svars
 
     ![Exempel på prestanda rapport](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* Genom att välja någon av de fel kategorier som visas i rutnätet öppnar du arbets boken **fel** . Rapporten visar mått paneler för alla andra klients IDE fel utom beskrivna och lyckade förfrågningar, fel i klient begränsning, ett prestanda diagram för transaktions **svars typen** dimensions mått som är särskilt för attributet ClientOtherError och två tabeller – **transaktioner efter API-namn** och **transaktioner efter svars typ**.
+* Genom att välja någon av de fel kategorier som visas i rutnätet öppnar du arbets boken **fel** . Rapporten visar mått paneler för alla andra klients IDE fel utom beskrivna och lyckade förfrågningar, fel i klient begränsning, ett prestanda diagram för transaktions **svars typen** dimensions mått som är särskilt för attributet ClientOtherError och två tabeller – **transaktioner efter API-namn** och **transaktioner efter svars typ** .
 
    ![Exempel på rapport om haveri](./media/storage-insights-overview/storage-account-failures-01.png)
 
@@ -157,7 +157,7 @@ Du kan konfigurera en **Översikt över** flera prenumerationer och lagrings kon
 
 1. Välj **övervakare** från portalen och välj sedan **lagrings konton** i den vänstra rutan.
 
-2. I **översikts** arbets boken väljer du **Redigera**i kommando fältet.
+2. I **översikts** arbets boken väljer du **Redigera** i kommando fältet.
 
 3. Välj i list rutan **prenumerationer** en eller flera prenumerationer som du vill att den ska vara standard för. Kom ihåg att arbets boken har stöd för att välja upp till totalt 10 prenumerationer.  
 
@@ -174,7 +174,7 @@ I vårt exempel arbetar vi med arbets boken med flera prenumerationer och lagrin
 * Ta bort ett mått
 * Ändra färg åter givning
 
-Du kan utföra samma ändringar mot något av de förbyggda **felen**, **prestanda**, **tillgänglighet**och **kapacitets** arbets böcker.
+Du kan utföra samma ändringar mot något av de förbyggda **felen** , **prestanda** , **tillgänglighet** och **kapacitets** arbets böcker.
 
 1. Välj **övervakare** från portalen och välj sedan **lagrings konton** i den vänstra rutan.
 
@@ -182,7 +182,7 @@ Du kan utföra samma ändringar mot något av de förbyggda **felen**, **prestan
 
     ![Välj Redigera för att ändra en arbets bok](./media/storage-insights-overview/workbook-edit-workbook.png)
 
-3. Klicka på **Redigera**bredvid avsnittet mått.
+3. Klicka på **Redigera** bredvid avsnittet mått.
 
     ![Välj Redigera för att ändra arbets boks mått för kapacitet](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
 
@@ -190,7 +190,7 @@ Du kan utföra samma ändringar mot något av de förbyggda **felen**, **prestan
 
     ![Redigera kolumn inställningar](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. I fönstret **Redigera kolumn inställningar** väljer du under avsnittet **kolumner** **Microsoft. Storage/Storageaccounts-Capacity-UsedCapacity Timeline $ | Konto för Använd kapacitet tids linje $** och välj **dold**under List rutans **kolumn åter givning** .
+5. I fönstret **Redigera kolumn inställningar** väljer du under avsnittet **kolumner** **Microsoft. Storage/Storageaccounts-Capacity-UsedCapacity Timeline $ | Konto för Använd kapacitet tids linje $** och välj **dold** under List rutans **kolumn åter givning** .
 
 6. Välj **Spara och Stäng** för att bekräfta ändringen.
 
@@ -198,7 +198,7 @@ Nu ska vi ändra färg temat för kapacitets måtten i rapporten för att använ
 
 1. Välj **kolumn inställningar** i rutnätet mått.
 
-2. I fönstret **Redigera kolumn inställningar** väljer du under avsnittet **kolumner** **Microsoft. Storage/storageaccounts-Capacity-UsedCapacity $ `|` Microsoft. Storage/Storageaccounts/blobservices-Capacity-BlobCapacity $ `|` Microsoft. Storage/storageaccounts/FileServices-Capacity-FileCapacity $ `|` Microsoft. Storage/storageaccounts/queueservices-Capacity-QueueCapacity $ `|` Microsoft. Storage/storageaccounts/tableservices-Capacity-TableCapacity $**. Välj **grönt**under List rutans **färgpalett.**
+2. I fönstret **Redigera kolumn inställningar** väljer du under avsnittet **kolumner** **Microsoft. Storage/storageaccounts-Capacity-UsedCapacity $ `|` Microsoft. Storage/Storageaccounts/blobservices-Capacity-BlobCapacity $ `|` Microsoft. Storage/storageaccounts/FileServices-Capacity-FileCapacity $ `|` Microsoft. Storage/storageaccounts/queueservices-Capacity-QueueCapacity $ `|` Microsoft. Storage/storageaccounts/tableservices-Capacity-TableCapacity $** . Välj **grönt** under List rutans **färgpalett.**
 
 3. Välj **Spara och Stäng** för att bekräfta ändringen.
 
@@ -214,13 +214,13 @@ I det här exemplet arbetar vi med arbets boken lagrings konto kapacitet och dem
 
 3. I arbets boken väljer du **tillgänglighet** för att växla till tillgänglighets arbets boken och väljer sedan **Redigera** från kommando fältet. 
 
-4. Rulla ned till slutet av sidan och på den vänstra sidan bredvid rutnäts rutnätet **tillgänglighet** , Välj **Redigera**.
+4. Rulla ned till slutet av sidan och på den vänstra sidan bredvid rutnäts rutnätet **tillgänglighet** , Välj **Redigera** .
 
     ![Redigera tillgänglighet efter API-namn rutnäts inställningar](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
 
-5. Välj **kolumn inställningar** och sedan i fönstret **Redigera kolumn inställningar** , under avsnittet **kolumner** väljer du **tillgänglighet (%) (Tröskelvärden + formaterat)**.
+5. Välj **kolumn inställningar** och sedan i fönstret **Redigera kolumn inställningar** , under avsnittet **kolumner** väljer du **tillgänglighet (%) (Tröskelvärden + formaterat)** .
 
-6. Ändra värdet för **kritiskt** hälso tillstånd från **90** till **85** och klicka sedan på **Spara och Stäng**.
+6. Ändra värdet för **kritiskt** hälso tillstånd från **90** till **85** och klicka sedan på **Spara och Stäng** .
 
     ![Ändra tröskelvärdet för tillgänglighet för kritiskt tillstånd](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
 

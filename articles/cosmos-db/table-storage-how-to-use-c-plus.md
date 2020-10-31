@@ -8,14 +8,15 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 50a34f2572e5e9feea0b5adc3e12f72451e5728b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 67cccc1eaa889d0180da9b5ae0fca9b75366edd9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477342"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101161"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Använda Azure Table Storage och Azure Cosmos DB Table-API:et med C++
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -98,7 +99,7 @@ Om du vill testa programmet på din lokala Windows-baserade dator kan du använd
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Starta Azure Storage-emulatorn från Windows-skrivbordet genom att välja **Start** -knappen eller Windows-tangenten. Ange och kör *Microsoft Azure Storage-emulator*. Mer information finns i [använda Azure Storage emulatorn för utveckling och testning](../storage/common/storage-use-emulator.md).
+Starta Azure Storage-emulatorn från Windows-skrivbordet genom att välja **Start** -knappen eller Windows-tangenten. Ange och kör *Microsoft Azure Storage-emulator* . Mer information finns i [använda Azure Storage emulatorn för utveckling och testning](../storage/common/storage-use-emulator.md).
 
 ### <a name="retrieve-your-connection-string"></a>Hämta anslutningssträngen
 
@@ -499,11 +500,11 @@ else
 
 ## <a name="troubleshooting"></a>Felsökning
 
-För Visual Studio Community Edition, om ditt projekt får build-fel på grund av include-filerna *storage_account. h* och *Table. h*, tar du bort växeln **/permissive-** compiler:
+För Visual Studio Community Edition, om ditt projekt får build-fel på grund av include-filerna *storage_account. h* och *Table. h* , tar du bort växeln **/permissive-** compiler:
 
-1. Högerklicka på projektet i **Solution Explorer** och välj **Egenskaper**.
-1. Expandera **Konfigurationsegenskaper** i dialogrutan **Egenskapssidor**, expandera **C/C++** och välj **Språk**.
-1. Ändra **Conformance mode** (Konformitetsläge) till **Nej**.
+1. Högerklicka på projektet i **Solution Explorer** och välj **Egenskaper** .
+1. Expandera **Konfigurationsegenskaper** i dialogrutan **Egenskapssidor** , expandera **C/C++** och välj **Språk** .
+1. Ändra **Conformance mode** (Konformitetsläge) till **Nej** .
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 674d496485f89bee1904e3588a0fb81c6140945b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f8dccca1d1264492a4e7c8dab568e13eec9d2557
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426609"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100719"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatisera arbets flöden för en SQL-databas med hjälp av Azure Logic Apps
 
@@ -38,7 +38,7 @@ Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../lo
 
   * För Azure SQL Database kan du hitta informationen i anslutnings strängen.
   
-    Om du till exempel vill hitta den här strängen i Azure Portal öppnar du databasen. På menyn databas väljer du antingen **anslutnings strängar** eller **Egenskaper**:
+    Om du till exempel vill hitta den här strängen i Azure Portal öppnar du databasen. På menyn databas väljer du antingen **anslutnings strängar** eller **Egenskaper** :
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
@@ -72,19 +72,19 @@ För att få åtkomst till en Azure SQL-hanterad instans utan att använda den l
 
 Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL-åtgärd](#add-sql-action), och du inte redan har skapat en anslutning till databasen, uppmanas du att slutföra de här stegen:
 
-1. För **Autentiseringstyp**väljer du den autentisering som krävs och är aktive rad på databasen i Azure SQL Database eller Azure SQL-hanterad instans:
+1. För **Autentiseringstyp** väljer du den autentisering som krävs och är aktive rad på databasen i Azure SQL Database eller Azure SQL-hanterad instans:
 
-   | Autentisering | Description |
+   | Autentisering | Beskrivning |
    |----------------|-------------|
    | [**Azure AD-integrerad**](../azure-sql/database/authentication-aad-overview.md) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver en giltig identitet i Azure Active Directory (Azure AD) som har åtkomst till din databas. <p>Mer information finns i de här ämnena: <p>- [Översikt över Azure SQL-säkerhet – autentisering](../azure-sql/database/security-overview.md#authentication) <br>- [Auktorisera databas åtkomst till Azure SQL – autentisering och auktorisering](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL – integrerad Azure AD-autentisering](../azure-sql/database/authentication-aad-overview.md) |
    | [**SQL Server-autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver ett giltigt användar namn och ett starkt lösen ord som skapas och lagras i databasen. <p>Mer information finns i de här ämnena: <p>- [Översikt över Azure SQL-säkerhet – autentisering](../azure-sql/database/security-overview.md#authentication) <br>- [Auktorisera databas åtkomst till Azure SQL – autentisering och auktorisering](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
-   Det här exemplet fortsätter med **Azure AD Integrated**:
+   Det här exemplet fortsätter med **Azure AD Integrated** :
 
    ![Skärm bild som visar anslutnings fönstret "SQL Server" med den öppnade "autentiseringstypen"-listan och "Azure AD Integrated" vald.](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
-1. När du har valt **Azure AD Integrated**väljer du **Logga**in. Välj dina användarautentiseringsuppgifter för autentisering baserat på om du använder Azure SQL Database eller Azure SQL-hanterad instans.
+1. När du har valt **Azure AD Integrated** väljer du **Logga** in. Välj dina användarautentiseringsuppgifter för autentisering baserat på om du använder Azure SQL Database eller Azure SQL-hanterad instans.
 
 1. Välj följande värden för databasen:
 
@@ -116,15 +116,15 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
 
    Annars visas inte din data gateway-resurs i listan över **anslutnings-Gateway** när du skapar anslutningen.
 
-1. För **Autentiseringstyp**väljer du den autentisering som krävs och är aktive rad på SQL Server:
+1. För **Autentiseringstyp** väljer du den autentisering som krävs och är aktive rad på SQL Server:
 
-   | Autentisering | Description |
+   | Autentisering | Beskrivning |
    |----------------|-------------|
    | [**Windows-autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Stöder endast non-ISE SQL Server-anslutningen, som kräver en data gateway-resurs som tidigare har skapats i Azure för anslutningen, oavsett om du använder Azure med flera innehavare eller en ISE. <p><p>-Kräver ett giltigt Windows-användarnamn och-lösen ord för att bekräfta din identitet via ditt Windows-konto. <p>Mer information finns i [Windows-autentisering](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
    | [**SQL Server-autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver ett giltigt användar namn och ett starkt lösen ord som skapas och lagras i SQL Server. <p>Mer information finns i [SQL Server autentisering](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
-   Det här exemplet fortsätter med **Windows-autentisering**:
+   Det här exemplet fortsätter med **Windows-autentisering** :
 
    ![Välj autentiseringstyp som ska användas](./media/connectors-create-api-sqlazure/select-windows-authentication.png)
 
@@ -137,7 +137,7 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
    | **Användarnamn** | Yes | Ditt användar namn för SQL Server och databasen |
    | **Lösenord** | Yes | Ditt lösen ord för SQL Server och databasen |
    | **Prenumeration** |  Ja, för Windows-autentisering | Azure-prenumerationen för den data gateway-resurs som du tidigare skapade i Azure |
-   | **Gateway för anslutning** | Ja, för Windows-autentisering | Namnet på den data gateway-resurs som du tidigare skapade i Azure <p><p>**Tips**: om din Gateway inte visas i listan kontrollerar du att du har konfigurerat [din gateway](../logic-apps/logic-apps-gateway-connection.md)korrekt. |
+   | **Gateway för anslutning** | Ja, för Windows-autentisering | Namnet på den data gateway-resurs som du tidigare skapade i Azure <p><p>**Tips** : om din Gateway inte visas i listan kontrollerar du att du har konfigurerat [din gateway](../logic-apps/logic-apps-gateway-connection.md)korrekt. |
    |||
 
    > [!TIP]
@@ -152,7 +152,7 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
 
    ![Skapande av SQL Server anslutning slutförd](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
 
-1. När du är klar väljer du **skapa**.
+1. När du är klar väljer du **skapa** .
 
 1. Fortsätt nu med de steg som du inte har slutfört än i antingen [Lägg till en SQL-utlösare](#add-sql-trigger) eller [Lägg till en SQL-åtgärd](#add-sql-action).
 
@@ -176,7 +176,7 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
    
    Om du till exempel vill visa data på den här raden kan du lägga till andra åtgärder som skapar en fil som innehåller fälten från den returnerade raden och sedan skicka e-postaviseringar. Information om andra tillgängliga åtgärder för den här anslutningen finns på [kopplingens referens sida](/connectors/sql/).
 
-1. I verktygsfältet designer väljer du **Spara**.
+1. I verktygsfältet designer väljer du **Spara** .
 
    Även om det här steget automatiskt aktiverar och publicerar din Logic app Live i Azure, är den enda åtgärden som din Logic app tar för närvarande att kontrol lera din databas baserat på angivet intervall och frekvens.
 
@@ -188,33 +188,35 @@ I det här exemplet börjar Logic-appen med [upprepnings utlösaren](../connecto
 
 1. Öppna din Logic app i Logic App Designer i [Azure Portal](https://portal.azure.com) eller i Visual Studio. I det här exemplet fortsätter Azure Portal.
 
-1. Under utlösaren eller åtgärden där du vill lägga till SQL-åtgärden väljer du **nytt steg**.
+1. Under utlösaren eller åtgärden där du vill lägga till SQL-åtgärden väljer du **nytt steg** .
 
    ![Lägg till en åtgärd i din Logic app](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
-   Eller om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+   Eller om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd** .
 
-1. Under **Välj en åtgärd**i rutan Sök anger du `sql server` . I listan åtgärder väljer du den SQL-åtgärd som du vill använda. I det här exemplet används åtgärden **Hämta rad** som hämtar en enda post.
+1. Under **Välj en åtgärd** i rutan Sök anger du `sql server` . I listan åtgärder väljer du den SQL-åtgärd som du vill använda. I det här exemplet används åtgärden **Hämta rad** som hämtar en enda post.
 
    ![Välj SQL-åtgärd för att hämta rad](./media/connectors-create-api-sqlazure/select-sql-get-row-action.png)
 
 1. Om du ansluter till SQL-databasen för första gången uppmanas du att [skapa din SQL Database-anslutning nu](#create-connection). När du har skapat den här anslutningen kan du fortsätta med nästa steg.
 
-1. Välj **tabell namnet**, som är `SalesLT.Customer` i det här exemplet. Ange **rad-ID: t** för den post som du vill använda.
+1. Välj **tabell namnet** , som är `SalesLT.Customer` i det här exemplet. Ange **rad-ID: t** för den post som du vill använda.
 
    ![Välj Tabell namn och ange rad-ID](./media/connectors-create-api-sqlazure/specify-table-row-id.png)
 
    Den här åtgärden returnerar bara en rad från den valda tabellen, inget annat. Så om du vill visa data på den här raden kan du lägga till andra åtgärder som skapar en fil som innehåller fälten från den returnerade raden och lagra filen i ett moln lagrings konto. Information om andra tillgängliga åtgärder för den här anslutningen finns på [kopplingens referens sida](/connectors/sql/).
 
-1. När du är klar väljer du **Spara**i verktygsfältet designer.
+1. När du är klar väljer du **Spara** i verktygsfältet designer.
 
    I det här steget kan du automatiskt publicera din Logic app Live i Azure.
+
+<a name="handle-bulk-data"></a>
 
 ## <a name="handle-bulk-data"></a>Hantera Mass data
 
 Ibland måste du arbeta med resultat uppsättningar så att kopplingen inte returnerar alla resultat samtidigt, eller om du vill ha bättre kontroll över storleken och strukturen för dina resultat uppsättningar. Här är några exempel på hur du kan hantera sådana stora resultat uppsättningar:
 
-* För att hjälpa dig att hantera resultat som mindre mängder, aktiverar du *sid brytning*. Mer information finns i [Hämta Mass data, poster och objekt med hjälp av sid brytning](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md). Mer information finns i [SQL-sid brytning för Mass data överföring med Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx).
+* För att hjälpa dig att hantera resultat som mindre mängder, aktiverar du *sid brytning* . Mer information finns i [Hämta Mass data, poster och objekt med hjälp av sid brytning](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md). Mer information finns i [SQL-sid brytning för Mass data överföring med Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx).
 
 * Skapa en [*lagrad procedur*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) som ordnar resultatet på det sätt som du vill. SQL-anslutningen innehåller många backend-funktioner som du kan komma åt genom att använda Azure Logic Apps så att du enkelt kan automatisera affärs uppgifter som fungerar med SQL Database-tabeller.
 
@@ -223,7 +225,9 @@ Ibland måste du arbeta med resultat uppsättningar så att kopplingen inte retu
   För att ordna resultaten på det sätt som du vill ha, kan du skapa en lagrad procedur som körs i SQL-instansen och som använder instruktionen **Select-order by** . Den här lösningen ger dig större kontroll över storleken och strukturen på resultaten. Din Logi Kap par anropar den lagrade proceduren med hjälp av åtgärden SQL Server Connector: s **Kör lagrad procedur** . Mer information finns i [Select-order by-sats](/sql/t-sql/queries/select-order-by-clause-transact-sql).
 
   > [!NOTE]
-  > Med den här kopplingen är en lagrad procedur som är begränsad till en [tids gräns på mindre än 2 minuter](/connectors/sql/#known-issues-and-limitations). Vissa lagrade procedurer kan ta längre tid än den här begränsningen att bearbeta och slutföra hela tiden, vilket genererar ett `504 TIMEOUT` fel. I själva verket är vissa långvariga processer kodade som lagrade procedurer explicit för detta ändamål. Att anropa dessa procedurer från Azure Logic Apps kan skapa problem på grund av denna tids gräns. Även om SQL-anslutaren inte har inbyggt stöd för ett asynkront läge, kan du simulera det här läget genom att använda en SQL-utlösare, en intern SQL-direktautentisering, en tillstånds tabell och jobb på Server sidan med hjälp av [Azure elastiska jobb agenten](../azure-sql/database/elastic-jobs-overview.md).
+  > SQL-anslutningen har en tids gräns för lagrade procedurer som är [mindre än 2 minuter](/connectors/sql/#known-issues-and-limitations). Vissa lagrade procedurer kan ta längre tid än den här gränsen att slutföras, vilket orsakar ett `504 Timeout` fel. Du kan undvika det här problemet genom att använda en SQL-utlösare, intern SQL-direktautentisering, en tillstånds tabell och jobb på Server sidan.
+  > 
+  > För den här uppgiften kan du använda [Azure elastiska jobb agenten](../azure-sql/database/elastic-jobs-overview.md) för [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). Du kan använda [SQL Server Agent](/sql/ssms/agent/sql-server-agent)för [SQL Server lokalt](/sql/sql-server/sql-server-technical-documentation) och [Azure SQL-hanterad instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md). Mer information finns i [Hantera tids gränser för tids krävande lagrade procedurer i SQL-anslutningen för Azure Logic Apps](../logic-apps/handle-long-running-stored-procedures-sql-connector.md).
 
 ### <a name="handle-dynamic-bulk-data"></a>Hantera dynamiska Mass data
 
@@ -233,18 +237,18 @@ När du anropar en lagrad procedur med hjälp av SQL Server Connector är den re
 
 1. Visa utdataformatet genom att utföra en testkörning. Kopiera och spara exempel på utdata.
 
-1. I designern, under den åtgärd där du anropar den lagrade proceduren, väljer du **nytt steg**.
+1. I designern, under den åtgärd där du anropar den lagrade proceduren, väljer du **nytt steg** .
 
-1. Under **Välj en åtgärd**söker du efter och väljer åtgärden [**parsa JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) .
+1. Under **Välj en åtgärd** söker du efter och väljer åtgärden [**parsa JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) .
 
-1. I åtgärden **parsa JSON** väljer **du Använd exempel nytto last för att generera schemat**.
+1. I åtgärden **parsa JSON** väljer **du Använd exempel nytto last för att generera schemat** .
 
-1. I rutan **Ange eller klistra in ett exempel på JSON-nyttolast** klistrar du in exempel på utdata och väljer sedan **Slutför**.
+1. I rutan **Ange eller klistra in ett exempel på JSON-nyttolast** klistrar du in exempel på utdata och väljer sedan **Slutför** .
 
    > [!NOTE]
    > Om du får ett fel meddelande som Logic Apps inte kan generera ett schema, kontrollerar du att syntaxen för exempel på utdata är korrekt formaterad. Om du fortfarande inte kan skapa schemat går du till rutan **schema** och anger schemat manuellt.
 
-1. I verktygsfältet designer väljer du **Spara**.
+1. I verktygsfältet designer väljer du **Spara** .
 
 1. Om du vill referera till egenskaperna för JSON-innehåll klickar du i redigerings rutorna där du vill referera till egenskaperna så att listan med dynamiskt innehåll visas. I listan, under rubriken [**parsa JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) , väljer du de datatoken som du vill använda för de egenskaper för JSON-innehåll som du vill ha.
 

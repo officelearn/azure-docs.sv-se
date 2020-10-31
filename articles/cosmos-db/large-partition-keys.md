@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1de6aa5450a42bbc8fe35b220e810726f7dd2cda
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a93bf4fe92cc7b2240a7411b093a7bab5a1a275e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488443"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098832"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Skapa behållare med stor partitionsnyckel
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB använder hash-baserad partitionerings schema för att uppnå horisontell skalning av data. Alla Azure Cosmos-behållare som skapats före maj 3 2019 använder en hash-funktion som beräknar hash baserat på den första 100 byte i partitionsnyckel. Om det finns flera partitionstyper som har samma första 100 byte betraktas dessa logiska partitioner som samma logiska partition av tjänsten. Detta kan leda till problem som att kvoten för partitionsstorleken är felaktig och att unika index tillämpas över partitionernas nycklar. Stora partitionsalternativ har introducerats för att lösa det här problemet. Azure Cosmos DB stöder nu stora partitionsnyckel med värden upp till 2 KB.
 

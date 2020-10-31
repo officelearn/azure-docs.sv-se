@@ -7,19 +7,21 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00394e60ad1cf86bfd75a86a0b6630505c7d7356
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490585"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100396"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB Gremlin Server-svarshuvuden
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 Den här artikeln beskriver rubriker som Cosmos DB Gremlin-servern returnerar till anroparen när begäran har körts. De här rubrikerna är användbara för att felsöka prestanda för förfrågningar, bygga program som integreras internt med Cosmos DB-tjänsten och förenklar kundsupporten.
 
 Tänk på att om du tar hänsyn till dessa huvuden begränsar du portabiliteten för ditt program till andra Gremlin-implementeringar. I retur får du bättre integrering med Cosmos DB Gremlin. De här rubrikerna är inte en TinkerPop standard.
 
-## <a name="headers"></a>Rubriker
+## <a name="headers"></a>Sidhuvuden
 
 | Sidhuvud | Typ | Exempel värde | När det ingår | Förklaring |
 | --- | --- | --- | --- | --- |

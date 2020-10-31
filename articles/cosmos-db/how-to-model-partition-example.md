@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 92d15337f511f534c23ff97d274b344714812a5e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277979"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100260"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Så här modellerar och partitionerar du data i Azure Cosmos DB med ett verkligt exempel
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här artikeln bygger på flera Azure Cosmos DB koncept som [data modellering](modeling-data.md), [partitionering](partitioning-overview.md)och [etablerade data flöden](request-units.md) för att demonstrera hur du kan hantera en verklig data Designs övning.
 
@@ -22,10 +23,10 @@ Om du vanligt vis arbetar med relations databaser har du förmodligen skapat van
 
 ## <a name="the-scenario"></a>Scenariot
 
-I den här övningen ska vi fundera över domänen för en blogg plattform där *användarna* kan skapa *inlägg*. Användarna kan också *gilla* och lägga till *kommentarer* till dessa inlägg.
+I den här övningen ska vi fundera över domänen för en blogg plattform där *användarna* kan skapa *inlägg* . Användarna kan också *gilla* och lägga till *kommentarer* till dessa inlägg.
 
 > [!TIP]
-> Vi har markerat några ord i *kursiv stil*. dessa ord identifierar typen av "saker" som vår modell kommer att behöva manipulera.
+> Vi har markerat några ord i *kursiv stil* . dessa ord identifierar typen av "saker" som vår modell kommer att behöva manipulera.
 
 Lägga till fler krav i vår specifikation:
 
@@ -291,7 +292,7 @@ Vi ändrar även kommentaren och som objekt för att lägga till användar namne
 
 Vad vi vill uppnå är att varje gång vi lägger till en kommentar eller en liknande ökar vi också `commentCount` eller `likeCount` i motsvarande inlägg. När vår `posts` behållare är partitionerad av `postId` , det nya objektet (kommentar eller gilla) och dess motsvarande inlägg i samma logiska partition. Därför kan vi använda en [lagrad procedur](stored-procedures-triggers-udfs.md) för att utföra åtgärden.
 
-Nu när du skapar en kommentar (**[C3]**), i stället för att bara lägga till ett nytt objekt i `posts` behållaren, så anropar vi följande lagrade procedur i den behållaren:
+Nu när du skapar en kommentar ( **[C3]** ), i stället för att bara lägga till ett nytt objekt i `posts` behållaren, så anropar vi följande lagrade procedur i den behållaren:
 
 ```javascript
 function createComment(postId, comment) {
@@ -405,7 +406,7 @@ Exakt samma situation vid registrering av gillar.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: se till att alla begär Anden är skalbara
 
-Titta på våra övergripande prestanda förbättringar, det finns fortfarande två begär Anden som vi inte har optimerat fullständigt: **[Q3]** och **[Q6]**. De är förfrågningar som avser frågor som inte filtrerar på partitionsnyckel för de behållare som de är riktade till.
+Titta på våra övergripande prestanda förbättringar, det finns fortfarande två begär Anden som vi inte har optimerat fullständigt: **[Q3]** och **[Q6]** . De är förfrågningar som avser frågor som inte filtrerar på partitionsnyckel för de behållare som de är riktade till.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>Q3 Lista en användares inlägg i kort form
 

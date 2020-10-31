@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 742ff2e6cff4569b5b7eeb131cd4394277b6c3cd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547086"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100464"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvensnivåer i Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, låg latens eller både och måste göra en grundläggande kompromiss mellan Läs konsekvens, tillgänglighet, svars tid och data flöde som definieras av [PACLC-satsen](https://en.wikipedia.org/wiki/PACELC_theorem). Linearizability för en stark konsekvens modell är guld standarden för data programmering. Men det lägger till ett brant-pris från högre Skriv fördröjningar på grund av data som måste replikeras och genomföras över stora avstånd. Stark konsekvens kan också drabbas av minskad tillgänglighet (vid fel) eftersom data inte kan replikeras och allokeras i varje region. Eventuell konsekvens ger högre tillgänglighet och bättre prestanda, men det är svårare för program program eftersom data kanske inte är helt konsekventa i alla regioner.
 
@@ -21,7 +22,7 @@ De flesta kommersiellt tillgängliga distribuerade NoSQL-databaser som är tillg
 
 - *Stark*
 - *Begränsad föråldrad*
-- *Session*
+- *Sessionskatalog*
 - *Konsekvent prefix*
 - *Slutliga*
 
@@ -141,7 +142,7 @@ Den exakta svars tiden för försvars tid är en funktion av hastigheten-lätt a
 |--|--|--|
 |**Stark**|Lokal minoritet|Global majoritet|
 |**Begränsad föråldrad**|Lokal minoritet|Lokal majoritet|
-|**Session**|Enskild replik (med sessionstoken)|Lokal majoritet|
+|**Sessionskatalog**|Enskild replik (med sessionstoken)|Lokal majoritet|
 |**Konsekvent prefix**|Enskild replik|Lokal majoritet|
 |**Slutliga**|Enskild replik|Lokal majoritet|
 

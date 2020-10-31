@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: c44f7218734af4bc3144137356b85e8845208f6f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 546187b49e1186d665fe32b3f8d632a0281bffa4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409382"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099682"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Snabb start: bygga ett Node.js program med hjälp av Azure Cosmos DB Gremlin API-konto
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
@@ -70,7 +71,7 @@ Nu ska vi klona en Gremlin-API-app från GitHub, ange anslutningssträngen och k
 
 Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
 
-Följande kodfragment är alla hämtade från filen *app.js*.
+Följande kodfragment är alla hämtade från filen *app.js* .
 
 Den här konsol appen använder [Gremlin Node.js](https://www.npmjs.com/package/gremlin) driv rutinen med öppen källkod.
 
@@ -95,7 +96,7 @@ Den här konsol appen använder [Gremlin Node.js](https://www.npmjs.com/package/
 
     ```
 
-  Konfigurationerna är alla i *config.js*som vi redigerar i [följande avsnitt](#update-your-connection-string).
+  Konfigurationerna är alla i *config.js* som vi redigerar i [följande avsnitt](#update-your-connection-string).
 
 * En serie funktioner har definierats för att köra olika Gremlin-åtgärder. Detta är en av dem:
 
@@ -151,13 +152,13 @@ Den här konsol appen använder [Gremlin Node.js](https://www.npmjs.com/package/
 
 1. Öppna *config.js* -filen. 
 
-2. I *config.js*fyller du i `config.endpoint` nyckeln med **Gremlin slut punkts** värde från **översikts** sidan för ditt Cosmos DB-konto i Azure Portal. 
+2. I *config.js* fyller du i `config.endpoint` nyckeln med **Gremlin slut punkts** värde från **översikts** sidan för ditt Cosmos DB-konto i Azure Portal. 
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
     :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="Visa och kopiera en åtkomst nyckel på sidan Azure Portal, översikt":::
 
-3. I *config.js*fyller du i värdet config. PrimaryKey med värdet för **primär nyckel** från sidan **nycklar** i ditt Cosmos DB-konto i Azure Portal. 
+3. I *config.js* fyller du i värdet config. PrimaryKey med värdet för **primär nyckel** från sidan **nycklar** i ditt Cosmos DB-konto i Azure Portal. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
@@ -191,9 +192,9 @@ module.exports = config;
 
 Nu kan du gå tillbaka till datautforskaren i Azure Portal och bläddra bland, ställa frågor mot och arbeta med dina nya grafdata.
 
-Den nya databasen visas i fönstret **Graphs** (Diagram) i Datautforskaren. Expandera databasen, följt av containern, och välj sedan **Diagram**.
+Den nya databasen visas i fönstret **Graphs** (Diagram) i Datautforskaren. Expandera databasen, följt av containern, och välj sedan **Diagram** .
 
-De data som genereras av exempelappen visas i nästa ruta på fliken **Diagram** när du klickar på **Tillämpa filter**.
+De data som genereras av exempelappen visas i nästa ruta på fliken **Diagram** när du klickar på **Tillämpa filter** .
 
 Prova att slutföra `g.V()` med `.has('firstName', 'Thomas')` för att testa filtret. Observera att värdet är skiftlägeskänsligt.
 

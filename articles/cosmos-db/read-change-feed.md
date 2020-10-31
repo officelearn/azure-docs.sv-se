@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0252af90a6afb5b2a59620afaa61702f208991e7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b9a9af2178cc6130393cd9e74cb5b6b1f79dbf88
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785263"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100379"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Läsa ändringsflödet i Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Du kan arbeta med Azure Cosmos DB ändra feed med antingen en push-modell eller en pull-modell. Med en push-modell skickas push-meddelanden till en klient som har affärs logik för bearbetning av detta arbete. Komplexiteten vid sökning efter arbete och lagrings tillstånd för det senaste bearbetade arbetet hanteras dock i bytet av byte av feed.
 
@@ -27,7 +28,7 @@ När du läser från Azure Cosmos DB ändra feed rekommenderar vi vanligt vis at
 - Belastnings utjämning över flera klienter som förbrukar ändringar. Till exempel om en klient inte kan fortsätta att bearbeta ändringar och en annan har tillgänglig kapacitet.
 - [Hanterings fel](change-feed-processor.md#error-handling). Försök till exempel automatiskt att försöka utföra ändringar som inte bearbetades korrekt efter ett ohanterat undantag i kod eller ett tillfälligt nätverks problem.
 
-De flesta scenarier som använder Azure Cosmos DB ändra feed kommer att använda en av alternativen för push-modellen. Det finns dock vissa scenarier där du kanske vill ha en extra låg nivå kontroll av pull-modellen. Exempel:
+De flesta scenarier som använder Azure Cosmos DB ändra feed kommer att använda en av alternativen för push-modellen. Det finns dock vissa scenarier där du kanske vill ha en extra låg nivå kontroll av pull-modellen. Exempel på dessa är:
 
 - Läser ändringar från en viss partitionsnyckel
 - Styra i vilken takt klienten får ändringar för bearbetning

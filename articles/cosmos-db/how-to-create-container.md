@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: eb9e8caff81e86b7db732c970eee1e1a08be5241
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 302c5d6e8e523a11b8773f10bb6089e3bea09bdd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491112"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101569"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-sql-api"></a>Skapa en behållare i Azure Cosmos DB SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 I den här artikeln beskrivs olika sätt att skapa en behållare i Azure Cosmos DB SQL API. Det visar hur du skapar en behållare med hjälp av SDK: er för Azure Portal, Azure CLI, PowerShell eller som stöds. Den här artikeln visar hur du skapar en container, anger partitionsnyckeln och etablerar dataflöde.
 
@@ -30,13 +31,13 @@ I den här artikeln beskrivs olika sätt att skapa en behållare i Azure Cosmos 
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account)eller Välj ett befintligt konto.
 
-1. Öppna fönstret **datautforskaren** och välj **ny behållare**. Ange därefter följande information:
+1. Öppna fönstret **datautforskaren** och välj **ny behållare** . Ange därefter följande information:
 
    * Ange om du skapar en ny databas eller använder en befintlig.
    * Ange ett container-ID.
    * Ange en partitionsnyckel.
    * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
-   * Välj **OK**.
+   * Välj **OK** .
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Skärm bild av Datautforskaren fönstret med en ny behållare markerad":::
 

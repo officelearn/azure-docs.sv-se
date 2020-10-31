@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: e42e976e57dd69ffcbd9065cfb3aaf3af9c4b972
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 124bc053aa2c6e59e205bb6f33a9a96190799499
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852080"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102045"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Så här lägger du till ett anpassat CA-certifikat i Azure API Management
 
@@ -39,17 +39,17 @@ Följ stegen nedan för att ladda upp ett nytt CA-certifikat. Om du inte har ska
 
 2. Välj **ca-certifikat** på menyn.
 
-3. Klicka på knappen **+ Lägg till**.  
+3. Klicka på knappen **+ Lägg till** .  
 
-    ![Lägg till CA-certifikat](media/api-management-howto-ca-certificates/01.png)  
+    ![Skärm bild som visar knappen + Lägg till för att lägga till ett CA-certifikat.](media/api-management-howto-ca-certificates/01.png)  
 
 4. Bläddra efter certifikatet och bestäm certifikat arkivet. Det krävs bara att den offentliga nyckeln behövs, så lösen ordet krävs inte.
 
-    ![Lägg till CA-certifikat](media/api-management-howto-ca-certificates/02.png)  
+    ![Skärm bild som visar hur du bläddrar efter certifikatet.](media/api-management-howto-ca-certificates/02.png)  
 
-5. Klicka på **Spara**. Den här åtgärden kan ta några minuter.
+5. Klicka på **Spara** . Den här åtgärden kan ta några minuter.
 
-    ![Lägg till CA-certifikat](media/api-management-howto-ca-certificates/03.png)  
+    ![Skärm bild som visar hur du sparar certifikatet.](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
 > Du kan ladda upp ett CA-certifikat med hjälp av `New-AzApiManagementSystemCertificate` PowerShell-kommandot.

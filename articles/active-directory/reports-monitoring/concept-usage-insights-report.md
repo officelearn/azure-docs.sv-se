@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c7cc68c84cc9f137ba5b51206526ff96111fe9a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74008266"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122749"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Användnings-och insikts rapport i Azure Active Directorys portalen
 
@@ -31,7 +31,7 @@ Med hjälp av rapporten användning och insikter kan du få en programinriktad v
 *   Vilka program har de mest misslyckade inloggningarna? 
 *   Vilka är de vanligaste inloggnings felen för varje program?
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Om du vill komma åt data från rapporten användning och insikter behöver du:
 
@@ -42,10 +42,10 @@ Om du vill komma åt data från rapporten användning och insikter behöver du:
 ## <a name="access-the-usage-and-insights-report"></a>Öppna rapporten användning och insikter
 
 1. Navigera till [Azure Portal](https://portal.azure.com).
-2. Välj rätt katalog, Välj **Azure Active Directory** och välj **företags program**.
+2. Välj rätt katalog, Välj **Azure Active Directory** och välj **företags program** .
 3. I avsnittet **aktivitet** väljer du **användning & insikter** för att öppna rapporten. 
 
-![Rapport om användning och insikter](./media/concept-usage-insights-report/main-menu.png)
+![Skärm bild som visar användning & insikter som valts från avsnittet aktivitet.](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Använda rapporten
@@ -58,7 +58,7 @@ Du kan också ange fokus för ett angivet program. Välj **Visa inloggnings akti
 
 När du väljer en dag i program användnings diagrammet visas en detaljerad lista över inloggnings aktiviteterna för programmet.  
 
-![Rapport om användning och insikter](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![Skärm bild som visar användning & insikter för program aktivitet där du kan välja ett intervall och Visa inloggnings aktivitet för olika appar.](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

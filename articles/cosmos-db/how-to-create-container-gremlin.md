@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 55dabccf5a5ab9e81ff0644056002f3beb644fa9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f7e9de1f23ec46af08fe96b5db3170fac9a7eb2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491163"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101637"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-gremlin-api"></a>Skapa en behållare i Azure Cosmos DB Gremlin-API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 I den här artikeln beskrivs olika sätt att skapa en behållare i Azure Cosmos DB Gremlin-API. Det visar hur du skapar en behållare med hjälp av Azure Portal, Azure CLI, PowerShell eller SDK: er som stöds. Den här artikeln visar hur du skapar en container, anger partitionsnyckeln och etablerar dataflöde.
 
@@ -30,14 +31,14 @@ I den här artikeln beskrivs olika sätt att skapa en behållare i Azure Cosmos 
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-graph-dotnet.md#create-a-database-account)eller Välj ett befintligt konto.
 
-1. Öppna rutan **Datautforskaren** och välj **Ny graf**. Ange därefter följande information:
+1. Öppna rutan **Datautforskaren** och välj **Ny graf** . Ange därefter följande information:
 
    * Ange om du skapar en ny databas eller använder en befintlig.
    * Ange ett graf-ID.
    * Välj **obegränsad** lagringskapacitet.
    * Ange en partitionsnyckel för hörn.
    * Ange ett data flöde som ska tillhandahållas (till exempel 1000 ru: er).
-   * Välj **OK**.
+   * Välj **OK** .
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Skärmbild av API för Gremlin, dialogrutan Lägg till diagram":::
 

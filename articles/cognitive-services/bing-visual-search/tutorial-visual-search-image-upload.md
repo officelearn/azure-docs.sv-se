@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: d5dc762499342f0004073fb6c240c98c4ac2bc09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ecea9dce3509e064d9244a8b725add21747a03e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334573"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102212"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Självstudie: Ladda upp bilder till API för visuell sökning i Bing
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Med API för visuell sökning i Bing kan du söka på webben efter bilder som liknar dem som du laddar upp. Använd den här självstudien för att skapa en webbapp som kan skicka sökfrågor till API:et och visa den information som den returnerar på webbplatsen. Observera att det här programmet inte följer alla [användnings- och visningskrav för Bing](../bing-web-search/use-display-requirements.md) för användning av API:et.
 
@@ -31,7 +36,7 @@ I den här självstudieappen visas hur du:
 > * Visa sökresultat för bilder i en webbapp
 > * Utforska olika typer av information som tillhandahålls av API:et
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 

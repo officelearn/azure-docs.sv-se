@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1ac0033b7ed2de90ece481cd02d64970ff5f9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f48c26a65314e2f23513fba155f07db3805a516
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85608117"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123072"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Felsökning: Saknade data i Azure Active Directory-aktivitetsloggar 
 
@@ -32,7 +32,7 @@ ms.locfileid: "85608117"
 
 Jag utförde vissa åtgärder i Azure Portal och förväntade att se granskningsloggarna för dessa åtgärder på bladet `Activity logs > Audit Logs`, men det går inte att hitta dem.
 
- ![Rapportering](./media/troubleshoot-missing-audit-data/01.png)
+ ![Skärm bild som visar Gransknings logg poster.](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>Orsak
 
@@ -53,7 +53,7 @@ Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. O
 
 Jag loggade nyligen in på Azure-portalen och förväntade mig att se inloggningsloggarna för de åtgärderna på bladet `Activity logs > Sign-ins`, men det går inte att hitta dem.
 
- ![Rapportering](./media/troubleshoot-missing-audit-data/02.png)
+ ![Skärm bild som visar inloggningar i aktivitets loggen.](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>Orsak
 
@@ -74,7 +74,7 @@ Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. O
 
 Jag kan inte se mer än 30 dagars inloggnings- och granskningsdata från Azure-portalen. Varför? 
 
- ![Rapportering](./media/troubleshoot-missing-audit-data/03.png)
+ ![Skärm bild som visar menyn datum.](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>Orsak
 

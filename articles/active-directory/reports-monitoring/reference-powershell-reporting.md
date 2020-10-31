@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f3402864e2ba873ce63acb6cedcd3f2ea018f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231137"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123140"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Azure AD PowerShell-cmdletar för rapportering
 
@@ -59,7 +59,7 @@ Du får åtkomst till gransknings loggarna med hjälp av cmdleten Get-AzureADAud
 
 Följande bild visar ett exempel på det här kommandot. 
 
-![Knappen data Sammanfattning](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![Skärm bild som visar resultatet av kommandot Get-Azure en D-granska katalog loggar.](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
@@ -81,7 +81,7 @@ Du får åtkomst till inloggnings loggarna med hjälp av cmdleten Get-AzureADAud
 
 Följande bild visar ett exempel på det här kommandot. 
 
-![Knappen data Sammanfattning](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![Skärm bild som visar resultatet av kommandot Get-Azure en D gransknings inloggnings loggar.](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 

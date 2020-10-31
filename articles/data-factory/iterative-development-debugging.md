@@ -1,7 +1,7 @@
 ---
 title: Iterativ utveckling och fel sökning i Azure Data Factory
 description: Lär dig att utveckla och felsöka Data Factory pipelines iterativt i ADF-UX
-ms.date: 09/11/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -9,12 +9,12 @@ documentationcenter: ''
 ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
-ms.openlocfilehash: e4c66055184b2ef0113aa0e25c02ad8635feddb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031015"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102083"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Iterativ utveckling och felsökning med Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ I en åtta minuters introduktion och demonstration av den här funktionen kan du
 
 ## <a name="debugging-a-pipeline"></a>Felsöka en pipeline
 
-När du skapar med hjälp av pipeline-arbetsytan kan du testa dina aktiviteter med hjälp av **fel söknings** funktionen. När du utför test körningar behöver du inte publicera dina ändringar i data fabriken innan du väljer **Felsök**. Den här funktionen är användbar i scenarier där du vill se till att ändringarna fungerar som förväntat innan du uppdaterar data Factory-arbetsflödet.
+När du skapar med hjälp av pipeline-arbetsytan kan du testa dina aktiviteter med hjälp av **fel söknings** funktionen. När du utför test körningar behöver du inte publicera dina ändringar i data fabriken innan du väljer **Felsök** . Den här funktionen är användbar i scenarier där du vill se till att ändringarna fungerar som förväntat innan du uppdaterar data Factory-arbetsflödet.
 
 ![Fel söknings funktion på pipeline-arbetsytan](media/iterative-development-debugging/iterative-development-1.png)
 
@@ -44,7 +44,7 @@ När en testkörning lyckas lägger du till fler aktiviteter i din pipeline och 
 
 ### <a name="setting-breakpoints"></a>Ställa in Bryt punkter
 
-Med Azure Data Factory kan du Felsöka en pipeline tills du når en viss aktivitet på pipeline-arbetsytan. Placera en Bryt punkt för aktiviteten tills du vill testa och välj **Felsök**. Data Factory säkerställer att testet bara körs tills Bryt punkts aktiviteten på pipeline-arbetsytan. Den här *fel sökningen tills* funktionen är användbar när du inte vill testa hela pipelinen, men endast en delmängd av aktiviteter i pipelinen.
+Med Azure Data Factory kan du Felsöka en pipeline tills du når en viss aktivitet på pipeline-arbetsytan. Placera en Bryt punkt för aktiviteten tills du vill testa och välj **Felsök** . Data Factory säkerställer att testet bara körs tills Bryt punkts aktiviteten på pipeline-arbetsytan. Den här *fel sökningen tills* funktionen är användbar när du inte vill testa hela pipelinen, men endast en delmängd av aktiviteter i pipelinen.
 
 ![Bryt punkter på pipeline-arbetsytan](media/iterative-development-debugging/iterative-development-3.png)
 
@@ -79,11 +79,14 @@ Du kan övervaka aktiva data flödes fel söknings sessioner över en fabrik i *
  
 ### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>Felsöka en pipeline med en data flödes aktivitet
 
-När du kör en fel söknings körning med ett data flöde har du två alternativ som du kan använda för att beräkna. Du kan antingen använda ett befintligt fel söknings kluster eller skapa ett nytt just-in-Time-kluster för dina data flöden.
+När du kör en fel söknings pipeline som körs med ett data flöde har du två alternativ som du kan använda för att beräkna. Du kan antingen använda ett befintligt fel söknings kluster eller skapa ett nytt just-in-Time-kluster för dina data flöden.
 
-Om du använder en befintlig felsökningssession minskar data flödets start tid avsevärt eftersom klustret redan körs, men det rekommenderas inte för komplexa eller parallella arbets belastningar eftersom det kan Miss lyckas när flera jobb körs samtidigt. 
+Om du använder en befintlig felsökningssession minskar data flödets start tid avsevärt eftersom klustret redan körs, men det rekommenderas inte för komplexa eller parallella arbets belastningar eftersom det kan Miss lyckas när flera jobb körs samtidigt.
 
-Genom att använda aktivitets körningen skapar du ett nytt kluster med de inställningar som anges i varje data flödes aktivitets integrerings körning. Detta gör att varje jobb kan isoleras och ska användas för komplexa arbets belastningar eller prestanda testning.
+Genom att använda aktivitets körningen skapar du ett nytt kluster med de inställningar som anges i varje data flödes aktivitets integrerings körning. Detta gör att varje jobb kan isoleras och ska användas för komplexa arbets belastningar eller prestanda testning. Du kan också kontrol lera TTL i Azure IR så att de kluster resurser som används för fel sökning fortfarande är tillgängliga under den tids perioden för att betjäna ytterligare jobb förfrågningar.
+
+> [!NOTE]
+> Om du har en pipeline med data flöden som körs parallellt väljer du "Använd aktivitets körning" så att Data Factory kan använda de Integration Runtime som du har valt i din data flödes aktivitet. Detta gör att data flöden kan köras på flera kluster och kan hantera dina parallella data flödes körningar.
 
 ![Köra en pipeline med ett data flöde](media/iterative-development-debugging/iterative-development-dataflow.png)
 

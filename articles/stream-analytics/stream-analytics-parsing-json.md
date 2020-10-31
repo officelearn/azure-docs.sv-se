@@ -7,19 +7,19 @@ ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 67bcd6fbf04cb92deaae034d289990dfec309fe6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c2eb4225cb014b3251d12470e4e9827150a5cf2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280019"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123361"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Parsa JSON-och Avro-data i Azure Stream Analytics
 
 Azure Stream Analytics att bearbeta händelser i CSV-, JSON-och Avro data format. Både JSON-och Avro-data kan struktureras och innehålla några komplexa typer, till exempel kapslade objekt (poster) och matriser. 
 
 >[!NOTE]
->AVRO-filer som skapats av Event Hub-insamling använder ett speciellt format som kräver att du använder funktionen *anpassad deserialisering* . Mer information finns i [läsa in indata i alla format med anpassade .net-deserialiserare](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
+>AVRO-filer som skapats av Event Hub-insamling använder ett speciellt format som kräver att du använder funktionen *anpassad deserialisering* . Mer information finns i [läsa in indata i alla format med anpassade .net-deserialiserare](./custom-deserializer-examples.md).
 >
 >AVRO-deserialisering stöder inte mappnings typen. Stream Analytics Stream Analytics kan inte läsa EventHub Capture-blobbar eftersom EventHub-fångsten använder Map.
 
@@ -89,7 +89,7 @@ Resultatet är:
 
 ### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Komma åt kapslade fält när egenskaps namnet är en variabel
 
-Använd funktionen [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) om egenskaps namnet är en variabel. Detta gör det möjligt att skapa dynamiska frågor utan hårdkoda egenskaps namn.
+Använd funktionen [GetRecordPropertyValue](/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) om egenskaps namnet är en variabel. Detta gör det möjligt att skapa dynamiska frågor utan hårdkoda egenskaps namn.
 
 Anta till exempel att data strömmen i exempel måste **kopplas till referens data** som innehåller tröskelvärden för varje enhets sensor. Ett kodfragment av dessa referens data visas nedan.
 
@@ -121,7 +121,7 @@ WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
 ```
 
-**GetRecordPropertyValue** väljer egenskapen i *SensorReadings*, vars namn matchar det egenskaps namn som kommer från referens data. Sedan extraheras det associerade värdet från *SensorReadings* .
+**GetRecordPropertyValue** väljer egenskapen i *SensorReadings* , vars namn matchar det egenskaps namn som kommer från referens data. Sedan extraheras det associerade värdet från *SensorReadings* .
 
 Resultatet är:
 
@@ -131,7 +131,7 @@ Resultatet är:
 
 ### <a name="convert-record-fields-into-separate-events"></a>Konvertera post fält till separata händelser
 
-Om du vill konvertera postfält till separata händelser använder [du operatorn](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) use tillsammans med funktionen [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics) .
+Om du vill konvertera postfält till separata händelser använder [du operatorn](/stream-analytics-query/apply-azure-stream-analytics) use tillsammans med funktionen [GetRecordProperties](/stream-analytics-query/getrecordproperties-azure-stream-analytics) .
 
 Med de ursprungliga exempel data kan följande fråga användas för att extrahera egenskaper till olika händelser.
 
@@ -154,7 +154,7 @@ Resultatet är:
 |12345|CustomSensor02|99|
 |12345|SensorMetadata|[objekt objekt]|
 
-Med [hjälp av](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics), kan du sedan dirigera dessa händelser till olika mål:
+Med [hjälp av](/stream-analytics-query/with-azure-stream-analytics), kan du sedan dirigera dessa händelser till olika mål:
 
 ```SQL
 WITH Stage0 AS
@@ -205,9 +205,9 @@ Du kan sedan skapa ett steg i din Stream Analytics-fråga så som visas nedan f�
 
 ## <a name="array-data-types"></a>Mat ris data typer
 
-Mat ris data typer är en ordnad samling av värden. Några vanliga åtgärder för mat ris värden beskrivs nedan. I de här exemplen används Functions- [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics)och operatorn [Apply](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) .
+Mat ris data typer är en ordnad samling av värden. Några vanliga åtgärder för mat ris värden beskrivs nedan. I de här exemplen används Functions- [GetArrayElement](/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](/stream-analytics-query/getarraylength-azure-stream-analytics)och operatorn [Apply](/stream-analytics-query/apply-azure-stream-analytics) .
 
-Här är ett exempel på en enskild händelse. Både `CustomSensor03` och `SensorMetadata` är av typen **matris**:
+Här är ett exempel på en enskild händelse. Både `CustomSensor03` och `SensorMetadata` är av typen **matris** :
 
 ```json
 {
@@ -265,7 +265,7 @@ Resultatet är:
 
 ### <a name="convert-array-elements-into-separate-events"></a>Omvandla mat ris element till separata händelser
 
-Markera alla mat ris element som enskilda händelser. Operatorn [Apply](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) tillsammans med den inbyggda funktionen [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) extraherar alla mat ris element som enskilda händelser:
+Markera alla mat ris element som enskilda händelser. Operatorn [Apply](/stream-analytics-query/apply-azure-stream-analytics) tillsammans med den inbyggda funktionen [GetArrayElements](/stream-analytics-query/getarrayelements-azure-stream-analytics) extraherar alla mat ris element som enskilda händelser:
 
 ```SQL
 SELECT
@@ -301,7 +301,7 @@ Resultatet är:
 |12345|Tillverkare|ABC|
 |12345|Version|1.2.45|
 
-Om de extraherade fälten måste visas i kolumner, är det möjligt att pivotera data uppsättningen med syntaxen [with](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics) , förutom [kopplings](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) åtgärden. Den här kopplingen kräver ett [tids gräns](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) villkor som förhindrar duplicering:
+Om de extraherade fälten måste visas i kolumner, är det möjligt att pivotera data uppsättningen med syntaxen [with](/stream-analytics-query/with-azure-stream-analytics) , förutom [kopplings](/stream-analytics-query/join-azure-stream-analytics) åtgärden. Den här kopplingen kräver ett [tids gräns](/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) villkor som förhindrar duplicering:
 
 ```SQL
 WITH DynamicCTE AS (
@@ -330,4 +330,4 @@ Resultatet är:
 |12345|47|122|1.2.45|ABC|
 
 ## <a name="see-also"></a>Se även
-[Data typer i Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)
+[Data typer i Azure Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics)

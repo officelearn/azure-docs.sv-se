@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23074dcd7ee888d6d9d8bf288cf0fda66dc0ceec
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319761"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122851"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -58,13 +58,13 @@ Rapporten användar inloggning innehåller svar på följande frågor:
 * Hur många användare har loggat in under en vecka?
 * Vad är status för dessa inloggningar?
 
-Välj **Azure Active Directory**på [Azure Portal](https://portal.azure.com) -menyn eller sök efter och välj **Azure Active Directory** från vilken sida som helst.
+Välj **Azure Active Directory** på [Azure Portal](https://portal.azure.com) -menyn eller sök efter och välj **Azure Active Directory** från vilken sida som helst.
 
 ![Välj Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-Öppna [inloggnings rapporten](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)genom att välja **inloggningar** under **övervakning**.
+Öppna [inloggnings rapporten](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)genom att välja **inloggningar** under **övervakning** .
 
-![Inloggnings aktivitet](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Inloggningsaktivitet")
+![Skärm bild som visar inloggningar som valts på menyn för övervakning.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Inloggningsaktivitet")
 
 Det kan ta upp till två timmar innan några inloggnings poster visas i portalen.
 
@@ -80,19 +80,19 @@ En inloggningslogg har en standardlistvy som visar:
 - status för riskidentifieringen
 - status för MFA-kravet (multifaktorautentisering).
 
-![Inloggnings aktivitet](./media/concept-sign-ins/sign-in-activity.png "Inloggningsaktivitet")
+![Skärm bild visar inloggnings programmen för Office 365 SharePoint Online.](./media/concept-sign-ins/sign-in-activity.png "Inloggningsaktivitet")
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
-![Inloggnings aktivitet](./media/concept-sign-ins/19.png "Inloggningsaktivitet")
+![Skärm bild som visar alternativet kolumner på inloggnings sidan.](./media/concept-sign-ins/19.png "Inloggningsaktivitet")
 
 Dialog rutan **kolumner** ger dig till gång till de valbara attributen. I en inloggnings rapport kan du inte ha fält som har fler än ett värde för en specifik inloggnings förfrågan som kolumn. Detta är till exempel sant för autentiseringsinformation, villkorliga åtkomst data och nätverks plats.   
 
-![Inloggnings aktivitet](./media/concept-sign-ins/columns.png "Inloggningsaktivitet")
+![Skärm bild som visar dialog rutan kolumner där du kan välja attribut.](./media/concept-sign-ins/columns.png "Inloggningsaktivitet")
 
 Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
-![Inloggnings aktivitet](./media/concept-sign-ins/basic-sign-in.png "Inloggningsaktivitet")
+![Skärm bild som visar en detaljerad informations vy.](./media/concept-sign-ins/basic-sign-in.png "Inloggningsaktivitet")
 
 > [!NOTE]
 > Kunder kan nu felsöka principer för villkorlig åtkomst via alla inloggnings rapporter. Genom att klicka på fliken **villkorlig åtkomst** för en inloggnings post kan kunder granska status för villkorlig åtkomst och se information om de principer som tillämpas på inloggningen och resultatet för varje princip.
@@ -104,7 +104,7 @@ Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
 Först begränsar du de rapporterade data till en nivå som passar dig. Andra, filtrera inloggnings data med hjälp av datum fältet som standard filter. Azure AD ger dig ett brett utbud av ytterligare filter som du kan ställa in:
 
-![Inloggnings aktivitet](./media/concept-sign-ins/04.png "Inloggningsaktivitet")
+![Skärm bild som visar alternativet Lägg till filter.](./media/concept-sign-ins/04.png "Inloggningsaktivitet")
 
 ID för **begäran** : ID för den begäran du bryr dig om.
 
@@ -177,11 +177,11 @@ ID för **begäran** : ID för den begäran du bryr dig om.
 
 **Villkorlig åtkomst** – status för tillämpade regler för villkorlig åtkomst
 
-- **Används inte**: ingen princip tillämpas för användaren och programmet under inloggningen.
+- **Används inte** : ingen princip tillämpas för användaren och programmet under inloggningen.
 
-- **Lyckades**: en eller flera principer för villkorlig åtkomst som tillämpas på användaren och programmet (men inte nödvändigt vis de andra villkoren) under inloggningen. 
+- **Lyckades** : en eller flera principer för villkorlig åtkomst som tillämpas på användaren och programmet (men inte nödvändigt vis de andra villkoren) under inloggningen. 
 
-- **Fel**: inloggningen uppfyllde användar-och program villkoret för minst en princip för villkorlig åtkomst och beviljade kontroller är antingen inte uppfyllda eller har angetts till blockera åtkomst.
+- **Fel** : inloggningen uppfyllde användar-och program villkoret för minst en princip för villkorlig åtkomst och beviljade kontroller är antingen inte uppfyllda eller har angetts till blockera åtkomst.
 
 
 
@@ -214,7 +214,7 @@ Azure AD och Azure Portal ger båda ytterligare start punkter för inloggnings d
 
 Användar inloggnings diagrammet på översikts sidan för **identitetens säkerhets skydd** visar vecko agg regeringar för inloggningar. Standardvärdet för tids perioden är 30 dagar.
 
-![Inloggnings aktivitet](./media/concept-sign-ins/06.png "Inloggningsaktivitet")
+![Skärm bild som visar ett diagram över inloggningar under en månad.](./media/concept-sign-ins/06.png "Inloggningsaktivitet")
 
 När du klickar på en dag i inloggningsdiagrammet visas en översikt över inloggningsaktiviteterna för den dagen.
 
@@ -242,9 +242,9 @@ När du klickar på ett objekt visas mer information om inloggningen:
 > [!NOTE]
 > IP-adresser utfärdas på ett sådant sätt att det inte finns någon slutgiltig anslutning mellan en IP-adress och där datorn med den adressen är fysiskt placerad. Mappning av IP-adresser är krångligt i det faktum att mobila leverantörer och VPN-nätverk utfärdar IP-adresser från centrala pooler som ofta är mycket från var klient enheten faktiskt används. För närvarande i Azure AD-rapporter är det bästa sättet att konvertera IP-adress till en fysisk plats baserat på spår, register data, omvänd sökning och annan information.
 
-På sidan **Användare** visas en fullständig översikt över alla användarinloggningar om du klickar på **Inloggningar** i avsnittet **Aktivitet**.
+På sidan **Användare** visas en fullständig översikt över alla användarinloggningar om du klickar på **Inloggningar** i avsnittet **Aktivitet** .
 
-![Inloggnings aktivitet](./media/concept-sign-ins/08.png "Inloggningsaktivitet")
+![Skärm bild som visar avsnittet aktivitet där du kan välja inloggnings program.](./media/concept-sign-ins/08.png "Inloggningsaktivitet")
 
 ## <a name="usage-of-managed-applications"></a>Användning av hanterade program
 
@@ -254,13 +254,13 @@ Med en programcentrerad vy över dina inloggningsuppgifter kan du få svar på f
 * Vilka är de tre främsta programmen i organisationen?
 * Hur fungerar mitt nyaste program?
 
-Start punkten för dessa data är de tre främsta programmen i din organisation. Informationen finns i rapporten de senaste 30 dagarna i **översikts** avsnittet under **företags program**.
+Start punkten för dessa data är de tre främsta programmen i din organisation. Informationen finns i rapporten de senaste 30 dagarna i **översikts** avsnittet under **företags program** .
 
-![Inloggnings aktivitet](./media/concept-sign-ins/10.png "Inloggningsaktivitet")
+![Skärm bild som visar var du kan välja översikt.](./media/concept-sign-ins/10.png "Inloggningsaktivitet")
 
 Grafen för app-Usage vecko Visa insamlingar av inloggningar för de tre främsta programmen under en viss tids period. Standardvärdet för tidsperioden är 30 dagar.
 
-![Inloggnings aktivitet](./media/concept-sign-ins/graph-chart.png "Inloggningsaktivitet")
+![Skärm bild som visar användning av appar i en månads period.](./media/concept-sign-ins/graph-chart.png "Inloggningsaktivitet")
 
 Om du vill kan du ange att fokusera på ett visst program.
 

@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8074b2411a053c8b55457f9ace716481f6b107a5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79220307"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102232"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Sök efter videor med API för videosökning i Bing
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Med API för videosökning i Bing är det enkelt att integrera Bings funktioner för kognitiv nyhetssökning i dina program. API:et hittar och returnerar i första hand relevanta videor på webben, men har även flera funktioner för intelligent och fokuserad videosökning på webben.
 
@@ -144,9 +149,9 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Expandera frågan
 
-Om Bing kan expandera frågan för att begränsa den ursprungliga sökningen innehåller objektet [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) fältet `queryExpansions`. Om frågan till exempel var *Cleaning Gutters* (rensa stuprännor) kan de expanderade frågorna vara Cleaning Gutters **Tools** (verktyg), Cleaning Gutters **From the Ground** (från marken), Gutter Gleaning ** Machine** (maskin) och **Easy** Gutter Cleaning.
+Om Bing kan expandera frågan för att begränsa den ursprungliga sökningen innehåller objektet [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) fältet `queryExpansions`. Om frågan till exempel var *Cleaning Gutters* (rensa stuprännor) kan de expanderade frågorna vara Cleaning Gutters **Tools** (verktyg), Cleaning Gutters **From the Ground** (från marken), Gutter Gleaning **Machine** (maskin) och **Easy** Gutter Cleaning.
 
-Här ser du de expanderade frågorna för *Cleaning Gutters*.
+Här ser du de expanderade frågorna för *Cleaning Gutters* .
 
 ```json
 {
@@ -175,9 +180,9 @@ Fältet `queryExpansions` innehåller en lista över [Query](https://docs.micros
 
 ## <a name="pivoting-the-query"></a>Pivotera frågan
 
-Om Bing kan segmentera den ursprungliga sökfrågan innehåller objektet [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) fältet `pivotSuggestions`. Om den ursprungliga frågan till exempel var *Cleaning Gutters* kan Bing segmentera frågan till *Cleaning* och *Gutters*.
+Om Bing kan segmentera den ursprungliga sökfrågan innehåller objektet [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) fältet `pivotSuggestions`. Om den ursprungliga frågan till exempel var *Cleaning Gutters* kan Bing segmentera frågan till *Cleaning* och *Gutters* .
 
-Här är ett exempel på pivotförslagen för *Cleaning Gutters*.
+Här är ett exempel på pivotförslagen för *Cleaning Gutters* .
 
 ```json
 {

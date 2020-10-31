@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760c98ce9464e4d40f01256a973e07d9084c6dfe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448876"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123293"
 ---
 # <a name="troubleshoot-input-connections"></a>Felsöka indataanslutningar
 
@@ -25,13 +25,13 @@ I den här artikeln beskrivs vanliga problem med Azure Stream Analytics ingångs
 
 2.  Granska indata.
 
-    1. Använd [**exempel data**](stream-analytics-sample-data-input.md) knappen för varje inmatning. Hämta exempel data för indata.
+    1. Använd [**exempel data**](./stream-analytics-test-query.md) knappen för varje inmatning. Hämta exempel data för indata.
         
-    1. Granska exempel data för att förstå schema-och [data typerna](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Granska exempel data för att förstå schema-och [data typerna](/stream-analytics-query/data-types-azure-stream-analytics).
     
     1. Kontrol lera [Event Hub-mått](../event-hubs/event-hubs-metrics-azure-monitor.md) för att säkerställa att händelser skickas. Meddelande måtten måste vara större än noll om Event Hubs tar emot meddelanden.
 
-3.  Se till att du har valt ett tidsintervall i förhands granskningen. Välj **Välj tidsintervall**och ange sedan en tids längd innan du testar frågan.
+3.  Se till att du har valt ett tidsintervall i förhands granskningen. Välj **Välj tidsintervall** och ange sedan en tids längd innan du testar frågan.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Felaktiga indatahändelser resulterar i deserialiseringsfel 
 
@@ -71,7 +71,7 @@ AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
 
 Följ dessa steg om du vill lägga till en ny konsument grupp i Event Hubs-instansen:
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
 2. Leta upp Händelsehubben.
 
@@ -79,7 +79,7 @@ Följ dessa steg om du vill lägga till en ny konsument grupp i Event Hubs-insta
 
 4. Välj Event Hub efter namn.
 
-5. På sidan **Event Hubs instans** , under rubriken **entiteter** , väljer du **konsument grupper**. En konsument grupp med namnet **$default** visas.
+5. På sidan **Event Hubs instans** , under rubriken **entiteter** , väljer du **konsument grupper** . En konsument grupp med namnet **$default** visas.
 
 6. Välj **+ konsument grupp** för att lägga till en ny konsument grupp. 
 
@@ -163,16 +163,16 @@ SELECT foo FROM DataTwo
 
 ## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>Läsarna per partition överskrider IoT Hub gränsen
 
-Stream Analytics-jobb använder IoT Hub inbyggda [Event Hub-kompatibla slut punkter](../iot-hub/iot-hub-devguide-messages-read-builtin.md) för att ansluta och läsa händelser från IoT Hub. Om din läsning per partition överskrider gränserna för IoT Hub kan du använda [lösningarna för Event Hub](#readers-per-partition-exceeds-event-hubs-limit) för att lösa problemet. Du kan skapa en konsument grupp för den inbyggda slut punkten via IoT Hub portalens slut punkt session eller genom [IoT Hub SDK](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
+Stream Analytics-jobb använder IoT Hub inbyggda [Event Hub-kompatibla slut punkter](../iot-hub/iot-hub-devguide-messages-read-builtin.md) för att ansluta och läsa händelser från IoT Hub. Om din läsning per partition överskrider gränserna för IoT Hub kan du använda [lösningarna för Event Hub](#readers-per-partition-exceeds-event-hubs-limit) för att lösa problemet. Du kan skapa en konsument grupp för den inbyggda slut punkten via IoT Hub portalens slut punkt session eller genom [IoT Hub SDK](/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
 
 ## <a name="get-help"></a>Få hjälp
 
-Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referens för Azure Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Azure Stream Analytics Management REST-API:et](/rest/api/streamanalytics/)

@@ -8,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 18ab9a4108d6d9effaa25fe69ce42a18ca4ba0dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e87432ad4437f41e70d988e7e2b3cd82aa3bd82
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903844"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123395"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Självstudie: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av Azure Pipelines
 Den här artikeln beskriver hur du konfigurerar kontinuerlig integrering och distribution för ett Azure Stream Analytics-jobb med hjälp av Azure Pipelines. 
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * lägga till källkontroll i projektet
@@ -29,13 +29,13 @@ I den här guiden får du lära dig att:
 > [!NOTE]
 > CI/CD-NuGet är föråldrad. Information om hur du migrerar till den senaste NPM finns i [Översikt över kontinuerlig integrering och distribution](cicd-overview.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du har utfört följande steg:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installera [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) och arbetsbelastningen **Azure development** (Azure-utveckling) eller **Data Storage and Processing** (Datalagring och bearbetning).
-* Skapa ett [Stream Analytics-projekt i Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
+* Skapa ett [Stream Analytics-projekt i Visual Studio](./stream-analytics-quick-create-vs.md).
 * Skapa en [Azure DevOps](https://visualstudio.microsoft.com/team-services/) -organisation.
 
 ## <a name="configure-nuget-package-dependency"></a>Konfigurera NuGet-paketberoende
@@ -56,25 +56,25 @@ Dela programkällfilerna till ett projekt i Azure DevOps så att du kan generera
 
 1. Skapa en ny lokal Git-lagringsplats för projektet genom att välja alternativet för att **lägga till källkontroll** och sedan **Git** i statusfältet i det nedre högra hörnet av Visual Studio. 
 
-2. I vyn för **synkronisering** i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps Services**.
+2. I vyn för **synkronisering** i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps Services** .
 
    ![Knappen Push to Azure DevOps Services Publish Git Repo (Publicera Git-lagringsplats för Azure DevOps-tjänster med push-överföring)](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-git-repo-devops.png)
 
-3. Verifiera din e-postadress och välj din organisation i listrutan **Azure DevOps Services-domän**. Skriv in lagringsplatsens namn och välj **Publicera lagringsplats**.
+3. Verifiera din e-postadress och välj din organisation i listrutan **Azure DevOps Services-domän** . Skriv in lagringsplatsens namn och välj **Publicera lagringsplats** .
 
    ![Knappen Push Git repo Publish Repository (Publicera Git-lagringsplats med push-överföring)](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
 
-    När du publicerar lagringsplatsen skapas ett nytt projekt i organisationen med samma namn som den lokala lagringsplatsen. Om du vill skapa lagrings platsen i ett befintligt projekt klickar du på **Avancerat** bredvid **databas namn**och väljer ett projekt. Du kan visa koden i webbläsaren genom att välja alternativet för att **visa på webben**.
+    När du publicerar lagringsplatsen skapas ett nytt projekt i organisationen med samma namn som den lokala lagringsplatsen. Om du vill skapa lagrings platsen i ett befintligt projekt klickar du på **Avancerat** bredvid **databas namn** och väljer ett projekt. Du kan visa koden i webbläsaren genom att välja alternativet för att **visa på webben** .
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Konfigurera kontinuerlig leverans med Azure DevOps
-En Azure Pipelines-bygg-pipeline beskriver ett arbetsflöde som består av byggesåtgärder som utförs i tur och ordning. Läs mer om [Azure Pipelines bygg-pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav&preserve-view=true).
+En Azure Pipelines-bygg-pipeline beskriver ett arbetsflöde som består av byggesåtgärder som utförs i tur och ordning. Läs mer om [Azure Pipelines bygg-pipelines](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts).
 
-En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribuerar ett programpaket till ett kluster. När de används tillsammans kör bygg-pipelinen och versionspipelinen hela arbetsflödet med början på källfiler och slutar med ett program som körs i klustret. Läs mer om [Azure Pipelines versionspipelines](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts&preserve-view=true).
+En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribuerar ett programpaket till ett kluster. När de används tillsammans kör bygg-pipelinen och versionspipelinen hela arbetsflödet med början på källfiler och slutar med ett program som körs i klustret. Läs mer om [Azure Pipelines versionspipelines](/azure/devops/pipelines/release/define-multistage-release-process?preserve-view=true&view=vsts).
 
 ### <a name="create-a-build-pipeline"></a>Skapa en bygg-pipeline
 Öppna en webbläsare och gå till det projekt som du just skapade i [Azure DevOps](https://app.vsaex.visualstudio.com/). 
 
-1. Under fliken **Build & Release** (Bygge och version) väljer du **Builds** (Byggen) och sedan **+ New** (+ Nytt).  Välj **Azure DevOps Services Git** och **Fortsätt**.
+1. Under fliken **Build & Release** (Bygge och version) väljer du **Builds** (Byggen) och sedan **+ New** (+ Nytt).  Välj **Azure DevOps Services Git** och **Fortsätt** .
     
     ![Välj källa för DevOps Git i Azure DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source-devops.png)
 
@@ -82,25 +82,25 @@ En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribu
     
     ![Välj en tom process från mallalternativen i DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
 
-3. Under **Utlösare** aktiverar du kontinuerlig integrering genom att markera utlösarstatusen **Aktivera kontinuerlig integrering**.  Välj alternativet för att **spara och köa** för att manuellt starta en version. 
+3. Under **Utlösare** aktiverar du kontinuerlig integrering genom att markera utlösarstatusen **Aktivera kontinuerlig integrering** .  Välj alternativet för att **spara och köa** för att manuellt starta en version. 
     
     ![Aktivera utlösarstatus för kontinuerlig integrering](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
-4. Byggen utlöses också vid push-överföring och incheckning. Om du vill kontrol lera Bygg förloppet växlar du till fliken **versioner** .  När du har kontrollerat att versionen körs måste du definiera en versions pipeline som distribuerar ditt program till ett kluster. Högerklicka på ellipsen intill bygg-pipelinen och välj **Redigera**.
+4. Byggen utlöses också vid push-överföring och incheckning. Om du vill kontrol lera Bygg förloppet växlar du till fliken **versioner** .  När du har kontrollerat att versionen körs måste du definiera en versions pipeline som distribuerar ditt program till ett kluster. Högerklicka på ellipsen intill bygg-pipelinen och välj **Redigera** .
 
 5.  I **Uppgifter** anger du "Hosted" som **Agent queue** (Agentkö).
     
     ![Välj agentkö på menyn Uppgifter](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
-6. I **Fas 1** klickar du på **+** och lägger till en **NuGet**-uppgift.
+6. I **Fas 1** klickar du på **+** och lägger till en **NuGet** -uppgift.
     
     ![Lägga till en NuGet-uppgift i agentkö](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-nuget-task.png)
 
-7. Expandera **Avancerat** och lägg till `$(Build.SourcesDirectory)\packages` till **målkatalogen**. Behåll återstående NuGet-standardkonfigurationsvärden.
+7. Expandera **Avancerat** och lägg till `$(Build.SourcesDirectory)\packages` till **målkatalogen** . Behåll återstående NuGet-standardkonfigurationsvärden.
 
    ![Konfigurera aktiviteten för återställning av NuGet](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-restore-config.png)
 
-8. I **Fas 1** klickar du på **+** och lägger till en **MSBuild**-uppgift.
+8. I **Fas 1** klickar du på **+** och lägger till en **MSBuild** -uppgift.
 
    ![Lägga till en MSBuild-uppgift i agentkö](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-msbuild-task.png)
 
@@ -112,7 +112,7 @@ En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribu
 
    ![Konfigurera MSBuild-uppgift i DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-config-msbuild-task.png)
 
-10. I **Fas 1**, klickar du på **+** och lägger till en **Azure Resource Group Deployment**-uppgift. 
+10. I **Fas 1** , klickar du på **+** och lägger till en **Azure Resource Group Deployment** -uppgift. 
     
     ![Lägga till en Azure Resource Group Deployment-uppgift](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-resource-group-deployment.png)
 
@@ -121,7 +121,7 @@ En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribu
     |**Inställning**  |**Föreslaget värde**  |
     |---------|---------|
     |Prenumeration  |  Välj din prenumeration.   |
-    |Action  |  Skapa eller uppdatera resursgrupp   |
+    |Åtgärd  |  Skapa eller uppdatera resursgrupp   |
     |Resursgrupp  |  Ange ett resursgruppsnamn.   |
     |Mall  | [Lösningens sökväg]\bin\Debug\Deploy\\[Projektnamnet].JobTemplate.json   |
     |Mallparametrar  | [Lösningens sökväg]\bin\Debug\Deploy\\[Projektnamnet].JobTemplate.parameters.json   |
@@ -134,7 +134,7 @@ En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribu
     ![Spara och köa version i DevOps](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-and-queue-build.png)
 
 ### <a name="failed-build-process"></a>Misslyckad byggeprocess
-Det kan hända att du får fel för nulldistributionsparametrar om du inte åsidosatte mallparametrarna i **Azure Resource Group Deployment**-uppgiften för bygg-pipelinen. Gå tillbaka till bygg-pipelinen och åsidosätt nullparametrarna för att åtgärda problemet.
+Det kan hända att du får fel för nulldistributionsparametrar om du inte åsidosatte mallparametrarna i **Azure Resource Group Deployment** -uppgiften för bygg-pipelinen. Gå tillbaka till bygg-pipelinen och åsidosätt nullparametrarna för att åtgärda problemet.
 
    ![DevOps Stream Analytics-genereringsprocessen misslyckades](./media/stream-analytics-tools-visual-studio-cicd-vsts/devops-build-process-failed.png)
 
@@ -158,7 +158,7 @@ När du skickar ändringar till Azure DevOps Services via push-överföring utl�
 Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviker du att bli fakturerad för de strömmande enheter som används av jobbet. Om du planerar att använda jobbet i framtiden kan du stoppa det och sedan starta det igen när du behöver det. Om du inte tänker fortsätta använda det här jobbet tar du bort alla resurser som skapades i självstudien med följande steg:
 
 1. Klicka på **Resursgrupper** på den vänstra menyn i Azure Portal och sedan på namnet på den resurs du skapade.  
-2. På sidan med resursgrupper klickar du på **Ta bort**, skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort**.
+2. På sidan med resursgrupper klickar du på **Ta bort** , skriver in namnet på resursen att ta bort i textrutan och klickar sedan på **Ta bort** .
 
 ## <a name="next-steps"></a>Nästa steg
 

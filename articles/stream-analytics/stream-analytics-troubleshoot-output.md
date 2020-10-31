@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: c063fec3eac962d22ead12e0ca11f4b9fc155b5d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: bc630fc5ea9407c284e2e2e879c349a83302cd9f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910159"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122631"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Felsöka Azure Stream Analytics utdata
 
@@ -71,7 +71,7 @@ Om du vill visa information om utdata väljer du direkt uppspelnings jobbet i Az
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Varning om nyckel fel med Azure SQL Database utdata
 
-När du konfigurerar en Azure SQL-databas som utdata till ett Stream Analytics jobb, infogar den Mass poster i mål tabellen. I allmänhet Azure Stream Analytics garantier [på minst en gång för leverans](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) till utgående mottagare. Du kan fortfarande [få en exakt leverans]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) till en SQL-utdata när en SQL-tabell har en unik restriktion definierad.
+När du konfigurerar en Azure SQL-databas som utdata till ett Stream Analytics jobb, infogar den Mass poster i mål tabellen. I allmänhet Azure Stream Analytics garantier [på minst en gång för leverans](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) till utgående mottagare. Du kan fortfarande [få en exakt leverans]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) till en SQL-utdata när en SQL-tabell har en unik restriktion definierad.
 
 När du ställer in unika nyckel begränsningar i SQL-tabellen tar Azure Stream Analytics bort dubbla poster. Den delar in data i batchar och infogar batcharna rekursivt tills en enskild dubblettpost hittas. Processen dela och infoga ignorerar dubbletterna en i taget. För ett strömmande jobb som har många dubblettrader-rader är processen ineffektiv och tids krävande. Om du ser varnings meddelanden om flera nyckel överträdelser i din aktivitets logg under den föregående timmen är det troligt att SQL-utdata är långsammare för hela jobbet.
 
@@ -95,9 +95,9 @@ När ett Stream Analytics jobb med SQL-utdata tar emot den första batchen med h
 
 Under de här stegen kan SQL-utdata uppleva följande typer av fel:
 
-* Tillfälliga [fel](/azure/azure-sql/database/troubleshoot-common-errors-issues#transient-fault-error-messages-40197-40613-and-others) som görs om med en exponentiell backoff-strategi för återförsök. Det minsta intervallet för återförsök beror på den enskilda felkoden, men intervallet är vanligt vis mindre än 60 sekunder. Den övre gränsen kan vara högst fem minuter. 
+* Tillfälliga [fel](../azure-sql/database/troubleshoot-common-errors-issues.md#transient-fault-error-messages-40197-40613-and-others) som görs om med en exponentiell backoff-strategi för återförsök. Det minsta intervallet för återförsök beror på den enskilda felkoden, men intervallet är vanligt vis mindre än 60 sekunder. Den övre gränsen kan vara högst fem minuter. 
 
-   [Inloggnings fel](/azure/azure-sql/database/troubleshoot-common-errors-issues#unable-to-log-in-to-the-server-errors-18456-40531) och [brand Väggs problem](/azure/azure-sql/database/troubleshoot-common-errors-issues#cannot-connect-to-server-due-to-firewall-issues) görs minst 5 minuter efter det föregående försöket och provas tills det lyckas.
+   [Inloggnings fel](../azure-sql/database/troubleshoot-common-errors-issues.md#unable-to-log-in-to-the-server-errors-18456-40531) och [brand Väggs problem](../azure-sql/database/troubleshoot-common-errors-issues.md#cannot-connect-to-server-due-to-firewall-issues) görs minst 5 minuter efter det föregående försöket och provas tills det lyckas.
 
 * Data fel, t. ex. dataflödes fel och överträdelser av schema begränsningar, hanteras med fel policyn för utdata. Dessa fel hanteras genom att försöka att köra en binär delning igen tills den enskilda posten som orsakar felet hanteras av SKIP eller försök igen. En felaktig primär unik nyckel begränsnings begränsning [hanteras alltid](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output).
 
@@ -107,16 +107,16 @@ När tids gränsen är över 15 minuter minskas det maximala batchstorleken till
 
 ## <a name="column-names-are-lowercase-in-azure-stream-analytics-10"></a>Kolumn namn är gemener i Azure Stream Analytics (1,0)
 
-När du använder den ursprungliga kompatibilitetsnivån (1,0) ändrar Azure Stream Analytics kolumn namn till gemener. Detta beteende har åtgärd ATS i senare kompatibilitetsnivå. Om du vill behålla fallet går du till kompatibilitetsnivån 1,1 eller senare. Mer information finns i [kompatibilitetsnivån för Stream Analytics jobb](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+När du använder den ursprungliga kompatibilitetsnivån (1,0) ändrar Azure Stream Analytics kolumn namn till gemener. Detta beteende har åtgärd ATS i senare kompatibilitetsnivå. Om du vill behålla fallet går du till kompatibilitetsnivån 1,1 eller senare. Mer information finns i [kompatibilitetsnivån för Stream Analytics jobb](./stream-analytics-compatibility-level.md).
 
 ## <a name="get-help"></a>Få hjälp
 
-Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Om du behöver ytterligare hjälp kan du prova vår [Microsoft Q&en fråge sida för Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Introduktion till Azure Stream Analytics](stream-analytics-introduction.md)
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
-* [Språk referens för Azure Stream Analytics-fråga](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics hanterings REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Språk referens för Azure Stream Analytics-fråga](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referens för Azure Stream Analytics hanterings REST API](/rest/api/streamanalytics/)

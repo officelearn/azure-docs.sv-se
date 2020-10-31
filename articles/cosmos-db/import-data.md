@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: dech
-ms.openlocfilehash: 8613d3b02d396f16008ee771cdff25fe8b2e2f10
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7084458d8d3fbae45819fc29daa502423c919bbf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490653"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101620"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Självstudie: Använda datamigreringsverktyget för att migrera data till Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här självstudien innehåller anvisningar för hur du använder datamigreringsverktyget i Azure Cosmos DB, som kan importera data från olika källor till containrar och tabeller i Azure Cosmos DB. Du kan importera från JSON-filer, CSV-filer, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB och till och med Azure Cosmos DB SQL API-samlingar. Du migrerar dessa data till samlingar och tabeller för användning med Azure Cosmos DB. Datamigreringsverktyget kan också användas när du migrerar från en enda partitionssamling till en samling med flera partitioner för SQL API.
 
@@ -39,7 +40,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du utför
 
 * **Installera** [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) eller högre.
 
-* **Öka dataflödet**: Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Vi rekommenderar att du ökar dataflödet för större datamigreringar. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Mer information om hur du ökar dataflödet i Azure-portalen finns i avsnitten om [prestandanivåer](performance-levels.md) och [prisnivåer](https://azure.microsoft.com/pricing/details/cosmos-db/) i Azure Cosmos DB.
+* **Öka dataflödet** : Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild samling eller en uppsättning samlingar. Vi rekommenderar att du ökar dataflödet för större datamigreringar. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Mer information om hur du ökar dataflödet i Azure-portalen finns i avsnitten om [prestandanivåer](performance-levels.md) och [prisnivåer](https://azure.microsoft.com/pricing/details/cosmos-db/) i Azure Cosmos DB.
 
 * **Skapa Azure Cosmos DB-resurser:** Innan du börjar migrera data skapar du alla dina samlingar i förväg från Azure-portalen. Om du vill migrera till ett Azure Cosmos DB konto som har data flöde på databas nivå, anger du en partitionsnyckel när du skapar Azure Cosmos-behållare.
 
@@ -68,8 +69,8 @@ Datamigreringsverktyget är en lösning med öppen källkod som importerar data 
 
 Källkoden för migreringsverktyget finns i GitHub på [den här lagringsplatsen](https://github.com/azure/azure-documentdb-datamigrationtool). Du kan ladda ned och kompilera lösningen lokalt, eller [ladda ned en förkompilerad binär kod](https://aka.ms/csdmtool) och sedan köra något av följande:
 
-* **Dtui.exe**: Grafisk gränssnittsversion av verktyget
-* **DT.exe**: Kommandoradsversion av verktyget
+* **Dtui.exe** : Grafisk gränssnittsversion av verktyget
+* **DT.exe** : Kommandoradsversion av verktyget
 
 ## <a name="select-data-source"></a>Välj datakälla
 
@@ -99,7 +100,7 @@ Anslutnings strängen har följande format:
 `AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
 
 * `<CosmosDB Endpoint>`Är slut punktens URI. Du kan hämta det här värdet från Azure Portal. Navigera till ditt Azure Cosmos-konto. Öppna **översikts** fönstret och kopiera **URI** -värdet.
-* `<AccountKey>`Är "lösen ordet" eller **primär nyckel**. Du kan hämta det här värdet från Azure Portal. Navigera till ditt Azure Cosmos-konto. Öppna fönstret **anslutnings strängar** eller **nycklar** och kopiera värdet "lösen ord" eller **primär nyckel** .
+* `<AccountKey>`Är "lösen ordet" eller **primär nyckel** . Du kan hämta det här värdet från Azure Portal. Navigera till ditt Azure Cosmos-konto. Öppna fönstret **anslutnings strängar** eller **nycklar** och kopiera värdet "lösen ord" eller **primär nyckel** .
 * `<CosmosDB Database>`Är namnet på CosmosDB-databasen.
 
 Exempel: `AccountEndpoint=https://myCosmosDBName.documents.azure.com:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
@@ -375,7 +376,7 @@ Anslutningssträngen för Azure Cosmos DB-kontot kan hämtas från sidan Nycklar
 > [!NOTE]
 > Använd kommandot Kontrollera för att se att den angivna Azure Cosmos DB-instansen är tillgänglig i anslutningssträngens fält.
 
-Om du ska importera till en enskild samling anger du namnet på samlingen som du ska importera data från. Klicka sedan på knappen Lägg till. Om du vill importera till fler än en samling anger du antingen varje samlingsnamn individuellt, eller så använder du följande syntax för att ange fler än en samling: *collection_prefix*[start index - end index]. Tänk på följande riktlinjer när du anger fler än en samling med hjälp av ovannämnda syntax:
+Om du ska importera till en enskild samling anger du namnet på samlingen som du ska importera data från. Klicka sedan på knappen Lägg till. Om du vill importera till fler än en samling anger du antingen varje samlingsnamn individuellt, eller så använder du följande syntax för att ange fler än en samling: *collection_prefix* [start index - end index]. Tänk på följande riktlinjer när du anger fler än en samling med hjälp av ovannämnda syntax:
 
 1. Det är bara namnmönster i heltalsintervall som stöds. Om du till exempel anger collection[0-3] skapas följande samlingar: collection0, collection1, collection2 och collection3.
 2. Du kan använda en förkortad syntax: collection[3] skapar samma uppsättning samlingar som nämns i steg 1.
@@ -434,7 +435,7 @@ Du kan hämta anslutningssträngen för Azure Cosmos DB-konto från sidan Nyckla
 > [!NOTE]
 > Använd kommandot Kontrollera för att se att den angivna Azure Cosmos DB-instansen är tillgänglig i anslutningssträngens fält.
 
-Om du ska importera till en enskild samling anger du namnet på den samling som data ska importeras till och klickar sedan på knappen Lägg till. Ange varje samlingsnamn separat om du vill importera till mer än en samling. Du kan även använda följande syntax för att ange mer än en samling: *collection_prefix*[start index - end index]. Tänk på följande riktlinjer när du anger fler än en samling via ovannämnda syntax:
+Om du ska importera till en enskild samling anger du namnet på den samling som data ska importeras till och klickar sedan på knappen Lägg till. Ange varje samlingsnamn separat om du vill importera till mer än en samling. Du kan även använda följande syntax för att ange mer än en samling: *collection_prefix* [start index - end index]. Tänk på följande riktlinjer när du anger fler än en samling via ovannämnda syntax:
 
 1. Det är bara namnmönster i heltalsintervall som stöds. Om du till exempel anger collection[0-3] skapas följande samlingar: collection0, collection1, collection2 och collection3.
 2. Du kan använda en förkortad syntax: collection[3] skapar samma uppsättning samlingar som nämns i steg 1.
@@ -528,7 +529,7 @@ På skärmen Avancerad konfiguration anger du platsen för loggfilen där du vil
 
     :::image type="content" source="./media/import-data/summarycommand.png" alt-text="Skärmbild av alternativ för JSON-filkällor – Verktyg för databasmigrering":::
 
-2. När du är nöjd med dina käll- och målalternativ klickar du på **Importera**. Förfluten tid, antal överförda och felinformation (om du inte angav ett filnamn i Avancerad konfiguration) uppdateras medan importen pågår. När installationen är klar kan du exportera resultaten (till exempel för att åtgärda eventuella importfel).
+2. När du är nöjd med dina käll- och målalternativ klickar du på **Importera** . Förfluten tid, antal överförda och felinformation (om du inte angav ett filnamn i Avancerad konfiguration) uppdateras medan importen pågår. När installationen är klar kan du exportera resultaten (till exempel för att åtgärda eventuella importfel).
 
     :::image type="content" source="./media/import-data/viewresults.png" alt-text="Skärmbild av alternativ för JSON-filkällor – Verktyg för databasmigrering":::
 

@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: how-to
-ms.openlocfilehash: 944c1a8cc4606c5e614f17cd0590331826527a7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd4966ee75e9dc0ff401823e4291f8d299c8893c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892145"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122902"
 ---
 # <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Testa Stream Analytics frågor lokalt mot Real tids indata med hjälp av Visual Studio Code
 
-Du kan använda Azure Stream Analytics verktyg för Visual Studio Code för att testa dina Stream Analytics-jobb lokalt mot Real tids indata. Indatamängden kan komma från en källa som Azure Event Hubs eller Azure IoT Hub. Resultatet skickas som JSON-filer till en mapp i projektet med namnet **LocalRunOutputs**.
+Du kan använda Azure Stream Analytics verktyg för Visual Studio Code för att testa dina Stream Analytics-jobb lokalt mot Real tids indata. Indatamängden kan komma från en källa som Azure Event Hubs eller Azure IoT Hub. Resultatet skickas som JSON-filer till en mapp i projektet med namnet **LocalRunOutputs** .
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -29,7 +29,7 @@ Du kan använda Azure Stream Analytics verktyg för Visual Studio Code för att 
 
    ![Lägg till indata från mappen Inputs](./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png)
 
-   Du kan också välja **Ctrl + Shift + P** för att öppna kommando paletten och ange **ASA: Lägg till inmatade**.
+   Du kan också välja **Ctrl + Shift + P** för att öppna kommando paletten och ange **ASA: Lägg till inmatade** .
 
    ![Lägg till Stream Analytics inmatade objekt i Visual Studio Code](./media/quick-create-visual-studio-code/add-input.png)
 
@@ -37,7 +37,7 @@ Du kan använda Azure Stream Analytics verktyg för Visual Studio Code för att 
 
    ![Välj IoT Hub som indatamängds alternativ](./media/quick-create-visual-studio-code/iot-hub.png)
 
-3. Om du har lagt till indatamängden från kommando paletten väljer du det Stream Analytics fråga-skript som ska använda indatamängden. Den ska fyllas i automatiskt med fil Sök vägen till **myASAproj. asaql**.
+3. Om du har lagt till indatamängden från kommando paletten väljer du det Stream Analytics fråga-skript som ska använda indatamängden. Den ska fyllas i automatiskt med fil Sök vägen till **myASAproj. asaql** .
 
    ![Välj ett Stream Analytics skript i Visual Studio Code](./media/quick-create-visual-studio-code/asa-script.png)
 
@@ -57,7 +57,7 @@ Se till att indata kommer genom att välja **Förhandsgranska data** i konfigura
 
 ## <a name="run-queries-locally"></a>Kör frågor lokalt
 
-Återgå till Frågeredigeraren och välj **Kör lokalt**. Välj sedan **Använd Live-inmatare** i list rutan.
+Återgå till Frågeredigeraren och välj **Kör lokalt** . Välj sedan **Använd Live-inmatare** i list rutan.
 
 ![Välj "kör lokalt" i Frågeredigeraren](./media/vscode-local-run/run-locally.png)
 
@@ -65,7 +65,7 @@ Se till att indata kommer genom att välja **Förhandsgranska data** i konfigura
 
 Resultatet visas i det högra fönstret och uppdateras var tredje sekund. Du kan välja **Kör** för att testa igen. Du kan också välja **Öppna i mapp** för att se resultatet i Utforskaren och öppna dem med Visual Studio Code eller ett verktyg som Excel. Observera att resultat-filerna bara är tillgängliga i JSON-format.
 
-Standard tiden för jobbet att börja skapa utdata har angetts till **nu**. Du kan anpassa tiden genom att välja **Start tiden för utdata** i resultat fönstret.
+Standard tiden för jobbet att börja skapa utdata har angetts till **nu** . Du kan anpassa tiden genom att välja **Start tiden för utdata** i resultat fönstret.
 
 ![Visa lokalt körnings resultat](./media/vscode-local-run-live-input/vscode-livetesting.gif)
 
@@ -73,4 +73,4 @@ Standard tiden för jobbet att börja skapa utdata har angetts till **nu**. Du k
 
 * [Utforska Azure Stream Analytics-jobb med Visual Studio Code (för hands version)](visual-studio-code-explore-jobs.md)
 
-* [Konfigurera CI/CD-pipelines med hjälp av NPM-paketet](setup-cicd-vs-code.md)
+* [Konfigurera CI/CD-pipelines med hjälp av NPM-paketet](./cicd-overview.md)

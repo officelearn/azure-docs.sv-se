@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 613e0dbfc90586475fe0ba9820ede1359a99d3a6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d986106337eb1ede2f6d61303d8a4c487bbed276
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482221"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088479"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Förstå skillnaderna mellan NoSQL och Relations databaser
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Den här artikeln innehåller en lista över några av de viktiga fördelarna med NoSQL-databaser över Relations databaser. Vi kommer också att diskutera några av utmaningarna med att arbeta med NoSQL. För en djupgående titt på de olika data lager som finns kan du titta närmare på vår artikel om hur [du väljer rätt data lager](/azure/architecture/guide/technology-choices/data-store-overview).
 

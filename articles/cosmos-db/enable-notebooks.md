@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 4c485bf6b9eb34e68e399c24e51286428f47586f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf8da4379a7770e44e86663c02cc7a57da9d3452
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261910"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089805"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Aktivera antecknings böcker för Azure Cosmos DB-konton (förhands granskning)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
 > Inbyggda antecknings böcker för Azure Cosmos DB är för närvarande tillgängliga i följande Azure-regioner: östra Australien, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Västeuropa och västra USA 2. Om du vill använda antecknings böcker [skapar du ett nytt konto med antecknings böcker](#enable-notebooks-in-a-new-cosmos-account) eller [aktiverar antecknings böcker på ett befintligt konto](#enable-notebooks-in-an-existing-cosmos-account) i någon av dessa regioner.
@@ -23,13 +24,13 @@ Inbyggda Jupyter Notebook i Azure Cosmos DB gör att du kan analysera och visual
 ## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Aktivera antecknings böcker i ett nytt Cosmos-konto
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-1. Välj **skapa en resurs**  >  **databas**  >  **Azure Cosmos DB**.
-1. På sidan **skapa Azure Cosmos DB konto** väljer du **antecknings böcker**. 
+1. Välj **skapa en resurs**  >  **databas**  >  **Azure Cosmos DB** .
+1. På sidan **skapa Azure Cosmos DB konto** väljer du **antecknings böcker** . 
  
     :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Alternativet Välj antecknings böcker i Azure Cosmos DB skapa bladet":::
 
-1. Välj **Granska + skapa**. Du kan hoppa över alternativet **nätverk** och **taggar** . 
-1. Granska kontoinställningarna och välj sedan **Skapa**. Det tar några minuter att skapa kontot. Vänta tills portalsidan visar meddelandet **Distributionen är klar**. 
+1. Välj **Granska + skapa** . Du kan hoppa över alternativet **nätverk** och **taggar** . 
+1. Granska kontoinställningarna och välj sedan **Skapa** . Det tar några minuter att skapa kontot. Vänta tills portalsidan visar meddelandet **Distributionen är klar** . 
 
    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Alternativet Välj antecknings böcker i Azure Cosmos DB skapa bladet":::
 
@@ -46,7 +47,7 @@ Inbyggda Jupyter Notebook i Azure Cosmos DB gör att du kan analysera och visual
 Du kan också aktivera antecknings böcker på befintliga konton. Det här steget måste bara utföras en gång per konto.
 
 1. Navigera till fönstret **datautforskaren** i ditt Cosmos-konto.
-1. Välj **Aktivera antecknings böcker**.
+1. Välj **Aktivera antecknings böcker** .
 
     :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Alternativet Välj antecknings böcker i Azure Cosmos DB skapa bladet":::
 
@@ -57,7 +58,7 @@ Du kan också aktivera antecknings böcker på befintliga konton. Det här stege
 
 Du kan kontrol lera att du kan använda antecknings böcker genom att välja en av antecknings böckerna under exempel antecknings böcker. Då sparas en kopia av antecknings boken på din arbets yta och den öppnas.
 
-I det här exemplet använder vi **GettingStarted. ipynb**. 
+I det här exemplet använder vi **GettingStarted. ipynb** . 
 
 :::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Alternativet Välj antecknings böcker i Azure Cosmos DB skapa bladet":::
 

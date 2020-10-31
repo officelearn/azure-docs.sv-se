@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 9455ac3520192274e80f2d9e0fdfd1c8f8a238a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b1a0382b6bb650b6761897f4a16f988e5ce00c1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482629"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088751"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installera och Använd Azure Cosmos-emulatorn för lokal utveckling och testning
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos-emulatorn tillhandahåller en lokal miljö som emulerar Azure Cosmos DB tjänst i utvecklings syfte. Med Azure Cosmos-emulatorn kan du utveckla och testa ditt program lokalt, utan att du behöver skapa en Azure-prenumeration eller debitera några kostnader. När du är nöjd med hur ditt program fungerar i Azure Cosmos-emulatorn kan du växla till att använda ett Azure Cosmos-konto i molnet. Den här artikeln beskriver hur du installerar och använder emulatorn på Windows-, Linux-, macOS-och Windows Docker-miljöer.
 
@@ -80,7 +81,7 @@ Om du har använt standardinställningarna efter installationen sparas data som 
 
 ## <a name="use-the-emulator-on-windows"></a><a id="run-on-windows"></a>Använda emulatorn i Windows
 
-Azure Cosmos-emulatorn installeras på `C:\Program Files\Azure Cosmos DB Emulator` platsen som standard. Starta Azure Cosmos-emulatorn i Windows genom att välja **Start** -knappen eller trycka på Windows-tangenten. Börja skriva **Azure Cosmos-emulatorn**och välj emulatorn från listan över program.
+Azure Cosmos-emulatorn installeras på `C:\Program Files\Azure Cosmos DB Emulator` platsen som standard. Starta Azure Cosmos-emulatorn i Windows genom att välja **Start** -knappen eller trycka på Windows-tangenten. Börja skriva **Azure Cosmos-emulatorn** och välj emulatorn från listan över program.
 
 :::image type="content" source="./media/local-emulator/database-local-emulator-start.png" alt-text="Välj Start-knappen eller tryck på Windows-tangenten, börja skriva Azure Cosmos-emulatorn och välj emulatorn från listan över program":::
 
@@ -98,7 +99,7 @@ Azure Cosmos-emulatorn körs som standard på den lokala datorn ("localhost") so
 
 Du kan köra Azure Cosmos-emulatorn på Windows Docker-behållaren. Mer information finns i [Docker-hubben](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) för kommandot Docker pull och [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) `Dockerfile` . För närvarande fungerar inte emulatorn på Docker för Oracle Linux. Använd följande instruktioner för att köra emulatorn på Docker för Windows:
 
-1. När du har [Docker för Windows](https://www.docker.com/docker-windows) installerat växlar du till Windows-behållare genom att högerklicka på Docker-ikonen i verktygsfältet och välja **Växla till Windows-behållare**.
+1. När du har [Docker för Windows](https://www.docker.com/docker-windows) installerat växlar du till Windows-behållare genom att högerklicka på Docker-ikonen i verktygsfältet och välja **Växla till Windows-behållare** .
 
 1. Hämta därefter emulatoravbildningen från Docker-hubben genom att köra följande kommando i ditt favoritgränssnitt.
 
@@ -293,7 +294,7 @@ Använd följande steg om du arbetar med Mac:
 
 1. Öppna listan över certifikat och identifiera det som har namnet `localhost` .
 
-1. Öppna snabb menyn för det specifika objektet, Välj *Hämta objekt* och under *förtroende*  >  *när du använder det här certifikat* alternativet väljer du *alltid förtroende*. 
+1. Öppna snabb menyn för det specifika objektet, Välj *Hämta objekt* och under *förtroende*  >  *när du använder det här certifikat* alternativet väljer du *alltid förtroende* . 
 
    :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Välj Start-knappen eller tryck på Windows-tangenten, börja skriva Azure Cosmos-emulatorn och välj emulatorn från listan över program":::
   
@@ -328,7 +329,7 @@ Om du har flera datorer som använder ett enda nätverk och du konfigurerar emul
 
 Du kan köra emulatorn på ett lokalt nätverk. Om du vill aktivera nätverks åtkomst anger du `/AllowNetworkAccess` alternativet på [kommando raden](emulator-command-line-parameters.md), vilket även kräver att du anger `/Key=key_string` eller `/KeyFile=file_name` . Du kan använda `/GenKeyFile=file_name` för att skapa en fil med en slumpmässig nyckel längst fram. Sedan kan du skicka det till `/KeyFile=file_name` eller `/Key=contents_of_file` .
 
-Om du vill aktivera nätverks åtkomst för första gången ska användaren stänga av emulatorn och ta bort emulatorns data katalog *%localappdata%\CosmosDBEmulator*.
+Om du vill aktivera nätverks åtkomst för första gången ska användaren stänga av emulatorn och ta bort emulatorns data katalog *%localappdata%\CosmosDBEmulator* .
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Autentisera anslutningar när du använder emulator
 
@@ -458,11 +459,11 @@ Starta emulatorn från en administratörs [kommando tolk](emulator-command-line-
 
 Använd följande steg för att avinstallera emulatorn:
 
-1. Avsluta alla öppna instanser av den lokala emulatorn genom att högerklicka på ikonen för **Azure Cosmos-emulatorn** i system fältet och välj sedan **Avsluta**. Det kan ta någon minut för alla instanser att avslutas.
+1. Avsluta alla öppna instanser av den lokala emulatorn genom att högerklicka på ikonen för **Azure Cosmos-emulatorn** i system fältet och välj sedan **Avsluta** . Det kan ta någon minut för alla instanser att avslutas.
 
 1. Skriv **appar & funktioner** i sökrutan i Windows och välj **appar & funktioner (Systeminställningar)** resultat.
 
-1. I listan över appar bläddrar du till **Azure Cosmos DB emulatorn**, markerar den, klickar på **Avinstallera**, bekräftar och väljer **Avinstallera** igen.
+1. I listan över appar bläddrar du till **Azure Cosmos DB emulatorn** , markerar den, klickar på **Avinstallera** , bekräftar och väljer **Avinstallera** igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

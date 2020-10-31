@@ -3,12 +3,12 @@ title: Självstudie – distribuera grupp med flera behållare – YAML
 description: I den här självstudien får du lära dig hur du distribuerar en behållar grupp med flera behållare i Azure Container Instances genom att använda en YAML-fil med Azure CLI.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: f6ba9152003c68192ddc0fdffa5652bc0b6daa86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f1f13d4fa7e32b76988cdf356d5d1bb0528f824
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88750914"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091301"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Självstudie: Distribuera en grupp med flera behållare med hjälp av en YAML-fil
 
@@ -29,15 +29,15 @@ I den här självstudien följer du steg för steg hur du kör en enkel sidvagn-
 > [!NOTE]
 > Grupper med flera behållare är för närvarande begränsade till Linux-behållare.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="configure-a-yaml-file"></a>Konfigurera en YAML-fil
 
 Om du vill distribuera en grupp med flera behållare med kommandot [AZ container Create][az-container-create] i Azure CLI måste du ange behållar grupps konfigurationen i en yaml-fil. Skicka sedan YAML-filen som en parameter till kommandot.
 
-Börja med att kopiera följande YAML till en ny fil med namnet **Deploy-ACI. yaml**. I Azure Cloud Shell kan du använda Visual Studio Code för att skapa filen i din arbets katalog:
+Börja med att kopiera följande YAML till en ny fil med namnet **Deploy-ACI. yaml** . I Azure Cloud Shell kan du använda Visual Studio Code för att skapa filen i din arbets katalog:
 
 ```
 code deploy-aci.yaml
@@ -115,7 +115,7 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 
 Om du vill visa det program som körs, navigerar du till dess IP-adress i webbläsaren. IP-adressen är till exempel `52.168.26.124` utdata i följande exempel:
 
-```bash
+```console
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
 ----------------  ---------------  --------  --------------------------------------------------------------------------------------------------  --------------------  ---------  ---------------  --------  ----------
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus

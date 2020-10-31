@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: cbd5dbd81cf8cda117447a15d4a73ae8a546f181
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0d5aded62c9c3990a3fa102863f4850bbfda6702
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482527"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088694"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Skala ett Azure Cosmos DB API för Cassandra-konto elastiskt
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Det finns flera olika alternativ för att utforska den elastiska natur som Azure Cosmos DB-API: n för Cassandra. För att förstå hur du skalar effektivt i Azure Cosmos DB är det viktigt att förstå hur du etablerar rätt mängd enheter för programbegäran (RU/s) för att hantera prestanda kraven i systemet. Mer information om enheter för programbegäran finns i artikeln om [enheter för programbegäran](request-units.md) . 
 
@@ -62,7 +63,7 @@ Fördelen med den här metoden är att du kan svara på skalnings behov dynamisk
 
 Förutom standard (manuell) eller programmerings sätt för etablering av data flöde kan du också konfigurera Azure Cosmos-behållare i autoskalning av allokerat data flöde. Automatisk skalning kommer automatiskt att skalas efter förbruknings behoven inom de angivna RU-intervallen utan att kompromissa med service avtal. Mer information finns i avsnittet [Skapa Azure Cosmos-behållare och databaser i den automatiska skalnings](provision-throughput-autoscale.md) artikeln.
 
-Fördelen med den här metoden är att det är det enklaste sättet att hantera skalnings behoven i systemet. Det kommer inte att tillämpa Rate-Limiting **inom de konfigurerade ru-intervallen**. Nack delen är att om skalnings behoven i systemet är förutsägbara kan autoskalning vara ett mindre kostnads effektivt sätt att hantera dina skalnings behov än att använda de beskrivna kontroll planet eller SDK-nivå närmast ovan.
+Fördelen med den här metoden är att det är det enklaste sättet att hantera skalnings behoven i systemet. Det kommer inte att tillämpa Rate-Limiting **inom de konfigurerade ru-intervallen** . Nack delen är att om skalnings behoven i systemet är förutsägbara kan autoskalning vara ett mindre kostnads effektivt sätt att hantera dina skalnings behov än att använda de beskrivna kontroll planet eller SDK-nivå närmast ovan.
 
 Om du vill ställa in eller ändra Max genom strömning (ru: er) för autoskalning med CQL, använder du följande (Ersätt nyckel utrymme/tabell namn enligt detta):
 

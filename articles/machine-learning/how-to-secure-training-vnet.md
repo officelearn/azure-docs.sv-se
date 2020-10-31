@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 232260ada4d810127584e675480f91d0213e3953
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425094"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091505"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning utbildnings miljö med virtuella nätverk
 
@@ -36,7 +36,7 @@ I den här artikeln får du lära dig att skydda följande utbildnings beräknin
 > - Virtuell dator
 > - HDInsight-kluster
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Läs artikeln [Översikt över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
@@ -52,7 +52,7 @@ I den här artikeln får du lära dig att skydda följande utbildnings beräknin
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Beräknings kluster & instanser 
 
-Om du vill använda en [hanterad Azure Machine Learning __beräknings mål__ ](concept-compute-target.md#azure-machine-learning-compute-managed) eller en [Azure Machine Learning beräknings __instans__ ](concept-compute-instance.md) i ett virtuellt nätverk måste följande nätverks krav uppfyllas:
+Om du vill använda en [hanterad Azure Machine Learning __beräknings mål__](concept-compute-target.md#azure-machine-learning-compute-managed) eller en [Azure Machine Learning beräknings __instans__](concept-compute-instance.md) i ett virtuellt nätverk måste följande nätverks krav uppfyllas:
 
 > [!div class="checklist"]
 > * Det virtuella nätverket måste finnas i samma prenumeration och region som Azure Machine Learning-arbetsytan.
@@ -60,10 +60,11 @@ Om du vill använda en [hanterad Azure Machine Learning __beräknings mål__ ](c
 > * Kontrol lera om dina säkerhets principer eller lås på det virtuella nätverkets prenumeration eller resurs grupp begränsar behörigheter för hantering av det virtuella nätverket. Om du planerar att skydda det virtuella nätverket genom att begränsa trafiken lämnar du vissa portar öppna för beräknings tjänsten. Mer information finns i avsnittet [nödvändiga portar](#mlcports) .
 > * Om du ska lagra flera beräknings instanser eller kluster i ett virtuellt nätverk kan du behöva begära en kvot ökning för en eller flera av dina resurser.
 > * Om Azure Storage kontona för arbets ytan också är skyddade i ett virtuellt nätverk måste de finnas i samma virtuella nätverk som Azure Machine Learning beräknings instans eller kluster. 
-> * För att Compute instance Jupyter-funktionen ska fungera kontrollerar du att WebSocket-kommunikation inte är inaktiverat. Kontrol lera att nätverket tillåter WebSocket-anslutningar till *. instances.azureml.net och *. instances.azureml.ms.
-
+> * För att Compute instance Jupyter-funktionen ska fungera kontrollerar du att WebSocket-kommunikation inte är inaktiverat. Kontrol lera att nätverket tillåter WebSocket-anslutningar till *. instances.azureml.net och *. instances.azureml.ms. 
+> * När beräknings instansen distribueras i en privat länk arbets yta kan den bara nås från det virtuella nätverket. Om du använder en anpassad DNS-eller Hosts-fil lägger du till en post för `<instance-name>.<region>.instances.azureml.ms` med privat IP-adress för arbets ytans privata slut punkt. Mer information finns i den [anpassade DNS-](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns) artikeln.
+    
 > [!TIP]
-> Machine Learning beräknings instans eller kluster allokerar automatiskt ytterligare nätverks resurser __i resurs gruppen som innehåller det virtuella nätverket__. För varje beräknings instans eller kluster allokerar tjänsten följande resurser:
+> Machine Learning beräknings instans eller kluster allokerar automatiskt ytterligare nätverks resurser __i resurs gruppen som innehåller det virtuella nätverket__ . För varje beräknings instans eller kluster allokerar tjänsten följande resurser:
 > 
 > * En nätverks säkerhets grupp
 > * En offentlig IP-adress
@@ -79,7 +80,7 @@ Om du planerar att skydda det virtuella nätverket genom att begränsa nätverks
 
 Batch-tjänsten lägger till nätverks säkerhets grupper (NSG: er) på nivån nätverks gränssnitt (NIC) som är anslutna till virtuella datorer. De här NSG:erna konfigurerar automatiskt regler för inkommande och utgående trafik för att tillåta följande trafik:
 
-- Inkommande TCP-trafik på portarna 29876 och 29877 från en __service tag__ i __BatchNodeManagement__.
+- Inkommande TCP-trafik på portarna 29876 och 29877 från en __service tag__ i __BatchNodeManagement__ .
 
     ![En regel för inkommande trafik som använder BatchNodeManagement-tjänst tag gen](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -89,7 +90,7 @@ Batch-tjänsten lägger till nätverks säkerhets grupper (NSG: er) på nivån n
 
 - Utgående trafik på vilken port som helst till Internet.
 
-- För Compute instance inkommande TCP-trafik på port 44224 från en __service tag__ i __AzureMachineLearning__.
+- För Compute instance inkommande TCP-trafik på port 44224 från en __service tag__ i __AzureMachineLearning__ .
 
 > [!IMPORTANT]
 > Var försiktig om du ändrar eller lägger till regler för inkommande eller utgående trafik i Batch-konfigurerade NSG:er. Om en NSG blockerar kommunikation till datornoderna, anger beräknings tjänsten status för datornoderna till oanvändbar.
@@ -110,9 +111,9 @@ Använd följande steg om du inte vill använda de utgående standard reglerna o
 
 - Neka utgående Internet anslutning med NSG-reglerna.
 
-- För en __beräknings instans__ eller ett __beräknings kluster__begränsar du utgående trafik till följande objekt:
-   - Azure Storage med hjälp av __tjänst tag gen__ för __Storage. RegionName__. Där `{RegionName}` är namnet på en Azure-region.
-   - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry. RegionName__. Där `{RegionName}` är namnet på en Azure-region.
+- För en __beräknings instans__ eller ett __beräknings kluster__ begränsar du utgående trafik till följande objekt:
+   - Azure Storage med hjälp av __tjänst tag gen__ för __Storage. RegionName__ . Där `{RegionName}` är namnet på en Azure-region.
+   - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry. RegionName__ . Där `{RegionName}` är namnet på en Azure-region.
    - Azure Machine Learning med hjälp av __service tag gen__ för __AzureMachineLearning__
    - Azure Resource Manager med hjälp av __service tag gen__ för __AzureResourceManager__
    - Azure Active Directory med hjälp av __service tag gen__ för __AzureActiveDirectory__
@@ -122,7 +123,7 @@ Regel konfigurationen för NSG i Azure Portal visas i följande bild:
 [![Utgående NSG-regler för Machine Learning-beräkning](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> Om du planerar att använda standard Docker-avbildningar som tillhandahålls av Microsoft och aktiverar hanterade beroenden, måste du också använda följande __service märken__:
+> Om du planerar att använda standard Docker-avbildningar som tillhandahålls av Microsoft och aktiverar hanterade beroenden, måste du också använda följande __service märken__ :
 >
 > * __MicrosoftContainerRegistry__
 > * __AzureFrontDoor.FirstParty__
@@ -176,7 +177,7 @@ Du kan göra detta på två sätt:
         > * [Azure IP-intervall och service märken för Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
         > * [Azure IP-intervall och service märken för Azure Kina](https://www.microsoft.com//download/details.aspx?id=57062)
     
-    När du lägger till UDR definierar du vägen för varje relaterat batch-IP-adressprefix och anger __nästa hopp typ__ till __Internet__. Följande bild visar ett exempel på den här UDR i Azure Portal:
+    När du lägger till UDR definierar du vägen för varje relaterat batch-IP-adressprefix och anger __nästa hopp typ__ till __Internet__ . Följande bild visar ett exempel på den här UDR i Azure Portal:
 
     ![Exempel på en UDR för ett adressprefix](./media/how-to-enable-virtual-network/user-defined-route.png)
 
@@ -252,7 +253,7 @@ När du har skapat processen tränar du din modell genom att använda klustret i
 
 Om du använder antecknings böcker på en Azure-beräknings instans måste du se till att din bärbara dator körs på en beräknings resurs bakom samma virtuella nätverk och undernät som dina data. 
 
-Du måste konfigurera beräknings instansen så att den är i samma virtuella nätverk när du skapar under **Avancerade inställningar**  >  **Konfigurera virtuellt nätverk**. Det går inte att lägga till en befintlig beräknings instans i ett virtuellt nätverk.
+Du måste konfigurera beräknings instansen så att den är i samma virtuella nätverk när du skapar under **Avancerade inställningar**  >  **Konfigurera virtuellt nätverk** . Det går inte att lägga till en befintlig beräknings instans i ett virtuellt nätverk.
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
@@ -285,21 +286,21 @@ Skapa ett virtuellt dator kluster eller HDInsight-kluster med hjälp av Azure Po
 
 Tillåt Azure Machine Learning att kommunicera med SSH-porten på den virtuella datorn eller klustret och konfigurera en käll post för nätverks säkerhets gruppen. SSH-porten är vanligt vis port 22. Utför följande åtgärder för att tillåta trafik från den här källan:
 
-1. I list rutan __källa__ väljer du __service tag__.
+1. I list rutan __källa__ väljer du __service tag__ .
 
-1. I list rutan __käll tjänst tag__ väljer du __AzureMachineLearning__.
+1. I list rutan __käll tjänst tag__ väljer du __AzureMachineLearning__ .
 
     ![Regler för inkommande trafik för att utföra experimentering i ett virtuellt nätverk eller HDInsight-kluster i ett virtuellt nätverk](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
 1. I list rutan __käll port intervall__ väljer du __*__ .
 
-1. I list rutan __mål__ väljer du __valfri__.
+1. I list rutan __mål__ väljer du __valfri__ .
 
-1. I list rutan __mål Port intervall__ väljer du __22__.
+1. I list rutan __mål Port intervall__ väljer du __22__ .
 
-1. Under __protokoll__väljer du __valfri__.
+1. Under __protokoll__ väljer du __valfri__ .
 
-1. Under __åtgärd__väljer du __Tillåt__.
+1. Under __åtgärd__ väljer du __Tillåt__ .
 
 Behåll standard reglerna för utgående trafik för nätverks säkerhets gruppen. Mer information finns i standard säkerhets regler i [säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 

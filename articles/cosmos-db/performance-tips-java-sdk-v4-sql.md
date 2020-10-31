@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 49827b7387edc1e914bbd58c63df2db74f4ed17b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475234"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091284"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Prestandatips för Azure Cosmos DB Java SDK v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -38,7 +39,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 * **Anslutnings läge: Använd direkt läge**
 <a id="direct-connection"></a>
     
-    Standard anslutnings läget för Java SDK är direkt. Du kan konfigurera anslutnings läget i klient verktyget med hjälp av metoderna *directMode ()* eller *gatewayMode ()* , som du ser nedan. Om du vill konfigurera något av de båda alternativen med standardinställningar anropar du någon av metoderna utan argument. Annars skickar du en klass instans för konfigurations inställningar som argument (*DirectConnectionConfig* för *directMode ()*,  *GatewayConnectionConfig* för *gatewayMode ()*.). Mer information om olika anslutnings alternativ finns i artikeln [anslutnings lägen](sql-sdk-connection-modes.md) .
+    Standard anslutnings läget för Java SDK är direkt. Du kan konfigurera anslutnings läget i klient verktyget med hjälp av metoderna *directMode ()* eller *gatewayMode ()* , som du ser nedan. Om du vill konfigurera något av de båda alternativen med standardinställningar anropar du någon av metoderna utan argument. Annars skickar du en klass instans för konfigurations inställningar som argument ( *DirectConnectionConfig* för *directMode ()* ,  *GatewayConnectionConfig* för *gatewayMode ()* .). Mer information om olika anslutnings alternativ finns i artikeln [anslutnings lägen](sql-sdk-connection-modes.md) .
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java v4 SDK
 
@@ -106,7 +107,7 @@ Mer information finns i [Windows](../virtual-network/create-vm-accelerated-netwo
 
 * **Använd den lägsta konsekvens nivå som krävs för ditt program**
 
-    När du skapar en *CosmosClient*används standard konsekvensen om den inte uttryckligen anges är *session*. Om konsekvensen av *sessionen* inte krävs av din program logik ställer du in *konsekvensen* på *eventuell*. Obs! Vi rekommenderar att du använder minst konsekvens för *sessioner* i program som använder Azure Cosmos DB ändra feed-processorn.
+    När du skapar en *CosmosClient* används standard konsekvensen om den inte uttryckligen anges är *session* . Om konsekvensen av *sessionen* inte krävs av din program logik ställer du in *konsekvensen* på *eventuell* . Obs! Vi rekommenderar att du använder minst konsekvens för *sessioner* i program som använder Azure Cosmos DB ändra feed-processorn.
 
 * **Använd asynkront API till maximalt allokerat data flöde**
 
@@ -148,13 +149,13 @@ Mer information finns i [Windows](../virtual-network/create-vm-accelerated-netwo
 
     I Azure Cosmos DB Java SDK V4 är Direct-läget det bästa valet för att förbättra databasens prestanda med de flesta arbets belastningar. 
 
-    * ***Översikt över direkt läge**_
+    * ***Översikt över direkt läge** _
 
         :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Bild av Azure Cosmos DB anslutnings princip" border="false":::
 
-        Arkitekturen på klient sidan som används i direkt läge möjliggör förutsägbar nätverks användning och multiplex-åtkomst till Azure Cosmos DB repliker. Diagrammet ovan visar hur Direct-läge dirigerar klient begär anden till repliker i Cosmos DB-backend-servern. Arkitekturen för direkt läge allokerar upp till 10 _*kanaler** på klient sidan per DB-replik. En kanal är en TCP-anslutning som föregås av en buffert för begäran, som är en djup på 30 begär Anden. Kanaler som tillhör en replik allokeras dynamiskt efter behov av replikens **tjänst slut punkt**. När användaren utfärdar en begäran i direkt läge dirigerar **TransportClient** begäran till rätt tjänst slut punkt utifrån partitionsnyckel. **Begär ande kön** buffrar begär Anden före tjänst slut punkten.
+        Arkitekturen på klient sidan som används i direkt läge möjliggör förutsägbar nätverks användning och multiplex-åtkomst till Azure Cosmos DB repliker. Diagrammet ovan visar hur Direct-läge dirigerar klient begär anden till repliker i Cosmos DB-backend-servern. Arkitekturen för direkt läge allokerar upp till 10 _ *kanaler* * på klient sidan per DB-replik. En kanal är en TCP-anslutning som föregås av en buffert för begäran, som är en djup på 30 begär Anden. Kanaler som tillhör en replik allokeras dynamiskt efter behov av replikens **tjänst slut punkt** . När användaren utfärdar en begäran i direkt läge dirigerar **TransportClient** begäran till rätt tjänst slut punkt utifrån partitionsnyckel. **Begär ande kön** buffrar begär Anden före tjänst slut punkten.
 
-    * ***Konfigurations alternativ för direkt läge**_
+    * ***Konfigurations alternativ för direkt läge** _
 
         Om ett beteende som inte är standard för direkt läge önskas, skapar du en _DirectConnectionConfig *-instans och anpassar dess egenskaper och skickar sedan den anpassade egenskaps instansen till metoden *directMode ()* i Azure Cosmos DB client Builder.
 
@@ -162,7 +163,7 @@ Mer information finns i [Windows](../virtual-network/create-vm-accelerated-netwo
 
         I det första steget använder du följande rekommenderade konfigurations inställningar nedan. Dessa *DirectConnectionConfig* -alternativ är avancerade konfigurations inställningar som kan påverka SDK-prestanda på oväntade sätt. Vi rekommenderar att användarna undviker att ändra dem om de inte känner sig för att förstå kompromisserna och det är absolut nödvändigt. Kontakta Azure Cosmos DB- [teamet](mailto:CosmosDBPerformanceSupport@service.microsoft.com) om du stöter på problem på det här specifika ämnet.
 
-        | Konfigurations alternativ       | Standard   |
+        | Konfigurations alternativ       | Default   |
         | :------------------:       | :-----:   |
         | idleConnectionTimeout      | "PT0"     |
         | maxConnectionsPerEndpoint  | "130"     |
@@ -174,13 +175,13 @@ Mer information finns i [Windows](../virtual-network/create-vm-accelerated-netwo
 
     Azure Cosmos DB Java SDK v4 stöder parallella frågor som gör att du kan fråga en partitionerad samling parallellt. Mer information finns i [kod exempel](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) för att arbeta med Azure Cosmos DB Java SDK v4. Parallella frågor är utformade för att förbättra svars tid och data flöde för deras serie motsvarighet.
 
-    * ***Justera setMaxDegreeOfParallelism \: ** _
+    * ***Justera setMaxDegreeOfParallelism \:** _
     
         Parallella frågor fungerar genom att fråga flera partitioner parallellt. Data från en enskild partitionerad samling hämtas dock i serie med avseende på frågan. Använd setMaxDegreeOfParallelism för att ställa in antalet partitioner som har maximal chans att uppnå den mest utförda frågan, förutsatt att alla andra system villkor är desamma. Om du inte känner till antalet partitioner kan du använda setMaxDegreeOfParallelism för att ange ett högt antal, och systemet väljer det lägsta (antal partitioner, indata från användaren) som den högsta graden av parallellitet.
 
         Det är viktigt att Observera att parallella frågor ger de bästa fördelarna om data är jämnt fördelade över alla partitioner med avseende på frågan. Om den partitionerade samlingen är partitionerad, så att alla eller en majoritet av de data som returneras av en fråga är koncentrerade i några partitioner (en partition i värsta fall), skulle prestandan för frågan bli Flask hals av dessa partitioner.
 
-    _ ***Justering setMaxBufferedItemCount \: **_
+    _ * **Justering setMaxBufferedItemCount \:** _
     
         Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
@@ -196,7 +197,7 @@ _ **Skala ut din klient-arbets belastning**
 
 * **Justera sid storleken för frågor/läsa feeds för bättre prestanda**
 
-    När du utför en Mass läsning av dokument med hjälp av funktionen för att läsa feeds (till exempel *readItems*) eller när du utfärdar en SQL-fråga (*queryItems*) returneras resultatet i ett segment om resultat mängden är för stor. Som standard returneras resultaten i segment om 100 objekt eller 1 MB, beroende på vilken gräns som nåtts först.
+    När du utför en Mass läsning av dokument med hjälp av funktionen för att läsa feeds (till exempel *readItems* ) eller när du utfärdar en SQL-fråga ( *queryItems* ) returneras resultatet i ett segment om resultat mängden är för stor. Som standard returneras resultaten i segment om 100 objekt eller 1 MB, beroende på vilken gräns som nåtts först.
 
     Anta att ditt program utfärdar en fråga till Azure Cosmos DB och att programmet kräver en fullständig uppsättning frågeresultat för att kunna slutföra uppgiften. Om du vill minska antalet nätverks fördröjningar som krävs för att hämta alla tillämpliga resultat kan du öka sid storleken genom att justera fältet [x-MS-Max-item-Count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) Request Head. 
 
@@ -231,11 +232,11 @@ _ **Skala ut din klient-arbets belastning**
 
     Av olika orsaker kanske du vill eller behöver lägga till loggning i en tråd som genererar hög data flöde för begäran. Om målet är att helt fylla en behållares etablerade data flöde med begär Anden som genereras av den här tråden, kan loggnings optimeringar förbättra prestanda avsevärt.
 
-    * ***Konfigurera en asynkron loggning**_
+    * ***Konfigurera en asynkron loggning** _
 
         Svars tiden för en synkron loggning är nödvändigt vis faktorer i den övergripande svars tids beräkningen för tråden för att skapa förfrågningar. En asynkron loggning, till exempel [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0) , rekommenderas för att koppla från loggnings resurser från dina program trådar med höga prestanda.
 
-    _ ***Inaktivera nettning loggning**_
+    _ * **Inaktivera nettning loggning** _
 
         Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 

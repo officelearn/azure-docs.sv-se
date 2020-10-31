@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: c66845a801b93db4ba718bc0aba5c39eabdd24b4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 10f2158edc12e7242c65a2e8ba58a18d390d47c8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791978"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091318"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Skrivskyddad replik i Azure Database for MySQL
 
@@ -188,7 +188,7 @@ Användare på käll servern replikeras till läsa repliker. Du kan bara ansluta
 I syfte att förhindra att data blir osynkroniserade samt att undvika potentiell dataförlust eller skadade data är vissa serverparametrar låsta från att uppdateras vid användning av skrivskyddade repliker.
 
 Följande Server parametrar är låsta på både käll-och replik servern:
-- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
+- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
 [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler)Parametern är låst på replik servrarna. 
@@ -205,7 +205,7 @@ GTID är inaktive rad som standard. När GTID har Aktiver ATS kan du inte inakti
 
 Om GTID har Aktiver ATS på en käll server kommer nya repliker också ha GTID aktiverat och använda GTID-replikering. Om du vill upprätthålla konsekvent replikering kan du inte uppdatera `gtid_mode` på käll-eller replik servrar.
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 
 - Det finns inte stöd för att skapa en replik av en replik.
 - InMemory-tabeller kan orsaka att repliker blir osynkroniserade. Detta är en begränsning av MySQL-replikeringstrafiken. Mer information finns i [referens dokumentationen för MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) .

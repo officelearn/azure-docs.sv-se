@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: c37224a3a455abcf3de62998cb65e1d66a1bb0f2
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910720"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088887"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD för API Management med Azure Resource Manager-mallar
 
@@ -67,7 +67,8 @@ API-utvecklare möter utmaningarna när de arbetar med Resource Manager-mallar:
 
 * API-utgivare kan verifiera pull-begäran och se till att ändringarna är säkra och kompatibla. De kan till exempel kontrol lera om endast HTTPS tillåts kommunicera med API: et. De flesta verifieringar kan automatiseras som ett steg i CI/CD-pipeline.
 
-* När ändringarna har godkänts och sammanfogats kan API-utgivare välja att distribuera dem till produktions instansen antingen enligt schema eller på begäran. De kan automatisera distributionen av mallarna genom att använda [GitHub-åtgärder](https://github.com/Azure/apimanagement-devops-samples), [Azure-pipelines](/devops/pipelines/), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)eller andra verktyg.
+* När ändringarna har godkänts och sammanfogats kan API-utgivare välja att distribuera dem till produktions instansen antingen enligt schema eller på begäran. Distributionen av mallarna kan automatiseras med hjälp av [GitHub-åtgärder](https://github.com/Azure/apimanagement-devops-samples), Azure- [pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)eller andra verktyg.
+
 
 Med den här metoden kan en organisation automatisera distributionen av API-ändringar till API Management instanser, och det är enkelt att befordra ändringar från en miljö till en annan. Eftersom olika API-utvecklings team kommer att arbeta med olika uppsättningar API-mallar och filer, förhindrar det störningar mellan olika team.
 

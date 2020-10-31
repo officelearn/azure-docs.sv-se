@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: f7fd40c48f94b4337c5ec342499203f83763299b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909938"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089649"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Välja mellan standard (manuell) och autoskalning av allokerat data flöde 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB stöder två typer eller erbjudanden för etablerade data flöden: standard (manuell) och autoskalning. Båda data flödes typerna är lämpliga för verksamhets kritiska arbets belastningar som kräver höga prestanda och skalbarhet, och som backas upp av samma Azure Cosmos DB service avtal för data flöde, tillgänglighet, svars tid och konsekvens.
 

@@ -11,14 +11,19 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 4a63a54f5ad4d1bcccecb1d1a4892ef55c238b92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0033f4919e4e4e5e56e4057e00c393ae7be1ca44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319188"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090570"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurera värdbaserad UI-upplevelse
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Anpassad sökning i Bing tillhandahåller ett värdbaserad gränssnitt som du enkelt kan integrera med dina webb sidor och webb program som ett JavaScript-kodfragment. Med hjälp av Anpassad sökning i Bing Portal kan du konfigurera alternativ för layout, färg och sökning i användar gränssnittet.
 
@@ -32,7 +37,7 @@ Följ dessa steg om du vill konfigurera ett värdbaserat användar gränssnitt f
   
 2. Välj din Anpassad sökning i Bing-instans.
 
-3. Klicka på fliken för **värdbaserat användargränssnitt**.  
+3. Klicka på fliken för **värdbaserat användargränssnitt** .  
   
 4. Välj en layout.
 
@@ -40,14 +45,14 @@ Följ dessa steg om du vill konfigurera ett värdbaserat användar gränssnitt f
     - Endast resultat: visar endast Sök resultat, utan en sökruta. När du använder den här layouten måste du ange Sök frågan ( `&q=<query string>` ). Lägg till frågeparametern i fråge-URL: en i JavaScript-kodfragmentet eller på HTML-slutpunktens länk.
     - Pop-on: innehåller en sökruta och visar Sök resultatet i ett glidande överlägg.
 
-5. Välj ett färgtema. Du kan anpassa färgerna så att de passar ditt program genom att klicka på **Anpassa tema**. Om du vill ändra en färg anger du antingen RGB HEX-värdet (till exempel) som färg `#366eb8` eller klickar på förhands visningen av färg.
+5. Välj ett färgtema. Du kan anpassa färgerna så att de passar ditt program genom att klicka på **Anpassa tema** . Om du vill ändra en färg anger du antingen RGB HEX-värdet (till exempel) som färg `#366eb8` eller klickar på förhands visningen av färg.
 
    Du kan förhandsgranska dina ändringar på höger sida av portalen. Om du klickar på **Återställ till standard** återställs dina ändringar till standard färgerna för det valda temat.
 
    > [!NOTE]
    > Överväg åtkomst när du väljer färger.
 
-6. Under **ytterligare konfigurationer**anger du värden efter behov för din app. De här inställningarna är valfria. Information om hur du använder eller tar bort dem finns i förhands gransknings fönstret till höger. Tillgängliga konfigurations alternativ:  
+6. Under **ytterligare konfigurationer** anger du värden efter behov för din app. De här inställningarna är valfria. Information om hur du använder eller tar bort dem finns i förhands gransknings fönstret till höger. Tillgängliga konfigurations alternativ:  
 
 7. Ange Sök prenumerations nyckeln eller Välj en i list rutan. List rutan fylls i med nycklar från ditt Azure-kontos prenumerationer. Se [COGNITIVE Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
 
@@ -91,7 +96,7 @@ Om du vill ha mer information, inklusive ditt anpassade konfigurations-ID, går 
 
 ## <a name="configuration-options"></a>Konfigurationsalternativ
 
-Du kan konfigurera beteendet för ditt värdbaserade gränssnitt genom att klicka på **ytterligare konfigurationer**och ange värden. De här inställningarna är valfria. Information om hur du använder eller tar bort dem finns i förhands gransknings fönstret till höger. 
+Du kan konfigurera beteendet för ditt värdbaserade gränssnitt genom att klicka på **ytterligare konfigurationer** och ange värden. De här inställningarna är valfria. Information om hur du använder eller tar bort dem finns i förhands gransknings fönstret till höger. 
 
 ### <a name="web-search-configurations"></a>Konfigurationer för Webbs ökning
 
@@ -100,7 +105,7 @@ Du kan konfigurera beteendet för ditt värdbaserade gränssnitt genom att klick
 - Webb resultat per sida: antal Webbs öknings resultat som ska visas i taget (det högsta är 50 resultat per sida).
 - Bild beskrivning: anger om bilder visas med Sök resultat.
 
-Följande konfigurationer visas om du klickar på **Visa avancerade konfigurationer**:
+Följande konfigurationer visas om du klickar på **Visa avancerade konfigurationer** :
 
 - Markera ord: anger om resultat visas med Sök termer i fetstil.
 - Länk mål: anger om webb sidan öppnas i en ny flik i webbläsaren (tom) eller samma flik i webbläsaren (Self) när användaren klickar på ett Sök resultat.
@@ -110,7 +115,7 @@ Följande konfigurationer visas om du klickar på **Visa avancerade konfiguratio
 - Bild resultat har Aktiver ATS: avgör om bilds ökning är aktiverat (fliken bilder visas överst på sidan).
 - Bild resultat per sida: antal bilds öknings resultat som ska visas i taget (det högsta är 150 resultat per sida).
 
-Följande konfiguration visas om du klickar på **Visa avancerade konfigurationer**.  
+Följande konfiguration visas om du klickar på **Visa avancerade konfigurationer** .  
   
 - Aktivera filter: lägger till filter som användaren kan använda för att filtrera de bilder som Bing returnerar. Användaren kan till exempel filtrera resultaten enbart för animerade GIF-filer.
 
@@ -119,7 +124,7 @@ Följande konfiguration visas om du klickar på **Visa avancerade konfiguratione
 - Video resultat har Aktiver ATS: avgör om Videos ökning är aktiverat (fliken videor visas överst på sidan).
 - Video resultat per sida: antal video Sök resultat som ska visas i taget (det högsta är 150 resultat per sida).
 
-Följande konfiguration visas om du klickar på **Visa avancerade konfigurationer**.  
+Följande konfiguration visas om du klickar på **Visa avancerade konfigurationer** .  
   
 - Aktivera filter: lägger till filter som användaren kan använda för att filtrera videor som Bing returnerar. Användaren kan till exempel filtrera resultaten för videor med en bestämd upplösning eller videor som identifierats under de senaste 24 timmarna.
 
@@ -128,7 +133,7 @@ Följande konfiguration visas om du klickar på **Visa avancerade konfiguratione
 - Sid rubrik: text som visas i rubrik ytan på sidan Sök resultat (inte för popup-överlayout).
 - Verktygsfälts tema: anger bakgrunds färgen för rubrik ytan på Sök Resultat sidan.
 
-Följande konfigurationer visas om du klickar på **Visa avancerade konfigurationer**.  
+Följande konfigurationer visas om du klickar på **Visa avancerade konfigurationer** .  
 
 |Column1  |Column2  |
 |---------|---------|

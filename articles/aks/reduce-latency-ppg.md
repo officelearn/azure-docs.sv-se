@@ -4,62 +4,31 @@ description: Lär dig hur du använder närhets placerings grupper för att mins
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 10/19/2020
 author: jluk
-ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a96489495abe3bfbed3030b3e08ff121c5c7cddf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986720"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090805"
 ---
-# <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Minska latens med närhets placerings grupper (förhands granskning)
+# <a name="reduce-latency-with-proximity-placement-groups"></a>Minska latens med närhets placerings grupper
 
 > [!Note]
 > När du använder närhets placerings grupper på AKS gäller samplaceringen endast för agent-noderna. Noden till noden och motsvarande värdbaserade Pod till Pod-fördröjningen har förbättrats. Samplaceringen påverkar inte placeringen av ett klusters kontroll plan.
 
 När du distribuerar ditt program i Azure skapar spridning av virtuella datorer i regioner och tillgänglighets zoner nätverks svars tid, vilket kan påverka programmets övergripande prestanda. En närhets placerings grupp är en logisk gruppering som används för att se till att Azure Compute-resurser är fysiskt placerade nära varandra. Vissa program som spel, teknik simuleringar och handel med hög frekvens (HFT) kräver låg latens och uppgifter som slutförs snabbt. För högpresterande data behandlings scenarier (HPC), till exempel dessa, bör du överväga att använda [närhets placerings grupper](../virtual-machines/linux/co-location.md#proximity-placement-groups) (PPG) för klustrets noder.
 
-## <a name="limitations"></a>Begränsningar
+## <a name="before-you-begin"></a>Innan du börjar
+
+Den här artikeln kräver att du kör Azure CLI version 2,14 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+
+### <a name="limitations"></a>Begränsningar
 
 * En närhets placerings grupp kan mappas till högst en tillgänglighets zon.
 * En Node-pool måste använda Virtual Machine Scale Sets för att associera en närhets placerings grupp.
 * En Node-pool kan bara associera en närhets placerings grupp i nodens skapande tid.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="before-you-begin"></a>Innan du börjar
-
-Du måste ha följande resurser installerade:
-
-- Tillägget AKS-Preview 0.4.53
-
-### <a name="set-up-the-preview-feature-for-proximity-placement-groups"></a>Konfigurera för hands versions funktionen för närhet av placerings grupper
-
-> [!IMPORTANT]
-> När du använder närhets placerings grupper med AKS-noder, gäller samplaceringen endast för agent-noderna. Noden till noden och motsvarande värdbaserade Pod till Pod-fördröjningen har förbättrats. Samplaceringen påverkar inte placeringen av ett klusters kontroll plan.
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "ProximityPlacementGroupPreview"
-```
-
-Det kan ta flera minuter för registreringen. Använd kommandot nedan för att kontrol lera att funktionen är registrerad:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/ProximityPlacementGroupPreview')].{Name:name,State:properties.state}"
-```
-
-Under för hands versionen behöver du *AKS-Preview CLI-* tillägget för att använda närhets placerings grupper. Använd kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## <a name="node-pools-and-proximity-placement-groups"></a>Placerings grupper för resurspooler och närhet
 

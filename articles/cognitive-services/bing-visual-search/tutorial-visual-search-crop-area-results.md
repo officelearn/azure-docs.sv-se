@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/31/2019
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 84cbdfbf4d34e1779fc119e4b6a92a3bbec88bdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d62ea00246123dedb386f168355cbf2834efc2ef
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88925138"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088802"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Självstudie: Beskär en avbildning med Visuell sökning i Bing SDK för C #
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Med Visuell sökning i Bing SDK kan du beskära en avbildning innan du hittar liknande online-avbildningar. Det här programmet Beskär en enskild person från en avbildning som innehåller flera personer och returnerar sedan Sök resultaten som innehåller liknande avbildningar som finns online.
 
@@ -32,7 +37,7 @@ Den här självstudien visar hur du:
 > * Ta emot och hantera svaret
 > * Hitta URL: er för åtgärds objekt i svaret
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En version av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).

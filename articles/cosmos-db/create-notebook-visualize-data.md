@@ -7,18 +7,19 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24ef78d44a1a632b86bf62e309960dd74b609c81
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85961106"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088819"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Självstudie: skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här artikeln beskriver hur du använder inbyggda Jupyter-anteckningsböcker för att importera exempel på detalj handels data till Azure Cosmos DB. Du kommer att se hur du använder SQL-och Azure Cosmos DB Magic-kommandon för att köra frågor, analysera data och visualisera resultaten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Aktivera stöd för bärbara datorer när du skapar ett Azure Cosmos-konto](enable-notebooks.md)
 
@@ -28,7 +29,7 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
 
 1. Gå till ditt Azure Cosmos-konto och öppna **datautforskaren.**
 
-1. Gå till fliken **antecknings böcker** , Välj `…` bredvid **Mina antecknings böcker** och skapa en **ny antecknings bok**. Välj **python 3** som standard kernel.
+1. Gå till fliken **antecknings böcker** , Välj `…` bredvid **Mina antecknings böcker** och skapa en **ny antecknings bok** . Välj **python 3** som standard kernel.
 
    :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Skapa en ny antecknings bok&quot;:::
 

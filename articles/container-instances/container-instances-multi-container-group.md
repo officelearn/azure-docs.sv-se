@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du distribuerar en b
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 5238d16af31e30a4ae3a7d4cc01fbbd93373cfeb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: bc956bed8324398c2d60f4641cd0bcb821fb51c2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737587"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091369"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Självstudie: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall
 
@@ -31,9 +31,9 @@ En Resource Manager-mall kan enkelt anpassas för scenarier när du behöver dis
 > [!NOTE]
 > Grupper med flera behållare är för närvarande begränsade till Linux-behållare. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="configure-a-template"></a>Konfigurera en mall
 
@@ -169,7 +169,7 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 
 Om du vill visa det program som körs, navigerar du till dess IP-adress i webbläsaren. IP-adressen är till exempel `52.168.26.124` utdata i följande exempel:
 
-```bash
+```console
 Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
 ----------------  ---------------  --------  --------------------------------------------------------------------------------------------------  --------------------  ---------  ---------------  --------  ----------
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
@@ -185,7 +185,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 
 Utdata:
 
-```bash
+```console
 listening on port 80
 ::1 - - [02/Jul/2020:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ::1 - - [02/Jul/2020:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
@@ -200,7 +200,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 
 Utdata:
 
-```bash
+```console
 Every 3s: curl -I http://localhost                          2020-07-02 20:36:41
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current

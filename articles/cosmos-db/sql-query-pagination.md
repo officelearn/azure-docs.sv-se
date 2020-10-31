@@ -6,14 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 2e899e76a1e68e120e0419926f8169785146bbfc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 08f8095670b48fcefccb0a9adf477b83ce2537d3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485043"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089244"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Sid brytning i Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 I Azure Cosmos DB kan frågor ha flera sidor med resultat. Det här dokumentet beskriver de villkor som Azure Cosmos DBs frågemotor använder för att bestämma om frågeresultaten ska delas upp på flera sidor. Du kan välja att använda fortsättnings-token för att hantera frågeresultat som sträcker sig över flera sidor.
 
@@ -23,7 +24,7 @@ Ibland delas frågeresultatet över flera sidor. Varje sidas resultat genereras 
 
 Du kan ange det maximala antalet objekt som returneras av en fråga genom att ange `MaxItemCount` . `MaxItemCount`Anges per begäran och talar om för frågemotor att returnera antalet objekt eller färre. Du kan ställa in `MaxItemCount` på `-1` om du inte vill placera en gräns för antalet resultat per frågekörningen.
 
-Dessutom finns det andra orsaker till att frågemotor kan behöva dela frågeresultaten på flera sidor. Exempel:
+Dessutom finns det andra orsaker till att frågemotor kan behöva dela frågeresultaten på flera sidor. Exempel på dessa är:
 
 - Behållaren har begränsats och det inte fanns några tillgängliga ru: er för att returnera fler frågeresultat
 - Svar för frågekörningen var för stort
@@ -45,12 +46,13 @@ Här följer några exempel på hur du bearbetar resultat från frågor med fler
 
 ## <a name="continuation-tokens"></a>Fortsättnings-token
 
-I .NET SDK och Java SDK kan du välja att använda fortsättnings-token som ett bok märke för frågans förlopp. Azure Cosmos DB frågekörning är tillstånds lösa på Server sidan och kan återupptas när som helst med hjälp av en fortsättnings-token. Fortsättnings-token stöds inte i Node.js SDK eller python SDK.
+I .NET SDK och Java SDK kan du välja att använda fortsättnings-token som ett bok märke för frågans förlopp. Azure Cosmos DB frågekörning är tillstånds lösa på Server sidan och kan återupptas när som helst med hjälp av en fortsättnings-token. Fortsättnings-token stöds inte i Node.js SDK. För python SDK stöds det för Single partition-frågor och PK måste anges i Options-objektet eftersom det inte är tillräckligt för att ha det i själva frågan.
 
 Här följer några exempel på hur du använder fortsättnings-token:
 
 - [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
 - [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 Om frågan returnerar en fortsättnings-token finns det ytterligare frågeresultat.
 

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: d3e7eca546adbcac8af882ff4cd5b09d3d643d4c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: e62128edf6558e461bf2c61f16d513c4085241e7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489276"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090400"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurera och använda Azure Synapse-länken för Azure Cosmos DB (förhands granskning)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 [Azure Synapse-länken för Azure Cosmos DB](synapse-link.md) är en molnbaserad hybrid transaktions-och analys bearbetnings funktion (HTAP) som gör att du kan köra nära real tids analys över drifts data i Azure Cosmos dB. Synapse-länken skapar en tätt sömlös integrering mellan Azure Cosmos DB och Azure Synapse Analytics.
 
@@ -44,7 +45,7 @@ Azure Synapse-länken är tillgänglig för Azure Cosmos DB SQL API-behållare e
 
    :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Hitta Synapse Link Preview-funktion":::
 
-1. Härnäst kommer du att bli ombedd att aktivera Synapse-länken på ditt konto. Välj **Aktivera**. Den här processen kan ta 1 till 5 minuter att slutföra.
+1. Härnäst kommer du att bli ombedd att aktivera Synapse-länken på ditt konto. Välj **Aktivera** . Den här processen kan ta 1 till 5 minuter att slutföra.
 
    :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Hitta Synapse Link Preview-funktion":::
 
@@ -70,11 +71,11 @@ Du kan aktivera analys lager på en Azure Cosmos-behållare när du skapar behå
 
    :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Hitta Synapse Link Preview-funktion":::
 
-1. Om du tidigare inte har aktiverat Synapse-länken för det här kontot kommer du att uppmanas att göra det eftersom det är ett krav för att skapa en aktive rad behållare för analys lager. Om du uppmanas väljer du **Aktivera Synapse länk**. Den här processen kan ta 1 till 5 minuter att slutföra.
+1. Om du tidigare inte har aktiverat Synapse-länken för det här kontot kommer du att uppmanas att göra det eftersom det är ett krav för att skapa en aktive rad behållare för analys lager. Om du uppmanas väljer du **Aktivera Synapse länk** . Den här processen kan ta 1 till 5 minuter att slutföra.
 
-1. Välj **OK**för att skapa en Azure Cosmos-behållare som är analytiskt lagrad.
+1. Välj **OK** för att skapa en Azure Cosmos-behållare som är analytiskt lagrad.
 
-1. När behållaren har skapats kontrollerar du att analys lagret har Aktiver ATS genom att klicka på **Inställningar**, högerklicka på dokument i datautforskaren och kontrol lera om alternativet **analys lager Time to Live** är aktiverat.
+1. När behållaren har skapats kontrollerar du att analys lagret har Aktiver ATS genom att klicka på **Inställningar** , högerklicka på dokument i datautforskaren och kontrol lera om alternativet **analys lager Time to Live** är aktiverat.
 
 ### <a name="net-sdk"></a>.NET SDK
 
@@ -217,7 +218,7 @@ Följ anvisningarna i artikeln [fråga Azure Cosmos DB analys lager](../synapse-
 
 ## <a name="query-the-analytical-store-using-synapse-sql-serverless"></a><a id="query-analytical-store-sql-on-demand"></a> Fråga analys lagret med hjälp av Synapse SQL Server lös
 
-Synapse SQL Server utan (en förhands gransknings funktion som tidigare kallades **SQL på begäran**) gör att du kan fråga efter och analysera data i dina Azure Cosmos DB behållare som är aktiverade med Azure Synapse-länken. Du kan analysera data nästan i real tid utan att påverka prestandan för dina transaktions arbets belastningar. Den erbjuder en välkänd T-SQL-syntax för att fråga data från analys lagret och integrerad anslutning till en mängd olika BI-och ad hoc-frågemeddelanden via T-SQL-gränssnittet. Mer information finns i [fråga analys lagret med hjälp av SYNAPSE SQL Server](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) -artikel.
+Synapse SQL Server utan (en förhands gransknings funktion som tidigare kallades **SQL på begäran** ) gör att du kan fråga efter och analysera data i dina Azure Cosmos DB behållare som är aktiverade med Azure Synapse-länken. Du kan analysera data nästan i real tid utan att påverka prestandan för dina transaktions arbets belastningar. Den erbjuder en välkänd T-SQL-syntax för att fråga data från analys lagret och integrerad anslutning till en mängd olika BI-och ad hoc-frågemeddelanden via T-SQL-gränssnittet. Mer information finns i [fråga analys lagret med hjälp av SYNAPSE SQL Server](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) -artikel.
 
 ## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Använd Synapse SQL Server lös för att analysera och visualisera data i Power BI
 

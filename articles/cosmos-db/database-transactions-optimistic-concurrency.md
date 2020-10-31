@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 17c01188f783664747b7c20b9703ee5d33a8ab3f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c1ecd3a3d29d6876a59a2fa039802966f348a09d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278732"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089839"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Kontroll över transaktioner och optimistisk samtidighet
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Databas transaktioner tillhandahåller en säker och förutsägbar programmerings modell för att hantera samtidiga ändringar av data. Traditionella Relations databaser, som SQL Server, låter dig skriva affärs logik med lagrade procedurer och/eller utlösare, skicka den till servern för körning direkt i databas motorn. Med traditionella Relations databaser måste du hantera två olika programmeringsspråk (icke-transaktionell) programprogrammeringsspråk, till exempel Java Script, python, C#, Java osv. och det transaktions programmerings språk (t. ex. T-SQL) som körs internt av databasen.
 

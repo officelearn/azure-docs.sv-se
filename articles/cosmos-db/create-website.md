@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 8e6a6d1c557a765e55152685f08e80ad54bbd903
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c206c89bf8e9abae219ce863a8b08f4b0e7041c3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362018"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089924"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Distribuera Azure Cosmos DB och Azure App Service med en webbapp från GitHub med en Azure Resource Manager mall
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här självstudien visar hur du gör en "ingen touch"-distribution av ett webb program som ansluter till Azure Cosmos DB vid första körningen utan att behöva klippa ut och klistra in anslutnings information från Azure Cosmos DB till `appsettings.json` eller till program inställningarna för Azure App Services i Azure Portal. Alla dessa åtgärder utförs med en Azure Resource Manager-mall i en enda åtgärd. I det här exemplet ska vi Distribuera Azure Cosmos DB att göra [exempel](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) från en [själv studie kurs om webb program](sql-api-dotnet-application.md).
 
@@ -102,7 +103,7 @@ Först måste programmet begära Cosmos DB slut punkt och nyckel i `Startup` -kl
 
 ### <a name="using-special-azure-resource-management-functions"></a>Använda särskilda funktioner för Azure-resurs hantering
 
-För att dessa värden ska vara tillgängliga för programmet när de distribueras kan Azure Resource Manager-mallen fråga efter dessa värden från Cosmos DB-kontot med hjälp av särskilda funktioner för Azure-resurs hantering, inklusive [referens](../azure-resource-manager/templates/template-functions-resource.md#reference) -och [listnycklar](../azure-resource-manager/templates/template-functions-resource.md#listkeys) som hämtar värdena från Cosmos DB-kontot och infogar dem i program inställnings värden med nyckel namn som matchar det som används i programmet ovan i formatet {section: Key}. Exempelvis `CosmosDb:Account`.
+För att dessa värden ska vara tillgängliga för programmet när de distribueras kan Azure Resource Manager-mallen fråga efter dessa värden från Cosmos DB-kontot med hjälp av särskilda funktioner för Azure-resurs hantering, inklusive [referens](../azure-resource-manager/templates/template-functions-resource.md#reference) -och [listnycklar](../azure-resource-manager/templates/template-functions-resource.md#listkeys) som hämtar värdena från Cosmos DB-kontot och infogar dem i program inställnings värden med nyckel namn som matchar det som används i programmet ovan i formatet {section: Key}. Till exempel `CosmosDb:Account`.
 
 :::image type="content" source="./media/create-website/template-keys.png" alt-text="Distribuera till Azure":::
 

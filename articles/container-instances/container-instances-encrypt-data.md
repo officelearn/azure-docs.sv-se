@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: 1c45999dbb354e8c2d550be82cdf37a6694d2dbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825682"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091363"
 ---
 # <a name="encrypt-deployment-data"></a>Kryptera distributionsdata
 
@@ -33,7 +33,7 @@ Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av dina beh�
 
 Resten av dokumentet beskriver de steg som krävs för att kryptera dina ACI-distributions data med din nyckel (kundhanterad nyckel). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="encrypt-data-with-a-customer-managed-key"></a>Kryptera data med en kundhanterad nyckel
 
@@ -73,7 +73,7 @@ Använd följande rikt linjer för egenskaperna för nyckel valvet:
 
 ### <a name="generate-a-new-key"></a>Generera en ny nyckel 
 
-När du har skapat nyckel valvet navigerar du till resursen i Azure Portal. På den vänstra navigerings menyn på resurs bladet, under Inställningar, klickar du på **nycklar**. Klicka på generera/importera i vyn för "nycklar" för att generera en ny nyckel. Använd ett unikt namn för den här nyckeln och andra inställningar som baseras på dina krav. 
+När du har skapat nyckel valvet navigerar du till resursen i Azure Portal. På den vänstra navigerings menyn på resurs bladet, under Inställningar, klickar du på **nycklar** . Klicka på generera/importera i vyn för "nycklar" för att generera en ny nyckel. Använd ett unikt namn för den här nyckeln och andra inställningar som baseras på dina krav. 
 
 ![Generera en ny nyckel](./media/container-instances-encrypt-data/generate-key.png)
 
@@ -81,10 +81,10 @@ När du har skapat nyckel valvet navigerar du till resursen i Azure Portal. På 
 
 Skapa en ny åtkomst princip som gör att ACI-tjänsten kan komma åt din nyckel.
 
-* När din nyckel har skapats går du tillbaka till resurs bladet för nyckel valv under Inställningar och klickar på **åtkomst principer**.
-* På sidan "åtkomst principer" för ditt nyckel valv klickar du på **Lägg till åtkomst princip**.
+* När din nyckel har skapats går du tillbaka till resurs bladet för nyckel valv under Inställningar och klickar på **åtkomst principer** .
+* På sidan "åtkomst principer" för ditt nyckel valv klickar du på **Lägg till åtkomst princip** .
 * Ange *nyckel behörigheter* för att inkludera nyckel behörigheter för Hämta **och ta** **fram** nyckel ![ uppsättning](./media/container-instances-encrypt-data/set-key-permissions.png)
-* För *Välj huvud konto*väljer du **Azure Container instance service**
+* För *Välj huvud konto* väljer du **Azure Container instance service**
 * Klicka på **Lägg till** längst ned 
 
 Åtkomst principen bör nu visas i nyckel valvets åtkomst principer.

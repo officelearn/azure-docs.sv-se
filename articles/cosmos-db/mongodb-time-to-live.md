@@ -8,14 +8,15 @@ ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ec7f233db34b00ad3904a0bb117b2a97c6512e34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 415fed38490000cecf1eeb916c557b8b17ea70da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322724"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094803"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Ta bort data med Azure Cosmos DB:s API för MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Med time to live (TTL)-funktionen kan databasen automatiskt låta data gå ut. Azure Cosmos DB:s API för MongoDB använder Cosmos DB:s TTL kärnfunktioner. Två lägen stöds: ange ett TTL-värde på hela samlingen och ange enskilda TTL-värden för varje dokument. Logiken för TTL-index och TTL-värden per dokument i Cosmos DB:s API för MongoDB är [samma som i Cosmos DB](../cosmos-db/mongodb-indexing.md).
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d840fe5b6fde72149893a15ab9096d3880c1c8ea
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d4ae18b335453f3e1d3512951675afe10c804c8d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425674"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094429"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning-beräkningsinstans?
 
@@ -26,11 +26,13 @@ Använd en beräknings instans som din fullständigt konfigurerade och hanterade
 
 För modell utbildning i produktions klass använder du ett [Azure Machine Learning beräknings kluster](how-to-create-attach-compute-cluster.md) med skalnings funktioner för flera noder. För modell distribution av produktions klass använder du [Azure Kubernetes service-kluster](how-to-deploy-azure-kubernetes-service.md).
 
+För att Compute instance Jupyter-funktionen ska fungera kontrollerar du att WebSocket-kommunikation inte är inaktiverat. Kontrol lera att nätverket tillåter WebSocket-anslutningar till *. instances.azureml.net och *. instances.azureml.ms.
+
 ## <a name="why-use-a-compute-instance"></a>Varför ska man använda en beräknings instans?
 
 En beräknings instans är en fullständigt hanterad molnbaserad arbets station som är optimerad för din Machine Learning Development-miljö. Det ger följande fördelar:
 
-|Viktiga fördelar|Description|
+|Viktiga fördelar|Beskrivning|
 |----|----|
 |Produktivitet|Du kan bygga och distribuera modeller med integrerade antecknings böcker och följande verktyg i Azure Machine Learning Studio:<br/>– Jupyter<br/>- JupyterLab<br/>-RStudio (för hands version)<br/>Compute-instansen är helt integrerad med Azure Machine Learning-arbetsyta och Studio. Du kan dela antecknings böcker och data med andra data forskare på arbets ytan.<br/> Du kan också använda [vs Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) med beräknings instanser.
 |Hanterad & säker|Minska din säkerhets storlek och Lägg till efterlevnad med företagets säkerhets krav. Beräknings instanser ger robusta hanterings principer och säkra nätverkskonfigurationer som:<br/><br/>– Autoetablering från Resource Manager-mallar eller Azure Machine Learning SDK<br/>- [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Stöd för virtuella nätverk](how-to-enable-virtual-network.md#compute-instance)<br/>– SSH-princip för att aktivera/inaktivera SSH-åtkomst<br/>TLS 1,2 aktiverat |
@@ -100,7 +102,7 @@ Du kan använda `/tmp` katalogen på beräknings instansen för dina temporära 
 
 ## <a name="managing-a-compute-instance"></a>Hantera en beräknings instans
 
-I arbets ytan i Azure Machine Learning Studio väljer du **Compute**och sedan **beräknings instans** överst.
+I arbets ytan i Azure Machine Learning Studio väljer du **Compute** och sedan **beräknings instans** överst.
 
 ![Hantera en beräknings instans](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -146,7 +148,7 @@ De dedikerade kärnorna per region per VM-tullkvot och den totala regionala kvot
 
 Som administratör kan du skapa en beräknings instans på uppdrag av en data expert och tilldela den instansen till dem med:
 * [Azure Resource Manager mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Information om hur du hittar TenantID och ObjectID som behövs i den här mallen finns i [hitta ID-objekt-ID: n för konfiguration av autentisering](../healthcare-apis/find-identity-object-ids.md).  Du kan också hitta dessa värden i Azure Active Directory-portalen.
-* REST API
+* REST-API
 
 Data expert du skapar beräknings instansen för behöver följande Azure RBAC-behörigheter: 
 * *Microsoft. MachineLearningServices/arbets ytor/beräkningar/start/åtgärd*

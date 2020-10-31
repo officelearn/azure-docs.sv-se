@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5129b4fffafb6918f655263cac2f5564635acf36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbec4033d093d83925d1682eb7882587e0dc6ca5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303978"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093647"
 ---
 # <a name="upper-azure-cosmos-db"></a>ÖVRE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returnerar ett stränguttryck efter att teckendata med gemener har konverterats till versaler.  
 
 Den övre system funktionen använder inte indexet. Om du planerar att göra frekventa Skift läges känsliga jämförelser kan den övre systemfunktionen använda en betydande mängd RU. I så fall, i stället för att använda funktionen VERSALer för att normalisera data varje gång för jämförelser, kan du normalisera höljet vid infogning. Sedan väljer du en fråga som SELECT * FROM c där (c. Name) = ' BOB ' bara väljer * från c WHERE c.name = ' BOB '.

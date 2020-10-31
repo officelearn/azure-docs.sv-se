@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: dd7c5da84d6330e0214404f55aad9487c71b0a29
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 47b7eaacc8aba3655223eb1f0cde4a5516e370fd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792437"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091607"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Självstudie: koda med Azure Digitals dubbla API: er
 
@@ -260,7 +260,7 @@ Från och med nu kommer kursen att figursättas alla anrop till tjänst metoder 
 
 Nu när du har laddat upp en modell till Azure Digitals, kan du använda den här modell definitionen för att skapa **digitala dubbla** . [Digitala dubbla](concepts-twins-graph.md) är instanser av en modell och representerar entiteterna i din affärs miljö – saker som sensorer i en grupp, rum i en byggnad eller lampor i en bil. Det här avsnittet skapar några digitala dubbla, baserat på den modell som du laddade upp tidigare.
 
-Lägg till dessa nya `using` instruktioner överst, eftersom det här kod exemplet använder den inbyggda .net JSON-serialiseraren i `System.Text.Json` , och `Serialization` namn området från [Azure Digitals-SDK för .net (C#)](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201020.1&protocolType=NuGet) [länk ändrad för för hands version]:
+Lägg till dessa nya `using` instruktioner längst upp, eftersom det här kod exemplet använder den inbyggda .net JSON-serialiseringen i `System.Text.Json` och `Serialization` namn området från [Azure Digital-SDK för .net (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview).
 
 ```csharp
 using System.Text.Json;

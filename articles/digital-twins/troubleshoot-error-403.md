@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495902"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091811"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Tjänstbegäran misslyckades. Status: 403 (ej tillåtet)
 
@@ -25,7 +25,7 @@ Det här felet kan inträffa på många typer av tjänst begär Anden som kräve
 
 ### <a name="cause-1"></a>Orsak #1
 
-Oftast indikerar det här felet att din Azure-rollbaserade åtkomst kontroll (Azure RBAC)-behörigheter för tjänsten inte har ställts in korrekt. Många åtgärder för en digital Azure Digitals-instans kräver att du har rollen *Azure Digitals dubbla data ägare* **på den instans som du försöker hantera**. 
+Oftast indikerar det här felet att din Azure-rollbaserade åtkomst kontroll (Azure RBAC)-behörigheter för tjänsten inte har ställts in korrekt. Många åtgärder för en digital Azure Digitals-instans kräver att du har rollen *Azure Digitals dubbla data ägare* **på den instans som du försöker hantera** . 
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
@@ -52,15 +52,15 @@ Observera att rollen skiljer sig från...
 
 #### <a name="fix-issues"></a>Åtgärda problem 
 
-Om du inte har den här roll tilldelningen ska någon med en ägar roll i din **Azure-prenumeration** köra följande kommando för att ge din Azure-användare Azures *digitala data ägar* roll på **Azure Digitals-instansen**. 
+Om du inte har den här roll tilldelningen ska någon med en ägar roll i din **Azure-prenumeration** köra följande kommando för att ge din Azure-användare Azures *digitala data ägar* roll på **Azure Digitals-instansen** . 
 
-Om du är ägare till prenumerationen kan du köra det här kommandot själv. Om du inte gör det kan du kontakta en ägare för att köra det här kommandot åt dig.
+Om du är ägare till prenumerationen kan du köra det här kommandot själv. Om du inte är det kan du kontakta en ägare för att köra det här kommandot åt dig.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-Mer information om det här roll kravet och tilldelnings processen finns i avsnittet [ *Konfigurera din användares åtkomst behörigheter* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) i *instruktion: Konfigurera en instans och autentisering (CLI eller Portal)*.
+Mer information om det här roll kravet och tilldelnings processen finns i avsnittet [ *Konfigurera din användares åtkomst behörigheter*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) i *instruktion: Konfigurera en instans och autentisering (CLI eller Portal)* .
 
 Om du redan har den här roll tilldelningen *och* du använder en Azure AD-App-registrering för att autentisera en klient app, kan du fortsätta till nästa lösning om lösningen inte löste 403-problemet.
 

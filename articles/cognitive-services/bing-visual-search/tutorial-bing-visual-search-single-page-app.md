@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 28f7d279d1328ff750bf7095f32fbf3ff65e591b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9458f6080759f0948d103f7fe3d131f6a4c4e37
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324530"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092729"
 ---
 # <a name="tutorial-create-a-visual-search-single-page-web-app"></a>Självstudie: skapa en Visuell sökning webb program med en enda sida
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 API för visuell sökning i Bing returnerar insikter för en bild. Du kan antingen ladda upp en avbildning eller ange en URL till en. Insikter är visuellt likartade bilder, shopping källor, webb sidor som innehåller avbildningen med mera. Insikter som returneras av API för visuell sökning i Bing liknar de som visas på Bing.com/images.
 
@@ -26,7 +31,7 @@ I den här självstudien beskrivs hur du utökar en enskild sidas webbapp för A
 
 Den fullständiga käll koden för det här programmet (när den har utökats för att använda API för visuell sökning i Bing) finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
@@ -102,7 +107,7 @@ function bingVisualSearch(insightsToken){
 
 ## <a name="capture-insights-token"></a>Samla in insikter token
 
-Lägg till följande kod i `searchItemsRenderer` objektet. Den här koden lägger till en **find similar**-länk (sök efter liknande) som anropar `bingVisualSearch`-funktionen när du klickar på den. Funktionen får `imageInsightsToken` som ett argument.
+Lägg till följande kod i `searchItemsRenderer` objektet. Den här koden lägger till en **find similar** -länk (sök efter liknande) som anropar `bingVisualSearch`-funktionen när du klickar på den. Funktionen får `imageInsightsToken` som ett argument.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
@@ -119,7 +124,7 @@ Lägg till följande HTML-kod på rad 601. Den här kod posten lägger till ett-
 </div>
 ```
 
-Med all ny JavaScript-kod och HTML-element på plats visas sökresultatet med en **find similar**-länk (sök efter liknande). Klicka på länken för att fylla i avsnittet **Similar** (Liknande) med bilder som liknar dem du valt. Du kan behöva expandera avsnittet **Similar** (Liknande) för att visa bilderna.
+Med all ny JavaScript-kod och HTML-element på plats visas sökresultatet med en **find similar** -länk (sök efter liknande). Klicka på länken för att fylla i avsnittet **Similar** (Liknande) med bilder som liknar dem du valt. Du kan behöva expandera avsnittet **Similar** (Liknande) för att visa bilderna.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2c52f909cf3cc77b4f5e40ee9804d0c473e575c5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6f5da1d17722f89bee88a4b69177583e095eeac3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85601946"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094293"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Vad är API:et för videosökning i Bing?
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 API för videosökning i Bing gör det enkelt att lägga till videosökfunktioner i dina tjänster och program. Genom att skicka användarsökfrågor med API:et kan du hämta och visa relevanta och högkvalitativa videor på ett sätt som liknar [Bing Video](https://www.bing.com/video). Använd detta API för sökresultat som endast innehåller videor. [API för webbsökning i Bing](../bing-web-search/search-the-web.md) kan returnera andra typer av webbinnehåll såsom webbplatser, videor, nyheter och bilder.
 

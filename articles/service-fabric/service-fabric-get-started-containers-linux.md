@@ -4,12 +4,12 @@ description: Skapa din första Linux-containerapp på Azure Service Fabric. Skap
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: b9e22ada3da572d5025f56fca824089bb6e20465
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563717"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092950"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Skapa din första Service Fabric-containerapp i Linux
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 ```
 
 ## <a name="build-the-image"></a>Skapa avbildningen
-Kör kommandot `docker build` för att skapa avbildningen som kör ditt webbprogram. Öppna ett PowerShell-fönster och gå till *c:\temp\helloworldapp*. Kör följande kommando:
+Kör kommandot `docker build` för att skapa avbildningen som kör ditt webbprogram. Öppna ett PowerShell-fönster och gå till *c:\temp\helloworldapp* . Kör följande kommando:
 
 ```bash
 docker build -t helloworldapp .
@@ -156,7 +156,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## <a name="package-the-docker-image-with-yeoman"></a>Paketetera Docker-avbildningen med Yeoman
-I Service Fabric SDK för Linux finns en [Yeoman](https://yeoman.io/)-generator som gör det enkelt att skapa ditt program och lägga till en containeravbildning. Nu ska vi använda Yeoman för att skapa ett program med en enda dockerbehållare som kallas *SimpleContainerApp*.
+I Service Fabric SDK för Linux finns en [Yeoman](https://yeoman.io/)-generator som gör det enkelt att skapa ditt program och lägga till en containeravbildning. Nu ska vi använda Yeoman för att skapa ett program med en enda dockerbehållare som kallas *SimpleContainerApp* .
 
 Om du vill skapa ett program för Service Fabric-container kan du öppna ett terminalfönster och köra `yo azuresfcontainer`. 
 
@@ -209,7 +209,7 @@ Med [resursstyrning](service-fabric-resource-governance.md) begränsas resursern
 
 ## <a name="configure-docker-healthcheck"></a>Konfigurera Docker HEALTHCHECK 
 
-Från och med v6.1 integrerar Service Fabric händelser för [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) automatiskt i systemets hälsorapport. Det innebär att om containern har **HEALTHCHECK** aktiverad kommer Service Fabric att rapportera hälsa varje gång containerns hälsostatus förändras enligt rapporten från Docker. En hälsorapport som är **OK** visas i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) när *health_status* är *healthy* och **WARNING** visas när *health_status* är *unhealthy*. 
+Från och med v6.1 integrerar Service Fabric händelser för [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) automatiskt i systemets hälsorapport. Det innebär att om containern har **HEALTHCHECK** aktiverad kommer Service Fabric att rapportera hälsa varje gång containerns hälsostatus förändras enligt rapporten från Docker. En hälsorapport som är **OK** visas i [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) när *health_status* är *healthy* och **WARNING** visas när *health_status* är *unhealthy* . 
 
 Från och med den senaste uppdaterings versionen av v 6.4 har du möjlighet att ange att HEALTHCHECK-utvärderingar i Docker ska rapporteras som ett fel. Om det här alternativet är aktiverat visas en hälso rapport för **OK** när *health_status* är *felfri* och **fel** visas när *health_status* *inte är felfritt.*
 
@@ -221,7 +221,7 @@ Från och med den senaste uppdaterings versionen av v 6.4 har du möjlighet att 
 
 ![HealthCheckUnhealthyDsp][3]
 
-Du kan konfigurera **HEALTHCHECK**-beteendet för varje behållare genom att ange alternativen för **HealthConfig** som en del av **ContainerHostPolicies** i ApplicationManifest.
+Du kan konfigurera **HEALTHCHECK** -beteendet för varje behållare genom att ange alternativen för **HealthConfig** som en del av **ContainerHostPolicies** i ApplicationManifest.
 
 ```xml
 <ServiceManifestImport>
@@ -235,13 +235,13 @@ Du kan konfigurera **HEALTHCHECK**-beteendet för varje behållare genom att ang
     </Policies>
 </ServiceManifestImport>
 ```
-Som standard är *IncludeDockerHealthStatusInSystemHealthReport* inställt på **True**, *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **false**och *TreatContainerUnhealthyStatusAsError* har angetts till **false**. 
+Som standard är *IncludeDockerHealthStatusInSystemHealthReport* inställt på **True** , *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **false** och *TreatContainerUnhealthyStatusAsError* har angetts till **false** . 
 
 Om *RestartContainerOnUnhealthyDockerHealthStatus* är inställt på **true** kommer en behållare som upprepade gånger rapporteras som ej felfri att startas om (eventuellt på andra noder).
 
-Om *TreatContainerUnhealthyStatusAsError* är inställt på **Sant**visas **fel** hälso rapporter när behållarens *health_status* inte är *felfri*.
+Om *TreatContainerUnhealthyStatusAsError* är inställt på **Sant** visas **fel** hälso rapporter när behållarens *health_status* inte är *felfri* .
 
-Om du vill inaktivera integrering av **HEALTHCHECK** för hela Service Fabric-klustret måste du ställa in [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) på **false**.
+Om du vill inaktivera integrering av **HEALTHCHECK** för hela Service Fabric-klustret måste du ställa in [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) på **false** .
 
 ## <a name="deploy-the-application"></a>Distribuera programmet
 När du har skapat programmet kan du distribuera det till det lokala klustret med Service Fabric CLI.
@@ -413,7 +413,7 @@ Du kan ställa in Service Fabric-klustret på att ta bort oanvända containeravb
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }
@@ -442,7 +442,7 @@ Service Fabric-körningen tilldelar 20 minuter för att ladda ned och extrahera 
 
 ## <a name="set-container-retention-policy"></a>Ange bevarandeprincip för container
 
-Service Fabric (version 6.1 eller senare) har stöd för bevarande av containrar som har avslutats eller inte kunde starta, vilket underlättar diagnostisering av startfel. Den här principen kan anges i filen **ApplicationManifest.xml**, vilket visas i följande kodavsnitt:
+Service Fabric (version 6.1 eller senare) har stöd för bevarande av containrar som har avslutats eller inte kunde starta, vilket underlättar diagnostisering av startfel. Den här principen kan anges i filen **ApplicationManifest.xml** , vilket visas i följande kodavsnitt:
 
 ```xml
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
@@ -452,7 +452,7 @@ Inställningen **ContainersRetentionCount** anger antalet behållare som ska bev
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>Starta Docker-daemon med anpassade argument
 
-Du kan starta Docker-daemon med anpassade argument med version 6.2 eller högre av Service Fabric runtime. Om du inte anger anpassade argument, skickar inte Service Fabric några andra argument till docker-motorn, förutom argumentet `--pidfile`. Därför får inte `--pidfile` skickas som ett argument. Dessutom ska argumentet fortsätta att få docker-daemonen att lyssna på pipen med standardnamnet på Windows (eller unix-domänsocket på Linux) för att Service Fabric ska kunna kommunicera med daemon. De anpassade argumenten har angetts i klustermanifestet under **värdavsnittet** i **ContainerServiceArguments**. Ett exempel visas i följande kodavsnitt: 
+Du kan starta Docker-daemon med anpassade argument med version 6.2 eller högre av Service Fabric runtime. Om du inte anger anpassade argument, skickar inte Service Fabric några andra argument till docker-motorn, förutom argumentet `--pidfile`. Därför får inte `--pidfile` skickas som ett argument. Dessutom ska argumentet fortsätta att få docker-daemonen att lyssna på pipen med standardnamnet på Windows (eller unix-domänsocket på Linux) för att Service Fabric ska kunna kommunicera med daemon. De anpassade argumenten har angetts i klustermanifestet under **värdavsnittet** i **ContainerServiceArguments** . Ett exempel visas i följande kodavsnitt: 
  
 
 ```json

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 683fc553e7712e2a760a0af1b601207cb20f2f55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743904"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092814"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Granska Azure Cosmos DB kontroll Plans åtgärder
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Kontroll planet i Azure Cosmos DB är en RESTful-tjänst som gör det möjligt att utföra en mängd olika åtgärder på Azure Cosmos-kontot. Den visar en offentlig resurs modell (till exempel: databas, konto) och olika åtgärder för slutanvändarna för att utföra åtgärder i resurs modellen. Kontroll Plans åtgärderna omfattar ändringar i Azure Cosmos-kontot eller containern. Till exempel åtgärder som att skapa ett Azure Cosmos-konto, lägga till en region, uppdatera data flöde, regions växling vid fel, lägga till ett VNet osv. är några av kontroll Plans åtgärderna. Den här artikeln beskriver hur du granskar kontroll Plans åtgärder i Azure Cosmos DB. Du kan köra kontroll Plans åtgärder på Azure Cosmos-konton med hjälp av Azure CLI, PowerShell eller Azure Portal, medan du använder Azure CLI eller PowerShell för behållare.
 
@@ -170,29 +171,29 @@ Egenskapen *ResourceDetails* innehåller hela resurs bröd texten som en begära
 Här följer några exempel på hur du kan hämta diagnostikloggar för kontroll Plans åtgärder:
 
 ```kusto
-AzureDiagnostics 
-| where Category startswith "ControlPlane"
+AzureDiagnostics 
+| where Category startswith "ControlPlane"
 | where OperationName contains "Update"
-| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
 | where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
-| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 Fråga för att hämta activityId och anroparen som initierade borttagnings åtgärden för behållaren:

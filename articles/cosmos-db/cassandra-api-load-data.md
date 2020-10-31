@@ -8,14 +8,15 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 2a1e91b4c801b573e566a95950d150a2b3c4788e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad3dfc8c86d22e58377ebfbdb94b2beb004ded56
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91564926"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092474"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Självstudie: Läsa in exempeldata till en Cassandra API-tabell i Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Som utvecklare kan du ha program som använder nyckel/värde-par. Du kan använda ett konto för Cassandra-API:et i Azure Cosmos DB för att lagra och hantera nyckel/värde-data. Den här självstudien beskriver hur du läser in exempelanvändardata i ett konto för Cassandra-API:et i Azure Cosmos DB med hjälp av ett Java-program. Java-programmet använder [Java-drivrutinen](https://github.com/datastax/java-driver) och läser in användardata såsom användar-ID, användarnamn och användarens stad. 
 
@@ -27,7 +28,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den här artikeln tillhör en självstudiekursen i flera delar. Innan du börjar med det här dokumentet ska du se till att [skapa API för Cassandra konto, tecken utrymme och tabell](create-cassandra-api-account-java.md).   
 

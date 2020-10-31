@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 358fccec56f81ee41acc2898751b8848beaeb168
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: fc60ca462a2891cc022847e056e32239f2675f70
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905641"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094582"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Snabb start: skapa och konfigurera Azure DDoS Protection standard
 
@@ -63,7 +63,7 @@ I den här snabb starten skapar du en DDoS skydds plan och länkar den till ett 
     | Prenumeration    | Välj din prenumeration.                                    |
     | Resursgrupp  | Välj **Använd befintlig** och välj sedan **MyResourceGroup** |
     | Plats        | Ange _USA, östra_                                                    |
-    | DDoS Protection standard | Välj **Aktivera** . Den plan du väljer kan vara i samma eller en annan prenumeration än det virtuella nätverket, men båda prenumerationerna måste vara kopplade till samma Azure Active Directory-klient.|
+    | DDoS Protection Standard | Välj **Aktivera** . Den plan du väljer kan vara i samma eller en annan prenumeration än det virtuella nätverket, men båda prenumerationerna måste vara kopplade till samma Azure Active Directory-klient.|
 
 Du kan inte flytta ett virtuellt nätverk till en annan resurs grupp eller prenumeration när DDoS standard är aktive rad för det virtuella nätverket. Om du behöver flytta ett virtuellt nätverk med DDoS standard aktiverat inaktiverar du DDoS standard först, flyttar det virtuella nätverket och aktiverar sedan DDoS standard. Efter flyttningen återställs automatiskt justerade princip tröskelvärden för alla skyddade offentliga IP-adresser i det virtuella nätverket.
 
@@ -84,8 +84,6 @@ Börja med att kontrol lera informationen om din DDoS-skydds plan:
 3. Välj din DDoS-skydds plan från listan.
 
 Det virtuella _MyVnet_ -nätverket ska visas. 
-
-Testa genom simuleringar
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -114,4 +112,4 @@ Om du vill ta bort en DDoS skydds plan måste du först ta bort alla virtuella n
 Om du vill lära dig att visa och konfigurera telemetri för din DDoS-skydds plan fortsätter du till självstudierna.
 
 > [!div class="nextstepaction"]
-> [Visa och konfigurera DDoS Protection-telemetri](telemetry-monitoring-alerting.md)
+> [Visa och konfigurera telemetri för DDoS-skydd](telemetry-monitoring-alerting.md)

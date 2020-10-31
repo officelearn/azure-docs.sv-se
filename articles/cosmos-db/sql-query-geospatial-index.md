@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: 546b664c74980b3522fefed82c00eec414641eaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f250c15dbb30736e3e89a301fc236a848bd05da2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326634"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092066"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexera geospatiala data med Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Vi utformade Azure Cosmos DB databas motorn så att den verkligen är schema-oberoende och ger första klass stöd för JSON. Den Write-optimerade databas motorn i Azure Cosmos DB internt förstår spatialdata som representeras i standarden för polyjson.
 
-I en kortfattat så Jenkins projiceras geometrin från Geodetic-koordinater till ett 2D-plan och delas sedan progressivt i cellerna med hjälp av en **quadtree**. Dessa celler mappas till 1D baserat på cellens position inom en **Fyllnings kurva för Hilbert utrymme**, som bevarar platsens plats. När plats data indexeras går de igenom en process som kallas **mosaik**, det vill säga att alla celler som korsar en plats identifieras och lagras som nycklar i Azure Cosmos DB indexet. Vid fråge tillfället är argument som punkter och polygoner också tessellated för att extrahera relevanta cell-ID-intervall och sedan använda för att hämta data från indexet.
+I en kortfattat så Jenkins projiceras geometrin från Geodetic-koordinater till ett 2D-plan och delas sedan progressivt i cellerna med hjälp av en **quadtree** . Dessa celler mappas till 1D baserat på cellens position inom en **Fyllnings kurva för Hilbert utrymme** , som bevarar platsens plats. När plats data indexeras går de igenom en process som kallas **mosaik** , det vill säga att alla celler som korsar en plats identifieras och lagras som nycklar i Azure Cosmos DB indexet. Vid fråge tillfället är argument som punkter och polygoner också tessellated för att extrahera relevanta cell-ID-intervall och sedan använda för att hämta data från indexet.
 
 Om du anger en indexerings princip som innehåller rums index för/* (alla sökvägar), indexeras alla data som finns i behållaren för effektiva rums frågor.
 
@@ -36,11 +37,11 @@ Så här ställer du in den **geospatiala konfigurationen** i **datautforskaren*
 
 :::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Ställer in Geospatial konfiguration":::
 
-Du kan också ändra `geospatialConfig` i .NET SDK för att justera den **geospatiala konfigurationen**:
+Du kan också ändra `geospatialConfig` i .NET SDK för att justera den **geospatiala konfigurationen** :
 
 Om inget `geospatialConfig` värde anges används geografi data typen som standard. När du ändrar `geospatialConfig` , kommer alla befintliga geospatiala data i behållaren att indexeras om.
 
-Här är ett exempel på hur du ändrar den geospatiala data typen till `geometry` genom att ange `geospatialConfig` egenskapen och lägga till en **boundingBox**:
+Här är ett exempel på hur du ändrar den geospatiala data typen till `geometry` genom att ange `geospatialConfig` egenskapen och lägga till en **boundingBox** :
 
 ```csharp
     //Retrieve the container's details
@@ -111,10 +112,10 @@ Med data typen **Geometry** , som liknar data typen geografi, måste du ange rel
 
 Avgränsnings rutan består av följande egenskaper:
 
-- **xMin**: den minsta indexerade x-koordinaten
-- **yMin**: den minsta indexerade y-koordinaten
-- **Xmax**: den maximalt indexerade x-koordinaten
-- **yMax**: den maximalt indexerade y-koordinaten
+- **xMin** : den minsta indexerade x-koordinaten
+- **yMin** : den minsta indexerade y-koordinaten
+- **Xmax** : den maximalt indexerade x-koordinaten
+- **yMax** : den maximalt indexerade y-koordinaten
 
 En avgränsnings ruta krävs eftersom geometriska data upptar ett plan som kan vara oändligt. Rums index kräver dock ett begränsat utrymme. För **geografi** data typen är jordens kant linjen och du behöver inte ange någon avgränsnings ruta.
 
@@ -159,7 +160,7 @@ Här är ett exempel på en indexerings princip som indexerar **geometri** data 
 Index principen ovan har en **boundingBox** av (-10, 10) för x-koordinater och (-20, 20) för y-koordinater. Behållaren med index principen ovan kommer att indexera alla punkter, polygoner, multipolygoner och lin Est rings som är helt inom den här regionen.
 
 > [!NOTE]
-> Om du försöker lägga till en indexerings princip med en **boundingBox** till en behållare med `geography` data typen, kommer den att Miss Förslut. Du bör ändra behållarens **geospatialConfig** `geometry` innan du lägger till en **boundingBox**. Du kan lägga till data och ändra resten av din indexerings princip (t. ex. sökvägar och typer) antingen före eller efter att du väljer den geospatiala data typen för behållaren.
+> Om du försöker lägga till en indexerings princip med en **boundingBox** till en behållare med `geography` data typen, kommer den att Miss Förslut. Du bör ändra behållarens **geospatialConfig** `geometry` innan du lägger till en **boundingBox** . Du kan lägga till data och ändra resten av din indexerings princip (t. ex. sökvägar och typer) antingen före eller efter att du väljer den geospatiala data typen för behållaren.
 
 ## <a name="next-steps"></a>Nästa steg
 

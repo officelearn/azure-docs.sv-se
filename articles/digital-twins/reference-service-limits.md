@@ -1,25 +1,25 @@
 ---
-title: Tjänstbegränsningar för allmän förhandsversion
+title: Tjänstbegränsningar
 titleSuffix: Azure Digital Twins
-description: Diagram som visar gränserna för Azure Digitals dubbla tjänster under den offentliga för hands versionen.
+description: Diagram som visar gränserna för Azure Digitals dubbla-tjänster.
 author: baanders
 ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 123090cad78af46e88e6493a47d04b97e448f62a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87061d378be97bf669fd569c0408f247b9e8dc5d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522337"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091788"
 ---
-# <a name="service-limits-in-public-preview"></a>Tjänst begränsningar i offentlig för hands version
+# <a name="service-limits"></a>Tjänstbegränsningar
 
-Det här är tjänst gränserna för Azure Digitals dubbla i den offentliga för hands versionen.
+Detta är tjänst gränserna för Azure Digitals dubbla.
 
 > [!NOTE]
-> Vissa delar av den här tjänsten har justerbara gränser. Detta representeras i tabellerna nedan med den *justerbara?* kolumnen. När gränsen kan justeras är värdet för *justerbara?* *Ja*.
+> Vissa delar av den här tjänsten har justerbara gränser. Detta representeras i tabellerna nedan med den *justerbara?* kolumnen. När gränsen kan justeras är värdet för *justerbara?* *Ja* .
 >
 > Om ditt företag behöver höja en justerbar gräns eller kvot över standard gränsen kan du begära ytterligare resurser genom att [öppna ett support ärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -29,5 +29,5 @@ Det här är tjänst gränserna för Azure Digitals dubbla i den offentliga för
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om den aktuella för hands versionen av Azure Digital-dubbla i Översikt över tjänsten:
+Lär dig mer om den nuvarande versionen av Azure Digital-dubbla i Översikt över tjänsten:
 * [*Översikt: Vad är Azure Digitals dubbla?*](overview.md)

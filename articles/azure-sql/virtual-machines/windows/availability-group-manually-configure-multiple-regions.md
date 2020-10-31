@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f6d5a9da238c520e2e0ec70ac312dd112aad2fe8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 335cc707cb1192d3dbf08f51e78d4e82441dd05a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789989"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094492"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Konfigurera en SQL Server Always on-tillgänglighets grupp i olika Azure-regioner
 
@@ -31,7 +31,7 @@ Den här artikeln gäller för Azure Virtual Machines i Resource Manager-läge.
 
 Följande bild visar en gemensam distribution av en tillgänglighets grupp på virtuella Azure-datorer:
 
-   ![Tillgänglighetsgrupp](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
+   ![Diagram som visar Azure Load Balancer och tillgänglighets uppsättningen med ett "Windows Server-redundanskluster" och "Always on-tillgänglighetsgrupper".](./media/availability-group-manually-configure-multiple-regions/00-availability-group-basic.png)
 
 I den här distributionen finns alla virtuella datorer i en Azure-region. Tillgänglighets gruppens repliker kan ha synkront genomförande med automatisk redundans på SQL-1 och SQL-2. Information om hur du skapar den här arkitekturen finns i [mallen för tillgänglighets grupper eller självstudier](availability-group-overview.md).
 
@@ -53,7 +53,7 @@ När tillgänglighets grupp repliker finns på virtuella Azure-datorer i olika A
 
 Följande diagram visar hur nätverken kommunicerar mellan data Center.
 
-   ![Tillgänglighetsgrupp](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
+   ![Diagram som visar de två virtuella nätverken i olika Azure-regioner som kommunicerar med hjälp av V P N-gatewayer.](./media/availability-group-manually-configure-multiple-regions/01-vpngateway-example.png)
 
 >[!IMPORTANT]
 >Den här arkitekturen medför utgående data kostnader för data som replikeras mellan Azure-regioner. Se [prissättning för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/).  
@@ -98,7 +98,7 @@ Gör så här om du vill skapa en replik i ett fjärranslutet Data Center:
 
    Du kan skapa IP-adressresursen i Klusterhanteraren för växling vid fel. Välj namnet på klustret, högerklicka sedan på kluster namnet under **kluster kärn resurser** och välj **Egenskaper** : 
 
-   ![Kluster egenskaper](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
+   ![Skärm bild som visar "Klusterhanteraren för växling vid fel" med ett kluster namn, "Server namn" och "Properties" markerat.](./media/availability-group-manually-configure-multiple-regions/cluster-name-properties.png)
 
    I dialog rutan **Egenskaper** väljer du **Lägg till** under **IP-adress** och lägger sedan till IP-adressen för kluster namnet från den fjärranslutna nätverks regionen. Välj **OK** i dialog rutan **IP-adress** och välj sedan **OK** igen i dialog rutan **kluster egenskaper** för att spara den nya IP-adressen. 
 

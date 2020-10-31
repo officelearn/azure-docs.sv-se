@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: cd02a0ea51faa7dae14e0f9d61c446aae55dcbe1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7262adc05086f9c998742fad91bd859af4895de8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83849577"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094072"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och ruby
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Använd den här snabb starten för att göra ditt första anrop till API för videosökning i Bing. Det här enkla ruby-programmet skickar en HTTP-videosök fråga till API: et och visar JSON-svaret. Även om det här programmet är skrivet i python är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. 
 

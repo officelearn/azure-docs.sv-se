@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 07d9ae0d7cdf8e823bb59cb376d40cdf846bb2cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674755"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092763"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Övervaka hälsan för Log Analytics arbets ytan i Azure Monitor
 För att upprätthålla prestanda och tillgänglighet för din Log Analytics-arbetsyta i Azure Monitor måste du kunna identifiera eventuella problem som uppstår i proaktivt. Den här artikeln beskriver hur du övervakar hälso tillståndet för din Log Analytics-arbetsyta med hjälp av data i [Åtgärds](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) tabellen. Den här tabellen ingår i varje Log Analytics arbets yta och innehåller fel och varningar som inträffar i din arbets yta. Du bör regelbundet granska dessa data och skapa aviseringar för att proaktivt meddelas när det finns viktiga incidenter på arbets ytan.
@@ -60,15 +60,15 @@ Inmatnings åtgärder är problem som uppstod vid data inmatning, inklusive medd
 | Metadatatjänst. | Fel | Ett konfigurations fel har identifierats. | |
 | Datainsamling | Fel   | Data utelämnades eftersom begäran skapades tidigare än antalet angivna dagar. | [Hantera användning och kostnader med Azure Monitor-loggar](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Datainsamling | Information    | Konfiguration av samlings dator har identifierats.| |
-| Datainsamling | Information    | Data insamlingen startades på grund av en ny dag. | [Hantera användning och kostnader med Azure Monitor-loggar](/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Datainsamling | Varning | Data insamlingen stoppades på grund av att den dagliga gränsen har uppnåtts.| [Hantera användning och kostnader med Azure Monitor-loggar](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Datainsamling | Information    | Data insamlingen startades på grund av en ny dag. | [Hantera användning och kostnader med Azure Monitor-loggar](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
+| Datainsamling | Varning | Data insamlingen stoppades på grund av att den dagliga gränsen har uppnåtts.| [Hantera användning och kostnader med Azure Monitor-loggar](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
 | Databearbetning | Fel   | Ogiltigt JSON-format. | [Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)](data-collector-api.md#request-body) | 
 | Databearbetning | Varning | Värdet har trimmats till den högsta tillåtna storleken. | [Azure Monitor tjänst gränser](../service-limits.md#log-analytics-workspaces) |
 | Databearbetning | Varning | Fält värde trimmat eftersom storleks gränsen har uppnåtts. | [Azure Monitor tjänst gränser](../service-limits.md#log-analytics-workspaces) | 
 | Inmatnings hastighet | Information | Gräns för inmatnings frekvens som närmar sig 70%. | [Azure Monitor tjänst gränser](../service-limits.md#log-analytics-workspaces) |
 | Inmatnings hastighet | Varning | Gräns för inmatnings frekvensen närmar sig gränsen. | [Azure Monitor tjänst gränser](../service-limits.md#log-analytics-workspaces) |
 | Inmatnings hastighet | Fel   | Hastighets gränsen har uppnåtts. | [Azure Monitor tjänst gränser](../service-limits.md#log-analytics-workspaces) |
-| Lagring | Fel   | Det går inte att komma åt lagrings kontot eftersom de autentiseringsuppgifter som används är ogiltiga.  |
+| Storage | Fel   | Det går inte att komma åt lagrings kontot eftersom de autentiseringsuppgifter som används är ogiltiga.  |
 
 
 

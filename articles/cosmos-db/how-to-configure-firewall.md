@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb97f9ee822c808057139bd25b2e4f43c48a2e48
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ec4ec5b3ea522200562d05d1891f46e69c9e5ca8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490517"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092168"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurera IP-brandvägg i Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 För att skydda data som lagras i ditt konto har Azure Cosmos DB stöd för en hemlig, baserad auktoriserings modell som använder sig av en stark hash-baserad Message Authentication Code (HMAC). Dessutom stöder Azure Cosmos DB IP-baserade åtkomst kontroller för inkommande brand Väggs stöd. Den här modellen liknar brand Väggs reglerna i ett traditionellt databas system och ger ytterligare en säkerhets nivå för ditt konto. Med brand väggar kan du konfigurera ditt Azure Cosmos-konto så att det bara kan nås från en godkänd uppsättning datorer och/eller moln tjänster. Åtkomst till data som lagras i din Azure Cosmos-databas från dessa godkända uppsättningar av datorer och tjänster kräver fortfarande att anroparen presenterar en giltig autentiseringstoken.
 
@@ -34,7 +35,7 @@ Du kan skydda data som lagras i Azure Cosmos DB-kontot med hjälp av IP-brandvä
 
 ## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Konfigurera en IP-brandvägg med hjälp av Azure Portal
 
-Om du vill ange princip för IP-åtkomstkontroll i Azure Portal går du till sidan Azure Cosmos DB konto och väljer **brand vägg och virtuella nätverk** på navigerings menyn. Ändra värdet **Tillåt åtkomst från** värde till **valda nätverk**och välj sedan **Spara**.
+Om du vill ange princip för IP-åtkomstkontroll i Azure Portal går du till sidan Azure Cosmos DB konto och väljer **brand vägg och virtuella nätverk** på navigerings menyn. Ändra värdet **Tillåt åtkomst från** värde till **valda nätverk** och välj sedan **Spara** .
 
 :::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Skärm bild som visar hur du öppnar brand Väggs sidan i Azure Portal":::
 
@@ -75,7 +76,7 @@ För att förenkla utvecklingen hjälper Azure Portal att identifiera och lägga
 
 Portalen identifierar automatiskt klientens IP-adress. Det kan vara klientens IP-adress eller IP-adressen för din nätverks-Gateway. Se till att ta bort den här IP-adressen innan du tar dina arbets belastningar till produktionen.
 
-Om du vill lägga till din aktuella IP-adress i listan över IP-adresser väljer du **Lägg till min nuvarande IP**. Välj sedan **Spara**.
+Om du vill lägga till din aktuella IP-adress i listan över IP-adresser väljer du **Lägg till min nuvarande IP** . Välj sedan **Spara** .
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Skärm bild som visar hur du öppnar brand Väggs sidan i Azure Portal":::
 

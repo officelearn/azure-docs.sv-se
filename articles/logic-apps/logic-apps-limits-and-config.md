@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 0235b8350e21fa51d1b3fed747a11b681f125e67
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f722345b5be91a09bc513064b476f0b94eda765d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540728"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094514"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Information om begränsningar och konfiguration för Azure Logic Apps
 
@@ -81,7 +81,7 @@ Anta till exempel att du minskar gränsen för kvarhållning från 90 dagar till
 
 1. När du är klar väljer du **Spara** i verktygsfältet **arbets flödes inställningar** .
 
-Om du genererar en Azure Resource Manager mall för din Logic app visas den här inställningen som en egenskap i arbets flödets resurs definition, som beskrivs i [mallen Microsoft. Logic-arbetsflöden referens](/templates/microsoft.logic/workflows):
+Om du genererar en Azure Resource Manager mall för din Logic app visas den här inställningen som en egenskap i arbets flödets resurs definition, som beskrivs i [mallen Microsoft. Logic-arbetsflöden referens](/azure/templates/microsoft.logic/workflows):
 
 ```json
 {
@@ -251,7 +251,7 @@ Varje Azure-prenumeration har följande gränser för integrations kontot:
 
   | ISE SKU | Gränser för integrationskonto |
   |---------|----------------------------|
-  | **Premium** | 20 totalt – [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) konton, inklusive ett standard konto kostnads fritt. Inga kostnads fria eller grundläggande konton är tillåtna. |
+  | **Denaturering** | 20 totalt – [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) konton, inklusive ett standard konto kostnads fritt. Inga kostnads fria eller grundläggande konton är tillåtna. |
   | **Utvecklare** | 20 totalt – [kostnads fritt](../logic-apps/logic-apps-pricing.md#integration-accounts) (begränsat till 1 konto) och [standard](../logic-apps/logic-apps-pricing.md#integration-accounts) kombinations lager eller alla standard konton. Inga grundläggande konton är tillåtna. Använd [Developer-SKU: n](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) för att experimentera, utveckla och testa, men inte för produktions-eller prestanda testning. |
   |||
 
@@ -369,7 +369,7 @@ I det här avsnittet visas endast inkommande IP-adresser för den Azure Logic Ap
 | Kanada, centrala | 13.88.249.209, 52.233.30.218, 52.233.29.79, 40.85.241.105 |
 | Kanada, östra | 52.232.129.143, 52.229.125.57, 52.232.133.109, 40.86.202.42 |
 | Indien, centrala | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
-| Central US | 13.67.236.76, 40.77.111.254, 40.77.31.87, 104.43.243.39 |
+| USA, centrala | 13.67.236.76, 40.77.111.254, 40.77.31.87, 104.43.243.39 |
 | Asien, östra | 168.63.200.173, 13.75.89.159, 23.97.68.172, 40.83.98.194 |
 | East US | 137.135.106.54, 40.117.99.79, 40.117.100.228, 137.116.126.165 |
 | USA, östra 2 | 40.84.25.234, 40.79.44.7, 40.84.59.136, 40.70.27.253 |
@@ -382,7 +382,7 @@ I det här avsnittet visas endast inkommande IP-adresser för den Azure Logic Ap
 | Sydkorea, centrala | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
 | Sydkorea, södra | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
 | USA, norra centrala | 168.62.249.81, 157.56.12.202, 65.52.211.164, 65.52.9.64 |
-| Norra Europa | 13.79.173.49, 52.169.218.253, 52.169.220.174, 40.112.90.39 |
+| Europa, norra | 13.79.173.49, 52.169.218.253, 52.169.220.174, 40.112.90.39 |
 | Sydafrika, norra | 102.133.228.4, 102.133.224.125, 102.133.226.199, 102.133.228.9 |
 | Sydafrika, västra | 102.133.72.190, 102.133.72.145, 102.133.72.184, 102.133.72.173 |
 | USA, södra centrala | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
@@ -433,7 +433,7 @@ I det här avsnittet visas de utgående IP-adresserna för Azure Logic Apps tjä
 | Kanada, centrala | 52.233.29.92, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 13.71.170.208 - 13.71.170.223, 52.228.33.76, 52.228.34.13, 52.228.42.205, 52.233.31.197, 52.237.24.126, 52.237.32.212, 13.71.175.160 - 13.71.175.191, 13.71.170.224 - 13.71.170.239 |
 | Kanada, östra | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 40.69.106.240 - 40.69.106.255, 52.229.120.52, 52.229.120.178, 52.229.123.98, 52.229.126.202, 52.242.35.152, 52.242.30.112, 40.69.111.0 - 40.69.111.31 |
 | Indien, centrala | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145 | 52.172.211.12, 104.211.81.192 - 104.211.81.207, 104.211.98.164, 52.172.212.129, 20.43.123.0 - 20.43.123.31 |
-| Central US | 13.67.236.125, 104.208.25.27, 40.122.170.198, 40.113.218.230, 23.100.86.139, 23.100.87.24, 23.100.87.56, 23.100.82.16 | 13.89.171.80 - 13.89.171.95, 40.122.49.51, 52.173.245.164, 52.173.241.27, 40.77.68.110, 13.89.178.64 - 13.89.178.95 |
+| USA, centrala | 13.67.236.125, 104.208.25.27, 40.122.170.198, 40.113.218.230, 23.100.86.139, 23.100.87.24, 23.100.87.56, 23.100.82.16 | 13.89.171.80 - 13.89.171.95, 40.122.49.51, 52.173.245.164, 52.173.241.27, 40.77.68.110, 13.89.178.64 - 13.89.178.95 |
 | Asien, östra | 13.75.94.173, 40.83.127.19, 52.175.33.254, 40.83.73.39, 65.52.175.34, 40.83.77.208, 40.83.100.69, 40.83.75.165 | 13.75.36.64 - 13.75.36.79, 23.99.116.181, 52.175.23.169, 13.75.110.131, 104.214.164.0 - 104.214.164.31 |
 | East US | 13.92.98.111, 40.121.91.41, 40.114.82.191, 23.101.139.153, 23.100.29.190, 23.101.136.201, 104.45.153.81, 23.101.132.208 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 40.114.40.132, 40.71.249.139, 52.188.157.160, 40.71.15.160 - 40.71.15.191 |
 | USA, östra 2 | 40.84.30.147, 104.208.155.200, 104.208.158.174, 104.208.140.40, 40.70.131.151, 40.70.29.214, 40.70.26.154, 40.70.27.236 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100, 104.209.247.23, 52.225.129.144, 40.65.220.25, 40.70.151.96 - 40.70.151.127 |
@@ -446,7 +446,7 @@ I det här avsnittet visas de utgående IP-adresserna för Azure Logic Apps tjä
 | Sydkorea, centrala | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 | 52.231.18.208 - 52.231.18.223, 52.141.36.214, 52.141.1.104, 20.44.29.64 - 20.44.29.95 |
 | Sydkorea, södra | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.147.0 - 52.231.147.15, 52.231.163.10, 52.231.201.173, 52.231.148.224 - 52.231.148.255 |
 | USA, norra centrala | 168.62.248.37, 157.55.210.61, 157.55.212.238, 52.162.208.216, 52.162.213.231, 65.52.10.183, 65.52.9.96, 65.52.8.225 | 52.162.107.160 - 52.162.107.175, 52.162.242.161, 65.52.218.230, 52.162.126.4, 52.162.111.192 - 52.162.111.223 |
-| Norra Europa | 40.113.12.95, 52.178.165.215, 52.178.166.21, 40.112.92.104, 40.112.95.216, 40.113.4.18, 40.113.3.202, 40.113.1.181 | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9, 94.245.91.93, 52.169.28.181, 40.115.108.29, 13.69.231.192 - 13.69.231.223 |
+| Europa, norra | 40.113.12.95, 52.178.165.215, 52.178.166.21, 40.112.92.104, 40.112.95.216, 40.113.4.18, 40.113.3.202, 40.113.1.181 | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9, 94.245.91.93, 52.169.28.181, 40.115.108.29, 13.69.231.192 - 13.69.231.223 |
 | Sydafrika, norra | 102.133.231.188, 102.133.231.117, 102.133.230.4, 102.133.227.103, 102.133.228.6, 102.133.230.82, 102.133.231.9, 102.133.231.51 | 102.133.168.167, 40.127.2.94, 102.133.155.0 - 102.133.155.15, 102.133.253.0 - 102.133.253.31 |
 | Sydafrika, västra | 102.133.72.98, 102.133.72.113, 102.133.75.169, 102.133.72.179, 102.133.72.37, 102.133.72.183, 102.133.72.132, 102.133.75.191 | 102.133.72.85, 102.133.75.194, 102.133.27.0 - 102.133.27.15, 102.37.64.0 - 102.37.64.31 |
 | USA, södra centrala | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191, 52.171.130.92, 13.73.244.224 - 13.73.244.255 |

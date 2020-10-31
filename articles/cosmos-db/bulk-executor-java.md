@@ -10,14 +10,15 @@ ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 03ef816632b73f46acaf1efdf2ddec28459fc9b8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 89d21e4464cb3c7578b68d68009065ab7848ed19
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489344"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092542"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använda massexecutor-biblioteket i Java för att utföra massåtgärder på Azure Cosmos DB-data
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här självstudien innehåller instruktioner om hur du använder Azure Cosmos DBs utförar Java-bibliotek för att importera och uppdatera Azure Cosmos DB dokument. Om du vill lära dig mer om bulk utförar Library och hur det hjälper dig att använda massivt data flöde och lagring, se [översikts](bulk-executor-overview.md) artikel för utförar-bibliotek. I den här självstudien skapar du ett Java-program som genererar slumpmässiga dokument och de har Mass importer ATS till en Azure Cosmos-behållare. När du har importerat kan du uppdatera vissa egenskaper för ett dokument. 
 

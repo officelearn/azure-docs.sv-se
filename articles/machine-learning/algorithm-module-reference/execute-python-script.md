@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e07e12e82d96b591db324673f4c24b9074128065
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330382"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093001"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
@@ -37,7 +37,7 @@ Azure Machine Learning använder Anaconda-distributionen av python, som innehål
 
 En fullständig lista finns i avsnittet [förinstallerade python-paket](#preinstalled-python-packages).
 
-Om du vill installera paket som inte finns i den förinstallerade listan (till exempel *scikit-Diverse*) lägger du till följande kod i skriptet: 
+Om du vill installera paket som inte finns i den förinstallerade listan (till exempel *scikit-Diverse* ) lägger du till följande kod i skriptet: 
 
 ```python
 import os
@@ -110,17 +110,17 @@ EXECUTE Python-skript module innehåller exempel på python-kod som du kan anvä
 
 1. Lägg till modulen **Kör Python-skript** i din pipeline.
 
-2. Lägg till och Anslut på **Dataset1** alla data uppsättningar från designern som du vill använda för indata. Referera till den här data uppsättningen i python-skriptet som **DataFrame1**.
+2. Lägg till och Anslut på **Dataset1** alla data uppsättningar från designern som du vill använda för indata. Referera till den här data uppsättningen i python-skriptet som **DataFrame1** .
 
     Användningen av en data uppsättning är valfri. Använd den om du vill generera data med hjälp av python eller använda python-kod för att importera data direkt till modulen.
 
-    Den här modulen stöder tillägg av en andra data uppsättning på **Dataset2**. Referera till den andra data mängden i python-skriptet som **DataFrame2**.
+    Den här modulen stöder tillägg av en andra data uppsättning på **Dataset2** . Referera till den andra data mängden i python-skriptet som **DataFrame2** .
 
     Data uppsättningar som lagras i Azure Machine Learning konverteras automatiskt till Pandas data ramar när de läses in med den här modulen.
 
     ![Köra python-indatamängds karta](media/module/python-module.png)
 
-4. Om du vill inkludera nya python-paket eller-kod ansluter du den zippade filen som innehåller dessa anpassade resurser till **skript paketets** port. Eller om ditt skript är större än 16 KB använder du **Skriptets paket** port för att undvika fel som *kommando raden överskrider gränsen på 16597 tecken*. 
+4. Om du vill inkludera nya python-paket eller-kod ansluter du den zippade filen som innehåller dessa anpassade resurser till **skript paketets** port. Eller om ditt skript är större än 16 KB använder du **Skriptets paket** port för att undvika fel som *kommando raden överskrider gränsen på 16597 tecken* . 
 
     
     1. Paketera skriptet och andra anpassade resurser i en zip-fil.
@@ -129,7 +129,10 @@ EXECUTE Python-skript module innehåller exempel på python-kod som du kan anvä
     1. Anslut data uppsättnings modulen till **skript paket** porten för **Kör R-skript** -modulen.
     
     Alla filer som finns i det överförda zippade arkivet kan användas under pipeline-körningen. Om arkivet innehåller en katalog struktur bevaras strukturen.
-    
+ 
+    > [!WARNING]
+    > **Don't** Använd inte **appen** som namnet på mappen eller skriptet eftersom **appen** är ett reserverat ord för inbyggda tjänster. Men du kan använda andra namn områden som `app123` .
+   
     Följande är ett exempel på ett skript paket som innehåller en python-skriptfil och en txt-fil:
       
     > [!div class="mx-imgBorder"]
@@ -182,7 +185,7 @@ EXECUTE Python-skript module innehåller exempel på python-kod som du kan anvä
     Två data uppsättningar kan returneras till designern, som måste vara en sekvens av typen `pandas.DataFrame` . Du kan skapa andra utdata i python-koden och skriva dem direkt till Azure Storage.
 
     > [!WARNING]
-    > Vi rekommenderar **inte** att du ansluter till en databas eller andra externa lagrings enheter i **köra python-skriptfil**. Du kan använda modulen [Importera data](./import-data.md) och [Exportera data](./export-data.md)     
+    > Vi rekommenderar **inte** att du ansluter till en databas eller andra externa lagrings enheter i **köra python-skriptfil** . Du kan använda modulen [Importera data](./import-data.md) och [Exportera data](./export-data.md)     
 
 6. Skicka pipelinen.
 
@@ -194,9 +197,9 @@ Resultatet av eventuella beräkningar av den inbäddade python-koden måste ange
 
 Modulen returnerar två data uppsättningar:  
   
-+ **Resultat data uppsättning 1**, som definieras av den första data ramen som returnerade Pandas i ett Python-skript.
++ **Resultat data uppsättning 1** , som definieras av den första data ramen som returnerade Pandas i ett Python-skript.
 
-+ **Resultat data uppsättning 2**, som definieras av den andra returnerade data ramen Pandas i ett Python-skript.
++ **Resultat data uppsättning 2** , som definieras av den andra returnerade data ramen Pandas i ett Python-skript.
 
 ## <a name="preinstalled-python-packages"></a>Förinstallerade python-paket
 De förinstallerade paketen är:

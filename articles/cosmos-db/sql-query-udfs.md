@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c17fcbb7f6cd2d7f4948defad49e8319a013eb86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82251cf803168c282e55438ca801ae1f30a2d019
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262067"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093732"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Användardefinierade funktioner (UDF: er) i Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 SQL API ger stöd för användardefinierade funktioner (UDF: er). Med skalär UDF: er kan du skicka med noll eller många argument och returnera ett enskilt argument resultat. API: et kontrollerar varje argument för att vara juridiska JSON-värden.  
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: b4bc291c21ca1ccabec3cfd9544deaa5d45fcf51
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7fde67ab9b9160bb89493748d09e83bd9cfcff34
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787201"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091709"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Felsöka Azure Digitals dubbla: mått
 
@@ -64,7 +64,7 @@ Mät värden med API-begär Anden:
 Mått som måste utföras med fakturering:
 
 >[!NOTE]
-> I för hands versionen **kostar faktureringen noll** . Även om dessa mått fortfarande visas i den Selectable-listan, gäller de inte under för hands versionen och kommer att vara noll tills tjänsten flyttas bortom för hands versionen.
+>Även om dessa mått fortfarande visas i listan över valbara, kommer de att vara noll tills den nya prissättningen för tjänsten blir tillgänglig. Mer information finns i avsnittet om [*Azure Digitals dubbla priser*](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 | Mått | Mått visnings namn | Enhet | Sammansättningstyp| Beskrivning | Dimensioner |
 | --- | --- | --- | --- | --- | --- |

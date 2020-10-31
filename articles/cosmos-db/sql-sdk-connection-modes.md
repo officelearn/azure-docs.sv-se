@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d88d52f67274d14836520494580e9208ce4eecbe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 95396f28fd835091258bccbfdb0a0c0eafebea91
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284504"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093579"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Azure Cosmos DB SQL SDK-anslutnings lägen
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Hur en klient ansluter till Azure Cosmos DB har viktiga prestanda effekter, särskilt för observerad svars tid på klient sidan. Azure Cosmos DB erbjuder en enkel, öppen RESTful programmerings modell över HTTPS som kallas Gateway-läge. Dessutom erbjuder den ett effektivt TCP-protokoll, som också RESTful i sin kommunikations modell och använder TLS för inledande autentisering och kryptering av trafik, vilket kallas direkt läge.
 
@@ -34,7 +35,7 @@ De två tillgängliga anslutnings lägena är:
      
 :::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Lägena för Azure Cosmos DB anslutning" border="false":::
 
-Dessa anslutnings lägen är i princip den väg som data planet begär – dokument läsningar och skrivningar – tar från klient datorn till partitioner i Azure Cosmos DB backend. Direkt läge är det bästa alternativet för bästa prestanda – det gör att klienten kan öppna TCP-anslutningar direkt till partitioner i Azure Cosmos DB server dels-och sändnings begär Anden *Direct*ly utan mellanliggande. I Gateway-läge dirigeras begär Anden som görs av klienten till en så kallad "Gateway"-server i Azure Cosmos DB klient delen, som i sin tur ger ut dina begär anden till lämpliga partitioner i Azure Cosmos DB backend.
+Dessa anslutnings lägen är i princip den väg som data planet begär – dokument läsningar och skrivningar – tar från klient datorn till partitioner i Azure Cosmos DB backend. Direkt läge är det bästa alternativet för bästa prestanda – det gör att klienten kan öppna TCP-anslutningar direkt till partitioner i Azure Cosmos DB server dels-och sändnings begär Anden *Direct* ly utan mellanliggande. I Gateway-läge dirigeras begär Anden som görs av klienten till en så kallad "Gateway"-server i Azure Cosmos DB klient delen, som i sin tur ger ut dina begär anden till lämpliga partitioner i Azure Cosmos DB backend.
 
 ## <a name="service-port-ranges"></a>Tjänst port intervall
 

@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d11430ab02b37d066fb74dcc1b67833577471fd3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 060b648a0d1ee963b44c25e45a7de2888f662335
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323049"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084144"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och C #
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla C#-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. 
 
@@ -31,8 +36,8 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
      
    Installera det här paketet i Visual Studio:
 
-     1. I **Solution Explorer**högerklickar du på lösnings filen.
-     1. Välj **Hantera NuGet-paket för lösningen**.
+     1. I **Solution Explorer** högerklickar du på lösnings filen.
+     1. Välj **Hantera NuGet-paket för lösningen** .
      1. Sök efter *Newtonsoft.Jspå* och installera paketet.
 
 * Om du använder Linux/MacOS kan du köra det här programmet med hjälp av [mono](https://www.mono-project.com/).

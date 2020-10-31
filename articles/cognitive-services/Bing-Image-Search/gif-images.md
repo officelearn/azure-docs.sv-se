@@ -11,16 +11,21 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 862a7f6c31df7395fe225cf89ad83425e917394e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcfd711f0a38d5993447823c31cbf7f27226ad6b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84169992"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084348"
 ---
 # <a name="search-for-gif-images"></a>Sök efter GIF-bilder 
 
-Med API för bildsökning i Bing kan du också söka på hela webben efter de mest relevanta. gif-bilderna.Utvecklare kan integrera intressanta gif i olika konversations scenarier. 
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
+
+Med API för bildsökning i Bing kan du också söka på hela webben efter de mest relevanta. gif-bilderna.  Utvecklare kan integrera intressanta gif i olika konversations scenarier. 
 
 Följande URL är en fråga för animerade. gif-bilder.
 ```

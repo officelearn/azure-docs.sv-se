@@ -10,14 +10,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 38416f6a580d270aefc287de0c198bd418a44db9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed48a46a01cee5a7a981d4e863f981010b44112
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072629"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084263"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Slut punkter för API för bildsökning i Bing
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 **Bildsökning-API: et** innehåller tre slut punkter.  Slut punkt 1 returnerar bilder från webben baserat på en fråga. Slut punkt 2 returnerar [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse).  Slut punkt 3 returnerar trend bilder.
 
@@ -51,7 +56,7 @@ Mer information om sidhuvuden, parametrar, marknads koder, svars objekt, fel osv
 Svaret på en avbildnings Sök förfrågan innehåller resultat som JSON-objekt. Exempel på hur du tolkar resultaten finns i [självstudien](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) och [käll koden](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
 
 ## <a name="next-steps"></a>Nästa steg
-API: erna för **Bing** stöder Sök åtgärder som returnerar resultat enligt deras typ.Alla Sök slut punkter returnerar resultat som JSON-svars objekt. Alla slut punkter har stöd för frågor som returnerar ett särskilt språk och/eller plats efter longitud, latitud och Sök-radie.
+API: erna för **Bing** stöder Sök åtgärder som returnerar resultat enligt deras typ. Alla Sök slut punkter returnerar resultat som JSON-svars objekt.  Alla slut punkter har stöd för frågor som returnerar ett särskilt språk och/eller plats efter longitud, latitud och Sök-radie.
 
 Fullständig information om de parametrar som stöds av varje slut punkt finns i referens sidorna för varje typ.
 Exempel på grundläggande förfrågningar som använder API: et för bilds ökning finns [bildsökning snabb starter](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web).

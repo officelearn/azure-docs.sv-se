@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: ef53fc3de87eeaa41d3859fd8b10dd3cc942afc7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bbeb1248fef846afbd1641a668c6db3be4870ca6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547222"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082104"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Säkerhets kopiering och återställning i Azure Database for MySQL
 
@@ -38,11 +38,11 @@ Säkerhetskopieringar av transaktionsloggar sker var femte minut.
 Det allmänna lagrings utrymmet är den server dels lagring som stöder [generell användning](concepts-pricing-tiers.md) och minnesoptimerade [nivå](concepts-pricing-tiers.md) Server. För servrar med generell lagring upp till 4 TB sker fullständiga säkerhets kopieringar varje vecka. Differentiella säkerhets kopieringar sker två gånger om dagen. Säkerhetskopieringar av transaktionsloggar sker var femte minut. Säkerhets kopieringarna i generell användning av lagrings utrymme på 4 TB är inte ögonblicks bilds och använder IO-bandbredd vid tidpunkten för säkerhets kopieringen. För stora databaser (> 1 TB) på 4 TB-lagring rekommenderar vi att du
 
 - Etablering av mer IOPs till konto för säkerhets kopiering av IOs eller
-- Du kan också migrera till allmän lagring som stöder upp till 16 TB lagrings utrymme om den underliggande lagrings infrastrukturen är tillgänglig i dina önskade [Azure-regioner](./concepts-pricing-tiers.md#storage). Det kostar inget extra att tillhandahålla lagring med upp till 16 TB. Om du vill ha hjälp med migrering till 16 TB-lagring öppnar du ett support ärende från Azure Portal.
+- Du kan också migrera till allmän lagring som stöder upp till 16 TB lagrings utrymme om den underliggande lagrings infrastrukturen är tillgänglig i dina önskade [Azure-regioner](/azure/mysql/concepts-pricing-tiers#storage). Det kostar inget extra att tillhandahålla lagring med upp till 16 TB. Om du vill ha hjälp med migrering till 16 TB-lagring öppnar du ett support ärende från Azure Portal.
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Generella lagrings servrar med upp till 16 TB lagring
 
-I en delmängd av [Azure-regioner](./concepts-pricing-tiers.md#storage)har alla nyligen etablerade servrar stöd för generell användning av lagrings utrymme på 16 TB. Med andra ord är lagring upp till 16 TB lagrings utrymme standard lagring för alla [regioner](./concepts-pricing-tiers.md#storage) där det stöds. Säkerhets kopieringar på dessa 16-TB-lagrings servrar är ögonblicks bilds-baserade. Den första fullständiga säkerhetskopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande säkerhetskopieringar av ögonblicksbilder är bara differentiella säkerhetskopieringar.
+I en delmängd av [Azure-regioner](/azure/mysql/concepts-pricing-tiers#storage)har alla nyligen etablerade servrar stöd för generell användning av lagrings utrymme på 16 TB. Med andra ord är lagring upp till 16 TB lagrings utrymme standard lagring för alla [regioner](/azure/mysql/concepts-pricing-tiers#storage) där det stöds. Säkerhets kopieringar på dessa 16-TB-lagrings servrar är ögonblicks bilds-baserade. Den första fullständiga säkerhetskopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande säkerhetskopieringar av ögonblicksbilder är bara differentiella säkerhetskopieringar.
 
 I en delmängd av [Azure-regioner](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)har alla nyligen etablerade servrar stöd för generell användning av lagrings utrymme på 16 TB. Med andra ord är lagring upp till 16 TB lagrings utrymme standard lagring för alla [regioner](/concepts-pricing-tiers.md#storage) där det stöds. Säkerhets kopieringar på dessa 16-TB-lagrings servrar är ögonblicks bilds-baserade. Den första fullständiga säkerhetskopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande säkerhetskopieringar av ögonblicksbilder är bara differentiella säkerhetskopieringar.
 

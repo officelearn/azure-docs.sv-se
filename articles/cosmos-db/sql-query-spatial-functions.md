@@ -7,18 +7,19 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 87d73787998d1a49d7512723b212c26b7107513f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 515e6da43a115c092ba48fdfcd2457f0b0c60623
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559807"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082444"
 ---
 # <a name="spatial-functions-azure-cosmos-db"></a>Spatiala funktioner (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cosmos DB stöder följande inbyggda OGC-funktioner (Open Geospatial Consortium) för geospatial frågekörning. 
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
 Följande skalära funktioner utför en åtgärd på ett värde för spatialdata och returnerar ett numeriskt eller booleskt värde.  
 

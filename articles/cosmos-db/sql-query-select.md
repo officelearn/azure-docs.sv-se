@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d518461f8526a742a59d92140e2cf323e8bfc16
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005955"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082563"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>SELECT-sats i Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Varje fråga består av en `SELECT` sats och valfria [from](sql-query-from.md) -och [WHERE](sql-query-where.md) -satser, enligt ANSI SQL-standarder. Normalt räknas källan i `FROM` satsen och `WHERE` satsen använder ett filter på källan för att hämta en delmängd av JSON-objekt. `SELECT`Satsen projekterar sedan de begärda JSON-värdena i SELECT-listan.
 
@@ -101,4 +102,4 @@ Resultatet är:
 
 - [Komma igång](sql-query-getting-started.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [WHERE-sats](sql-query-where.md)
+- [WHERE-satsen](sql-query-where.md)

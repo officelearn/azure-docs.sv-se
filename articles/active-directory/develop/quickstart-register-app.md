@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, identityplatformtop40, contperfq1
+ms.custom: aaddev, identityplatformtop40, contperfq1, contentperfq2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ed4e3c54bd4aa6be314fe7ec12d6ba6e7cf949d9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91258140"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083328"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Snabb start: registrera ett program med Microsoft Identity Platform
 
@@ -36,12 +36,12 @@ När du registrerar programmet upprättas en förtroende relation mellan appen o
 
 Följ de här stegen för att skapa appens registrering:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Om du har åtkomst till flera klienter använder du filtret för **katalog + prenumeration** :::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false"::: i den översta menyn för att välja den klient som du vill registrera ett program i.
-1. Sök efter och välj **Azure Active Directory**.
-1. Under **Hantera**väljer du **Appregistreringar**och sedan **ny registrering**.
+1. Sök efter och välj **Azure Active Directory** .
+1. Under **Hantera** väljer du **Appregistreringar** och sedan **ny registrering** .
 1. Ange ett **namn** för ditt program. Användare av appen kan se det här namnet och du kan ändra det senare.
-1. Ange vem som kan använda programmet, ibland kallat *inloggnings mål gruppen*.
+1. Ange vem som kan använda programmet, ibland kallat *inloggnings mål gruppen* .
 
     | Kontotyper som stöds | Beskrivning |
     |-------------------------|-------------|
@@ -55,7 +55,7 @@ Följ de här stegen för att skapa appens registrering:
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Skärm bild av Azure Portal i en webbläsare som visar fönstret registrera ett program.":::
 
-När registreringen är klar visar Azure Portal **översikts** fönstret för appens registrering, som innehåller dess **program-ID (klient)**. Kallas även för bara *klient-ID: t*identifierar det här värdet ditt program i Microsoft Identity Platform.
+När registreringen är klar visar Azure Portal **översikts** fönstret för appens registrering, som innehåller dess **program-ID (klient)** . Kallas även för bara *klient-ID: t* identifierar det här värdet ditt program i Microsoft Identity Platform.
 
 Programmets kod, eller mer vanligt vis ett autentiseringspaket som används i ditt program, använder också klient-ID: t som en aspekt för att verifiera säkerhetstoken som tas emot från identitets plattformen.
 
@@ -71,14 +71,14 @@ Du lägger till och ändrar omdirigerings-URI: er för dina registrerade program
 
 ### <a name="configure-platform-settings"></a>Konfigurera plattforms inställningar
 
-Inställningar för varje program typ, inklusive omdirigerings-URI: er, konfigureras i **plattforms konfigurationerna** i Azure Portal. Vissa plattformar, t. ex. **webb** -och **Enkels Ides program**, kräver att du manuellt anger en omdirigerings-URI. För andra plattformar som mobil och stationär kan du välja att omdirigerings-URI: er som genereras åt dig när du konfigurerar de andra inställningarna.
+Inställningar för varje program typ, inklusive omdirigerings-URI: er, konfigureras i **plattforms konfigurationerna** i Azure Portal. Vissa plattformar, t. ex. **webb** -och **Enkels Ides program** , kräver att du manuellt anger en omdirigerings-URI. För andra plattformar som mobil och stationär kan du välja att omdirigerings-URI: er som genereras åt dig när du konfigurerar de andra inställningarna.
 
 Konfigurera program inställningar baserat på den plattform eller enhet som du riktar in dig på:
 
 1. Välj ditt program i **Appregistreringar** i Azure Portal.
-1. Under **Hantera**väljer du **autentisering**.
-1. Under **plattforms konfiguration**väljer du **Lägg till en plattform**.
-1. I **Konfigurera plattformar**väljer du panelen för din program typ (plattform) för att konfigurera dess inställningar.
+1. Under **Hantera** väljer du **autentisering** .
+1. Under **plattforms konfiguration** väljer du **Lägg till en plattform** .
+1. I **Konfigurera plattformar** väljer du panelen för din program typ (plattform) för att konfigurera dess inställningar.
 
     :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Skärm bild av Azure Portal i en webbläsare som visar fönstret registrera ett program." border="false":::
 
@@ -86,9 +86,9 @@ Konfigurera program inställningar baserat på den plattform eller enhet som du 
     | -------- | ---------------------- |
     | **Webb** | Ange en **omdirigerings-URI** för appen, platsen där Microsoft Identity Platform omdirigerar en användares klient och skickar säkerhetstoken efter autentisering.<br/><br/>Välj den här plattformen för standard webb program som körs på en server. |
     | **Enkelsidig app** | Ange en **omdirigerings-URI** för appen, platsen där Microsoft Identity Platform omdirigerar en användares klient och skickar säkerhetstoken efter autentisering.<br/><br/>Välj den här plattformen om du skapar en webbapp på klient sidan i Java Script eller med ett ramverk som vinkel, Vue.js, React.js eller blixt webb sammansättning. |
-    | **iOS/macOS** | Ange **programpaket-ID: t**som finns i Xcode i *info. plist* eller build Settings.<br/><br/>En omdirigerings-URI genereras åt dig när du anger ett paket-ID. |
-    | **Android** | Ange **namnet**på Appaketet, som du hittar i *AndroidManifest.xml* -filen och generera och ange **signaturens hash**.<br/><br/>En omdirigerings-URI genereras åt dig när du anger dessa inställningar. |
-    | **Mobil-och skriv bords program** | Välj en av de **föreslagna omdirigerings-URI: erna** eller ange en **anpassad omdirigerings-URI**.<br/>För Skriv bords program rekommenderar vi följande:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Välj den här plattformen för mobila program som inte använder det senaste MSAL (Microsoft Authentication Library) eller som inte använder en Broker. Välj även den här plattformen för Skriv bords program. |
+    | **iOS/macOS** | Ange **programpaket-ID: t** som finns i Xcode i *info. plist* eller build Settings.<br/><br/>En omdirigerings-URI genereras åt dig när du anger ett paket-ID. |
+    | **Android** | Ange **namnet** på Appaketet, som du hittar i *AndroidManifest.xml* -filen och generera och ange **signaturens hash** .<br/><br/>En omdirigerings-URI genereras åt dig när du anger dessa inställningar. |
+    | **Mobil-och skriv bords program** | Välj en av de **föreslagna omdirigerings-URI: erna** eller ange en **anpassad omdirigerings-URI** .<br/>För Skriv bords program rekommenderar vi följande:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Välj den här plattformen för mobila program som inte använder det senaste MSAL (Microsoft Authentication Library) eller som inte använder en Broker. Välj även den här plattformen för Skriv bords program. |
 1. Välj **Konfigurera** för att slutföra plattforms konfigurationen.
 
 ### <a name="redirect-uri-restrictions"></a>Omdirigera URI-begränsningar
@@ -105,22 +105,22 @@ Du kan lägga till både certifikat och klient hemligheter (en sträng) som aute
 
 ### <a name="add-a-certificate"></a>Lägg till ett certifikat
 
-Ibland kallas certifikat för en *offentlig nyckel*som den rekommenderade typen av autentiseringsuppgifter eftersom de ger en högre säkerhets nivå än en klient hemlighet.
+Ibland kallas certifikat för en *offentlig nyckel* som den rekommenderade typen av autentiseringsuppgifter eftersom de ger en högre säkerhets nivå än en klient hemlighet.
 
 1. Välj ditt program i **Appregistreringar** i Azure Portal.
-1. Välj **certifikat & hemligheter**  >  **Ladda upp certifikat**.
+1. Välj **certifikat & hemligheter**  >  **Ladda upp certifikat** .
 1. Välj den fil som du vill ladda upp. Den måste vara någon av följande filtyper: .cer, .pem eller .crt.
-1. Välj **Lägg till**.
+1. Välj **Lägg till** .
 
 ### <a name="add-a-client-secret"></a>Lägg till en klient hemlighet
 
-Klient hemligheten, även kallat ett *program lösen ord*, är ett sträng värde som din app kan använda i stället för ett certifikat för att identifiera sig själv. Det är enklare att använda de två typerna av autentiseringsuppgifter som används och används ofta under utveckling, men anses vara mindre säkra än ett certifikat. Du bör använda certifikat i dina program som körs i produktion.
+Klient hemligheten, även kallat ett *program lösen ord* , är ett sträng värde som din app kan använda i stället för ett certifikat för att identifiera sig själv. Det är enklare att använda de två typerna av autentiseringsuppgifter som används och används ofta under utveckling, men anses vara mindre säkra än ett certifikat. Du bör använda certifikat i dina program som körs i produktion.
 
 1. Välj ditt program i **Appregistreringar** i Azure Portal.
-1. Välj **certifikat & hemligheter**  >   **ny klient hemlighet**.
+1. Välj **certifikat & hemligheter**  >   **ny klient hemlighet** .
 1. Lägg till en beskrivning för din klienthemlighet.
 1. Välj en varaktighet.
-1. Välj **Lägg till**.
+1. Välj **Lägg till** .
 1. **Registrera hemlighetens värde** för användning i klient program koden – det *visas aldrig igen* när du lämnar den här sidan.
 
 ## <a name="next-steps"></a>Nästa steg

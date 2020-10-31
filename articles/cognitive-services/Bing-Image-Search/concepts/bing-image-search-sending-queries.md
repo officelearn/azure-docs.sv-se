@@ -11,14 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f697449fffe6c93d8e5082b210678d3f51c0c736
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67542749"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084418"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>Anpassa och föreslå bilds öknings frågor
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Använd den här artikeln för att lära dig hur du anpassar frågor och föreslår Sök villkor som ska skickas till API för bildsökning i Bing.
 
@@ -28,9 +33,9 @@ Om din app har en sökruta där Sök villkor har angetts kan du använda [API f�
 
 ## <a name="pivot-the-query"></a>Pivotera frågan
 
-Om Bing kan segmentera den ursprungliga Sök frågan innehåller objektet returnerade [bilder](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) `pivotSuggestions` . Pivot-förslag kan visas som valfria Sök villkor för användaren. Om den ursprungliga frågan exempelvis var *Microsoft Surface*, kan Bing segmentera frågan till *Microsoft* och *ytan* och tillhandahålla föreslagna pivoteror för var och en. Dessa förslag kan visas som valfria sökord för användaren.
+Om Bing kan segmentera den ursprungliga Sök frågan innehåller objektet returnerade [bilder](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) `pivotSuggestions` . Pivot-förslag kan visas som valfria Sök villkor för användaren. Om den ursprungliga frågan exempelvis var *Microsoft Surface* , kan Bing segmentera frågan till *Microsoft* och *ytan* och tillhandahålla föreslagna pivoteror för var och en. Dessa förslag kan visas som valfria sökord för användaren.
 
-I följande exempel visas Pivot-förslag för *Microsoft-ytan*:  
+I följande exempel visas Pivot-förslag för *Microsoft-ytan* :  
 
 ```json
 {
@@ -101,13 +106,13 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Expandera frågan
 
-Om Bing kan expandera frågan för att begränsa den ursprungliga sökningen innehåller objektet [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) (Bilder) fältet `queryExpansions`. Om frågan exempelvis var *Microsoft-yta*kan de utökade frågorna vara:
-- Microsoft Surface **Pro 3**.
-- Microsoft Surface **RT**.
-- Microsoft Surface **Phone**.
-- Microsoft Surface **Hub**.
+Om Bing kan expandera frågan för att begränsa den ursprungliga sökningen innehåller objektet [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) (Bilder) fältet `queryExpansions`. Om frågan exempelvis var *Microsoft-yta* kan de utökade frågorna vara:
+- Microsoft Surface **Pro 3** .
+- Microsoft Surface **RT** .
+- Microsoft Surface **Phone** .
+- Microsoft Surface **Hub** .
 
-Följande exempel visar de expanderade frågorna för *Microsoft Surface*.
+Följande exempel visar de expanderade frågorna för *Microsoft Surface* .
 
 ```json
 {

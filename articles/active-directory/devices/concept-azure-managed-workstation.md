@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6837bbdb63caf0fb1ecb3f6e520d5f3623483b44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093318"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083243"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Förstå säkra, Azure-hanterade arbets stationer
 
@@ -94,12 +94,15 @@ Nödvändig för en säker arbets Station är en lösning för leverans kedja d�
 
 I den här lösningen kommer förtroende roten att distribueras med [Microsoft autopilot](/windows/deployment/windows-autopilot/windows-autopilot) -teknik med maskin vara som uppfyller moderna tekniska krav. För att skydda en arbets station gör autopilot det möjligt för dig att utnyttja Microsoft-OEM-optimerade Windows 10-enheter. Dessa enheter kommer in i ett känt tillstånd från tillverkaren. I stället för att återställa en potentiellt osäker enhet kan autopilot omvandla en Windows-enhet till ett "affärs klart" läge. Den tillämpar inställningar och principer, installerar appar och ändrar även utgåvan av Windows 10. Till exempel kan autopiloten ändra en enhets Windows-installation från Windows 10 Pro till Windows 10 Enterprise så att den kan använda avancerade funktioner.
 
-![Skydda arbets Stations nivåer](./media/concept-azure-managed-workstation/supplychain.png)
+:::image type="complex" source="./media/concept-azure-managed-workstation/supplychain.png" alt-text="Diagram som visar livs cykeln för en säker arbets Station." border="false":::
+I diagrammets överkant är enhets leverantören avbildad. Pilarna pekar från leverantören till en kund som har köpt arbets stationen och till en truck som är märkt med att uppfylla och leverera. Från trucken pekar en pil på en bild med namnet Deploy som bilder en person som använder en arbets Station. En pil som heter självbetjänings upplevelsen sträcker sig från den personen till en skärm som heter klar för företag. Under den skärmen visas ikoner som är märkta med hanterade skyddade. En pil med namnet stabilt tillstånds användning, hantera och Behåll aktuella punkter från skärmen till en slut punkts ikon och till en avbrotts återställnings ikon. En avslutande pil går tillbaka från ikonen för att bryta korrigeringen till skärmen klar för företag.
+:::image-end:::
 
 ## <a name="device-roles-and-profiles"></a>Enhets roller och profiler
 
 Den här vägledningen hänvisar till flera säkerhets profiler och roller som kan hjälpa dig att skapa säkrare lösningar för användare, utvecklare och IT-personal. Dessa profiler balanserar användbarhet och risker för vanliga användare som kan dra nytta av en förbättrad eller säker arbets Station. De inställnings konfigurationer som anges här baseras på bransch godkända standarder. Den här vägledningen visar hur du skärper Windows 10 och minskar riskerna med enhets-eller användar problem. För att kunna dra nytta av modern maskin varu teknik och roten av Trust-enheten kommer vi att använda [Hälsoattestering för enhet](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643), som är aktive rad med den **höga säkerhets** profilen. Den här funktionen är tillgänglig för att se till att angripare inte kan bevaras när en enhet startas tidigt. Det gör det genom att använda princip och teknik för att hjälpa dig att hantera säkerhetsfunktioner och risker.
-![Skydda arbets Stations nivåer](./media/concept-azure-managed-workstation/seccon-levels.png)
+
+:::image type="content" source="./media/concept-azure-managed-workstation/seccon-levels.png" alt-text="Diagram som visar livs cykeln för en säker arbets Station." border="false":::
 
 * Grundläggande säkerhet – en hanterad standard arbets Station ger en **välgrundad** utgångs punkt för de flesta hem-och småföretags användning. Dessa enheter är registrerade i Azure AD och hanteras med Intune. Den här profilen tillåter användare att köra program och bläddra på alla webbplatser. En lösning mot skadlig kod som [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) ska vara aktive rad.
 

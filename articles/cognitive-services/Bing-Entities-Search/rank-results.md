@@ -10,21 +10,26 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5fbecd9c2fd6e3a9f1be29598bad50da4b77bbb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68423914"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084620"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Använda rangordning för att Visa Sök Resultat för enheter  
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Varje enhets Sök svar innehåller ett [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) -svar som anger hur du måste visa Sök resultat som returneras av API för entitetsökning i Bing. Rangordnings svar grupper resulterar i innehållet i Polen, Mainline och sid panelen. Polen-resultatet är det viktigaste eller framträdande resultatet och bör visas först. Om du inte visar återstående resultat i ett traditionellt Mainline-och sid List format måste du ange Mainline-innehållet som är större än innehållet i innehålls sidan. 
   
 I varje grupp identifierar [objekt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) mat ris ordningen som innehållet måste visas i. Varje objekt har två sätt att identifiera resultatet inom ett svar.  
  
 
-|Field | Beskrivning  |
+|Fält | Beskrivning  |
 |---------|---------|
 |`answerType` och `resultIndex` | `answerType` identifierar svaret (antingen enhet eller plats) och `resultIndex` identifierar ett resultat inom det svaret (till exempel en entitet). Indexet börjar vid 0.|
 |`value`    | `value` Innehåller ett ID som matchar ID: t för antingen ett svar eller ett resultat inom svaret. Antingen svaret eller resultatet innehåller ID: t, men inte båda. |

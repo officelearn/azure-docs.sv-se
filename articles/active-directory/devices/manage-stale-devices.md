@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7651f84e14d6ea7dcb4e12d57e2bf494d5aeff1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825973"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083192"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Gör så här: hantera inaktuella enheter i Azure AD
 
@@ -37,7 +37,7 @@ Inaktuella enheter i Azure AD kan störa de allmänna livscykelprinciperna för 
 
 ## <a name="detect-stale-devices"></a>Identifiera inaktuella enheter
 
-Eftersom en inaktuell enhet definieras som en registrerad enhet som inte har används för åtkomst till några molnappar under en viss tid kräver identifieringen av inaktuella enheter en tidsstämpelrelaterad egenskap. I Azure AD kallas egenskapen **ApproximateLastLogonTimestamp** eller **aktivitetstidsstämpel**. Om delta mellan nu och värdet för **aktivitetsstämpeln** överskrider tidsintervallet du har definierat för aktiva enheter anses en enhet vara inaktuell. Denna **aktivitetsstämpel** är nu en offentlig förhandsversion.
+Eftersom en inaktuell enhet definieras som en registrerad enhet som inte har används för åtkomst till några molnappar under en viss tid kräver identifieringen av inaktuella enheter en tidsstämpelrelaterad egenskap. I Azure AD kallas egenskapen **ApproximateLastLogonTimestamp** eller **aktivitetstidsstämpel** . Om delta mellan nu och värdet för **aktivitetsstämpeln** överskrider tidsintervallet du har definierat för aktiva enheter anses en enhet vara inaktuell. Denna **aktivitetsstämpel** är nu en offentlig förhandsversion.
 
 ## <a name="how-is-the-value-of-the-activity-timestamp-managed"></a>Hur hanteras värdet för aktivitetsstämpeln?  
 
@@ -55,11 +55,11 @@ Du har två alternativ för att hämta aktivitetsstämpelns värde:
 
 - Kolumnen **Aktivitet** på [enhetssidan](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) i Azure-portalen
 
-    ![Aktivitetstidsstämpel](./media/manage-stale-devices/01.png)
+    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Skärm bild av en sida i Azure Portal visar namn, ägare och annan information på enheterna. En kolumn visar aktivitetens tidstämpel." border="false":::
 
 - Cmdleten [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
-    ![Aktivitetstidsstämpel](./media/manage-stale-devices/02.png)
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Skärm bild av en sida i Azure Portal visar namn, ägare och annan information på enheterna. En kolumn visar aktivitetens tidstämpel." border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>Planera rensningen av dina inaktuella enheter
 

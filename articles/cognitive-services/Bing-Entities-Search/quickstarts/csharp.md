@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f2197732a332e860af421f46d1049c2388043c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 52efd103bf510e7cca8a1e4a1d682948b498d64c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221238"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084858"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med C #
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla C#-programmet skickar en nyhetssökfråga till API:et och visar svaret. Käll koden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
@@ -38,9 +43,9 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 1. Skapa en ny C#-konsollösning i Visual Studio. 
 1. Lägg till [Newtonsoft.Jsi](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet-paketet.
-    1. Högerklicka på ditt projekt i **Solution Explorer**.
-    2. Välj **Hantera NuGet-paket**.
-    3. Sök efter och välj *Newtonsoft.Jspå*och installera sedan paketet.
+    1. Högerklicka på ditt projekt i **Solution Explorer** .
+    2. Välj **Hantera NuGet-paket** .
+    3. Sök efter och välj *Newtonsoft.Jspå* och installera sedan paketet.
 1. Lägg sedan till följande namn rymder i huvud kod filen:
     
     ```csharp

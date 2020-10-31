@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: e64914118409332f6a1c08b6d5e1669685529d76
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: ff071373706759576f80426d61a27851bfc4e1b6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999171"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082172"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Distribuera en modell till Azure Container Instances
 
@@ -60,7 +60,7 @@ Mer information finns i [så här skyddar du inferencing med virtuella nätverk]
 
 ## <a name="deploy-to-aci"></a>Distribuera till ACI
 
-Om du vill distribuera en modell till Azure Container Instances skapar du en __distributions konfiguration__ som beskriver de beräknings resurser som behövs. Till exempel antal kärnor och minne. Du behöver också en __konfiguration__med en konfiguration som beskriver den miljö som krävs för att vara värd för modellen och webb tjänsten. Mer information om hur du skapar en konfigurations konfiguration finns i [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
+Om du vill distribuera en modell till Azure Container Instances skapar du en __distributions konfiguration__ som beskriver de beräknings resurser som behövs. Till exempel antal kärnor och minne. Du behöver också en __konfiguration__ med en konfiguration som beskriver den miljö som krävs för att vara värd för modellen och webb tjänsten. Mer information om hur du skapar en konfigurations konfiguration finns i [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > * ACI passar bara för små modeller som är mindre än 1 GB. 
@@ -104,6 +104,8 @@ Se [Distribuera modeller med vs Code](tutorial-train-deploy-image-classification
 > [!IMPORTANT]
 > Du behöver inte skapa en ACI-behållare för att testa i förväg. ACI-behållare skapas vid behov.
 
+> [!IMPORTANT]
+> Vi lägger till hashed arbetsyte-ID till alla underliggande ACI-resurser som skapas, alla ACI-namn från samma arbets yta har samma suffix. Azure Machine Learning tjänstens namn skulle fortfarande vara samma kund som tillhandahölls "service_name" och alla användare som är riktade Azure Machine Learning SDK-API: er behöver inte några ändringar. Vi ger inga garantier till namnen på underliggande resurser som skapas.
 
 ## <a name="next-steps"></a>Nästa steg
 

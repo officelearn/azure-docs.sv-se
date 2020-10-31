@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 10/13/2020
 ms.author: sngun
-ms.openlocfilehash: f435185d0f00d8f64425e3f2b7081e0ee9a393ce
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c1af35b754362a230e77c7a3326de8ddb8a09d62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276215"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083005"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Azure Cosmos DB Gremlin Graph-stöd och kompatibilitet med TinkerPop-funktioner
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB har stöd för [Apache Tinkerpops](https://tinkerpop.apache.org) diagram Traversal, som kallas [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter.
 
@@ -167,47 +168,47 @@ Den skrivoptimerade motorn som tillhandahålls av Azure Cosmos DB stöder automa
 
 ## <a name="behavior-differences"></a>Beteende skillnader
 
-* Azure Cosmos DB Graph-motor kör ***Bredd-första*** genom gång medan TinkerPop Gremlin är djup – först. Med det här beteendet uppnås bättre prestanda i horisontellt skalbart system som Cosmos DB.
+* Azure Cosmos DB Graph-motorn kör * **Bredd-första** _ traverser medan TinkerPop Gremlin är djup-först. Med det här beteendet uppnås bättre prestanda i horisontellt skalbart system som Cosmos DB.
 
 ## <a name="unsupported-features"></a>Funktioner som inte stöds
 
-* ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** är ett datorspråk med oberoende specifikation för diagrambläddringar. Cosmos DB Graph har inte stöd för det än. Använd `GremlinClient.SubmitAsync()` och skicka Traversal som en text sträng.
+_ * **[Gremlin bytekod](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)** _ är en oberoende-specifikation för programmerings språk för diagram bläddringskontroll. Cosmos DB Graph har inte stöd för det än. Använd `GremlinClient.SubmitAsync()` och skicka Traversal som en text sträng.
 
-* ***`property(set, 'xyz', 1)`*** Ange kardinalitet stöds inte idag. Använd `property(list, 'xyz', 1)` i stället. Mer information finns i [Egenskaper för hörn med TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
+_ * **`property(set, 'xyz', 1)`** _ set kardinalitet stöds inte idag. Använd `property(list, 'xyz', 1)` i stället. Mer information finns i [Egenskaper för hörn med TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
 
-* *** `match()` Steget*** är inte tillgängligt för tillfället. Det här steget tillhandahåller funktioner för deklarativ fråga.
+_ *- **`match()` Steg** _ är inte tillgängligt för tillfället. Det här steget tillhandahåller funktioner för deklarativ fråga.
 
-* ***Objekt som egenskaper*** för hörn eller kanter stöds inte. Egenskaper kan bara vara primitiva typer eller matriser.
+_ * **Objekt som egenskaper** _ i hörn eller kanter stöds inte. Egenskaper kan bara vara primitiva typer eller matriser.
 
-* ***Sortera efter mat ris egenskaper*** `order().by(<array property>)` stöds inte. Sortering stöds endast av primitiva typer.
+_ * **Sortering efter mat ris egenskaper** _ `order().by(<array property>)` stöds inte. Sortering stöds endast av primitiva typer.
 
-* ***JSON-typer som inte är primitiva*** stöds inte. Användnings `string` -, `number` -eller- `true` / `false` typer. `null` värden stöds inte. 
+_ * **Icke-primitiva JSON-typer** _ stöds inte. Användnings `string` -, `number` -eller- `true` / `false` typer. `null` värden stöds inte. 
 
-* ***GraphSONv3*** -serialiseraren stöds inte för närvarande. Använd `GraphSONv2` serialiserare, läsare och skrivar klasser i anslutnings konfigurationen. Resultaten som returneras av Azure Cosmos DB Gremlin-API: t har inte samma format som GraphSON-formatet. 
+_ * **GraphSONv3** _ serialiseraren stöds inte för närvarande. Använd `GraphSONv2` serialiserare, läsare och skrivar klasser i anslutnings konfigurationen. Resultaten som returneras av Azure Cosmos DB Gremlin-API: t har inte samma format som GraphSON-formatet. 
 
-* **Lambda-uttryck och-funktioner** stöds inte för närvarande. Detta omfattar `.map{<expression>}` `.by{<expression>}` funktionerna, och `.filter{<expression>}` . Om du vill veta mer och lära dig att skriva om dem med Gremlin-steg, se [en kommentar om lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)-tal.
+**Lambda-uttryck och-funktioner** stöds inte för närvarande. Detta omfattar `.map{<expression>}` `.by{<expression>}` funktionerna, och `.filter{<expression>}` . Om du vill veta mer och lära dig att skriva om dem med Gremlin-steg, se [en kommentar om lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)-tal.
 
-* ***Transaktioner*** stöds inte på grund av systemets distribuerade natur.  Konfigurera lämplig konsekvens modell på Gremlin-kontot för att "läsa dina egna skrivningar" och Använd optimistisk samtidighet för att lösa skrivningar som står i konflikt med varandra.
+* ***Transaktionerna** stöds inte på grund av systemets distribuerade natur.  Konfigurera lämplig konsekvens modell på Gremlin-kontot för att "läsa dina egna skrivningar" och Använd optimistisk samtidighet för att lösa skrivningar som står i konflikt med varandra.
 
 ## <a name="known-limitations"></a>Kända begränsningar
 
-* **Index användning för Gremlin-frågor med `.V()` steg för steg-för-steg**: för närvarande kommer endast det första `.V()` anropet av en genom gång att använda indexet för att lösa eventuella filter eller predikat som är kopplade till den. Efterföljande anrop kommer inte att se indexet, vilket kan öka svars tiden och kostnaden för frågan.
+_ **Index användning för Gremlin-frågor med `.V()` steg för steg-för-steg-åtgärder** : för närvarande kommer endast det första `.V()` anropet av en genom gång att använda indexet för att matcha eventuella filter eller predikat som är kopplade till den. Efterföljande anrop kommer inte att se indexet, vilket kan öka svars tiden och kostnaden för frågan.
     
-    Vid antagande av standard indexering använder en typisk Read Gremlin-fråga som börjar med `.V()` steget parametrar i sina kopplade filtrerings steg, till exempel `.has()` eller `.where()` för att optimera frågans kostnad och prestanda. Exempel:
+    Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
 
     ```java
     g.V().has('category', 'A')
     ```
 
-    Men när mer än ett `.V()` steg ingår i Gremlin-frågan, kanske inte matchningen av data för frågan är optimal. Gör följande fråga som exempel:
+    However, when more than one `.V()` step is included in the Gremlin query, the resolution of the data for the query might not be optimal. Take the following query as an example:
 
     ```java
     g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
     ```
 
-    Den här frågan returnerar två grupper av hörn baserat på deras egenskap som kallas `category` . I det här fallet kommer endast det första anropet att `g.V().has('category', 'A')` använda indexet för att matcha hörnen baserat på egenskaperna för deras egenskaper.
+    This query will return two groups of vertices based on their property called `category`. In this case, only the first call, `g.V().has('category', 'A')` will make use of the index to resolve the vertices based on the values of their properties.
 
-    En lösning för den här frågan är att använda under steg, till exempel `.map()` och `union()` . Detta är WINS nedan:
+    A workaround for this query is to use subtraversal steps such as `.map()` and `union()`. This is exemplified below:
 
     ```java
     // Query workaround using .map()
@@ -217,7 +218,7 @@ Den skrivoptimerade motorn som tillhandahålls av Azure Cosmos DB stöder automa
     g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
     ```
 
-    Du kan granska prestanda för frågorna med hjälp av Gremlin- [ `executionProfile()` steget](graph-execution-profile.md).
+    You can review the performance of the queries by using the [Gremlin `executionProfile()` step](graph-execution-profile.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

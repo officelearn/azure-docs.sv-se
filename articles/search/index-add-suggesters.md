@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e439f7d2b0232a2e1c36517f24723e4e16f7e6bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1ee42b5b5884b0ce3491282d256d4bea87f44e1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537607"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083549"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Skapa en förslags ställare för att aktivera Autoavsluta och föreslagna resultat i en fråga
 
-I Azure Kognitiv sökning aktive ras "Sök som-du-typ" via en **förslags** konstruktion som läggs till i ett [sökindex](search-what-is-an-index.md). En förslags ställare stöder två upplevelser: *komplettera automatiskt*, som slutför en del inbetalningar för en hel terms fråga och *förslag* som bjuder in genom att klicka igenom till en viss matchning. Funktionen Komplettera automatiskt skapar en fråga. Förslag skapar ett matchande dokument.
+I Azure Kognitiv sökning aktive ras "Sök som-du-typ" via en **förslags** konstruktion som läggs till i ett [sökindex](search-what-is-an-index.md). En förslags ställare stöder två upplevelser: *komplettera automatiskt* , som slutför en del inbetalningar för en hel terms fråga och *förslag* som bjuder in genom att klicka igenom till en viss matchning. Funktionen Komplettera automatiskt skapar en fråga. Förslag skapar ett matchande dokument.
 
 Följande skärm bild från [skapa din första app i C#](tutorial-csharp-type-ahead-and-suggestions.md) visar båda. Autoavsluta förväntar sig en möjlig term, och avslutar "TW" med "in". Förslag är små Sök resultat, där ett fält som ett hotell namn representerar ett matchande hotell Sök dokument från indexet. För förslag kan du Visa alla fält som innehåller beskrivande information.
 
@@ -52,7 +52,7 @@ Autoavsluta-förmåner från en större pool med fält att rita från eftersom d
 
 Förslag ger å andra sidan bättre resultat när valet av fält är selektivt. Kom ihåg att förslaget är en proxy för ett Sök dokument, så att du vill att fält som bäst representerar ett enda resultat. Namn, titlar eller andra unika fält som skiljer sig mellan flera matchningar fungerar bäst. Om fälten består av upprepade värden, består förslagen av identiska resultat och en användare vet inte vilken av dem som ska klicka.
 
-Lägg till alla fält som du behöver för Komplettera automatiskt, men Använd **$Select**, **$Top**, **$filter**och **searchFields** för att kontrol lera resultaten för förslag.
+Lägg till alla fält som du behöver för Komplettera automatiskt, men Använd **$Select** , **$Top** , **$filter** och **searchFields** för att kontrol lera resultaten för förslag.
 
 ### <a name="choose-analyzers"></a>Välj analys verktyg
 
@@ -167,7 +167,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 + [Skapa din första app i C# (Lektion 3 – Lägg till sökning efter typ)](tutorial-csharp-type-ahead-and-suggestions.md) visar en förslags konstruktion, föreslagna frågor, Autoavsluta och fasett-navigering. Det här kod exemplet körs på en sandbox Azure Kognitiv sökning-tjänst och använder ett förinställt hotell index så att allt du behöver göra är att trycka på F5 för att köra programmet. Ingen prenumeration eller inloggning är nödvändig.
 
-+ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) är ett äldre exempel som innehåller både C#-och Java-kod. Det visar också en förslags konstruktion, föreslagna frågor, komplettera automatiskt och fasett-navigering. I det här kod exemplet används exempel data från värdbaserade [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) . 
++ [DotNetHowToAutocomplete](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) är ett äldre exempel som innehåller både C#-och Java-kod. Det visar också en förslags konstruktion, föreslagna frågor, komplettera automatiskt och fasett-navigering. I det här kod exemplet används exempel data från värdbaserade [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) . 
 
 ## <a name="next-steps"></a>Nästa steg
 

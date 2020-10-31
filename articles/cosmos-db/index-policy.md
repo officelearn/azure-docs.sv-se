@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: 2859f603dd168e4f93eb8f3cbc9c841de884e1ee
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d0ee7dc8890c228617eaeee8b1cdc72d2230458e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489242"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082971"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 I Azure Cosmos DB har varje container en indexeringspolicy som avgör hur containerns objekt ska indexeras. Standardprincipen för indexering för nyligen skapade containrar indexerar alla egenskaper för alla objekt och tillämpar intervallindex för alla strängar och tal. På så sätt kan du få goda frågeprestanda utan att behöva tänka på indexering eller indexhantering från början.
 
-I vissa fall kan det vara bra att åsidosätta det här automatiska beteendet så att det passar dina behov bättre. Du kan anpassa en behållares indexerings princip genom att ställa in dess *indexerings läge*och ta med eller undanta *egenskaps Sök vägar*.
+I vissa fall kan det vara bra att åsidosätta det här automatiska beteendet så att det passar dina behov bättre. Du kan anpassa en behållares indexerings princip genom att ställa in dess *indexerings läge* och ta med eller undanta *egenskaps Sök vägar* .
 
 > [!NOTE]
 > Metoden för att uppdatera indexerings principer som beskrivs i den här artikeln gäller endast Azure Cosmos DB s SQL-API (Core). Läs mer om indexering i [Azure Cosmos DBS API för MongoDB](mongodb-indexing.md)
@@ -26,8 +27,8 @@ I vissa fall kan det vara bra att åsidosätta det här automatiska beteendet s�
 
 Azure Cosmos DB stöder två indexerings lägen:
 
-- **Konsekvent**: indexet uppdateras synkront när du skapar, uppdaterar eller tar bort objekt. Det innebär att konsekvensen för dina Läs frågor är den [konsekvens som kon figurer ATS för kontot](consistency-levels.md).
-- **Ingen**: indexering har inaktiverats för behållaren. Detta används vanligt vis när en behållare används som ett rent nyckel värdes lager utan behov av sekundära index. Det kan också användas för att förbättra prestandan för Mass åtgärder. När Mass åtgärderna har slutförts kan index läget anges till konsekvent och övervakas med hjälp av [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) tills det är klart.
+- **Konsekvent** : indexet uppdateras synkront när du skapar, uppdaterar eller tar bort objekt. Det innebär att konsekvensen för dina Läs frågor är den [konsekvens som kon figurer ATS för kontot](consistency-levels.md).
+- **Ingen** : indexering har inaktiverats för behållaren. Detta används vanligt vis när en behållare används som ett rent nyckel värdes lager utan behov av sekundära index. Det kan också användas för att förbättra prestandan för Mass åtgärder. När Mass åtgärderna har slutförts kan index läget anges till konsekvent och övervakas med hjälp av [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) tills det är klart.
 
 > [!NOTE]
 > Azure Cosmos DB stöder också ett Lazy-indexerings läge. Lazy-indexering utför uppdateringar av indexet på en mycket lägre prioritetsnivå när motorn inte utför något annat arbete. Detta kan ge **inkonsekventa eller ofullständiga** frågeresultat. Om du planerar att fråga en Cosmos-container bör du inte välja Lazy-indexering. I juni 2020 införde vi en ändring som inte längre tillåter att nya behållare ställs in till Lazy indexerings läge. Om ditt Azure Cosmos DB-konto redan innehåller minst en behållare med Lazy-indexering, undantas detta konto automatiskt från ändringen. Du kan också begära ett undantag genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (förutom om du använder ett Azure Cosmos-konto i ett [Server](serverless.md) fritt läge som inte stöder Lazy-indexering).
@@ -103,9 +104,9 @@ Om dina inkluderade sökvägar och undantagna sökvägar har en konflikt, priori
 
 Här är ett exempel:
 
-**Sökväg som ingår**: `/food/ingredients/nutrition/*`
+**Sökväg som ingår** : `/food/ingredients/nutrition/*`
 
-**Undantagen sökväg**: `/food/ingredients/*`
+**Undantagen sökväg** : `/food/ingredients/*`
 
 I det här fallet har den medföljande sökvägen företräde framför den undantagna sökvägen eftersom den är mer exakt. Baserat på dessa sökvägar utesluts alla data i `food/ingredients` sökvägen eller kapslas in i indexet. Undantaget skulle vara data i den inkluderade sökvägen: `/food/ingredients/nutrition/*` , som skulle indexeras.
 

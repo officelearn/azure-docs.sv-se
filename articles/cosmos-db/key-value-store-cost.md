@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8d04c670010e3595d8f30c7ffcd34d99e27374cb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cd80e98d0838cb06228c92c7ea7efeb3fc30a0ed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488460"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082886"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB som ett nyckel värdes lager – kostnads översikt
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB är en globalt distribuerad databas tjänst med flera modeller för att skapa hög tillgängliga, storskaliga program i stor skala. Som standard indexeras Azure Cosmos DB automatiskt och effektivt indexera alla data som matas in. Detta möjliggör snabba och konsekventa [SQL](./sql-query-getting-started.md) -frågor (och [Java Script](stored-procedures-triggers-udfs.md)) för data. 
 
@@ -22,7 +23,7 @@ I den här artikeln beskrivs kostnaden för Azure Cosmos DB för enkla Skriv-och
 
 ## <a name="why-we-use-request-units-rus"></a>Varför vi använder Request Units (ru: er)
 
-Azure Cosmos DB prestanda baseras på mängden allokerat data flöde som uttrycks i [enheter för programbegäran](request-units.md) (ru/s). Etableringen är i en andra kornig het och köps in i RU/s (ska[inte förväxlas med fakturerings tiden per timme](https://azure.microsoft.com/pricing/details/cosmos-db/)). Ru: er bör betraktas som en logisk abstraktion (en valuta) som fören klar etableringen av nödvändigt data flöde för programmet. Användarna behöver inte tänka på att skilja mellan Läs-och Skriv data flöden. Den enkla valuta modellen i ru: er skapar effektiviteten för att dela den etablerade kapaciteten mellan läsningar och skrivningar. Den här etablerade kapacitets modellen gör det möjligt för tjänsten att tillhandahålla ett **förutsägbart och konsekvent data flöde, garanterad låg latens och hög tillgänglighet**. Slutligen, medan RU-modellen används för att illustrera data flödet, har varje etablerad RU också en definierad mängd resurser (t. ex. minne, kärnor/processor och IOPS).
+Azure Cosmos DB prestanda baseras på mängden allokerat data flöde som uttrycks i [enheter för programbegäran](request-units.md) (ru/s). Etableringen är i en andra kornig het och köps in i RU/s (ska[inte förväxlas med fakturerings tiden per timme](https://azure.microsoft.com/pricing/details/cosmos-db/)). Ru: er bör betraktas som en logisk abstraktion (en valuta) som fören klar etableringen av nödvändigt data flöde för programmet. Användarna behöver inte tänka på att skilja mellan Läs-och Skriv data flöden. Den enkla valuta modellen i ru: er skapar effektiviteten för att dela den etablerade kapaciteten mellan läsningar och skrivningar. Den här etablerade kapacitets modellen gör det möjligt för tjänsten att tillhandahålla ett **förutsägbart och konsekvent data flöde, garanterad låg latens och hög tillgänglighet** . Slutligen, medan RU-modellen används för att illustrera data flödet, har varje etablerad RU också en definierad mängd resurser (t. ex. minne, kärnor/processor och IOPS).
 
 Som ett globalt distribuerat databas system är Cosmos DB den enda Azure-tjänst som tillhandahåller en omfattande service avtal som täcker svars tid, data flöde, konsekvens och hög tillgänglighet. Det data flöde som du etablerar tillämpas på var och en av de regioner som är kopplade till ditt Cosmos-konto. För läsningar erbjuder Cosmos DB flera, väldefinierade [konsekvens nivåer](consistency-levels.md) som du kan välja bland. 
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a559b29502adb1c507b1543463d84eb3bd15d5a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653221"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083294"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gör så här: planera din Azure AD Join-implementering
 
@@ -90,8 +90,8 @@ Du kan inte använda smartkort eller certifikatbaserad autentisering för att an
 
 Om du skapar användare i din:
 
-- **Lokala Active Directory**måste du synkronisera dem till Azure AD med hjälp av [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
-- **Azure AD**krävs ingen ytterligare konfiguration.
+- **Lokala Active Directory** måste du synkronisera dem till Azure AD med hjälp av [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
+- **Azure AD** krävs ingen ytterligare konfiguration.
 
 Lokala UPN: er som skiljer sig från Azure AD-UPN: er stöds inte på Azure AD-anslutna enheter. Om användarna använder ett lokalt UPN bör du planera att växla till att använda deras primära UPN i Azure AD.
 
@@ -199,11 +199,11 @@ Här är en jämförelse av dessa tre metoder
  
 | Element | Installation av självbetjäning | Windows Autopilot | Massregistrering |
 | --- | --- | --- | --- |
-| Kräv användar interaktion för att konfigurera | Ja | Ja | Inga |
-| Kräv IT-ansträngning | Inga | Ja | Ja |
+| Kräv användar interaktion för att konfigurera | Ja | Ja | Nej |
+| Kräv IT-ansträngning | Nej | Ja | Ja |
 | Tillämpliga flöden | Inställningar för OOBE-& | Endast OOBE | Endast OOBE |
 | Lokal administratörsbehörighet till primär användare | Ja, som standard | Konfigurerbar | Nej |
-| Kräv enhets-OEM-support | Inga | Ja | Inga |
+| Kräv enhets-OEM-support | Nej | Ja | Nej |
 | Versioner som stöds | 1511 + | 1709 + | 1703 + |
  
 Välj distributions metod eller-metoder genom att granska tabellen ovan och granska följande överväganden för att införa någon av metoderna:  
@@ -243,13 +243,13 @@ Välj **Ja** om du vill att användarna ska kunna utföra MFA när de ansluter t
 
 Innan du kan konfigurera dina mobilitets inställningar kan du behöva lägga till en MDM-Provider först.
 
-**Så här lägger du till en MDM-Provider**:
+**Så här lägger du till en MDM-Provider** :
 
-1. På **sidan Azure Active Directory**går du till avsnittet **Hantera** och klickar på `Mobility (MDM and MAM)` . 
-1. Klicka på **Lägg till program**.
+1. På **sidan Azure Active Directory** går du till avsnittet **Hantera** och klickar på `Mobility (MDM and MAM)` . 
+1. Klicka på **Lägg till program** .
 1. Välj MDM-providern i listan.
 
-   ![Lägga till ett program](./media/azureadjoin-plan/04.png)
+   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Skärm bild av Azure Active Directory lägga till en program sida. Flera M D M-leverantörer visas." border="false":::
 
 Välj MDM-providern för att konfigurera de relaterade inställningarna. 
 
@@ -261,8 +261,8 @@ Välj **en** eller **flera** baserat på distributionens omfattning.
 
 Beroende på ditt omfång händer något av följande: 
 
-- **Användaren är i MDM-omfattning**: om du har en Azure AD Premium prenumeration automatiseras MDM-registreringen tillsammans med Azure AD Join. Alla omfångs användare måste ha en lämplig licens för din MDM. Om MDM-registreringen Miss lyckas i det här scenariot kommer Azure AD Join också att återställas.
-- **Användaren är inte i MDM-omfattning**: om användarna inte är i MDM-omfattningen slutförs Azure AD Join utan någon MDM-registrering. Detta resulterar i en ohanterad enhet.
+- **Användaren är i MDM-omfattning** : om du har en Azure AD Premium prenumeration automatiseras MDM-registreringen tillsammans med Azure AD Join. Alla omfångs användare måste ha en lämplig licens för din MDM. Om MDM-registreringen Miss lyckas i det här scenariot kommer Azure AD Join också att återställas.
+- **Användaren är inte i MDM-omfattning** : om användarna inte är i MDM-omfattningen slutförs Azure AD Join utan någon MDM-registrering. Detta resulterar i en ohanterad enhet.
 
 ### <a name="mdm-urls"></a>MDM-URL:er
 
@@ -272,7 +272,7 @@ Det finns tre URL: er som är relaterade till din MDM-konfiguration:
 - Webbadress till MDM-identifiering 
 - Webbadress till MDM-kompatibilitet
 
-![Lägga till ett program](./media/azureadjoin-plan/06.png)
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Skärm bild av Azure Active Directory lägga till en program sida. Flera M D M-leverantörer visas." border="false":::
 
 Varje URL har ett fördefinierat standardvärde. Om dessa fält är tomma kontaktar du MDM-providern för mer information.
 
@@ -284,7 +284,7 @@ MAM gäller inte för Azure AD Join.
 
 Om du vill aktivera tillstånds växling till Azure AD så att användarna kan synkronisera sina inställningar på olika enheter, se [aktivera Enterprise State roaming i Azure Active Directory](enterprise-state-roaming-enable.md). 
 
-**Rekommendation**: Aktivera den här inställningen även för Hybrid Azure AD-anslutna enheter.
+**Rekommendation** : Aktivera den här inställningen även för Hybrid Azure AD-anslutna enheter.
 
 ## <a name="configure-conditional-access"></a>Konfigurera villkorlig åtkomst
 

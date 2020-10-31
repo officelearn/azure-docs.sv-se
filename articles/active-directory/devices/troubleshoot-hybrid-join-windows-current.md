@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e235bf90568a1382a5ecee3ff4d2283aaa32f10b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433661"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083224"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka Azure Active Directory-hybridanslutna enheter
 
@@ -95,16 +95,16 @@ Granska följande fält och kontrol lera att de har de förväntade värdena:
 
 #### <a name="domainjoined--yes"></a>DomainJoined: Ja
 
-Det här fältet anger om enheten är ansluten till en lokal Active Directory eller inte. Om värdet är **Nej**kan enheten inte utföra en hybrid Azure AD-anslutning.
+Det här fältet anger om enheten är ansluten till en lokal Active Directory eller inte. Om värdet är **Nej** kan enheten inte utföra en hybrid Azure AD-anslutning.
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined: Nej
 
-Det här fältet anger om enheten är registrerad med Azure AD som en personlig enhet (markerad som *arbets plats ansluten*). Det här värdet ska vara **Nej** för en domänansluten dator som också är hybrid Azure AD-ansluten. Om värdet är **Ja**, har ett arbets-eller skol konto lagts till innan hybriden av Azure AD-anslutning slutfördes. I det här fallet ignoreras kontot när du använder Windows 10 version 1607 eller senare.
+Det här fältet anger om enheten är registrerad med Azure AD som en personlig enhet (markerad som *arbets plats ansluten* ). Det här värdet ska vara **Nej** för en domänansluten dator som också är hybrid Azure AD-ansluten. Om värdet är **Ja** , har ett arbets-eller skol konto lagts till innan hybriden av Azure AD-anslutning slutfördes. I det här fallet ignoreras kontot när du använder Windows 10 version 1607 eller senare.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined: Ja
 
 Det här fältet anger om enheten är ansluten. Värdet blir **Ja** om enheten antingen är en Azure AD-ansluten enhet eller en hybrid Azure AD-ansluten enhet.
-Om värdet är **Nej**har kopplingen till Azure AD inte slutförts ännu.
+Om värdet är **Nej** har kopplingen till Azure AD inte slutförts ännu.
 
 Fortsätt till nästa steg för ytterligare fel sökning.
 
@@ -135,9 +135,9 @@ Använd Loggboken loggar för att hitta fasen och felkoden för kopplings felen.
 1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga**  >  **Microsoft**  >  **Windows**  >  **användar enhets registrering**
 2. Sök efter händelser med följande eventIDs 304, 305, 307.
 
-![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/1.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="Skärm bild av logg boken. En händelse med I D 304 är markerad och dess information visas, med felkoden och den markerade fasen." border="false":::
 
-![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/2.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Skärm bild av logg boken. En händelse med I D 304 är markerad och dess information visas, med felkoden och den markerade fasen." border="false":::
 
 ### <a name="step-4-check-for-possible-causes-and-resolutions-from-the-lists-below"></a>Steg 4: Sök efter möjliga orsaker och lösningar från listorna nedan
 
@@ -210,7 +210,7 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
 1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga**  >  **Microsoft**  >  **Windows**  >  **användar enhets registrering**
 2. Sök efter händelser med följande eventIDs 201
 
-![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/5.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Skärm bild av logg boken. En händelse med I D 304 är markerad och dess information visas, med felkoden och den markerade fasen." border="false":::
 
 ###### <a name="network-errors"></a>Nätverks fel
 
@@ -233,7 +233,7 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
    - Orsak: HTTP 503 från DRS-servern.
    - Lösning: servern är inte tillgänglig för tillfället. framtida anslutnings försök kommer sannolikt att lyckas när servern är online igen.
 
-###### <a name="other-errors"></a>Andra fel
+###### <a name="other-errors"></a>Övriga fel
 
 - **E_INVALIDDATA** (0x8007000D/-2147024883)
    - Orsak: det gick inte att parsa Server svars-JSON. Troligen på grund av proxy som returnerar HTTP 200 med en HTML-auth-sida.
@@ -255,7 +255,7 @@ Använd Loggboken loggar för att hitta felkod, underfelkod, Server fel kod och 
 1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga**  >  **Microsoft**  >  **Windows**  >  **användar enhets registrering**
 2. Sök efter händelser med följande eventID 305
 
-![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/3.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Skärm bild av logg boken. En händelse med I D 304 är markerad och dess information visas, med felkoden och den markerade fasen." border="false":::
 
 ##### <a name="configuration-errors"></a>Konfigurationsfel
 
@@ -284,7 +284,7 @@ Använd Loggboken loggar för att hitta felkod, underfelkod, Server fel kod och 
    - Orsak: försöket att ansluta till `https://login.microsoftonline.com` misslyckades.
    - Lösning: kontrol lera nätverks anslutningen till `https://login.microsoftonline.com` .
 
-##### <a name="other-errors"></a>Andra fel
+##### <a name="other-errors"></a>Övriga fel
 
 - **ERROR_ADAL_SERVER_ERROR_INVALID_GRANT** (0xcaa20003/-895352829)
    - Orsak: SAML-token från den lokala identitets leverantören godkändes inte av Azure AD.
@@ -330,7 +330,7 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
 1. Öppna händelse loggarna för **registrering av användar enheter** i logg boken. Finns under **program och tjänster logga**  >  **Microsoft**  >  **Windows**  >  **användar enhets registrering**
 2. Sök efter händelser med följande eventIDs 204
 
-![Händelse för logg haveri](./media/troubleshoot-hybrid-join-windows-current/4.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Skärm bild av logg boken. En händelse med I D 304 är markerad och dess information visas, med felkoden och den markerade fasen." border="false":::
 
 ##### <a name="http-errors-returned-from-drs-server"></a>HTTP-fel som returnerats från DRS-servern
 
@@ -389,12 +389,12 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
 
 Hämta filen Auth.zip från [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Zippa upp filerna och Byt namn på de inkluderade filerna **start-auth.txt** och **stop-auth.txt** till **Start-auth. cmd** och **Stop-auth. cmd**.
-1. Kör **Start-auth. cmd**från en upphöjd kommando tolk.
+1. Zippa upp filerna och Byt namn på de inkluderade filerna **start-auth.txt** och **stop-auth.txt** till **Start-auth. cmd** och **Stop-auth. cmd** .
+1. Kör **Start-auth. cmd** från en upphöjd kommando tolk.
 1. Använd switch-konto för att växla till en annan session med problem användaren.
 1. Återskapa problemet.
 1. Använd switch-konto om du vill växla tillbaka till admin-sessionen som kör spårningen.
-1. Kör **Stop-auth. cmd**från en upphöjd kommando tolk.
+1. Kör **Stop-auth. cmd** från en upphöjd kommando tolk.
 1. Zip och skicka mappen **Authlogs** från mappen där skripten kördes.
 
 ## <a name="troubleshoot-post-join-issues"></a>Felsöka problem efter anslutning
@@ -404,7 +404,7 @@ Hämta filen Auth.zip från [https://github.com/CSS-Windows/WindowsDiag/tree/mas
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: Ja och AzureADPrt: Ja
 
 Fälten visar om användaren har autentiserats för Azure AD vid inloggning på enheten.
-Om värdena är **Nej**kan det bero på att:
+Om värdena är **Nej** kan det bero på att:
 
 - Felaktig lagrings nyckel i den TPM som är kopplad till enheten vid registreringen (kontrol lera KeySignTest vid körning).
 - Alternativt inloggnings-ID

@@ -11,14 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b414711f5589a141d59fbe2f14d0a8ae992f5acf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67542770"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084450"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Hämta bilder från webben med API för bildsökning i Bing
+
+> [!WARNING]
+> API:er för Bing-sökresultat flyttas från Cognitive Services till Bing-sökning tjänster. Från och med den **30 oktober 2020** måste alla nya instanser av Bing-sökning tillhandahållas enligt processen som dokumenteras [här](https://aka.ms/cogsvcs/bingmove).
+> API:er för Bing-sökresultat som har tillhandahållits med hjälp av Cognitive Services kommer att stödjas under de kommande tre åren eller tills Enterprise-avtals slut, beroende på vilket som sker först.
+> Instruktioner för migrering finns i [Bing-sökning Services](https://aka.ms/cogsvcs/bingmigration).
 
 När du använder Bildsökning i Bing REST API kan du hämta avbildningar från webben som är relaterade till Sök termen genom att skicka följande GET-begäran:
 
@@ -31,7 +36,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Använd fråge parametern [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) för URL-kodad sökterm. Om du till exempel anger *seglings dinghies*anger `q` du till `sailing+dinghies` eller `sailing%20dinghies` .
+Använd fråge parametern [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) för URL-kodad sökterm. Om du till exempel anger *seglings dinghies* anger `q` du till `sailing+dinghies` eller `sailing%20dinghies` .
 
 > [!IMPORTANT]
 > * Alla begär Anden måste göras från en server och inte från en klient.

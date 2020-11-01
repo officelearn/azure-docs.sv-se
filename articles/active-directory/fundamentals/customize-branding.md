@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "89565862"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Lägg till anpassning till din organisations Azure Active Directory inloggnings sida
@@ -37,7 +37,7 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
 ### <a name="to-customize-your-branding"></a>Anpassa din anpassning
 1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett Globalt administratörskonto för katalogen.
 
-2. Välj **Azure Active Directory**och välj sedan **företags anpassning**och välj sedan **Konfigurera**.
+2. Välj **Azure Active Directory** och välj sedan **företags anpassning** och välj sedan **Konfigurera** .
 
     ![Contoso-sidan för företags anpassning, konfigurera alternativ markerat](media/customize-branding/company-branding-configure-button.png)
 
@@ -86,7 +86,7 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
     
         - **Bild av kvadratisk logo typ, mörkt tema.** Samma som fyrkant logo typ bilden ovan. Logo typ bilden tar platsen för fyrkant logo bilden när den används med en mörk bakgrund, till exempel med Windows 10 Azure AD-anslutna skärmar under OOBE (out-of-Box Experience).  Om din logo typ ser bra ut på vita, mörka blå och svarta bakgrunder, behöver du inte lägga till den här bilden. 
         
-        - **Visa alternativet för att förbli inloggad.** Du kan välja att låta dina användare förbli inloggade på Azure AD tills de uttryckligen loggar ut. Om du väljer **Nej**är det här alternativet dolt och användarna måste logga in varje gången webbläsaren stängs och öppnas igen.
+        - **Visa alternativet för att förbli inloggad.** Du kan välja att låta dina användare förbli inloggade på Azure AD tills de uttryckligen loggar ut. Om du väljer **Nej** är det här alternativet dolt och användarna måste logga in varje gången webbläsaren stängs och öppnas igen.
 
             Den här funktionen är endast tillgänglig för det anpassade varumärkes objekt och inte för språkspecifika objekt. Mer information om hur du konfigurerar och felsöker alternativet för att förbli inloggad finns i avsnittet [om att förbli inloggad? "för Azure AD-konton](keep-me-signed-in.md)
         
@@ -94,7 +94,7 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
             >För vissa funktioner i SharePoint Online och Office 2010 måste användarna kunna välja att fortsätta vara inloggade. Om du ställer in den här inställningen till **No** (Nej) kan eventuellt ytterligare och oväntade uppmaningar att logga in visas för dina användare.
    
 
-3. När du har lagt till din anpassning väljer du **Spara**.
+3. När du har lagt till din anpassning väljer du **Spara** .
 
     Om den här processen skapar din första anpassade anpassnings konfiguration blir den standard för din klient. Om du har ytterligare konfigurationer kan du välja din standard konfiguration.
     
@@ -107,13 +107,13 @@ När du har skapat din anpassade anpassning kan du gå tillbaka och ändra vad d
 ### <a name="to-edit-your-custom-branding"></a>Redigera din anpassade anpassning
 1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett Globalt administratörskonto för katalogen.
 
-2. Välj **Azure Active Directory**och välj sedan **företags anpassning**och välj sedan **Konfigurera**.
+2. Välj **Azure Active Directory** och välj sedan **företags anpassning** och välj sedan **Konfigurera** .
 
     ![Contoso-sidan för företags anpassning, där standard konfigurationen visas](media/customize-branding/company-branding-default-config.png)
 
 3. På sidan **Konfigurera företags anpassning** lägger du till, tar bort eller ändrar någon information baserat på beskrivningarna i avsnittet [Anpassa din Azure AD-inloggnings sida](#customize-your-azure-ad-sign-in-page) i den här artikeln.
 
-4. Välj **Spara**.
+4. Välj **Spara** .
 
    Det kan ta upp till en timme innan ändringar som du har gjort på inloggningssidan visas.
 
@@ -124,13 +124,13 @@ Du kan inte ändra den ursprungliga konfigurationens språk från standard språ
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) med ett Globalt administratörskonto för katalogen.
 
-2. Välj **Azure Active Directory**och välj sedan **företags anpassning**och välj sedan **nytt språk**.
+2. Välj **Azure Active Directory** och välj sedan **företags anpassning** och välj sedan **nytt språk** .
 
     ![Contoso-sidan för företags anpassning, med nytt språk alternativ markerat](media/customize-branding/company-branding-new-language.png)
 
 3. På sidan **Konfigurera företags anpassning** väljer du ditt språk (till exempel franska) och lägger sedan till översatt information baserat på beskrivningarna i avsnittet [Anpassa din Azure AD-inloggning](#customize-your-azure-ad-sign-in-page) i den här artikeln.
 
-4. Välj **Spara**.
+4. Välj **Spara** .
 
     Sidan **contoso – företagets varumärkes anpassning** för att visa den nya franska konfigurationen.
 

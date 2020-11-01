@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9c7b08b92fad07cddbdb2783f2d68cdb9be034a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 91ba36a0bffab6c66020bab41ace65659ed084f7
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097081"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146321"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
@@ -73,19 +73,19 @@ Slut punkts-API: erna som är tillgängliga i kontroll planet är:
  
 Om du vill skapa en händelse väg kan du använda Azure Digitals dubbla [**data Plans-API: er**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI-kommandon**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)eller [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Här är ett exempel på hur du skapar en händelse väg i ett klient program med hjälp av `CreateEventRoute` [.net (C#) SDK-](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) anropet: 
+Här är ett exempel på hur du skapar en händelse väg i ett klient program med hjälp av `CreateOrReplaceEventRouteAsync` [.net (C#) SDK-](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) anropet: 
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
+var er = new DigitalTwinsEventRoute("endpointName", eventFilter);
+await client.CreateOrReplaceEventRouteAsync("routeName", er);
 ```
 
-1. Först skapas ett- `EventRoute` objekt och konstruktorn tar namnet på en slut punkt. I det här `endpointName` fältet identifieras en slut punkt som händelsehubben, Event Grid eller Service Bus. De här slut punkterna måste skapas i din prenumeration och anslutas till Azure Digital-dubbla med kontroll Plans-API: er innan det här registrerings anropet görs.
+1. Först skapas ett `DigitalTwinsEventRoute` -objekt och konstruktorn tar namnet på en slut punkt. I det här `endpointName` fältet identifieras en slut punkt som händelsehubben, Event Grid eller Service Bus. De här slut punkterna måste skapas i din prenumeration och anslutas till Azure Digital-dubbla med kontroll Plans-API: er innan det här registrerings anropet görs.
 
 2. Objektet för händelse vägen har också ett [**filter**](how-to-manage-routes-apis-cli.md#filter-events) fält som kan användas för att begränsa vilka typer av händelser som följer den här vägen. Ett filter för `true` aktiverar vägen utan ytterligare filtrering (ett filter av `false` inaktiverar vägen). 
 
-3. Objektet för händelse vägen skickas sedan till `CreateEventRoute` , tillsammans med ett namn för vägen.
+3. Objektet för händelse vägen skickas sedan till `CreateOrReplaceEventRouteAsync` , tillsammans med ett namn för vägen.
 
 > [!TIP]
 > Alla SDK-funktioner ingår i synkrona och asynkrona versioner.

@@ -1,18 +1,18 @@
 ---
 title: Felsöka vanliga fel
 description: 'Lär dig hur du felsöker problem med att skapa princip definitioner, de olika SDK: n och tillägget för Kubernetes.'
-ms.date: 10/05/2020
+ms.date: 10/30/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 98b5f1658a7d3fc7c4a7db7145b92bb6065befc5
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 74b622dd41fb28e845a35780e5d06588189ec029
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999890"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146287"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Felsöka fel med hjälp av Azure Policy
 
-Du kan stöta på fel när du skapar princip definitioner, arbetar med SDK eller konfigurerar [Azure policy för Kubernetes](../concepts/policy-for-kubernetes.md) -tillägg. I den här artikeln beskrivs olika fel som kan uppstå och hur du löser dem.
+Du kan stöta på fel när du skapar princip definitioner, arbetar med SDK eller konfigurerar [Azure policy för Kubernetes](../concepts/policy-for-kubernetes.md) -tillägg. I den här artikeln beskrivs olika allmänna fel som kan uppstå och hur du kan lösa dem.
 
 ## <a name="finding-error-details"></a>Hitta fel information
 
@@ -56,7 +56,7 @@ Börja med att vänta på rätt tids period för att en utvärdering ska slutfö
 
 #### <a name="issue"></a>Problem
 
-En resurs är inte i utvärderings tillstånd, antingen _kompatibel_ eller _inte kompatibel_, som förväntas för resursen.
+En resurs är inte i utvärderings tillstånd, antingen _kompatibel_ eller _inte kompatibel_ , som förväntas för resursen.
 
 #### <a name="cause"></a>Orsak
 
@@ -88,14 +88,14 @@ En resurs som förväntas bli påverkad av Azure Policy är inte och det finns i
 
 #### <a name="cause"></a>Orsak
 
-Princip tilldelningen har kon figurer ATS [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) för EnforcementMode _inaktive rad_. Även om tvingande läge är inaktiverat tillämpas inte princip påverkan och det finns ingen post i aktivitets loggen.
+Princip tilldelningen har kon figurer ATS [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) för EnforcementMode _inaktive rad_ . Även om tvingande läge är inaktiverat tillämpas inte princip påverkan och det finns ingen post i aktivitets loggen.
 
 #### <a name="resolution"></a>Lösning
 
 Följ de här stegen för att felsöka din princip tilldelnings genomförande:
 
 1. Börja med att vänta på rätt tids period för att en utvärdering ska slutföras och efterföljande resultat ska bli tillgängliga i Azure Portal eller SDK. Om du vill starta en ny utvärderings sökning med Azure PowerShell eller REST API, se [utvärderings genomsökning på begäran](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
-1. Kontrol lera att tilldelnings parametrarna och tilldelnings omfånget är rätt inställda och att **enforcementMode** har _Aktiver ATS_. 
+1. Kontrol lera att tilldelnings parametrarna och tilldelnings omfånget är rätt inställda och att **enforcementMode** har _Aktiver ATS_ . 
 1. Kontrollera [principdefinitionsläget](../concepts/definition-structure.md#mode):
    - Mode all för alla resurs typer.
    - Läget Indexerad om princip definitionen söker efter taggar eller plats.
@@ -135,7 +135,7 @@ Att använda funktioner som stöds, till exempel `parameter()` eller `resourceGr
 
 Om du vill skicka en funktion genom att vara en del av en princip definition kan du undanta hela strängen med `[` så att egenskapen ser ut som `[[resourceGroup().tags.myTag]` . Escape-tecken gör att Resource Manager hanterar värdet som en sträng när mallen bearbetas. Azure Policy placerar sedan funktionen i princip definitionen så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/templates/template-expressions.md).
 
-## <a name="add-on-installation-errors"></a>Installations fel för tillägg
+## <a name="add-on-for-kubernetes-installation-errors"></a>Tillägg för Kubernetes-installations fel
 
 ### <a name="scenario-install-using-helm-chart-fails-on-password"></a>Scenario: det går inte att installera med Helm-diagram på lösen ord
 
@@ -188,10 +188,131 @@ En detaljerad beskrivning finns i följande blogg inlägg:
 
 [Viktig ändring har släppts för gransknings principer för gäst konfiguration](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
+## <a name="add-on-for-kubernetes-general-errors"></a>Tillägg för Kubernetes allmänna fel
+
+### <a name="scenario-add-on-doesnt-work-with-aks-clusters-on-version-119-preview"></a>Scenario: tillägget fungerar inte med AKS-kluster i version 1,19 (för hands version)
+
+#### <a name="issue"></a>Problem
+
+Version 1,19-kluster returnerar det här felet via Gatekeeper Controller och policy webhook poddar:
+
+```
+2020/09/22 20:06:55 http: TLS handshake error from 10.244.1.14:44282: remote error: tls: bad certificate
+```
+
+#### <a name="cause"></a>Orsak
+
+AKS clusers på version 1,19 (förhands granskning) är ännu inte kompatibel med Azure Policy-tillägget.
+
+#### <a name="resolution"></a>Lösning
+
+Undvik att använda Kubernetes 1,19 (för hands version) med Azure Policy-tillägget. Tillägget kan användas med alla allmänt tillgängliga versioner som stöds, till exempel 1,16, 1,17 eller 1,18.
+
+### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-egress-restrictions"></a>Scenario: det går inte att ansluta till Azure Policy tjänstens slut punkt på grund av utgående begränsningar
+
+#### <a name="issue"></a>Problem
+
+Tillägget kan inte komma åt Azure Policy tjänstens slut punkt och returnerar något av följande fel:
+
+- `failed to fetch token, service not reachable`
+- `Error getting file "Get https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml: dial tcp 151.101.228.133.443: connect: connection refused`
+
+#### <a name="cause"></a>Orsak
+
+Det här problemet uppstår när ett utgående kluster är låst.
+
+#### <a name="resolution"></a>Lösning
+
+Se till att domänerna och portarna i följande artiklar är öppna:
+
+- [Nödvändiga utgående nätverks regler och FQDN för AKS-kluster](../../../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
+- [Installera Azure Policy tillägg för Azure Arc-aktiverade Kubernetes (för hands version)](../concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
+
+### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-aad-pod-identity-configuration"></a>Scenario: det går inte att ansluta till Azure Policy tjänstens slut punkt på grund av AAD-Pod-Identity Configuration
+
+#### <a name="issue"></a>Problem
+
+Tillägget kan inte komma åt Azure Policy tjänstens slut punkt och returnerar något av följande fel:
+
+- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
+- `adal: Refresh request failed. Status Code = '404'. Response body: getting assigned identities for pod kube-system/azure-policy-8c785548f-r882p in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>`
+
+#### <a name="cause"></a>Orsak
+
+Det här felet uppstår när _Add-Pod-Identity_ installeras i klustret och _Kube-system_ poddar inte ingår i _AAD-Pod-Identity_ .
+
+_AAD-Pod-Identity_ -nodens hanterade identitet (NMI) poddar ändra noderna program varan iptables för att avlyssna anrop till Azure instance metadata-slutpunkten. Den här inställningen innebär att alla begär Anden som görs till metadata-slutpunkten fångas upp av NMI även om Pod inte använder _AAD-Pod-Identity_ .
+**AzurePodIdentityException** CRD kan konfigureras för att informera _AAD-Pod-identiteten_ att förfrågningar till metadata-slutpunkten från en pod som matchar etiketter som definierats i CRD ska vara proxy utan bearbetning i NMI.
+
+#### <a name="resolution"></a>Lösning
+
+Undanta system poddar med `kubernetes.azure.com/managedby: aks` etikett i _Kube-systemets_ namnrymd i _AAD-Pod-Identity_ genom att konfigurera **AzurePodIdentityException** CRD.
+
+Mer information finns i [inaktivera AAD Pod-identitet för en specifik Pod/applikation](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
+
+Information om hur du konfigurerar ett undantag finns i det här exemplet:
+
+```yaml
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: mic-exception
+  namespace: default
+spec:
+  podLabels:
+    app: mic
+    component: mic
+---
+apiVersion: "aadpodidentity.k8s.io/v1"
+kind: AzurePodIdentityException
+metadata:
+  name: aks-addon-exception
+  namespace: kube-system
+spec:
+  podLabels:
+    kubernetes.azure.com/managedby: aks
+```
+
+### <a name="scenario-the-resource-provider-isnt-registered"></a>Scenario: resurs leverantören har inte registrerats
+
+#### <a name="issue"></a>Problem
+
+Tillägget kan komma åt Azure Policy tjänstens slut punkt, men ser följande fel:
+
+```
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+#### <a name="cause"></a>Orsak
+
+`Microsoft.PolicyInsights`Resurs leverantören är inte registrerad och måste vara registrerad för att tillägget ska kunna hämta princip definitioner och returnera efterlevnadsprinciper.
+
+#### <a name="resolution"></a>Lösning
+
+Registrera `Microsoft.PolicyInsights` resurs leverantören. Anvisningar finns i [Registrera en resurs leverantör](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
+### <a name="scenario-the-subscript-is-disabled"></a>Scenario: under skriptet har inaktiverats
+
+#### <a name="issue"></a>Problem
+
+Tillägget kan komma åt Azure Policy tjänstens slut punkt, men ser följande fel:
+
+```
+The subscription '{subId}' has been disabled for azure data-plane policy. Please contact support.
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet innebär att prenumerationen har bedömts vara problematisk och funktions flaggan `Microsoft.PolicyInsights/DataPlaneBlocked` lades till för att blockera prenumerationen.
+
+#### <a name="resolution"></a>Lösning
+
+Kontakta funktions teamet `azuredg@microsoft.com` för att undersöka och lösa problemet. 
+
 ## <a name="next-steps"></a>Nästa steg
 
 Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
 - Få svar från experter via [Microsoft Q&A](/answers/topics/azure-policy.html).
 - Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-- Om du behöver mer hjälp kan du skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
+- Om du behöver mer hjälp kan du skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support** .

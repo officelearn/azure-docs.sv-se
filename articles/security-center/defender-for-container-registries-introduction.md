@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558643"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145828"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduktion till Azure Defender för behållar register
 
@@ -32,6 +32,12 @@ Security Center filtrerar och klassificerar resultat från skannern. När en bil
 
 Genom att meddela om det uppstår problem kan Security Center minska risken för oönskade informations aviseringar.
 
+
+> [!TIP]
+> Mer information om Security Center behållar säkerhetsfunktioner finns i:
+>
+> - [Azure Security Center-och behållar säkerhet](container-security.md)
+> - [Introduktion till Azure Defender för Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## <a name="when-are-images-scanned"></a>När skannas bilder?
 
@@ -81,10 +87,5 @@ Ja. Om du har ett organisations behov av att ignorera en sökning i, i stället 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Security Center behållar säkerhetsfunktioner finns i:
-
-- [Azure Security Center-och behållar säkerhet](container-security.md)
-
-- [Introduktion till Azure Defender för Kubernetes](defender-for-kubernetes-introduction.md)
-
-
+> [!div class="nextstepaction"]
+> [Sök igenom dina avbildningar efter sårbarheter](defender-for-container-registries-usage.md)

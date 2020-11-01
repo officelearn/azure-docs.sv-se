@@ -3,16 +3,21 @@ title: Förbered Windows Server 2003-servrar för migrering med Azure Migrate
 description: Lär dig hur du förbereder Windows Server 2003-servrar för migrering med Azure Migrate.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 5e33742d59972d491c1efb8d0f1453c1226d4625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 350eab98a2b40d5ca1382bbfc24245e7cb47b48e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103950"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146849"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Förbereda Windows Server 2003-datorer för migrering
 
 Den här artikeln beskriver hur du förbereder datorer som kör Windows Server 2003 för migrering till Azure. 
+
+
+> [!NOTE]
+> [Windows Server 2003 Extended support](/troubleshoot/azure/virtual-machines/run-win-server-2003#microsoft-windows-server-2003-end-of-support) slutade den 14 juli 2015.  Support teamet för Azure fortsätter att hjälpa till med fel sökning av problem som rör körning av Windows Server 2003 på Azure. Detta stöd är dock begränsat till problem som inte kräver fel sökning eller uppdateringar på operativ system nivå. Att migrera dina program till Azure-instanser som kör en nyare version av Windows Server är den rekommenderade metoden för att säkerställa att du effektivt utnyttjar Azure-molnets flexibilitet och tillförlitlighet. Men om du fortfarande väljer att migrera Windows Server 2003 till Azure kan du använda verktyget Azure Migrate: Migreringsverktyg för server om Windows Server är en virtuell dator som körs på VMware eller Hyper-V.
+
 
 - Du kan använda en agent lös migrering för att migrera virtuella [Hyper-V-datorer](tutorial-migrate-hyper-v.md) och [virtuella VMware-datorer](tutorial-migrate-vmware.md) till Azure.
 - För att kunna ansluta till virtuella Azure-datorer efter migreringen, måste integrerings tjänsterna för Hyper-V vara installerade på den virtuella Azure-datorn. Windows Server 2003-datorer har inte installerat som standard.
@@ -27,18 +32,18 @@ Innan du migrerar kontrollerar du om integrerings tjänsterna för Hyper-V är i
 
 1. Följ [dessa anvisningar](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#turn-an-integration-service-on-or-off-using-hyper-v-manager) för att kontrol lera om den är installerad.
 2. Om den inte är installerad loggar du in på en dator som kör Windows Server 2012 R2/Windows Server 2012 med Hyper-V-rollen.
-3. Navigera till installations filen på **C:\Windows\System32\vmguest.ISO**och montera filen.
+3. Navigera till installations filen på **C:\Windows\System32\vmguest.ISO** och montera filen.
 2. Kopiera installationsmappen till Windows Server 2003-datorn och installera Integration Services.
 4. Efter installationen kan du lämna standardinställningarna i integrerings tjänsterna. 
 
 ## <a name="install-on-vmware-vms"></a>Installera på virtuella VMware-datorer
 
 1. Logga in på en dator som kör Windows Server 2012 R2/Windows Server 2012 med Hyper-V-rollen.
-2. Navigera till installations filen på **C:\Windows\System32\vmguest.ISO**och montera filen.
+2. Navigera till installations filen på **C:\Windows\System32\vmguest.ISO** och montera filen.
 3. Kopiera installationsmappen till den virtuella VMware-datorn.
 4. Kör på kommando raden på den virtuella datorn ```gpedit.msc``` .
-5. Öppna **dator konfiguration**  >  **Windows-inställningar**  >  **skript (start/avstängning)**.
-6. I **Start**  >  **Lägg till**  >  **skript namn**skriver du setup.exe adressen.
+5. Öppna **dator konfiguration**  >  **Windows-inställningar**  >  **skript (start/avstängning)** .
+6. I **Start**  >  **Lägg till**  >  **skript namn** skriver du setup.exe adressen.
 7. Efter migrering till Azure körs skriptet första gången den virtuella Azure-datorn startas.
 8. Starta om den virtuella Azure-datorn manuellt. Det finns ett popup-fönster för startdiagnostik som indikerar att en omstart krävs.
 9. När skriptet har körts och Hyper-V integrations tjänster har installerats på den virtuella Azure-datorn kan du ta bort skriptet från start.

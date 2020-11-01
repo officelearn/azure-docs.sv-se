@@ -8,19 +8,19 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 53887b7487c3f0bb70c9f8cc7cd61246fabc0b37
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 158d22ffb3bc5486e0523c07cc2c022c49f2ee9c
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970137"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145607"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Skapa anpassade SDK: er för Azure Digitals dubbla med AutoRest
 
 Just nu är de enda publicerade data Plans SDK: erna för att interagera med Azures digitala dubbla API: er för .NET (C#), Java Script och Java. Du kan läsa om dessa SDK: er och API: erna i allmänhet i [*How-to: använda Azure Digitals dubbla API: er och SDK: er*](how-to-use-apis-sdks.md). Om du arbetar på ett annat språk visar den här artikeln hur du skapar ett eget data plan SDK på det språk som du väljer med hjälp av AutoRest.
 
 >[!NOTE]
-> Du kan också använda AutoRest för att generera ett Control plan SDK om du vill. Det gör du genom att följa anvisningarna i den här artikeln med hjälp av den senaste **kontroll Plans Swagger** (openapi) från [Control plan Swagger Folder]] ( https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) i stället för data planet en.
+> Du kan också använda AutoRest för att generera ett Control plan SDK om du vill. Det gör du genom att följa anvisningarna i den här artikeln med hjälp av den senaste **kontroll planet Swagger** (openapi) från [mappen Control plan Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) i stället för data planet en.
 
 ## <a name="set-up-your-machine"></a>Konfigurera din dator
 
@@ -47,7 +47,7 @@ Följ dessa steg om du vill köra AutoRest mot Azure Digitals Swagger-filen:
 autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Därför visas en ny mapp med namnet *ADTApi* i din arbets katalog. De genererade SDK-filerna kommer att ha namn området *ADTApi*. Du kommer att fortsätta att använda det namn området genom resten av användnings exemplen i den här artikeln.
+Därför visas en ny mapp med namnet *ADTApi* i din arbets katalog. De genererade SDK-filerna kommer att ha namn området *ADTApi* . Du kommer att fortsätta att använda det namn området genom resten av användnings exemplen i den här artikeln.
 
 AutoRest har stöd för en mängd olika språk kods generatorer.
 
@@ -64,7 +64,7 @@ Gör så här:
 3. I Solution Explorer högerklickar du på *ADTApi* -projektet för den genererade lösningen och väljer *Lägg till > befintligt objekt...*
 4. Hitta mappen där du genererade SDK och välj filerna på rotnivån
 5. Tryck på OK
-6. Lägg till en mapp i projektet (Högerklicka på projektet i Solution Explorer och välj *Lägg till > ny mapp*)
+6. Lägg till en mapp i projektet (Högerklicka på projektet i Solution Explorer och välj *Lägg till > ny mapp* )
 7. Namnge mapparna *modeller*
 8. Högerklicka på mappen *modeller* i lösnings Utforskaren och välj *Lägg till > befintligt objekt...*
 9. Välj filerna i mappen *modeller* i den genererade SDK: n och tryck på OK
@@ -73,7 +73,7 @@ För att utveckla SDK: n måste ditt projekt ha följande referenser:
 * `Microsoft.Rest.ClientRuntime`
 * `Microsoft.Rest.ClientRuntime.Azure`
 
-Om du vill lägga till dessa öppnar du *verktyg > NuGet Package Manager > hantera NuGet-paket för lösningen.*...
+Om du vill lägga till dessa öppnar du *verktyg > NuGet Package Manager > hantera NuGet-paket för lösningen.* ...
 
 1. I panelen kontrollerar du att fliken *Bläddra* är markerad
 2. Sök efter *Microsoft. rest*
@@ -117,40 +117,25 @@ AutoRest genererar två typer av sid indelnings mönster för SDK:
 * En för alla API: er utom fråge-API
 * En för fråge-API
 
-I växlings mönstret som inte är fråga finns det två versioner av varje anrop:
-* En version som gör det första anropet (till exempel `DigitalTwins.ListEdges()` )
-* En version för att hämta följande sidor. Dessa anrop har suffixet "Next" (t. ex. `DigitalTwins.ListEdgesNext()` )
+I det här är ett kodfragment som visar hur du hämtar en lista över utgående relationer från Azure Digitals:
 
-Här är ett kodfragment som visar hur du hämtar en växlad lista över utgående relationer från Azure Digitals:
 ```csharp
-try
-{
-    // List to hold the results in
-    List<object> relList = new List<object>();
-    // Enumerate the IPage object returned to get the results
-    // ListAsync will throw if an error occurs
-    IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
-    relList.AddRange(relPage);
-    // If there are more pages, the NextPageLink in the page is set
-    while (relPage.NextPageLink != null)
+ try 
+ {
+     // List the relationships.
+    AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
+    Console.WriteLine($"Twin {srcId} is connected to:");
+    // Iterate through the relationships found.
+    int numberOfRelationships = 0;
+    await foreach (string rel in results)
     {
-        // Get more pages...
-        relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
-        relList.AddRange(relPage);
+         ++numberOfRelationships;
+         // Do something with each relationship found
+         Console.WriteLine($"Found relationship-{rel.Name}->{rel.TargetId}");
     }
-    Console.WriteLine($"Found {relList.Count} relationships on {id}");
-    // Do something with each object found
-    // As relationships are custom types, they are JSON.Net types
-    foreach (JObject r in relList)
-    {
-        string relId = r.Value<string>("$edgeId");
-        string relName = r.Value<string>("$relationship");
-        Console.WriteLine($"Found relationship {relId} from {id}");
-    }
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error retrieving relationships on {id}: {e.Response.StatusCode}");
+    Console.WriteLine($"Found {numberOfRelationships} relationships on {srcId}");
+} catch (RequestFailedException rex) {
+    Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
 }
 ```
 

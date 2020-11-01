@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: 6d6757af6619edd41709a4b8f06ef615cd35bf30
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b24a9dcb7a369708b1374f367186dc4d9a6ce475
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636586"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146883"
 ---
 # <a name="how-to-customize-the-immersive-reader-button"></a>Anpassa knappen för avancerad läsare
 
@@ -41,7 +41,7 @@ Använd `data-button-style` attributet för att ange formatet för knappen. De t
 
 Detta återger följande:
 
-![Ikon knapp](./media/button-icon.png)
+![Det här är knappen renderad text](./media/button-icon.png)
 
 ### <a name="text-button"></a>Text knapp
 
@@ -51,7 +51,7 @@ Detta återger följande:
 
 Detta återger följande:
 
-![Ikon knapp](./media/button-text.png)
+![Det här är knappen renderad avancerad läsare.](./media/button-text.png)
 
 ### <a name="icon-and-text-button"></a>Knapp för ikon och text
 

@@ -1,6 +1,6 @@
 ---
 title: Importera en API-app som ett API med Azure Portal | Microsoft Docs
-description: Den här självstudien visar hur du använder API Management (APIM) för att importera en API-app som ett API.
+description: Den här artikeln visar hur du använder API Management (APIM) för att importera API-appen som ett API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 007598046ae64b390d44e61438b69bd26024b1c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41209233ec59f578db4ff7fd344bb96aefeb975e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626895"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146781"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importera en API-app som ett API
 
@@ -30,7 +30,7 @@ I den här artikeln kan du se hur du:
 > * Testa API:et i Azure Portal
 > * Testa API:et i Developer-portalen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 + Kontrollera att det finns en API-app i din prenumeration. Mer information finns i [App Service-dokumentationen](../app-service/index.yml)
@@ -40,7 +40,7 @@ I den här artikeln kan du se hur du:
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importera och publicera ett serverdels-API
 
 1. Gå till din API Management-tjänst i Azure Portal och välj **API: er** på menyn.
-2. Välj **API-app** från listan **Lägg till ett nytt API**.
+2. Välj **API-app** från listan **Lägg till ett nytt API** .
 
     ![API-app](./media/import-api-app-as-api/api-app.png)
 3. Tryck på **Bläddra** för att se listan över API-appar i din prenumeration.
@@ -57,18 +57,18 @@ I den här artikeln kan du se hur du:
     * **Starter**
     * **Obegränsat**   
 7. Ange andra API-inställningar. Du kan ange värden när du skapar eller konfigurerar dem senare genom att gå till fliken **Inställningar** . Inställningarna beskrivs i själv studie kursen [Importera och publicera din första API](import-and-publish.md#import-and-publish-a-backend-api) .
-8. Välj **Skapa**.
+8. Välj **Skapa** .
 
 ## <a name="test-the-new-api-in-the-azure-portal"></a>Testa det nya API: et i Azure Portal
 
 Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API.  
 
 1. Välj det API som du skapade i föregående steg.
-2. Tryck på fliken **Test**.
+2. Tryck på fliken **Test** .
 3. Välj någon åtgärd.
 
     Sidan visar fält för frågeparametrar och fält för sidhuvudena. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Om du skapade APIM-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt. 
-1. Tryck på **Skicka**.
+1. Tryck på **Skicka** .
 
     Serverdelen svarar med **200 OK** och några data.
 

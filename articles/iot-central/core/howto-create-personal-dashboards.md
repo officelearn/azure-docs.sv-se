@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bb4e2ac525270004a698471cd44955cd25fefc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83634542"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146117"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Skapa och hantera flera instrument paneler
 
@@ -42,7 +42,7 @@ Du kan till exempel lägga till en **telemetri** -panel för enhetens aktuella t
 
 1. Välj en **mall för enhet**
 1. Välj en enhet från **enheter** för den enhet som du vill se på en panel i instrument panelen. Sedan visas en lista över enhetens egenskaper som kan användas på panelen.
-1. Om du vill skapa panelen på instrument panelen klickar du på **temperatur** och drar den till instrument panels ytan. Du kan också klicka på kryss rutan bredvid **temperatur** och klicka på **Lägg till panel**. Följande skärm bild visar hur du väljer en enhets mall och en enhet och sedan skapar en panel för temperatur telemetri på instrument panelen.
+1. Om du vill skapa panelen på instrument panelen klickar du på **temperatur** och drar den till instrument panels ytan. Du kan också klicka på kryss rutan bredvid **temperatur** och klicka på **Lägg till panel** . Följande skärm bild visar hur du väljer en enhets mall och en enhet och sedan skapar en panel för temperatur telemetri på instrument panelen.
 1. Välj **Spara** längst upp till vänster för att spara ändringarna på instrument panelen.
 
 > [!div class="mx-imgBorder"]
@@ -51,7 +51,7 @@ Du kan till exempel lägga till en **telemetri** -panel för enhetens aktuella t
 Nu när du visar din personliga instrument panel visas den nya panelen med **temperatur** inställningen för enheten:
 
 > [!div class="mx-imgBorder"]
-> ![Fliken instrument panel med information om temperatur panelen](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+> ![Skärm bild som visar den nya panelen med temperatur inställningen för enheten.](media/howto-create-personal-dashboards/temperature-tile-complete.png)
 
 Du kan utforska andra panel typer i biblioteket för att lära dig hur du kan anpassa dina personliga instrument paneler ytterligare.
 
@@ -64,7 +64,7 @@ Du kan ha flera personliga instrument paneler och växla mellan dem eller välja
 > [!div class="mx-imgBorder"]
 > ![Växla mellan instrument paneler](media/howto-create-personal-dashboards/switch-dashboards.png)
 
-Du kan redigera dina personliga instrument paneler och ta bort eventuella instrument paneler som du inte längre behöver. Om du är **administratör**har du också möjlighet att redigera eller ta bort instrument paneler på program nivå.
+Du kan redigera dina personliga instrument paneler och ta bort eventuella instrument paneler som du inte längre behöver. Om du är **administratör** har du också möjlighet att redigera eller ta bort instrument paneler på program nivå.
 
 > [!div class="mx-imgBorder"]
 > ![Ta bort instrument paneler](media/howto-create-personal-dashboards/delete-dashboards.png)

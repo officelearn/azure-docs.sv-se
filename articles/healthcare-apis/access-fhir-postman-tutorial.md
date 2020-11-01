@@ -9,18 +9,18 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 02/07/2019
-ms.openlocfilehash: f8b5e344fc963d466571e75ff16f17367dc32971
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37086a925d65a80f219c8e0a3358c834a2691701
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844855"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145658"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Få åtkomst till Azure API för FHIR med Postman
 
 Ett klient program har åtkomst till ett FHIR-API via en [REST API](https://www.hl7.org/fhir/http.html). Du kanske också vill interagera direkt med FHIR-servern när du skapar program, till exempel för fel sökning. I den här självstudien får vi gå igenom de steg som krävs för att använda [Postman](https://www.getpostman.com/) för att få åtkomst till en FHIR-Server. Postman är ett verktyg som ofta används för fel sökning när du skapar program som har åtkomst till API: er.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En FHIR-slutpunkt i Azure. Du kan ställa in detta med hjälp av det hanterade Azure-API: t för FHIR eller FHIR-servern med öppen källkod för Azure. Konfigurera det hanterade Azure-API: t för FHIR med hjälp av [Azure Portal](fhir-paas-portal-quickstart.md), [POWERSHELL](fhir-paas-powershell-quickstart.md)eller [Azure CLI](fhir-paas-cli-quickstart.md).
 - Ett  [klient program](register-confidential-azure-ad-client-app.md) som du ska använda för att få åtkomst till FHIR-tjänsten
@@ -62,7 +62,7 @@ Tryck på "Hämta ny åtkomsttoken" och en dialog ruta visas:
 
 Du behöver lite information:
 
-| Field                 | Exempelvärde                                                                                                   | Kommentar                    |
+| Fält                 | Exempelvärde                                                                                                   | Kommentar                    |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------|
 | Token Name (Tokennamn)            | TOKEn                                                                                                         | Ett namn som du väljer          |
 | Grant Type (Typ av beviljande)            | Auktoriseringskod                                                                                              |                            |
@@ -121,7 +121,7 @@ Nu när du har en giltig åtkomsttoken. Du kan infoga en ny patient. Växla till
 
 Tryck på "Skicka" så bör du se att patienten har skapats:
 
-![Patient skapad](media/tutorial-postman/postman-patient-created.png)
+![Skärm bild som visar att patienten har skapats.](media/tutorial-postman/postman-patient-created.png)
 
 Om du upprepar patients ökningen bör du nu se patient posten:
 

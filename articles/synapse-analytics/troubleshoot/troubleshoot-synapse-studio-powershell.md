@@ -1,20 +1,20 @@
 ---
-title: Felsöka anslutning till Synapse Studio (för hands version) med PowerShell
+title: Felsök Synapse Studio-anslutning
 description: Felsöka Azure Synapse Studio-anslutning med PowerShell
-author: julieMSFT
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.author: jrasnick
+ms.date: 10/30/2020
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7cf9f18701317482284a3f1fa4b69a2c2927f64a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e433fd857f638c1c13e4545c19e0b6314ee62e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287720"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146514"
 ---
-# <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>Diagnostisera anslutnings problem med Azure Synapse Studio (för hands version) med PowerShell-skript
+# <a name="troubleshoot-synapse-studio-connectivity-with-powershell"></a>Felsök Synapse Studio-anslutning med PowerShell
 
 Azure Synapse Studio (för hands version) är beroende av en uppsättning webb-API-slutpunkter för att fungera korrekt. Den här guiden hjälper dig att identifiera orsaker till anslutnings problem när du är:
 - Konfigurera ditt lokala nätverk (till exempel ett nätverk bakom en företags brand vägg) för åtkomst till Azure Synapse Studio.

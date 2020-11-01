@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9090c778771436a4fcf60139f3ee59812051057a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436858"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145624"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Gör så här: Ange valfria anspråk för din app
 
@@ -37,19 +37,19 @@ Listor över standard anspråk finns i [åtkomsttoken](access-tokens.md) och [id
 
 | Kontotyp               | v 1.0-token | v 2.0-token |
 |----------------------------|-------------|-------------|
-| Personlig Microsoft-konto | E.t.         | Stöds   |
+| Personlig Microsoft-konto | Saknas         | Stöds   |
 | Azure AD-konto           | Stöds   | Stöds   |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>v 1.0 och v 2.0 valfria anspråks uppsättningar
 
-Den uppsättning valfria anspråk som är tillgängliga som standard för program som ska användas visas nedan. Om du vill lägga till anpassade valfria anspråk för programmet, se [katalog tillägg](#configuring-directory-extension-optional-claims)nedan. När anspråk läggs till i **åtkomsttoken gäller**anspråken för de åtkomsttoken som begärs *för* programmet (ett webb-API), inte anspråk som begärts *av* programmet. Oavsett hur klienten har åtkomst till ditt API, finns rätt data i den åtkomsttoken som används för att autentisera mot ditt API.
+Den uppsättning valfria anspråk som är tillgängliga som standard för program som ska användas visas nedan. Om du vill lägga till anpassade valfria anspråk för programmet, se [katalog tillägg](#configuring-directory-extension-optional-claims)nedan. När anspråk läggs till i **åtkomsttoken gäller** anspråken för de åtkomsttoken som begärs *för* programmet (ett webb-API), inte anspråk som begärts *av* programmet. Oavsett hur klienten har åtkomst till ditt API, finns rätt data i den åtkomsttoken som används för att autentisera mot ditt API.
 
 > [!NOTE]
 > Majoriteten av dessa anspråk kan inkluderas i JWTs för v 1.0-och v 2.0-token, men inte SAML-token, förutom vad som anges i kolumnen tokentyp. Konsument konton har stöd för en delmängd av dessa anspråk som marker ATS i kolumnen "användar typ".  Många av anspråken i listan gäller inte konsument användare (de har ingen innehavare, så `tenant_ctry` har inget värde).
 
 **Tabell 2: v 1.0 och v 2.0 valfri anspråks uppsättning**
 
-| Namn                       |  Beskrivning   | Tokentyp | Användar typ | Obs!  |
+| Namn                       |  Beskrivning   | Tokentyp | Användar typ | Kommentarer  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Tid när användaren senast autentiserades. Se OpenID Connect spec.| JWT        |           |  |
 | `tenant_region_scope`      | Resurs innehavarens region | JWT        |           | |
@@ -67,7 +67,7 @@ Den uppsättning valfria anspråk som är tillgängliga som standard för progra
 | `email`                    | Det adresser bara e-postmeddelandet för den här användaren, om användaren har ett.  | JWT, SAML | MSA, Azure AD | Det här värdet ingår som standard om användaren är en gäst i klienten.  För hanterade användare (användare i klienten) måste det begäras via detta valfria anspråk eller, endast v 2.0, med OpenID-omfånget.  För hanterade användare måste e-postadressen anges i [Office Admin-portalen](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Användarens konto status i klient organisationen | JWT, SAML | | Om användaren är medlem i klienten är värdet `0` . Om de är en gäst är värdet `1` . |
 | `groups`| Valfri formatering för grupp anspråk |JWT, SAML| |Används tillsammans med GroupMembershipClaims-inställningen i [applikations manifestet](reference-app-manifest.md), som även måste anges. Mer information finns i [grupp anspråk](#configuring-groups-optional-claims) nedan. Mer information om grupp anspråk finns i [så här konfigurerar du grupp anspråk](../hybrid/how-to-connect-fed-group-claims.md)
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | Även om det här anspråket ingår automatiskt kan du ange det som ett valfritt anspråk för att bifoga ytterligare egenskaper för att ändra dess beteende i gäst användarens ärende.  |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktig identifierare för användaren och bör inte användas för att unikt identifiera användar information (till exempel som en databas nyckel). Använd i stället användar objekt-ID ( `oid` ) som en databas nyckel. Användare som loggar in med ett [alternativt inloggnings-ID](/azure/active-directory/authentication/howto-authentication-use-email-signin) ska inte visas som användarens huvud namn (UPN). Använd i stället följande ID-token-anspråk för att Visa inloggnings status för användaren: `preferred_username` eller `unique_name` för v1-token och `preferred_username` för v2-token. Även om det här anspråket ingår automatiskt kan du ange det som ett valfritt anspråk för att bifoga ytterligare egenskaper för att ändra dess beteende i gäst användarens ärende.  |
 | `idtyp`                    | Tokentyp   | JWT-åtkomsttoken | Special: endast i endast app-åtkomsttoken |  Värdet är `app` när token är en app-only-token. Detta är det mest exakta sättet för ett API för att avgöra om en token är en app-token eller en app + User-token.|
 
 ## <a name="v20-specific-optional-claims-set"></a>v 2.0 – angivna valfria anspråks uppsättningar
@@ -76,7 +76,7 @@ De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.
 
 **Tabell 3: v 2.0 – endast valfria anspråk**
 
-| JWT-anspråk     | Namn                            | Beskrivning                                | Obs! |
+| JWT-anspråk     | Namn                            | Beskrivning                                | Kommentarer |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP-adress                      | IP-adressen som klienten loggade in från.   |       |
 | `onprem_sid`  | Lokal säkerhets identifierare |                                             |       |
@@ -85,7 +85,7 @@ De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.
 | `in_corp`     | Inifrån företagsnätverket        | Signalerar om klienten loggar in från företags nätverket. Om de inte är det inkluderas inte anspråket.   |  Baserat på de [betrodda IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) -inställningarna i MFA.    |
 | `family_name` | Efternamn                       | Innehåller användarens efter namn, efter namn eller familj som definierats i användarobjektet. <br>"family_name": "Miller" | Stöds i MSA och Azure AD. Kräver `profile` omfånget.   |
 | `given_name`  | Förnamn                      | Anger det första eller "tilldelade" namnet på användaren, enligt vad som anges på användarobjektet.<br>"given_name": "Frank"                   | Stöds i MSA och Azure AD.  Kräver `profile` omfånget. |
-| `upn`         | UPN (User Principal Name) | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktig identifierare för användaren och ska inte användas för nyckel data. | Se [Ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för konfiguration av anspråket. Kräver `profile` omfånget.|
+| `upn`         | UPN (User Principal Name) | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktig identifierare för användaren och bör inte användas för att unikt identifiera användar information (till exempel som en databas nyckel). Använd i stället användar objekt-ID ( `oid` ) som en databas nyckel. Användare som loggar in med ett [alternativt inloggnings-ID](/azure/active-directory/authentication/howto-authentication-use-email-signin) ska inte visas som användarens huvud namn (UPN). Använd i stället följande ID-token-anspråk för att Visa inloggnings status för användaren: `preferred_username` eller `unique_name` för v1-token och `preferred_username` för v2-token. | Se [Ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för konfiguration av anspråket. Kräver `profile` omfånget.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk
 
@@ -124,25 +124,25 @@ Detta OptionalClaims-objekt gör att ID-token som returnerades till klienten ink
 
 Du kan konfigurera valfria anspråk för ditt program via användar gränssnittet eller applikations manifestet.
 
-1. Gå till [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
-1. I avsnittet **Hantera** väljer du **Appregistreringar**.
+1. Gå till [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory** .
+1. I avsnittet **Hantera** väljer du **Appregistreringar** .
 1. Välj det program som du vill konfigurera valfria anspråk för i listan.
 
 **Konfigurera valfria anspråk genom användar gränssnittet:**
 
 [![Konfigurera valfria anspråk i användar gränssnittet](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. I avsnittet **Hantera** väljer du **token-konfiguration**.
-1. Välj **Lägg till valfritt anspråk**.
+1. I avsnittet **Hantera** väljer du **token-konfiguration** .
+1. Välj **Lägg till valfritt anspråk** .
 1. Välj den tokentyp som du vill konfigurera.
 1. Välj de valfria anspråk som ska läggas till.
-1. Välj **Lägg till**.
+1. Välj **Lägg till** .
 
 **Konfigurera valfria anspråk via applikations manifestet:**
 
 [![Visar hur du konfigurerar valfria anspråk med hjälp av app-manifestet](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. I avsnittet **Hantera** väljer du **manifest**. En webbaserad manifest redigerare öppnas, så att du kan redigera manifestet. Du kan också välja **Ladda ned** och redigera manifestet lokalt, och sedan använda **Ladda upp** för att tillämpa det på appen igen. Mer information om applikations manifestet finns i [artikeln förstå program manifestet för Azure AD](reference-app-manifest.md).
+1. I avsnittet **Hantera** väljer du **manifest** . En webbaserad manifest redigerare öppnas, så att du kan redigera manifestet. Du kan också välja **Ladda ned** och redigera manifestet lokalt, och sedan använda **Ladda upp** för att tillämpa det på appen igen. Mer information om applikations manifestet finns i [artikeln förstå program manifestet för Azure AD](reference-app-manifest.md).
 
     Följande program manifest post lägger till de auth_time, ipaddr och UPN valfria anspråk till ID, Access och SAML-token.
 
@@ -174,7 +174,7 @@ Du kan konfigurera valfria anspråk för ditt program via användar gränssnitte
     }
     ```
 
-2. När du är färdig väljer du **Spara**. Nu kommer de angivna valfria anspråken att inkluderas i token för ditt program.
+2. När du är färdig väljer du **Spara** . Nu kommer de angivna valfria anspråken att inkluderas i token för ditt program.
 
 ### <a name="optionalclaims-type"></a>Typ av OptionalClaims
 
@@ -238,7 +238,7 @@ Det här avsnittet beskriver konfigurations alternativen under valfria anspråk 
 1. Välj det program som du vill konfigurera valfria anspråk för i listan
 1. Under avsnittet **Hantera** väljer du **token-konfiguration**
 1. Välj **Lägg till grupp anspråk**
-1. Välj de grupp typer som ska returneras (**säkerhets grupper**eller **katalog roller**, **alla grupper**och/eller **grupper som har tilldelats till programmet**). De **grupper som har tilldelats program** alternativet inkluderar endast grupper som tilldelats programmet. Alternativet **alla grupper** innehåller **SecurityGroup**, **DirectoryRole**och **DistributionList**, men inte **grupper som är kopplade till programmet**. 
+1. Välj de grupp typer som ska returneras ( **säkerhets grupper** eller **katalog roller** , **alla grupper** och/eller **grupper som har tilldelats till programmet** ). De **grupper som har tilldelats program** alternativet inkluderar endast grupper som tilldelats programmet. Alternativet **alla grupper** innehåller **SecurityGroup** , **DirectoryRole** och **DistributionList** , men inte **grupper som är kopplade till programmet** . 
 1. Valfritt: Välj egenskaperna för den speciella tokentypen för att ändra värdet för grupp anspråk till att innehålla lokala Gruppattribut eller ändra anspråks typen till en roll
 1. Välj **Spara**
 
@@ -381,19 +381,19 @@ I exemplet nedan använder du användar gränssnittet för **token-konfiguration
 
 1. Välj **Azure Active Directory** på menyn till vänster.
 
-1. Under avsnittet **Hantera** väljer du **Appregistreringar**.
+1. Under avsnittet **Hantera** väljer du **Appregistreringar** .
 
 1. Hitta det program som du vill konfigurera valfria anspråk för i listan och markera det.
 
-1. Under avsnittet **Hantera** väljer du **token-konfiguration**.
+1. Under avsnittet **Hantera** väljer du **token-konfiguration** .
 
-1. Välj **Lägg till valfritt anspråk**, Välj typ av **ID-** token, Välj **UPN** i listan över anspråk och välj sedan **Lägg till**.
+1. Välj **Lägg till valfritt anspråk** , Välj typ av **ID-** token, Välj **UPN** i listan över anspråk och välj sedan **Lägg till** .
 
-1. Välj **Lägg till valfritt anspråk**, Välj **åtkomsttoken,** Välj **auth_time** i listan över anspråk och välj sedan **Lägg till**.
+1. Välj **Lägg till valfritt anspråk** , Välj **åtkomsttoken,** Välj **auth_time** i listan över anspråk och välj sedan **Lägg till** .
 
-1. På sidan Översikt över token konfiguration väljer du Penn ikonen bredvid **UPN**, väljer den **externt autentiserade** växlingen och väljer sedan **Spara**.
+1. På sidan Översikt över token konfiguration väljer du Penn ikonen bredvid **UPN** , väljer den **externt autentiserade** växlingen och väljer sedan **Spara** .
 
-1. Välj **Lägg till valfritt anspråk**, Välj **SAML** -tokentyp och välj **EXTn. skypeID** i listan över anspråk (gäller endast om du har skapat ett Azure AD-användarobjektet som heter SkypeID) och väljer sedan **Lägg till**.
+1. Välj **Lägg till valfritt anspråk** , Välj **SAML** -tokentyp och välj **EXTn. skypeID** i listan över anspråk (gäller endast om du har skapat ett Azure AD-användarobjektet som heter SkypeID) och väljer sedan **Lägg till** .
 
     [![Valfria anspråk för SAML-token](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 

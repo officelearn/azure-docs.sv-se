@@ -11,17 +11,17 @@ ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "87088401"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicera en ASP.NET-webbapp till en virtuell Azure-dator från Visual Studio
 
 Det här dokumentet beskriver hur du publicerar ett ASP.NET-webbprogram på en virtuell Azure-dator med hjälp av funktionen för **Microsoft Azure Virtual Machines** publicering i Visual Studio 2019.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att kunna använda Visual Studio för att publicera ett ASP.NET-projekt till en virtuell Azure-dator måste den virtuella datorn konfigureras på rätt sätt.
 
 - Datorn måste vara konfigurerad för att köra ett ASP.NET-webbprogram och ha WebDeploy installerat. Mer information finns i [skapa en virtuell ASP.net-dator med WebDeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
@@ -33,11 +33,11 @@ I följande avsnitt beskrivs hur du publicerar ett befintligt ASP.NET-webbprogra
 
 1. Öppna din Web App-lösning i Visual Studio 2019.
 2. Högerklicka på projektet i Solution Explorer och välj **publicera...**
-3. Använd pilen till höger på sidan för att bläddra igenom publicerings alternativen tills du hittar **Microsoft Azure Virtual Machines**.  
+3. Använd pilen till höger på sidan för att bläddra igenom publicerings alternativen tills du hittar **Microsoft Azure Virtual Machines** .  
 
    ![Publicera sida-HÖGERPIL]
 
-4. Välj ikonen **Microsoft Azure Virtual Machines** och välj **publicera**.
+4. Välj ikonen **Microsoft Azure Virtual Machines** och välj **publicera** .
 
    ![Sidan publicera – Microsoft Azure ikon för virtuell dator]
 
@@ -87,7 +87,7 @@ Om du vill publicera uppdateringar i ditt webb program väljer du knappen **publ
 
 ### <a name="modify-publish-profile-settings"></a>Ändra inställningar för publicerings profil
 
-Om du vill visa och ändra inställningarna för publicerings profilen väljer du **Inställningar...**.  
+Om du vill visa och ändra inställningarna för publicerings profilen väljer du **Inställningar...** .  
 
 ![Sidan publicera – knappen Inställningar]
 

@@ -1,5 +1,5 @@
 ---
-title: Videokontrollant med mänsklig granskning – Content Moderator
+title: Videoinspelning med gransknings verktyget – Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Använd datorbaserade videokontrollanter och gransknings verktyget för att måttligt olämpligt innehåll
 services: cognitive-services
@@ -8,97 +8,95 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81404242"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143763"
 ---
-# <a name="video-moderation-with-human-review"></a>Videokontrollant med mänsklig granskning
+# <a name="video-moderation-with-the-review-tool"></a>Videoinspelning med gransknings verktyget
 
 Använd Content Moderator datorbaserade [videokontrollanter](video-moderation-api.md) och [gransknings verktyg](Review-Tool-User-Guide/human-in-the-loop.md) för att få till gång till måttliga videor och avskrifter för vuxen (Explicit) och vågat (förslag) innehåll för att få bästa möjliga resultat för ditt företag.
 
-## <a name="video-trained-classifier-preview"></a>Video-utbildad klassificerare (för hands version)
+## <a name="view-videos-under-review"></a>Visa videor under granskning
 
-Den maskinbaserade video klassificeringen uppnås antingen med bildtränade modeller eller video intränade modeller. Till skillnad från bildtränade video klassificerare är Microsofts vuxna och vågat video klassificerare tränad med videor. Den här metoden ger bättre matchning av kvalitet.
+På instrument panelen väljer du någon av gransknings köerna inom video innehålls typen. Då startar en granskning och öppnar sidan för inspelning av video innehåll.
 
-## <a name="shot-detection"></a>Bild identifiering
+> [!div class="mx-imgBorder"]
+> ![Videokontrollant, detaljerad vy i gransknings verktyget](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
-När du utökar klassificerings informationen hjälper ytterligare video information till större flexibilitet vid analys av videor. I stället för att bara placera bild rutorna ger Microsofts video redigerings tjänst information på bild nivå. Nu har du möjlighet att analysera dina videor på den bild nivå och på den andra nivån.
+### <a name="review-count"></a>Recensionsantal
 
-## <a name="key-frame-detection"></a>Identifiering av nyckel rutor
+Använd skjutreglaget i det övre högra hörnet för att ange antalet granskningar som du vill ska visas på sidan.
 
-I stället för att lägga till ramar med jämna mellanrum, identifierar videoinspelnings tjänsten och matar bara ut potentiellt slutförda (lämpliga) ramar. Funktionen möjliggör effektiv ram-generering för barns och vågat analys på radnivå.
+### <a name="view-type"></a>Vytyp
 
-Följande utdrag visar ett partiellt svar med potentiella bilder, nyckel ramar och vuxen och vågat resultat:
+Du kan visa olika innehålls poster som paneler eller i en detaljerad vy. I **detaljvyn** kan du se viktiga bild rutor och annan information om den valda videon. 
 
-```json
-"fragments":[  
-  {  
-    "start":0,
-    "duration":18000
-  },
-  {  
-    "start":18000,
-    "duration":3600,
-    "interval":3600,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":false,
-          "adultScore":0.00001,
-          "racyScore":0.03077,
-          "index":5,
-          "timestamp":18000,
-          "shotIndex":0
-        }
-      ]
-    ]
-  },
-  {  
-    "start":18386372,
-    "duration":119149,
-    "interval":119149,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":true,
-          "adultScore":0.00000,
-          "racyScore":0.91902,
-          "index":5085,
-          "timestamp":18386372,
-          "shotIndex":62
-        }
-      ]
-    ]
-```
+> [!NOTE]
+> I stället för att lägga till ramar med jämna mellanrum, identifierar videoinspelnings tjänsten och matar bara ut potentiellt slutförda (lämpliga) ramar. Den här funktionen möjliggör effektiv ram-generering för barns och vågat analys på radnivå.
 
-## <a name="visualization-for-human-reviews"></a>Visualisering för mänsklig granskning
+I vyn **sida vid sida** visas varje video som en enda panel. Välj knappen expandera ovanför en video ram för att förstora videon och dölja de andra.
 
-För fler nyanserade-fall behöver företag en mänsklig gransknings lösning för att återge videon, dess ramar och tilldelade taggar. De mänskliga moderatorerna som visar videor och ramar får en komplett vy över insikter, ändrar Taggar och skickar sina beslut.
+### <a name="content-obscuring-effects"></a>Innehåll – dölja effekter
 
-![Standardvy för video gransknings verktyg](images/video-review-default-view.png)
+Använd alternativet **oskärpa alla** och **svart och vitt** för att ställa in dessa effekter för att dölja innehåll. De är aktiverade som standard. I vyn **sida vid sida** kan du växla effekterna individuellt för varje video.
 
-## <a name="player-view-for-video-level-review"></a>Player-vy för granskning på video nivå
+## <a name="check-video-details"></a>Kontrol lera video information
 
-Binärfiler på video nivå är möjligt med en Videos pelar vy som visar potentiella vuxna och vågat-ramar. De mänskliga granskarna navigerar i videon med olika hastighets alternativ för att undersöka scener. De bekräftar sina beslut genom att växla taggarna.
+I detaljvyn **visar** den högra rutan flera flikar som ger dig information om videon.
 
-![vy för video gransknings verktyg](images/video-review-player-view.PNG)
+* Välj fliken **anteckningar** om du vill lägga till anpassade anteckningar i videor.
+* Välj fliken **avskrift** för att se video avskriften &mdash; . tjänsten extraherar automatiskt en avskrift för alla tal i videon. När du väljer ett text avsnitt hoppar Videos pelaren till den delen av videon.
+* Välj fliken **meta-data** för att visa video filens metadata.
+* Välj fliken **Historik** om du vill se historiken för granskningen, till exempel när den skapades och hur den ändrades.
 
-## <a name="frames-view-for-detailed-reviews"></a>Bild Rute visning för detaljerad granskning
+> [!div class="mx-imgBorder"]
+> ![Knappen Mass etiketter för video moderator](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
-En detaljerad video granskning för bildruta-för-bildruta-analyser görs möjlig med en bildruta-baserad vy. Mänsklig granskare granskar och väljer en eller flera ramar och växlar taggar för att bekräfta sina beslut. Ett valfritt nästa steg är bortredigering av de stötande bild rutorna eller innehållet.
+## <a name="apply-moderation-tags"></a>Använd moderator Taggar
 
-![bild Rute vy för video gransknings verktyg](images/video-review-frames-view-apply-tags.PNG)
+Den huvudsakliga uppgiften i en video granskning är att tillämpa eller ta bort moderatorer på videor eller delar av videor.
 
-## <a name="transcript-moderation"></a>Avskriftsmoderering
+### <a name="bulk-tagging"></a>Mass markering
 
-Videor har vanligt vis röst över som behöver moderatorn även för stötande tal. Du använder Azure Media Indexer tjänsten för att konvertera tal till text och använda Content Moderators gransknings-API för att skicka avskriften för text redigering i gransknings verktyget.
+I verktygsfältet för **Mass etiketter** kan du lägga till taggar till flera markerade videor samtidigt. Välj en eller flera videor och välj sedan de taggar som du vill använda och klicka på **Skicka** . 
 
-![avskrifts vy för video gransknings verktyg](images/video-review-transcript-view.png)
+> [!div class="mx-imgBorder"]
+> ![Knappen Mass etiketter för video moderator](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+
+
+### <a name="key-frame-tagging"></a>Nyckel Rute taggning
+
+Du kan också lägga till moderator Taggar i vissa nyckel ramar. Välj bild rutorna i panel rutan nyckel ram och välj sedan **nyckel Rute Taggar +** för att använda de önskade taggarna.
+
+> [!NOTE]
+> Om tjänsten inte kan extrahera nyckel rutor visas **inga tillgängliga ramar** i panel rutan nyckel ram och alternativet för att välja nyckel rutor är nedtonat. I det här fallet kan du bara använda taggar för videon som helhet (med **video taggarna +** knappen).
+
+> [!div class="mx-imgBorder"]
+> ![Videokontrollant, detaljerad vy i gransknings verktyget](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+
+## <a name="put-a-review-on-hold"></a>Spärra en granskning
+
+Med knappen **Håll** nere i video fönstret kan du se till att en granskning är stoppad så att du kan hämta den och slutföra den senare. Du kan göra detta för en granskning som kräver en annan grupp medlem eller ansvarig som för tillfället inte är tillgänglig. 
+
+Du kan se vilka videor som är kvar genom att klicka på knappen **Håll** högst upp på skärmen. Rutan Behåll visas till höger. Härifrån kan du välja flera granskningar och antingen släppa dem i kön igen eller ange deras förfallo tid. Efter den förkonfigurerade tiden frigörs granskningar av undantag tillbaka till kön. Välj **Spara** för att börja räkna från den för tillfället valda förfallo tiden.
+
+> [!div class="mx-imgBorder"]
+> ![Videokontrollant, detaljerad vy i gransknings verktyget](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+
+## <a name="submit-a-review"></a>Skicka en granskning
+
+När du har tillämpat dina Taggar väljer du knappen **Skicka** längst ned i fönstret video. Om du har taggat flera videor kan du skicka dem till en enda granskning eller som separata granskningar.
+
+## <a name="limbo-state"></a>Limbo-tillstånd
+
+När du har skickat en granskning flyttas videon till **limbo** -läget, som du kan visa genom att välja knappen **limbo** överst på skärmen. Videor är kvar i limbo-tillstånd för en förkonfigurerad tids period (som du kan ändra i menyn längst ned), eller tills de har granskats igen eller skickats manuellt.
+
+När videoerna går ut från limbo markeras deras granskningar som slutförda.
 
 ## <a name="next-steps"></a>Nästa steg
 

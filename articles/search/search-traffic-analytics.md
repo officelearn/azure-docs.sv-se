@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: d93ced4b45befec207494909de61d30a98d2a67e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91333740"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Samla in telemetridata för Sök trafik analys
@@ -49,11 +49,11 @@ När du har en Application Insights resurs kan du följa [instruktionerna för s
 
 En genväg som fungerar för vissa projekt typer av Visual Studio avspeglas i följande steg. Den skapar en resurs och registrerar din app på bara några få klick.
 
-1. För Visual Studio-och ASP.net-utveckling öppnar du din lösning och väljer **projekt**  >  **Lägg till Application Insights Telemetry**.
+1. För Visual Studio-och ASP.net-utveckling öppnar du din lösning och väljer **projekt**  >  **Lägg till Application Insights Telemetry** .
 
-1. Klicka på **Kom igång**.
+1. Klicka på **Kom igång** .
 
-1. Registrera din app genom att tillhandahålla en Microsoft-konto, en Azure-prenumeration och en Application Insights resurs (en ny resurs är standard). Klicka på **Registrera**.
+1. Registrera din app genom att tillhandahålla en Microsoft-konto, en Azure-prenumeration och en Application Insights resurs (en ny resurs är standard). Klicka på **Registrera** .
 
 I det här läget är ditt program konfigurerat för program övervakning, vilket innebär att alla sid inläsningar spåras med standard mått. Mer information om föregående steg finns i [aktivera Application Insights telemetri på Server sidan](../azure-monitor/app/asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
@@ -129,12 +129,12 @@ var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
 Varje gång en sökbegäran utfärdas av en användare bör du logga in som en Sök händelse med följande schema i en Application Insights anpassad händelse. Kom ihåg att endast logga in användardefinierade Sök frågor.
 
-+ **SearchServiceName**: (sträng) Sök tjänst namn
-+ **SearchId**: (GUID) unik identifierare för Sök frågan (kommer i Sök svaret)
-+ **IndexName**: (sträng) Sök tjänst index som ska frågas
-+ **QueryTerms**: (sträng) Sök termer som anges av användaren
-+ **Resultcount som**: (int) antal dokument som returnerades (kommer i Sök svaret)
-+ **ScoringProfile**: (sträng) namnet på den bedömnings profil som används, om något
++ **SearchServiceName** : (sträng) Sök tjänst namn
++ **SearchId** : (GUID) unik identifierare för Sök frågan (kommer i Sök svaret)
++ **IndexName** : (sträng) Sök tjänst index som ska frågas
++ **QueryTerms** : (sträng) Sök termer som anges av användaren
++ **Resultcount som** : (int) antal dokument som returnerades (kommer i Sök svaret)
++ **ScoringProfile** : (sträng) namnet på den bedömnings profil som används, om något
 
 > [!NOTE]
 > Begär antalet användardefinierade frågor genom att lägga till $count = true i Sök frågan. Mer information finns i [Sök efter dokument (rest)](/rest/api/searchservice/search-documents#counttrue--false).
@@ -172,10 +172,10 @@ appInsights.trackEvent("Search", {
 
 Varje gång en användare klickar på ett dokument, är det en signal som måste loggas för söknings analys. Använd Application Insights anpassade händelser för att logga dessa händelser med följande schema:
 
-+ **ServiceName**: (sträng) Sök tjänst namn
-+ **SearchId**: (GUID) unik identifierare för den relaterade Sök frågan
-+ **Fulltextdokument**: (sträng) dokument-ID
-+ **Position**: (int) rangordning av dokumentet på sidan Sök Resultat
++ **ServiceName** : (sträng) Sök tjänst namn
++ **SearchId** : (GUID) unik identifierare för den relaterade Sök frågan
++ **Fulltextdokument** : (sträng) dokument-ID
++ **Position** : (int) rangordning av dokumentet på sidan Sök Resultat
 
 > [!NOTE]
 > Position syftar på kardinal ordningen i ditt program. Du är kostnads fri att ange det här talet, så länge det alltid är detsamma, för att möjliggöra jämförelse.
@@ -209,19 +209,19 @@ appInsights.trackEvent("Click", {
 
 När du har instrumenterat appen och kontrollerat att programmet är korrekt anslutet till Application Insights, laddar du ned en fördefinierad rapportmall för att analysera data i Power BI Desktop. Rapporten innehåller fördefinierade diagram och tabeller som är användbara för att analysera ytterligare data som registrerats för Sök trafik analys.
 
-1. Klicka på **Sök trafik analys**under **inställningar**i Azure kognitiv sökning instrument panelens vänstra navigerings fönster.
+1. Klicka på **Sök trafik analys** under **inställningar** i Azure kognitiv sökning instrument panelens vänstra navigerings fönster.
 
 1. På sidan **Sök trafik analys** går du till steg 3 och klickar på **Hämta Power BI Desktop** för att installera Power BI.
 
    ![Hämta Power BI rapporter](./media/search-traffic-analytics/get-use-power-bi.png "Hämta Power BI rapporter")
 
-1. På samma sida klickar du på **hämta Power BI rapporten**.
+1. På samma sida klickar du på **hämta Power BI rapporten** .
 
 1. Rapporten öppnas i Power BI Desktop och du uppmanas att ansluta till Application Insights och ange autentiseringsuppgifter. Du kan hitta anslutnings information i Azure Portals sidor för din Application Insights-resurs. Ange samma användar namn och lösen ord som du använder för Portal inloggning för autentiseringsuppgifter.
 
    ![Anslut till Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Anslut till Application Insights")
 
-1. Klicka på **Läs in**.
+1. Klicka på **Läs in** .
 
 Rapporten innehåller diagram och tabeller som hjälper dig att fatta mer välgrundade beslut för att förbättra Sök prestanda och relevans.
 

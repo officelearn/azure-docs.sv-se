@@ -3,21 +3,21 @@ title: Skapa schema utlösare i Azure Data Factory
 description: Lär dig hur du skapar en utlösare i Azure Data Factory som kör en pipeline enligt ett schema.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/23/2018
+ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5dd51f7bcaaa876285f6f514ea98603ff28e7ffa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f147a317b16a4a581fad18bd48dbd38059e9a8c
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872607"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146078"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Skapa en utlösare som kör en pipeline enligt ett schema
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,28 +38,35 @@ Du kan skapa en **schema utlösare** för att schemalägga en pipeline så att d
 
     ![Växla till fliken Redigera](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
 
-1. Välj **utlösare** på menyn och välj sedan **ny/redigera**. 
+1. Välj **utlösare** på menyn och välj sedan **ny/redigera** . 
 
     ![Menyn Ny utlösare](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
 
-1. På sidan **Lägg till utlösare** väljer du **Välj utlösare...** och väljer sedan **+ ny**. 
+1. På sidan **Lägg till utlösare** väljer du **Välj utlösare...** och väljer sedan **+ ny** . 
 
     ![Lägg till utlösare – ny utlösare](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
 
 1. Utför följande steg på sidan **Ny utlösare** : 
 
-    1. Bekräfta att **schemat** har valts för **typ**. 
-    1. Ange start datum/tid för utlösaren för **start datum (UTC)**. Den ställs in på aktuell datetime som standard. 
-    1. Ange **upprepning** för utlösaren. Välj ett av värdena i list rutan (varje minut, varje timme, varje dag, varje vecka och varje månad). Ange multiplikatorn i text rutan. Om du till exempel vill att utlösaren ska köras en gång för var 15: e minut väljer du **varje minut**och anger **15** i text rutan. 
-    1. Om du inte vill ange en slutdatum-datetime för utlösaren väljer du **ingen end**i fältet **slut** . Om du vill ange en Slutdatum tid väljer du **på datum**och anger slutdatum/tid och väljer sedan **OK**. Det finns ingen associerad kostnad till varje pipelinekörning. Om du testar kanske du vill se till att pipelinen bara utlöses några gånger. Men se till att det finns tillräckligt med tid att köra pipelinen mellan publiceringstiden och sluttiden. Utlösaren träder endast i kraft när du har publicerat lösningen till Data Factory, och inte när du sparar utlösaren i användargränssnittet.
+    1. Bekräfta att **schemat** har valts för **typ** .
+    1. Ange start datum/tid för utlösaren för **start datum** . Den ställs in på aktuellt datum/tid i UTC (Coordinated Universal Time) som standard.
+    1. Ange den tidszon som utlösaren ska skapas i. Tids zons inställningen gäller för **start datum** , **slutdatum** och **schema körnings tider** i avancerade upprepnings alternativ. Att ändra tids zons inställningen ändrar inte start datumet automatiskt. Kontrol lera att start datumet är rätt i den angivna tids zonen
 
-        ![Inställningar för utlösare](./media/how-to-create-schedule-trigger/trigger-settings.png)
+        > [!NOTE]
+        > För tids zoner som ser sommar tid, justeras utlösnings tiden automatiskt för de två två årens ändringar. Välj en tidszon som inte ser sommar tid att spara, till exempel UTC, om du vill välja att inte använda sommar tids ändringar.
 
-1. I fönstret **Ny utlösare** väljer du **Ja** i alternativet **aktive rad** och väljer sedan **OK**. Du kan använda den här kryss rutan för att inaktivera utlösaren senare. 
+    1. Ange **upprepning** för utlösaren. Välj ett av värdena i list rutan (varje minut, varje timme, varje dag, varje vecka och varje månad). Ange multiplikatorn i text rutan. Om du till exempel vill att utlösaren ska köras en gång för var 15: e minut väljer du **varje minut** och anger **15** i text rutan. 
+    1. Om du vill ange en Slutdatum tid väljer du **Ange ett slutdatum** och anger _slutar på_ och väljer sedan **OK** . Det finns ingen associerad kostnad till varje pipelinekörning. Om du testar kanske du vill se till att pipelinen bara utlöses några gånger. Men se till att det finns tillräckligt med tid att köra pipelinen mellan publiceringstiden och sluttiden. Utlösaren träder endast i kraft när du har publicerat lösningen till Data Factory, och inte när du sparar utlösaren i användargränssnittet.
+
+        ![Inställningar för utlösare](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
+
+        ![Utlös ande inställningar för slutdatum](./media/how-to-create-schedule-trigger/trigger-settings-02.png)
+
+1. I fönstret **Ny utlösare** väljer du **Ja** i alternativet **aktive rad** och väljer sedan **OK** . Du kan använda den här kryss rutan för att inaktivera utlösaren senare. 
 
     ![Inställningar för utlösare – knappen Nästa](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
 
-1. I fönstret **Ny utlösare** granskar du varnings meddelandet och väljer sedan **OK**.
+1. I fönstret **Ny utlösare** granskar du varnings meddelandet och väljer sedan **OK** .
 
     ![Inställningar för utlösare – knappen Slutför](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
 
@@ -67,11 +74,11 @@ Du kan skapa en **schema utlösare** för att schemalägga en pipeline så att d
 
     ![Knappen Publicera](./media/how-to-create-schedule-trigger/publish-2.png)
 
-1. Växla till fliken **pipeline-körningar** till vänster och välj sedan **Uppdatera** för att uppdatera listan. Pipeline-körningar som har utlösts av den schemalagda utlösaren visas. Observera värdena i kolumnen **Aktiverad av**. Om du använder alternativet **utlösare nu** visas den manuella utlösaren kör i listan. 
+1. Växla till fliken **pipeline-körningar** till vänster och välj sedan **Uppdatera** för att uppdatera listan. Pipeline-körningar som har utlösts av den schemalagda utlösaren visas. Observera värdena i kolumnen **Aktiverad av** . Om du använder alternativet **utlösare nu** visas den manuella utlösaren kör i listan. 
 
     ![Övervaka utlösta körningar](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Växla till vyn **Trigger Runs** (Utlösarkörningar). 
+1. Växla till **utlösaren kör**  \  vyn **schema** . 
 
     ![Övervaka utlösarkörningar](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -95,8 +102,9 @@ Det här avsnittet visar hur du använder Azure PowerShell för att skapa, start
                 "recurrence": {
                     "frequency": "Minute",
                     "interval": 15,
-                    "startTime": "2017-12-08T00:00:00",
-                    "endTime": "2017-12-08T01:00:00"
+                    "startTime": "2017-12-08T00:00:00Z",
+                    "endTime": "2017-12-08T01:00:00Z",
+                    "timeZone": "UTC"
                 }
             },
             "pipelines": [{
@@ -117,9 +125,16 @@ Det här avsnittet visar hur du använder Azure PowerShell för att skapa, start
     I JSON-kodfragmentet:
     - **Typ** elementet i utlösaren har angetts till "ScheduleTrigger".
     - **Frekvens** elementet anges till "minut" och **Interval** -elementet är inställt på 15. Därför kör utlösaren pipelinen var 15: e minut mellan start-och slut tiderna.
-    - Slut **tid elementet är** en timme efter värdet för **StartTime** -elementet. Utlösaren kör därför pipelinen 15 minuter, 30 minuter och 45 minuter efter start tiden. Glöm inte att uppdatera start tiden till den aktuella UTC-tiden och slut tiden till en timme efter start tiden. 
+    - **TimeZone** -elementet anger den tidszon som utlösaren skapas i. Den här inställningen påverkar både **StartTime** **och slut** tid.
+    - Slut **tid elementet är** en timme efter värdet för **StartTime** -elementet. Därför kör utlösaren pipelinen 15 minuter, 30 minuter och 45 minuter efter start tiden. Glöm inte att uppdatera start tiden till den aktuella UTC-tiden och slut tiden till en timme efter start tiden. 
+
+        > [!IMPORTANT]
+        > För UTC-timezone måste StartTime och slut tid uppfylla formatet ÅÅÅÅ-MM-ddTHH: mm: SS **Z** , medan för andra tids zoner, StartTime och slut tid följer "åååå-mm-ddTHH: mm: SS". 
+        > 
+        > Enligt ISO 8601 standard markeras det _Z_ -suffixet för tidsstämpeln som datum/tid till UTC-tidszonen och rendera fältet för tids zonen. Även om _Z_ -suffix saknas för UTC-tidszonen leder det till ett fel vid _aktivering_ av utlösare.
+
     - Utlösaren är associerad med **Adfv2QuickStartPipeline** -pipeline. Lägg till fler **pipelineReference** avsnitt om du vill associera flera pipeliner med en utlösare.
-    - Pipelinen i snabb starten tar två **parameter** värden: **inputPath** och **outputPath**. Därför skickar du värden för dessa parametrar från utlösaren.
+    - Pipelinen i snabb starten tar två **parameter** värden: **inputPath** och **outputPath** . Och du skickar värden för dessa parametrar från utlösaren.
 
 1. Skapa en utlösare med hjälp av cmdleten **set-AzDataFactoryV2Trigger** :
 
@@ -151,7 +166,11 @@ Det här avsnittet visar hur du använder Azure PowerShell för att skapa, start
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
+    > [!NOTE]
+    > Utlösarens tid för schema utlösare anges i UTC-tidsstämpel. _TriggerRunStartedAfter_ och _TriggerRunStartedBefore_ förväntar sig också UTC-tidsstämpel
+
     Information om hur du övervakar utlösare som körs och pipelines körs i Azure Portal finns i [övervaka pipeline-körningar](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+
 
 
 ## <a name="net-sdk"></a>.NET SDK
@@ -207,6 +226,16 @@ Om du vill skapa och starta en schema utlösare som körs var 15: e minut lägge
             client.Triggers.Start(resourceGroup, dataFactoryName, triggerName);
 ```
 
+Om du vill skapa utlösare i en annan tidszon än UTC, krävs följande inställningar:
+```csharp
+<<ClientInstance>>.SerializationSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
+<<ClientInstance>>.SerializationSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Unspecified;
+<<ClientInstance>>.SerializationSettings.DateParseHandling = DateParseHandling.None;
+<<ClientInstance>>.DeserializationSettings.DateParseHandling = DateParseHandling.None;
+<<ClientInstance>>.DeserializationSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
+<<ClientInstance>>.DeserializationSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Unspecified;
+```
+
 Om du vill övervaka en Utlös ande körning lägger du till följande kod före den sista `Console.WriteLine` instruktionen i exemplet:
 
 ```csharp
@@ -240,7 +269,7 @@ Det här avsnittet visar hur du använder python SDK för att skapa, starta och 
 ```python
     # Create a trigger
     tr_name = 'mytrigger'
-    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00', end_time='2017-12-12T05:00:00', time_zone='UTC')
+    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00Z', end_time='2017-12-12T05:00:00Z', time_zone='UTC')
     pipeline_parameters = {'inputPath':'adftutorial/input', 'outputPath':'adftutorial/output'}
     pipelines_to_run = []
     pipeline_reference = PipelineReference('copyPipeline')
@@ -258,7 +287,7 @@ Information om hur du övervakar utlösare som körs och pipelines körs i Azure
 Du kan använda en Azure Resource Manager mall för att skapa en utlösare. Stegvisa instruktioner finns i [skapa en Azure-datafabrik med hjälp av en Resource Manager-mall](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Överför start tiden för utlösaren till en pipeline
-Azure Data Factory version 1 stöder läsning eller skrivning av partitionerade data med hjälp av systemvariablerna: **SliceStart**, **SliceEnd**, **WindowStart**och **WindowEnd**. I den aktuella versionen av Azure Data Factory kan du uppnå det här beteendet med hjälp av en pipeline-parameter. Start tiden och den schemalagda tiden för utlösaren anges som värde för pipeline-parametern. I följande exempel skickas den schemalagda tiden för utlösaren som ett värde till **scheduledRunTime** -parametern för pipelinen:
+Azure Data Factory version 1 stöder läsning eller skrivning av partitionerade data med hjälp av systemvariablerna: **SliceStart** , **SliceEnd** , **WindowStart** och **WindowEnd** . I den aktuella versionen av Azure Data Factory kan du uppnå det här beteendet med hjälp av en pipeline-parameter. Start tiden och den schemalagda tiden för utlösaren anges som värde för pipeline-parametern. I följande exempel skickas den schemalagda tiden för utlösaren som ett värde till **scheduledRunTime** -parametern för pipelinen:
 
 ```json
 "parameters": {
@@ -314,7 +343,7 @@ Följande JSON-definition visar hur du skapar en schema utlösare med schemaläg
 ```
 
 > [!IMPORTANT]
->  Egenskapen **parameters** är en obligatorisk egenskap i elementet **pipelines**. Om din pipeline inte tar emot några parametrar måste du ta med en JSON-definition för egenskapen **parameters**.
+>  Egenskapen **parameters** är en obligatorisk egenskap i elementet **pipelines** . Om din pipeline inte tar emot några parametrar måste du ta med en JSON-definition för egenskapen **parameters** .
 
 
 ### <a name="schema-overview"></a>Översikt över schema
@@ -322,24 +351,46 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 
 | JSON-egenskap | Beskrivning |
 |:--- |:--- |
-| **/St** | Ett datum/tid-värde. För enkla scheman gäller värdet för egenskapen **startTime** den första förekomsten. För komplexa scheman startar utlösaren tidigast vid det angivna värdet för **startTime**. |
-| **endTime** | Slutdatum och tidpunkt för utlösaren. Utlösaren körs inte efter angivet slutdatum och sluttid. Värdet för egenskapen kan inte ha passerat. Den här egenskapen är valfri. |
-| **Informationen** | Tidszonen. För närvarande stöds bara tidszonen UTC. |
+| **/St** | Ett datum/tid-värde. För enkla scheman gäller värdet för egenskapen **startTime** den första förekomsten. För komplexa scheman startar utlösaren tidigast vid det angivna värdet för **startTime** . <br> För UTC-tidszonen är format `'yyyy-MM-ddTHH:mm:ssZ'` , för annan tidszon, format `'yyyy-MM-ddTHH:mm:ss'` . |
+| **endTime** | Slutdatum och tidpunkt för utlösaren. Utlösaren körs inte efter angivet slutdatum och sluttid. Värdet för egenskapen kan inte ha passerat. Den här egenskapen är valfri.  <br> För UTC-tidszonen är format `'yyyy-MM-ddTHH:mm:ssZ'` , för annan tidszon, format `'yyyy-MM-ddTHH:mm:ss'` . |
+| **Informationen** | Tids zonen som utlösaren skapas i. Den här inställningen påverkar **StartTime** , slut **tid och schema** . **endTime** Se [lista över tids zoner som stöds](#time-zone-option) |
 | **mönster** | Ett upprepningsobjekt som anger upprepningsregler för utlösaren. Upprepningsobjektet har stöd för elementen **frequency** (frekvens), **interval** (intervall), **endTime** (sluttid), **count** (antal) och **schedule** (schema). När du definierar ett upprepningsobjekt är elementet **frequency** obligatoriskt. De andra elementen är valfria. |
-| **frequency** | Frekvensen som utlösaren ska upprepas med. Du kan använda värden som ”minute”, ”hour”, ”day”, ”week” och ”month”. |
-| **interval** | Ett positivt heltal som anger intervallet för värdet för **frequency** och som avgör hur ofta utlösaren körs. Om **interval** till exempel är 3 och **frequency** är ”week” (vecka) upprepas utlösaren var tredje vecka. |
+| **frekvens** | Frekvensen som utlösaren ska upprepas med. Du kan använda värden som ”minute”, ”hour”, ”day”, ”week” och ”month”. |
+| **intervall** | Ett positivt heltal som anger intervallet för värdet för **frequency** och som avgör hur ofta utlösaren körs. Om **interval** till exempel är 3 och **frequency** är ”week” (vecka) upprepas utlösaren var tredje vecka. |
 | **Ange** | Upprepningsschemat för utlösaren. En utlösare med ett angivet värde för **frequency** ändrar sin upprepning baserat på ett upprepningsschema. Egenskapen **schedule** innehåller ändringar för upprepningen som baseras på minuter, timmar, veckodagar, dagar i månaden och veckonummer.
 
+> [!IMPORTANT]
+> För UTC-timezone måste StartTime och slut tid uppfylla formatet ÅÅÅÅ-MM-ddTHH: mm: SS **Z** , medan för andra tids zoner, StartTime och slut tid följer "åååå-mm-ddTHH: mm: SS". 
+> 
+> Enligt ISO 8601 standard markeras det _Z_ -suffixet för tidsstämpeln som datum/tid till UTC-tidszonen och rendera fältet för tids zonen. Även om _Z_ -suffix saknas för UTC-tidszonen leder det till ett fel vid _aktivering_ av utlösare.
 
 ### <a name="schema-defaults-limits-and-examples"></a>Standardvärden för scheman, begränsningar och exempel
 
 | JSON-egenskap | Typ | Obligatorisk | Standardvärde | Giltiga värden | Exempel |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **/St** | Sträng | Ja | Inget | ISO 8601-datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **mönster** | Objekt | Ja | Inget | Upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | Antal | Inga | 1 | 1 till 1 000 | `"interval":10` |
-| **endTime** | Sträng | Ja | Inget | Ett datum/tid-värde som representerar en tidpunkt i framtiden. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **Ange** | Objekt | Inga | Inget | Schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **/St** | Sträng | Yes | Inget | ISO 8601-datum/tid | för UTC-tidszonen `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> för annan tidszon `"2013-01-09T09:30:00-08:00"` |
+| **Informationen** | Sträng | Yes | Inget | [Tids zons värden](#time-zone-option)  | `"UTC"` |
+| **mönster** | Objekt | Yes | Inget | Upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **intervall** | Antal | No | 1 | 1 till 1 000 | `"interval":10` |
+| **endTime** | Sträng | Yes | Inget | Ett datum/tid-värde som representerar en tidpunkt i framtiden. | för UTC-tidszonen `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> för annan tidszon `"endTime" : "2013-02-09T09:30:00-08:00"`|
+| **Ange** | Objekt | No | Inget | Schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+
+### <a name="time-zone-option"></a>Tids zons alternativ
+
+Här följer några tids zoner som stöds för schemalagda utlösare:
+
+| Tidszon | UTC-förskjutning (icke-sommar) | timeZone-värde | Observera sommar tid | Tids stämplings format |
+| :--- | :--- | :--- | :--- | :--- |
+| Koordinerad universell tid | 0 | `UTC` | No | `'yyyy-MM-ddTHH:mm:ssZ'`|
+| Pacific Time (PT) | -8 | `Pacific Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Central tid (CT) | −6 | `Central Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Eastern Time (ET) | -5 | `Eastern Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Greenwich Mean Time (GMT) | 0 | `GMT Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Central europeisk normal tid | +1 | `W. Europe Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Indien, normal tid (IST) | + 5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
+| Kina, normal tid | + 8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
+
+Den här listan är ofullständig. För en fullständig lista över tids zons alternativ, utforska på sidan för att skapa Data Factory Portal [utlösare](#data-factory-ui)
 
 ### <a name="starttime-property"></a>Egenskapen startTime
 I följande tabell visas hur egenskapen **startTime** styr körningen av en utlösare:
@@ -351,9 +402,9 @@ I följande tabell visas hur egenskapen **startTime** styr körningen av en utl�
 
 Låt oss se vad som händer när starttiden har passerat, med upprepning men utan schema. Anta att den aktuella tiden är `2017-04-08 13:00`, starttiden är `2017-04-07 14:00` och upprepningen är varannan dag. ( **Upprepning** svärdet definieras genom att ange **frekvens** egenskapen till "Day" och egenskapen **Interval** till 2.) Observera att **StartTime** -värdet är i det förflutna och inträffar före den aktuella tiden.
 
-Med dessa villkor sker den första körningen `2017-04-09 at 14:00`. Scheduler-motor beräknar körningsförekomster från starttiden. Alla tidigare instanser ignoreras. Motorn använder nästa förekomst som förekommer i framtiden. I det här fallet är starttiden `2017-04-07 at 2:00pm`, så nästa förekomst är två dagar från den tiden, vilket är `2017-04-09 at 2:00pm`.
+Under dessa villkor är den första körningen vid `2017-04-09` `14:00` . Scheduler-motor beräknar körningsförekomster från starttiden. Alla tidigare instanser ignoreras. Motorn använder nästa förekomst som förekommer i framtiden. I det här scenariot är start tiden `2017-04-07` på `2:00pm` , så nästa instans är två dagar från den tiden, som finns `2017-04-09` på `2:00pm` .
 
-Den första körningstiden är samma oavsett om värdet för **startTime** är `2017-04-05 14:00` eller `2017-04-01 14:00`. Efter den första körningen beräknas efterföljande körningar med hjälp av schemat. Efterföljande körningar är därför `2017-04-11 at 2:00pm`, sedan `2017-04-13 at 2:00pm`, sedan `2017-04-15 at 2:00pm` och så vidare.
+Den första körningstiden är samma oavsett om värdet för **startTime** är `2017-04-05 14:00` eller `2017-04-01 14:00`. Efter den första körningen beräknas efterföljande körningar med hjälp av schemat. Därför finns de efterföljande körningarna på `2017-04-11` `2:00pm` , sedan på, `2017-04-13` sedan på `2:00pm` `2017-04-15` `2:00pm` och så vidare.
 
 När inga timmar eller minuter anges i schemat för en utlösare används som standard samma timmar och minuter som i den första körningen.
 
@@ -362,9 +413,9 @@ När inga timmar eller minuter anges i schemat för en utlösare används som st
 
 Ett schema kan å andra sidan även utöka antalet utlösarkörningar. En utlösare med månatlig frekvens som har schemalagts för att köras dag 1 och 2 körs två snarare än en gång i månaden.
 
-Om du anger flera **schedule**-element utvärderas de från största till minsta schemainställning. Utvärderingen börjar med veckonummer, sedan dag i månaden, veckodag, timme och slutligen minut.
+Om du anger flera **schedule** -element utvärderas de från största till minsta schemainställning. Utvärderingen börjar med veckonummer, sedan dag i månaden, veckodag, timme och slutligen minut.
 
-I följande tabell beskrivs **schedule**-elementen i detalj:
+I följande tabell beskrivs **schedule** -elementen i detalj:
 
 
 | JSON-element | Beskrivning | Giltiga värden |
@@ -372,7 +423,7 @@ I följande tabell beskrivs **schedule**-elementen i detalj:
 | **fördröjning** | Minuter för den timme då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul>
 | **timmarna** | Timmar på dagen då utlösaren körs. | <ul><li>Integer</li><li>Heltalsmatris</li></ul> |
 | **weekDays** | Veckodagar som utlösaren körs på. Värdet kan bara anges med en veckofrekvens. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday och Sunday</li><li>Matris med dagvärden (maximal matrisstorlek är 7)</li><li>Dagvärdena är inte skiftlägeskänsliga</li></ul> |
-| **monthlyOccurrences** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. | <ul><li>Matris med **monthlyOccurrence** -objekt: `{ "day": day,  "occurrence": occurrence }` .</li><li>Attributet **day** är veckodagen som utlösaren körs på. Om egenskapen **monthlyOccurrences** till exempel har **day**-värdet `{Sunday}` innebär det varje söndag i månaden. Attributet **day** är obligatoriskt.</li><li>Attributet **occurrence** är förekomsten av **day**-värdet i månaden. Om egenskapen **monthlyOccurrences** till exempel har **day**- och **occurrence**-värdena `{Sunday, -1}` innebär det den sista söndagen i månaden. Attributet **occurrence** är valfritt.</li></ul> |
+| **monthlyOccurrences** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. | <ul><li>Matris med **monthlyOccurrence** -objekt: `{ "day": day,  "occurrence": occurrence }` .</li><li>Attributet **day** är veckodagen som utlösaren körs på. Om egenskapen **monthlyOccurrences** till exempel har **day** -värdet `{Sunday}` innebär det varje söndag i månaden. Attributet **day** är obligatoriskt.</li><li>Attributet **occurrence** är förekomsten av **day** -värdet i månaden. Om egenskapen **monthlyOccurrences** till exempel har **day** - och **occurrence** -värdena `{Sunday, -1}` innebär det den sista söndagen i månaden. Attributet **occurrence** är valfritt.</li></ul> |
 | **monthDays** | Dagar i månaden som utlösaren körs på. Värdet kan bara anges med en månadsfrekvens. | <ul><li>Ett värde < = -1 och > =-31</li><li>Ett värde > = 1 och < = 31</li><li>Matris med värden</li></ul> |
 
 
@@ -388,8 +439,8 @@ I exemplen antas att värdet för **interval** är 1 och att värdet för **freq
 | `{"minutes":[15], "hours":[5,17]}` | Kör kl. 05.15 och 17.15 varje dag |
 | `{"minutes":[15,45], "hours":[5,17]}` | Kör kl. 05.15, 5.45, 17.15 och 17.45 varje dag. |
 | `{"minutes":[0,15,30,45]}` | Kör var 15:e minut. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Kör varje timme. Den här utlösaren körs varje timme. Minuterna styrs av **startTime**-värdet när du anger ett sådant. Om du inte anger något värde styrs minuterna av tiden för skapandet. Om starttiden eller skapandetiden (beroende på vilken som gäller) till exempel är 00.25 körs utlösaren 00.25, 01.25, 02.25, …, 23:25.<br/><br/>Det här schemat motsvarar en utlösare med **frekvens** svärdet "Hour", ett **intervall** värde på 1, och inget **schema**.  Det här schemat kan användas med andra värden för **frequency** och **interval** om du vill skapa andra utlösare. Till exempel när **frekvens** svärdet är "månad" körs schemat bara en gång i månaden, i stället för varje dag, när **frekvens** svärdet är "dag". |
-| `{"minutes":[0]}` | Körs varje hel timme. Den här utlösaren körs varje timma med början vid 00.00, 01.00, 02.00 och så vidare.<br/><br/>Det här schemat motsvarar en utlösare med **frequency**-värdet ”hour” och **startTime**-värdet noll minuter, eller inget **schema** men **frequency**-värdet ”day”. Om värdet för **frekvens** är "vecka" eller "månad" körs schemat en dag i veckan eller en dag i månaden. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Kör varje timme. Den här utlösaren körs varje timme. Minuterna styrs av **startTime** -värdet när du anger ett sådant. Om du inte anger något värde styrs minuterna av tiden för skapandet. Om starttiden eller skapandetiden (beroende på vilken som gäller) till exempel är 00.25 körs utlösaren 00.25, 01.25, 02.25, …, 23:25.<br/><br/>Det här schemat motsvarar en utlösare med **frekvens** svärdet "Hour", ett **intervall** värde på 1, och inget **schema** .  Det här schemat kan användas med andra värden för **frequency** och **interval** om du vill skapa andra utlösare. Till exempel när **frekvens** svärdet är "månad" körs schemat bara en gång i månaden, i stället för varje dag, när **frekvens** svärdet är "dag". |
+| `{"minutes":[0]}` | Körs varje hel timme. Den här utlösaren körs varje timma med början vid 00.00, 01.00, 02.00 och så vidare.<br/><br/>Det här schemat motsvarar en utlösare med **frequency** -värdet ”hour” och **startTime** -värdet noll minuter, eller inget **schema** men **frequency** -värdet ”day”. Om värdet för **frekvens** är "vecka" eller "månad" körs schemat en dag i veckan eller en dag i månaden. |
 | `{"minutes":[15]}` | Körs 15 minuter efter varje hel timme. Den här utlösaren körs 15 minuter efter varje timme med början vid 00.15, 01.15, 02.15 och så vidare. |
 | `{"hours":[17], "weekDays":["saturday"]}` | Körs 17.00 varje lördag. |
 | `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Körs 17.00 varje måndag, onsdag och fredag. |
@@ -397,7 +448,7 @@ I exemplen antas att värdet för **interval** är 1 och att värdet för **freq
 | `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Körs var 15:e minut på vardagar. |
 | `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` | Körs var 15:e minut på vardagar mellan 09.00 och 16.45. |
 | `{"weekDays":["tuesday", "thursday"]}` | Körs varje tisdag och torsdag den angivna starttiden. |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` | Körs 06.00 den 28:e dagen varje månad (förutsatt att **frequency**-värdet är ”month”). |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` | Körs 06.00 den 28:e dagen varje månad (förutsatt att **frequency** -värdet är ”month”). |
 | `{"minutes":[0], "hours":[6], "monthDays":[-1]}` | Körs 06.00 den sista dagen i månaden. Om du vill köra en utlösare den sista dagen i månaden ska du använda -1 istället för dag 28, 29, 30 eller 31. |
 | `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` | Körs 06.00 den första och sista dagen varje månad. |
 | `{monthDays":[1,14]}` | Körs den första och den fjortonde dagen i varje månad den angivna starttiden. |
@@ -406,7 +457,7 @@ I exemplen antas att värdet för **interval** är 1 och att värdet för **freq
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` | Körs den tredje fredagen från slutet av månad, varje månad, vid den angivna starttiden. |
 | `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Körs den första och sista fredagen i varje månad 05.15. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` | Körs den första och sista fredagen i varje månad vid den angivna starttiden. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Körs den femte fredagen i varje månad vid den angivna starttiden. När det inte finns någon femte fredag i en månad körs inte pipelinen, eftersom den är schemalagd att bara köras på den femte fredagen. Om du vill köra utlösaren på den sista fredagen i månaden kan du använda -1 istället för 5 som värde för **occurrence**. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` | Körs den femte fredagen i varje månad vid den angivna starttiden. När det inte finns någon femte fredag i en månad körs inte pipelinen, eftersom den är schemalagd att bara köras på den femte fredagen. Om du vill köra utlösaren på den sista fredagen i månaden kan du använda -1 istället för 5 som värde för **occurrence** . |
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Körs var 15:e minut den sista fredagen i månaden. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Körs 05.15, 05.45, 17.15 och 17.45 den tredje onsdagen varje månad. |
 

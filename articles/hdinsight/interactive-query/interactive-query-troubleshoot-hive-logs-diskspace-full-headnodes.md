@@ -1,32 +1,32 @@
 ---
-title: Apache Hive loggar som fyller disk utrymme – Azure HDInsight
-description: Apache Hive loggar fyller upp disk utrymmet på huvudnoderna i Azure HDInsight.
+title: 'Felsöka: Apache Hive loggar fyller i disk utrymme – Azure HDInsight'
+description: Den här artikeln innehåller fel söknings steg att följa när Apache Hive loggar fyller upp disk utrymmet på huvudnoderna i Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 10/05/2020
-ms.openlocfilehash: 5554a66927fc70f22ec552b938ae62038a04acb9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 64bf5714f5eb99df9929a47fef414a827ec680af
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533027"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145641"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Scenario: Apache Hive loggar fyller upp disk utrymmet på Head-noderna i Azure HDInsight
 
-Den här artikeln beskriver fel söknings steg och möjliga lösningar på problem som rör inte tillräckligt med disk utrymme på huvudnoderna i Azure HDInsight-kluster.
+Den här artikeln beskriver fel söknings steg och möjliga lösningar på problem som rör otillräckligt med disk utrymme på huvudnoderna i Azure HDInsight-kluster.
 
 ## <a name="issue"></a>Problem
 
-I ett Apache Hive/LLAP-kluster tar oönskade loggar upp hela disk utrymmet på huvudnoderna. På grund av vilken kan följande problem visas.
+I ett Apache Hive/LLAP-kluster tar oönskade loggar upp hela disk utrymmet på huvudnoderna. Det här tillståndet kan orsaka följande problem:
 
-1. SSH-åtkomsten Miss lyckas på grund av att det inte finns utrymme kvar på Head-noden.
-2. Ambari ger *http-fel: tjänsten 503 är inte tillgänglig* .
-3. HiveServer2 interaktiva kan inte startas om.
+- SSH-åtkomsten Miss lyckas eftersom inget utrymme är kvar på Head-noden.
+- Ambari genererar *http-fel: tjänsten 503 är inte tillgänglig* .
+- HiveServer2 interaktiva kan inte startas om.
 
-`ambari-agent`Loggarna visar följande när problemet uppstår.
+`ambari-agent`Loggarna innehåller följande poster när problemet inträffar:
 ```
 ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
 ```
@@ -36,17 +36,17 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>Orsak
 
-I avancerade Hive-log4j konfigurationer anges det aktuella standard borttagnings schemat för filer som är äldre än 30 dagar baserat på senaste ändrings datum.
+I avancerade Hive-log4j konfigurationer är det aktuella standard borttagnings schemat att ta bort filer som är äldre än 30 dagar, baserat på datum för senaste ändring.
 
 ## <a name="resolution"></a>Lösning
 
-1. Gå till sammanfattning av Hive-komponent på Ambari-portalen och klicka på `Configs` fliken.
+1. Gå till sammanfattningen av Hive-komponenten på Ambari-portalen och välj fliken **konfigurationer** .
 
-2. Gå till `Advanced hive-log4j` avsnittet i avancerade inställningar.
+2. Gå till `Advanced hive-log4j` avsnittet i **Avancerade inställningar** .
 
-3. Ange `appender.RFA.strategy.action.condition.age` en parameter till en ålder som du väljer. Exempel i 14 dagar: `appender.RFA.strategy.action.condition.age = 14D`
+3. Ange `appender.RFA.strategy.action.condition.age` en valfri ålder för parametern. I det här exemplet anges ålder till 14 dagar: `appender.RFA.strategy.action.condition.age = 14D`
 
-4. Om du inte ser några relaterade inställningar lägger du till följande inställningar.
+4. Om du inte ser några relaterade inställningar lägger du till följande inställningar:
     ```
     # automatically delete hive log
     appender.RFA.strategy.action.type = Delete
@@ -57,7 +57,7 @@ I avancerade Hive-log4j konfigurationer anges det aktuella standard borttagnings
     appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
     ```
 
-5. Ange `hive.root.logger` `INFO,RFA` enligt följande. Standardinställningen är DEBUG, vilket gör att loggar blir mycket stora.
+5. Ange `hive.root.logger` som `INFO,RFA` , som visas i följande exempel. Standardvärdet är `DEBUG` , vilket gör loggarna stora.
 
     ```
     # Define some default values that can be overridden by system properties

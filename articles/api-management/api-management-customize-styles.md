@@ -11,15 +11,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a654454c1ef3d5ea1ff7e6eb525bb153f7875c1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0cdad245981ad02d3cdaefba447d131c775e242f
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168213"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145777"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Anpassa stilen på utvecklings portalens sidor
 
@@ -45,7 +45,7 @@ I den här artikeln får du lära dig hur du anpassar formatet för element på 
 
 ## <a name="customize-the-developer-portal"></a>Anpassa Developer-portalen
 
-1. Välj **Översikt**.
+1. Välj **Översikt** .
 2. Klicka på knappen **Developer portal (bakåtkompatibelt)** överst i **översikts** fönstret.
 3. Upptill på den vänstra sidan av skärmen visas en ikon med två penslar. Hovra över ikonen för att öppna menyn för anpassning av portalen.
 
@@ -55,11 +55,11 @@ I den här artikeln får du lära dig hur du anpassar formatet för element på 
     Alla element som du kan anpassa med **stilar** visas på sidan
 5. Ange färg för rubriker i fältet **Change variable values to customize developer portal appearance:** (Anpassa variabelvärden för att anpassa utvecklarportalens utseende).
 
-    ** \@ Rubrik-färg-** elementet visas på sidan. Den här variabeln anger färgen på texten.
+    **\@ Rubrik-färg-** elementet visas på sidan. Den här variabeln anger färgen på texten.
 
     ![anpassa stil](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Klicka på fältet för ** \@ rubrik-färg-** variabeln. 
+6. Klicka på fältet för **\@ rubrik-färg-** variabeln. 
     
     En nedrullningsbar meny för val av färg öppnas.
 7. Välj en ny färg i den nedrullningsbara menyn för val av färg.

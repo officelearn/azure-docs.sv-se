@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64f1c83a570e936759d674f40db201fb2f2cd0e5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318304"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146270"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Utlösa en körning av en Machine Learning pipeline från en Logic app
 
@@ -49,7 +49,7 @@ När du har etablerat din Logi Kap par kan du använda de här stegen för att k
     > [!div class="mx-imgBorder"]
     > ![Tom mall](media/how-to-trigger-published-pipeline/blank-template.png)
 
-1. I designern söker du efter **BLOB**. Markera kryss rutan **när en BLOB läggs till eller ändras (endast egenskaper)** utlösas och Lägg till den här utlösaren i din Logic app.
+1. I designern söker du efter **BLOB** . Markera kryss rutan **när en BLOB läggs till eller ändras (endast egenskaper)** utlösas och Lägg till den här utlösaren i din Logic app.
     > [!div class="mx-imgBorder"]
     > ![Lägg till utlösare](media/how-to-trigger-published-pipeline/add-trigger.png)
 
@@ -60,7 +60,7 @@ När du har etablerat din Logi Kap par kan du använda de här stegen för att k
     > [!NOTE]
     > Den här utlösaren övervakar den valda behållaren men övervakar inte undermappar.
 
-1. Lägg till en HTTP-åtgärd som ska köras när en ny eller ändrad BLOB identifieras. Välj **+ nytt steg**och Sök sedan efter och välj http-åtgärd.
+1. Lägg till en HTTP-åtgärd som ska köras när en ny eller ändrad BLOB identifieras. Välj **+ nytt steg** och Sök sedan efter och välj http-åtgärd.
 
   > [!div class="mx-imgBorder"]
   > ![Sök efter HTTP-åtgärd](media/how-to-trigger-published-pipeline/search-http.png)
@@ -94,6 +94,9 @@ När du har etablerat din Logi Kap par kan du använda de här stegen för att k
     > ![HTTP-inställningar](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. Välj **Spara** så är ditt schema nu klart.
+
+> [!IMPORTANT]
+> Om du använder rollbaserad åtkomst kontroll (RBAC) för att hantera åtkomst till din pipeline, [anger du behörigheterna för ditt pipeline-scenario (utbildning eller poängsättning)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service)
 
 ## <a name="next-steps"></a>Nästa steg
 

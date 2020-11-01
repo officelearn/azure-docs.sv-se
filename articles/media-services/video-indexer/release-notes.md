@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f7bf41bd864f6780eee00938f35bb34d2336eb5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505348"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145760"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
@@ -29,6 +29,21 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 * Kända problem
 * Felkorrigeringar
 * Föråldrade funktioner
+
+## <a name="october-2020"></a>Oktober 2020
+
+### <a name="animated-character-identification-improvements"></a>Förbättringar av animerade Character-identifieringar  
+
+Video Indexer stöder identifiering, gruppering och igenkänning av tecken i animerat innehåll via integration med Cognitive Services anpassad vision. Vi har lagt till en stor förbättring av den här AI-algoritmen i identifierings-och tecken igenkänningen, eftersom precisionen för insikter och identifierade tecken är avsevärt bättre.
+
+### <a name="planned-video-indexer-website-authenticatication-changes"></a>Planerad Video Indexer webbplats authenticatication ändringar
+
+Från och med 1 januari 2021 kommer du inte längre att kunna registrera dig och logga in på den [video Indexer](https://www.videoindexer.ai/) webbplatsen (utvärderings erbjudande) med Facebook eller LinkedIn.
+
+Du kommer att kunna registrera dig och logga in med någon av följande providers: Azure AD, Microsoft och Google.
+
+> [!NOTE]
+> Du uppmanas att exportera ditt innehåll före den 1 januari 2021, eftersom konton som är anslutna till LinkedIn och Facebook tas bort och innehållet inte längre kan nås.
 
 ## <a name="august-2020"></a>Augusti 2020
 
@@ -123,7 +138,7 @@ Under de kommande veckorna ändrar vi den och returnerar [video Indexer webbplat
     * Ersätta URL: en med en URL som pekar på API: erna för Video Indexer widget (till exempel [widgeten insikter](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * Använda Video Indexer webbplats för att generera en ny inbäddad URL:
          
-         Tryck på **Play** för att komma till videons sida > Klicka på knappen ** &lt; / &gt; bädda** in – > kopiera URL: en till ditt program:
+         Tryck på **Play** för att komma till videons sida > Klicka på knappen **&lt; / &gt; bädda** in – > kopiera URL: en till ditt program:
    
     De regionala URL: erna stöds inte och kommer att blockeras under de kommande veckorna.
 

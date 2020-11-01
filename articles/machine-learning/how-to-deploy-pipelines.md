@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: de2b12bca10382d7e885626222fe463af27f9953
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ae20b339ae3eec694140621b14db26606c9d5ab3
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128783"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145573"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicera och spåra maskin inlärnings pipeliner
 
@@ -72,6 +72,9 @@ När du har en pipeline igång kan du publicera en pipeline så att den körs me
 ## <a name="run-a-published-pipeline"></a>Köra en publicerad pipeline
 
 Alla publicerade pipeliner har en REST-slutpunkt. Med pipeline-slutpunkten kan du utlösa en körning av pipelinen från alla externa system, inklusive icke-python-klienter. Den här slut punkten aktiverar "hanterad repeterbarhet" i batch-poängsättning och ominlärnings scenarier.
+
+> [!IMPORTANT]
+> Om du använder rollbaserad åtkomst kontroll (RBAC) för att hantera åtkomst till din pipeline, [anger du behörigheterna för ditt pipeline-scenario (utbildning eller poängsättning)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service).
 
 Om du vill anropa körningen av föregående pipeline behöver du en Azure Active Directory Authentication Head-token. Att hämta en sådan token beskrivs i [klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py&preserve-view=true) referensen AzureCliAuthentication och i [autentiseringen i Azure Machine Learning](https://aka.ms/pl-restep-auth) Notebook.
 

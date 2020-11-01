@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6658dcd54c7290bbbad0c24c1cc0debd5ead8b18
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 347948734da439691bced01cf3693d0990567748
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789870"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146236"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Använda Azure Portal för att etablera en virtuell Windows-dator med SQL Server
 
@@ -32,7 +32,7 @@ Använd den här guiden för att skapa en egen SQL Server VM. Eller Använd den 
 > [!TIP]
 > Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](frequently-asked-questions-faq.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sql-server-virtual-machine-gallery-images"></a><a id="select"></a> SQL Server Galleri avbildningar för virtuella datorer
 
@@ -135,7 +135,7 @@ Konfigurera övervakning och automatisk avstängning på fliken **övervakning**
 
 Konfigurera vissa inställningar och optimeringar för SQL Server på fliken **SQL Server inställningar** . Du kan konfigurera följande inställningar för SQL Server:
 
-- [Anslutning](#connectivity)
+- [Anslutningsmöjligheter](#connectivity)
 - [Autentisering](#authentication)
 - [Azure Key Vault-integrering](#azure-key-vault-integration)
 - [Storage-konfiguration](#storage-configuration)
@@ -144,7 +144,7 @@ Konfigurera vissa inställningar och optimeringar för SQL Server på fliken **S
 - [Machine Learning Services](#machine-learning-services)
 
 
-### <a name="connectivity"></a>Anslutningsmöjlighet
+### <a name="connectivity"></a>Anslutning
 
 Under **SQL-anslutning** anger du vilken typ av åtkomst du vill ha till SQL Server-instansen på den här virtuella datorn. I den här genom gången väljer du **offentlig (Internet)** för att tillåta att anslutningar SQL Server från datorer eller tjänster på Internet. När det här alternativet är markerat konfigurerar Azure automatiskt brand väggen och nätverks säkerhets gruppen för att tillåta trafik på den valda porten.
 
@@ -196,7 +196,7 @@ Mer information finns i [Konfigurera Azure Key Vault-integrering för SQL Server
 
 På fliken **SQL Server inställningar** under **lagrings konfiguration** väljer du **ändra konfiguration** för att öppna sidan prestanda optimerad lagrings konfiguration och anger lagrings kraven.
 
-![Konfiguration av SQL VM-lagring](./media/create-sql-vm-portal/sql-vm-storage-configuration-provisioning.png)
+![Skärm bild som visar var du kan ändra lagrings konfigurationen.](./media/create-sql-vm-portal/sql-vm-storage-configuration-provisioning.png)
 
 Under **Storage optimerat för** väljer du något av följande alternativ:
 

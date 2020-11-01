@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/30/2020
+ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635379"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145724"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Bygg uttryck i data flöde för mappning
 
@@ -30,15 +30,15 @@ Det finns flera start punkter för att öppna uttrycks verktyget. Dessa är alla
 
 I vissa transformeringar som [filter](data-flow-filter.md), öppnar uttrycks verktyget genom att klicka på ett blått uttryck text ruta. 
 
-![Rutan blå uttryck](media/data-flow/expressionbox.png "Uttrycksverktyget")
+![Rutan blå uttryck](media/data-flow/expressionbox.png "Rutan blå uttryck")
 
 När du refererar till kolumner i en matchande eller Group by-villkor kan ett uttryck extrahera värden från kolumner. Om du vill skapa ett uttryck väljer du **beräknad kolumn** .
 
-![Alternativ för beräknad kolumn](media/data-flow/computedcolumn.png "Uttrycksverktyget")
+![Alternativ för beräknad kolumn](media/data-flow/computedcolumn.png "Alternativ för beräknad kolumn")
 
 I de fall där ett uttryck eller ett tecken värde är giltiga indata, väljer du **Lägg till dynamiskt innehåll** för att skapa ett uttryck som utvärderas till ett exakt värde.
 
-![Alternativet Lägg till dynamiskt innehåll](media/data-flow/add-dynamic-content.png "Uttrycksverktyget")
+![Alternativet Lägg till dynamiskt innehåll](media/data-flow/add-dynamic-content.png "Alternativet Lägg till dynamiskt innehåll")
 
 ## <a name="expression-elements"></a>Uttrycks element
 
@@ -46,7 +46,7 @@ I mappnings data flöden kan uttryck bestå av kolumn värden, parametrar, funkt
 
 ![Uttrycks element](media/data-flow/expression-elements.png "Uttrycks element")
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funktioner
 
 Mappning av data flöden har inbyggda funktioner och operatorer som kan användas i uttryck. En lista över tillgängliga funktioner finns i [språk referens för mappnings data flöde](data-flow-expression-functions.md).
 
@@ -72,6 +72,16 @@ Om du har kolumn namn som innehåller specialtecken eller mellanslag, omger du n
 ### <a name="parameters"></a>Parametrar
 
 Parametrar är värden som skickas till ett data flöde vid körning från en pipeline. Om du vill referera till en parameter klickar du antingen på parametern från vyn **uttrycks element** eller hänvisar till den med ett dollar tecken framför dess namn. En parameter som kallas Parameter1 skulle till exempel refereras till av `$parameter1` . Mer information finns i [Parameters-mappning av data flöden](parameters-data-flow.md).
+
+### <a name="cached-lookup"></a>Cachelagrad sökning
+
+Med en cachelagrad sökning kan du göra en infogad sökning efter utdata från en cachelagrad mottagare. Det finns två funktioner som kan användas på varje mottagare `lookup()` och `outputs()` . Syntaxen som används för att referera till dessa funktioner är `cacheSinkName#functionName()` . Mer information finns i [cache-mottagare](data-flow-sink.md#cache-sink).
+
+`lookup()` tar i de matchande kolumnerna i den aktuella omvandlingen som parametrar och returnerar en komplex kolumn som motsvarar den rad som matchar nyckel kolumnerna i cache-sinken. Den komplexa kolumnen som returnerades innehåller en under kolumn för varje kolumn som har mappats i cache-sinken. Om du till exempel hade en felkod för cacheuppdatering `errorCodeCache` som hade en nyckel kolumns matchning i koden och en kolumn med namnet `Message` . Anrop `errorCodeCache#lookup(errorCode).Message` returnerar meddelandet som motsvarar koden som skickades. 
+
+`outputs()` tar inga parametrar och returnerar hela cache-sinken som en matris med komplexa kolumner. Detta kan inte anropas om nyckel kolumner anges i sinken och endast ska användas om det finns ett litet antal rader i cache-sinken. Ett vanligt användnings fall lägger till max värdet för en stegvis ökande nyckel. Om en enskild aggregerad rad `CacheMaxKey` innehåller en kolumn `MaxKey` kan du referera till det första värdet genom att anropa `CacheMaxKey#outputs()[1].MaxKey` .
+
+![Cachelagrad sökning](media/data-flow/cached-lookup-example.png "Cachelagrad sökning")
 
 ### <a name="locals"></a>Lokala variabler
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 06d114c500722259d02a940633a76d043b83064a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0832c975ecb410b97a24c975f9fc0f4799120abd
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077498"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145522"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Använda Azure API Management-tjänsten med ett internt virtuellt nätverk
 Med Azure Virtual Networks kan Azure API Management hantera API: er som inte är tillgängliga på Internet. Det finns ett antal VPN-tekniker som kan upprätta anslutningen. API Management kan distribueras i två huvud lägen i ett virtuellt nätverk:
@@ -43,11 +43,11 @@ Med API Management i internt läge kan du uppnå följande scenarier:
 
 För att utföra stegen som beskrivs i den här artikeln måste du ha:
 
-+ **En aktiv Azure-prenumeration**.
++ **En aktiv Azure-prenumeration** .
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ **En Azure API Management-instans**. Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
++ **En Azure API Management-instans** . Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 + När en API Management-tjänst distribueras i ett virtuellt nätverk används en [lista över portar](./api-management-using-with-vnet.md#required-ports) som måste öppnas. 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Skapa en API Management i ett internt virtuellt nätverk
@@ -56,21 +56,23 @@ Tjänsten API Management i ett internt virtuellt nätverk finns bakom en [intern
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Aktivera en virtuell nätverks anslutning med hjälp av Azure Portal
 
 1. Bläddra till Azure API Management-instansen i [Azure Portal](https://portal.azure.com/).
-2. Välj **virtuellt nätverk**.
+2. Välj **virtuellt nätverk** .
 3. Konfigurera API Management-instansen som ska distribueras i det virtuella nätverket.
 
     ![Meny för att konfigurera ett Azure-API Management i ett internt virtuellt nätverk][api-management-using-internal-vnet-menu]
 
-4. Välj **Spara**.
+4. Välj **Spara** .
 
 När distributionen har slutförts bör du se **privat** virtuell IP-adress och **offentlig** virtuell IP-adress för din API Management-tjänst på översikts bladet. Den **privata** virtuella IP-adressen är en belastningsutjämnad IP-adress i det API Management delegerade under nätet som `gateway` , `portal` `management` och `scm` slut punkterna kan nås. Den **offentliga** virtuella IP-adressen används **endast** för kontroll Plans trafik till `management` slut punkt via port 3443 och kan låsas ned till [API Management][ServiceTags] -servicetag.
 
 ![API Management instrument panel med ett internt virtuellt nätverk konfigurerat][api-management-internal-vnet-dashboard]
 
 > [!NOTE]
-> Test konsolen som är tillgänglig på Azure-portalen fungerar inte för **interna** distribuerade VNet-tjänster eftersom Gateway-URL: en inte är registrerad på den offentliga DNS-adressen. I stället bör du använda test konsolen som finns på **Developer-portalen**.
+> Test konsolen som är tillgänglig på Azure-portalen fungerar inte för **interna** distribuerade VNet-tjänster eftersom Gateway-URL: en inte är registrerad på den offentliga DNS-adressen. I stället bör du använda test konsolen som finns på **Developer-portalen** .
 
-### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Aktivera en virtuell nätverks anslutning med hjälp av PowerShell-cmdletar
+### <a name="deploy-api-management-into-virtual-network"></a><a name="deploy-apim-internal-vnet"> </a>Distribuera API Management till Virtual Network
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

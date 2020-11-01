@@ -4,10 +4,10 @@ description: Guide för att tillåta migrering av befintliga Azure Service Bus s
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "85340742"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrera befintliga Azure Service Bus standard namn områden till Premium-nivån
@@ -21,11 +21,11 @@ I den här artikeln beskrivs hur du migrerar befintliga namn områden på standa
 
 Några av punkterna att Observera:
 
-- Den här migreringen är avsedd att ske på plats, vilket innebär att befintliga avsändare och mottagar program **inte kräver några ändringar i koden eller konfigurationen**. Den befintliga anslutnings strängen pekar automatiskt på det nya Premium-namnområdet.
+- Den här migreringen är avsedd att ske på plats, vilket innebär att befintliga avsändare och mottagar program **inte kräver några ändringar i koden eller konfigurationen** . Den befintliga anslutnings strängen pekar automatiskt på det nya Premium-namnområdet.
 - **Premium** -namnområdet får **inte ha några entiteter** för att migreringen ska lyckas.
 - Alla **entiteter** i standard namn området **kopieras** till Premium-namnområdet under migreringsprocessen.
 - Migrering stöder **1 000 entiteter per meddelande enhet** på Premium-nivån. För att identifiera hur många meddelande enheter du behöver börjar du med antalet entiteter som du har på din aktuella standard namn område.
-- Du kan inte direkt migrera från **Basic-nivån** till Premium- **nivån**, men du kan göra detta indirekt genom att migrera från Basic till standard först och sedan från standard till Premium i nästa steg.
+- Du kan inte direkt migrera från **Basic-nivån** till Premium- **nivån** , men du kan göra detta indirekt genom att migrera från Basic till standard först och sedan från standard till Premium i nästa steg.
 
 ## <a name="migration-steps"></a>Migreringsanvisningar
 
@@ -89,14 +89,14 @@ Följ dessa steg om du vill migrera Service Bus standard namn området till Prem
 
 Migrering med hjälp av Azure Portal har samma logiska flöde som migreringen med hjälp av kommandona. Följ de här stegen för att migrera med hjälp av Azure Portal.
 
-1. I **navigerings** menyn i den vänstra rutan väljer **du migrera till Premium**. Klicka på knappen **Kom igång** för att fortsätta till nästa sida.
+1. I **navigerings** menyn i den vänstra rutan väljer **du migrera till Premium** . Klicka på knappen **Kom igång** för att fortsätta till nästa sida.
     ![Landnings sida för migrering][]
 
-1. Slutför **installationen**.
+1. Slutför **installationen** .
    ![Installations namn område][]
    1. Skapa och tilldela Premium-namnområdet för att migrera det befintliga standard namn området till.
         ![Installations namn namnrymd – skapa Premium-namnrymd][]
-   1. Välj ett **namn för migreringen**. Du kommer att använda det här namnet för att komma åt standard namn området när migreringen är klar.
+   1. Välj ett **namn för migreringen** . Du kommer att använda det här namnet för att komma åt standard namn området när migreringen är klar.
         ![Installations namn namnrymd-Välj efter namn på migrering][]
    1. Fortsätt genom att välja **Nästa** .
 1. Synkronisera entiteter mellan standard-och Premium-namnområden.

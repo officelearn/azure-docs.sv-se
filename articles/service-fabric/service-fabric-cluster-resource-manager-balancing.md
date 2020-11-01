@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b6df25b525975f2d4fe6a02064e81f359a804c58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 192aca589c3b1e660667dbe8377afe7802b56f17
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416258"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146202"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Balansera Service Fabric-klustret
 Service Fabric Cluster Resource Manager stöder dynamiska inläsnings ändringar, som reagerar på tillägg eller borttagning av noder eller tjänster. Det korrigerar också automatiskt begränsnings överträdelser och proaktivt balanserar klustret igen. Men hur ofta är dessa åtgärder vidtagna och vad utlöser dem?
@@ -74,12 +74,12 @@ via ClusterConfig.jspå för fristående distributioner eller Template.jspå fö
 
 I dag är kluster resurs hanteraren bara en av de här åtgärderna i taget, i tur och ordning. Detta är anledningen till att vi refererar till dessa timers som "lägsta intervall" och de åtgärder som vidtas när timers går ut som "inställnings flaggor". Kluster resurs hanteraren tar till exempel hand om väntande begär Anden om att skapa tjänster innan du balanserar klustret. Som du kan se när du har angett standard tidsintervall, så söker kluster resurs hanteraren efter allt som krävs för att göra det ofta. Det innebär vanligt vis att de ändringar som har gjorts under varje steg är små. Genom att göra små ändringar ofta kan kluster resurs hanteraren svara när saker händer i klustret. Standard timers tillhandahåller vissa batchar eftersom många av samma typer av händelser ofta inträffar samtidigt. 
 
-Om noderna till exempel inte kan utföras kan de göra hela fel domäner i taget. Alla dessa avbrott samlas in under nästa tillstånds uppdatering efter *PLBRefreshGap*. Korrigeringarna bestäms vid följande placering, begränsnings kontroll och balanserings körningar. Som standard genomsöker inte kluster resurs hanteraren igenom antalet ändringar i klustret och försöker adressera alla ändringar samtidigt. Detta skulle leda till burst-överföring av omsättningen.
+Om noderna till exempel inte kan utföras kan de göra hela fel domäner i taget. Alla dessa avbrott samlas in under nästa tillstånds uppdatering efter *PLBRefreshGap* . Korrigeringarna bestäms vid följande placering, begränsnings kontroll och balanserings körningar. Som standard genomsöker inte kluster resurs hanteraren igenom antalet ändringar i klustret och försöker adressera alla ändringar samtidigt. Detta skulle leda till burst-överföring av omsättningen.
 
-Kluster resurs hanteraren behöver också ytterligare information för att avgöra om klustret är förbalanseradt. För att vi har två andra delar av konfigurationen: *BalancingThresholds* och *ActivityThresholds*.
+Kluster resurs hanteraren behöver också ytterligare information för att avgöra om klustret är förbalanseradt. För att vi har två andra delar av konfigurationen: *BalancingThresholds* och *ActivityThresholds* .
 
 ## <a name="balancing-thresholds"></a>Tröskelvärden för utjämning
-Ett tröskelvärde för utjämning är huvud kontrollen för att utlösa ombalansering. Tröskelvärdet för Utjämning av mått är ett _förhållande_. Om belastningen för ett mått på den mest inlästa noden dividerat med mängden belastning på den minst inlästa noden överstiger den måttets *BalancingThreshold*, så är klustret obalanserat. En resultat utjämning utlöses nästa gången som kluster resurs hanteraren kontrollerar. *MinLoadBalancingInterval* timer definierar hur ofta kluster resurs hanteraren ska kontrol lera om ombalansering krävs. Kontrollen innebär inte att något händer. 
+Ett tröskelvärde för utjämning är huvud kontrollen för att utlösa ombalansering. Tröskelvärdet för Utjämning av mått är ett _förhållande_ . Om belastningen för ett mått på den mest inlästa noden dividerat med mängden belastning på den minst inlästa noden överstiger den måttets *BalancingThreshold* , så är klustret obalanserat. En resultat utjämning utlöses nästa gången som kluster resurs hanteraren kontrollerar. *MinLoadBalancingInterval* timer definierar hur ofta kluster resurs hanteraren ska kontrol lera om ombalansering krävs. Kontrollen innebär inte att något händer. 
 
 Tröskelvärden för utjämning definieras per mått som en del av kluster definitionen. Mer information om mått finns i [den här artikeln](service-fabric-cluster-resource-manager-metrics.md).
 
@@ -130,7 +130,7 @@ I det nedre exemplet är den maximala belastningen på en nod 10, medan minimiv�
 > "Balansering" hanterar två olika strategier för att hantera belastning i klustret. Standard strategin som kluster resurs hanteraren använder är att distribuera belastningen mellan noderna i klustret. Den andra strategin är [defragmentering](service-fabric-cluster-resource-manager-defragmentation-metrics.md). Defragmentering utförs under samma balanserings körning. Strategier för balansering och defragmentering kan användas för olika mått i samma kluster. En tjänst kan ha både balans-och defragmentering av mått. För defragmentering-mått utlöser förhållandet mellan belastningarna i klustret ombalansering när den är _lägre än_ tröskelvärdet för utjämning. 
 >
 
-Att komma under tröskelvärdet för utjämning är inte ett explicit mål. Tröskelvärden för utjämning är bara en *utlösare*. När balanseringen körs avgör kluster resurs hanteraren vilka förbättringar det kan göra, om det finns några. Bara på grund av att en balanserings sökning har inaktiverats betyder det inte att något rör sig. Ibland bal anse ras klustret men är för begränsat till rätt. Förbättringarna kräver även förflyttningar som är för [dyra](service-fabric-cluster-resource-manager-movement-cost.md).
+Att komma under tröskelvärdet för utjämning är inte ett explicit mål. Tröskelvärden för utjämning är bara en *utlösare* . När balanseringen körs avgör kluster resurs hanteraren vilka förbättringar det kan göra, om det finns några. Bara på grund av att en balanserings sökning har inaktiverats betyder det inte att något rör sig. Ibland bal anse ras klustret men är för begränsat till rätt. Förbättringarna kräver även förflyttningar som är för [dyra](service-fabric-cluster-resource-manager-movement-cost.md).
 
 ## <a name="activity-thresholds"></a>Aktivitets trösklar
 Ibland, även om noderna är relativt obalanserade, är den *totala* belastningen i klustret låg. Brist på inläsning kan vara en tillfällig DIP eller eftersom klustret är nytt och bara får startat. I båda fallen kanske du inte vill spendera tid på klustret eftersom det inte finns något att vinna. Om klustret har genomgått balansering kan du spendera nätverks-och beräknings resurser för att flytta saker runt om, utan att göra stora *absoluta* skillnader. För att undvika onödiga flyttningar finns det en annan kontroll som kallas för aktivitets trösklar. Med aktivitets trösklar kan du ange en viss absolut lägre gräns för aktiviteten. Om ingen nod är över det här tröskelvärdet utlöses inte balanseringen även om tröskelvärdet för utjämning är uppfyllt.
@@ -189,7 +189,7 @@ Surely kan du se var vi ska: det finns en kedja! Vi har egentligen inte fyra obe
 
 <center>
 
-![Balansera tjänster tillsammans][Image4]
+![Diagram som visar hur du balanserar tjänster tillsammans.][Image4]
 </center>
 
 På grund av den här kedjan är det möjligt att en obalans i mått 1-4 kan orsaka att repliker eller instanser som hör till tjänster 1-3 kan flyttas runt. Vi vet också att en obalans i måtten 1, 2 eller 3 inte kan orsaka rörelser i Service4. Det skulle inte finnas någon punkt eftersom du flyttar de repliker eller instanser som hör till Service4, men det kan vara absolut ingen att påverka saldot för måtten 1-3.
@@ -198,7 +198,7 @@ Kluster resurs hanteraren tar automatiskt reda på vilka tjänster som är relat
 
 <center>
 
-![Balansera tjänster tillsammans][Image5]
+![Diagram som visar att kluster resurs hanteraren avgör vilka tjänster som är relaterade.][Image5]
 </center>
 
 ## <a name="next-steps"></a>Nästa steg

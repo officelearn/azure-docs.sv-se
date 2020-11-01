@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f6a4045308aa0ae8488839b0d5ea4d476c4dc883
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6d154d8b35c175b88e91545ddc1e78f58f9be685
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776331"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146832"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Snabb start: skapa en Java-app på Azure App Service
 
@@ -80,7 +80,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 1. När du uppmanas med alternativet **prenumeration** väljer du rätt `Subscription` genom att skriva in siffran Skriv ut i rad starten.
 1. När du uppmanas att ange alternativet för **webbapp** godkänner du alternativet defaut `<create>` genom att trycka på RETUR.
-1. När du uppmanas med alternativet **OS** väljer du **Windows** genom att ange `2` .
+1. När du uppmanas med alternativet **OS** väljer du **Windows** genom att ange `3` .
 1. Använd standard versionen av Java 1,8 genom att trycka på RETUR.
 1. Tryck slutligen på RETUR för att bekräfta dina val.
 
@@ -213,8 +213,8 @@ Egenskap | Krävs | Beskrivning | Version
 `<subscriptionId>` | falskt | Ange prenumerations-ID. | 0.1.0 +
 `<resourceGroup>` | true | Azure-resurs grupp för din webbapp. | 0.1.0 +
 `<appName>` | true | Namnet på din webbapp. | 0.1.0 +
-`<region>` | true | Anger den region där din webbapp ska vara värd. Standardvärdet är **westeurope**. Avsnittet alla giltiga regioner i [regioner som stöds](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) . | 0.1.0 +
-`<pricingTier>` | falskt | Pris nivån för din webbapp. Standardvärdet är **P1V2**.| 0.1.0 +
+`<region>` | true | Anger den region där din webbapp ska vara värd. Standardvärdet är **westeurope** . Avsnittet alla giltiga regioner i [regioner som stöds](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) . | 0.1.0 +
+`<pricingTier>` | falskt | Pris nivån för din webbapp. Standardvärdet är **P1V2** .| 0.1.0 +
 `<runtime>` | true | Konfiguration av körnings miljön kan du se informationen [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0 +
 `<deployment>` | true | Distributions konfigurationen kan du se informationen [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0 +
 

@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ec82ec6613b6d2e68d01815d5669bfb169037e72
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787490"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146577"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Övervaknings data referens för Azure Queue Storage
 
@@ -26,7 +26,7 @@ I följande tabeller visas de plattforms mått som samlas in för Azure Storage.
 
 ### <a name="capacity-metrics"></a>Kapacitetsmått
 
-Värdena för kapacitets värden skickas till Azure Monitor varje timme. Värdena uppdateras varje dag. Tids kornig het definierar tidsintervallet för vilka mått värden presenteras. Tids kornig het för alla kapacitets mått är en timme (PT1H).
+Värdena för kapacitets värden uppdateras dagligen (upp till 24 timmar). Tids kornig het definierar tidsintervallet för vilka mått värden presenteras. Tids kornig het för alla kapacitets mått är en timme (PT1H).
 
 Azure Storage tillhandahåller följande kapacitets mått i Azure Monitor.
 

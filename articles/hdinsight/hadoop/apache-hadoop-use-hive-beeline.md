@@ -6,18 +6,20 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 08/21/2020
-ms.custom: contperfq1
-ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.custom: contperfq1, contperfq2
+ms.openlocfilehash: 756c87299db85e426b4793d51bea833aa694a830
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755100"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145964"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Använda Apache Beeline-klienten med Apache Hive
 
-Lär dig hur du använder [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) för att köra apache Hive frågor på HDInsight.
+Den här artikeln beskriver hur du använder en kommando rad [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) -klient för att skapa och köra apache Hive frågor över en SSH-anslutning.
+
+## <a name="background"></a>Bakgrund
 
 Beeline är en Hive-klient som ingår i head-noderna i HDInsight-klustret. Om du vill ansluta till Beeline-klienten som är installerad i HDInsight-klustret eller installera Beeline lokalt, se [ansluta till eller installera Apache Beeline](connect-install-beeline.md). Beeline använder JDBC för att ansluta till HiveServer2, en tjänst som finns i HDInsight-klustret. Du kan också använda Beeline för att få åtkomst till Hive i HDInsight via Internet. I följande exempel finns de vanligaste anslutnings strängarna som används för att ansluta till HDInsight från Beeline.
 
@@ -27,9 +29,7 @@ Beeline är en Hive-klient som ingår i head-noderna i HDInsight-klustret. Om du
 
 * Lägg märke till URI-schemat för klustrets primära lagring. Till exempel  `wasb://` för Azure Storage för `abfs://` Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Azure Storage är URI: n `wasbs://` . Mer information finns i [säker överföring](../../storage/common/storage-require-secure-transfer.md).
 
-* Alternativ 1: en SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). De flesta av stegen i det här dokumentet förutsätter att du använder Beeline från en SSH-session till klustret.
-
-* Alternativ 2: en lokal Beeline-klient.
+* En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). De flesta av stegen i det här dokumentet förutsätter att du använder Beeline från en SSH-session till klustret. Du kan också använda en lokal Beeline-klient, men de här stegen beskrivs inte i den här artikeln.
 
 ## <a name="run-a-hive-query"></a>Köra en Hive-fråga
 
@@ -56,7 +56,7 @@ Det här exemplet baseras på användningen av Beeline-klienten från en SSH-ans
     show tables;
     ```
 
-    I ett nytt kluster visas endast en tabell: **hivesampletable**.
+    I ett nytt kluster visas endast en tabell: **hivesampletable** .
 
 4. Använd följande kommando för att visa schemat för hivesampletable:
 
@@ -109,11 +109,11 @@ Det här exemplet baseras på användningen av Beeline-klienten från en SSH-ans
 
     |Uttryck |Beskrivning |
     |---|---|
-    |TA BORT TABELL|Om tabellen finns, tas den bort.|
+    |DROP TABLE|Om tabellen finns, tas den bort.|
     |SKAPA EXTERN TABELL|Skapar en **extern** tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.|
     |RAD FORMAT|Hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.|
     |LAGRAD SOM TEXTFILE-PLATS|Var data lagras och i vilket fil format.|
-    |VÄLJ|Väljer ett antal rader där kolumnen **T4** innehåller värdet **[Error]**. Den här frågan returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.|
+    |SELECT|Väljer ett antal rader där kolumnen **T4** innehåller värdet **[Error]** . Den här frågan returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.|
     |INPUT__FILE__NAME som%. log|Hive försöker tillämpa schemat på alla filer i katalogen. I det här fallet innehåller katalogen filer som inte matchar schemat. För att förhindra skräp data i resultaten anger den här instruktionen Hive att den bara ska returnera data från filer som slutar med. log.|
 
    > [!NOTE]  
@@ -157,13 +157,13 @@ Det här exemplet baseras på användningen av Beeline-klienten från en SSH-ans
 
 Det här exemplet är en fortsättning från föregående exempel. Använd följande steg för att skapa en fil och kör den med hjälp av Beeline.
 
-1. Använd följande kommando för att skapa en fil med namnet **Query. HQL**:
+1. Använd följande kommando för att skapa en fil med namnet **Query. HQL** :
 
     ```bash
     nano query.hql
     ```
 
-1. Använd följande text som filens innehåll. Den här frågan skapar en ny intern tabell med namnet **errorLogs**:
+1. Använd följande text som filens innehåll. Den här frågan skapar en ny intern tabell med namnet **errorLogs** :
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -181,7 +181,7 @@ Det här exemplet är en fortsättning från föregående exempel. Använd följ
     > [!NOTE]  
     > Till skillnad från externa tabeller, tar en intern tabell bort även underliggande data.
 
-1. Om du vill spara filen använder du **CTRL** + **X**och anger sedan **Y**och slutligen **RETUR**.
+1. Om du vill spara filen använder du **CTRL** + **X** och anger sedan **Y** och slutligen **RETUR** .
 
 1. Använd följande för att köra filen med Beeline:
 
@@ -192,7 +192,7 @@ Det här exemplet är en fortsättning från föregående exempel. Använd följ
     > [!NOTE]  
     > `-i`Parametern startar Beeline och kör instruktionerna i `query.hql` filen. När frågan har slutförts kommer du till `jdbc:hive2://headnodehost:10001/>` prompten. Du kan också köra en fil med hjälp av `-f` parametern som avslutar Beeline när frågan har slutförts.
 
-1. Verifiera att tabellen **errorLogs** har skapats genom att använda följande instruktion för att returnera alla rader från **errorLogs**:
+1. Verifiera att tabellen **errorLogs** har skapats genom att använda följande instruktion för att returnera alla rader från **errorLogs** :
 
     ```hiveql
     SELECT * from errorLogs;

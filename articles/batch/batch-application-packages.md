@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91277707"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till Compute-noder med batch-programpaket
@@ -33,7 +33,7 @@ Det finns begränsningar för antalet program och programpaket i ett batch-konto
 
 ## <a name="understand-applications-and-application-packages"></a>Förstå program och programpaket
 
-I Azure Batch refererar ett *program* till en uppsättning versioner av binärfiler som kan hämtas automatiskt till Compute-noderna i poolen. Ett program innehåller ett eller flera *programpaket*som representerar olika versioner av programmet.
+I Azure Batch refererar ett *program* till en uppsättning versioner av binärfiler som kan hämtas automatiskt till Compute-noderna i poolen. Ett program innehåller ett eller flera *programpaket* som representerar olika versioner av programmet.
 
 Varje *programpaket* är en. zip-fil som innehåller programmets binärfiler och eventuella stödfiler. Endast zip-formatet stöds.
 
@@ -81,33 +81,33 @@ Om du vill visa programmen i batch-kontot väljer du **program** i den vänstra 
 
 När du väljer det här meny alternativet öppnas fönstret **program** . I det här fönstret visas ID: t för varje program i ditt konto och följande egenskaper:
 
-- **Paket**: antalet versioner som är associerade med det här programmet.
-- **Standard version**: om det är tillämpligt den program version som ska installeras om ingen version anges när programmet distribueras.
-- **Tillåt uppdateringar**: anger om paket uppdateringar och borttagningar tillåts.
+- **Paket** : antalet versioner som är associerade med det här programmet.
+- **Standard version** : om det är tillämpligt den program version som ska installeras om ingen version anges när programmet distribueras.
+- **Tillåt uppdateringar** : anger om paket uppdateringar och borttagningar tillåts.
 
-Om du vill se [fil strukturen](files-and-directories.md) för programpaketet på en Compute-nod går du till batch-kontot i Azure Portal. Välj **pooler**. Välj sedan den pool som innehåller Compute-noden. Välj den Compute-nod där programpaketet är installerat och öppna mappen **program** .
+Om du vill se [fil strukturen](files-and-directories.md) för programpaketet på en Compute-nod går du till batch-kontot i Azure Portal. Välj **pooler** . Välj sedan den pool som innehåller Compute-noden. Välj den Compute-nod där programpaketet är installerat och öppna mappen **program** .
 
 ### <a name="view-application-details"></a>Visa programinformation
 
 Om du vill se information om ett program väljer du det i fönstret **program** . Du kan konfigurera följande inställningar för ditt program.
 
-- **Tillåt uppdateringar**: anger om programpaket kan [uppdateras eller tas bort](#update-or-delete-an-application-package). Standardvärdet är **Ja**. Om det är inställt på **Nej**kan befintliga programpaket inte uppdateras eller tas bort, men nya programpaket versioner kan fortfarande läggas till.
-- **Standard version**: det standard program paket som ska användas när programmet distribueras, om ingen version har angetts.
-- **Visnings namn**: ett eget namn som din batch-lösning kan använda när den visar information om programmet. Namnet kan till exempel användas i användar gränssnittet för en tjänst som du tillhandahåller till dina kunder via batch.
+- **Tillåt uppdateringar** : anger om programpaket kan [uppdateras eller tas bort](#update-or-delete-an-application-package). Standardvärdet är **Ja** . Om det är inställt på **Nej** kan befintliga programpaket inte uppdateras eller tas bort, men nya programpaket versioner kan fortfarande läggas till.
+- **Standard version** : det standard program paket som ska användas när programmet distribueras, om ingen version har angetts.
+- **Visnings namn** : ett eget namn som din batch-lösning kan använda när den visar information om programmet. Namnet kan till exempel användas i användar gränssnittet för en tjänst som du tillhandahåller till dina kunder via batch.
 
 ### <a name="add-a-new-application"></a>Lägg till ett nytt program
 
 Om du vill skapa ett nytt program lägger du till ett programpaket och anger ett unikt program-ID.
 
-Välj **program** i batch-kontot och välj sedan **Lägg till**.
+Välj **program** i batch-kontot och välj sedan **Lägg till** .
 
 :::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagram som visar en övergripande vy över program och programpaket.":::
 
 Ange följande information:
 
-- **Program-ID**: ID för ditt nya program.
-- **Version**: versionen för det programpaket som du överför.
-- **Programpaket**:. zip-filen som innehåller programmets binärfiler och stödfiler som krävs för att köra programmet.
+- **Program-ID** : ID för ditt nya program.
+- **Version** : versionen för det programpaket som du överför.
+- **Programpaket** :. zip-filen som innehåller programmets binärfiler och stödfiler som krävs för att köra programmet.
 
 Det **program-ID** och den **version** som du anger måste följa dessa krav:
 
@@ -116,13 +116,13 @@ Det **program-ID** och den **version** som du anger måste följa dessa krav:
 - Måste vara unikt inom batch-kontot.
 - ID: n är Skift läges känsliga och Skift läges okänsliga.
 
-När du är klar väljer du **Skicka**. När zip-filen har överförts till ditt Azure Storage-konto visas ett meddelande i portalen. Detta kan ta lite tid beroende på storleken på den fil som du överför och nätverks anslutningens hastighet.
+När du är klar väljer du **Skicka** . När zip-filen har överförts till ditt Azure Storage-konto visas ett meddelande i portalen. Detta kan ta lite tid beroende på storleken på den fil som du överför och nätverks anslutningens hastighet.
 
 ### <a name="add-a-new-application-package"></a>Lägg till ett nytt programpaket
 
-Om du vill lägga till en programpaket version för ett befintligt program väljer du programmet i avsnittet **program** i batch-kontot och väljer sedan **Lägg till**.
+Om du vill lägga till en programpaket version för ett befintligt program väljer du programmet i avsnittet **program** i batch-kontot och väljer sedan **Lägg till** .
 
-Som du gjorde för det nya programmet anger du **versionen** för det nya paketet, laddar upp. zip-filen i fältet **programpaket** och väljer sedan **Skicka**.
+Som du gjorde för det nya programmet anger du **versionen** för det nya paketet, laddar upp. zip-filen i fältet **programpaket** och väljer sedan **Skicka** .
 
 ### <a name="update-or-delete-an-application-package"></a>Uppdatera eller ta bort ett programpaket
 
@@ -130,9 +130,9 @@ Om du vill uppdatera eller ta bort ett befintligt programpaket väljer du progra
 
 :::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagram som visar en övergripande vy över program och programpaket.":::
 
-Om du väljer **Uppdatera**kan du ladda upp en ny. zip-fil. Då ersätts den tidigare. zip-filen som du laddade upp för den versionen.
+Om du väljer **Uppdatera** kan du ladda upp en ny. zip-fil. Då ersätts den tidigare. zip-filen som du laddade upp för den versionen.
 
-Om du väljer **ta bort**uppmanas du att bekräfta borttagningen av den versionen. När du har valt **OK**tar batch bort. zip-filen från ditt Azure Storage-konto. Om du tar bort standard versionen av ett program tas **standard versions** inställningen bort för programmet.
+Om du väljer **ta bort** uppmanas du att bekräfta borttagningen av den versionen. När du har valt **OK** tar batch bort. zip-filen från ditt Azure Storage-konto. Om du tar bort standard versionen av ett program tas **standard versions** inställningen bort för programmet.
 
 ## <a name="install-applications-on-compute-nodes"></a>Installera program på Compute-noder
 
@@ -225,7 +225,7 @@ AZ_BATCH_APP_PACKAGE_blender_2_7
 
 När du laddar upp ett programpaket kan du ange en standard version som ska distribueras till dina Compute-noder. Om du har angett en standard version för ett program kan du utelämna versionens suffix när du refererar till programmet. Du kan ange standard program versionen i Azure Portal i fönstret **program** , som visas i [överför och hantera program](#upload-and-manage-applications).
 
-Om du till exempel ställer in "2,7" som standard version för program *blandning*, och dina uppgifter refererar till följande miljö variabel, körs Windows-noderna version 2,7:
+Om du till exempel ställer in "2,7" som standard version för program *blandning* , och dina uppgifter refererar till följande miljö variabel, körs Windows-noderna version 2,7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 

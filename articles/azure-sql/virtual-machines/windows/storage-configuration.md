@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3a4b7d68d7cd21ccb4b7eb8b97e0d331fb236e96
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793083"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146730"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagringskonfiguration för SQL Server VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ I följande avsnitt beskrivs hur du konfigurerar lagring för nya SQL Server vir
 
 När du konfigurerar en virtuell Azure-dator med hjälp av en SQL Server Galleri avbildning väljer du **ändra konfiguration** på fliken **SQL Server inställningar** för att öppna konfigurations sidan Prestandaoptimerad lagring. Du kan antingen lämna värdena som standard eller ändra vilken typ av disk konfiguration som passar dina behov bäst utifrån din arbets belastning. 
 
-![SQL Server VM lagrings konfiguration under etableringen](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![Skärm bild som visar fliken SQL Server inställningar och alternativet ändra konfiguration.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Välj den typ av arbets belastning som du distribuerar SQL Server för under **lagrings optimering** . Med alternativet **allmän** optimering får du som standard en datadisk med 5000 högsta IOPS och du kommer att använda samma enhet för dina data, transaktions logg och tempdb-lagring. Om du väljer antingen transaktions **bearbetning** (OLTP) eller **data lager** skapas en separat disk för data, en separat disk för transaktions loggen och Använd lokal SSD för tempdb. Det finns inga lagrings skillnader mellan **transaktions bearbetning** och **data lager** hantering, men det ändrar [stripe-konfigurationen och spårnings flaggor](#workload-optimization-settings). Om du väljer Premium Storage konfigureras cachelagringen till *ReadOnly* för data enheten, och *ingen* för logg enheten enligt [SQL Server VM bästa metoder för prestanda](performance-guidelines-best-practices.md). 
 
@@ -103,7 +103,7 @@ För befintliga SQL Server virtuella datorer kan du ändra vissa lagrings instä
 
 Om du vill ändra lagrings inställningarna väljer du **Konfigurera** under **Inställningar** . 
 
-![Konfigurera lagring för befintliga SQL Server VM](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
+![Skärm bild som markerar alternativet Konfigurera och lagrings användning.](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
 Du kan ändra disk inställningarna för de enheter som konfigurerades under SQL Server VM skapande processen. Om du väljer **utöka enhet** öppnas sidan ändring av enhet, så att du kan ändra disk typen, samt lägga till ytterligare diskar. 
 

@@ -9,12 +9,12 @@ ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aac7357939ab2d14949c967630840ed6d267d251
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83714227"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145743"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Samla in en webbläsarspårning för felsökning
 
@@ -30,39 +30,39 @@ Google Chrome och Microsoft Edge (krom) är båda baserade på [projektet krom �
 
 1. I portalen navigerar du till steget precis innan problemet uppstår.
 
-1. Tryck på F12 eller Välj ![ skärm bild av ikonen för webb läsar inställningar ](media/capture-browser-trace/chromium-icon-settings.png)  >  **fler verktyg**  >  **utvecklarverktyg**.
+1. Tryck på F12 eller Välj ![ skärm bild som visar ikonen för webb läsar inställningar.](media/capture-browser-trace/chromium-icon-settings.png) > **Fler verktyg**  >  **Utvecklarverktyg** .
 
 1. Som standard sparas endast spårnings information för den sida som för tillfället är inläst. Ange följande alternativ så att webbläsaren behåller all spårnings information, även om din återskapnings kräver mer än en sida:
 
-    1. Välj fliken **nätverk** och välj sedan **bevara logg**.
+    1. Välj fliken **nätverk** och välj sedan **bevara logg** .
 
-          ![Skärm bild av "bevara loggen"](media/capture-browser-trace/chromium-network-preserve-log.png)
+          ![Skärm bild som visar alternativet för att bevara loggen på fliken nätverk.](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-    1. Välj konsol **Inställningar**på fliken **konsol** och välj sedan **bevara logg**. Välj **konsol inställningar** igen för att stänga fönstret inställningar.
+    1. Välj konsol **Inställningar** på fliken **konsol** och välj sedan **bevara logg** . Välj **konsol inställningar** igen för att stänga fönstret inställningar.
 
-          ![Skärm bild av "bevara loggen"](media/capture-browser-trace/chromium-console-preserve-log.png)
+          ![Skärm bild som visar alternativet för att bevara loggen på fliken konsol.](media/capture-browser-trace/chromium-console-preserve-log.png)
 
-1. Välj fliken **nätverk** och välj sedan **stoppa registrering av nätverks logg** och **Rensa**.
+1. Välj fliken **nätverk** och välj sedan **stoppa registrering av nätverks logg** och **Rensa** .
 
     ![Skärm bild av "stoppa registrering av nätverks logg" och "Rensa"](media/capture-browser-trace/chromium-stop-clear-session.png)
 
-1. Välj **Registrera nätverks logg**och återskapa sedan problemet i portalen.
+1. Välj **Registrera nätverks logg** och återskapa sedan problemet i portalen.
 
-    ![Skärm bild av "starta profilerings session"](media/capture-browser-trace/chromium-start-session.png)
+    ![Skärm bild som visar hur du registrerar nätverks loggen.](media/capture-browser-trace/chromium-start-session.png)
 
     Du kommer att se sessionens utdata som liknar följande bild.
 
-    ![Skärm bild av webb läsar spårnings resultat](media/capture-browser-trace/chromium-browser-trace-results.png)
+    ![Skärm bild som visar utdata från sessionen.](media/capture-browser-trace/chromium-browser-trace-results.png)
 
-1. När du har återskapat det oväntade Portal beteendet väljer du **stoppa registrering av nätverks logg**och väljer sedan **Exportera** har och spara filen.
+1. När du har återskapat det oväntade Portal beteendet väljer du **stoppa registrering av nätverks logg** och väljer sedan **Exportera** har och spara filen.
 
-    ![Skärm bild av "export har"](media/capture-browser-trace/chromium-network-export-har.png)
+    ![Skärm bild som visar hur du exporterar finns på fliken nätverk.](media/capture-browser-trace/chromium-network-export-har.png)
 
 1. Stoppa steg inspelaren och spara inspelningen.
 
 1. Klicka på fliken **konsol** i fönstret verktyg för utvecklare av webbläsare. Högerklicka på ett av meddelandena och välj sedan **Spara som...** och spara konsolens utdata till en textfil.
 
-    ![Skärm bild av konsolens utdata](media/capture-browser-trace/chromium-console-select.png)
+    ![Skärm bild som visar fliken konsol och kommandot Spara som... hoppmeny](media/capture-browser-trace/chromium-console-select.png)
 
 1. Paketera filen, konsolens utdata och skärm inspelningen i ett komprimerat format som. zip och dela med Microsoft support.
 
@@ -76,39 +76,39 @@ Följande steg visar hur du använder utvecklarverktyg i Microsoft Edge (EdgeHTM
 
 1. I portalen navigerar du till steget precis innan problemet uppstår.
 
-1. Tryck på F12 eller Välj ![ skärm bild av ikonen för webb läsar inställningar ](media/capture-browser-trace/edge-icon-settings.png)  >  **fler verktyg**  >  **utvecklarverktyg**.
+1. Tryck på F12 eller Välj ![ skärm bild av ikonen för webb läsar inställningar.](media/capture-browser-trace/edge-icon-settings.png) > **Fler verktyg**  >  **Utvecklarverktyg** .
 
 1. Som standard sparas endast spårnings information för den sida som för tillfället är inläst. Ange följande alternativ så att webbläsaren behåller all spårnings information, även om din återskapnings kräver mer än en sida:
 
-    1. Välj fliken **nätverk** och avmarkera sedan alternativet **Rensa poster vid navigera**.
+    1. Välj fliken **nätverk** och avmarkera sedan alternativet **Rensa poster vid navigera** .
 
           ![Skärm bild av "Rensa poster vid navigering"](media/capture-browser-trace/edge-network-clear-entries.png)
 
-    1. Välj fliken **konsol** och välj sedan **bevara logg**.
+    1. Välj fliken **konsol** och välj sedan **bevara logg** .
 
           ![Skärm bild av "bevara loggen"](media/capture-browser-trace/edge-console-preserve-log.png)
 
-1. Välj fliken **nätverk** och välj sedan **stoppa profilering** och **ta bort session**.
+1. Välj fliken **nätverk** och välj sedan **stoppa profilering** och **ta bort session** .
 
     ![Skärm bild av "stoppa profilering av sessionen" och "Rensa session"](media/capture-browser-trace/edge-stop-clear-session.png)
 
-1. Välj **Starta profilering av sessionen**och återskapa sedan problemet i portalen.
+1. Välj **Starta profilering av sessionen** och återskapa sedan problemet i portalen.
 
     ![Skärm bild av "starta profilerings session"](media/capture-browser-trace/edge-start-session.png)
 
     Du kommer att se sessionens utdata som liknar följande bild.
 
-    ![Skärm bild av webb läsar spårnings resultat](media/capture-browser-trace/edge-browser-trace-results.png)
+    ![Skärm bild som visar utdata för profilerings sessionen.](media/capture-browser-trace/edge-browser-trace-results.png)
 
-1. När du har genererat om det oväntade Portal beteendet väljer du **stoppa profilering av session**och väljer sedan **Exportera som** har och sparar filen.
+1. När du har genererat om det oväntade Portal beteendet väljer du **stoppa profilering av session** och väljer sedan **Exportera som** har och sparar filen.
 
     ![Skärm bild av "Exportera som har"](media/capture-browser-trace/edge-network-export-har.png)
 
 1. Stoppa steg inspelaren och spara inspelningen.
 
-1. Gå tillbaka i fönstret med webbläsarens utvecklarverktyg, Välj fliken **konsol** och expandera fönstret. Placera markören i början av konsolens utdata och dra och välj hela innehållet i utdata. Högerklicka på och välj sedan **Kopiera**, och spara konsolens utdata till en textfil.
+1. Gå tillbaka i fönstret med webbläsarens utvecklarverktyg, Välj fliken **konsol** och expandera fönstret. Placera markören i början av konsolens utdata och dra och välj hela innehållet i utdata. Högerklicka på och välj sedan **Kopiera** , och spara konsolens utdata till en textfil.
 
-    ![Skärm bild av konsolens utdata](media/capture-browser-trace/edge-console-select.png)
+    ![Skärm bild som markerar meny alternativet Kopiera.](media/capture-browser-trace/edge-console-select.png)
 
 1. Paketera filen, konsolens utdata och skärm inspelningen i ett komprimerat format som. zip och dela med Microsoft support.
 
@@ -118,11 +118,11 @@ Följande steg visar hur du använder utvecklarverktyg i Apple Safari. Mer infor
 
 1. Aktivera utvecklarverktyg i Apple Safari:
 
-    1. Välj **Safari**och välj sedan **Inställningar**.
+    1. Välj **Safari** och välj sedan **Inställningar** .
 
         ![Skärm bild av Safari-inställningar](media/capture-browser-trace/safari-preferences.png)
 
-    1. Välj fliken **Avancerat** och välj sedan **Visa utveckla meny i meny raden**.
+    1. Välj fliken **Avancerat** och välj sedan **Visa utveckla meny i meny raden** .
 
         ![Skärm bild av avancerade inställningar för Safari](media/capture-browser-trace/safari-show-develop-menu.png)
 
@@ -132,27 +132,27 @@ Följande steg visar hur du använder utvecklarverktyg i Apple Safari. Mer infor
 
 1. I portalen navigerar du till steget precis innan problemet uppstår.
 
-1. Välj **utveckla**och välj sedan **Visa webb kontroll**.
+1. Välj **utveckla** och välj sedan **Visa webb kontroll** .
 
     ![Skärm bild av "Visa webb kontroll"](media/capture-browser-trace/safari-show-web-inspector.png)
 
 1. Som standard sparas endast spårnings information för den sida som för tillfället är inläst. Ange följande alternativ så att webbläsaren behåller all spårnings information, även om din återskapnings kräver mer än en sida:
 
-    1. Välj fliken **nätverk** och välj sedan **bevara logg**.
+    1. Välj fliken **nätverk** och välj sedan **bevara logg** .
 
-          ![Skärm bild av "bevara loggen"](media/capture-browser-trace/safari-network-preserve-log.png)
+          ![Skärm bild som visar alternativet för att bevara loggen.](media/capture-browser-trace/safari-network-preserve-log.png)
 
-    1. Välj fliken **konsol** och välj sedan **bevara logg**.
+    1. Välj fliken **konsol** och välj sedan **bevara logg** .
 
-          ![Skärm bild av "bevara loggen"](media/capture-browser-trace/safari-console-preserve-log.png)
+          ![Skärm bild som visar den bevarade loggen på fliken konsol.](media/capture-browser-trace/safari-console-preserve-log.png)
 
-1. Välj fliken **nätverk** och välj sedan **Rensa nätverks objekt**.
+1. Välj fliken **nätverk** och välj sedan **Rensa nätverks objekt** .
 
     ![Skärm bild av "Rensa nätverks objekt"](media/capture-browser-trace/safari-clear-session.png)
 
 1. Återskapa problemet i portalen. Du kommer att se sessionens utdata som liknar följande bild.
 
-    ![Skärm bild av webb läsar spårnings resultat](media/capture-browser-trace/safari-browser-trace-results.png)
+    ![Skärm bild som visar resultatet när du har återskapat problemet.](media/capture-browser-trace/safari-browser-trace-results.png)
 
 1. När du har genererat om det oväntade Portal beteendet väljer du **Exportera** och sparar filen.
 
@@ -162,7 +162,7 @@ Följande steg visar hur du använder utvecklarverktyg i Apple Safari. Mer infor
 
 1. Gå tillbaka i fönstret med webbläsarens utvecklarverktyg, Välj fliken **konsol** och expandera fönstret. Placera markören i början av konsolens utdata och dra och välj hela innehållet i utdata. Använd kommando-C för att kopiera utdata och spara dem i en textfil.
 
-    ![Skärm bild av konsolens utdata](media/capture-browser-trace/safari-console-select.png)
+    ![Skärm bild som visar att du kan visa och kopiera utdata.](media/capture-browser-trace/safari-console-select.png)
 
 1. Paketera filen, konsolens utdata och skärm inspelningen i ett komprimerat format som. zip och dela med Microsoft support.
 
@@ -176,19 +176,19 @@ Följande steg visar hur du använder utvecklarverktyg i Firefox. Mer informatio
 
 1. I portalen navigerar du till steget precis innan problemet uppstår.
 
-1. Tryck på F12 eller Välj ![ skärm bild av webb läsar Inställningar ikon för ](media/capture-browser-trace/firefox-icon-settings.png)  >  **webbutvecklare**  >  **Växla verktyg**.
+1. Tryck på F12 eller Välj ![ skärm bild av webb läsar Inställningar ikon för ](media/capture-browser-trace/firefox-icon-settings.png)  >  **webbutvecklare**  >  **Växla verktyg** .
 
 1. Som standard sparas endast spårnings information för den sida som för tillfället är inläst. Ange följande alternativ så att webbläsaren behåller all spårnings information, även om din återskapnings kräver mer än en sida:
 
-    1. Välj fliken **nätverk** och välj sedan **Spara loggar**.
+    1. Välj fliken **nätverk** och välj sedan **Spara loggar** .
 
-          ![Skärm bild av "beständiga loggar"](media/capture-browser-trace/firefox-network-persist-logs.png)
+          ![Skärm bild som visar alternativet Behåll loggar.](media/capture-browser-trace/firefox-network-persist-logs.png)
 
-    1. Välj konsol **Inställningar**på fliken **konsol** och välj sedan **Spara loggar**.
+    1. Välj konsol **Inställningar** på fliken **konsol** och välj sedan **Spara loggar** .
 
           ![Skärm bild av "beständiga loggar"](media/capture-browser-trace/firefox-console-persist-logs.png)
 
-1. Välj fliken **nätverk** och välj sedan **Rensa**.
+1. Välj fliken **nätverk** och välj sedan **Rensa** .
 
     ![Skärm bild av "Rensa"](media/capture-browser-trace/firefox-clear-session.png)
 
@@ -196,13 +196,13 @@ Följande steg visar hur du använder utvecklarverktyg i Firefox. Mer informatio
 
     ![Skärm bild av webb läsar spårnings resultat](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. När du har genererat om det oväntade Portal beteendet väljer du har **export/import** och sedan **Spara alla som**har.
+1. När du har genererat om det oväntade Portal beteendet väljer du har **export/import** och sedan **Spara alla som** har.
 
     ![Skärm bild av "export har"](media/capture-browser-trace/firefox-network-export-har.png)
 
 1. Stoppa steg registrering på Windows eller skärm inspelningen på Mac och spara inspelningen.
 
-1. Klicka på fliken **konsol** i fönstret verktyg för utvecklare av webbläsare. Högerklicka på ett av meddelandena och välj sedan **Exportera synligt meddelande till**och spara konsolens utdata till en textfil.
+1. Klicka på fliken **konsol** i fönstret verktyg för utvecklare av webbläsare. Högerklicka på ett av meddelandena och välj sedan **Exportera synligt meddelande till** och spara konsolens utdata till en textfil.
 
     ![Skärm bild av konsolens utdata](media/capture-browser-trace/firefox-console-select.png)
 

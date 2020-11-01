@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1fa14c4341c449c32fd6a5f6b3274b057478c01c
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: d2606f793c7ab2e3ac29b1eb869e60a2c8e634ad
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495821"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145930"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Mata in IoT Hub telemetri i Azure Digitals, dubbla
 
@@ -25,7 +25,7 @@ Det här dokumentet vägleder dig genom processen för att skriva en Azure-funkt
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter med det här exemplet måste du konfigurera följande resurser som krav:
-* **En IoT-hubb**. Anvisningar finns i avsnittet *skapa en IoT Hub* i [den här IoT Hub snabb](../iot-hub/quickstart-send-telemetry-cli.md)starten.
+* **En IoT-hubb** . Anvisningar finns i avsnittet *skapa en IoT Hub* i [den här IoT Hub snabb](../iot-hub/quickstart-send-telemetry-cli.md)starten.
 * **En Azure-funktion** med rätt behörighet för att anropa den digitala dubbla instansen. Instruktioner finns i [*instruktion: Konfigurera en Azure-funktion för bearbetning av data*](how-to-create-azure-function.md). 
 * **En digital Azure-instans** som tar emot din enhets telemetri. Anvisningar finns i anvisningar [*: Konfigurera en digital Azure-instans och autentisering*](./how-to-set-up-instance-portal.md).
 
@@ -62,13 +62,13 @@ Modellen ser ut så här:
 }
 ```
 
-Om du vill **överföra den här modellen till din dubbla instansen**öppnar du Azure CLI och kör följande kommando:
+Om du vill **överföra den här modellen till din dubbla instansen** öppnar du Azure CLI och kör följande kommando:
 
 ```azurecli-interactive
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
-Sedan måste du **skapa en dubbel med den här modellen**. Använd följande kommando för att skapa en dubbla och ange 0,0 som första temperatur värde.
+Sedan måste du **skapa en dubbel med den här modellen** . Använd följande kommando för att skapa en dubbla och ange 0,0 som första temperatur värde.
 
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
@@ -117,9 +117,9 @@ Nästa kod exempel tar med ID och temperatur värde och använder dem i "patch" 
 
 ```csharp
 //Update twin using device temperature
-var uou = new UpdateOperationsUtility();
-uou.AppendReplaceOp("/Temperature", temperature.Value<double>());
-await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
+var updateTwinData = new JsonPatchDocument();
+updateTwinData.AppendReplace("/Temperature", temperature.Value<double>());
+await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
 ...
 ```
 
@@ -176,9 +176,9 @@ namespace IotHubtoTwins
                     log.LogInformation($"Device:{deviceId} Temperature is:{temperature}");
 
                     //Update twin using device temperature
-                    var uou = new UpdateOperationsUtility();
-                    uou.AppendReplaceOp("/Temperature", temperature.Value<double>());
-                    await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
+                    var updateTwinData = new JsonPatchDocument();
+                    updateTwinData.AppendReplace("/Temperature", temperature.Value<double>());
+                    await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
                 }
             }
             catch (Exception e)
@@ -210,25 +210,25 @@ Du kan också kontrol lera status för publicerings processen i [Azure Portal](h
 ## <a name="connect-your-function-to-iot-hub"></a>Anslut din funktion till IoT Hub
 
 Konfigurera ett händelse mål för Hub-data.
-I [Azure Portal](https://portal.azure.com/)navigerar du till IoT Hub-instansen som du skapade i avsnittet [*krav*](#prerequisites) . Under **händelser**skapar du en prenumeration för Azure-funktionen.
+I [Azure Portal](https://portal.azure.com/)navigerar du till IoT Hub-instansen som du skapade i avsnittet [*krav*](#prerequisites) . Under **händelser** skapar du en prenumeration för Azure-funktionen.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Ett diagram som visar ett flödes diagram. I diagrammet skickar en IoT Hub enhet temperatur telemetri via IoT Hub till en Azure-funktion som uppdaterar en temperatur egenskap på en enhet i en digital i Azure Digitals.":::
 
 På sidan **Skapa händelse prenumeration** fyller du i fälten enligt följande:
-  1. Namn på den prenumeration du vill ha under **namn**.
-  2. Under **händelse schema**väljer du _Event Grid schema_.
-  3. Under **händelse typer**väljer du kryss rutan _telemetri för enheter_ och avmarkerar andra händelse typer.
-  4. Välj _Azure Function_under **typ av slut punkt**.
-  5. Under **slut punkt**väljer du _Välj en slut punkts_ länk för att skapa en slut punkt.
+  1. Namn på den prenumeration du vill ha under **namn** .
+  2. Under **händelse schema** väljer du _Event Grid schema_ .
+  3. Under **händelse typer** väljer du kryss rutan _telemetri för enheter_ och avmarkerar andra händelse typer.
+  4. Välj _Azure Function_ under **typ av slut punkt** .
+  5. Under **slut punkt** väljer du _Välj en slut punkts_ länk för att skapa en slut punkt.
     
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Ett diagram som visar ett flödes diagram. I diagrammet skickar en IoT Hub enhet temperatur telemetri via IoT Hub till en Azure-funktion som uppdaterar en temperatur egenskap på en enhet i en digital i Azure Digitals.":::
 
 Verifiera nedanstående information på sidan _Välj Azure-funktion_ som öppnas.
- 1. **Prenumeration**: Din Azure-prenumeration
- 2. **Resurs grupp**: din resurs grupp
- 3. **Function-app**: namnet på din Function-app
- 4. **Fack**: _produktion_
- 5. **Funktion**: Välj din Azure-funktion i list rutan.
+ 1. **Prenumeration** : Din Azure-prenumeration
+ 2. **Resurs grupp** : din resurs grupp
+ 3. **Function-app** : namnet på din Function-app
+ 4. **Fack** : _produktion_
+ 5. **Funktion** : Välj din Azure-funktion i list rutan.
 
 Spara informationen genom att välja knappen _Bekräfta markering_ .            
       

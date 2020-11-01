@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 69a66c49d64ab9ba589050e1f20399f7f193b76e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912964"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143647"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Granskningar av innehålls moderatorer, arbets flöden och jobb
 
@@ -23,9 +23,24 @@ Content Moderator kombinerar dator-assisterad redaktör med funktioner för män
 
 ## <a name="reviews"></a>Omdömen
 
-I en granskning överförs innehållet till gransknings verktyget och visas på fliken **Granska** . Härifrån kan användare ändra de använda taggarna och tillämpa egna anpassade taggar efter behov. När en användare skickar en granskning skickas resultatet till en angiven slut punkt för återanrop och innehållet tas bort från platsen.
+I en granskning överförs innehållet till gransknings verktyget. Du kan visa den genom att klicka på dess innehålls typ under fliken **Granska** på instrument panelen. Från gransknings skärmen kan du ändra de använda taggarna och använda dina egna anpassade taggar efter behov. När du skickar en granskning skickas resultatet till en angiven slut punkt för återanrop och innehållet tas bort från platsen.
 
-![Granska verktygs webbplats öppna i en webbläsare på fliken Granska](./Review-Tool-user-Guide/images/image-workflow-review.png)
+> [!div class="mx-imgBorder"]
+> ![Granska verktygs webbplats med fliken Granska valt](./Review-Tool-user-Guide/images/review-tab.png)
+
+### <a name="manage-reviews"></a>Hantera granskningar
+
+Från instrument panelen navigerar du till **Administration**  ->  **Hantera granskningar** för att Visa administratörs skärmen. Här kan du se en lista över alla granskningar (väntande och avslutade).
+
+Med knappen tre punkt **åtgärder** i varje granskning kan du gå till gransknings skärmen eller granska historiken för den granskningen.
+
+> [!div class="mx-imgBorder"]
+> ![Granska verktygs webbplatsen på gransknings skärmen](./Review-Tool-user-Guide/images/manage-reviews.png)
+
+Använd verktygsfältet **Sök** för att sortera granskningar efter en rad olika kategorier, till exempel gransknings status, taggar, innehålls typ, under grupper, tilldelade användare och skapat/ändrat datum.
+
+> [!div class="mx-imgBorder"]
+> ![Granska verktygs webbplats med fliken Granska valt](./Review-Tool-user-Guide/images/review-search.png)
 
 I [guiden granska verktyg](./review-tool-user-guide/review-moderated-images.md) kan du komma igång med att skapa recensioner eller se [rest Apis guide](./try-review-api-review.md) för att lära dig hur du gör det program mässigt.
 
@@ -35,11 +50,12 @@ Ett arbets flöde är ett molnbaserad anpassat filter för innehåll. Arbets fl�
 
 ### <a name="view-workflows"></a>Visa arbets flöden
 
-Om du vill visa dina befintliga arbets flöden går du till [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) och väljer **Inställningar**  >  **arbets flöden** .
+Om du vill visa dina befintliga arbets flöden går du till [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) och väljer **admin** -  >  **arbetsflöden** .
 
-![Standard arbets flöde](images/default-workflow-listed.PNG)
+> [!div class="mx-imgBorder"]
+> ![Standard arbets flöde](images/default-workflow-list.png)
 
-Arbets flöden kan beskrivas fullständigt som JSON-strängar som gör dem tillgängliga via programmering. Om du väljer **redigerings** alternativet för arbets flödet och sedan väljer fliken **JSON** visas ett JSON-uttryck som följande:
+Arbets flöden definieras som JSON-strängar som gör dem tillgängliga via programmering. Om du väljer **redigerings** alternativet för arbets flödet och sedan väljer fliken **JSON** visas ett JSON-uttryck som följande:
 
 ```json
 {
@@ -68,7 +84,7 @@ I [guiden granska verktyg](./review-tool-user-guide/workflows.md) kan du komma i
 
 ## <a name="jobs"></a>Jobb
 
-Ett redigerings jobb fungerar som en typ av omslutning för funktionerna i Content moderatoring, arbets flöden och recensioner. Jobbet skannar ditt innehåll med hjälp av API: et för Content Moderator bild redigeringsprogram eller API för text redigering och kontrollerar det mot det angivna arbets flödet. Utifrån arbets flödes resultatet kan det hända att det inte går att skapa en granskning för innehållet i [gransknings verktyget](./review-tool-user-guide/human-in-the-loop.md). Både granskningar och arbets flöden kan skapas och konfigureras med deras respektive API: er, men jobb-API: et gör att du kan få en detaljerad rapport över hela processen (som kan skickas till en angiven slut punkt för återanrop).
+Ett redigerings jobb fungerar som en typ av omslutning för funktionerna i Content moderatoring, arbets flöden och granskningar. Jobbet skannar ditt innehåll med hjälp av API: et för Content Moderator bild redigeringsprogram eller API för text redigering och kontrollerar det mot det angivna arbets flödet. Utifrån arbets flödes resultatet kan det hända att det inte går att skapa en granskning för innehållet i [gransknings verktyget](./review-tool-user-guide/human-in-the-loop.md). Både granskningar och arbets flöden kan skapas och konfigureras med deras respektive API: er, men jobb-API: et gör att du kan få en detaljerad rapport över hela processen (som kan skickas till en angiven slut punkt för återanrop).
 
 Se [rest Apis guide](./try-review-api-job.md) för att komma igång med jobb.
 

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
-ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: seo-lt-2019
+ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789921"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146696"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Always on-tillgänglighetsgrupper på SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,7 +42,7 @@ För att öka redundansen och hög tillgänglighet ska de virtuella SQL Server d
 En tillgänglighets uppsättning är en gruppering av resurser som är konfigurerade så att det inte finns två land i samma tillgänglighets zon. Detta förhindrar att flera resurser i gruppen påverkas under distributions upprullningar. 
 
 
-## <a name="connectivity"></a>Anslutningsmöjlighet 
+## <a name="connectivity"></a>Anslutning 
 
 I en traditionell lokal distribution ansluter klienter till tillgänglighets gruppens lyssnare med hjälp av det virtuella nätverks namnet (VNN) och lyssnaren dirigerar trafik till lämplig SQL Server replik i tillgänglighets gruppen. Det finns dock ett extra krav för att dirigera trafik i Azure-nätverket. 
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d7d82db7fc8a39a0865e80ee7873ee849627c583
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 454dc593dca216d3805036ce78ec9986cf317d4e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791077"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145862"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>Snabb start: skapa SQL Server 2017 på en virtuell Windows-dator i Azure Portal
 
@@ -37,7 +37,7 @@ Den här snabb starten beskriver hur du skapar en SQL Server virtuell dator (VM)
 
 ## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Skaffa en Azure-prenumeration
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="select-a-sql-server-vm-image"></a><a id="select"></a> Välj en avbildning av en virtuell SQL Server-dator
 
@@ -47,7 +47,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa mer information genom att välja **Visa information** på panelen **SQL Virtual Machines** .
 1. Välj den **kostnads fria SQL Server licensen: SQL Server 2017-utvecklare på Windows Server 2016** -avbildningen i list rutan.
 
-   ![Nytt sökfönster](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
+   ![Skärm bild som visar var du väljer den kostnads fria SQL Servers licensen: SQL Server 2017-utvecklare på Windows Server 2016-avbildning.](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
 
 1. Välj **Skapa** .
 

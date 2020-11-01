@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0b6233552501fbe1578f3abe4e203d725ecddb4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2493a3a1e4fbb49c0b7f6dad29771b6e9faae8e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707804"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146815"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Hög tillgänglighet med Media Services och video på begäran (VOD)
 
@@ -26,7 +26,7 @@ ms.locfileid: "91707804"
 
 ## <a name="high-availability-for-vod"></a>Hög tillgänglighet för VOD
 
-Design mönstret med hög tillgänglighet kallas [Geodes](/azure/architecture/patterns/geodes) i dokumentationen för Azure-arkitekturen. Den beskriver hur duplicerade resurser distribueras till olika geografiska regioner för att tillhandahålla skalbarhet och återhämtning.  Du kan använda Azure-tjänster för att skapa en sådan arkitektur som beskriver många design överväganden för hög tillgänglighet, till exempel redundans, hälso övervakning, belastnings utjämning och säkerhets kopiering och återställning av data.  En sådan arkitektur beskrivs nedan med information om varje tjänst som används i lösningen samt hur enskilda tjänster kan användas för att skapa en arkitektur med hög tillgänglighet för ditt VOD-program.
+Design mönstret med hög tillgänglighet kallas [Geodes](https://docs.microsoft.com/azure/architecture/patterns/geodes) i dokumentationen för Azure-arkitekturen. Den beskriver hur duplicerade resurser distribueras till olika geografiska regioner för att tillhandahålla skalbarhet och återhämtning.  Du kan använda Azure-tjänster för att skapa en sådan arkitektur som beskriver många design överväganden för hög tillgänglighet, till exempel redundans, hälso övervakning, belastnings utjämning och säkerhets kopiering och återställning av data.  En sådan arkitektur beskrivs nedan med information om varje tjänst som används i lösningen samt hur enskilda tjänster kan användas för att skapa en arkitektur med hög tillgänglighet för ditt VOD-program.
 
 ### <a name="sample"></a>Exempel
 
@@ -87,4 +87,4 @@ Det här diagrammet på hög nivå visar arkitekturen för det exempel som tillh
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Kolla av [kod exempel](/samples/browse/?products=azure-media-services)
+* Kolla av [kod exempel](https://docs.microsoft.com/samples/browse/?products=azure-media-services)

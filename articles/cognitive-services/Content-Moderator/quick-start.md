@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: prova Content Moderator på webben'
 titleSuffix: Azure Cognitive Services
-description: Använd gransknings verktyget online Content Moderator för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod.
+description: I den här snabb starten använder du verktyget för Content Moderator granskning online för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: Content moderator, innehålls moderator
-ms.openlocfilehash: 025c8fcf98a31d7b3380ee2530428d08428493fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1d9315986f7a6c57c1da012b9034e4f1a3730bc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596806"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143740"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Snabb start: prova Content Moderator på webben
 
@@ -28,14 +28,13 @@ I den här snabb starten använder du verktyget för Content Moderator gransknin
 - En webbläsare
 
 ## <a name="set-up-the-review-tool"></a>Konfigurera gransknings verktyget
-
 Verktyget Content Moderator granskning är ett webbaserat verktyg som gör det möjligt för mänskliga granskare att hjälpa kognitiva tjänster att fatta beslut. I den här guiden ska du gå igenom kort processen för att konfigurera gransknings verktyget så att du kan se hur tjänsten Content Moderator fungerar. Gå till webbplatsen för [Content moderator granska verktyg](https://contentmoderator.cognitive.microsoft.com/) och registrera dig.
 
 ![Content Moderator start sida](images/homepage.PNG)
 
 ## <a name="create-a-review-team"></a>Skapa ett granskningsteam
 
-Skapa sedan en gransknings grupp. I ett arbets scenario är detta den grupp av personer som manuellt granskar tjänstens kontroll beslut. Om du vill skapa ett team måste du välja en **region**och ange ett **grupp namn** och ett **Team-ID**. Om du vill bjuda in kollegor till teamet kan du göra det genom att ange deras e-postadresser här.
+Skapa sedan en gransknings grupp. I ett arbets scenario är det här teamet den grupp av personer som manuellt granskar tjänstens kontroll beslut. Om du vill skapa ett team måste du välja en **region** och ange ett **grupp namn** och ett **Team-ID** . Om du vill bjuda in kollegor till teamet kan du göra det genom att ange deras e-postadresser här.
 
 > [!NOTE]
 > **Team namn** är ett eget namn för gransknings teamet. Detta är det namn som visas i Azure Portal. **Team-ID: t** är det som används för att identifiera program mässigt för gransknings teamet.
@@ -43,31 +42,35 @@ Skapa sedan en gransknings grupp. I ett arbets scenario är detta den grupp av p
 > [!div class="mx-imgBorder"]
 > ![Bjud in grupp medlem](images/create-team.png)
 
-Om du väljer att kryptera data med hjälp av en kundhanterad nyckel (CMK) uppmanas du att ange **resurs-ID** för din Content moderator-resurs på E0 pris nivå. Den resurs du anger måste vara ny. 
+Om du väljer att kryptera data med hjälp av en kundhanterad nyckel (CMK) uppmanas du att ange **resurs-ID** för din Content moderator-resurs på E0 pris nivå. Resursen som du anger måste vara unik för det här teamet. 
 
 > [!div class="mx-imgBorder"]
 > ![Bjud in grupp medlem med CMK](images/create-team-cmk.png)
 
-Om du försöker återanvända en Content Moderator resurs visas den här varningen: 
-
-> [!div class="mx-imgBorder"]
-> ![CMK-problem](images/create-team-cmk-fail.png)
-
 ## <a name="upload-sample-content"></a>Ladda upp exempel innehåll
 
-Nu är du redo att ladda upp exempel innehåll. Välj **prova > bild**, **prova > Text**eller **prova > video**.
+Nu är du redo att ladda upp exempel innehåll. Välj **prova > bild** , **prova > Text** eller **prova > video** .
 
-![Prova bild-eller text redigering](images/tryimagesortext.png)
+> [!div class="mx-imgBorder"]
+> ![Prova bild-eller text redigering](images/tryimagesortext.png)
 
-Skicka in ditt innehåll för redaktörering. Internt kommer gransknings verktyget att anropa redigerings-API: erna för att söka igenom innehållet. När genomsökningen är klar visas ett meddelande som talar om att det finns resultat som väntar på din granskning.
+Skicka in ditt innehåll för redaktörering. Du kan använda följande exempel text innehåll:
 
-![Måttliga filer](images/submitted.png)
+```
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 4255550111
+```
+
+Internt kommer gransknings verktyget att anropa redigerings-API: erna för att söka igenom innehållet. När genomsökningen är klar visas ett meddelande som talar om att det finns resultat som väntar på din granskning.
+
+> [!div class="mx-imgBorder"]
+> ![Måttliga filer](images/submitted.png)
 
 ## <a name="review-moderation-tags"></a>Granska moderator Taggar
 
-Granska de använda redigerings taggarna. Du kan se vilka taggar som tillämpades på ditt innehåll och hur poängen var i varje kategori. Se avsnitten [avbildning](image-moderation-api.md), [text](text-moderation-api.md)och [video](video-moderation-api.md) för att lära dig mer om vad olika taggar för innehåll visar.
+Granska de använda redigerings taggarna. Du kan se vilka taggar som tillämpades på ditt innehåll och hur poängen var i varje kategori. Se artiklar om [avbildning](image-moderation-api.md), [text](text-moderation-api.md)och [video](video-moderation-api.md) för att lära dig mer om vad olika taggar för innehåll visar.
 
-![Granska resultat](images/reviewresults_text.png)
+<!-- ![Review results](images/reviewresults_text.png) -->
 
 I ett projekt kan du eller din gransknings grupp ändra dessa taggar eller lägga till fler taggar efter behov. Du skickar dessa ändringar med knappen **Nästa** . När ditt företags program anropar moderator-API: erna kommer det taggade innehållet att placeras här, vilket är klart att granskas av de mänskliga gransknings teamen. Du kan snabbt granska stora mängder innehåll med hjälp av den här metoden.
 

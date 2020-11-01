@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02c16c63d83fc33be5512d26eafb0ca0d6c9b98
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745982"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145896"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Självstudie: Distribuera ett program till Service Fabric Mesh med hjälp av en mall
 
@@ -103,6 +103,11 @@ När registret har skapats ser utdata ut ungefär så här:
 Den här självstudien använder exempelprogrammet att göra-lista som ett exempel.  Containeravbildningar för tjänsterna [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) och [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) finns på Docker Hub. Se [Skapa en webbapp för Service Fabric-nät](service-fabric-mesh-tutorial-create-dotnetcore.md) för information om hur du skapar programmet i Visual Studio. Service Fabric-nät kan köra Windows- eller Linux Docker-containrar.  Om du arbetar med Linux-containrar väljer du **Växla till Linux-containrar** i Docker.  Om du arbetar med Windows-containrar väljer du **Växla till Windows-containrar** i Docker.
 
 Innan du kan push-överföra en avbildning till en Azure Container Registry-instans måste du ha en containeravbildning. Om du ännu inte har några lokala containeravbildningar använder du kommandot [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) för att hämta avbildningarna [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) och [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) från Docker Hub.
+
+>[!NOTE]
+> Från och med den 2 november 2020 [gäller nedladdnings hastighets gränserna](https://docs.docker.com/docker-hub/download-rate-limit/) för anonyma och autentiserade begär anden till Docker Hub från Docker-fri Plans konton och tillämpas med IP-adress. 
+> 
+> De här kommandona använder offentliga avbildningar från Docker Hub. Observera att du kan begränsas till en begränsad hastighet. Mer information finns i [autentisera med Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
 
 Hämta Windows-avbildningar:
 

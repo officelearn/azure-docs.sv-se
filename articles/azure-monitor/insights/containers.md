@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326910"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145692"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Lösning för övervakning av behållare i Azure Monitor
 
@@ -116,7 +116,7 @@ Läs avsnittet [Docker-motorn i Windows](/virtualization/windowscontainers/manag
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installera och konfigurera Linux container hosts
 
-När du har installerat docker använder du följande inställningar för din behållar värd för att konfigurera agenten för användning med Docker. Först behöver du ditt Log Analytics arbetsyte-ID och nyckel, som du hittar i Azure Portal. I arbets ytan klickar du på **Snabbstart**  >  **datorer** för att visa ditt **arbetsyte-ID** och **primär nyckel**.  Kopiera och klistra in båda två i det redigeringsprogram du föredrar.
+När du har installerat docker använder du följande inställningar för din behållar värd för att konfigurera agenten för användning med Docker. Först behöver du ditt Log Analytics arbetsyte-ID och nyckel, som du hittar i Azure Portal. I arbets ytan klickar du på **Snabbstart**  >  **datorer** för att visa ditt **arbetsyte-ID** och **primär nyckel** .  Kopiera och klistra in båda två i det redigeringsprogram du föredrar.
 
 **För alla Linux container-värdar förutom Core:**
 
@@ -476,12 +476,12 @@ Utför följande steg för att använda Helm för att distribuera Log Analytics 
  
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
  
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
    
     Mer information finns i Helm- [diagrammet för container lösning](https://aka.ms/omscontainerhelm).
@@ -513,11 +513,11 @@ Om du vill aktivera övervakning av Windows-och Hyper-V-behållare installerar d
 
 Du kan övervaka Windows-behållare som körs på Service Fabric. Det är dock bara [virtuella datorer som körs i Azure](../learn/quick-collect-azurevm.md) och [datorer som kör Windows i din lokala miljö](../platform/agent-windows.md) som stöds för Service Fabric.
 
-Du kan kontrol lera att lösningen för övervakning av behållare är korrekt inställd för Windows. Du kan kontrol lera om hanterings paketet har laddats ned korrekt genom att leta efter *ContainerManagement.xxx*. Filerna bör finnas i mappen C:\Program Files\Microsoft Monitoring Agent\Agent\Health service State\Management Packs.
+Du kan kontrol lera att lösningen för övervakning av behållare är korrekt inställd för Windows. Du kan kontrol lera om hanterings paketet har laddats ned korrekt genom att leta efter *ContainerManagement.xxx* . Filerna bör finnas i mappen C:\Program Files\Microsoft Monitoring Agent\Agent\Health service State\Management Packs.
 
 ## <a name="solution-components"></a>Lösningskomponenter
 
-Från Azure Portal navigerar du till *Lösningsgalleriet* och lägger till **lösningen för övervakning av behållare**. Om du använder Windows-agenter installeras följande hanterings paket på varje dator med en agent när du lägger till den här lösningen. Det krävs ingen konfiguration eller underhåll för hanterings paketet.
+Från Azure Portal navigerar du till *Lösningsgalleriet* och lägger till **lösningen för övervakning av behållare** . Om du använder Windows-agenter installeras följande hanterings paket på varje dator med en agent när du lägger till den här lösningen. Det krävs ingen konfiguration eller underhåll för hanterings paketet.
 
 - *ContainerManagement.xxx* installerat i C:\Program Files\Microsoft Monitoring Agent\Agent\Health service State\Management Packs
 
@@ -574,7 +574,7 @@ Klicka på **behållare** panelen. Där ser du vyer ordnade efter:
 
 Varje område på instrument panelen är en visuell representation av en sökning som körs på insamlade data.
 
-![Behållare för behållare](./media/containers/containers-dash01.png)
+![Skärm bild som visar en instrument panel för att Visa insamlade data. ](./media/containers/containers-dash01.png)
 
 ![Behållare för behållare](./media/containers/containers-dash02.png)
 
@@ -599,9 +599,9 @@ Log Analytics markerar en behållare som **misslyckad** om den har avslut ATS me
 2. Log Analytics öppnar och visar statusen för dina behållare, ungefär så här:  
    ![behållarens tillstånd](./media/containers/containers-log-search.png)
 3. Expandera raden som misslyckades och klicka på + för att lägga till dess kriterier i frågan. Kommentera sedan upp raden sammanfatta i frågan.
-   ![misslyckade behållare](./media/containers/containers-state-failed-select.png)  
+   ![Skärm bild som visar raden som ska kommenteras ut.](./media/containers/containers-state-failed-select.png)  
 1. Kör frågan och expandera sedan en rad i resultatet för att visa bild-ID: t.  
-   ![misslyckade behållare](./media/containers/containers-state-failed.png)  
+   ![Skärm bild som visar hur du visar bild-ID.](./media/containers/containers-state-failed.png)  
 1. Skriv följande i logg frågan. `ContainerImageInventory | where ImageID == <ImageID>` för att se information om bilden, till exempel bild storlek och antal stoppade och misslyckade avbildningar.  
    ![misslyckade behållare](./media/containers/containers-failed04.png)
 

@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: c498046b9088f78eda95693fa23f0a0bb3472724
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05295efec3d7651c3a77dd5ad6e2c72b57a6c5a3
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626878"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146764"
 ---
 # <a name="import-an-openapi-specification"></a>Importera en OpenAPI-specifikation
 
@@ -30,7 +30,7 @@ I den här artikeln kan du se hur du:
 > * Testa API:et i Azure Portal
 > * Testa API:et i Developer-portalen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 
@@ -39,11 +39,11 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importera och publicera ett serverdels-API
 
 1. Gå till din API Management-tjänst i Azure Portal och välj **API: er** på menyn.
-2. Välj **OpenAPI-specifikation** i listan **Lägg till ett nytt API**.
+2. Välj **OpenAPI-specifikation** i listan **Lägg till ett nytt API** .
 
     ![OpenAPI-specifikation](./media/import-api-from-oas/oas-api.png)
 3. Ange API-inställningar. Du kan ange värden när du skapar eller konfigurerar dem senare genom att gå till fliken **Inställningar** . Inställningarna beskrivs i själv studie kursen [Importera och publicera din första API](import-and-publish.md#import-and-publish-a-backend-api) .
-4. Välj **Skapa**.
+4. Välj **Skapa** .
 
 > [!NOTE]
 > Begränsningar för API-import finns dokumenterade i [en annan artikel](api-management-api-import-restrictions.md).

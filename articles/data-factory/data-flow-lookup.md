@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 10/30/2020
+ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040184"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147274"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Söknings omvandling i data flöde för mappning
 
@@ -68,6 +68,10 @@ När du testar lookup-omvandlingen med data förhands granskning i fel söknings
 I kopplingar, sökningar och exists-omvandling, om en eller båda data strömmar får plats i arbetsnodens minne, kan du optimera prestandan genom att aktivera **sändning** . Som standard bestämmer Spark-motorn om en sida ska sändas automatiskt eller inte. Välj **fast** om du vill välja vilken sida som ska sändas manuellt.
 
 Vi rekommenderar inte att du inaktiverar sändning via alternativet **inaktivera** om inte dina kopplingar körs i tids gräns fel.
+
+## <a name="cached-lookup"></a>Cachelagrad sökning
+
+Om du utför flera mindre sökningar på samma källa kan en cachelagrad mottagare och sökning vara ett bättre användnings fall än lookup-omvandlingen. Vanliga exempel där det kan vara bättre att söka efter ett högsta värde i ett data lager och matcha felkoder till en fel meddelande databas. Mer information finns i cache- [Sinks](data-flow-sink.md#cache-sink) och [cachelagrade sökningar](concepts-data-flow-expression-builder.md#cached-lookup).
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 

@@ -4,28 +4,28 @@ description: Lär dig hur du skapar och använder SSH-nycklar från en Windows-d
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.date: 07/09/2020
+ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: 7e99c9191e93562211f6294cf671f431a5db455d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 183b601a4521c3ff3e4578784f7adadd01045b0e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825573"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147155"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Använda SSH-nycklar med Windows på Azure
 
 Den här artikeln är för Windows-användare som vill [skapa](#create-an-ssh-key-pair) och använda SSH-nycklar ( *Secure Shell* ) för att [ansluta](#connect-to-your-vm) till virtuella Linux-datorer (VM: ar) i Azure. Du kan också [skapa och lagra SSH-nycklar i Azure Portal](../ssh-keys-portal.md) som ska användas när du skapar virtuella datorer i portalen.
 
 
-Information om hur du använder SSH-nycklar från en Linux-eller macOS-klient finns i [snabb](mac-create-ssh-keys.md). En mer detaljerad översikt över SSH finns i [detaljerade steg: skapa och hantera SSH-nycklar för autentisering till en virtuell Linux-dator i Azure](create-ssh-keys-detailed.md).
+Information om hur du använder SSH-nycklar från en Linux-eller macOS-klient finns i [snabb stegen](mac-create-ssh-keys.md). En mer detaljerad översikt över SSH finns i [detaljerade steg: skapa och hantera SSH-nycklar för autentisering till en virtuell Linux-dator i Azure](create-ssh-keys-detailed.md).
 
 ## <a name="overview-of-ssh-and-keys"></a>Översikt över SSH och nycklar
 
-[SSH](https://www.ssh.com/ssh/) är ett krypterat anslutnings protokoll som tillåter säkra inloggningar via oskyddade anslutningar. SSH är standard anslutnings protokollet för virtuella Linux-datorer som finns i Azure. Även om SSH tillhandahåller en krypterad anslutning, lämnar lösen ord med SSH fortfarande den virtuella datorn som är sårbar för angrepp med brute force. Vi rekommenderar att du ansluter till en virtuell dator via SSH med ett offentligt privat nyckel par, även kallat *SSH-nycklar*. 
+[SSH](https://www.ssh.com/ssh/) är ett krypterat anslutnings protokoll som tillåter säkra inloggningar via oskyddade anslutningar. SSH är standard anslutnings protokollet för virtuella Linux-datorer som finns i Azure. Även om SSH tillhandahåller en krypterad anslutning, lämnar lösen ord med SSH fortfarande den virtuella datorn som är sårbar för angrepp med brute force. Vi rekommenderar att du ansluter till en virtuell dator via SSH med ett offentligt privat nyckel par, även kallat *SSH-nycklar* . 
 
-Det offentliga privata nyckel paret liknar låset på din front dörr. Låset exponeras för **allmänheten**, vem som helst med rätt nyckel kan öppna dörren. Nyckeln är **privat**och endast för personer som du litar på eftersom den kan användas för att låsa upp dörren. 
+Det offentliga privata nyckel paret liknar låset på din front dörr. Låset exponeras för **allmänheten** , vem som helst med rätt nyckel kan öppna dörren. Nyckeln är **privat** och endast för personer som du litar på eftersom den kan användas för att låsa upp dörren. 
 
 - Den *offentliga nyckeln* placeras på din virtuella Linux-dator när du skapar den virtuella datorn. 
 

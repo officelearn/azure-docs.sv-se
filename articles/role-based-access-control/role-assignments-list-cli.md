@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9087722b54a805a0c217c236263bdcb39e5456e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 027cd8eb9c855afb845b08ce6aada7ddfd44daba
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84986252"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147019"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>Visa en lista med Azures roll tilldelningar med Azure CLI
 
@@ -28,7 +28,7 @@ ms.locfileid: "84986252"
 > [!NOTE]
 > Om din organisation har funktioner som har hanterats av en tjänst leverantör som använder [Azure-delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md), visas inte roll tilldelningar som har auktoriserats av tjänste leverantören här.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Bash i Azure Cloud Shell](/azure/cloud-shell/overview) eller [Azure CLI](/cli/azure)
 
@@ -163,15 +163,15 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>Lista roll tilldelningar för en hanterad identitet
 
-1. Hämta objekt-ID: t för den systemtilldelade eller användarspecifika hanterade identiteten.
+1. Hämta ägar-ID: t för den systemtilldelade eller användarspecifika hanterade identiteten.
 
-    För att hämta objekt-ID för en användardefinierad hanterad identitet kan du använda [AZ AD SP List](/cli/azure/ad/sp#az-ad-sp-list) eller [AZ Identity List](/cli/azure/identity#az-identity-list).
+    Om du vill hämta ägar-ID: t för en användardefinierad hanterad identitet kan du använda [AZ AD SP List](/cli/azure/ad/sp#az-ad-sp-list) eller [AZ Identity List](/cli/azure/identity#az-identity-list).
 
     ```azurecli
     az ad sp list --display-name "{name}" --query [].objectId --output tsv
     ```
 
-    Du kan använda [AZ AD SP-lista](/cli/azure/ad/sp#az-ad-sp-list)för att hämta objekt-ID: t för en systemtilldelad hanterad identitet.
+    Om du vill hämta ägar-ID för en systemtilldelad hanterad identitet kan du använda [AZ AD SP List](/cli/azure/ad/sp#az-ad-sp-list).
 
     ```azurecli
     az ad sp list --display-name "{vmname}" --query [].objectId --output tsv

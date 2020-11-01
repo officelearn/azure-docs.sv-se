@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3157eda4e2a21b0d153e7300db54f445fdb6878d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d9b0d97fa1823314f5109a1c7fc79054806c148
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547766"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146934"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitets registret i din IoT-hubb
 
@@ -200,7 +200,7 @@ Enhets identiteter visas som JSON-dokument med följande egenskaper:
 | statusUpdateTime |skrivskyddad |En temporal indikator som visar datum och tid för senaste status uppdateringen. |
 | connectionState |skrivskyddad |Ett fält som visar anslutnings status: antingen **ansluten** eller **frånkopplad** . Det här fältet representerar IoT Hub visning av enhetens anslutnings status. **Viktigt** : det här fältet ska endast användas för utveckling/fel sökning. Anslutnings statusen uppdateras bara för enheter som använder MQTT eller AMQP. Dessutom baseras den på protokoll nivå pingar (MQTT-pingar eller AMQP-ping) och kan ha en maximal fördröjning på bara 5 minuter. Därför kan det finnas falska positiva identifieringar, till exempel enheter som rapporter ATS som anslutna, men som är frånkopplade. |
 | connectionStateUpdatedTime |skrivskyddad |En temporal indikator som visar datum och tidpunkt då anslutnings statusen uppdaterades. |
-| lastActivityTime |skrivskyddad |En temporal indikator som visar datum och tid då enheten anslöt, togs emot eller skickat ett meddelande. |
+| lastActivityTime |skrivskyddad |En temporal indikator som visar datum och tid då enheten anslöt, togs emot eller skickat ett meddelande. Den här egenskapen är konsekvent konsekvent, men kan fördröjas upp till 5 till 10 minuter. Därför bör den inte användas i produktions scenarier. |
 
 > [!NOTE]
 > Anslutnings status kan bara representera IoT Hub visning av anslutningens status. Uppdateringar av det här tillståndet kan bli fördröjda, beroende på nätverks förhållanden och konfigurationer.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e50c2bb73f56017a047e6c657c866b61e5eaa465
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5bcb6df1b03b0c1c835e198818813ad8d914c630
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130392"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147121"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
@@ -141,10 +141,9 @@ Vid uppladdning verifieras Model-filer av tjänsten.
 Du kan visa och hämta modeller som är lagrade på din Azure Digital-instansen. 
 
 Här är dina alternativ:
-* Hämta alla modeller
 * Hämta en enskild modell
-* Hämta en enskild modell med beroenden
-* Hämta metadata för modeller
+* Hämta alla modeller
+* Hämta metadata och beroenden för modeller
 
 Här följer några exempel på anrop:
 
@@ -152,19 +151,16 @@ Här följer några exempel på anrop:
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-ModelData md1 = client.GetModel(id);
+DigitalTwinsModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<ModelData> pmd2 = client.GetModels();
-
-// Get a list of metadata and full model definitions
-Pageable<ModelData> pmd3 = client.GetModels(null, true);
+Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
 ```
 
-API-anrop för att hämta modeller med alla retur `ModelData` objekt. `ModelData` innehåller metadata om modellen som lagras i Azure Digitals-instansen, till exempel namn, DTMI och skapande datum för modellen. `ModelData`Objektet kan också innehålla själva modellen. Beroende på parametrarna kan du därför använda Hämta anrop för att antingen hämta bara metadata (vilket är användbart i scenarier där du vill visa en GRÄNSSNITTs lista med tillgängliga verktyg, till exempel) eller hela modellen.
+API-anrop för att hämta modeller med alla retur `DigitalTwinsModelData` objekt. `DigitalTwinsModelData` innehåller metadata om modellen som lagras i Azure Digitals-instansen, till exempel namn, DTMI och skapande datum för modellen. `DigitalTwinsModelData`Objektet kan också innehålla själva modellen. Beroende på parametrarna kan du därför använda Hämta anrop för att antingen hämta bara metadata (vilket är användbart i scenarier där du vill visa en GRÄNSSNITTs lista med tillgängliga verktyg, till exempel) eller hela modellen.
 
 `RetrieveModelWithDependencies`Anropet returnerar inte bara den begärda modellen, utan även alla modeller som den begärda modellen är beroende av.
 

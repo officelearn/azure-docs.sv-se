@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 6b154db25f1f13b60e4110d1b1866308ee952487
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9ad004f65335d79205cbaddaa190b92a19c327d5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219808"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147291"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Snabb start: så här registrerar du dig och laddar upp din första video
 
@@ -27,8 +27,10 @@ När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärder
 
 När du vill börja utveckla med Video Indexer går du till [Video Indexer](https://www.videoindexer.ai/)-webbplatsen och registrerar dig.
 
+När du börjar använda Video Indexer krypteras alla lagrade data och överfört innehåll i vila med en Microsoft-hanterad nyckel.
+
 > [!NOTE]
-> När du börjar använda Video Indexer krypteras alla lagrade data och överfört innehåll i vila med en Microsoft-hanterad nyckel.
+> Granska de [planerade video Indexer-webbplatsens authenticatication ändringar](release-notes.md#planned-video-indexer-website-authenticatication-changes).
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Ladda upp en video med hjälp av Video Indexer-webbplatsen
 
@@ -39,7 +41,7 @@ I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-
 ### <a name="upload-a-video"></a>Ladda upp en video
 
 1. Logga in på [Video Indexer](https://www.videoindexer.ai/)-webbplatsen.
-1. Ladda upp en video genom att trycka på knappen eller länken **Ladda upp**.
+1. Ladda upp en video genom att trycka på knappen eller länken **Ladda upp** .
 
     > [!NOTE]
     > Namnet på videon får inte vara större än 80 tecken.

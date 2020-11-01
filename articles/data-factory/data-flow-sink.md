@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/27/2020
-ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.date: 10/30/2020
+ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891397"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147243"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Omvandling av mottagare i data flöde för mappning
 
@@ -40,7 +40,7 @@ Om du vill använda en infogad data uppsättning väljer du det format som du vi
 
 Genom att mappa data flödet följer du en metod för att extrahera, läsa in och transformera (ELT) och fungerar med *mellanlagring* av data uppsättningar som är alla i Azure. För närvarande kan följande data uppsättningar användas i en käll omvandling.
 
-| Anslutningsprogram | Format | Data uppsättning/intern |
+| Anslutning | Format | Data uppsättning/intern |
 | --------- | ------ | -------------- |
 | [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Avgränsad text](format-delimited-text.md#mapping-data-flow-properties) <br> [Delta (för hands version)](format-delta.md) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br>✓/✓<br> ✓/- |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Avgränsad text](format-delimited-text.md#mapping-data-flow-properties) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br/> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br>✓/✓<br> ✓/- |
@@ -72,6 +72,23 @@ I följande videoklipp förklaras ett antal olika Sink-alternativ för text avgr
 **Använd tempdb:** Som standard använder Data Factory en global temporär tabell för att lagra data som en del av inläsnings processen. Du kan också avmarkera alternativet "Använd TempDB" och be i stället Data Factory att lagra den tillfälliga tabellen i en användar databas som finns i den databas som används för den här mottagaren.
 
 ![TempDB](media/data-flow/tempdb.png "TempDB")
+
+## <a name="cache-sink"></a>Cacheuppdatering
+ 
+En *cache-mottagare* är när ett data flöde skriver data till Spark-cachen i stället för ett data lager. I mappnings data flöden kan du referera till dessa data inom samma flöde många gånger med en *cache-sökning* . Detta är användbart när du vill referera till data som en del av ett uttryck, men inte uttryckligen vill koppla ihop kolumnerna. Vanliga exempel där en cache-mottagare kan hjälpa till att leta upp ett högsta värde i ett data lager och matcha felkoder till en fel meddelande databas. 
+
+Om du vill skriva till en cache-mottagare lägger du till en Sink-transformering och väljer **cache** som mottagar typ. Till skillnad från andra typer av mottagare behöver du inte välja en data uppsättning eller en länkad tjänst eftersom du inte skriver till en extern lagrings plats. 
+
+![Välj cache-mottagare](media/data-flow/select-cache-sink.png "Välj cache-mottagare")
+
+I mottagar inställningarna kan du välja att ange nyckel kolumnerna för cache-sinken. Dessa används som matchnings villkor när funktionen används `lookup()` i en cache-sökning. Om du anger nyckel kolumner kan du inte använda `outputs()` funktionen i en cache-sökning. Mer information om syntax för cachelagring finns i [cachelagrade sökningar](concepts-data-flow-expression-builder.md#cached-lookup).
+
+![Nyckel kolumner för cache-mottagare](media/data-flow/cache-sink-key-columns.png "Nyckel kolumner för cache-mottagare")
+
+Om du t. ex. anger en enda nyckel kolumn i `column1` i en cache `cacheExample` -mottagare som kallas anropa, har anrop `cacheExample#lookup()` en parameter anger vilken rad i cache-sinken som ska matchas. Funktionen matar ut en enda komplex kolumn med under kolumner för varje kolumn som har mappats.
+
+> [!NOTE]
+> En cache-mottagare måste finnas i en helt oberoende data ström från en omvandling som refererar till den via en cache-sökning. En cache-mottagare måste också ha den första Sink som skrivits. 
 
 ## <a name="field-mapping"></a>Fältmappning
 

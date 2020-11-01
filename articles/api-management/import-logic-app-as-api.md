@@ -1,6 +1,6 @@
 ---
 title: Importera en logikapp som ett API med Azure Portal | Microsoft Docs
-description: Den här självstudien visar hur du använder API Management (APIM) för att importera en logikapp som ett API.
+description: Den här artikeln visar hur du använder API Management (APIM) för att importera Logic app som ett API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: b107b4a54b7d013da160119b16bd646a79cce696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dd460bce01b86c72d0b8fd70351fdcc85c69bd4
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626844"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146968"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importera en logikapp som ett API
 
@@ -31,7 +31,7 @@ I den här artikeln kan du se hur du:
 > -   Testa API:et i Azure Portal
 > -   Testa API:et i Developer-portalen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 -   Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 -   Kontrollera att det finns en logikapp i din prenumeration som gör en HTTP-slutpunkt tillgänglig. Mer information finns i avsnittet om att [utlösa arbetsflöden med HTTP-slutpunkter](../logic-apps/logic-apps-http-endpoint.md)
@@ -41,7 +41,7 @@ I den här artikeln kan du se hur du:
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importera och publicera ett serverdels-API
 
 1. Gå till din API Management-tjänst i Azure Portal och välj **API: er** på menyn.
-2. Välj **Logikapp** från listan **Lägg till ett nytt API**.
+2. Välj **Logikapp** från listan **Lägg till ett nytt API** .
 
     ![Logikapp](./media/import-logic-app-as-api/logic-app-api.png)
 
@@ -58,26 +58,26 @@ I den här artikeln kan du se hur du:
     - **Obegränsat**
 
 7. Ange andra API-inställningar. Du kan ange värden när du skapar eller konfigurerar dem senare genom att gå till fliken **Inställningar** . Inställningarna beskrivs i själv studie kursen [Importera och publicera din första API](import-and-publish.md#import-and-publish-a-backend-api) .
-8. Välj **Skapa**.
+8. Välj **Skapa** .
 
 ## <a name="test-the-api-in-the-azure-portal"></a>Testa API:et i Azure Portal
 
 Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API.
 
 1. Välj det API som du skapade i föregående steg.
-2. Tryck på fliken **Test**.
+2. Tryck på fliken **Test** .
 3. Välj någon åtgärd.
 
     Sidan visar fält för frågeparametrar och fält för sidhuvudena. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Om du skapade API Management-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt.
 
-4. Tryck på **Skicka**.
+4. Tryck på **Skicka** .
 
     Serverdelen svarar med **200 OK** och några data.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 >[!NOTE]
->Varje logikapp har åtgärden **manual-invoke**. Om du vill att ditt API utgörs av flera logikappar, måste du byta namn på funktionen för att undvika kollisioner.
+>Varje logikapp har åtgärden **manual-invoke** . Om du vill att ditt API utgörs av flera logikappar, måste du byta namn på funktionen för att undvika kollisioner.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

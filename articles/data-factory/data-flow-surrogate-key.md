@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/08/2020
-ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: d1f8993b1adc297b1bfadba114df76a66e59afa2
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606301"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147192"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Transformering av surrogat nyckel i mappnings data flödet 
 
@@ -31,9 +31,9 @@ Använd surrogat Key Transformation för att lägga till ett ökande nyckel vär
 
 ## <a name="increment-keys-from-existing-sources"></a>Öka nycklar från befintliga källor
 
-Om du vill starta sekvensen från ett värde som finns i en källa använder du en härledd kolumn omvandling efter surrogat nyckel omvandlingen för att lägga till de två värdena tillsammans:
+Om du vill starta sekvensen från ett värde som finns i en källa, rekommenderar vi att du använder en cache-mottagare för att spara värdet och använder en härledd kolumn omvandling för att lägga till de två värdena tillsammans. Använd en cachelagrad sökning för att hämta utdata och lägga till den i den genererade nyckeln. Mer information finns i cache- [Sinks](data-flow-sink.md#cache-sink) och [cachelagrade sökningar](concepts-data-flow-expression-builder.md#cached-lookup).
 
-![SK Lägg till max](media/data-flow/sk006.png "Lägg till max i surrogat Key Transformation")
+![Ökning av surrogat nyckel](media/data-flow/cached-lookup-example.png "Ökning av surrogat nyckel")
 
 ### <a name="increment-from-existing-maximum-value"></a>Öka från det befintliga Max värdet
 
@@ -41,19 +41,18 @@ För att dirigera nyckelvärdet med föregående Max, finns det två tekniker so
 
 #### <a name="database-sources"></a>Databas källor
 
-Använd ett alternativ för SQL-fråga för att välja MAX () från källan. Till exempel `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
+Använd ett alternativ för SQL-fråga för att välja MAX () från källan. Till exempel `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`.
 
-![Surrogat nyckel fråga](media/data-flow/sk002.png "Omvandlings fråga för surrogat nyckel")
+![Surrogat nyckel fråga](media/data-flow/surrogate-key-max-database.png "Omvandlings fråga för surrogat nyckel")
 
 #### <a name="file-sources"></a>Fil källor
 
 Om ditt föregående Max värde finns i en fil använder du `max()` funktionen i den sammanställda omvandlingen för att hämta det föregående Max värdet:
 
-![Surrogat nyckel fil](media/data-flow/sk008.png "Surrogat nyckel fil")
+![Surrogat nyckel fil](media/data-flow/surrogate-key-max-file.png "Surrogat nyckel fil")
 
-I båda fallen måste du ansluta inkommande nya data tillsammans med din källa som innehåller det föregående Max värdet.
+I båda fallen måste du skriva till en cache-mottagare och söka efter värdet. 
 
-![Surrogat nyckel koppling](media/data-flow/sk004.png "Surrogat nyckel koppling")
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 

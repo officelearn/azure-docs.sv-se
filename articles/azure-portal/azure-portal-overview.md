@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4a00c1dcf973098895e80d5e3d656efd4a35d0d0
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072398"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147053"
 ---
 # <a name="azure-portal-overview"></a>Översikt över Azure Portal
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver Azure Portal, identifierar portalens sid element och
 
 Azure-portalen är en webbaserad, enhetlig konsol som ger ett alternativ till kommandoradsverktyg. I Azure-portalen kan du hantera Azure-prenumerationen med hjälp av ett grafiskt användargränssnitt. Du kan skapa, hantera och övervaka allt från enkla webbappar till komplexa molndistributioner. Skapa anpassade instrumentpaneler för en ordnad vy med resurser. Konfigurera hjälpmedelsalternativ för en optimal upplevelse.
 
-Azure Portal är utformad för återhämtning och kontinuerlig tillgänglighet. Den har en förekomst i varje Azure-datacenter. Den här konfigurationen gör det Azure Portal flexibelt för enskilda Data Center haverier och undviker att nätverket blir långsamt genom att de är nära användare. Azure-portalen uppdateras kontinuerligt och kräver inte någon stilleståndstid vid underhållsåtgärder.
+Azure-portalen är utformad för återhämtning och kontinuerlig tillgänglighet. Den har en förekomst i varje Azure-datacenter. Den här konfigurationen gör det Azure Portal flexibelt för enskilda Data Center haverier och undviker att nätverket blir långsamt genom att de är nära användare. Azure-portalen uppdateras kontinuerligt och kräver inte någon stilleståndstid vid underhållsåtgärder.
 
 ## <a name="azure-portal-menu"></a>Azure Portal-menyn
 
@@ -40,11 +40,11 @@ Om du väljer dockat läge för Portal-menyn visas det alltid. Du kan komprimera
 
 ## <a name="azure-home"></a>Azure Home
 
-Som en ny prenumerant på Azure-tjänster är det första du ser när du har [loggat](https://portal.azure.com) in på portalen **Azure Home**. Den här sidan sammanställer resurser som hjälper dig att få ut mesta möjliga av din Azure-prenumeration. Vi har inkluderat länkar till kostnads fria onlinekurser, dokumentation, kärn tjänster och användbara webbplatser för att hålla aktuella och hantera ändringar i din organisation. För snabb och enkel åtkomst till arbete som pågår, visar vi också en lista över dina senast besökta resurser. Du kan inte anpassa den här sidan, men du kan välja om du vill se **Azures start** -eller **Azure-instrumentpanelen** som standardvy. Första gången du loggar in visas en uppfråga längst upp på sidan där du kan spara dina inställningar.
+Som en ny prenumerant på Azure-tjänster är det första du ser när du har [loggat](https://portal.azure.com) in på portalen **Azure Home** . Den här sidan sammanställer resurser som hjälper dig att få ut mesta möjliga av din Azure-prenumeration. Vi har inkluderat länkar till kostnads fria onlinekurser, dokumentation, kärn tjänster och användbara webbplatser för att hålla aktuella och hantera ändringar i din organisation. För snabb och enkel åtkomst till arbete som pågår, visar vi också en lista över dina senast besökta resurser. Du kan inte anpassa den här sidan, men du kan välja om du vill se **Azures start** -eller **Azure-instrumentpanelen** som standardvy. Första gången du loggar in visas en uppfråga längst upp på sidan där du kan spara dina inställningar.
 
-![Skärm bild som visar standard visnings väljaren](./media/azure-portal-overview/azure-portal-default-view.png)
+![Skärm bild som visar var du sparar inställningarna.](./media/azure-portal-overview/azure-portal-default-view.png)
 
-Både Azure Portal-menyn och vyn Azure-standardvy kan ändras i **Portal inställningar**. Om du ändrar ditt val tillämpas ändringen omedelbart.
+Både Azure Portal-menyn och vyn Azure-standardvy kan ändras i **Portal inställningar** . Om du ändrar ditt val tillämpas ändringen omedelbart.
 
 ![Skärm bild som visar standard visnings väljaren](./media/azure-portal-overview/azure-portal-overview-portal-settings-menu-home.png)
 
@@ -70,12 +70,12 @@ Figuren nedan etiketter de grundläggande elementen i Azure Portal, som beskrivs
 |2| Global sökning. Använd Sök fältet för att snabbt hitta en speciell resurs, tjänst eller dokumentation.|
 |3|Globala kontroller. Precis som alla globala element behålls dessa funktioner i portalen och inkluderar: Cloud Shell, prenumerations filter, meddelanden, Portal inställningar, hjälp och support och skicka oss feedback.|
 |4|Ditt konto. Visa information om ditt konto, växla kataloger, logga ut eller logga in med ett annat konto.|
-|5|Portal-menyn. Portal-menyn är ett globalt element som hjälper dig att navigera mellan tjänster. Detta kallas ibland för sid panelen, och det går att ändra portalens meny läge i **Portal inställningarna**.|
+|5|Portal-menyn. Portal-menyn är ett globalt element som hjälper dig att navigera mellan tjänster. Detta kallas ibland för sid panelen, och det går att ändra portalens meny läge i **Portal inställningarna** .|
 |6|Resurs menyn. Många tjänster innehåller en resurs meny som hjälper dig att hantera tjänsten. Det kan hända att det här elementet visas som det vänstra fönstret.|
 |7|Kommando fält. Kontrollerna i kommando fältet är sammanhangsbaserade för ditt aktuella fokus.|
 |8|Arbets fönster.  Visar information om den resurs som för närvarande är i fokus.|
 |9|Navigering. Du kan använda länkarna för dynamiska länkar för att flytta tillbaka en nivå i ditt arbets flöde.|
-|10|Huvud kontroll för att skapa en ny resurs i den aktuella prenumerationen. Visa eller öppna Portal-menyn för att hitta **+ skapa en resurs**. Sök efter eller bläddra i Azure Marketplace efter den resurs typ som du vill skapa.|
+|10|Huvud kontroll för att skapa en ny resurs i den aktuella prenumerationen. Visa eller öppna Portal-menyn för att hitta **+ skapa en resurs** . Sök efter eller bläddra i Azure Marketplace efter den resurs typ som du vill skapa.|
 |11|Listan Favoriter. Se [Lägg till, ta bort och sortera favoriter](../azure-portal/azure-portal-add-remove-sort-favorites.md) för att lära dig hur du anpassar listan.|
 
 ## <a name="get-started-with-services"></a>Kom igång med tjänster

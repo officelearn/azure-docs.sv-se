@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/02/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 0e9c669f2994e896205762c5f3f4df1b5fe214ae
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e73126cfc54294a7b9d54ff62c406d5e686ac470
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637232"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186781"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure SSIS-integreringskörning till ett virtuellt nätverk
 
@@ -99,7 +99,7 @@ Konfigurera ditt virtuella nätverk så att det uppfyller följande krav:
 
 - Se till att det virtuella nätverkets resurs grupp (eller resurs gruppen offentliga IP-adresser "om du tar med egna offentliga IP-adresser) kan skapa och ta bort vissa Azure-nätverks resurser. Mer information finns i [Konfigurera resurs gruppen](#resource-group). 
 
-- Om du anpassar din Azure-SSIS IR enligt beskrivningen i [anpassad installation för Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md), kommer dina Azure-SSIS IR-noder att få privata IP-adresser från ett fördefinierat intervall 172.16.0.0 till 172.31.255.255. Se därför till att de privata IP-adressintervall för dina virtuella eller lokala nätverk inte kolliderar med det här intervallet.
+- Om du anpassar din Azure-SSIS IR enligt beskrivningen i den [anpassade installationen för Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md)använder vår interna process för att hantera sina noder privata IP-adresser från ett fördefinierat område 172.16.0.0 till 172.31.255.255. Se därför till att de privata IP-adressintervall för dina virtuella eller lokala nätverk inte kolliderar med det här intervallet.
 
 Det här diagrammet visar de anslutningar som krävs för din Azure-SSIS IR:
 
@@ -172,7 +172,7 @@ Om du behöver implementera en NSG för under nätet som används av din Azure-S
 | Utgående | TCP | VirtualNetwork | * | Internet | 80 | Valfritt Noderna i Azure-SSIS IR i det virtuella nätverket Använd den här porten för att hämta en lista över återkallade certifikat från Internet. Om du blockerar den här trafiken kan du få nedgradering av prestanda när du startar IR och förlorar möjlighet att kontrol lera listan över återkallade certifikat för certifikat användning. Om du vill begränsa destinationen till vissa FQDN ytterligare kan du läsa avsnittet **använda Azure ExpressRoute eller UDR** .|
 | Utgående | TCP | VirtualNetwork | * | SQL | 1433, 11000-11999 | Valfritt Den här regeln krävs bara när noderna i Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som finns på servern. Om din server anslutnings princip är inställd på **proxy** i stället för **omdirigering** krävs bara port 1433. <br/><br/> Den här utgående säkerhets regeln gäller inte för en SSISDB som hanteras av din SQL-hanterade instans i det virtuella nätverket eller SQL Database som kon figurer ATS med privat slut punkt. |
 | Utgående | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | Valfritt Den här regeln krävs bara när noderna i Azure-SSIS IR i det virtuella nätverket har åtkomst till en SSISDB som hanteras av din SQL-hanterade instans i det virtuella nätverket eller SQL Database som kon figurer ATS med privat slut punkt. Om din server anslutnings princip är inställd på **proxy** i stället för **omdirigering** krävs bara port 1433. |
-| Utgående | TCP | VirtualNetwork | * | Lagring | 445 | Valfritt Den här regeln krävs bara när du vill köra SSIS-paketet som lagras i Azure Files. |
+| Utgående | TCP | VirtualNetwork | * | Storage | 445 | Valfritt Den här regeln krävs bara när du vill köra SSIS-paketet som lagras i Azure Files. |
 ||||||||
 
 ### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a> Använd Azure ExpressRoute eller UDR

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341557"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186628"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version) 
 
@@ -36,7 +36,7 @@ För att skydda en Synapse-arbetsyta (för hands version) följer du ett mönste
 
 I det här dokumentet används standard namn för att förenkla anvisningarna. Ersätt dem med valfritt namn.
 
-|Inställning | Exempelvärde | Beskrivning |
+|Inställning | Exempelvärde | Description |
 | :------ | :-------------- | :---------- |
 | **Synapse-arbetsyta** | WS1 |  Namnet som Synapse-arbetsytan kommer att ha. |
 | **ADLSGEN2-konto** | STG1 | ADLS-kontot som ska användas med din arbets yta. |
@@ -51,8 +51,6 @@ Skapa och fyll i tre säkerhets grupper för din arbets yta:
 - **WS1 \_ WSAdmins** – för användare som behöver fullständig kontroll över arbets ytan
 - **WS1 \_ SparkAdmins** – för de användare som behöver fullständig kontroll över Spark-aspekterna på arbets ytan
 - **WS1 \_ SQLAdmins** – för användare som behöver fullständig kontroll över arbets ytans SQL-aspekter
-- Lägg till **WS1 \_ WSAdmins** till **WS1 \_ SQLAdmins**
-- Lägg till **WS1 \_ WSAdmins** till **WS1 \_ SparkAdmins**
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>STEG 2: Förbered ditt Data Lake Storage Gen2-konto
 
@@ -98,7 +96,7 @@ Synapse-arbetsytan behöver åtkomst till STG1 och CNT1 så att den kan köra pi
 
 - Öppna Azure-portalen
 - Navigera till WS1
-- Under **Inställningar**väljer du **SQL Active Directory admin**
+- Under **Inställningar** väljer du **SQL Active Directory admin**
 - Välj **Ange administratör** och välj WS1 \_ SQLAdmins
 
 ## <a name="step-6-maintain-access-control"></a>STEG 6: Behåll åtkomst kontroll

@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92202421"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Design för haveri beredskap med ExpressRoute privat peering
 
 ExpressRoute har utformats för att ge hög tillgänglighet för att tillhandahålla bärvåg för privat nätverks anslutning till Microsoft-resurser. Det finns med andra ord ingen enskild felpunkt i ExpressRoute-sökvägen i Microsoft-nätverket. Design överväganden för att maximera tillgängligheten för en ExpressRoute-krets finns i [utforma för hög tillgänglighet med ExpressRoute][HA].
 
-Men om du tar Murphy populärt Adage –*om något går fel, kommer det att*övervägas, i den här artikeln kan vi fokusera på lösningar som går utöver fel som kan åtgärdas med hjälp av en enda ExpressRoute-krets. I den här artikeln kan vi med andra ord titta på nätverks arkitektur för att skapa robusta Server dels nätverks anslutningar för haveri beredskap med geo-redundanta ExpressRoute-kretsar.
+Men om du tar Murphy populärt Adage – *om något går fel, kommer det att* övervägas, i den här artikeln kan vi fokusera på lösningar som går utöver fel som kan åtgärdas med hjälp av en enda ExpressRoute-krets. I den här artikeln kan vi med andra ord titta på nätverks arkitektur för att skapa robusta Server dels nätverks anslutningar för haveri beredskap med geo-redundanta ExpressRoute-kretsar.
 
 >[!NOTE]
 >Begreppen som beskrivs i den här artikeln gäller även när en ExpressRoute-krets skapas under Virtual WAN eller utanför den.

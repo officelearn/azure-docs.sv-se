@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91761840"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Självstudie: Konfigurera en virtuell nätverksgateway för ExpressRoute med hjälp av Azure Portal
@@ -25,12 +25,12 @@ ms.locfileid: "91761840"
 
 Den här självstudien vägleder dig genom stegen för att lägga till en virtuell nätverksgateway för ett redan befintligt VNet. Den här artikeln vägleder dig genom stegen för att lägga till, ändra storlek på och ta bort en virtuell nätverks-Gateway (VNet) för ett befintligt VNet. Stegen för den här konfigurationen är specifika för virtuella nätverk som skapats med hjälp av distributions modellen Resource Manager som kommer att användas i en ExpressRoute-konfiguration. Mer information om virtuella nätverksgateway och gateway-konfigurationsinställningar för ExpressRoute finns i [om virtuella nätverksgateway för ExpressRoute](expressroute-about-virtual-network-gateways.md). 
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > - Skapa ett Gateway-undernät.
 > - Skapa Virtual Network Gateway.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Stegen för den här aktiviteten använder ett VNet baserat på värdena i följande konfigurations referens lista. Vi använder den här listan i våra exempel steg. Du kan kopiera listan som ska användas som referens och ersätta värdena med dina egna.
 
@@ -42,7 +42,7 @@ Stegen för den här aktiviteten använder ett VNet baserat på värdena i följ
     * Adress utrymme för undernät = "192.168.1.0/24"
 * Resurs grupp = "TestRG"
 * Plats = "östra USA"
-* Gateway-undernätets namn: "GatewaySubnet" du måste alltid namnge ett Gateway-undernät *GatewaySubnet*.
+* Gateway-undernätets namn: "GatewaySubnet" du måste alltid namnge ett Gateway-undernät *GatewaySubnet* .
     * Gateway-undernät adress utrymme = "192.168.200.0/26"
 * Gateway-namn = "ERGW"
 * Gateway offentlig IP-namn = "MyERGWVIP"
@@ -64,7 +64,7 @@ Du kan visa en [video](https://azure.microsoft.com/documentation/videos/azure-ex
 
 ## <a name="create-the-virtual-network-gateway"></a>Skapa den virtuella nätverksgatewayen
 
-1. På den vänstra sidan i portalen väljer du **skapa en resurs**och skriver "Virtual Network Gateway" i Sök. Leta upp **virtuell nätverksgateway** i Sök returen och välj posten. På sidan **virtuell nätverksgateway** väljer du **skapa**.
+1. På den vänstra sidan i portalen väljer du **skapa en resurs** och skriver "Virtual Network Gateway" i Sök. Leta upp **virtuell nätverksgateway** i Sök returen och välj posten. På sidan **virtuell nätverksgateway** väljer du **skapa** .
 1. På sidan **Skapa virtuell nätverksgateway** anger eller väljer du följande inställningar:
 
     | Inställning | Värde |
@@ -75,17 +75,17 @@ Du kan visa en [video](https://azure.microsoft.com/documentation/videos/azure-ex
     | Region | Ändra fältet **region** så att det pekar på den plats där det virtuella nätverket finns. Om platsen inte pekar på den region där det virtuella nätverket finns visas inte det virtuella nätverket i list rutan "Välj ett virtuellt nätverk". |
     | Gateway-typ | Välj **ExpressRoute**|
     | SKU | Välj Gateway-SKU: n i list rutan. |
-    | Virtuellt nätverk | Välj *TestVNet*. |
-    | Offentlig IP-adress | Välj **Skapa ny**.|
+    | Virtuellt nätverk | Välj *TestVNet* . |
+    | Offentlig IP-adress | Välj **Skapa ny** .|
     | Namn på offentlig IP-adress | Ange ett namn för den offentliga IP-adressen. |
 
-1. Välj **Granska + skapa**och sedan **skapa** för att börja skapa gatewayen. Inställningarna verifieras och gatewayen distribueras. Det kan ta upp till 45 minuter att skapa en virtuell nätverksgateway.
+1. Välj **Granska + skapa** och sedan **skapa** för att börja skapa gatewayen. Inställningarna verifieras och gatewayen distribueras. Det kan ta upp till 45 minuter att skapa en virtuell nätverksgateway.
 
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Lägg till gateway-undernätet":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver ExpressRoute-gatewayen letar du rätt på gatewayen i den virtuella nätverks resurs gruppen och väljer **ta bort**. Se till att gatewayen inte har några anslutningar till en krets.
+Om du inte längre behöver ExpressRoute-gatewayen letar du rätt på gatewayen i den virtuella nätverks resurs gruppen och väljer **ta bort** . Se till att gatewayen inte har några anslutningar till en krets.
 
 :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Lägg till gateway-undernätet":::
 

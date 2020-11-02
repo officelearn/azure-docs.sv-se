@@ -1,15 +1,17 @@
 - name: Översikt
   href: overview.md
-- name: Red Hat-snabbstarter
-  items: null
-- name: Snabbstart – WildFly på CentOS
-  href: wildfly-on-centos.md
 - name: Red Hat Enterprise Linux-avbildningar
   items:
-    - name: Red Hat Enterprise Linux-översikt
+    - name: Översikt över RHEL-avbildning
       href: redhat-images.md
-    - name: Lista över Red Hat Enterprise Linux-avbildningar
+    - name: Lista över RHEL-avbildningar
       href: redhat-imagelist.md
+- name: Red Hat Java-snabbstarter
+  items:
+    - name: JBoss EAP + RHEL på virtuell dator/VM-skalningsuppsättningar
+      href: jboss-eap-on-rhel.md
+    - name: WildFly + CentOS på virtuell dator
+      href: wildfly-on-centos.md
 - name: Red Hat Update Infrastructure i Azure
   href: redhat-rhui.md
 - name: Erbjudande för Red Hat Enterprise Linux BYOS-avbildning

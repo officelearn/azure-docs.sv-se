@@ -32,6 +32,9 @@
     - name: Tilldela en princip – ARM-mall
       displayName: 'assign, compliance, resource manager'
       href: ./assign-policy-template.md
+    - name: Tilldela en princip – Terraform
+      displayName: 'assign, compliance, hcl, provider'
+      href: ./assign-policy-terraform.md
 - name: Självstudier
   items:
     - name: Skapa och hantera Azure Policy
@@ -191,7 +194,15 @@
           href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Aktivera Azure Monitor for VMs (förhandsversion)
           displayName: 'monitor, insights, log analytics, builtin'
-          href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+          href: ../../azure-monitor/insights/vminsights-enable-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Azure Storage-integration
+      items:
+        - name: Granska TLS med Azure Policy
+          href: ../../storage/common/transport-layer-security-configure-minimum-version.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json#use-azure-policy-to-enforce-the-minimum-tls-version
+    - name: Integration av Azure Web Application Firewall
+      items:
+        - name: Integrera WAF med Azure Policy
+          href: ../../web-application-firewall/shared/waf-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Felsöka
   items:
     - name: Vanliga problem
@@ -264,6 +275,16 @@
           href: /azure/templates/microsoft.authorization/policydefinitions
         - name: Initiativdefinitioner
           href: /azure/templates/microsoft.authorization/policysetdefinitions
+    - name: Terraform-resurser
+      items:
+        - name: Tilldelning
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_assignment.html'
+        - name: Definition
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_definition.html'
+        - name: Initiativ (Ange definition)
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_set_definition.html'
+        - name: Åtgärder
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_remediation.html'
 - name: Resurser
   items:
     - name: GitHub – Azure Policy-exempel
@@ -280,6 +301,8 @@
           href: 'https://www.azadvertizer.net/'
         - name: Visualiserare för styrning i Azure
           href: 'https://github.com/julianhayward/azure-mg-sub-governance-reporting'
+        - name: Azure Policy-skript för Azure Monitor
+          href: 'https://github.com/JimGBritt/AzurePolicy/tree/master/AzureMonitor/Scripts'
     - name: Feedback och support
       items:
         - name: Frågor och svar från Microsoft – Azure Policy

@@ -3,17 +3,18 @@ title: Förstå Azure Cost Management-data
 description: Den här artikeln hjälper dig att bättre förstå data som ingår i Azure Cost Management samt hur ofta de bearbetas, samlas in, visas och stängs.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: a9ec5fd7d6e93d4413e86b5c9433cb6c0c9b59a1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.custom: contentperfq2
+ms.openlocfilehash: 923b03f0c7bbf8d6948a80742530db6cb9b06c25
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132320"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675899"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -25,28 +26,28 @@ Om du har en ny prenumeration kan du inte använda Cost Management-funktioner di
 
 ## <a name="supported-microsoft-azure-offers"></a>Microsoft Azure-erbjudanden som stöds
 
-Följande information visar de [Microsoft Azure-erbjudanden](https://azure.microsoft.com/support/legal/offer-details/) som för närvarande stöds i Azure Cost Management. Ett Azure-erbjudande är den typ av Azure-prenumeration som du har. Data är tillgängliga i Cost Management med början från datumet för **Data tillgängliga från**. Om en prenumeration ändrar erbjudanden är kostnader före datumet för erbjudandets ändring inte tillgängliga.
+Följande information visar de [Microsoft Azure-erbjudanden](https://azure.microsoft.com/support/legal/offer-details/) som för närvarande stöds i Azure Cost Management. Ett Azure-erbjudande är den typ av Azure-prenumeration som du har. Data är tillgängliga i Cost Management med början från datumet för **Data tillgängliga från** . Om en prenumeration ändrar erbjudanden är kostnader före datumet för erbjudandets ändring inte tillgängliga.
 
 | **Kategori**  | **Erbjudandets namn** | **Kvot-ID** | **Erbjudandets nummer** | **Data tillgängliga från** |
 | --- | --- | --- | --- | --- |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | Maj 2014<sup>1</sup> |
 | **Enterprise-avtal (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | Maj 2014<sup>1</sup> |
-| **Enterprise-avtal (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Maj 2014<sup>1</sup> |
-| **Microsoft-kundavtal** | [Microsoft Azure-plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | Ej tillämpligt | Mars 2019<sup>3</sup> |
-| **Microsoft-kundavtal** | [Microsoft Azure Plan för Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | Ej tillämpligt | Mars 2019<sup>3</sup> |
+| **Enterprise-avtal (EA)** | Microsoft Azure Enterprise | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Maj 2014<sup>1</sup> |
+| **Microsoft-kundavtal** | Microsoft Azure Plan | EnterpriseAgreement_2014-09-01 | Ej tillämpligt | Mars 2019<sup>3</sup> |
+| **Microsoft-kundavtal** | Microsoft Azure Plan for Dev/Test | MSDNDevTest_2014-09-01 | Ej tillämpligt | Mars 2019<sup>3</sup> |
 | **Microsoft-kundavtal som stöds av partner** | Microsoft Azure Plan | CSP_2015-05-01, CSP_MG_2017-12-01 och CSPDEVTEST_2018-05-01<br><br>Kvot-ID återanvänds för Microsoft-kundavtalsprenumerationer och äldre CSP-prenumerationer. För närvarande stöds endast Microsoft-kundavtalsprenumerationer. | Ej tillämpligt | Oktober 2019 |
-| **Microsoft Developer Network (MSDN)** | [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 oktober 2018<sup>2</sup> |
-| **Betala per användning** | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 oktober 2018<sup>2</sup> |
-| **Betala per användning** | [Dev/Test – betala per användning](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 oktober 2018<sup>2</sup> |
-| **Betala per användning** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2 oktober 2018<sup>2</sup> |
-| **Betala per användning** | [Kostnadsfri utvärderingsversion](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 oktober 2018<sup>2</sup> |
-| **Betala per användning** | [Azure i Open](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 oktober 2018<sup>2</sup> |
+| **Microsoft Developer Network (MSDN)** | MSDN-plattformar<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | Betala per användning                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | Dev/Test – betala per användning         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | Microsoft Partner Network      | MPN_2014-09-01 | MS-AZR-0025P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | Kostnadsfri utvärderingsversion<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 oktober 2018<sup>2</sup> |
+| **Betala per användning** | Azure i Open<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | Azure-pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P – MS-AZR-0125P, MS-AZR-0128P – MS-AZR-0130P | 2 oktober 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 oktober 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 oktober 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 oktober 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2 oktober 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Enterprise – MPN<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Professional<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Test Professional<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Enterprise<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2 oktober 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Enterprise: BizSpark<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2 oktober 2018<sup>2</sup> |
 
 _<sup>**1**</sup> Data före maj 2014 finns i [Azure Enterprise-portalen](https://ea.azure.com)._
 
@@ -60,14 +61,14 @@ Följande erbjudanden stöds inte ännu:
 
 | Kategori  | **Erbjudandets namn** | **Kvot-ID** | **Erbjudandets nummer** |
 | --- | --- | --- | --- |
-| **Azure Tyskland** | [Azure Tyskland – Betala per användning](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
+| **Azure Tyskland** | Azure Tyskland – Betala per användning | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government – Betala per användning | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
 | **Leverantör av molnlösningar (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Leverantör av molnlösningar (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Leverantör av molnlösningar (CSP)** | Azure Tyskland i CSP för Microsoft Cloud Tyskland   | CSP_2015-05-01 | MS-AZR-DE-0145P |
 | **Betala per användning**                 | Microsoft Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **Betala per användning** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
-| **Betala per användning**                 | [Microsoft Azure-sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **Betala per användning** | Azure for Students<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Betala per användning**                 | Microsoft Azure-sponsring | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Supportavtal** | Standardsupport                    | Default_2014-09-01 | MS-AZR-0041P |
 | **Supportavtal** | Professional Direct-support         | Default_2014-09-01 | MS-AZR-0042P |
 | **Supportavtal** | Support för utvecklare                   | Default_2014-09-01 | MS-AZR-0043P |
@@ -82,7 +83,7 @@ Information om tillgängligheten av tjänster på kostnadsfri nivå efter uppgra
 
 ### <a name="determine-your-offer-type"></a>Fastställ din erbjudandetyp
 
-Om du inte ser data för en prenumeration och vill ta reda på om din prenumeration omfattas av de erbjudanden som stöds kan du kontrollera om din prenumeration stöds. För att kontrollera att en Azure-prenumeration stöds loggar du in på [Azure-portalen](https://portal.azure.com). Välj sedan **Alla tjänster** i det vänstra menyfönstret. I listan över tjänster väljer du **Prenumerationer**. I listmenyn för prenumerationer väljer du den prenumeration som du vill kontrollera. Din prenumeration visas på fliken Översikt, och du kan se **Erbjudande** och **Erbjudande-ID**. I följande bild visas ett exempel.
+Om du inte ser data för en prenumeration och vill ta reda på om din prenumeration omfattas av de erbjudanden som stöds kan du kontrollera om din prenumeration stöds. För att kontrollera att en Azure-prenumeration stöds loggar du in på Azure-portalen. Välj sedan **Alla tjänster** i det vänstra menyfönstret. I listan över tjänster väljer du **Prenumerationer** . I listmenyn för prenumerationer väljer du den prenumeration som du vill kontrollera. Din prenumeration visas på fliken Översikt, och du kan se **Erbjudande** och **Erbjudande-ID** . I följande bild visas ett exempel.
 
 ![Exempel på fliken Prenumerationsöversikt som visar Erbjudande och Erbjudande-ID](./media/understand-cost-mgt-data/offer-and-offer-id.png)
 
@@ -110,9 +111,9 @@ Azure Cost Management tar emot taggar som en del av varje användningspost som s
 
 - Taggar måste användas direkt för resurser och ärvs inte implicit från den överordnade resursgruppen.
 - Resurstaggar stöds bara för resurser som har distribuerats till resursgrupper.
-- Vissa distribuerade resurser kanske inte stöder taggar eller så kanske de inte innehåller taggar i användningsdata – se [Stöd för taggar för Azure-resurser](../../azure-resource-manager/management/tag-support.md).
+- Vissa distribuerade resurser kanske inte stöder taggar eller så kanske de inte innehåller taggar i användningsdata.
 - Resurstaggar ingår bara i användningsdata under tiden taggen används – taggar används inte för historiska data.
-- Resurstaggar är endast tillgängliga i Cost Management efter att data har uppdaterats – se [Uppdateringar av kostnader och användningsdata och kvarhållning](#cost-and-usage-data-updates-and-retention).
+- Resurstaggar är endast tillgängliga i Cost Management efter att data har uppdaterats.
 - Resurstaggar är bara tillgängliga i Cost Management när resursen är aktiv/körs och skapar användningsposter (t. ex. inte när en virtuell dator frigörs).
 - För hantering av taggar krävs deltagaråtkomst till varje resurs.
 - För hantering av taggprinciper krävs antingen ägar- eller principdeltagaråtkomst till en hanteringsgrupp, prenumeration eller resursgrupp.
@@ -120,7 +121,7 @@ Azure Cost Management tar emot taggar som en del av varje användningspost som s
 Överväg följande om du inte kan se en specifik tagg i Cost Management:
 
 - Användes taggen direkt för resursen?
-- Användes taggen för mer än 24 timmar sedan? Se [Uppdateringar av kostnader och användningsdata och kvarhållning](#cost-and-usage-data-updates-and-retention)
+- Användes taggen för mer än 24 timmar sedan?
 - Stöder resurstypen taggar? Följande resurstyper stöder inte taggar i användningsdata från den 1 december 2019. En fullständig lista över vad som stöds finns i [Stöd för taggar för Azure-resurser](../../azure-resource-manager/management/tag-support.md).
     - Azure Active Directory B2C-kataloger
     - Azure Bastion
@@ -143,13 +144,13 @@ Här följer några tips för att arbeta med taggar:
 
 ## <a name="cost-and-usage-data-updates-and-retention"></a>Uppdateringar av kostnader och användningsdata och kvarhållning
 
-Kostnads- och användningsdata finns vanligtvis i Kostnadshantering + fakturering i Azure-portalen och [stödjande API:er](../index.yml) inom 8–24 timmar. Tänk på följande när du granskar kostnader:
+Kostnads- och användningsdata finns vanligtvis i Kostnadshantering + fakturering i Azure-portalen och stödjande API:er inom 8–24 timmar. Tänk på följande när du granskar kostnader:
 
 - Varje Azure-tjänst (till exempel Storage, Compute och SQL) utvärderar användning vid olika intervall – du kan se data för vissa tjänster tidigare än andra.
 - Uppskattade avgifter för den aktuella faktureringsperioden uppdateras sex gånger per dag.
 - Uppskattade avgifter för den aktuella faktureringsperioden kan ändras när du förbrukar mer användning.
 - Varje uppdatering är kumulativ och innehåller alla radobjekt och all information från föregående uppdatering.
-- Azure slutför, eller _stänger_, den aktuella faktureringsperioden upp till 72 timmar (tre kalenderdagar) efter faktureringsperiodens slut.
+- Azure slutför, eller _stänger_ , den aktuella faktureringsperioden upp till 72 timmar (tre kalenderdagar) efter faktureringsperiodens slut.
 
 I följande exempel visas hur faktureringsperioder kan sluta:
 
@@ -160,7 +161,7 @@ När kostnader och användningsdata blir tillgängliga i Kostnadshantering + fak
 
 ### <a name="rerated-data"></a>Omklassificerade data
 
-Oavsett om du använder [Cost Management-API:er](../index.yml), Power BI eller Azure-portalen för att hämta data bör du förvänta dig att den aktuella faktureringsperiodens avgifter omklassificeras och därför ändras fram till att fakturan stängs.
+Oavsett om du använder Cost Management-API:er, Power BI eller Azure-portalen för att hämta data bör du förvänta dig att den aktuella faktureringsperiodens avgifter omklassificeras och därför ändras fram till att fakturan stängs.
 
 ## <a name="cost-rounding"></a>Kostnadsavrundning
 

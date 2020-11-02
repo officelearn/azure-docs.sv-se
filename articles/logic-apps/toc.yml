@@ -101,7 +101,7 @@
           href: logic-apps-batch-process-send-receive-messages.md
         - name: Skicka meddelanden i turordning – sekventiell konvoj
           href: send-related-messages-sequential-convoy.md
-        - name: Skapa JSON-definitioner
+        - name: Redigera definitioner av arbetsflöden i JSON
           href: logic-apps-author-definitions.md
         - name: Hantera innehållstyper
           href: logic-apps-content-type.md
@@ -109,6 +109,8 @@
           href: logic-apps-exception-handling.md
         - name: Hantera stora meddelanden
           href: logic-apps-handle-large-messages.md
+        - name: Hantera tidskrävande lagrade procedurer för ett SQL-anslutningsprogram
+          href: handle-long-running-stored-procedures-sql-connector.md
         - name: Hantera problem med bandbreddsbegränsning eller 429-fel
           href: handle-throttling-problems-429-errors.md
         - name: Utveckla anpassade anslutningsappar

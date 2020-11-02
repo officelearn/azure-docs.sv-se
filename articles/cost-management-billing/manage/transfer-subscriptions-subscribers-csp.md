@@ -6,18 +6,22 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/22/2020
 ms.author: banders
-ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132371"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460690"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Överför Azure-prenumerationer mellan prenumeranter och molnlösningsleverantörer
 
 Den här artikeln innehåller enkla steg för att överföra Azure-prenumerationer till och från molnlösningsleverantörer (CSP) och deras kunder. Informationen här är avsedd att hjälpa Azure-prenumeranten att samarbeta med sin partner. Information som Microsoft-partner använder för överföringsprocessen dokumenteras i [Läs om hur du överför en Azure-prenumeration för en kund till en annan partner](/partner-center/switch-azure-subscriptions-to-a-different-partner).
+
+Innan du startar en överföringsbegäran bör du ladda ned eller exportera eventuell kostnads- och faktureringsinformation som du vill behålla. Information om fakturering och användning överförs inte med prenumerationen. Mer information om export av kostnadshanteringsdata finns i [Skapa och hantera exporterade data](../costs/tutorial-export-acm-data.md). Mer information om hur du laddar ned din faktura och dina användningsdata finns i [Ladda ned eller visa din Azure-faktura och information om den dagliga användningen](download-azure-invoice-daily-usage-date.md).
+
+Om du har några befintliga reservationer slutar de att gälla när du har överfört en prenumeration. Se till att [avbryta eventuella reservationer och återbetala dem](../reservations/exchange-and-refund-azure-reservations.md) innan du överför en prenumeration.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Överföra EA-prenumerationer till en CSP-partner
 

@@ -9,6 +9,8 @@
       href: entitlement-management-overview.md
     - name: Vad är åtkomstgranskningar?
       href: access-reviews-overview.md
+    - name: Vad är livscykelhantering för identiteter?
+      href: what-is-identity-lifecycle-management.md
 - name: Självstudier
   expanded: true
   items:
@@ -23,6 +25,16 @@
           href: entitlement-management-delegate.md
         - name: Process för begäran och e-postmeddelanden
           href: entitlement-management-process.md
+    - name: Livscykelhantering för identiteter
+      items:
+        - name: Vad är etablering?
+          href: what-is-provisioning.md
+        - name: Vad är HR-driven molnetablering?
+          href: what-is-hr-driven-provisioning.md
+        - name: Vad är appetablering?
+          href: what-is-app-provisioning.md
+        - name: Vad är etablering mellan kataloger?
+          href: what-is-inter-directory-provisioning.md
     - name: Åtkomstgranskningar
       items:
         - name: Hantera gäståtkomst med granskningar

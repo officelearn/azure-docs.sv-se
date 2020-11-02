@@ -106,7 +106,7 @@
       items:
         - name: Översikt över systemämnen
           href: system-topics.md
-        - name: Händelsekällor
+        - name: Händelsekällor (utgivare)
           items:
             - name: Azure App Configuration
               href: event-schema-app-configuration.md
@@ -138,13 +138,15 @@
               href: event-schema-azure-signalr.md
             - name: Azure-prenumerationer
               href: event-schema-subscriptions.md
-    - name: Partnerämnen
+    - name: Partnerhändelser
       items:
-        - name: Översikt över partnerämnen
-          href: partner-topics-overview.md
-        - name: Auth0
-          href: auth0-overview.md
-        - name: Bli en Event Grid-partner
+        - name: Översikt över partnerhändelser
+          href: partner-events-overview.md
+        - name: Händelsekällor (utgivare)
+          items:
+            - name: Auth0
+              href: auth0-overview.md
+        - name: Översikt över registrering av partner
           href: partner-onboarding-overview.md
     - name: Händelsedomäner
       href: event-domains.md
@@ -210,12 +212,16 @@
           href: create-view-manage-system-topics-cli.md
         - name: Azure Resource Manager-mall
           href: create-view-manage-system-topics-arm.md
+    - name: Partnerhändelser
+      items:
+        - name: Registrera dig som en partner
+          href: onboard-partner.md
+        - name: Prenumerera på Auth0-händelser
+          href: auth0-how-to.md
     - name: Hämta åtkomstnycklar för ämnen eller domäner
       href: get-access-keys.md
     - name: Skicka till anpassat ämne
       href: post-to-custom-topic.md
-    - name: Prenumerera på Auth0-händelser
-      href: auth0-how-to.md
     - name: Ta emot händelser vid HTTP-slutpunkt
       href: receive-events.md
     - name: Konfigurera plats för obeställbara meddelanden och återförsöksprincip

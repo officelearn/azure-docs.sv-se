@@ -413,6 +413,8 @@
           href: how-to-use-automlstep-in-pipelines.md
         - name: Förstå diagram och mått
           href: how-to-understand-automated-ml.md
+        - name: Använda ONNX-modellen i .NET-program
+          href: how-to-use-automl-onnx-model-dotnet.md
     - name: Distribuera och hantera modeller
       items:
         - name: Var och hur du distribuerar

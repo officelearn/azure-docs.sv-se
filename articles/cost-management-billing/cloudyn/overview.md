@@ -3,33 +3,29 @@ title: Översikt över Cloudyn i Azure
 description: Cloudyn är en kostnadshanteringslösning med flera moln som hjälper dig att använda Azure och andra molnresurser.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3acc13ca535808f14cb01d50e38f6bd4d12902fc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 74d171a4c694f6d720ec3882f97d18e43aecc63f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684447"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543295"
 ---
 # <a name="what-is-the-cloudyn-service"></a>Vad är tjänsten Cloudyn?
 
-Cloudyn, ett dotterbolag till Microsoft, gör det möjligt att spåra molnanvändning och utgifter för dina Azure-resurser och andra molnleverantörer, inklusive AWS och Google. Instrumentpanelsrapporter som är lätta att förstå hjälper dig med kostnadsallokering och kostnadsrapporter/återbetalningar. Cloudyn hjälper dig att optimera molnutgifterna genom att identifiera underutnyttjade resurser som du sedan kan hantera och anpassa.
+Cloudyn, ett dotterbolag till Microsoft, gör det möjligt att spåra molnanvändning och utgifter för dina Azure-resurser. Instrumentpanelsrapporter som är lätta att förstå hjälper dig med kostnadsallokering och kostnadsrapporter/återbetalningar. Cloudyn hjälper dig att optimera molnutgifterna genom att identifiera underutnyttjade resurser som du sedan kan hantera och anpassa.
 
 En introduktionsvideo finns i [Introduction to Azure Cloudyn ](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo/) (Introduktion till Azure Cloudyn).
  
 Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Management är en lösning för intern kostnadshantering i Azure. Du får hjälp att analysera kostnader, skapa och hantera budgetar, exportera data samt granska och arbeta med optimeringsrekommendationer för att spara pengar. Mer information finns i [Azure Cost Management](../cost-management-billing-overview.md).
  
 [!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
-
-Titta på [videon om Azure Cost Management och Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) för att se rekommendationer om när du ska använda antingen Azure Cost Management eller Cloudyn, baserat på dina affärsbehov.
- 
->[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 
 ## <a name="monitor-usage-and-spending"></a>Övervaka användning och utgifter
 
@@ -56,6 +52,4 @@ Om du har etablerat reserverade AWS-instanser kan du förbättra användningen a
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du är bekant med Cloudyn är nästa steg att registrera molnmiljön och börja utforska dina data.
-
-- [Registrera dig för CSP-partnerprogrammet och visa kostnadsdata](quick-register-csp.md)
+- [Granska användning och kostnader](tutorial-review-usage.md)

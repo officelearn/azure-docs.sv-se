@@ -1,33 +1,12 @@
 - name: Azure Synapse (förhandsversion av arbetsytor)
   href: sql-data-warehouse/index.yml
-- name: Växla till Azure Synapse (SQL DW)
+- name: Växla till Azure Synapse (tidigare SQL DW)
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Översikt
   items:
     - name: Vad är Azure Synapse?
       href: overview-what-is.md
-    - name: Kom igång
-      items:
-        - name: Introduktion
-          href: get-started.md
-        - name: 1 Skapa en Synapse-arbetsyta
-          href: get-started-create-workspace.md
-        - name: 2 Analysera med hjälp av en SQL-pool
-          href: get-started-analyze-sql-pool.md
-        - name: 3 Analysera med hjälp av Spark
-          href: get-started-analyze-spark.md
-        - name: 4 Analysera med SQL på begäran
-          href: get-started-analyze-sql-on-demand.md
-        - name: 5 Analysera data i ett lagringskonto
-          href: get-started-analyze-storage.md
-        - name: 6 Integrera med pipelines
-          href: get-started-pipelines.md
-        - name: 7 Visualisera med Power BI
-          href: get-started-visualize-power-bi.md
-        - name: 8 Övervakare
-          href: get-started-monitor.md
-        - name: 9 Utforska kunskapscentret
-          href: get-started-knowledge-center.md
+      displayName: overview
     - name: Översiktsblad
       href: overview-cheat-sheet.md
     - name: VANLIGA FRÅGOR OCH SVAR
@@ -36,64 +15,60 @@
       href: release-notes.md
 - name: Snabbstarter
   items:
-    - name: Skapa en Synapse-arbetsyta med hjälp av Azure-portalen
-      href: quickstart-create-workspace.md
-    - name: Skapa en Synapse-arbetsyta med hjälp av Azure CLI
-      href: quickstart-create-workspace-cli.md
-    - name: Skapa en Synapse-arbetsyta med hjälp av Azure PowerShell
-      href: quickstart-create-workspace-powershell.md
-    - name: Distribuera med en ARM-mall
-      displayName: Resource Manager
-      href: quickstart-deployment-template-workspaces.md
-    - name: Länka en Power BI-arbetsyta
-      href: quickstart-power-bi.md
-    - name: Skapa pooler
-      items:
-        - name: Skapa Apache Spark-notebook-fil med hjälp av webbverktyg
-          href: quickstart-apache-spark-notebook.md
-        - name: Skapa Apache Spark-pool med hjälp av Azure-portalen
-          href: quickstart-create-apache-spark-pool-portal.md
-        - name: Skapa Apache Spark-pool med Synapse Studio
-          href: quickstart-create-apache-spark-pool-studio.md
-        - name: Skapa SQL-pool med Azure Portal
-          href: quickstart-create-sql-pool-portal.md
-        - name: Skapa SQL-pool med Synapse Studio
-          href: quickstart-create-sql-pool-studio.md
-    - name: Läs in data med SQL-pooler
-      items:
-        - name: COPY-instruktion
-          href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Exempel på COPY-instruktion
-          href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Synapse Studio
-          href: quickstart-load-studio-sql-pool.md
-    - name: Använda SQL på begäran
-      href: quickstart-sql-on-demand.md
-    - name: Ansluta till Synapse Link för Cosmos DB
-      href: quickstart-connect-synapse-link-cosmos-db.md
-    - name: Anslut till Azure Data Explorer
-      href: quickstart-connect-azure-data-explorer.md
-- name: Självstudier
+    - name: Introduktion
+      href: get-started.md
+      displayName: 'get, started, quickstart'
+    - name: 1 Skapa en Synapse-arbetsyta
+      href: get-started-create-workspace.md
+      displayName: 'get, started'
+    - name: 2 Analysera med hjälp av en SQL-pool
+      href: get-started-analyze-sql-pool.md
+      displayName: 'get, started'
+    - name: 3 Analysera med hjälp av Spark
+      href: get-started-analyze-spark.md
+      displayName: 'get, started'
+    - name: 4 Analysera med SQL på begäran
+      href: get-started-analyze-sql-on-demand.md
+      displayName: 'get, started'
+    - name: 5 Analysera data i ett lagringskonto
+      href: get-started-analyze-storage.md
+      displayName: 'get, started'
+    - name: 6 Integrera med pipelines
+      href: get-started-pipelines.md
+      displayName: 'get, started'
+    - name: 7 Visualisera med Power BI
+      href: get-started-visualize-power-bi.md
+      displayName: 'get, started'
+    - name: 8 Övervakare
+      href: get-started-monitor.md
+      displayName: 'get, started'
+    - name: 9 Utforska kunskapscentret
+      href: get-started-knowledge-center.md
+      displayName: 'get, started'
+- name: Arbetsyta
   items:
-    - name: Kör Apache Spark-program
-      href: ./spark/intellij-tool-synapse.md
-    - name: Spark-jobbdefinitioner
-      href: ./spark/apache-spark-job-definitions.md
-    - name: Power BI Desktop
-      href: ./sql/tutorial-connect-power-bi-desktop.md
-    - name: Data Scientist
+    - name: Snabbstarter
       items:
-        - name: Skapa en klassificeringsmodell med Apache Spark MLlib
-          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-    - name: Dataanalytiker
-      items:
-        - name: Använda SQL på begäran för att analysera data
-          href: ./sql/tutorial-data-analyst.md
-- name: Exempel
-  href: 'https://github.com/Azure-Samples/Synapse'
-- name: Begrepp
-  items:
-    - name: Arbetsyta
+        - name: Skapa en Synapse-arbetsyta med hjälp av Azure-portalen
+          href: quickstart-create-workspace.md
+          displayName: quickstart
+        - name: Skapa en Synapse-arbetsyta med hjälp av Azure CLI
+          href: quickstart-create-workspace-cli.md
+          displayName: quickstart
+        - name: Skapa en Synapse-arbetsyta med hjälp av Azure PowerShell
+          href: quickstart-create-workspace-powershell.md
+          displayName: quickstart
+        - name: Distribuera med en mall
+          href: quickstart-deployment-template-workspaces.md
+          displayName: quickstart
+        - name: Länka en Power BI-arbetsyta
+          href: quickstart-power-bi.md
+          displayName: quickstart
+        - name: Anslut till Azure Data Explorer
+          href: quickstart-connect-azure-data-explorer.md
+          displayName: quickstart
+      '-name': null
+    - name: Begrepp
       items:
         - name: Hantering av delade metadata
           items:
@@ -111,152 +86,119 @@
                   href: ./spark/apache-spark-development-using-notebooks.md
                 - name: SQL-skript
                   href: ./sql/author-sql-script.md
+                  displayname: author
                 - name: Mappa dataflöden
                   href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Underhållsschema
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Övervakning
-      items:
-        - name: Poolövervakning
+        - name: Säkerhet
           items:
-            - name: SQL-pool
+            - name: Säkerhetsbaslinje
+              href: security-baseline.md
+            - name: Nätverkssäkerhet
+              items:
+                - name: IP-brandväggsregler för Synapse-arbetsyta
+                  href: ./security/synapse-workspace-ip-firewall.md
+                - name: Hanterat virtuellt nätverk för Synapse-arbetsyta
+                  href: ./security/synapse-workspace-managed-vnet.md
+                  displayname: vnet
+                - name: Hanterade privata slutpunkter för Synapse-arbetsyta
+                  href: ./security/synapse-workspace-managed-private-endpoints.md
+            - name: Autentisering och vidarekoppling
+              items:
+                - name: Azure Active Directory
+                  href: ./sql/active-directory-authentication.md
+                  displayname: authentication
+                - name: Multi-Factor Authentication
+                  href: ./sql/mfa-authentication.md
+                - name: SQL-auktorisering
+                  href: ./sql/sql-authentication.md
+            - name: Åtkomstkontroll
               items:
                 - name: Översikt
-                  href: ./sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Resursutnyttjande och frågeaktivitet
-                  href: ./sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Historikserver för Spark-pool
-              href: ./spark/apache-spark-history-server.md
-    - name: Säkerhet
+                  href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Synapse-arbetsytehanterad identitet
+                  href: ./security/synapse-workspace-managed-identity.md
+                - name: Pool och på begäran
+                  href: ./sql/access-control.md
+                  displayname: 'access, control'
+        - name: 'Verktygsintegrering (AI, ETL, BI)'
+          items:
+            - name: Felsöka Synapse Studio
+              href: troubleshoot/troubleshoot-synapse-studio.md
+            - name: Felsöka anslutningsproblem med Synapse Studio
+              href: troubleshoot/troubleshoot-synapse-studio-powershell.md
+              displayname: powershell
+    - name: Anvisningar
       items:
-        - name: Säkerhetsbaslinje
-          href: security-baseline.md
-        - name: Nätverkssäkerhet
+        - name: Skydda
           items:
-            - name: IP-brandväggsregler för Synapse-arbetsyta
-              href: ./security/synapse-workspace-ip-firewall.md
-            - name: Hanterat virtuellt nätverk för Synapse-arbetsyta
-              href: ./security/synapse-workspace-managed-vnet.md
-            - name: Hanterade privata slutpunkter för Synapse-arbetsyta
-              href: ./security/synapse-workspace-managed-private-endpoints.md
-        - name: Autentisering och vidarekoppling
-          items:
-            - name: Azure Active Directory
-              href: ./sql/active-directory-authentication.md
-            - name: Flerfaktorautentisering
-              href: ./sql/mfa-authentication.md
-            - name: SQL-auktorisering
-              href: ./sql/sql-authentication.md
-        - name: Åtkomstkontroll
-          items:
-            - name: Översikt
-              href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Synapse-arbetsytehanterad identitet
-              href: ./security/synapse-workspace-managed-identity.md
-            - name: Pool och på begäran
-              href: ./sql/access-control.md
-            - name: Data
+            - name: Hantera åtkomstkontroll
               items:
-                - name: Säkerhet på kolumnnivå
-                  href: ./sql-data-warehouse/column-level-security.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Säkerhet på radnivå
-                  href: /sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Datakryptering
-          items:
-            - name: Översikt över transparent datakryptering
-              href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Transparent datakryptering med Bring Your Own Key
-              href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Integrering
-      items:
-        - name: Pipeline och aktivitet
-          href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Länkade tjänster
-          href: ../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Datauppsättningar
-          href: ../data-factory/concepts-datasets-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Körning och utlösare
-          href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Integration runtime
-          href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Dataflöden
-          items:
-            - name: Mappa dataflöden – översikt
-              href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Felsökningsläge
-              href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Schemadrift
-              href: ../data-factory/concepts-data-flow-schema-drift.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Kolumnmönster
-              href: ../data-factory/concepts-data-flow-column-pattern.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Dataflödesövervakning
-              href: ../data-factory/concepts-data-flow-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Dataflödesprestanda
-              href: ../data-factory/concepts-data-flow-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Hantera diagram
-              href: ../data-factory/concepts-data-flow-manage-graph.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Uttrycksverktyget
-              href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Uttrycksspråk
-              href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Skillnader från Azure Data Factory
-          href: ./data-integration/concepts-data-factory-differences.md
-    - name: Spark
-      items:
-        - name: Översikt
-          items:
-            - name: Översikt över Apache Spark
-              href: ./spark/apache-spark-overview.md
-            - name: Apache Spark-begrepp
-              href: ./spark/apache-spark-concepts.md
-            - name: Vad är Delta Lake
-              href: ./spark/apache-spark-what-is-delta-lake.md
-            - name: Funktionell Delta Lake-översikt
-              href: ./spark/apache-spark-delta-lake-overview.md
-            - name: Apache Spark-prestanda
-              href: ./spark/apache-spark-performance.md
-            - name: Prestandaoptimering för Apache Spark med hjälp av Hyperspace-index
-              href: ./spark/apache-spark-performance-hyperspace.md
-            - name: Beteende för automatisk skalning i Apache Spark
-              href: ./spark/apache-spark-autoscale.md
-        - name: Utveckling
-          items:
-            - name: Bibliotek
+                - name: Konfigurera behörigheter för Azure Synapse-arbetsytehanterad identitet
+                  href: security/how-to-grant-workspace-managed-identity-permissions.md
+                  displayname: grant
+                - name: Konfigurera åtkomstkontroll
+                  href: security/how-to-set-up-access-control.md
+            - name: Hantera privata slutpunkter
               items:
-                - name: Lägg till och hantera bibliotek
-                  href: ./spark/apache-spark-azure-portal-add-libraries.md
-                - name: Stöd för körningsspråk och bibliotek
-                  href: ./spark/apache-spark-version-support.md
-            - name: Azure Synapse Studio-notebook-filer
-              href: ./spark/apache-spark-development-using-notebooks.md
-            - name: Skydda autentiseringsuppgifter med TokenLibrary
-              href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
-            - name: .NET för Apache Spark
-              href: ./spark/spark-dotnet.md
-            - name: Apache Spark-maskininlärning
-              items:
-                - name: Skapa en Apache Spark-maskininlärningspipeline
-                  href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-    - name: Synapse SQL
+                - name: Konfigurera hanterade privata slutpunkter till datakällor
+                  href: security/how-to-create-managed-private-endpoints.md
+                - name: Ansluta till Azure Synapse-arbetsytan med privata slutpunkter
+                  href: security/how-to-connect-to-workspace-with-private-links.md
+                  displayname: links
+                - name: Etablera och skydda en länkad tjänst med hanterat VNet
+                  href: ./data-integration/linked-service.md
+- name: Synapse SQL
+  items:
+    - name: Översikt
       items:
-        - name: Översikt
+        - name: Synapse SQL-arkitektur
+          href: sql/overview-architecture.md
+          displayName: overview
+        - name: SQL på begäran
+          href: sql/on-demand-workspace-overview.md
+          displayname: overview
+        - name: SQL-pool
+          href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          displayname: overview
+        - name: Arkitektur
+          href: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Funktionsöversikt
+          href: sql/overview-features.md
+        - name: Resursförbrukningsmodeller
+          href: sql/resource-consumption-models.md
+        - name: Metodtips för SQL på begäran
+          href: sql/best-practices-sql-on-demand.md
+        - name: Metodtips för SQL-pooler
+          href: sql/best-practices-sql-pool.md
+    - name: Snabbstarter
+      items:
+        - name: Skapa SQL-pool med Synapse Studio
+          href: quickstart-create-sql-pool-studio.md
+        - name: Skapa SQL-pool med Azure Portal
+          href: quickstart-create-sql-pool-portal.md
+        - name: Läs in data med SQL-pooler
           items:
-            - name: Synapse SQL-arkitektur
-              href: sql/overview-architecture.md
-            - name: SQL på begäran
-              href: sql/on-demand-workspace-overview.md
-            - name: SQL-pool
-              href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Arkitektur
-              href: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Funktionsöversikt
-              href: sql/overview-features.md
-            - name: Resursförbrukningsmodeller
-              href: sql/resource-consumption-models.md
-            - name: Metodtips för SQL på begäran
-              href: sql/best-practices-sql-on-demand.md
-            - name: Metodtips för SQL-pooler
-              href: sql/best-practices-sql-pool.md
+            - name: COPY-instruktion
+              href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              displayname: 'bulk, load'
+            - name: Exempel på COPY-instruktion
+              href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              displayname: 'bulk, load'
+            - name: Synapse Studio
+              href: quickstart-load-studio-sql-pool.md
+              displayname: sql pool
+        - name: Använda SQL på begäran
+          href: quickstart-sql-on-demand.md
+    - name: Självstudier
+      items:
+        - name: Använda SQL på begäran för att analysera data
+          href: ./sql/tutorial-data-analyst.md
+        - name: Power BI Desktop
+          href: ./sql/tutorial-connect-power-bi-desktop.md
+    - name: Begrepp
+      items:
         - name: Säkerhetskopiera och återställa
           href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Förberedelse och inhämtning av data
@@ -281,8 +223,10 @@
                   href: sql/develop-materialized-view-performance-tuning.md
                 - name: Skapa
                   href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  displayname: 'materialized, view'
                 - name: Ändra
                   href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  displayname: 'materialized, view'
             - name: Cachelagring för resultatuppsättningar
               href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Maskininlärningsförutsägelser
@@ -331,26 +275,48 @@
                   href: sql/develop-variable-assignment.md
                 - name: Vyer
                   href: sql/develop-views.md
-        - name: Fråga
-          items:
-            - name: Dynamisk SQL
-              href: sql/develop-dynamic-sql.md
-            - name: Gruppera efter alternativ
-              href: sql/develop-group-by-options.md
-            - name: Etiketter
-              href: sql/develop-label.md
-            - name: Lagringsfiler
+            - name: Fråga
               items:
-                - name: Översikt
-                  href: sql/develop-storage-files-overview.md
-                - name: Åtkomstkontroll för lagring
-                  href: sql/develop-storage-files-storage-access-control.md
-                - name: Apache Spark för externa Azure Synapse-tabeller
-                  href: sql/develop-storage-files-spark-tables.md
+                - name: Dynamisk SQL
+                  href: sql/develop-dynamic-sql.md
+                - name: Gruppera efter alternativ
+                  href: sql/develop-group-by-options.md
+                - name: Etiketter
+                  href: sql/develop-label.md
+                - name: Lagringsfiler
+                  items:
+                    - name: Översikt
+                      href: sql/develop-storage-files-overview.md
+                    - name: Åtkomstkontroll för lagring
+                      href: sql/develop-storage-files-storage-access-control.md
+                    - name: Apache Spark för externa Azure Synapse-tabeller
+                      href: sql/develop-storage-files-spark-tables.md
+        - name: Övervakning
+          items:
+            - name: Översikt
+              href: ./sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Resursutnyttjande och frågeaktivitet
+              href: ./sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Säkerhet
+          items:
+            - name: Datasäkerhet
+              items:
+                - name: Säkerhet på kolumnnivå
+                  href: ./sql-data-warehouse/column-level-security.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Säkerhet på radnivå
+                  href: /sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Datakryptering
+              items:
+                - name: Översikt över transparent datakryptering
+                  href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Transparent datakryptering med Bring Your Own Key
+                  href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  displayname: 'transparent, data, encryption'
         - name: Arbetsbelastningshantering
           items:
             - name: Översikt
               href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              displayname: 'workload, management'
             - name: Arbetsbelastningsklassificering
               href: ./sql-data-warehouse/sql-data-warehouse-workload-classification.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Arbetsbelastningsprioritet
@@ -361,69 +327,13 @@
               href: ./sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Minnes- och samtidighetsgränser
               href: ./sql-data-warehouse/memory-concurrency-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              displayname: 'workload, management'
             - name: Resursklasser
               href: ./sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Synapse Link
+              displayname: 'workload, management'
+    - name: Anvisningar
       items:
-        - name: Synapse Link för Azure Cosmos DB
-          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Analysarkiv – översikt
-          href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Funktioner som stöds av Synapse Link
-          href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
-        - name: Vanliga frågor och svar om Synapse Link
-          href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Användningsfall för Synapse Link
-          href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Machine Learning
-      items:
-        - name: Översikt
-          items:
-            - name: Vad är maskininlärning i Synapse Analytics?
-              href: machine-learning/what-is-machine-learning.md
-        - name: Snabbstarter
-          items:
-            - name: Skapa en ny länkad tjänst för Azure Machine Learning
-              href: machine-learning/quickstart-integrate-azure-machine-learning.md
-        - name: Självstudier
-          items:
-            - name: Guide till modellbedömning för SQL-pooler
-              href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-            - name: Köra ett regressionsexperiment med Azure AutoML
-              href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-    - name: 'Verktygsintegrering (AI, ETL, BI)'
-      items:
-        - name: Felsöka Synapse Studio
-          href: troubleshoot/troubleshoot-synapse-studio.md
-        - name: Felsöka anslutningsproblem med Synapse Studio
-          href: troubleshoot/troubleshoot-synapse-studio-powershell.md
-- name: Gör så här för att
-  items:
-    - name: Skydda
-      items:
-        - name: Hantera åtkomstkontroll
-          items:
-            - name: Konfigurera behörigheter för Azure Synapse-arbetsytehanterad identitet
-              href: security/how-to-grant-workspace-managed-identity-permissions.md
-            - name: Konfigurera åtkomstkontroll
-              href: security/how-to-set-up-access-control.md
-        - name: Hantera privata slutpunkter
-          items:
-            - name: Konfigurera hanterade privata slutpunkter till datakällor
-              href: security/how-to-create-managed-private-endpoints.md
-            - name: Ansluta till Azure Synapse-arbetsytan med privata slutpunkter
-              href: security/how-to-connect-to-workspace-with-private-links.md
-            - name: Etablera och skydda en länkad tjänst med hanterat VNet
-              href: ./data-integration/linked-service.md
-    - name: Hantera och övervaka
-      items:
-        - name: Pipelinekörningar
-          href: monitoring/how-to-monitor-pipeline-runs.md
-        - name: Apache Spark-program
-          href: monitoring/how-to-monitor-spark-applications.md
-        - name: Information om Apache Spark-program
-          href: monitoring/apache-spark-applications.md
-        - name: Synapse SQL
+        - name: Hantera och övervaka
           items:
             - name: Övervaka Gen2-cache
               href: ./sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -441,11 +351,9 @@
                   href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Uppgradera till Gen2
               href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Mata in och förbereda data
-      items:
-        - name: Till informationslagret
+        - name: Mata in och förbereda data
           items:
-            - name: SQL
+            - name: Till informationslagret
               items:
                 - name: Azure Data Lake Storage
                   href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -455,109 +363,201 @@
                   href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: SSIS
                   href: /sql/integration-services/load-data-to-sql-data-warehouse
+                  displayname: 'integration, services'
                 - name: Data om New York-taxibilar
                   href: ./sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  displayname: 'load, blob'
                 - name: Offentliga Contoso-data
                   href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  displayname: 'load, blob'
                 - name: Läsa in WideWorldImporters
                   href: ./sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Med kopieringsaktiviteten
                   href: data-integration/data-integration-sql-pool.md
-            - name: Spark
+            - name: Till Data Lake
+              items:
+                - name: Med kopieringsaktiviteten
+                  href: data-integration/data-integration-data-lake.md
+        - name: Köra frågor mot externa data
+          items:
+            - name: Översikt
+              href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              displayname: query
+            - name: Köra frågor mot CSV-filer
+              href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Efterfråga Parquet-filer
+              href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Efterfråga JSON-filer
+              href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Köra frågor mot kapslade typer
+              href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Efterfråga mappar och flera filer
+              href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              displayname: csv
+            - name: Köra frågor mot partitionerade filer med hjälp av filmetadata
+              href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Skapa och använda vyer
+              href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Skapa och använda externa tabeller
+              href: sql/create-use-external-tables.md
+            - name: Spara frågeresultat till lagringsplats
+              href: sql/create-external-table-as-select.md
+        - name: Ansluta verktyg till Synapse-arbetsytor
+          items:
+            - name: Översikt
+              href: sql/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Fråga med Azure Data Studio
+              href: sql/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Anslutningssträngar
+              href: sql/connection-strings.md
+            - name: Fråga med sqlcmd
+              href: sql/get-started-connect-sqlcmd.md
+            - name: Fråga med SSMS
+              href: sql/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Fråga med Visual Studio
+              href: sql/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Ansluta till Power BI Desktop
+              href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+- name: Apache Spark
+  items:
+    - name: Översikt
+      items:
+        - name: Översikt över Apache Spark
+          href: ./spark/apache-spark-overview.md
+    - name: Snabbstarter
+      items:
+        - name: Skapa en notebook-fil
+          href: quickstart-apache-spark-notebook.md
+        - name: Skapa en Spark-pool i Azure-portalen
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Skapa en Spark-pool med Synapse Studio
+          href: quickstart-create-apache-spark-pool-studio.md
+    - name: Självstudier
+      items:
+        - name: Kör Apache Spark-program
+          href: ./spark/intellij-tool-synapse.md
+          displayname: intellij
+        - name: Köra PySpark-program för Spark-pooler
+          href: ./spark/vscode-tool-synapse.md
+        - name: Spark-jobbdefinitioner
+          href: ./spark/apache-spark-job-definitions.md
+    - name: Begrepp
+      items:
+        - name: Apache Spark-begrepp
+          href: ./spark/apache-spark-concepts.md
+        - name: Vad är Delta Lake
+          href: ./spark/apache-spark-what-is-delta-lake.md
+        - name: Funktionell Delta Lake-översikt
+          href: ./spark/apache-spark-delta-lake-overview.md
+        - name: Apache Spark-prestanda
+          href: ./spark/apache-spark-performance.md
+        - name: Prestandaoptimering för Apache Spark med hjälp av Hyperspace-index
+          href: ./spark/apache-spark-performance-hyperspace.md
+        - name: Beteende för automatisk skalning i Apache Spark
+          href: ./spark/apache-spark-autoscale.md
+        - name: Utveckling
+          items:
+            - name: Bibliotek
+              items:
+                - name: Lägg till och hantera bibliotek
+                  href: ./spark/apache-spark-azure-portal-add-libraries.md
+                - name: Stöd för körningsspråk och bibliotek
+                  href: ./spark/apache-spark-version-support.md
+            - name: Azure Synapse Studio-notebook-filer
+              href: ./spark/apache-spark-development-using-notebooks.md
+            - name: Skydda autentiseringsuppgifter med TokenLibrary
+              href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
+            - name: .NET för Apache Spark
+              href: ./spark/spark-dotnet.md
+        - name: Övervakning
+          items:
+            - name: Historikserver för Spark-pool
+              href: ./spark/apache-spark-history-server.md
+    - name: Anvisningar
+      items:
+        - name: Hantera och övervaka
+          items:
+            - name: Apache Spark-program
+              href: monitoring/how-to-monitor-spark-applications.md
+            - name: Information om Apache Spark-program
+              href: monitoring/apache-spark-applications.md
+            - name: Analysera JSON med Apache Spark
+              href: how-to-analyze-complex-schema.md
+        - name: Mata in och förbereda data
+          items:
+            - name: Till informationslagret
               items:
                 - name: Importera och exportera data med Apache Spark
                   href: ./spark/synapse-spark-sql-pool-import-export.md
-        - name: Till Data Lake
-          items:
-            - name: Med kopieringsaktiviteten
-              href: data-integration/data-integration-data-lake.md
-    - name: Transformera och analysera data
+- name: Synapse Link
+  items:
+    - name: Snabbstarter
       items:
-        - name: Analysera matriser och kapslade strukturer
-          href: how-to-analyze-complex-schema.md
-        - name: Synapse Link
+        - name: Ansluta till Synapse Link för Cosmos DB
+          href: quickstart-connect-synapse-link-cosmos-db.md
+    - name: Begrepp
+      items:
+        - name: Synapse Link för Azure Cosmos DB
+          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Analysarkiv – översikt
+          href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Funktioner som stöds av Synapse Link
+          href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
+        - name: Vanliga frågor och svar om Synapse Link
+          href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Användningsfall för Synapse Link
+          href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Anvisningar
+      items:
+        - name: Konfigurera Synapse Link
+          href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Ansluta till Azure Synapse Link för Cosmos DB
+          href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
+        - name: Använda Power BI och serverlös SQL-pool för att analysera Azure Cosmos DB
+          href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Köra frågor mot Azure Cosmos DB-analysarkiv med Apache Spark
+          href: ./synapse-link/how-to-query-analytical-store-spark.md
+        - name: Kopiera data från Synapse Link till en SQL-pool med hjälp av Apache Spark
+          href: ./synapse-link/how-to-copy-to-sql-pool.md
+        - name: Köra frågor mot Azure Cosmos DB-analysarkiv med SQL On-demand
+          href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+- name: Pipeline och dataflöde
+  items:
+    - name: Begrepp
+      items:
+        - name: Pipeline och aktivitet
+          href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Länkade tjänster
+          href: ../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Datauppsättningar
+          href: ../data-factory/concepts-datasets-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Körning och utlösare
+          href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Integration runtime
+          href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Dataflöden
           items:
-            - name: Konfigurera Synapse Link
-              href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Ansluta till Azure Synapse Link för Cosmos DB
-              href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-            - name: Använda Power BI och serverlös SQL-pool för att analysera Azure Cosmos DB
-              href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Köra frågor mot Azure Cosmos DB-data med serverlös SQL-pool
-              href: ./sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Köra frågor mot Azure Cosmos DB-analysarkiv med Apache Spark
-              href: ./synapse-link/how-to-query-analytical-store-spark.md
-            - name: Kopiera data från Synapse Link till en SQL-pool med hjälp av Apache Spark
-              href: ./synapse-link/how-to-copy-to-sql-pool.md
-        - name: Synapse SQL
-          items:
-            - name: Fråga efter data i lagring
-              items:
-                - name: Översikt
-                  href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Efterfråga CSV-fil
-                  href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Efterfråga Parquet-filer
-                  href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Efterfråga kapslade Parquet-typer
-                  href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Efterfråga JSON-filer
-                  href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Efterfråga mappar och flera filer
-                  href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Använda filmetadata
-                  href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Skapa och använda vyer
-                  href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Skapa och använda externa tabeller
-                  href: sql/create-use-external-tables.md
-                - name: Spara frågeresultat till lagringsplats
-                  href: sql/create-external-table-as-select.md
-        - name: Dataflöde och datainmatning
-          items:
-            - name: Transformeringsöversikt
-              href: ../data-factory/data-flow-transformation-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Aggregera
-              href: ../data-factory/data-flow-aggregate.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Ändra rad
-              href: ../data-factory/data-flow-alter-row.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Villkorsstyrd delning
-              href: ../data-factory/data-flow-conditional-split.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Härledd kolumn
-              href: ../data-factory/data-flow-derived-column.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Finns
-              href: ../data-factory/data-flow-exists.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Filter
-              href: ../data-factory/data-flow-filter.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Platta ut
-              href: ../data-factory/data-flow-flatten.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Slå ihop
-              href: ../data-factory/data-flow-join.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Sökning
-              href: ../data-factory/data-flow-lookup.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Ny gren
-              href: ../data-factory/data-flow-new-branch.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Pivotera
-              href: ../data-factory/data-flow-pivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Rangordning
-              href: ../data-factory/data-flow-rank.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Välj
-              href: ../data-factory/data-flow-select.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Kanalmottagare
-              href: ../data-factory/data-flow-sink.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Sortera
-              href: ../data-factory/data-flow-sort.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Källa
-              href: ../data-factory/data-flow-source.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Surrogatnyckel
-              href: ../data-factory/data-flow-surrogate-key.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Union
-              href: ../data-factory/data-flow-union.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Normalisera
-              href: ../data-factory/data-flow-unpivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Fönster
-              href: ../data-factory/data-flow-window.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Integrera
+            - name: Mappa dataflöden – översikt
+              href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Felsökningsläge
+              href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Schemadrift
+              href: ../data-factory/concepts-data-flow-schema-drift.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Kolumnmönster
+              href: ../data-factory/concepts-data-flow-column-pattern.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Dataflödesövervakning
+              href: ../data-factory/concepts-data-flow-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Dataflödesprestanda
+              href: ../data-factory/concepts-data-flow-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Hantera diagram
+              href: ../data-factory/concepts-data-flow-manage-graph.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Uttrycksverktyget
+              href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Uttrycksspråk
+              href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Skillnader från Azure Data Factory
+              href: ./data-integration/concepts-data-factory-differences.md
+    - name: Anvisningar
       items:
         - name: Författare
           items:
@@ -860,6 +860,50 @@
               href: ../data-factory/control-flow-web-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Webhook-aktivitet
               href: ../data-factory/control-flow-webhook-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Dataflödesomvandlingar
+          items:
+            - name: Transformeringsöversikt
+              href: ../data-factory/data-flow-transformation-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Aggregera
+              href: ../data-factory/data-flow-aggregate.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Ändra rad
+              href: ../data-factory/data-flow-alter-row.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Villkorsstyrd delning
+              href: ../data-factory/data-flow-conditional-split.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Härledd kolumn
+              href: ../data-factory/data-flow-derived-column.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Finns
+              href: ../data-factory/data-flow-exists.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Filter
+              href: ../data-factory/data-flow-filter.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Platta ut
+              href: ../data-factory/data-flow-flatten.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Slå ihop
+              href: ../data-factory/data-flow-join.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Sökning
+              href: ../data-factory/data-flow-lookup.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Ny gren
+              href: ../data-factory/data-flow-new-branch.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Pivotera
+              href: ../data-factory/data-flow-pivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Rangordning
+              href: ../data-factory/data-flow-rank.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Välj
+              href: ../data-factory/data-flow-select.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Kanalmottagare
+              href: ../data-factory/data-flow-sink.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Sortera
+              href: ../data-factory/data-flow-sort.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Källa
+              href: ../data-factory/data-flow-source.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Surrogatnyckel
+              href: ../data-factory/data-flow-surrogate-key.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Union
+              href: ../data-factory/data-flow-union.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Normalisera
+              href: ../data-factory/data-flow-unpivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Fönster
+              href: ../data-factory/data-flow-window.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Parameterisera
           items:
             - name: Parameterisera länkade tjänster
@@ -870,6 +914,10 @@
               href: ../data-factory/control-flow-system-variables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Parametrar för dataflöde
               href: ../data-factory/parameters-data-flow.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Hantera och övervaka
+          items:
+            - name: Pipelinekörningar
+              href: monitoring/how-to-monitor-pipeline-runs.md
         - name: Skapa integration runtime
           items:
             - name: Azure Integration Runtime
@@ -892,26 +940,31 @@
               href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Felsökning av anslutningsprogram
               href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Felsökning av verktyget Kopiera data
+              href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Felsökning av lokalt installerad integrationskörning
               href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Ansluta verktyg till Synapse-arbetsytor
+- name: Machine Learning
+  items:
+    - name: Översikt
       items:
-        - name: Synapse SQL
-          items:
-            - name: Översikt
-              href: sql/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Fråga med Azure Data Studio
-              href: sql/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Anslutningssträngar
-              href: sql/connection-strings.md
-            - name: Fråga med sqlcmd
-              href: sql/get-started-connect-sqlcmd.md
-            - name: Fråga med SSMS
-              href: sql/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Fråga med Visual Studio
-              href: sql/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Ansluta till Power BI Desktop
-              href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Vad är maskininlärning i Synapse Analytics?
+          href: machine-learning/what-is-machine-learning.md
+    - name: Snabbstarter
+      items:
+        - name: Skapa en ny länkad tjänst för Azure Machine Learning
+          href: machine-learning/quickstart-integrate-azure-machine-learning.md
+    - name: Självstudier
+      items:
+        - name: Guide till modellbedömning för SQL-pooler
+          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+          displayname: machine learning
+        - name: Köra ett regressionsexperiment med Azure AutoML
+          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+          displayname: machine learning
+        - name: Skapa en Apache Spark-maskininlärningsapp
+          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+          displayname: machine learning
 - name: Referens
   items:
     - name: Azure CLI
@@ -926,6 +979,8 @@
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 'REST API:er'
       href: /rest/api/synapse/
+    - name: Exempel
+      href: 'https://github.com/Azure-Samples/Synapse'
     - name: Systemvyer
       href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: T-SQL

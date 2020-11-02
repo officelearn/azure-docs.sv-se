@@ -6,6 +6,8 @@
     - name: Vad är Content Moderator?
       href: overview.md
       expanded: true
+    - name: Nyheter
+      href: whats-new.md
 - name: Snabbstarter
   items:
     - name: Prova Content Moderator på webben

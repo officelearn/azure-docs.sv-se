@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: edee1948780b827eed5047c6c9c919b66eb619d0
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 553f83151289adf6f0f4420d106af7ae37047bda
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900222"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148328"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Säkerhetsrekommendationer – en referensguide
 
@@ -64,7 +64,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 |**CPU-och minnes gränser för containern ska tillämpas**|Att framtvinga processor-och minnes gränser förhindrar resurs överbelastnings attacker (en form av denial of service-attack).<br>Vi rekommenderar att du ställer in gränser för behållare för att säkerställa att körningen förhindrar att behållaren använder mer än den konfigurerade resurs gränsen.<br>(Relaterad princip: [för hands version]: se till att behållarens CPU-och minnes resurs gränser inte överskrider de angivna gränserna i Kubernetes-kluster)|Medium|N|Kubernetes Service|
 |**Behållar avbildningar bör endast distribueras från betrodda register**|Avbildningar som körs på ditt Kubernetes-kluster bör komma från kända och övervakade behållar avbildnings register.<br>Betrodda register minskar risken för exponering genom att begränsa möjligheten att införa okända sårbarheter, säkerhets problem och skadliga avbildningar.<br>(Relaterad princip: [för hands version]: se till att endast tillåtna behållar avbildningar i Kubernetes-kluster)|Högt|N|Kubernetes Service|
 |**Container med behörighets eskalering bör undvikas**|Behållare bör inte köras med behörighets eskalering till roten i ditt Kubernetes-kluster.<br>Attributet AllowPrivilegeEscalation styr om en process får fler privilegier än den överordnade processen. <br>(Relaterad princip: [för hands version]: Kubernetes-kluster ska inte tillåta eskalering av behållar behörighet)|Medium|N|Kubernetes Service|
-|**Behållare som delar känsliga värd namn områden bör undvikas**|Undvik Pod åtkomst till känsliga värd namn rymder (värd process-ID och värd-IPC) i ett Kubernetes-kluster för att skydda mot behörighets eskalering utanför behållaren. <br>(Relaterad princip: [för hands version]: Kubernetes kluster behållare bör inte dela värd process-ID eller värd-IPC-namnrymd)|Medium| Nej|Kubernetes-kluster|
+|**Behållare som delar känsliga värd namn områden bör undvikas**|Undvik Pod åtkomst till känsliga värd namn rymder (värd process-ID och värd-IPC) i ett Kubernetes-kluster för att skydda mot behörighets eskalering utanför behållaren. <br>(Relaterad princip: [för hands version]: Kubernetes kluster behållare bör inte dela värd process-ID eller värd-IPC-namnrymd)|Medium| No|Kubernetes-kluster|
 |**Behållare ska bara lyssna på tillåtna portar**|För att minska attack ytan på ditt Kubernetes-kluster begränsar du åtkomsten till klustret genom att begränsa behållar åtkomsten till de konfigurerade portarna. <br>(Relaterad princip: [för hands version]: se till att behållare bara lyssnar på tillåtna portar i Kubernetes-kluster)|Medium|N|Kubernetes Service|
 |**Oföränderligt (skrivskyddat) rot fil system ska tillämpas för behållare**|Behållare ska köras med ett skrivskyddat rot fil system i ditt Kubernetes-kluster.<br>Oåterkalleligt fil system skyddar behållare från ändringar vid körning med skadliga binärfiler som läggs till i sökvägen.<br>(Relaterad princip: [för hands version]: Kubernetes kluster behållare ska köras med ett skrivskyddat rot fil system)|Medium|N|Kubernetes Service|
 |**Minst privilegierade Linux-funktioner bör tillämpas för behållare**|Om du vill minska attack ytan på din behållare begränsar du Linux-funktionerna och beviljar vissa behörigheter till behållare utan att bevilja alla privilegier för rot användaren.<br>Vi rekommenderar att du släpper alla funktioner och lägger sedan till de som krävs.<br>(Relaterad princip: [för hands version]: Kubernetes kluster behållare bör endast använda tillåtna funktioner)|Medium|N|Kubernetes Service|
@@ -196,7 +196,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 |**MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration**|Aktivera Multi-Factor Authentication (MFA) för alla prenumerations konton med ägar behörighet för att förhindra överträdelser av konton eller resurser.<br>(Relaterad princip: MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration)|Högt|N|Prenumeration|
 |**MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration**|Aktivera Multi-Factor Authentication (MFA) för alla prenumerations konton med Läs behörighet för att förhindra en överträdelse av konton eller resurser.<br>(Relaterad princip: MFA ska vara aktiverat på konton med Läs behörigheter för din prenumeration)|Högt|N|Prenumeration|
 |**MFA ska vara aktiverat på konton med skrivbehörigheter för din prenumeration**|Aktivera Multi-Factor Authentication (MFA) för alla prenumerations konton med Skriv behörighet för att förhindra en överträdelse av konton eller resurser.<br>(Relaterad princip: MFA ska vara aktiverat på konton med Skriv behörighet för din prenumeration)|Högt|N|Prenumeration|
-|**Tjänstens huvud namn ska användas för att skydda dina prenumerationer i stället för hanterings certifikat**|Hanterings certifikat låter alla som autentiserar med dem att hantera de prenumerationer som de är associerade med. För att hantera prenumerationer på ett säkrare sätt rekommenderar vi att du använder tjänstens huvud namn med Resource Manager för att begränsa den förstärkta radien om det rör sig om en certifikat kompromiss. Den automatiserar även resurs hantering.|Medium|Nej|Prenumeration|
+|**Tjänstens huvud namn ska användas för att skydda dina prenumerationer i stället för hanterings certifikat**|Hanterings certifikat låter alla som autentiserar med dem att hantera de prenumerationer som de är associerade med. För att hantera prenumerationer på ett säkrare sätt rekommenderar vi att du använder tjänstens huvud namn med Resource Manager för att begränsa den förstärkta radien om det rör sig om en certifikat kompromiss. Den automatiserar även resurs hantering.|Medium|No|Prenumeration|
 |**Det bör finnas fler än en ägare som tilldelats din prenumeration**|Ange fler än en prenumerations ägare för att få administratörs åtkomst till redundans.<br>(Relaterad princip: det måste finnas fler än en ägare som har tilldelats din prenumeration)|Högt|N|Prenumeration|
 ||||||
 
@@ -217,6 +217,5 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 ## <a name="next-steps"></a>Nästa steg
 Mer information om rekommendationer finns i följande avsnitt:
 
-* [Microsoft Learn-modulen för hur du analyserar rekommendationerna som görs av Security Center](/learn/modules/identify-threats-with-azure-security-center/)
 * [Säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md)
 * [Skydda nätverket i Azure Security Center](security-center-network-recommendations.md)

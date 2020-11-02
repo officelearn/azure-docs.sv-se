@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: cefc6cc72ed8d74663464f4ac2d672369cd9d31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368d43283d713b8d4e101c2ee26724242f29756c
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288672"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148260"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistik i Synapse SQL
 
@@ -57,7 +57,7 @@ SET AUTO_CREATE_STATISTICS ON
 
 Dessa uttryck utlöser automatisk skapande av statistik:
 
-- VÄLJ
+- SELECT
 - INFOGA-VÄLJ
 - CTAS
 - UPDATE
@@ -74,7 +74,7 @@ För att undvika mätbar prestanda försämring bör du se till att statistik ha
 > [!NOTE]
 > När du skapar statistik loggas [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) under en annan användar kontext.
 
-När automatisk statistik skapas, kommer de att ha formen: _WA_Sys_<8 siffer kolumn-ID i hex>_<8 siffror tabell-ID i hex>. Du kan visa redan skapade statistik genom att köra [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) -kommandot:
+När automatisk statistik skapas, kommer de att ha formen: _WA_Sys_ <8 siffer kolumn-ID i hex>_<8 siffror tabell-ID i hex>. Du kan visa redan skapade statistik genom att köra [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) -kommandot:
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -245,7 +245,7 @@ Använd föregående exempel, men ange fler kolumner för att skapa ett statisti
 > [!NOTE]
 > Histogrammet, som används för att uppskatta antalet rader i frågeresultatet, är bara tillgängligt för den första kolumnen som anges i statistik objekt definitionen.
 
-I det här exemplet är histogrammet i *produkt \_ kategorin*. Statistik över kolumner beräknas för *produkt \_ kategori* och *produkt \_ sub_category*:
+I det här exemplet är histogrammet i *produkt \_ kategorin* . Statistik över kolumner beräknas för *produkt \_ kategori* och *produkt \_ sub_category* :
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Eftersom det finns en korrelation mellan *produkt \_ kategori* och *produkt \_ under \_ kategori*, kan ett statistik objekt med flera kolumner vara användbart om dessa kolumner används samtidigt.
+Eftersom det finns en korrelation mellan *produkt \_ kategori* och *produkt \_ under \_ kategori* , kan ett statistik objekt med flera kolumner vara användbart om dessa kolumner används samtidigt.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Skapa statistik för alla kolumner i en tabell
 
@@ -616,7 +616,7 @@ Du kanske vill utöka din datapipeline för att se till att statistiken uppdater
 Följande GUID-principer finns för att uppdatera din statistik:
 
 - Kontrol lera att data uppsättningen har minst ett statistik objekt uppdaterat. Den här uppdaterings storleken (antal rader och sid antal) som en del av statistiken.
-- Fokusera på kolumner som ingår i JOIN-, GROUP BY-, ORDER BY-och DISTINCT-satser.
+- Fokusera på kolumner som ingår i WHERE-, JOIN-, GROUP BY-, ORDER BY-och DISTINCT-satser.
 - Uppdatera "ascending Key"-kolumner som transaktions datum oftare eftersom dessa värden inte ingår i statistik histogrammet.
 - Uppdatera statiska distributions kolumner mindre ofta.
 
@@ -629,12 +629,12 @@ I följande exempel visas hur du använder olika alternativ för att skapa stati
 > [!NOTE]
 > Du kan bara skapa en statistik med en kolumn just nu.
 >
-> Proceduren sp_create_file_statistics får ett nytt namn till sp_create_openrowset_statistics. Den offentliga Server rollen har behörighet att administrera Mass åtgärder som beviljas när den offentliga databas rollen har kör-behörighet på sp_create_file_statistics och sp_drop_file_statistics. Detta kan ändras i framtiden.
+> Följande behörigheter krävs för att köra sp_create_openrowset_statistics och sp_drop_openrowset_statistics: administrera Mass åtgärder eller administrera databas Mass åtgärder.
 
 Följande lagrade procedur används för att skapa statistik:
 
 ```sql
-sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_create_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 Argument: [ @stmt =] N ' statement_text '-anger en Transact-SQL-instruktion som ska returnera kolumn värden som ska användas för statistik. Du kan använda TABLESAMPLE för att ange exempel på data som ska användas. Om TABLESAMPLE inte anges kommer FULLSCAN att användas.
@@ -666,7 +666,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT year
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
         FORMAT = ''CSV'',
@@ -698,7 +698,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -712,18 +712,18 @@ FROM OPENROWSET(
 Om du vill uppdatera statistiken måste du släppa och skapa statistik. Följande lagrade procedur används för att släppa statistik:
 
 ```sql
-sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_drop_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 > [!NOTE]
-> Proceduren sp_drop_file_statistics får ett nytt namn till sp_drop_openrowset_statistics. Den offentliga Server rollen har behörighet att administrera Mass åtgärder som beviljas när den offentliga databas rollen har kör-behörighet på sp_create_file_statistics och sp_drop_file_statistics. Detta kan ändras i framtiden.
+> Följande behörigheter krävs för att köra sp_create_openrowset_statistics och sp_drop_openrowset_statistics: administrera Mass åtgärder eller administrera databas Mass åtgärder.
 
 Argument: [ @stmt =] N ' statement_text '-anger samma Transact-SQL-uttryck som används när statistiken skapades.
 
 Om du vill uppdatera statistiken för kolumnen år i data uppsättningen, som baseras på population.csv-filen, måste du släppa och skapa statistik:
 
 ```sql
-EXEC sys.sp_drop_file_statistics N'SELECT payment_type
+EXEC sys.sp_drop_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -743,7 +743,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''

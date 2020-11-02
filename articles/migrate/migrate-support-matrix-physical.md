@@ -3,12 +3,12 @@ title: Stöd för fysisk server utvärdering i Azure Migrate
 description: Läs mer om stöd för fysisk server-utvärdering med Azure Migrate Server-utvärdering
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: d9f7dea69c78bb038c06e5cb276628eba0381bb2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 58ecba6bcedc036e31046aef292e482085ad7cc6
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319309"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148413"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Support mat ris för fysisk server-utvärdering 
 
@@ -31,11 +31,21 @@ Om du vill utvärdera fysiska servrar skapar du ett Azure Migrate-projekt och l�
 
 ## <a name="physical-server-requirements"></a>Krav för fysisk server
 
-| **Support**                | **Detaljer**               
-| :-------------------       | :------------------- |
-| **Distribution av fysisk server**       | Den fysiska servern kan vara fristående eller distribuerad i ett kluster. |
-| **Behörigheter**           | **Windows:** Använd ett domänkonto för domänanslutna datorer och ett lokalt konto för datorer som inte är domänanslutna. Användarkontot bör läggas till i dessa grupper: Fjärrhanteringsanvändare, Användare av prestandaövervakning och Användare av prestandaloggar. <br/><br/> **Linux:** Du behöver ett rotkonto på de Linux-servrar som du vill identifiera. <br/> Alternativt kan du se till att de nödvändiga funktionerna är inställda med följande kommandon. <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH + EIP/sbin/fdisk (om/usr/sbin/fdisk inte finns) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap = + EIP"/sbin/LVM <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/dmidecode <br/> chmod a + r/sys/Class/DMI/ID/product_uuid
-| **Operativsystem** | Alla Windows-och Linux-operativsystem kan utvärderas för migrering. |
+**Distribution av fysisk server:** Den fysiska servern kan vara fristående eller distribuerad i ett kluster.
+
+**Operativ system:** Alla Windows-och Linux-operativsystem kan utvärderas för migrering.
+
+**Behörigheter:**
+- För Windows-servrar använder du ett domän konto för domänanslutna datorer och ett lokalt konto för datorer som inte är domänanslutna. Användarkontot bör läggas till i dessa grupper: Fjärrhanteringsanvändare, Användare av prestandaövervakning och Användare av prestandaloggar.
+- För Linux-servrar behöver du ett rotkonto på de Linux-servrar som du vill identifiera. Alternativt kan du ange ett icke-rot konto med de funktioner som krävs med hjälp av följande kommandon:
+
+**Kommando** | **Syfte**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH + EIP/sbin/fdisk _(om/usr/sbin/fdisk inte finns)_ | Samla in disk konfigurations data
+setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid,<br>cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin,<br>cap_sys_resource, cap_audit_control, cap_setfcap = + EIP "/sbin/LVM | Samla in disk prestanda data
+setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/dmidecode | Samla in BIOS-serienummer
+chmod a + r/sys/Class/DMI/ID/product_uuid | Samla in BIOS-GUID
+
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Installationskrav för Azure Migrate

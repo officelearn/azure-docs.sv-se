@@ -14,16 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 4587ab5e2cf36dce65cd02b167656c88cfde10a1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b769703f7e7054571a3b65a021c0123d8ae07078
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096962"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148243"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Aktivera användar-och enhets beteende analys (UEBA) i Azure Sentinel 
 
-
+> [!IMPORTANT]
+>
+> - UEBA-funktionen är nu **allmänt tillgänglig** i följande geografiska områden och regioner i Azure Sentinel:
+>    - USA geografi
+>    - Västra Europa, region
+>    - Australien, geografi
+>
+> - I alla andra geografiska områden och regioner finns den här funktionen kvar för tiden som en **offentlig för hands version** och tillhandahålls utan service nivå avtal. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -41,7 +48,7 @@ Om du vill aktivera eller inaktivera den här funktionen (dessa krav krävs inte
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Så här aktiverar du användar-och enhets beteende analyser
 
-1. På navigerings menyn i Azure Sentinel väljer du **enhets beteende (för hands version)** .
+1. På navigerings menyn i Azure Sentinel väljer du **enhetens beteende** .
 
 1. Under rubriken **aktiverar du den** och växlar sedan till **på** .
 

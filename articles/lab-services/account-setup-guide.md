@@ -3,12 +3,12 @@ title: Installations guide för påskyndat labb konto för Azure Lab Services
 description: Den här guiden hjälper administratörer att snabbt konfigurera ett labb konto för användning i sin skola.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c186560b27ebcb543a23785dc5fbc556614f64b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0855e59aced37e50c088cfe89ffeb3d0af9fcdca
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445431"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148311"
 ---
 # <a name="lab-account-setup-guide"></a>Installations guide för labb konto
 
@@ -29,6 +29,10 @@ Kom igång snabbt genom att skapa ett enda labb konto och senare skapa ytterliga
 ### <a name="who-should-be-owners-and-contributors-of-the-lab-account"></a>Vem bör vara ägare och deltagare i labb kontot?
 
 Dina administratörer är vanligt vis ägare och deltagare för ett labb konto. De ansvarar för att hantera de principer som gäller för alla labb som ingår i labb kontot. Personen som skapar labb kontot är automatiskt en ägare. Du kan lägga till ytterligare ägare och deltagare, vanligt vis från den Azure Active Directory-klient (Azure AD) som är associerad med din prenumeration. Detta kan vara användbart för att hantera ett labb konto genom att tilldela antingen rollen ägare eller deltagare på konto nivå för labbet.
+
+[!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+
+Labb användare ser bara en enda lista med de virtuella datorer som de har åtkomst till mellan klienter inom Azure Lab Services.
 
 ### <a name="who-will-be-allowed-to-create-and-manage-labs"></a>Vem kommer att kunna skapa och hantera labb?
 

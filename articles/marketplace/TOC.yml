@@ -79,8 +79,6 @@
   items:
     - name: Publiceringsguide efter erbjudandetyp
       href: publisher-guide-by-offer-type.md
-    - name: Aktivera autentisering av erbjudanden med Azure AD
-      href: enable-appsource-marketplace-using-azure-ad.md
     - name: Erbjudanden för Azure-program
       items:
         - name: Planera ett erbjudande för lösningsmall

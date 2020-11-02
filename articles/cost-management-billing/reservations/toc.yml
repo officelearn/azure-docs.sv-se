@@ -128,6 +128,8 @@
           href: troubleshoot-reservation-recommendation.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Felsökning av reservation är inte tillgänglig
           href: troubleshoot-product-not-available.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Felsök nedladdning av användningsinformation
+          href: troubleshoot-download-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Referens
   items:
     - name: REST-API för reservationer

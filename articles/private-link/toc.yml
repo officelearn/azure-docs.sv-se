@@ -37,6 +37,8 @@
       items:
         - name: Ansluta till en SQL-server – portalen
           href: tutorial-private-endpoint-sql-portal.md
+        - name: Ansluta till en SQL-server – PowerShell
+          href: tutorial-private-endpoint-sql-powershell.md
 - name: Begrepp
   items:
     - name: Privat slutpunkt

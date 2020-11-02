@@ -28,6 +28,8 @@
       href: deployment-overview.md
     - name: Säkerhetspartnerprovidrar
       href: trusted-security-partners.md
+    - name: Skydda hubbar med Check Point Cloudguard Connect
+      href: check-point-overview.md
     - name: IP-grupper
       href: ip-groups.md
     - name: Regelbearbetningslogik

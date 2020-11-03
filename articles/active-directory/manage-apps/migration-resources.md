@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 327e59d3fee6f23d2635b846e9fb5ab422e0139e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a49dff0e4ac41670800073c02c5a507eb433c326
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87429021"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280439"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Resurser för att migrera program till Azure Active Directory
 
@@ -26,6 +26,7 @@ Resurser som hjälper dig att migrera program åtkomst och autentisering till Az
 |:-----------|:-------------|
 |[Migrera dina appar till Azure AD](https://aka.ms/migrateapps/whitepaper) | Den här white paper visar fördelarna med migreringen och beskriver hur du planerar migreringen i fyra tydliga steg: identifiering, klassificering, migrering och kontinuerlig hantering. Du kommer att vägleda dig genom processen och dela upp ditt projekt i lätt att förbruka delar. I hela dokumentet finns länkar till viktiga resurser som hjälper dig längs vägen. |
 |[Lösnings guide: Migrera appar från Active Directory Federation Services (AD FS) (AD FS) till Azure AD](https://aka.ms/migrateapps/adfssolutionguide) | Den här lösnings guiden vägleder dig genom samma fyra faser i planering och körning av ett programmigrerings projekt som beskrivs på en högre nivå i dokumentationen för migreringen. I den här guiden får du lära dig hur du tillämpar dessa faser på det specifika målet med att flytta ett program från Azure Directory federerade tjänster (AD FS) till Azure AD.|
+|[Själv studie kurs om utvecklare: AD FS till Azure AD Application Migration Spelbok för utvecklare](https://aka.ms/adfsplaybook) | Den här uppsättningen ASP.NET kod exempel och medföljande självstudier hjälper dig att lära dig att säkert och säkert migrera dina program som är integrerade med Active Directory Federation Services (AD FS) (AD FS) till Azure Active Directory (Azure AD). Den här självstudien fokuserar på utvecklare som inte bara behöver lära sig att konfigurera appar på både AD FS och i Azure AD, utan också bli medvetna om och tryggande av ändringar i kodbasen kräver i den här processen.|
 | [Verktyg: skript för Active Directory Federation Services (AD FS) migration readiness](https://aka.ms/migrateapps/adfstools) | Det här är ett skript som du kan köra på din lokala Active Directory Federation Services (AD FS)-Server (AD FS) för att fastställa om apparnas beredskap ska migreras till Azure AD.|
 | [Distributions plan: Migrera från AD FS till hash-synkronisering av lösen ord](https://aka.ms/ADFSTOPHSDPDownload) | Med hash-synkronisering av lösen ord synkroniseras hashar av användar lösen ord från lokala Active Directory till Azure AD. Detta gör att Azure AD kan autentisera användare utan att interagera med den lokala Active Directory.| 
 | [Distributions plan: Migrera från AD FS till direktautentisering](https://aka.ms/ADFSTOPTADPDownload)|Med Azure AD-direktautentisering kan användarna logga in i både lokala och molnbaserade program genom att använda samma lösen ord. Den här funktionen ger användarna en bättre upplevelse eftersom de har ett mindre lösen ord att komma ihåg. Det minskar också kostnaderna för IT-supportavdelningen eftersom användarna är mindre sannolika att glömma att logga in när de bara behöver komma ihåg ett lösen ord. När användare loggar in med Azure AD verifierar den här funktionen användarnas lösenord direkt mot din lokala Active Directory.|

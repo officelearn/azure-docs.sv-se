@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e6e27ebfd1b6b44e355d4529f2838a1c5440147c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 88828d6dea05c530d20fe378a108df2bd0dcd5b9
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147104"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279457"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Hantera slut punkter och vägar i Azure Digitals dubbla (API: er och CLI)
 
@@ -20,11 +20,11 @@ ms.locfileid: "93147104"
 
 I Azure Digitals dubbla, kan du dirigera [händelse meddelanden](how-to-interpret-event-data.md) till underordnade tjänster eller anslutna beräknings resurser. Detta görs genom att först konfigurera **slut punkter** som kan ta emot händelserna. Du kan sedan skapa  [**händelse vägar**](concepts-route-events.md) som anger vilka händelser som genereras av digitala Digital-meddelanden i Azure som levereras till vilka slut punkter.
 
-Slut punkter och vägar kan hanteras med API: [er för händelse vägar](/rest/api/digital-twins/dataplane/eventroutes), [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)eller [Azure Digitals flätade CLI](how-to-use-cli.md). Den här artikeln vägleder dig genom processen att skapa slut punkter och vägar genom dessa mekanismer.
+Slut punkter och vägar kan hanteras med API: [er för händelse vägar](/rest/api/digital-twins/dataplane/eventroutes), [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)eller [Azure Digitals flätade CLI](how-to-use-cli.md). Den här artikeln vägleder dig genom processen att skapa slut punkter och vägar genom dessa mekanismer.
 
 De kan också hanteras via [Azure Portal](https://portal.azure.com). En version av den här artikeln som använder portalen i stället finns i [*så här gör du: hantera slut punkter och vägar (portal)*](how-to-manage-routes-portal.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Du behöver ett **Azure-konto** (du kan ställa in ett kostnads fritt [här](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * Du behöver en **Azure Digitals-instans** i din Azure-prenumeration. Om du inte redan har en instans kan du skapa en med hjälp av anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-cli.md). Ha följande värden från installations programmet som är praktiskt att använda senare i den här artikeln:
@@ -88,7 +88,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Skapa en slut punkt med obeställbara meddelanden
 
-När en slut punkt inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden** .
+När en slut punkt inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden**.
 
 Du måste använda [arm-API: erna](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) för att skapa slut punkten för att kunna skapa en slut punkt med att obeställbara meddelanden har Aktiver ATS. 
 
@@ -152,9 +152,9 @@ Här är ett exempel på ett meddelande om obeställbara meddelanden för ett [d
 
 ## <a name="create-an-event-route"></a>Skapa en händelse väg
 
-Om du faktiskt vill skicka data från digitala Azure-sändningar till en slut punkt måste du definiera en **händelse väg** . Med Azure Digitals **EventRoutes-API: er** kan utvecklare skapa händelse flöde, i hela systemet och i underordnade tjänster. Läs mer om händelse vägar i [*begrepp: routing Azure Digitals, dubbla händelser*](concepts-route-events.md).
+Om du faktiskt vill skicka data från digitala Azure-sändningar till en slut punkt måste du definiera en **händelse väg**. Med Azure Digitals **EventRoutes-API: er** kan utvecklare skapa händelse flöde, i hela systemet och i underordnade tjänster. Läs mer om händelse vägar i [*begrepp: routing Azure Digitals, dubbla händelser*](concepts-route-events.md).
 
-I exemplen i det här avsnittet används [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
+I exemplen i det här avsnittet används [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
 **Förutsättning** : du måste skapa slut punkter enligt beskrivningen ovan i den här artikeln innan du kan gå vidare till skapa en väg. Du kan fortsätta att skapa en händelse väg när slut punkterna har koner ATS.
 

@@ -7,23 +7,23 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0851838b89a9a2bdc54526ac40014f645f3d88a2
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f8eae6381a438f6820f525a4d66cb5dc388eefb0
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146594"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280395"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
-Entiteter i din miljö representeras av [digitala dubbla](concepts-twins-graph.md). Att hantera digitala dubbla, kan vara att skapa, ändra och ta bort. Om du vill utföra dessa åtgärder kan du använda [**DigitalTwins-API: er**](/rest/api/digital-twins/dataplane/twins), [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)eller [Azure Digitals flätade CLI](how-to-use-cli.md).
+Entiteter i din miljö representeras av [digitala dubbla](concepts-twins-graph.md). Att hantera digitala dubbla, kan vara att skapa, ändra och ta bort. Om du vill utföra dessa åtgärder kan du använda [**DigitalTwins-API: er**](/rest/api/digital-twins/dataplane/twins), [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)eller [Azure Digitals flätade CLI](how-to-use-cli.md).
 
 Den här artikeln fokuserar på att hantera digitala dubbla, information om hur du arbetar med relationer och det [dubbla diagrammet](concepts-twins-graph.md) som helhet finns i [*instruktion: hantera den dubbla grafen med relationer*](how-to-manage-graph.md).
 
 > [!TIP]
 > Alla SDK-funktioner ingår i synkrona och asynkrona versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -172,7 +172,7 @@ Resultatet av att ringa `object result = await client.GetDigitalTwinAsync("my-mo
 De definierade egenskaperna för den digitala kanten returneras som toppnivå egenskaper på den digitala dubbla. Metadata-eller system information som inte ingår i DTDL-definitionen returneras med ett `$` prefix. Metadata-egenskaper inkluderar:
 * ID: t för den digitala dubbla i den här Azure Digital-instansen, som `$dtId` .
 * `$etag`, ett standard-HTTP-fält som tilldelas av webb servern.
-* Andra egenskaper i ett `$metadata` avsnitt. Exempel på dessa är:
+* Andra egenskaper i ett `$metadata` avsnitt. Dessa omfattar:
     - DTMI för den digitala dubbla.
     - Synkroniseringsstatus för varje skrivbar egenskap. Detta är mest användbart för enheter, där det är möjligt att tjänsten och enheten har avvikande status (till exempel när en enhet är offline). Den här egenskapen gäller för närvarande endast för fysiska enheter som är anslutna till IoT Hub. Med data i avsnittet metadata är det möjligt att förstå fullständig status för en egenskap samt de senast ändrade tidsstämplar. Mer information om synkroniseringsstatus finns i [den här IoT Hub själv studie kursen](../iot-hub/tutorial-device-twins.md) om synkronisering av enhets status.
     - Tjänstspecifika metadata, t. ex. från IoT Hub eller Azure digitala dubbla. 
@@ -265,8 +265,8 @@ Anta till exempel följande JSON-korrigerings dokument som ersätter det digital
 Den här åtgärden kan bara utföras om den digitala filen som ändras av korrigeringen överensstämmer med den nya modellen. 
 
 Se följande exempel:
-1. Föreställ dig ett digitalt med en modell av *foo_old* . *foo_old* definierar en obligatorisk egenskaps *vikt* .
-2. Den nya modell *foo_new* definierar en egenskaps vikt och lägger till en ny obligatorisk egenskaps *temperatur* .
+1. Föreställ dig ett digitalt med en modell av *foo_old*. *foo_old* definierar en obligatorisk egenskaps *vikt*.
+2. Den nya modell *foo_new* definierar en egenskaps vikt och lägger till en ny obligatorisk egenskaps *temperatur*.
 3. Efter korrigeringen måste den digitala, dubbla, ha både en egenskap för massa och temperatur. 
 
 Korrigeringen för den här situationen måste uppdatera både modellen och den dubbla egenskapen temperatur, så här:

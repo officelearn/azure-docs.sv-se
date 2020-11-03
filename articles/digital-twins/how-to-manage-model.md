@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5bcb6df1b03b0c1c835e198818813ad8d914c630
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147121"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279420"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
-Du kan hantera de [modeller](concepts-models.md) som Azure Digitals-instansen är medveten om att använda [**DigitalTwinModels-API: er**](/rest/api/digital-twins/dataplane/models), [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)eller [Azure Digitals flätat CLI](how-to-use-cli.md). 
+Du kan hantera de [modeller](concepts-models.md) som Azure Digitals-instansen är medveten om att använda [**DigitalTwinModels-API: er**](/rest/api/digital-twins/dataplane/models), [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)eller [Azure Digitals flätat CLI](how-to-use-cli.md). 
 
 Hanterings åtgärder omfattar överföring, validering, hämtning och borttagning av modeller. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -200,7 +200,7 @@ När du skapar en ny dubbla, eftersom den nya modell versionen och den gamla mod
 
 Det innebär också att uppladdning av en ny version av en modell inte automatiskt påverkar befintliga dubbla. De befintliga dubbla är helt enkelt fortfarande instanser av den gamla modell versionen.
 
-Du kan uppdatera de här befintliga dubblarna till den nya modell versionen genom att uppdatera dem, enligt beskrivningen i avsnittet [*Uppdatera en digital-enhets modell*](how-to-manage-twin.md#update-a-digital-twins-model) i *instruktionen så här: hantera digitala dubbla* . I samma korrigering måste du uppdatera båda **modell-ID: t** (till den nya versionen) och **alla fält som måste ändras på den dubbla för att den ska överensstämma med den nya modellen** .
+Du kan uppdatera de här befintliga dubblarna till den nya modell versionen genom att uppdatera dem, enligt beskrivningen i avsnittet [*Uppdatera en digital-enhets modell*](how-to-manage-twin.md#update-a-digital-twins-model) i *instruktionen så här: hantera digitala dubbla*. I samma korrigering måste du uppdatera båda **modell-ID: t** (till den nya versionen) och **alla fält som måste ändras på den dubbla för att den ska överensstämma med den nya modellen**.
 
 ### <a name="remove-models"></a>Ta bort modeller
 

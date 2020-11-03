@@ -6,32 +6,32 @@ author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 02efaf3f0382a7af63717e777036637de2bbec25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40f8834a69101682abaaa7eac8ec9cafe8ef3d9e
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033208"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279375"
 ---
 # <a name="ingest-data-into-a-sql-pool"></a>Mata in data i en SQL-pool
 
 I den här artikeln får du lära dig hur du matar in data från ett Azure Data Lake gen 2-lagrings konto i en SQL-pool med Azure Synapse Analytics.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure Storage-konto**: du använder Azure Data Lake Storage gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att skapa ett.
-* **Azure Synapse Analytics**: du använder en SQL-pool som data lager för *mottagare* . Om du inte har en Azure Synapse Analytics-instans går du till [skapa en SQL-pool](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för steg för att skapa en.
+* **Azure-prenumeration** : om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* **Azure Storage-konto** : du använder Azure Data Lake Storage gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att skapa ett.
+* **Azure Synapse Analytics** : du använder en SQL-pool som data lager för *mottagare* . Om du inte har en Azure Synapse Analytics-instans går du till [skapa en SQL-pool](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för steg för att skapa en.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 
 I Azure Synapse Analytics är en länkad tjänst där du definierar din anslutnings information till andra tjänster. I det här avsnittet ska du lägga till en Azure Synapse Analytics och Azure Data Lake Storage Gen2 länkad tjänst.
 
 1. Öppna Azure Synapse Analytics-UX och gå till fliken **Hantera** .
-1. Under **externa anslutningar**väljer du **länkade tjänster**.
+1. Under **externa anslutningar** väljer du **länkade tjänster**.
 1. Om du vill lägga till en länkad tjänst väljer du **ny**.
 1. Välj panelen Azure Data Lake Storage Gen2 i listan och välj **Fortsätt**.
 1. Ange autentiseringsuppgifterna för autentisering. Konto nyckel, tjänstens huvud namn och hanterad identitet stöds för närvarande autentiseringstyper som stöds. Kontrol lera att dina autentiseringsuppgifter är korrekta genom att välja testa anslutning. Välj **Skapa** när du är klar.
@@ -41,7 +41,7 @@ I Azure Synapse Analytics är en länkad tjänst där du definierar din anslutni
 
 En pipeline innehåller det logiska flödet för en körning av en uppsättning aktiviteter. I det här avsnittet ska du skapa en pipeline som innehåller en kopierings aktivitet som matar in data från ADLS Gen2 i en SQL-pool.
 
-1. Gå till fliken **dirigera** . Välj på plus ikonen bredvid pipelinens huvud och välj **pipeline**.
+1. Gå till fliken **integrera** . Välj på plus ikonen bredvid pipelinens huvud och välj **pipeline**.
 1. Under **flytta och transformera** i fönstret aktiviteter drar du **Kopiera data** till pipeline-arbetsytan.
 1. Välj aktiviteten Kopiera och gå till fliken **källa** . Välj **ny** för att skapa en ny käll data uppsättning.
 1. Välj Azure Data Lake Storage Gen2 som data lager och välj Fortsätt.

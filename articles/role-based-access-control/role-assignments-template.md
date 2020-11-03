@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/29/2020
+ms.date: 11/02/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 400f0b1b55136f133c9ad01fd0ba4b5dbc5e6bcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d65b2db9c69d006476ae1d08a1af3e60efe48930
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612752"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280560"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Lägg till Azure-roll tilldelningar med Azure Resource Manager mallar
 
@@ -305,7 +305,9 @@ Följande visar ett exempel på roll tilldelningen deltagare till en användare 
 
 ### <a name="new-service-principal"></a>Nytt huvud namn för tjänsten
 
-Om du skapar ett nytt huvud namn för tjänsten och sedan omedelbart försöker tilldela en roll till tjänstens huvud namn kan roll tilldelningen inte utföras i vissa fall. Om du till exempel skapar en ny hanterad identitet och sedan försöker tilldela en roll till tjänstens huvud namn i samma Azure Resource Manager mall kan roll tilldelningen Miss Miss förväntat. Orsaken till det här felet är förmodligen en fördröjning i replikeringen. Tjänstens huvud namn skapas i en region. roll tilldelningen kan dock inträffa i en annan region som ännu inte har replikerat tjänstens huvud namn. För att åtgärda det här scenariot ska du ställa in `principalType` egenskapen till `ServicePrincipal` när roll tilldelningen skapas.
+Om du skapar ett nytt huvud namn för tjänsten och sedan omedelbart försöker tilldela en roll till tjänstens huvud namn kan roll tilldelningen inte utföras i vissa fall. Om du till exempel skapar en ny hanterad identitet och sedan försöker tilldela en roll till tjänstens huvud namn i samma Azure Resource Manager mall kan roll tilldelningen Miss Miss förväntat. Orsaken till det här felet är förmodligen en fördröjning i replikeringen. Tjänstens huvud namn skapas i en region. roll tilldelningen kan dock inträffa i en annan region som ännu inte har replikerat tjänstens huvud namn.
+
+För att åtgärda det här scenariot ska du ställa in `principalType` egenskapen till `ServicePrincipal` när roll tilldelningen skapas. Du måste också ange `apiVersion` roll tilldelningen till `2018-09-01-preview` eller senare.
 
 Följande mall visar:
 

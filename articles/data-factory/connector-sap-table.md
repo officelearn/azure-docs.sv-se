@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 1970709dea67111bfd8b90f9fc315a3b044b2ab9
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 4505deaa4cc11c00c7283ef686827d6893c2742a
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900255"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280417"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Kopiera data från en SAP-tabell med hjälp av Azure Data Factory
 
@@ -53,11 +53,11 @@ Mer specifikt stöder SAP Table Connector:
 Version 7,01 eller senare avser SAP NetWeaver-versionen i stället för SAP ECC-versionen. Exempelvis har SAP ECC 6,0 EHP 7 i allmänhet NetWeaver version >= 7,4. Om du är osäker på din miljö kan du använda följande steg för att bekräfta versionen från SAP-systemet:
 
 1. Använd SAP-gränssnittet för att ansluta till SAP-systemet. 
-2. Gå till **system**  ->  **status** . 
+2. Gå till **system**  ->  **status**. 
 3. Kontrol lera versionen av SAP_BASIS, se till att den är lika med eller större än 701.  
       ![Kontrol lera SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda den här SAP Table Connector måste du:
 
@@ -226,10 +226,10 @@ Följande egenskaper stöds för att kopiera data från en SAP-tabell:
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | `type`Egenskapen måste anges till `SapTableSource` .         | Ja      |
 | `rowCount`                         | Antalet rader som ska hämtas.                              | Nej       |
-| `rfcTableFields`                 | De fält (kolumner) som ska kopieras från SAP-tabellen. Till exempel `column0, column1`. | Nej       |
-| `rfcTableOptions`                | Alternativen för att filtrera raderna i en SAP-tabell. Till exempel `COLUMN0 EQ 'SOMEVALUE'`. Se även tabellen SAP Query-operator längre fram i den här artikeln. | Nej       |
+| `rfcTableFields`                 | De fält (kolumner) som ska kopieras från SAP-tabellen. Exempelvis `column0, column1`. | Nej       |
+| `rfcTableOptions`                | Alternativen för att filtrera raderna i en SAP-tabell. Exempelvis `COLUMN0 EQ 'SOMEVALUE'`. Se även tabellen SAP Query-operator längre fram i den här artikeln. | Nej       |
 | `customRfcReadTableFunctionModule` | En anpassad RFC Function-modul som kan användas för att läsa data från en SAP-tabell.<br>Du kan använda en anpassad RFC Function-modul för att definiera hur data hämtas från SAP-systemet och returneras till Data Factory. Modulen för anpassad funktion måste ha ett implementerat gränssnitt (importera, exportera, tabeller) som liknar `/SAPDS/RFC_READ_TABLE2` , vilket är det standard gränssnitt som används av Data Factory.<br>Data Factory | Nej       |
-| `partitionOption`                  | Den partition mekanism som ska läsas från en SAP-tabell. Alternativ som stöds är: <ul><li>`None`</li><li>`PartitionOnInt` (vanliga heltals-eller heltals värden med utfyllnaden noll till vänster, till exempel `0000012345` )</li><li>`PartitionOnCalendarYear` (4 siffror i formatet "åååå")</li><li>`PartitionOnCalendarMonth` (6 siffror i formatet "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 siffror i formatet "ÅÅÅÅMMDD")</li></ul> | Nej       |
+| `partitionOption`                  | Den partition mekanism som ska läsas från en SAP-tabell. Alternativ som stöds är: <ul><li>`None`</li><li>`PartitionOnInt` (vanliga heltals-eller heltals värden med utfyllnaden noll till vänster, till exempel `0000012345` )</li><li>`PartitionOnCalendarYear` (4 siffror i formatet "åååå")</li><li>`PartitionOnCalendarMonth` (6 siffror i formatet "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 siffror i formatet "ÅÅÅÅMMDD")</li><li>`PartitionOntime` (6 siffror i formatet "HHMMSS", t. ex. `235959` )</li></ul> | Nej       |
 | `partitionColumnName`              | Namnet på den kolumn som används för att partitionera data.                | Nej       |
 | `partitionUpperBound`              | Det maximala värdet för kolumnen som anges i `partitionColumnName` som ska användas för att fortsätta med partitionering. | Nej       |
 | `partitionLowerBound`              | Det minsta värdet för kolumnen som anges i `partitionColumnName` som ska användas för att fortsätta med partitionering. (Obs: `partitionLowerBound` kan inte vara "0" när partition alternativet är `PartitionOnInt` ) | Nej       |

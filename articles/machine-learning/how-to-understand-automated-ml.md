@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2
-ms.openlocfilehash: d27c65938d10f9061961ebb585327bc77d8b2859
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d66c5001d94d0c2d28ae3c55b468fbaf45871c98
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092468"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280360"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Utvärdera resultat från automatiska maskin inlärnings experiment
 
@@ -52,7 +52,7 @@ Visa körnings historik och modell prestanda mått och diagram i Studio:
 1. [Logga in på Studio](https://ml.azure.com/) och navigera till din arbets yta.
 1. I den vänstra panelen i arbets ytan väljer du **Kör**.
 1. I listan över experiment väljer du det som du vill utforska.
-1. Välj kommandot **Kör**i den nedre tabellen.
+1. Välj kommandot **Kör** i den nedre tabellen.
 1. På fliken **modeller** väljer du **algoritmens namn** för den modell som du vill utforska.
 1. På fliken **mått** väljer du vilka mått och diagram som du vill utvärdera för den modellen. 
 
@@ -68,7 +68,7 @@ Mått|Beskrivning|Beräkning|Extra parametrar
 AUC_macro| AUC är den del av den egenskaps kurva som används för mottagaren. Makro är det aritmetiska medelvärdet av AUC för varje klass.  | [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | genomsnitt = "makro"|
 AUC_micro| AUC är den del av den egenskaps kurva som används för mottagaren. Micro beräknas globalt genom att kombinera de sanna positiva positiva och falska positiva identifieringar från varje klass.| [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | genomsnitt = "Micro"|
 AUC_weighted  | AUC är den del av den egenskaps kurva som används för mottagaren. Viktat är det aritmetiska medelvärdet av poängen för varje klass, viktat med antalet sanna instanser i varje klass.| [Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|Average = "viktad"
-accuracy|Noggrannhet är procent andelen förväntade etiketter som exakt matchar de sanna etiketterna. |[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Inga|
+accuracy|Noggrannhet är procent andelen förväntade etiketter som exakt matchar de sanna etiketterna. |[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Inget|
 average_precision_score_macro|Genomsnittlig precision sammanfattar en precisions återställnings kurva som viktat medelvärde för de precisioner som uppnås vid varje tröskelvärde, med en ökning av återställningen från föregående tröskel som används som vikt. Makro är det aritmetiska medelvärdet av den genomsnittliga precisions poängen för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|genomsnitt = "makro"|
 average_precision_score_micro|Genomsnittlig precision sammanfattar en precisions återställnings kurva som viktat medelvärde för de precisioner som uppnås vid varje tröskelvärde, med en ökning av återställningen från föregående tröskel som används som vikt. Micro beräknas globalt genom att kombinera de sanna positiva positiva och falska positiva identifieringarna vid varje avgränsare.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|genomsnitt = "Micro"|
 average_precision_score_weighted|Genomsnittlig precision sammanfattar en precisions återställnings kurva som viktat medelvärde för de precisioner som uppnås vid varje tröskelvärde, med en ökning av återställningen från föregående tröskel som används som vikt. Viktat är det aritmetiska medelvärdet av den genomsnittliga precisions poängen för varje klass, viktat med antalet sanna instanser i varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|Average = "viktad"|
@@ -76,7 +76,7 @@ balanced_accuracy|Balanserade noggrannhet är det aritmetiska medelvärdet för 
 f1_score_macro|F1-Poäng är det harmoniska medelvärdet av precision och återkallande. Makro är det aritmetiska medelvärdet av F1-poängen för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|genomsnitt = "makro"|
 f1_score_micro|F1-Poäng är det harmoniska medelvärdet av precision och återkallande. Micro beräknas globalt genom att räkna antalet sanna positiva identifieringar, falska negativa negativa och falska positiva identifieringar.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|genomsnitt = "Micro"|
 f1_score_weighted|F1-Poäng är det harmoniska medelvärdet av precision och återkallande. Viktat medelvärde efter klass frekvens för F1-Poäng för varje klass|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|Average = "viktad"|
-log_loss|Detta är den förlust funktion som används i (MULTINOMIAL) Logistisk regression och tillägg, till exempel neurala Networks, definierad som den negativa logg sannolikheten för de faktiska etiketterna med en Probabilistic klassificerares förutsägelser. För ett enda exempel med True Label yt i {0,1} och uppskattad sannolikhet YP som yt = 1, är logg förlusten-log P (yt&#124;YP) =-(yt log (YP) + (1-yt) log (1-YP)).|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Inga|
+log_loss|Detta är den förlust funktion som används i (MULTINOMIAL) Logistisk regression och tillägg, till exempel neurala Networks, definierad som den negativa logg sannolikheten för de faktiska etiketterna med en Probabilistic klassificerares förutsägelser. För ett enda exempel med True Label yt i {0,1} och uppskattad sannolikhet YP som yt = 1, är logg förlusten-log P (yt&#124;YP) =-(yt log (YP) + (1-yt) log (1-YP)).|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Inget|
 norm_macro_recall|Normaliserat makro återkallande är ett makro som är normaliserat så att slumpmässiga prestanda har en poäng på 0 och perfekt prestanda har en poäng på 1. Detta uppnås genom norm_macro_recall: = (recall_score_macro-R)/(1-R), där R är det förväntade värdet för recall_score_macro för slumpmässiga förutsägelser (t. ex. R = 0,5 för binär klassificering och R = (1/C) för klassificerings problem i C-klass).|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|genomsnitt = "makro" |
 precision_score_macro|Precision är procent andelen positiva element som är korrekt märkta. Makro är det aritmetiska medelvärdet för varje klass.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|genomsnitt = "makro"|
 precision_score_micro|Precision är procent andelen positiva element som är korrekt märkta. Micro beräknas globalt genom att räkna antalet sanna positiva positiva och falska positiva identifieringar.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|genomsnitt = "Micro"|
@@ -159,7 +159,7 @@ Du kan jämföra hissen med modellen som skapats automatiskt med Azure Machine L
 
 ### <a name="what-does-a-good-model-look-like"></a>Vad ser en bra modell ut?
 
-En högre lyft kurva, det vill säga ju högre modell som är högre än bas linjen, visar en modell med bättre prestanda. 
+En bättre presterande modell har en lyft kurva som är högre i grafen och ytterligare från bas linjen. 
 
 #### <a name="example-1-a-classification-model-that-performs-poorly-compared-to-a-random-selection-model"></a>Exempel 1: en klassificerings modell som fungerar dåligt jämfört med en slumpmässig markerings modell
 ![En klassificerings modell som är sämre än en slumpmässig markerings modell](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
@@ -213,16 +213,16 @@ I följande tabell sammanfattas de modell prestanda mått som AutoML beräknar f
 
 |Mått|Beskrivning|Beräkning|Extra parametrar
 --|--|--|--|
-explained_variance|Förklarad varians är den proportion som en matematisk modell utgörs av för variationen av en specifik data uppsättning. Det är den procentuella minskningen av var Ian sen för de ursprungliga data som var fel. När medelvärdet för felen är 0 är det lika med koefficienten för bestämning (se r2_score nedan).|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Inga|
-r2_score|R ^ 2 är koefficienten för bestämningen eller procent minskningen i kvadrat-fel jämfört med en bas linje modell som matar ut medelvärdet. |[Beräkning](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Inga|
-spearman_correlation|Spearman-korrelationen är en parameter som inte är ett mått på monotonicity för relationen mellan två data uppsättningar. Till skillnad från Pearson-korrelationen förutsätter Spearman-korrelationen inte att båda data uppsättningarna vanligt vis distribueras. Precis som andra korrelations koefficienter varierar den här typen mellan-1 och + 1 med 0, vilket innebär att ingen korrelation. Korrelationer på-1 eller + 1 innebär en exakt enkel färgs relation. Positiva korrelationer innebär att x ökar, så y. Negativa korrelationer innebär att vartefter x ökar, y minskar.|[Beräkning](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Inga|
-mean_absolute_error|Medelvärde för absolut fel är det förväntade värdet av absolut värde för skillnaden mellan målet och förutsägelsen|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Inga|
+explained_variance|Förklarad varians är den proportion som en matematisk modell utgörs av för variationen av en specifik data uppsättning. Det är den procentuella minskningen av var Ian sen för de ursprungliga data som var fel. När medelvärdet för felen är 0 är det lika med koefficienten för bestämning (se r2_score nedan).|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Inget|
+r2_score|R ^ 2 är koefficienten för bestämningen eller procent minskningen i kvadrat-fel jämfört med en bas linje modell som matar ut medelvärdet. |[Beräkning](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Inget|
+spearman_correlation|Spearman-korrelationen är en parameter som inte är ett mått på monotonicity för relationen mellan två data uppsättningar. Till skillnad från Pearson-korrelationen förutsätter Spearman-korrelationen inte att båda data uppsättningarna vanligt vis distribueras. Precis som andra korrelations koefficienter varierar den här typen mellan-1 och + 1 med 0, vilket innebär att ingen korrelation. Korrelationer på-1 eller + 1 innebär en exakt enkel färgs relation. Positiva korrelationer innebär att x ökar, så y. Negativa korrelationer innebär att vartefter x ökar, y minskar.|[Beräkning](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Inget|
+mean_absolute_error|Medelvärde för absolut fel är det förväntade värdet av absolut värde för skillnaden mellan målet och förutsägelsen|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Inget|
 normalized_mean_absolute_error|Normaliserat medelvärde är ett absolut fel dividerat med data området|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Dela efter data intervall|
-median_absolute_error|Median det absoluta felet är median värdet för alla absoluta skillnader mellan målet och förutsägelsen. Den här förlusten är robust för att kunna avvika.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Inga|
+median_absolute_error|Median det absoluta felet är median värdet för alla absoluta skillnader mellan målet och förutsägelsen. Den här förlusten är robust för att kunna avvika.|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Inget|
 normalized_median_absolute_error|Det normaliserade median värdet är median som är ett absolut fel dividerat med data området|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Dela efter data intervall|
-root_mean_squared_error|Det genomsnittliga kvadratvärdet i roten är kvadratroten ur den förväntade skillnaden i kvadraten mellan målet och förutsägelsen|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Inga|
+root_mean_squared_error|Det genomsnittliga kvadratvärdet i roten är kvadratroten ur den förväntade skillnaden i kvadraten mellan målet och förutsägelsen|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Inget|
 normalized_root_mean_squared_error|Normaliserat rot genomsnitts fel i roten är ett kvadratrots fel dividerat med data intervallet|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Dela efter data intervall|
-root_mean_squared_log_error|Rot genomsnitts logg fel i kvadrat är kvadratroten ur det förväntade logaritmiska felet|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Inga|
+root_mean_squared_log_error|Rot genomsnitts logg fel i kvadrat är kvadratroten ur det förväntade logaritmiska felet|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Inget|
 normalized_root_mean_squared_log_error|Normaliserat rot genomsnitts fel i kvadratroten är ett rot genomsnitts logg fel som delas av data intervallet|[Beräkning](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dela efter data intervall|
 
 <a name="pvt"></a>
@@ -234,12 +234,12 @@ Vid förutsägelse jämfört med sant visas relationen mellan ett förutsägande
 Efter varje körning kan du se ett förutsägande vs. True-diagram för varje Regressions modell. För att skydda data integriteten är värden diskretiseras och storleken på varje lager plats visas som ett stapeldiagram i den nedre delen av diagram området. Du kan jämföra förutsägelse modellen med det ljusare skuggade avsnittet som visar fel marginaler mot det idealiska värdet för var modellen ska vara.
 
 ### <a name="what-does-a-good-model-look-like"></a>Vad ser en bra modell ut?
-Det här diagrammet kan användas för att mäta prestanda för en modell som närmare y = x-linjen, de förväntade värdena är, desto bättre precision för en förutsägelse modell.
+Det här diagrammet kan användas för att mäta prestanda för en modell som närmare y = x-linjen, de förväntade värdena är, desto bättre prestanda för en förutsägelse modell.
 
-#### <a name="example-1-a-classification-model-with-low-accuracy"></a>Exempel 1: en klassificerings modell med låg exakthet
+#### <a name="example-1-a-regression-model-with-low-performance"></a>Exempel 1: en Regressions modell med låg prestanda
 ![En Regressions modell med låg precision i förutsägelserna](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-#### <a name="example-2-a-regression-model-with-high-accuracy"></a>Exempel 2: en Regressions modell med hög noggrannhet 
+#### <a name="example-2-a-regression-model-with-high-performance"></a>Exempel 2: en Regressions modell med hög prestanda
 ![En Regressions modell med hög noggrannhet i dess förutsägelser](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a> 
@@ -254,7 +254,7 @@ Om du vill visa en marginal på fel med låg förskjutning måste histogrammets 
 #### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Exempel 1: en Regressions modell med en förskjutning i dess fel
 ![SA Regressions modell med förskjutning i sina fel](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-#### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Exempel 2: en Regressions modell med mer jämn distribution av fel
+#### <a name="example-2-a-regression-model-with-a-more-even-distribution-of-errors"></a>Exempel 2: en Regressions modell med en mer jämn fördelning av fel
 ![En Regressions modell med mer jämn fördelning av fel](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 <a name="explain-model"></a>

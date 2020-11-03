@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: ffda2b1d096b3c84e3f1df10e37c44922bab16ef
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/30/2020
+ms.openlocfilehash: dcf3db33818448116da53d8a01d0c62aca7bc1af
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632421"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280170"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Läs in data i Azure Synapse Analytics med hjälp av Azure Data Factory
 
@@ -33,12 +33,12 @@ Azure Data Factory erbjuder följande fördelar för att läsa in data i Azure S
 * **Säkert och kompatibelt** : data överförs via https eller ExpressRoute. Med den globala tjänstens närvaro ser du till att dina data aldrig lämnar den geografiska gräns.
 * **Oöverträffade prestanda med hjälp av PolyBase** : Polybase är det mest effektiva sättet att flytta data till Azure Synapse Analytics. Använd funktionen för mellanlagring av BLOB för att uppnå höga belastnings hastigheter från alla typer av data lager, inklusive Azure Blob Storage och Data Lake Store. (PolyBase stöder Azure Blob Storage och Azure Data Lake Store som standard.) Mer information finns i [Kopiera aktivitets prestanda](copy-activity-performance.md).
 
-Den här artikeln visar hur du använder verktyget Data Factory Kopiera data för att _läsa in data från Azure SQL Database till Azure Synapse Analytics_ . Du kan följa liknande steg för att kopiera data från andra typer av data lager.
+Den här artikeln visar hur du använder verktyget Data Factory Kopiera data för att _läsa in data från Azure SQL Database till Azure Synapse Analytics_. Du kan följa liknande steg för att kopiera data från andra typer av data lager.
 
 > [!NOTE]
 > Mer information finns i [Kopiera data till eller från Azure Synapse Analytics med hjälp av Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Azure Synapse Analytics: data lagret innehåller de data som kopieras från SQL-databasen. Om du inte har en Azure Synapse-analys kan du läsa anvisningarna i [skapa en Azure Synapse-analys](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md).
@@ -51,13 +51,13 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 
 2. På sidan **ny data fabrik** anger du värden för följande objekt:
 
-    * **Namn** : ange *LoadSQLDWDemo* som namn. Namnet på data fabriken måste vara * globalt unikt. Om du får felet "data fabriks namnet" LoadSQLDWDemo "är inte tillgängligt" anger du ett annat namn på data fabriken. Du kan till exempel använda namnet _**dittnamn**_**ADFTutorialDataFactory** . Försök att skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+    * **Namn** : ange *LoadSQLDWDemo* som namn. Namnet på data fabriken måste vara * globalt unikt. Om du får felet "data fabriks namnet" LoadSQLDWDemo "är inte tillgängligt" anger du ett annat namn på data fabriken. Du kan till exempel använda namnet _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa data fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration** : Välj din Azure-prenumeration där du vill skapa data fabriken. 
     * **Resurs grupp** : Välj en befintlig resurs grupp i list rutan eller Välj alternativet för att **Skapa nytt** och ange namnet på en resurs grupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
-    * **Version** : Välj **V2** .
+    * **Version** : Välj **V2**.
     * **Plats** : Välj plats för data fabriken. Endast platser som stöds visas i listrutan. De data lager som används av Data Factory kan finnas på andra platser och regioner. Dessa data lager omfattar Azure Data Lake Store, Azure Storage, Azure SQL Database och så vidare.
 
-3. Välj **Skapa** .
+3. Välj **Skapa**.
 4. När du har skapat filen går du till din data fabrik. Du ser **Data Factory** start sida så som visas i följande bild:
 
    ![Datafabrikens startsida](./media/doc-common-process/data-factory-home-page.png)
@@ -68,7 +68,7 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 
 1. På sidan **Kom igång** väljer du panelen **Kopiera data** för att starta verktyget Kopiera data.
 
-2. På sidan **Egenskaper** anger du **CopyFromSQLToSQLDW** för fältet **uppgifts namn** och väljer **Nästa** .
+2. På sidan **Egenskaper** anger du **CopyFromSQLToSQLDW** för fältet **uppgifts namn** och väljer **Nästa**.
 
     ![Sidan Egenskaper](./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png)
 
@@ -77,23 +77,23 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
     >I den här självstudien använder du *SQL-autentisering* som autentiseringstyp för ditt käll data lager, men du kan välja andra autentiseringsmetoder som stöds: *tjänstens huvud namn* och *hanterad identitet* om det behövs. Mer information finns i motsvarande avsnitt i [den här artikeln](./connector-azure-sql-database.md#linked-service-properties) .
     >För att lagra hemligheter för data lager säkert rekommenderar vi också att du använder en Azure Key Vault. Se [den här artikeln](./store-credentials-in-key-vault.md) för detaljerade illustrationer.
 
-    a. Klicka på **+ Skapa ny anslutning** .
+    a. Klicka på **+ Skapa ny anslutning**.
 
-    b. Välj **Azure SQL Database** i galleriet och välj **Fortsätt** . Du kan skriva "SQL" i sökrutan för att filtrera kopplingarna.
+    b. Välj **Azure SQL Database** i galleriet och välj **Fortsätt**. Du kan skriva "SQL" i sökrutan för att filtrera kopplingarna.
 
     ![Välj Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. På sidan **ny länkad tjänst** väljer du Server namnet och databas namnet i list rutan och anger användar namn och lösen ord. Verifiera inställningarna genom att klicka på **Testa anslutning** och välj sedan **skapa** .
+    c. På sidan **ny länkad tjänst** väljer du Server namnet och databas namnet i list rutan och anger användar namn och lösen ord. Verifiera inställningarna genom att klicka på **Testa anslutning** och välj sedan **skapa**.
 
     ![Konfigurera Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
-    d. Välj den nyligen skapade länkade tjänsten som källa och klicka sedan på **Nästa** .
+    d. Välj den nyligen skapade länkade tjänsten som källa och klicka sedan på **Nästa**.
 
-4. I listan **Välj tabeller som data ska kopieras från eller Använd en anpassad fråga** anger du **SalesLT** för att filtrera tabellerna. Välj rutan **(Markera alla)** om du vill använda alla tabeller för kopian och välj sedan **Nästa** .
+4. I listan **Välj tabeller som data ska kopieras från eller Använd en anpassad fråga** anger du **SalesLT** för att filtrera tabellerna. Välj rutan **(Markera alla)** om du vill använda alla tabeller för kopian och välj sedan **Nästa**.
 
     ![Välj käll tabeller](./media/load-azure-sql-data-warehouse/select-source-tables.png)
 
-5. På sidan **Använd filter** anger du inställningarna eller väljer **Nästa** .
+5. På sidan **Använd filter** anger du inställningarna eller väljer **Nästa**.
 
 6. Utför följande steg på sidan **mål data lager** :
     >[!TIP]
@@ -102,24 +102,21 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 
     a. Klicka på **+ Skapa ny anslutning** för att lägga till en anslutning
 
-    b. Välj **Azure Synapse Analytics (tidigare SQL Data Warehouse)** från galleriet och välj **Fortsätt** . Du kan skriva "SQL" i sökrutan för att filtrera kopplingarna.
+    b. Välj **Azure Synapse Analytics (tidigare SQL Data Warehouse)** från galleriet och välj **Fortsätt**. Du kan skriva "SQL" i sökrutan för att filtrera kopplingarna.
 
     ![Välj Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. På sidan **ny länkad tjänst** väljer du Server namnet och databas namnet i list rutan och anger användar namn och lösen ord. Verifiera inställningarna genom att klicka på **Testa anslutning** och välj sedan **skapa** .
+    c. På sidan **ny länkad tjänst** väljer du Server namnet och databas namnet i list rutan och anger användar namn och lösen ord. Verifiera inställningarna genom att klicka på **Testa anslutning** och välj sedan **skapa**.
 
     ![Konfigurera Azure Synapse Analytics](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
-    d. Välj den nyligen skapade länkade tjänsten som mottagare och klicka sedan på **Nästa** .
+    d. Välj den nyligen skapade länkade tjänsten som mottagare och klicka sedan på **Nästa**.
 
-7. På sidan **tabell mappning** granskar du innehållet och väljer **Nästa** . En intelligent tabell mappning visas. Käll tabellerna mappas till mål tabellerna baserat på tabell namn. Om en käll tabell inte finns i målet skapar Azure Data Factory en mål tabell med samma namn som standard. Du kan också mappa en käll tabell till en befintlig mål tabell.
-
-   > [!NOTE]
-   > Automatisk tabell skapande för Azure Synapse Analytics-mottagaren gäller när SQL Server eller Azure SQL Database är källan. Om du kopierar data från ett annat käll data lager måste du skapa schemat i Azure Synapse Analytics innan du kör data kopieringen.
+7. På sidan **tabell mappning** granskar du innehållet och väljer **Nästa**. En intelligent tabell mappning visas. Käll tabellerna mappas till mål tabellerna baserat på tabell namn. Om en käll tabell inte finns i målet skapar Azure Data Factory en mål tabell med samma namn som standard. Du kan också mappa en käll tabell till en befintlig mål tabell.
 
    ![Sidan för tabellmappning](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
-8. Granska innehållet på sidan **kolumn mappning** och välj **Nästa** . Den intelligenta tabell mappningen baseras på kolumn namnet. Om du låter Data Factory skapa tabeller automatiskt, kan data typ konverteringen ske när det finns inkompatibiliteter mellan käll-och mål arkiven. Om det finns en data typs konvertering som inte stöds mellan kolumnen källa och mål visas ett fel meddelande bredvid motsvarande tabell.
+8. Granska innehållet på sidan **kolumn mappning** och välj **Nästa**. Den intelligenta tabell mappningen baseras på kolumn namnet. Om du låter Data Factory skapa tabeller automatiskt, kan data typ konverteringen ske när det finns inkompatibiliteter mellan käll-och mål arkiven. Om det finns en data typs konvertering som inte stöds mellan kolumnen källa och mål visas ett fel meddelande bredvid motsvarande tabell.
 
     ![Kolumn mappnings sida](./media/load-azure-sql-data-warehouse/schema-mapping.png)
 
@@ -129,11 +126,11 @@ Den här artikeln visar hur du använder verktyget Data Factory Kopiera data fö
 
     b. På sidan **ny länkad tjänst** väljer du ditt lagrings konto och väljer **skapa** för att distribuera den länkade tjänsten.
 
-    c. I avsnittet **Avancerade inställningar** avmarkerar du alternativet **Använd typ standard** och väljer sedan **Nästa** .
+    c. I avsnittet **Avancerade inställningar** avmarkerar du alternativet **Använd typ standard** och väljer sedan **Nästa**.
 
     ![Konfigurera PolyBase](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 
-10. På sidan **Sammanfattning** granskar du inställningarna och väljer **Nästa** .
+10. På sidan **Sammanfattning** granskar du inställningarna och väljer **Nästa**.
 
     ![Sammanfattningssida](./media/load-azure-sql-data-warehouse/summary-page.png)
 

@@ -4,17 +4,17 @@ description: Skapa en Azure SQL-hanterad instans med hjälp av Azure Data Studio
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f4c1d4d83ad3c39bab8058ad29662891fe3678a1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 651811384a8e831c41c48ca8c4849e5ee3852054
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320305"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280474"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Skapa SQL-hanterad instans – Azure Arc med Azure Data Studio
 
@@ -100,6 +100,6 @@ sqlinstance1  1/1         25.51.65.109:1433  Ready
 
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Försök nu att [övervaka din SQL-instans](monitor-grafana-kibana.md)

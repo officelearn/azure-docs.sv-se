@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/14/2020
-ms.openlocfilehash: f9907b746c1dceb0b0e847c09ea4a549138f0064
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 11/02/2020
+ms.openlocfilehash: 43d4b20564fb4d76b2cb8441c805f391d6ece68b
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047734"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280231"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Kopiera data från tjänsten Amazon Simple Storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -43,7 +43,7 @@ Den här Amazon S3-kopplingen stöds för följande aktiviteter:
 Mer specifikt stöder den här Amazon S3-anslutaren kopiering av filer som är eller parsar filer med [fil format och komprimerings-codec som stöds](supported-file-formats-and-compression-codecs.md). Du kan också välja att [bevara fil-metadata under kopieringen](#preserve-metadata-during-copy). Anslutningen använder [AWS Signature version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) för att autentisera begär anden till S3.
 
 >[!TIP]
->Du kan använda den här Amazon S3-anslutningen för att kopiera data från *valfri S3-kompatibel lagringsprovider*, till exempel [Google Cloud Storage](connector-google-cloud-storage.md). Ange motsvarande tjänst-URL i den länkade tjänst konfigurationen.
+>Du kan använda den här Amazon S3-anslutningen för att kopiera data från *valfri S3-kompatibel lagringsprovider* , till exempel [Google Cloud Storage](connector-google-cloud-storage.md). Ange motsvarande tjänst-URL i den länkade tjänst konfigurationen.
 
 ## <a name="required-permissions"></a>Behörigheter som krävs
 
@@ -66,17 +66,17 @@ Följande egenskaper stöds för en Amazon S3-länkad tjänst:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** måste anges till **AmazonS3**. | Ja |
+| authenticationType | Ange autentiseringstypen som används för att ansluta till Amazon S3. Du kan välja att använda åtkomst nycklar för ett AWS-konto för identitets-och åtkomst hantering (IAM) eller [tillfälliga säkerhets referenser](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html).<br>Tillåtna värden är: `AccessKey` (standard) och `TemporarySecurityCredentials` . |Nej |
 | accessKeyId | ID för den hemliga åtkomst nyckeln. |Ja |
 | secretAccessKey | Den hemliga åtkomst nyckeln. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| serviceUrl | Ange den anpassade S3-slutpunkten om du kopierar data från en S3-kompatibel lagringsprovider än den officiella Amazon S3-tjänsten. Om du till exempel vill kopiera data från Google Cloud Storage anger du `https://storage.googleapis.com` . | Inga |
-| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure integration runtime eller den lokala integrerings körningen (om ditt data lager finns i ett privat nätverk). Om den här egenskapen inte anges använder tjänsten standard Azure integration Runtime. |Inga |
-
-Den här anslutningen kräver åtkomst nycklar för ett AWS-konto för identitets-och åtkomst hantering (IAM) för att kopiera data från Amazon S3. [Tillfälliga säkerhets referenser](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) stöds inte nu.
+| sessionToken | Gäller när du använder autentisering med [tillfälliga autentiseringsuppgifter](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) . Lär dig hur du [begär tillfälliga säkerhets referenser](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) från AWS.<br>Observera att AWS tillfälliga autentiseringsuppgifter upphör att gälla mellan 15 minuter och 36 timmar baserat på inställningar. Kontrol lera att autentiseringsuppgiften är giltig när aktiviteten körs, särskilt för drift arbets belastning – till exempel kan du uppdatera den regelbundet och lagra den i Azure Key Vault.<br>Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Nej |
+| serviceUrl | Ange den anpassade S3-slutpunkten om du kopierar data från en S3-kompatibel lagringsprovider än den officiella Amazon S3-tjänsten. Om du till exempel vill kopiera data från Google Cloud Storage anger du `https://storage.googleapis.com` . | Nej |
+| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Du kan använda Azure integration runtime eller den lokala integrerings körningen (om ditt data lager finns i ett privat nätverk). Om den här egenskapen inte anges använder tjänsten standard Azure integration Runtime. |Nej |
 
 >[!TIP]
 >Ange URL: en för den anpassade S3-tjänsten om du kopierar data från en S3-kompatibel lagrings plats än den officiella Amazon S3-tjänsten.
 
-Här är ett exempel:
+**Exempel: använda autentisering med åtkomst nyckel**
 
 ```json
 {
@@ -88,6 +88,33 @@ Här är ett exempel:
             "secretAccessKey": {
                 "type": "SecureString",
                 "value": "<secret access key>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exempel: använda autentisering med tillfälliga säkerhets referenser**
+
+```json
+{
+    "name": "AmazonS3LinkedService",
+    "properties": {
+        "type": "AmazonS3",
+        "typeProperties": {
+            "authenticationType": "TemporarySecurityCredentials",
+            "accessKeyId": "<access key id>",
+            "secretAccessKey": {
+                "type": "SecureString",
+                "value": "<secret access key>"
+            },
+            "sessionToken": {
+                "type": "SecureString",
+                "value": "<session token>"
             }
         },
         "connectVia": {
@@ -110,9 +137,9 @@ Följande egenskaper stöds för Amazon S3 under `location` Inställningar i en 
 | ---------- | ------------------------------------------------------------ | -------- |
 | typ       | **Typ** egenskapen under `location` i en data mängd måste anges till **AmazonS3Location**. | Ja      |
 | bucketName | S3-Bucket-namn.                                          | Ja      |
-| folderPath | Sökvägen till mappen under den angivna Bucket. Om du vill använda ett jokertecken för att filtrera mappen, hoppar du över den här inställningen och anger det i inställningarna för aktivitets källan. | Inga       |
-| fileName   | Fil namnet under den angivna Bucket och sökvägen till mappen. Om du vill använda ett jokertecken för att filtrera filer, hoppar du över den här inställningen och anger det i inställningarna för aktivitets källan. | Inga       |
-| version | Versionen av S3-objektet, om S3-versioner är aktive rad. Om den inte anges kommer den senaste versionen att hämtas. |Inga |
+| folderPath | Sökvägen till mappen under den angivna Bucket. Om du vill använda ett jokertecken för att filtrera mappen, hoppar du över den här inställningen och anger det i inställningarna för aktivitets källan. | Nej       |
+| fileName   | Fil namnet under den angivna Bucket och sökvägen till mappen. Om du vill använda ett jokertecken för att filtrera filer, hoppar du över den här inställningen och anger det i inställningarna för aktivitets källan. | Nej       |
+| version | Versionen av S3-objektet, om S3-versioner är aktive rad. Om den inte anges kommer den senaste versionen att hämtas. |Nej |
 
 **Exempel:**
 
@@ -154,20 +181,20 @@ Följande egenskaper stöds för Amazon S3 under `storeSettings` Inställningar 
 | Egenskap                 | Beskrivning                                                  | Krävs                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | typ                     | **Typ** egenskapen under `storeSettings` måste anges till **AmazonS3ReadSettings**. | Ja                                                         |
-| ***Leta upp de filer som ska kopieras:*** |  |  |
-| ALTERNATIV 1: statisk sökväg<br> | Kopiera från den angivna Bucket-eller mappen/fil Sök vägen som anges i data uppsättningen. Om du vill kopiera alla filer från en Bucket eller mapp, anger du också `wildcardFileName` som `*` . |  |
-| ALTERNATIV 2: S3-prefix<br>-prefix | Prefix för S3-nyckel namnet under den angivna Bucket som kon figurer ATS i en data uppsättning för att filtrera källa S3-filer. S3-nycklar vars namn börjar med `bucket_in_dataset/this_prefix` väljs. Den använder S3's service filter, som ger bättre prestanda än ett Wildcard-filter. | Inga |
-| ALTERNATIV 3: jokertecken<br>- wildcardFolderPath | Mappsökvägen med jokertecken under den angivna Bucket som kon figurer ATS i en data uppsättning för att filtrera källmappen. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om ditt mappnamn har ett jokertecken eller detta escape-tecken inuti. <br>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Inga                                            |
+| **_Leta upp de filer som ska kopieras:_* _ |  |  |
+| ALTERNATIV 1: statisk sökväg<br> | Kopiera från den angivna Bucket-eller mappen/fil Sök vägen som anges i data uppsättningen. Om du vill kopiera alla filer från en Bucket eller mapp, anger du också `wildcardFileName` som `_` . |  |
+| ALTERNATIV 2: S3-prefix<br>-prefix | Prefix för S3-nyckel namnet under den angivna Bucket som kon figurer ATS i en data uppsättning för att filtrera källa S3-filer. S3-nycklar vars namn börjar med `bucket_in_dataset/this_prefix` väljs. Den använder S3's service filter, som ger bättre prestanda än ett Wildcard-filter. | Nej |
+| ALTERNATIV 3: jokertecken<br>- wildcardFolderPath | Mappsökvägen med jokertecken under den angivna Bucket som kon figurer ATS i en data uppsättning för att filtrera källmappen. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om ditt mappnamn har ett jokertecken eller detta escape-tecken inuti. <br>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Nej                                            |
 | ALTERNATIV 3: jokertecken<br>- wildcardFileName | Fil namnet med jokertecken under den angivna Bucket och mappsökvägen (eller sökvägen till jokertecken) för att filtrera källfiler. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om ditt mappnamn har ett jokertecken eller detta escape-tecken inuti.  Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Ja |
-| ALTERNATIV 4: en lista över filer<br>- fileListPath | Anger om du vill kopiera en angiven fil uppsättning. Peka på en textfil som innehåller en lista över filer som du vill kopiera, en fil per rad, som är den relativa sökvägen till den sökväg som kon figurer ATS i data uppsättningen.<br/>När du använder det här alternativet ska du inte ange ett fil namn i data uppsättningen. Se fler exempel i [fil List exempel](#file-list-examples). |Inga |
-| ***Ytterligare inställningar:*** |  | |
-| rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. Observera att när **rekursivt** har angetts till **True** och sinken är en filbaserad lagring, kopieras inte en tom mapp eller undermapp till mottagaren. <br>Tillåtna värden är **True** (standard) och **false**.<br>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . |Inga |
-| deleteFilesAfterCompletion | Anger om de binära filerna kommer att tas bort från käll arkivet efter att du har flyttat till mål lagret. Filen som ska tas bort är per fil, så när kopierings aktiviteten Miss lyckas visas några filer som redan har kopierats till målet och tagits bort från källan, medan andra fortfarande är kvar på käll arkivet. <br/>Den här egenskapen är endast giltig i ett binärt fil kopierings scenario. Standardvärdet: false. |Inga |
-| modifiedDatetimeStart    | Filerna filtreras baserat på attributet: senast ändrad. <br>Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd` . Tiden tillämpas på en UTC-tidszon i formatet "2018-12-01T05:00:00Z". <br> Egenskaperna kan vara **Null**, vilket innebär att inget attribut filter används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är **Null**väljs de filer vars senast ändrade attribut är större än eller lika med värdet för DateTime.  När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` , men är **Null**, väljs filerna vars senast ändrade attribut är mindre än värdet för DateTime.<br/>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . | Inga                                            |
-| modifiedDatetimeEnd      | Samma som ovan.                                               | Inga                                                          |
-| enablePartitionDiscovery | För filer som är partitionerade anger du om du vill parsa partitionerna från fil Sök vägen och lägga till dem som ytterligare käll kolumner.<br/>Tillåtna värden är **false** (standard) och **True**. | Inga                                            |
-| partitionRootPath | När partitions identifiering har Aktiver ATS anger du den absoluta rot Sök vägen för att kunna läsa partitionerade mappar som data kolumner.<br/><br/>Om den inte anges, som standard,<br/>– När du använder fil Sök vägen i data uppsättningen eller en lista med filer på källan, är partitionens rot Sök väg den sökväg som kon figurer ATS i data uppsättningen.<br/>– När du använder mapp-filter med jokertecken är partitionens rot Sök väg den underordnade sökvägen före det första jokertecknet.<br/>– När du använder prefix är partitionens rot Sök väg under Sök väg före den sista "/". <br/><br/>Anta till exempel att du konfigurerar sökvägen i dataset som "rot/mapp/år = 2020/månad = 08/Day = 27":<br/>– Om du anger partitionens rot Sök väg som "rot/mapp/år = 2020" genererar kopierings aktiviteten två kolumner `month` och `day` värdet "08" respektive "27", förutom kolumnerna inuti filerna.<br/>-Om partitionens rot Sök väg inte anges genereras ingen extra kolumn. | Inga                                            |
-| maxConcurrentConnections | Antalet samtidiga anslutningar till data lagret. Ange bara när du vill begränsa samtidiga anslutningar till data lagret. | Inga                                                          |
+| ALTERNATIV 4: en lista över filer<br>- fileListPath | Anger om du vill kopiera en angiven fil uppsättning. Peka på en textfil som innehåller en lista över filer som du vill kopiera, en fil per rad, som är den relativa sökvägen till den sökväg som kon figurer ATS i data uppsättningen.<br/>När du använder det här alternativet ska du inte ange ett fil namn i data uppsättningen. Se fler exempel i [fil List exempel](#file-list-examples). |Nej |
+| ***Ytterligare inställningar:** _ |  | |
+| rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. Observera att när _ *recursive* * har angetts till **True** och sinken är en filbaserad lagring, kopieras inte en tom mapp eller undermapp till mottagaren. <br>Tillåtna värden är **True** (standard) och **false**.<br>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . |Nej |
+| deleteFilesAfterCompletion | Anger om de binära filerna kommer att tas bort från käll arkivet efter att du har flyttat till mål lagret. Filen som ska tas bort är per fil, så när kopierings aktiviteten Miss lyckas visas några filer som redan har kopierats till målet och tagits bort från källan, medan andra fortfarande är kvar på käll arkivet. <br/>Den här egenskapen är endast giltig i ett binärt fil kopierings scenario. Standardvärdet: false. |Nej |
+| modifiedDatetimeStart    | Filerna filtreras baserat på attributet: senast ändrad. <br>Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd` . Tiden tillämpas på en UTC-tidszon i formatet "2018-12-01T05:00:00Z". <br> Egenskaperna kan vara **Null** , vilket innebär att inget attribut filter används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är **Null** väljs de filer vars senast ändrade attribut är större än eller lika med värdet för DateTime.  När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` , men är **Null** , väljs filerna vars senast ändrade attribut är mindre än värdet för DateTime.<br/>Den här egenskapen gäller inte när du konfigurerar `fileListPath` . | Nej                                            |
+| modifiedDatetimeEnd      | Samma som ovan.                                               | Nej                                                          |
+| enablePartitionDiscovery | För filer som är partitionerade anger du om du vill parsa partitionerna från fil Sök vägen och lägga till dem som ytterligare käll kolumner.<br/>Tillåtna värden är **false** (standard) och **True**. | Nej                                            |
+| partitionRootPath | När partitions identifiering har Aktiver ATS anger du den absoluta rot Sök vägen för att kunna läsa partitionerade mappar som data kolumner.<br/><br/>Om den inte anges, som standard,<br/>– När du använder fil Sök vägen i data uppsättningen eller en lista med filer på källan, är partitionens rot Sök väg den sökväg som kon figurer ATS i data uppsättningen.<br/>– När du använder mapp-filter med jokertecken är partitionens rot Sök väg den underordnade sökvägen före det första jokertecknet.<br/>– När du använder prefix är partitionens rot Sök väg under Sök väg före den sista "/". <br/><br/>Anta till exempel att du konfigurerar sökvägen i dataset som "rot/mapp/år = 2020/månad = 08/Day = 27":<br/>– Om du anger partitionens rot Sök väg som "rot/mapp/år = 2020" genererar kopierings aktiviteten två kolumner `month` och `day` värdet "08" respektive "27", förutom kolumnerna inuti filerna.<br/>-Om partitionens rot Sök väg inte anges genereras ingen extra kolumn. | Nej                                            |
+| maxConcurrentConnections | Antalet samtidiga anslutningar till data lagret. Ange bara när du vill begränsa samtidiga anslutningar till data lagret. | Nej                                                          |
 
 **Exempel:**
 
@@ -258,13 +285,13 @@ Om du vill veta mer om egenskaperna kontrollerar du [ta bort aktivitet](delete-a
 |:--- |:--- |:--- |
 | typ | Data uppsättningens **typ** -egenskap måste anges till **AmazonS3Object**. |Ja |
 | bucketName | S3-Bucket-namn. Wildcard-filtret stöds inte. |Ja för kopierings-eller söknings aktiviteten, nej för GetMetadata-aktiviteten |
-| key | Namnet eller wildcard-filtret för S3-objekt nyckeln under den angivna Bucket. Gäller endast när egenskapen **prefix** inte anges. <br/><br/>Wildcard-filtret stöds för både del-och fil namns delen. Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken).<br/>– Exempel 1: `"key": "rootfolder/subfolder/*.csv"`<br/>– Exempel 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). Används `^` för att kringgå om din faktiska mapp eller fil namn har ett jokertecken eller detta escape-tecken inuti. |Inga |
-| protokollprefixet | Prefix för S3-objekt nyckeln. Objekt vars nycklar börjar med det här prefixet väljs. Gäller endast när **nyckel** egenskapen inte har angetts. |Inga |
-| version | Versionen av S3-objektet, om S3-versioner är aktive rad. Om en version inte anges kommer den senaste versionen att hämtas. |Inga |
-| modifiedDatetimeStart | Filerna filtreras baserat på attributet: senast ändrad. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br/><br/> Tänk på att om du aktiverar den här inställningen kommer den övergripande prestandan för data förflyttning att påverkas när du vill filtrera enorma mängder filer. <br/><br/> Egenskaperna kan vara **Null**, vilket innebär att inget attribut filter används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är **Null**väljs de filer vars senast ändrade attribut är större än eller lika med värdet för DateTime.  När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` , men är null, väljs filerna vars senast ändrade attribut är mindre än värdet för DateTime.| Inga |
-| modifiedDatetimeEnd | Filerna filtreras baserat på attributet: senast ändrad. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br/><br/> Tänk på att om du aktiverar den här inställningen kommer den övergripande prestandan för data förflyttning att påverkas när du vill filtrera enorma mängder filer. <br/><br/> Egenskaperna kan vara **Null**, vilket innebär att inget attribut filter används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är **Null**väljs de filer vars senast ändrade attribut är större än eller lika med värdet för DateTime.  När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` , men är **Null**, väljs filerna vars senast ändrade attribut är mindre än värdet för DateTime.| Inga |
-| format | Om du vill kopiera filer som är mellan filbaserade arkiv (binär kopia) hoppar du över avsnittet format i definitionerna för både indata och utdata.<br/><br/>Om du vill parsa eller generera filer med ett speciellt format stöds följande fil format **typer: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange egenskapen **Type** under **format** till något av dessa värden. Mer information finns i avsnitten [text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON-format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs-legacy.md#orc-format)och [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) . |Nej (endast för binär kopierings scenario) |
-| komprimering | Ange typ och nivå för komprimeringen för data. Mer information finns i [fil format och komprimerings-codecar som stöds](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Typer som stöds är **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**.<br/>De nivåer som stöds är **optimala** och **snabbaste**. |Inga |
+| key | Namnet eller wildcard-filtret för S3-objekt nyckeln under den angivna Bucket. Gäller endast när egenskapen **prefix** inte anges. <br/><br/>Wildcard-filtret stöds för både del-och fil namns delen. Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken).<br/>– Exempel 1: `"key": "rootfolder/subfolder/*.csv"`<br/>– Exempel 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). Används `^` för att kringgå om din faktiska mapp eller fil namn har ett jokertecken eller detta escape-tecken inuti. |Nej |
+| protokollprefixet | Prefix för S3-objekt nyckeln. Objekt vars nycklar börjar med det här prefixet väljs. Gäller endast när **nyckel** egenskapen inte har angetts. |Nej |
+| version | Versionen av S3-objektet, om S3-versioner är aktive rad. Om en version inte anges kommer den senaste versionen att hämtas. |Nej |
+| modifiedDatetimeStart | Filerna filtreras baserat på attributet: senast ändrad. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br/><br/> Tänk på att om du aktiverar den här inställningen kommer den övergripande prestandan för data förflyttning att påverkas när du vill filtrera enorma mängder filer. <br/><br/> Egenskaperna kan vara **Null** , vilket innebär att inget attribut filter används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är **Null** väljs de filer vars senast ändrade attribut är större än eller lika med värdet för DateTime.  När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` , men är null, väljs filerna vars senast ändrade attribut är mindre än värdet för DateTime.| Nej |
+| modifiedDatetimeEnd | Filerna filtreras baserat på attributet: senast ändrad. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd` . Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br/><br/> Tänk på att om du aktiverar den här inställningen kommer den övergripande prestandan för data förflyttning att påverkas när du vill filtrera enorma mängder filer. <br/><br/> Egenskaperna kan vara **Null** , vilket innebär att inget attribut filter används för data uppsättningen.  När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är **Null** väljs de filer vars senast ändrade attribut är större än eller lika med värdet för DateTime.  När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` , men är **Null** , väljs filerna vars senast ändrade attribut är mindre än värdet för DateTime.| Nej |
+| format | Om du vill kopiera filer som är mellan filbaserade arkiv (binär kopia) hoppar du över avsnittet format i definitionerna för både indata och utdata.<br/><br/>Om du vill parsa eller generera filer med ett speciellt format stöds följande fil format **typer: text** format, **JsonFormat** , **AvroFormat** , **OrcFormat** , **ParquetFormat**. Ange egenskapen **Type** under **format** till något av dessa värden. Mer information finns i avsnitten [text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON-format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs-legacy.md#orc-format)och [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) . |Nej (endast för binär kopierings scenario) |
+| komprimering | Ange typ och nivå för komprimeringen för data. Mer information finns i [fil format och komprimerings-codecar som stöds](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Typer som stöds är **gzip** , **DEFLATE** , **BZip2** och **ZipDeflate**.<br/>De nivåer som stöds är **optimala** och **snabbaste**. |Nej |
 
 >[!TIP]
 >Om du vill kopiera alla filer under en mapp anger du **bucketName** för Bucket och **prefixet** för delen av mappen.
@@ -337,8 +364,8 @@ Om du vill veta mer om egenskaperna kontrollerar du [ta bort aktivitet](delete-a
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **FileSystemSource**. |Ja |
-| rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. Observera att när **rekursivt** har angetts till **True** och sinken är en filbaserad lagring, kommer en tom mapp eller undermapp inte att kopieras eller skapas i mottagaren.<br/>Tillåtna värden är **True** (standard) och **false**. | Inga |
-| maxConcurrentConnections | Antalet anslutningar som ska anslutas till data lagret samtidigt. Ange bara när du vill begränsa samtidiga anslutningar till data lagret. | Inga |
+| rekursiva | Anger om data ska läsas rekursivt från undermapparna eller endast från den angivna mappen. Observera att när **rekursivt** har angetts till **True** och sinken är en filbaserad lagring, kommer en tom mapp eller undermapp inte att kopieras eller skapas i mottagaren.<br/>Tillåtna värden är **True** (standard) och **false**. | Nej |
+| maxConcurrentConnections | Antalet anslutningar som ska anslutas till data lagret samtidigt. Ange bara när du vill begränsa samtidiga anslutningar till data lagret. | Nej |
 
 **Exempel:**
 

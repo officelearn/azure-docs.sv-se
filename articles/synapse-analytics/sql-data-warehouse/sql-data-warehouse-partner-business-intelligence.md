@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 909ea33ed96225c75a2d093f5bf2f4878ea51d2e
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a21cee6806c4200a73b35afba73cf04d7ca60308
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939192"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280010"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics Business Intelligence partners
 
@@ -35,6 +35,7 @@ Om du vill skapa din data lager lösning kan du välja mellan olika typer av bra
 | ![LogiAnalytics](./media/sql-data-warehouse-partner-business-intelligence/logianalytics_logo.png) |**Logi-analys**<br>Tillsammans gör Logi Analytics att din organisation kan samla in, analysera och omedelbart agera på de största och mest skilda data uppsättningarna i världen. |[Produkt sida](https://www.logianalytics.com/)<br>|
 | ![Looker](./media/sql-data-warehouse-partner-business-intelligence/looker_logo.png) |**Looker BI**<br>Looker ger alla i företaget möjlighet att utforska och förstå de data som driver ditt företag. Looker ger också dataanalytikern ett flexibelt och återanvändbart modell lager för att kontrol lera och granska dessa data.  Företag har huvudsakligen omvandlat sin kultur med looker som katalysator.|[Produkt sida](https://looker.com/partners/microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20)<br> |
 | ![Mikrostrategi](./media/sql-data-warehouse-partner-business-intelligence/microstrategy_logo.png) |**Mikrostrategi**<br>Mikrostrategi plattformen erbjuder en fullständig uppsättning Business Intelligence-och analys funktioner som gör det möjligt för organisationer att få värde från sina affärs data. Mikrostrategins kraftfulla analytiska motor, omfattande verktyg, många olika data anslutningar och öppen arkitektur garanterar att du har allt du behöver för att utöka åtkomsten till Analytics i varje team.|[Produkt sida](https://www.microstrategy.com/us/product/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microstrategy.microstrategy_enterprise_platform_vm)<br> |
+| ![Läges analys](./media/sql-data-warehouse-partner-business-intelligence/mode-logo.png) |**Läge**<br>Mode är en modern analys och BI-lösning som hjälper team att fatta beslut genom orimligt snabba och oväntade trevlig data analyser. Data team går snabbare genom ett prioriterat arbets flöde som kombinerar SQL, python, R och visuell analys, medan intressenter arbetar tillsammans med att utforska och dela data på egen hand. Med data som är mer tillgängliga för alla kan vi förkorta avståndet från frågor till svar och hjälpa företag att fatta bättre beslut, snabbare.|[Produkt sida](https://mode.com/)<br> |
 | ![Qlik](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) |**Qlik Sense Enterprise**<br>Identifiera insikts identifiering med data visualiserings appen som alla kan använda. Med Qlik Sense kan alla i organisationen enkelt skapa flexibla, interaktiva visualiseringar och fatta meningsfulla beslut. |[Produkt sida](https://www.qlik.com/us/products/qlik-sense/enterprise)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qlik.qlik-sense) |
 | ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**SiSense**<br>SiSense är en program vara med full stack Business Intelligence som innehåller verktyg som ett företag behöver för att analysera och visualisera data: en analys databas med hög prestanda, möjlighet att ansluta till flera källor, ETL (Simple data Extract) och webbaserad data visualisering. Börja analysera och visualisera stora data uppsättningar med SiSense BI och Analytics idag. |[Produkt sida](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>Tableau för självbetjänings analys hjälper alla att se och förstå sina data i många olika typer av data från flata filer till databaser. Tableau har en inbyggd, optimerad koppling till Synapse SQL-pool som stöder både real tids data och minnes intern analys. |[Produkt sida](https://www.tableau.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tableau.tableau-server)<br>|

@@ -3,7 +3,7 @@ title: 'Självstudie: Distribuera en python django-app med postgres'
 description: Skapa en python-webbapp med en PostgreSQL-databas och distribuera den till Azure. I självstudien används django-ramverket och appen finns på Azure App Service på Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 11/02/2020
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 63fdee6036580df42f7f965244b5f888c1ec082d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f6b845ec92a4d0d5365ec0615064bfbc238fd1ba
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540762"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279708"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Själv studie kurs: Distribuera en django-webbapp med PostgreSQL i Azure App Service
 
@@ -99,9 +99,9 @@ cd djangoapp
 
 # <a name="download"></a>[Ladda ned](#tab/download)
 
-Besök [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp) , Välj **klona** och välj sedan **Hämta zip** . 
+Besök [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp) , Välj **klona** och välj sedan **Hämta zip**. 
 
-Packa upp ZIP-filen i en mapp med namnet *djangoapp* . 
+Packa upp ZIP-filen i en mapp med namnet *djangoapp*. 
 
 Öppna sedan ett terminalfönster i den *djangoapp* -mappen.
 
@@ -111,10 +111,10 @@ Djangoapp-exemplet innehåller den data drivna django avsöknings appen som du f
 
 Exemplet ändras också till att köras i en produktions miljö som App Service:
 
-- Produktions inställningarna finns i filen *azuresite/productation. py* . Utvecklings information finns i *azuresite/Settings. py* .
-- Appen använder produktions inställningar när `DJANGO_ENV` miljövariabeln är inställd på "produktion". Du skapar den här miljövariabeln senare i självstudien tillsammans med andra som används för PostgreSQL-databas konfigurationen.
+- Produktions inställningarna finns i filen *azuresite/productation. py* . Utvecklings inställningarna är i *azuresite/Settings. py*.
+- Appen använder produktions inställningar när `WEBSITE_HOSTNAME` miljövariabeln har angetts. Azure App Service anger automatiskt den här variabeln till webbappens webb adress, till exempel `msdocs-django.azurewebsites.net` .
 
-Dessa ändringar är specifika för att konfigurera django för att köras i alla produktions miljöer och är inte särskilt App Service. Mer information finns i [Check lista för django-distribution](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Se även [produktions inställningar för Django på Azure](configure-language-python.md#production-settings-for-django-apps) för information om några av ändringarna.
+Produktions inställningarna är specifika för att konfigurera django som ska köras i en produktions miljö och är inte särskilt App Service. Mer information finns i [Check lista för django-distribution](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Se även [produktions inställningar för Django på Azure](configure-language-python.md#production-settings-for-django-apps) för information om några av ändringarna.
 
 [Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -188,7 +188,7 @@ Detta kommando utför följande åtgärder, vilket kan ta några minuter:
 - Skapa App Service-appen om den inte finns.
 - Aktivera standard loggning för appen om den inte redan är aktive rad.
 - Ladda upp lagrings platsen med hjälp av ZIP-distribution med build Automation aktiverat.
-- Cachelagra vanliga parametrar, till exempel namnet på resurs gruppen och App Service plan, i filen *. Azure/config* . Därför behöver du inte ange samma parameter med senare kommandon. Om du till exempel vill distribuera om appen när du har gjort ändringar kan du bara köra `az webapp up` igen utan parametrar. Kommandon som kommer från CLI-tillägg, till exempel, `az postgres up` används inte för närvarande, vilket är anledningen till att du måste ange resurs gruppen och platsen här med den inledande användningen av `az webapp up` .
+- Cachelagra vanliga parametrar, till exempel namnet på resurs gruppen och App Service plan, i filen *. Azure/config*. Därför behöver du inte ange samma parameter med senare kommandon. Om du till exempel vill distribuera om appen när du har gjort ändringar kan du bara köra `az webapp up` igen utan parametrar. Kommandon som kommer från CLI-tillägg, till exempel, `az postgres up` används inte för närvarande, vilket är anledningen till att du måste ange resurs gruppen och platsen här med den inledande användningen av `az webapp up` .
 
 Vid lyckad distribution genererar kommandot JSON-utdata som i följande exempel:
 
@@ -196,26 +196,23 @@ Vid lyckad distribution genererar kommandot JSON-utdata som i följande exempel:
 
 [Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
 
-> [!NOTE]
-> Om du försöker besöka appens URL-adress påträffas felet "DisallowedHost at/". Det här felet beror på att du ännu inte har konfigurerat appen för att använda de produktions inställningar som beskrivs ovan, vilket du gör i följande avsnitt.
-
 ### <a name="configure-environment-variables-to-connect-the-database"></a>Konfigurera miljövariabler för att ansluta databasen
 
 Med koden nu distribuerad till App Service är nästa steg att ansluta appen till postgres-databasen i Azure.
 
-App-koden förväntar sig att hitta databas information i fyra miljövariabler med namnet `DBHOST` ,, `DBNAME` `DBUSER` och `DBPASS` . För att kunna använda produktions inställningarna behöver den också `DJANGO_ENV` miljövariabeln inställd på `production` .
+App-koden förväntar sig att hitta databas information i fyra miljövariabler med namnet `DBHOST` ,, `DBNAME` `DBUSER` och `DBPASS` .
 
 Om du vill ange miljövariabler i App Service skapar du "appinställningar" med följande kommando för [AZ webapp config appSettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) .
 
 ```azurecli
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
+az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
 - Ersätt *\<postgres-server-name>* med det namn som du använde tidigare med `az postgres up` kommandot. Koden i *azuresite/Product. py* lägger automatiskt `.postgres.database.azure.com` till för att skapa den fullständiga postgres-serverns URL.
 - Ersätt *\<username>* och *\<password>* med de administratörsautentiseringsuppgifter som du använde med det tidigare `az postgres up` kommandot eller de som `az postgres up` genererats åt dig. Koden i *azuresite/Product. py* skapar automatiskt det fullständiga postgres-användarnamnet från `DBUSER` och `DBHOST` , så inkluderar inte `@server` delen. (Som vi nämnt tidigare bör du inte använda `$` tecknen i något värde eftersom det har en särskild betydelse för Linux-miljövariabler.)
 - Resurs gruppen och app-namnen hämtas från de cachelagrade värdena i *Azure/config-* filen.
 
-I python-koden får du åtkomst till de här inställningarna som miljövariabler med uttryck som `os.environ.get('DJANGO_ENV')` . Mer information finns i [Access Environment-variabler](configure-language-python.md#access-environment-variables).
+I python-koden får du åtkomst till de här inställningarna som miljövariabler med uttryck som `os.environ.get('DBHOST')` . Mer information finns i [Access Environment-variabler](configure-language-python.md#access-environment-variables).
 
 [Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -352,7 +349,7 @@ Testa appen lokalt med följande steg:
 
 1. Gå till *http: \/ /localhost: 8000* igen och besvara frågan för att testa appen. 
 
-1. Stoppa django-servern genom att trycka på **CTRL** + **C** .
+1. Stoppa django-servern genom att trycka på **CTRL** + **C**.
 
 När du kör lokalt använder appen en lokal sqlite3-databas och stör inte din produktions databas. Du kan också använda en lokal PostgreSQL-databas, om du vill, för att bättre simulera produktions miljön.
 
@@ -376,7 +373,7 @@ python manage.py migrate
 
 Kör utvecklings servern igen med `python manage.py runserver` och testa appen på *http: \/ /localhost: 8000/admin* :
 
-Stoppa django-webbservern igen med **CTRL** + **+ C** .
+Stoppa django-webbservern igen med **CTRL** + **+ C**.
 
 [Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -427,7 +424,7 @@ az webapp log tail
 
 Om du inte ser konsolloggarna omedelbart kan du titta efter igen efter 30 sekunder.
 
-Om du vill stoppa logg strömningen när som helst, skriver du **CTRL** + **C** .
+Om du vill stoppa logg strömningen när som helst, skriver du **CTRL** + **C**.
 
 [Har du problem? Berätta för oss.](https://aka.ms/DjangoCLITutorialHelp)
 

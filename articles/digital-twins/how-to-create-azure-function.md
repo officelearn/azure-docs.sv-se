@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c169f10ac0444f5bca67d76e8e8ebc0f0b145ee1
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5352a95b865851be937af7b9f19268afd23148db
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124255"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280038"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Anslut Azure Functions appar för bearbetning av data
 
@@ -36,25 +36,25 @@ Här är en översikt över de steg som den innehåller:
 
 ## <a name="create-an-azure-functions-app-in-visual-studio"></a>Skapa en Azure Functions-app i Visual Studio
 
-Välj _fil > nytt > projekt_ i Visual Studio 2019 och sök efter _Azure Functions_ -mallen genom att välja _Nästa_ .
+Välj _fil > nytt > projekt_ i Visual Studio 2019 och sök efter _Azure Functions_ -mallen genom att välja _Nästa_.
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
 
-Ange ett namn för Function-appen och välj _skapa_ .
+Ange ett namn för Function-appen och välj _skapa_.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: Konfigurera nytt projekt":::
 
-Välj typen av Function-appen *Event Grid utlösare* och välj _skapa_ .
+Välj typen av Function-appen *Event Grid utlösare* och välj _skapa_.
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: dialog rutan utlösare för Azure Function":::
 
 När din Function-app har skapats, kommer Visual Studio att ha automatiskt ifyllt kod exempel i **Function.cs** -filen i projektmappen. Den här korta Azure-funktionen används för att logga händelser.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: projekt fönster med exempel kod":::
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Skriv en Azure-funktion med en Event Grid-utlösare
 
-Du kan skriva en Azure-funktion genom att lägga till SDK i din Function-app. Function-appen interagerar med Azure Digitals dubbla med [Azure Digitals-SDK för .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
+Du kan skriva en Azure-funktion genom att lägga till SDK i din Function-app. Function-appen interagerar med Azure Digitals dubbla med [Azure Digitals-SDK för .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 
 För att kunna använda SDK måste du inkludera följande paket i projektet. Du kan antingen installera paketen med hjälp av Visual Studio NuGet Package Manager eller lägga till paketen med hjälp av `dotnet` kommando rads verktyget. Välj någon av följande metoder: 
 
@@ -159,24 +159,24 @@ namespace adtIngestFunctionSample
 
 ## <a name="publish-the-function-app-to-azure"></a>Publicera Function-appen till Azure
 
-Om du vill publicera Function-appen till Azure högerklickar du på funktions projektet (inte lösningen) i Solution Explorer och väljer **publicera** .
+Om du vill publicera Function-appen till Azure högerklickar du på funktions projektet (inte lösningen) i Solution Explorer och väljer **publicera**.
 
 > [!IMPORTANT] 
 > Att publicera en Azure-funktion debiteras ytterligare avgifter för din prenumeration, oberoende av Azures digitala dubbla.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: publicera Azure Function ":::
 
-Välj **Azure** som publicerings mål och välj **Nästa** .
+Välj **Azure** som publicerings mål och välj **Nästa**.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: dialog rutan publicera Azure Function, välj Azure ":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: dialog rutan publicera funktion, välj Azure-Funktionsapp (Windows) eller (Linux) baserat på din dator":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: dialog rutan publicera funktion, skapa en ny Azure Function":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: dialog rutan publicera funktion, Fyll i fälten och välj Skapa":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: dialog rutan publicera funktion, välj din Function-app i listan och slutför":::
 
 På följande sida anger du det önskade namnet för den nya Function-appen, en resurs grupp och annan information.
 För att din functions-app ska kunna komma åt Azures digitala dubbla, måste den ha en Systemhanterad identitet och ha behörighet att komma åt Azure Digitals-instansen.
@@ -220,27 +220,27 @@ En systemtilldelad hanterad identitet gör det möjligt för Azure-resurser att 
 
 I [Azure Portal](https://portal.azure.com/)söker du efter _Function-appen_ i Sök fältet med namnet på den funktion som du skapade tidigare. Välj *Funktionsapp* i listan. 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Azure Portal: Sök funktionens app":::
 
 I fönstret Function-app väljer du _identitet_ i navigerings fältet till vänster för att aktivera hanterad identitet.
-Under fliken _tilldelade system_ växlar du _statusen_ till på och _sparar_ den. Du kommer att se ett popup-fönster för att _Aktivera systemtilldelad hanterad identitet_ .
+Under fliken _tilldelade system_ växlar du _statusen_ till på och _sparar_ den. Du kommer att se ett popup-fönster för att _Aktivera systemtilldelad hanterad identitet_.
 Välj _Ja_ -knapp. 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure Portal: Aktivera Systemhanterad identitet":::
 
 Du kan kontrol lera i meddelandena att din funktion har registrerats med Azure Active Directory.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure Portal: meddelanden":::
 
 Observera också det **objekt-ID** som visas på sidan _identitet_ , eftersom det kommer att användas i nästa avsnitt.
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Kopiera objekt-ID: t som ska användas i framtiden":::
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Tilldela åtkomst roller med Azure Portal
 
-Välj knappen _Azure Role-tilldelningar_ som öppnar sidan *roll tilldelningar för Azure* . Välj sedan _+ Lägg till roll tilldelning (för hands version)_ .
+Välj knappen _Azure Role-tilldelningar_ som öppnar sidan *roll tilldelningar för Azure* . Välj sedan _+ Lägg till roll tilldelning (för hands version)_.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure Portal: Lägg till roll tilldelning":::
 
 På sidan _Lägg till roll tilldelning (förhands granskning)_ som öppnas väljer du:
 
@@ -251,7 +251,7 @@ På sidan _Lägg till roll tilldelning (förhands granskning)_ som öppnas välj
 
 Spara sedan informationen genom att trycka på knappen _Spara_ .
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure Portal: Lägg till roll tilldelning (för hands version) ":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Konfigurera program inställningar med Azure Portal
 
@@ -259,9 +259,9 @@ Du kan göra webb adressen till din Azure Digital-instansen tillgänglig för di
 
 Du behöver ADT_INSTANCE_URL för att skapa en program inställning.
 
-Du kan få ADT_INSTANCE_URL genom att lägga till **_https://_** till ditt instans värd namn. I Azure Portal kan du hitta värd namnet för den digitala dubbla instansen genom att söka efter din instans i Sök fältet. Välj sedan _Översikt_ i det vänstra navigerings fältet för att visa _värd namnet_ . Kopiera det här värdet om du vill skapa en program inställning.
+Du kan få ADT_INSTANCE_URL genom att lägga till **_https://_** till ditt instans värd namn. I Azure Portal kan du hitta värd namnet för den digitala dubbla instansen genom att söka efter din instans i Sök fältet. Välj sedan _Översikt_ i det vänstra navigerings fältet för att visa _värd namnet_. Kopiera det här värdet om du vill skapa en program inställning.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure Portal: översikt – > kopiera värdnamn som ska användas i fältet _Value_.":::
 
 Nu kan du skapa en program inställning genom att följa stegen nedan:
 
@@ -269,9 +269,9 @@ Nu kan du skapa en program inställning genom att följa stegen nedan:
 * Välj _konfiguration_ i navigerings fältet till vänster för att skapa en ny program inställning
 * På fliken _program inställningar_ väljer du _+ ny program inställning_
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure Portal: Sök efter befintlig Azure Function":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure Portal: Konfigurera program inställningar":::
 
 I fönstret som öppnas, använder du värdet som kopierades ovan för att skapa en program inställning. \
 _Namn_  : ADT_SERVICE_URL \
@@ -279,19 +279,19 @@ _Värde_ : https://{Your-Azure-Digital-flätas-hostname}
 
 Välj _OK_ för att skapa en program inställning.
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure Portal: Lägg till program inställningar.":::
 
 Du kan visa dina program inställningar med program namn under fältet _namn_ . Spara sedan program inställningarna genom att välja knappen _Spara_ .
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure Portal: Visa programmet som skapats och starta om programmet":::
 
 Alla ändringar av program inställningarna behöver starta om programmet. Välj _Fortsätt_ för att starta om programmet.
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure Portal: Spara program inställningar":::
 
 Du kan visa att program inställningarna uppdateras genom att välja _meddelande_ ikon. Om program inställningen inte skapas kan du försöka lägga till en program inställning genom att följa ovanstående process.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Visual Studio: dialog rutan nytt projekt":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Azure Portal: meddelanden om att uppdatera program inställningar":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 91ba36a0bffab6c66020bab41ace65659ed084f7
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d085d59dc1dbe09c014dcaf5aa239805824354f0
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146321"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279963"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
@@ -73,7 +73,7 @@ Slut punkts-API: erna som är tillgängliga i kontroll planet är:
  
 Om du vill skapa en händelse väg kan du använda Azure Digitals dubbla [**data Plans-API: er**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI-kommandon**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)eller [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Här är ett exempel på hur du skapar en händelse väg i ett klient program med hjälp av `CreateOrReplaceEventRouteAsync` [.net (C#) SDK-](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) anropet: 
+Här är ett exempel på hur du skapar en händelse väg i ett klient program med hjälp av `CreateOrReplaceEventRouteAsync` [.net (C#) SDK-](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) anropet: 
 
 ```csharp
 string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
@@ -94,7 +94,7 @@ Vägar kan också skapas med hjälp av [Azure Digitals flätade CLI](how-to-use-
 
 ## <a name="dead-letter-events"></a>Händelser för obeställbara meddelanden
 
-När en slut punkt inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden** . Digitala Azure-dubblare kommer att döda en händelse när **något av följande** villkor uppfylls. 
+När en slut punkt inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden**. Digitala Azure-dubblare kommer att döda en händelse när **något av följande** villkor uppfylls. 
 
 * Händelsen har inte levererats inom Time-to-Live-perioden
 * Antalet försök att leverera händelsen har överskridit gränsen

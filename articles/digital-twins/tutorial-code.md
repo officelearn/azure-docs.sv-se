@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Självstudie för att skriva den minimala koden för en klient app med hjälp av .NET (C#) SDK.
 author: baanders
 ms.author: baanders
-ms.date: 05/05/2020
+ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 11b2d4d9ec914839b2b4730419ca5ef67b66a2f5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 3225fff1c82822dee990804f934ada86068841e8
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93144502"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280261"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Självstudie: koda med Azure Digitals dubbla API: er
 
-Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skriva ett klient program för att interagera med sin instans av Azure Digitals dubbla tjänster. Den här själv studie kursen om utvecklare är en introduktion till programmering mot Azure Digitals-tjänsten med [Azure Digitals-SDK för .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). Den vägleder dig genom att skriva en C#-konsol klient program steg för steg, som börjar från grunden.
+Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skriva ett klient program för att interagera med sin instans av Azure Digitals dubbla tjänster. Den här själv studie kursen om utvecklare är en introduktion till programmering mot Azure Digitals-tjänsten med [Azure Digitals-SDK för .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). Den vägleder dig genom att skriva en C#-konsol klient program steg för steg, som börjar från grunden.
 
 > [!div class="checklist"]
 > * Konfigurera projekt
@@ -25,7 +25,7 @@ Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skri
 > * Rensa resurser
 > * Nästa steg
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här självstudien används kommando raden för installation och projekt arbete. Därför kan du använda valfri kod redigerare för att gå igenom övningarna.
 
@@ -58,7 +58,7 @@ Detta skapar flera filer i katalogen, inklusive en som kallas *program.cs* där 
 Se till att kommando fönstret är öppet, eftersom du fortsätter att använda det i självstudien.
 
 Lägg sedan **till två beroenden i projektet** som behövs för att arbeta med Azure Digital-dubbla. Du kan använda länkarna nedan för att navigera till paketen på NuGet, där du kan hitta konsol kommandona (inklusive för .NET CLI) för att lägga till den senaste versionen av varje till projektet.
-* [**Azure. DigitalTwins. Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Det här är paketet för [Azure Digitals dubbla SDK för .net](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
+* [**Azure. DigitalTwins. Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Det här är paketet för [Azure Digitals dubbla SDK för .net](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 * [**Azure. Identity**](https://www.nuget.org/packages/Azure.Identity). Det här biblioteket innehåller verktyg som hjälper dig med autentisering mot Azure.
 
 ## <a name="get-started-with-project-code"></a>Kom igång med projekt kod
@@ -105,7 +105,7 @@ Det första du behöver göra är att autentisera mot tjänsten Azure Digitals d
 
 För att kunna autentisera behöver du *värd namnet* för din Azure Digital-instansen.
 
-I *program.cs* klistrar du in följande kod under "Hello, World!" Skriv ut rad i `Main` metoden. Ange värdet för `adtInstanceUrl` till ditt Azure Digital-instansen *värdnamn* .
+I *program.cs* klistrar du in följande kod under "Hello, World!" Skriv ut rad i `Main` metoden. Ange värdet för `adtInstanceUrl` till ditt Azure Digital-instansen *värdnamn*.
 
 ```csharp
 string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
@@ -123,12 +123,12 @@ dotnet run
 ```
 
 Detta kommer att återställa beroendena vid första körningen och sedan köra programmet. 
-* Om inget fel uppstår skrivs *service-klienten som skapats – redo att gå* .
-* Eftersom det ännu inte finns någon fel hantering i det här projektet visas ett undantags fel som orsakas av koden.
+* Om inget fel uppstår skrivs *service-klienten som skapats – redo att gå*.
+* Eftersom det ännu inte finns någon fel hantering i det här projektet visas ett undantags fel som uppstår i koden.
 
 ### <a name="upload-a-model"></a>Ladda upp en modell
 
-Azure Digital-dubbla har ingen inbyggd vokabulär i domänen. De typer av element i din miljö som du kan representera i Azure Digitals-enheter definieras av dig med hjälp av **modeller** . [Modeller](concepts-models.md) liknar klasser i objektorienterade programmeringsspråk. de ger användardefinierade mallar för [digitala dubbla](concepts-twins-graph.md) och kan följa och instansiera senare. De är skrivna i ett JSON-liknande språk som kallas **DTDL (Digital Definition Language)** .
+Azure Digital-dubbla har ingen inbyggd vokabulär i domänen. De typer av element i din miljö som du kan representera i Azure Digitals-enheter definieras av dig med hjälp av **modeller**. [Modeller](concepts-models.md) liknar klasser i objektorienterade programmeringsspråk. de ger användardefinierade mallar för [digitala dubbla](concepts-twins-graph.md) och kan följa och instansiera senare. De är skrivna i ett JSON-liknande språk som kallas **DTDL (Digital Definition Language)**.
 
 Det första steget i att skapa en Azure digital-lösning med dubbla lösningar är att definiera minst en modell i en DTDL-fil.
 
@@ -136,7 +136,7 @@ Skapa en ny *. JSON* -fil med namnet *SampleModel.jspå* i katalogen där du ska
 
 ```json
 {
-  "@id": "dtmi:com:contoso:SampleModel;1",
+  "@id": "dtmi:example:SampleModel;1",
   "@type": "Interface",
   "displayName": "SampleModel",
   "contents": [
@@ -155,7 +155,7 @@ Skapa en ny *. JSON* -fil med namnet *SampleModel.jspå* i katalogen där du ska
 ```
 
 > [!TIP]
-> Om du använder Visual Studio för den här självstudien kanske du vill välja den nyss skapade JSON-filen och ange egenskapen *Kopiera till utdata-katalog* i egenskapsinspektören för att *Kopiera om* det är nyare eller *Kopiera Always* . Detta gör att Visual Studio kan hitta JSON-filen med standard Sök vägen när du kör programmet med **F5** under resten av självstudien.
+> Om du använder Visual Studio för den här självstudien kanske du vill välja den nyss skapade JSON-filen och ange egenskapen *Kopiera till utdata-katalog* i egenskapsinspektören för att *Kopiera om* det är nyare eller *Kopiera Always*. Detta gör att Visual Studio kan hitta JSON-filen med standard Sök vägen när du kör programmet med **F5** under resten av självstudien.
 
 > [!TIP] 
 > Det finns ett språk-oberoende [DTDL-verifierings exempel](/samples/azure-samples/dtdl-validator/dtdl-validator) som du kan använda för att kontrol lera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket, som du kan läsa mer om i [*instruktion: parsa och validera modeller*](how-to-parse-models.md).
@@ -199,21 +199,23 @@ Kör programmet med det här kommandot i kommando fönstret:
 ```cmd/sh
 dotnet run
 ```
-"Överför en modell" skrivs ut i utdata, men det finns inga utdata än att ange om modeller har överförts eller inte.
+"Överför en modell" skrivs ut i utdata, vilket indikerar att den här koden har uppnåtts, men det finns inga utdata än att ange om uppladdningen lyckades.
 
-Om du vill lägga till en Print-instruktion som anger om modeller faktiskt har laddats upp, lägger du till följande kod direkt efter föregående avsnitt:
+Lägg till en Print-instruktion som visar alla modeller som har laddats upp till instansen genom att lägga till följande kod direkt efter föregående avsnitt:
 
 ```csharp
 // Read a list of models back from the service
+Console.WriteLine("Models uploaded to the instance:");
 AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
 await foreach (DigitalTwinsModelData md in modelDataList)
 {
-    Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
+    Console.WriteLine($"{md.Id}");
 }
 ```
-Innan du kör programmet igen för att testa den nya koden ska du återkalla den senaste gången du körde programmet. du laddade upp din modell redan. Med Azure Digital-dubbla kan du inte överföra samma modell två gånger, så om du försöker överföra samma modell igen, ska programmet utlösa ett undantag.
 
-Kör nu programmet igen med det här kommandot i kommando fönstret:
+**Innan du kör programmet igen för att testa den nya koden** ska du återkalla den senaste gången du körde programmet. du laddade upp din modell redan. Med Azure Digital-dubbla kan du inte överföra samma modell två gånger, så om du försöker överföra samma modell igen, ska programmet utlösa ett undantag.
+
+Med detta i åtanke kan du köra programmet igen med det här kommandot i kommando fönstret:
 
 ```cmd/sh
 dotnet run
@@ -225,7 +227,7 @@ Nästa avsnitt pratar om undantag som detta och hur du hanterar dem i din kod.
 
 ### <a name="catch-errors"></a>Catch-fel
 
-Om du vill förhindra att programmet kraschar kan du lägga till undantags kod runt modell överförings koden. Packa upp det befintliga klient anropet `client.CreateModelsAsync` i en try/catch-hanterare, så här:
+Om du vill förhindra att programmet kraschar kan du lägga till undantags kod runt modell överförings koden. Packa upp det befintliga klient anropet `await client.CreateModelsAsync(typeList)` i en try/catch-hanterare, så här:
 
 ```csharp
 try {
@@ -234,53 +236,30 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 ```
-Om du kör programmet med `dotnet run` i kommando fönstret nu ser du att du får tillbaka en felkod. Utdata ser ut ungefär så här:
 
-```cmd/sh
-Hello World!
-Service client created - ready to go
+Om du nu kör programmet med `dotnet run` i ditt kommando fönster, kommer du att se att du får tillbaka felkoden. Utdata från modellen för skapande av modeller visar det här felet:
 
-Upload a model
-Load model: 409:Service request failed.
-Status: 409 (Conflict)
-
-Content:
-{"error":{"code":"ModelAlreadyExists","message":"Model with same ID already exists dtmi:com:contoso:SampleModel;1. Use Model_List API to view models that already exist. See the Swagger example. (http://aka.ms/ModelListSwSmpl):}}
-
-Headers:
-api-supported-versions: REDACTED
-Date: Thu, 10 Sep 2020 01:57:51 GMT
-Content-Length: 115
-Content-Type: application/json; charset=utf-8
-
-Type name: : dtmi:com:contoso:SampleModel;1
-```
+:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="Programutdata, som visar ett meddelande som säger &quot;409: tjänstbegäran misslyckades. Status: 409 (konflikt)., följt av en fel utskrift som indikerar att dtmi: exempel: SampleModel; 1 redan finns":::
 
 Från och med nu kommer kursen att figursättas alla anrop till tjänst metoder i try/catch-hanterare.
 
 ### <a name="create-digital-twins"></a>Skapa digitala dubbla
 
-Nu när du har laddat upp en modell till Azure Digitals, kan du använda den här modell definitionen för att skapa **digitala dubbla** . [Digitala dubbla](concepts-twins-graph.md) är instanser av en modell och representerar entiteterna i din affärs miljö – saker som sensorer i en grupp, rum i en byggnad eller lampor i en bil. Det här avsnittet skapar några digitala dubbla, baserat på den modell som du laddade upp tidigare.
+Nu när du har laddat upp en modell till Azure Digitals, kan du använda den här modell definitionen för att skapa **digitala dubbla**. [Digitala dubbla](concepts-twins-graph.md) är instanser av en modell och representerar entiteterna i din affärs miljö – saker som sensorer i en grupp, rum i en byggnad eller lampor i en bil. Det här avsnittet skapar några digitala dubbla, baserat på den modell som du laddade upp tidigare.
 
-Lägg till den nya `using` instruktionen överst, eftersom det här kod exemplet använder den inbyggda .net JSON-serialiseraren i `System.Text.Json` :
-
-```csharp
-using System.Text.Json;
-```
-
-Lägg sedan till följande kod i slutet av- `Main` metoden för att skapa och initiera tre digitala dubbla, baserade på den här modellen.
+Lägg till följande kod i slutet av- `Main` metoden för att skapa och initiera tre digitala dubbla, baserade på den här modellen.
 
 ```csharp
 // Initialize twin data
-BasicDigitalTwin updateTwinData = new BasicDigitalTwin();
-updateTwinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
-updateTwinData.Contents.Add("data", $"Hello World!");
+BasicDigitalTwin twinData = new BasicDigitalTwin();
+twinData.Metadata.ModelId = "dtmi:example:SampleModel;1";
+twinData.Contents.Add("data", $"Hello World!");
 
 string prefix="sampleTwin-";
 for(int i=0; i<3; i++) {
     try {
         twinData.Id = $"{prefix}{i}";
-        await client.client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twinData.Id, updateTwinData);
+        await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twinData.Id, twinData);
         Console.WriteLine($"Created twin: {prefix}{i}");
     } catch(RequestFailedException rex) {
         Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
@@ -288,15 +267,17 @@ for(int i=0; i<3; i++) {
 }
 ```
 
-Kör programmet med i kommando fönstret `dotnet run` . Upprepa sedan för att köra programmet igen. 
+Kör programmet med i kommando fönstret `dotnet run` . I utdata söker du efter de utskrifts meddelanden som *sampleTwin-0* , *sampleTwin-1* och *sampleTwin-2* har skapats. 
 
-Observera att det inte uppstår något fel när de dubblarna skapas den andra gången, även om de finns redan efter den första körningen. Till skillnad från skapande av modell är skapandet *av ett anrop* med *upsert* -semantik på rest-nivån. Det innebär att om det redan finns en dubbla, försöker du att skapa den igen och ersätter den bara. Inget fel krävs.
+Kör sedan programmet igen. 
+
+Observera att det inte uppstår något fel när de dubblarna skapas den andra gången, även om de finns redan efter den första körningen. Till skillnad från skapande av modell är skapandet *av ett anrop* med *upsert* -semantik på rest-nivån. Det innebär att om en dubbla redan finns, kommer ett försök att skapa samma dubbla igen att bara ersätta den ursprungliga. Inget fel har utlösts.
 
 ### <a name="create-relationships"></a>Skapa relationer
 
-Sedan kan du skapa **relationer** mellan de dubbla som du har skapat, för att ansluta dem till ett **dubbel diagram** . [Dubbla grafer](concepts-twins-graph.md) används för att representera hela miljön.
+Sedan kan du skapa **relationer** mellan de dubbla som du har skapat, för att ansluta dem till ett **dubbel diagram**. [Dubbla grafer](concepts-twins-graph.md) används för att representera hela miljön.
 
-Lägg till en ny statisk metod till `Program` -klassen under `Main` metoden:
+Lägg till en **ny statisk metod** i `Program` -klassen under `Main` metoden (koden har nu två metoder):
 
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
@@ -327,15 +308,15 @@ await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-2");
 ```
 
-Kör programmet med i kommando fönstret `dotnet run` .
+Kör programmet med i kommando fönstret `dotnet run` . I utdata söker du efter utskrifts uttryck som säger att de två relationerna har skapats.
 
-Observera att Azure Digital multipler inte tillåter att du skapar en relation om det redan finns en med samma ID, så om du kör programmet flera gånger visas undantag vid skapande av relationer. Den här koden fångar undantagen och ignorerar dem. 
+Observera att Azure Digital multipler inte tillåter att du skapar en relation om det redan finns en annan relation med samma ID, så om du kör programmet flera gånger visas undantag vid skapande av relationer. Den här koden fångar undantagen och ignorerar dem. 
 
 ### <a name="list-relationships"></a>List relationer
 
 Nästa kod som du lägger till gör att du kan se listan över relationer som du har skapat.
 
-Lägg till följande nya metod till `Program`-klassen:
+Lägg till följande **nya metod** i- `Program` klassen:
 
 ```csharp
 public async static Task ListRelationships(DigitalTwinsClient client, string srcId)
@@ -360,26 +341,9 @@ Lägg sedan till följande kod i slutet av- `Main` metoden för att anropa `List
 await ListRelationships(client, "sampleTwin-0");
 ```
 
-Kör programmet med i kommando fönstret `dotnet run` . Du bör se en lista över alla relationer som du har skapat.
+Kör programmet med i kommando fönstret `dotnet run` . Du bör se en lista över alla relationer som du har skapat i en output-instruktion som ser ut så här:
 
-Här är ett exempel på utdata:
-
-```cmd/sh
-Hello World!
-Service client created - ready to go
-
-Upload a model
-Type name: System.Collections.Generic.Dictionary'2[System.String,System.String]: dtmi:contosocom:DigitalTwins:SampleModel;1
-Create twin: sampleTwin-0
-Create twin: sampleTwin-1
-Create twin: sampleTwin-2
-Created relationship successfully
-Created relationship successfully
-Twin sampleTwin-0 is connected to:
--contains->sampleTwin-1
--contains->sampleTwin-2
-
-```
+:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Programutdata, som visar ett meddelande som säger att &quot;dubbla sampleTwin-0 är anslutet till: innehåller->sampleTwin-1,-contains->sampleTwin-2&quot;":::
 
 ### <a name="query-digital-twins"></a>Fråga digitala dubbla
 
@@ -387,16 +351,22 @@ En huvud funktion i Azure Digitals flätas är möjligheten att [fråga](concept
 
 Det sista avsnittet av kod som ska läggas till i den här självstudien kör en fråga mot Azure Digitals-instansen. Frågan som används i det här exemplet returnerar alla digitala dubbla i-instansen.
 
-Lägg till följande kod i slutet av- `Main` metoden:
+Lägg till den här `using` instruktionen för att aktivera användning av `JsonSerializer` klassen för att presentera den digitala dubbla informationen:
 
 ```csharp
-// Run a query    
-AsyncPageable<string> result = client.QueryAsync("Select * From DigitalTwins");
-await foreach (string twin in result)
+using System.Text.Json;
+```
+
+Lägg sedan till följande kod i slutet av- `Main` metoden:
+
+```csharp
+// Run a query for all twins   
+string query = "SELECT * FROM digitaltwins";
+AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
+
+await foreach (BasicDigitalTwin twin in result)
 {
-    object jsonObj = JsonSerializer.Deserialize<object>(twin);
-    string prettyTwin = JsonSerializer.Serialize(jsonObj, new JsonSerializerOptions { WriteIndented = true });
-    Console.WriteLine(prettyTwin);
+    Console.WriteLine(JsonSerializer.Serialize(twin));
     Console.WriteLine("---------------");
 }
 ```
@@ -415,7 +385,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
 namespace minimal
@@ -445,22 +414,23 @@ namespace minimal
                 Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
             }
             // Read a list of models back from the service
+            Console.WriteLine("Models uploaded to the instance:");
             AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
             await foreach (DigitalTwinsModelData md in modelDataList)
             {
-                Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
+                Console.WriteLine($"{md.Id}");
             }
 
             // Initialize twin data
-            BasicDigitalTwin updateTwinData = new BasicDigitalTwin();
-            updateTwinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
-            updateTwinData.Contents.Add("data", $"Hello World!");
-    
+            BasicDigitalTwin twinData = new BasicDigitalTwin();
+            twinData.Metadata.ModelId = "dtmi:example:SampleModel;1";
+            twinData.Contents.Add("data", $"Hello World!");
+            
             string prefix="sampleTwin-";
             for(int i=0; i<3; i++) {
                 try {
-                    updateTwinData.Id = $"{prefix}{i}";
-                    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(updateTwinData.Id, updateTwinData);
+                    twinData.Id = $"{prefix}{i}";
+                    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twinData.Id, twinData);
                     Console.WriteLine($"Created twin: {prefix}{i}");
                 } catch(RequestFailedException rex) {
                     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
@@ -474,13 +444,13 @@ namespace minimal
             //List the relationships
             await ListRelationships(client, "sampleTwin-0");
 
-            // Run a query    
-            AsyncPageable<string> result = client.QueryAsync("Select * From DigitalTwins");
-            await foreach (string twin in result)
+            // Run a query for all twins   
+            string query = "SELECT * FROM digitaltwins";
+            AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
+            
+            await foreach (BasicDigitalTwin twin in result)
             {
-                object jsonObj = JsonSerializer.Deserialize<object>(twin);
-                string prettyTwin = JsonSerializer.Serialize(jsonObj, new JsonSerializerOptions { WriteIndented = true });
-                Console.WriteLine(prettyTwin);
+                Console.WriteLine(JsonSerializer.Serialize(twin));
                 Console.WriteLine("---------------");
             }
         }
@@ -509,7 +479,7 @@ namespace minimal
             try {
                 AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
                 Console.WriteLine($"Twin {srcId} is connected to:");
-                await foreach (string rel in results)
+                await foreach (BasicRelationship rel in results)
                 {
                     Console.WriteLine($" -{rel.Name}->{rel.TargetId}");
                 }

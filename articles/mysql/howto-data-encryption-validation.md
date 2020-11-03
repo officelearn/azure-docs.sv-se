@@ -1,17 +1,17 @@
 ---
 title: Så här säkerställer du verifiering av Azure Database for MySQL data kryptering
 description: Lär dig hur du verifierar krypteringen av kryptering av Azure Database for MySQL data med hjälp av den hanterade nyckeln för kunder.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: e7b747bd2babeeccb210bb30c3eb28f22d4befe7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f47b3d5679b70461eaba64b5815770162cb6fda
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905793"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241080"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Verifierar data kryptering för Azure Database for MySQL
 
@@ -27,12 +27,12 @@ Den här artikeln hjälper dig att kontrol lera att data kryptering med kund han
     * Välj den nyckel som används för server kryptering.
     * Ange status för nyckeln som **är aktive rad** till **Nej**.
   
-       Efter en stund (**~ 15 min**) ska Azure Database for MySQL Server **status** vara **otillgänglig**. Alla I/O-åtgärder som utförts mot servern Miss Miss kan verifiera att servern verkligen är krypterad med kund nyckeln och att nyckeln inte är giltig för tillfället.
+       Efter en stund ( **~ 15 min** ) ska Azure Database for MySQL Server **status** vara **otillgänglig**. Alla I/O-åtgärder som utförts mot servern Miss Miss kan verifiera att servern verkligen är krypterad med kund nyckeln och att nyckeln inte är giltig för tillfället.
     
        För att göra servern **tillgänglig** för kan du verifiera om nyckeln. 
     
     * Ange statusen för nyckeln i Key Vault till **Ja**.
-    * På Server **data krypteringen**väljer du **revalidate Key**.
+    * På Server **data krypteringen** väljer du **revalidate Key**.
     * När nyckeln har återgiltigas ändras Server **statusen** till **tillgänglig**.
 
 2. Om du kan se till att krypterings nyckeln har angetts på Azure Portal, krypteras data med hjälp av den kund nyckel som används i Azure Portal.

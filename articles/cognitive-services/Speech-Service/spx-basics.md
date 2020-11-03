@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 1255333e9bde54fcdf76dd40a9aaa4bc68fd103e
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893823"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242134"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Lär dig grunderna i tal-CLI
 
@@ -65,15 +65,16 @@ Förutom tal igenkänning och syntes kan du också göra tal översättning med 
 spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
 ```
 
-I det här kommandot anger du både källan (språk att översätta **från**) och målet (språk att översätta **till**). Genom att använda `--microphone` argumentet lyssnar du på ljud på den aktuella aktiva Indataporten och slutar när du har klickat på `ENTER` . Utdata är en text översättning till mål språket som skrivs till en textfil.
+I det här kommandot anger du både källan (språk att översätta **från** ) och målet (språk att översätta **till** ). Genom att använda `--microphone` argumentet lyssnar du på ljud på den aktuella aktiva Indataporten och slutar när du har klickat på `ENTER` . Utdata är en text översättning till mål språket som skrivs till en textfil.
 
 > [!NOTE]
 > I [artikeln språk och nationella inställningar](language-support.md) finns en lista över alla språk som stöds med motsvarande språk koder.
 
 ### <a name="configuration-files-in-the-datastore"></a>Konfigurationsfiler i data lagret
 
-Tal-CLI: en kan läsa och skriva flera inställningar i konfigurationsfiler, som lagras i det lokala tal CLI-datalagret och är namngivna i tal CLI-anrop med en @-symbol. Tal CLI försöker spara en ny inställning i en ny under `./spx/data` katalog som skapas i den aktuella arbets katalogen.
-När du söker efter ett konfigurations värde, ser tal-CLI ut i din aktuella arbets katalog och sedan i `./spx/data` sökvägen.
+Tal CLI-beteendet kan vara beroende av inställningar i konfigurationsfiler, som du kan referera till i tal CLI-anrop med en @-symbol.
+Tal-CLI sparar en ny inställning i en ny under `./spx/data` katalog som skapas i den aktuella arbets katalogen.
+När du söker efter ett konfigurations värde, ser tal-CLI ut i din aktuella arbets katalog, sedan i data lagret på `./spx/data` och sedan i andra data lager, inklusive ett slutgiltigt skrivskyddat data lager i `spx` binärfilen.
 Tidigare använde du data lagret för att spara dina `@key` och `@region` -värden, så du behöver inte ange dem med varje kommando rads anrop.
 Du kan också använda konfigurationsfiler för att lagra egna konfigurations inställningar, eller till och med använda dem för att skicka URL: er eller annat dynamiskt innehåll som genereras vid körning.
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 355e300ec9f3671cf29ccc763e211a9bb3806f64
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2ef09fd81aaeca92e87be2a0fddbc9be16ebac1d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474792"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242049"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Använda OpenRowSet med SQL på begäran (för hands version)
 
@@ -95,6 +95,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
 [ , PARSER_VERSION = 'parser_version' ]
+[ , HEADER_ROW = { TRUE | FALSE } ]
 ```
 
 ## <a name="arguments"></a>Argument
@@ -127,7 +128,7 @@ Unstructured_data_path som upprättar en sökväg till data kan vara en absolut 
  Anger en sökväg i lagrings utrymmet som pekar på den mapp eller fil som du vill läsa. Om sökvägen pekar på en behållare eller mapp kommer alla filer att läsas från den aktuella behållaren eller mappen. Filer i undermappar tas inte med. 
 
  Du kan använda jokertecken för att rikta in flera filer eller mappar. Användning av flera jokertecken som inte är i följd tillåts.
-Nedan visas ett exempel som läser alla *CSV* -filer som börjar med *ifyllning* från alla mappar som börjar med */CSV/population*:  
+Nedan visas ett exempel som läser alla *CSV* -filer som börjar med *ifyllning* från alla mappar som börjar med */CSV/population* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Om du anger att unstructured_data_path ska vara en mapp, kommer en fråga om SQL på begäran att hämta filer från den mappen. 
@@ -144,12 +145,13 @@ I exemplet nedan, om unstructured_data_path = `https://mystorageaccount.dfs.core
 MED WITH-satsen kan du ange kolumner som du vill läsa från filer.
 
 - För CSV-datafiler, för att läsa alla kolumner, anger du kolumn namn och deras data typer. Om du vill använda en delmängd av kolumner använder du ordnings tal för att välja kolumner från de ursprungliga datafilerna enligt ordnings tal. Kolumnerna binds enligt ordnings beteckningen. 
-
-    > [!IMPORTANT]
-    > WITH-satsen är obligatorisk för CSV-filer.
-    >
+    > [!TIP]
+    > Du kan även utesluta WITH-satsen för CSV-filer. Data typer härleds automatiskt från fil innehållet. Du kan använda HEADER_ROW argument om du vill ange förekomst av rubrik raden i vilket fall kolumn namn ska läsas från rubrik raden. Mer information finns i [Automatisk schema identifiering](#automatic-schema-discovery).
     
-- För Parquet-datafiler, ange kolumn namn som matchar kolumn namnen i de ursprungliga datafilerna. Kolumnerna kommer att bindas efter namn. Om WITH-satsen utelämnas returneras alla kolumner från Parquet-filer.
+- För Parquet-datafiler, ange kolumn namn som matchar kolumn namnen i de ursprungliga datafilerna. Kolumnerna är kopplade till namn och är Skift läges känsliga. Om WITH-satsen utelämnas returneras alla kolumner från Parquet-filer.
+    > [!IMPORTANT]
+    > Kolumn namn i Parquet-filer är Skift läges känsliga. Om du anger ett kolumn namn med versaler som skiljer sig från kolumnens namn Skift läge i Parquet-filen returneras NULL-värden för den kolumnen.
+
 
 column_name = namn för kolumnen utdata. Om det här namnet anges åsidosätts kolumn namnet i käll filen.
 
@@ -170,7 +172,7 @@ WITH (
 
 FIELDTERMINATOR = field_terminator
 
-Anger vilken fält avslutning som ska användas. Standard fält avslutning är ett kommatecken ("**,**").
+Anger vilken fält avslutning som ska användas. Standard fält avslutning är ett kommatecken (" **,** ").
 
 ROWTERMINATOR = row_terminator
 
@@ -205,6 +207,10 @@ Anger vilken parser-version som ska användas vid läsning av filer. För närva
 
 CSV-parser version 1,0 är standard och Rich-funktionen. Version 2,0 är konstruerad för prestanda och har inte stöd för alla alternativ och kodningar. 
 
+CSV-parser version 1,0-information:
+
+- Följande alternativ stöds inte: HEADER_ROW.
+
 CSV-parser version 2,0-information:
 
 - Det finns inte stöd för alla typer av data.
@@ -212,22 +218,93 @@ CSV-parser version 2,0-information:
 - Följande alternativ stöds inte: DATA_COMPRESSION.
 - En tom sträng med citat tecken ("") tolkas som en tom sträng.
 
+HEADER_ROW = {TRUE | !
+
+Anger om CSV-filen innehåller en rubrik rad. Standardvärdet är FALSe. Stöds i PARSER_VERSION = ' 2.0 '. Om värdet är TRUE kommer kolumn namn att läsas från första raden enligt FIRSTROW-argumentet.
+
+## <a name="fast-delimited-text-parsing"></a>Snabb avgränsad text tolkning
+
+Det finns två avgränsade versioner av text tolkare som du kan använda. CSV-parser version 1,0 är standard och funktions rik medan parser version 2,0 har skapats för prestanda. Prestanda förbättring i parsa 2,0 kommer från avancerade tolknings tekniker och multi-threading. Skillnaden i hastigheten blir större när fil storleken ökar.
+
+## <a name="automatic-schema-discovery"></a>Automatisk schema identifiering
+
+Du kan enkelt fråga både CSV-och Parquet-filer utan att veta eller ange schema genom att utesluta WITH-satsen. Kolumn namn och data typer kommer att härledas från filer.
+
+Parquet-filer innehåller kolumn-metadata som ska läsas, typ mappningar kan hittas i [typ mappningar för Parquet](#type-mapping-for-parquet). Kontrol lera [att läsa Parquet-filer utan att ange schema](#read-parquet-files-without-specifying-schema) för exempel.
+
+Kolumn namn för CSV-filer kan läsas från rubrik raden. Du kan ange om rubrik raden finns med HEADER_ROW argument. Om HEADER_ROW = falskt används generiska kolumn namn: C1, C2,... CN där n är antalet kolumner i filen. Data typer härleds från första 100 data rader. Kontrol lera [att läsa CSV-filer utan att ange schema](#read-csv-files-without-specifying-schema) för exempel.
+
+> [!IMPORTANT]
+> Det finns fall när lämplig datatyp inte kan härledas på grund av bristande information och större data typ används i stället. Detta ger bättre prestanda och är särskilt viktigt för Character-kolumner som kommer att härledas som varchar (8000). Om du har Character-kolumner i dina filer och använder schema härledning för bästa prestanda kontrollerar du [härledda data typer](best-practices-sql-on-demand.md#check-inferred-data-types) och [använder lämpliga data typer](best-practices-sql-on-demand.md#use-appropriate-data-types).
+
+### <a name="type-mapping-for-parquet"></a>Typ mappning för Parquet
+
+Parquet-filer innehåller typ beskrivningar för varje kolumn. I följande tabell beskrivs hur Parquet-typer mappas till inbyggda SQL-typer.
+
+| Typ av Parquet | Parquet logiska typ (anteckning) | SQL-datatyp |
+| --- | --- | --- |
+| BOOLESKT | | bit |
+| BINÄR/BYTE_ARRAY | | varbinary |
+| DOUBLE | | flyt |
+| FLYTA | | real |
+| INT32 | | int |
+| INT64 | | bigint |
+| INT96 | |datetime2 |
+| FIXED_LEN_BYTE_ARRAY | |binary |
+| BINARY |UTF8 |varchar \* (utf8-sortering) |
+| BINARY |NOLLÄNGD |varchar \* (utf8-sortering) |
+| BINARY |RÄKNING|varchar \* (utf8-sortering) |
+| BINARY |UUID |uniqueidentifier |
+| BINARY |DECIMAL |decimal |
+| BINARY |JSON |varchar (max) \* (utf8-sortering) |
+| BINARY |BSON |varbinary(max) |
+| FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
+| BYTE_ARRAY |INTERVALL |varchar (max), serialiserad till standardiserat format |
+| INT32 |INT (8, sant) |smallint |
+| INT32 |INT (16, sant) |smallint |
+| INT32 |INT (32, sant) |int |
+| INT32 |INT (8, falskt) |tinyint |
+| INT32 |INT (16, falskt) |int |
+| INT32 |INT (32, falskt) |bigint |
+| INT32 |DATE |date |
+| INT32 |DECIMAL |decimal |
+| INT32 |TID (MILLIS)|time |
+| INT64 |INT (64, sant) |bigint |
+| INT64 |INT (64, falskt) |decimal (20, 0) |
+| INT64 |DECIMAL |decimal |
+| INT64 |TID (MICROS/NANO) |time |
+|INT64 |TIDSSTÄMPEL (MILL/MICROS/NANOS) |datetime2 |
+|[Komplex typ](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar (max), serialiserad till JSON |
+|[Komplex typ](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAPPA|varchar (max), serialiserad till JSON |
+
 ## <a name="examples"></a>Exempel
 
-I följande exempel returneras bara två kolumner med ordnings tal 1 och 4 från population*. csv-filerna. Eftersom det inte finns någon rubrik rad i filerna börjar den läsa från den första raden:
+### <a name="read-csv-files-without-specifying-schema"></a>Läsa CSV-filer utan att ange schema
+
+I följande exempel läser CSV-filen som innehåller rubrik raden utan att ange kolumn namn och data typer: 
 
 ```sql
-SELECT * 
+SELECT 
+    *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
-        FORMAT = 'CSV',
-        FIRSTROW = 1
-    )
-WITH (
-    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
-    [population] bigint 4
-) AS [r]
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0',
+    HEADER_ROW = TRUE) as [r]
 ```
+
+I följande exempel läser CSV-filen som inte innehåller rubrik raden utan att ange kolumn namn och data typer: 
+
+```sql
+SELECT 
+    *
+FROM OPENROWSET(
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0') as [r]
+```
+
+### <a name="read-parquet-files-without-specifying-schema"></a>Läsa Parquet-filer utan att ange schema
 
 I följande exempel returneras alla kolumner för den första raden från data uppsättningen för inventering i Parquet-format, och utan att ange kolumn namn och data typer: 
 
@@ -241,6 +318,42 @@ FROM
     ) AS [r]
 ```
 
+### <a name="read-specific-columns-from-csv-file"></a>Läsa vissa kolumner från CSV-fil
+
+I följande exempel returneras bara två kolumner med ordnings tal 1 och 4 från population*. csv-filerna. Eftersom det inte finns någon rubrik rad i filerna börjar den läsa från den första raden:
+
+```sql
+SELECT 
+    * 
+FROM OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
+        FORMAT = 'CSV',
+        FIRSTROW = 1
+    )
+WITH (
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
+    [population] bigint 4
+) AS [r]
+```
+
+### <a name="read-specific-columns-from-parquet-file"></a>Läsa vissa kolumner från Parquet-filen
+
+I följande exempel returneras bara två kolumner för den första raden från data uppsättningen för inventering i Parquet-format: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    [stateName] VARCHAR (50),
+    [population] bigint
+) AS [r]
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
-Fler exempel finns i snabb starten för [fråga data Storage](query-data-storage.md) och lär dig hur du `OPENROWSET` använder för att läsa [CSV](query-single-csv-file.md)-, [PARQUET](query-parquet-files.md)-och [JSON](query-json-files.md) -filformat. Du kan också lära dig hur du sparar resultatet av din fråga till Azure Storage med [CETAS](develop-tables-cetas.md).
+Fler exempel finns i snabb starten för [fråga data Storage](query-data-storage.md) och lär dig hur du `OPENROWSET` använder för att läsa [CSV](query-single-csv-file.md)-, [PARQUET](query-parquet-files.md)-och [JSON](query-json-files.md) -filformat. Se [metod tips](best-practices-sql-on-demand.md) för att uppnå optimala prestanda. Du kan också lära dig hur du sparar resultatet av din fråga till Azure Storage med [CETAS](develop-tables-cetas.md).

@@ -1,17 +1,17 @@
 ---
 title: Anslutnings arkitektur – Azure Database for MySQL
 description: Beskriver anslutnings arkitekturen för din Azure Database for MySQL-server.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 73178a9707d35fe7337210b11e76504794bc93ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d3842675cf4b36dfaa95ed6041bf8c6f0978a53
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896392"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242882"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Anslutnings arkitektur i Azure Database for MySQL
 Den här artikeln förklarar Azure Database for MySQL anslutnings arkitektur och hur trafiken dirigeras till din Azure Database for MySQL-instans från klienter både inom och utanför Azure.
@@ -72,7 +72,7 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure Dat
 
 ## <a name="connection-redirection"></a>Omdirigering av anslutning
 
-Azure Database for MySQL stöder ytterligare en anslutnings princip, **omdirigering**som hjälper till att minska nätverks fördröjningen mellan klient program och MySQL-servrar. Med den här funktionen returnerar servern den nod som är värd för MySQL-servern till klienten när den första TCP-sessionen har upprättats till Azure Database for MySQL servern. Därefter flödar alla efterföljande paket direkt till servern, vilket kringgår gatewayen. När paket flödar direkt till servern har svars tiden och data flödet bättre prestanda.
+Azure Database for MySQL stöder ytterligare en anslutnings princip, **omdirigering** som hjälper till att minska nätverks fördröjningen mellan klient program och MySQL-servrar. Med den här funktionen returnerar servern den nod som är värd för MySQL-servern till klienten när den första TCP-sessionen har upprättats till Azure Database for MySQL servern. Därefter flödar alla efterföljande paket direkt till servern, vilket kringgår gatewayen. När paket flödar direkt till servern har svars tiden och data flödet bättre prestanda.
 
 Den här funktionen stöds i Azure Database for MySQL servrar med motor versionerna 5,6, 5,7 och 8,0.
 

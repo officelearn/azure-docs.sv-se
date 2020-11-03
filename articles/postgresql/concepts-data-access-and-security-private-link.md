@@ -1,17 +1,17 @@
 ---
 title: Privat länk – Azure Database for PostgreSQL-enskild server
 description: Lär dig hur en privat länk fungerar för Azure Database for PostgreSQL-enskild server.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 9b93e3f42c6b635ced7fdca61cb2ffe4f74d19bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a864ce42888aace385cf60a4122f204c8f76831d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489514"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240434"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Privat länk för Azure Database för PostgreSQL-Single Server
 
@@ -72,21 +72,21 @@ När nätverks administratören skapar den privata slut punkten (PE) kan Postgre
 
 * Välj en enskild PEC från listan genom att markera den.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Välj den privata slut punkts portalen":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Välj den privata slut punkten som väntar på godkännande":::
 
 * PostgreSQL-Server administratören kan välja att godkänna eller avvisa en PEC och eventuellt lägga till ett kort text svar.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Välj den privata slut punkts portalen":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Välj meddelandet privat slut punkt":::
 
 * Efter godkännande eller avvisande visar listan lämpligt tillstånd tillsammans med svars texten
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Välj den privata slut punkts portalen":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Välj slut tillstånd för privat slut punkt":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Använd fall av privat länk för Azure Database for PostgreSQL
 
 Klienter kan ansluta till den privata slut punkten från samma VNet, peer-kopplat VNet i samma region eller via VNet-till-VNet-anslutning mellan regioner. Dessutom kan klienter ansluta lokalt med ExpressRoute, privat peering eller VPN-tunnlar. Nedan visas ett förenklat diagram som visar vanliga användnings fall.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Välj den privata slut punkts portalen":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Välj översikt över privat slut punkt":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Ansluta från en virtuell Azure-dator i peer-Virtual Network (VNet)
 Konfigurera [VNet-peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) för att upprätta anslutning till den Azure Database for PostgreSQL-enskilda servern från en virtuell Azure-dator i ett peer-kopplat VNet.
@@ -113,7 +113,7 @@ Följande situationer och resultat är möjliga när du använder en privat län
 
 ## <a name="deny-public-access-for-azure-database-for-postgresql-single-server"></a>Neka offentlig åtkomst för Azure Database for PostgreSQL enskild server
 
-Om du bara vill använda privata slut punkter för att komma åt sin Azure Database for PostgreSQL enskild server, kan du inaktivera inställningen alla offentliga slut punkter ([brand Väggs regler](concepts-firewall-rules.md) och virtuella nätverkets [slut punkter](concepts-data-access-and-security-vnet.md)) genom att ange den **nekade konfigurationen för offentlig nätverks åtkomst** på databas servern. 
+Om du bara vill använda privata slut punkter för att komma åt sin Azure Database for PostgreSQL enskild server, kan du inaktivera inställningen alla offentliga slut punkter ( [brand Väggs regler](concepts-firewall-rules.md) och virtuella nätverkets [slut punkter](concepts-data-access-and-security-vnet.md)) genom att ange den **nekade konfigurationen för offentlig nätverks åtkomst** på databas servern. 
 
 När den här inställningen är inställd på *Ja* tillåts bara anslutningar via privata slut punkter till din Azure Database for PostgreSQL. När den här inställningen är inställd på att *inga* klienter ska kunna ansluta till din Azure Database for PostgreSQL baserat på inställningen för brand väggen eller VNet-tjänstens slut punkt. När värdet för åtkomst till privat nätverk har angetts kan kunder dessutom inte lägga till och/eller uppdatera befintliga brand Väggs regler och VNet-tjänstens slut punkts regler.
 

@@ -1,6 +1,6 @@
 ---
-title: Hämta loggar för att felsöka Azure Arc-aktiverad data styrenhet
-description: Hämta tjänst loggar för att felsöka Azure Arc-aktiverad data styrenhet.
+title: Hämta loggar för att felsöka Azure Arc-aktiverade data tjänster
+description: Lär dig hur du hämtar loggfiler från en datakontrollant för att felsöka Azure Arc-aktiverade data tjänster.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,14 +9,14 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 625092e0557d40051e1ffd538a496c20edc0222f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0c4cff7583f08fe27649cee464fcef802cddd88f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320208"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234061"
 ---
-# <a name="get-azure-arc-enabled-data-services-logs"></a>Hämta Azure Arc-aktiverade data Services-loggar
+# <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Hämta loggar för att felsöka Azure Arc-aktiverade data tjänster
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -24,12 +24,12 @@ ms.locfileid: "92320208"
 
 Innan du fortsätter behöver du:
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Installationsinstruktioner](./install-client-tools.md).
-* Ett administratörs konto för att logga in på den Azure Arc-aktiverade data Services-styrenheten.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. Mer information finns i [Installera klient verktyg för att distribuera och hantera Azure Arc Data Services](./install-client-tools.md).
+* Ett administratörs konto för att logga in på data styrenheten Azure Arc-aktiverad.
 
-## <a name="get-azure-arc-enabled-data-services-logs"></a>Hämta Azure Arc-aktiverade data Services-loggar
+## <a name="get-log-files"></a>Hämta loggfiler
 
-Du kan hämta Azure Arc-aktiverade data Services-loggar över alla poddar eller vissa poddar i fel söknings syfte. Du kan göra detta med hjälp av standard Kubernetes-verktyg som `kubectl logs` kommandot eller i den här artikeln ska du använda [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] verktyget, vilket gör det enklare att hämta alla loggar samtidigt.
+Du kan hämta tjänst loggar för alla poddar eller vissa poddar i fel söknings syfte. Ett sätt är att använda standard Kubernetes-verktyg som `kubectl logs` kommandot. I den här artikeln använder du [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] verktyget, som gör det enklare att hämta alla loggar samtidigt.
 
 1. Logga in på data styrenheten med ett administratörs konto.
 
@@ -43,7 +43,7 @@ Du kan hämta Azure Arc-aktiverade data Services-loggar över alla poddar eller 
    azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
    ```
 
-   Exempel:
+   Ett exempel:
 
    ```console
    #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
@@ -53,27 +53,27 @@ Datakontrollanten skapar loggfilerna i den aktuella arbets katalogen i en under 
 
 ## <a name="options"></a>Alternativ
 
-`azdata arc dc debug copy-logs` innehåller följande alternativ för att hantera utdata.
+`azdata arc dc debug copy-logs`Kommandot ger följande alternativ för att hantera utdata:
 
 * Spara loggfilerna i en annan katalog med hjälp av `--target-folder` parametern.
 * Komprimera filerna genom att utelämna `--skip-compress` parametern.
-* Utlös och inkludera minnes dum par genom att utesluta `--exclude-dumps` . Den här metoden rekommenderas inte om Microsoft Support har begärt minnes dum par. Om du tar en minnes dumpning krävs det att inställningen `allowDumps` för datakontrollant är inställd på `true` tiden för att skapa datakontrollanten.
+* Utlös och inkludera minnes dum par genom att utesluta `--exclude-dumps` . Vi rekommenderar inte den här metoden om Microsoft Support har begärt minnes dum par. Att hämta en minnes dumpning kräver att inställningen datakontrollant `allowDumps` är inställd på `true` när data styrenheten skapas.
 * Filtrera för att samla in loggar för bara en speciell Pod ( `--pod` ) eller container ( `--container` ) efter namn.
-* Filtrera för att samla in loggar för en angiven anpassad resurs genom att skicka `--resource-kind` `--resource-name` parametern och. `resource-kind`Parametervärdet måste vara ett av de anpassade resurs definitions namnen, som kan hämtas av kommandot `kubectl get customresourcedefinition` .
+* Filtrera för att samla in loggar för en angiven anpassad resurs genom att skicka `--resource-kind` `--resource-name` parametrarna och. `resource-kind`Parametervärdet måste vara ett av de anpassade resurs definitions namnen. Du kan hämta dessa namn med hjälp av kommandot `kubectl get customresourcedefinition` .
 
-Med dessa parametrar kan du ersätta `<parameters>` i följande exempel. 
+Med dessa parametrar kan du ersätta `<parameters>` i följande exempel: 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
 ```
 
-Till exempel
+Ett exempel:
 
 ```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Exempel på mapphierarki. Mapphierarkin är ordnad efter Pod namn, sedan container och sedan efter katalogpartition i behållaren.
+Följande mapphierarki är ett exempel. Det är ordnat efter Pod namn, sedan container och sedan efter katalogpartition i behållaren.
 
 ```output
 <export directory>

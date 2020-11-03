@@ -1,29 +1,29 @@
 ---
 title: Privat länk – Azure Portal-Azure Database for MariaDB
 description: Lär dig hur du konfigurerar en privat länk för Azure Database for MariaDB från Azure Portal
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: da54917d21d468f96b8e72ac362e030570fabaee
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 79b3c3f8eca2fa4442a7845ca4aa3921d0302453
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426010"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242012"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Skapa och hantera en privat länk för Azure Database for MariaDB med hjälp av portalen
 
 En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser.  I den här artikeln får du lära dig hur du använder Azure Portal för att skapa en virtuell dator i en Azure-Virtual Network och en Azure Database for MariaDB-server med en privat Azure-slutpunkt.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
 > Funktionen privat länk är bara tillgänglig för Azure Database for MariaDB servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att databas servern är på någon av dessa pris nivåer.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Skapa en virtuell Azure-dator
 
@@ -40,7 +40,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Namn | Ange *MyVirtualNetwork*. |
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
-    | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
+    | Resursgrupp | Välj **Skapa ny** , ange *myResourceGroup* och välj sedan **OK**. |
     | Plats | Välj **Europa, västra**.|
     | Undernät – Namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
@@ -63,7 +63,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Region | Välj **Europa, västra**. |
     | Alternativ för tillgänglighet | Lämna standard **ingen redundans för infrastruktur krävs**. |
     | Bild | Välj **Windows Server 2019 Data Center**. |
-    | Storlek | Lämna standard **ds1 v2**som standard. |
+    | Storlek | Lämna standard **ds1 v2** som standard. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
     | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -131,11 +131,11 @@ I det här avsnittet ska du skapa en Azure Database for MariaDB-server i Azure.
 I det här avsnittet ska du skapa en privat slut punkt till MariaDB-servern. 
 
 1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs**  >  **nätverk**  >  **privat länk**.
-2. I **privat länk Center – översikt**, på alternativet för att **skapa en privat anslutning till en tjänst**, väljer du **Start**.
+2. I **privat länk Center – översikt** , på alternativet för att **skapa en privat anslutning till en tjänst** , väljer du **Start**.
 
     ![Översikt över privat länk](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
-1. I **skapa en privat slut punkt – grunderna**anger eller väljer du den här informationen:
+1. I **skapa en privat slut punkt – grunderna** anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -147,7 +147,7 @@ I det här avsnittet ska du skapa en privat slut punkt till MariaDB-servern.
     |Region|Välj **Europa, västra**.|
     |||
 5. Välj **Nästa: resurs**.
-6. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
+6. I **skapa en privat slut punkt – resurs** , anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -158,7 +158,7 @@ I det här avsnittet ska du skapa en privat slut punkt till MariaDB-servern.
     |Målunderresurs |Välj *mariadbServer*|
     |||
 7. Välj **Nästa: konfiguration**.
-8. I **skapa en privat slut punkt – konfiguration**anger eller väljer du den här informationen:
+8. I **skapa en privat slut punkt – konfiguration** anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -184,13 +184,13 @@ I det här avsnittet ska du skapa en privat slut punkt till MariaDB-servern.
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ansluta till en virtuell dator med hjälp av Fjärrskrivbord (RDP)
 
 
-När du har skapat **myVm**ansluter du till den från Internet på följande sätt: 
+När du har skapat **myVm** ansluter du till den från Internet på följande sätt: 
 
 1. I portalens sökfältet anger du *myVm*.
 
 1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
-1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil (*. RDP*) och laddar ned den till datorn.
+1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil ( *. RDP* ) och laddar ned den till datorn.
 
 1. Öppna den *nedladdade RDP* -filen.
 
@@ -199,7 +199,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
 
         > [!NOTE]
-        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto** för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
 1. Välj **OK**.
 
@@ -225,7 +225,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
 3. Testa anslutningen till den privata länken för MariaDB-servern med valfri tillgänglig klient. I exemplet nedan har jag använt [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) för att utföra åtgärden.
 
 
-4. I **ny anslutning**anger eller väljer du den här informationen:
+4. I **ny anslutning** anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -245,7 +245,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar med den privata slut punkten, MariaDB-servern och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller:
 
-1. Skriv *myResourceGroup*   i sökrutan längst upp i portalen och välj **Search**  *myResourceGroup*   från Sök resultaten.
+1. Skriv  *myResourceGroup*   i sökrutan längst upp i portalen och välj **Search**  *myResourceGroup*   från Sök resultaten.
 2. Välj **Ta bort resursgrupp**.
 3. Ange myResourceGroup för **Skriv resurs gruppens namn** och välj **ta bort**.
 

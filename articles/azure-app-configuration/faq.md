@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 99c74547d5f48f57af56af69f47190d80d9cd350
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5d74b17bdd9c264a983bfdd2e374001dd4a0e2c0
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074965"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242117"
 ---
 # <a name="azure-app-configuration-faq"></a>Vanliga frågor om Azure App konfiguration
 
@@ -86,16 +86,16 @@ Både konfigurations nivåer för appar erbjuder grundläggande funktioner, inkl
 
 Tänk på följande när du väljer en nivå.
 
-- **Resurser per prenumeration**: en resurs består av ett enda konfigurations lager. Varje prenumeration är begränsad till ett konfigurations lager på den kostnads fria nivån. Prenumerationer kan ha ett obegränsat antal konfigurations lager på standard nivån.
-- **Lagring per resurs**: i den kostnads fria nivån begränsas varje konfigurations lagring till 10 MB lagrings utrymme. På standard-nivån kan varje konfigurations lagring använda upp till 1 GB lagrings utrymme.
-- **Nyckel historik**: app-konfiguration lagrar en historik över alla ändringar som har gjorts i nycklar. På den kostnads fria nivån lagras den här historiken i sju dagar. På standard-nivån lagras den här historiken i 30 dagar.
-- **Begär Anden per dag**: kostnads fria nivå lager är begränsade till 1 000 förfrågningar per dag. När en butik når 1 000-begäranden returneras HTTP-statuskod 429 för alla begär anden tills midnatt UTC.
+- **Resurser per prenumeration** : en resurs består av ett enda konfigurations lager. Varje prenumeration är begränsad till ett konfigurations lager på den kostnads fria nivån. Prenumerationer kan ha ett obegränsat antal konfigurations lager på standard nivån.
+- **Lagring per resurs** : i den kostnads fria nivån begränsas varje konfigurations lagring till 10 MB lagrings utrymme. På standard-nivån kan varje konfigurations lagring använda upp till 1 GB lagrings utrymme.
+- **Revisions historik** : app-konfiguration lagrar en historik över alla ändringar som har gjorts i nycklar. På den kostnads fria nivån lagras den här historiken i sju dagar. På standard-nivån lagras den här historiken i 30 dagar.
+- **Begär ande kvot** : kostnads fria nivå lager är begränsade till 1 000 förfrågningar per dag. När ett arkiv når 1 000-begäranden returneras HTTP-statuskod 429 för alla begär anden tills midnatt UTC.
 
-    För standard-nivå butiker ingår de första 200 000 förfrågningarna varje dag i den dagliga avgiften. Ytterligare förfrågningar debiteras som överanvändning.
+    Lager på standard nivå är begränsade till 20 000 förfrågningar per timme. När kvoten är slut returneras HTTP-statuskod 429 för alla begär anden till slutet av timmen.
 
-- **Service nivå avtal**: Standard nivån har ett service avtal på 99,9% tillgänglighet. Den kostnads fria nivån har inget service avtal.
-- **Säkerhetsfunktioner**: båda nivåerna innehåller grundläggande säkerhetsfunktioner, inklusive kryptering med Microsoft-hanterade nycklar, autentisering via HMAC eller Azure Active Directory, Azure RBAC-stöd och hanterad identitet. Standard-nivån innehåller fler avancerade säkerhetsfunktioner, inklusive stöd för privata länkar och kryptering med Kundhanterade nycklar.
-- **Kostnad**: lager på standard nivån har en daglig användnings avgift. Det finns också ett överbelastnings tillägg för begär Anden förbi den dagliga allokeringen. Det kostar inget att använda en lagring på en kostnads fri nivå.
+- **Service nivå avtal** : Standard nivån har ett service avtal på 99,9% tillgänglighet. Den kostnads fria nivån har inget service avtal.
+- **Säkerhetsfunktioner** : båda nivåerna innehåller grundläggande säkerhetsfunktioner, inklusive kryptering med Microsoft-hanterade nycklar, autentisering via HMAC eller Azure Active Directory, Azure RBAC-support, hanterad identitet och service-taggar. Standard-nivån innehåller fler avancerade säkerhetsfunktioner, inklusive stöd för privata länkar och kryptering med Kundhanterade nycklar.
+- **Kostnad** : lager på standard nivån har en daglig användnings avgift. De första 200 000-begärandena varje dag ingår i den dagliga avgiften. Det finns också ett överbelastnings tillägg för begär Anden förbi den dagliga allokeringen. Det kostar inget att använda en lagring på en kostnads fri nivå.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>Kan jag uppgradera en butik från den kostnads fria nivån till standard nivån? Kan jag nedgradera en butik från standard-nivån till den kostnads fria nivån?
 

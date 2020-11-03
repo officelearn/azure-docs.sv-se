@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e00ecd6048239683951a2d1e60d3bcb0eb5aa68
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288315"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242440"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga Parquet-filer med SQL on-demand (för hands version) i Azure Synapse Analytics
 
@@ -155,43 +155,7 @@ ORDER BY
 
 ## <a name="type-mapping"></a>Typ mappning
 
-Parquet-filer innehåller typ beskrivningar för varje kolumn. I följande tabell beskrivs hur Parquet-typer mappas till inbyggda SQL-typer.
-
-| Typ av Parquet | Parquet logiska typ (anteckning) | SQL-datatyp |
-| --- | --- | --- |
-| BOOLESKT | | bit |
-| BINÄR/BYTE_ARRAY | | varbinary |
-| DOUBLE | | flyt |
-| FLYTA | | real |
-| INT32 | | int |
-| INT64 | | bigint |
-| INT96 | |datetime2 |
-| FIXED_LEN_BYTE_ARRAY | |binary |
-| BINARY |UTF8 |varchar \* (utf8-sortering) |
-| BINARY |NOLLÄNGD |varchar \* (utf8-sortering) |
-| BINARY |RÄKNING|varchar \* (utf8-sortering) |
-| BINARY |UUID |uniqueidentifier |
-| BINARY |DECIMAL |decimal |
-| BINARY |JSON |varchar (max) \* (utf8-sortering) |
-| BINARY |BSON |varbinary(max) |
-| FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVALL |varchar (max), serialiserad till standardiserat format |
-| INT32 |INT (8, sant) |smallint |
-| INT32 |INT (16, sant) |smallint |
-| INT32 |INT (32, sant) |int |
-| INT32 |INT (8, falskt) |tinyint |
-| INT32 |INT (16, falskt) |int |
-| INT32 |INT (32, falskt) |bigint |
-| INT32 |DATE |date |
-| INT32 |DECIMAL |decimal |
-| INT32 |TID (MILLIS)|time |
-| INT64 |INT (64, sant) |bigint |
-| INT64 |INT (64, falskt) |decimal (20, 0) |
-| INT64 |DECIMAL |decimal |
-| INT64 |TID (MICROS/NANO) |time |
-|INT64 |TIDSSTÄMPEL (MILL/MICROS/NANOS) |datetime2 |
-|[Komplex typ](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar (max), serialiserad till JSON |
-|[Komplex typ](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAPPA|varchar (max), serialiserad till JSON |
+För Parquet typ mappning till SQL-typ [Mappning av typ mappning för Parquet](develop-openrowset.md#type-mapping-for-parquet).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e586e9acc9510dc1aaae511fa51e5a0c3255bd8f
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 4c2900ed5ebe0df3ed827acc1a16caff3beaf4d4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026504"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241097"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Flytta en digital Azure-instans till en annan Azure-region
 
@@ -76,13 +76,12 @@ Om exemplet inte kan hantera diagrammets storlek, kan du exportera och importera
 
 Om du vill fortsätta med ADT Explorer laddar du först ned exempel koden och konfigurerar den så att den körs på din dator. 
 
-Navigera till exemplet här: [Azure Digitals flätar (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden till din dator som _**Azure_Digital_Twins__ADT__explorer.zip**_ . Zippa upp filen.
+Navigera till exemplet här: [Azure Digitals flätar (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden till din dator som _**Azure_Digital_Twins__ADT__explorer.zip**_. Zippa upp filen.
 
 Konfigurera och konfigurera sedan behörigheter för ADT Explorer. Det gör du genom att följa anvisningarna i avsnittet [*Konfigurera Azure Digital-och ADT-Utforskare*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) i snabb starten för Azure Digital. Det här avsnittet vägleder dig genom följande steg:
 1. Konfigurera en digital Azure-instans (du kan hoppa över den här delen eftersom du redan har en instans)
-2. Konfigurera en **Azure AD App-registrering** för att ge åtkomst till din instans
-3. Konfigurera behörigheter för ADT Explorer att köras på din dator
-4. Kör ADT Explorer och konfigurera den för att ansluta till din instans. Du kommer att använda **värd namnet** för den ursprungliga Azure Digital-instansen som du flyttar och **klient-ID och klient** **-ID** från appens registrering.
+2. Konfigurera lokala Azure-autentiseringsuppgifter för att ge åtkomst till din instans
+3. Kör ADT Explorer och konfigurera den för att ansluta till din instans. Du kommer att använda **värd namnet** för den ursprungliga Azure Digital-instansen som du flyttar.
 
 Nu ska du ha ADT Explorer-exempelprogrammet som körs i en webbläsare på din dator. Exemplet bör vara anslutet till den ursprungliga Azure Digital-instansen.
 
@@ -90,7 +89,7 @@ Nu ska du ha ADT Explorer-exempelprogrammet som körs i en webbläsare på din d
 
 För att verifiera anslutningen kan du trycka på knappen *Kör fråga* för att köra standard frågan som visar alla dubbla och relationer i grafen i rutan *diagram Utforskaren* .
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Webbläsarfönster som visar en app som körs på localhost: 3000. Appen kallas ADT Explorer och innehåller rutor för en Query Explorer, modell läge, diagramvy och egenskaps Utforskaren. Det finns inga skärm data ännu." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="En knapp som läser kör fråga nära överst i fönstret är markerad" lightbox="media/how-to-move-regions/run-query.png":::
 
 Du kan lämna ADT Explorer igång eftersom du kommer att använda den igen senare i den här artikeln för att ladda upp objekten på nytt till din nya instans i mål regionen.
 
@@ -102,12 +101,12 @@ Om du vill ladda ned alla dessa samtidigt måste du först se till att hela graf
  
 Tryck sedan på *Exportera diagram* -ikonen i rutan *diagram* .
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Webbläsarfönster som visar en app som körs på localhost: 3000. Appen kallas ADT Explorer och innehåller rutor för en Query Explorer, modell läge, diagramvy och egenskaps Utforskaren. Det finns inga skärm data ännu." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="I rutan diagram visas en ikon. Den visar en pil som pekar nedåt i ett moln." lightbox="media/how-to-move-regions/export-graph.png":::
 
-När du gör det aktive ras en *nedladdnings* länk i *diagramvyn* . Välj den för att ladda ned en JSON-baserad representation av frågeresultatet, inklusive modeller, dubbla och relationer. Detta bör ladda ned en *. JSON* -fil till din dator.
+När du gör det aktive ras en *nedladdnings* länk i *diagramvyn*. Välj den för att ladda ned en JSON-baserad representation av frågeresultatet, inklusive modeller, dubbla och relationer. Detta bör ladda ned en *. JSON* -fil till din dator.
 
 >[!NOTE]
->Om den hämtade filen verkar ha ett annat fil namns tillägg kan du försöka redigera tillägget direkt och ändra det till *. JSON* .
+>Om den hämtade filen verkar ha ett annat fil namns tillägg kan du försöka redigera tillägget direkt och ändra det till *. JSON*.
 
 ## <a name="move"></a>Flytta
 
@@ -115,7 +114,7 @@ Sedan slutför du "flytta"-instansen genom att skapa en ny instans i mål region
 
 ### <a name="create-a-new-instance"></a>Skapa en ny instans
 
-Börja **med att skapa en ny instans av Azure Digitals dubbla i mål regionen** . Det gör du genom att följa stegen i [*anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md), och hålla dessa pekare i åtanke:
+Börja **med att skapa en ny instans av Azure Digitals dubbla i mål regionen**. Det gör du genom att följa stegen i [*anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md), och hålla dessa pekare i åtanke:
 * Du kan behålla samma namn för den nya instansen **om** den finns i en annan resurs grupp. Om du behöver använda samma resurs grupp som innehåller den ursprungliga instansen måste den nya instansen ha sitt eget distinkta namn.
 * Ange den nya mål regionen när du uppmanas att ange en plats.
 
@@ -135,11 +134,11 @@ Annars går du tillbaka till webbläsarfönstret som kör **ADT Explorer** och f
 
 ADT Explorer är för närvarande ansluten till den ursprungliga Azure Digital-instansen. Växla anslutningen så att den pekar på den nya instansen genom att trycka på knappen *Logga in* överst i fönstret. 
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Webbläsarfönster som visar en app som körs på localhost: 3000. Appen kallas ADT Explorer och innehåller rutor för en Query Explorer, modell läge, diagramvy och egenskaps Utforskaren. Det finns inga skärm data ännu." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="ADT Explorer markerar ikonen Logga in längst upp i fönstret. Ikonen visar en enkel Silhouette av en person som har en Silhouette av en nyckel." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Du kan återanvända samma app-registrering, så du behöver bara ersätta *ADT-URL: en* för att avspegla din nya instans. Ändra det här värdet till det läser *https://{ny instans-värdnamn}* .
+Ersätt *ADT-URL: en* för att avspegla din nya instans. Ändra det här värdet till det läser *https://{ny instans-värdnamn}*.
 
-Tryck på *Anslut* . Du kan uppmanas att logga in igen med dina Azure-autentiseringsuppgifter och/eller bevilja detta program tillstånd för din instans.
+Tryck på *Anslut*. Du kan uppmanas att logga in igen med dina Azure-autentiseringsuppgifter och/eller bevilja detta program tillstånd för din instans.
 
 ##### <a name="upload-models-twins-and-graph"></a>Ladda upp modeller, garn och diagram
 
@@ -147,9 +146,9 @@ Ladda sedan upp lösnings komponenterna som du laddade ned tidigare till din nya
 
 Om du vill överföra **modeller, dubbla och grafer** , trycker du på ikonen *Importera diagram* i rutan *diagram* . Med det här alternativet överförs alla tre komponenterna på samma gång (även modeller som inte används i diagrammet).
 
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Webbläsarfönster som visar en app som körs på localhost: 3000. Appen kallas ADT Explorer och innehåller rutor för en Query Explorer, modell läge, diagramvy och egenskaps Utforskaren. Det finns inga skärm data ännu." lightbox="media/how-to-move-regions/import-graph.png":::
+:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="I rutan diagram visas en ikon. Den visar en pil som pekar på ett moln." lightbox="media/how-to-move-regions/import-graph.png":::
 
-I rutan fil väljare navigerar du till den hämtade grafen. Välj filen Graph *. JSON* och tryck på *Öppna* .
+I rutan fil väljare navigerar du till den hämtade grafen. Välj filen Graph *. JSON* och tryck på *Öppna*.
 
 Efter några sekunder öppnar ADT Explorer en *importerad* vy som visar en för hands version av grafen som ska läsas in.
 
@@ -157,7 +156,7 @@ Tryck på ikonen *Spara* i det övre högra hörnet i *diagramvyn* för att bekr
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Webbläsarfönster som visar en app som körs på localhost: 3000. Appen kallas ADT Explorer och innehåller rutor för en Query Explorer, modell läge, diagramvy och egenskaps Utforskaren. Det finns inga skärm data ännu." lightbox="media/how-to-move-regions/graph-preview-save.png":::
+        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Markera ikonen Spara i förhands gransknings fönstret för diagrammet" lightbox="media/how-to-move-regions/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -167,7 +166,7 @@ ADT Explorer laddar nu upp dina modeller och diagram (inklusive de dubbla och re
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Webbläsarfönster som visar en app som körs på localhost: 3000. Appen kallas ADT Explorer och innehåller rutor för en Query Explorer, modell läge, diagramvy och egenskaps Utforskaren. Det finns inga skärm data ännu." lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Dialog rutan visar att grafen har importer klarat. Den läser importen lyckades. 2 importerade modeller. 4 dubbla importer. 2 relationer har importer ATS. &quot;" lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -175,13 +174,13 @@ ADT Explorer laddar nu upp dina modeller och diagram (inklusive de dubbla och re
     :::column-end:::
 :::row-end:::
 
-Om du vill kontrol lera att allt har överförts trycker du på knappen *Kör fråga* i *Graph Explorer* -rutan för att köra standard frågan som visar alla dubbla och relationer i grafen. Detta kommer också att uppdatera listan över modeller i *vyn modell* .
+Om du vill kontrol lera att allt har överförts trycker du på knappen *Kör fråga* i *Graph Explorer* -rutan för att köra standard frågan som visar alla dubbla och relationer i grafen. Detta kommer också att uppdatera listan över modeller i *vyn modell*.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Webbläsarfönster som visar en app som körs på localhost: 3000. Appen kallas ADT Explorer och innehåller rutor för en Query Explorer, modell läge, diagramvy och egenskaps Utforskaren. Det finns inga skärm data ännu." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Fokusera på samma Kör fråga från tidigare, längst upp i fönstret" lightbox="media/how-to-move-regions/run-query.png":::
 
 Du bör se grafen med alla dess sammanflätade och relationer i rutan *Graph Explorer* . Du bör också se vilka modeller som visas i rutan *modell* .
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Webbläsarfönster som visar en app som körs på localhost: 3000. Appen kallas ADT Explorer och innehåller rutor för en Query Explorer, modell läge, diagramvy och egenskaps Utforskaren. Det finns inga skärm data ännu." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="En vy av ADT Explorer som visar 2 modeller som är markerade i rutan modell och en graf som är markerad i rutan Graph Explorer" lightbox="media/how-to-move-regions/post-upload.png":::
 
 Detta bekräftar att dina modeller, dubbla och grafer har laddats upp igen till den nya instansen i mål regionen.
 
@@ -210,6 +209,7 @@ De exakta resurser som du behöver redigera beror på ditt scenario, men här ä
 * Azure Maps
 * Enhets etablerings tjänst (DPS)
 * Personliga appar eller företags program utanför Azure, t. ex. **klient programmet** som skapades i [*Självstudier: kod a klient program*](tutorial-code.md), som ansluter till instansen och anropar Azure Digitals dubbla API: er
+* Azure AD-App-registreringar **behöver inte** återskapas. Om du använder en [app-registrering](how-to-create-app-registration.md) för att ansluta till Azures digitala dubbla API: er kan du återanvända samma app-registrering med den nya instansen.
 
 När du har slutfört det här steget ska den nya instansen i mål regionen vara en kopia av den ursprungliga instansen.
 
@@ -225,7 +225,7 @@ Du kan också prova att köra anpassade appar eller slut punkt till slut punkt s
 
 ## <a name="clean-up-source-resources"></a>Rensa käll resurser
 
-Nu när den nya instansen har kon figurer ATS i mål regionen med en kopia av den ursprungliga instansens data och anslutningar kan du **ta bort den ursprungliga instansen** .
+Nu när den nya instansen har kon figurer ATS i mål regionen med en kopia av den ursprungliga instansens data och anslutningar kan du **ta bort den ursprungliga instansen**.
 
 Du kan göra detta i [Azure Portal](https://portal.azure.com), med [CLI](how-to-use-cli.md)eller med [kontroll Plans-API: erna](how-to-use-apis-sdks.md#overview-control-plane-apis).
 
@@ -233,4 +233,4 @@ Om du vill ta bort instansen med Azure Portal [öppnar du portalen](https://port
 
 Tryck på knappen *ta bort* och följ anvisningarna för att slutföra borttagningen.
 
-:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Webbläsarfönster som visar en app som körs på localhost: 3000. Appen kallas ADT Explorer och innehåller rutor för en Query Explorer, modell läge, diagramvy och egenskaps Utforskaren. Det finns inga skärm data ännu.":::
+:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Vy över information om Azure Digitals sammanhållna instanser i Azure Portal på fliken Översikt. Knappen Ta bort är markerad":::

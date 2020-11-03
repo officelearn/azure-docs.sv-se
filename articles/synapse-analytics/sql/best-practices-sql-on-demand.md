@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de3e3503d63cf6dcaa98adc318d86df7700458d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476282"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241879"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Metod tips för SQL på begäran (för hands version) i Azure Synapse Analytics
 
@@ -61,16 +61,16 @@ De data typer som du använder i frågan påverkar prestanda. Du kan få bättre
 - Använd den minsta data storlek som ska hantera det största möjliga värdet.
   - Om den maximala tecken längden är 30 tecken, använder du tecken data typen 30.
   - Om alla tecken kolumn värden har fast storlek använder du **char** eller **nchar**. Annars använder du **varchar** eller **nvarchar**.
-  - Om värdet för heltals kolumn är 500 använder du **smallint** eftersom det är den minsta data typen som kan hantera det här värdet. Du kan hitta data typs intervall av typen Integer i [den här artikeln](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15).
+  - Om värdet för heltals kolumn är 500 använder du **smallint** eftersom det är den minsta data typen som kan hantera det här värdet. Du kan hitta data typs intervall av typen Integer i [den här artikeln](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15&preserve-view=true).
 - Använd om möjligt **varchar** och **char** i stället för **nvarchar** och **nchar**.
 - Använd Integer-baserade data typer om möjligt. Åtgärder för att sortera, ansluta och gruppera efter slutförs snabbare med heltal än på Character data.
 - Om du använder schema härledning, [kontrollerar du härledda data typer](#check-inferred-data-types).
 
 ## <a name="check-inferred-data-types"></a>Kontrol lera härledda data typer
 
-[Schema härledning](query-parquet-files.md#automatic-schema-inference) hjälper dig att snabbt skriva frågor och utforska data utan att känna till fil scheman. Kostnaden för den här bekvämligheten är att härledda data typer är större än de faktiska data typerna. Detta inträffar när det inte finns tillräckligt med information i källfilerna för att se till att rätt datatyp används. Parquet-filer innehåller till exempel inte metadata om maximal tecken kolumn längd. Så att SQL på begäran härleds som varchar (8000).
+[Schema härledning](query-parquet-files.md#automatic-schema-inference) hjälper dig att snabbt skriva frågor och utforska data utan att känna till fil scheman. Kostnaden för den här bekvämligheten är att härledda data typer kan vara större än de faktiska data typerna. Detta inträffar när det inte finns tillräckligt med information i källfilerna för att se till att rätt datatyp används. Parquet-filer innehåller till exempel inte metadata om maximal tecken kolumn längd. Så att SQL på begäran härleds som varchar (8000).
 
-Du kan använda [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15) för att kontrol lera de resulterande data typerna i din fråga.
+Du kan använda [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15&preserve-view=true) för att kontrol lera de resulterande data typerna i din fråga.
 
 I följande exempel visas hur du kan optimera härledda data typer. Den här proceduren används för att Visa härledda data typer: 
 ```sql  

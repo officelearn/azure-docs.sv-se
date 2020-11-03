@@ -3,12 +3,12 @@ title: CI/CD med Azure-pipeline och-mallar
 description: Beskriver hur du konfigurerar kontinuerlig integrering i Azure-pipeline med hjälp av Azure Resource Manager mallar. Det visar hur du använder ett PowerShell-skript eller kopierar filer till en mellanlagringsplats och distribuerar därifrån.
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86ad2839375b73bf9595cf3369960e614ec03e67
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653408"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233822"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrera ARM-mallar med Azure Pipelines
 
@@ -34,7 +34,7 @@ Den här artikeln förutsätter att din ARM-mall och Azure DevOps-organisationen
 
 ## <a name="create-pipeline"></a>Skapa pipeline
 
-1. Om du inte har lagt till en pipeline tidigare måste du skapa en ny pipeline. Välj **pipeliner** och **ny pipeline**från din Azure DevOps-organisation.
+1. Om du inte har lagt till en pipeline tidigare måste du skapa en ny pipeline. Välj **pipeliner** och **ny pipeline** från din Azure DevOps-organisation.
 
    ![Lägg till ny pipeline](./media/add-template-to-azure-pipelines/new-pipeline.png)
 
@@ -52,7 +52,7 @@ Den här artikeln förutsätter att din ARM-mall och Azure DevOps-organisationen
 
 Du är redo att antingen lägga till en Azure PowerShell uppgift eller kopiera filen och distribuera uppgifter.
 
-## <a name="azure-powershell-task"></a>Azure PowerShell aktivitet
+## <a name="azure-powershell-task"></a>Azure PowerShell-uppgift
 
 I det här avsnittet visas hur du konfigurerar kontinuerlig distribution med hjälp av en enda aktivitet som kör PowerShell-skriptet i projektet. Om du behöver ett PowerShell-skript som distribuerar en mall, se [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) eller [Deploy-AzureResourceGroup.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzureResourceGroup.ps1).
 
@@ -70,7 +70,7 @@ steps:
   inputs:
     azureSubscription: 'script-connection'
     ScriptType: 'FilePath'
-    ScriptPath: './Deploy-Template.ps1'
+    ScriptPath: './Deploy-AzTemplate.ps1'
     ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
     azurePowerShellVersion: 'LatestVersion'
 ```
@@ -101,7 +101,7 @@ I `ScriptArguments` anger du de parametrar som krävs av ditt skript. I följand
 ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
 ```
 
-När du väljer **Spara**körs Bygg pipelinen automatiskt. Gå tillbaka till sammanfattningen för din build-pipeline och se status.
+När du väljer **Spara** körs Bygg pipelinen automatiskt. Gå tillbaka till sammanfattningen för din build-pipeline och se status.
 
 ![Visa resultat](./media/add-template-to-azure-pipelines/view-results.png)
 
@@ -226,7 +226,7 @@ steps:
     deploymentName: 'deploy1'
 ```
 
-När du väljer **Spara**körs Bygg pipelinen automatiskt. Gå tillbaka till sammanfattningen för din build-pipeline och se status.
+När du väljer **Spara** körs Bygg pipelinen automatiskt. Gå tillbaka till sammanfattningen för din build-pipeline och se status.
 
 ## <a name="next-steps"></a>Nästa steg
 

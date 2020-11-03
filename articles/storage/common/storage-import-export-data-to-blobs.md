@@ -5,21 +5,22 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c3be13dade9cae45994b5f7a9d6f7479e2de6256
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 32187b7aedd43a57ffe77c2f8524c54049ba10ae
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460741"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234128"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använd Azure import/export-tjänsten för att importera data till Azure Blob Storage
 
-Den här artikeln innehåller stegvisa instruktioner för hur du använder Azure import/export-tjänsten för att importera stora mängder data på ett säkert sätt till Azure Blob Storage. För att kunna importera data till Azure-blobbar kräver tjänsten att du levererar krypterade disk enheter som innehåller dina data till ett Azure-datacenter.  
+Den här artikeln innehåller stegvisa instruktioner för hur du använder Azure import/export-tjänsten för att importera stora mängder data på ett säkert sätt till Azure Blob Storage. För att kunna importera data till Azure-blobbar kräver tjänsten att du levererar krypterade disk enheter som innehåller dina data till ett Azure-datacenter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du skapar ett import jobb för att överföra data till Azure Blob Storage bör du noggrant granska och slutföra följande lista över nödvändiga komponenter för den här tjänsten.
 Du måste:
@@ -34,7 +35,7 @@ Du måste:
 * [Ladda ned den senaste WAImportExport-versionen 1](https://www.microsoft.com/download/details.aspx?id=42659) på Windows-systemet. Den senaste versionen av verktyget har säkerhets uppdateringar för att tillåta en extern skydds funktion för BitLocker-nyckeln och den uppdaterade funktionen för upplåsnings läge.
 
   * Zippa upp till standardmappen `waimportexportv1` . Till exempel `C:\WaImportExportV1`.
-* Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com` .  
+* Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com` .
   * Kontot måste vara giltigt, måste ha ett saldo och måste ha funktioner för retur leverans.
   * Generera ett spårnings nummer för export jobbet.
   * Varje jobb ska ha ett separat spårningsnummer. Det finns inte stöd för flera jobb med samma spårningsnummer.
@@ -51,7 +52,7 @@ Utför följande steg för att förbereda enheterna.
 1. Anslut dina disk enheter till Windows-systemet via SATA-anslutningar.
 2. Skapa en enda NTFS-volym på varje enhet. Tilldela volymen en enhets beteckning. Använd inte mountpoints.
 3. Aktivera BitLocker-kryptering på NTFS-volymen. Om du använder ett Windows Server-system kan du använda instruktionerna i [så här aktiverar du BitLocker på Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-4. Kopiera data till krypterad volym. Använd dra och släpp-eller Robocopy eller ett sådant kopierings verktyg. En journal fil (*. jrn*) skapas i samma mapp som du kör verktyget.
+4. Kopiera data till krypterad volym. Använd dra och släpp-eller Robocopy eller ett sådant kopierings verktyg. En journal fil ( *. jrn* ) skapas i samma mapp som du kör verktyget.
 
    Om enheten är låst och du måste låsa upp enheten kan stegen för att låsa upp vara olika beroende på ditt användnings fall.
 
@@ -108,18 +109,18 @@ Utför följande steg för att skapa ett import jobb i Azure Portal.
 
     ![Klicka på Skapa import/export-jobb](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. I **grunderna**:
+4. I **grunderna** :
 
    * Välj **Importera till Azure**.
    * Ange ett beskrivande namn för import jobbet. Använd namnet för att följa förloppet för dina jobb.
        * Namnet får bara innehålla gemena bokstäver, siffror och bindestreck.
        * Namnet måste börja med en bokstav och får inte innehålla blank steg.
    * Välj en prenumeration.
-   * Ange eller Välj en resurs grupp.  
+   * Ange eller Välj en resurs grupp.
 
      ![Skapa import jobb – steg 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-5. I **jobb information**:
+5. I **jobb information** :
 
    * Ladda upp filerna för enhets journaler som du fick under steget förberedelse av enhet. Om `waimportexport.exe version1` användes överför du en fil för varje enhet som du har för berett. Om journal filens storlek överskrider 2 MB kan du använda den som `<Journal file name>_DriveInfo_<Drive serial ID>.xml` skapats med journal filen.
    * Välj det mål lagrings konto där data ska finnas.
@@ -127,7 +128,7 @@ Utför följande steg för att skapa ett import jobb i Azure Portal.
 
    ![Skapa import jobb – steg 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-6. I **information om retur leverans**:
+6. I **information om retur leverans** :
 
    * Välj operatören i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet på `adbops@microsoft.com`  med information om den operatör som du planerar att använda.
    * Ange ett giltigt transportföretags konto nummer som du har skapat med transport företaget. Microsoft använder det här kontot för att skicka tillbaka enheterna till dig när ditt import jobb har slutförts. Om du inte har ett konto nummer skapar du ett [FedEx](https://www.fedex.com/us/oadr/) -eller [DHL](https://www.dhl.com/) -konto.
@@ -138,7 +139,7 @@ Utför följande steg för att skapa ett import jobb i Azure Portal.
 
      ![Skapa import jobb – steg 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
-7. I **sammanfattningen**:
+7. I **sammanfattningen** :
 
    * Granska jobb informationen som visas i sammanfattningen. Anteckna jobb namnet och leverans adressen till Azure-datacenter för att leverera diskar tillbaka till Azure. Den här informationen används senare på frakt etiketten.
    * Skapa import jobbet genom att klicka på **OK** .
@@ -221,6 +222,102 @@ Använd följande steg för att skapa ett import jobb i Azure CLI.
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Använd följande steg för att skapa ett import jobb i Azure PowerShell.
+
+[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+
+> [!IMPORTANT]
+> Även om **AZ. ImportExport** PowerShell-modulen är i för hands version måste du installera den separat med hjälp av `Install-Module` cmdleten. När den här PowerShell-modulen blir allmänt tillgänglig kommer den att ingå i framtida versioner av AZ PowerShell-modulen och är tillgängliga som standard i Azure Cloud Shell.
+
+```azurepowershell-interactive
+Install-Module -Name Az.ImportExport
+```
+
+### <a name="create-a-job"></a>Skapa ett jobb
+
+1. Du kan använda en befintlig resurs grupp eller skapa en. Skapa en resurs grupp genom att köra cmdleten [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) :
+
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name myierg -Location westus
+   ```
+
+1. Du kan använda ett befintligt lagrings konto eller skapa ett. Skapa ett lagrings konto genom att köra cmdleten [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) :
+
+   ```azurepowershell-interactive
+   New-AzStorageAccount -ResourceGroupName myierg -AccountName myssdocsstorage -SkuName Standard_RAGRS -Location westus -EnableHttpsTrafficOnly $true
+   ```
+
+1. Använd cmdleten [Get-AzImportExportLocation](/powershell/module/az.importexport/get-azimportexportlocation) för att hämta en lista över platser där du kan leverera diskar:
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation
+   ```
+
+1. Använd `Get-AzImportExportLocation` cmdleten med `Name` parametern för att hämta platser för din region:
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation -Name westus
+   ```
+
+1. Kör följande [New-AzImportExport-](/powershell/module/az.importexport/new-azimportexport) exempel för att skapa ett import jobb:
+
+   ```azurepowershell-interactive
+   $driveList = @(@{
+     DriveId = '9CA995BA'
+     BitLockerKey = '439675-460165-128202-905124-487224-524332-851649-442187'
+     ManifestFile = '\\DriveManifest.xml'
+     ManifestHash = '69512026C1E8D4401816A2E5B8D7420D'
+     DriveHeaderHash = 'AZ31BGB1'
+   })
+
+   $Params = @{
+      ResourceGroupName = 'myierg'
+      Name = 'MyIEjob1'
+      Location = 'westus'
+      BackupDriveManifest = $true
+      DiagnosticsPath = 'waimportexport'
+      DriveList = $driveList
+      JobType = 'Import'
+      LogLevel = 'Verbose'
+      ShippingInformationRecipientName = 'Microsoft Azure Import/Export Service'
+      ShippingInformationStreetAddress1 = '3020 Coronado'
+      ShippingInformationCity = 'Santa Clara'
+      ShippingInformationStateOrProvince = 'CA'
+      ShippingInformationPostalCode = '98054'
+      ShippingInformationCountryOrRegion = 'USA'
+      ShippingInformationPhone = '4083527600'
+      ReturnAddressRecipientName = 'Gus Poland'
+      ReturnAddressStreetAddress1 = '1020 Enterprise way'
+      ReturnAddressCity = 'Sunnyvale'
+      ReturnAddressStateOrProvince = 'CA'
+      ReturnAddressPostalCode = '94089'
+      ReturnAddressCountryOrRegion = 'USA'
+      ReturnAddressPhone = '4085555555'
+      ReturnAddressEmail = 'gus@contoso.com'
+      ReturnShippingCarrierName = 'FedEx'
+      ReturnShippingCarrierAccountNumber = '123456789'
+      StorageAccountId = '/subscriptions/<SubscriptionId>/resourceGroups/myierg/providers/Microsoft.Storage/storageAccounts/myssdocsstorage'
+   }
+   New-AzImportExport @Params
+   ```
+
+   > [!TIP]
+   > Ange en grupp-e-postadress i stället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar.
+
+1. Använd cmdleten [Get-AzImportExport](/powershell/module/az.importexport/get-azimportexport) för att se alla jobb för resurs gruppen myierg:
+
+   ```azurepowershell-interactive
+   Get-AzImportExport -ResourceGroupName myierg
+   ```
+
+1. Om du vill uppdatera jobbet eller avbryta jobbet kör du cmdleten [Update-AzImportExport](/powershell/module/az.importexport/update-azimportexport) :
+
+   ```azurepowershell-interactive
+   Update-AzImportExport -Name MyIEjob1 -ResourceGroupName myierg -CancelRequested
+   ```
 
 ---
 

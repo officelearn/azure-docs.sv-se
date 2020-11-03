@@ -1,18 +1,18 @@
 ---
 title: Privat länk – Azure CLI – Azure Database for MySQL
 description: Lär dig hur du konfigurerar privat länk för Azure Database for MySQL från Azure CLI
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b6c26c99d68e5b92477a4d7f2c6734190d112aba
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a2ec1c609fc0562c6c8181a934e742daa9a5a4f9
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538773"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241573"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MySQL med CLI
 
@@ -128,11 +128,11 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 Anslut till VM- *myVm* från Internet på följande sätt:
 
-1. I portalens sökfältet anger du *myVm* .
+1. I portalens sökfältet anger du *myVm*.
 
-1. Välj knappen **Anslut** . När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn** .
+1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
-1. Välj **Hämta RDP-fil** . Azure skapar en Remote Desktop Protocol-fil ( *. RDP* ) och laddar ned den till datorn.
+1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil ( *. RDP* ) och laddar ned den till datorn.
 
 1. Öppna den *nedladdade RDP* -filen.
 
@@ -143,7 +143,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
         > [!NOTE]
         > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto** för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
-1. Välj **OK** .
+1. Välj **OK**.
 
 1. Du kan få en certifikatvarning under inloggningen. Välj **Ja** eller **Fortsätt** om du får en certifikatvarning.
 
@@ -151,7 +151,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 ## <a name="access-the-mysql-server-privately-from-the-vm"></a>Få åtkomst till MySQL-servern privat från den virtuella datorn
 
-1. Öppna PowerShell i fjärr skrivbordet för *myVM* .
+1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
 
 2. Ange  `nslookup mydemomysqlserver.privatelink.mysql.database.azure.com`. 
 
@@ -169,7 +169,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 4. I **ny anslutning** anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Anslutningsnamn| Välj önskat anslutnings namn.|
     | Värdnamn | Välj *mydemoserver.privatelink.mysql.Database.Azure.com* |

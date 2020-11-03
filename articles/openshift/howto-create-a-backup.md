@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: febee51a20f57d71d633243145a1aa0c8fb9b437
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078586"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233686"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Skapa ett säkerhets kopierings program för Azure Red Hat OpenShift 4-kluster
 
@@ -22,6 +22,9 @@ I den här artikeln förbereder du din miljö för att skapa en säkerhets kopia
 > [!div class="checklist"]
 > * Konfigurera förutsättningarna och installera nödvändiga verktyg
 > * Skapa en Azure Red Hat OpenShift 4 program säkerhets kopiering
+
+> [!NOTE] 
+> Velero säkerhetskopierar inte Azure Red Hat OpenShift-etcd nyckel värdes data lager. Om du behöver säkerhetskopiera etcd, se [säkerhetskopiera etcd](https://docs.openshift.com/container-platform/4.5/backup_and_restore/backing-up-etcd.html).
 
 Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.6.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 

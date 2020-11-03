@@ -5,15 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bfbef5ce3ba7675aff88df654a5ba6572c38adbe
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 39f9a5802d7f10753c8ea81bf414da195e137cc6
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440746"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234145"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten till att exportera data från Azure Blob Storage
 
@@ -50,7 +51,7 @@ Utför följande steg för att skapa ett export jobb i Azure Portal.
 
     ![Klicka på import/export-jobb](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
 
-4. I **grunderna**:
+4. I **grunderna** :
 
     - Välj **exportera från Azure**.
     - Ange ett beskrivande namn på export jobbet. Använd det namn du väljer för att följa förloppet för dina jobb.
@@ -59,9 +60,9 @@ Utför följande steg för att skapa ett export jobb i Azure Portal.
     - Välj en prenumeration.
     - Ange eller Välj en resurs grupp.
 
-        ![Grundläggande inställningar](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![Grunder](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
-5. I **jobb information**:
+5. I **jobb information** :
 
     - Välj det lagrings konto där de data som ska exporteras finns. Använd ett lagrings konto nära den plats där du befinner dig.
     - DropOff-platsen fylls i automatiskt baserat på den region där det valda lagrings kontot finns.
@@ -71,19 +72,19 @@ Utför följande steg för att skapa ett export jobb i Azure Portal.
          ![Exportera alla](./media/storage-import-export-data-from-blobs/export-from-blob4.png)
 
     - Du kan ange vilka behållare och blobbar som ska exporteras.
-        - **Ange en blob som ska exporteras**: Använd **lika** med-väljaren. Ange den relativa sökvägen till blobben som börjar med behållar namnet. Använd *$root* för att ange rot containern.
-        - **För att ange alla blobbar som börjar med ett prefix**: Använd Start **med** -väljaren. Ange prefixet som börjar med ett snedstreck (/). Prefixet kan vara prefixet för behållar namnet, det fullständiga behållar namnet eller det fullständiga behållar namnet följt av prefixet för BLOB-namnet. Du måste ange BLOB-sökvägar i giltigt format för att undvika fel under bearbetningen, som du ser i den här skärm bilden. Mer information finns i [exempel på giltiga BLOB-sökvägar](#examples-of-valid-blob-paths).
+        - **Ange en blob som ska exporteras** : Använd **lika** med-väljaren. Ange den relativa sökvägen till blobben som börjar med behållar namnet. Använd *$root* för att ange rot containern.
+        - **För att ange alla blobbar som börjar med ett prefix** : Använd Start **med** -väljaren. Ange prefixet som börjar med ett snedstreck (/). Prefixet kan vara prefixet för behållar namnet, det fullständiga behållar namnet eller det fullständiga behållar namnet följt av prefixet för BLOB-namnet. Du måste ange BLOB-sökvägar i giltigt format för att undvika fel under bearbetningen, som du ser i den här skärm bilden. Mer information finns i [exempel på giltiga BLOB-sökvägar](#examples-of-valid-blob-paths).
 
            ![Exportera valda behållare och blobbar](./media/storage-import-export-data-from-blobs/export-from-blob5.png)
 
     - Du kan exportera från BLOB list filen.
 
-        ![Exportera från BLOB list filen](./media/storage-import-export-data-from-blobs/export-from-blob6.png)  
+        ![Exportera från BLOB list filen](./media/storage-import-export-data-from-blobs/export-from-blob6.png)
 
    > [!NOTE]
    > Om blobben som ska exporteras används under data kopieringen tar Azure import/export-tjänsten en ögonblicks bild av blobben och kopierar ögonblicks bilden.
 
-6. I **information om retur leverans**:
+6. I **information om retur leverans** :
 
     - Välj operatören i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet på `adbops@microsoft.com`  med information om den operatör som du planerar att använda.
     - Ange ett giltigt transportföretags konto nummer som du har skapat med transport företaget. Microsoft använder det här kontot för att skicka tillbaka enheterna till dig när ditt export jobb är klart.
@@ -92,7 +93,7 @@ Utför följande steg för att skapa ett export jobb i Azure Portal.
         > [!TIP]
         > Ange en grupp-e-postadress i stället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar.
 
-7. **Sammanfattning**:
+7. **Sammanfattning** :
 
     - Granska informationen om jobbet.
     - Anteckna jobb namnet och tillhandahåll leverans adressen för Azure Data Center för att leverera diskar till Azure.
@@ -146,7 +147,7 @@ Använd följande steg för att skapa ett export jobb i Azure Portal.
     > [!TIP]
     > Ange en grupp-e-postadress i stället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar.
 
-   Det här jobbet exporterar alla blobbar i ditt lagrings konto. Du kan ange en BLOB för export genom att ersätta det här värdet för **--export**:
+   Det här jobbet exporterar alla blobbar i ditt lagrings konto. Du kan ange en BLOB för export genom att ersätta det här värdet för **--export** :
 
     ```azurecli
     --export blob-path=$root/logo.bmp
@@ -154,7 +155,7 @@ Använd följande steg för att skapa ett export jobb i Azure Portal.
 
    Detta parameter värde exporterar blobben som heter *logo.bmp* i rot behållaren.
 
-   Du kan också välja att välja alla blobbar i en behållare med hjälp av ett prefix. Ersätt detta värde för **--export**:
+   Du kan också välja att välja alla blobbar i en behållare med hjälp av ett prefix. Ersätt detta värde för **--export** :
 
     ```azurecli
     blob-path-prefix=/myiecontainer
@@ -176,6 +177,93 @@ Använd följande steg för att skapa ett export jobb i Azure Portal.
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Använd följande steg för att skapa ett export jobb i Azure PowerShell.
+
+[!INCLUDE [azure-powershell-requirements-h3.md](../../../includes/azure-powershell-requirements-h3.md)]
+
+> [!IMPORTANT]
+> Även om **AZ. ImportExport** PowerShell-modulen är i för hands version måste du installera den separat med hjälp av `Install-Module` cmdleten. När den här PowerShell-modulen blir allmänt tillgänglig kommer den att ingå i framtida versioner av AZ PowerShell-modulen och är tillgängliga som standard i Azure Cloud Shell.
+
+```azurepowershell-interactive
+Install-Module -Name Az.ImportExport
+```
+
+### <a name="create-a-job"></a>Skapa ett jobb
+
+1. Om du vill hämta en lista över platser som du kan ta emot diskar från använder du cmdleten [Get-AzImportExportLocation](/powershell/module/az.importexport/get-azimportexportlocation) :
+
+   ```azurepowershell-interactive
+   Get-AzImportExportLocation
+   ```
+
+1. Kör följande [New-AzImportExport-](/powershell/module/az.importexport/new-azimportexport) exempel för att skapa ett export jobb som använder ditt befintliga lagrings konto:
+
+   ```azurepowershell-interactive
+   $Params = @{
+      ResourceGroupName = 'myierg'
+      Name = 'Myexportjob1'
+      Location = 'westus'
+      BackupDriveManifest = $true
+      DiagnosticsPath = 'waimportexport'
+      ExportBlobListblobPath = '\'
+      JobType = 'Export'
+      LogLevel = 'Verbose'
+      ShippingInformationRecipientName = 'Microsoft Azure Import/Export Service'
+      ShippingInformationStreetAddress1 = '3020 Coronado'
+      ShippingInformationCity = 'Santa Clara'
+      ShippingInformationStateOrProvince = 'CA'
+      ShippingInformationPostalCode = '98054'
+      ShippingInformationCountryOrRegion = 'USA'
+      ShippingInformationPhone = '4083527600'
+      ReturnAddressRecipientName = 'Gus Poland'
+      ReturnAddressStreetAddress1 = '1020 Enterprise way'
+      ReturnAddressCity = 'Sunnyvale'
+      ReturnAddressStateOrProvince = 'CA'
+      ReturnAddressPostalCode = '94089'
+      ReturnAddressCountryOrRegion = 'USA'
+      ReturnAddressPhone = '4085555555'
+      ReturnAddressEmail = 'gus@contoso.com'
+      StorageAccountId = '/subscriptions/<SubscriptionId>/resourceGroups/myierg/providers/Microsoft.Storage/storageAccounts/myssdocsstorage'
+   }
+   New-AzImportExport @Params
+   ```
+
+    > [!TIP]
+    > Ange en grupp-e-postadress i stället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar.
+
+   Det här jobbet exporterar alla blobbar i ditt lagrings konto. Du kan ange en BLOB för export genom att ersätta värdet för **-ExportBlobListblobPath** :
+
+   ```azurepowershell-interactive
+   -ExportBlobListblobPath $root\logo.bmp
+   ```
+
+   Detta parameter värde exporterar blobben som heter *logo.bmp* i rot behållaren.
+
+   Du kan också välja att välja alla blobbar i en behållare med hjälp av ett prefix. Ersätt det här värdet för **-ExportBlobListblobPath** :
+
+   ```azurepowershell-interactive
+   -ExportBlobListblobPath '/myiecontainer'
+   ```
+
+   Mer information finns i [exempel på giltiga BLOB-sökvägar](#examples-of-valid-blob-paths).
+
+   > [!NOTE]
+   > Om blobben som ska exporteras används under data kopieringen tar Azure import/export-tjänsten en ögonblicks bild av blobben och kopierar ögonblicks bilden.
+
+1. Använd cmdleten [Get-AzImportExport](/powershell/module/az.importexport/get-azimportexport) för att se alla jobb för resurs gruppen myierg:
+
+   ```azurepowershell-interactive
+   Get-AzImportExport -ResourceGroupName myierg
+   ```
+
+1. Om du vill uppdatera jobbet eller avbryta jobbet kör du cmdleten [Update-AzImportExport](/powershell/module/az.importexport/update-azimportexport) :
+
+   ```azurepowershell-interactive
+   Update-AzImportExport -Name MyIEjob1 -ResourceGroupName myierg -CancelRequested
+   ```
 
 ---
 
@@ -208,7 +296,7 @@ Exporten är klar.
 
 Använd följande kommando för att låsa upp enheten:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`
 
 Här är ett exempel på inmatade exempel.
 
@@ -232,14 +320,14 @@ Det här *valfria* steget hjälper dig att avgöra hur många enheter som krävs
 
     Parametrarna beskrivs i följande tabell:
 
-    |Kommando rads parameter|Beskrivning|  
-    |--------------------------|-----------------|  
-    |**/logdir:**|Valfritt. Logg katalogen. Utförliga loggfiler skrivs till den här katalogen. Om detta inte anges används den aktuella katalogen som logg katalog.|  
-    |**SN**|Krävs. Namnet på lagrings kontot för export jobbet.|  
-    |**sk**|Krävs endast om en behållar-SÄKERHETSASSOCIATIONER inte har angetts. Konto nyckeln för lagrings kontot för export jobbet.|  
-    |**/csas:**|Krävs endast om en lagrings konto nyckel inte har angetts. Behållar SAS för att lista de blobbar som ska exporteras i export jobbet.|  
-    |**/ExportBlobListFile:**|Krävs. Sökväg till XML-filen som innehåller en lista över BLOB-sökvägar eller prefix för BLOB-sökvägar för de blobbar som ska exporteras. Fil formatet som används i `BlobListBlobPath` -elementet i åtgärden [Put Job](/rest/api/storageimportexport/jobs) för att importera/exportera REST API.|  
-    |**/DriveSize:**|Krävs. Storleken på de enheter som ska användas för ett export jobb, *t. ex.* 500 GB, 1,5 TB.|  
+    |Kommando rads parameter|Description|
+    |--------------------------|-----------------|
+    |**/logdir:**|Valfritt. Logg katalogen. Utförliga loggfiler skrivs till den här katalogen. Om detta inte anges används den aktuella katalogen som logg katalog.|
+    |**SN**|Krävs. Namnet på lagrings kontot för export jobbet.|
+    |**sk**|Krävs endast om en behållar-SÄKERHETSASSOCIATIONER inte har angetts. Konto nyckeln för lagrings kontot för export jobbet.|
+    |**/csas:**|Krävs endast om en lagrings konto nyckel inte har angetts. Behållar SAS för att lista de blobbar som ska exporteras i export jobbet.|
+    |**/ExportBlobListFile:**|Krävs. Sökväg till XML-filen som innehåller en lista över BLOB-sökvägar eller prefix för BLOB-sökvägar för de blobbar som ska exporteras. Fil formatet som används i `BlobListBlobPath` -elementet i åtgärden [Put Job](/rest/api/storageimportexport/jobs) för att importera/exportera REST API.|
+    |**/DriveSize:**|Krävs. Storleken på de enheter som ska användas för ett export jobb, *t. ex.* 500 GB, 1,5 TB.|
 
     Se ett [exempel på PreviewExport-kommandot](#example-of-previewexport-command).
 
@@ -247,38 +335,38 @@ Det här *valfria* steget hjälper dig att avgöra hur många enheter som krävs
 
 ### <a name="example-of-previewexport-command"></a>Exempel på PreviewExport-kommandon
 
-Följande exempel visar `PreviewExport` kommandot:  
+Följande exempel visar `PreviewExport` kommandot:
 
 ```powershell
     WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
-```  
-
-Filen med export-BLOB-listan får innehålla BLOB-namn och blob-prefix, som du ser här:  
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>  
-<BlobList>  
-<BlobPath>pictures/animals/koala.jpg</BlobPath>  
-<BlobPathPrefix>/vhds/</BlobPathPrefix>  
-<BlobPathPrefix>/movies/</BlobPathPrefix>  
-</BlobList>  
 ```
 
-Azure import/export-verktyget visar en lista över alla blobbar som ska exporteras och beräknar hur de ska packas upp i enheter med den angivna storleken, med hänsyn till eventuella kostnader som behövs, och sedan beräknar antalet enheter som behövs för att lagra blobbar och disk användnings information.  
+Filen med export-BLOB-listan får innehålla BLOB-namn och blob-prefix, som du ser här:
 
-Här är ett exempel på utdata, med informations loggar utelämnade:  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<BlobList>
+<BlobPath>pictures/animals/koala.jpg</BlobPath>
+<BlobPathPrefix>/vhds/</BlobPathPrefix>
+<BlobPathPrefix>/movies/</BlobPathPrefix>
+</BlobList>
+```
+
+Azure import/export-verktyget visar en lista över alla blobbar som ska exporteras och beräknar hur de ska packas upp i enheter med den angivna storleken, med hänsyn till eventuella kostnader som behövs, och sedan beräknar antalet enheter som behövs för att lagra blobbar och disk användnings information.
+
+Här är ett exempel på utdata, med informations loggar utelämnade:
 
 ```powershell
-Number of unique blob paths/prefixes:   3  
-Number of duplicate blob paths/prefixes:        0  
-Number of nonexistent blob paths/prefixes:      1  
+Number of unique blob paths/prefixes:   3
+Number of duplicate blob paths/prefixes:        0
+Number of nonexistent blob paths/prefixes:      1
 
-Drive size:     500.00 GB  
-Number of blobs that can be exported:   6  
-Number of blobs that cannot be exported:        2  
-Number of drives needed:        3  
-        Drive #1:       blobs = 1, occupied space = 454.74 GB  
-        Drive #2:       blobs = 3, occupied space = 441.37 GB  
+Drive size:     500.00 GB
+Number of blobs that can be exported:   6
+Number of blobs that cannot be exported:        2
+Number of drives needed:        3
+        Drive #1:       blobs = 1, occupied space = 454.74 GB
+        Drive #2:       blobs = 3, occupied space = 441.37 GB
         Drive #3:       blobs = 2, occupied space = 131.28 GB
 ```
 
@@ -286,7 +374,7 @@ Number of drives needed:        3
 
 I följande tabell visas exempel på giltiga BLOB-sökvägar:
 
-   | Väljare | BLOB-sökväg | Beskrivning |
+   | Väljare | BLOB-sökväg | Description |
    | --- | --- | --- |
    | Börjar med |/ |Exporterar alla blobar i lagrings kontot |
    | Börjar med |/$root/ |Exporterar alla blobbar i rot behållaren |

@@ -1,17 +1,17 @@
 ---
 title: Återställa-Azure Portal-Azure Database for MySQL – flexibel Server
 description: I den här artikeln beskrivs hur du utför återställnings åtgärder i Azure Database for MySQL via Azure Portal.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 1c81ddad8a11cbad361ff84caf6f7200a0c010d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 062d53fcb122ebacd004d7dca5e11f5a883354cd
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937296"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241964"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview"></a>Återställning vid olika tidpunkter för en Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -31,7 +31,7 @@ För att slutföra den här instruktions guiden behöver du:
 
 Följ de här stegen för att återställa din flexibla server med en tidigare befintlig säkerhets kopia.
 
-1.  I [Azure Portal](https://portal.azure.com/)väljer du den flexibla server som du vill återställa säkerhets kopian från.
+1.  I [Azure Portal](https://portal.azure.com/)väljer du den flexibla server som du vill återställa säkerhets kopian från.
 
 2.  Klicka på **Översikt** i den vänstra panelen.
 
@@ -56,7 +56,7 @@ Följ de här stegen för att återställa din flexibla server med en tidigare b
 
 Följ de här stegen för att återställa din flexibla server med en tidigare befintlig säkerhets kopia.
 
-1.  I [Azure Portal](https://portal.azure.com/)väljer du den flexibla server som du vill återställa säkerhets kopian från.
+1.  I [Azure Portal](https://portal.azure.com/)väljer du den flexibla server som du vill återställa säkerhets kopian från.
 
 2.  På sidan Översikt klickar du på **Återställ**.
 
@@ -72,7 +72,7 @@ Följ de här stegen för att återställa din flexibla server med en tidigare b
 
 6.  Ange ett nytt Server namn i fältet **Återställ till ny server** . 
    
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="Tidigaste återställnings tid":::
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="Visa översikt":::
  
 7.  Klicka på **OK**.
 

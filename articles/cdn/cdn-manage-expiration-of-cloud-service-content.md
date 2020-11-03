@@ -15,12 +15,12 @@ ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: fefa19e8dfee295d34231d36df079b80d1e82768
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d8eb450d2010bf2a525a26f1c5ff48f59732ce43
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778587"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240978"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Hantera utgång av webbinnehåll i Azure CDN
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Den bästa metoden för att ställa in en webb servers `Cache-Control` huvud är
 
 1. I Azure Portal väljer du en CDN-profil och väljer sedan slut punkten för webb servern.
 
-1. I det vänstra fönstret under inställningar, väljer du **Cachelagringsregler** .
+1. I det vänstra fönstret under inställningar, väljer du **Cachelagringsregler**.
 
    ![Knappen CDN caching rules](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
@@ -67,21 +67,21 @@ Den bästa metoden för att ställa in en webb servers `Cache-Control` huvud är
 
    Den här globala regeln för cachelagring anger en cache-varaktighet på en timme och påverkar alla begär anden till slut punkten. Den åsidosätter alla `Cache-Control` eller `Expires` http-huvuden som skickas av ursprungs servern som anges av slut punkten.   
 
-1. Välj **Spara** .
+1. Välj **Spara**.
 
 **Så här ställer du in en webb servers fils Cache-Control rubriker med anpassade regler för cachelagring:**
 
 1. Skapa två matchnings villkor under **anpassade regler för cachelagring** :
 
-     a. För det första matchnings villkoret anger du **matcha villkor** till **sökväg** och anger `/webfolder1/*` för **matchnings värde** . Ange **beteende för cachelagring** för att **åsidosätta** och ange 4 i rutan **timmar** .
+     a. För det första matchnings villkoret anger du **matcha villkor** till **sökväg** och anger `/webfolder1/*` för **matchnings värde**. Ange **beteende för cachelagring** för att **åsidosätta** och ange 4 i rutan **dagar** .
 
-     b. För det andra matchnings villkoret anger du **matchnings villkor** till **sökväg** och anger `/webfolder1/file1.txt` för **matchnings värde** . Ange **beteende för cachelagring** för att **åsidosätta** och ange 2 i rutan **timmar** .
+     b. För det andra matchnings villkoret anger du **matchnings villkor** till **sökväg** och anger `/webfolder1/file1.txt` för **matchnings värde**. Ange **beteende för cachelagring** för att **åsidosätta** och ange 2 i rutan **dagar** .
 
     ![Exempel på anpassade caching-regler för CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
     Den första anpassade regeln för cachelagring anger en cache-varaktighet på fyra timmar för alla filer i `/webfolder1` mappen på ursprungs servern som anges av slut punkten. Den andra regeln åsidosätter bara den första regeln för `file1.txt` filen och anger varaktigheten två timmar för cachen.
 
-1. Välj **Spara** .
+1. Välj **Spara**.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Ange Cache-Control rubriker med hjälp av konfigurationsfiler
@@ -131,7 +131,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 ## <a name="testing-the-cache-control-header"></a>Testa Cache-Control huvud
 Du kan enkelt verifiera TTL-inställningarna för ditt webb innehåll. Testa att ditt webb innehåll innehåller svars huvudet med webbläsarens [utvecklingsverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) `Cache-Control` . Du kan också använda ett verktyg som **wget** , [Postman](https://www.getpostman.com/)eller [Fiddler](https://www.telerik.com/fiddler) för att undersöka svarshuvuden.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * [Läs mer om **clientCache** -elementet](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Läs dokumentationen för egenskapen **HttpResponse. cache**](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
 * [Läs dokumentationen för HttpCachePolicy- **klassen**](/dotnet/api/system.web.httpcachepolicy)  

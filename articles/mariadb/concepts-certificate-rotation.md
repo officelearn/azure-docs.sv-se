@@ -1,17 +1,17 @@
 ---
 title: Certifikat rotation för Azure Database for MariaDB
 description: Lär dig mer om kommande ändringar av rot certifikat ändringar som påverkar Azure Database for MariaDB
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: db717394ba102fb646a4194d0be2722e17251f48
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 239aa8677d1aa4cfd1ab1a93e04c05a641611437
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087170"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241488"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Förstå ändringarna i rot certifikat utfärdarens ändring för Azure Database for MariaDB
 
@@ -149,7 +149,7 @@ Om du använder [data i replikering](concepts-data-in-replication.md) för att a
 För att kontrol lera om du använder SSL-anslutning för att ansluta till servern, se [SSL-verifiering](howto-configure-ssl.md#verify-the-ssl-connection).
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. finns det en åtgärd som behövs om jag redan har DigiCertGlobalRootG2 i min certifikat fil?
-Nej. Ingen åtgärd krävs om certifikat filen redan har **DigiCertGlobalRootG2** .
+Nej. Ingen åtgärd krävs om certifikat filen redan har **DigiCertGlobalRootG2**.
 
 ### <a name="15-what-if-i-have-further-questions"></a>15. Vad händer om jag har fler frågor?
 Om du har frågor kan du få svar från community-experter i [Microsoft Q&A](mailto:AzureDatabaseformariadb@service.microsoft.com). [Kontakta oss](mailto:AzureDatabaseformariadb@service.microsoft.com)om du har en Support plan och behöver teknisk hjälp.

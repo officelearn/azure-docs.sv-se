@@ -1,18 +1,18 @@
 ---
 title: Privat länk – Azure CLI – Azure Database for PostgreSQL-enskild server
 description: Lär dig hur du konfigurerar en privat länk för Azure Database for PostgreSQL-enskild server från Azure CLI
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 780ce6bed230ebbcf2a603962afc711fb9ab7f11
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 45f5a7e66c80dff5e78e575463becd95bcc7fca1
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777936"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242219"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Skapa och hantera en privat länk för Azure Database for PostgreSQL-enskild server med CLI
 
@@ -132,11 +132,11 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 Anslut till VM- *myVm* från Internet på följande sätt:
 
-1. I portalens sökfältet anger du *myVm* .
+1. I portalens sökfältet anger du *myVm*.
 
-1. Välj knappen **Anslut** . När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn** .
+1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
-1. Välj **Hämta RDP-fil** . Azure skapar en Remote Desktop Protocol-fil ( *. RDP* ) och laddar ned den till datorn.
+1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil ( *. RDP* ) och laddar ned den till datorn.
 
 1. Öppna den *nedladdade RDP* -filen.
 
@@ -147,7 +147,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
         > [!NOTE]
         > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto** för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
-1. Välj **OK** .
+1. Välj **OK**.
 
 1. Du kan få en certifikatvarning under inloggningen. Välj **Ja** eller **Fortsätt** om du får en certifikatvarning.
 
@@ -155,7 +155,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 ## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Få åtkomst till PostgreSQL-servern privat från den virtuella datorn
 
-1. Öppna PowerShell i fjärr skrivbordet för *myVM* .
+1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
 
 2. Ange  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
@@ -174,11 +174,11 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Servertyp| Välj **postgresql** .|
+    | Servertyp| Välj **postgresql**.|
     | Servernamn| Välj *mydemopostgresserver.privatelink.postgres.Database.Azure.com* |
     | Användarnamn | Ange användar namn som username@servername anges när postgresql-servern skapas. |
     |Lösenord |Ange ett lösen ord som angavs när PostgreSQL-servern skapades. |
-    |SSL|Välj **obligatoriskt** .|
+    |SSL|Välj **obligatoriskt**.|
     ||
 
 5. Välj Anslut.

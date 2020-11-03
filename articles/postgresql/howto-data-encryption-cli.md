@@ -1,18 +1,18 @@
 ---
 title: Data kryptering – Azure CLI – för Azure Database for PostgreSQL-enskild server
 description: Lär dig hur du konfigurerar och hanterar data kryptering för Azure Database for PostgreSQL enskild server med hjälp av Azure CLI.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7494135cd4912ec8e59a32592ebcca0e0a6813b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757782e8842fbcaca9c8d95ec8086dd5791a817b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797822"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240621"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Data kryptering för Azure Database for PostgreSQL enskild server med hjälp av Azure CLI
 
@@ -49,7 +49,7 @@ Lär dig hur du använder Azure CLI för att konfigurera och hantera data krypte
 * Nyckeln måste ha följande attribut för att användas som en kundhanterad nyckel:
   * Inget förfallo datum
   * Inte inaktiverat
-  * Utföra **Get**-, **wrap** -och **unwrap** -åtgärder
+  * Utföra **Get** -, **wrap** -och **unwrap** -åtgärder
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Ange rätt behörigheter för viktiga åtgärder
 
@@ -67,7 +67,7 @@ Lär dig hur du använder Azure CLI för att konfigurera och hantera data krypte
     az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
-2. Ange **nyckel behörigheter** (**Get** **, wrapping**, **unwrap**) för **huvud kontot**, som är namnet på postgresql-servern.
+2. Ange **nyckel behörigheter** ( **Get** **, wrapping** , **unwrap** ) för **huvud kontot** , som är namnet på postgresql-servern.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

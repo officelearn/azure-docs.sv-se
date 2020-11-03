@@ -1,18 +1,18 @@
 ---
 title: Privat länk – Azure CLI – Azure Database for MariaDB
 description: Lär dig hur du konfigurerar privat länk för Azure Database for MariaDB från Azure CLI
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb3ed4e41125131538957addce5bf935b897b581
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c7f95b2009521b054958be48e444a129b0a59ed3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537226"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242899"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MariaDB med CLI
 
@@ -133,11 +133,11 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 Anslut till VM- *myVm* från Internet på följande sätt:
 
-1. I portalens sökfältet anger du *myVm* .
+1. I portalens sökfältet anger du *myVm*.
 
-1. Välj knappen **Anslut** . När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn** .
+1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
-1. Välj **Hämta RDP-fil** . Azure skapar en Remote Desktop Protocol-fil ( *. RDP* ) och laddar ned den till datorn.
+1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil ( *. RDP* ) och laddar ned den till datorn.
 
 1. Öppna den *nedladdade RDP* -filen.
 
@@ -148,7 +148,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
         > [!NOTE]
         > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto** för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
-1. Välj **OK** .
+1. Välj **OK**.
 
 1. Du kan få en certifikatvarning under inloggningen. Välj **Ja** eller **Fortsätt** om du får en certifikatvarning.
 
@@ -156,7 +156,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 ## <a name="access-the-mariadb-server-privately-from-the-vm"></a>Få åtkomst till MariaDB-servern privat från den virtuella datorn
 
-1. Öppna PowerShell i fjärr skrivbordet för *myVM* .
+1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
 
 2. Ange  `nslookup mydemoserver.privatelink.mariadb.database.azure.com`. 
 
@@ -173,7 +173,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 4. I **ny anslutning** anger eller väljer du den här informationen:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Anslutningsnamn| Välj önskat anslutnings namn.|
     | Värdnamn | Välj *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
@@ -181,7 +181,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
     | Lösenord | Ange ett lösen ord som angavs när MariaDB-servern skapades. |
     ||
 
-5. Välj **Testa anslutning** eller **OK** .
+5. Välj **Testa anslutning** eller **OK**.
 
 6. Du kan också Bläddra bland databaser från den vänstra menyn och skapa eller fråga efter information från MariaDB-databasen
 

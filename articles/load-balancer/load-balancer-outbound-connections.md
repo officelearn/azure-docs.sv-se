@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 422f8106ac52c85f0680d54e420d0f1b4d326910
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 185bb47677e978a3098f39024995da6399f90658
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017700"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241777"
 ---
 # <a name="outbound-proxy-azure-load-balancer"></a>Utgående proxy-Azure Load Balancer
 
@@ -92,7 +92,7 @@ Följande <a name="snatporttable"></a> tabell visar förallokeringar av SNAT-por
 | 801 – 1000 | 32 | 
 
 >[!NOTE]
-> Om du har en backend-pool med en maximal storlek på 6 kan varje instans ha 64000/10 = 6 400 portar om du definierar en explicit utgående regel. Enligt tabellen ovan kommer bara att ha 1 024 om du väljer automatisk allokering.
+> Om du har en backend-pool med en Max storlek på 10 kan varje instans ha 64000/10 = 6 400 portar om du definierar en explicit utgående regel. Enligt tabellen ovan kommer bara att ha 1 024 om du väljer automatisk allokering.
 
 ## <a name="outbound-rules-and-virtual-network-nat"></a><a name="outboundrules"></a> Utgående regler och Virtual Network NAT
 

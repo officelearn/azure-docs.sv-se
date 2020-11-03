@@ -1,17 +1,17 @@
 ---
 title: Certifikat rotation för Azure Database for PostgreSQL enskild server
 description: Lär dig mer om kommande ändringar av rot certifikat ändringar som påverkar Azure Database for PostgreSQL enskild server
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 2f711ad269a4ea07cfbb1603b592b184779dcfdb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1bd02043183bd0477d8663300fcb7a1d7ac9ea55
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100753"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242083"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Förstå ändringarna i rot certifikat utfärdarens ändring för Azure Database for PostgreSQL enskild server
 
@@ -133,7 +133,7 @@ Eftersom den här uppdateringen är en ändring på klient sidan, om klienten so
 För att kontrol lera om du använder SSL-anslutning för att ansluta till servern, se [SSL-verifiering](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity).
 
 ### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. finns det en åtgärd som behövs om jag redan har DigiCertGlobalRootG2 i min certifikat fil?
-Nej. Ingen åtgärd krävs om certifikat filen redan har **DigiCertGlobalRootG2** .
+Nej. Ingen åtgärd krävs om certifikat filen redan har **DigiCertGlobalRootG2**.
 
 ### <a name="14-what-is-you-are-using-docker-image-of-pgbouncer-sidecar-provided-by-microsoft"></a>14. Vad använder du Docker-avbildning av PgBouncer sidvagn från Microsoft?
 En ny Docker-avbildning som stöder både [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) och [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) publiceras [till nedan (](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) senaste taggen). Du kan hämta den här nya avbildningen för att undvika avbrott i anslutningen från den 15 februari 2021. 

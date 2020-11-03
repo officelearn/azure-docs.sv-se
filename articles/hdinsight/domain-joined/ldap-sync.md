@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 99bd1ac156b12a5be7b8c5c17eb5b568b7070a25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0779ac261fbb4ee91bf63021bb0cc685a371c2b2
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77463224"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234077"
 ---
 # <a name="ldap-sync-in-ranger-and-apache-ambari-in-azure-hdinsight"></a>LDAP-synkronisering i Ranger-och Apache-Ambari i Azure HDInsight
 
@@ -20,16 +20,19 @@ HDInsight Enterprise Security Package-kluster (ESP) använder Ranger för auktor
 
 ## <a name="general-guidelines"></a>Allmänna riktlinjer
 
-* Distribuera alltid kluster med grupper.
-* I stället för att ändra grupp filter i Ambari och Ranger, försök att hantera alla dessa i Azure AD och Använd kapslade grupper för att ta med de användare som krävs.
-* När en användare har synkroniserats tas den inte bort även om användaren inte är en del av grupperna.
-* Om du behöver ändra LDAP-filtren direkt använder du användar gränssnittet först eftersom det innehåller några verifieringar.
+* Distribuera alltid kluster med en eller flera grupper.
+* Om du vill använda fler grupper i klustret, kontrollerar du om det är klokt att uppdatera grupp medlemskapen i Azure Active Directory (Azure AD).
+* Om du vill ändra kluster grupperna kan du ändra sync-filter genom att använda Ambari.
+* Alla ändringar av grupp medlemskap i Azure AD återspeglas i klustret i efterföljande synkroniseringar. Ändringarna måste synkroniseras till Azure AD Domain Services (Azure AD DS) först och sedan till klustret.
+* HDInsight-kluster använder Samba/winbind för att projicera grupp medlemskapen på klusternoderna.
+* Grupp medlemmar synkroniseras transitivt (alla under grupper och medlemmar) till både Ambari och Ranger. 
 
 ## <a name="users-are-synced-separately"></a>Användare synkroniseras separat
 
-Ambari och Ranger delar inte användar databasen eftersom de fungerar i två olika syfte. Om en användare behöver använda Ambari-ANVÄNDARGRÄNSSNITTET måste användaren synkroniseras med Ambari. Om användaren inte har synkroniserats till Ambari, avvisar Ambari UI/API men andra delar av systemet kommer att fungera (dessa skyddas av Ranger eller Resource Manager och inte Ambari). Om du vill inkludera användaren i en Ranger-princip synkroniserar du användaren med Ranger.
-
-När ett säkert kluster distribueras synkroniseras grupp medlemmar transitivt (alla under grupper och medlemmar) till både Ambari och Ranger. 
+ * Ambari och Ranger delar inte användar databasen eftersom de fungerar i två olika syfte. 
+   * Om en användare behöver använda Ambari-ANVÄNDARGRÄNSSNITTET måste användaren synkroniseras med Ambari. 
+   * Om användaren inte har synkroniserats till Ambari, avvisar Ambari UI/API, men andra delar av systemet fungerar (dessa skyddas av Ranger eller Resource Manager och inte av Ambari).
+   * Om du vill inkludera användare eller grupper i Ranger-principer måste huvud kontona synkroniseras explicit i Ranger.
 
 ## <a name="ambari-user-sync-and-configuration"></a>Ambari och konfiguration av användar synkronisering
 
@@ -37,28 +40,20 @@ Från huvudnoderna, körs ett cron-jobb `/opt/startup_scripts/start_ambari_ldap_
 
 Loggarna bör vara i `/var/log/ambari-server/ambari-server.log` . Mer information finns i [Konfigurera loggnings nivå för Ambari](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html).
 
-I Data Lake kluster används hooken för att skapa användare för att skapa arbetsmapparna för de synkroniserade användarna och de har angetts som ägare till arbetsmapparna. Om användaren inte har synkroniserats till Ambari korrekt, kan användaren få ansikts fel vid åtkomst till mellanlagring och andra temporära mappar.
-
-### <a name="update-groups-to-be-synced-to-ambari"></a>Uppdatera grupper som ska synkroniseras till Ambari
-
-Om du inte kan hantera grupp medlemskap i Azure AD har du två alternativ:
-
-* Synkronisera [LDAP-användare och-grupper](https://docs.cloudera.com/HDPDocuments/HDP3/latest/ambari-authentication-ldap-ad/content/authe_ldapad_synchronizing_ldap_users_and_groups.html)genom att utföra en tidssynkronisering som beskrivs mer fullständigt. När grupp medlemskapet ändras måste du utföra den här synkroniseringen igen.
-
-* Skriv ett cron-jobb och anropa [Ambari-API: et regelbundet](https://community.cloudera.com/t5/Support-Questions/How-do-I-automate-the-Ambari-LDAP-sync/m-p/96634) med de nya grupperna.
+I Data Lake kluster används hooken för att skapa användare för att skapa arbetsmapparna för de synkroniserade användarna och de har angetts som ägare till arbetsmapparna. Om användaren inte har synkroniserats till Ambari korrekt, kan det hända att användaren står inför fel i jobb som arbetsmappen inte är korrekt konfigurerad.
 
 ## <a name="ranger-user-sync-and-configuration"></a>Ranger användar synkronisering och konfiguration
 
-Ranger har en ininbyggd Sync-motor som körs varje timme för att synkronisera användarna. Den delar inte användar databasen med Ambari. HDInsight konfigurerar Sök filtret för att synkronisera administratörs användaren, övervaknings enheten och medlemmarna i gruppen som angavs när klustret skapades. Grupp medlemmarna kommer att synkroniseras transitivt:
+Ranger har en inbyggd Sync-motor som körs varje timme för att synkronisera användare. Den delar inte användar databasen med Ambari. HDInsight konfigurerar Sök filtret för att synkronisera administratörs användaren, övervaknings enheten och medlemmarna i gruppen som angavs när klustret skapades. Grupp medlemmarna kommer att synkroniseras transitivt:
 
-* Inaktivera stegvis synkronisering.
-* Aktivera synkronisering av användar grupp.
-* Ange Sök filtret för att inkludera de transitiva grupp medlemmarna.
-* Sync sAMAccountName för användare och namnattribut för grupper.
+1. Inaktivera stegvis synkronisering.
+1. Aktivera Sync-mappningen för användar gruppen.
+1. Ange Sök filtret för att inkludera de transitiva grupp medlemmarna.
+1. Synkronisera attributet sAMAccountName för användare och namnattributet för grupper.
 
 ### <a name="group-or-incremental-sync"></a>Grupp eller stegvis synkronisering
 
-Ranger har stöd för ett alternativ för gruppsynkronisering, men fungerar som ett snitt med användar filter. Inte en union mellan grupp medlemskap och användar filter. Ett vanligt användnings fall för gruppsynkroniserings filter i Ranger är-Group filter: (DN = clusteradmingroup), användar filter: (City = Seattle).
+Ranger har stöd för ett alternativ för gruppsynkronisering, men fungerar som en korsning med användar filter, inte som en union mellan grupp medlemskap och användar filter. Ett vanligt användnings fall för gruppsynkroniserings filter i Ranger är-Group filter: (DN = clusteradmingroup), användar filter: (City = Seattle).
 
 Stegvis synkronisering fungerar bara för användare som redan har synkroniserats (första gången). Stegvis synkronisering kommer inte att synkronisera nya användare som har lagts till i grupperna efter den inledande synkroniseringen.
 
@@ -73,8 +68,12 @@ Ranger-användar synkronisering kan inträffa från någon av huvudnoderna. Logg
 1. Logga in på Ambari.
 1. Gå till avsnittet Ranger-konfiguration.
 1. Gå till avsnittet Advanced **usersync-log4j** .
-1. Ändra `log4j.rootLogger` till `DEBUG` -nivå (efter ändring bör den se ut `log4j.rootLogger = DEBUG,logFile,FilterLog` ).
+1. Ändra `log4j.rootLogger` till `DEBUG` nivå. (När du har ändrat det bör det se ut `log4j.rootLogger = DEBUG,logFile,FilterLog` .)
 1. Spara konfigurationen och starta om Ranger.
+
+## <a name="known-issues-with-ranger-user-sync"></a>Kända problem med Ranger-synkronisering av användare
+* Om grupp namnet innehåller Unicode-tecken, kan inte Ranger-synkronisering synkronisera objektet. Om en användare tillhör en grupp som har internationella tecken, kommer Ranger synkroniserar delvis grupp medlemskap
+* Användar namn (sAMAccountName) och grupp namn (namn) måste vara högst 20 tecken långa. Om grupp namnet är längre, behandlas användaren som om de inte tillhör gruppen, när de beräknar behörigheterna.
 
 ## <a name="next-steps"></a>Nästa steg
 

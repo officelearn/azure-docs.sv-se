@@ -1,17 +1,17 @@
 ---
 title: Server koncept – Azure Database for MySQL flexibel Server
 description: Det här avsnittet innehåller överväganden och rikt linjer för att arbeta med Azure Database for MySQL flexibel Server
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 7217817e9add6214c2da8362a2769cad0c2cf330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cce4810a9e1a4d7143e2bab384d4b26471b7238
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941640"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240757"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Server koncept i Azure Database for MySQL flexibel Server (för hands version)
 
@@ -59,6 +59,6 @@ Du kan hantera Azure Database for MySQL flexibel server med hjälp av [Azure Por
 
 ## <a name="next-steps"></a>Nästa steg
 
--   Lär dig mer om att [skapa server](./quickstart-create-server-portal.md)
+-   Lär dig mer om att [skapa server](./quickstart-create-server-portal.md)
 -   Läs mer om [övervakning och aviseringar](./how-to-alert-on-metric.md)
 

@@ -1,17 +1,17 @@
 ---
 title: Översikt över zonens redundant hög tillgänglighet med Azure Database for MySQL flexibel Server
 description: Lär dig mer om begreppen redundanta zoner med hög tillgänglighet med Azure Database for MySQL flexibel Server
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 9db5776a4d2395baf03a5ed7cf05db49de8d0321
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd7be998c49a710ee7652cf18c35bed743606ffd
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937129"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241192"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Koncept med hög tillgänglighet i Azure Database for MySQL flexibel Server (för hands version)
 
@@ -100,5 +100,5 @@ Här är några saker som du bör tänka på när du använder zon-redundans hö
 ## <a name="next-steps"></a>Nästa steg
 
 -   Lär dig mer om [verksamhets kontinuitet](./concepts-business-continuity.md)
--   Lär dig mer om [Zone-redundant hög tillgänglighet](./concepts-high-availability.md)
+-   Lär dig mer om [Zone-redundant hög tillgänglighet](./concepts-high-availability.md)
 -   Läs mer om [säkerhets kopiering och återställning](./concepts-backup-restore.md)

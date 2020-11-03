@@ -1,23 +1,23 @@
 ---
 title: Neka offentlig nätverks åtkomst – Azure Portal-Azure Database for MariaDB
 description: Lär dig hur du konfigurerar neka offentlig nätverks åtkomst med Azure Portal för din Azure Database for MariaDB
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: f33dbfa0b96d7f6d85443005ff7e8b1a780c75a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3117ebfd258c72bb97432871c2ea74d30c52f669
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104392"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242198"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mariadb-using-azure-portal"></a>Neka offentlig nätverks åtkomst i Azure Database for MariaDB att använda Azure Portal
 
 I den här artikeln beskrivs hur du kan konfigurera en Azure Database for MariaDB-Server för att neka alla offentliga konfigurationer och bara tillåta anslutningar via privata slut punkter för att ytterligare förbättra nätverks säkerheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktions guiden behöver du:
 
@@ -29,7 +29,7 @@ Följ dessa steg om du vill ställa in MariaDB Server neka offentlig nätverks �
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du din befintliga Azure Database for MariaDB-Server.
 
-1. På sidan MariaDB Server under **Inställningar**klickar du på **anslutnings säkerhet** för att öppna sidan anslutnings säkerhets konfiguration.
+1. På sidan MariaDB Server under **Inställningar** klickar du på **anslutnings säkerhet** för att öppna sidan anslutnings säkerhets konfiguration.
 
 1. I neka offentlig nätverks åtkomst väljer du **Ja** för att aktivera neka offentlig åtkomst för MariaDB-servern.
 

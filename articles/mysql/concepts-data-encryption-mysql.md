@@ -1,17 +1,17 @@
 ---
 title: Data kryptering med kundhanterad nyckel-Azure Database for MySQL
 description: Azure Database for MySQL data kryptering med en kundhanterad nyckel kan du Bring Your Own Key (BYOK) för data skydd i vila. Det gör det även möjligt för organisationer att implementera ansvarsfördelning vad gäller hanteringen av nycklar och data.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c7b4d4cf61c1d605bd632ac6fe210171b2ebe01b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 23cf8a79c4978ccb3a65ad968b2ed5a01bb3d0ec
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544128"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242338"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL data kryptering med en kundhanterad nyckel
 
@@ -80,7 +80,7 @@ När du använder data kryptering med hjälp av en kundhanterad nyckel är det h
 * Se till att Key Vault och Azure Database for MySQL finns i samma region, så att du får snabbare åtkomst till DEK-omslutning och åtgärder för att packa upp.
 * Lås bara Azure-valvet till **privat slut punkt och valda nätverk** och Tillåt bara att *betrodda Microsoft* -tjänster skyddar resurserna.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagram som visar en översikt över Bring Your Own Key":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="betrodd-tjänst-med-AKV":::
 
 Här är rekommendationer för att konfigurera en kundhanterad nyckel:
 
@@ -90,13 +90,13 @@ Här är rekommendationer för att konfigurera en kundhanterad nyckel:
 
 ## <a name="inaccessible-customer-managed-key-condition"></a>Otillgängligt kund hanterat nyckel villkor
 
-När du konfigurerar data kryptering med en kundhanterad nyckel i Key Vault, krävs kontinuerlig åtkomst till den här nyckeln för att servern ska vara online. Om servern förlorar åtkomsten till den Kundhanterade nyckeln i Key Vault börjar servern neka alla anslutningar inom 10 minuter. Servern utfärdar ett motsvarande fel meddelande och ändrar Server tillstånd till *otillgängligt* . En del av anledningen till varför servern kan komma åt detta tillstånd är:
+När du konfigurerar data kryptering med en kundhanterad nyckel i Key Vault, krävs kontinuerlig åtkomst till den här nyckeln för att servern ska vara online. Om servern förlorar åtkomsten till den Kundhanterade nyckeln i Key Vault börjar servern neka alla anslutningar inom 10 minuter. Servern utfärdar ett motsvarande fel meddelande och ändrar Server tillstånd till *otillgängligt*. En del av anledningen till varför servern kan komma åt detta tillstånd är:
 
 * Om vi skapar en återställnings punkt för en tidpunkt för din Azure Database for MySQL, som har data kryptering aktive rad, är den nya servern i *otillgängligt* tillstånd. Du kan åtgärda detta via [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) eller [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Om vi skapar en Läs replik för din Azure Database for MySQL, som har data kryptering aktiverat, blir replik servern i ett *otillgängligt* tillstånd. Du kan åtgärda detta via [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) eller [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* Om du tar bort ett nyckel valv kommer Azure Database for MySQL inte att kunna komma åt nyckeln och övergår till *otillgängligt* tillstånd. Återställ [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) och verifiera om data krypteringen för att göra servern *tillgänglig* .
-* Om vi tar bort nyckeln från nyckel valvet kommer Azure Database for MySQL inte att kunna komma åt nyckeln och kommer att övergå till *otillgängligt* tillstånd. Återställ [nyckeln](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) och verifiera om data krypteringen för att göra servern *tillgänglig* .
-* Om nyckeln som lagras i Azure-nyckelpar upphör att gälla blir nyckeln ogiltig och Azure Database for MySQL övergår till *otillgängligt* tillstånd. Förläng utgångs datumet för nyckeln med [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) och verifiera sedan om data krypteringen för att göra servern *tillgänglig* .
+* Om du tar bort ett nyckel valv kommer Azure Database for MySQL inte att kunna komma åt nyckeln och övergår till *otillgängligt* tillstånd. Återställ [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) och verifiera om data krypteringen för att göra servern *tillgänglig*.
+* Om vi tar bort nyckeln från nyckel valvet kommer Azure Database for MySQL inte att kunna komma åt nyckeln och kommer att övergå till *otillgängligt* tillstånd. Återställ [nyckeln](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) och verifiera om data krypteringen för att göra servern *tillgänglig*.
+* Om nyckeln som lagras i Azure-nyckelpar upphör att gälla blir nyckeln ogiltig och Azure Database for MySQL övergår till *otillgängligt* tillstånd. Förläng utgångs datumet för nyckeln med [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) och verifiera sedan om data krypteringen för att göra servern *tillgänglig*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Återkallning av åtkomst till oavsiktlig nyckel från Key Vault
 
@@ -135,7 +135,7 @@ För Azure Database for MySQL har stödet för att kryptera data i vila med hjä
 * Den här funktionen stöds bara i regioner och på servrar som har stöd för lagring på upp till 16 TB. En lista över Azure-regioner som stöder lagring upp till 16TB finns i lagrings avsnittet i dokumentationen [här](concepts-pricing-tiers.md#storage)
 
     > [!NOTE]
-    > - Alla nya MySQL-servrar som skapats i de regioner som anges ovan, stöd för kryptering med kund Manager-nycklar är **tillgängliga** . Tidpunkten för återställning av PITR-servern eller Läs repliken kvalificerar sig inte, annars är den "ny".
+    > - Alla nya MySQL-servrar som skapats i de regioner som anges ovan, stöd för kryptering med kund Manager-nycklar är **tillgängliga**. Tidpunkten för återställning av PITR-servern eller Läs repliken kvalificerar sig inte, annars är den "ny".
     > - Om du vill verifiera att den etablerade servern har stöd för upp till 16TB kan du gå till bladet pris nivå i portalen och se den maximala lagrings storleken som stöds av den etablerade servern. Om du kan flytta skjutreglaget upp till 4 TB kanske servern inte stöder kryptering med Kundhanterade nycklar. Men data krypteras med hjälp av tjänst hanterade nycklar hela tiden. Kontakta AskAzureDBforMySQL@service.microsoft.com om du har några frågor.
 
 * Kryptering stöds endast med kryptografisk nyckel för RSA 2048.

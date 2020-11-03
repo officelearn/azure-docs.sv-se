@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: c768f6564884ade5d27199a64843437f5ce725f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a594d06fa84bb6e5ef502b02e1bec8244062ccb
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019163"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233975"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Exportera certifikat från Azure Key Vault
 
@@ -33,8 +33,8 @@ När ett Key Vault certifikat skapas skapas en adresserad *nyckel* och en *hemli
 
 När ett Key Vault-certifikat har skapats kan du hämta det från den adresser bara hemligheten med den privata nyckeln. Hämta certifikatet i PFX-eller PEM-format.
 
-- Kan **exporteras**: den princip som används för att skapa certifikatet anger att nyckeln kan exporteras.
-- Kan **inte exporteras**: den princip som används för att skapa certifikatet anger att nyckeln inte kan exporteras. I det här fallet är den privata nyckeln inte en del av värdet när den hämtas som en hemlighet.
+- Kan **exporteras** : den princip som används för att skapa certifikatet anger att nyckeln kan exporteras.
+- Kan **inte exporteras** : den princip som används för att skapa certifikatet anger att nyckeln inte kan exporteras. I det här fallet är den privata nyckeln inte en del av värdet när den hämtas som en hemlighet.
 
 Typer som stöds: RSA, RSA-HSM, EC, EC-HSM, okt (listade [här](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) kan exporteras endast med RSA, ec. HSM-nycklar kan inte exporteras.
 
@@ -79,18 +79,26 @@ Mer information finns i [parameter definitioner](https://docs.microsoft.com/cli/
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Använd det här kommandot i Azure PowerShell för att hämta certifikatet med namnet **TestCert01** från nyckel valvet med namnet **ContosoKV01**. Kör följande kommando för att ladda ned certifikatet som en PFX-fil. De här kommandona får åtkomst till **SecretId**och sparar sedan innehållet som en PFX-fil.
+Använd det här kommandot i Azure PowerShell för att hämta certifikatet med namnet **TestCert01** från nyckel valvet med namnet **ContosoKV01**. Kör följande kommando för att ladda ned certifikatet som en PFX-fil. De här kommandona får åtkomst till **SecretId** och sparar sedan innehållet som en PFX-fil.
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
-$kvSecret = Get-AzKeyVaultSecret -VaultName "ContosoKV01" -Name $Cert.Name
-$kvSecretBytes = [System.Convert]::FromBase64String($kvSecret.SecretValueText)
-$certCollection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
-$certCollection.Import($kvSecretBytes,$null,[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
-$password = '******'
-$protectedCertificateBytes = $certCollection.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
-$pfxPath = [Environment]::GetFolderPath("Desktop") + "\MyCert.pfx"
-[System.IO.File]::WriteAllBytes($pfxPath, $protectedCertificateBytes)
+$secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $cert.Name
+$secretValueText = '';
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+    $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+    [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+$secretByte = [Convert]::FromBase64String($secretValueText)
+$x509Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
+$x509Cert.Import($secretByte, "", "Exportable,PersistKeySet")
+$type = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx
+$pfxFileByte = $x509Cert.Export($type, $password)
+
+# Write to a file
+[System.IO.File]::WriteAllBytes("KeyVault.pfx", $pfxFileByte)
 ```
 
 Det här kommandot exporterar hela kedjan med certifikat med privat nyckel. Certifikatet är lösenordsskyddat.

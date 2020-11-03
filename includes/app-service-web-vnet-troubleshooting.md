@@ -4,17 +4,17 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy
-ms.openlocfilehash: b62e5057d8f144fc56d0e35927d17de27a1c8863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec44bbabdb7d528c30a8d3396b819f2eb3c5386
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255269"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93235899"
 ---
-Funktionen är enkel att konfigurera, men det innebär inte att du kommer att få problem kostnads fritt. Om du stöter på problem med att komma åt den önskade slut punkten finns det vissa verktyg som du kan använda för att testa anslutningen från App-konsolen. Det finns två konsoler som du kan använda. Det ena är kudu-konsolen och den andra konsolen i Azure Portal. Om du vill komma åt kudu-konsolen från din app går du till **verktyg**  >  **kudu**. Du kan också komma åt Kudo-konsolen på [webbplats namn]. scm. azurewebsites. net. När webbplatsen har lästs in går du till fliken **fel söknings konsol** . Gå till **verktyg**-konsolen för att komma till den Azure Portal-värdbaserade konsolen från din app  >  **Console**.
+Funktionen är enkel att konfigurera, men det innebär inte att du kommer att få problem kostnads fritt. Om du stöter på problem med att komma åt den önskade slut punkten finns det vissa verktyg som du kan använda för att testa anslutningen från App-konsolen. Det finns två konsoler som du kan använda. Det ena är kudu-konsolen och den andra konsolen i Azure Portal. Om du vill komma åt kudu-konsolen från din app går du till **verktyg**  >  **kudu**. Du kan också komma åt Kudo-konsolen på [webbplats namn]. scm. azurewebsites. net. När webbplatsen har lästs in går du till fliken **fel söknings konsol** . Gå till **verktyg** -konsolen för att komma till den Azure Portal-värdbaserade konsolen från din app  >  **Console**.
 
 #### <a name="tools"></a>Verktyg
-I inbyggda Windows-appar fungerar inte **ping**, **nslookup**och **tracert** genom-konsolen på grund av säkerhets begränsningar (de fungerar i [anpassade Windows-behållare](../articles/app-service/quickstart-custom-container.md)). Två separata verktyg läggs till för att fylla i Void. För att testa DNS-funktionen har vi lagt till ett verktyg med namnet **nameresolver.exe**. Syntax:
+I inbyggda Windows-appar fungerar inte **ping** , **nslookup** och **tracert** genom-konsolen på grund av säkerhets begränsningar (de fungerar i [anpassade Windows-behållare](../articles/app-service/quickstart-custom-container.md)). Två separata verktyg läggs till för att fylla i Void. För att testa DNS-funktionen har vi lagt till ett verktyg med namnet **nameresolver.exe**. Syntax:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
@@ -46,7 +46,7 @@ Om dessa objekt inte besvarar dina problem, se först till exempel:
 * Är målet en icke-RFC1918 adress och du har inte WEBSITE_VNET_ROUTE_ALL angetts till 1?
 * Finns det en NSG som blockerar utgående från ditt integrations-undernät?
 * Om du använder Azure ExpressRoute eller en VPN-anslutning är din lokala gateway konfigurerad för att dirigera trafik tillbaka till Azure? Om du kan komma åt slut punkter i ditt virtuella nätverk men inte lokalt, kontrollerar du dina vägar.
-* Har du tillräckligt med behörighet för att ställa in delegering i integrations under nätet? Under konfigurationen av regional VNet-integrering delegeras ditt integrations under nät till Microsoft. Web. GRÄNSSNITTET för VNet-integrering delegerar under nätet till Microsoft. Web automatiskt. Om ditt konto inte har tillräckliga nätverks behörigheter för att konfigurera delegering, behöver du en person som kan ange attribut i ditt integrations-undernät för att delegera under nätet. Om du vill delegera integrations under nätet manuellt går du till Azure Virtual Network Subnet UI och anger delegeringen för Microsoft. Web.
+* Har du tillräckligt med behörighet för att ställa in delegering i integrations under nätet? Under konfigurationen av regional VNet-integrering delegeras ditt integrations under nät till Microsoft. Web/Server grupper. GRÄNSSNITTET för VNet-integrering delegerar under nätet till Microsoft. Web/Server grupper automatiskt. Om ditt konto inte har tillräckliga nätverks behörigheter för att konfigurera delegering, behöver du en person som kan ange attribut i ditt integrations-undernät för att delegera under nätet. Om du vill delegera integrations under nätet manuellt går du till Azure Virtual Network Subnet UI och anger delegeringen för Microsoft. Web/Server grupper.
 
 **Gateway – nödvändig VNet-integrering**
 * Är adress intervallet för punkt-till-plats i RFC 1918-intervallen (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?

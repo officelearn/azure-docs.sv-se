@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 375149047d51574e14df15b6385b8c296d49a8ec
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a14f7ac212d9957e5258f75a386b8730ad5de700
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85254709"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233854"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Snabb start: Konfigurera Data Science Virtual Machine för Linux (Ubuntu)
 
@@ -39,25 +39,25 @@ Här följer stegen för att skapa en instans av Data Science Virtual Machine Ub
    
 1. Ange följande information för att konfigurera varje steg i guiden:
 
-    1. **Grunder**:
+    1. **Grunder** :
     
-       * **Prenumeration**: om du har mer än en prenumeration väljer du den som datorn ska skapas i och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
-       * **Resurs grupp**: skapa en ny grupp eller Använd en befintlig grupp.
-       * **Namn på virtuell dator**: Ange namnet på den virtuella datorn. Det här namnet kommer att användas i Azure Portal.
-       * **Region**: Välj det data Center som är lämpligast. För snabbast nätverks åtkomst är det data Center som har de flesta data eller som är närmast din fysiska plats. Lär dig mer om [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/).
-       * **Bild**: låt standardvärdet vara kvar.
-       * **Storlek**: det här alternativet ska fyllas i automatiskt med en storlek som passar för allmänna arbets belastningar. Läs mer om [storlekar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/sizes.md).
-       * **Autentiseringstyp**: Välj "lösen ord" för snabbare installation. 
+       * **Prenumeration** : om du har mer än en prenumeration väljer du den som datorn ska skapas i och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
+       * **Resurs grupp** : skapa en ny grupp eller Använd en befintlig grupp.
+       * **Namn på virtuell dator** : Ange namnet på den virtuella datorn. Det här namnet kommer att användas i Azure Portal.
+       * **Region** : Välj det data Center som är lämpligast. För snabbast nätverks åtkomst är det data Center som har de flesta data eller som är närmast din fysiska plats. Lär dig mer om [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/).
+       * **Bild** : låt standardvärdet vara kvar.
+       * **Storlek** : det här alternativet ska fyllas i automatiskt med en storlek som passar för allmänna arbets belastningar. Läs mer om [storlekar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/sizes.md).
+       * **Autentiseringstyp** : Välj "lösen ord" för snabbare installation. 
          
          > [!NOTE]
          > Om du tänker använda JupyterHub väljer du "Password", eftersom JupyterHub *inte* har kon figurer ATS för att använda offentliga SSH-nycklar.
 
-       * **Användar namn**: Ange administratörens användar namn. Du använder det här användar namnet för att logga in på den virtuella datorn. Det här användar namnet behöver inte vara detsamma som ditt Azure-användarnamn. Använd *inte* versala bokstäver.
+       * **Användar namn** : Ange administratörens användar namn. Du använder det här användar namnet för att logga in på den virtuella datorn. Det här användar namnet behöver inte vara detsamma som ditt Azure-användarnamn. Använd *inte* versala bokstäver.
          
          > [!IMPORTANT]
          > Om du använder versaler i ditt användar namn kommer JupyterHub inte att fungera och det uppstår ett internt 500-server fel.
 
-       * **Lösen ord**: Ange det lösen ord som du använder för att logga in på den virtuella datorn.    
+       * **Lösen ord** : Ange det lösen ord som du använder för att logga in på den virtuella datorn.    
     
    1. Välj **Granska + skapa**.
    1. **Granska + skapa**
@@ -95,13 +95,13 @@ Den virtuella Linux-datorn är redan etablerad med X2Go-servern och redo att ta 
 1. Kör X2Go-klienten. Om fönstret "ny session" inte visas automatiskt går du till session-> ny session.
 
 1. I konfigurationsfönstret anger du följande konfigurationsparametrar:
-   * **Fliken Session**:
-     * **Värd**: Ange IP-adressen för din virtuella dator, som du antecknade tidigare.
-     * **Logga in**: Ange användarnamnet på den virtuella Linux-datorn.
-     * **SSH Port**: Lämna det på 22, standardvärdet.
-     * **Sessionstyp**: Ändra värdet till **XFCE**. Den virtuella Linux-datorn har för närvarande endast stöd för XFCE Desktop.
-   * **Fliken Media**: Du kan stänga av ljudsupporten och klientutskrift om du inte behöver använda dem.
-   * **Delade mappar**: Använd den här fliken för att lägga till den klient dator katalog som du vill montera på den virtuella datorn. 
+   * **Fliken Session** :
+     * **Värd** : Ange IP-adressen för din virtuella dator, som du antecknade tidigare.
+     * **Logga in** : Ange användarnamnet på den virtuella Linux-datorn.
+     * **SSH Port** : Lämna det på 22, standardvärdet.
+     * **Sessionstyp** : Ändra värdet till **XFCE**. Den virtuella Linux-datorn har för närvarande endast stöd för XFCE Desktop.
+   * **Fliken Media** : Du kan stänga av ljudsupporten och klientutskrift om du inte behöver använda dem.
+   * **Delade mappar** : Använd den här fliken för att lägga till den klient dator katalog som du vill montera på den virtuella datorn. 
 
    ![X2go-konfiguration](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Välj **OK**.
@@ -126,7 +126,7 @@ Ubuntu-DSVM kör [JupyterHub](https://github.com/jupyterhub/jupyterhub), en Jupy
       ![Ange Jupyter-inloggning](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
 >[!NOTE]
-> Om du får ett 500-fel i det här skedet är det troligt att du har använt versaler i ditt användar namn. Detta är en känd interaktion mellan Jupyter Hub och den PAMAuthenticator som används. 
+> Om du får ett 500-fel i det här skedet är det troligt att du har använt versaler i ditt användar namn. Detta är en känd interaktion mellan Jupyter Hub och den PAMAuthenticator som används. Om du får fel meddelandet "det går inte att komma åt den här sidan" är det troligt att dina behörigheter för nätverks säkerhets gruppen måste justeras. I Azure Portal letar du reda på nätverks säkerhets grupp resursen i din resurs grupp. För att få åtkomst till JupyterHub från det offentliga Internet måste du ha port 8000 öppen. (Avbildningen visar att den virtuella datorn har kon figurer ATS för just-in-Time-åtkomst, vilket är starkt rekommenderat. Se [skydda dina hanterings portar med just-in-Time-åtkomst](../../security-center/security-center-just-in-time.md).) ![Konfiguration av nätverks säkerhets grupp](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Bläddra bland de många exempel antecknings böcker som är tillgängliga.
 

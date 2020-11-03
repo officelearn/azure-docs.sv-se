@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3ee7761d43710e0833eb8002851e286ce5449983
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c56c52193f433571f16e4acf7bd6e7b89641b26f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636127"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233958"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Omvandlings funktioner i datatransformering Data Flow
 
@@ -25,7 +25,7 @@ Med datatransformering data flöde i Azure Data Factory kan du göra kod fria sm
 
 För närvarande stöds inte alla Power Query M-funktioner för data datatransformering trots att de är tillgängliga under redigeringen. När du skapar dina datatransformering-dataflöden uppmanas du att ange följande fel meddelande om en funktion inte stöds:
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
 
 Nedan visas en lista över Power Query M-funktioner som stöds.
 
@@ -76,7 +76,7 @@ Följande M-funktioner lägger till eller transformerar kolumner: [Table. AddCol
 
 Använd [Table. Group](/powerquery-m/table-group) för att aggregera värden.
 * Måste användas med en agg regerings funktion
-* Sammansättnings funktioner som stöds:   [Table. rowCount](/powerquery-m/table-rowcount),   [list. sum](/powerquery-m/list-sum),   [list. Count](/powerquery-m/list-count),   [list. genomsnitt](/powerquery-m/list-average),   [list. min](/powerquery-m/list-min),   [list. Max](/powerquery-m/list-max),   [list. StandardDeviation](/powerquery-m/list-standarddeviation),   [list. First](/powerquery-m/list-first), list.   [Last](/powerquery-m/list-last)
+* Sammansättnings funktioner som stöds:   [list. sum](/powerquery-m/list-sum),   [list. Count](/powerquery-m/list-count),   [list. genomsnitt](/powerquery-m/list-average),   [list. min](/powerquery-m/list-min),   [list. Max](/powerquery-m/list-max),   [list. StandardDeviation](/powerquery-m/list-standarddeviation),   [list. First](/powerquery-m/list-first), list.   [Last](/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Sortering
 
@@ -96,7 +96,7 @@ Behåll och ta bort överkant, Behåll intervallet (motsvarande M-funktioner, en
 | Table.NestedJoin | Att bara göra en koppling leder till ett verifierings fel. Kolumnerna måste utökas för att den ska fungera. |
 | Table.Distinct | Det finns inte stöd för att ta bort dubbla rader. |
 | Table.RemoveLastN | Ta bort de nedersta raderna stöds inte. |
-| Table.RowCount | Stöds inte, men kan uppnås med en Add-kolumn där alla celler är tomma (villkors kolumnen kan användas) och sedan använda Group by i den kolumnen. Table. Group stöds. | 
+| Table.RowCount | Stöds inte, men kan uppnås genom att lägga till en anpassad kolumn som innehåller värdet 1, och sedan aggregera den kolumnen med list. sum. Table. Group stöds. | 
 | Fel hantering på radnivå | Fel hantering på radnivå stöds inte för närvarande. Om du till exempel vill filtrera ut icke-numeriska värden från en kolumn, skulle en metod vara att omvandla text kolumnen till ett tal. Varje cell som inte kan transformera är i fel tillstånd och måste filtreras. Det här scenariot är inte möjligt i datatransformering Data Flow. |
 | Table.Transpose | Stöds inte |
 | Table.Pivot | Stöds inte |

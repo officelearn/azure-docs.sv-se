@@ -1,23 +1,23 @@
 ---
 title: Privat länk – Azure Portal-Azure Database for PostgreSQL-enskild server
 description: Lär dig hur du konfigurerar en privat länk för Azure Database for PostgreSQL-enskild server från Azure Portal
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 4da1c1e142c5d70bea342fd9513061710228e61d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 98d3beef72d314f93f6a2bc580b1dd5de5735f23
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489939"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242474"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Skapa och hantera privat länk för Azure Database for PostgreSQL-en server med hjälp av portalen
 
 En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser.  I den här artikeln får du lära dig hur du använder Azure Portal för att skapa en virtuell dator i en Azure-Virtual Network och en Azure Database for PostgreSQL enskild server med en privat Azure-slutpunkt.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
 > Funktionen privat länk är bara tillgänglig för Azure Database for PostgreSQL servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att databas servern är på någon av dessa pris nivåer.
@@ -40,7 +40,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Namn | Ange *MyVirtualNetwork*. |
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
-    | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
+    | Resursgrupp | Välj **Skapa ny** , ange *myResourceGroup* och välj sedan **OK**. |
     | Plats | Välj **Europa, västra**.|
     | Undernät – Namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
@@ -62,8 +62,8 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Namn på virtuell dator | Ange *myVm*. |
     | Region | Välj **Europa, västra**. |
     | Alternativ för tillgänglighet | Lämna standard **ingen redundans för infrastruktur krävs**. |
-    | Avbildning | Välj **Windows Server 2019 Data Center**. |
-    | Storlek | Lämna standard **ds1 v2**som standard. |
+    | Bild | Välj **Windows Server 2019 Data Center**. |
+    | Storlek | Lämna standard **ds1 v2** som standard. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
     | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -131,11 +131,11 @@ I det här avsnittet ska du skapa en Azure Database for PostgreSQL-server i Azur
 I det här avsnittet ska du skapa en PostgreSQL-Server och lägga till en privat slut punkt till den. 
 
 1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs**  >  **nätverk**  >  **privat länk**.
-2. I **privat länk Center – översikt**, på alternativet för att **skapa en privat anslutning till en tjänst**, väljer du **Start**.
+2. I **privat länk Center – översikt** , på alternativet för att **skapa en privat anslutning till en tjänst** , väljer du **Start**.
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Översikt över privat länk":::
 
-1. I **skapa en privat slut punkt – grunderna**anger eller väljer du den här informationen:
+1. I **skapa en privat slut punkt – grunderna** anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -147,7 +147,7 @@ I det här avsnittet ska du skapa en PostgreSQL-Server och lägga till en privat
     |Region|Välj **Europa, västra**.|
     |||
 5. Välj **Nästa: resurs**.
-6. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
+6. I **skapa en privat slut punkt – resurs** , anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -158,7 +158,7 @@ I det här avsnittet ska du skapa en PostgreSQL-Server och lägga till en privat
     |Målunderresurs |Välj *postgresqlServer*|
     |||
 7. Välj **Nästa: konfiguration**.
-8. I **skapa en privat slut punkt – konfiguration**anger eller väljer du den här informationen:
+8. I **skapa en privat slut punkt – konfiguration** anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -176,7 +176,7 @@ I det här avsnittet ska du skapa en PostgreSQL-Server och lägga till en privat
 1. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration. 
 2. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**. 
 
-    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Översikt över privat länk":::
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Privat länk har skapats":::
 
     > [!NOTE] 
     > FQDN i DNS-inställningen för kunden matchar inte den privata IP-adressen som kon figurer ATS. Du måste konfigurera en DNS-zon för den konfigurerade FQDN: en som visas [här](../dns/dns-operations-recordsets-portal.md).
@@ -184,13 +184,13 @@ I det här avsnittet ska du skapa en PostgreSQL-Server och lägga till en privat
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ansluta till en virtuell dator med hjälp av Fjärrskrivbord (RDP)
 
 
-När du har skapat **myVm**ansluter du till den från Internet på följande sätt: 
+När du har skapat **myVm** ansluter du till den från Internet på följande sätt: 
 
 1. I portalens sökfältet anger du *myVm*.
 
 1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
-1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil (*. RDP*) och laddar ned den till datorn.
+1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil ( *. RDP* ) och laddar ned den till datorn.
 
 1. Öppna den *nedladdade RDP* -filen.
 
@@ -199,7 +199,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
 
         > [!NOTE]
-        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto** för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
 1. Välj **OK**.
 
@@ -224,7 +224,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
 
 3. Testa anslutningen till den privata länken för PostgreSQL-servern med valfri tillgänglig klient. I exemplet nedan har jag använt [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15) för att utföra åtgärden.
 
-4. I **ny anslutning**anger eller väljer du den här informationen:
+4. I **ny anslutning** anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -246,7 +246,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar med den privata slut punkten, PostgreSQL-servern och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller:
 
-1. Skriv *myResourceGroup* i **sökrutan längst** upp i portalen och välj *myResourceGroup*   från Sök resultaten.
+1. Skriv *myResourceGroup* i **sökrutan längst** upp i portalen och välj  *myResourceGroup*   från Sök resultaten.
 2. Välj **Ta bort resursgrupp**.
 3. Ange myResourceGroup för **Skriv resurs gruppens namn** och välj **ta bort**.
 

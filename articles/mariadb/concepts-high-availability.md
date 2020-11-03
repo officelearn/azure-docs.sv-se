@@ -1,17 +1,17 @@
 ---
 title: Hög tillgänglighet – Azure Database for MariaDB
 description: Den här artikeln innehåller information om hög tillgänglighet i Azure Database for MariaDB
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: bea32b3b60c9013ea223513c95629092b9ab231b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dcb1ac7ce4b468374993c11578bce553f766a42
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203309"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241352"
 ---
 # <a name="high-availability-in-azure-database-for-mariadb"></a>Hög tillgänglighet i Azure Database for MariaDB
 Tjänsten Azure Database for MariaDB tillhandahåller en garanterad hög tillgänglighets nivå med det ekonomiskt service avtal (SLA) på [99,99%](https://azure.microsoft.com/support/legal/sla/MariaDB) drift tid. Azure Database for MariaDB ger hög tillgänglighet under planerade händelser som initated Scale Compute operation och även när oplanerade händelser som underliggande maskin vara, program eller nätverks fel inträffar. Azure Database for MariaDB kan snabbt återställas från de mest kritiska förhållandena, vilket säkerställer att det är praktiskt taget ingen program tids period när tjänsten används.

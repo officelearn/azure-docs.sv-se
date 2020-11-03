@@ -1,17 +1,17 @@
 ---
 title: TLS-konfiguration – Azure Portal-Azure Database for MariaDB
 description: Lär dig hur du ställer in TLS-konfiguration med Azure Portal för din Azure Database for MariaDB
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: fac719daf05e8b319db7c86d0dbc61c2814b0a0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55a664ceb3524a0c545e037dcba7a2af90034ad4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120355"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241992"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mariadb-using-azure-portal"></a>Konfigurera TLS-inställningar i Azure Database for MariaDB att använda Azure Portal
 
@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du kan konfigurera en Azure Database for MariaDB
 
 Du kan använda TLS-versionen för att ansluta till sina Azure Database for MariaDB genom att ange den lägsta TLS-versionen för sin databas server. Om du till exempel anger den lägsta TLS-inställningen version till TLS 1,0 betyder det att servern tillåter anslutningar från klienter som använder TLS 1,0, 1,1 och 1.2 +. Du kan också ställa in detta på 1,2 innebär att du bara tillåter anslutningar från klienter som använder TLS 1.2 + och alla anslutningar med TLS 1,0 och TLS 1,1 kommer att avvisas.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktions guiden behöver du:
 
@@ -31,9 +31,9 @@ Följ dessa steg om du vill ange MariaDB-serverns lägsta TLS-version:
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du din befintliga Azure Database for MariaDB-Server.
 
-1. På sidan MariaDB Server under **Inställningar**klickar du på **anslutnings säkerhet** för att öppna sidan anslutnings säkerhets konfiguration.
+1. På sidan MariaDB Server under **Inställningar** klickar du på **anslutnings säkerhet** för att öppna sidan anslutnings säkerhets konfiguration.
 
-1. I **lägsta TLS-version**väljer du **1,2** för att neka anslutningar med en TLS-version som är mindre än TLS 1,2 för MariaDB-servern.
+1. I **lägsta TLS-version** väljer du **1,2** för att neka anslutningar med en TLS-version som är mindre än TLS 1,2 för MariaDB-servern.
 
     ![Azure Database for MariaDB TLS-konfiguration](./media/howto-tls-configurations/tls-configurations.png)
 

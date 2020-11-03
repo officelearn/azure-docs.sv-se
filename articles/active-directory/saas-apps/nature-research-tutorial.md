@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 58ba0819866f3eddfad8a9147c10da7b5e59362d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d68305087264d6ba2306ba4c345064693b595c94
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135283"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234026"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nature-research"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med natur forskning
 
@@ -45,7 +45,7 @@ Om du vill konfigurera integrering av natur forskning i Azure AD måste du lägg
 
 1. Logga in på Azure Portal med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program** .
+1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program** om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** , Skriv **natur Research** i sökrutan.
 1. Välj **natur forskning** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
@@ -53,7 +53,7 @@ Om du vill konfigurera integrering av natur forskning i Azure AD måste du lägg
 
 ## <a name="configure-and-test-azure-ad-sso-for-nature-research"></a>Konfigurera och testa Azure AD SSO för natur forskning
 
-Konfigurera och testa Azure AD SSO med natur Research med hjälp av en test användare som kallas **B. Simon** . För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i natur Research.
+Konfigurera och testa Azure AD SSO med natur Research med hjälp av en test användare som kallas **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i natur Research.
 
 Utför följande steg för att konfigurera och testa Azure AD SSO med natur Research:
 
@@ -61,32 +61,31 @@ Utför följande steg för att konfigurera och testa Azure AD SSO med natur Rese
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
     1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera natur Research SSO](#configure-nature-research-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa test av natur undersökningar](#create-nature-research-test-user)** för att få en motsvarighet till B. Simon i natur forskning som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. På sidan för **typ av forsknings** program på sidan Azure Portal letar du reda på avsnittet **Hantera** och väljer **enkel inloggning** .
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML** .
+1. På sidan för **typ av forsknings** program på sidan Azure Portal letar du reda på avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, fylls ID och svars-URL-värden redan i förväg med Azure, men du måste ange värdet för relä status.
 
-    I text rutan **relä tillstånd** anger du URL: en: `https://idp.nature.com/debug`  
-    Klicka på **Spara** .
+    I text rutan **relä tillstånd** anger du URL: en: `https://www.nature.com`  
+    Klicka på **Spara**.
 
 1. Klicka på **Ange ytterligare URL:er** och utför följande steg om du vill konfigurera programmet i **SP** -initierat läge:
 
-    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `http://sp.nature.com/saml/login?targetUrl=https%3A%2F%2Fidp.nature.com%2Fdebug&idp=<IDP_ENTITY_ID>`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://sp.nature.com/saml/login?idp=<IDP_ENTITY_ID>`
 
     > [!NOTE]
-    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [support teamet för kund support](mailto:identity@springernature.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för inloggnings-URL är inte verkligt. `<IDP_ENTITY_ID>` är Azure AD-identifieraren kopierad från avsnittet **Konfigurera natur forskning** . Du kan även se mönstren som visas i avsnittet Grundläggande SAML-konfiguration i Azure-portalen.
 
-1. Klicka på **Spara** .
+1. Klicka på **Spara**.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
@@ -96,21 +95,21 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** , väljer **användare** och väljer sedan **alla användare** .
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** , väljer **användare** och väljer sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn** -fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord** .
-   1. Klicka på **Skapa** .
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till natur forskning.
 
-1. I Azure Portal väljer du **företags program** och väljer sedan **alla program** .
-1. I listan program väljer du **natur Research** .
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper** .
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program**.
+1. I listan program väljer du **natur Research**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 1. Välj **Lägg till användare** och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Om du förväntar dig att en roll ska tilldelas användarna kan du välja den från List rutan **Välj en roll** . Om ingen roll har kon figurer ATS för den här appen ser du rollen "standard åtkomst" vald.
@@ -118,11 +117,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-nature-research-sso"></a>Konfigurera natur-Research SSO
 
-Om du vill konfigurera enkel inloggning på **natur Research** sida måste du skicka **URL: en för appens Federations-metadata** till [support teamet för natur support](mailto:identity@springernature.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
-
-### <a name="create-nature-research-test-user"></a>Skapa typ av forsknings test användare
-
-I det här avsnittet skapar du en användare med namnet Britta Simon i natur Research. Arbeta med [support teamet för natur support](mailto:identity@springernature.com) för att lägga till användare i natur Research plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+Om du vill konfigurera enkel inloggning på **natur Research** sida måste du skicka **URL: en för appens Federations-metadata** till [support teamet för natur support](mailto:onlineservice@springernature.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ## <a name="test-sso"></a>Testa SSO 
 

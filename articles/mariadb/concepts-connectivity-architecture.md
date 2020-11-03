@@ -1,17 +1,17 @@
 ---
 title: Anslutnings arkitektur – Azure Database for MariaDB
 description: Beskriver anslutnings arkitekturen för din Azure Database for MariaDB-Server.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: c3f557c757a46252b9fa0416cc62a827b233f1b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9c1331b7d868c29fddf7b709912e87d55d73c45
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065360"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241454"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Anslutnings arkitektur i Azure Database for MariaDB
 Den här artikeln förklarar Azure Database for MariaDB anslutnings arkitektur och hur trafiken dirigeras till din Azure Database for MariaDB-instans från klienter både inom och utanför Azure.
@@ -74,7 +74,7 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure Dat
 
 ## <a name="connection-redirection"></a>Omdirigering av anslutning
 
-Azure Database for MariaDB stöder ytterligare en anslutnings princip, **omdirigering**som hjälper till att minska nätverks fördröjningen mellan klient program och MariaDB-servrar. Med den här funktionen returnerar servern Server dels adressen för noden som är värd för MariaDB-servern till klienten när den första TCP-sessionen har upprättats till den Azure Database for MariaDB servern. Därefter flödar alla efterföljande paket direkt till servern, vilket kringgår gatewayen. När paket flödar direkt till servern har svars tiden och data flödet bättre prestanda.
+Azure Database for MariaDB stöder ytterligare en anslutnings princip, **omdirigering** som hjälper till att minska nätverks fördröjningen mellan klient program och MariaDB-servrar. Med den här funktionen returnerar servern Server dels adressen för noden som är värd för MariaDB-servern till klienten när den första TCP-sessionen har upprättats till den Azure Database for MariaDB servern. Därefter flödar alla efterföljande paket direkt till servern, vilket kringgår gatewayen. När paket flödar direkt till servern har svars tiden och data flödet bättre prestanda.
 
 Den här funktionen stöds i Azure Database for MariaDB-servrar med motor versionerna 10,2 och 10,3.
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 0ece14fb1a96ac8cc66f4d35d027b9d93d1f800e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8b66a8ea3fcc6af62c872a6df6196b97ece2f55a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792828"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240927"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory
 
@@ -116,7 +116,7 @@ Tillåt åtkomst till följande webbadresser:
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;. microsoftonline-p.com<br>&ast;. msauth.net<br>&ast;. msauthimages.net<br>&ast;. msecnd.net<br>&ast;. msftauth.net<br>&ast;. msftauthimages.net<br>&ast;. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |Anslutningsprogrammet använder dessa webbadresser under registreringen. |
 | ctldl.windowsupdate.com | 80/HTTP |Anslutningen använder denna URL under registrerings processen. |
 
-Du kan tillåta anslutningar till &ast; . msappproxy.net och &ast; . ServiceBus.Windows.net om din brand vägg eller proxy låter dig konfigurera listan över tillåtna DNS-listor. Om inte, måste du tillåta åtkomst till [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519). IP-adressintervallen uppdateras varje vecka.
+Du kan tillåta anslutningar till &ast; . msappproxy.net, &ast; . ServiceBus.Windows.net och andra URL: er ovan om din brand vägg eller proxy låter dig konfigurera listan över tillåtna DNS-listor. Om inte, måste du tillåta åtkomst till [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519). IP-adressintervallen uppdateras varje vecka.
 
 ## <a name="install-and-register-a-connector"></a>Installera och registrera ett anslutningsprogram
 
@@ -127,16 +127,16 @@ Så här installerar du anslutningsprogrammet:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) som programadministratör för den katalog som använder programproxy. Om klientdomänen exempelvis är contoso.com ska administratören vara admin@contoso.com eller något annat administratörsalias på den domänen.
 1. Välj ditt användar namn i det övre högra hörnet. Kontrol lera att du är inloggad på en katalog som använder programproxy. Om du behöver ändra kataloger väljer du **Växla katalog** och väljer en katalog som använder Application Proxy.
-1. I den vänstra navigerings panelen väljer du **Azure Active Directory** .
-1. Under **Hantera** väljer du **programproxy** .
-1. Välj **Hämta anslutnings tjänst** .
+1. I den vänstra navigerings panelen väljer du **Azure Active Directory**.
+1. Under **Hantera** väljer du **programproxy**.
+1. Välj **Hämta anslutnings tjänst**.
 
     ![Hämta kopplings tjänsten om du vill se villkoren för tjänsten](./media/application-proxy-add-on-premises-application/application-proxy-download-connector-service.png)
 
-1. Läs användningsvillkoren. När du är klar väljer du **Godkänn villkoren & Ladda ned** .
+1. Läs användningsvillkoren. När du är klar väljer du **Godkänn villkoren & Ladda ned**.
 1. Längst ned i fönstret väljer du **Kör** för att installera anslutningen. Installationsguiden öppnas.
 1. Följ anvisningarna i guiden för att installera tjänsten. När du uppmanas att registrera anslutningsprogrammet med programproxyn för Azure AD-klientorganisationen anger du autentiseringsuppgifterna för programadministratören.
-    - Om **IE Förbättrad säkerhetskonfiguration** är satt till **På** för Internet Explorer (IE) kanske inte registreringsskärmen visas. Följ instruktionerna i felmeddelandet för att få åtkomst. Se till att **förbättrad säkerhets konfiguration i Internet Explorer** är inställt på **av** .
+    - Om **IE Förbättrad säkerhetskonfiguration** är satt till **På** för Internet Explorer (IE) kanske inte registreringsskärmen visas. Följ instruktionerna i felmeddelandet för att få åtkomst. Se till att **förbättrad säkerhets konfiguration i Internet Explorer** är inställt på **av**.
 
 ### <a name="general-remarks"></a>Allmänna anmärkningar
 
@@ -168,23 +168,23 @@ Mer hjälp om hur du installerar en anslutning finns i [problem med att installe
 
 Så här bekräftar du att anslutningsprogrammet installerats och registrerats på rätt sätt:
 
-1. Öppna Hanteraren för Windows-tjänster genom att klicka på nyckeln **Windows** och ange *services.msc* .
-1. Kontrollera om statusen för följande två tjänster är **Körs** .
+1. Öppna Hanteraren för Windows-tjänster genom att klicka på nyckeln **Windows** och ange *services.msc*.
+1. Kontrollera om statusen för följande två tjänster är **Körs**.
    - **Microsoft AAD Application Proxy Connector** möjliggör anslutning.
    - **Microsoft AAD Application Proxy Connector Updater** är en tjänst för automatiska uppdateringar. Uppdateringsverktyget söker efter nya versioner av anslutningsprogrammet och uppdaterar det efter behov.
 
      ![Application Proxy Connector-tjänster – skärmbild](./media/application-proxy-add-on-premises-application/app_proxy_services.png)
 
-1. Om statusen för tjänsterna inte **körs** , högerklickar du på varje tjänst och väljer **Starta** .
+1. Om statusen för tjänsterna inte **körs** , högerklickar du på varje tjänst och väljer **Starta**.
 
 ## <a name="add-an-on-premises-app-to-azure-ad"></a>Lägg till ett lokalt program till Azure Active Directory
 
 Nu när du har förberett din miljö och installerat ett anslutningsprogram är du redo att lägga till lokala program till Azure Active Directory.  
 
 1. Logga in som administratör i [Azure-portalen](https://portal.azure.com/).
-2. I den vänstra navigerings panelen väljer du **Azure Active Directory** .
-3. Välj **företags program** och välj sedan **nytt program** .
-4. I avsnittet **lokala program** väljer du **Lägg till ett lokalt program** .
+2. I den vänstra navigerings panelen väljer du **Azure Active Directory**.
+3. Välj **företags program** och välj sedan **nytt program**.
+4. I avsnittet **lokala program** väljer du **Lägg till ett lokalt program**.
 5. I avsnittet **Lägg till ett eget lokalt program** anger du följande information om ditt program:
 
     | Fält | Beskrivning |
@@ -193,20 +193,20 @@ Nu när du har förberett din miljö och installerat ett anslutningsprogram är 
     | **Intern webbadress** | Det här är webbadressen för att komma åt programmet från inuti ditt privata nätverk. Du kan ange en specifik sökväg på backend-servern som du vill publicera, medan resten av servern är opublicerad. På så sätt kan du publicera olika webbplatser på samma server som olika program och ge varje webbplats sitt eget namn och sina egna åtkomstregler.<br><br>Om du publicerar en sökväg, så se till att den innehåller alla bilder, skript och formatmallar som krävs för ditt program. Om din app till exempel är på https: \/ /yourapp/app och använder avbildningar som finns på https: \/ /yourapp/media, ska du publicera https: \/ /yourapp/som sökväg. Den interna webbadressen måste inte vara landningssidan som användarna ser. Mer information finns i [Ange en anpassad startsida för publicerade program](application-proxy-configure-custom-home-page.md). |
     | **Extern webbadress** | Adressen som ger användare åtkomst till programmet från utanför ditt nätverk. Om du inte vill använda standarddomänen för programproxy kan du läsa om [anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).|
     | **Förautentisering** | Hur programproxyn verifierar användare innan de ges åtkomst till ditt program.<br><br>**Azure Active Directory** – Programproxyn omdirigerar användarna till att logga in med Azure AD, som autentiserar deras katalog- och programbehörigheter. Vi rekommenderar att du behåller det här alternativet som standard så att du kan utnyttja Azure AD-säkerhetsfunktioner som villkorlig åtkomst och Multi-Factor Authentication. **Azure Active Directory** krävs för övervakning av program med Microsoft Cloud Application Security.<br><br>**Genom strömning** – användarna behöver inte autentisera sig mot Azure AD för att få åtkomst till programmet. Du kan fortfarande konfigurera autentiseringskrav från serverdelen. |
-    | **Anslutningsgrupp** | Anslutningsprogram bearbetar fjärråtkomsten till programmet och anslutningsgrupper hjälper dig att organisera anslutningsprogram och program efter region, nätverk eller syfte. Om du inte har skapat några anslutningsgrupper än kommer programmet att tilldelas **Standard** .<br><br>Om ditt program använder WebSockets för att ansluta måste alla anslutningsprogram i gruppen vara version 1.5.612.0 eller senare.|
+    | **Anslutningsgrupp** | Anslutningsprogram bearbetar fjärråtkomsten till programmet och anslutningsgrupper hjälper dig att organisera anslutningsprogram och program efter region, nätverk eller syfte. Om du inte har skapat några anslutningsgrupper än kommer programmet att tilldelas **Standard**.<br><br>Om ditt program använder WebSockets för att ansluta måste alla anslutningsprogram i gruppen vara version 1.5.612.0 eller senare.|
 
-6. Om det behövs konfigurerar du **ytterligare inställningar** . De flesta programmen bör behålla dessa inställningarna i standardtillstånden. 
+6. Om det behövs konfigurerar du **ytterligare inställningar**. De flesta programmen bör behålla dessa inställningarna i standardtillstånden. 
 
     | Fält | Beskrivning |
     | :---- | :---------- |
     | **Tidsgränsen för serverdels-programmet** | Ställ endast in värdet på **Lång** om programmet autentiserar och ansluter långsamt. Som standard har backend-programmets tids gräns en längd på 85 sekunder. När värdet är Long ökas Server dels tids gränsen till 180 sekunder. |
     | **Använd endast HTTP-cookie** | Ställ in värdet på **Ja** för att programproxycookies ska inkluderas i HTTPOnly-flaggan i HTTP-svarsrubriken. Ställ in värdet på **Nej** om du använder fjärrskrivbordstjänster.|
     | **Använd säker cookie**| Ställ in värdet på **Ja** för att skicka cookies via en säker kanal, som en krypterad HTTPS-begäran.
-    | **Använd beständig cookie**| Behåll det här värdet inställt på **Nej** . Använd endast den här inställningen för program som inte kan dela cookies mellan processer. Mer information om cookie-inställningar finns i [cookie-inställningar för att komma åt lokala program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
+    | **Använd beständig cookie**| Behåll det här värdet inställt på **Nej**. Använd endast den här inställningen för program som inte kan dela cookies mellan processer. Mer information om cookie-inställningar finns i [cookie-inställningar för att komma åt lokala program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
     | **Översätt webbadresser i rubriker** | Behåll det här värdet som **Ja** såvida inte programmets ursprungliga värdrubrik krävs i autentiseringsbegäran. |
     | **Översätt webbadresser i brödtext för program** | Behåll detta värde som **Nej** om du inte har hårdkodad HTML-länkar till andra lokala program och inte använder anpassade domäner. Mer information finns i [Länka översättning med programproxy](application-proxy-configure-hard-coded-link-translation.md).<br><br>Ställ in det här värdet på **Ja** om du planerar att övervaka programmet med Microsoft Cloud App Security (MCAS). Mer information finns i [Konfigurera övervakning av program åtkomst i real tid med Microsoft Cloud App Security och Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
 
-7. Välj **Lägg till** .
+7. Välj **Lägg till**.
 
 ## <a name="test-the-application"></a>Testa programmet
 
@@ -219,11 +219,11 @@ Verifiera att användarkontot redan har behörighet att komma åt programmet ini
 Lägga till en testanvändare:
 
 1. Välj **företags program** och välj sedan det program som du vill testa.
-2. Välj **Kom igång** och välj sedan **tilldela en användare för testning** .
-3. Under **användare och grupper** väljer du **Lägg till användare** .
-4. Under **Lägg till tilldelning** väljer **du användare och grupper** . Avsnittet **användare och grupper** visas.
+2. Välj **Kom igång** och välj sedan **tilldela en användare för testning**.
+3. Under **användare och grupper** väljer du **Lägg till användare**.
+4. Under **Lägg till tilldelning** väljer **du användare och grupper**. Avsnittet **användare och grupper** visas.
 5. Välj det konto som du vill lägga till.
-6. Välj **Välj** och välj sedan **tilldela** .
+6. Välj **Välj** och välj sedan **tilldela**.
 
 ### <a name="test-the-sign-on"></a>Testa inloggningen
 

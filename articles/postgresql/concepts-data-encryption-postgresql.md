@@ -1,17 +1,17 @@
 ---
 title: Data kryptering med kundhanterad nyckel-Azure Database for PostgreSQL-enskild server
 description: Azure Database for PostgreSQL data kryptering med enskild server med en kundhanterad nyckel kan du Bring Your Own Key (BYOK) för data skydd i vila. Det gör det även möjligt för organisationer att implementera ansvarsfördelning vad gäller hanteringen av nycklar och data.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c07f59ae183c2d4ac920c6b3773fc6d177622ad2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 078b0fe63cf89f2736a8707ad561c798c4818317
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490194"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242423"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL data kryptering för enskild server med en kundhanterad nyckel
 
@@ -35,9 +35,9 @@ Data kryptering med Kundhanterade nycklar för Azure Database for PostgreSQL ens
 
 ## <a name="terminology-and-description"></a>Terminologi och beskrivning
 
-**Data krypterings nyckel (DEK)**: en symmetrisk AES256-nyckel som används för att kryptera en partition eller data block. Kryptering av varje data block med en annan nyckel gör det svårare att analysera krypteringen. Åtkomst till DEKs krävs av resurs leverantören eller program instansen som krypterar och dekrypterar ett särskilt block. När du ersätter en DEK med en ny nyckel måste endast data i det associerade blocket krypteras igen med den nya nyckeln.
+**Data krypterings nyckel (DEK)** : en symmetrisk AES256-nyckel som används för att kryptera en partition eller data block. Kryptering av varje data block med en annan nyckel gör det svårare att analysera krypteringen. Åtkomst till DEKs krävs av resurs leverantören eller program instansen som krypterar och dekrypterar ett särskilt block. När du ersätter en DEK med en ny nyckel måste endast data i det associerade blocket krypteras igen med den nya nyckeln.
 
-**Nyckel krypterings nyckel (KEK)**: en krypterings nyckel som används för att kryptera DEKs. En KEK som aldrig lämnar Key Vault gör att DEKs själva krypteras och kontrol leras. Entiteten som har åtkomst till KEK kan skilja sig från den entitet som kräver DEK. Eftersom KEK krävs för att dekryptera DEKs är KEK en enda punkt med vilken DEKs kan tas bort effektivt genom borttagning av KEK.
+**Nyckel krypterings nyckel (KEK)** : en krypterings nyckel som används för att kryptera DEKs. En KEK som aldrig lämnar Key Vault gör att DEKs själva krypteras och kontrol leras. Entiteten som har åtkomst till KEK kan skilja sig från den entitet som kräver DEK. Eftersom KEK krävs för att dekryptera DEKs är KEK en enda punkt med vilken DEKs kan tas bort effektivt genom borttagning av KEK.
 
 DEKs, som krypteras med KeyExchange, lagras separat. Endast en entitet med åtkomst till KEK kan dekryptera dessa DEKs. Mer information finns i [säkerhet i kryptering i vila](../security/fundamentals/encryption-atrest.md).
 
@@ -47,9 +47,9 @@ DEKs, som krypteras med KeyExchange, lagras separat. Endast en entitet med åtko
 
 För att en PostgreSQL-Server ska kunna använda Kundhanterade nycklar som lagras i Key Vault för kryptering av DEK ger en Key Vault administratör följande åtkomst behörighet till servern:
 
-* **Hämta**: för att hämta den offentliga delen och egenskaperna i nyckel valvet.
-* **wrapKey**: för att kunna kryptera Dek. Den krypterade DEK lagras i Azure Database for PostgreSQL.
-* **unwrapKey**: för att kunna dekryptera Dek. Azure Database for PostgreSQL behöver det dekrypterade DEK för att kryptera/dekryptera data
+* **Hämta** : för att hämta den offentliga delen och egenskaperna i nyckel valvet.
+* **wrapKey** : för att kunna kryptera Dek. Den krypterade DEK lagras i Azure Database for PostgreSQL.
+* **unwrapKey** : för att kunna dekryptera Dek. Azure Database for PostgreSQL behöver det dekrypterade DEK för att kryptera/dekryptera data
 
 Nyckel valvs administratören kan också [Aktivera loggning av Key Vault gransknings händelser](../azure-monitor/insights/key-vault-insights-overview.md), så att de kan granskas senare.
 
@@ -79,7 +79,7 @@ När du använder data kryptering med hjälp av en kundhanterad nyckel är det h
 * Se till att Key Vault och Azure Database for PostgreSQL en enskild server finns i samma region, för att säkerställa snabbare åtkomst för DEK-omslutning och åtgärder vid avbrytande.
 * Lås bara Azure-valvet till **privat slut punkt och valda nätverk** och Tillåt bara att *betrodda Microsoft* -tjänster skyddar resurserna.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagram som visar en översikt över Bring Your Own Key":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="betrodd-tjänst-med-AKV":::
 
 Här är rekommendationer för att konfigurera en kundhanterad nyckel:
 

@@ -1,17 +1,17 @@
 ---
 title: Privat länk – Azure Database for MySQL
 description: Lär dig hur en privat länk fungerar för Azure Database for MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: e6086aecc73f04b25e95d3c93c60abd2164a5610
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1ae35d1ac35dacfab2690980d57973dce050382b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544247"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242865"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Privat länk för Azure Database for MySQL
 
@@ -72,21 +72,21 @@ När nätverks administratören skapar den privata slut punkten (PE) kan MySQL-a
 
 * Välj en enskild PEC från listan genom att markera den.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Välj den privata slut punkts portalen":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Välj den privata slut punkten som väntar på godkännande":::
 
 * MySQL-serverns administratör kan välja att godkänna eller avvisa en PEC och eventuellt lägga till ett kort text svar.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Välj den privata slut punkts portalen":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Välj meddelandet privat slut punkt":::
 
 * Efter godkännande eller avvisande visar listan lämpligt tillstånd tillsammans med svars texten
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Välj den privata slut punkts portalen":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Välj slut tillstånd för privat slut punkt":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Använd fall av privat länk för Azure Database for MySQL
 
 Klienter kan ansluta till den privata slut punkten från samma VNet, peer-kopplat VNet i samma region eller via VNet-till-VNet-anslutning mellan regioner. Dessutom kan klienter ansluta lokalt med ExpressRoute, privat peering eller VPN-tunnlar. Nedan visas ett förenklat diagram som visar vanliga användnings fall.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Välj den privata slut punkts portalen":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Välj översikt över privat slut punkt":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Ansluta från en virtuell Azure-dator i peer-Virtual Network (VNet)
 Konfigurera [VNet-peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) för att upprätta anslutning till Azure Database for MySQL från en virtuell Azure-dator i ett peer-kopplat VNet.

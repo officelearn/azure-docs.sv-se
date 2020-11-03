@@ -68,7 +68,7 @@ För användare som är inloggade med en personlig [Microsoft-konto (MSA)](https
 
 När du skriver authentication code i dina Azure Digital-program med version **1.2.0** av **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) -biblioteket** kan det uppstå problem med [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) -metoden.
 
-Detta är inte den senaste versionen av biblioteket. Den senaste versionen är **1.2.2** .
+Detta är inte den senaste versionen av biblioteket. Den senaste versionen är **1.2.2**.
 
 Den berörda metoden används i följande artiklar: 
 * [*Självstudie: koda en klient app*](tutorial-code.md)
@@ -79,7 +79,7 @@ Problemet innehåller ett felsvar för "Azure. Identity. AuthenticationFailedExc
 
 ### <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
-Du löser problemet genom att uppdatera dina program för att använda `Azure.Identity` version **1.2.2** . I den här versionen av biblioteket bör webbläsaren läsa in och autentiseras som förväntat.
+Du löser problemet genom att uppdatera dina program för att använda `Azure.Identity` version **1.2.2**. I den här versionen av biblioteket bör webbläsaren läsa in och autentiseras som förväntat.
 
 ### <a name="possible-causes"></a>Möjliga orsaker
 

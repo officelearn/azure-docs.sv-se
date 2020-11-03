@@ -52,7 +52,7 @@ För djupare förklaringar av varje steg i arkitekturen, se deras enskilda avsni
 
 I det här avsnittet ska du ansluta enhets etablerings tjänsten till Azure Digital-enheter för att etablera enheter automatiskt genom sökvägen nedan. Detta är ett utdrag från den fullständiga arkitekturen som visas [ovan](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="En vy över en enhet och flera Azure-tjänster i ett scenario från slut punkt till slut punkt. Data flödar fram och tillbaka mellan en termostat enhet och DPS. Data flödar också ut från DPS till IoT Hub och till Azure Digitals dubbla steg via en Azure-funktion med etiketten &quot;allokering&quot;. Data från en manuell &quot;ta bort enhet&quot;-åtgärd flödar genom IoT Hub > Event Hubs > Azure Functions > Azures digitala dubbla.":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Etablera flöde – ett utdrag av lösnings arkitektur diagrammet med siffror som etiketterar sektioner i flödet. Data flödar fram och tillbaka mellan en termostat-enhet och DPS (1 för enhets > DPS och 5 för DPS > Device). Data flödar också ut från DPS till IoT Hub (4) och till Azure Digital-dubblare (3) genom en Azure-funktion med etiketten &quot;allokering&quot; (2).":::
 
 Här följer en beskrivning av process flödet:
 1. Enheten kontaktar DPS-slutpunkten och skickar identifierings information för att bevisa sin identitet.
@@ -246,9 +246,9 @@ Se till att roll tilldelningen behörigheter och hanterad identitet är korrekt 
 
 ### <a name="create-device-provisioning-enrollment"></a>Skapa registrering av enhets etablering
 
-Därefter måste du skapa en registrering i enhets etablerings tjänsten med hjälp av en **anpassad tilldelnings funktion** . Följ anvisningarna i avsnittet [*skapa registrering*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) och [*Härled unika enhets nycklar*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) i artikeln enhets etablerings tjänster om anpassade allokeringsregler.
+Därefter måste du skapa en registrering i enhets etablerings tjänsten med hjälp av en **anpassad tilldelnings funktion**. Följ anvisningarna i avsnittet [*skapa registrering*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) och [*Härled unika enhets nycklar*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) i artikeln enhets etablerings tjänster om anpassade allokeringsregler.
 
-När du går igenom flödet länkar du registreringen till funktionen som du nyss skapade genom att välja din funktion under steget för att **välja hur du vill tilldela enheter till hubbar** . När du har skapat registreringen används registrerings namnet och den primära eller sekundära SAS-nyckeln senare för att konfigurera enhets simulatorn för den här artikeln.
+När du går igenom flödet länkar du registreringen till funktionen som du nyss skapade genom att välja din funktion under steget för att **välja hur du vill tilldela enheter till hubbar**. När du har skapat registreringen används registrerings namnet och den primära eller sekundära SAS-nyckeln senare för att konfigurera enhets simulatorn för den här artikeln.
 
 ### <a name="set-up-the-device-simulator"></a>Konfigurera enhets simulatorn
 
@@ -281,7 +281,7 @@ node .\adt_custom_register.js
 ```
 
 Du bör se att enheten registreras och är ansluten till IoT Hub och sedan börjar skicka meddelanden.
-:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="En vy över en enhet och flera Azure-tjänster i ett scenario från slut punkt till slut punkt. Data flödar fram och tillbaka mellan en termostat enhet och DPS. Data flödar också ut från DPS till IoT Hub och till Azure Digitals dubbla steg via en Azure-funktion med etiketten &quot;allokering&quot;. Data från en manuell &quot;ta bort enhet&quot;-åtgärd flödar genom IoT Hub > Event Hubs > Azure Functions > Azures digitala dubbla.":::
+:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="Fönstret Kommando visar enhets registrering och sändning av meddelanden":::
 
 ### <a name="validate"></a>Verifiera
 
@@ -292,13 +292,13 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Du bör se den dubbla av enheten som finns på Azure Digitals-instansen.
-:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="En vy över en enhet och flera Azure-tjänster i ett scenario från slut punkt till slut punkt. Data flödar fram och tillbaka mellan en termostat enhet och DPS. Data flödar också ut från DPS till IoT Hub och till Azure Digitals dubbla steg via en Azure-funktion med etiketten &quot;allokering&quot;. Data från en manuell &quot;ta bort enhet&quot;-åtgärd flödar genom IoT Hub > Event Hubs > Azure Functions > Azures digitala dubbla.":::
+:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="Fönstret Kommando visar nyskapade dubbla":::
 
 ## <a name="auto-retire-device-using-iot-hub-lifecycle-events"></a>Automatisk borttagning av enhet med IoT Hub livs cykel händelser
 
 I det här avsnittet ska du lägga till IoT Hub livs cykel händelser till Azure Digital-meddelanden för att automatiskt dra tillbaka enheter via sökvägen nedan. Detta är ett utdrag från den fullständiga arkitekturen som visas [ovan](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="En vy över en enhet och flera Azure-tjänster i ett scenario från slut punkt till slut punkt. Data flödar fram och tillbaka mellan en termostat enhet och DPS. Data flödar också ut från DPS till IoT Hub och till Azure Digitals dubbla steg via en Azure-funktion med etiketten &quot;allokering&quot;. Data från en manuell &quot;ta bort enhet&quot;-åtgärd flödar genom IoT Hub > Event Hubs > Azure Functions > Azures digitala dubbla.":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Dra tillbaka enhets flödet – ett utdrag av lösnings arkitektur diagrammet med siffror som delar av flödet. Termostat-enheten visas utan anslutningar till Azure-tjänsterna i diagrammet. Data från en manuell &quot;ta bort enhet&quot;-åtgärd flödar genom IoT Hub (1) > Event Hubs (2) > Azure Functions > Azure Digitals dubblare (3).":::
 
 Här följer en beskrivning av process flödet:
 1. En extern eller manuell process utlöser borttagningen av en enhet i IoT Hub.
@@ -464,7 +464,7 @@ Instruktioner för att skapa en IoT Hub väg beskrivs i den här artikeln: [*anv
 De steg du måste gå igenom för installationen är:
 1. Skapa en anpassad IoT Hub Event Hub-slutpunkt. Den här slut punkten måste vara riktad mot händelsehubben som du skapade i avsnittet [*skapa en Event Hub*](#create-an-event-hub) .
 2. Lägg till en *enhets livs cykel händelse* väg. Använd slut punkten som skapades i föregående steg. Du kan begränsa enhetens livs cykel händelser så att de endast skickar borttagnings händelser genom att lägga till cirkulations frågan `opType='deleteDeviceIdentity'` .
-    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="En vy över en enhet och flera Azure-tjänster i ett scenario från slut punkt till slut punkt. Data flödar fram och tillbaka mellan en termostat enhet och DPS. Data flödar också ut från DPS till IoT Hub och till Azure Digitals dubbla steg via en Azure-funktion med etiketten &quot;allokering&quot;. Data från en manuell &quot;ta bort enhet&quot;-åtgärd flödar genom IoT Hub > Event Hubs > Azure Functions > Azures digitala dubbla.":::
+    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Lägg till en väg":::
 
 När du har gått igenom det här flödet är allt inställt på att dra tillbaka enheter från slut punkt till slut punkt.
 
@@ -485,7 +485,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Du bör se att enhetens enhets enhet inte kan hittas på Azures digitala dubbla instanser längre.
-:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="En vy över en enhet och flera Azure-tjänster i ett scenario från slut punkt till slut punkt. Data flödar fram och tillbaka mellan en termostat enhet och DPS. Data flödar också ut från DPS till IoT Hub och till Azure Digitals dubbla steg via en Azure-funktion med etiketten &quot;allokering&quot;. Data från en manuell &quot;ta bort enhet&quot;-åtgärd flödar genom IoT Hub > Event Hubs > Azure Functions > Azures digitala dubbla.":::
+:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Fönstret Kommando visar dubbla hittades inte":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

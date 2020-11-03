@@ -38,7 +38,7 @@ Börja med att välja _skapa en resurs_ på Start sidan för Azure-tjänster en 
 
 Sök efter *Azure Digital-dubbla* i sökrutan och välj tjänsten **Azure Digitals dubblare** i resultatet. Välj knappen _skapa_ för att skapa en ny instans av tjänsten.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Välj &quot;skapa&quot; från sidan Azure Digitals dubblare tjänst":::
 
 Fyll i värdena som visas nedan på sidan *skapa resurs* :
 * **Prenumeration** : den Azure-prenumeration du använder
@@ -46,24 +46,24 @@ Fyll i värdena som visas nedan på sidan *skapa resurs* :
 * **Plats** : en Azure Digital-aktiverad region för distributionen. Mer information om regional support finns i [*Azure-produkter som är tillgängliga per region (Azure Digitals)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * **Resurs namn** : ett namn för din Azure Digital-instansen. Namnet på den nya instansen måste vara unikt inom regionen för din prenumeration (vilket innebär att om din prenumeration har en annan Azure Digital-instans i den region som redan använder det namn du väljer, blir du ombedd att välja ett annat namn).
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Fylla i de beskrivna värdena för att skapa en Azure Digital-resurs med dubbla resurser":::
 
-När du är färdig väljer du _Granska + skapa_ . Då kommer du till en sammanfattnings sida där du kan granska instans informationen som du har angett och trycka på _skapa_ . 
+När du är färdig väljer du _Granska + skapa_. Då kommer du till en sammanfattnings sida där du kan granska instans informationen som du har angett och trycka på _skapa_. 
 
 ### <a name="verify-success-and-collect-important-values"></a>Verifiera lyckade och samla in viktiga värden
 
 När du har överfört *skapa* kan du visa statusen för din instanss distribution i dina Azure-meddelanden i portalens ikon fält. Meddelandet anger när distributionen har slutförts och du kommer att kunna välja knappen _gå till resurs_ för att visa din skapade instans.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
+:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Vy över Azure-meddelanden som visar en lyckad distribution och markerar knappen gå till resurs":::
 
 Alternativt, om distributionen Miss lyckas, indikerar meddelandet varför. Observera råd från fel meddelandet och försök att skapa instansen igen.
 
 >[!TIP]
 >När du har skapat din instans kan du när som helst gå tillbaka till sidan genom att söka efter namnet på din instans i Azure Portal Sök fältet.
 
-På *översikts* sidan för instansen noterar du *namnet* , *resurs gruppen* och *värd namnet* . Detta är alla viktiga värden som du kan behöva när du fortsätter att arbeta med din Azure Digital-instansen. Om andra användare kommer att program mera mot instansen bör du dela dessa värden med dem.
+På *översikts* sidan för instansen noterar du *namnet* , *resurs gruppen* och *värd namnet*. Detta är alla viktiga värden som du kan behöva när du fortsätter att arbeta med din Azure Digital-instansen. Om andra användare kommer att program mera mot instansen bör du dela dessa värden med dem.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Markera viktiga värden från instansens översikts sida":::
 
 Nu har du en Azure Digital-instansen som är redo att sätta igång. Sedan ger du rätt Azure-användare behörighet att hantera den.
 
@@ -71,9 +71,9 @@ Nu har du en Azure Digital-instansen som är redo att sätta igång. Sedan ger d
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Öppna först sidan för din Azure Digital-instansen i Azure Portal. Från instansens meny väljer du *åtkomst kontroll (IAM)* . Välj knappen  *Lägg till* under *Lägg till en roll tilldelning* .
+Öppna först sidan för din Azure Digital-instansen i Azure Portal. Från instansens meny väljer du *åtkomst kontroll (IAM)*. Välj knappen  *Lägg till* under *Lägg till en roll tilldelning*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
+:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Välja att lägga till en roll tilldelning från sidan åtkomst kontroll (IAM)":::
 
 På följande sida för *Lägg till roll tilldelning* fyller du i värdena (måste slutföras av en användare med [tillräckliga behörigheter](#prerequisites-permission-requirements) i Azure-prenumerationen):
 * **Roll** : Välj *Azure Digitals sammanflätade data ägare* från List menyn
@@ -82,7 +82,7 @@ På följande sida för *Lägg till roll tilldelning* fyller du i värdena (mås
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
+        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Fylla i listade fält i dialog rutan Lägg till roll tilldelning":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -92,9 +92,9 @@ Tryck på knappen *Spara* när du är klar med att ange informationen.
 
 ### <a name="verify-success"></a>Verifieringen lyckades
 
-Du kan visa roll tilldelningen som du har angett under *åtkomst kontroll (IAM) > roll tilldelningar* . Användaren ska visas i listan med en roll av *Azure Digitals sammanflätade data ägare* . 
+Du kan visa roll tilldelningen som du har angett under *åtkomst kontroll (IAM) > roll tilldelningar*. Användaren ska visas i listan med en roll av *Azure Digitals sammanflätade data ägare*. 
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Vy över roll tilldelningarna för en digital Azure-instans i Azure Portal":::
 
 Nu har du en Azure Digital-instansen som är redo att gå och har tilldelats behörighet att hantera den.
 

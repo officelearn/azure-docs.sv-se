@@ -40,9 +40,9 @@ Du kommer att ansluta Azure SignalR-tjänsten till Azure Digitals dubbla steg ge
 
 Ladda först ned de exempel appar som krävs. Du behöver båda följande:
 * [**Azure Digitals dubblare-exempel**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): det här exemplet innehåller en *AdtSampleApp* med två Azure Functions för att flytta data runt en Azure Digital-instansen (du kan lära dig mer om det här scenariot i [*Självstudier: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md)). Det innehåller också ett *DeviceSimulator* exempel program som simulerar en IoT-enhet och genererar ett nytt temperatur värde varje sekund. 
-    - Navigera till exempel länken och tryck på *hämtnings zip* -knappen för att ladda ned en kopia av exemplet till din dator, som _**Azure_Digital_Twins_end_to_end_samples.zip**_ . Packa upp mappen.
+    - Navigera till exempel länken och tryck på *hämtnings zip* -knappen för att ladda ned en kopia av exemplet till din dator, som _**Azure_Digital_Twins_end_to_end_samples.zip**_. Packa upp mappen.
 * [**Exempel på integrations-**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/)webbapp: det här är ett exempel på att en webbapp används för att använda Azure Digitals informations data från en Azure SignalR-tjänst.
-    -  Navigera till exempel länken och tryck på *hämtnings zip* -knappen för att ladda ned en kopia av exemplet till din dator, som _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_ . Packa upp mappen.
+    -  Navigera till exempel länken och tryck på *hämtnings zip* -knappen för att ladda ned en kopia av exemplet till din dator, som _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Packa upp mappen.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
 
@@ -61,7 +61,7 @@ Gå först till webbläsaren där Azure Portal öppnas och utför följande steg
 
 1. Välj ikonen för att kopiera den primära anslutnings strängen.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. &quot;sändning&quot; kommunicerar med en annan Azure-funktion med etiketten &quot;förhandla&quot;, och både sändnings-och Negotiate-kommunikation med dator enheter." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Skärm bild av Azure Portal som visar sidan nycklar för signal instansen. Ikonen Kopiera till Urklipp bredvid den primära ANSLUTNINGS STRÄNGEN är markerad." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
 Starta sedan Visual Studio (eller en annan valfri kod redigerare) och öppna kod lösningen i mappen *Azure_Digital_Twins_end_to_end_samples > ADTSampleApp* . Utför sedan följande steg för att skapa funktionerna:
 
@@ -137,13 +137,13 @@ Starta sedan Visual Studio (eller en annan valfri kod redigerare) och öppna kod
     Detta bör lösa eventuella beroende problem i klassen.
 
 Publicera sedan din funktion till Azure med hjälp av stegen som beskrivs i artikeln [ *Publicera appen app*](tutorial-end-to-end.md#publish-the-app) i guiden *Anslut en lösning från slut punkt till slut punkt* . Du kan publicera den till samma app service/Function-app som du använde i den kompletta självstudien krav, eller skapa en ny, men du kanske vill använda samma som för att minimera duplicering. Slutför också appen publicera med följande steg:
-1. Samla in URL: en för *Negotiate* -funktionens **http-slutpunkt** . Det gör du genom att gå till sidan för Azure Portal [funktions appar](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) och välja din Function-app i listan. I menyn app väljer du *Functions* och sedan *Negotiate* -funktionen.
+1. Samla in URL: en för *Negotiate* -funktionens **http-slutpunkt**. Det gör du genom att gå till sidan för Azure Portal [funktions appar](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) och välja din Function-app i listan. I menyn app väljer du *Functions* och sedan *Negotiate* -funktionen.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. &quot;sändning&quot; kommunicerar med en annan Azure-funktion med etiketten &quot;förhandla&quot;, och både sändnings-och Negotiate-kommunikation med dator enheter.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Azure Portal visning av Function-appen med &quot;Functions&quot; markerat i menyn. Listan över funktioner visas på sidan och funktionen Negotiate är också markerad.":::
 
-    Tryck på *Hämta funktions webb adress* och kopiera värdet **uppåt till _/API_ (ta inte med den senaste _/Negotiate?_ )** . Du kommer att använda detta senare.
+    Tryck på *Hämta funktions webb adress* och kopiera värdet **uppåt till _/API_ (ta inte med den senaste _/Negotiate?_ )**. Du kommer att använda detta senare.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. &quot;sändning&quot; kommunicerar med en annan Azure-funktion med etiketten &quot;förhandla&quot;, och både sändnings-och Negotiate-kommunikation med dator enheter.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Azure Portal visning av funktionen Negotiate. Knappen &quot;Hämta funktions webb adress&quot; är markerad och del av URL: en från början till &quot;/API&quot;":::
 
 1. Slutligen lägger du till **anslutnings strängen** för Azure SignalR från tidigare till funktionens appinställningar med hjälp av följande Azure CLI-kommando. Kommandot kan köras i [Azure Cloud Shell](https://shell.azure.com)eller lokalt om du har Azure CLI [installerat på datorn](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
  
@@ -153,7 +153,7 @@ Publicera sedan din funktion till Azure med hjälp av stegen som beskrivs i arti
 
     Utdata från det här kommandot skriver ut alla app-inställningar som har kon figurer ATS för din Azure-funktion. Leta upp längst `AzureSignalRConnectionString` ned i listan för att kontrol lera att den har lagts till.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. &quot;sändning&quot; kommunicerar med en annan Azure-funktion med etiketten &quot;förhandla&quot;, och både sändnings-och Negotiate-kommunikation med dator enheter.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Utdrag ur utdata i ett kommando fönster som visar ett List objekt med namnet ' AzureSignalRConnectionString '":::
 
 #### <a name="connect-the-function-to-event-grid"></a>Anslut funktionen till Event Grid
 
@@ -161,9 +161,9 @@ Sedan prenumererar du på *sändnings* Azure-funktionen i **avsnittet Event Grid
 
 Om du vill göra det skapar du en **Event Grid-prenumeration** från ditt event Grid-ämne till din *broadcast* Azure-funktion som en slut punkt.
 
-I [Azure Portal](https://portal.azure.com/)navigerar du till ditt event Grid-ämne genom att söka efter dess namn i det övre Sök fältet. Välj *+ Händelseprenumeration* .
+I [Azure Portal](https://portal.azure.com/)navigerar du till ditt event Grid-ämne genom att söka efter dess namn i det övre Sök fältet. Välj *+ Händelseprenumeration*.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. &quot;sändning&quot; kommunicerar med en annan Azure-funktion med etiketten &quot;förhandla&quot;, och både sändnings-och Negotiate-kommunikation med dator enheter.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Azure Portal: Event Grid händelse prenumeration":::
 
 På sidan *Skapa händelse prenumeration* fyller du i fälten enligt följande (fält som är fyllda som standard nämns inte):
 * *information om*  >  händelse prenumeration **Namn** : ge din händelse prenumeration ett namn.
@@ -172,9 +172,9 @@ På sidan *Skapa händelse prenumeration* fyller du i fälten enligt följande (
     - Fyll i din **prenumeration** , **resurs grupp** , **Function-app** och **Function** ( *sändning* ). Vissa av dessa kan fyllas i automatiskt när du har valt prenumerationen.
     - **Bekräfta val** av träff.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. &quot;sändning&quot; kommunicerar med en annan Azure-funktion med etiketten &quot;förhandla&quot;, och både sändnings-och Negotiate-kommunikation med dator enheter.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Azure Portal vy för att skapa en händelse prenumeration. Fälten ovan fylls i och knapparna bekräfta markering och skapa är markerade.":::
 
-Gå tillbaka till sidan *Skapa händelse prenumeration* och tryck på **skapa** .
+Gå tillbaka till sidan *Skapa händelse prenumeration* och tryck på **skapa**.
 
 ## <a name="configure-and-run-the-web-app"></a>Konfigurera och köra webb programmet
 
@@ -184,9 +184,9 @@ I det här avsnittet visas resultatet av åtgärden. Först ska du starta den **
 
 Under den heltäckande själv studie kursen [konfigurerade du enhets simulatorn](tutorial-end-to-end.md#configure-and-run-the-simulation) för att skicka data via en IoT Hub och till din Azure Digital-instansen.
 
-Nu behöver du bara starta Simulator projektet, som finns i *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator. SLN* . Om du använder Visual Studio kan du öppna projektet och sedan köra det med den här knappen i verktygsfältet:
+Nu behöver du bara starta Simulator projektet, som finns i *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator. SLN*. Om du använder Visual Studio kan du öppna projektet och sedan köra det med den här knappen i verktygsfältet:
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. &quot;sändning&quot; kommunicerar med en annan Azure-funktion med etiketten &quot;förhandla&quot;, och både sändnings-och Negotiate-kommunikation med dator enheter.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Start knappen i Visual Studio (DeviceSimulator-projekt)":::
 
 Ett konsol fönster öppnas och visar simulerade simulerings meddelanden för temperatur. De skickas via din Azure Digital-instansen, där de sedan hämtas av Azure Functions och SignalR.
 
@@ -212,13 +212,13 @@ Sedan konfigurerar du **webb programmet för signal integrering** med följande 
 
 Ange sedan behörigheter i din Function-app i Azure Portal:
 1. På sidan Azure Portal [funktions appar](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) väljer du din funktions program instans.
-1. Rulla ned på menyn instans och välj *CORS* . På sidan CORS lägger du till `http://localhost:3000` som ett tillåtet ursprung genom att ange den i rutan tom. Markera kryss rutan *Aktivera åtkomst kontroll-Tillåt-autentiseringsuppgifter* och tryck på *Spara* .
+1. Rulla ned på menyn instans och välj *CORS*. På sidan CORS lägger du till `http://localhost:3000` som ett tillåtet ursprung genom att ange den i rutan tom. Markera kryss rutan *Aktivera åtkomst kontroll-Tillåt-autentiseringsuppgifter* och tryck på *Spara*.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. &quot;sändning&quot; kommunicerar med en annan Azure-funktion med etiketten &quot;förhandla&quot;, och både sändnings-och Negotiate-kommunikation med dator enheter.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="CORS-inställning i Azure Function":::
 
 ### <a name="see-the-results"></a>Visa resultaten
 
-Om du vill se resultatet av åtgärden startar du avsnittet för **signal integrerings-appen** . Du kan göra detta från alla konsol fönster på *Azure_Digital_Twins_SignalR_integration_web_app_sample \src* -platsen genom att köra det här kommandot:
+Om du vill se resultatet av åtgärden startar du avsnittet för **signal integrerings-appen**. Du kan göra detta från alla konsol fönster på *Azure_Digital_Twins_SignalR_integration_web_app_sample \src* -platsen genom att köra det här kommandot:
 
 ```cmd
 npm start
@@ -226,7 +226,7 @@ npm start
 
 Då öppnas ett webbläsarfönster som kör exempel appen, som visar en visuell temperatur mätare. När appen har körts bör du se värdena för temperatur telemetri från enhets simulatorn som sprids via Azure Digital-delningar som återspeglas av webbappen i real tid.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. &quot;sändning&quot; kommunicerar med en annan Azure-funktion med etiketten &quot;förhandla&quot;, och både sändnings-och Negotiate-kommunikation med dator enheter.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Utdrag från exempel klientens webbapp som visar en visuell temperatur mätare. Temperaturen som visas är 67,52":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

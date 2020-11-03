@@ -28,7 +28,7 @@ Följ dessa steg om du vill kontrol lera hälso tillståndet för din instans:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och gå till din Azure Digital-instansen. Du kan hitta det genom att skriva dess namn i portalens sökfält. 
 
-2. Från instansens meny väljer du _**resurs hälsa**_ under *support + fel sökning* . Det tar dig till sidan för att Visa resurs hälso historik. 
+2. Från instansens meny väljer du _**resurs hälsa**_ under *support + fel sökning*. Det tar dig till sidan för att Visa resurs hälso historik. 
 
     :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Skärm bild som visar sidan &quot;resurs hälsa&quot;. I avsnittet hälso historik visas en daglig rapport från de senaste nio dagarna. Varje dag visas statusen tillgänglig.":::
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 817b9bfc0af054b344ca9f770085ac022a8e6eac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb28b4b678b37f69331b2ecff6272fd7aa64d191
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381273"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287615"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Tilldela en Key Vault åtkomst princip med Azure PowerShell
 
@@ -29,7 +29,7 @@ Mer information om hur du skapar grupper i Azure Active Directory med hjälp av 
 
 1. Om du vill köra kommandon lokalt installerar du [Azure PowerShell](/powershell/azure/) om du inte redan gjort det.
 
-    Använd [Azure Cloud Shell](/azure/cloud-shell/overview)för att köra kommandon direkt i molnet.
+    Använd [Azure Cloud Shell](../../cloud-shell/overview.md)för att köra kommandon direkt i molnet.
 
 1. Endast lokal PowerShell:
 

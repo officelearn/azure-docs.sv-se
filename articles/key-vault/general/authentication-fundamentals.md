@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: c8d2304017a8fccd83c9c64559b8c5edf48481b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604447"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286219"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Grundläggande om Key Vault-autentisering
 
@@ -24,8 +24,8 @@ Som administratör kan du noggrant styra vilka användare och program som har å
 
 Det här dokumentet förutsätter att du är bekant med följande begrepp. Om du inte är bekant med någon av dessa begrepp följer du hjälp länkarna innan du fortsätter.
 
-* Azure Active Directory [länk](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-* [Länk](https://docs.microsoft.com/azure/key-vault/general/authentication#app-identity-and-security-principals) till säkerhets objekt
+* Azure Active Directory [länk](../../active-directory/fundamentals/active-directory-whatis.md)
+* [Länk](./authentication.md#app-identity-and-security-principals) till säkerhets objekt
 
 ## <a name="key-vault-configuration-steps-summary"></a>Sammanfattning av Key Vault konfigurations steg
 
@@ -42,8 +42,8 @@ När en användare eller ett program gör en begäran till nyckel valvet måste 
 Följ dokumentations länkarna nedan för att förstå hur du registrerar en användare eller ett program i Azure Active Directory.
 **Se till att du skapar ett lösen ord för användar registrering och en klient hemlighet eller autentiseringsuppgifter för klient certifikat för program.**
 
-* Registrera en användare i Azure Active Directory [länk](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)
-* Registrera ett program i Azure Active Directory- [länk](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
+* Registrera en användare i Azure Active Directory [länk](../../active-directory/fundamentals/add-users-azure-active-directory.md)
+* Registrera ett program i Azure Active Directory- [länk](../../active-directory/develop/quickstart-register-app.md)
 
 ## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Tilldela säkerhets objekt en roll i Azure Active Directory
 
@@ -57,8 +57,8 @@ I samband med Key Vault bestämmer dessa roll tilldelningar säkerhets objektets
 >[!NOTE]
 > När du tilldelar en roll tilldelning till en användare på den Azure Active Directory klient nivån, kommer den här uppsättningen behörigheter att trickle ned till alla prenumerationer, resurs grupper och resurser inom tilldelningens omfattning. Om du vill följa huvud kontot för lägsta behörighet kan du göra den här roll tilldelningen till ett mer detaljerat omfång. Du kan till exempel tilldela en användare en läsar roll på prenumerations nivå och en ägar roll för ett enda nyckel valv. Gå till inställningarna för identitets åtkomst hantering (IAM) för en prenumeration, resurs grupp eller nyckel valv för att skapa en roll tilldelning i en mer detaljerad omfattning.
 
-* Om du vill veta mer om [länken](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) Azure Active Directory roller
-* Lär dig mer om att tilldela eller ta bort roll tilldelnings [länken](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* Om du vill veta mer om [länken](../../role-based-access-control/built-in-roles.md) Azure Active Directory roller
+* Lär dig mer om att tilldela eller ta bort roll tilldelnings [länken](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Konfigurera åtkomst principer för nyckel valv för ditt säkerhets objekt
 
@@ -121,8 +121,8 @@ Key Vault roll tilldelningar är en uppsättning inbyggda roll tilldelningar i A
 
 Mer information om Key Vault RBAC finns i följande dokument:
 
-* Azure Key Vault RBAC- [länk](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac)
-* [Länk](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) till Azure Key Vault RBAC-roller (för hands version)
+* Azure Key Vault RBAC- [länk](./secure-your-key-vault.md#management-plane-and-azure-rbac)
+* [Länk](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) till Azure Key Vault RBAC-roller (för hands version)
 
 ## <a name="configure-key-vault-firewall"></a>Konfigurera Key Vault-brandvägg
 
@@ -132,9 +132,9 @@ Aktivera nyckel valvs brand vägg genom att klicka på fliken nätverk i Key Vau
 
 * Lägg till IPv4-adresser i listan över tillåtna brand väggar för Key Vault. Det här alternativet fungerar bäst för program som har statiska IP-adresser.
 
-* Lägg till ett virtuellt nätverk i Key Vault-brandväggen. Det här alternativet fungerar bäst för Azure-resurser som har dynamiska IP-adresser som Virtual Machines. Du kan lägga till Azure-resurser i ett virtuellt nätverk och lägga till det virtuella nätverket i listan över tillåtna brand Väggs tjänster för Key Vault. Det här alternativet använder en tjänst slut punkt som är en privat IP-adress i det virtuella nätverket. Detta ger ytterligare ett skydds lager så att ingen trafik mellan Key Vault och ditt virtuella nätverk dirigeras via det offentliga Internet. Läs mer om tjänst slut punkten i följande dokumentation. [Operationsföljdslänkkod](https://docs.microsoft.com/azure/key-vault/general/network-security)
+* Lägg till ett virtuellt nätverk i Key Vault-brandväggen. Det här alternativet fungerar bäst för Azure-resurser som har dynamiska IP-adresser som Virtual Machines. Du kan lägga till Azure-resurser i ett virtuellt nätverk och lägga till det virtuella nätverket i listan över tillåtna brand Väggs tjänster för Key Vault. Det här alternativet använder en tjänst slut punkt som är en privat IP-adress i det virtuella nätverket. Detta ger ytterligare ett skydds lager så att ingen trafik mellan Key Vault och ditt virtuella nätverk dirigeras via det offentliga Internet. Läs mer om tjänst slut punkten i följande dokumentation. [Operationsföljdslänkkod](./network-security.md)
 
-* Lägg till en privat länk anslutning till nyckel valvet. Med det här alternativet ansluts ditt virtuella nätverk direkt till en viss instans av nyckel valvet, vilket effektivt tar ditt nyckel valv i det virtuella nätverket. Mer information om hur du konfigurerar en privat slut punkts anslutning till Key Vault finns i följande [länk](https://docs.microsoft.com/azure/key-vault/general/private-link-service)
+* Lägg till en privat länk anslutning till nyckel valvet. Med det här alternativet ansluts ditt virtuella nätverk direkt till en viss instans av nyckel valvet, vilket effektivt tar ditt nyckel valv i det virtuella nätverket. Mer information om hur du konfigurerar en privat slut punkts anslutning till Key Vault finns i följande [länk](./private-link-service.md)
 
 ## <a name="test-your-service-principals-ability-to-access-key-vault"></a>Testa tjänst huvud huvudets förmåga att komma åt Key Vault
 
@@ -142,11 +142,11 @@ När du har följt alla steg ovan kommer du att kunna ställa in och hämta heml
 
 ### <a name="authentication-process-for-users-examples"></a>Autentiseringsprocess för användare (exempel)
 
-* Användare kan logga in på Azure Portal att använda Key Vault. [Snabb start för Key Vault Portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+* Användare kan logga in på Azure Portal att använda Key Vault. [Snabb start för Key Vault Portal](./quick-create-portal.md)
 
-* Användaren kan använda Azure CLI för att använda Key Vault. [Snabb start för Azure CLI Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-cli)
+* Användaren kan använda Azure CLI för att använda Key Vault. [Snabb start för Azure CLI Key Vault](./quick-create-cli.md)
 
-* Användaren kan använda nyckel valvet Azure PowerShell. [Snabb start för Key Vault Azure PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)
+* Användaren kan använda nyckel valvet Azure PowerShell. [Snabb start för Key Vault Azure PowerShell](./quick-create-powershell.md)
 
 ### <a name="azure-active-directory-authentication-process-for-applications-or-services-examples"></a>Azure Active Directory autentiseringsprocess för program eller tjänster (exempel)
 
@@ -156,7 +156,7 @@ När du har följt alla steg ovan kommer du att kunna ställa in och hämta heml
 
 * En Azure-resurs använder MSI-autentisering för att hämta en Azure Active Directory-token. 
 
-* Läs mer om [länken](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för MSI-autentisering
+* Läs mer om [länken](../../active-directory/managed-identities-azure-resources/overview.md) för MSI-autentisering
 
 ### <a name="authentication-process-for-application-python-example"></a>Autentiseringsprocess för program (python-exempel)
 
@@ -196,4 +196,4 @@ if __name__ == "__main__":
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Key Vault-autentisering finns i följande dokument. [Autentisering av Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+Mer information om Key Vault-autentisering finns i följande dokument. [Autentisering av Key Vault](./authentication.md)

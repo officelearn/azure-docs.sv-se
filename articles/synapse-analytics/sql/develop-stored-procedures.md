@@ -7,32 +7,33 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 607060851a8afa48b9570dfcb17732279a3629ee
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737848"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286668"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Använda lagrade procedurer i Synapse SQL
 
-Tips för att implementera lagrade procedurer i Synapse SQL-pool för utveckling av lösningar.
+Synapse SQL etablerade och pooler utan Server gör att du kan placera komplex data bearbetnings logik i lagrade SQL-procedurer. Lagrade procedurer är ett bra sätt att kapsla in din SQL-kod och lagra den nära dina data i data lagret. Lagrade procedurer hjälper utvecklare att modularize sina lösningar genom att kapsla in koden i hanterbara enheter och under lätta större åter användning av kod. Varje lagrad procedur kan också acceptera parametrar för att göra dem ännu mer flexibla.
+I den här artikeln hittar du några tips för att implementera lagrade procedurer i Synapse SQL-pool för utveckling av lösningar.
 
 ## <a name="what-to-expect"></a>Vad du kan förvänta dig
 
-Synapse SQL stöder många av de T-SQL-funktioner som används i SQL Server. Det är viktigt att det finns skalbara funktioner som du kan använda för att maximera prestandan för din lösning.
+Synapse SQL stöder många av de T-SQL-funktioner som används i SQL Server. Det är viktigt att det finns skalbara funktioner som du kan använda för att maximera prestandan för din lösning. I den här artikeln får du lära dig mer om de funktioner som du kan placera i lagrade procedurer.
 
 > [!NOTE]
-> I procedur texten kan du bara använda de funktioner som stöds i Synapse SQL-arbetsytan. Läs [den här artikeln](overview-features.md) för att identifiera objekt, instruktion som kan användas i lagrade procedurer. I exemplen i de här artiklarna används allmänna funktioner som är tillgängliga både i Server lös och allokerat ytdiagram.
+> I procedur texten kan du bara använda de funktioner som stöds i Synapse SQL-arbetsytan. Läs [den här artikeln](overview-features.md) för att identifiera objekt, instruktion som kan användas i lagrade procedurer. I exemplen i de här artiklarna används allmänna funktioner som är tillgängliga både i Server lös och allokerat ytdiagram. Se ytterligare [begränsningar i etablerade och serverbaserade SYNAPSE SQL-pooler](#limitations) i slutet av den här artikeln.
 
 För att upprätthålla skalning och prestanda i SQL-poolen finns det också vissa funktioner och funktioner som har beteende skillnader och andra som inte stöds.
 
 ## <a name="stored-procedures-in-synapse-sql"></a>Lagrade procedurer i Synapse SQL
 
-Lagrade procedurer är ett bra sätt att kapsla in din SQL-kod och lagra den nära dina data i data lagret. Lagrade procedurer hjälper utvecklare att modularize sina lösningar genom att kapsla in koden i hanterbara enheter, vilket underlättar större åter användning av kod. Varje lagrad procedur kan också acceptera parametrar för att göra dem ännu mer flexibla. I följande exempel kan du se de procedurer som släpper externa objekt om de finns i databasen:
+I följande exempel kan du se de procedurer som släpper externa objekt om de finns i databasen:
 
 ```sql
 CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
@@ -184,23 +185,26 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXESÖTA
 
-Synapse SQL tillåter inte att du använder resultat uppsättningen för en lagrad procedur med en INSERT-instruktion. Det finns en alternativ metod som du kan använda. Ett exempel finns i artikeln om [temporära tabeller](develop-tables-temporary.md) för etablerade Synapse SQL-pooler.
+Den etablerade Synapse SQL-poolen tillåter inte att du använder resultat uppsättningen för en lagrad procedur med en INSERT-instruktion. Det finns en alternativ metod som du kan använda. Ett exempel finns i artikeln om [temporära tabeller](develop-tables-temporary.md) för etablerade Synapse SQL-pooler.
 
 ## <a name="limitations"></a>Begränsningar
 
 Det finns vissa aspekter av lagrade Transact-SQL-procedurer som inte implementeras i Synapse SQL, till exempel:
 
-* temporärt lagrade procedurer
-* numrerade lagrade procedurer
-* utökade lagrade procedurer
-* Lagrade CLR-procedurer
-* krypterings alternativ
-* replikeringsalternativ
-* tabell värdes parametrar
-* skrivskyddade parametrar
-* standard parametrar (i den etablerade poolen)
-* körnings kontexter
-* Return-instruktion
+| Funktion/alternativ | Etablerad | Utan server |
+| --- | --- |
+| Temporärt lagrade procedurer | Nej | Ja |
+| Numrerade lagrade procedurer | Nej | Nej |
+| Utökade lagrade procedurer | Nej | Nej |
+| Lagrade CLR-procedurer | Nej | Nej |
+| Krypterings alternativ | Nej | Ja |
+| Replikeringsalternativ | Nej | Nej |
+| Tabellvärdesparametrar | Nej | Nej |
+| Skrivskyddade parametrar | Nej | Nej |
+| Standard parametrar | Nej | Ja |
+| Körnings kontexter | Nej | Nej |
+| Return-instruktion | Nej | Ja |
+| INFOGA I.. LEDN | Nej | Ja |
 
 ## <a name="next-steps"></a>Nästa steg
 

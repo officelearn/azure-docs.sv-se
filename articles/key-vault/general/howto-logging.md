@@ -9,18 +9,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8a975673bec3b3579eaa699f873fe8c4b1481d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744988"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285650"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Så här aktiverar du Key Vault loggning
 
 När du har skapat ett eller flera nyckel valv vill du förmodligen övervaka hur och när nyckel valven nås, och av vem. Fullständig information om funktionen finns i [Key Vault loggning](logging.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
@@ -64,7 +64,7 @@ Set-AzContext -SubscriptionId "<subscriptionID>"
 
 Även om du kan använda ett befintligt lagrings konto för loggarna skapar vi ett nytt lagrings konto som är dedikerat för Key Vault loggar. 
 
-För ytterligare enkel hantering kommer vi också att använda samma resurs grupp som den som innehåller nyckel valvet. I snabb starten av [Azure CLI](quick-create-cli.md) och [Azure PowerShell snabb](quick-create-powershell.md)starten heter den här resurs gruppen **myResourceGroup**och platsen är *öster*. Ersätt värdena med dina egna, efter vad som är tillämpligt. 
+För ytterligare enkel hantering kommer vi också att använda samma resurs grupp som den som innehåller nyckel valvet. I snabb starten av [Azure CLI](quick-create-cli.md) och [Azure PowerShell snabb](quick-create-powershell.md)starten heter den här resurs gruppen **myResourceGroup** och platsen är *öster*. Ersätt värdena med dina egna, efter vad som är tillämpligt. 
 
 Vi kommer också att behöva ange ett lagrings konto namn. Lagrings konto namn måste vara unika, vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener.  Slutligen kommer vi att skapa ett lagrings konto för SKU: n "Standard_LRS".
 
@@ -147,7 +147,7 @@ Vad loggas:
   * Skapa, ändra eller ta bort nycklar eller hemligheter.
   * Signering, verifiering, kryptering, dekryptering, wrapping och unwrap-nycklar, Hämta hemligheter och Visa nycklar och hemligheter (och deras versioner).
 * Oautentiserade förfrågningar som resulterar i ett 401-svar. Exempel är begär Anden som inte har en Bearer-token, som har fel format eller som har upphört att gälla eller som har en ogiltig token.  
-* Event Grid meddelande händelser för snart utgångs datum, upphör ande och åtkomst principen för valv har ändrats (ny versions händelse loggas inte). Händelser loggas oavsett om det finns en händelse prenumeration som skapats i Key Vault. Mer information finns i [Event Grid händelse schema för Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
+* Event Grid meddelande händelser för snart utgångs datum, upphör ande och åtkomst principen för valv har ändrats (ny versions händelse loggas inte). Händelser loggas oavsett om det finns en händelse prenumeration som skapats i Key Vault. Mer information finns i [Event Grid händelse schema för Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## <a name="access-your-logs"></a>Komma åt loggarna
 

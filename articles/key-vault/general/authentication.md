@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 3ec831bada19aa8d3872440ba628ac06bc64f749
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3fdc9a9f99b239f68022067a5aedbc7e6e0d12a4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099427"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287506"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autentisera till Azure Key Vault
 
@@ -20,7 +20,7 @@ Med Azure Key Vault kan du lagra hemligheter och kontrol lera deras distribution
 
 ## <a name="app-identity-and-security-principals"></a>App-identitet och säkerhets objekt
 
-Autentisering med Key Vault fungerar tillsammans med [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), som ansvarar för att autentisera identiteten för ett specifikt **säkerhets objekt** .
+Autentisering med Key Vault fungerar tillsammans med [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), som ansvarar för att autentisera identiteten för ett specifikt **säkerhets objekt**.
 
 Ett säkerhets objekt är ett objekt som representerar en användare, grupp, tjänst eller ett program som begär åtkomst till Azure-resurser. Azure tilldelar ett unikt **objekt-ID** till varje säkerhets objekt.
 
@@ -36,9 +36,9 @@ För program finns det två sätt att hämta ett huvud namn för tjänsten:
 
     Med hanterad identitet hanterar Azure internt programmets tjänst huvud namn och autentiserar automatiskt programmet med andra Azure-tjänster. Hanterad identitet är tillgänglig för program som distribueras till en mängd olika tjänster.
 
-    Mer information finns i [Översikt över hanterade identiteter](/azure/active-directory/managed-identities-azure-resources/overview). Se även [Azure-tjänster som stöder hanterad identitet](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities), som länkar till artiklar som beskriver hur du aktiverar hanterad identitet för vissa tjänster (till exempel App Service, Azure Functions, Virtual Machines osv.).
+    Mer information finns i [Översikt över hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md). Se även [Azure-tjänster som stöder hanterad identitet](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), som länkar till artiklar som beskriver hur du aktiverar hanterad identitet för vissa tjänster (till exempel App Service, Azure Functions, Virtual Machines osv.).
 
-* Om du inte kan använda hanterad identitet **registrerar** du i stället programmet med din Azure AD-klient, enligt beskrivningen i [snabb start: registrera ett program med Azure Identity Platform](/azure/active-directory/develop/quickstart-register-app). Registreringen skapar också ett andra program objekt som identifierar appen för alla klienter.
+* Om du inte kan använda hanterad identitet **registrerar** du i stället programmet med din Azure AD-klient, enligt beskrivningen i [snabb start: registrera ett program med Azure Identity Platform](../../active-directory/develop/quickstart-register-app.md). Registreringen skapar också ett andra program objekt som identifierar appen för alla klienter.
 
 ## <a name="authorize-a-security-principal-to-access-key-vault"></a>Auktorisera ett säkerhets objekt för åtkomst Key Vault
 
@@ -56,13 +56,13 @@ Key Vault fungerar med två olika nivåer av auktorisering:
  
     Information om hur du tilldelar och hanterar roller finns i följande artiklar:
 
-    - [Azure-portalen](/azure/role-based-access-control/role-assignments-portal)
-    - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-    - [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
+    - [Azure-portalen](../../role-based-access-control/role-assignments-portal.md)
+    - [Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+    - [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
-    Key Vault stöder för närvarande [deltagar](/azure/role-based-access-control/built-in-roles#key-vault-contributor) rollen, som tillåter hanterings åtgärder på Key Vault resurser. Ett antal andra roller är för närvarande en för hands version. Du kan också skapa anpassade roller enligt beskrivningen i [Azures anpassade roller](/azure/role-based-access-control/custom-roles).
+    Key Vault stöder för närvarande [deltagar](../../role-based-access-control/built-in-roles.md#key-vault-contributor) rollen, som tillåter hanterings åtgärder på Key Vault resurser. Ett antal andra roller är för närvarande en för hands version. Du kan också skapa anpassade roller enligt beskrivningen i [Azures anpassade roller](../../role-based-access-control/custom-roles.md).
 
-    Allmän information om roller finns i [Vad är Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview).
+    Allmän information om roller finns i [Vad är Azure Role-Based Access Control (RBAC)?](../../role-based-access-control/overview.md).
 
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ Key Vault fungerar med två olika nivåer av auktorisering:
 
 Som standard ger Key Vault åtkomst till resurser via offentliga IP-adresser. För ökad säkerhet kan du också begränsa åtkomsten till vissa IP-adressintervall, tjänst slut punkter, virtuella nätverk eller privata slut punkter.
 
-Mer information finns i [åtkomst Azure Key Vault bakom en brand vägg](/azure/key-vault/general/access-behind-firewall).
+Mer information finns i [åtkomst Azure Key Vault bakom en brand vägg](./access-behind-firewall.md).
 
 
 ## <a name="the-key-vault-authentication-flow"></a>Flödet för Key Vault autentisering
@@ -80,7 +80,7 @@ Mer information finns i [åtkomst Azure Key Vault bakom en brand vägg](/azure/k
 1. En tjänst huvud namn begär att autentisera med Azure AD, till exempel:
     * En användare loggar in på Azure Portal med ett användar namn och lösen ord.
     * Ett program anropar en Azure-REST API som presenterar ett klient-ID och en hemlighet eller ett klient certifikat.
-    * En Azure-resurs, till exempel en virtuell dator med en hanterad identitet, kontaktar [azure instance metadata service (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) REST-slutpunkten för att få en åtkomsttoken.
+    * En Azure-resurs, till exempel en virtuell dator med en hanterad identitet, kontaktar [azure instance metadata service (IMDS)](../../virtual-machines/windows/instance-metadata-service.md) REST-slutpunkten för att få en åtkomsttoken.
 
 1. Om autentisering med Azure AD lyckas beviljas tjänstens huvud namn en OAuth-token.
 
@@ -89,7 +89,7 @@ Mer information finns i [åtkomst Azure Key Vault bakom en brand vägg](/azure/k
 1. Key Vault brand väggen kontrollerar följande kriterier. Om något kriterium är uppfyllt, tillåts anropet. Annars blockeras anropet och ett förbjudet svar returneras.
 
     * Brand väggen är inaktive rad och den offentliga slut punkten för Key Vault kan kontaktas från det offentliga Internet.
-    * Anroparen är en [Key Vault betrodd tjänst](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services), vilket gör att den kan kringgå brand väggen.
+    * Anroparen är en [Key Vault betrodd tjänst](./overview-vnet-service-endpoints.md#trusted-services), vilket gör att den kan kringgå brand väggen.
     * Anroparen visas i brand väggen med IP-adress, virtuellt nätverk eller tjänst slut punkt.
     * Anroparen kan uppnå Key Vault över en konfigurerad anslutning till en privat länk.    
 
@@ -109,20 +109,20 @@ Följande tabell länkar till olika artiklar som visar hur du arbetar med Key Va
 
 | Key Vault hemligheter | Key Vault nycklar | Key Vault certifikat |
 |  --- | --- | --- |
-| [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
-| [.NET (SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
+| [Python](../secrets/quick-create-python.md) | [Python](../keys/quick-create-python.md) | [Python](../certificates/quick-create-python.md) | 
+| [.NET (SDK v4)](../secrets/quick-create-net.md) | -- | -- |
 | [.NET (SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
-| [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
-| [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
+| [Java](../secrets/quick-create-java.md) | -- | -- |
+| [JavaScript](../secrets/quick-create-node.md) | -- | -- | 
 | | | |
-| [Azure-portalen](/azure/key-vault/secrets/quick-create-portal) | [Azure-portalen](/azure/key-vault/keys/quick-create-portal) | [Azure-portalen](/azure/key-vault/certificates/quick-create-portal) |
-| [Azure CLI](/azure/key-vault/secrets/quick-create-cli) | [Azure CLI](/azure/key-vault/keys/quick-create-cli) | [Azure CLI](/azure/key-vault/certificates/quick-create-cli) |
-| [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
-| [ARM-mall](/azure/key-vault/secrets/quick-create-net) | -- | -- |
+| [Azure-portalen](../secrets/quick-create-portal.md) | [Azure-portalen](../keys/quick-create-portal.md) | [Azure-portalen](../certificates/quick-create-portal.md) |
+| [Azure CLI](../secrets/quick-create-cli.md) | [Azure CLI](../keys/quick-create-cli.md) | [Azure CLI](../certificates/quick-create-cli.md) |
+| [Azure PowerShell](../secrets/quick-create-powershell.md) | [Azure PowerShell](../keys/quick-create-powershell.md) | [Azure PowerShell](../certificates/quick-create-powershell.md) |
+| [ARM-mall](../secrets/quick-create-net.md) | -- | -- |
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Fel sökning av Key Vault åtkomst princip](troubleshooting-access-issues.md)
 - [Fel koder för Key Vault REST API](rest-error-codes.md)
 - [Guide för Key Vault utvecklare](developers-guide.md)
-- [Vad är Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview)
+- [Vad är Azure Role-Based Access Control (RBAC)?](../../role-based-access-control/overview.md)

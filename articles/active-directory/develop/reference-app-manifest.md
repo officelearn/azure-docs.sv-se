@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6971e62b20dc1155b875f69eb1d4da9d7b6e6887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f4e1def81fc79ec159ce6be825793a9bd8d0ce7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627014"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286954"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifest
 
@@ -194,6 +194,7 @@ Konfigurerar det `groups` anspråk som utfärdats i en användare eller OAuth 2,
 
 - `"None"`
 - `"SecurityGroup"` (för säkerhets grupper och Azure AD-roller)
+- `"ApplicationGroup"` (det här alternativet inkluderar endast grupper som är kopplade till programmet)
 - `"All"` (detta kommer att hämta alla säkerhets grupper, distributions grupper och Azure AD-katalog roller som den inloggade användaren är medlem i.
 
 Exempel:

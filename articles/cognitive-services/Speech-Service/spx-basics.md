@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 1255333e9bde54fcdf76dd40a9aaa4bc68fd103e
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 7ca290b7b7df9e4e03aec78b611361ba52942523
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242134"
+ms.locfileid: "93286692"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Lär dig grunderna i tal-CLI
 
@@ -182,4 +182,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Slutför snabb starten för [tal igenkänning](./quickstarts/speech-to-text-from-microphone.md) eller [tal syntes](./quickstarts/text-to-speech.md) med hjälp av SDK.
+* Slutför snabb starten för [tal igenkänning](get-started-speech-to-text.md?pivots=programmer-tool-spx) eller [tal syntes](get-started-text-to-speech.md?pivots=programmer-tool-spx) med tal-cli.

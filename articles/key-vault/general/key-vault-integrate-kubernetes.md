@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: c101cb4eca246ee68a30ba3499981c589c564f92
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 832cb27f3056c52d22feabff0d8953b6725c1a7f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368663"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286612"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Självstudie: Konfigurera och kör Azure Key Vault-providern för hemligheter Store CSI-drivrutinen på Kubernetes
 
@@ -35,7 +35,7 @@ I den här guiden får du lära dig att:
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* Innan du börjar den här självstudien installerar du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+* Innan du börjar den här självstudien installerar du [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## <a name="create-a-service-principal-or-use-managed-identities"></a>Skapa ett huvud namn för tjänsten eller Använd hanterade identiteter
 
@@ -56,7 +56,7 @@ Kopiera autentiseringsuppgifterna för **appId** och **lösen ord** för senare 
 
 Du behöver inte använda Azure Cloud Shell. Kommando tolken (Terminal) med Azure CLI är tillräckligt. 
 
-Slutför avsnitten "skapa en resurs grupp," skapa AKS-kluster "och" Anslut till klustret "i [distribuera ett Azure Kubernetes service-kluster med hjälp av Azure CLI](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough). 
+Slutför avsnitten "skapa en resurs grupp," skapa AKS-kluster "och" Anslut till klustret "i [distribuera ett Azure Kubernetes service-kluster med hjälp av Azure CLI](../../aks/kubernetes-walkthrough.md). 
 
 > [!NOTE] 
 > Om du planerar att använda en POD-identitet i stället för ett huvud namn för tjänsten måste du aktivera den när du skapar Kubernetes-klustret, som du ser i följande kommando:
@@ -70,11 +70,11 @@ Slutför avsnitten "skapa en resurs grupp," skapa AKS-kluster "och" Anslut till 
     ```azurecli
     kubectl version
     ```
-1. Se till att din Kubernetes-version är 1.16.0 eller senare. För Windows-kluster ser du till att din Kubernetes-version är 1.18.0 eller senare. Följande kommando uppgraderar både Kubernetes-klustret och Node-poolen. Det kan ta några minuter att köra kommandot. I det här exemplet är resurs gruppen *contosoResourceGroup*och Kubernetes-klustret är *contosoAKSCluster*.
+1. Se till att din Kubernetes-version är 1.16.0 eller senare. För Windows-kluster ser du till att din Kubernetes-version är 1.18.0 eller senare. Följande kommando uppgraderar både Kubernetes-klustret och Node-poolen. Det kan ta några minuter att köra kommandot. I det här exemplet är resurs gruppen *contosoResourceGroup* och Kubernetes-klustret är *contosoAKSCluster*.
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Använd följande kommando för att visa metadata för det AKS-kluster som du har skapat. Kopiera **principalId**, **clientId**, **subscriptionId**och **nodeResourceGroup** för senare användning. Om fråga-klustret inte skapades med hanterade identiteter aktiverade, kommer **principalId** och **clientId** att vara null. 
+1. Använd följande kommando för att visa metadata för det AKS-kluster som du har skapat. Kopiera **principalId** , **clientId** , **subscriptionId** och **nodeResourceGroup** för senare användning. Om fråga-klustret inte skapades med hanterade identiteter aktiverade, kommer **principalId** och **clientId** att vara null. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -103,7 +103,7 @@ Med [hemligheterna för CSI](https://github.com/Azure/secrets-store-csi-driver-p
 
 ## <a name="create-an-azure-key-vault-and-set-your-secrets"></a>Skapa ett Azure Key Vault och Ställ in dina hemligheter
 
-Om du vill skapa ett eget nyckel valv och ange dina hemligheter följer du anvisningarna i [Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure CLI](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli).
+Om du vill skapa ett eget nyckel valv och ange dina hemligheter följer du anvisningarna i [Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure CLI](../secrets/quick-create-cli.md).
 
 > [!NOTE] 
 > Du behöver inte använda Azure Cloud Shell eller skapa en ny resurs grupp. Du kan använda den resurs grupp som du skapade tidigare för Kubernetes-klustret.
@@ -114,21 +114,21 @@ Om du vill skapa ett eget nyckel valv och ange dina hemligheter följer du anvis
 
 Fyll i de saknade parametrarna i filen sample SecretProviderClass YAML. Följande parametrar måste anges:
 
-* **userAssignedIdentityID**: # [required] om du använder ett huvud namn för tjänsten använder du klient-ID för att ange vilken användardefinierad hanterad identitet som ska användas. Om du använder en användardefinierad identitet som den virtuella datorns hanterade identitet anger du identitetens klient-ID. Om värdet är tomt används den systemtilldelade identiteten för den virtuella datorn 
-* **keyvaultName**: namnet på ditt nyckel valv
-* **objekt**: behållaren för allt hemligt innehåll som du vill montera
-    * **objectName**: namnet på det hemliga innehållet
-    * **objectType**: objekt typ (hemlighet, nyckel, certifikat)
-* **resourceGroup**: namnet på resurs gruppen # [krävs för version < 0.0.4] resurs gruppen för nyckel valvet
-* **subscriptionId**: PRENUMERATIONS-ID för nyckel valvet # [krävs för version < 0.0.4] PRENUMERATIONS-ID för nyckel valvet
-* **tenantID**: klient-ID eller katalog-ID för nyckel valvet
+* **userAssignedIdentityID** : # [required] om du använder ett huvud namn för tjänsten använder du klient-ID för att ange vilken användardefinierad hanterad identitet som ska användas. Om du använder en användardefinierad identitet som den virtuella datorns hanterade identitet anger du identitetens klient-ID. Om värdet är tomt används den systemtilldelade identiteten för den virtuella datorn 
+* **keyvaultName** : namnet på ditt nyckel valv
+* **objekt** : behållaren för allt hemligt innehåll som du vill montera
+    * **objectName** : namnet på det hemliga innehållet
+    * **objectType** : objekt typ (hemlighet, nyckel, certifikat)
+* **resourceGroup** : namnet på resurs gruppen # [krävs för version < 0.0.4] resurs gruppen för nyckel valvet
+* **subscriptionId** : PRENUMERATIONS-ID för nyckel valvet # [krävs för version < 0.0.4] PRENUMERATIONS-ID för nyckel valvet
+* **tenantID** : klient-ID eller katalog-ID för nyckel valvet
 
 Dokumentation av alla obligatoriska fält finns här: [länk](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 Den uppdaterade mallen visas i följande kod. Ladda ned den som en YAML-fil och fyll i de obligatoriska fälten. I det här exemplet är nyckel valvet **contosoKeyVault5**. Det har två hemligheter, **secret1** och **secret2**.
 
 > [!NOTE] 
-> Om du använder hanterade identiteter ställer du in värdet **usePodIdentity** som *Sant*och anger **userAssignedIdentityID** -värdet som ett par citat tecken (**""**). 
+> Om du använder hanterade identiteter ställer du in värdet **usePodIdentity** som *Sant* och anger **userAssignedIdentityID** -värdet som ett par citat tecken ( **""** ). 
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
@@ -194,7 +194,7 @@ Om du använder ett huvud namn för tjänsten ger du behörighet för det för a
     ```
 
 > [!NOTE] 
-> Om du distribuerar Kubernetes-Pod och du får ett fel meddelande om ett ogiltigt ID för klient hemlighet kan du ha ett äldre ID för klient hemlighet som har upphört att gälla eller återställts. Lös problemet genom att ta bort hemligheten Secret *-Store-creds* och skapa en ny med det aktuella klient hemlighets-ID: t. Om du vill ta bort dina *hemligheter – spara autentiseringsuppgifter*kör du följande kommando:
+> Om du distribuerar Kubernetes-Pod och du får ett fel meddelande om ett ogiltigt ID för klient hemlighet kan du ha ett äldre ID för klient hemlighet som har upphört att gälla eller återställts. Lös problemet genom att ta bort hemligheten Secret *-Store-creds* och skapa en ny med det aktuella klient hemlighets-ID: t. Om du vill ta bort dina *hemligheter – spara autentiseringsuppgifter* kör du följande kommando:
 >
 > ```azurecli
 > kubectl delete secrets secrets-store-creds
@@ -210,7 +210,7 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Om du använder hanterade identiteter tilldelar du vissa roller till det AKS-kluster som du har skapat. 
 
-1. Om du vill skapa, Visa eller läsa en användardefinierad hanterad identitet måste ditt AKS-kluster tilldelas rollen [hanterad identitets operatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) . Kontrol lera att **$clientId** är Kubernetes-klustrets clientId. För omfånget kommer den att vara under din Azure-prenumerations tjänst, särskilt den resurs grupp för noden som gjordes när AKS-klustret skapades. Det här omfånget garanterar att endast resurser inom gruppen påverkas av rollerna som tilldelas nedan. 
+1. Om du vill skapa, Visa eller läsa en användardefinierad hanterad identitet måste ditt AKS-kluster tilldelas rollen [hanterad identitets operatör](../../role-based-access-control/built-in-roles.md#managed-identity-operator) . Kontrol lera att **$clientId** är Kubernetes-klustrets clientId. För omfånget kommer den att vara under din Azure-prenumerations tjänst, särskilt den resurs grupp för noden som gjordes när AKS-klustret skapades. Det här omfånget garanterar att endast resurser inom gruppen påverkas av rollerna som tilldelas nedan. 
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
@@ -355,4 +355,4 @@ Kontrol lera att innehållet i hemligheten visas.
 
 Information om hur du kontrollerar att nyckel valvet kan återskapas finns i:
 > [!div class="nextstepaction"]
-> [Aktivera mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/soft-delete-cli)
+> [Aktivera mjuk borttagning](./soft-delete-cli.md)

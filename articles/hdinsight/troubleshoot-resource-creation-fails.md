@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: a47781bcdf60d863d6dcf77d70bc0ee496a51388
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2e9f6898dba559f557f49cc0ee9ff39644da243f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538807"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287345"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>Felsöka fel i resurs skapande i Azure HDInsight
 
@@ -33,24 +33,18 @@ Din prenumeration kanske har konfigurerats så att antalet kärnor för en regio
 
 Följ dessa steg om du vill begära en kvotökning:
 
-1. Gå till [Azure Portal](https://portal.azure.com)och välj **Hjälp + Support** .
+1. Gå till [Azure Portal](https://portal.azure.com)och välj **Hjälp + Support**.
 
-1. Välj **Ny supportbegäran** .
+1. Välj **Ny supportbegäran**.
 
 1. På fliken **grundläggande** på sidan **ny supportbegäran** anger du följande information:
 
-   * **Typ av problem:** Välj **tjänst-och prenumerations gränser (kvoter)** .
+   * **Typ av problem:** Välj **tjänst-och prenumerations gränser (kvoter)**.
    * **Prenumeration:** Välj den prenumeration som du vill ändra.
-   * **Kvot typ:** Välj **HDInsight** .
+   * **Kvot typ:** Välj **HDInsight**.
 
 Mer information finns i [Skapa ett supportärende för att öka antalet kärnor](hdinsight-capacity-planning.md#quotas).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
-
-* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
-
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.openlocfilehash: bb574bb3dd000682090c6c3f861e885761753e19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba80d78cbc7d34b1496daffbd489a1d0dbfed8b4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588525"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285660"
 ---
 # <a name="tutorial-access-azure-blob-storage-using-azure-databricks-and-azure-key-vault"></a>Självstudie: få åtkomst till Azure Blob Storage med Azure Databricks och Azure Key Vault
 
@@ -29,11 +29,11 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Innan du börjar den här självstudien installerar du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+Innan du börjar den här självstudien installerar du [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## <a name="create-a-storage-account-and-blob-container-with-azure-cli"></a>Skapa ett lagrings konto och en BLOB-behållare med Azure CLI
 
-Du måste först skapa ett allmänt lagrings konto för att kunna använda blobbar. Om du inte har en [resurs grupp](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create)skapar du en innan du kör kommandot. Följande kommando skapar och visar lagrings behållarens metadata. Kopiera ned **ID: t**.
+Du måste först skapa ett allmänt lagrings konto för att kunna använda blobbar. Om du inte har en [resurs grupp](/cli/azure/group?view=azure-cli-latest#az-group-create)skapar du en innan du kör kommandot. Följande kommando skapar och visar lagrings behållarens metadata. Kopiera ned **ID: t**.
 
 ```azurecli
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob
@@ -41,7 +41,7 @@ az storage account create --name contosoblobstorage5 --resource-group contosoRes
 
 ![Konsolens utdata av kommandot ovan. ID är markerat i grönt för slutanvändaren att se.](../media/databricks-command-output-1.png)
 
-Innan du kan skapa en behållare för att överföra blobben till måste du tilldela rollen [Storage BLOB data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) till dig själv. I det här exemplet tilldelas rollen till det lagrings konto som du har gjort tidigare.
+Innan du kan skapa en behållare för att överföra blobben till måste du tilldela rollen [Storage BLOB data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) till dig själv. I det här exemplet tilldelas rollen till det lagrings konto som du har gjort tidigare.
 
 ```azurecli
 az role assignment create --role "Storage Blob Data Contributor" --assignee t-trtr@microsoft.com --scope "/subscriptions/885e24c8-7a36-4217-b8c9-eed31e110504/resourceGroups/contosoResourceGroup5/providers/Microsoft.Storage/storageAccounts/contosoblobstorage5
@@ -94,7 +94,7 @@ az keyvault secret set --vault-name contosoKeyVault10 --name storageKey --value 
 
 ## <a name="create-an-azure-databricks-workspace-and-add-key-vault-secret-scope"></a>Skapa en Azure Databricks arbets yta och Lägg till Key Vault hemligt omfång
 
-Det här avsnittet kan inte slutföras via kommando raden. Följ den här [guiden](https://docs.microsoft.com/azure/azure-databricks/store-secrets-azure-key-vault#create-an-azure-databricks-workspace-and-add-a-secret-scope). Du måste ha åtkomst till [Azure Portal](https://ms.portal.azure.com/#home) för att:
+Det här avsnittet kan inte slutföras via kommando raden. Följ den här [guiden](/azure/databricks/scenarios/store-secrets-azure-key-vault#create-an-azure-databricks-workspace-and-add-a-secret-scope). Du måste ha åtkomst till [Azure Portal](https://ms.portal.azure.com/#home) för att:
 
 1. Skapa din Azure Databricks-resurs
 1. Starta din arbets yta
@@ -102,7 +102,7 @@ Det här avsnittet kan inte slutföras via kommando raden. Följ den här [guide
 
 ## <a name="access-your-blob-container-from-azure-databricks-workspace"></a>Få åtkomst till din BLOB-behållare från Azure Databricks arbets yta
 
-Det här avsnittet kan inte slutföras via kommando raden. Följ den här [guiden](https://docs.microsoft.com/azure/azure-databricks/store-secrets-azure-key-vault#access-your-blob-container-from-azure-databricks). Du måste använda arbets ytan Azure Databricks för att:
+Det här avsnittet kan inte slutföras via kommando raden. Följ den här [guiden](/azure/databricks/scenarios/store-secrets-azure-key-vault#access-your-blob-container-from-azure-databricks). Du måste använda arbets ytan Azure Databricks för att:
 
 1. Skapa ett **nytt kluster**
 1. Skapa en **ny antecknings bok**
@@ -124,4 +124,4 @@ df.show()
 
 Kontrol lera att Key Vault går att återskapa:
 > [!div class="nextstepaction"]
-> [Rensa dina resurser](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+> [Rensa dina resurser](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)

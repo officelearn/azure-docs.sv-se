@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 3b1e71a5aadbe9e6a4fa89d4b3ec0fb6b1d9e6ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e491b89ec5e6488228dd8befed669a13842f9d15
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530462"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288558"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänst slut punkter för virtuella nätverk för Azure Key Vault
 
@@ -54,7 +54,7 @@ Mer information finns i [konfigurera Azure Key Vault brand väggar och virtuella
 > Tänk på följande konfigurations begränsningar:
 > * Högst 127 virtuella nätverks regler och 127 IPv4-regler är tillåtna. 
 > * Små adress intervall som använder prefixlängden "/31" eller "/32" stöds inte. Konfigurera i stället dessa intervall med hjälp av enskilda IP-adressintervall.
-> * IP-nätverksadresser tillåts endast för offentliga IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i RFC 1918) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med **10.**, **172.16-31**och **192,168.**.. 
+> * IP-nätverksadresser tillåts endast för offentliga IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i RFC 1918) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med **10.** , **172.16-31** och **192,168.**.. 
 > * Endast IPv4-adresser stöds för tillfället.
 
 ## <a name="trusted-services"></a>Betrodda tjänster
@@ -63,23 +63,23 @@ Här är en lista över betrodda tjänster som har behörighet att komma åt ett
 
 |Betrodd tjänst|Användnings scenarier som stöds|
 | --- | --- |
-|Azure Virtual Machines Deployment service|[Distribuera certifikat till virtuella datorer från kund hanterade Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
+|Azure Virtual Machines Deployment service|[Distribuera certifikat till virtuella datorer från kund hanterade Key Vault](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
 |Azure Resource Manager mall distributions tjänst|[Skicka säkra värden under distributionen](../../azure-resource-manager/templates/key-vault-parameter.md).|
-|Azure Application Gateway v2 SKU|[TLS-avslutning med Key Vault certifikat](/azure/application-gateway/key-vault-certs)|
+|Azure Application Gateway v2 SKU|[TLS-avslutning med Key Vault certifikat](../../application-gateway/key-vault-certs.md)|
 |Azure Disk Encryption volym krypterings tjänst|Tillåt åtkomst till BitLocker Key (Windows VM) eller DM-lösen fras (Linux VM) och nyckel krypterings nyckel under distributionen av virtuella datorer. Detta gör att [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).|
-|Azure Backup|Tillåt säkerhets kopiering och återställning av relevanta nycklar och hemligheter under Azure Virtual Machines säkerhets kopiering med [Azure Backup](../../backup/backup-introduction-to-azure-backup.md).|
+|Azure Backup|Tillåt säkerhets kopiering och återställning av relevanta nycklar och hemligheter under Azure Virtual Machines säkerhets kopiering med [Azure Backup](../../backup/backup-overview.md).|
 |Exchange Online & SharePoint Online|Tillåt åtkomst till kund nyckel för Azure Storage tjänst kryptering med [kund nyckel](/microsoft-365/compliance/customer-key-overview).|
-|Azure Information Protection|Tillåt åtkomst till klient nyckeln för [Azure information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
+|Azure Information Protection|Tillåt åtkomst till klient nyckeln för [Azure information Protection.](/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Distribuera Azure Web App-certifikat via Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Azure SQL Database|[Transparent datakryptering med Bring Your Own Key stöd för Azure SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse)](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
-|Azure Storage|[Kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
+|Azure Storage|[Kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|[Kryptering av data i Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) med en kundhanterad nyckel.|
-|Azure Databricks|[Snabb, enkel och gemensam Apache Spark-baserad analys tjänst](../../azure-databricks/what-is-azure-databricks.md)|
+|Azure Databricks|[Snabb, enkel och gemensam Apache Spark-baserad analys tjänst](/azure/databricks/scenarios/what-is-azure-databricks)|
 |Azure API Management|[Distribuera certifikat för anpassad domän från Key Vault med MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure Data Factory|[Hämta autentiseringsuppgifter för data lager i Key Vault från Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
-|Azure Event Hubs|[Tillåt åtkomst till ett nyckel valv för kund hanterade nyckel scenarier](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
-|Azure Service Bus|[Tillåt åtkomst till ett nyckel valv för kund hanterade nyckel scenarier](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
-|Azure Import/Export| [Använda Kundhanterade nycklar i Azure Key Vault för import/export-tjänsten](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
+|Azure Event Hubs|[Tillåt åtkomst till ett nyckel valv för kund hanterade nyckel scenarier](../../event-hubs/configure-customer-managed-key.md)|
+|Azure Service Bus|[Tillåt åtkomst till ett nyckel valv för kund hanterade nyckel scenarier](../../service-bus-messaging/configure-customer-managed-key.md)|
+|Azure Import/Export| [Använda Kundhanterade nycklar i Azure Key Vault för import/export-tjänsten](../../storage/common/storage-import-export-encryption-key-portal.md)
 |Azure Container Registry|[Register kryptering med Kundhanterade nycklar](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Överföra artefakter till ett annat register](../../container-registry/container-registry-transfer-images.md)
 
 > [!NOTE]

@@ -4,12 +4,12 @@ description: Lär dig hur du felsöker och löser vanliga problem när du använ
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074421"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286768"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -154,10 +154,10 @@ Följ stegen *innan du börjar* i rätt dokument för att skapa ett AKS-kluster 
 Namngivnings begränsningar implementeras av både Azure-plattformen och AKS. Om ett resurs namn eller en parameter delar någon av dessa begränsningar returneras ett fel som uppmanar dig att ange en annan Indatatyp. Följande rikt linjer gäller för namngivning:
 
 * Kluster namn måste innehålla 1-63 tecken. De enda tillåtna tecknen är bokstäver, siffror, bindestreck och under streck. Det första och sista tecknet måste vara en bokstav eller en siffra.
-* AKS nod/*MC_* resurs grupp namn kombinerar resurs grupps namn och resurs namn. Den automatiskt genererade syntaxen för `MC_resourceGroupName_resourceName_AzureRegion` får inte vara större än 80 tecken. Om det behövs kan du minska längden på resurs gruppens namn eller AKS kluster namn. Du kan också [Anpassa resurs grupps namnet för noden](cluster-configuration.md#custom-resource-group-name)
+* AKS nod/ *MC_* resurs grupp namn kombinerar resurs grupps namn och resurs namn. Den automatiskt genererade syntaxen för `MC_resourceGroupName_resourceName_AzureRegion` får inte vara större än 80 tecken. Om det behövs kan du minska längden på resurs gruppens namn eller AKS kluster namn. Du kan också [Anpassa resurs grupps namnet för noden](cluster-configuration.md#custom-resource-group-name)
 * *DnsPrefix* måste börja och sluta med alfanumeriska värden och måste vara mellan 1-54 tecken. Giltiga tecken är alfanumeriska värden och bindestreck (-). *DnsPrefix* får inte innehålla specialtecken, till exempel en punkt (.).
 * AKS måste bestå av gemener och 1-11 tecken för Linux-nodkonfigurationer och 1-6-tecken för Windows-nodkonfigurationer. Namnet måste börja med en bokstav och de enda tillåtna tecknen är bokstäver och siffror.
-* *Admin-username*, som anger administratörs användar namnet för Linux-noder, måste börja med en bokstav, får bara innehålla bokstäver, siffror, bindestreck och under streck och har högst 64 tecken.
+* *Admin-username* , som anger administratörs användar namnet för Linux-noder, måste börja med en bokstav, får bara innehålla bokstäver, siffror, bindestreck och under streck och har högst 64 tecken.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Jag får fel meddelanden när jag försöker skapa, uppdatera, skala, ta bort eller uppgradera kluster, den åtgärden är inte tillåten eftersom en annan åtgärd pågår.
 
@@ -167,7 +167,7 @@ Kluster åtgärder är begränsade när en tidigare åtgärd fortfarande pågår
 
 Baserat på utdata från klustrets status:
 
-* Om klustret är i ett annat etablerings tillstånd än *lyckat* eller *misslyckat*väntar du tills åtgärden (*Uppgradera/uppdatera/skapa/skala/ta bort/migrera*) har slutförts. Försök med din senaste kluster åtgärd när den tidigare åtgärden har slutförts.
+* Om klustret är i ett annat etablerings tillstånd än *lyckat* eller *misslyckat* väntar du tills åtgärden ( *Uppgradera/uppdatera/skapa/skala/ta bort/migrera* ) har slutförts. Försök med din senaste kluster åtgärd när den tidigare åtgärden har slutförts.
 
 * Om det finns en misslyckad uppgradering av klustret följer du stegen som beskrivs [i avsnittet Jag får fel meddelanden om att mitt kluster är i ett felaktigt tillstånd och uppgradering eller skalning fungerar inte förrän det har åtgärd ATS](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
@@ -198,7 +198,7 @@ Vid begränsning av utgående trafik från ett AKS-kluster [krävs och valfria r
 
 Kontrol lera att inställningarna inte står i konflikt med några av de obligatoriska eller valfria rekommenderade utgående portarna/nätverks reglerna och reglerna för FQDN/program.
 
-## <a name="im-receiving-429---too-many-requests-errors"></a>Jag får fel meddelanden om "429-för många begär Anden" 
+## <a name="im-receiving-429---too-many-requests-errors"></a>Jag får fel meddelanden om "429-för många begär Anden"
 
 När ett Kubernetes-kluster på Azure (AKS eller No) ofta skalar upp/ned eller använder kluster autoskalning (CA), kan dessa åtgärder resultera i ett stort antal HTTP-anrop som i sin tur överskrider den tilldelade prenumerations kvoten som leder till fel. Felen kommer att se ut som
 
@@ -213,6 +213,12 @@ Omkommandoering från AKS Engineering-teamet är att se till att du kör version
 Med tanke på att dessa begränsnings fel mäts på prenumerations nivå kan de fortfarande inträffa om:
 - Det finns program från tredje part som gör GET-begäranden (t. ex. övervaka program osv...). Rekommendationen är att minska frekvensen för dessa anrop.
 - Det finns många AKS-kluster/-nodepools i VMSS. Den vanliga rekommendationen är att ha mindre än 20-30 kluster i en specifik prenumeration.
+
+## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>Mitt klusters etablerings status har ändrats från klar till misslyckades med eller utan att jag utför en åtgärd. Vad ska jag göra?
+
+Om klustrets etablerings status ändras från *klar* till *misslyckad* eller utan att du utför några åtgärder, men programmen i klustret fortsätter att köras, kan det här problemet lösas automatiskt av tjänsten och dina program påverkas inte.
+
+[Skicka en supportbegäran](https://azure.microsoft.com/support/options/#submit)om klustrets etablerings status är kvar som *misslyckad* eller om programmen i klustret slutar fungera.
 
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Azure Storage-och AKS-felsökning
@@ -250,7 +256,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1,10 | 1.10.2 eller senare |
 | 1,11 | 1.11.0 eller senare |
-| 1,12 och senare | Saknas |
+| 1,12 och senare | E.t. |
 
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Det gick inte att ställa in UID och GID i mountOptions för Azure disk
@@ -307,7 +313,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.9 eller senare |
 | 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
-| 1,15 och senare | Saknas |
+| 1,15 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden har en föråldrad disk lista kan du minska genom att koppla bort alla icke-befintliga diskar från den virtuella datorn som en Mass åtgärd. **En separat från koppling av icke-befintliga diskar kan Miss lyckas.**
 
@@ -326,7 +332,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.10 eller senare |
 | 1.13 | 1.13.8 eller senare |
 | 1,14 | 1.14.4 eller senare |
-| 1,15 och senare | Saknas |
+| 1,15 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden är i ett felaktigt tillstånd kan du minska genom att manuellt uppdatera VM-statusen med hjälp av någon av följande:
 
@@ -359,7 +365,7 @@ Rekommenderade inställningar:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 och senare | 0777 |
 
-Monterings alternativ kan anges för objektet lagrings klass. I följande exempel anges *0777*:
+Monterings alternativ kan anges för objektet lagrings klass. I följande exempel anges *0777* :
 
 ```yaml
 kind: StorageClass
@@ -382,7 +388,7 @@ parameters:
 Några ytterligare användbara *mountOptions* -inställningar:
 
 * *mfsymlinks* kommer att göra Azure Files montering (CIFS) stöder symboliska länkar
-* *nobrl* förhindrar sändning av byte intervall lås begär anden till servern. Den här inställningen är nödvändig för vissa program som slutar med en CIFS-format som är obligatoriska byte intervall lås. De flesta CIFS-servrar har ännu inte stöd för begäran om att låsa byte intervall lås. Om du inte använder *nobrl*kan program som slutar med CIFS-format som är obligatoriska byte intervall lås orsaka fel meddelanden som liknar:
+* *nobrl* förhindrar sändning av byte intervall lås begär anden till servern. Den här inställningen är nödvändig för vissa program som slutar med en CIFS-format som är obligatoriska byte intervall lås. De flesta CIFS-servrar har ännu inte stöd för begäran om att låsa byte intervall lås. Om du inte använder *nobrl* kan program som slutar med CIFS-format som är obligatoriska byte intervall lås orsaka fel meddelanden som liknar:
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -435,7 +441,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 |--|:--:|
 | 1.12 | 1.12.6 eller senare |
 | 1.13 | 1.13.4 eller senare |
-| 1,14 och senare | Saknas |
+| 1,14 och senare | E.t. |
 
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Azure Files monteringen Miss lyckas på grund av att lagrings konto nyckeln har ändrats
 
@@ -470,11 +476,8 @@ Det här felet beror på ett konkurrens villkor för en överordnad kluster auto
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Långsam disk bilaga, GetAzureDiskLun tar 10 till 15 minuter och du får ett fel meddelande
 
-På Kubernetes-versioner som är **äldre än 1.15.0**kan du få ett fel meddelande som **fel WaitForAttach inte kan hitta LUN för disk**.  Lösningen på det här problemet är att vänta cirka 15 minuter och försöka igen.
+På Kubernetes-versioner som är **äldre än 1.15.0** kan du få ett fel meddelande som **fel WaitForAttach inte kan hitta LUN för disk**.  Lösningen på det här problemet är att vänta cirka 15 minuter och försöka igen.
 
-<!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
-[cluster-autoscaler]: cluster-autoscaler.md
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Varför fungerar inte uppgraderingar av Kubernetes 1,16 när du använder Node-etiketter med ett kubernetes.io-prefix
 
@@ -487,3 +490,9 @@ Det innebär att du kan göra följande för att undvika detta:
 3. Ta bort den äldre nodepool
 
 AKS undersöker möjligheten att söka efter aktiva etiketter på en nodepool för att förbättra den här lösningen.
+
+
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

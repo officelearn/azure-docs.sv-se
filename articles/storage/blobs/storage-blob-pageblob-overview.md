@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: add94fe05eecd2fb77ba0d6d79fe6765afe3baaa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091023"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288329"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Översikt över Azure Page blobbar
 
@@ -24,6 +24,10 @@ Azure Storage erbjuder tre typer av Blob Storage: block-Blobs, bifoga blobbar oc
 Page blobbar är en samling med sidor på 512 byte, som ger möjlighet att läsa/skriva valfria intervall med byte. Därför är Page blobbar idealiska för lagring av indexbaserade och glesa data strukturer som operativ system och data diskar för Virtual Machines och databaser. Azure SQL DB använder till exempel sid-blobbar som underliggande beständig lagring för dess databaser. Dessutom används även sid-blobar ofta för filer med Range-Based uppdateringar.  
 
 Viktiga funktioner i Azure Page blobbar är dess REST-gränssnitt, hållbarheten hos det underliggande lagrings utrymmet och de sömlösa funktionerna för migrering till Azure. Dessa funktioner beskrivs närmare i nästa avsnitt. Dessutom stöds Azure Page blobbar för närvarande på två typer av lagring: Premium Storage och standard lagring. Premium Storage är särskilt utformad för arbets belastningar som kräver konsekvent hög prestanda och låg latens för att göra Premium-sid-blobar perfekta för högpresterande lagrings scenarier. Standard lagrings konton är mer kostnads effektiva för att köra svars känsliga arbets belastningar.
+
+## <a name="restrictions"></a>Begränsningar
+
+Page blobbar kan bara använda **frekvent åtkomst nivå** , de kan inte använda antingen låg frekvent **lagring** eller **Arkiv** lag rings nivå. Mer information om åtkomst nivåer finns i [åtkomst nivåer för Azure Blob Storage – frekvent,](storage-blob-storage-tiers.md)låg frekvent och Arkiv lag ring.
 
 ## <a name="sample-use-cases"></a>Exempel på användningsfall
 
@@ -59,7 +63,7 @@ Börja med att hämta en referens till en behållare. Om du vill skapa en sid-BL
 
 # <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
-För att skapa en Page BLOB skapar vi först ett **CloudBlobClient** -objekt med bas-URI: n för att komma åt Blob Storage för ditt lagrings konto (*pbaccount* i bild 1) tillsammans med **StorageCredentialsAccountAndKey** -objektet, som du ser i följande exempel. Exemplet visar sedan hur du skapar en referens till ett **CloudBlobContainer** -objekt och sedan skapar behållaren (*testvhds*) om den inte redan finns. Sedan använder du **CloudBlobContainer** -objektet och skapar en referens till ett **CloudPageBlob** -objekt genom att ange det sid-BLOB-namn (OS4. VHD) som ska användas. Om du vill skapa en sid-BLOB anropar du [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), och skickar den maximala storleken för blobben att skapa. *BlobSize* måste vara en multipel av 512 byte.
+För att skapa en Page BLOB skapar vi först ett **CloudBlobClient** -objekt med bas-URI: n för att komma åt Blob Storage för ditt lagrings konto ( *pbaccount* i bild 1) tillsammans med **StorageCredentialsAccountAndKey** -objektet, som du ser i följande exempel. Exemplet visar sedan hur du skapar en referens till ett **CloudBlobContainer** -objekt och sedan skapar behållaren ( *testvhds* ) om den inte redan finns. Sedan använder du **CloudBlobContainer** -objektet och skapar en referens till ett **CloudPageBlob** -objekt genom att ange det sid-BLOB-namn (OS4. VHD) som ska användas. Om du vill skapa en sid-BLOB anropar du [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), och skickar den maximala storleken för blobben att skapa. *BlobSize* måste vara en multipel av 512 byte.
 
 ```csharp
 using Microsoft.Azure;

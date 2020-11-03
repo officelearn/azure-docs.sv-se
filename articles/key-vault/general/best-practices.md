@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cec3ad4e113fd6ee3f4e30ad2a6877b886a958e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a522e58677e2c71cb52ad7e04b288622ad62d91
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88189891"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287339"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Metod tips för att använda Key Vault
 
@@ -39,15 +39,15 @@ Se till att du utför regelbundna säkerhets kopieringar av ditt valv när du up
 
 ### <a name="azure-powershell-backup-commands"></a>Azure PowerShell säkerhets kopierings kommandon
 
-* [Säkerhetskopiera certifikat](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
-* [Säkerhets kopierings nyckel](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
-* [Säkerhets kopierings hemlighet](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret?view=azurermps-6.13.0)
+* [Säkerhetskopiera certifikat](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
+* [Säkerhets kopierings nyckel](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
+* [Säkerhets kopierings hemlighet](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret?view=azurermps-6.13.0)
 
 ### <a name="azure-cli-backup-commands"></a>Kommandon för Azure CLI-säkerhetskopiering
 
-* [Säkerhetskopiera certifikat](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
-* [Säkerhets kopierings nyckel](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
-* [Säkerhets kopierings hemlighet](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
+* [Säkerhetskopiera certifikat](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
+* [Säkerhets kopierings nyckel](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
+* [Säkerhets kopierings hemlighet](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
 
 
 ## <a name="turn-on-logging"></a>Aktivera loggning

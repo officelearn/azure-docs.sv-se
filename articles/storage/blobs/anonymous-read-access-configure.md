@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 10/22/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 7248dff25af4693f7f264c8cbf42236612dddda0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 7ea0cbfb8ddfa2991e2a362bcb321418428cb16b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931078"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288137"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Konfigurera anonym offentlig Läs behörighet för behållare och blobbar
 
@@ -51,20 +51,17 @@ Att neka offentlig åtkomst för lagrings kontot förhindrar anonym åtkomst til
 > [!IMPORTANT]
 > Om den offentliga åtkomsten för ett lagrings konto nekas åsidosätts de offentliga åtkomst inställningarna för alla behållare i lagrings kontot. När offentlig åtkomst inte tillåts för lagrings kontot kommer alla framtida anonyma begär anden till det kontot att Miss förväntas. Innan du ändrar den här inställningen bör du förstå hur klient program som kan komma åt data i ditt lagrings konto är anonymt. Mer information finns i [förhindra anonym offentlig Läs behörighet till behållare och blobbar](anonymous-read-access-prevent.md).
 
-Om du vill tillåta eller neka offentlig åtkomst till ett lagrings konto konfigurerar du kontots **AllowBlobPublicAccess** -egenskap. Den här egenskapen är tillgänglig för alla lagrings konton som skapas med Azure Resource Manager distributions modell. Mer information finns i [Översikt över lagrings konto](../common/storage-account-overview.md).
+Om du vill tillåta eller neka offentlig åtkomst till ett lagrings konto konfigurerar du kontots **AllowBlobPublicAccess** -egenskap. Den här egenskapen är tillgänglig för alla lagrings konton som skapas med Azure Resource Manager distributions modell i det offentliga Azure-molnet eller i Azure Government moln. Mer information finns i [Översikt över lagrings konto](../common/storage-account-overview.md).
 
-> [!NOTE]
-> Egenskapen **AllowBlobPublicAccess** har inte angetts som standard och returnerar inte något värde förrän du uttryckligen anger det. Lagrings kontot tillåter offentlig åtkomst när egenskap svärdet är **Null** eller när det är **Sant**.
->
-> Egenskapen **AllowBlobPublicAccess** är tillgänglig för alla lagrings konton i det offentliga Azure-molnet och i Azure Government moln.
+Egenskapen **AllowBlobPublicAccess** har inte angetts som standard och returnerar inte något värde förrän du uttryckligen anger det. Lagrings kontot tillåter offentlig åtkomst när egenskap svärdet är antingen **Null** eller **Sant**.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Följ dessa steg om du vill tillåta eller neka offentlig åtkomst för ett lagrings konto i Azure Portal:
 
 1. Navigera till ditt lagringskonto i Azure-portalen.
 1. Leta upp **konfigurations** inställningen under **Inställningar**.
-1. Ange **offentlig åtkomst för BLOB** till **aktive rad** eller **inaktive**rad.
+1. Ange **offentlig åtkomst för BLOB** till **aktive rad** eller **inaktive** rad.
 
     :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Skärm bild som visar hur du tillåter eller nekar den offentliga BLOB-åtkomsten för kontot":::
 
@@ -135,8 +132,8 @@ az storage account show \
 Om du vill tillåta eller neka offentlig åtkomst för ett lagrings konto med en mall skapar du en mall med egenskapen **AllowBlobPublicAccess** inställd på **True** eller **false**. Följande steg beskriver hur du skapar en mall i Azure Portal.
 
 1. I Azure Portal väljer du **skapa en resurs**.
-1. I **Sök på Marketplace**skriver du **mall distribution**och trycker sedan på **RETUR**.
-1. Välj **malldistribution (distribuera med anpassade mallar) (för hands version)**, Välj **skapa**och välj sedan **skapa en egen mall i redigeraren**.
+1. I **Sök på Marketplace** skriver du **mall distribution** och trycker sedan på **RETUR**.
+1. Välj **malldistribution (distribuera med anpassade mallar) (för hands version)** , Välj **skapa** och välj sedan **skapa en egen mall i redigeraren**.
 1. I redigeraren för mallar klistrar du in följande JSON för att skapa ett nytt konto och anger egenskapen **AllowBlobPublicAccess** till **True** eller **false**. Kom ihåg att ersätta plats hållarna inom vinkelparenteser med dina egna värden.
 
     ```json
@@ -193,7 +190,7 @@ När offentlig åtkomst tillåts för ett lagrings konto kan du konfigurera en b
 
 Du kan inte ändra offentlig åtkomst nivå för en enskild blob. Offentlig åtkomst nivå anges bara på container nivå. Du kan ange behållarens offentliga åtkomst nivå när du skapar behållaren, eller så kan du uppdatera inställningen för en befintlig behållare.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Följ dessa steg om du vill uppdatera den offentliga åtkomst nivån för en eller flera befintliga behållare i Azure Portal:
 
@@ -207,7 +204,7 @@ Följ dessa steg om du vill uppdatera den offentliga åtkomst nivån för en ell
 
 När offentlig åtkomst inte tillåts för lagrings kontot kan inte behållarens offentliga åtkomst nivå anges. Om du försöker ange behållarens offentliga åtkomst nivå ser du att inställningen är inaktive rad eftersom offentlig åtkomst inte tillåts för kontot.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Skärm bild som visar hur du tillåter eller nekar den offentliga BLOB-åtkomsten för kontot":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Skärm bild som visar att inställnings behållarens offentliga åtkomst nivå är blockerad när offentlig åtkomst tillåts":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

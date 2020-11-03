@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: aa4b55cb0700a47d9235a1d526ef1b1678d6db8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333825"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285949"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Övervaka och Visa ML körnings loggar och mått
 
@@ -93,7 +93,7 @@ RunDetails(run).show()
 
 ## <a name="show-output-upon-completion"></a>Visa utdata vid slut för ande
 
-När du använder **ScriptRunConfig**kan du använda ```run.wait_for_completion(show_output = True)``` för att visa när modell träningen är klar. ```show_output```Flaggan ger dig utförliga utdata. Mer information finns i avsnittet ScriptRunConfig i [så här aktiverar du loggning](how-to-track-experiments.md#scriptrun-logs).
+När du använder **ScriptRunConfig** kan du använda ```run.wait_for_completion(show_output = True)``` för att visa när modell träningen är klar. ```show_output```Flaggan ger dig utförliga utdata. Mer information finns i avsnittet ScriptRunConfig i [så här aktiverar du loggning](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
 ## <a name="query-run-metrics"></a>Kör mått för fråga
@@ -105,7 +105,9 @@ Du kan visa måtten för en utbildad modell med ```run.get_metrics()``` . Du kan
 
 Du kan bläddra bland slutförda körnings poster, inklusive loggade mått, i [Azure Machine Learning Studio](https://ml.azure.com).
 
-Gå till fliken **experiment** och välj experimentet. På instrument panelen för experimentet kan du se spårade mått och loggar för varje körning. 
+Gå till fliken **experiment** . Om du vill visa alla dina körningar i arbets ytan över experiment väljer du fliken **alla körningar** . Du kan öka detalj nivån för körningar för vissa experiment genom att använda experiment filtret i den översta meny raden. 
+
+Välj fliken **alla experiment** i den enskilda experiment visningen. På instrument panelen för experimentet kan du se spårade mått och loggar för varje körning. 
 
 Öka detalj nivån till en speciell körning för att visa dess utdata eller loggar, eller ladda ned ögonblicks bilden av experimentet så att du kan dela experiment-mappen med andra.
 

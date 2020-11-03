@@ -3,12 +3,12 @@ title: Planera distributionen av Azure VMware-lösningen
 description: Den här artikeln beskriver ett arbets flöde för distribution av Azure VMware-lösningar.  Det slutliga resultatet är en miljö som är redo för generering och migrering av virtuella datorer (VM).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9b6d04e1e7a60bf812ca2b1e370c5075d306c432
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517369"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287061"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planera distributionen av Azure VMware-lösningen
 
@@ -17,7 +17,7 @@ Den här artikeln innehåller planerings processen för att identifiera och saml
 Processerna för den här snabb starten leder till en produktions klar miljö för att skapa virtuella datorer och migrering. 
 
 >[!IMPORTANT]
->Innan du skapar din Azure VMware-lösning kan du följa artikeln [så här aktiverar du Azure VMware-lösningen](enable-azure-vmware-solution.md) för att skicka ett support ärende så att dina noder tilldelas ett support ärende. När support teamet har tagit emot din begäran tar det upp till fem arbets dagar för att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process. 
+>Innan du skapar din Azure VMware-lösning kan du följa artikeln [så här aktiverar du Azure VMware-lösningen](enable-azure-vmware-solution.md) för att skicka in ett support ärende för att låta dina värdar tilldelas. När support teamet får din begäran tar det upp till fem arbets dagar för att bekräfta din begäran och allokera dina värdar. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler värdar ska tilldelas, går du igenom samma process. 
 
 
 ## <a name="subscription"></a>Prenumeration
@@ -39,9 +39,9 @@ Identifiera den region där du vill distribuera Azure VMware-lösningen.  Mer in
 
 Definiera resurs namnet som du ska använda under distributionen.  Resurs namnet är ett eget och beskrivande namn som du kan använda för att ge ditt privata moln i Azure VMware-lösningen.
 
-## <a name="size-nodes"></a>Noder storlek
+## <a name="size-hosts"></a>Storleks värdar
 
-Identifiera de storleks noder som du vill använda när du distribuerar Azure VMware-lösningen.  En fullständig lista finns i dokumentationen för [Azure VMware-lösningen privata moln och kluster](concepts-private-clouds-clusters.md#hosts) .
+Identifiera de storleks värdar som du vill använda när du distribuerar Azure VMware-lösningen.  En fullständig lista finns i dokumentationen för [Azure VMware-lösningen privata moln och kluster](concepts-private-clouds-clusters.md#hosts) .
 
 ## <a name="number-of-hosts"></a>Antal värdar
 
@@ -79,7 +79,7 @@ Kom ihåg att alla IP-segment som skapats måste vara unika i Azure och lokalt.
 
 **Exempel:** 10.0.4.0/24
 
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identifiera IP-adress segment" border="false":::     
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identifiera IP-adress segment för virtuella dator arbets belastningar" border="false":::     
 
 ## <a name="optional-extend-networks"></a>Valfritt Utöka nätverk
 
@@ -96,7 +96,7 @@ Identifiera ett `/29` CIDR-block för nätverks adress som krävs för ExpressRo
 
 **Exempel:** 10.1.0.0/29
 
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identifiera IP-adress segment" border="false":::
+:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identifiera-ExpressRoute Global Reach peering Network" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Azure Virtual Network för att ansluta Azure VMware-lösning
 
@@ -119,7 +119,7 @@ Oavsett hur du vill kan du dokumentera vad du vill göra i det här steget.
 >[!NOTE]
 >Det här virtuella nätverket visas av din lokala miljö och Azure VMware-lösning, så se till att det IP-segment som du använder i det här virtuella nätverket och undernät inte överlappar.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identifiera IP-adress segment" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identitet – Azure Virtual Network för att ansluta Azure VMware-lösning" border="false":::
 
 ## <a name="vmware-hcx-network-segments"></a>Nätverks segment för VMware HCX
 

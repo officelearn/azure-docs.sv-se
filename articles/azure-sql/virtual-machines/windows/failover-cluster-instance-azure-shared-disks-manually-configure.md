@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: dd9b84c379f368e4cb4bcf1b5122e394456cd9e8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c78899bff39f37c63c7db0eeb12690ab2a90cac4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789768"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285384"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Skapa en FCI med Azure Shared disks (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ I den här artikeln förklaras hur du skapar en instans av en redundanskluster (
 Mer information finns i Översikt över [FCI med SQL Server på Azure VM](failover-cluster-instance-overview.md) och [kluster metod tips](hadr-cluster-best-practices.md). 
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
@@ -151,12 +151,12 @@ Verifiera klustret i användar gränssnittet eller med hjälp av PowerShell.
 
 Verifiera klustret med hjälp av användar gränssnittet genom att göra följande på en av de virtuella datorerna:
 
-1. Under **Serverhanteraren** väljer du **verktyg** och väljer sedan **Klusterhanteraren för växling vid fel** .
-1. Under **Klusterhanteraren för växling vid fel** väljer du **åtgärd** och väljer sedan **Verifiera konfiguration** .
-1. Välj **Nästa** .
+1. Under **Serverhanteraren** väljer du **verktyg** och väljer sedan **Klusterhanteraren för växling vid fel**.
+1. Under **Klusterhanteraren för växling vid fel** väljer du **åtgärd** och väljer sedan **Verifiera konfiguration**.
+1. Välj **Nästa**.
 1. Under **Välj servrar eller ett kluster** anger du namnen på de båda virtuella datorerna.
-1. Under **test alternativ** väljer **du kör endast test som jag väljer** . 
-1. Välj **Nästa** .
+1. Under **test alternativ** väljer **du kör endast test som jag väljer**. 
+1. Välj **Nästa**.
 1. Under **Val av test** väljer du alla tester *utom* **lagring**
 
 ## <a name="test-cluster-failover"></a>Testa redundanskluster
@@ -175,11 +175,11 @@ När du har konfigurerat redundansklustret och alla kluster komponenter, inklusi
 
 1. Leta upp installations mediet. Om den virtuella datorn använder en av Azure Marketplace-avbildningarna finns mediet på `C:\SQLServer_<version number>_Full` . 
 
-1. Välj **installation** .
+1. Välj **installation**.
 
-1. I **SQL Server installations Center** väljer du **installation** .
+1. I **SQL Server installations Center** väljer du **installation**.
 
-1. Välj **ny SQL Server redundanskluster installationen** . Följ anvisningarna i guiden för att installera SQL Server FCI.
+1. Välj **ny SQL Server redundanskluster installationen**. Följ anvisningarna i guiden för att installera SQL Server FCI.
 
 FCI data kataloger måste finnas på de Azure-delade diskarna. 
 
@@ -187,9 +187,9 @@ FCI data kataloger måste finnas på de Azure-delade diskarna.
 
 1. När installations programmet har installerat FCI på den första noden ansluter du till den andra noden med hjälp av RDP.
 
-1. Öppna **installations Center för SQL Server** och välj sedan **installation** .
+1. Öppna **installations Center för SQL Server** och välj sedan **installation**.
 
-1. Välj **Lägg till nod i ett SQL Server redundanskluster** . Följ anvisningarna i guiden för att installera SQL Server och lägga till servern i FCI.
+1. Välj **Lägg till nod i ett SQL Server redundanskluster**. Följ anvisningarna i guiden för att installera SQL Server och lägga till servern i FCI.
 
    >[!NOTE]
    >Om du använde en Azure Marketplace-Galleri avbildning som innehåller SQL Server, inkluderades SQL Server verktyg med avbildningen. Om du inte använde någon av dessa avbildningar installerar du SQL Server verktyg separat. Mer information finns i [Ladda ned SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -217,7 +217,7 @@ Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurer
 
 ## <a name="limitations"></a>Begränsningar
 
-- Det finns bara stöd för registrering med den virtuella SQL-resurs leverantören i [läget för förenklad hantering](sql-vm-resource-provider-register.md#management-modes) .
+- Det finns bara stöd för registrering med den virtuella SQL-resurs leverantören i [läget för förenklad hantering](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Nästa steg
 

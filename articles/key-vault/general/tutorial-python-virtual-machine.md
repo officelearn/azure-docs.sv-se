@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 89118f13bc009ce60d4fd1c82dfe7688bf1e551b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae62bf353f8a92c4408d4a38a91771ad60a13107
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741266"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285303"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Självstudie: använda Azure Key Vault med en virtuell dator i python
 
@@ -34,7 +34,7 @@ Läs [Key Vault grundläggande koncept](basic-concepts.md)innan du börjar.
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För Windows, Mac och Linux:
   * [Git](https://git-scm.com/downloads)
@@ -66,7 +66,7 @@ Skapa en virtuell dator med namnet **myVM** med någon av följande metoder:
 | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
 | [Azure-portalen](../../virtual-machines/linux/quick-create-portal.md) | [Azure-portalen](../../virtual-machines/windows/quick-create-portal.md) |
 
-Om du vill skapa en virtuell Linux-dator med Azure CLI använder du kommandot [AZ VM Create](/cli/azure/vm) .  I följande exempel lägger du till ett användar konto med namnet *azureuser* . Parametern `--generate-ssh-keys` används för att automatiskt generera en SSH-nyckel och placera den på standardnyckelplatsen ( *~/.ssh* ). 
+Om du vill skapa en virtuell Linux-dator med Azure CLI använder du kommandot [AZ VM Create](/cli/azure/vm) .  I följande exempel lägger du till ett användar konto med namnet *azureuser*. Parametern `--generate-ssh-keys` används för att automatiskt generera en SSH-nyckel och placera den på standardnyckelplatsen ( *~/.ssh* ). 
 
 ```azurecli-interactive
 az vm create \
@@ -148,7 +148,7 @@ print(f"The value of secret '{secretName}' in '{keyVaultName}' is: '{retrieved_s
 
 ## <a name="run-the-sample-python-app"></a>Kör exempel på python-appen
 
-Kör slutligen **Sample.py** . Om alla har varit väl, ska det returnera värdet för din hemlighet:
+Kör slutligen **Sample.py**. Om alla har varit väl, ska det returnera värdet för din hemlighet:
 
 ```bash
 python3 sample.py
@@ -166,4 +166,4 @@ az group delete -g myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-[REST API för Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)
+[REST API för Azure Key Vault](/rest/api/keyvault/)

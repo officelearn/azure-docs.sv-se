@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c55c87cd8ab1b2cd1dbaf2c877eb341744d822ef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440526"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287466"
 ---
 # <a name="azure-key-vault-backup"></a>Azure Key Vault säkerhets kopiering
 
@@ -25,9 +25,9 @@ Det här dokumentet visar hur du säkerhetskopierar hemligheter, nycklar och cer
 
 Azure Key Vault tillhandahåller automatiskt funktioner som hjälper dig att underhålla tillgänglighet och förhindra data förlust. Säkerhetskopiera endast hemligheter om du har en viktig affärs motivering. Att säkerhetskopiera hemligheter i ditt nyckel valv kan leda till drifts utmaningar, till exempel att underhålla flera uppsättningar av loggar, behörigheter och säkerhets kopior när hemligheterna upphör att gälla eller roteras.
 
-Key Vault bibehåller tillgänglighet i katastrof scenarier och växlar automatiskt över begär anden till en kopplad region utan att användaren behöver göra något. Mer information finns i [Azure Key Vault tillgänglighet och redundans](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
+Key Vault bibehåller tillgänglighet i katastrof scenarier och växlar automatiskt över begär anden till en kopplad region utan att användaren behöver göra något. Mer information finns i [Azure Key Vault tillgänglighet och redundans](./disaster-recovery-guidance.md).
 
-Om du vill skydda mot oavsiktlig eller skadlig borttagning av dina hemligheter konfigurerar du funktionerna för mjuk borttagning och rensning av skydd i nyckel valvet. Mer information finns i [Översikt över Azure Key Vault mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
+Om du vill skydda mot oavsiktlig eller skadlig borttagning av dina hemligheter konfigurerar du funktionerna för mjuk borttagning och rensning av skydd i nyckel valvet. Mer information finns i [Översikt över Azure Key Vault mjuk borttagning](./soft-delete-overview.md).
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -123,4 +123,4 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ## <a name="next-steps"></a>Nästa steg
 
-Aktivera [loggning och övervakning](https://docs.microsoft.com/azure/key-vault/general/logging) för Key Vault.
+Aktivera [loggning och övervakning](./logging.md) för Key Vault.

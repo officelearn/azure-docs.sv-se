@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131181"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286700"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -26,7 +26,7 @@ Du kan komma åt loggnings informationen 10 minuter (högst) efter nyckel valvs 
 * Använd standardåtkomstmetoder i Azure för att skydda loggarna genom att begränsa vem som kan komma åt dem.
 * Ta bort loggar som du inte vill behålla i ditt lagringskonto.
 
-Översiktlig information om Key Vault finns i [Vad är Azure Key Vault?](overview.md). Information om var Key Vault finns på [sidan med priser](https://azure.microsoft.com/pricing/details/key-vault/). Information om hur du använder [Azure Monitor för Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
+Översiktlig information om Key Vault finns i [Vad är Azure Key Vault?](overview.md). Information om var Key Vault finns på [sidan med priser](https://azure.microsoft.com/pricing/details/key-vault/). Information om hur du använder [Azure Monitor för Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="interpret-your-key-vault-logs"></a>Tolka Key Vault-loggarna
 
@@ -61,7 +61,7 @@ I följande tabell visas fält namn och beskrivningar:
 
 | Fältnamn | Beskrivning |
 | --- | --- |
-| **time** |Datum och tid i UTC. |
+| **tid** |Datum och tid i UTC. |
 | **resourceId** |Azure Resource Manager resurs-ID. För Key Vault loggar är detta alltid Key Vault resurs-ID. |
 | **operationName** |Namnet på åtgärden, som beskrivs i nästa tabell. |
 | **operationVersion** |REST API version som begärs av klienten. |
@@ -73,7 +73,7 @@ I följande tabell visas fält namn och beskrivningar:
 | **callerIpAddress** |IP-adressen för den klient som gjorde begäran. |
 | **correlationId** |Ett valfritt GUID som klienten kan skicka för att korrelera loggar på klientsidan med loggar på tjänstsidan (Key Vault). |
 | **Autentiseringsidentitet** |Identitet från den token som angavs i REST API begäran. Detta är vanligt vis en "användare", "tjänstens huvud namn" eller kombinationen "användare + appId", som i fallet med en begäran som resulterar från en Azure PowerShell-cmdlet. |
-| **egenskaperna** |Information som varierar beroende på åtgärd (**operationName**). I de flesta fall innehåller det här fältet klient information (den användar agent sträng som skickas av klienten), exakt REST API begär ande-URI och HTTP-statuskod. När ett objekt returneras som ett resultat av en begäran (till exempel nyckel **skapa** eller **VaultGet**), innehåller det även nyckel-URI (as `id` ), valv-URI eller hemlig URI. |
+| **egenskaperna** |Information som varierar beroende på åtgärd ( **operationName** ). I de flesta fall innehåller det här fältet klient information (den användar agent sträng som skickas av klienten), exakt REST API begär ande-URI och HTTP-statuskod. När ett objekt returneras som ett resultat av en begäran (till exempel nyckel **skapa** eller **VaultGet** ), innehåller det även nyckel-URI (as `id` ), valv-URI eller hemlig URI. |
 
 Värdena för **operationName** -fältet är i *ObjectVerb* -format. Exempel:
 
@@ -88,32 +88,32 @@ I följande tabell visas **operationName** -värdena och motsvarande REST API-ko
 | operationName | REST API kommando |
 | --- | --- |
 | **Autentisering** |Autentisera via Azure Active Directory slut punkt |
-| **VaultGet** |[Hämta information om ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
-| **VaultPut** |[Skapa eller uppdatera ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultDelete** |[Ta bort ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
-| **VaultPatch** |[Uppdatera ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultList** |[Visa en lista med alla nyckelvalv i en resursgrupp](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
-| **KeyCreate** |[Skapa en nyckel](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
-| **KeyGet** |[Hämta information om en nyckel](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| **KeyImport** |[Importera en nyckel till ett valv](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
-| **KeyBackup** |[Säkerhetskopiera en nyckel](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **KeyDelete** |[Ta bort en nyckel](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| **KeyRestore** |[Återställa en nyckel](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **KeySign** |[Signera med en nyckel](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| **KeyVerify** |[Verifiera med en nyckel](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
-| **KeyWrap** |[Omsluta en nyckel](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
-| **KeyUnwrap** |[Ta bort en nyckelomslutning](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
-| **KeyEncrypt** |[Kryptera med en nyckel](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| **KeyDecrypt** |[Dekryptera med en nyckel](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| **KeyUpdate** |[Uppdatera en nyckel](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| **KeyList** |[Visa en lista med nycklarna i ett valv](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| **KeyListVersions** |[Visa en lista över versionerna av en nyckel](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| **SecretSet** |[Skapa en hemlighet](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[Få en hemlighet](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **SecretUpdate** |[Uppdatera en hemlighet](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **SecretDelete** |[Ta bort en hemlighet](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **SecretList** |[Visa en lista över hemligheterna i ett valv](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| **SecretListVersions** |[Visa en lista över versionerna av en hemlighet](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultGet** |[Hämta information om ett nyckelvalv](/rest/api/keyvault/vaults) |
+| **VaultPut** |[Skapa eller uppdatera ett nyckelvalv](/rest/api/keyvault/vaults) |
+| **VaultDelete** |[Ta bort ett nyckelvalv](/rest/api/keyvault/vaults) |
+| **VaultPatch** |[Uppdatera ett nyckelvalv](/rest/api/keyvault/vaults) |
+| **VaultList** |[Visa en lista med alla nyckelvalv i en resursgrupp](/rest/api/keyvault/vaults) |
+| **KeyCreate** |[Skapa en nyckel](/rest/api/keyvault/createkey) |
+| **KeyGet** |[Hämta information om en nyckel](/rest/api/keyvault/getkey) |
+| **KeyImport** |[Importera en nyckel till ett valv](/rest/api/keyvault/vaults) |
+| **KeyBackup** |[Säkerhetskopiera en nyckel](/rest/api/keyvault/backupkey) |
+| **KeyDelete** |[Ta bort en nyckel](/rest/api/keyvault/deletekey) |
+| **KeyRestore** |[Återställa en nyckel](/rest/api/keyvault/restorekey) |
+| **KeySign** |[Signera med en nyckel](/rest/api/keyvault/sign) |
+| **KeyVerify** |[Verifiera med en nyckel](/rest/api/keyvault/vaults) |
+| **KeyWrap** |[Omsluta en nyckel](/rest/api/keyvault/wrapkey) |
+| **KeyUnwrap** |[Ta bort en nyckelomslutning](/rest/api/keyvault/unwrapkey) |
+| **KeyEncrypt** |[Kryptera med en nyckel](/rest/api/keyvault/encrypt) |
+| **KeyDecrypt** |[Dekryptera med en nyckel](/rest/api/keyvault/decrypt) |
+| **KeyUpdate** |[Uppdatera en nyckel](/rest/api/keyvault/updatekey) |
+| **KeyList** |[Visa en lista med nycklarna i ett valv](/rest/api/keyvault/vaults) |
+| **KeyListVersions** |[Visa en lista över versionerna av en nyckel](/rest/api/keyvault/getkeyversions) |
+| **SecretSet** |[Skapa en hemlighet](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[Få en hemlighet](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[Uppdatera en hemlighet](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[Ta bort en hemlighet](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[Visa en lista över hemligheterna i ett valv](/rest/api/keyvault/vaults) |
+| **SecretListVersions** |[Visa en lista över versionerna av en hemlighet](/rest/api/keyvault/getsecretversions) |
 | **VaultAccessPolicyChangedEventGridNotification** | Händelse publicering har ändrats för valv åtkomst princip |
 | **SecretNearExpiryEventGridNotification** |Hemlig händelse som är nära utgångs händelse publicerad |
 | **SecretExpiredEventGridNotification** |Hemligt utgånget händelse publicerat |

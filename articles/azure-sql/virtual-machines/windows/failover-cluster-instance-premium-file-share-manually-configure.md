@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: b6e33f32c6adcea12952474e3f09b45834b85c1e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1994cda9dbf22a81216408ee07d51f635e89cff4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164422"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285269"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Skapa en FCI med en Premium-filresurs (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ Premium-filresurser är Lagringsdirigering (SSD)-backade, konsekventa fil resurs
 
 Mer information finns i Översikt över [FCI med SQL Server på Azure VM](failover-cluster-instance-overview.md) och [kluster metod tips](hadr-cluster-best-practices.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
@@ -41,8 +41,8 @@ Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
 ## <a name="mount-premium-file-share"></a>Montera Premium-filresurs
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). och gå till ditt lagrings konto.
-1. Gå till **fil resurser** under **fil tjänst**och välj sedan den Premium-filresurs som du vill använda för din SQL-lagring.
+1. Logga in på [Azure Portal](https://portal.azure.com). och gå till ditt lagrings konto.
+1. Gå till **fil resurser** under **fil tjänst** och välj sedan den Premium-filresurs som du vill använda för din SQL-lagring.
 1. Välj **Anslut** för att ta fram anslutnings strängen för din fil resurs.
 1. I list rutan väljer du den enhets beteckning som du vill använda och kopierar sedan båda kod blocken till anteckningar.
 
@@ -69,11 +69,11 @@ Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 1. [Lägg till kluster för växling vid fel på varje virtuell dator](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
    Om du vill installera kluster för växling vid fel från användar gränssnittet gör du följande på båda de virtuella datorerna:
-   1. I **Serverhanteraren**väljer du **Hantera**och väljer sedan **Lägg till roller och funktioner**.
+   1. I **Serverhanteraren** väljer du **Hantera** och väljer sedan **Lägg till roller och funktioner**.
    1. I guiden **Lägg till roller och funktioner** väljer du **Nästa** tills du kommer igång med att **välja funktioner**.
-   1. I **Välj funktioner**väljer du **kluster för växling vid fel**. Ta med alla nödvändiga funktioner och hanterings verktyg. 
+   1. I **Välj funktioner** väljer du **kluster för växling vid fel**. Ta med alla nödvändiga funktioner och hanterings verktyg. 
    1. Välj **Lägg till funktioner**.
-   1. Välj **Nästa**och välj sedan **Slutför** för att installera funktionerna.
+   1. Välj **Nästa** och välj sedan **Slutför** för att installera funktionerna.
 
    Om du vill installera kluster för växling vid fel med hjälp av PowerShell kör du följande skript från en administratör PowerShell-session på en av de virtuella datorerna:
 
@@ -88,15 +88,25 @@ Verifiera klustret i användar gränssnittet eller med hjälp av PowerShell.
 
 Verifiera klustret med hjälp av användar gränssnittet genom att göra följande på en av de virtuella datorerna:
 
-1. Under **Serverhanteraren**väljer du **verktyg**och väljer sedan **Klusterhanteraren för växling vid fel**.
-1. Under **Klusterhanteraren för växling vid fel**väljer du **åtgärd**och väljer sedan **Verifiera konfiguration**.
+1. Under **Serverhanteraren** väljer du **verktyg** och väljer sedan **Klusterhanteraren för växling vid fel**.
+1. Under **Klusterhanteraren för växling vid fel** väljer du **åtgärd** och väljer sedan **Verifiera konfiguration**.
 1. Välj **Nästa**.
-1. Under **Välj servrar eller ett kluster**anger du namnen på de båda virtuella datorerna.
-1. Under **test alternativ**väljer **du kör endast test som jag väljer**. 
+1. Under **Välj servrar eller ett kluster** anger du namnen på de båda virtuella datorerna.
+1. Under **test alternativ** väljer **du kör endast test som jag väljer**. 
 1. Välj **Nästa**.
-1. Under **Val av test**väljer du alla tester förutom **lagring** och **Lagringsdirigering**, som du ser här:
+1. Under **Val av test** väljer du alla tester förutom **lagring** och **Lagringsdirigering** , som du ser här:
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Kopiera båda PowerShell-kommandona från fil resursen Connect-portalen"
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Välj kluster verifierings test":::
+
+1. Välj **Nästa**.
+1. Under **bekräftelse** väljer du **Nästa**.
+
+Verifierings testen körs i guiden **Verifiera en konfiguration** .
+
+Om du vill verifiera klustret med hjälp av PowerShell kör du följande skript från en administratör PowerShell-session på en av de virtuella datorerna:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
    ```
 
 När du har verifierat klustret skapar du klustret för växling vid fel.
@@ -139,9 +149,9 @@ Konfigurera den kvorumresurs som passar dina affärs behov bäst. Du kan konfigu
 
 ## <a name="test-cluster-failover"></a>Testa redundanskluster
 
-Testa redundansväxlingen av klustret. I **Klusterhanteraren för växling vid fel**högerklickar du på klustret, väljer **fler åtgärder**  >  **Flytta kärn kluster resurs**  >  **Välj nod**och välj sedan den andra noden i klustret. Flytta kärn kluster resursen till varje nod i klustret och flytta tillbaka den till den primära noden. Om du kan flytta klustret till varje nod är du redo att installera SQL Server.  
+Testa redundansväxlingen av klustret. I **Klusterhanteraren för växling vid fel** högerklickar du på klustret, väljer **fler åtgärder**  >  **Flytta kärn kluster resurs**  >  **Välj nod** och välj sedan den andra noden i klustret. Flytta kärn kluster resursen till varje nod i klustret och flytta tillbaka den till den primära noden. Om du kan flytta klustret till varje nod är du redo att installera SQL Server.  
 
-:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Kopiera båda PowerShell-kommandona från fil resursen Connect-portalen":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testa redundanskluster genom att flytta kärn resursen till de andra noderna":::
 
 
 ## <a name="create-sql-server-fci"></a>Skapa SQL Server FCI
@@ -150,25 +160,25 @@ När du har konfigurerat klustret för växling vid fel kan du skapa SQL Server 
 
 1. Anslut till den första virtuella datorn med hjälp av RDP.
 
-1. I **Klusterhanteraren för växling vid fel**kontrollerar du att alla kärn kluster resurser finns på den första virtuella datorn. Om det behövs flyttar du alla resurser till den virtuella datorn.
+1. I **Klusterhanteraren för växling vid fel** kontrollerar du att alla kärn kluster resurser finns på den första virtuella datorn. Om det behövs flyttar du alla resurser till den virtuella datorn.
 
 1. Leta upp installations mediet. Om den virtuella datorn använder en av Azure Marketplace-avbildningarna finns mediet på `C:\SQLServer_<version number>_Full` . 
 
 1. Välj **installation**.
 
-1. I **installations Center för SQL Server**väljer du **installation**.
+1. I **installations Center för SQL Server** väljer du **installation**.
 
-1. Välj **ny SQL Server redundanskluster**och följ sedan anvisningarna i guiden för att installera SQL Server FCI.
+1. Välj **ny SQL Server redundanskluster** och följ sedan anvisningarna i guiden för att installera SQL Server FCI.
 
    FCI data kataloger måste finnas på Premium-filresursen. Ange den fullständiga sökvägen till resursen i det här formatet: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . En varning visas som talar om att du har angett en fil server som data katalog. Den här varningen förväntas. Se till att det användar konto du använde för att få åtkomst till den virtuella datorn via RDP när du sparade fil resursen är samma konto som den SQL Server tjänsten använder för att undvika eventuella problem.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Kopiera båda PowerShell-kommandona från fil resursen Connect-portalen":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Använd fil resurs som SQL data-kataloger":::
 
 1. När du har slutfört stegen i guiden kommer installations programmet att installera en SQL Server FCI på den första noden.
 
 1. När installations programmet har installerat FCI på den första noden ansluter du till den andra noden med hjälp av RDP.
 
-1. Öppna **installations Center för SQL Server**och välj sedan **installation**.
+1. Öppna **installations Center för SQL Server** och välj sedan **installation**.
 
 1. Välj **Lägg till nod i ett SQL Server redundanskluster**. Följ anvisningarna i guiden för att installera SQL Server och lägga till servern i FCI.
 
@@ -200,7 +210,7 @@ Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurer
 
 - Microsoft koordinator för distribuerad transaktion (MSDTC) stöds inte på Windows Server 2016 och tidigare. 
 - FILESTREAM stöds inte för ett redundanskluster med en Premium-filresurs. Om du vill använda FILESTREAM distribuerar du klustret med hjälp av [Lagringsdirigering](failover-cluster-instance-storage-spaces-direct-manually-configure.md) eller [Azure delade diskar](failover-cluster-instance-azure-shared-disks-manually-configure.md) i stället.
-- Det finns bara stöd för registrering med den virtuella SQL-resurs leverantören i [läget för förenklad hantering](sql-vm-resource-provider-register.md#management-modes) . 
+- Det finns bara stöd för registrering med den virtuella SQL-resurs leverantören i [läget för förenklad hantering](sql-server-iaas-agent-extension-automate-management.md#management-modes) . 
 
 ## <a name="next-steps"></a>Nästa steg
 

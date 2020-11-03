@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9c1a08161dafa500e9cab2038621c2329cfe6d27
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124229"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286896"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault-certifikat
 I följande scenarier beskrivs flera av de primära användningarna av Key Vaults hanterings tjänst för certifikat, inklusive de ytterligare steg som krävs för att skapa ditt första certifikat i ditt nyckel valv.
@@ -37,7 +37,7 @@ Certifikat består av tre relaterade resurser som är länkade tillsammans som e
 
 **Steg 1** – certifikat utfärdare (ca)  
 -   Som IT-administratör, PKI-administratör eller någon som hanterar konton med certifikat utfärdare, för ett specifikt företag (t. ex. Contoso) är ett krav för att använda Key Vault certifikat.  
-    Följande ca: er är de aktuella partner leverantörer som har Key Vault. Lär dig mer [här](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers)   
+    Följande ca: er är de aktuella partner leverantörer som har Key Vault. Lär dig mer [här](./create-certificate.md#partnered-ca-providers)   
     -   DigiCert-Key Vault erbjuder OV TLS/SSL-certifikat med DigiCert.  
     -   GlobalSign-Key Vault erbjuder OV TLS/SSL-certifikat med GlobalSign.  
 
@@ -50,7 +50,7 @@ Certifikat består av tre relaterade resurser som är länkade tillsammans som e
     -   Leverantör  
     -   Autentiseringsuppgifter – autentiseringsuppgifter för CA-konto. Varje certifikat utfärdare har sina egna specifika data.  
 
-    Mer information om hur du skapar konton med CA-leverantörer finns i det relaterade inlägget på [Key Vault blogg](https://aka.ms/kvcertsblog).  
+    Mer information om hur du skapar konton med CA-leverantörer finns i det relaterade inlägget på [Key Vault blogg](/archive/blogs/kv/manage-certificates-via-azure-key-vault).  
 
 **Steg 3,1** – konfigurera [certifikat kontakter](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) för meddelanden. Detta är kontakten för den Key Vault användaren. Key Vault tvingar inte det här steget.  
 
@@ -82,7 +82,7 @@ OBS! den här processen, genom steg 3,1, är en Databasmigrering-åtgärd.
       -   En avbrotts åtgärd kan initieras på grund av fördröjningen att skapa. Det går inte att avbryta eller så är det inte effektivt.  
 
 ### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>Nätverks säkerhets-och åtkomst principer som är associerade med integrerad CA
-Key Vault tjänsten skickar förfrågningar till CA: n (utgående trafik). Därför är den helt kompatibel med brand Väggs aktiverade nyckel valv. Key Vault delar inte åtkomst principer med certifikat utfärdaren. CA: n måste vara konfigurerad för att godkänna signerings förfrågningar oberoende av varandra. [Guide för integrering av betrodd certifikat utfärdare](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+Key Vault tjänsten skickar förfrågningar till CA: n (utgående trafik). Därför är den helt kompatibel med brand Väggs aktiverade nyckel valv. Key Vault delar inte åtkomst principer med certifikat utfärdaren. CA: n måste vara konfigurerad för att godkänna signerings förfrågningar oberoende av varandra. [Guide för integrering av betrodd certifikat utfärdare](./how-to-integrate-certificate-authority.md)
 
 ## <a name="import-a-certificate"></a>Importera ett certifikat  
  Alternativt – ett certifikat kan importeras till Key Vault – PFX eller PEM.  

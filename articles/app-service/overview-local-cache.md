@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9e43cb9188df8274d5bafa7fd9bc90c24339237
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080719"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286843"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokal cache
 
@@ -45,10 +45,14 @@ Den Azure App Service Local cache-funktionen tillhandahåller en webbrolls visni
 * Program distribution via en metod som stöds publicerar direkt till den varaktigt delade innehålls lagringen. Om du vill uppdatera _D:\home\site_ -och _D:\home\siteextensions_ -mapparna i det lokala cacheminnet måste appen startas om. Om du vill göra livs cykeln sömlös kan du läsa mer i informationen längre fram i den här artikeln.
 * Standard innehålls visningen av SCM-platsen fortsätter att vara den som finns i det delade innehålls arkivet.
 
-## <a name="enable-local-cache-in-app-service"></a>Aktivera lokal cache i App Service
+## <a name="enable-local-cache-in-app-service"></a>Aktivera lokal cache i App Service 
+
+> [!NOTE]
+> Lokalt cacheminne stöds inte på **F1** -eller **D1** -nivån. 
+
 Du konfigurerar lokal cache genom att använda en kombination av reserverade appinställningar. Du kan konfigurera dessa inställningar för appar med hjälp av följande metoder:
 
-* [Azure Portal](#Configure-Local-Cache-Portal)
+* [Azure-portalen](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Konfigurera lokal cache med hjälp av Azure Portal

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: 1d6eb4df91ce912832d15835a00bdb287f67e787
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 249e65b5a9440678015598d9969c0d2ed689c626
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789751"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285363"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Dokumentations ändringar för SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -88,7 +88,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 | **SQL Server VM migrering till en annan region** | Använd Azure Site Recovery för att [migrera SQL Server VM från en region till en annan](move-sql-vm-different-region.md). |
 |  **Nya installations lägen för SQL-IaaS** | Nu är det möjligt att installera SQL Server IaaS-tillägget i [lättviktigt läge](sql-server-iaas-agent-extension-automate-management.md) för att undvika att starta om tjänsten SQL Server.  |
 | **Ändring av SQL Servers utgåva** | Nu kan du ändra [egenskapen version](change-sql-server-edition.md) för SQL Server VM. |
-| **Ändringar av resurs leverantören för SQL-VM** | Du kan [Registrera din SQL Server VM med den virtuella SQL](sql-vm-resource-provider-register.md) -IaaS med hjälp av de nya SQL-lägena. Den här funktionen omfattar [Windows Server 2008](sql-vm-resource-provider-register.md#management-modes) -avbildningar.|
+| **Ändringar av resurs leverantören för SQL-VM** | Du kan [Registrera din SQL Server VM med den virtuella SQL](sql-vm-resource-provider-register.md) -IaaS med hjälp av de nya SQL-lägena. Den här funktionen omfattar [Windows Server 2008](sql-server-iaas-agent-extension-automate-management.md#management-modes) -avbildningar.|
 | **Hämta egna licens bilder med hjälp av Azure Hybrid-förmån** | Med en egen licens avbildning som distribueras från Azure Marketplace kan du nu byta [licens typ till betala per](licensing-model-azure-hybrid-benefit-ahb-change.md#remarks)användning.| 
 | **Ny SQL Server VM hantering i Azure Portal** | Det finns nu ett sätt att hantera dina SQL Server VM i Azure Portal. Mer information finns i [hantera SQL Server virtuella datorer i Azure Portal](manage-sql-vm-portal.md).  | 
 | **Utökat stöd för SQL Server 2008 och 2008 R2** | [Utöka stödet](sql-server-2008-extend-end-of-support.md) för SQL Server 2008 och SQL Server 2008 R2 genom att migrera *som* en virtuell Azure-dator. | 

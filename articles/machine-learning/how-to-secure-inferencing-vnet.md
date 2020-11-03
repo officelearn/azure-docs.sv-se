@@ -11,14 +11,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a6b453b11c892b5d81c41cac9451b07be69aa4d3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735475"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285927"
 ---
-# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning inferencing-miljö med virtuella nätverk
+# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning-miljö för slutsatsdragning med virtuella nätverk
 
 I den här artikeln får du lära dig hur du skyddar inferencing-miljöer med ett virtuellt nätverk i Azure Machine Learning.
 
@@ -36,7 +36,7 @@ I den här artikeln får du lära dig att skydda följande inferencing-resurser 
 > - Azure Container Instances (ACI)
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Läs artikeln [Översikt över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
@@ -138,7 +138,7 @@ När du har skapat det privata AKS-klustret [ansluter du klustret till det virtu
 
 Som standard använder AKS-distributioner en [offentlig belastningsutjämnare](../aks/load-balancer-standard.md). I det här avsnittet får du lära dig hur du konfigurerar AKS till att använda en intern belastningsutjämnare. En intern (eller privat) belastningsutjämnare används där endast privata IP-adresser tillåts som klient del. Interna belastnings utjämning används för att belastningsutjämna trafik i ett virtuellt nätverk
 
-En privat belastningsutjämnare är aktive rad genom att konfigurera AKS för att använda en _intern belastningsutjämnare_ . 
+En privat belastningsutjämnare är aktive rad genom att konfigurera AKS för att använda en _intern belastningsutjämnare_. 
 
 #### <a name="network-contributor-role"></a>Rollen nätverks deltagare
 
@@ -217,6 +217,9 @@ except:
 az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
+> [!IMPORTANT]
+> Med CLI kan du bara skapa ett AKS-kluster med en intern belastningsutjämnare. Det finns inget AZ ml-kommando för att uppgradera ett befintligt kluster så att det använder en intern belastningsutjämnare.
+
 Mer information finns i [AZ ml computetarget Create AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
 
 ---
@@ -260,6 +263,9 @@ Använd följande steg för att använda ACI i ett virtuellt nätverk på din ar
 
 2. Distribuera modellen med hjälp av [AciWebservice.deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), Använd `vnet_name` `subnet_name` parametrarna och. Ange de här parametrarna som namn på det virtuella nätverket och under nätet där du aktiverade delegering.
 
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Begränsa utgående anslutning från det virtuella nätverket
+
+Om du inte vill använda de utgående standard reglerna och du vill begränsa den utgående åtkomsten för ditt virtuella nätverk måste du tillåta åtkomst till Azure Container Registry. Kontrol lera till exempel att dina nätverks säkerhets grupper (NSG) innehåller en regel som tillåter åtkomst till __AzureContainerRegistry. RegionName__ service tag där {RegionName} är namnet på en Azure-region.
 
 ## <a name="next-steps"></a>Nästa steg
 

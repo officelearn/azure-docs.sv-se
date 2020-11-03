@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: 60e9ec88fd07d8b04254c5d3917aab09d671f517
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 701c901cb9b85aeaf329846c13e6ed051ea52e63
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900874"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288506"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda roller i Azure
 
@@ -77,6 +77,12 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 > | **Webb** |  |  |
 > | [Azure Maps data läsare](#azure-maps-data-reader) | Beviljar åtkomst till läsa kartdata relaterade data från ett Azure Maps-konto. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Search Service deltagare](#search-service-contributor) | Låter dig hantera Sök tjänster, men inte till gång till dem. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
+> | [SignalR AccessKey Reader](#signalr-accesskey-reader) | Läs signal tjänst åtkomst nycklar | 04165923-9d83-45d5-8227-78b77b0a687e |
+> | [SignalR-app server (för hands version)](#signalr-app-server-preview) | Tillåter appens Server åtkomst signal tjänst med AAD auth-alternativ. | 420fcaa2-552c-430f-98ca-3264be4806c7 |
+> | [Signal givare](#signalr-contributor) | Skapa, läsa, uppdatera och ta bort Signals service resurser | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
+> | [SignalR utan server deltagare (för hands version)](#signalr-serverless-contributor-preview) | Tillåter appens åtkomst tjänst i Server fritt läge med AAD auth-alternativ. | fd53cd77-2268-407a-8f46-7e7863d0f521 |
+> | [SignalR tjänstens ägare (förhands granskning)](#signalr-service-owner-preview) | Fullständig åtkomst till REST-API: er för Azure SignalR service | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
+> | [SignalR service Reader (för hands version)](#signalr-service-reader-preview) | Skrivskyddad åtkomst till Azure SignalR service REST-API: er | ddde6b66-c0df-4114-a159-3618637b3035 |
 > | [Webb Plans deltagare](#web-plan-contributor) | Gör att du kan hantera webb planer för webbplatser, men inte till gång till dem. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Webbplats deltagare](#website-contributor) | Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till dem. | de139f84-1756-47ae-9be6-808fbbe84772 |
 > | **Containrar** |  |  |
@@ -201,9 +207,9 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 > | [Ny Relic APM-konto deltagare](#new-relic-apm-account-contributor) | Låter dig hantera New Relic Application Performance Management konton och program, men inte till gång till dem. | 5d28c62d-5b37-4476-8438-e587778df237 |
 > | [Data skrivare för princip insikter (för hands version)](#policy-insights-data-writer-preview) | Tillåter Läs åtkomst till resurs principer och Skriv behörighet till resurs komponent princip händelser. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
 > | [Deltagare för resursprincip](#resource-policy-contributor) | Användare med behörighet att skapa/ändra resurs principer, skapa support ärende och läsa resurser/hierarki. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
-> | [Site Recovery deltagare](#site-recovery-contributor) | Låter dig hantera Site Recovery tjänst förutom att skapa valv och roll tilldelning | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
-> | [Site Recovery operatör](#site-recovery-operator) | Låter dig redundansväxla och failback men inte utföra andra Site Recovery hanterings åtgärder | 494ae006-db33-4328-bf46-533a6560a3ca |
-> | [Site Recovery läsare](#site-recovery-reader) | Låter dig Visa Site Recovery status men inte utföra andra hanterings åtgärder | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
+> | [Site Recovery-deltagare](#site-recovery-contributor) | Låter dig hantera Site Recovery tjänst förutom att skapa valv och roll tilldelning | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
+> | [Site Recovery-operatör](#site-recovery-operator) | Låter dig redundansväxla och failback men inte utföra andra Site Recovery hanterings åtgärder | 494ae006-db33-4328-bf46-533a6560a3ca |
+> | [Site Recovery-läsare](#site-recovery-reader) | Låter dig Visa Site Recovery status men inte utföra andra hanterings åtgärder | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
 > | [Support förfrågan deltagare](#support-request-contributor) | Gör att du kan skapa och hantera support förfrågningar | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | [Tagga deltagare](#tag-contributor) | Låter dig hantera Taggar i entiteter utan att ge åtkomst till själva entiteterna. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
 > | **Övrigt** |  |  |
@@ -1156,7 +1162,7 @@ Låter dig hantera Traffic Manager profiler, men låter dig inte kontrol lera ve
 }
 ```
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 
 ### <a name="avere-contributor"></a>Aver deltagare
@@ -2674,6 +2680,282 @@ Låter dig hantera Sök tjänster, men inte till gång till dem. [Läs mer](../s
 }
 ```
 
+### <a name="signalr-accesskey-reader"></a>SignalR AccessKey Reader
+
+Läs signal tjänst åtkomst nycklar
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/*/Read |  |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/listkeys/Action | Visa värdet för SignalR åtkomst nycklar i hanterings portalen eller via API |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | *inget* |  |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read SignalR Service Access Keys",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/04165923-9d83-45d5-8227-78b77b0a687e",
+  "name": "04165923-9d83-45d5-8227-78b77b0a687e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.SignalRService/*/read",
+        "Microsoft.SignalRService/SignalR/listkeys/action",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR AccessKey Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-app-server-preview"></a>SignalR-app server (för hands version)
+
+Tillåter appens Server åtkomst signal tjänst med AAD auth-alternativ.
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | *inget* |  |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/Action | Generera en tillfällig AccessKey för signering av ClientTokens. |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/Write | Starta en server anslutning. |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets your app server access SignalR Service with AAD auth options.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/420fcaa2-552c-430f-98ca-3264be4806c7",
+  "name": "420fcaa2-552c-430f-98ca-3264be4806c7",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/auth/accessKey/action",
+        "Microsoft.SignalRService/SignalR/serverConnection/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR App Server (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-contributor"></a>Signal givare
+
+Skapa, läsa, uppdatera och ta bort Signals service resurser
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/* |  |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Läs roller och roll tilldelningar |
+> | [Microsoft. Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Skapa och hantera en klassisk måtta avisering |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Skapa och hantera en distribution |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Skapa och uppdatera ett support ärende |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | *inget* |  |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, Read, Update, and Delete SignalR service resources",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761",
+  "name": "8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.SignalRService/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-serverless-contributor-preview"></a>SignalR utan server deltagare (för hands version)
+
+Tillåter appens åtkomst tjänst i Server fritt läge med AAD auth-alternativ.
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | *inget* |  |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/Action | Generera en ClientToken för att starta en klient anslutning. |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets your app access service in serverless mode with AAD auth options.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/fd53cd77-2268-407a-8f46-7e7863d0f521",
+  "name": "fd53cd77-2268-407a-8f46-7e7863d0f521",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/auth/clientToken/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Serverless Contributor (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-service-owner-preview"></a>SignalR tjänstens ägare (förhands granskning)
+
+Fullständig åtkomst till REST-API: er för Azure SignalR service
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | *inget* |  |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/Hub/Send/Action | Broadcast-meddelanden till alla klient anslutningar i hubben. |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/Group/Send/Action | Broadcast-meddelande till grupp. |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/Group/Read | Kontrol lera grupp förekomst eller användar förekomst i gruppen. |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/Group/Write | Anslut till/lämna grupp. |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/Send/Action | Skicka meddelanden direkt till en klient anslutning. |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/Read | Kontrol lera om det finns klient anslutningar. |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/Write | Stäng klient anslutning. |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/User/Send/Action | Skicka meddelanden till användare, som kan bestå av flera klient anslutningar. |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/User/Read | Kontrol lera användar förekomst. |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/User/Write |  |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access to Azure SignalR Service REST APIs",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/7e4f1700-ea5a-4f59-8f37-079cfe29dce3",
+  "name": "7e4f1700-ea5a-4f59-8f37-079cfe29dce3",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/hub/send/action",
+        "Microsoft.SignalRService/SignalR/group/send/action",
+        "Microsoft.SignalRService/SignalR/group/read",
+        "Microsoft.SignalRService/SignalR/group/write",
+        "Microsoft.SignalRService/SignalR/clientConnection/send/action",
+        "Microsoft.SignalRService/SignalR/clientConnection/read",
+        "Microsoft.SignalRService/SignalR/clientConnection/write",
+        "Microsoft.SignalRService/SignalR/user/send/action",
+        "Microsoft.SignalRService/SignalR/user/read",
+        "Microsoft.SignalRService/SignalR/user/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Service Owner (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-service-reader-preview"></a>SignalR service Reader (för hands version)
+
+Skrivskyddad åtkomst till Azure SignalR service REST-API: er
+
+> [!div class="mx-tableFixed"]
+> | Åtgärder | Beskrivning |
+> | --- | --- |
+> | *inget* |  |
+> | **NotActions** |  |
+> | *inget* |  |
+> | **DataActions** |  |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/Group/Read | Kontrol lera grupp förekomst eller användar förekomst i gruppen. |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/Read | Kontrol lera om det finns klient anslutningar. |
+> | [Microsoft. SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/User/Read | Kontrol lera användar förekomst. |
+> | **NotDataActions** |  |
+> | *inget* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read-only access to Azure SignalR Service REST APIs",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ddde6b66-c0df-4114-a159-3618637b3035",
+  "name": "ddde6b66-c0df-4114-a159-3618637b3035",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/group/read",
+        "Microsoft.SignalRService/SignalR/clientConnection/read",
+        "Microsoft.SignalRService/SignalR/user/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Service Reader (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="web-plan-contributor"></a>Webb Plans deltagare
 
 Gör att du kan hantera webb planer för webbplatser, men inte till gång till dem.
@@ -2788,7 +3070,7 @@ Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till
 }
 ```
 
-## <a name="containers"></a>Containrar
+## <a name="containers"></a>Containers
 
 
 ### <a name="acrdelete"></a>AcrDelete
@@ -3943,7 +4225,7 @@ Gör att du kan hantera säkerhetsrelaterade principer för SQL-servrar och data
 > | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Hämtar tillgänglighets status för alla resurser i det angivna omfånget |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Skapa och hantera en distribution |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)-/Subscriptions/resourceGroups/Read | Hämtar eller listar resurs grupper. |
-> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/locations/administratorAzureAsyncOperation/Read |  |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/locations/administratorAzureAsyncOperation/Read | Hämtar åtgärds resultatet Azure async-administratör för hanterade instanser. |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/databases/currentSensitivityLabels/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/databases/recommendedSensitivityLabels/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)-/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
@@ -8770,7 +9052,7 @@ Användare med behörighet att skapa/ändra resurs principer, skapa support äre
 }
 ```
 
-### <a name="site-recovery-contributor"></a>Site Recovery deltagare
+### <a name="site-recovery-contributor"></a>Site Recovery-deltagare
 
 Låter dig hantera Site Recovery tjänst förutom att skapa valv och roll tilldelning mer [information](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
@@ -8863,7 +9145,7 @@ Låter dig hantera Site Recovery tjänst förutom att skapa valv och roll tillde
 }
 ```
 
-### <a name="site-recovery-operator"></a>Site Recovery operatör
+### <a name="site-recovery-operator"></a>Site Recovery-operatör
 
 Låter dig redundansväxla och failback men inte utföra andra Site Recovery hanterings åtgärder [Läs mer](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
@@ -9016,7 +9298,7 @@ Låter dig redundansväxla och failback men inte utföra andra Site Recovery han
 }
 ```
 
-### <a name="site-recovery-reader"></a>Site Recovery läsare
+### <a name="site-recovery-reader"></a>Site Recovery-läsare
 
 Låter dig Visa Site Recovery status men inte utföra andra hanterings åtgärder [Läs mer](../site-recovery/site-recovery-role-based-linked-access-control.md)
 
@@ -9211,7 +9493,7 @@ Låter dig hantera Taggar i entiteter utan att ge åtkomst till själva entitete
 }
 ```
 
-## <a name="other"></a>Annat
+## <a name="other"></a>Övrigt
 
 
 ### <a name="azure-digital-twins-data-owner"></a>Azure Digitals sammanflätade data ägare

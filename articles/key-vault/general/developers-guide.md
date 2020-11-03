@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6bdf008c13a1466ec47134c303902a1f9d19545b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 707b6d0f8a5fa3cff89339b9b0465d96b5369a34
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072772"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287609"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Utvecklarguide för Azure Key Vault
 
@@ -33,9 +33,9 @@ Med jämna mellanrum släpper vi en offentlig för hands version av en ny Key Va
 
 ## <a name="creating-and-managing-key-vaults"></a>Skapa och hantera nyckel valv
 
-Key Vault hantering, som liknar andra Azure-tjänster, görs via Azure Resource Manager-tjänsten. Azure Resource Manager är Azures tjänst för distribution och hantering. Den ger dig ett hanteringslager där du kan skapa, uppdatera och ta bort resurser i ditt Azure-konto. Mer information finns i [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+Key Vault hantering, som liknar andra Azure-tjänster, görs via Azure Resource Manager-tjänsten. Azure Resource Manager är Azures tjänst för distribution och hantering. Den ger dig ett hanteringslager där du kan skapa, uppdatera och ta bort resurser i ditt Azure-konto. Mer information finns i [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 
-Åtkomst till hanterings lagret styrs av [rollbaserad åtkomst kontroll i Azure](https://docs.microsoft.com/azure/role-based-access-control/overview). I Key Vault, som även kallas hanterings-eller kontroll plan, kan du skapa och hantera nyckel valv och dess attribut, inklusive åtkomst principer, men inte nycklar, hemligheter och certifikat, som hanteras på data planet. Du kan använda fördefinierad `Key Vault Contributor` roll för att bevilja hanterings åtkomst till Key Vault.     
+Åtkomst till hanterings lagret styrs av [rollbaserad åtkomst kontroll i Azure](../../role-based-access-control/overview.md). I Key Vault, som även kallas hanterings-eller kontroll plan, kan du skapa och hantera nyckel valv och dess attribut, inklusive åtkomst principer, men inte nycklar, hemligheter och certifikat, som hanteras på data planet. Du kan använda fördefinierad `Key Vault Contributor` roll för att bevilja hanterings åtkomst till Key Vault.     
 
 **API: er och SDK: er för hantering av nyckel valv:**
 
@@ -45,7 +45,7 @@ Key Vault hantering, som liknar andra Azure-tjänster, görs via Azure Resource 
 
 Se [klient bibliotek](client-libraries.md) för installations paket och käll kod.
 
-Mer information om Key Vault hanterings plan finns i [Key Vault hanterings plan](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac)
+Mer information om Key Vault hanterings plan finns i [Key Vault hanterings plan](./secure-your-key-vault.md#management-plane-and-azure-rbac)
 
 ## <a name="authenticate-to-key-vault-in-code"></a>Autentisera till Key Vault i kod
 
@@ -53,14 +53,14 @@ Key Vault använder Azure AD-autentisering som kräver att Azure AD säkerhets o
 
 ### <a name="authentication-best-practices"></a>Metod tips för autentisering
 
-Vi rekommenderar att du använder hanterad identitet för program som distribueras till Azure. Om du använder Azure-tjänster, som inte stöder hanterad identitet eller om program distribueras lokalt, är [tjänstens huvud namn med ett certifikat](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) ett möjligt alternativ. I det scenariot ska certifikatet lagras i Key Vault och roteras ofta. Tjänstens huvud namn med hemlighet kan användas för utvecklings-och testnings miljöer, och lokalt eller i Cloud Shell med hjälp av användarens huvud namn rekommenderas.
+Vi rekommenderar att du använder hanterad identitet för program som distribueras till Azure. Om du använder Azure-tjänster, som inte stöder hanterad identitet eller om program distribueras lokalt, är [tjänstens huvud namn med ett certifikat](../../active-directory/develop/howto-create-service-principal-portal.md) ett möjligt alternativ. I det scenariot ska certifikatet lagras i Key Vault och roteras ofta. Tjänstens huvud namn med hemlighet kan användas för utvecklings-och testnings miljöer, och lokalt eller i Cloud Shell med hjälp av användarens huvud namn rekommenderas.
 
 Rekommenderade säkerhets objekt per miljö:
-- **Produktions miljö**:
+- **Produktions miljö** :
   - Hanterad identitet eller tjänstens huvud namn med ett certifikat
-- **Test-och utvecklings miljöer**:
+- **Test-och utvecklings miljöer** :
   - Hanterad identitet, tjänstens huvud namn med certifikat-eller tjänstens huvud namn med hemlighet
-- **Lokal utveckling**:
+- **Lokal utveckling** :
   - Användarens huvud namn eller tjänstens huvud namn med hemlighet
 
 Scenarier med ovan autentisering stöds av **klient biblioteket för Azure Identity** och integreras med Key Vault SDK: er. Azure Identity Library kan användas i olika miljöer och plattformar utan att ändra koden. Azure-identiteten kan också automatiskt hämta autentiseringstoken från inloggad till Azure User med Azure CLI, Visual Studio, Visual Studio Code och andra. 
@@ -70,12 +70,12 @@ Mer information om Azure Identity client-Libarary finns i:
 ### <a name="azure-identity-client-libraries"></a>Klient bibliotek för Azure Identity
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
-|[Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[JavaScript-skript för Azure Identity SDK](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
+|[Azure Identity SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK python](/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](/java/api/overview/azure/identity-readme)|[JavaScript-skript för Azure Identity SDK](/javascript/api/overview/azure/identity-readme)|     
 
 Självstudier om hur du autentiserar till Key Vault i program finns i:
-- [Autentisera till Key Vault i program som finns i en virtuell dator i .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
-- [Autentisera till Key Vault i program som finns på en virtuell dator i python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
-- [Autentisera till Key Vault med App Service](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)
+- [Autentisera till Key Vault i program som finns i en virtuell dator i .NET](./tutorial-net-virtual-machine.md)
+- [Autentisera till Key Vault i program som finns på en virtuell dator i python](./tutorial-python-virtual-machine.md)
+- [Autentisera till Key Vault med App Service](./tutorial-net-create-vault-azure-web-app.md)
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Hantera nycklar, certifikat och hemligheter
 
@@ -86,14 +86,14 @@ Självstudier om hur du autentiserar till Key Vault i program finns i:
 
 | Azure CLI | PowerShell | REST-API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Referens](/cli/azure/keyvault/key)<br>[Snabbstart](../keys/quick-create-cli.md)|[Referens](/powershell/module/az.keyvault/)<br>[Snabbstart](../keys/quick-create-powershell.md)|[Referens](/rest/api/keyvault/#key-operations)|Saknas|[Referens](/dotnet/api/azure.security.keyvault.keys)|[Referens](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Snabbstart](../keys/quick-create-python.md)|[Referens](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[Referens](/javascript/api/@azure/keyvault-keys/)|
+|[Referens](/cli/azure/keyvault/key)<br>[Snabbstart](../keys/quick-create-cli.md)|[Referens](/powershell/module/az.keyvault/)<br>[Snabbstart](../keys/quick-create-powershell.md)|[Referens](/rest/api/keyvault/#key-operations)|E.t.|[Referens](/dotnet/api/azure.security.keyvault.keys)|[Referens](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Snabbstart](../keys/quick-create-python.md)|[Referens](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[Referens](/javascript/api/@azure/keyvault-keys/)|
 
 **API: er och SDK: er för certifikat**
 
 
 | Azure CLI | PowerShell | REST-API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Referens](/cli/azure/keyvault/certificate)<br>[Snabbstart](../certificates/quick-create-cli.md)|[Referens](/powershell/module/az.keyvault)<br>[Snabbstart](../certificates/quick-create-powershell.md)|[Referens](/rest/api/keyvault/#certificate-operations)|Saknas|[Referens](/dotnet/api/azure.security.keyvault.certificates)|[Referens](/python/api/overview/azure/keyvault-certificates-readme)<br>[Snabbstart](../certificates/quick-create-python.md)|[Referens](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[Referens](/javascript/api/@azure/keyvault-certificates/)|
+|[Referens](/cli/azure/keyvault/certificate)<br>[Snabbstart](../certificates/quick-create-cli.md)|[Referens](/powershell/module/az.keyvault)<br>[Snabbstart](../certificates/quick-create-powershell.md)|[Referens](/rest/api/keyvault/#certificate-operations)|E.t.|[Referens](/dotnet/api/azure.security.keyvault.certificates)|[Referens](/python/api/overview/azure/keyvault-certificates-readme)<br>[Snabbstart](../certificates/quick-create-python.md)|[Referens](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[Referens](/javascript/api/@azure/keyvault-certificates/)|
 
 **Hemligheter och SDK: er för hemligheter**
 
@@ -104,7 +104,7 @@ Självstudier om hur du autentiserar till Key Vault i program finns i:
 
 Se [klient bibliotek](client-libraries.md) för installations paket och käll kod.
 
-Mer information om Key Vault data Plans säkerhet finns [Key Vault data plan och åtkomst principer](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) och [Key Vault data plan och RBAC (för hands version)](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-azure-rbac-preview)
+Mer information om Key Vault data Plans säkerhet finns [Key Vault data plan och åtkomst principer](./secure-your-key-vault.md#data-plane-and-access-policies) och [Key Vault data plan och RBAC (för hands version)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
 
 ### <a name="code-examples"></a>Kodexempel
 
@@ -117,8 +117,8 @@ Fullständiga exempel som använder Key Vault med dina program finns i:
 Följande artiklar och scenarier innehåller en detaljerad vägledning för att arbeta med Azure Key Vault:
 
 - [Åtkomst till Key Vault bakom brand väggen](access-behind-firewall.md) – för att få åtkomst till ett nyckel valv måste klient programmet för nyckel valv kunna komma åt flera slut punkter för olika funktioner.
-- Hur du distribuerar certifikat till virtuella datorer från Key Vault- [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows), [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) -ett moln program som körs i en virtuell dator på Azure behöver ett certifikat. Hur får du det här certifikatet till den virtuella datorn idag?
-- [Distribuera Azure Web App-certifikat via Key Vault](https://docs.microsoft.com/azure/app-service/configure-ssl-certificate#import-a-certificate-from-key-vault)
+- Hur du distribuerar certifikat till virtuella datorer från Key Vault- [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) -ett moln program som körs i en virtuell dator på Azure behöver ett certifikat. Hur får du det här certifikatet till den virtuella datorn idag?
+- [Distribuera Azure Web App-certifikat via Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
 - Tilldela en åtkomst princip ([CLI](assign-access-policy-cli.md)  |  [PowerShell](assign-access-policy-powershell.md)  |  -[Portal](assign-access-policy-portal.md)). 
 - [Använda Key Vault mjuk borttagning med CLI](soft-delete-cli.md) guidar dig genom användningen och livs cykeln för ett nyckel valv och olika Key Vault-objekt med mjuk borttagning aktiverat.
 - [Så här skickar du säkra värden (t. ex. lösen ord) under distributionen](../../azure-resource-manager/templates/key-vault-parameter.md) – när du behöver skicka ett säkert värde (till exempel ett lösen ord) som en parameter under distributionen kan du lagra värdet som en hemlighet i en Azure Key Vault och referera till värdet i andra Resource Manager-mallar.
@@ -127,13 +127,13 @@ Följande artiklar och scenarier innehåller en detaljerad vägledning för att 
 
 De här artiklarna är till för andra scenarier och tjänster som använder eller integrerar med Key Vault.
 
-- [Kryptering i vilo](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) läge tillåter kodning (kryptering) av data när den är beständig. Data krypterings nycklar krypteras ofta med en nyckel krypterings nyckel i Azure Key Vault för att ytterligare begränsa åtkomsten.
+- [Kryptering i vilo](../../security/fundamentals/encryption-atrest.md) läge tillåter kodning (kryptering) av data när den är beständig. Data krypterings nycklar krypteras ofta med en nyckel krypterings nyckel i Azure Key Vault för att ytterligare begränsa åtkomsten.
 - Med [Azure information Protection](/azure/information-protection/plan-implement-tenant-key) kan du hantera din egen klient nyckel. I stället för att Microsoft hanterar din klient nyckel (standard) kan du till exempel hantera din egen klient nyckel för att följa särskilda regler som gäller för din organisation. Att hantera sin egen klientnyckel kallas också för att ta med sin egen nyckel eller BYOK.
 - [Azure Private Link service](private-link-service.md) ger dig åtkomst till Azure-tjänster (till exempel Azure Key Vault, Azure Storage och Azure Cosmos dB) och Azure-värdbaserade kund-/partner tjänster via en privat slut punkt i det virtuella nätverket.
-- Key Vault integration med [Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)  gör det möjligt för användare att meddelas när statusen för en hemlighet som lagras i Key Vault har ändrats. Du kan distribuera en ny version av hemligheter till program eller rotera nära utgångs hemligheter för att förhindra avbrott.
-- Du kan skydda dina [Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/release/azure-key-vault) -hemligheter från oönskad åtkomst i Key Vault.
-- [Använd hemlighet som lagrats i Key Vault i DataBricks för att ansluta till Azure Storage](https://docs.microsoft.com/azure/key-vault/general/integrate-databricks-blob-storage)
-- Konfigurera och kör Azure Key Vault providern för [hemligheter Store CSI-drivrutinen](https://docs.microsoft.com/azure/key-vault/general/key-vault-integrate-kubernetes) på Kubernetes
+- Key Vault integration med [Event Grid](../../event-grid/event-schema-key-vault.md)  gör det möjligt för användare att meddelas när statusen för en hemlighet som lagras i Key Vault har ändrats. Du kan distribuera en ny version av hemligheter till program eller rotera nära utgångs hemligheter för att förhindra avbrott.
+- Du kan skydda dina [Azure DevOps](/azure/devops/pipelines/release/azure-key-vault) -hemligheter från oönskad åtkomst i Key Vault.
+- [Använd hemlighet som lagrats i Key Vault i DataBricks för att ansluta till Azure Storage](./integrate-databricks-blob-storage.md)
+- Konfigurera och kör Azure Key Vault providern för [hemligheter Store CSI-drivrutinen](./key-vault-integrate-kubernetes.md) på Kubernetes
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault översikter och begrepp
 
@@ -143,5 +143,5 @@ De här artiklarna är till för andra scenarier och tjänster som använder ell
 
 ## <a name="social"></a>Socialt
 
-- [Key Vault blogg](https://aka.ms/kvblog)
+- [Key Vault blogg](/archive/blogs/kv/)
 - [Key Vault forum](https://aka.ms/kvforum)

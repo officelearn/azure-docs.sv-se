@@ -9,25 +9,25 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f3775e73ce8f152fe39bc8170bbeba054f856630
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015163"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286601"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Ge åtkomst till Key Vault nycklar, certifikat och hemligheter med en rollbaserad åtkomst kontroll i Azure (för hands version)
 
 > [!NOTE]
 > Key Vault Resource provider stöder två resurs typer: **valv** och **hanterade HSM: er**. Åtkomst kontroll som beskrivs i den här artikeln gäller endast **valv**. Mer information om åtkomst kontroll för hanterad HSM finns i [hanterad HSM Access Control](../managed-hsm/access-control.md).
 
-Rollbaserad åtkomst kontroll i Azure (Azure RBAC) är ett auktoriserings system som bygger på [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) och ger detaljerad åtkomst hantering av Azure-resurser.
+Rollbaserad åtkomst kontroll i Azure (Azure RBAC) är ett auktoriserings system som bygger på [Azure Resource Manager](../../azure-resource-manager/management/overview.md) och ger detaljerad åtkomst hantering av Azure-resurser.
 
 Med Azure RBAC kan användare hantera nyckel-, hemligheter-och certifikat behörigheter. Det ger en plats för att hantera alla behörigheter för alla nyckel valv. 
 
 Azure RBAC-modellen ger möjlighet att ange behörigheter för olika omfattnings nivåer: hanterings grupp, prenumeration, resurs grupp eller enskilda resurser.  Azure RBAC för Key Vault ger också möjlighet att ha separata behörigheter för enskilda nycklar, hemligheter och certifikat
 
-Mer information finns i [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Mer information finns i [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## <a name="best-practices-for-individual-keys-secrets-and-certificates"></a>Metod tips för enskilda nycklar, hemligheter och certifikat
 
@@ -59,18 +59,18 @@ Mer information om rikt linjer för Azure Key Vault hantering finns i:
 | Key Vault hemligheter (förhands granskning)| Utföra alla åtgärder för ett nyckel valvs hemligheter, förutom hantera behörigheter. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 | Key Vault hemligheter, användare (förhands granskning)| Läsa hemligt innehåll. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | 4633458b-17de-408a-b874-0445c86b69e6 |
 
-Mer information om definitioner av inbyggda Azure-roller finns i [inbyggda roller i Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Mer information om definitioner av inbyggda Azure-roller finns i [inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault"></a>Använda Azure RBAC-hemlighet, nyckel och certifikat behörigheter med Key Vault
 
 Den nya Azure RBAC-behörighets modellen för Key Vault ger ett alternativ till åtkomst princips modellen för valv. 
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Om du vill lägga till roll tilldelningar måste du ha:
 
 - Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-- `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) eller [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+- `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) eller [ägare](../../role-based-access-control/built-in-roles.md#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Aktivera Azure RBAC-behörigheter på Key Vault
 
@@ -194,7 +194,7 @@ Create New Secret (hemligheter \> + generate/import) ska visa följande fel:
 
 ### <a name="creating-custom-roles"></a>Skapa anpassade roller 
 
-[kommandot AZ Role definition Create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create)
+[kommandot AZ Role definition Create](/cli/azure/role/definition#az-role-definition-create)
 
 **(CLI bash-skript)</br>**
 ```azurecli
@@ -216,7 +216,7 @@ az role definition create --role-definition '{ \
 
 Mer information om hur du skapar anpassade roller finns i:
 
-[Anpassade roller i Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+[Anpassade roller i Azure](../../role-based-access-control/custom-roles.md)
 
 ## <a name="known-limits-and-performance"></a>Kända begränsningar och prestanda
 
@@ -224,7 +224,7 @@ Mer information om hur du skapar anpassade roller finns i:
 
 -   Svars tid för roll tilldelningar: vid aktuell förväntad prestanda tar det upp till 10 minuter (600 sekunder) efter att roll tilldelningarna har ändrats för att rollen ska tillämpas
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Mer information
 
-- [Översikt över Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Själv studie kurs om anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Översikt över Azure RBAC](../../role-based-access-control/overview.md)
+- [Själv studie kurs om anpassade roller](../../role-based-access-control/tutorial-custom-role-cli.md)

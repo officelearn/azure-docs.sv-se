@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c375defe5fd8356d64879a65d6f09f40ea30271d
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d1b1c27fe0136220d5a1851af4a5c24102a37da1
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042481"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288625"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurera Azure Key Vault brand väggar och virtuella nätverk
 
@@ -27,13 +27,13 @@ Det här avsnittet beskriver de olika sätt som Azure Key Vault brand väggen ka
 
 ### <a name="key-vault-firewall-disabled-default"></a>Key Vault brand väggen är inaktive rad (standard)
 
-När du skapar ett nytt nyckel valv är Azure Key Vault brand väggen som standard inaktive rad. Alla program och Azure-tjänster har åtkomst till nyckel valvet och skickar begär anden till nyckel valvet. OBS! den här konfigurationen innebär inte att alla användare kommer att kunna utföra åtgärder i nyckel valvet. Nyckel valvet begränsar fortfarande till hemligheter, nycklar och certifikat som lagras i Key Vault genom att kräva Azure Active Directory autentiserings-och åtkomst princip behörigheter. Om du vill veta mer om Key Vault-autentisering mer detaljerat kan du läsa grunderna i Key Vault Authentication-dokumentet [här](https://docs.microsoft.com/azure/key-vault/general/authentication-fundamentals).
+När du skapar ett nytt nyckel valv är Azure Key Vault brand väggen som standard inaktive rad. Alla program och Azure-tjänster har åtkomst till nyckel valvet och skickar begär anden till nyckel valvet. OBS! den här konfigurationen innebär inte att alla användare kommer att kunna utföra åtgärder i nyckel valvet. Nyckel valvet begränsar fortfarande till hemligheter, nycklar och certifikat som lagras i Key Vault genom att kräva Azure Active Directory autentiserings-och åtkomst princip behörigheter. Om du vill veta mer om Key Vault-autentisering mer detaljerat kan du läsa grunderna i Key Vault Authentication-dokumentet [här](./authentication-fundamentals.md).
 
 ### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Key Vault brand vägg aktive rad (endast betrodda tjänster)
 
 När du aktiverar Key Vault brand vägg får du ett alternativ för att tillåta att betrodda Microsoft-tjänster kringgår den här brand väggen. Listan över betrodda tjänster omfattar inte varje enskild Azure-tjänst. Till exempel finns inte Azure-DevOps på listan över betrodda tjänster. **Detta innebär inte att tjänster som inte finns med i listan över betrodda tjänster inte är betrodda eller oskyddade.** Listan över betrodda tjänster omfattar tjänster där Microsoft kontrollerar all kod som körs på tjänsten. Eftersom användarna kan skriva anpassad kod i Azure-tjänster som Azure DevOps, ger Microsoft inte möjlighet att skapa ett RAM godkännande för tjänsten. Dessutom är det inte tillåtet att använda en tjänst i listan över betrodda tjänster, men det är inte tillåtet för alla scenarier.
 
-Om du vill ta reda på om en tjänst som du försöker använda finns i listan över betrodda tjänster kan du läsa följande dokument [här](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services).
+Om du vill ta reda på om en tjänst som du försöker använda finns i listan över betrodda tjänster kan du läsa följande dokument [här](./overview-vnet-service-endpoints.md#trusted-services).
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Key Vault brand vägg aktive rad (IPv4-adresser och intervall – statiska IP-adresser)
 
@@ -63,7 +63,7 @@ I det här fallet bör du skapa resursen i ett virtuellt nätverk och sedan till
 
 ### <a name="key-vault-firewall-enabled-private-link"></a>Key Vault brand vägg aktive rad (privat länk)
 
-Information om hur du konfigurerar en privat länk anslutning i ditt nyckel valv finns i dokumentet [här](https://docs.microsoft.com/azure/key-vault/general/private-link-service).
+Information om hur du konfigurerar en privat länk anslutning i ditt nyckel valv finns i dokumentet [här](./private-link-service.md).
 
 > [!IMPORTANT]
 > När brand Väggs reglerna är aktiva kan användarna bara utföra Key Vault [data Plans](secure-your-key-vault.md#data-plane-access-control) åtgärder när deras begär Anden härstammar från tillåtna virtuella nätverk eller IPv4-adress intervall. Detta gäller även för att komma åt Key Vault från Azure Portal. Även om användarna kan bläddra till ett nyckel valv från Azure Portal, kanske de inte kan lista nycklar, hemligheter eller certifikat om deras klient dator inte finns i listan över tillåtna. Detta påverkar också Key Vault väljare från andra Azure-tjänster. Användarna kanske kan se en lista över nyckel valv, men inte lista nycklar, om brand Väggs reglerna förhindrar sin klient dator.
@@ -71,7 +71,7 @@ Information om hur du konfigurerar en privat länk anslutning i ditt nyckel valv
 > [!NOTE]
 > Tänk på följande konfigurations begränsningar:
 > * Högst 127 virtuella nätverks regler och 127 IPv4-regler är tillåtna. 
-> * IP-nätverksadresser tillåts endast för offentliga IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i RFC 1918) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med **10.**, **172.16-31**och **192,168.**.. 
+> * IP-nätverksadresser tillåts endast för offentliga IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i RFC 1918) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med **10.** , **172.16-31** och **192,168.**.. 
 > * Endast IPv4-adresser stöds för tillfället.
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
@@ -79,12 +79,12 @@ Information om hur du konfigurerar en privat länk anslutning i ditt nyckel valv
 Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjälp av Azure Portal:
 
 1. Bläddra till det nyckel valv som du vill skydda.
-2. Välj **nätverk**och välj sedan fliken **brand väggar och virtuella nätverk** .
-3. Under **Tillåt åtkomst från**väljer du **valda nätverk**.
+2. Välj **nätverk** och välj sedan fliken **brand väggar och virtuella nätverk** .
+3. Under **Tillåt åtkomst från** väljer du **valda nätverk**.
 4. Om du vill lägga till befintliga virtuella nätverk i brand väggar och regler för virtuella nätverk väljer du **+ Lägg till befintliga virtuella nätverk**.
 5. På det nya bladet som öppnas väljer du den prenumeration, de virtuella nätverk och undernät som du vill ge åtkomst till det här nyckel valvet. Om de virtuella nätverk och undernät du väljer inte har aktiverat tjänst slut punkter, bekräftar du att du vill aktivera tjänstens slut punkter och väljer **Aktivera**. Det kan ta upp till 15 minuter att börja gälla.
-6. Under **IP-nätverk**lägger du till IPv4-adress intervall genom att ange IPv4-adress intervall i [CIDR-notering (Classless Inter-Domain routing)](https://tools.ietf.org/html/rfc4632) eller enskilda IP-adresser.
-7. Välj Ja om du vill tillåta att Microsoft-betrodda tjänster kringgår Key Vault brand väggen. En fullständig lista över aktuella Key Vault betrodda tjänster finns i följande länk. [Azure Key Vault betrodda tjänster](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
+6. Under **IP-nätverk** lägger du till IPv4-adress intervall genom att ange IPv4-adress intervall i [CIDR-notering (Classless Inter-Domain routing)](https://tools.ietf.org/html/rfc4632) eller enskilda IP-adresser.
+7. Välj Ja om du vill tillåta att Microsoft-betrodda tjänster kringgår Key Vault brand väggen. En fullständig lista över aktuella Key Vault betrodda tjänster finns i följande länk. [Azure Key Vault betrodda tjänster](./overview-vnet-service-endpoints.md#trusted-services)
 7. Välj **Spara**.
 
 Du kan också lägga till nya virtuella nätverk och undernät och sedan aktivera tjänstens slut punkter för de nyligen skapade virtuella nätverken och under näten genom att välja **+ Lägg till nytt virtuellt nätverk**. Följ sedan anvisningarna.
@@ -93,7 +93,7 @@ Du kan också lägga till nya virtuella nätverk och undernät och sedan aktiver
 
 Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjälp av Azure CLI
 
-1. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och [Logga](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)in.
+1. [Installera Azure CLI](/cli/azure/install-azure-cli) och [Logga](/cli/azure/authenticate-azure-cli)in.
 
 2. Visa lista över tillgängliga virtuella nätverks regler. Om du inte har angett några regler för det här nyckel valvet kommer listan att vara tom.
    ```azurecli
@@ -132,7 +132,7 @@ Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjä
 
 Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjälp av PowerShell:
 
-1. Installera den senaste [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)och [Logga](https://docs.microsoft.com/powershell/azure/authenticate-azureps)in.
+1. Installera den senaste [Azure PowerShell](/powershell/azure/install-az-ps)och [Logga](/powershell/azure/authenticate-azureps)in.
 
 2. Visa lista över tillgängliga virtuella nätverks regler. Om du inte har angett några regler för det här nyckel valvet kommer listan att vara tom.
    ```powershell
@@ -166,9 +166,9 @@ Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjä
    ```
 
 ## <a name="references"></a>Referenser
-* Referens för ARM-mall: [referens för Azure Key Vault arm-mall](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/vaults)
-* Azure CLI-kommandon: [AZ-nätverk-regel](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
-* Azure PowerShell cmdlet: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
+* Referens för ARM-mall: [referens för Azure Key Vault arm-mall](/azure/templates/Microsoft.KeyVault/vaults)
+* Azure CLI-kommandon: [AZ-nätverk-regel](/cli/azure/keyvault/network-rule?view=azure-cli-latest)
+* Azure PowerShell cmdlet: [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>Nästa steg
 

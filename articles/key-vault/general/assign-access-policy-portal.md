@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d16d14ff51cb9a7e71193d93c6755a8e4cb93ed0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9277d100eb6744adfc20fbba9f96b822654e64a3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89481417"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287704"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Tilldela en Key Vault åtkomst princip med hjälp av Azure Portal
 
@@ -23,21 +23,21 @@ En Key Vault åtkomst princip bestämmer om ett specifikt tjänstens huvud namn,
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-Mer information om hur du skapar grupper i Azure Active Directory via Azure Portal finns i [skapa en grundläggande grupp och lägga till medlemmar](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
+Mer information om hur du skapar grupper i Azure Active Directory via Azure Portal finns i [skapa en grundläggande grupp och lägga till medlemmar](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
 ## <a name="assign-an-access-policy"></a>Tilldela en åtkomstprincip
 
 1.  I [Azure Portal](https://portal.azure.com)navigerar du till Key Vault resursen. 
 
-1.  Välj **åtkomst principer**under **Inställningar**och välj sedan **Lägg till åtkomst princip**:
+1.  Välj **åtkomst principer** under **Inställningar** och välj sedan **Lägg till åtkomst princip** :
 
     ![Välj åtkomst principer, Välj Lägg till roll tilldelning](../media/authentication/assign-policy-portal-01.png)
 
-1.  Välj de behörigheter som du vill använda under **certifikat behörigheter**, **nyckel behörigheter**och **hemliga behörigheter**. Du kan också välja en mall som innehåller gemensamma behörighets kombinationer:
+1.  Välj de behörigheter som du vill använda under **certifikat behörigheter** , **nyckel behörigheter** och **hemliga behörigheter**. Du kan också välja en mall som innehåller gemensamma behörighets kombinationer:
 
     ![Ange åtkomst princip behörigheter](../media/authentication/assign-policy-portal-02.png)
 
-1. Under **Välj huvud konto**väljer du länken **ingen som marker ATS** för att öppna fönstret **huvud** val. Ange namnet på appen eller tjänstens huvud namn i Sök fältet, Välj lämpligt resultat och välj sedan **Välj**.
+1. Under **Välj huvud konto** väljer du länken **ingen som marker ATS** för att öppna fönstret **huvud** val. Ange namnet på appen eller tjänstens huvud namn i Sök fältet, Välj lämpligt resultat och välj sedan **Välj**.
 
     ![Välja tjänstens huvud namn för åtkomst principen](../media/authentication/assign-policy-portal-03.png)
 
@@ -47,7 +47,7 @@ Mer information om hur du skapar grupper i Azure Active Directory via Azure Port
 
     ![Lägger till åtkomst principen med den tilldelade tjänstens huvud namn](../media/authentication/assign-policy-portal-04.png)
 
-1. Gå tillbaka till sidan **åtkomst principer** , kontrol lera att åtkomst principen visas under **aktuella åtkomst principer**och välj sedan **Spara**. Åtkomst principerna tillämpas inte förrän du sparar dem.
+1. Gå tillbaka till sidan **åtkomst principer** , kontrol lera att åtkomst principen visas under **aktuella åtkomst principer** och välj sedan **Spara**. Åtkomst principerna tillämpas inte förrän du sparar dem.
 
     ![Spara ändringar i åtkomst principen](../media/authentication/assign-policy-portal-05.png)
 

@@ -4,21 +4,21 @@ description: Lär dig hur du konfigurerar och ändrar standard indexerings princ
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: d0ee7dc8890c228617eaeee8b1cdc72d2230458e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ede2e6b172c867a00f98c6b095381ad5a5f3a323
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082971"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285749"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-I Azure Cosmos DB har varje container en indexeringspolicy som avgör hur containerns objekt ska indexeras. Standardprincipen för indexering för nyligen skapade containrar indexerar alla egenskaper för alla objekt och tillämpar intervallindex för alla strängar och tal. På så sätt kan du få goda frågeprestanda utan att behöva tänka på indexering eller indexhantering från början.
+I Azure Cosmos DB har varje container en indexeringspolicy som avgör hur containerns objekt ska indexeras. Standardprincipen för indexering för nyligen skapade containrar indexerar alla egenskaper för alla objekt och tillämpar intervallindex för alla strängar och tal. På så sätt kan du få bättre prestanda för frågor utan att behöva tänka på indexering och index hantering.
 
-I vissa fall kan det vara bra att åsidosätta det här automatiska beteendet så att det passar dina behov bättre. Du kan anpassa en behållares indexerings princip genom att ställa in dess *indexerings läge* och ta med eller undanta *egenskaps Sök vägar* .
+I vissa fall kan det vara bra att åsidosätta det här automatiska beteendet så att det passar dina behov bättre. Du kan anpassa en behållares indexerings princip genom att ställa in dess *indexerings läge* och ta med eller undanta *egenskaps Sök vägar*.
 
 > [!NOTE]
 > Metoden för att uppdatera indexerings principer som beskrivs i den här artikeln gäller endast Azure Cosmos DB s SQL-API (Core). Läs mer om indexering i [Azure Cosmos DBS API för MongoDB](mongodb-indexing.md)
@@ -31,7 +31,7 @@ Azure Cosmos DB stöder två indexerings lägen:
 - **Ingen** : indexering har inaktiverats för behållaren. Detta används vanligt vis när en behållare används som ett rent nyckel värdes lager utan behov av sekundära index. Det kan också användas för att förbättra prestandan för Mass åtgärder. När Mass åtgärderna har slutförts kan index läget anges till konsekvent och övervakas med hjälp av [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) tills det är klart.
 
 > [!NOTE]
-> Azure Cosmos DB stöder också ett Lazy-indexerings läge. Lazy-indexering utför uppdateringar av indexet på en mycket lägre prioritetsnivå när motorn inte utför något annat arbete. Detta kan ge **inkonsekventa eller ofullständiga** frågeresultat. Om du planerar att fråga en Cosmos-container bör du inte välja Lazy-indexering. I juni 2020 införde vi en ändring som inte längre tillåter att nya behållare ställs in till Lazy indexerings läge. Om ditt Azure Cosmos DB-konto redan innehåller minst en behållare med Lazy-indexering, undantas detta konto automatiskt från ändringen. Du kan också begära ett undantag genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (förutom om du använder ett Azure Cosmos-konto i ett [Server](serverless.md) fritt läge som inte stöder Lazy-indexering).
+> Azure Cosmos DB stöder också ett Lazy-indexerings läge. Lazy-indexering utför uppdateringar av indexet på en mycket lägre prioritetsnivå när motorn inte utför något annat arbete. Detta kan ge **inkonsekventa eller ofullständiga** frågeresultat. Om du planerar att fråga en Cosmos-container bör du inte välja Lazy-indexering. Nya behållare kan inte välja Lazy-indexering. Du kan begära ett undantag genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (förutom om du använder ett Azure Cosmos-konto i ett [Server](serverless.md) fritt läge som inte stöder Lazy-indexering).
 
 Indexerings principen är som standard inställd på `automatic` . Den uppnås genom att ställa in `automatic` egenskapen i indexerings principen på `true` . Genom att ange den här egenskapen kan `true` Azure-CosmosDB automatiskt indexera dokument när de skrivs.
 
@@ -74,7 +74,7 @@ Alla indexerings principer måste innehålla rot Sök vägen `/*` antingen som e
 - Inkludera rot Sök vägen för att selektivt exkludera sökvägar som inte behöver indexeras. Detta är den rekommenderade metoden eftersom Azure Cosmos DB indexera alla nya egenskaper som kan läggas till i din modell proaktivt.
 - Undanta rot Sök vägen för att selektivt inkludera sökvägar som behöver indexeras.
 
-- För sökvägar med vanliga tecken som innehåller alfanumeriska tecken och _ (under streck) behöver du inte undanta Sök vägs strängen runt dubbla citat tecken (till exempel "/Path/?"). För sökvägar med andra specialtecken måste du undvika Sök vägs strängen runt dubbla citat tecken (till exempel "/ \" Path-ABC \" /?"). Om du förväntar dig specialtecken i sökvägen kan du kringgå alla säkerhets vägar. Det spelar ingen roll om du avvisar alla sökvägar och bara de som innehåller specialtecken.
+- För sökvägar med vanliga tecken som innehåller alfanumeriska tecken och _ (under streck) behöver du inte undanta Sök vägs strängen runt dubbla citat tecken (till exempel "/Path/?"). För sökvägar med andra specialtecken måste du undvika Sök vägs strängen runt dubbla citat tecken (till exempel "/ \" Path-ABC \" /?"). Om du förväntar dig specialtecken i sökvägen kan du kringgå alla säkerhets vägar. Det innebär att det inte är någon skillnad om du avvisar alla sökvägar och bara de som innehåller specialtecken.
 
 - System egenskapen `_etag` undantas från indexering som standard, om inte etag läggs till i den inkluderade sökvägen för indexering.
 
@@ -199,6 +199,7 @@ Följande överväganden används när du skapar sammansatta index för frågor 
 - Om en egenskap har ett intervall filter ( `>` ,,, `<` `<=` `>=` eller `!=` ), ska den här egenskapen definieras sist i det sammansatta indexet. Om en fråga har fler än ett intervall filter, används inte det sammansatta indexet.
 - När du skapar ett sammansatt index för att optimera frågor med flera filter påverkas `ORDER` inte resultatet av det sammansatta indexet. Den här egenskapen är valfri.
 - Om du inte definierar ett sammansatt index för en fråga med filter på flera egenskaper kommer frågan fortfarande att lyckas. RU-kostnaden för frågan kan dock minskas med ett sammansatt index.
+- Frågor med båda agg regeringar (till exempel COUNT eller SUM) och filter drar också fördel av sammansatta index.
 
 Tänk på följande exempel där ett sammansatt index definieras för egenskaper, ålder och tidsstämpel:
 
@@ -206,6 +207,7 @@ Tänk på följande exempel där ett sammansatt index definieras för egenskaper
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
+| ```(name ASC, age ASC)```   | ```SELECT COUNT(1) FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
 | ```(name DESC, age ASC)```    | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
@@ -246,6 +248,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 Följande överväganden används när du skapar sammansatta index för att optimera en fråga med en filter-och- `ORDER BY` sats:
 
 * Om frågan filtreras efter egenskaper bör dessa tas med först i- `ORDER BY` satsen.
+* Om frågan filtrerar på flera egenskaper måste likhets filtren vara de första egenskaperna i `ORDER BY` satsen
 * Om du inte definierar ett sammansatt index för en fråga med ett filter på en egenskap och en separat `ORDER BY` sats med en annan egenskap, kommer frågan fortfarande att lyckas. RU-kostnaden för frågan kan dock minskas med ett sammansatt index, särskilt om egenskapen i- `ORDER BY` satsen har en hög kardinalitet.
 * Alla överväganden för att skapa sammansatta index för `ORDER BY` frågor med flera egenskaper och frågor med filter för flera egenskaper gäller fortfarande.
 
@@ -253,6 +256,8 @@ Följande överväganden används när du skapar sammansatta index för att opti
 | **Sammansatt index**                      | **Exempel `ORDER BY` fråga**                                  | **Stöds av sammansatt index?** |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" AND c.timestamp > 1589840355 ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT * FROM c WHERE c.timestamp > 1589840355 AND c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No` |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No`  |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
@@ -260,7 +265,7 @@ Följande överväganden används när du skapar sammansatta index för att opti
 
 ## <a name="modifying-the-indexing-policy"></a>Ändra indexerings principen
 
-En behållares indexerings princip kan uppdateras när [som helst genom att använda Azure Portal eller någon av de SDK](how-to-manage-indexing-policy.md): er som stöds. En uppdatering av indexerings principen utlöser en omvandling från det gamla indexet till den nya, som utförs online och på plats (så att ingen ytterligare lagrings utrymme förbrukas under driften). Den gamla principens index omvandlas effektivt till den nya principen utan att det påverkar Skriv tillgänglighet, Läs tillgänglighet eller det data flöde som har allokerats på behållaren. Omvandling av index är en asynkron åtgärd och den tid det tar att slutföra beror på det etablerade data flödet, antalet objekt och deras storlek.
+En behållares indexerings princip kan uppdateras när [som helst genom att använda Azure Portal eller någon av de SDK](how-to-manage-indexing-policy.md): er som stöds. En uppdatering av indexerings principen utlöser en omvandling från det gamla indexet till den nya, som utförs online och på plats (så att ingen ytterligare lagrings utrymme förbrukas under driften). Den gamla indexerings principen omvandlas effektivt till den nya principen utan att det påverkar Skriv tillgänglighet, Läs tillgänglighet eller det data flöde som har allokerats på behållaren. Omvandling av index är en asynkron åtgärd och den tid det tar att slutföra beror på det etablerade data flödet, antalet objekt och deras storlek.
 
 > [!IMPORTANT]
 > Omvandling av index är en åtgärd som förbrukar [enheter för programbegäran](request-units.md). Enheter för programbegäran som används av en index omvandling faktureras inte för tillfället om du använder [Server](serverless.md) lös behållare. Dessa enheter för programbegäran debiteras när servern är allmänt tillgänglig.
@@ -281,14 +286,10 @@ När du tar bort index och omedelbart kör frågor som filtrerar på de borttagn
 
 Användning av [TTL-funktionen (Time-to-Live)](time-to-live.md) kräver indexering. Det innebär att:
 
-- Det går inte att aktivera TTL på en behållare där indexerings läget är inställt på ingen,
+- Det går inte att aktivera TTL på en behållare där indexerings läget är inställt på `none` ,
 - Det går inte att ställa in indexerings läget på none i en behållare där TTL har Aktiver ATS.
 
-För scenarier där ingen egenskaps Sök väg behöver indexeras, men TTL krävs, kan du använda en indexerings princip med:
-
-- ett indexerings läge har angetts till konsekvent och
-- ingen sökväg har inkluderats och
-- `/*` som den enda undantagna sökvägen.
+För scenarier där ingen egenskaps Sök väg behöver indexeras, men TTL krävs, kan du använda en indexerings princip med ett indexerings läge inställt på `consistent` , inga inkluderade sökvägar och `/*` som den enda undantagna sökvägen.
 
 ## <a name="next-steps"></a>Nästa steg
 

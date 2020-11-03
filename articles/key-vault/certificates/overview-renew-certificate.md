@@ -10,16 +10,16 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 2477bab244b8864fa9c82b52d5577d42fa47a7e0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 0720e6b55cec8150eea9d41ca89b2c9b21a0bc94
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124159"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287685"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Förnya dina Azure Key Vault certifikat
 
-Med Azure Key Vault kan du enkelt etablera, hantera och distribuera digitala certifikat för ditt nätverk och aktivera säker kommunikation för dina program. Mer information om certifikat finns i [om Azure Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates).
+Med Azure Key Vault kan du enkelt etablera, hantera och distribuera digitala certifikat för ditt nätverk och aktivera säker kommunikation för dina program. Mer information om certifikat finns i [om Azure Key Vault certifikat](./about-certificates.md).
 
 Genom att använda kortsiktiga certifikat eller genom att öka frekvensen för certifikat rotation kan du förhindra att obehöriga användare får åtkomst till dina program.
 
@@ -29,9 +29,9 @@ Den här artikeln beskriver hur du förnyar Azure Key Vault certifikat.
 Om du vill bli informerad om certifikatets livs längd måste du lägga till certifikat kontakt. Certifikat kontakter innehåller kontakt information för att skicka meddelanden som utlöses av händelser för certifikat livs längd. Kontakt information delas av alla certifikat i nyckel valvet. Ett meddelande skickas till alla angivna kontakter för en händelse för ett certifikat i nyckel valvet.
 
 ### <a name="steps-to-set-certificate-notifications"></a>Steg för att ange certifikat meddelanden:
-Lägg först till en certifikat kontakt i ditt nyckel valv. Du kan lägga till med Azure Portal eller PowerShell-cmdlet [`Add-AzureKeyVaultCertificateContact`](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0) .
+Lägg först till en certifikat kontakt i ditt nyckel valv. Du kan lägga till med Azure Portal eller PowerShell-cmdlet [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0) .
 
-Sedan konfigurerar du när du vill få information om förfallo datum för certifikatet. Information om hur du konfigurerar livs cykel attribut för certifikatet finns i [Konfigurera autorotation av certifikat i Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+Sedan konfigurerar du när du vill få information om förfallo datum för certifikatet. Information om hur du konfigurerar livs cykel attribut för certifikatet finns i [Konfigurera autorotation av certifikat i Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
 Om ett certifikats princip ställs in på automatisk förnyelse skickas ett meddelande vid följande händelser.
 
@@ -46,7 +46,7 @@ I Key Vault finns det tre kategorier certifikat:
 -   Självsignerade certifikat
 
 ## <a name="renew-an-integrated-ca-certificate"></a>Förnya ett integrerat CA-certifikat 
-Azure Key Vault hanterar det heltäckande underhållet av certifikat som utfärdats av betrodda Microsoft Certificate-myndigheter DigiCert och GlobalSign. Lär dig hur du [integrerar en betrodd certifikat utfärdare med Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority).
+Azure Key Vault hanterar det heltäckande underhållet av certifikat som utfärdats av betrodda Microsoft Certificate-myndigheter DigiCert och GlobalSign. Lär dig hur du [integrerar en betrodd certifikat utfärdare med Key Vault](./how-to-integrate-certificate-authority.md).
 
 ## <a name="renew-a-nonintegrated-ca-certificate"></a>Förnya ett certifikat som inte är integrerat 
 Genom att använda Azure Key Vault kan du importera certifikat från alla CA: er, en förmån som gör att du kan integrera med flera Azure-resurser och göra distributionen enklare. Om du oroar dig för att förlora spårning av certifikatets giltighets datum eller, om du har upptäckt att ett certifikat redan har gått ut, kan ditt nyckel valv hjälpa dig att hålla dig uppdaterad. För certifikat som inte är integrerade kan du med nyckel valvet konfigurera e-postmeddelanden som snart upphör att gälla. Sådana meddelanden kan också ställas in för flera användare.
@@ -70,7 +70,7 @@ Mer information om hur du skapar en ny CSR finns [i skapa och slå samman en CSR
 
 ## <a name="renew-a-self-signed-certificate"></a>Förnya ett självsignerat certifikat
 
-Azure Key Vault hanterar också automatisk förnyelse av självsignerade certifikat. Om du vill veta mer om hur du ändrar utgivnings principen och uppdaterar ett certifikats livs cykel attribut, se [Konfigurera autorotation av certifikat i Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+Azure Key Vault hanterar också automatisk förnyelse av självsignerade certifikat. Om du vill veta mer om hur du ändrar utgivnings principen och uppdaterar ett certifikats livs cykel attribut, se [Konfigurera autorotation av certifikat i Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
 ## <a name="troubleshoot"></a>Felsöka
 Om det utfärdade certifikatet har *inaktiverats* i Azure Portal går du till **certifikat åtgärd** för att se certifikatets fel meddelande.
@@ -79,7 +79,7 @@ Om det utfärdade certifikatet har *inaktiverats* i Azure Portal går du till **
 
 **Hur kan jag testa funktionen för autorotation i certifikatet?**
 
-Skapa ett certifikat med en giltighets tid på **1 månad**och ange sedan livs längds åtgärden för rotation vid **1%**. Med den här inställningen roteras certifikatet var 7,2: e timme.
+Skapa ett certifikat med en giltighets tid på **1 månad** och ange sedan livs längds åtgärden för rotation vid **1%**. Med den här inställningen roteras certifikatet var 7,2: e timme.
   
 **Kommer taggarna att replikeras efter autoförnyelse av certifikatet?**
 

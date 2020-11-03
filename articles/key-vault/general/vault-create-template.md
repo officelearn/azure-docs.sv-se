@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6f3d2051790ba02f5e4ea1687830ccbdf6dcf21
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282318"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285144"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Så här skapar du en Azure Key Vault-och en valv åtkomst princip med hjälp av en Resource Manager-mall
 
@@ -23,7 +23,7 @@ ms.locfileid: "92282318"
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen i den här artikeln:
 
@@ -84,7 +84,7 @@ Följande mall visar ett enkelt sätt att skapa ett nyckel valv. Vissa värden a
 
 ```
 
-Mer information om inställningar för Key Vault mal len finns i [referens för Key Vault arm-mall](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
+Mer information om inställningar för Key Vault mal len finns i [referens för Key Vault arm-mall](/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
 > Om en mall omdistribueras kommer alla befintliga åtkomst principer i nyckel valvet att åsidosättas. Vi rekommenderar att du fyller i `accessPolicies` egenskapen med befintliga åtkomst principer för att undvika att förlora åtkomst till nyckel valvet. 
@@ -160,7 +160,7 @@ Du kan distribuera åtkomst principer till ett befintligt nyckel valv utan att o
 }
 
 ```
-Mer information om inställningar för Key Vault mal len finns i [referens för Key Vault arm-mall](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+Mer information om inställningar för Key Vault mal len finns i [referens för Key Vault arm-mall](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## <a name="more-key-vault-resource-manager-templates"></a>Fler Key Vault Resource Manager-mallar
 
@@ -168,13 +168,13 @@ Det finns andra tillgängliga Resource Manager-mallar för Key Vault objekt:
 
 | Hemligheter | Nycklar | Certifikat |
 |--|--|--|
-|<ul><li>[Snabbstart](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Referens](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|Saknas|Saknas|
+|<ul><li>[Snabbstart](../secrets/quick-create-template.md)<li>[Referens](/azure/templates/microsoft.keyvault/vaults/secrets)|Saknas|Saknas|
 
-Du hittar fler Key Vault mallar här: [Key Vault Resource Manager-referens](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions).
+Du hittar fler Key Vault mallar här: [Key Vault Resource Manager-referens](/azure/templates/microsoft.keyvault/allversions).
 
 ## <a name="deploy-the-templates"></a>Distribuera mallarna
 
-Du kan använda Azure Portal för att distribuera de föregående mallarna med hjälp av alternativet för att **bygga en egen mall i redigerings** alternativet som beskrivs här: [distribuera resurser från en anpassad mall](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
+Du kan använda Azure Portal för att distribuera de föregående mallarna med hjälp av alternativet för att **bygga en egen mall i redigerings** alternativet som beskrivs här: [distribuera resurser från en anpassad mall](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 Du kan också spara föregående mallar till filer och använda följande kommandon:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) och [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create):
 

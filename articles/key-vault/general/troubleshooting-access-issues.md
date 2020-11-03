@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1437ef8675d0ddc96eb7fc641b3663b66c3ea11b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125260"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285242"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Felsöka problem med åtkomst principer för Azure Key Vault
 
@@ -20,11 +20,11 @@ ms.locfileid: "92125260"
 
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>Hur gör jag för att identifiera hur och när nyckel valv används?
 
-När du har skapat ett eller flera nyckel valv vill du förmodligen övervaka hur och när nyckel valven nås, och av vem. Du kan övervaka genom att aktivera loggning för Azure Key Vault, för steg-för-steg-guide för att aktivera loggning, [Läs mer](https://docs.microsoft.com/azure/key-vault/general/logging).
+När du har skapat ett eller flera nyckel valv vill du förmodligen övervaka hur och när nyckel valven nås, och av vem. Du kan övervaka genom att aktivera loggning för Azure Key Vault, för steg-för-steg-guide för att aktivera loggning, [Läs mer](./logging.md).
 
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>Hur kan jag övervaka valv tillgänglighet, tjänst svars perioder eller andra prestanda mått för Key Vault?
 
-När du börjar skala tjänsten kommer antalet förfrågningar som skickats till ditt nyckel valv att öka. Sådan efter frågan har möjlighet att öka svars tiden för dina begär Anden och i extrema fall, orsaka att dina förfrågningar begränsas, vilket påverkar tjänstens prestanda. Du kan övervaka prestanda mått för nyckel valv och få aviseringar för vissa tröskelvärden, för steg-för-steg-guide för att konfigurera övervakning, [läsa mer](https://docs.microsoft.com/azure/key-vault/general/alert).
+När du börjar skala tjänsten kommer antalet förfrågningar som skickats till ditt nyckel valv att öka. Sådan efter frågan har möjlighet att öka svars tiden för dina begär Anden och i extrema fall, orsaka att dina förfrågningar begränsas, vilket påverkar tjänstens prestanda. Du kan övervaka prestanda mått för nyckel valv och få aviseringar för vissa tröskelvärden, för steg-för-steg-guide för att konfigurera övervakning, [läsa mer](./alert.md).
 
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Jag kan inte ändra åtkomst principen, hur kan den aktive ras?
 Användaren måste ha tillräcklig AAD-behörighet för att ändra åtkomst principen. I det här fallet måste användaren ha högre deltagar roll.
@@ -53,7 +53,7 @@ Programmet behöver också minst en roll för identitets-och åtkomst hantering 
 
 För närvarande Key Vault omdistribution tar bort alla åtkomst principer i Key Vault och ersätter dem med åtkomst principen i ARM-mallen. Det finns inget stegvist alternativ för Key Vault åtkomst principer. Om du vill bevara åtkomst principer i Key Vault måste du läsa befintliga åtkomst principer i Key Vault och fylla i ARM-mallen med dessa principer för att undvika eventuella åtkomst avbrott.
 
-Ett annat alternativ som kan hjälpa till med det här scenariot är att använda RBAC-roller som ett alternativ till att komma åt principer. Med RBAC kan du distribuera nyckel valvet igen utan att ange principen igen. Du kan läsa mer om den här lösningen [här](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
+Ett annat alternativ som kan hjälpa till med det här scenariot är att använda RBAC-roller som ett alternativ till att komma åt principer. Med RBAC kan du distribuera nyckel valvet igen utan att ange principen igen. Du kan läsa mer om den här lösningen [här](./rbac-guide.md).
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Rekommenderade fel söknings steg för följande feltyper
 
@@ -66,6 +66,6 @@ Ett annat alternativ som kan hjälpa till med det här scenariot är att använd
 ### <a name="what-are-the-best-practices-i-should-implement-when-key-vault-is-getting-throttled"></a>Vilka är de bästa metoderna jag bör implementera när Key Vault får en begränsning?
 Följ de bästa metoderna, dokumenterade [här](overview-throttling.md#how-to-throttle-your-app-in-response-to-service-limits)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du felsöker Key Vault-autentiseringsfel: [Key Vault fel söknings guide](rest-error-codes.md).

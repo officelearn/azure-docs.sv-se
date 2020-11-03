@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 977e3571a24e8be9d9ef6cd79e80e654ca944fa4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ef9322c17a20ab5bfcf348649a1272dd4f301c5c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538824"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284472"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Felsöka skript åtgärder i Azure HDInsight
 
@@ -45,7 +45,7 @@ Om det inte går att skapa ett kluster på grund av ett skript fel sparas loggar
 
     ![Skript åtgärds loggar](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
 
-    Under den här katalogen ordnas loggarna separat för **huvudnoden** , **arbetsnoden** och **Zookeeper-noden** . Se följande exempel:
+    Under den här katalogen ordnas loggarna separat för **huvudnoden** , **arbetsnoden** och **Zookeeper-noden**. Se följande exempel:
 
     * **Huvudnoden** : `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
@@ -75,7 +75,7 @@ Om det inte går att skapa ett kluster på grund av ett skript fel sparas loggar
 
 ## <a name="cant-import-name-blobservice"></a>Det går inte att importera namnet BlobService
 
-__Symptom__ . Skript åtgärden Miss lyckas. Text som liknar följande fel visas när du visar åtgärden i Ambari:
+__Symptom__. Skript åtgärden Miss lyckas. Text som liknar följande fel visas när du visar åtgärden i Ambari:
 
 ```
 Traceback (most recent call list):
@@ -84,9 +84,9 @@ Traceback (most recent call list):
 ImportError: cannot import name BlobService
 ```
 
-__Orsak__ . Det här felet uppstår om du uppgraderar python-Azure Storage-klienten som ingår i HDInsight-klustret. HDInsight förväntar sig Azure Storage 0.20.0-klient.
+__Orsak__. Det här felet uppstår om du uppgraderar python-Azure Storage-klienten som ingår i HDInsight-klustret. HDInsight förväntar sig Azure Storage 0.20.0-klient.
 
-__Lösning__ . För att lösa det här felet ansluter du manuellt till varje klusternod med hjälp av `ssh` . Kör följande kommando för att installera om rätt version av lagrings klienten:
+__Lösning__. För att lösa det här felet ansluter du manuellt till varje klusternod med hjälp av `ssh` . Kör följande kommando för att installera om rätt version av lagrings klienten:
 
 ```bash
 sudo pip install azure-storage==0.20.0
@@ -110,10 +110,4 @@ Det finns två undantag:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
-
-* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
-
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

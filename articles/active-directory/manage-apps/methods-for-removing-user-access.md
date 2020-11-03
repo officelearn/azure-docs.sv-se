@@ -1,26 +1,21 @@
 ---
-title: Så här tar du bort en användares åtkomst till ett program | Microsoft Docs
-description: Förstå hur du tar bort en användares åtkomst till ett program
+title: Så här tar du bort en användares åtkomst till ett program i Azure Active Directory
+description: Förstå hur du tar bort en användares åtkomst till ett program i Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 10/17/2018
+ms.date: 11/02/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f9626c256755e2fce81b593d95b8680f4bb55ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8544c35d77dfc32ece9b21a602f301ab15c22439
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763167"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288324"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Så här tar du bort en användares åtkomst till ett program
 
@@ -36,29 +31,13 @@ Om du vill inaktivera alla användar inloggningar till ett program följer du st
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>Jag vill ta bort ett program helt
 
-Om du vill **ta bort ett program**följer du dessa anvisningar:
-
-1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
-
-2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
-
-3. Skriv **"Azure Active Directory**" i rutan filtrera sökning och välj **Azure Active Directory** objektet.
-
-4. Klicka på **företags program** från Azure Active Directory vänstra navigerings menyn.
-
-5. Klicka på **alla program** om du vill visa en lista över alla dina program.
-
-   * Om du inte ser det program som du vill visa här använder du **filter** kontrollen längst upp i **listan Alla program** och anger alternativet **Visa** för **alla program.**
-
-6. Välj det program som du vill ta bort.
-
-7. När programmet har lästs in klickar du på **ta bort** ikon i det översta programmets **översikts** fönster.
+[Snabb starts serien i program hantering](delete-application-portal.md) innehåller vägledning om hur du tar bort ett program från Azure Active Directory-klienten.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Jag vill inaktivera alla framtida åtgärder för användar medgivande till alla program
 
 Om du inaktiverar användar medgivande för hela katalogen kan slutanvändarna inte godkänna något program. Administratörer kan fortfarande godkänna användarens räkning. Om du vill ha mer information om program medgivande och varför du kanske inte vill göra detta, Läs [förstå användar-och administratörs medgivande](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Se även [behörigheter och medgivande](../develop/v2-permissions-and-consent.md).
 
-Följ dessa instruktioner om du vill **inaktivera alla framtida användar medgivande åtgärder i hela katalogen**:
+Följ dessa instruktioner om du vill **inaktivera alla framtida användar medgivande åtgärder i hela katalogen** :
 
 1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 

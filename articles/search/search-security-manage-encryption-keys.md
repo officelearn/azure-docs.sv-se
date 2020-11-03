@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: fdc0ae3fef2fb70b7372ab4fb28497ea6a6400a4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635470"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287154"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Konfigurera Kundhanterade nycklar för data kryptering i Azure Kognitiv sökning
 
@@ -41,15 +41,13 @@ För tjänster som skapats efter 1 augusti 2020 och i vissa regioner, innehålle
 
 Om du använder en annan region eller en tjänst som skapats före den 1 augusti, är din CMK-kryptering begränsad till enbart data disken, förutom de temporära diskar som används av tjänsten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Följande verktyg och tjänster används i det här exemplet. 
+Följande verktyg och tjänster används i det här scenariot.
 
-+ [Skapa en kognitiv sökning tjänst](search-create-service-portal.md) eller [Sök efter en befintlig](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
-
-+ [Skapa en Azure Key Vault resurs](../key-vault/secrets/quick-create-portal.md#create-a-vault) eller hitta en befintlig. Både Key Vault och Kognitiv sökning måste finnas i samma prenumeration. Nyckel valvet måste ha aktiverat **skydd mot** **borttagning** och rensning.
-
-+ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) att registrera ett program och skapa en hemlig sträng som används av ditt program för att autentisera. Om du inte har ett kan du [Konfigurera en ny klient](../active-directory/develop/quickstart-create-new-tenant.md).
++ [Azure kognitiv sökning](search-create-service-portal.md) på en [fakturerbar nivå](search-sku-tier.md#tiers) (Basic eller högre) i vilken region som helst.
++ [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) i samma prenumeration som Azure kognitiv sökning. Nyckel valvet måste ha aktiverat **skydd mot** **borttagning** och rensning.
++ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Om du inte har ett kan du [Konfigurera en ny klient](../active-directory/develop/quickstart-create-new-tenant.md).
 
 Du bör ha ett Sök program som kan skapa det krypterade objektet. I den här koden kommer du att referera till nyckel valvet och Active Directory registrerings information. Den här koden kan vara en fungerande app eller prototyp kod som C#- [kod exemplet DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
@@ -110,7 +108,7 @@ Hoppa över det här steget om du redan har en nyckel i Azure Key Vault.
 
 1. [Logga in på Azure Portal](https://portal.azure.com) och öppna översikts sidan för Key Vault.
 
-1. Välj **nycklar** till vänster och välj sedan **+ generera/importera** .
+1. Välj **nycklar** till vänster och välj sedan **+ generera/importera**.
 
 1. I fönstret **skapa en nyckel** , i listan med **alternativ** , väljer du den metod som du vill använda för att skapa en nyckel. Du kan **generera** en ny nyckel, **överföra** en befintlig nyckel eller använda **Återställ säkerhets kopia** för att välja en säkerhets kopia av en nyckel.
 
@@ -118,7 +116,7 @@ Hoppa över det här steget om du redan har en nyckel i Azure Key Vault.
 
 1. Välj **skapa** för att starta distributionen.
 
-1. Anteckna nyckel identifieraren – den består av **nyckel värdets URI** , **nyckel namnet** och **nyckel versionen** . Du behöver identifieraren för att definiera ett krypterat index i Azure Kognitiv sökning.
+1. Anteckna nyckel identifieraren – den består av **nyckel värdets URI** , **nyckel namnet** och **nyckel versionen**. Du behöver identifieraren för att definiera ett krypterat index i Azure Kognitiv sökning.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Skapa en ny nyckel valvs nyckel":::
 
@@ -126,7 +124,7 @@ Hoppa över det här steget om du redan har en nyckel i Azure Key Vault.
 
 1. I [Azure Portal](https://portal.azure.com)letar du upp Azure Active Directory resurs för din prenumeration.
 
-1. Till vänster, under **Hantera** , Välj **Appregistreringar** och välj sedan **ny registrering** .
+1. Till vänster, under **Hantera** , Välj **Appregistreringar** och välj sedan **ny registrering**.
 
 1. Ge registreringen ett namn, kanske ett namn som liknar Sök programmets namn. Välj **Register** (Registrera).
 
@@ -134,15 +132,15 @@ Hoppa över det här steget om du redan har en nyckel i Azure Key Vault.
 
    Om du går igenom [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)klistrar du in det här värdet i **appsettings.jspå** filen.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="Skapa en ny nyckel valvs nyckel":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="Program-ID i avsnittet Essentials":::
 
 1. Välj sedan **certifikat & hemligheter** till vänster.
 
-1. Välj **Ny klienthemlighet** . Ge hemligheten ett visnings namn och välj **Lägg till** .
+1. Välj **Ny klienthemlighet**. Ge hemligheten ett visnings namn och välj **Lägg till**.
 
 1. Kopiera program hemligheten. Om du stegar igenom exemplet klistrar du in det här värdet i **appsettings.js** filen.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="Skapa en ny nyckel valvs nyckel":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="Apphemlighet":::
 
 ## <a name="4---grant-key-access-permissions"></a>4 – bevilja nyckel åtkomst behörigheter
 
@@ -152,24 +150,24 @@ I det här steget ska du skapa en åtkomst princip i Key Vault. Den här princip
 
 1. Öppna din **översikts** sida för Key vault fortfarande Azure Portal. 
 
-1. Välj **åtkomst principer** till vänster och välj **+ Lägg till åtkomst princip** .
+1. Välj **åtkomst principer** till vänster och välj **+ Lägg till åtkomst princip**.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="Skapa en ny nyckel valvs nyckel":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="Lägg till ny åtkomst princip för nyckel valv":::
 
 1. Välj **Välj huvud namn** och välj det program som du registrerade med Active Directory. Du kan söka efter den efter namn.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="Skapa en ny nyckel valvs nyckel":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="Välj nyckel valv åtkomst principens huvud namn":::
 
-1. I **nyckel behörigheter** väljer du *Hämta* , *packa upp nyckel* och *Radbryt nyckel* .
+1. I **nyckel behörigheter** väljer du *Hämta* , *packa upp nyckel* och *Radbryt nyckel*.
 
-1. I **hemliga behörigheter** väljer du *Hämta* .
+1. I **hemliga behörigheter** väljer du *Hämta*.
 
-1. I **certifikat behörigheter** väljer du *Hämta* .
+1. I **certifikat behörigheter** väljer du *Hämta*.
 
-1. Välj **Lägg till** och **Spara** .
+1. Välj **Lägg till** och **Spara**.
 
 > [!Important]
-> Krypterat innehåll i Azure Kognitiv sökning konfigureras för att använda en speciell Azure Key Vault nyckel med en angiven **version** . Om du ändrar nyckeln eller versionen måste mappningen index eller synonymer uppdateras för att använda den nya key\version **innan** du tar bort föregående key\version. Om du inte gör det kommer index eller synonym mappning inte att kunna användas, men du kan inte dekryptera innehållet när nyckel åtkomsten har gått förlorad.
+> Krypterat innehåll i Azure Kognitiv sökning konfigureras för att använda en speciell Azure Key Vault nyckel med en angiven **version**. Om du ändrar nyckeln eller versionen måste mappningen index eller synonymer uppdateras för att använda den nya key\version **innan** du tar bort föregående key\version. Om du inte gör det kommer index eller synonym mappning inte att kunna användas, men du kan inte dekryptera innehållet när nyckel åtkomsten har gått förlorad.
 
 ## <a name="5---encrypt-content"></a>5 – Kryptera innehåll
 

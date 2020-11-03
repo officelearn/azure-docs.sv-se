@@ -8,22 +8,21 @@ ms.author: chalton
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 6a4dcec2b50a13a256c82e4a5ec54c9b22aa973f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/02/2020
+ms.openlocfilehash: f0295c27f1d193b0dcd7829a11b4aabe0edb659b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791995"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286343"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Så här indexerar du krypterade blobbar med BLOB-indexerare och färdighetsuppsättningar i Azure Kognitiv sökning
 
-Den här artikeln visar hur du använder [Azure kognitiv sökning](search-what-is-azure-search.md) för att indexera dokument som tidigare har krypterats i [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) med [Azure Key Vault](../key-vault/general/overview.md). Normalt kan en indexerare inte extrahera innehåll från krypterade filer eftersom den inte har åtkomst till krypterings nyckeln. Men genom att använda den anpassade [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) -kunskapen som följer av [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)kan du ge kontrollerad åtkomst till nyckeln för att dekryptera filerna och sedan låta innehållet hämtas från dem. Detta låser upp möjligheten att indexera dessa dokument och slipper oroa dig för att dina data ska lagras okrypterade i vila.
+Den här artikeln visar hur du använder [azure kognitiv sökning](search-what-is-azure-search.md) för att indexera dokument som tidigare har krypterats i [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) med [Azure Key Vault](../key-vault/general/overview.md). Normalt kan en indexerare inte extrahera innehåll från krypterade filer eftersom den inte har åtkomst till krypterings nyckeln. Men genom att använda den anpassade [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) -kunskapen som följer av [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)kan du ge kontrollerad åtkomst till nyckeln för att dekryptera filerna och sedan låta innehållet hämtas från dem. Detta låser upp möjligheten att indexera dessa dokument utan att kompromissa med krypterings statusen för dina lagrade dokument.
 
-Den här guiden använder Postman och Sök REST-API: er för att utföra följande uppgifter:
+Från och med tidigare krypterade hela dokument (ostrukturerad text) som PDF, HTML, DOCX och PPTX i Azure Blob Storage, använder den här guiden Postman och Sök REST-API: er för att utföra följande uppgifter:
 
 > [!div class="checklist"]
-> * Börja med hela dokument (ostrukturerad text) som PDF, HTML, DOCX och PPTX i Azure Blob Storage som har krypterats med Azure Key Vault.
 > * Definiera en pipeline som dekrypterar dokumenten och extraherar text från dem.
 > * Definiera ett index för att lagra utdata.
 > * Kör pipelinen för att skapa och läsa in indexet.
@@ -31,18 +30,15 @@ Den här guiden använder Postman och Sök REST-API: er för att utföra följan
 
 Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I det här exemplet förutsätts att du redan har laddat upp dina filer till Azure Blob Storage och har krypterat dem i processen. Om du behöver hjälp med att hämta filer som ursprungligen har laddats upp och krypteras kan du kolla in [den här självstudien](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) för hur du gör det.
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
-+ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) i samma prenumeration som Azure kognitiv sökning. Nyckel valvet måste ha aktiverat **skydd mot** **borttagning** och rensning.
++ [Azure kognitiv sökning](search-create-service-portal.md) på en [fakturerbar nivå](search-sku-tier.md#tiers) (Basic eller över, i valfri region)
 + [Azure-funktion](https://azure.microsoft.com/services/functions/)
 + [Skrivbordsappen Postman](https://www.getpostman.com/)
-+ [Skapa](search-create-service-portal.md) eller [hitta en befintlig Sök tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
-
-> [!Note]
-> Du kan använda den kostnads fria tjänsten för den här guiden. En kostnads fri Sök tjänst begränsar dig till tre index, tre indexerare, tre data källor och tre färdighetsuppsättningar. Den här guiden skapar en av dem. Innan du börjar bör du kontrol lera att du har utrymme på tjänsten för att godkänna de nya resurserna.
 
 ## <a name="1---create-services-and-collect-credentials"></a>1 – skapa tjänster och samla in autentiseringsuppgifter
 
@@ -68,9 +64,9 @@ DecryptBlobFile-kompetensen tar till exempel URL: en och SAS-token för varje bl
      
        ![Nyckel valv Lägg till åtkomst princip](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Åtkomst principer för nyckel valv")
 
-    1. Under **Konfigurera från mall** väljer du **Azure Data Lake Storage eller Azure Storage** .
+    1. Under **Konfigurera från mall** väljer du **Azure Data Lake Storage eller Azure Storage**.
 
-    1. För huvud kontot väljer du den Azure Function-instans som du har distribuerat. Du kan söka efter den med hjälp av det resurs-prefix som användes för att skapa det i steg 2, som har ett standardvärde för **psdbf-Function-app** .
+    1. För huvud kontot väljer du den Azure Function-instans som du har distribuerat. Du kan söka efter den med hjälp av det resurs-prefix som användes för att skapa det i steg 2, som har ett standardvärde för **psdbf-Function-app**.
 
     1. Välj inte något för alternativet för auktoriserade program.
      
@@ -121,7 +117,7 @@ Installera och konfigurera Postman.
 1. Hämta [käll koden för Postman-samlingen](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json).
 1. Välj **fil**  >  **import** för att importera käll koden till Postman.
 1. Välj fliken **samlingar** och välj sedan knappen **...** (ellips).
-1. Välj **Redigera** . 
+1. Välj **Redigera**. 
    
    ![Postman-app som visar navigering](media/indexing-encrypted-blob-files/postman-edit-menu.jpg "Gå till redigerings menyn i Postman")
 1. I dialog rutan **Redigera** väljer du fliken **variabler** . 
@@ -137,15 +133,15 @@ Hämta värdet för genom att `admin-key` använda Azure kognitiv sökning Admin
 |-------------|-----------------|
 | `admin-key` | På sidan **nycklar** i Azure kognitiv sökning-tjänsten.  |
 | `search-service-name` | Namnet på Azure Kognitiv sökning-tjänsten. URL: en är `https://{{search-service-name}}.search.windows.net` . | 
-| `storage-connection-string` | I lagrings kontot går du till fliken **åtkomst nycklar** och väljer **KEY1** -  >  **anslutningssträng** . | 
+| `storage-connection-string` | I lagrings kontot går du till fliken **åtkomst nycklar** och väljer **KEY1** -  >  **anslutningssträng**. | 
 | `storage-container-name` | Namnet på BLOB-behållaren som innehåller de krypterade filerna som ska indexeras. | 
 | `function-uri` |  I Azure-funktionen under **Essentials** på huvud sidan. | 
 | `function-code` | I Azure-funktionen, genom att navigera till **app-nycklar** , klicka för att visa **standard** nyckeln och kopiera värdet. | 
-| `api-version` | Lämna som **2020-06-30** . |
-| `datasource-name` | Lämna som **krypterade-blobbar – DS** . | 
-| `index-name` | Lämna som **Encrypted-blobbar – IDX** . | 
-| `skillset-name` | Lämna as **Encrypted-blobs-SS** . | 
-| `indexer-name` | Lämna som **Encrypted-blobs-IXR** . | 
+| `api-version` | Lämna som **2020-06-30**. |
+| `datasource-name` | Lämna som **krypterade-blobbar – DS**. | 
+| `index-name` | Lämna som **Encrypted-blobbar – IDX**. | 
+| `skillset-name` | Lämna as **Encrypted-blobs-SS**. | 
+| `indexer-name` | Lämna som **Encrypted-blobs-IXR**. | 
 
 ### <a name="review-the-request-collection-in-postman"></a>Granska Request-samlingen i Postman
 

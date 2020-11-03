@@ -3,14 +3,14 @@ title: Azure Functions tillförlitlig händelse bearbetning
 description: Undvik Event Hub-meddelanden som saknas i Azure Functions
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaafe6d4080d85822ec5af9639c27fc8c55c2ce6
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506034"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287222"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions tillförlitlig händelse bearbetning
 
@@ -50,7 +50,7 @@ Azure Functions använder Event Hub-händelser samtidigt som du går igenom föl
 
 Det här beteendet visar några viktiga punkter:
 
-- *Ohanterade undantag kan innebära att du förlorar meddelanden.* Körningar som resulterar i ett undantag fortsätter att försätta pekaren.
+- *Ohanterade undantag kan innebära att du förlorar meddelanden.* Körningar som resulterar i ett undantag fortsätter att försätta pekaren.  Om du anger en [princip för återförsök](./functions-bindings-error-pages.md#retry-policies) fördröjs pekaren tills hela återförsöks principen har utvärderats.
 - *Functions garanterar minst en leverans.* Din kod och beroende system kan behöva [konto för att samma meddelande ska kunna tas emot två gånger](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Hantering av undantag
@@ -59,9 +59,9 @@ Som en allmän regel ska varje funktion innehålla ett [try/catch-block](./funct
 
 ### <a name="retry-mechanisms-and-policies"></a>Försök igen mekanismer och principer
 
-Vissa undantag är tillfälliga i natur och visas inte igen när en åtgärd försöker igen senare. Det är därför som det första steget alltid ska försöka utföra åtgärden igen. Du kan skriva process regler för nya försök själv, men de är så vanliga att ett antal verktyg är tillgängliga. Med hjälp av de här biblioteken kan du definiera robusta återförsöks principer, vilket även kan hjälpa till att bevara bearbetnings ordningen.
+Vissa undantag är tillfälliga i natur och visas inte igen när en åtgärd försöker igen senare. Det är därför som det första steget alltid ska försöka utföra åtgärden igen.  Du kan använda funktionen för att [köra nya återförsöks principer](./functions-bindings-error-pages.md#retry-policies) för appar eller redigera logik för omförsök i funktionen.
 
-Genom att införa fel hanterings bibliotek i dina funktioner kan du definiera både grundläggande och avancerade principer för återförsök. Du kan till exempel implementera en princip som följer ett arbets flöde som illustreras i följande regler:
+Genom att införa fel hanterings beteenden för dina funktioner kan du definiera både grundläggande och avancerade principer för återförsök. Du kan till exempel implementera en princip som följer ett arbets flöde som illustreras i följande regler:
 
 - Försök att infoga ett meddelande tre gånger (eventuellt en fördröjning mellan återförsök).
 - Om det slutliga resultatet av alla nya försök är ett fel, lägger du till ett meddelande i en kö så att bearbetningen kan fortsätta på data strömmen.
@@ -69,10 +69,6 @@ Genom att införa fel hanterings bibliotek i dina funktioner kan du definiera b�
 
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) är ett exempel på ett flexibelt och tillfälligt fel hanterings bibliotek för C#-program.
-
-När du arbetar med förväntade C#-klass bibliotek kan du med [undantags filter](/dotnet/csharp/language-reference/keywords/try-catch) köra kod när ett ohanterat undantag inträffar.
-
-Exempel som visar hur du använder undantags filter finns i [Azure WEBJOBS SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) -lagrings platsen.
 
 ## <a name="non-exception-errors"></a>Fel som inte är undantag
 

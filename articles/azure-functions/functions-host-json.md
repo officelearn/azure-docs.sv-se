@@ -3,12 +3,12 @@ title: host.jssom referens för Azure Functions 2. x
 description: Referens dokumentation för Azure Functions host.jsi filen med v2-körningen.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0b6fbe2553541b6260697584fa7066cdcb1fe122
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167667"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284513"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.json-referens för Azure Functions 2.x och senare 
 
@@ -117,6 +117,11 @@ Följande exempel *host.jspå* fil för version 2. x + har alla möjliga alterna
     "managedDependency": {
         "enabled": true
     },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -145,19 +150,19 @@ Den fullständiga JSON-strukturen finns i det tidigare [exemplet host.jsi filen]
 > [!NOTE]
 > Logg sampling kan orsaka att vissa körningar inte visas på bladet Application Insights övervakning. Om du vill undvika logg sampling lägger `excludedTypes: "Request"` du till `samplingSettings` värdet.
 
-| Egenskap | Default | Beskrivning |
+| Egenskap | Standardvärde | Beskrivning |
 | --------- | --------- | --------- | 
-| samplingSettings | Saknas | Se [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
+| samplingSettings | saknas | Se [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Aktiverar insamling av Live-mått. |
 | enableDependencyTracking | true | Aktiverar beroende spårning. |
 | enablePerformanceCountersCollection | true | Aktiverar insamling av kudu prestanda räknare. |
 | liveMetricsInitializationDelay | 00:00:15 | Endast för internt bruk. |
-| httpAutoCollectionOptions | Saknas | Se [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
-| snapshotConfiguration | Saknas | Se [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
+| httpAutoCollectionOptions | saknas | Se [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
+| snapshotConfiguration | saknas | Se [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
-|Egenskap | Default | Beskrivning |
+|Egenskap | Standardvärde | Beskrivning |
 | --------- | --------- | --------- | 
 | isEnabled | true | Aktiverar eller inaktiverar sampling. | 
 | maxTelemetryItemsPerSecond | 20 | Mål antalet för telemetri som loggats per sekund på varje server värd. Om din app körs på många värdar kan du minska det här värdet så att det ligger kvar i den övergripande trafik hastigheten. | 
@@ -167,13 +172,13 @@ Den fullständiga JSON-strukturen finns i det tidigare [exemplet host.jsi filen]
 | samplingPercentageDecreaseTimeout | 00:00:01 | När värdet för samplings procenten ändras avgör den här egenskapen hur snart efteråt Application Insights tillåts att sänka samplings procenten igen för att samla in mindre data. |
 | minSamplingPercentage | 0,1 | När samplings procenten varierar avgör den här egenskapen den lägsta tillåtna samplings procenten. |
 | maxSamplingPercentage | 100,0 | När samplings procenten varierar, fastställer den här egenskapen Maximalt antal tillåtna samplings procent. |
-| movingAverageRatio | 1.0 | Vid beräkningen av det glidande medelvärdet har vikten tilldelats det senaste värdet. Använd ett värde som är lika med eller mindre än 1. Lägre värden gör algoritmen mindre aktiv till plötsliga ändringar. |
+| movingAverageRatio | 1,0 | Vid beräkningen av det glidande medelvärdet har vikten tilldelats det senaste värdet. Använd ett värde som är lika med eller mindre än 1. Lägre värden gör algoritmen mindre aktiv till plötsliga ändringar. |
 | excludedTypes | null | En semikolonavgränsad lista med typer som du inte vill ska samplas. Godkända typer är: `Dependency` , `Event` ,,, `Exception` `PageView` `Request` och `Trace` . Alla instanser av de angivna typerna överförs. de typer som inte har angetts är samplade. |
 | includedTypes | null | En semikolonavgränsad lista med typer som du vill ska samplas om. en tom lista förutsätter alla typer. Typ som anges i `excludedTypes` listan över åsidosättningar här. Godkända typer är: `Dependency` , `Event` ,,, `Exception` `PageView` `Request` och `Trace` . Instanser av de angivna typerna samplas. de typer som inte anges eller underförstådda överförs utan sampling. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Egenskap | Default | Beskrivning |
+|Egenskap | Standardvärde | Beskrivning |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Aktiverar eller inaktiverar utökad HTTP-begäran om HTTP-utlösare: inkommande begäran korrelations rubriker, stöd för flera instrument nycklar, HTTP-metod, sökväg och svar. |
 | enableW3CDistributedTracing | true | Aktiverar eller inaktiverar stöd för W3C Distributed tracing Protocol (och aktiverar ett äldre korrelations schema). Aktive ras som standard om `enableHttpTriggerExtendedInfoCollection` är sant. Om `enableHttpTriggerExtendedInfoCollection` är False gäller den här flaggan enbart utgående begär Anden, inte inkommande begär Anden. |
@@ -183,7 +188,7 @@ Den fullständiga JSON-strukturen finns i det tidigare [exemplet host.jsi filen]
 
 Mer information om ögonblicks bilder finns i [fel sökning av ögonblicks bilder av undantag i .net-appar](../azure-monitor/app/snapshot-debugger.md) och [Felsöka problem som aktiverar Application Insights Snapshot debugger eller visning av ögonblicks bilder](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Egenskap | Standard | Beskrivning |
+|Egenskap | Standardvärde | Beskrivning |
 | --------- | --------- | --------- | 
 | agentEndpoint | null | Slut punkten som används för att ansluta till tjänsten Application Insights Snapshot Debugger. Om värdet är null används en standard slut punkt. |
 | captureSnapshotMemoryWeight | 0,5 | Vikten som ges till den aktuella processens minnes storlek vid kontroll om det finns tillräckligt med minne för att ta en ögonblicks bild. Det förväntade värdet är ett större än 0-bråk (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -275,7 +280,7 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
 |enabled|true|Anger om funktionen är aktive rad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
@@ -307,12 +312,12 @@ Styr loggnings beteenden för Function-appen, inklusive Application Insights.
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definierar vilken nivå av fil loggning som är aktive rad.  Alternativen är `never` , `always` , `debugOnly` . |
-|logLevel|Saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x och senare följer ASP.NET Core layout för filtrering av loggnings kategorier. Med den här inställningen kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) i ASP.net Core-dokumentationen. |
-|konsol|Saknas| Loggnings inställningen för [konsolen](#console) . |
-|applicationInsights|Saknas| Inställningen [applicationInsights](#applicationinsights) . |
+|logLevel|saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x och senare följer ASP.NET Core layout för filtrering av loggnings kategorier. Med den här inställningen kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) i ASP.net Core-dokumentationen. |
+|konsol|saknas| Loggnings inställningen för [konsolen](#console) . |
+|applicationInsights|saknas| Inställningen [applicationInsights](#applicationinsights) . |
 
 ## <a name="console"></a>konsol
 
@@ -330,7 +335,7 @@ Den här inställningen är underordnad [loggning](#logging). Den styr konsol lo
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
 |isEnabled|falskt|Aktiverar eller inaktiverar konsol loggning.| 
 
@@ -349,6 +354,28 @@ Hanterat beroende är en funktion som för närvarande endast stöds med PowerSh
 ## <a name="queues"></a>kön
 
 Du hittar konfigurations inställningar i [utlösare och bindningar för lagrings köer](functions-bindings-storage-queue-output.md#host-json).  
+
+## <a name="retry"></a>retry
+
+Kontrollerar princip alternativen för [återförsök](./functions-bindings-error-pages.md#retry-policies) för alla körningar i appen.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|Egenskap  |Standardvärde | Beskrivning |
+|---------|---------|---------| 
+|strategi|null|Krävs. Återförsöksstrategin som ska användas. Giltiga värden är `fixedDelay` eller `exponentialBackoff` .|
+|maxRetryCount|null|Krävs. Maximalt antal tillåtna försök per funktions körning. `-1` innebär ett nytt försök på obestämd tid.|
+|delayInterval|null|Fördröjningen som används mellan återförsök med en `fixedDelay` strategi.|
+|minimumInterval|null|Den minsta fördröjningen för återförsök när du använder `exponentialBackoff` strategin.|
+|maximumInterval|null|Den maximala fördröjningen vid nya försök när du använder `exponentialBackoff` strategin.| 
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -374,13 +401,13 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Den period som funktions nivå lås utförs för. Lås automatisk förnyelse.| 
 |listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Det tidsintervall som används för återställning av lyssnar lås om det inte gick att hämta ett lyssnar lås vid start.| 
 |lockAcquisitionTimeout|00:01:00|Den maximala tid som körningen kommer att försöka hämta ett lås.| 
-|lockAcquisitionPollingInterval|Saknas|Intervallet mellan lås försök.| 
+|lockAcquisitionPollingInterval|saknas|Intervallet mellan lås försök.| 
 
 ## <a name="version"></a>version
 

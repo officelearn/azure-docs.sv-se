@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09460e4e38ea1842d58ecf3a9b3cd00a072c271e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596047"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286913"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autentisering och auktorisering i Azure App Service och Azure Functions
 
@@ -140,12 +140,15 @@ Det här alternativet ger större flexibilitet vid hantering av anonyma begär A
 
 ### <a name="allow-only-authenticated-requests"></a>Tillåt endast autentiserade begär Anden
 
-Alternativet är att **Logga in med \<provider> **. App Service dirigerar om alla anonyma begär anden till `/.auth/login/<provider>` för den leverantör du väljer. Om den anonyma begäran kommer från en ursprunglig mobilapp är det returnerade svaret en `HTTP 401 Unauthorized` .
+Alternativet är att **Logga in med \<provider>**. App Service dirigerar om alla anonyma begär anden till `/.auth/login/<provider>` för den leverantör du väljer. Om den anonyma begäran kommer från en ursprunglig mobilapp är det returnerade svaret en `HTTP 401 Unauthorized` .
 
 Med det här alternativet behöver du inte skriva någon autentiseringsmetod i din app. Bättre auktorisering, till exempel rollbaserad auktorisering, kan hanteras genom att inspektera användarens anspråk (se [användar anspråk för åtkomst](app-service-authentication-how-to.md#access-user-claims)).
 
 > [!CAUTION]
 > Att begränsa åtkomsten på det här sättet gäller alla anrop till appen, vilket kanske inte är önskvärt för appar som vill ha en offentligt tillgänglig start sida, som i många program med en enda sida.
+
+> [!NOTE]
+> Som standard kan alla användare i din Azure AD-klient begära en token för ditt program från Azure AD. Du kan [Konfigurera programmet i Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) om du vill begränsa åtkomsten till din app till en definierad uppsättning användare.
 
 ## <a name="more-resources"></a>Fler resurser
 

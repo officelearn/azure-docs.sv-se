@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 332e9bcb959f355c34a1be97387845fda3effa29
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c7bff21a17af3c908caeed6a1e60de8e2fe4efc9
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310993"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287580"
 ---
 # <a name="connectivity-modes-and-requirements"></a>Anslutnings lägen och krav
 
@@ -24,15 +24,20 @@ ms.locfileid: "92310993"
 
 Det finns flera alternativ för anslutnings graden från din Azure Arc-aktiverad data tjänst miljö till Azure. När dina krav varierar beroende på affärs policy, myndighets förordning eller om nätverks anslutningen till Azure är tillgänglig kan du välja mellan följande anslutnings lägen.
 
-Azure Arc-aktiverade data tjänster ger dig möjlighet att ansluta till Azure i två olika "anslutnings lägen": direktansluten och indirekt ansluten.  Detta ger dig flexibiliteten att välja hur mycket data som skickas till Azure och hur användare interagerar med data styrenheten för bågen. Beroende på vilket anslutnings läge som valts kan vissa funktioner i Azure Arc-aktiverade data tjänster eventuellt vara otillgängliga.
+Azure Arc-aktiverade data tjänster ger dig möjlighet att ansluta till Azure i två olika *anslutnings lägen* : 
+
+- Direkt ansluten 
+- Indirekt ansluten
+
+Anslutnings läget ger dig flexibiliteten att välja hur mycket data som skickas till Azure och hur användare interagerar med data styrenheten för bågen. Beroende på vilket anslutnings läge som valts kan vissa funktioner i Azure Arc-aktiverade data tjänster eventuellt vara otillgängliga.
 
 Om Azure Arc-aktiverade data tjänster är direkt anslutna till Azure kan användarna använda [Azure Resource Manager API: er](/rest/api/resources/), Azure CLI och Azure Portal för att använda Azures Arc-datatjänster. Upplevelsen i direkt ansluten läge är ungefär som hur du använder andra Azure-tjänster med etablering/avetablering, skalning, konfigurering och så vidare i Azure Portal.  Om Azure Arc-aktiverade data tjänster är indirekt anslutna till Azure är Azure Portal en skrivskyddad vy. Du kan se inventeringen av SQL-hanterade instanser och postgres för storskaliga instanser som du har distribuerat och information om dem, men du kan inte vidta några åtgärder på dem i Azure Portal.  I läget för indirekt anslutning måste alla åtgärder vidtas lokalt med hjälp av Azure Data Studio, de [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] inbyggda Kubernetes-verktygen, t. ex. kubectl.
 
 Dessutom kan Azure Active Directory och Azure Role-Based Access Control bara användas i det direkt anslutna läget eftersom det finns ett beroende på en kontinuerlig och direkt anslutning till Azure för att tillhandahålla den här funktionen.
 
-Slutligen är vissa Azure-anslutna tjänster bara tillgängliga när de kan nås direkt, till exempel Azure Defender Security Services, container Insights och Azure Backup/Blob Storage.
+Vissa Azure-anslutna tjänster är bara tillgängliga när de kan nås direkt, till exempel Azure Defender Security Services, container Insights och Azure Backup till Blob Storage.
 
-I för hands versionen stöds för närvarande bara det indirekt anslutna läget.  Direkt anslutet läge planeras i framtiden.  Det finns ett fast läge som inte är kopplat till varandra, men som inte stöds för närvarande.
+I för hands versionen stöds för närvarande bara det indirekt anslutna läget. 
 
 ||**Indirekt ansluten**|**Direkt ansluten**|**Aldrig ansluten**|
 |---|---|---|---|
@@ -49,7 +54,7 @@ I för hands versionen stöds för närvarande bara det indirekt anslutna läget
 |**Själv tjänst etablering**|Stöds<br/>Skapandet kan göras via Azure Data Studio, [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] , eller Kubernetes inbyggda verktyg (Helm, kubectl, oc osv.) eller med Azure Arc Enabled Kubernetes GitOps-etablering.|Stöds<br/>Förutom alternativen för att skapa läge med indirekt anslutning kan du också skapa via Azure Portal, Azure Resource Manager API: er, Azure CLI-eller ARM-mallarna. **Väntande tillgänglighet för direkt anslutet läge**
 |**Elastisk skalbarhet**|Stöds|Stöds<br/>**Väntande tillgänglighet för direkt anslutet läge**|
 |**Billing**|Stöds<br/>Fakturerings data exporteras regelbundet och skickas till Azure.|Stöds<br/>Fakturerings data skickas automatiskt och skickas kontinuerligt till Azure och avspeglas i nära real tid. **Väntande tillgänglighet för direkt anslutet läge**|
-|**Lagerhantering**|Stöds<br/>Inventerings data exporteras regelbundet och skickas till Azure.|Stöds<br/>Inventerings data skickas automatiskt och skickas kontinuerligt till Azure och avspeglas i nära real tid. **Väntande tillgänglighet för direkt anslutet läge**|
+|**Lagerhantering**|Stöds<br/>Inventerings data exporteras regelbundet och skickas till Azure.<br/><br/>Använd klient verktyg som Azure Data Studio, Azure Data CLI eller `kubectl` för att visa och hantera lagret lokalt.|Stöds<br/>Inventerings data skickas automatiskt och skickas kontinuerligt till Azure och avspeglas i nära real tid. På så sätt kan du hantera lagret direkt från Azure Portal. **Väntande tillgänglighet för direkt anslutet läge**|
 |**Automatiska uppgraderingar och korrigeringar**|Stöds<br/>Datakontrollanten måste antingen ha direkt åtkomst till Microsoft Container Registry (MCR) eller att behållar avbildningarna måste hämtas från MCR och skickas till ett lokalt, privat behållar register som data styrenheten har åtkomst till.|Stöds<br/>**Väntande tillgänglighet för direkt anslutet läge**|
 |**Automatisk säkerhets kopiering och återställning**|Stöds<br/>Automatisk lokal säkerhets kopiering och återställning.|Stöds<br/>Förutom automatisk säkerhets kopiering och återställning av lokala platser kan du _också skicka säkerhets_ kopior till Azure Backup för långsiktig kvarhållning. **Väntande tillgänglighet för direkt anslutet läge**|
 |**Övervakning**|Stöds<br/>Lokal övervakning med Grafana-och Kibana-instrumentpaneler.|Stöds<br/>Förutom lokala övervaknings instrument paneler kan du _välja_ att skicka övervaknings data och loggar till Azure Monitor för vid storskalig övervakning av flera platser på ett och samma ställe. **Väntande tillgänglighet för direkt anslutet läge**|
@@ -65,28 +70,132 @@ I för hands versionen stöds för närvarande bara det indirekt anslutna läget
 
 |**Typ av data**|**Riktning**|**Obligatorisk/valfri**|**Ytterligare kostnader**|**Läge krävs**|**Kommentarer**|
 |---|---|---|---|---|---|
-|**Containeravbildningar**|Microsoft Container Registry – >-kund|Krävs|Nej|Indirekt eller direkt|Behållar avbildningar är metoden för att distribuera program varan.  I en miljö som kan ansluta till Microsoft Container Registry (MCR) via Internet kan behållar avbildningarna hämtas direkt från MCR.  Om distributions miljön inte har direkt anslutning kan du hämta avbildningarna från MCR och skicka dem till ett privat behållar register i distributions miljön.  När du skapar kan du konfigurera skapande processen att hämta från den privata behållar registret i stället för MCR. Detta gäller även för automatiserade uppdateringar.|
-|**Resurs inventering**|Kund miljö – > Azure|Krävs|Nej|Indirekt eller direkt|En inventering av data kontroller, databas instanser (PostgreSQL och SQL) lagras i Azure för fakturerings syfte och används också för att skapa en inventering av alla datakontrollanter och databas instanser på ett ställe som är särskilt användbart om du har mer än en miljö med Azure Arc-datatjänster.  När instanser har etablerats, avetablerats, skalas ut/in, skalas upp/ned, så uppdateras inventeringen i Azure.|
-|**Information om fakturering av telemetri**|Kund miljö – > Azure|Krävs|Nej|Indirekt eller direkt|Användningen av databas instanser måste skickas till Azure i fakturerings syfte.  Det kostar ingen kostnad för Azure Arc-aktiverade data tjänster under för hands versions perioden.|
+|**Containeravbildningar**|Microsoft Container Registry – >-kund|Obligatorisk|Nej|Indirekt eller direkt|Behållar avbildningar är metoden för att distribuera program varan.  I en miljö som kan ansluta till Microsoft Container Registry (MCR) via Internet kan behållar avbildningarna hämtas direkt från MCR.  Om distributions miljön inte har direkt anslutning kan du hämta avbildningarna från MCR och skicka dem till ett privat behållar register i distributions miljön.  När du skapar kan du konfigurera skapande processen att hämta från den privata behållar registret i stället för MCR. Detta gäller även för automatiserade uppdateringar.|
+|**Resurs inventering**|Kund miljö – > Azure|Obligatorisk|Nej|Indirekt eller direkt|En inventering av data kontroller, databas instanser (PostgreSQL och SQL) lagras i Azure för fakturerings syfte och används också för att skapa en inventering av alla datakontrollanter och databas instanser på ett ställe som är särskilt användbart om du har mer än en miljö med Azure Arc-datatjänster.  När instanser har etablerats, avetablerats, skalas ut/in, skalas upp/ned, så uppdateras inventeringen i Azure.|
+|**Information om fakturering av telemetri**|Kund miljö – > Azure|Obligatorisk|Nej|Indirekt eller direkt|Användningen av databas instanser måste skickas till Azure i fakturerings syfte.  Det kostar ingen kostnad för Azure Arc-aktiverade data tjänster under för hands versions perioden.|
 |**Övervaka data och loggar**|Kund miljö – > Azure|Valfritt|Kanske beroende på data volym (se [Azure Monitor priser](https://azure.microsoft.com/en-us/pricing/details/monitor/))|Indirekt eller direkt|Du kanske vill skicka det lokalt insamlade övervaknings data och loggar till Azure Monitor för att samla in data i flera miljöer på en och samma plats och även använda Azure Monitor tjänster som aviseringar med hjälp av data i Azure Machine Learning osv.|
 |**Azure Role-baserade Access Control (Azure RBAC)**|Kund miljö – > Azure-> kund miljö|Valfritt|Nej|Endast direkt|Om du vill använda Azure RBAC måste du alltid upprätta en anslutning med Azure.  Om du inte vill använda Azure RBAC kan lokala Kubernetes RBAC användas.  **Väntande tillgänglighet för direkt anslutet läge**|
 |**Azure Active Directory (AD)**|Kund miljö – > Azure-> kund miljö|Valfritt|Kanske, men du kanske redan betalar för Azure AD|Endast direkt|Om du vill använda Azure AD för autentisering måste du alltid upprätta en anslutning med Azure. Om du inte vill använda Azure AD för autentisering kan du välja oss Active Directory Federation Services (AD FS) (ADFS) över Active Directory. **Väntande tillgänglighet för direkt anslutet läge**|
-|**Säkerhets kopiering/återställning**|Kund miljö – > Azure-> kund miljö|Valfritt|Ja för lagrings kostnader|Endast direkt|Du kanske vill skicka säkerhets kopior som tas lokalt till Azure Backup för långsiktig kvarhållning av säkerhets kopior och ta tillbaka dem till den lokala miljön för återställning. **Väntande tillgänglighet för direkt anslutet läge**|
+|**Säkerhetskopiering och återställning**|Kund miljö – > kund miljö|Obligatorisk|Nej|Direkt eller indirekt|Tjänsten säkerhets kopiering och återställning kan konfigureras så att den pekar på lokala lagrings klasser. |
+|**Azure Backup-långsiktig kvarhållning**| Kund miljö – > Azure | Valfritt| Ja för Azure Storage | Endast direkt |Du kanske vill skicka säkerhets kopior som tas lokalt till Azure Backup för långsiktig kvarhållning av säkerhets kopior och ta tillbaka dem till den lokala miljön för återställning. **Väntande tillgänglighet för direkt anslutet läge**|
 |**Azure Defender säkerhets tjänster**|Kund miljö – > Azure-> kund miljö|Valfritt|Ja|Endast direkt|**Väntande tillgänglighet för direkt anslutet läge**|
 |**Etablering och konfigurations ändringar från Azure Portal**|Kund miljö – > Azure-> kund miljö|Valfritt|Nej|Endast direkt|Etablerings-och konfigurations ändringar kan göras lokalt med Azure Data Studio eller [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] .  I direkt anslutnings läge kommer du också att kunna tillhandahålla och göra konfigurations ändringar från Azure Portal. **Väntande tillgänglighet för direkt anslutet läge**|
 
 
 ## <a name="details-on-internet-addresses-ports-encryption-and-proxy-server-support"></a>Information om Internet adresser, portar, kryptering och proxy server-stöd
 
-I förhands gransknings fasen stöds för närvarande endast det indirekt anslutna läget.  I det här läget finns det bara tre anslutningar som krävs för att tillhandahålla tjänster på Internet.  Alla HTTPS-anslutningar till Azure och Microsoft Container Registry krypteras med SSL/TLS med hjälp av officiellt signerade och verifierbara certifikat.
+I förhands gransknings fasen stöds för närvarande endast det indirekt anslutna läget. I det här läget finns det bara tre anslutningar som krävs för att tillhandahålla tjänster på Internet. Dessa anslutningar är:
 
-|**Namn**|**Anslutningens källa**|**Anslutningens mål**|**Protokoll**|**Port**|**Kan använda proxy**|**Autentisering**|**Kommentarer**|
-|---|---|---|---|---|---|---|---|
-|**Microsoft Container Registry (MCR)**|Kubernetes-kubelet på varje Kubernetes-noder hämtar behållar avbildningarna.|`mcr.microsoft.com`|HTTPS|443|Ja|Inget|Microsoft Container Registry är värd för de avbildningar av Azure Arc-aktiverade data Services-behållare.  Du kan hämta avbildningarna från MCR och skicka dem till ett privat behållar register och konfigurera distributions processen för datakontrollanten för att hämta behållar avbildningarna från det privata behållar registret.|
-|**Azure Resource Manager-API: er**|En dator som kör Azure Data Studio, [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] eller Azure CLI som ansluter till Azure.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`san-af-eastus-prod.azurewebsites.net`<br/>`san-af-eastus2-prod.azurewebsites.net`<br/>`san-af-australiaeast-prod.azurewebsites.net`<br/>`san-af-centralus-prod.azurewebsites.net`<br/>`san-af-westus2-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-southeastasia-prod.azurewebsites.net`<br/>`san-af-koreacentral-prod.azurewebsites.net`<br/>`san-af-northeurope-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-uksouth-prod.azurewebsites.net`<br/>`san-af-francecentral-prod.azurewebsites.net`|HTTPS|443|Ja|Azure Active Directory|Azure Data Studio [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] och Azure CLI ansluter till Azure Resource Manager-API: er för att skicka och hämta data till och från Azure för vissa funktioner.|
-|**Azure Monitor-API: er**|En dator [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] som kör eller Azure CLI som laddar upp övervaknings mått eller loggar till Azure Monitor.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`*.ods.opinsights.azure.com`<br/>`*.oms.opinsights.azure.com`<br/>`*.monitoring.azure.com`|HTTPS|443|Ja|Azure Active Directory|Azure Data Studio [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] och Azure CLI ansluter till Azure Resource Manager-API: er för att skicka och hämta data till och från Azure för vissa funktioner.|
+- [Microsoft Container Registry (MCR)](#microsoft-container-registry-mcr)
+- [Azure Resource Manager-API: er](#azure-resource-manager-apis)
+- [API: er för Azure Monitor](#azure-monitor-apis)
+
+Alla HTTPS-anslutningar till Azure och Microsoft Container Registry krypteras med SSL/TLS med hjälp av officiellt signerade och verifierbara certifikat.
+
+I följande avsnitt finns information om de här anslutningarna. 
+
+### <a name="microsoft-container-registry-mcr"></a>Microsoft Container Registry (MCR)
+
+Microsoft Container Registry är värd för de avbildningar av Azure Arc-aktiverade data Services-behållare.  Du kan hämta avbildningarna från MCR och skicka dem till ett privat behållar register och konfigurera distributions processen för datakontrollanten för att hämta behållar avbildningarna från det privata behållar registret.
+
+#### <a name="connection-source"></a>Anslutningens källa
+
+Kubernetes-kubelet på varje Kubernetes-noder hämtar behållar avbildningarna.
+
+#### <a name="connection-target"></a>Anslutningens mål
+
+`mcr.microsoft.com`
+
+#### <a name="protocol"></a>Protokoll
+
+HTTPS
+
+#### <a name="port"></a>Port
+
+443
+
+#### <a name="can-use-proxy"></a>Kan använda proxy
+
+Ja
+
+#### <a name="authentication"></a>Autentisering
+
+Inget
+
+### <a name="azure-resource-manager-apis"></a>Azure Resource Manager-API: er
+Azure Data Studio [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] och Azure CLI ansluter till Azure Resource Manager-API: er för att skicka och hämta data till och från Azure för vissa funktioner.
+
+#### <a name="connection-source"></a>Anslutningens källa
+
+En dator som kör Azure Data Studio, [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] eller Azure CLI som ansluter till Azure.
+
+#### <a name="connection-target"></a>Anslutningens mål
+
+- `login.microsoftonline.com`
+- `management.azure.com`
+- `san-af-eastus-prod.azurewebsites.net`
+- `san-af-eastus2-prod.azurewebsites.net`
+- `san-af-australiaeast-prod.azurewebsites.net`
+- `san-af-centralus-prod.azurewebsites.net`
+- `san-af-westus2-prod.azurewebsites.net`
+- `san-af-westeurope-prod.azurewebsites.net`
+- `san-af-southeastasia-prod.azurewebsites.net`
+- `san-af-koreacentral-prod.azurewebsites.net`
+- `san-af-northeurope-prod.azurewebsites.net`
+- `san-af-westeurope-prod.azurewebsites.net`
+- `san-af-uksouth-prod.azurewebsites.net`
+- `san-af-francecentral-prod.azurewebsites.net`
+
+#### <a name="protocol"></a>Protokoll
+
+HTTPS
+
+#### <a name="port"></a>Port
+
+443
+
+#### <a name="can-use-proxy"></a>Kan använda proxy
+
+Ja
+
+#### <a name="authentication"></a>Autentisering 
+
+Azure Active Directory
+
+### <a name="azure-monitor-apis"></a>API: er för Azure Monitor
+
+Azure Data Studio [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] och Azure CLI ansluter till Azure Resource Manager-API: er för att skicka och hämta data till och från Azure för vissa funktioner.
+
+#### <a name="connection-source"></a>Anslutningens källa
+
+En dator [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] som kör eller Azure CLI som laddar upp övervaknings mått eller loggar till Azure Monitor.
+
+#### <a name="connection-target"></a>Anslutningens mål
+
+- `login.microsoftonline.com`
+- `management.azure.com`
+- `*.ods.opinsights.azure.com`
+- `*.oms.opinsights.azure.com`
+- `*.monitoring.azure.com`
+
+#### <a name="protocol"></a>Protokoll
+
+HTTPS
+
+#### <a name="port"></a>Port
+
+443
+
+#### <a name="can-use-proxy"></a>Kan använda proxy
+
+Ja
+
+#### <a name="authentication"></a>Autentisering 
+
+Azure Active Directory
 
 > [!NOTE]
 > För närvarande är alla webbläsares HTTPS/443-anslutningar till Grafana-och Kibana-instrumentpanelerna och från [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] till datakontrollantens API SSL-krypterade med självsignerade certifikat.  En funktion kommer att vara tillgänglig i framtiden som gör att du kan tillhandahålla dina egna certifikat för kryptering av dessa SSL-anslutningar.
 
 Anslutning från Azure Data Studio och [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] till Kubernetes-API-servern använder Kubernetes-autentisering och kryptering som du har upprättat.  Varje användare som använder Azure Data Studio och [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] måste ha en autentiserad anslutning till Kubernetes-API: et för att utföra många av de åtgärder som rör Azure Arc-aktiverade data tjänster.
+

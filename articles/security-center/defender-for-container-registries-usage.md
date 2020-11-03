@@ -7,18 +7,18 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a1357f263c450605025b6f1e9b7bdea47d0d4f58
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370550"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289213"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Använd Azure Defender för behållar register för att söka igenom dina avbildningar efter sårbarheter
 
 På den här sidan förklaras hur du använder den inbyggda sårbarhets-skannern för att skanna behållar avbildningar som lagras i Azure Resource Manager-baserade Azure Container Registry.
 
-När **Azure Defender för behållar register** är aktiverat genomsöks alla bilder som du skickar till registret omedelbart. Dessutom genomsöks även alla bilder som hämtas under de senaste 30 dagarna. 
+När **Azure Defender för containerregister** är aktiverat genomsöks alla avbildningar du överför till registret omedelbart. Dessutom genomsöks även alla bilder som hämtas under de senaste 30 dagarna. 
 
 När skannern rapporterar sårbarheter för att Security Center, Security Center visar resultaten och relaterad information som rekommendationer. Dessutom innehåller undersökningarna relaterad information, till exempel reparations steg, relevanta CVEs, CVSS resultat och mycket annat. Du kan visa identifierade sårbarheter för en eller flera prenumerationer eller för ett enskilt register.
 
@@ -31,7 +31,7 @@ När skannern rapporterar sårbarheter för att Security Center, Security Center
 |Register och avbildningar som stöds:|Linux-avbildningar i ACR-register som är tillgängliga från det offentliga Internet med shell-åtkomst|
 |Register och avbildningar som inte stöds:|Windows-avbildningar<br>Privata register<br>Register med begränsad åtkomst med en brand vägg, en tjänst slut punkt eller privata slut punkter som Azure Private-länk<br>Super-minimalist bilder, till exempel [Docker Scratch](https://hub.docker.com/_/scratch/) images, eller "Distroless"-avbildningar som bara innehåller ett program och dess körnings beroenden utan paket hanteraren, Shell eller OS|
 |Nödvändiga roller och behörigheter:|Rollen **säkerhets läsare** och [Azure Container Registry läsare](../container-registry/container-registry-roles.md)|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja ](./media/icons/yes-icon.png) kommersiella moln<br>![Ja ](./media/icons/yes-icon.png) US gov – det finns för närvarande stöd för genomsökningen av push-funktionen. Läs mer i [när skannas bilder?](defender-for-container-registries-introduction.md#when-are-images-scanned)<br>![Ingen ](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 
@@ -139,7 +139,7 @@ Du kan använda något av följande kriterier:
 
 Så här skapar du en regel:
 
-1. På informations sidan rekommendationer för **sårbarheter i Azure Container Registry avbildningar ska åtgärdas**väljer du **Inaktivera regel**.
+1. På informations sidan rekommendationer för **sårbarheter i Azure Container Registry avbildningar ska åtgärdas** väljer du **Inaktivera regel**.
 1. Välj relevant omfattning.
 1. Definiera dina kriterier.
 1. Välj **tillämpa regel**.
@@ -149,7 +149,7 @@ Så här skapar du en regel:
 1. Visa, åsidosätta eller ta bort en regel: 
     1. Välj **Inaktivera regel**.
     1. Från listan omfång visas prenumerationer med aktiva regler som **tillämpad regel**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Skapa en Inaktivera regel för VA-undersökningar i registret":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Ändra eller ta bort en befintlig regel":::
     1. Om du vill visa eller ta bort regeln väljer du ellips-menyn ("...").
 
 

@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
-ms.openlocfilehash: 92cce0751a400e17f9975d7ae3d10e6612017823
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8bac53cd08629e8b0a9cb91e596856c0ae6b5a2f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533639"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289123"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Det gick inte att komma åt Data Lake Storage-filer i Azure HDInsight
 
@@ -32,7 +32,7 @@ Användaren kan ha återkallat behörigheter för tjänstens huvud namn (SP) på
 
 ### <a name="resolution"></a>Lösning
 
-1. Kontrol lera att alternativet SP har x-behörighet för att gå längs sökvägen. Mer information finns i [behörigheter](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Exempel på DFS-kommando för att kontrol lera åtkomsten till filer/mappar i Data Lake lagrings konto:
+1. Kontrol lera att alternativet SP har x-behörighet för att gå längs sökvägen. Mer information finns i [behörigheter](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Exempel `dfs` kommando för att kontrol lera åtkomsten till filer/mappar i data Lake lagrings konto:
 
     ```
     hdfs dfs -ls /<path to check access>
@@ -54,13 +54,13 @@ Token Refresh failed - Received invalid http response: 500
 
 Certifikatet som angetts för tjänstens huvud namn kan ha upphört att gälla.
 
-1. SSH till huvudnoden. Kontrol lera åtkomst till lagrings kontot med följande DFS-kommando:
+1. SSH till huvudnoden. Kontrol lera åtkomst till lagrings kontot med hjälp av följande `dfs` kommando:
 
     ```
     hdfs dfs -ls /
     ```
 
-1. Bekräfta att fel meddelandet ser ut ungefär så här:
+1. Bekräfta att fel meddelandet liknar följande utdata:
 
     ```
     {"stderr": "-ls: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken}}...
@@ -161,16 +161,10 @@ Invoke-AzureRmResourceAction `
 
 ```
 
-Om du vill tilldela ett befintligt certifikat, skapar du ett certifikat, har. pfx-filen och lösen ordet klart. Koppla certifikatet till tjänstens huvud namn som klustret skapades med och har den AppId som är klar.
+Om du vill tilldela ett befintligt certifikat, skapar du ett certifikat, har. pfx-filen och lösen ordet klart. Koppla certifikatet till tjänstens huvud namn som klustret skapades med med hjälp av AppId Ready.
 
 Kör PowerShell-kommandot när du har ersatt parametrarna med de faktiska värdena.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
-
-* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
-
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

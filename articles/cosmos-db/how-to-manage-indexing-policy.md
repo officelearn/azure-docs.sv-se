@@ -4,15 +4,15 @@ description: 'Lär dig hur du hanterar indexerings principer, tar med eller unda
 author: timsander1
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 96ae4162c78f66b75d8c1ef2a8cec16995a5f016
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 335eac64bd5dff5b466fd97f5b2e093f2f56ee79
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075712"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289927"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Hantera indexeringsprinciper i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ Här följer några exempel på indexerings principer som visas i [deras JSON-fo
     }
 ```
 
-Den här indexerings principen motsvarar den som anges nedan och som manuellt ställer in ```kind``` , ```dataType``` och ```precision``` till standardvärdena. De här egenskaperna är inte längre nödvändiga för att uttryckligen anges och du kan utesluta dem från din indexerings princip helt (se exemplet ovan).
+Den här indexerings principen motsvarar den som anges nedan och som manuellt ställer in ```kind``` , ```dataType``` och ```precision``` till standardvärdena. De här egenskaperna är inte längre nödvändiga för att uttryckligen anges och du bör utesluta dem från din indexerings princip helt (se exemplet ovan).
 
 ```json
     {
@@ -101,7 +101,7 @@ Den här indexerings principen motsvarar den som anges nedan och som manuellt st
     }
 ```
 
-Den här indexerings principen motsvarar den som anges nedan och som manuellt ställer in ```kind``` , ```dataType``` och ```precision``` till standardvärdena. De här egenskaperna är inte längre nödvändiga för att uttryckligen anges och du kan utesluta dem från din indexerings princip helt (se exemplet ovan).
+Den här indexerings principen motsvarar den som anges nedan och som manuellt ställer in ```kind``` , ```dataType``` och ```precision``` till standardvärdena. De här egenskaperna är inte längre nödvändiga för att uttryckligen anges och du bör utesluta dem från din indexerings princip helt (se exemplet ovan).
 
 ```json
     {
@@ -143,7 +143,7 @@ Den här indexerings principen motsvarar den som anges nedan och som manuellt st
 ```
 
 > [!NOTE]
-> Vi rekommenderar vanligt vis att du använder en **opt-out-** indexerings princip för att låta Azure Cosmos DB indexera alla nya egenskaper som kan läggas till i din modell proaktivt.
+> Det rekommenderas vanligt vis att **använda en** indexerings princip för att Azure Cosmos DB proaktivt indexera alla nya egenskaper som kan läggas till i din data modell.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Använda ett rums index för en speciell egenskaps Sök väg
 
@@ -177,7 +177,7 @@ Den här indexerings principen motsvarar den som anges nedan och som manuellt st
 
 ## <a name="composite-indexing-policy-examples"></a>Exempel på sammansatta indexerings principer
 
-Förutom att inkludera eller exkludera sökvägar för enskilda egenskaper kan du också ange ett sammansatt index. Om du vill utföra en fråga som har en `ORDER BY` sats för flera egenskaper, krävs ett [sammansatt index](index-policy.md#composite-indexes) för dessa egenskaper. Dessutom får sammansatta index en prestanda förmån för frågor som har ett filter och har en ORDER BY-sats för olika egenskaper.
+Förutom att inkludera eller exkludera sökvägar för enskilda egenskaper kan du också ange ett sammansatt index. Om du vill utföra en fråga som har en `ORDER BY` sats för flera egenskaper, krävs ett [sammansatt index](index-policy.md#composite-indexes) för dessa egenskaper. Dessutom får sammansatta index en prestanda förmån för frågor som har flera filter eller både ett filter och en ORDER BY-sats.
 
 > [!NOTE]
 > Sammansatta sökvägar har ett implicit `/?` eftersom endast det skalära värdet på den sökvägen indexeras. `/*`Jokertecknet stöds inte i sammansatta sökvägar. Du bör inte ange `/?` eller `/*` i en sammansatt sökväg.
@@ -314,7 +314,7 @@ Det är valfritt att ange ordningen. Om detta inte anges, är ordningen stigande
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Exkludera alla egenskaps Sök vägar men behålla indexering aktiv
 
-Den här principen kan användas i situationer där [TTL-funktionen (Time-to-Live)](time-to-live.md) är aktiv men inget sekundärt index krävs (för att använda Azure Cosmos DB som ett rent nyckel värdes lager).
+Den här principen kan användas i situationer där [TTL-funktionen (Time-to-Live)](time-to-live.md) är aktiv men inga ytterligare index krävs (för att använda Azure Cosmos DB som ett rent nyckel värdes lager).
 
 ```json
     {
@@ -354,13 +354,13 @@ En [indexerings princip uppdatering](index-policy.md#modifying-the-indexing-poli
 
 Azure Cosmos-behållare lagrar sin indexerings princip som ett JSON-dokument som Azure Portal gör att du kan redigera den direkt.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Skapa ett nytt Azure Cosmos DB-konto eller välj ett befintligt konto.
 
 1. Öppna fönstret **datautforskaren** och välj den behållare som du vill arbeta med.
 
-1. Klicka på **skala & inställningar** .
+1. Klicka på **skala & inställningar**.
 
 1. Ändra JSON-dokumentet för indexerings principen (se exemplen [nedan](#indexing-policy-examples))
 

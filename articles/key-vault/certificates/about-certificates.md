@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 45c0108ed87dd5264b9192f5dd69e0198bd59fc1
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126781"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289778"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Om Azure Key Vault-certifikat
 
@@ -44,7 +44,7 @@ När ett Key Vault-certifikat skapas, kan det hämtas från den adresser bara he
 
 Den adresser bara nyckeln blir mer relevant med icke exporter bara KV-certifikat. Den adresser bara KV-nyckelns åtgärder mappas från fältet nyckel *användning* i kv-certifikat policyn som används för att skapa kv-certifikatet.  
 
- - Typer som stöds: RSA, RSA-HSM, EC, EC-HSM, okt (listade [här](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) kan exporteras endast med RSA, ec. HSM-nycklar kan inte exporteras.
+ - Typer som stöds: RSA, RSA-HSM, EC, EC-HSM, okt (listade [här](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) kan exporteras endast med RSA, ec. HSM-nycklar kan inte exporteras.
 
 
 ## <a name="certificate-attributes-and-tags"></a>Certifikatets attribut och Taggar
@@ -57,14 +57,14 @@ Certifikatets attribut speglas till attribut för den adress bara nyckel och hem
 
 Ett Key Vault certifikat har följande attribut:  
 
--   *aktive rad*: boolesk, valfritt, standardvärdet är **True**. Kan anges för att ange om certifikat data kan hämtas som hemliga eller fungerar som en nyckel. Används också tillsammans med *NBF* och *exp* när en åtgärd sker mellan *NBF* och *exp*, och är bara tillåten om aktive rad är inställd på True. Åtgärder utanför *NBF* och *exp* -fönstret tillåts inte automatiskt.  
+-   *aktive rad* : boolesk, valfritt, standardvärdet är **True**. Kan anges för att ange om certifikat data kan hämtas som hemliga eller fungerar som en nyckel. Används också tillsammans med *NBF* och *exp* när en åtgärd sker mellan *NBF* och *exp* , och är bara tillåten om aktive rad är inställd på True. Åtgärder utanför *NBF* och *exp* -fönstret tillåts inte automatiskt.  
 
 Det finns ytterligare skrivskyddade attribut som ingår i svaret:
 
--   *skapad*: IntDate: anger när den här versionen av certifikatet skapades.  
--   *uppdaterad*: IntDate: anger när den här versionen av certifikatet uppdaterades.  
--   *exp*: IntDate: innehåller värdet för det utgångna datumet för x509-certifikatet.  
--   *NBF*: IntDate: innehåller värdet för datumet för x509-certifikatet.  
+-   *skapad* : IntDate: anger när den här versionen av certifikatet skapades.  
+-   *uppdaterad* : IntDate: anger när den här versionen av certifikatet uppdaterades.  
+-   *exp* : IntDate: innehåller värdet för det utgångna datumet för x509-certifikatet.  
+-   *NBF* : IntDate: innehåller värdet för datumet för x509-certifikatet.  
 
 > [!Note] 
 > Om ett nyckelvalvscertifikat upphör att gälla går det inte att använda dess adresserbara nyckel och hemlighet.  
@@ -82,11 +82,11 @@ En certifikat princip innehåller information om hur du skapar och hanterar livs
 
 När ett Key Vault-certifikat skapas från grunden måste en princip anges. Principen anger hur du skapar den här Key Vault certifikat versionen eller nästa Key Vault certifikat version. När en princip har upprättats krävs det inte med efterföljande skapande åtgärder för framtida versioner. Det finns bara en instans av en princip för alla versioner av ett Key Vault certifikat.  
 
-På en hög nivå innehåller en certifikat princip följande information (deras definitioner hittar du [här](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
+På en hög nivå innehåller en certifikat princip följande information (deras definitioner hittar du [här](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)):  
 
 -   Egenskaper för X509-certifikat: innehåller ämnes namn, alternativa namn för certifikat mottagare och andra egenskaper som används för att skapa en x509-certifikatbegäran.  
 -   Nyckel egenskaper: innehåller fält av nyckel typ, nyckel längd, export bar och ReuseKeyOnRenewal. Dessa fält instruerar nyckel valvet om hur man genererar en nyckel. 
-     - Typer som stöds: RSA, RSA-HSM, EC, EC-HSM, okt (visas [här](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
+     - Typer som stöds: RSA, RSA-HSM, EC, EC-HSM, okt (visas [här](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
 -   Hemliga egenskaper: innehåller hemliga egenskaper som innehålls typ för adresser bar hemlighet för att generera det hemliga värdet, för att hämta certifikat som en hemlighet.  
 -   Livs längds åtgärder: innehåller livs längds åtgärder för KV-certifikatet. Varje livs längds åtgärd innehåller:  
 
@@ -103,14 +103,14 @@ Följande tabell visar mappningen av principen för x509-nyckel användning till
 
 |**Användnings flaggor för X509-nyckel**|**Key Vault Key OPS**|**Standardbeteende**|
 |----------|--------|--------|
-|DataEncipherment|kryptera, dekryptera| Saknas |
-|DecipherOnly|innehållet| Saknas  |
+|DataEncipherment|kryptera, dekryptera| E.t. |
+|DecipherOnly|innehållet| E.t.  |
 |DigitalSignature|signera, verifiera| Key Vault standard utan användnings specifikation när certifikat skapas | 
-|EncipherOnly|encrypt| Saknas |
-|KeyCertSign|signera, verifiera|Saknas|
+|EncipherOnly|encrypt| E.t. |
+|KeyCertSign|signera, verifiera|E.t.|
 |KeyEncipherment|wrapKey, unwrapKey| Key Vault standard utan användnings specifikation när certifikat skapas | 
-|Oavvislig het|signera, verifiera| Saknas |
-|cRLSign|signera, verifiera| Saknas |
+|Oavvislig het|signera, verifiera| E.t. |
+|cRLSign|signera, verifiera| E.t. |
 
 ## <a name="certificate-issuer"></a>Certifikat utfärdare
 
@@ -133,7 +133,7 @@ Innan du kan skapa en certifikat utfärdare i en Key Vault måste du utföra fö
 
     -   Tillhandahåller den konfiguration som ska användas för att skapa ett Issuer-objekt för providern i nyckel valvet  
 
-Mer information om hur du skapar Issuer-objekt från certifikat portalen finns i [bloggen för Key Vault certifikat](https://aka.ms/kvcertsblog)  
+Mer information om hur du skapar Issuer-objekt från certifikat portalen finns i [bloggen för Key Vault certifikat](/archive/blogs/kv/manage-certificates-via-azure-key-vault)  
 
 Key Vault gör det möjligt att skapa flera Issuer-objekt med en annan konfiguration av Issuer-providern. När ett Issuer-objekt har skapats kan namnet refereras till i en eller flera certifikat principer. Om du refererar till Issuer-objektet instrueras Key Vault att använda konfigurationen som anges i Issuer-objektet när du begär x509-certifikatet från CA-providern när certifikatet skapas och förnyas.  
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 84224172dbfd63fee51b3a7b80f5990b04e5e228
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535033"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288986"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop YARN med Azure HDInsight
 
@@ -32,7 +32,7 @@ I det här exemplet ändras två befintliga köer ( **standard** -och **thriftsv
 | thrftsvr | 25 % | 50 % |
 | spark | 50 % | 50 % |
 
-1. Välj ikonen **Ambari views** och välj sedan rutnäts mönstret. Välj sedan **garn Queue Manager** .
+1. Välj ikonen **Ambari views** och välj sedan rutnäts mönstret. Välj sedan **garn Queue Manager**.
 
     ![Apache Ambari Dashboard garn Queue Manager](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Välj **standard** kön.
@@ -41,7 +41,7 @@ I det här exemplet ändras två befintliga köer ( **standard** -och **thriftsv
 3. Ändra **kapaciteten** från 50% till 25% för **standard** kön. Ändra **kapaciteten** till 25% för **thriftsvr** -kön.
 
     ![Ändra kapaciteten till 25% för standard-och thriftsvr-köerna](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
-4. Om du vill skapa en ny kö väljer du **Lägg till kö** .
+4. Om du vill skapa en ny kö väljer du **Lägg till kö**.
 
     ![Apache Ambari garn Dashboard Lägg till kö](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
@@ -52,7 +52,7 @@ I det här exemplet ändras två befintliga köer ( **standard** -och **thriftsv
 6. Lämna **kapacitets** värden på 50% och välj sedan knappen **åtgärder** .
 
     ![Apache Ambari-garn Välj åtgärd](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
-7. Välj **Spara och uppdatera köer** .
+7. Välj **Spara och uppdatera köer**.
 
     ![Välj Spara och uppdatera köer](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
@@ -136,10 +136,4 @@ Dessa ändringar visas omedelbart i användar gränssnittet för garn Scheduler.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
-
-- Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
-
-- Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-
-- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

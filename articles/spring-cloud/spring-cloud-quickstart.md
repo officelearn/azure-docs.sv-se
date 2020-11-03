@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a060528d3140203541f6a13064659651c7a4f67d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a4400adeff8907e2d4ff690a83c63d32da8031bd
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488969"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289316"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Snabb start: Distribuera ditt första Azure våren Cloud-program
 
@@ -33,7 +33,7 @@ Genom att följa den här snabb starten får du lära dig att:
 
 Den program kod som används i den här snabb starten är en enkel app som skapats med en .NET Core Web API Project-mall. När du har slutfört det här exemplet är programmet tillgängligt online och kan hanteras via Azure Portal och Azure CLI.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.Net Core 3,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). Azure våren Cloud Service stöder .NET Core 3,1 och senare versioner.
@@ -112,7 +112,7 @@ I Visual Studio skapar du ett ASP.NET Core webb program med namnet "Hello-World"
    }
    ```
 
-1. Ändra också *appsettings.json*logg nivån för `Microsoft` kategorin från tillappsettings.jspå `Warning` `Information` . Den här ändringen säkerställer att loggar skapas när du visar strömmande loggar i ett senare steg.
+1. Ändra också *appsettings.json* logg nivån för `Microsoft` kategorin från tillappsettings.jspå `Warning` `Information` . Den här ändringen säkerställer att loggar skapas när du visar strömmande loggar i ett senare steg.
 
    *appsettings.jspå* filen ser nu ut ungefär som i följande exempel:
 
@@ -206,7 +206,7 @@ Följande procedur skapar en instans av Azure våren Cloud med hjälp av Azure P
 
 1. Öppna [Azure-portalen](https://ms.portal.azure.com/). 
 
-1. Sök efter *Azure våren Cloud*i den översta sökrutan.
+1. Sök efter *Azure våren Cloud* i den översta sökrutan.
 
 1. Välj *Azure våren Cloud* från resultaten.
 
@@ -218,10 +218,10 @@ Följande procedur skapar en instans av Azure våren Cloud med hjälp av Azure P
 
 1. Fyll i formuläret på sidan Azure våren Cloud **create** .  Beakta följande rikt linjer:
 
-   * **Prenumeration**: Välj den prenumeration som du vill fakturera för den här resursen.
-   * **Resurs grupp**: skapa en ny resurs grupp. Det namn som du anger här kommer att användas i senare steg som **\<resource group name\>** .
-   * **Tjänst information/namn**: ange **\<service instance name\>** .  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
-   * **Region**: Välj region för din tjänst instans.
+   * **Prenumeration** : Välj den prenumeration som du vill fakturera för den här resursen.
+   * **Resurs grupp** : skapa en ny resurs grupp. Det namn som du anger här kommer att användas i senare steg som **\<resource group name\>** .
+   * **Tjänst information/namn** : ange **\<service instance name\>** .  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
+   * **Region** : Välj region för din tjänst instans.
 
    ![ASC-portalen börjar](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -242,7 +242,7 @@ Följande procedur skapar och distribuerar det projekt som du skapade tidigare.
 1. Skapa en app i Azure våren Cloud-instansen med en offentlig slut punkt tilldelad. Använd samma program namn "Hello-World" som du angav i *appsettings.jspå*.
 
    ```console
-   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public
+   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public --runtime-version NetCore_31
    ```
 
 1. Distribuera *. zip* -filen till appen.
@@ -334,7 +334,7 @@ Den här snabb starten förklarar hur du:
 > * Bygg och distribuera appen med en offentlig slut punkt
 > * Stream-loggar i real tid
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -376,7 +376,7 @@ Följande procedur skapar en instans av Azure våren Cloud med hjälp av Azure P
 
 1. Öppna [Azure Portal](https://ms.portal.azure.com/)på en ny flik. 
 
-2. Sök efter *Azure våren Cloud*i den översta sökrutan.
+2. Sök efter *Azure våren Cloud* i den översta sökrutan.
 
 3. Välj *Azure våren Cloud* från resultaten.
 
@@ -387,10 +387,10 @@ Följande procedur skapar en instans av Azure våren Cloud med hjälp av Azure P
     ![ASC-ikon Lägg till](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Fyll i formuläret på sidan Azure våren Cloud **create** .  Beakta följande rikt linjer:
-    - **Prenumeration**: Välj den prenumeration som du vill fakturera för den här resursen.
-    - **Resurs grupp**: skapa nya resurs grupper för nya resurser är en bra metod. Detta kommer att användas i senare steg som **\<resource group name\>** .
-    - **Tjänst information/namn**: ange **\<service instance name\>** .  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
-    - **Plats**: Välj region för din tjänst instans.
+    - **Prenumeration** : Välj den prenumeration som du vill fakturera för den här resursen.
+    - **Resurs grupp** : skapa nya resurs grupper för nya resurser är en bra metod. Detta kommer att användas i senare steg som **\<resource group name\>** .
+    - **Tjänst information/namn** : ange **\<service instance name\>** .  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
+    - **Plats** : Välj region för din tjänst instans.
 
     ![ASC-portalen börjar](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -451,7 +451,7 @@ För att kunna distribuera till Azure måste du logga in med ditt Azure-konto oc
 1. I text rutan **fjäder moln** väljer du instansen av Azure våren-molnet som du skapade i [etablera Azure våren Cloud-instansen](./spring-cloud-quickstart-provision-service-instance.md).
 1. Ange den **offentliga slut punkten** som ska *aktive ras*.
 1. I text rutan **app:** väljer du **skapa app...**.
-1. Ange *hellospring*och klicka sedan på **OK**.
+1. Ange *hellospring* och klicka sedan på **OK**.
 
     [![Distribuera till Azure OK ](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png)](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png#lightbox)
 
@@ -481,7 +481,7 @@ Loggarna visas i resultatet:
 
 #### <a name="intellij"></a>[IntelliJ](#tab/IntelliJ)
 
-1. Välj **Azure Explorer**och sedan **våren Cloud**.
+1. Välj **Azure Explorer** och sedan **våren Cloud**.
 1. Högerklicka på appen som körs.
 1. Välj **strömmande loggar** från den nedrullningsbara listan.
 1. Välj instans.

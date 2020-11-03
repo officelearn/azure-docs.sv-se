@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441376"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285852"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Egenskaper för en Azure Active Directory B2B-samarbets användare
 
@@ -28,7 +28,7 @@ Beroende på den bjudande organisationens behov kan en Azure AD B2B-samarbets an
 - Tillstånd 1: i en extern instans av Azure AD som visas som gäst användare i den bjudande organisationen. I det här fallet loggar B2B-användaren in genom att använda ett Azure AD-konto som tillhör den inbjudna klienten. Om partner organisationen inte använder Azure AD skapas fortfarande gäst användaren i Azure AD. Kraven är att de löser in sin inbjudan och Azure AD verifierar sin e-postadress. Den här ordningen kallas även för ett just-in-Time-innehav (JIT) eller ett "viral"-innehav.
 
    > [!IMPORTANT]
-   > Från och med den **31 mars 2021**kommer Microsoft inte längre att stödja inlösen av inbjudningar genom att skapa ohanterade Azure AD-konton och klienter för B2B-samarbets scenarier. Vi rekommenderar att kunderna väljer [autentisering med e-post med eng ång slö sen ord](one-time-passcode.md). Vi välkomnar din feedback om den här offentliga för hands versionen och är glada att skapa ännu fler sätt att samar beta.
+   > Från och med den **31 mars 2021** kommer Microsoft inte längre att stödja inlösen av inbjudningar genom att skapa ohanterade Azure AD-konton och klienter för B2B-samarbets scenarier. Vi rekommenderar att kunderna väljer [autentisering med e-post med eng ång slö sen ord](one-time-passcode.md). Vi välkomnar din feedback om den här offentliga för hands versionen och är glada att skapa ännu fler sätt att samar beta.
 
 - Tillstånd 2: i ett Microsoft-konto eller ett annat konto som representeras som gäst användare i värd organisationen. I det här fallet loggar gäst användaren in med ett Microsoft-konto eller ett socialt konto (google.com eller liknande). Den inbjudna användarens identitet skapas som en Microsoft-konto i den bjudande organisationens katalog under erbjudandet inlösen.
 
@@ -59,7 +59,7 @@ För gäst användare i läge 2 är **källan** Microsoft- **konto**.
 
 ![Tillstånd 2 gäst användare efter inlösen av erbjudandet](media/user-properties/after-redemption-state2.png)
 
-För gäst användare i läge 3 och State 4 anges egenskapen **Source** till **Azure Active Directory** eller **Windows Server Active Directory**, enligt beskrivningen i nästa avsnitt.
+För gäst användare i läge 3 och State 4 anges egenskapen **Source** till **Azure Active Directory** eller **Windows Server Active Directory** , enligt beskrivningen i nästa avsnitt.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Nyckel egenskaper för Azure AD B2B Collaboration-användare
 ### <a name="usertype"></a>UserType
@@ -70,6 +70,8 @@ Den här egenskapen anger användarens relation till värd innehavaren. Den här
 
   > [!NOTE]
   > UserType har ingen relation till hur användaren loggar in, katalog rollen för användaren och så vidare. Den här egenskapen anger bara användarens relation till värd organisationen och gör att organisationen kan genomdriva principer som är beroende av den här egenskapen.
+
+Mer information om priser finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory).
 
 ### <a name="source"></a>Källa
 Den här egenskapen anger hur användaren loggar in.

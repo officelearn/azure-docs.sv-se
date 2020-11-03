@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07be83527fa781f87ed1de06fa41bd6d08ee9dc4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 74669036a40048ca21aae56856981197defe1c35
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426582"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286526"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrera Key Vault med Azure Private Link
 
@@ -67,7 +67,7 @@ Nu kommer du att kunna se den konfigurerade privata slut punkten. Nu har du möj
 
 Om du redan har ett nyckel valv kan du skapa en privat länk anslutning genom att följa dessa steg:
 
-1. Logga in på Azure Portal. 
+1. Logga in på Azure-portalen. 
 1. I Sök fältet skriver du in "nyckel valv"
 1. Välj nyckel valvet i listan som du vill lägga till en privat slut punkt för.
 1. Välj fliken nätverk under Inställningar
@@ -243,14 +243,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Kontrol lera att du har en Privat DNS zon resurs. 
     1. Du måste ha en Privat DNS zon resurs med det exakta namnet: privatelink.vaultcore.azure.net. 
-    2. Information om hur du konfigurerar detta finns i följande länk. [Privat DNS zoner](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    2. Information om hur du konfigurerar detta finns i följande länk. [Privat DNS zoner](../../dns/private-dns-privatednszone.md)
     
 * Kontrollera att den privata DNS-zonen inte är länkad till det virtuella nätverket. Detta kan vara ett problem om du fortfarande får den offentliga IP-adressen som returnerades. 
     1. Om DNS för den privata zonen inte är länkat till det virtuella nätverket, returnerar DNS-frågan från det virtuella nätverket den offentliga IP-adressen för nyckel valvet. 
     2. Navigera till resursen Privat DNS zon i Azure Portal och klicka på alternativet virtuella nätverks länkar. 
     4. Det virtuella nätverk som ska utföra anrop till nyckel valvet måste anges. 
     5. Om det inte finns där lägger du till det. 
-    6. Detaljerade anvisningar finns i följande dokument [länk Virtual Network till privat DNS zon](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+    6. Detaljerade anvisningar finns i följande dokument [länk Virtual Network till privat DNS zon](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Kontrol lera att zonen Privat DNS inte saknar en A-post för nyckel valvet. 
     1. Gå till sidan Privat DNS zon. 
@@ -270,17 +270,17 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 > [!NOTE]
 > Antalet nyckel valv med privata slut punkter som har Aktiver ATS per prenumeration är en justerbar gräns. Den gräns som visas nedan är standard gränsen. Skicka ett e-postmeddelande till om du vill begära en större gräns för tjänsten akv-privatelink@microsoft.com . Vi kommer att godkänna dessa förfrågningar från fall till fall.
 
-**Priser**: information om priser finns i [priser för privata Azure-länkar](https://azure.microsoft.com/pricing/details/private-link/).
+**Priser** : information om priser finns i [priser för privata Azure-länkar](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Begränsningar**: den privata slut punkten för Azure Key Vault är bara tillgänglig i offentliga Azure-regioner.
+**Begränsningar** : den privata slut punkten för Azure Key Vault är bara tillgänglig i offentliga Azure-regioner.
 
-**Maximalt antal privata slut punkter per Key Vault**: 64.
+**Maximalt antal privata slut punkter per Key Vault** : 64.
 
-**Standard antal nyckel valv med privata slut punkter per prenumeration**: 400.
+**Standard antal nyckel valv med privata slut punkter per prenumeration** : 400.
 
 Mer information finns i [Azure Private Link service: begränsningar](../../private-link/private-link-service-overview.md#limitations)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [Azures privata länk](../../private-link/private-link-service-overview.md)
 - Läs mer om [Azure Key Vault](overview.md)

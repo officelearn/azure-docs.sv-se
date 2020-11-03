@@ -9,41 +9,44 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: b986832e5febbb2a0f88b65213f9acf0dd4c5ab5
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 23ecc3bdfb0ca85caf219fc262348937923f53c3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996887"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286130"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>Automatisk registrering med SQL VM Resource Provider
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Aktivera funktionen för automatisk registrering i Azure Portal att automatiskt registrera alla aktuella och framtida SQL Server på virtuella Azure-datorer med resurs leverantören för SQL-VM i lättviktigt läge.
+Aktivera funktionen för automatisk registrering i Azure Portal för att automatiskt registrera alla aktuella och framtida SQL Server på Azure-Virtual Machines (VM) med den virtuella SQL-resurs leverantören i Lightweight-läge. Vid registrering med den virtuella SQL VM-providern installeras [SQL IaaS agent-tillägget](sql-server-iaas-agent-extension-automate-management.md).
 
 I den här artikeln lär du dig att aktivera funktionen för automatisk registrering. Alternativt kan du [Registrera en enskild virtuell dator](sql-vm-resource-provider-register.md)eller [Registrera dina virtuella datorer i bulk](sql-vm-resource-provider-bulk-register.md) med providern för SQL VM-resurs. 
 
 ## <a name="overview"></a>Översikt
 
-Med [resurs leverantören för SQL-VM](sql-vm-resource-provider-register.md#overview) kan du hantera dina SQL Server VM från Azure Portal. Dessutom möjliggör resurs leverantören en robust funktions uppsättning, inklusive [Automatisk uppdatering](automated-patching.md), [Automatisk säkerhets kopiering](automated-backup.md), samt övervakning och hanterings funktioner. Den låser också upp flexibiliteten för [licensiering](licensing-model-azure-hybrid-benefit-ahb-change.md) och [utgåvor](change-sql-server-edition.md) . Tidigare var dessa funktioner bara tillgängliga för SQL Server VM avbildningar som distribueras från Azure Marketplace. 
+När du registrerar din SQL Server VM med resurspoolen för SQL VM-providern installeras [SQL IaaS agent-tillägget](sql-server-iaas-agent-extension-automate-management.md). 
 
-Funktionen för automatisk registrering gör det möjligt för kunder att automatiskt registrera alla aktuella och framtida SQL Server virtuella datorer i sin Azure-prenumeration med providern för SQL VM-resurs. Detta skiljer sig från manuell registrering, som bara fokuserar på aktuella SQL Server virtuella datorer. 
+När automatisk registrering har Aktiver ATS körs ett jobb dagligen för att identifiera om SQL Server har installerats på alla oregistrerade virtuella datorer i prenumerationen. Det gör du genom att kopiera binärfilerna för SQL IaaS-agenttjänsten till den virtuella datorn och sedan köra ett engångs verktyg som söker efter registrerings data filen SQL Server. Om SQL Server Hive identifieras, registreras den virtuella datorn med [resurs leverantören för SQL-VM](sql-vm-resource-provider-register.md) i Lightweight-läge. Om det inte finns någon SQL Server Hive i registret tas binärfilerna bort.
 
-Automatisk registrering registrerar SQL Server virtuella datorer i Lightweight-läge. Du måste fortfarande [Uppgradera till fullständigt hanterings läge manuellt](sql-vm-resource-provider-register.md#upgrade-to-full) för att kunna dra nytta av den fullständiga funktions uppsättningen. 
+När automatisk registrering har Aktiver ATS för en prenumeration registreras alla aktuella och framtida virtuella datorer som har SQL Server installerat med resurs leverantören för SQL-VM i lättviktigt läge. Du måste fortfarande [Uppgradera till fullständigt hanterings läge manuellt](sql-vm-resource-provider-register.md#upgrade-to-full) för att kunna dra nytta av den fullständiga funktions uppsättningen. 
 
-## <a name="prerequisites"></a>Förutsättningar
+> [!IMPORTANT]
+> SQL IaaS agent-tillägget samlar in data i Express syfte att ge kunderna valfria förmåner när de använder SQL Server i Azure Virtual Machines. Microsoft kommer inte att använda dessa data för licens granskningar utan kundens medgivande. Se [SQL Server sekretess tillägg](/sql/sql-server/sql-server-privacy#non-personal-data) för mer information.
+
+## <a name="prerequisites"></a>Krav
 
 För att registrera SQL Server VM med resurs leverantören behöver du: 
 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
-- En [virtuell Windows-dator](../../../virtual-machines/windows/quick-create-portal.md) i Azure Resource Model med [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) distribuerad till det offentliga molnet eller Azure Government molnet. 
+- En virtuell dator med Azure resurs modell [Windows Server 2008 R2 (eller senare)](../../../virtual-machines/windows/quick-create-portal.md) med [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) distribuerad till det offentliga molnet eller Azure Government molnet. Windows Server 2008 stöds inte. 
 
 
 ## <a name="enable"></a>Aktivera
 
-Följ stegen nedan om du vill aktivera automatisk registrering av SQL Server virtuella datorer i Azure Portal:
+Följ dessa steg om du vill aktivera automatisk registrering av SQL Server virtuella datorer i Azure Portal:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Gå till resurs sidan för [**virtuella SQL-datorer**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
 1. Välj **automatisk SQL Server VM registreringen** för att öppna sidan för **automatisk registrering** . 
 
@@ -67,7 +70,7 @@ Om du vill inaktivera automatisk registrering med Azure CLI kör du följande ko
 az feature unregister --namespace Microsoft.SqlVirtualMachine --name BulkRegistration
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Om du vill inaktivera automatisk registrering med Azure PowerShell kör du följande kommando: 
 
@@ -89,7 +92,7 @@ Det gör du på följande sätt:
 1. Kör skriptet och skicka i SubscriptionIds som parametrar som   
    `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
 
-   Till exempel: 
+   Exempel: 
 
    ```console
    .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb

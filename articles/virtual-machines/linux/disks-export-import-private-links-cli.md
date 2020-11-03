@@ -8,16 +8,16 @@ ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 66c331a79a4da7b8fb397e7d0209b24e00645783
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 20b2f74b33ae57016188ee66af29570f7ec1b529
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741719"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289267"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure CLI – begränsa import/export-åtkomst för hanterade diskar med privata länkar
 
-Stöd för privata länkar med hanterade diskar är för närvarande en för hands version. Du kan använda [privata slut punkter](../../private-link/private-endpoint-overview.md) för att begränsa exporten och importen av hanterade diskar och säker åtkomst till data via en [privat länk](../../private-link/private-link-overview.md) från klienter i ditt virtuella Azure-nätverk. Den privata slut punkten använder en IP-adress från det virtuella nätverkets adress utrymme för tjänsten Managed disks. Nätverks trafik mellan klienter på sina virtuella nätverk och hanterade diskar passerar bara över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet.
+Du kan använda [privata slut punkter](../../private-link/private-endpoint-overview.md) för att begränsa exporten och importen av hanterade diskar och säker åtkomst till data via en [privat länk](../../private-link/private-link-overview.md) från klienter i ditt virtuella Azure-nätverk. Den privata slut punkten använder en IP-adress från det virtuella nätverkets adress utrymme för tjänsten Managed disks. Nätverks trafik mellan klienter på sina virtuella nätverk och hanterade diskar passerar bara över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet.
 
 Om du vill använda privata Länkar för att exportera/importera hanterade diskar, skapar du först en disk åtkomst resurs och länkar den till ett virtuellt nätverk i samma prenumeration genom att skapa en privat slut punkt. Associera sedan en disk eller en ögonblicks bild med en instans av disk åtkomst. Ange slutligen egenskapen NetworkAccessPolicy för disken eller ögonblicks bilden till `AllowPrivate` . Detta begränsar åtkomsten till det virtuella nätverket. 
 

@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972041"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289352"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduktion till Azure Managed Disks
 
@@ -27,7 +27,7 @@ Vi går igenom några av fördelarna med att använda hanterade diskar.
 
 ### <a name="highly-durable-and-available"></a>Mycket tåliga och tillgängliga
 
-Managed disks har utformats för 99,999% tillgänglighet. Hanterade diskar uppnår detta genom att tillhandahålla tre repliker av dina data, vilket ger hög hållbarhet. Om en eller till och med två repliker drabbas av problem hjälper de återstående replikerna att se till att dina data och hög tolerans är beständiga mot fel. Den här arkitekturen har hjälpt Azure att ständigt leverera tålighet i företags klass för IaaS-diskar (Infrastructure as a Service) med en branschledande noll% årlig procents ATS.
+Managed disks har utformats för 99,999% tillgänglighet. För att uppnå detta tillhandahåller hanterade diskar tre repliker av dina data, vilket ger mycket hög hållbarhet. Om en eller till och med två repliker får problem upprätthåller de återstående replikerna beständigheten i dina data och säkerställer en hög feltolerans. Den här arkitekturen har hjälpt Azure att ständigt leverera tålighet i företags klass för IaaS-diskar (Infrastructure as a Service) med en branschledande noll% årlig procents ATS.
 
 ### <a name="simple-and-scalable-vm-deployment"></a>Enkel och skalbar VM-distribution
 
@@ -59,7 +59,7 @@ Information om hur du överför din virtuella hård disk till Azure finns i [CLI
 
 ### <a name="private-links"></a>Privata länkar
 
-Stöd för privata Länkar för hanterade diskar är för närvarande en för hands version och kan användas för att importera eller exportera en hanterad disk internt i nätverket. Med privata länkar kan du generera en tidsbunden SAS-URI (signatur för delad åtkomst) för icke anslutna hanterade diskar och ögonblicks bilder som du kan använda för att exportera data till andra regioner för regional expansion, haveri beredskap och kriminal tekniska analys. Du kan också använda SAS-URI: n för att direkt ladda upp en virtuell hård disk till en tom disk lokalt. Nu kan du använda [privata länkar](../private-link/private-link-overview.md) för att begränsa exporten och importen av Managed disks så att den bara kan ske i det virtuella Azure-nätverket. Med privata länkar kan du se till att dina data bara skickas inom det säkra Microsoft stamnät nätverket.
+Stöd för privata Länkar för hanterade diskar kan användas för att importera eller exportera en hanterad disk internt i nätverket. Med privata länkar kan du generera en tidsbunden SAS-URI (signatur för delad åtkomst) för icke anslutna hanterade diskar och ögonblicks bilder som du kan använda för att exportera data till andra regioner för regional expansion, haveri beredskap och kriminal tekniska analys. Du kan också använda SAS-URI: n för att direkt ladda upp en virtuell hård disk till en tom disk lokalt. Nu kan du använda [privata länkar](../private-link/private-link-overview.md) för att begränsa exporten och importen av Managed disks så att den bara kan ske i det virtuella Azure-nätverket. Med privata länkar kan du se till att dina data bara skickas inom det säkra Microsoft stamnät nätverket.
 
 Information om hur du aktiverar privata Länkar för att importera eller exportera en hanterad disk finns i [CLI](linux/disks-export-import-private-links-cli.md) -eller [Portal](disks-enable-private-links-for-import-export-portal.md) artiklarna.
 
@@ -111,7 +111,7 @@ Mer information om hur du skapar ögonblicks bilder för Managed disks finns i f
 - [Skapa en ögonblicks bild av en hanterad disk i Windows](windows/snapshot-copy-managed-disk.md)
 - [Skapa en ögonblicks bild av en hanterad disk i Linux](linux/snapshot-copy-managed-disk.md)
 
-### <a name="images"></a>Bilder
+### <a name="images"></a>Avbildningar
 
 Managed disks stöder också skapande av en hanterad anpassad avbildning. Du kan skapa en avbildning från din anpassade virtuella hård disk i ett lagrings konto eller direkt från en generaliserad (Sysprep) virtuell dator. Den här processen fångar upp en enda avbildning. Den här avbildningen innehåller alla hanterade diskar som är associerade med en virtuell dator, inklusive både operativ system och data diskar. Den här hanterade anpassade avbildningen gör det möjligt att skapa hundratals virtuella datorer med din anpassade avbildning utan att behöva kopiera eller hantera lagrings konton.
 

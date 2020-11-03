@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: 6c5b2dd35fe6a61d34f24c10145d4d572c97f595
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 33990e40507f088962fd8d8efd241de5d2fcc63b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540592"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289064"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scenario: "övervaknings enhet: fel: mjuk låsning – CPU" fel från ett Azure HDInsight-kluster
 
@@ -39,14 +39,14 @@ Tillämpa kernel-korrigering. Skriptet nedan uppgraderar Linux-kärnan och start
     | Egenskap | Värde |
     | --- | --- |
     | Skript typ | – Anpassad |
-    | Namn |Korrigering för problem med tyst kernel-lås |
+    | Name |Korrigering för problem med tyst kernel-lås |
     | Bash-skript-URI |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
     | Node-typ (er) |Arbetare, Zookeeper |
     | Parametrar |E.t. |
 
     Välj **Spara den här skript åtgärden...** om du vill köra skriptet när nya noder läggs till.
 
-1. Välj **Skapa** .
+1. Välj **Skapa**.
 
 1. Vänta tills körningen har slutförts.
 
@@ -56,10 +56,4 @@ Tillämpa kernel-korrigering. Skriptet nedan uppgraderar Linux-kärnan och start
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
-
-* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
-
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

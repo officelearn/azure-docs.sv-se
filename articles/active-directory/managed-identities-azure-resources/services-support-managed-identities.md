@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37a17105be0b6754bbdfd935c6c17933314114d4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426449"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289590"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -202,8 +202,8 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 
 | Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Systemtilldelad | ![Tillgänglig][check] | ![Tillgänglig][check] | Inte tillgängligt | ![Tillgänglig][check] | 
-| Användartilldelad | ![Tillgänglig][check] | ![Tillgänglig][check] | Inte tillgängligt | ![Tillgänglig][check] |
+| Systemtilldelad | ![Tillgänglig][check] | ![Tillgänglig][check] | Inte tillgänglig | Inte tillgänglig | 
+| Användartilldelad | Förhandsgranskning | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
 
 
 Mer information finns i [använda hanterade identiteter i Azure Kubernetes-tjänsten](../../aks/use-managed-identity.md).
@@ -243,7 +243,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure Policy (i reg
 - [Azure-portalen](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
 - [Azure CLI](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
-- [Azure Resource Manager-mallar](/azure/templates/microsoft.authorization/policyassignments)
+- [Azure Resource Manager mallar](/azure/templates/microsoft.authorization/policyassignments)
 - [REST](/rest/api/resources/policyassignments/create)
 
 
@@ -281,15 +281,15 @@ Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner 
 
 |Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Systemtilldelad | ![Tillgänglig][check] | Förhandsgranskning | Förhandsgranskning | Förhandsgranskning |
-| Användartilldelad | ![Tillgänglig][check] | Förhandsgranskning | Förhandsgranskning | Förhandsgranskning |
+| Systemtilldelad | ![Tillgänglig][check] | ![Tillgänglig][check] | Förhandsgranskning | Förhandsgranskning |
+| Användartilldelad | ![Tillgänglig][check] | ![Tillgänglig][check] | Förhandsgranskning | Förhandsgranskning |
 
 I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machine Scale Sets (i regioner där det är tillgängligt):
 
 - [Azure-portalen](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager-mallar](qs-configure-template-windows-vm.md)
+- [Azure Resource Manager mallar](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
 
@@ -306,7 +306,7 @@ I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machi
 - [Azure-portalen](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager-mallar](qs-configure-template-windows-vm.md)
+- [Azure Resource Manager mallar](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 - [Azure-SDK:er](qs-configure-sdk-windows-vm.md)
 

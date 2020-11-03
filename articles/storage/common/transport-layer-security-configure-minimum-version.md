@@ -10,12 +10,12 @@ ms.date: 10/27/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 07f506ac46b8aa503138cec33918534ea309defc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5098d87d63d4002c4f219c5d2703ec1375599e00
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785807"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289455"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Framtvinga en minsta version av Transport Layer Security (TLS) som krävs för begär anden till ett lagrings konto
 
@@ -42,12 +42,12 @@ Om du vill logga Azure Storage data med Azure Monitor och analysera dem med Azur
 1. Registrera dig för för [hands versionen av Azure Storage i Azure Monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Skapa en ny Log Analytics-arbetsyta i prenumerationen som innehåller ditt Azure Storage-konto. När du har konfigurerat loggning för ditt lagrings konto är loggarna tillgängliga i Log Analytics arbets ytan. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
 1. Navigera till ditt lagringskonto i Azure-portalen.
-1. I avsnittet övervakning väljer du **diagnostikinställningar (för hands version)** .
+1. I avsnittet övervakning väljer du **diagnostikinställningar (för hands version)**.
 1. Välj den Azure Storage tjänst som du vill logga förfrågningar för. Välj till exempel **BLOB** för att logga förfrågningar till Blob Storage.
-1. Välj **Lägg till diagnostisk inställning** .
+1. Välj **Lägg till diagnostisk inställning**.
 1. Ange ett namn för den diagnostiska inställningen.
 1. Under **kategori information** i avsnittet **logg** väljer du vilka typer av begär Anden som ska loggas. Du kan logga läsnings-, skriv-och borttagnings begär Anden. Om du till exempel väljer **StorageRead** och **StorageWrite** loggas Läs-och skriv förfrågningar till den valda tjänsten.
-1. Under **mål information** väljer **du skicka till Log Analytics** . Välj din prenumeration och Log Analytics arbets ytan som du skapade tidigare, som du ser i följande bild.
+1. Under **mål information** väljer **du skicka till Log Analytics**. Välj din prenumeration och Log Analytics arbets ytan som du skapade tidigare, som du ser i följande bild.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
 
@@ -69,7 +69,7 @@ StorageBlobLogs
 
 Resultaten visar antalet begär Anden som gjorts med varje version av TLS:
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Skärm bild som visar resultatet av Log Analytics-frågan för att returnera TLS-version":::
 
 ### <a name="query-logged-requests-by-caller-ip-address-and-user-agent-header"></a>Fråga loggade begär Anden efter uppringande IP-adress och användar agent huvud
 
@@ -89,7 +89,9 @@ När du är säker på att trafik från klienter som använder äldre versioner 
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>Konfigurera den lägsta TLS-versionen för ett lagrings konto
 
-Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto anger du **MinimumTlsVersion** -versionen för kontot. Den här egenskapen är tillgänglig för alla lagrings konton som skapas med Azure Resource Manager distributions modell. Mer information om distributions modellen för Azure Resource Manager finns i [Översikt över lagrings konto](storage-account-overview.md).
+Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto anger du **MinimumTlsVersion** -versionen för kontot. Den här egenskapen är tillgänglig för alla lagrings konton som skapas med Azure Resource Manager distributions modell i det offentliga Azure-molnet eller i Azure Government moln. Mer information om distributions modellen för Azure Resource Manager finns i [Översikt över lagrings konto](storage-account-overview.md).
+
+Egenskapen **MinimumTlsVersion** har inte angetts som standard och returnerar inte något värde förrän du uttryckligen anger det.  Om egenskap svärdet är **Null** tillåter lagrings kontot begär Anden som skickas med TLS version 1,0 eller senare.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -101,13 +103,11 @@ Följ dessa steg om du vill konfigurera den lägsta TLS-versionen för ett befin
 1. Välj **konfigurations** inställningen.
 1. Under **lägsta TLS-version** använder du List rutan för att välja den lägsta version av TLS som krävs för att komma åt data i det här lagrings kontot, som du ser i följande bild.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Skärm bild som visar hur du konfigurerar den lägsta versionen av TLS i Azure Portal":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto med PowerShell installerar du [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) eller senare. Konfigurera sedan egenskapen **MinimumTLSVersion** för ett nytt eller befintligt lagrings konto. Giltiga värden för **MinimumTlsVersion** är `TLS1_0` , `TLS1_1` och `TLS1_2` .
-
-Egenskapen **MinimumTlsVersion** anges inte som standard när du skapar ett lagrings konto med PowerShell. Den här egenskapen returnerar inte något värde förrän du uttryckligen anger den. Lagrings kontot tillåter begär Anden som skickas med TLS version 1,0 eller senare om egenskap svärdet är **Null** .
 
 I följande exempel skapas ett lagrings konto som anger **MinimumTLSVersion** till TLS 1,1, uppdaterar kontot och anger **MinimumTLSVersion** till TLS 1,2. I exemplet hämtas även egenskap svärdet i varje fall. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
@@ -138,8 +138,6 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto med Azure CLI installerar du Azure CLI version 2.9.0 eller senare. Mer information finns i [Installera Azure CLI](/cli/azure/install-azure-cli). Konfigurera sedan egenskapen **minimumTlsVersion** för ett nytt eller befintligt lagrings konto. Giltiga värden för **minimumTlsVersion** är `TLS1_0` , `TLS1_1` och `TLS1_2` .
-
-Egenskapen **minimumTlsVersion** anges inte som standard när du skapar ett lagrings konto med Azure CLI. Den här egenskapen returnerar inte något värde förrän du uttryckligen anger den. Lagrings kontot tillåter begär Anden som skickas med TLS version 1,0 eller senare om egenskap svärdet är **Null** .
 
 I följande exempel skapas ett lagrings konto och **minimumTLSVersion** anges till TLS 1,1. Sedan uppdateras kontot och egenskapen **minimumTLSVersion** anges till TLS 1,2. I exemplet hämtas även egenskap svärdet i varje fall. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
@@ -173,9 +171,9 @@ az storage account show \
 
 Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto med en mall skapar du en mall med egenskapen **MinimumTLSVersion** inställd på `TLS1_0` , `TLS1_1` eller `TLS1_2` . Följande steg beskriver hur du skapar en mall i Azure Portal.
 
-1. I Azure Portal väljer du **skapa en resurs** .
-1. I **Sök på Marketplace** skriver du **mall distribution** och trycker sedan på **RETUR** .
-1. Välj **malldistribution (distribuera med anpassade mallar) (för hands version)** , Välj **skapa** och välj sedan **skapa en egen mall i redigeraren** .
+1. I Azure Portal väljer du **skapa en resurs**.
+1. I **Sök på Marketplace** skriver du **mall distribution** och trycker sedan på **RETUR**.
+1. Välj **malldistribution (distribuera med anpassade mallar) (för hands version)** , Välj **skapa** och välj sedan **skapa en egen mall i redigeraren**.
 1. I redigeraren för mallar klistrar du in följande JSON för att skapa ett nytt konto och anger den lägsta TLS-versionen till TLS 1,2. Kom ihåg att ersätta plats hållarna inom vinkelparenteser med dina egna värden.
 
     ```json
@@ -246,7 +244,7 @@ Azure Policy stöder effekter som avgör vad som händer när en princip regel u
 Följ dessa steg om du vill skapa en princip med en gransknings funktion för den lägsta TLS-versionen med Azure Portal:
 
 1. I Azure Portal navigerar du till tjänsten Azure Policy.
-1. Under avsnittet **redigering** väljer du **definitioner** .
+1. Under avsnittet **redigering** väljer du **definitioner**.
 1. Välj **Lägg till princip definition** för att skapa en ny princip definition.
 1. I fältet **definitions plats** väljer du knappen **mer** för att ange var gransknings princip resursen finns.
 1. Ange ett namn för principen. Du kan också ange en beskrivning och kategori.
@@ -283,12 +281,12 @@ Tilldela sedan principen till en resurs. Principens omfattning motsvarar resurse
 Följ dessa steg om du vill tilldela principen till Azure Portal:
 
 1. I Azure Portal navigerar du till tjänsten Azure Policy.
-1. Under avsnittet **redigering** väljer du **tilldelningar** .
+1. Under avsnittet **redigering** väljer du **tilldelningar**.
 1. Välj **tilldela princip** om du vill skapa en ny princip tilldelning.
 1. I fältet **omfattning** väljer du omfånget för princip tilldelningen.
 1. I fältet **princip definition** väljer du knappen **mer** och väljer sedan den princip som du definierade i föregående avsnitt i listan.
 1. Ange ett namn för princip tilldelningen. Beskrivningen är valfri.
-1. Aktivera **tvingande princip** uppsättning till *aktive rad* . Den här inställningen har ingen inverkan på gransknings principen.
+1. Aktivera **tvingande princip** uppsättning till *aktive rad*. Den här inställningen har ingen inverkan på gransknings principen.
 1. Välj **Granska + skapa** för att skapa tilldelningen.
 
 ### <a name="view-compliance-report"></a>Visa Kompatibilitetsrapport
@@ -300,11 +298,11 @@ Det kan ta flera minuter för rapporten att bli tillgänglig när princip tillde
 Följ dessa steg om du vill visa Kompatibilitetsrapport i Azure Portal:
 
 1. I Azure Portal navigerar du till tjänsten Azure Policy.
-1. Välj **efterlevnad** .
+1. Välj **efterlevnad**.
 1. Filtrera resultaten för namnet på princip tilldelningen som du skapade i föregående steg. Rapporten visar hur många resurser som inte är kompatibla med principen.
 1. Du kan öka detalj nivån i rapporten för ytterligare information, inklusive en lista över lagrings konton som inte är kompatibla.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Skärm bild som visar Kompatibilitetsrapport för en gransknings princip för lägsta TLS-version":::
 
 ## <a name="use-azure-policy-to-enforce-the-minimum-tls-version"></a>Använd Azure Policy för att framtvinga den lägsta TLS-versionen
 
@@ -340,7 +338,7 @@ När du har skapat principen med neka-resultatet och tilldelar den till ett omf�
 
 Följande bild visar felet som uppstår om du försöker skapa ett lagrings konto med den lägsta TLS-versionen inställd på TLS 1,0 (standard för ett nytt konto) när en princip med en neka-inverkan kräver att den lägsta TLS-versionen anges till TLS 1,2.
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Skärm bild som visar hur du skapar en diagnostisk inställning för loggnings begär Anden":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Skärm bild som visar felet som inträffar när du skapar ett lagrings konto som strider mot principen":::
 
 ## <a name="network-considerations"></a>Nätverksöverväganden
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3d8908739d6dda76f4c3d44540c36b36115d6f5
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786504"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289409"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Vanliga frågor och svar om SQL Server på virtuella Azure-datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -169,15 +169,15 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Kan jag avinstallera standardinstansen av SQL Server?**
 
-   Ja, men det finns vissa överväganden. Först kan SQL Server-kopplad fakturering fortsätta att inträffa beroende på licens modellen för den virtuella datorn. För det andra, enligt vad som anges i föregående svar, finns det funktioner som förlitar sig på [SQL Server IaaS agent-tillägg](sql-server-iaas-agent-extension-automate-management.md). Om du avinstallerar standard instansen utan att ta bort IaaS-tillägget, fortsätter tillägget att söka efter standard instansen och kan generera händelse logg fel. Felen är från följande två källor: **Microsoft SQL Server hantering av autentiseringsuppgifter** och **Microsoft SQL Server IaaS-agenten** . Ett av felen kan vara något av liknar följande:
+   Ja, men det finns vissa överväganden. Först kan SQL Server-kopplad fakturering fortsätta att inträffa beroende på licens modellen för den virtuella datorn. För det andra, enligt vad som anges i föregående svar, finns det funktioner som förlitar sig på [SQL Server IaaS agent-tillägg](sql-server-iaas-agent-extension-automate-management.md). Om du avinstallerar standard instansen utan att ta bort IaaS-tillägget, fortsätter tillägget att söka efter standard instansen och kan generera händelse logg fel. Felen är från följande två källor: **Microsoft SQL Server hantering av autentiseringsuppgifter** och **Microsoft SQL Server IaaS-agenten**. Ett av felen kan vara något av liknar följande:
 
       Ett nätverksrelaterat eller instansspecifikt fel uppstod när en anslutning upprättades till SQL Server. Servern hittades inte eller var inte tillgänglig.
 
    Om du väljer att avinstallera standard instansen avinstallerar du även [SQL Server IaaS agent Extension](sql-server-iaas-agent-extension-automate-management.md) . 
 
-1. **Kan jag använda en namngiven instans av SQL Server med IaaS-tillägget** ?
+1. **Kan jag använda en namngiven instans av SQL Server med IaaS-tillägget?**
    
-   Ja, om den namngivna instansen är den enda instansen på SQL Server, och om den ursprungliga standard instansen [avinstallerades korrekt](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). Om det inte finns någon standard instans och det finns flera namngivna instanser på en enda SQL Server VM, kommer SQL Server IaaS agent-tillägget inte att installeras. 
+   Ja, om den namngivna instansen är den enda instansen på SQL Server, och om den ursprungliga standard instansen [avinstallerades korrekt](sql-server-iaas-agent-extension-automate-management.md#named-instance-support). Om det inte finns någon standard instans och det finns flera namngivna instanser på en enda SQL Server VM, kommer SQL Server IaaS agent-tillägget inte att installeras.  
 
 1. **Kan jag ta bort SQL Server och tillhör ande licens fakturering från en SQL Server VM?**
 
@@ -210,7 +210,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Kan jag uppgradera min SQL Server 2008/2008 R2-instans när den har registrerats med SQL Server VM Resource Provider?**
 
-   Ja. Du kan använda installations medier för att uppgradera versionen och versionen av SQL Server och sedan kan du uppgradera ditt [SQL IaaS-tillägg](sql-vm-resource-provider-register.md#management-modes)) från _ingen agent_ till _full_ . På så sätt får du till gång till alla fördelar med SQL IaaS-tillägget, till exempel portal hantering, automatiserade säkerhets kopieringar och automatiserad uppdatering. 
+   Om operativ systemet är Windows Server 2008 R2 eller senare, ja. Du kan använda installations medier för att uppgradera versionen och versionen av SQL Server och sedan kan du uppgradera ditt [SQL IaaS-tillägg](sql-server-iaas-agent-extension-automate-management.md#management-modes)) från _ingen agent_ till _full_. På så sätt får du till gång till alla fördelar med SQL IaaS-tillägget, till exempel portal hantering, automatiserade säkerhets kopieringar och automatiserad uppdatering. Om operativ system versionen är Windows Server 2008 stöds endast noagent-läge. 
 
 1. **Hur kan jag få kostnadsfria utökade säkerhetsuppdateringar för mina SQL Server 2008- och SQL Server 2008 R2-instanser vars support har nått slutet?**
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792488"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289310"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ Instanser av redundanskluster med SQL Server på Azure Virtual Machines stöd f�
 Mer information finns i [metod tips för kvorum med SQL Server virtuella datorer i Azure](hadr-cluster-best-practices.md#quorum). 
 
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 I traditionella lokala klustrade miljöer använder ett Windows-redundanskluster en storage area network (SAN) som är tillgänglig för båda noderna som den delade lagringen. SQL Server filer finns i den delade lagringen och bara den aktiva noden kan komma åt filerna samtidigt. 
 
@@ -138,7 +138,7 @@ NetApp Private Storage (NPS) visar till exempel ett iSCSI-mål via ExpressRoute 
 
 För delade lösningar för lagring och datareplikering från Microsoft-partners kontaktar du leverantören för eventuella problem som rör åtkomst till data vid redundans.
 
-## <a name="connectivity"></a>Anslutningsmöjlighet
+## <a name="connectivity"></a>Anslutningar
 
 Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines använda ett [distribuerat nätverks namn (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) eller ett [virtuellt nätverks namn (VNN) med Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) för att dirigera trafik till SQL Server-instansen, oavsett vilken nod som för närvarande äger de klustrade resurserna. Det finns ytterligare överväganden när du använder vissa funktioner och DNN med en SQL Server-FCI. Mer information finns i [DNN-interoperabilitet med SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) . 
 
@@ -149,7 +149,7 @@ Mer information om kluster anslutnings alternativ finns i [dirigera hadr-anslutn
 Tänk på följande begränsningar för kluster instanser för växling vid fel med SQL Server på Azure Virtual Machines. 
 
 ### <a name="lightweight-resource-provider"></a>Lightweight Resource Provider   
-För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines endast med [läget för förenklad hantering](sql-vm-resource-provider-register.md#management-modes) i [SQL Server IaaS agent-tillägget](sql-server-iaas-agent-extension-automate-management.md). Om du vill ändra från fullständigt tillägg till Lightweight tar du bort den **virtuella SQL-datorns** resurs för motsvarande virtuella datorer och registrerar dem sedan med resurs leverantören för SQL-VM i Lightweight-läge. När du tar bort den **virtuella SQL-datorns** resurs med hjälp av Azure Portal avmarkerar du kryss rutan bredvid rätt virtuell dator. 
+För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines endast med [läget för förenklad hantering](sql-server-iaas-agent-extension-automate-management.md#management-modes) i [SQL Server IaaS agent-tillägget](sql-server-iaas-agent-extension-automate-management.md). Om du vill ändra från fullständigt tillägg till Lightweight tar du bort den **virtuella SQL-datorns** resurs för motsvarande virtuella datorer och registrerar dem sedan med resurs leverantören för SQL-VM i Lightweight-läge. När du tar bort den **virtuella SQL-datorns** resurs med hjälp av Azure Portal avmarkerar du kryss rutan bredvid rätt virtuell dator. 
 
 Det fullständiga tillägget har stöd för funktioner som automatisk säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för SQL Server virtuella datorer när agenten har installerats om i läget för förenklad hantering.
 

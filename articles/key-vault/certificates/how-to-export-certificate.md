@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 8a594d06fa84bb6e5ef502b02e1bec8244062ccb
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e7ea3ef16b60e53450436bda66ce3dde091c81c2
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233975"
+ms.locfileid: "93289562"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Exportera certifikat från Azure Key Vault
 
@@ -23,11 +23,11 @@ Lär dig hur du exporterar certifikat från Azure Key Vault. Du kan exportera ce
 
 ## <a name="about-azure-key-vault-certificates"></a>Om Azure Key Vault-certifikat
 
-Med Azure Key Vault kan du enkelt etablera, hantera och distribuera digitala certifikat för nätverket. Det möjliggör även säker kommunikation för program. Mer information finns i [Azure Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) .
+Med Azure Key Vault kan du enkelt etablera, hantera och distribuera digitala certifikat för nätverket. Det möjliggör även säker kommunikation för program. Mer information finns i [Azure Key Vault certifikat](./about-certificates.md) .
 
 ### <a name="composition-of-a-certificate"></a>Sammansättning av ett certifikat
 
-När ett Key Vault certifikat skapas skapas en adresserad *nyckel* och en *hemlighet* som har samma namn. Key Vault nyckeln tillåter nyckel åtgärder. Med Key Vault hemligheten kan du hämta certifikatets värde som en hemlighet. Ett Key Vault certifikat innehåller även metadata för offentliga x509-certifikat. Mer information finns i [sammansättningen av ett certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) .
+När ett Key Vault certifikat skapas skapas en adresserad *nyckel* och en *hemlighet* som har samma namn. Key Vault nyckeln tillåter nyckel åtgärder. Med Key Vault hemligheten kan du hämta certifikatets värde som en hemlighet. Ett Key Vault certifikat innehåller även metadata för offentliga x509-certifikat. Mer information finns i [sammansättningen av ett certifikat](./about-certificates.md#composition-of-a-certificate) .
 
 ### <a name="exportable-and-non-exportable-keys"></a>Nycklar som kan exporteras och som inte kan exporteras
 
@@ -36,9 +36,9 @@ När ett Key Vault-certifikat har skapats kan du hämta det från den adresser b
 - Kan **exporteras** : den princip som används för att skapa certifikatet anger att nyckeln kan exporteras.
 - Kan **inte exporteras** : den princip som används för att skapa certifikatet anger att nyckeln inte kan exporteras. I det här fallet är den privata nyckeln inte en del av värdet när den hämtas som en hemlighet.
 
-Typer som stöds: RSA, RSA-HSM, EC, EC-HSM, okt (listade [här](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) kan exporteras endast med RSA, ec. HSM-nycklar kan inte exporteras.
+Typer som stöds: RSA, RSA-HSM, EC, EC-HSM, okt (listade [här](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) kan exporteras endast med RSA, ec. HSM-nycklar kan inte exporteras.
 
-Mer information finns i [om Azure Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#exportable-or-non-exportable-key) .
+Mer information finns i [om Azure Key Vault certifikat](./about-certificates.md#exportable-or-non-exportable-key) .
 
 ## <a name="export-stored-certificates"></a>Exportera lagrade certifikat
 
@@ -61,7 +61,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-Visa [exempel och parameter definitioner](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) för mer information.
+Visa [exempel och parameter definitioner](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) för mer information.
 
 Hämtning som certifikat innebär att den offentliga delen hämtas. Om du vill ha både den privata nyckeln och offentliga metadata kan du ladda ned den som hemlig.
 
@@ -75,7 +75,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-Mer information finns i [parameter definitioner](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
+Mer information finns i [parameter definitioner](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -102,7 +102,7 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 ```
 
 Det här kommandot exporterar hela kedjan med certifikat med privat nyckel. Certifikatet är lösenordsskyddat.
-Mer information om kommandot **Get-AzKeyVaultCertificate** finns i [Get-AzKeyVaultCertificate-example 2](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
+Mer information om kommandot **Get-AzKeyVaultCertificate** finns i [Get-AzKeyVaultCertificate-example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -121,4 +121,4 @@ Mer information finns i steg för att [exportera Azure App Service certifikat](h
 ---
 
 ## <a name="read-more"></a>Läs mer
-* [Olika typer av certifikat typer och definitioner](https://docs.microsoft.com/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)
+* [Olika typer av certifikat typer och definitioner](/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)

@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 64b2955b1417d6931172b41f83f05d5f1b560708
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 68eee2d55e3c22b502d17a91f4ba4509c292c31c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911893"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288681"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -79,6 +79,9 @@ Nej, på grund av krav på bandbredd och latens.
 #### <a name="can-azure-bastion-be-used-for-connecting-to-azure-vmware-solution-vms"></a>Kan Azure skydds användas för att ansluta till virtuella datorer i Azure VMware-lösningen?
 Azure skydds är den tjänst som rekommenderas för att ansluta till hopp rutan för att förhindra att Azure VMware-lösningen exponeras för Internet. Du kan inte använda Azure-skydds för att ansluta till virtuella Azure VMware-lösningar eftersom de inte är Azure IaaS-objekt.
 
+#### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>Kan Azure Load Balancer internt användas för virtuella Azure VMware-lösningar?
+Nej. Azure Load Balancer internt stöder endast virtuella Azure IaaS-datorer. Azure Load Balancer stöder inte IP-baserade backend-pooler. endast virtuella Azure-datorer eller virtuella dator skalnings uppsättningar (VMSS)-objekt i vilka virtuella datorer i Azure VMware-lösningen inte är Azure-objekt.
+
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Kan en befintlig ExpressRoute-Gateway användas för att ansluta till Azure VMware-lösningen?
 Ja, du kan använda en befintlig ExpressRoute-Gateway för att ansluta till Azure VMware-lösningen så länge den inte överskrider gränsen på fyra ExpressRoute-kretsar per virtuellt nätverk.  Men för att få åtkomst till Azure VMware-lösningen från lokala platser via ExpressRoute måste du ha ExpressRoute Global Reach eftersom ExpressRoute-gatewayen inte tillhandahåller transitiv routning mellan dess anslutna kretsar.
 
@@ -118,7 +121,7 @@ Som de här säkerhets kopierings lösningarna installeras och hanteras av kunde
 
 #### <a name="what-is-the-correct-storage-policy-for-the-dedupe-setup"></a>Vad är rätt lagrings princip för avinstallationen av undupe?
 
-Använd *thin_provision* lagrings princip för din VM-mall.  Standardvärdet är *thick_provision* .
+Använd *thin_provision* lagrings princip för din VM-mall.  Standardvärdet är *thick_provision*.
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>Loggar SNMP-infrastrukturen delade?
 
@@ -172,7 +175,7 @@ Uppgraderingarna av det privata molnet för program varu paketet görs för att 
 
 Program varan för det privata molnet uppgraderas enligt ett schema som spårar program varu paketets version från VMware. Det privata molnet kräver ingen stillestånds tid för uppgraderingar.
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningar
 
 #### <a name="what-network-ip-address-planning-is-required-to-incorporate-private-clouds-with-on-premises-environments"></a>Vilken nätverks-IP-adress planering krävs för att inkludera privata moln med lokala miljöer?
 

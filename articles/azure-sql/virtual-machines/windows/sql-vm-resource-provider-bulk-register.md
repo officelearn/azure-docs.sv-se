@@ -13,17 +13,17 @@ ms.workload: iaas-sql-server
 ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d6900d0fdf656fa8309b18971691bb35587f7f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761268"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286077"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrera flera virtuella SQL-datorer i Azure med providern för SQL VM-resurs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Den här artikeln beskriver hur du registrerar SQL Server virtuella datorer i bulk i Azure med den virtuella SQL-adressresursen med hjälp av `Register-SqlVMs` PowerShell-cmdleten.
+Den här artikeln beskriver hur du registrerar SQL Server virtuella datorer i bulk i Azure med den virtuella SQL-adressresursen med hjälp av `Register-SqlVMs` PowerShell-cmdleten. Vid registrering med den virtuella SQL VM-providern installeras [SQL IaaS agent-tillägget](sql-server-iaas-agent-extension-automate-management.md).
 
 I den här artikeln lär du dig att registrera SQL Server virtuella datorer i bulk. Alternativt kan du registrera [alla SQL Server virtuella datorer automatiskt](sql-vm-resource-provider-automatic-registration.md) eller [enskilda SQL Server virtuella datorer](sql-vm-resource-provider-register.md). 
 
@@ -33,14 +33,14 @@ I den här artikeln lär du dig att registrera SQL Server virtuella datorer i bu
 
 Registrerings processen har ingen risk, har ingen stillestånds tid och kommer inte att starta om SQL Server eller den virtuella datorn. 
 
-Mer information om resurs leverantören finns i [SQL VM Resource Provider](sql-vm-resource-provider-register.md). 
+Mer information finns i [SQL VM Resource Provider](sql-vm-resource-provider-register.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att kunna registrera SQL Server VM med resurs leverantören: 
 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/) som har [registrerats med resurs leverantören](sql-vm-resource-provider-register.md#register-subscription-with-rp) och innehåller oregistrerade SQL Server virtuella datorer. 
-- De klientautentiseringsuppgifter som används för att registrera de virtuella datorerna finns i någon av följande Azure-roller: **virtuell dator**, **deltagare**eller **ägare**. 
+- De klientautentiseringsuppgifter som används för att registrera de virtuella datorerna finns i någon av följande Azure-roller: **virtuell dator** , **deltagare** eller **ägare**. 
 - Den senaste versionen av [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - Den senaste versionen av [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
@@ -219,7 +219,7 @@ Rapporten skapas som en `.txt` fil med namnet `RegisterSqlVMScriptReport<Timesta
 | Antal virtuella datorer som hoppades över eftersom de inte körs SQL Server på Windows | Antal virtuella datorer som hoppades över eftersom de inte körs SQL Server eller inte är en virtuell Windows-dator. De virtuella datorerna visas i formatet `SubscriptionID, Resource Group, Virtual Machine` . | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>Logga 
+### <a name="log"></a>Loggas 
 
 Fel loggas i logg filen med namnet `VMsNotRegisteredDueToError<Timestamp>.log` , där tidsstämpel är den tid då skriptet startade. Om felet finns på prenumerations nivån innehåller loggen det kommaavgränsade prenumerations-ID: t och fel meddelandet. Om felet är med den virtuella dator registreringen innehåller loggen prenumerations-ID, resurs gruppens namn, namn på virtuell dator, felkod och meddelande avgränsade med kommatecken. 
 
@@ -227,7 +227,7 @@ Fel loggas i logg filen med namnet `VMsNotRegisteredDueToError<Timestamp>.log` ,
 
 När du registrerar SQL Server virtuella datorer med resurs leverantören med hjälp av det tillhandahållna skriptet bör du tänka på följande:
 
-- Registrering med resurs leverantören kräver att en gästa Gent körs på SQL Server VM. Windows Server 2008-avbildningar har ingen gästa Gent, så de här virtuella datorerna kommer att Miss Miss sen och måste registreras manuellt med [hanterings läget för noagent](sql-vm-resource-provider-register.md#management-modes).
+- Registrering med resurs leverantören kräver att en gästa Gent körs på SQL Server VM. Windows Server 2008-avbildningar har ingen gästa Gent, så de här virtuella datorerna kommer att Miss Miss sen och måste registreras manuellt med [hanterings läget för noagent](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 - Det finns ett omprövnings logik som är inbyggt för att lösa transparenta fel. Om den virtuella datorn har registrerats är det en snabb åtgärd. Men om registreringen Miss lyckas görs ett nytt försök för varje virtuell dator.  Därför bör du tillåta betydande tid att slutföra registrerings processen – även om det faktiska tids kravet är beroende av typ och antal fel. 
 
 ## <a name="full-script"></a>Fullständigt skript

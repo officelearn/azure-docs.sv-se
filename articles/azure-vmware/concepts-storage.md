@@ -2,13 +2,13 @@
 title: Koncept – lagring
 description: Lär dig mer om nyckel lagrings funktionerna i privata moln i Azure VMware-lösningar.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 02378040061080d3c9abbfafb26180c9d22e9073
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: 394b755f5dc8fdbcaa6092419e9451ae1691aa67
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316825"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289250"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Lagrings koncept för Azure VMware-lösningar
 
@@ -28,7 +28,7 @@ Lokal lagring i kluster värdar används i virtuellt San data lager för hela kl
 
 ## <a name="data-at-rest-encryption"></a>Kryptering av data i vila
 
-Virtuellt San-datalager använder kryptering av data i vila som standard. Krypterings lösningen är KMS-baserad och stöder vCenter-åtgärder för nyckel hantering. Nycklar lagras krypterade, omslutna av en HSM-baserad Azure Key Vault huvud nyckel. När en värd tas bort från ett kluster kan data på SSD ogiltig förklaras omedelbart.
+Virtuellt San-datalager använder kryptering av data i vila som standard. Krypterings lösningen är KMS-baserad och stöder vCenter-åtgärder för nyckel hantering. Nycklar lagras krypterade, omslutna av en Azure Key Vault huvud nyckel. När en värd tas bort från ett kluster kan data på SSD ogiltig förklaras omedelbart.
 
 ## <a name="scaling"></a>Skalning
 

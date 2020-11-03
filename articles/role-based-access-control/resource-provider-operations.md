@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: d9881fe91885a9a97b51da176be98a9ed6d007ba
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 3f192493dfd6bfc2fb3d5802b1dd94cd4ca3a9a9
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900765"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285230"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure Resource Provider-åtgärder
 
@@ -843,7 +843,6 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Read | Hämtar Azure Firewall-NetworkRuleCollection |
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Write | CreatesOrUpdates Azure Firewall NetworkRuleCollection |
 > | Microsoft. Network/azureFirewalls/networkRuleCollections/Delete | Tar bort Azure Firewall NetworkRuleCollection |
-> | Microsoft. Network/azureWebCategories/Read | Hämtar Azure webcategories |
 > | Microsoft. Network/bastionHosts/Read | Hämtar en skydds-värd |
 > | Microsoft. Network/bastionHosts/Write | Skapa eller uppdatera en skydds-värd |
 > | Microsoft. Network/bastionHosts/Delete | Tar bort en skydds-värd |
@@ -1243,8 +1242,6 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/virtualHubs/bgpConnections/Read | Hämtar en underordnad nätverks resurs för BGP-anslutning för virtuell hubb |
 > | Microsoft. Network/virtualHubs/bgpConnections/Write | Skapar eller uppdaterar en virtuell Hubbs resurs för BGP-anslutning för virtuell hubb |
 > | Microsoft. Network/virtualHubs/bgpConnections/Delete | Tar bort en nav för BGP-anslutningens underordnade resurs för virtuell hubb |
-> | Microsoft. Network/virtualHubs/bgpConnections/advertisedRoutes/Action | Hämtar virtualrouter annonserade vägar |
-> | Microsoft. Network/virtualHubs/bgpConnections/learnedRoutes/Action | Hämtar virtualrouter-inlärda vägar |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Read | Hämtar en underordnad resurs för en routningstabell för virtuell hubb |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Write | Skapar eller uppdaterar en underordnad resurs för en routningstabell för virtuell hubb |
 > | Microsoft. Network/virtualHubs/hubRouteTables/Delete | Tar bort en underordnad resurs för en routningstabell för virtuell hubb |
@@ -1332,9 +1329,6 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/vpngateways/startpacketcapture/Action | Starta VPN gateway-paket avbildning med resurser i enlighet |
 > | Microsoft. Network/vpngateways/stoppacketcapture/Action | Stoppa paket fångst för VPN-gateway med sasURL |
 > | Microsoft. Network/vpngateways/listvpnconnectionshealth/Action | Hämtar anslutnings hälsa för alla eller en delmängd av anslutningar på en VpnGateway |
-> | Microsoft. Network/vpnGateways/natRules/Read | Hämtar en NAT-regel resurs |
-> | Microsoft. Network/vpnGateways/natRules/Write | Placerar en NAT-regel resurs |
-> | Microsoft. Network/vpnGateways/natRules/Delete | Tar bort en NAT-regel resurs |
 > | Microsoft. Network/vpnGateways/vpnConnections/Read | Hämtar en VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Write | Placerar en VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Delete | Tar bort en VpnConnection. |
@@ -1349,7 +1343,7 @@ Azure-tjänst: [Application Gateway](../application-gateway/index.yml), [azure s
 > | Microsoft. Network/vpnsites/Delete | Tar bort en VPN-webbplats resurs. |
 > | Microsoft. Network/vpnSites/vpnSiteLinks/Read | Hämtar en länk till VPN-platsen |
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 ### <a name="microsoftclassicstorage"></a>Microsoft. ClassicStorage
 
@@ -1522,6 +1516,7 @@ Azure-tjänst: [lagring](../storage/index.yml)
 > | Microsoft. Storage/locations/usages/Read | Returnerar gränsen och det aktuella antalet användningar för resurser i den angivna prenumerationen |
 > | Microsoft. Storage/Operations/Read | Avsöker statusen för en asynkron åtgärd. |
 > | Microsoft. Storage/SKU/Read | Visar en lista över SKU: er som stöds av Microsoft. Storage. |
+> | Microsoft. Storage/storageAccounts/updateInternalProperties/åtgärd |  |
 > | Microsoft. Storage/storageAccounts/hnsonmigration/åtgärd | Kunden kan avbryta en pågående HNS-migrering på lagrings kontot |
 > | Microsoft. Storage/storageAccounts/hnsonmigration/åtgärd | Kunden kan migrera till en typ av HNS-konto |
 > | Microsoft. Storage/storageAccounts/restoreBlobRanges/åtgärd | Återställ BLOB-intervall till tillstånd för den angivna tiden |
@@ -1572,6 +1567,7 @@ Azure-tjänst: [lagring](../storage/index.yml)
 > | Microsoft. Storage/storageAccounts/fileServices/Shares/Read | Lista fil resurser |
 > | Microsoft. Storage/storageAccounts/fileServices/Shares/Write | Skapa eller uppdatera fil resurs |
 > | Microsoft. Storage/storageAccounts/inventoryPolicies/Delete |  |
+> | Microsoft. Storage/storageAccounts/inventoryPolicies/Read |  |
 > | Microsoft. Storage/storageAccounts/inventoryPolicies/Read |  |
 > | Microsoft. Storage/storageAccounts/inventoryPolicies/Write |  |
 > | Microsoft. Storage/storageAccounts/localUsers/Delete | Ta bort lokal användare |
@@ -2128,18 +2124,19 @@ Azure-tjänst: [Azure SignalR service](../azure-signalr/index.yml)
 > | Microsoft. SignalRService/SignalR/privateEndpointConnections/Read | Läs en privat slut punkts anslutning |
 > | Microsoft. SignalRService/SignalR/privateLinkResources/Read | Visa en lista över alla signaler för privata Länkar för signaler |
 > | **DataAction** | **Beskrivning** |
-> | Microsoft. SignalRService/SignalR/serverConnection/åtgärd | Starta en server anslutning. |
-> | Microsoft. SignalRService/SignalR/clientConnection/åtgärd | Lägg till/ta bort klient anslutningar från grupper eller Stäng en klient anslutning. |
-> | Microsoft. SignalRService/SignalR/användare/åtgärd | Lägg till/ta bort användare från grupper. |
-> | Microsoft. SignalRService/SignalR/clientConnection/Read | Kontrol lera anslutnings förekomsten. |
-> | Microsoft. SignalRService/SignalR/clientConnection/Write | Skicka meddelanden direkt till en klient anslutning. |
-> | Microsoft. SignalRService/SignalR/Group/Read | Kontrol lera grupp förekomst. |
-> | Microsoft. SignalRService/SignalR/-grupp/Skriv | Broadcast-meddelanden till klient anslutningar i en grupp/vissa grupper. |
-> | Microsoft. SignalRService/SignalR/Hub/Write | Broadcast-meddelanden till alla klient anslutningar som är kopplade till den här hubben. |
-> | Microsoft. SignalRService/SignalR/service/accessKey/åtgärd | Hämta en tillfällig AccessKey för signering av ClientTokens. |
-> | Microsoft. SignalRService/SignalR/service/clientToken/åtgärd | Hämta en ClientToken för att starta en klient anslutning. |
-> | Microsoft. SignalRService/SignalR/användare/läsning | Kontrol lera användar förekomst och om det var i en grupp. |
-> | Microsoft. SignalRService/SignalR/User/Write | Skicka meddelanden till en användare, som kan ha flera klient anslutningar. |
+> | Microsoft. SignalRService/SignalR/auth/accessKey/åtgärd | Generera en tillfällig AccessKey för signering av ClientTokens. |
+> | Microsoft. SignalRService/SignalR/auth/clientToken/åtgärd | Generera en ClientToken för att starta en klient anslutning. |
+> | Microsoft. SignalRService/SignalR/clientConnection/skicka/åtgärd | Skicka meddelanden direkt till en klient anslutning. |
+> | Microsoft. SignalRService/SignalR/clientConnection/Read | Kontrol lera om det finns klient anslutningar. |
+> | Microsoft. SignalRService/SignalR/clientConnection/Write | Stäng klient anslutning. |
+> | Microsoft. SignalRService/SignalR/-grupp/skicka/åtgärd | Broadcast-meddelande till grupp. |
+> | Microsoft. SignalRService/SignalR/Group/Read | Kontrol lera grupp förekomst eller användar förekomst i gruppen. |
+> | Microsoft. SignalRService/SignalR/-grupp/Skriv | Anslut till/lämna grupp. |
+> | Microsoft. SignalRService/SignalR, hubb/skicka/åtgärd | Broadcast-meddelanden till alla klient anslutningar i hubben. |
+> | Microsoft. SignalRService/SignalR/serverConnection/Write | Starta en server anslutning. |
+> | Microsoft. SignalRService/SignalR/användare/skicka/åtgärd | Skicka meddelanden till användare, som kan bestå av flera klient anslutningar. |
+> | Microsoft. SignalRService/SignalR/användare/läsning | Kontrol lera användar förekomst. |
+> | Microsoft. SignalRService/SignalR/User/Write |  |
 
 ### <a name="microsoftweb"></a>Microsoft. Web
 
@@ -2628,7 +2625,7 @@ Azure-tjänst: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | Microsoft. Web/staticSites/customdomains/validate/Action | Verifiera att en anpassad domän kan läggas till på en statisk plats |
 > | Microsoft. Web/staticSites/Functions/Read | Visa en lista över funktioner för en statisk plats |
 
-## <a name="containers"></a>Containrar
+## <a name="containers"></a>Containers
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -3256,6 +3253,11 @@ Azure-tjänst: [Data Factory](../data-factory/index.yml)
 > | Microsoft. DataFactory/factors/linkedServices/Read | Läser länkad tjänst. |
 > | Microsoft. DataFactory/factors/linkedServices/Delete | Tar bort länkad tjänst. |
 > | Microsoft. DataFactory/factors/linkedServices/Write | Skapa eller uppdatera länkade tjänster |
+> | Microsoft. DataFactory/factors/managedVirtualNetworks/Read | Läs hanterade Virtual Network. |
+> | Microsoft. DataFactory/factors/managedVirtualNetworks/Write | Skapa eller uppdatera hanterade Virtual Network. |
+> | Microsoft. DataFactory/factors/managedVirtualNetworks/managedPrivateEndpoints/Read | Läs hanterad privat slut punkt. |
+> | Microsoft. DataFactory/factors/managedVirtualNetworks/managedPrivateEndpoints/Write | Skapa eller uppdatera hanterad privat slut punkt. |
+> | Microsoft. DataFactory/factors/managedVirtualNetworks/managedPrivateEndpoints/Delete | Ta bort hanterad privat slut punkt. |
 > | Microsoft. DataFactory/factors/operationResults/Read | Hämtar åtgärds resultat. |
 > | Microsoft. DataFactory/factors/pipelineruns/Read | Läser pipeline-körningar. |
 > | Microsoft. DataFactory/factors/pipelineruns/Cancel/Action | Avbryter pipeline-körningen som anges av körnings-ID: t. |
@@ -3862,6 +3864,8 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/instancePools/Delete | Tar bort en instans-pool |
 > | Microsoft. SQL/instancePools/Usage/Read | Hämtar användnings information för en instans pool |
 > | Microsoft. SQL/locations/Read | Hämtar tillgängliga platser för en specifik prenumeration |
+> | Microsoft. SQL/locations/administratorAzureAsyncOperation/Read | Hämtar åtgärds resultatet Azure async-administratör för hanterade instanser. |
+> | Microsoft. SQL/locations/administratorOperationResults/Read | Hämtar åtgärds resultatet för en hanterad instans administratör. |
 > | Microsoft. SQL/locations/auditingSettingsAzureAsyncOperation/Read | Hämta resultatet av åtgärden uppsättnings princip för utökad server-BLOB-granskning |
 > | Microsoft. SQL/locations/auditingSettingsOperationResults/Read | Hämta resultatet av åtgärden SET för Server BLOB Auditing-princip |
 > | Microsoft. SQL/locations/capabilites/Read | Hämtar funktionerna för den här prenumerationen på en specifik plats |
@@ -3883,6 +3887,8 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/locations/extendedAuditingSettingsOperationResults/Read | Hämta resultatet av åtgärden uppsättnings princip för utökad server-BLOB-granskning |
 > | Microsoft. SQL/locations/firewallRulesAzureAsyncOperation/Read | Hämtar status för en brand Väggs regel åtgärd. |
 > | Microsoft. SQL/locations/firewallRulesOperationResults/Read | Hämtar status för en brand Väggs regel åtgärd. |
+> | Microsoft. SQL/locations/hybridLinkAzureAsyncOperation/Read | Hämtar status för en långsiktig hybrid länk asynkron åtgärd på Azure SQL-hanterad instans. |
+> | Microsoft. SQL/locations/hybridLinkOperationResults/Read | Hämtar status för en långsiktig hybrid länk asynkron åtgärd. |
 > | Microsoft. SQL/locations/instanceFailoverGroups/Read | Returnerar listan över instans-redundansväxlingen eller hämtar egenskaperna för den angivna instansen av redundans. |
 > | Microsoft. SQL/locations/instanceFailoverGroups/Write | Skapar en instans av redundans med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna instansen av redundans. |
 > | Microsoft. SQL/locations/instanceFailoverGroups/Delete | Tar bort en befintlig grupp för redundans. |
@@ -3998,6 +4004,9 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/managedInstances/encryptionProtector/revalidate/åtgärd | Uppdatera egenskaperna för det angivna Server krypterings skyddet. |
 > | Microsoft. SQL/managedInstances/encryptionProtector/Read | Returnerar en lista över Server krypterings skydd eller hämtar egenskaperna för det angivna Server krypterings skyddet. |
 > | Microsoft. SQL/managedInstances/encryptionProtector/Write | Uppdatera egenskaperna för det angivna Server krypterings skyddet. |
+> | Microsoft. SQL/managedInstances/hybridLink/Read | Returnera listan över hybrid länkar eller hämta egenskaperna för den angivna distribuerade tillgänglighets gruppen. |
+> | Microsoft. SQL/managedInstances/hybridLink/Write | Skapar eller uppdaterar en hybrid länk med en angiven parameter. |
+> | Microsoft. SQL/managedInstances/hybridLink/Delete | Tar bort en hybrid länk med en angiven distribuerad tillgänglighets grupp. |
 > | Microsoft. SQL/managedInstances/inaccessibleManagedDatabases/Read | Hämtar en lista över otillgängliga hanterade databaser i en hanterad instans |
 > | Microsoft. SQL/managedInstances/Keys/Read | Returnera listan över hanterade instans nycklar eller hämtar egenskaperna för den angivna hanterade instans nyckeln. |
 > | Microsoft. SQL/managedInstances/Keys/Write | Skapar en nyckel med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna hanterade instans nyckeln. |
@@ -6541,6 +6550,9 @@ Azure-tjänst: [Key Vault](../key-vault/index.yml)
 > | Microsoft. nyckel valv/valv/eventGridFilters/läsa | Meddelar Microsoft. Vault att en EventGrid-prenumeration för Key Vault visas |
 > | Microsoft. nyckel valv/valv/eventGridFilters/skrivning | Meddelar Microsoft. Vault att en ny EventGrid-prenumeration för Key Vault skapas |
 > | Microsoft. nyckel valv/valv/eventGridFilters/ta bort | Meddelar Microsoft. Vault att en EventGrid-prenumeration för Key Vault tas bort |
+> | Microsoft. nyckel valv/valv/nycklar/läsa | Visa en lista med nycklarna i ett angivet valv eller Läs den aktuella versionen av en specifik nyckel. |
+> | Microsoft. nyckel valv/valv/nycklar/Skriv | Skapa en ny nyckel eller uppdatera en befintlig nyckel. |
+> | Microsoft. nyckel valv/valv/nycklar/versioner/läsa | Lista de versioner av en angiven nyckel eller Läs den angivna versionen av en nyckel. |
 > | Microsoft. nyckel valv/valv/hemligheter/läsa | Visa egenskaperna för en hemlighet, men inte dess värde. |
 > | Microsoft. nyckel valv/valv/hemligheter/skriva | Skapa en ny hemlighet eller uppdatera värdet för en befintlig hemlighet. |
 > | **DataAction** | **Beskrivning** |
@@ -8283,6 +8295,7 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SqlDataClassification/läsa | Läsa data från tabellen SqlDataClassification |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SQLQueryPerformance/läsa | Läsa data från tabellen SQLQueryPerformance |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/SqlVulnerabilityAssessmentResult/läsa | Läsa data från tabellen SqlVulnerabilityAssessmentResult |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/SqlVulnerabilityAssessmentScanStatus/läsa | Läsa data från tabellen SqlVulnerabilityAssessmentScanStatus |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/StorageBlobLogs/läsa | Läsa data från tabellen StorageBlobLogs |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/StorageFileLogs/läsa | Läsa data från tabellen StorageFileLogs |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/StorageQueueLogs/läsa | Läsa data från tabellen StorageQueueLogs |
@@ -9660,7 +9673,7 @@ Azure-tjänst: Microsoft Monitoring Insights
 > | Microsoft. Intune/diagnosticsettings/Delete | Tar bort en diagnostisk inställning |
 > | Microsoft. Intune/diagnosticsettingscategories/Read | Läser en diagnostisk inställnings kategori |
 
-## <a name="other"></a>Annat
+## <a name="other"></a>Övrigt
 
 ### <a name="microsoftbingmaps"></a>Microsoft. Bingkartssökning
 

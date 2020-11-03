@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7aa33bb062abf748031b27df46d42e8f13aabfc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b60f290f6d3ca184e25edd2984ad5b2d1ff2bdf
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819959"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289676"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Riktlinjer för begränsning i Azure Key Vault
 
@@ -41,14 +41,14 @@ Om du upptäcker att ovanstående fortfarande inte uppfyller dina behov kan du f
 
 | Valvnamn | Valv region | Objekt typ (hemligt, nyckel eller certifikat) | Åtgärd (er) * | Nyckel typ | Nyckel längd eller kurva | HSM-nyckel?| RPS för stabilt tillstånd krävs | Topp-RPS krävs |
 |--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | Tangent | Tecken | EC | P-256 | Inga | 200 | 1000 |
+| https://mykeyvault.vault.azure.net/ | | Tangent | Tecken | EC | P-256 | Nej | 200 | 1000 |
 
 \* En fullständig lista över möjliga värden finns i [Azure Key Vault åtgärder](/rest/api/keyvault/key-operations).
 
 Om ytterligare kapacitet godkänns bör du tänka på följande när kapaciteten ökar:
 1. Modell ändringar för data konsekvens. När ett valv har tillåtts med ytterligare data flödes kapacitet ändras den Key Vault tjänstens data konsekvens ändringar (krävs för att uppfylla högre volym-RPS eftersom den underliggande Azure Storage-tjänsten inte kan fortsätta).  I en kortfattat så Jenkins:
-  1. **Utan att tillåta registrering**: Key Vault tjänsten visar resultatet av en Skriv åtgärd (t. ex. SecretSet, CreateKey) omedelbart i efterföljande anrop (t. ex. SecretGet, inloggning).
-  1. **Med Tillåt-lista**: Key Vault tjänsten visar resultatet av en Skriv åtgärd (t. ex. SecretSet, CreateKey) inom 60 sekunder i efterföljande anrop (t. ex. SecretGet, inloggning).
+  1. **Utan att tillåta registrering** : Key Vault tjänsten visar resultatet av en Skriv åtgärd (t. ex. SecretSet, CreateKey) omedelbart i efterföljande anrop (t. ex. SecretGet, inloggning).
+  1. **Med Tillåt-lista** : Key Vault tjänsten visar resultatet av en Skriv åtgärd (t. ex. SecretSet, CreateKey) inom 60 sekunder i efterföljande anrop (t. ex. SecretGet, inloggning).
 1. Klient koden måste uppfylla en princip för säkerhets kopiering för 429-försök. Klient koden som anropar tjänsten Key Vault får inte omedelbart försöka igen Key Vault begär anden när en 429-svarskod tas emot.  Vägledningen för Azure Key Vault begränsning som publiceras här rekommenderar att du använder exponentiell backoff när du tar emot en 429 HTTP-svarskod.
 
 Om du har ett giltigt affärs ärende för högre begränsnings gränser kan du kontakta oss.
@@ -98,5 +98,4 @@ I det här läget bör du inte hämta svars koder för HTTP 429.
 
 ## <a name="see-also"></a>Se även
 
-En djupare orientering av begränsningen för Microsoft Cloud finns i [begränsnings mönster](https://docs.microsoft.com/azure/architecture/patterns/throttling).
-
+En djupare orientering av begränsningen för Microsoft Cloud finns i [begränsnings mönster](/azure/architecture/patterns/throttling).

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 9a01dabbd0a3e9d76caaead544be655b9505030d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342390"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289205"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Skydda dina hanteringsportar med just-in-time-åtkomst
 
@@ -89,9 +89,9 @@ Från Security Center kan du aktivera och konfigurera JIT VM-åtkomsten.
 
     För varje port (anpassat och standard) innehåller fönstret **Lägg till port konfiguration** följande alternativ:
 
-    - **Protokoll**– det protokoll som tillåts på den här porten när en begäran godkänns
-    - **Tillåtna käll**-IP-adresser – IP-intervall som tillåts på den här porten när en begäran godkänns
-    - **Maximal begär ande tid**– maximalt tids period då en bestämd port kan öppnas
+    - **Protokoll** – det protokoll som tillåts på den här porten när en begäran godkänns
+    - **Tillåtna käll** -IP-adresser – IP-intervall som tillåts på den här porten när en begäran godkänns
+    - **Maximal begär ande tid** – maximalt tids period då en bestämd port kan öppnas
 
      1. Ställ in port säkerheten på dina behov.
 
@@ -107,13 +107,13 @@ Du kan ändra en VM: s just-in-Time-konfiguration genom att lägga till och konf
 
 Redigera befintliga JIT-regler för en virtuell dator:
 
-1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller**i avsnittet Avancerat skydd.
+1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller** i avsnittet Avancerat skydd.
 
 1. Från fliken **konfigurerad** högerklickar du på den virtuella dator som du vill lägga till en port i och väljer Redigera. 
 
     ![Redigera en JIT VM Access-konfiguration i Azure Security Center](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
 
-1. Under **konfiguration av JIT VM-åtkomst**kan du antingen redigera befintliga inställningar för en redan skyddad port eller lägga till en ny anpassad port.
+1. Under **konfiguration av JIT VM-åtkomst** kan du antingen redigera befintliga inställningar för en redan skyddad port eller lägga till en ny anpassad port.
 
 1. När du är klar med att redigera portarna väljer du **Spara**.
  
@@ -130,13 +130,13 @@ Du kan aktivera JIT på en virtuell dator från sidorna för virtuella Azure-dat
 > [!TIP]
 > Om en virtuell dator redan har aktiverat just-in-Time, och du går till konfigurations sidan, ser du att just-in-Time är aktiverat och att du kan använda länken för att öppna sidan för just-in-Time-åtkomst till virtuell dator i Security Center och Visa och ändra inställningarna.
 
-1. Sök efter och välj **virtuella datorer**från [Azure Portal](https://ms.portal.azure.com). 
+1. Sök efter och välj **virtuella datorer** från [Azure Portal](https://ms.portal.azure.com). 
 
 1. Välj den virtuella dator som du vill skydda med JIT.
 
 1. I menyn väljer du **konfiguration**.
 
-1. Under **just-in-Time-åtkomst**väljer du **Aktivera just-in-Time**. 
+1. Under **just-in-Time-åtkomst** väljer du **Aktivera just-in-Time**. 
 
     Detta möjliggör just-in-Time-åtkomst för den virtuella datorn med följande standardinställningar:
 
@@ -157,7 +157,7 @@ Du kan aktivera JIT på en virtuell dator från sidorna för virtuella Azure-dat
 
         ![Redigera en JIT VM Access-konfiguration i Azure Security Center](./media/security-center-just-in-time/jit-policy-edit-security-center.png)
 
-    1. Under **konfiguration av JIT VM-åtkomst**kan du antingen redigera befintliga inställningar för en redan skyddad port eller lägga till en ny anpassad port.
+    1. Under **konfiguration av JIT VM-åtkomst** kan du antingen redigera befintliga inställningar för en redan skyddad port eller lägga till en ny anpassad port.
 
     1. När du är klar med att redigera portarna väljer du **Spara**.
 
@@ -184,13 +184,13 @@ Följande PowerShell-kommandon skapar den här JIT-konfigurationen:
         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
              number=22;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"},
              @{
              number=3389;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"})})
     ```
 
@@ -241,7 +241,7 @@ Vart och ett av dessa alternativ beskrivs i en separat flik nedan.
 
 När en virtuell dator har JIT-aktiverad måste du begära åtkomst för att ansluta till den. Du kan begära åtkomst på något av de sätt som stöds, oavsett hur du har aktiverat JIT.
 
-:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Konfigurera JIT VM-åtkomst i Azure Security Center":::
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Begär JIT-åtkomst från Security Center":::
 
 1. På sidan **just-in-Time VM-åtkomst** väljer du fliken **konfigurerad** .
 
@@ -253,7 +253,7 @@ När en virtuell dator har JIT-aktiverad måste du begära åtkomst för att ans
 
 1. Välj **begär åtkomst**. Fönstret **begär åtkomst** öppnas.
 
-1. Under **begär åtkomst**, för varje virtuell dator, konfigurerar du de portar som du vill öppna och käll-IP-adresserna som porten är öppen på och tids perioden som porten ska vara öppen för. Det går bara att begära åtkomst till de konfigurerade portarna. Varje port har en längsta tillåten tid som härletts från den JIT-konfiguration som du har skapat.
+1. Under **begär åtkomst** , för varje virtuell dator, konfigurerar du de portar som du vill öppna och käll-IP-adresserna som porten är öppen på och tids perioden som porten ska vara öppen för. Det går bara att begära åtkomst till de konfigurerade portarna. Varje port har en längsta tillåten tid som härletts från den JIT-konfiguration som du har skapat.
 
 1. Välj **öppna portar**.
 

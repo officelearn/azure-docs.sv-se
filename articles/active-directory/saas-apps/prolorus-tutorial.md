@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: c1d339582ead7d851f9be79904d2d4de6e02b4a8
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4582970a048a98c728a96ab707790be61d236e0e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135261"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289420"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-prolorus"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Prolorus
 
@@ -26,12 +26,12 @@ I den här självstudien får du lära dig hur du integrerar Prolorus med Azure 
 * Gör det möjligt för användarna att logga in automatiskt till Prolorus med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Prolorus för enkel inloggning (SSO) aktive rad.
+* En Prolorus-aktiverad (SSO)-prenumeration med enkel inloggning.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -45,7 +45,7 @@ Om du vill konfigurera integreringen av Prolorus i Azure AD måste du lägga til
 
 1. Logga in på Azure Portal med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program** .
+1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program** om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** , skriver du **Prolorus** i sökrutan.
 1. Välj **Prolorus** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
@@ -53,7 +53,7 @@ Om du vill konfigurera integreringen av Prolorus i Azure AD måste du lägga til
 
 ## <a name="configure-and-test-azure-ad-sso-for-prolorus"></a>Konfigurera och testa Azure AD SSO för Prolorus
 
-Konfigurera och testa Azure AD SSO med Prolorus med hjälp av en test användare som heter **B. Simon** . För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Prolorus.
+Konfigurera och testa Azure AD SSO med Prolorus med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Prolorus.
 
 Utför följande steg för att konfigurera och testa Azure AD SSO med Prolorus:
 
@@ -68,8 +68,8 @@ Utför följande steg för att konfigurera och testa Azure AD SSO med Prolorus:
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I Azure Portal går du till sidan för program integrering i **Prolorus** , letar upp avsnittet **Hantera** och väljer **enkel inloggning** .
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML** .
+1. I Azure Portal går du till sidan för program integrering i **Prolorus** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
@@ -83,7 +83,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     c. Skriv en URL i text rutan **svars-URL** med följande mönster: `https://<SUBDOMAIN>.prolorus.app/SAML/AssertionConsumerService`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [Prolorus client support team](mailto:infrastructure@prolorus.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [Prolorus-klientens support team](mailto:infrastructure@prolorus.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -96,21 +96,21 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** , väljer **användare** och väljer sedan **alla användare** .
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** , väljer **användare** och väljer sedan **alla användare**.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn** -fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord** .
-   1. Klicka på **Skapa** .
+   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Prolorus.
 
-1. I Azure Portal väljer du **företags program** och väljer sedan **alla program** .
-1. I listan program väljer du **Prolorus** .
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper** .
+1. I Azure Portal väljer du **företags program** och väljer sedan **alla program**.
+1. I listan program väljer du **Prolorus**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 1. Välj **Lägg till användare** och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Om du förväntar dig att en roll ska tilldelas användarna kan du välja den från List rutan **Välj en roll** . Om ingen roll har kon figurer ATS för den här appen ser du rollen "standard åtkomst" vald.
@@ -118,7 +118,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-prolorus-sso"></a>Konfigurera Prolorus SSO
 
-Om du vill konfigurera enkel inloggning på **Prolorus** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för Prolorus](mailto:infrastructure@prolorus.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Prolorus** -sidan måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för Prolorus](mailto:infrastructure@prolorus.com). Fyll först i certifikatet innan det skickas så att det inte blockeras av några e-postsystem. De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-prolorus-test-user"></a>Skapa Prolorus test användare
 

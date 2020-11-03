@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 0c541c848290988bb1f358f045abb2d0cd221de7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f96df14fb754578b58fb67ac116ac79cff3ffdcb
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87386766"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289850"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Säkerhetsrekommendationer för Azure Key Vault
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller säkerhets rekommendationer för Azure Key Vault. 
 Några av rekommendationerna som ingår i den här artikeln kan övervakas automatiskt av Azure Security Center. Azure Security Center är den första försvars linjen i att skydda dina resurser i Azure. Den analyserar regelbundet säkerhets läget för dina Azure-resurser för att identifiera potentiella säkerhets risker. Sedan får du rekommendationer om hur du kan åtgärda dem.
 
 - Mer information om Azure Security Center rekommendationer finns [i säkerhets rekommendationer i Azure Security Center](../../security-center/security-center-recommendations.md).
-- Mer information om Azure Security Center finns i [Azure Security Center?](../../security-center/security-center-intro.md)
+- Mer information om Azure Security Center finns i [Azure Security Center?](../../security-center/security-center-introduction.md)
 
 ## <a name="data-protection"></a>Dataskydd
 
@@ -54,4 +54,4 @@ Några av rekommendationerna som ingår i den här artikeln kan övervakas autom
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kontakta din programprovider för att se om det finns ytterligare säkerhets krav. Mer information om hur du utvecklar säkra program finns i [dokumentationen om säker utveckling](../../security/fundamentals/abstract-develop-secure-apps.md).
+Kontakta din programprovider för att se om det finns ytterligare säkerhets krav. Mer information om hur du utvecklar säkra program finns i [dokumentationen om säker utveckling](https://azure.microsoft.com/resources/develop-secure-applications-on-azure/).

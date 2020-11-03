@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0bdf2c4dda3e272ae04681f886f6e4da31dcebd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7931ad9e55d62d5fa2b1828d276e56f7c8cd02e1
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569832"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286481"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Konfigurera ExpressRoute Direct med hjälp av Azure CLI
 
@@ -209,19 +209,11 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
    }  
    ```
 
-## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Generera bokstaven för auktorisering (LOA)
-
-Ange det nyligen skapade ExpressRoute Direct-resurs namnet, resurs gruppens namn och ett kundnamn för att skriva LOA till och (valfritt) definiera en fil Sök väg för att lagra dokumentet. Om en fil Sök väg inte refereras till, kommer dokumentet att laddas ned till den aktuella katalogen.
-
-```azurecli
-az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
-```
-
 ## <a name="change-adminstate-for-links"></a><a name="state"></a>Ändra AdminState för länkar
 
 Använd den här processen för att genomföra ett lager 1-test. Se till att varje kors anslutning korrigeras korrekt i varje router i de primära och sekundära portarna.
 
-1. **Aktivera aktiverade**länkar. Upprepa det här steget för att ställa in varje länk till **aktive rad**.
+1. **Aktivera aktiverade** länkar. Upprepa det här steget för att ställa in varje länk till **aktive rad**.
 
    Länkar [0] är den primära porten och länkarna [1] är den sekundära porten.
 

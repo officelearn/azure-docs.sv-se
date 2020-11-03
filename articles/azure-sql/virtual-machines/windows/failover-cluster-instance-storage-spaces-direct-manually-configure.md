@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 848f3cd2d5719d62e39f46c166d51e09ec89bd4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b90d13d6f4fa5a33bff38aaa66728a5d0f3d70f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792522"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289954"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Skapa en FCI med Lagringsdirigering (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Följande diagram visar den kompletta lösningen, som använder konvergerade Lag
 
 Föregående diagram visar följande resurser i samma resurs grupp:
 
-- Två virtuella datorer i ett Windows Server-redundanskluster. När en virtuell dator finns i ett redundanskluster kallas den även för en *klusternod* eller *nod* .
+- Två virtuella datorer i ett Windows Server-redundanskluster. När en virtuell dator finns i ett redundanskluster kallas den även för en *klusternod* eller *nod*.
 - Varje virtuell dator har två eller flera data diskar.
 - Lagringsdirigering synkroniserar data på data diskarna och presenterar den synkroniserade lagringen som en lagringspool.
 - Lagringspoolen visar en klusterdelad volym (CSV) för redundansklustret.
@@ -50,7 +50,7 @@ Föregående diagram visar följande resurser i samma resurs grupp:
    > Du kan skapa hela lösningen i Azure från en mall. Ett exempel på en mall finns på sidan GitHub för [Azure snabb starts mallar](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad) . Det här exemplet är inte utformat eller testat för någon speciell arbets belastning. Du kan köra mallen för att skapa en SQL Server-FCI med Lagringsdirigering lagring som är ansluten till din domän. Du kan utvärdera mallen och ändra den så att den passar dina behov.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
@@ -68,10 +68,10 @@ Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
    Om du vill installera kluster för växling vid fel från användar gränssnittet gör du följande på båda de virtuella datorerna:
 
-   1. I **Serverhanteraren** väljer du **Hantera** och väljer sedan **Lägg till roller och funktioner** .
-   1. I guiden **Lägg till roller och funktioner** väljer du **Nästa** tills du kommer igång med att **välja funktioner** .
-   1. I **Välj funktioner** väljer du **kluster för växling vid fel** . Ta med alla nödvändiga funktioner och hanterings verktyg. 
-   1. Välj **Lägg till funktioner** .
+   1. I **Serverhanteraren** väljer du **Hantera** och väljer sedan **Lägg till roller och funktioner**.
+   1. I guiden **Lägg till roller och funktioner** väljer du **Nästa** tills du kommer igång med att **välja funktioner**.
+   1. I **Välj funktioner** väljer du **kluster för växling vid fel**. Ta med alla nödvändiga funktioner och hanterings verktyg. 
+   1. Välj **Lägg till funktioner**.
    1. Välj **Nästa** och välj sedan **Slutför** för att installera funktionerna.
 
    Om du vill installera kluster för växling vid fel med hjälp av PowerShell kör du följande skript från en administratör PowerShell-session på en av de virtuella datorerna:
@@ -90,18 +90,18 @@ Verifiera klustret i användar gränssnittet eller med hjälp av PowerShell.
 
 Verifiera klustret med hjälp av användar gränssnittet genom att göra följande på en av de virtuella datorerna:
 
-1. Under **Serverhanteraren** väljer du **verktyg** och väljer sedan **Klusterhanteraren för växling vid fel** .
-1. Under **Klusterhanteraren för växling vid fel** väljer du **åtgärd** och väljer sedan **Verifiera konfiguration** .
-1. Välj **Nästa** .
+1. Under **Serverhanteraren** väljer du **verktyg** och väljer sedan **Klusterhanteraren för växling vid fel**.
+1. Under **Klusterhanteraren för växling vid fel** väljer du **åtgärd** och väljer sedan **Verifiera konfiguration**.
+1. Välj **Nästa**.
 1. Under **Välj servrar eller ett kluster** anger du namnen på de båda virtuella datorerna.
-1. Under **test alternativ** väljer **du kör endast test som jag väljer** . 
-1. Välj **Nästa** .
+1. Under **test alternativ** väljer **du kör endast test som jag väljer**. 
+1. Välj **Nästa**.
 1. Under **Val av test** väljer du alla tester förutom **lagring** , som du ser här:
 
    ![Välj kluster verifierings test](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
-1. Välj **Nästa** .
-1. Under **bekräftelse** väljer du **Nästa** .
+1. Välj **Nästa**.
+1. Under **bekräftelse** väljer du **Nästa**.
 
     Verifierings testen körs i guiden **Verifiera en konfiguration** .
 
@@ -192,11 +192,11 @@ När du har konfigurerat redundansklustret och alla kluster komponenter, inklusi
 
 1. I **Klusterhanteraren för växling vid fel** kontrollerar du att alla kärn kluster resurser finns på den första virtuella datorn. Om det behövs flyttar du alla resurser till den virtuella datorn.
 
-1. Leta upp installations mediet. Om den virtuella datorn använder en av Azure Marketplace-avbildningarna finns mediet på `C:\SQLServer_<version number>_Full` . Välj **installation** .
+1. Leta upp installations mediet. Om den virtuella datorn använder en av Azure Marketplace-avbildningarna finns mediet på `C:\SQLServer_<version number>_Full` . Välj **installation**.
 
-1. I **SQL Server installations Center** väljer du **installation** .
+1. I **SQL Server installations Center** väljer du **installation**.
 
-1. Välj **ny SQL Server redundanskluster installationen** . Följ anvisningarna i guiden för att installera SQL Server FCI.
+1. Välj **ny SQL Server redundanskluster installationen**. Följ anvisningarna i guiden för att installera SQL Server FCI.
 
    FCI data kataloger måste finnas i klustrad lagring. Med Lagringsdirigering är det inte en delad disk men en monterings punkt för en volym på varje server. Lagringsdirigering synkroniserar volymen mellan båda noderna. Volymen visas för klustret som en KLUSTERDELAD volym. Använd CSV-monterings punkten för data katalogerna.
 
@@ -206,9 +206,9 @@ När du har konfigurerat redundansklustret och alla kluster komponenter, inklusi
 
 1. När installations programmet har installerat FCI på den första noden ansluter du till den andra noden med hjälp av RDP.
 
-1. Öppna **installations Center för SQL Server** . Välj **installation** .
+1. Öppna **installations Center för SQL Server**. Välj **installation**.
 
-1. Välj **Lägg till nod i ett SQL Server redundanskluster** . Följ anvisningarna i guiden för att installera SQL Server och lägga till servern i FCI.
+1. Välj **Lägg till nod i ett SQL Server redundanskluster**. Följ anvisningarna i guiden för att installera SQL Server och lägga till servern i FCI.
 
    >[!NOTE]
    >Om du använde en Azure Marketplace-Galleri avbildning som innehåller SQL Server, inkluderades SQL Server verktyg med avbildningen. Om du inte använde någon av dessa avbildningar installerar du SQL Server verktyg separat. Mer information finns i [Ladda ned SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -239,7 +239,7 @@ Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurer
 
 - Azure Virtual Machines stöder Microsoft koordinator för distribuerad transaktion (MSDTC) på Windows Server 2019 med lagring på CSV: er och en [standard belastningsutjämnare](../../../load-balancer/load-balancer-overview.md).
 - Diskar som har bifogats som NTFS-formaterade diskar kan bara användas med Lagringsdirigering om alternativet för disk behörighet är omarkerat eller avmarkerat när lagring läggs till i klustret. 
-- Det finns bara stöd för registrering med den virtuella SQL-resurs leverantören i [läget för förenklad hantering](sql-vm-resource-provider-register.md#management-modes) .
+- Det finns bara stöd för registrering med den virtuella SQL-resurs leverantören i [läget för förenklad hantering](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Nästa steg
 

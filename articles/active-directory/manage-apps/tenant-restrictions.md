@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce96eb5e91ccc4cb9f69711f9e6fd8fd59ce65bc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669938"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286211"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Använd klient begränsningar för att hantera åtkomst till SaaS-molnprogram
 
@@ -33,7 +33,7 @@ Den här artikeln fokuserar på klient begränsningar för Microsoft 365, men fu
 
 Den övergripande lösningen består av följande komponenter:
 
-1. **Azure AD** : om `Restrict-Access-To-Tenants: <permitted tenant list>` är närvarande utfärdar Azure AD endast säkerhetstoken för tillåtna innehavare.
+1. **Azure AD** : om `Restrict-Access-To-Tenants: <permitted tenant list>` huvudet finns utfärdar bara säkerhetstoken för de tillåtna klienterna i Azure AD.
 
 2. **Lokal Proxy Server-infrastruktur** : den här infrastrukturen är en proxy-enhet som kan Transport Layer Security (TLS). Du måste konfigurera proxyn så att den infogar rubriken som innehåller listan över tillåtna klienter i trafik som är avsedda för Azure AD.
 
@@ -57,17 +57,17 @@ Om du vill använda klient begränsningar måste klienterna kunna ansluta till f
 
 Följande konfiguration krävs för att aktivera klient begränsningar via proxyservern för infrastrukturen. Den här vägledningen är generisk, så du bör läsa dokumentationen för proxy-leverantören för att få detaljerade implementerings steg.
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 - Proxyn måste kunna utföra TLS-avlyssning, infoga HTTP-huvud och filtrera mål med hjälp av FQDN/URL: er.
 
 - Klienter måste lita på certifikat kedjan som presenteras av proxyn för TLS-kommunikation. Om till exempel certifikat från en intern [offentlig nyckel infrastruktur (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) används, måste det interna utfärdande rot certifikat utfärdarens certifikat vara betrott.
 
-- Den här funktionen ingår i Microsoft 365 prenumerationer, men om du vill använda klient begränsningar för att kontrol lera åtkomsten till andra SaaS-appar krävs Azure AD Premium 1-licenser.
+- Azure AD Premium 1-licenser krävs för att använda klient begränsningar. 
 
 #### <a name="configuration"></a>Konfiguration
 
-Infoga två HTTP-huvuden för varje inkommande begäran till login.microsoftonline.com, login.microsoft.com och login.windows.net: *begränsning-åtkomst-till-innehavare* och *begränsa åtkomst-kontext* .
+Infoga två HTTP-huvuden för varje inkommande begäran till login.microsoftonline.com, login.microsoft.com och login.windows.net: *begränsning-åtkomst-till-innehavare* och *begränsa åtkomst-kontext*.
 
 > [!NOTE]
 > När du konfigurerar SSL-avlyssning och rubrik inmatning, se till att trafik till https://device.login.microsoftonline.com undantas. Den här URL: en används för enhetsautentisering och för att utföra TLS-och-inspektera kan störa autentisering av klient certifikat, vilket kan orsaka problem med enhets registrering och enhets-baserad villkorlig åtkomst.
@@ -81,7 +81,7 @@ Rubrikerna måste innehålla följande element:
 - För *begränsning av åtkomst kontexten* använder du ett värde för ett enda katalog-ID och anger vilken klient som ska ange innehavarens begränsningar. Om du till exempel vill deklarera contoso som den klient som anger principen för klient begränsningar, ser namn/värde-paret ut så här: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  Du **måste** använda ditt eget katalog-ID på den här platsen.
 
 > [!TIP]
-> Du kan hitta ditt katalog-ID i [Azure Active Directory portalen](https://aad.portal.azure.com/). Logga in som administratör, Välj **Azure Active Directory** och välj sedan **Egenskaper** . 
+> Du kan hitta ditt katalog-ID i [Azure Active Directory portalen](https://aad.portal.azure.com/). Logga in som administratör, Välj **Azure Active Directory** och välj sedan **Egenskaper**. 
 >
 > Om du vill kontrol lera att ett katalog-ID eller domän namn refererar till samma klient använder du detta ID eller domän i stället för <tenant> i denna URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration` .  Om resultatet med domänen och ID: t är detsamma, refererar de till samma klient organisation. 
 
@@ -108,7 +108,7 @@ Medan konfigurationen av klient begränsningar görs i infrastrukturen för för
 
 2. Välj **Azure Active Directory** i den vänstra rutan. Sidan Azure Active Directory översikt visas.
 
-3. På sidan Översikt väljer du **begränsningar för innehavare** .
+3. På sidan Översikt väljer du **begränsningar för innehavare**.
 
 Administratören för den klient som anges som den begränsade åtkomst kontext klienten kan använda den här rapporten för att se vilka inloggningar som blockeras på grund av principen för klient begränsningar, inklusive den identitet som används och mål katalog-ID: t. Inloggningar inkluderas om klient inställningen begränsningen är antingen användar klienten eller resurs klienten för inloggningen.
 
@@ -126,7 +126,7 @@ Precis som med andra rapporter i Azure Portal kan du använda filter för att an
 - **MFA auth-information** (information om multifaktorautentisering)
 - **MFA-resultat**
 - **IP-adress**
-- **Klient**
+- **Klientsession**
 - **Användarnamn**
 - **Plats**
 - **Mål klient-ID**
@@ -182,7 +182,7 @@ Fiddler är en kostnads fri webb fel söknings proxy som kan användas för att 
 
 4. Spara och Stäng filen CustomRules.
 
-När du har konfigurerat Fiddler kan du samla in trafik genom att gå till **Arkiv** -menyn och välja **fånga trafik** .
+När du har konfigurerat Fiddler kan du samla in trafik genom att gå till **Arkiv** -menyn och välja **fånga trafik**.
 
 ### <a name="staged-rollout-of-proxy-settings"></a>Stegvis distribution av proxyinställningar
 

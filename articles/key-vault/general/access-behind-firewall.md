@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 1ab5ae7bf9f1d13458e3bbeeec564fe642eb3303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588736"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289173"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Få åtkomst till Azure Key Vault bakom en brandvägg
 
@@ -43,7 +43,7 @@ Nyckelvalv-klientprogram behöver åtkomst till Azure Active Directory-slutpunkt
 | Användarens eller tjänstens huvudkonto med ett arbets- eller skolkonto med Azure AD (t.ex. user@contoso.com) |**EAN**<br> login.microsoftonline.com:443<br><br> **Azure Kina:**<br> login.chinacloudapi.cn:443<br><br>**Azure amerikanska myndigheter:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
 | Användarens eller tjänstens huvudkonto med ett arbets- eller skolkonto, plus Active Directory Federation Services (AD FS) eller annan federerad slutpunkt (t.ex. user@contoso.com) |Alla slutpunkter för ett arbets- eller skolkonto, plus AD FS eller andra federerade slutpunkter |
 
-Det finns andra möjliga avancerade scenarier. Se [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-scenarios.md), [Integrera program med Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) och [Active Directory-autentiseringsprotokoll](https://msdn.microsoft.com/library/azure/dn151124.aspx) för mer information.  
+Det finns andra möjliga avancerade scenarier. Se [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-vs-authorization.md), [Integrera program med Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) och [Active Directory-autentiseringsprotokoll](/previous-versions/azure/dn151124(v=azure.100)) för mer information.  
 
 ## <a name="key-vault-management"></a>Hantering av Nyckelvalv
 
@@ -56,7 +56,7 @@ För hantering av Nyckelvalv (CRUD och inställning av åtkomstprincip) måste k
 
 ## <a name="key-vault-operations"></a>Åtgärder i Nyckelvalv
 
-Vid all hantering och kryptografiska åtgärder för nyckelvalvsobjekt (nycklar och hemligheter) måste klientprogrammet för nyckelvalv ha åtkomst till slutpunkten för nyckelvalvet. Slutpunktens DNS-suffix är olika beroende på placeringen av ditt nyckelvalv. Slutpunkten för Nyckelvalv har följande format: *valvnamn*.*regionsspecifikt dns-suffix* som beskrivs i följande tabell.  
+Vid all hantering och kryptografiska åtgärder för nyckelvalvsobjekt (nycklar och hemligheter) måste klientprogrammet för nyckelvalv ha åtkomst till slutpunkten för nyckelvalvet. Slutpunktens DNS-suffix är olika beroende på placeringen av ditt nyckelvalv. Slutpunkten för Nyckelvalv har följande format: *valvnamn*. *regionsspecifikt dns-suffix* som beskrivs i följande tabell.  
 
 | Typ av åtgärd | Slutpunkt:port |
 | --- | --- |
@@ -74,4 +74,4 @@ Autentisering och identiteter (Azure Active Directory) är en global tjänst och
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har frågor om Key Vault går du till [sidan Microsoft Q&en fråga för Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).
+Om du har frågor om Key Vault går du till [sidan Microsoft Q&en fråga för Azure Key Vault](/answers/topics/azure-key-vault.html).

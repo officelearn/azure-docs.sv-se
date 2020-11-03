@@ -1,5 +1,5 @@
 ---
-title: Diagnostisera konfigurations problem för privata länkar på Azure Key Vault
+title: Diagnostisera konfigurationsproblem för privata länkar i Azure Key Vault
 description: Lösa vanliga problem med privat länkar med Key Vault och djupgående att gå in i konfigurationen
 author: msfcolombo
 ms.author: fcolombo
@@ -7,14 +7,14 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998396"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289366"
 ---
-# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnostisera konfigurations problem för privata länkar på Azure Key Vault
+# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnostisera konfigurationsproblem för privata länkar i Azure Key Vault
 
 ## <a name="introduction"></a>Introduktion
 
@@ -56,7 +56,7 @@ Om programmet, skriptet eller portalen körs på ett godtyckligt Internet-anslut
 
 Den här guiden gäller inte lösningar som hanteras av Microsoft, där nyckel valvet används av en Azure-produkt som finns oberoende av kundens Virtual Network. Exempel på sådana scenarier är Azure Storage eller Azure SQL som har kon figurer ATS för kryptering i vila, Azure Event Hub som krypterar data med kundtillhandahållna nycklar, Azure Data Factory åtkomst till tjänstens autentiseringsuppgifter som lagras i Key Vault, Azure-pipeline hämtar hemligheter från Key Vault och andra liknande scenarier. I dessa fall *måste du kontrol lera om produkten stöder nyckel valv med brand väggen aktive rad*. Det här stödet utförs vanligt vis med funktionen [betrodda tjänster](overview-vnet-service-endpoints.md#trusted-services) i Key Vault-brandväggen. Många produkter ingår dock inte i listan över betrodda tjänster av olika orsaker. I så fall når du den produktspecifika supporten.
 
-Ett litet antal Azure-produkter stöder begreppet VNet- *inmatning*. Med enkla villkor lägger produkten till en nätverks enhet till kunden Virtual Network, så att den kan skicka begär Anden som om distribuerades till Virtual Network. Ett viktigt exempel är [Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Produkter som detta kan göra förfrågningar till nyckel valvet med hjälp av privata länkar och den här fel söknings guiden kan hjälpa dig.
+Ett litet antal Azure-produkter stöder begreppet VNet- *inmatning*. Med enkla villkor lägger produkten till en nätverks enhet till kunden Virtual Network, så att den kan skicka begär Anden som om distribuerades till Virtual Network. Ett viktigt exempel är [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Produkter som detta kan göra förfrågningar till nyckel valvet med hjälp av privata länkar och den här fel söknings guiden kan hjälpa dig.
 
 ## <a name="2-confirm-that-the-connection-is-approved-and-succeeded"></a>2. kontrol lera att anslutningen har godkänts och lyckats
 
@@ -65,7 +65,7 @@ Följande steg kontrollerar att den privata slut punkts anslutningen godkänns o
 1. Öppna Azure Portal och öppna Key Vault-resursen.
 2. På den vänstra menyn väljer du **nätverk**.
 3. Klicka på fliken **anslutningar för privata slut punkter** . Alla anslutningar för privata slut punkter och deras respektive tillstånd visas. Om det inte finns några anslutningar, eller om anslutningen till Virtual Network saknas, måste du skapa en ny privat slut punkt. Detta kommer att täckas senare.
-4. I **anslutningar för privata slut punkter**hittar du det du diagnostiserar och bekräftar att "anslutnings status" har **godkänts** och att etablerings status har **slutförts**.
+4. I **anslutningar för privata slut punkter** hittar du det du diagnostiserar och bekräftar att "anslutnings status" har **godkänts** och att etablerings status har **slutförts**.
     - Om anslutningen är i vänte läge kan du kanske bara godkänna den.
     - Om anslutningen "Avvisad", "Misslyckad", "fel", "frånkopplad" eller något annat tillstånd, är den inte effektiv alls, måste du skapa en ny privat slut punkts resurs.
 
@@ -278,7 +278,7 @@ Som du kan se är namn matchningen under din kontroll. Rationella för den här 
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>Fråga `/healthstatus` slut punkten för nyckel valvet
 
-Ditt nyckel valv ger `/healthstatus` slut punkten som kan användas för diagnostik. Svars rubrikerna innehåller den ursprungliga IP-adressen som visas i Key Vault-tjänsten. Du kan anropa slut punkten med följande kommando (**kom ihåg att använda nyckel valvets värdnamn**):
+Ditt nyckel valv ger `/healthstatus` slut punkten som kan användas för diagnostik. Svars rubrikerna innehåller den ursprungliga IP-adressen som visas i Key Vault-tjänsten. Du kan anropa slut punkten med följande kommando ( **kom ihåg att använda nyckel valvets värdnamn** ):
 
 Windows (PowerShell):
 
@@ -346,7 +346,7 @@ Följande objekt är icke-omfattande undersöknings åtgärder. De meddelar dig 
 
 ### <a name="diagnose-custom-dns-servers-at-virtual-network"></a>Diagnostisera anpassade DNS-servrar på Virtual Network
 
-I portalen öppnar du Virtual Network resursen. Öppna **DNS-servrar**i den vänstra menyn. Om du använder "anpassad" kanske DNS-matchningen inte är så som beskrivs i det här dokumentet. Du måste diagnostisera hur DNS-servrarna matchar Key Vault-värdnamnet.
+I portalen öppnar du Virtual Network resursen. Öppna **DNS-servrar** i den vänstra menyn. Om du använder "anpassad" kanske DNS-matchningen inte är så som beskrivs i det här dokumentet. Du måste diagnostisera hur DNS-servrarna matchar Key Vault-värdnamnet.
 
 Om du använder standard Azure-tillhandahållna DNS-servrar är hela dokumentet tillämpligt.
 

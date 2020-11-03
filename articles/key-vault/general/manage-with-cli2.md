@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504542"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289896"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Key Vault med Azure CLI 
 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 Använd `az keyvault create` kommandot för att skapa ett nyckel valv. Det här skriptet har tre obligatoriska parametrar: ett resurs grupps namn, ett nyckel valv namn och den geografiska platsen.
 
-Om du vill skapa ett nytt valv med namnet **ContosoKeyVault**i resurs gruppen  **ContosoResourceGroup**, som finns på **Asien, östra** plats, skriver du: 
+Om du vill skapa ett nytt valv med namnet **ContosoKeyVault** i resurs gruppen  **ContosoResourceGroup** , som finns på **Asien, östra** plats, skriver du: 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 Utdata från det här kommandot visar egenskaper för nyckel valvet som du har skapat. De två viktigaste egenskaperna är:
 
-* **namn**: i exemplet är namnet ContosoKeyVault. Du kommer att använda det här namnet för andra Key Vault-kommandon.
-* **vaultUri**: i exemplet är URI: n https://contosokeyvault.vault.azure.net . Program som använder ditt valv via dess REST-API måste använda denna URI.
+* **namn** : i exemplet är namnet ContosoKeyVault. Du kommer att använda det här namnet för andra Key Vault-kommandon.
+* **vaultUri** : i exemplet är URI: n https://contosokeyvault.vault.azure.net . Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 Nu har ditt Azure-konto behörighet att utföra åtgärder i det här nyckelvalvet. Från och med har ingen annan behörighet.
 
@@ -194,7 +194,7 @@ Program som använder ett nyckelvalv måste autentiseras med hjälp av en token 
 
 Programmet måste presentera båda dessa värden för Azure Active Directory för att få en token. Hur ett program konfigureras för att hämta en token beror på programmet. I [Key Vault-exempelprogrammet](https://www.microsoft.com/download/details.aspx?id=45343) anger programmets ägare dessa värden i filen app.config.
 
-Detaljerade anvisningar om hur du registrerar ett program med Azure Active Directory du bör läsa avsnitten [integrera program med Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md), [använda portalen för att skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](../../active-directory/develop/howto-create-service-principal-portal.md)och [skapa ett Azure-tjänstens huvud namn med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+Detaljerade anvisningar om hur du registrerar ett program med Azure Active Directory du bör läsa avsnitten [integrera program med Azure Active Directory](../../active-directory/develop/quickstart-register-app.md), [använda portalen för att skapa ett Azure Active Directory program och tjänstens huvud namn som kan komma åt resurser](../../active-directory/develop/howto-create-service-principal-portal.md)och [skapa ett Azure-tjänstens huvud namn med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Registrera ett program i Azure Active Directory:
 

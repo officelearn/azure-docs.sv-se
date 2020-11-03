@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: e22400016eae0642c4e25fcfd4fcaaaab22a27a8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8faf9c913ea9bab2feaf698efeb6fd5b3ca63179
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280577"
+ms.locfileid: "93289625"
 ---
 # <a name="speech-service-release-notes"></a>Viktig information om Speech service
 
@@ -24,21 +24,13 @@ ms.locfileid: "93280577"
 
 **Obs!** Speech SDK i Windows är beroende av den delade Microsoft Visual C++ Redistributable för Visual Studio 2015, 2017 och 2019. Ladda ned den [här](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
-**Tal-CLI (även kallat SPX)**<br>
-SPX är kommando rads gränssnittet som används för att använda Azure Speech service utan att skriva kod. Hämta den senaste versionen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics).
-- `spx csr dataset upload --kind audio|language|acoustic` – skapa data uppsättningar från lokala data, inte bara från URL: er.
-- `spx csr evaluation create|status|list|update|delete` – Jämför nya modeller med bas linje sanningen/andra modeller.
-- `spx * list` – stöder icke-växlad upplevelse (kräver inte--översta X--Skip X).
-- `spx * --http header A=B` – stöder anpassade rubriker (har lagts till för Office för anpassad autentisering). 
-- `spx help` – förbättrad text-och bakgrunds textfärgad kod (blå).
-
 **Nya funktioner**
 - **Linux** : stöd har lagts till för Debian 10-och Ubuntu 20,04-LTS.
 - **Python/mål-C** : stöd har lagts till för `KeywordRecognizer` API: et. Dokumentationen kommer att vara [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics).
 - **C++/Java/C #** : stöd har lagts till för att ange `HttpHeader` nyckel/värde via `ServicePropertyChannel::HttpHeader` .
 - **Java Script** : stöd har lagts till för `ConversationTranscriber` API: et. Läs dokumentationen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript). 
-- **C++/c #** : ny metod har lagts till `AudioDataStream FromFile` (läses. WAV-filer) [här (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audiodatastream) och [här (C#)](
-https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream.fromfile).
+- **C++/c #** : ny metod har lagts till `AudioDataStream FromWavFileInput` (läses. WAV-filer) [här (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) och [här (C#)](
+https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
 -  **C++/c #/Java/python/Objective-C/Swift** : en metod har lagts `stopSpeakingAsync()` till för att stoppa text till tal-Sammanfattning. Läs referens dokumentationen [här (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [här (C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet)), här ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), här [(](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)) och [här (mål-C/SWIFT)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
 - **C#, C++, Java** : en funktion har lagts `FromDialogServiceConnector()` till i `Connection` klassen som kan användas för att övervaka anslutnings-och från kopplings händelser för `DialogServiceConnector` . Läs referens dokumentationen [här (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [här (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)och [här (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
 <!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
@@ -72,6 +64,16 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 
 **COVID – 19 förkortad-testning:** På grund av att det går att fjärrans luta under de senaste veckorna kunde vi inte göra så mycket manuella verifierings testningar som vanligt. Vi har inte gjort några ändringar som vi tror skulle kunna ha trasigt något och våra automatiserade tester lyckades. I det förmodade fallet att vi missade något, kan du berätta för oss på [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Håll dig frisk!
+
+## <a name="speech-cli-also-known-as-spx-2020-october-release"></a>Tal-CLI (även kallat SPX): 2020 – oktober utgåva
+SPX är kommando rads gränssnittet som används för att använda Azure Speech service utan att skriva kod. Hämta den senaste versionen [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). <br>
+
+**Nya funktioner**
+- `spx csr dataset upload --kind audio|language|acoustic` – skapa data uppsättningar från lokala data, inte bara från URL: er.
+- `spx csr evaluation create|status|list|update|delete` – Jämför nya modeller med bas linje sanningen/andra modeller.
+- `spx * list` – stöder icke-växlad upplevelse (kräver inte--översta X--Skip X).
+- `spx * --http header A=B` – stöder anpassade rubriker (har lagts till för Office för anpassad autentisering). 
+- `spx help` – förbättrad text-och bakgrunds textfärgad kod (blå).
 
 
 ## <a name="text-to-speech-2020-august-release"></a>Text till tal 2020 – augusti-utgåva

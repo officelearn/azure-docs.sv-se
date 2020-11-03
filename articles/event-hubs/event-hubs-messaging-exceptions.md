@@ -2,13 +2,13 @@
 title: Azure Event Hubs – undantag (bakåtkompatibelt)
 description: Den här artikeln innehåller en lista över undantag och föreslagna åtgärder för Azure Event Hubs Messaging.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 5a7ca32893a106cd59df548ae3118665acaea654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/02/2020
+ms.openlocfilehash: adaf7242530727a1f77a9662110a43341e57e80a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318491"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289336"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs meddelande undantag – .NET (bakåtkompatibelt)
 I det här avsnittet listas de .NET-undantag som genereras av .NET Framework API: er. 
@@ -70,7 +70,7 @@ I följande tabell visas meddelande undantags typer och deras orsaker, samt för
 | [Microsoft. Service Bus. Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft. Azure. EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | Entiteten som är kopplad till åtgärden finns inte eller har tagits bort. | Kontrol lera att entiteten finns. | Det går inte att göra ett nytt försök. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | Klienten kan inte upprätta en anslutning till Event Hub. |Kontrol lera att det angivna värd namnet är rätt och att värden kan kontaktas. | Försök igen kan vara till hjälp om det finns tillfälliga anslutnings problem. |
 | [Microsoft. Service Bus. Messaging ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft. Azure. EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | Tjänsten kan för närvarande inte bearbeta begäran. | Klienten kan vänta en stund och sedan försöka igen. <br /> Se [ServerBusyException](#serverbusyexception). | Klienten kan försöka igen efter ett visst intervall. Om ett återförsök resulterar i ett annat undantag, kontrol lera beteendet för återförsök i detta undantag. |
-| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Allmänt meddelande undantag som kan uppstå i följande fall: ett försök görs att skapa en [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) med ett namn eller en sökväg som tillhör en annan entitetstyp (till exempel ett ämne). Ett försök görs att skicka ett meddelande som är större än 1 MB. Ett fel påträffades av servern eller tjänsten under bearbetningen av begäran. Mer information finns i undantags meddelandet. Detta undantag är vanligt vis ett tillfälligt undantag. | Kontrol lera koden och se till att endast serialiserbara objekt används för meddelande texten (eller Använd en anpassad serialiserare). Kontrol lera dokumentationen för de värde typer som stöds och Använd endast typer som stöds. Kontrol lera egenskapen [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Om det är **Sant**kan du försöka igen. | Beteendet för återförsök är odefinierat och kanske inte kan hjälpa dig. |
+| [MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception) | Allmänt meddelande undantag som kan uppstå i följande fall: ett försök görs att skapa en [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient) med ett namn eller en sökväg som tillhör en annan entitetstyp (till exempel ett ämne). Ett försök görs att skicka ett meddelande som är större än 1 MB. Ett fel påträffades av servern eller tjänsten under bearbetningen av begäran. Mer information finns i undantags meddelandet. Detta undantag är vanligt vis ett tillfälligt undantag. | Kontrol lera koden och se till att endast serialiserbara objekt används för meddelande texten (eller Använd en anpassad serialiserare). Kontrol lera dokumentationen för de värde typer som stöds och Använd endast typer som stöds. Kontrol lera egenskapen [IsTransient](/dotnet/api/microsoft.servicebus.messaging.messagingexception) . Om det är **Sant** kan du försöka igen. | Beteendet för återförsök är odefinierat och kanske inte kan hjälpa dig. |
 | [MessagingEntityAlreadyExistsException](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) | Försök att skapa en entitet med ett namn som redan används av en annan entitet i tjänstens namnrymd. | Ta bort den befintliga entiteten eller Välj ett annat namn för entiteten som ska skapas. | Det går inte att göra ett nytt försök. |
 | [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) | Meddelande enheten har uppnått maximalt tillåten storlek. Detta undantag kan inträffa om det maximala antalet mottagare (som är 5) redan har öppnats på en grupp per konsument nivå. | Skapa utrymme i entiteten genom att ta emot meddelanden från entiteten eller dess under köer. <br /> Se [QuotaExceededException](#quotaexceededexception) | Försök igen kan hjälpa om meddelanden har tagits bort under tiden. |
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.servicebus.messaging.messagingentitydisabledexception) | Begäran om körnings åtgärder på en inaktive rad entitet. |Aktivera entiteten. | Försök igen kan hjälpa om entiteten har Aktiver ATS i Interim. |
@@ -107,17 +107,29 @@ Felet kan bero på en av följande orsaker:
 
 - Belastningen fördelas inte jämnt över alla partitioner i händelsehubben, och en partition träffar den lokala begränsningen för data flödet.
     
-    **Lösning**: att ändra distributions strategin för partitionen eller testa [EventHubClient. send (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) kan hjälpa dig.
+    **Lösning** : att ändra distributions strategin för partitionen eller testa [EventHubClient. send (eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) kan hjälpa dig.
 
 - Event Hubs-namnrymden har inte tillräckligt med data flödes enheter (du kan kontrol lera **måtten** på skärmen i Event Hubs namn områdes fönstret i [Azure Portal](https://portal.azure.com) för att bekräfta). Portalen visar sammanställd (1 minut) information, men vi mäter data flödet i real tid – så det är bara en uppskattning.
 
-    **Lösning**: att öka data flödes enheterna i namn området kan hjälpa dig. Du kan utföra den här åtgärden på portalen i fönstret **skala** på skärmen Event Hubs namn område. Du kan också använda [Automatisk](event-hubs-auto-inflate.md)ökning.
+    **Lösning** : att öka data flödes enheterna i namn området kan hjälpa dig. 
+
+    Du kan konfigurera data flödes enheter på sidan **skalnings** sida eller **översikt** på sidan **Event Hubs namn område** i Azure Portal. Du kan också använda [Automatisk](event-hubs-auto-inflate.md)ökning, som automatiskt skalar upp genom att öka antalet data flödes enheter för att möta användnings behoven.
+
+    Data flödes enheter (antal) gäller för alla Event Hub i ett Event Hubs-namnområde. Det innebär att du köper antal på namn områdes nivån och delas mellan händelse hubbarna under denna namnrymd. Varje data flödes enheter bevarar namn området till följande funktioner:
+
+    - Upp till 1 MB ingångs händelser per sekund (händelser som skickats till en händelsehubben), men högst 1000 ingress händelser, hanterings åtgärder eller kontroll-API-anrop per sekund.
+    - Upp till 2 MB utgångs händelser per sekund (händelser som konsumeras från en händelsehubben), men högst 4096 utgående händelser.
+    - Upp till 84 GB händelse lagring (tillräckligt för standard lagrings perioden på 24 timmar).
+    
+    På sidan **Översikt** i avsnittet **Visa mått** växlar du till fliken **data flöde** . Välj diagrammet för att öppna det i ett större fönster med intervall på 1 minut på x-axeln. Titta på de högsta värdena och dela upp dem med 60 för att få inkommande byte/sekund eller utgående byte/sekund. Använd liknande metod för att beräkna antalet begär Anden per sekund vid hög belastnings tider på fliken **förfrågningar** . 
+
+    Om du ser värden som är högre än antalet antal * gränser (1 MB per sekund för ingångs-eller 1000-begäranden för ingångar/sekund, 2 MB per sekund för utgående trafik) ökar du antalet antal genom att använda **skalan** (på den vänstra menyn) i ett Event Hubs namn område för att skala högre eller använda funktionen för [automatisk](event-hubs-auto-inflate.md) ökning i Event Hubs. Observera att automatisk ökning bara kan öka upp till 20 antal. Skicka en [supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)för att öka den till exakt 40 antal.
 
 ### <a name="error-code-50001"></a>Felkod 50001
 
 Det här felet bör sällan uppstå. Det inträffar när behållaren som kör kod för namn området har ont om CPU – inte mer än några sekunder innan den Event Hubs belastningsutjämnaren börjar.
 
-**Lösning**: begränsa anrop till GetRuntimeInformation-metoden. Azure Event Hubs stöder upp till 50 anrop per sekund till GetRuntimeInfo per sekund. Du kan få ett undantag som liknar följande när gränsen nås:
+**Lösning** : begränsa anrop till GetRuntimeInformation-metoden. Azure Event Hubs stöder upp till 50 anrop per sekund till GetRuntimeInfo per sekund. Du kan få ett undantag som liknar följande när gränsen nås:
 
 ```
 ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.

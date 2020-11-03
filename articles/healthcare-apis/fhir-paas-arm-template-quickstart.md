@@ -1,19 +1,19 @@
 ---
 title: 'Snabb start: Distribuera Azure API för FHIR med en ARM-mall'
 description: I den här snabb starten får du lära dig hur du distribuerar Azure API för snabba hälso-och sjukvårds resurser (FHIR®) genom att använda en Azure Resource Manager-mall (ARM-mall).
-author: mgblythe
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
+ms.author: cavoeg
 ms.date: 10/06/2020
-ms.openlocfilehash: 0d045aac63daf99bf67ec79438f55eedd5f200d9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: c04bb82810bf55d6ac55b2697f5010896e0eb9b4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521449"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289288"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Snabb start: Använd en ARM-mall för att distribuera Azure API för FHIR
 
@@ -25,7 +25,7 @@ Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar v
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera till Azure en Azure API för FHIR-tjänst med en ARM-mall i Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -69,19 +69,19 @@ Replace the line above with the following line once https://docs.microsoft.com/a
 
 Välj följande länk för att distribuera Azure API för FHIR med ARM-mallen i Azure Portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera till Azure en Azure API för FHIR-tjänst med en ARM-mall i Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera till Azure en Azure API för FHIR-tjänst med ARM-mallen i Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
 På sidan **Distribuera Azure API för FHIR** :
 
 1. Om du vill kan du ändra **prenumerationen** från standardvärdet till en annan prenumeration.
 
-2. För **resurs grupp**väljer du **Skapa ny**, anger ett namn för den nya resurs gruppen och väljer **OK**.
+2. För **resurs grupp** väljer du **Skapa ny** , anger ett namn för den nya resurs gruppen och väljer **OK**.
 
 3. Om du har skapat en ny resurs grupp väljer du en **region** för resurs gruppen.
 
 4. Ange ett nytt **tjänst namn** och välj **platsen** för Azure-API: t för FHIR. Platsen kan vara samma som eller en annan från regionen för resurs gruppen.
 
-    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Distribuera till Azure en Azure API för FHIR-tjänst med en ARM-mall i Azure Portal.":::
+    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Distribuera Azure API för FHIR med ARM-mallen i Azure Portal.":::
 
 5. Välj **Granska + skapa**.
 

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7d34b61e584b63c517b6c0f8af4cb4adcc7fefe
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651849"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289512"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Vanliga frågor om import av Azure Key Vault-certifikat
 
@@ -25,7 +25,7 @@ I den här artikeln får du svar på vanliga frågor om hur du importerar Azure 
 
 ### <a name="how-can-i-import-a-certificate-in-azure-key-vault"></a>Hur kan jag importera ett certifikat i Azure Key Vault?
 
-För att importera ett certifikat kan Azure Key Vault acceptera två certifikat fil format: PEM och PFX. Även om det bara finns PEM-filer med den offentliga delen, behöver Key Vault bara godkänna en PEM-eller PFX-fil med en privat nyckel. Mer information finns i [Importera ett certifikat till Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-import-certificate#import-a-certificate-to-key-vault).
+För att importera ett certifikat kan Azure Key Vault acceptera två certifikat fil format: PEM och PFX. Även om det bara finns PEM-filer med den offentliga delen, behöver Key Vault bara godkänna en PEM-eller PFX-fil med en privat nyckel. Mer information finns i [Importera ett certifikat till Key Vault](./tutorial-import-certificate.md#import-a-certificate-to-key-vault).
 
 ### <a name="after-i-import-a-password-protected-certificate-to-key-vault-and-then-download-it-why-cant-i-see-the-password-thats-associated-with-it"></a>Varför kan jag inte se det lösen ord som är associerat med det när jag har importerat ett lösenordsskyddat certifikat till Key Vault och sedan laddar ned det?
     
@@ -35,7 +35,7 @@ När ett certifikat har importer ATS och skyddats i Key Vault sparas inte det as
 
 När du importerar ett certifikat måste du se till att nyckeln ingår i filen. Om du har en privat nyckel lagrad separat i ett annat format måste du kombinera nyckeln med certifikatet. Vissa certifikat utfärdare tillhandahåller certifikat i andra format. Innan du importerar certifikatet måste du därför kontrol lera att det är i antingen PEM-eller PFX-filformat och att nyckeln använder antingen Rivest – Shamir – Adleman (RSA) eller (Elliptic-Curve Cryptography Encryption). 
 
-Mer information finns i krav på [certifikat krav](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) och [certifikat nycklar](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection).
+Mer information finns i krav på [certifikat krav](./certificate-scenarios.md#formats-of-import-we-support) och [certifikat nycklar](../keys/about-keys.md).
 
 ###  <a name="can-i-import-a-certificate-by-using-an-arm-template"></a>Kan jag importera ett certifikat med en ARM-mall?
 
@@ -43,20 +43,20 @@ Nej, det går inte att utföra certifikat åtgärder med hjälp av en Azure Reso
 
 ### <a name="when-i-import-a-certificate-via-the-azure-portal-i-get-a-something-went-wrong-error-how-can-i-investigate-further"></a>När jag importerar ett certifikat via Azure Portal får jag ett fel meddelande om att något har gått fel. Hur kan jag undersöka ytterligare?
     
-Om du vill visa ett mer beskrivande fel importerar du certifikat filen med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) eller [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+Om du vill visa ett mer beskrivande fel importerar du certifikat filen med hjälp av [Azure CLI](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) eller [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Hur kan jag lösa "typ av fel: åtkomst nekad eller användare har inte behörighet att importera certifikat"?
     
-Import åtgärden kräver att du ger användar behörighet att importera certifikatet under åtkomst principerna. Det gör du genom att gå till ditt nyckel valv, välja **åtkomst principer**  >  **Lägg till åtkomst princip**  >  **Välj certifikat behörighets**  >  **objekt**, söka efter användaren och sedan lägga till användarens e-postadress. 
+Import åtgärden kräver att du ger användar behörighet att importera certifikatet under åtkomst principerna. Det gör du genom att gå till ditt nyckel valv, välja **åtkomst principer**  >  **Lägg till åtkomst princip**  >  **Välj certifikat behörighets**  >  **objekt** , söka efter användaren och sedan lägga till användarens e-postadress. 
 
-Mer information om certifikat-relaterade åtkomst principer finns i [om Azure Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#certificate-access-control).
+Mer information om certifikat-relaterade åtkomst principer finns i [om Azure Key Vault certifikat](./about-certificates.md#certificate-access-control).
 
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>Hur kan jag lösa "typ av fel: en konflikt vid skapande av ett certifikat"?
     
-Varje certifikat namn måste vara unikt. Ett certifikat med samma namn kan vara i ett läge med mjuk borttagning. Även när [ett certifikat skapas när ett certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate)skapas, skapas en adresserad hemlighet med samma namn, så om det finns en annan nyckel eller hemlighet i nyckel valvet med samma namn som det som du försöker att ange för ditt certifikat, kommer det inte att gå att skapa certifikat och du måste antingen ta bort nyckeln eller hemligheten eller använda ett annat namn för certifikatet. 
+Varje certifikat namn måste vara unikt. Ett certifikat med samma namn kan vara i ett läge med mjuk borttagning. Även när [ett certifikat skapas när ett certifikat](./about-certificates.md#composition-of-a-certificate)skapas, skapas en adresserad hemlighet med samma namn, så om det finns en annan nyckel eller hemlighet i nyckel valvet med samma namn som det som du försöker att ange för ditt certifikat, kommer det inte att gå att skapa certifikat och du måste antingen ta bort nyckeln eller hemligheten eller använda ett annat namn för certifikatet. 
 
-Mer information finns i [Get Deleted Certificate-åtgärd](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
+Mer information finns i [Get Deleted Certificate-åtgärd](/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
 
 ### <a name="why-am-i-getting-error-type-char-length-is-too-long"></a>Varför får jag "fel typ: tecken längden är för lång"?
 Det här felet kan bero på någon av två anledningar:    
@@ -83,4 +83,4 @@ Om du har importerat certifikatet korrekt bör du kunna bekräfta det genom att 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Key Vault certifikat](/azure/key-vault/certificates/about-certificates)
+- [Azure Key Vault certifikat](./about-certificates.md)

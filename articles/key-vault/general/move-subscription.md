@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: c92671028f851a456b3222100e33958c9e26466a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e0cd4cad74257dbf83ec8d30405eacca341a8d31
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785331"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289523"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Flytta en Azure Key Vault till en annan prenumeration
 
@@ -54,7 +54,7 @@ Du har ett program anslutet till nyckel valv som skapar certifikat som är gilti
 
 Se till att gå till Azure Policy sidan på Azure Portal och titta på princip tilldelningarna för din aktuella prenumeration samt den prenumeration som du flyttar till och se till att det inte finns några fel matchningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Deltagar nivå åtkomst eller högre till den aktuella prenumerationen där nyckel valvet finns.
 * Deltagar nivå åtkomst eller högre till den prenumeration där du vill flytta nyckel valvet.
@@ -100,9 +100,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Nu när ditt valv är associerat med rätt klient-ID och gamla åtkomst princip poster tas bort, anger du nya åtkomst princip poster med Azure PowerShell cmdleten [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) eller Azure CLI [-AZ](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) för nyckel valv.
 
-Om du använder en hanterad identitet för Azure-resurser måste du också uppdatera den till den nya Azure Active Directory-klienten. För ytterligare information om hanterade identiteter, [Översikt över hanterad identitet](/azure/active-directory/managed-identities-azure-resources/overview).
+Om du använder en hanterad identitet för Azure-resurser måste du också uppdatera den till den nya Azure Active Directory-klienten. För ytterligare information om hanterade identiteter, [Översikt över hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Om du använder hanterad identitet måste du också uppdatera identiteten eftersom den gamla identiteten inte längre kommer att ha rätt Azure Active Directory klient. Se följande dokument för att hjälpa till att lösa det här problemet. 
 
-* [Uppdaterar MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
-* [Överför prenumeration till ny katalog](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
+* [Uppdaterar MSI](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)
+* [Överför prenumeration till ny katalog](../../role-based-access-control/transfer-subscription.md)

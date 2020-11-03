@@ -1,6 +1,6 @@
 ---
 title: Azure Portal-begränsa import/export-åtkomst till hanterade diskar med privata länkar
-description: Aktivera privata Länkar för dina hanterade diskar med Azure Portal för närvarande som för hands version. Gör det möjligt att exportera och importera diskar på ett säkert sätt i det virtuella nätverket.
+description: Aktivera privata Länkar för dina hanterade diskar med Azure Portal. Gör det möjligt att exportera och importera diskar på ett säkert sätt i det virtuella nätverket.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
@@ -8,16 +8,16 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 95c4464d1ab8416f609f75f2b59fb85a578ef5b7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1cf6c6516e01774d0345a3f75f6f1c2826451dce
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979061"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289860"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Använd Azure Portal för att begränsa import/export-åtkomst för hanterade diskar med privata länkar
 
-Stöd för privata Länkar för hanterade diskar är för närvarande en för hands version och gör att du kan begränsa exporten och importen av hanterade diskar så att det bara sker i det virtuella Azure-nätverket. Du kan skapa en tidsbunden URL för signatur för delad åtkomst (SAS) för ej anslutna hanterade diskar och ögonblicks bilder för att exportera data till annan region för regional expansion, haveri beredskap och läsa data för kriminal tekniska-analys. Du kan också använda SAS-URI: n för att ladda upp den virtuella hård disken direkt till en tom disk från din lokala plats. Nätverks trafik mellan klienter på sina virtuella nätverk och hanterade diskar passerar bara över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponeringen för det offentliga Internet.
+Med stöd för privata Länkar för hanterade diskar kan du begränsa exporten och importen av hanterade diskar så att det bara sker i det virtuella Azure-nätverket. Du kan skapa en tidsbunden URL för signatur för delad åtkomst (SAS) för ej anslutna hanterade diskar och ögonblicks bilder för att exportera data till annan region för regional expansion, haveri beredskap och läsa data för kriminal tekniska-analys. Du kan också använda SAS-URI: n för att ladda upp den virtuella hård disken direkt till en tom disk från din lokala plats. Nätverks trafik mellan klienter på sina virtuella nätverk och hanterade diskar passerar bara över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponeringen för det offentliga Internet.
 
 Du kan skapa en disk åtkomst resurs och länka den till ditt virtuella nätverk i samma prenumeration genom att skapa en privat slut punkt. Du måste associera en disk eller en ögonblicks bild med disk åtkomst för att exportera och importera data via privata länkar. Du måste också ange egenskapen NetworkAccessPolicy för disken eller ögonblicks bilden till `AllowPrivate` . 
 
@@ -46,22 +46,22 @@ Du kan ställa in egenskapen NetworkAccessPolicy på `DenyAll` för att förhind
 
 När din resurs har skapats går du direkt till den.
 
-:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Skärm bild av bladet för att skapa disk åtkomst. Fyll i önskat namn, Välj en region, Välj en resurs grupp och fortsätt":::
+:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Skärm bild av knappen gå till resurs i portalen":::
 
 ## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 
 Nu när du har en disk åtkomst resurs kan du använda den för att hantera åtkomst till din disks export/import, detta görs via privata slut punkter. Därför måste du skapa en privat slut punkt och konfigurera den för disk åtkomst.
 
-1. Välj **anslutningar för privata slut punkter**från disk åtkomst resursen.
+1. Välj **anslutningar för privata slut punkter** från disk åtkomst resursen.
 1. Välj **+ privat slut punkt**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Skärm bild av bladet för att skapa disk åtkomst. Fyll i önskat namn, Välj en region, Välj en resurs grupp och fortsätt":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Skärm bild av översikts bladet för din disk åtkomst resurs. Anslutningar för privata slut punkter är markerade.":::
 
 1. Välj en resursgrupp
 1. Fyll i namnet och välj samma region som din disk åtkomst resurs skapades i.
 1. Välj **Nästa: resurs >**
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Skärm bild av bladet för att skapa disk åtkomst. Fyll i önskat namn, Välj en region, Välj en resurs grupp och fortsätt":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Skärm bild av arbets flödet för skapande av privat slut punkt, första bladet. Om du inte väljer rätt region kan du stöta på problem senare.":::
 
 1. På **resurs** bladet väljer du **Anslut till en Azure-resurs i min katalog**.
 1. För **resurs typ** väljer du **Microsoft. Compute/diskAccesses**
@@ -69,7 +69,7 @@ Nu när du har en disk åtkomst resurs kan du använda den för att hantera åtk
 1. Lämna **mål under resursen** som **diskar**
 1. Välj **Nästa: konfigurations >**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Skärm bild av bladet för att skapa disk åtkomst. Fyll i önskat namn, Välj en region, Välj en resurs grupp och fortsätt":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Skärm bild av arbets flödet för skapande av privat slut punkt, andra bladet. Med alla markerade värden (resurs typ, resurs, mål under resurs)":::
 
 1. Välj det virtuella nätverk som du vill begränsa disk export till, och andra virtuella nätverk kommer inte att kunna exportera disken.
 
@@ -79,7 +79,7 @@ Nu när du har en disk åtkomst resurs kan du använda den för att hantera åtk
 1. Välj lämpligt undernät
 1. Välj **Granska + skapa**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Skärm bild av bladet för att skapa disk åtkomst. Fyll i önskat namn, Välj en region, Välj en resurs grupp och fortsätt":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Skärm bild av arbets flödet för skapande av privat slut punkt, tredje bladet. Det virtuella nätverket och under nätet har framhävts.":::
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>Aktivera privat slut punkt på disken
 
@@ -88,7 +88,7 @@ Nu när du har en disk åtkomst resurs kan du använda den för att hantera åtk
 1. Välj **privat slut punkt (via disk åtkomst)** och välj disk åtkomst som du skapade tidigare.
 1. Välj **Spara**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Skärm bild av bladet för att skapa disk åtkomst. Fyll i önskat namn, Välj en region, Välj en resurs grupp och fortsätt":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Skärm bild av bladet Managed disk Networking. Markera den privata slut punkts valet och den valda disk åtkomsten. När du sparar det här alternativet konfigureras disken för den här åtkomsten.":::
 
 Nu har du slutfört konfigurationen av privata länkar som du kan använda när du importerar/exporterar den hanterade disken.
 

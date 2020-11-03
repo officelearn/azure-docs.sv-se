@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 11/02/2020
 ms.author: aahi
 keywords: text utvinning, sentiment-analys, text analys
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d58c501af3d90fec1eea43d13fa2383c8e847f18
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89647461"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289693"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Vad är API för textanalys?
 
@@ -27,9 +27,11 @@ API:et är en del av [Azure Cognitive Services](https://docs.microsoft.com/azure
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-## <a name="sentiment-analysis"></a>Attitydanalys
+## <a name="sentiment-analysis"></a>Sentimentanalys
 
-Använd [sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md) och ta reda på vad man tycker om ditt varumärke eller ditt ämne genom att lansera texten för LED trådar om positiv eller negativ sentiment. Den här API-funktionen returnerar en sentiment Poäng mellan 0 och 1 för varje dokument, där 1 är det mest positiva.
+Använd [sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md) och ta reda på vad man tycker om ditt varumärke eller ditt ämne genom att lansera texten för LED trådar om positiv eller negativ sentiment. 
+
+Funktionen ger sentiment-etiketter (till exempel "negativa", "neutral" och "positiv") baserat på de högsta förtroende poängen som tjänsten har hittat på en mening och dokument nivå. Den här funktionen returnerar även konfidens resultat mellan 0 och 1 för varje dokument & meningar i den för positiva, neutrala och negativa sentiment. Du kan också köra tjänsten lokalt [med en behållare](how-tos/text-analytics-how-to-install-containers.md).
 
 Från och med v 3.1-förhands granskningen är utgångs punkt en funktion i Attitydanalys. Den här funktionen är även känd som Aspect-baserad Attitydanalys i naturlig språk bearbetning (NLP) och ger mer detaljerad information om de åsikter som rör aspekter (till exempel attributen för produkter eller tjänster) i text.
 

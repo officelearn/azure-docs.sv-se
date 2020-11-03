@@ -4,30 +4,28 @@ description: Indexera spatialdata med Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/03/2020
+ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: f250c15dbb30736e3e89a301fc236a848bd05da2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 347617fb13041a8fb31c28f259aaf761baae2e53
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092066"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286306"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexera geospatiala data med Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Vi utformade Azure Cosmos DB databas motorn så att den verkligen är schema-oberoende och ger första klass stöd för JSON. Den Write-optimerade databas motorn i Azure Cosmos DB internt förstår spatialdata som representeras i standarden för polyjson.
 
-I en kortfattat så Jenkins projiceras geometrin från Geodetic-koordinater till ett 2D-plan och delas sedan progressivt i cellerna med hjälp av en **quadtree** . Dessa celler mappas till 1D baserat på cellens position inom en **Fyllnings kurva för Hilbert utrymme** , som bevarar platsens plats. När plats data indexeras går de igenom en process som kallas **mosaik** , det vill säga att alla celler som korsar en plats identifieras och lagras som nycklar i Azure Cosmos DB indexet. Vid fråge tillfället är argument som punkter och polygoner också tessellated för att extrahera relevanta cell-ID-intervall och sedan använda för att hämta data från indexet.
+I en kortfattat så Jenkins projiceras geometrin från Geodetic-koordinater till ett 2D-plan och delas sedan progressivt i cellerna med hjälp av en **quadtree**. Dessa celler mappas till 1D baserat på cellens position inom en **Fyllnings kurva för Hilbert utrymme** , som bevarar platsens plats. När plats data indexeras går de igenom en process som kallas **mosaik** , det vill säga att alla celler som korsar en plats identifieras och lagras som nycklar i Azure Cosmos DB indexet. Vid fråge tillfället är argument som punkter och polygoner också tessellated för att extrahera relevanta cell-ID-intervall och sedan använda för att hämta data från indexet.
 
-Om du anger en indexerings princip som innehåller rums index för/* (alla sökvägar), indexeras alla data som finns i behållaren för effektiva rums frågor.
+Om du anger en indexerings princip som innehåller ett rums index för `/*` (alla sökvägar) indexeras alla data som finns i behållaren för effektiva rums frågor.
 
 > [!NOTE]
-> Azure Cosmos DB stöder indexering av punkter, lin Est rings, polygoner och multipolygoner
->
->
+> Azure Cosmos DB stöder indexering av punkter, lin Est rings, polygoner och multipolygoner. Om du har indexerat någon av dessa typer, kommer vi automatiskt att indexera alla andra typer. Med andra ord, om du indexerar polygoner, kommer vi också att indexera punkter, lin Est rings och multipolygoner. Indexering av en ny spatial typ påverkar inte avgiften för Skriv in-eller index storlek om du inte har giltiga geospatiala JSON-data av den typen.
 
-## <a name="modifying-geospatial-data-type"></a>Ändra Geospatial datatyp
+## <a name="modifying-geospatial-configuration"></a>Ändrar Geospatial konfiguration
 
 I din behållare anger den **geospatiala konfigurationen** hur spatial data ska indexeras. Ange en **Geospatial konfiguration** per container: geografi eller geometri.
 
@@ -160,7 +158,7 @@ Här är ett exempel på en indexerings princip som indexerar **geometri** data 
 Index principen ovan har en **boundingBox** av (-10, 10) för x-koordinater och (-20, 20) för y-koordinater. Behållaren med index principen ovan kommer att indexera alla punkter, polygoner, multipolygoner och lin Est rings som är helt inom den här regionen.
 
 > [!NOTE]
-> Om du försöker lägga till en indexerings princip med en **boundingBox** till en behållare med `geography` data typen, kommer den att Miss Förslut. Du bör ändra behållarens **geospatialConfig** `geometry` innan du lägger till en **boundingBox** . Du kan lägga till data och ändra resten av din indexerings princip (t. ex. sökvägar och typer) antingen före eller efter att du väljer den geospatiala data typen för behållaren.
+> Om du försöker lägga till en indexerings princip med en **boundingBox** till en behållare med `geography` data typen, kommer den att Miss Förslut. Du bör ändra behållarens **geospatialConfig** `geometry` innan du lägger till en **boundingBox**. Du kan lägga till data och ändra resten av din indexerings princip (t. ex. sökvägar och typer) antingen före eller efter att du väljer den geospatiala data typen för behållaren.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,14 +3,14 @@ title: Hantera Ändringsspårning och inventering i Azure Automation
 description: Den här artikeln beskriver hur du använder Ändringsspårning och inventering för att spåra program-och Microsoft-tjänsteändringar i din miljö.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: a599bb6f07683540f5b12c6a69d6565161f89a4f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 99cdc4191320efb37b37e4ec38e808f3961a1207
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210330"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288748"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Hantera ändringsspårning och inventering
 
@@ -35,7 +35,7 @@ Du kan använda Ändringsspårning och inventering för att spåra ändringar i 
 
 Använd följande steg för att konfigurera fil spårning på Windows-datorer:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Automation**. När du börjar skriva filtreras listan enligt dina inaktuella inmatnings förslag. Välj **Automation-konton**.
 
@@ -45,7 +45,7 @@ Använd följande steg för att konfigurera fil spårning på Windows-datorer:
 
 5. Välj **Redigera inställningar** (kugg hjuls symbolen).
 
-6. På sidan konfiguration av arbets yta väljer du **Windows-filer**och klickar sedan på **+ Lägg** till för att lägga till en ny fil som ska spåras.
+6. På sidan konfiguration av arbets yta väljer du **Windows-filer** och klickar sedan på **+ Lägg** till för att lägga till en ny fil som ska spåras.
 
 7. I fönstret Lägg till Windows-fil för Ändringsspårning anger du informationen för filen eller mappen som ska spåras och klickar på **Spara**. I följande tabell definieras de egenskaper som du kan använda för informationen.
 
@@ -59,6 +59,13 @@ Använd följande steg för att konfigurera fil spårning på Windows-datorer:
     |Rekursion     | Sant om rekursion används vid sökning efter objektet som ska spåras och falskt annars.        |    
     |Ladda upp fil innehåll | Sant om du vill överföra fil innehåll på spårade ändringar och annars FALSE.|
 
+    Om du planerar att konfigurera övervakning av filer och mappar med jokertecken bör du tänka på följande:
+
+    - Jokertecken krävs för att spåra flera filer.
+    - Jokertecken kan endast användas i det sista segmentet i en sökväg, till exempel *C:\folder\file* eller */etc/*. conf *
+    - Om en miljö variabel innehåller en sökväg som inte är giltig kommer verifieringen att lyckas, men sökvägen Miss lyckas När inventeringen körs.
+    - När du anger sökvägen bör du undvika allmänna sökvägar, till exempel *c:*. * *, vilket leder till att för många mappar passerar.
+
 8. Se till att du anger true för **Ladda upp fil innehåll**. Med den här inställningen aktive ras spårning av fil innehåll för den angivna fil Sök vägen.
 
 ### <a name="configure-file-tracking-on-linux"></a>Konfigurera fil spårning i Linux
@@ -67,7 +74,7 @@ Använd följande steg för att konfigurera fil spårning på Linux-datorer:
 
 1. Välj **Redigera inställningar** (kugg hjuls symbolen).
 
-2. På sidan konfiguration av arbets yta väljer du **Linux-filer**och väljer sedan **+ Lägg** till för att lägga till en ny fil som ska spåras.
+2. På sidan konfiguration av arbets yta väljer du **Linux-filer** och väljer sedan **+ Lägg** till för att lägga till en ny fil som ska spåras.
 
 3. På sidan **Lägg till Linux-fil för ändringsspårning** anger du informationen för filen eller katalogen som ska spåras och väljer sedan **Spara**. I följande tabell definieras de egenskaper som du kan använda för informationen.
 
@@ -138,7 +145,7 @@ Använd följande steg för att konfigurera register nyckel spårning på Window
 
 3. Välj **+ Lägg** till för att lägga till en ny register nyckel som ska spåras.
 
-4. På sidan **Lägg till Windows-register för ändringsspårning** anger du informationen för nyckeln som ska spåras och väljer sedan **Spara**. I följande tabell definieras de egenskaper som du kan använda för informationen.
+4. På sidan **Lägg till Windows-register för ändringsspårning** anger du informationen för nyckeln som ska spåras och väljer sedan **Spara**. I följande tabell definieras de egenskaper som du kan använda för informationen. När du anger en register Sök väg måste den vara nyckeln och inte ett värde.
 
     |Egenskap  |Beskrivning  |
     |---------|---------|

@@ -10,20 +10,20 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: cea061c1fd36bed9fa1e43c874fbca347707f78d
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: a85656909df5538f9f57e05d79ae768623d7eba6
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925875"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289604"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Skapa och sammanfoga CSR i Key Vault
 
 Azure Key Vault stöder lagring av digitala certifikat som utfärdats av valfri certifikat utfärdare i ditt nyckel valv. Det har stöd för att skapa en begäran om certifikat signering med ett privat offentligt nyckel par som kan signeras av en vald certifikat utfärdare. Det kan vara interna företags certifikat utfärdare eller extern offentlig CA. En begäran om certifikat signering (även CSR eller certifierings förfrågan) är ett meddelande som skickas av användaren till en certifikat utfärdare (CA) för att begära utfärdande av ett digitalt certifikat.
 
-Mer allmän information om certifikat finns i [Azure Key Vault certifikat](/azure/key-vault/certificates/about-certificates).
+Mer allmän information om certifikat finns i [Azure Key Vault certifikat](./about-certificates.md).
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="adding-certificate-in-key-vault-issued-by-a-non-trusted-ca"></a>Lägga till certifikat i Key Vault som utfärdats av en icke-betrodd certifikat utfärdare
 
@@ -34,7 +34,7 @@ Följande steg hjälper dig att skapa ett certifikat från certifikat utfärdare
 
 
 
-1.  Skapa först **certifikat principen** . Key Vault kan inte registrera eller förnya certifikatet från utfärdaren åt användaren eftersom CA: n som valts i det här scenariot inte stöds, och därför har IssuerName angetts till okänd.
+1.  Skapa först **certifikat principen**. Key Vault kan inte registrera eller förnya certifikatet från utfärdaren åt användaren eftersom CA: n som valts i det här scenariot inte stöds, och därför har IssuerName angetts till okänd.
 
     ```azurepowershell
     $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
@@ -69,11 +69,11 @@ Följande steg hjälper dig att skapa ett certifikat från certifikat utfärdare
     - **Certifikat namn:** ContosoManualCSRCertificate.
     - **Typ av certifikat utfärdare (ca):** Certifikat utfärdat av en icke-integrerad certifikat utfärdare
     - **Ämne:**`"CN=www.contosoHRApp.com"`
-    - Välj de andra värdena som du vill. Klicka på **Skapa** .
+    - Välj de andra värdena som du vill. Klicka på **Skapa**.
 
     ![Certifikategenskaper](../media/certificates/create-csr-merge-csr/create-certificate.png)
 6.  Du kommer att se att certifikatet nu har lagts till i listan certifikat. Välj det här nya certifikatet som du nyss skapade. Certifikatets aktuella tillstånd är inaktive rad eftersom det inte har utfärdats av certifikat utfärdaren än.
-7. Klicka på fliken **certifikat åtgärd** och välj **Hämta CSR** .
+7. Klicka på fliken **certifikat åtgärd** och välj **Hämta CSR**.
  ![Skärm bild som visar knappen Hämta CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
 8.  Ta. CSR-filen till CA: n för begäran om att bli signerad.
@@ -98,7 +98,7 @@ Exempel
 >Om du begär ett DV-certifikat med alla dessa uppgifter i CSR kan certifikat utfärdaren avvisa begäran eftersom CA kanske inte kan verifiera all information i begäran. Om du begär ett OV-certifikat blir det mer lämpligt att lägga till all information i CSR.
 
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 - **Fel typ: den offentliga nyckeln för certifikatet för slutentiteten i det angivna X. 509-certifikatets innehåll matchar inte den offentliga delen av den angivna privata nyckeln. Kontrol lera att certifikatet är giltigt** . det här felet kan inträffa om du inte slår samman kund service representanten med samma CSR-begäran som initieras. Varje gång en CSR skapas, skapas en privat nyckel som måste matchas vid sammanslagning av den signerade begäran.
     

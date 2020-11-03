@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: b58f402766e369894fcf014836ab9f24c231c489
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 8689b6851ae219ee6f41ebf58736692e557b2344
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927506"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289735"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Självstudie: importera ett certifikat i Azure Key Vault
 
@@ -33,7 +33,7 @@ Självstudien visar hur du:
 
 Läs [Key Vault grundläggande koncept](../general/basic-concepts.md)innan du börjar. 
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -41,21 +41,21 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Skapa ett valv
 
-1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs** .
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
 2. Skriv **Key Vault** i sökrutan.
 3. Välj **Key Vault** i listan med resultat.
 4. Välj **Skapa** i avsnittet Key Vault.
 5. Ange följande information i avsnittet **Skapa nyckelvalv** avsnittet Ange följande information:
-    - **Namn** : Ett unikt namn krävs. I den här snabb starten använder vi **exempel-valv** . 
+    - **Namn** : Ett unikt namn krävs. I den här snabb starten använder vi **exempel-valv**. 
     - **Prenumeration** : Välj en prenumeration.
     - Under **resurs grupp** väljer du **Skapa ny** och anger ett resurs grupp namn.
-    - Välj en plats i listrutan **Plats** .
+    - Välj en plats i listrutan **Plats**.
     - Lämna standardvärdena för de andra alternativen.
-6. När du har angett den här informationen väljer du **Skapa** .
+6. När du har angett den här informationen väljer du **Skapa**.
 
 Anteckna de två egenskaperna som visas nedan:
 
-* **Valv namn** : i exemplet är detta **exempel-valv** . Du kommer att använda det här namnet i senare steg.
+* **Valv namn** : i exemplet är detta **exempel-valv**. Du kommer att använda det här namnet i senare steg.
 * **Valvets URI** : I det här exemplet är det https://example-vault.vault.azure.net/. Program som använder ditt valv via dess REST-API måste använda denna URI.
 
 Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i det nya valvet.
@@ -64,7 +64,7 @@ Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i
 
 ## <a name="import-a-certificate-to-key-vault"></a>Importera ett certifikat till Key Vault
 
-Om du vill importera ett certifikat till valvet måste du ha en PEM-eller PFX-certifikatfil på disken. I det här fallet ska vi importera ett certifikat med fil namnet **ExampleCertificate** .
+Om du vill importera ett certifikat till valvet måste du ha en PEM-eller PFX-certifikatfil på disken. I det här fallet ska vi importera ett certifikat med fil namnet **ExampleCertificate**.
 
 > [!IMPORTANT]
 > I Azure Key Vault är PFX och PEM de format som stöds. 
@@ -72,13 +72,13 @@ Om du vill importera ett certifikat till valvet måste du ha en PEM-eller PFX-ce
 > - PFX-filformat är ett Arkiv fil format för lagring av flera kryptografiska objekt i en enda fil, t. ex. Server certifikat (utfärdat för din domän), en matchande privat nyckel och eventuellt även en mellanliggande certifikat utfärdare.  
 
 1. Välj **certifikat** på sidan Key Vault egenskaper.
-2. Klicka på **Generera/importera** .
+2. Klicka på **Generera/importera**.
 3. På skärmen **skapa ett certifikat** väljer du följande värden:
     - **Metod för att skapa certifikat** : importera.
     - **Certifikat namn** : ExampleCertificate.
     - **Ladda upp certifikat fil** : Välj certifikat filen från disk
     - **Lösen ord** : om du överför en lösenordsskyddad certifikat fil anger du detta lösen ord här. Annars lämnar du det tomt. När certifikat filen har importer ATS tar Key Vault bort lösen ordet.
-4. Klicka på **Skapa** .
+4. Klicka på **Skapa**.
 
 ![Certifikategenskaper](../media/certificates/tutorial-import-cert/cert-import.png)
 
@@ -104,9 +104,9 @@ az keyvault certificate import --file
                                [--tags]
 ```
 
-Läs mer om [parametrarna](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
+Läs mer om [parametrarna](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
 
-När du har importerat certifikatet kan du Visa certifikatet med [certifikat visning](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
+När du har importerat certifikatet kan du Visa certifikatet med [certifikat visning](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
 
 
 ```azurecli
@@ -135,7 +135,7 @@ Import-AzureKeyVaultCertificate
       [<CommonParameters>]
 ```
 
-Läs mer om [parametrarna](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+Läs mer om [parametrarna](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -144,14 +144,14 @@ Andra snabbstarter och självstudier om Key Vault bygger på den här snabbstart
 När du inte behöver resursgruppen längre så tar du bort den. Då tas även nyckelvalvet och relaterade resurser bort. Så här tar du bort resursgruppen via portalen:
 
 1. Skriv namnet på resursgruppen i rutan Sök längst upp i portalen. När du ser resursgruppen du använde i den här snabbstarten bland sökresultaten väljer du den.
-2. Välj **Ta bort resursgrupp** .
-3. I rutan **SKRIV RESURSGRUPPSNAMNET:** skriver du namnet på resursgruppen och väljer **Ta bort** .
+2. Välj **Ta bort resursgrupp**.
+3. I rutan **SKRIV RESURSGRUPPSNAMNET:** skriver du namnet på resursgruppen och väljer **Ta bort**.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudien har du skapat en Key Vault och importerat ett certifikat i det. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
-- Läs mer om att [Hantera certifikat skapande i Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
+- Läs mer om att [Hantera certifikat skapande i Azure Key Vault](./create-certificate-scenarios.md)
 - Se exempel på hur du [importerar certifikat med hjälp av REST API: er](/rest/api/keyvault/importcertificate/importcertificate)
 - Granska [Azure Key Vault bästa praxis](../general/best-practices.md)

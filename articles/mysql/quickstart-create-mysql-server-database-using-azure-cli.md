@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 161d1c95507d366ce00f75580a100fd2607675d9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0c43f1ea81bbc29817e6a2509c9967bf3b5782c9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544026"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337311"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Snabb start: skapa en Azure Database for MySQL-server med Azure CLI
 
@@ -62,7 +62,7 @@ Här följer information om argument ovan:
 name | mydemoserver | Ange ett unikt namn för din Azure Database for MySQL-server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
 resource-group | myresourcegroup | Ange namnet på Azure-resursgruppen.
 location | westus | Azure-platsen för servern.
-admin-user | myadmin | Användarnamnet för administratörsinloggning. Det kan inte vara **azure_superuser** , **admin** , **administrator** , **root** , **guest** eller **public** .
+admin-user | myadmin | Användarnamnet för administratörsinloggning. Det kan inte vara **azure_superuser** , **admin** , **administrator** , **root** , **guest** eller **public**.
 admin-password | *säkert lösenord* | Lösenordet för administratörsanvändaren. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.
 sku-name|GP_Gen5_2|Ange namnet på pris nivån och beräknings konfigurationen. Följer konventionen {prisnivå} _{beräkningsgenerering}_ {vCores} i snabbformat. Mer information finns på [pris nivåerna](./concepts-pricing-tiers.md) .
 
@@ -91,7 +91,7 @@ För att ansluta till servern måste du ange värddatorinformationen och autenti
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **administratorLogin** .
+Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -143,6 +143,4 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
->[Bygg en php-app i Windows med MySQL](../app-service/tutorial-php-mysql-app.md) 
-> [Bygga php-app på Linux med MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux) 
-> [Utveckla Java-baserad våren-app med MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
+>[Bygg en PHP-app i Windows med MySQL](../app-service/tutorial-php-mysql-app.md)

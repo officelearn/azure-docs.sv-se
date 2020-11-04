@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f065b1bc98eab86542ecff73e1471e4d90cd4182
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677906"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339542"
 ---
 # <a name="vm-certification-troubleshooting"></a>Felsökning av VM-certifiering
 
@@ -47,15 +47,15 @@ Kontrol lera om avbildningen har stöd för VM-tillägg.
 Gör så här för att aktivera VM-tillägg:
 
 1. Välj din virtuella Linux-dator.
-1. Gå till **diagnostikinställningar** .
-1. Aktivera bas-matriser genom att uppdatera **lagrings kontot** .
-1. Välj **Spara** .
+1. Gå till **diagnostikinställningar**.
+1. Aktivera bas-matriser genom att uppdatera **lagrings kontot**.
+1. Välj **Spara**.
 
    ![Aktivera övervakning på gästnivå](./media/create-vm/vm-certification-issues-solutions-1.png)
 
 Kontrol lera att de virtuella dator tilläggen är korrekt aktiverade genom att göra följande:
 
-1. I den virtuella datorn väljer du fliken **VM-tillägg** och kontrollerar sedan statusen för **Linux Diagnostics-tillägget** .
+1. I den virtuella datorn väljer du fliken **VM-tillägg** och kontrollerar sedan statusen för **Linux Diagnostics-tillägget**.
 1. 
     * Om statusen är *etableringen slutförd* är testerna för tilläggen klara.  
     * Om statusen är *etableringen* misslyckades test väskan för tillägg och du måste ange den strikta flaggan.
@@ -81,6 +81,45 @@ Etablerings problem kan omfatta följande fel scenarier:
 > Mer information om VM-generalisering finns i:
 > - [Linux-dokumentation](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Windows-dokumentation](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+
+
+## <a name="vhd-specifications"></a>VHD-specifikationer
+
+### <a name="conectix-cookie-and-other-vhd-specifications"></a>Conectix cookie och andra VHD-specifikationer
+Strängen "conectix" är en del av VHD-specifikationen och definieras som cookie för 8 byte i VHD-foten nedan som identifierar filens skapare. Alla VHD-filer som skapats av Microsoft har denna cookie. 
+
+En VHD-formaterad BLOB måste ha en sidfot på 512 byte; Detta är formatet för VHD-foten:
+
+|Fält för hård disk foten|Storlek (byte)|
+|---|---|
+Cookie|8
+Funktioner|4
+Fil format version|4
+Data förskjutning|8
+Tidsstämpel|4
+Skapare program|4
+Creator-version|4
+Skapare värd operativ system|4
+Ursprunglig storlek|8
+Aktuell storlek|8
+Disk geometri|4
+Disktyp|4
+Kontrollsumma|4
+Unikt ID|16
+Sparat tillstånd|1
+Reserverat|427
+
+
+### <a name="vhd-specifications"></a>VHD-specifikationer
+Säkerställ att **VHD uppfyller följande kriterier** för att säkerställa en sömlös publicerings upplevelse:
+* Cookien måste innehålla strängen "conectix"
+* Disk typen måste vara fast
+* Den virtuella hård diskens storlek är minst 20 MB
+* Den virtuella hård disken är justerad (dvs. den virtuella storleken måste vara en multipel av 1 MB)
+* VHD-blobens längd = virtuell storlek + VHD-fotens längd (512)
+
+Du kan ladda ned VHD-specifikationen [här.](https://www.microsoft.com/download/details.aspx?id=23850)
+
 
 ## <a name="software-compliance-for-windows"></a>Program varans kompatibilitet för Windows
 
@@ -123,8 +162,8 @@ I följande tabell visas vanliga fel som påträffas vid körning av föregåend
 |---|---|---|---|
 |1|Test fall för Linux-agentens version|Den lägsta Linux-agentens version är 2.2.41 eller senare. Detta krav har varit obligatoriskt sedan den 1 maj 2020.|Uppdatera Linux-agentens version och bör vara 2,241 eller senare. Mer information finns på sidan med [versions uppdateringar för Linux-agenten](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Test väska för bash-historik|Du får ett fel meddelande om storleken på bash-historiken i den skickade avbildningen är större än 1 KB. Storleken är begränsad till 1 KB för att säkerställa att all potentiellt känslig information inte samlas in i din bash-historik fil.|Lös problemet genom att montera den virtuella hård disken till någon annan fungerande virtuell dator och göra eventuella ändringar (till exempel ta bort historikfilerna *. bash* ) för att minska storleken till mindre än eller lika med 1 KB.|
-|3|Nödvändigt test fall för kernel-parameter|Du får det här felet när värdet för- **konsolen** inte är inställt på **ttyS0** . Kontrol lera genom att köra följande kommando:<br>`cat /proc/cmdline`|Ange värdet för- **konsolen** till **ttyS0** och skicka begäran på nytt.|
-|4|Test fall för ClientAlive-intervall|Om verktygs resultatet ger dig ett misslyckat resultat för det här test fallet finns det ett olämpligt värde för **ClientAliveInterval** .|Ange värdet för **ClientAliveInterval** till mindre än eller lika med 235 och skicka sedan begäran igen.|
+|3|Nödvändigt test fall för kernel-parameter|Du får det här felet när värdet för- **konsolen** inte är inställt på **ttyS0**. Kontrol lera genom att köra följande kommando:<br>`cat /proc/cmdline`|Ange värdet för- **konsolen** till **ttyS0** och skicka begäran på nytt.|
+|4|Test fall för ClientAlive-intervall|Om verktygs resultatet ger dig ett misslyckat resultat för det här test fallet finns det ett olämpligt värde för **ClientAliveInterval**.|Ange värdet för **ClientAliveInterval** till mindre än eller lika med 235 och skicka sedan begäran igen.|
 
 ### <a name="windows-test-cases"></a>Windows-testfall
 
@@ -173,7 +212,7 @@ Eftersom de virtuella datorerna tillåter åtkomst till det underliggande operat
 
 |VHD-storlek|Faktisk naturlig storlek|Lösning|
 |---|---|---|
-|>500 tebibyte (TiB)|Saknas|Kontakta support teamet om du vill ha ett undantags godkännande.|
+|>500 tebibyte (TiB)|saknas|Kontakta support teamet om du vill ha ett undantags godkännande.|
 |250-500 TiB|>200-gibibyte (GiB) skillnad från BLOB-storlek|Kontakta support teamet om du vill ha ett undantags godkännande.|
 |
 
@@ -197,7 +236,7 @@ Avbildnings fil versionen kan verifieras från `C:\windows\system32\drivers\srv.
 |Windows Server 2012|6.2.9200.22099|
 |Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
-|Windows Server 2019|Ej tillämpligt|
+|Windows Server 2019|NA|
 |
 
 ## <a name="sack-vulnerability-patch-verification"></a>Bekräftelse av sårbarhets sårbarhets korrigering
@@ -391,7 +430,7 @@ Se alltid till att standardautentiseringsuppgifterna inte skickas med den skicka
   
 ## <a name="datadisk-mapped-incorrectly"></a>DataDisk mappas felaktigt
 
-När en begäran skickas med flera data diskar, men deras ordning inte är i följd, betraktas detta som ett mappnings problem. Om det till exempel finns tre data diskar, måste nummer ordningen vara *0, 1, 2* . En annan ordning behandlas som ett mappnings problem.
+När en begäran skickas med flera data diskar, men deras ordning inte är i följd, betraktas detta som ett mappnings problem. Om det till exempel finns tre data diskar, måste nummer ordningen vara *0, 1, 2*. En annan ordning behandlas som ett mappnings problem.
 
 Skicka begäran igen med korrekt ordningsföljd av data diskar.
 
@@ -501,36 +540,36 @@ För att tillhandahålla en fast VM-avbildning som ersätter en VM-avbildning so
 För att slutföra de här stegen måste du förbereda de tekniska till gångarna för den VM-avbildning som du vill lägga till. Mer information finns i [skapa en virtuell dator med en godkänd bas](azure-vm-create-using-approved-base.md) eller [skapa en virtuell dator med hjälp av en egen avbildning](azure-vm-create-using-own-image.md)och [Generera en SAS-URI för din VM-avbildning](azure-vm-get-sas-uri.md).
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På den vänstra navigerings menyn väljer du **kommersiell Marketplace** -  >  **Översikt** .
+2. På den vänstra navigerings menyn väljer du **kommersiell Marketplace** -  >  **Översikt**.
 3. I kolumnen **erbjudande alias** väljer du erbjudandet.
 4. På fliken **plan översikt** i kolumnen **namn** väljer du den plan som du vill lägga till den virtuella datorn i.
-5. På fliken **teknisk konfiguration** , under **VM-avbildningar** , väljer du **+ Lägg till avbildning av virtuell dator** .
+5. På fliken **teknisk konfiguration** , under **VM-avbildningar** , väljer du **+ Lägg till avbildning av virtuell dator**.
 
 > [!NOTE]
 > Du kan bara lägga till en avbildning av en virtuell dator till en plan i taget. Om du vill lägga till flera VM-avbildningar publicerar du den första Live-avbildningen innan du lägger till nästa avbildning av virtuella datorer.
 
 6. I rutorna som visas anger du en ny disk version och avbildningen av den virtuella datorn.
-7. Välj **Spara utkast** .
+7. Välj **Spara utkast**.
 
 Fortsätt med nästa avsnitt nedan för att ta bort den virtuella dator avbildningen med säkerhets risken.
 
 #### <a name="remove-the-vm-image-with-the-security-vulnerability-or-exploit"></a>Ta bort den virtuella dator avbildningen med säkerhets sårbarhet eller sårbarhet
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På den vänstra navigerings menyn väljer du **kommersiell Marketplace** -  >  **Översikt** .
+2. På den vänstra navigerings menyn väljer du **kommersiell Marketplace** -  >  **Översikt**.
 3. I kolumnen **erbjudande alias** väljer du erbjudandet.
 4. På fliken **plan översikt** i kolumnen **namn** väljer du den plan med den virtuella dator som du vill ta bort.
-5. På fliken **teknisk konfiguration** , under **VM-avbildningar** , bredvid den VM-avbildning som du vill ta bort, väljer du **ta bort avbildning av virtuell dator** .
-6. I dialog rutan som visas väljer du **Fortsätt** .
-7. Välj **Spara utkast** .
+5. På fliken **teknisk konfiguration** , under **VM-avbildningar** , bredvid den VM-avbildning som du vill ta bort, väljer du **ta bort avbildning av virtuell dator**.
+6. I dialog rutan som visas väljer du **Fortsätt**.
+7. Välj **Spara utkast**.
 
 Fortsätt med nästa avsnitt nedan för att publicera om erbjudandet.
 
 #### <a name="republish-the-offer"></a>Publicera om erbjudandet
 
-1. Välj **Granska och publicera** .
+1. Välj **Granska och publicera**.
 2. Om du behöver ange någon information till certifierings teamet lägger du till den i rutan **kommentarer för certifiering** .
-3. Välj **Publicera** .
+3. Välj **Publicera**.
 
 Information om hur du slutför publicerings processen finns i [Granska och publicera erbjudanden](review-publish-offer.md).
 

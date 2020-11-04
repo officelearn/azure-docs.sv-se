@@ -3,15 +3,16 @@ title: Azure Cosmos DB PDF-fråga lathund blad
 description: 'PDF-lathund som kan skrivas ut och som hjälper dig att använda Azure Cosmos DB SQL-, MongoDB-, graf-och tabell-API: er för att fråga data'
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 0e9010ba79e4253d7569a0bba79fa05423e1a1ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2ef8aed7243e8956ad9ca62b630cda0efbd2deb9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081764"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339656"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB fråga lathund-blad
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +30,7 @@ Hämta [kalkyl bladet Azure Cosmos dB med lathund Letter-storlek](https://go.mic
 ## <a name="oversized-cheat-sheets"></a>Överändrade lathund-blad
 Hämta [Azure Cosmos DB a3-lathund blad](https://go.microsoft.com/fwlink/?linkid=870413) om du ska skriva ut med en plotter eller storskalig skrivare på A3-papper (11,7 x 16,5).
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB fråga lathund Sheets – brev storlek med SQL API, Java Script, MongoDB, Gremlin och Tabell-API frågor och funktioner" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB Query lathund Sheets – A3-storlek, med SQL API, Java Script, MongoDB, Gremlin och Tabell-API frågor och funktioner" border="false":::
 
 ## <a name="next-steps"></a>Nästa steg
 Mer hjälp att skriva frågor finns i följande artiklar:

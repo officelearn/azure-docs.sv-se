@@ -3,16 +3,17 @@ title: CONCAt i Azure Cosmos DB frågespråk
 description: Lär dig mer om hur funktionen CONCAt SQL system i Azure Cosmos DB Returnerar en sträng som är resultatet av sammanfogningen av två eller fler sträng värden
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 0b3401e8de4987670f74a02286cb66eb7a9dfb29
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f5fbbbdd9d29199f5b9bd173b6ab12d3d615943c
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081628"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339207"
 ---
 # <a name="concat-azure-cosmos-db"></a>CONCAt (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

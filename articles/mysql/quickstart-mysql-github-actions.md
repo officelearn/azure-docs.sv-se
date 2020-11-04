@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: ce045da7d21c2af0dfde5ee896b4f7f343ce6545
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 57e740e6c47d9518c12a49473e103d0abe772618
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541272"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337021"
 ---
-# <a name="use-github-actions-to-connect-to-azure-mysql"></a>Använda GitHub-åtgärder för att ansluta till Azure MySQL
+# <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Snabb start: använda GitHub-åtgärder för att ansluta till Azure MySQL
 
 Kom igång med [GitHub-åtgärder](https://docs.github.com/en/actions) genom att använda ett arbets flöde för att distribuera databas uppdateringar till [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/). 
 
@@ -66,7 +66,7 @@ Utdata är ett JSON-objekt med roll tilldelningens autentiseringsuppgifter som g
 
 ## <a name="copy-the-mysql-connection-string"></a>Kopiera anslutnings strängen MySQL 
 
-I Azure Portal går du till Azure Database for MySQL-servern och öppnar **Inställningar**  >  **anslutnings strängar** . Exempel på **ADO.NET** -anslutningssträng. Ersätt plats hållarnas värden för `your_database` och `your_password` . Anslutnings strängen kommer att se ut ungefär så här. 
+I Azure Portal går du till Azure Database for MySQL-servern och öppnar **Inställningar**  >  **anslutnings strängar**. Exempel på **ADO.NET** -anslutningssträng. Ersätt plats hållarnas värden för `your_database` och `your_password` . Anslutnings strängen kommer att se ut ungefär så här. 
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;
@@ -77,7 +77,7 @@ Du kommer att använda anslutnings strängen som GitHub-hemlighet.
 
 1. I [GitHub](https://github.com/)bläddrar du till din lagrings plats.
 
-1. Välj **inställningar > hemligheter > ny hemlighet** .
+1. Välj **inställningar > hemligheter > ny hemlighet**.
 
 1. Klistra in hela JSON-utdata från Azure CLI-kommandot i fältet hemligt värde. Ge hemligheten namnet `AZURE_CREDENTIALS` .
 
@@ -98,7 +98,7 @@ Du kommer att använda anslutnings strängen som GitHub-hemlighet.
 
 1. Gå till **åtgärder** för din GitHub-lagringsplats. 
 
-2. Välj **Konfigurera ditt arbets flöde själv** . 
+2. Välj **Konfigurera ditt arbets flöde själv**. 
 
 2. Ta bort allt efter `on:` avsnittet i arbets flödes filen. Ditt återstående arbets flöde kan till exempel se ut så här. 
 

@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: b5dd66b16674e1441865f796153e7508acc854d0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 23f95c3f144be5d2a48de698ec336bfbc329c892
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543754"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337242"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-powershell"></a>Självstudie: utforma en Azure Database for MySQL med hjälp av PowerShell
 
@@ -66,7 +66,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 Skapa en Azure Database for MySQL-server med `New-AzMySqlServer` cmdleten. En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
 
-I följande exempel skapas en MySQL-server i regionen **västra USA** med namnet **mydemoserver** i resurs gruppen **myresourcegroup** med en server Administratörs inloggning för **administratören** . Det är en gen 5-Server i den allmänna pris nivån med 2 virtuella kärnor och geo-redundanta säkerhets kopieringar aktiverade. Dokumentera lösen ordet som används på den första raden i exemplet, eftersom det här är lösen ordet för MySQL-serverns administratörs konto.
+I följande exempel skapas en MySQL-server i regionen **västra USA** med namnet **mydemoserver** i resurs gruppen **myresourcegroup** med en server Administratörs inloggning för **administratören**. Det är en gen 5-Server i den allmänna pris nivån med 2 virtuella kärnor och geo-redundanta säkerhets kopieringar aktiverade. Dokumentera lösen ordet som används på den första raden i exemplet, eftersom det här är lösen ordet för MySQL-serverns administratörs konto.
 
 > [!TIP]
 > Ett servernamn mappar till ett DNS-namn och måste vara globalt unikt i Azure.
@@ -104,7 +104,7 @@ New-AzMySqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -Serv
 
 ## <a name="get-the-connection-information"></a>Hämta anslutningsinformationen
 
-För att ansluta till servern måste du ange värddatorinformationen och autentiseringsuppgifterna. Använd följande exempel för att ta reda på anslutnings informationen. Anteckna värdena för **FullyQualifiedDomainName** och **AdministratorLogin** .
+För att ansluta till servern måste du ange värddatorinformationen och autentiseringsuppgifterna. Använd följande exempel för att ta reda på anslutnings informationen. Anteckna värdena för **FullyQualifiedDomainName** och **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -207,6 +207,24 @@ Plats-och pris nivå värden för den återställda servern förblir samma som d
 När återställnings processen har slutförts letar du reda på den nya servern och kontrollerar att data återställs som förväntat. Den nya servern har samma inloggnings namn och lösen ord för Server administratören som var giltiga för den befintliga servern vid den tidpunkt då återställningen startades. Du kan ändra lösen ordet från den nya serverns **översikts** sida.
 
 Den nya servern som skapades under en återställning saknar de VNet-tjänstens slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den nya servern. Brand Väggs regler från den ursprungliga servern återställs.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om resurserna som skapas i den här självstudien inte behövs för en annan snabb start eller självstudier kan du ta bort dem genom att köra följande exempel.
+
+> [!CAUTION]
+> I följande exempel tas den angivna resurs gruppen och alla resurser som ingår i den bort.
+> Om resurser utanför omfånget för den här självstudien finns i den angivna resurs gruppen, kommer de också att tas bort.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myresourcegroup
+```
+
+Om du bara vill ta bort den server som skapats i den här självstudien utan att ta bort resurs gruppen använder du `Remove-AzMySqlServer` cmdleten.
+
+```azurepowershell-interactive
+Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

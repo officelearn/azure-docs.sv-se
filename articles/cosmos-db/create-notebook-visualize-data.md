@@ -4,22 +4,23 @@ description: 'Självstudie: Lär dig hur du använder inbyggda Jupyter-antecknin
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 24ef78d44a1a632b86bf62e309960dd74b609c81
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e16a738264e64e37cfa42722832dac7e34fee899
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088819"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339507"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Självstudie: skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Den här artikeln beskriver hur du använder inbyggda Jupyter-anteckningsböcker för att importera exempel på detalj handels data till Azure Cosmos DB. Du kommer att se hur du använder SQL-och Azure Cosmos DB Magic-kommandon för att köra frågor, analysera data och visualisera resultaten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Aktivera stöd för bärbara datorer när du skapar ett Azure Cosmos-konto](enable-notebooks.md)
 
@@ -29,13 +30,13 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
 
 1. Gå till ditt Azure Cosmos-konto och öppna **datautforskaren.**
 
-1. Gå till fliken **antecknings böcker** , Välj `…` bredvid **Mina antecknings böcker** och skapa en **ny antecknings bok** . Välj **python 3** som standard kernel.
+1. Gå till fliken **antecknings böcker** , Välj `…` bredvid **Mina antecknings böcker** och skapa en **ny antecknings bok**. Välj **python 3** som standard kernel.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Skapa en ny antecknings bok&quot;:::
+   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Skapa en ny antecknings bok":::
 
 1. När en ny antecknings bok har skapats kan du byta namn på den till något som liknar **VisualizeRetailData. ipynb.**
 
-1. Härnäst ska du skapa en databas med namnet &quot;RetailDemo&quot; och en behållare med namnet &quot;WebsiteData" för att lagra detalj handels data. Du kan använda/CartID som partitionsnyckel. Kopiera och klistra in följande kod i en ny cell i din bärbara dator och kör den:
+1. Härnäst ska du skapa en databas med namnet "RetailDemo" och en behållare med namnet "WebsiteData" för att lagra detalj handels data. Du kan använda/CartID som partitionsnyckel. Kopiera och klistra in följande kod i en ny cell i din bärbara dator och kör den:
 
    ```python
    import azure.cosmos
@@ -50,11 +51,7 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
 
    Om du vill köra en cell markerar `Shift + Enter` du eller markerar cellen och väljer alternativet **Kör aktiv cell** i navigerings fältet i data Utforskaren.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Skapa en ny antecknings bok&quot;:::
-
-1. När en ny antecknings bok har skapats kan du byta namn på den till något som liknar **VisualizeRetailData. ipynb.**
-
-1. Härnäst ska du skapa en databas med namnet &quot;RetailDemo&quot; och en behållare med namnet &quot;WebsiteData":::
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Kör den aktiva cellen":::
 
    Databasen och behållaren skapas i ditt nuvarande Azure Cosmos-konto. Behållaren har tillhandahållits med 400 RU/s. Följande utdata visas när databasen och behållaren har skapats. 
 
@@ -65,11 +62,23 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
 
    Du kan också uppdatera fliken **data** och se de nyligen skapade resurserna:
 
-   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Skapa en ny antecknings bok&quot;:::
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Uppdatera fliken data om du vill se den nya behållaren":::
 
-1. När en ny antecknings bok har skapats kan du byta namn på den till något som liknar **VisualizeRetailData. ipynb.**
+1. Härnäst ska du importera exempel detalj handels data till Azure Cosmos-behållaren. Här är formatet för ett objekt från detalj handels data:
 
-1. Härnäst ska du skapa en databas med namnet &quot;RetailDemo&quot; och en behållare med namnet &quot;WebsiteData"
+   ```json
+    {
+       "CartID":5399,
+       "Action":"Viewed",
+       "Item":"Cosmos T-shirt",
+       "Price":350,
+       "UserName":"Demo.User10",
+       "Country":"Iceland",
+       "EventDate":"2015-06-25T00:00:00",
+       "Year":2015,"Latitude":-66.8673,
+       "Longitude":-29.8214,
+       "Address":"852 Modesto Loop, Port Ola, Iceland",
+       "id":"00ffd39c-7e98-4451-9b91-b2bcf2f9a32d"
     }
    ```
 
@@ -128,11 +137,7 @@ I en ny Notebook-cell kör du följande kod för att läsa de första 10 objekte
 df_cosmos.head(10)
 ```
 
-:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Skapa en ny antecknings bok&quot;:::
-
-1. När en ny antecknings bok har skapats kan du byta namn på den till något som liknar **VisualizeRetailData. ipynb.**
-
-1. Härnäst ska du skapa en databas med namnet &quot;RetailDemo&quot; och en behållare med namnet &quot;WebsiteData":::
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Kör fråga för att hämta de 10 främsta objekten":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>Köra frågor och analysera dina data
 
@@ -145,11 +150,7 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    display(df_revenue.head(5))
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Skapa en ny antecknings bok&quot;:::
-
-1. När en ny antecknings bok har skapats kan du byta namn på den till något som liknar **VisualizeRetailData. ipynb.**
-
-1. Härnäst ska du skapa en databas med namnet &quot;RetailDemo&quot; och en behållare med namnet &quot;WebsiteData":::
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Total försäljnings intäkt, utdata":::
 
 * **Query2:** Öppna en ny Notebook-cell och kör följande kod för att få en lista över de fem främsta inköpta objekten:
 
@@ -160,11 +161,7 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Skapa en ny antecknings bok&quot;:::
-
-1. När en ny antecknings bok har skapats kan du byta namn på den till något som liknar **VisualizeRetailData. ipynb.**
-
-1. Härnäst ska du skapa en databas med namnet &quot;RetailDemo&quot; och en behållare med namnet &quot;WebsiteData":::
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="De fem främsta inköpta artiklarna":::
 
 ## <a name="visualize-your-data"></a>Visualisera dina data  
 
@@ -240,11 +237,7 @@ I det här avsnittet ska du köra några frågor om hämtade data.
 
    I utdata visas världs kartan med olika färger. Färgerna som är mörkare till ljusare motsvarar de länder/regioner som har högst intäkter till lägsta intäkter.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Skapa en ny antecknings bok&quot;:::
-
-1. När en ny antecknings bok har skapats kan du byta namn på den till något som liknar **VisualizeRetailData. ipynb.**
-
-1. Härnäst ska du skapa en databas med namnet &quot;RetailDemo&quot; och en behållare med namnet &quot;WebsiteData":::
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Visualisering av intäkts karta för länder/regioner":::
 
 1. Nu ska vi se ett annat fall av data visualisering. Behållaren WebsiteData innehåller en lista över användare som har visat ett objekt, lagt till i sin varukorg och köpt objektet. Vi ska Rita in konverterings takten för de köpta objekten. Kör följande kod i en ny cell för att visualisera konverterings takten för varje objekt:
 
@@ -295,11 +288,7 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    show(p)
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Skapa en ny antecknings bok&quot;:::
-
-1. När en ny antecknings bok har skapats kan du byta namn på den till något som liknar **VisualizeRetailData. ipynb.**
-
-1. Härnäst ska du skapa en databas med namnet &quot;RetailDemo&quot; och en behållare med namnet &quot;WebsiteData":::
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualisera inköps konverterings takt":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,15 +3,16 @@ title: SQL-konstanter i Azure Cosmos DB
 description: Läs om hur SQL Query-konstanterna i Azure Cosmos DB används för att representera ett särskilt data värde
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: ebc1f66e68d4cf37546e7d33a9b723385330395c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100872"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339214"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL Query-konstanter  
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,11 +25,11 @@ ms.locfileid: "93100872"
 |-|-|  
 |**Odefinierad**|Enskilt värde: **odefinierat**|  
 |**Null**|Enskilt värde: **Null**|  
-|**Booleskt**|Värden: **false** , **True** .|  
+|**Boolesk**|Värden: **false** , **True**.|  
 |**Nummer**|Ett flyttal med dubbel precision, IEEE 754-standard.|  
 |**Sträng**|En sekvens med noll eller flera Unicode-tecken. Strängar måste omges av enkla eller dubbla citat tecken.|  
-|**Lagringsmatriser**|En sekvens med noll eller flera element. Varje-element kan vara ett värde av vilken skalär datatyp som helst, förutom **Odefinierad** .|  
-|**Jobbobjektet**|En oordnad uppsättning med noll eller flera namn/värde-par. Namnet är en Unicode-sträng, värdet kan vara av vilken skalär datatyp som helst, förutom **Odefinierad** .|  
+|**Lagringsmatriser**|En sekvens med noll eller flera element. Varje-element kan vara ett värde av vilken skalär datatyp som helst, förutom **Odefinierad**.|  
+|**Jobbobjektet**|En oordnad uppsättning med noll eller flera namn/värde-par. Namnet är en Unicode-sträng, värdet kan vara av vilken skalär datatyp som helst, förutom **Odefinierad**.|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Syntax
   
@@ -68,7 +69,7 @@ ms.locfileid: "93100872"
   
 * `<null_constant>; null`  
   
-  Representerar **Null** -värde av typen **Null** .  
+  Representerar **Null** -värde av typen **Null**.  
   
 * `<boolean_constant>`  
   

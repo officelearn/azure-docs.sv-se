@@ -2,17 +2,18 @@
 title: Migrera från CouchBase till Azure Cosmos DB SQL API
 description: Steg för steg-anvisningar för att migrera från CouchBase till Azure Cosmos DB SQL API
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 0f286b5586a0d74afed0bb185179454bb1efff95
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 73d6fe0233eccea9ebf1d82beb509c56fb45f4da
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097557"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339520"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrera från CouchBase till Azure Cosmos DB SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -312,7 +313,7 @@ Det här är en enkel typ av arbets belastning där du kan utföra sökningar i 
 
 1. Överväg att använda "/ID" som primär nyckel, vilket ser till att du kan utföra söknings åtgärder direkt i den angivna partitionen. Skapa en samling och ange "/ID" som partitionsnyckel.
 
-1. Stäng av indexeringen helt. Eftersom du kommer att köra söknings åtgärder finns det ingen punkt för att utföra indexerings kostnader. Om du vill stänga av indexeringen loggar du in på Azure Portal, goto Azure Cosmos DB-konto. Öppna **datautforskaren** , välj din **databas** och **behållaren** . Öppna fliken **skalnings & inställningar** och välj  **indexerings princip** . Index princip som är för närvarande ser ut så här:
+1. Stäng av indexeringen helt. Eftersom du kommer att köra söknings åtgärder finns det ingen punkt för att utföra indexerings kostnader. Om du vill stänga av indexeringen loggar du in på Azure Portal, goto Azure Cosmos DB-konto. Öppna **datautforskaren** , välj din **databas** och **behållaren**. Öppna fliken **skalnings & inställningar** och välj  **indexerings princip**. Index princip som är för närvarande ser ut så här:
     
    ```json
    {

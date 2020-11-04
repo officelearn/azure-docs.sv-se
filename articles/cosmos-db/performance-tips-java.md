@@ -3,17 +3,18 @@ title: Prestanda tips för Azure Cosmos DB Sync Java SDK v2
 description: Lär dig mer om klient konfigurations alternativ för att förbättra prestanda för Azure Cosmos Database för synkronisering av Java SDK v2
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b5c8e1a1e810deb9e5315816c122c0ac09ce778
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a074b872ed19a7d3e6b3e410c69da0f2b78e85e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085555"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339707"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Prestanda tips för Azure Cosmos DB Sync Java SDK v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -73,7 +74,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     När det är möjligt kan du placera alla program som anropar Azure Cosmos DB i samma region som Azure Cosmos-databasen. För en ungefärlig jämförelse kan anrop till Azure Cosmos DB inom samma region slutföras inom 1-2 MS, men svars tiden mellan västra USA och östra kust är >50 ms. Den här fördröjningen kan troligt vis variera från begäran till begäran beroende på den väg som tas av begäran när den skickas från klienten till Azure Data Center-gränser. Den lägsta möjliga fördröjningen uppnås genom att se till att det anropande programmet finns i samma Azure-region som den etablerade Azure Cosmos DB slut punkten. En lista över tillgängliga regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Diagrammet visar anslutnings principen för Azure Cosmos D B." border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Diagrammet visar begär Anden och svar i två regioner där datorer ansluter till ett Cosmos D B-konto via tjänster på mellan nivå." border="false":::
    
 ## <a name="sdk-usage"></a>SDK-användning
 1. **Installera den senaste SDK: n**

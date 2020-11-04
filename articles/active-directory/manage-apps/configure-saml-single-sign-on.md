@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c72a2b134fc2c24789ebb75f61d9b64d63d3d48e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597914"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339486"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Förstå SAML-baserad enkel inloggning
 
@@ -47,8 +47,8 @@ Du bör hämta värdena från program leverantören. Du kan ange värdena manuel
 | Grundläggande konfigurations inställning för SAML | SP-initierad | idP-initierad | Beskrivning |
 |:--|:--|:--|:--|
 | **Identifierare (entitets-ID)** | Krävs för vissa appar | Krävs för vissa appar | Identifierar programmet unikt. Azure AD skickar identifieraren till programmet som målgruppsparametern för SAML-token. Programmet förväntas verifiera den. Detta värde visas även som entitets-ID i alla SAML-metadata som anges av programmet. Ange en URL som använder följande mönster: "https:// <subdomain> . contoso.com" *du hittar det här värdet som **Issuer** -element i **AuthnRequest** (SAML-begäran) som skickas av programmet.* |
-| **Svarswebbadress** | Krävs | Krävs | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda ytterligare svars-URL-fält för att ange flera svars-URL: er. Du kan till exempel behöva ytterligare svars-URL: er för flera under domäner. I test syfte kan du ange flera svars-URL: er (lokala värden och offentliga URL: er) i taget. |
-| **Inloggnings-URL** | Krävs | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL: en för att starta programmet från Microsoft 365 eller Azure AD Mina appar. När en användare startar programmet från Microsoft 365, Azure AD Mina appar eller Azure AD SSO-URL: en är tom.|
+| **Svarswebbadress** | Obligatorisk | Obligatorisk | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda ytterligare svars-URL-fält för att ange flera svars-URL: er. Du kan till exempel behöva ytterligare svars-URL: er för flera under domäner. I test syfte kan du ange flera svars-URL: er (lokala värden och offentliga URL: er) i taget. |
+| **Inloggnings-URL** | Obligatorisk | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL: en för att starta programmet från Microsoft 365 eller Azure AD Mina appar. När en användare startar programmet från Microsoft 365, Azure AD Mina appar eller Azure AD SSO-URL: en är tom.|
 | **Vidarebefordransstatus** | Valfritt | Valfritt | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
 | **Utloggnings-URL** | Valfritt | Valfritt | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
 
@@ -85,21 +85,24 @@ Från Azure AD kan du ladda ned det aktiva certifikatet i base64-eller RAW-forma
 
 Några vanliga saker att kontrol lera för att kontrol lera att ett certifikat är: 
    - *Rätt utgångs datum.* Du kan konfigurera utgångs datumet för upp till tre år i framtiden.
-   - *Status aktiv för rätt certifikat.* Om statusen är **inaktiv**ändrar du statusen till **aktiv**. Om du vill ändra statusen högerklickar du på certifikatets rad och väljer **gör certifikat aktivt**.
+   - *Status aktiv för rätt certifikat.* Om statusen är **inaktiv** ändrar du statusen till **aktiv**. Om du vill ändra statusen högerklickar du på certifikatets rad och väljer **gör certifikat aktivt**.
    - *Rätt signerings alternativ och algoritm.*
    - *Rätt e-postadress för e-post.* När det aktiva certifikatet är nära utgångs datumet skickar Azure AD ett meddelande till den e-postadress som kon figurer ATS i det här fältet.
 
 Ibland kan du behöva ladda ned certifikatet. Var försiktig där du sparar det! Om du vill hämta certifikatet väljer du ett av alternativen för base64-format, RAW-format eller XML för federationsmetadata. Azure AD tillhandahåller även **URL: en för app Federation-Metadata** där du kan komma åt metadata som är specifika för programmet i formatet `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>` .
 
+> [!NOTE]
+> Programmet ska kunna hantera bytes order markör i XML-filen som återges när den används https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id} . Byte ordnings tecken visas som ett icke utskrivbart ASCII-tecken» ¿och i hex representeras som EF BB BF vid visning av XML-data.
+
 Välj knappen Redigera om du vill göra ändringar i certifikatet. Det finns flera saker du kan göra på sidan **SAML-signerings certifikat** :
-   - Skapa ett nytt certifikat: Välj **nytt certifikat**, Välj **förfallo datum**och välj sedan **Spara**. Om du vill aktivera certifikatet väljer du snabb menyn (**...**) och väljer **gör certifikat aktivt**.
-   - Ladda upp ett certifikat med privat nyckel och PFX-autentiseringsuppgifter: Välj **Importera certifikat** och bläddra till certifikatet. Ange **PFX-lösenordet**och välj sedan **Lägg till**.  
+   - Skapa ett nytt certifikat: Välj **nytt certifikat** , Välj **förfallo datum** och välj sedan **Spara**. Om du vill aktivera certifikatet väljer du snabb menyn ( **...** ) och väljer **gör certifikat aktivt**.
+   - Ladda upp ett certifikat med privat nyckel och PFX-autentiseringsuppgifter: Välj **Importera certifikat** och bläddra till certifikatet. Ange **PFX-lösenordet** och välj sedan **Lägg till**.  
    - Konfigurera avancerad certifikat signering. Mer information om de här alternativen finns i [alternativ för avancerad certifikat signering](certificate-signing-options.md).
    - Meddela ytterligare personer när det aktiva certifikatet snart upphör att gälla: Ange e-postadresserna i fälten för **e-postadressen för aviseringar** .
 
 ## <a name="set-up-the-application-to-use-azure-ad"></a>Konfigurera programmet för att använda Azure AD
 
-I avsnittet **Konfigurera \<applicationName> ** konfiguration visas de värden som måste konfigureras i programmet så att Azure AD används som en SAML-identitetsprovider. Du ställer in värdena på sidan konfiguration på program webbplatsen. Om du till exempel konfigurerar GitHub går du till github.com-platsen och anger värdena. Om programmet redan är förkonfigurerat och i Azure AD-galleriet hittar du en länk för att **Visa steg-för-steg-instruktioner**. Annars måste du hitta dokumentationen för det program som du konfigurerar. 
+I avsnittet **Konfigurera \<applicationName>** konfiguration visas de värden som måste konfigureras i programmet så att Azure AD används som en SAML-identitetsprovider. Du ställer in värdena på sidan konfiguration på program webbplatsen. Om du till exempel konfigurerar GitHub går du till github.com-platsen och anger värdena. Om programmet redan är förkonfigurerat och i Azure AD-galleriet hittar du en länk för att **Visa steg-för-steg-instruktioner**. Annars måste du hitta dokumentationen för det program som du konfigurerar. 
 
 Värdena för **inloggnings-URL:** en och **utloggnings-URL: er** matchas båda till samma slut punkt, vilket är slut punkten för SAML Request-hantering för Azure AD 
 

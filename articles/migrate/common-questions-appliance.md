@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Migrate
 description: Få svar på vanliga frågor om Azure Migrate-enheten.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: e0fd170859de2d4a9d38fdba0fff0575921c6d32
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 7be6260a7d3eb25ce2854f6949554e2c66019980
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314783"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337599"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate utrustning: vanliga frågor
 
@@ -42,12 +42,13 @@ Enheten kan distribueras på följande sätt:
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Hur ansluter-enheten till Azure?
 
-Enheten kan ansluta via Internet eller med hjälp av Azure-ExpressRoute. Se till att dessa [URL: er](./migrate-appliance.md#url-access) är godkända för att installationen ska kunna ansluta till Azure.
+Enheten kan ansluta via Internet eller med hjälp av Azure-ExpressRoute. 
 
-- För att kunna använda Azure ExpressRoute för Azure Migrate replikeringstrafik krävs Microsoft-peering eller en befintlig offentlig peering (offentlig peering är föråldrad för nya återställnings skapande).
-- Replikering över Azure-ExpressRoute med endast aktive rad privat peering stöds inte.
+- Kontrol lera att enheten kan ansluta till dessa [Azure-URL: er](./migrate-appliance.md#url-access). 
+- Du kan använda ExpressRoute med Microsoft-peering.  Offentlig peering är inaktuell och är inte tillgänglig för nya ExpressRoute-kretsar.
+- Privat peering stöds bara.
 
-Azure-ExpressRoute med konfigurerad Microsoft-peering är den rekommenderade routningsdomänen för replikeringstrafik.
+
 
 ## <a name="does-appliance-analysis-affect-performance"></a>Påverkar enhets analysen prestanda?
 
@@ -65,9 +66,9 @@ Enheten behöver åtkomst till Azure-URL: er. [Granska](migrate-appliance.md#url
 
 I följande artiklar finns information om data som Azure Migrates apparaten samlar in på virtuella datorer:
 
-- **Virtuell VMware-dator**: [Granska](migrate-appliance.md#collected-data---vmware) insamlade data.
-- **Virtuell Hyper-V-dator**: [Granska](migrate-appliance.md#collected-data---hyper-v) insamlade data.
-- **Fysiska eller virtuella servrar**:[Granska](migrate-appliance.md#collected-data---physical) insamlade data.
+- **Virtuell VMware-dator** : [Granska](migrate-appliance.md#collected-data---vmware) insamlade data.
+- **Virtuell Hyper-V-dator** : [Granska](migrate-appliance.md#collected-data---hyper-v) insamlade data.
+- **Fysiska eller virtuella servrar** : [Granska](migrate-appliance.md#collected-data---physical) insamlade data.
 
 ## <a name="how-is-data-stored"></a>Hur lagras data?
 

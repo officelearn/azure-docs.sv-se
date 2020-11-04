@@ -1,5 +1,5 @@
 ---
-title: Publicera din app i Azure AD App-galleriet
+title: Publicera din app i Azure Active Directory app-galleriet
 description: Lär dig hur du visar ett program som stöder enkel inloggning i Azure Active Directory app-galleriet.
 services: active-directory
 author: kenwith
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5ade98e04853ae8293f762f237b3b3154c876f7e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275737"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339443"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicera din app i Azure AD App-galleriet
 
@@ -60,11 +60,28 @@ Stegen för att publicera din app i Azure AD App-galleriet är:
 5. Skicka in din app.
 6. Delta i Microsoft Partner Network.
 
+## <a name="what-is-the-azure-ad-application-gallery"></a>Vad är Azure AD-programgalleriet?
 
-## <a name="prerequisites"></a>Förutsättningar
+- Kunderna hittar den bästa möjliga inloggnings upplevelsen.
+- Programmets konfiguration är enkel och minimal.
+- En snabb sökning hittar ditt program i galleriet.
+- Kostnads fria, grundläggande och Premium Azure AD-kunder kan använda denna integrering.
+- Ömsesidiga kunder får en steg-för-steg-konfigurations guide.
+- Kunder som använder systemet för[scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(Cross-Domain Identity Management) kan använda etablering för samma app.
+
+## <a name="prerequisites"></a>Krav
 
 Du behöver ett permanent konto för testning med minst två användare registrerade.
 
+- För federerade program (öppna ID och SAML/WS-utfodras) måste programmet ha stöd för SaaS-modellen (Software-as-a-Service) för att få listas i Azure AD App-galleriet. Enterprise Gallery-programmen måste ha stöd för flera kundkonfigurationer och inte någon specifik kund.
+- För Open-ID Connect måste programmet vara Multiklient och [Azure AD medgivande Framework](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) måste implementeras korrekt för programmet. Användaren kan skicka inloggnings förfrågan till en gemensam slut punkt så att alla kunder kan ge sitt medgivande till programmet. Du kan styra användar åtkomst baserat på klient-ID: t och användarens UPN som togs emot i token.
+- För SAML 2.0/WS-utfodras måste ditt program ha möjlighet att göra SAML/WS-utfodras SSO-integrering i SP-eller IDP-läge. Kontrol lera att den här funktionen fungerar korrekt innan du skickar in begäran.
+- För inloggning med lösen ord kontrollerar du att ditt program stöder formulärautentisering så att lösen ords valvet kan göras för att få enkel inloggning att fungera som förväntat.
+- Du behöver ett permanent konto för testning med minst två användare registrerade.
+
+**Hur skaffar jag Azure AD för utvecklare?**
+
+Du kan få ett kostnads fritt test konto med alla Premium Azure AD-funktioner – 90 dagar kostnads fritt och kan bli utökad så länge du arbetar med utveckling: https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Steg 1 – Välj rätt enkel inloggnings standard för appen
 
@@ -72,7 +89,7 @@ Om du vill visa ett program i Azure AD App-galleriet måste du implementera mins
 
 I följande tabell jämförs huvud standarder: Open Authentication 2,0 (OAuth 2,0) med OpenID Connect (OIDC), Security Assertion Markup Language (SAML) och Web Services Federation (WS-utfodras).
 
-| Funktion| OAuth/OIDC| SAML/WS-Fed |
+| Kapacitet| OAuth/OIDC| SAML/WS-Fed |
 | - |-|-|
 | Webbaserad enkel inloggning| √| √ |
 | Webbaserad enkel utloggning| √| √ |
@@ -161,7 +178,7 @@ När du har en klient måste du aktivera och testa åtkomst med enkel inloggning
 
 [Registrera ditt program](quickstart-register-app.md) som ett program med flera innehavare **för OIDC-eller Oath-program**. Välj kontona i valfri organisations katalog och alternativet personliga Microsoft-konton i de konto typer som stöds.
 
-**För SAML-och WS-utfodras-baserade program**konfigurerar du [SAML-baserade enkla inloggnings](../manage-apps/configure-saml-single-sign-on.md) program med hjälp av en allmän SAML-mall i Azure AD.
+**För SAML-och WS-utfodras-baserade program** konfigurerar du [SAML-baserade enkla inloggnings](../manage-apps/configure-saml-single-sign-on.md) program med hjälp av en allmän SAML-mall i Azure AD.
 
 Du kan också [konvertera ett program med en enda klient till flera klienter](howto-convert-app-to-be-multi-tenant.md) om det behövs.
 
@@ -236,7 +253,7 @@ Om du vill lägga till programmet i listan i galleriet med hjälp av OpenID Conn
 
 ![Visa ett OpenID Connect-program i galleriet](./media/howto-app-gallery-listing/openid.png)
 
-Om du vill lägga till ditt program i listan i galleriet med **saml 2,0** eller **WS-utfodras**väljer du **SAML 2.0/WS-utfodras** som visas.
+Om du vill lägga till ditt program i listan i galleriet med **saml 2,0** eller **WS-utfodras** väljer du **SAML 2.0/WS-utfodras** som visas.
 
 ![Lista ett SAML 2,0-eller WS-Fed-program i galleriet](./media/howto-app-gallery-listing/saml.png)
 
@@ -256,6 +273,16 @@ Du kan uppdatera eller ta bort en befintlig Galleri app i [Microsoft-programmets
 
 > [!NOTE]
 > Om du har problem med åtkomsten läser du det föregående avsnittet om hur du skapar ditt konto. Kontakta [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)om det inte fungerar.
+
+### <a name="list-requests-by-customers"></a>Lista begär Anden från kunder
+
+Kunder kan skicka en begäran om att lista ett program genom att välja **app-begäranden av kunder som**  >  **skickar en ny begäran**.
+
+![Visar panelen kund begärda appar](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Här är ett flöde av kund begärda program.
+
+![Visar flödet kundens begärda appar](./media/howto-app-gallery-listing/customer-request-2.png)
 
 
 ### <a name="timelines"></a>Tidslinjer

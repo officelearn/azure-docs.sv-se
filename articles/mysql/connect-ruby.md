@@ -8,18 +8,18 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8bedb7177c93eecd13f64d151c56baf5a394e0c2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f370794aafb4a5ac0948c219593e7028ff1b2e55
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896275"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337307"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd ruby för att ansluta och fråga efter data i Azure Database for MySQL
 
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [Ruby](https://www.ruby-lang.org)-program och en [mysql2](https://rubygems.org/gems/mysql2)-gem från plattformar med Windows, Ubuntu Linux och Mac. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i Ruby och att du saknar erfarenhet av Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
@@ -39,7 +39,7 @@ Installera Ruby, Gem och MySQL2-biblioteket på din egen dator.
 5. Kontrollera Gem-installationen genom att köra kommandot `gem -v` och se den installerade versionen.
 6. Skapa Mysql2-modulen för Ruby med Gem genom att köra kommandot `gem install mysql2`.
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 1. Installera Ruby med Homebrew genom att köra kommandot `brew install ruby`. Fler installationsalternativ finns i [installationsdokumentationen](https://www.ruby-lang.org/en/documentation/installation/#homebrew) för Ruby.
 2. Kontrollera Ruby-installationen genom att köra kommandot `ruby -v` och se den installerade versionen.
 3. Kontrollera Gem-installationen genom att köra kommandot `gem -v` och se den installerade versionen.
@@ -58,7 +58,7 @@ Installera Ruby, Gem och MySQL2-biblioteket på din egen dator.
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser**. Sök sedan efter den server som du skapade (till exempel **mydemoserver**).
+2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser**. Sök sedan efter den server som du skapade (till exempel **mydemoserver** ).
 3. Klicka på servernamnet.
 4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
  :::image type="content" source="./media/connect-ruby/1_server-overview-name-login.png" alt-text="Azure Database för MySQL-servernamn":::
@@ -70,7 +70,7 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
 4. I Windows, om Ruby-programmet inte finns på sökvägen för miljövariabeln, kan du behöva använda den fullständiga sökvägen för att starta nodprogrammet, till exempel `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
 ## <a name="connect-and-create-a-table"></a>Ansluta och skapa en tabell
-Använd följande kod för att ansluta och skapa en tabell med hjälp av **CREATE TABLE**-SQL-instruktionen följt av **INSERT INTO**-SQL-instruktioner för att lägga till rader i tabellen.
+Använd följande kod för att ansluta och skapa en tabell med hjälp av **CREATE TABLE** -SQL-instruktionen följt av **INSERT INTO** -SQL-instruktioner för att lägga till rader i tabellen.
 
 Koden använder en [mysql2:: client](https://www.rubydoc.info/gems/mysql2) -klass för att ansluta till MySQL-servern. Sedan anropas metoden ```query()``` för att köra kommandona Drop, CREATE TABLE och INSERT INTO. Anropa slutligen ```close()``` för att stänga anslutningen innan du avslutar.
 
@@ -115,7 +115,7 @@ end
 ```
 
 ## <a name="read-data"></a>Läsa data
-Använd följande kod för att ansluta och läsa data med en **SELECT**-SQL-instruktion.
+Använd följande kod för att ansluta och läsa data med en **SELECT** -SQL-instruktion.
 
 Koden använder en [mysql2:: client](https://www.rubydoc.info/gems/mysql2) -klass för att ansluta till Azure Database for MySQL med- ```new()``` metoden. Sedan anropas metoden ```query()``` för att köra SELECT-kommandona. Sedan anropas metoden ```close()``` för att stänga anslutningen innan den avslutas.
 
@@ -154,7 +154,7 @@ end
 ```
 
 ## <a name="update-data"></a>Uppdatera data
-Använd följande kod för att ansluta och uppdatera data med en **UPDATE**-SQL-instruktion.
+Använd följande kod för att ansluta och uppdatera data med en **UPDATE** -SQL-instruktion.
 
 Koden använder en [mysql2::client](https://www.rubydoc.info/gems/mysql2)-klass .new() metod för att ansluta till Azure-databas för MySQL. Sedan anropas metoden ```query()```  för att köra uppdaterings kommandona. Sedan anropas metoden ```close()``` för att stänga anslutningen innan den avslutas.
 
@@ -191,7 +191,7 @@ end
 
 
 ## <a name="delete-data"></a>Ta bort data
-Använd följande kod för att ansluta och läsa data med en **DELETE**-SQL-instruktion.
+Använd följande kod för att ansluta och läsa data med en **DELETE** -SQL-instruktion.
 
 Koden använder en [mysql2:: client](https://rubygems.org/gems/mysql2/) -klass för att ansluta till MySQL-servern, kör kommandot DELETE och stäng sedan anslutningen till servern.
 
@@ -224,6 +224,16 @@ ensure
     client.close if client
     puts 'Done.'
 end
+```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du vill rensa alla resurser som används under den här snabb starten tar du bort resurs gruppen med hjälp av följande kommando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Nästa steg

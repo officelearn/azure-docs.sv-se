@@ -2,14 +2,14 @@
 title: Azure Service Bus åtkomst kontroll med signaturer för delad åtkomst
 description: 'Översikt över Service Bus åtkomst kontroll med signaturer för delad åtkomst: översikt, information om SAS-auktorisering med Azure Service Bus.'
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 11/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f71320613682f7d4b9f3b706845e68f581b3dc10
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012083"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339418"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomst kontroll med signaturer för delad åtkomst
 
@@ -36,7 +36,7 @@ Token för [signaturen för delad åtkomst](/dotnet/api/microsoft.servicebus.sha
 
 Varje Service Bus-namnrymd och varje Service Bus entitet har en princip för delad åtkomst som består av regler. Principen på namn områdes nivån gäller för alla entiteter i namn området, oavsett deras enskilda princip konfiguration.
 
-För varje auktoriseringsregel bestämmer du om tre delar av information: **namn**, **omfattning**och **rättigheter**. **Namnet** är bara det. ett unikt namn inom det omfånget. Omfånget är tillräckligt enkelt: det är URI: n för den aktuella resursen. För ett Service Bus-namnområde är omfånget det fullständigt kvalificerade domän namnet (FQDN), till exempel `https://<yournamespace>.servicebus.windows.net/` .
+För varje auktoriseringsregel bestämmer du om tre delar av information: **namn** , **omfattning** och **rättigheter**. **Namnet** är bara det. ett unikt namn inom det omfånget. Omfånget är tillräckligt enkelt: det är URI: n för den aktuella resursen. För ett Service Bus-namnområde är omfånget det fullständigt kvalificerade domän namnet (FQDN), till exempel `https://<yournamespace>.servicebus.windows.net/` .
 
 Rättigheterna som tilldelas av princip regeln kan vara en kombination av:
 
@@ -52,13 +52,27 @@ En auktoriseringsregel tilldelas en *primär nyckel* och en *sekundär nyckel*. 
 
 När du skapar ett Service Bus-namnområde skapas automatiskt en princip regel med namnet **RootManageSharedAccessKey** för namn området. Den här principen har behörighet att hantera hela namn området. Vi rekommenderar att du behandlar den här regeln som ett administratörs **rot** konto och inte använder den i ditt program. Du kan skapa ytterligare princip regler på fliken **Konfigurera** för namn området i portalen via PowerShell eller Azure CLI.
 
+## <a name="best-practices-when-using-sas"></a>Metodtips när du använder SAS
+När du använder signaturer för delad åtkomst i dina program måste du vara medveten om två potentiella risker:
+
+- Om en SAS läcker ut kan den användas av alla som erhåller den, vilket kan äventyra Event Hubs-resurser.
+- Om en SAS som tillhandahålls för ett klient program upphör att gälla och programmet inte kan hämta en ny SAS från tjänsten, kan programmets funktioner hindras.
+
+Följande rekommendationer för att använda signaturer för delad åtkomst kan minimera riskerna:
+
+- **Låt klienterna automatiskt förnya SAS vid behov** : klienterna bör förnya SAS-välbefinnande innan det går ut, för att tillåta tid för nya försök om tjänsten som tillhandahåller SAS inte är tillgänglig. Om din SAS är avsedd att användas för ett litet antal omedelbara, kortsiktiga åtgärder som förväntas bli slutförda inom förfallo perioden, kan det vara onödigt eftersom SAS inte förväntas förnyas. Men om du har en klient som rutinmässigt begär förfrågningar via SAS, kommer möjligheten att förfalla att bli i spel. Viktiga överväganden är att balansera behovet av att SAS ska vara kort livs längd (som tidigare anges) med behovet av att säkerställa att klienten begär förnyelse tillräckligt tidigt (för att undvika avbrott på grund av att SAS förfaller före en lyckad förnyelse).
+- **Var försiktig med start tiden för SAS** : om du ställer in start tiden för SAS **nu** , sedan på grund av klock skevning (skillnader i aktuell tid beroende på olika datorer), kan det hända att felen observeras oregelbundet under de första minuterna. I allmänhet anger du Start tiden till minst 15 minuter tidigare. Eller, ange inte det alls, vilket gör det giltigt omedelbart i samtliga fall. Samma gäller vanligt vis förfallo tiden. Kom ihåg att du kan titta upp till 15 minuters klock skevning i båda riktningarna. 
+- **Var speciell för den resurs som ska användas** : en säkerhets metod är att ge användaren den lägsta behörighet som krävs. Om en användare bara behöver Läs behörighet till en enskild entitet kan du ge dem Läs behörighet till den enskilda entiteten och inte läsa/skriva/ta bort åtkomst till alla entiteter. Det hjälper också till att minska skadan om en SAS komprometteras eftersom SAS har mindre kraft i händerna på en angripare.
+- **Använd inte alltid SAS** : ibland uppväger riskerna som är kopplade till en viss åtgärd mot ditt Event Hubs fördelarna med SAS. För sådana åtgärder skapar du en tjänst på mellan nivå som skriver till din Event Hubs efter verifiering, autentisering och granskning av affärs regler.
+- **Använd alltid https** : Använd alltid https för att skapa eller distribuera en SAS. Om en säkerhets Association skickas över HTTP och fångas, kan en angripare som utför en anslutning som gör att du kan läsa SAS och sedan använda den precis som den avsedda användaren kan ha, eventuellt kompromissa med känsliga data eller tillåta data skada av den skadliga användaren.
+
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Konfiguration för autentisering av signatur för delad åtkomst
 
 Du kan konfigurera [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -regeln på Service Bus namn områden, köer eller ämnen. Det finns för närvarande inte stöd för att konfigurera en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) på en Service Bus-prenumeration, men du kan använda regler som kon figurer ATS i ett namn område eller ämne för att skydda åtkomsten till prenumeration Ett arbets exempel som illustrerar den här proceduren finns i [använda autentisering med signatur för delad åtkomst (SAS) med Service Bus prenumerations](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) exempel.
 
-![SÄKERHETS](./media/service-bus-sas/service-bus-namespace.png)
+![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
-I den här bilden gäller *manageRuleNS*-, *SendRuleNS*-och *listenRuleNS* -auktoriseringsregler både för kön Q1 och ämnet T1, medan *ListenRuleQ* och *sendRuleQ* endast gäller för kön Q1 och *sendRuleT* gäller endast ämne T1.
+I den här bilden gäller *manageRuleNS* -, *SendRuleNS* -och *listenRuleNS* -auktoriseringsregler både för kön Q1 och ämnet T1, medan *ListenRuleQ* och *sendRuleQ* endast gäller för kön Q1 och *sendRuleT* gäller endast ämne T1.
 
 ## <a name="generate-a-shared-access-signature-token"></a>Generera en token för signatur för delad åtkomst
 
@@ -73,7 +87,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`** -URI för resursen som används.
 * **`sig`** Signatur.
 
-`signature-string`Är SHA-256-hashen som beräknats över resurs-URI: n (**omfånget** enligt beskrivningen i föregående avsnitt) och sträng representationen av token som upphör att gälla, avgränsade med LF.
+`signature-string`Är SHA-256-hashen som beräknats över resurs-URI: n ( **omfånget** enligt beskrivningen i föregående avsnitt) och sträng representationen av token som upphör att gälla, avgränsade med LF.
 
 Hash-beräkningen ser ut ungefär som följande pseudo-kod och returnerar ett hash-värde på 256 bitar/32 byte.
 
@@ -85,7 +99,7 @@ Token innehåller de värden som inte är hash-kodade, så att mottagaren kan be
 
 Resurs-URI är den fullständiga URI: n för den Service Bus resurs som åtkomst begärs till. Till exempel `http://<namespace>.servicebus.windows.net/<entityPath>` eller `sb://<namespace>.servicebus.windows.net/<entityPath>` ; det vill säga `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3` . 
 
-**URI: n måste vara i [procent kodad](/dotnet/api/system.web.httputility.urlencode?view=netcore-3.1).**
+**URI: n måste vara i [procent kodad](/dotnet/api/system.web.httputility.urlencode).**
 
 Den auktoriseringsregler för delad åtkomst som används för signering måste konfigureras på den entitet som anges av denna URI, eller av en av dess hierarkiska överordnade. Till exempel `http://contoso.servicebus.windows.net/contosoTopics/T1` eller `http://contoso.servicebus.windows.net` i föregående exempel.
 
@@ -160,7 +174,7 @@ sendClient.Send(helloMessage);
 
 Du kan också använda token-providern direkt för att utfärda token som ska skickas till andra klienter.
 
-Anslutnings strängar kan innehålla ett regel namn (*SharedAccessKeyName*) och en regel nyckel (*SharedAccessKey*) eller en tidigare Utfärdad token (*SharedAccessSignature*). När de finns i anslutnings strängen som skickas till en konstruktor eller fabriks metod som accepterar en anslutnings sträng skapas och fylls SAS-token-providern automatiskt.
+Anslutnings strängar kan innehålla ett regel namn ( *SharedAccessKeyName* ) och en regel nyckel ( *SharedAccessKey* ) eller en tidigare Utfärdad token ( *SharedAccessSignature* ). När de finns i anslutnings strängen som skickas till en konstruktor eller fabriks metod som accepterar en anslutnings sträng skapas och fylls SAS-token-providern automatiskt.
 
 Observera att om du vill använda SAS-auktorisering med Service Bus reläer kan du använda SAS-nycklar som kon figurer ATS i namn området Service Bus. Om du uttryckligen skapar ett relä i namn området ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) med ett [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription))-objekt kan du ange SAS-reglerna för det reläet. Om du vill använda SAS-auktorisering med Service Bus prenumerationer kan du använda SAS-nycklar som kon figurer ATS på ett Service Bus-namnområde eller i ett ämne.
 

@@ -5,15 +5,16 @@ author: SnehaGunda
 ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 37f5acdb2921b6f2bf4a5ed5a8c435db78e01513
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087374"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339673"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Snabb start: skapa en Azure Cosmos DB och en behållare med en ARM-mall
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,11 +23,11 @@ Azure Cosmos DB är Microsofts snabba NoSQL-databas med öppna API: er för alla
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure** . Mallen öppnas på Azure-portalen.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera till Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 En Azure-prenumeration eller ett kostnads fritt Azure Cosmos DB utvärderings konto
 
@@ -58,13 +59,13 @@ Du hittar fler Azure Cosmos DB mal sampel i [galleriet snabb starts mal len](htt
 
 2. Välj eller ange följande värden.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Distribuera till Azure":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="ARM-mall, Azure Cosmos DB integrering, distribuera Portal":::
 
     Om den inte anges använder du standardvärdena för att skapa Azure Cosmos-resurser.
 
     * **Prenumeration** : välj en Azure-prenumeration.
-    * **Resurs grupp** : Välj **Skapa ny** , ange ett unikt namn för resurs gruppen och klicka sedan på **OK** .
-    * **Plats** : välj en plats.  Välj till exempel **USA, centrala** .
+    * **Resurs grupp** : Välj **Skapa ny** , ange ett unikt namn för resurs gruppen och klicka sedan på **OK**.
+    * **Plats** : välj en plats.  Välj till exempel **USA, centrala**.
     * **Konto namn** : Ange ett namn för Azure Cosmos-kontot. Det måste vara globalt unikt.
     * **Plats** : Ange en plats där du vill skapa ditt Azure Cosmos-konto. Azure Cosmos-kontot kan finnas på samma plats som resurs gruppen.
     * **Primär region** : det primära replik området för Azure Cosmos-kontot.
@@ -77,9 +78,9 @@ Du hittar fler Azure Cosmos DB mal sampel i [galleriet snabb starts mal len](htt
     * **Data flöde** : data flödet för behållaren, minsta data flöde svärdet är 400 ru/s.
     * **Jag godkänner villkoren ovan** : Välj.
 
-3. Välj **Köp** . När du har distribuerat Azure Cosmos-kontot får du ett meddelande:
+3. Välj **Köp**. När du har distribuerat Azure Cosmos-kontot får du ett meddelande:
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Distribuera till Azure":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="ARM-mall, Cosmos DB integrering, distribuera Portal meddelande":::
 
 Azure-portalen används för att distribuera mallen. Förutom Azure Portal kan du också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-powershell.md).
 

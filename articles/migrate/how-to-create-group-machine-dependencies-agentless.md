@@ -3,12 +3,12 @@ title: Konfigurera beroende analys utan agent i Azure Migrate Server bedömning
 description: Konfigurera en agent lös beroende analys i Azure Migrate Server bedömning.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8893b0f41bb7a06c02a6c2aa28002980144b582a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667477"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337701"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analysera datorberoenden (agentlösa)
 
@@ -25,7 +25,7 @@ I den här artikeln beskrivs hur du konfigurerar en agent lös beroende analys i
 
 - I vyn beroende analys kan du för närvarande inte lägga till eller ta bort en server från en grupp.
 - En beroende karta för en grupp med servrar är inte tillgänglig för närvarande.
-- Insamling av beroende data kan konfigureras samtidigt för 1000-servrar. Du kan analysera ett större antal servrar genom att sekvensera i batchar på 1000.
+- I ett Azure Migrate projekt kan beroende data insamling konfigureras samtidigt för 1000-servrar. Du kan analysera ett större antal servrar genom att sekvensera i batchar på 1000.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -48,8 +48,8 @@ Lägg till användar kontot till enheten.
 
 1. Öppna appen för hantering av appar. 
 2. Navigera till panelen **Tillhandahåll vCenter-information** .
-3. I **identifiera program och beroenden på virtuella datorer**klickar du på **Lägg till autentiseringsuppgifter**
-3. Välj **operativ system**, ange ett eget namn för kontot och **User name** / **lösen ordet** för användar namn
+3. I **identifiera program och beroenden på virtuella datorer** klickar du på **Lägg till autentiseringsuppgifter**
+3. Välj **operativ system** , ange ett eget namn för kontot och **User name** / **lösen ordet** för användar namn
 6. Klicka på **Spara**.
 7. Klicka på **Spara och starta identifiering**.
 
@@ -59,7 +59,7 @@ Lägg till användar kontot till enheten.
 
 Välj de datorer där du vill aktivera beroende identifiering. 
 
-1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
+1. Klicka på **identifierade servrar** i **Azure Migrate: Server bedömning**.
 2. Klicka på ikonen **beroende analys** .
 3. Klicka på **Lägg till servrar**.
 4. På sidan **Lägg till servrar** väljer du den installation som identifierar relevanta datorer.
@@ -72,7 +72,7 @@ Du kan visualisera beroenden runt sex timmar efter start av beroende identifieri
 
 ## <a name="visualize-dependencies"></a>Visualisera beroenden
 
-1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
+1. Klicka på **identifierade servrar** i **Azure Migrate: Server bedömning**.
 2. Sök efter den dator som du vill visa.
 3. I kolumnen **beroenden** klickar du på **Visa beroenden**
 4. Ändra den tids period som du vill visa kartan med i list rutan **tids längd** .
@@ -93,7 +93,7 @@ Du kan visualisera beroenden runt sex timmar efter start av beroende identifieri
 
 ## <a name="export-dependency-data"></a>Exportera beroende data
 
-1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
+1. Klicka på **identifierade servrar** i **Azure Migrate: Server bedömning**.
 2. Klicka på ikonen **beroende analys** .
 3. Klicka på **Exportera program beroenden**.
 4. På sidan **Exportera program beroenden** väljer du den installation som identifierar relevanta datorer.
@@ -110,7 +110,7 @@ Varje rad i den exporterade CSV-filen motsvarar ett beroende som observerats ino
 
 I följande tabell sammanfattas fälten i den exporterade CSV-filen. Observera att fälten Server namn, program och process endast fylls i för servrar som har en agent lös beroende analys aktive rad.
 
-**Fältnamn** | **Information**
+**Fältnamn** | **Detaljer**
 --- | --- 
 Timeslot | Timeslot under vilken beroendet observerades. <br/> Beroende data samlas in över 6 timmars fack för närvarande.
 Käll Server namn | Namnet på käll datorn 
@@ -127,7 +127,7 @@ Målport | Port nummer på mål datorn
 
 Välj de datorer där du vill stoppa beroende identifiering. 
 
-1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
+1. Klicka på **identifierade servrar** i **Azure Migrate: Server bedömning**.
 2. Klicka på ikonen **beroende analys** .
 3. Klicka på **ta bort servrar**.
 3. På sidan **ta bort servrar** **väljer du den installation som identifierar** de virtuella datorer där du vill stoppa beroende identifiering.

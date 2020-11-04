@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3e851c47e67ac6e42d81b7688e457c2f9e17725b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: dadf710f726a89184e73189041b6735c548d7d75
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543958"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337237"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Självstudie: Utforma Azure Database for MySQL med Azure CLI
 
@@ -27,6 +27,8 @@ Azure Database for MySQL är en relationsdatabastjänst i Microsoft-molnet som �
 > * Söka i data
 > * Uppdatera data
 > * Återställa data
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -85,7 +87,7 @@ För att ansluta till servern måste du ange värddatorinformationen och autenti
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **administratorLogin** .
+Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -196,12 +198,25 @@ När du återställer en server till en tidpunkt så skapas en ny server. Den ko
 
 Kommandot är synkront och återgår när servern har återställts. När återställningen är klar letar du upp den nya server som skapades. Kontrollera att dina data har återställts som förväntat.
 
+## <a name="clean-up-resources"></a>Rensa resurser
+Om du inte behöver de här resurserna för en annan snabbstart/självstudie kan du ta bort dem genom att utföra följande kommando: 
+
+```azurecli-interactive
+az group delete --name myresourcegroup
+```
+
+Om du endast vill ta bort den nyss skapade servern kan du köra kommandot [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete).
+
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
 ## <a name="next-steps"></a>Nästa steg
 I de här självstudierna lärde du dig att:
 > [!div class="checklist"]
 > * Skapa en Azure Database för MySQL-server
 > * Konfigurera serverbrandväggen
-> * Använd [kommando rads verktyget MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) för att skapa en databas
+> * Använda kommandoradsverktyget mysql till att skapa en databas
 > * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data

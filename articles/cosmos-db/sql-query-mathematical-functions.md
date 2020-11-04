@@ -3,16 +3,17 @@ title: Matematiska funktioner i Azure Cosmos DB frågespråk
 description: Lär dig mer om de matematiska funktionerna i Azure Cosmos DB att utföra en beräkning, baserat på indatavärden som har angetts som argument och returnera ett numeriskt värde.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b6b2c47d5a4cb71ecf46d1eb1c33e2f667fa8052
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9dc3631b738da78df83113d89d23051033674d11
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078262"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338381"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>Matematiska funktioner (Azure Cosmos DB)  
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +32,7 @@ Resultatet är:
     [4]
 ```
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 Följande inbyggda matematiska funktioner som stöds utför en beräkning, vanligt vis baserat på indataargument, och returnerar ett numeriskt uttryck:
  

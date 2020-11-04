@@ -4,14 +4,15 @@ description: Lär dig mer om växlings begrepp och fortsättnings-token
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 08f8095670b48fcefccb0a9adf477b83ce2537d3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8219611ac2334594dc826db3c8191102d7383835
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089244"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338283"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Sid brytning i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +25,7 @@ Ibland delas frågeresultatet över flera sidor. Varje sidas resultat genereras 
 
 Du kan ange det maximala antalet objekt som returneras av en fråga genom att ange `MaxItemCount` . `MaxItemCount`Anges per begäran och talar om för frågemotor att returnera antalet objekt eller färre. Du kan ställa in `MaxItemCount` på `-1` om du inte vill placera en gräns för antalet resultat per frågekörningen.
 
-Dessutom finns det andra orsaker till att frågemotor kan behöva dela frågeresultaten på flera sidor. Exempel på dessa är:
+Dessutom finns det andra orsaker till att frågemotor kan behöva dela frågeresultaten på flera sidor. Dessa omfattar:
 
 - Behållaren har begränsats och det inte fanns några tillgängliga ru: er för att returnera fler frågeresultat
 - Svar för frågekörningen var för stort

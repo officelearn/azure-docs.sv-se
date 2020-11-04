@@ -1,20 +1,20 @@
 ---
-title: Använd ID-Broker (för hands version) för hantering av autentiseringsuppgifter – Azure HDInsight
+title: Azure HDInsight ID Broker (HIB)
 description: Lär dig mer om Azure HDInsight ID Broker för att förenkla autentisering för domänanslutna Apache Hadoop-kluster.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 6617c778c0b79a55058eafb40fd9b49b627819ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/03/2020
+ms.openlocfilehash: df4faf367951402914abb03285498e0da6f3105f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043269"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337684"
 ---
-# <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID Broker (för hands version)
+# <a name="azure-hdinsight-id-broker-hib"></a>Azure HDInsight ID Broker (HIB)
 
 Den här artikeln beskriver hur du konfigurerar och använder Azure HDInsight ID Broker-funktionen. Du kan använda den här funktionen för att få modern OAuth-autentisering till Apache Ambari samtidigt som du har tvingande autentisering med multifaktorautentisering utan att behöva äldre hashvärden i Azure Active Directory Domain Services (Azure AD DS).
 
@@ -45,16 +45,16 @@ Det kan fortfarande finnas många äldre program som endast stöder grundläggan
 
 Följande diagram visar det grundläggande autentiseringsschemat för federerade användare. Först försöker gatewayen att slutföra autentiseringen med hjälp av [ROPC Flow](../../active-directory/develop/v2-oauth-ropc.md). Om det inte finns några hash-hashvärden som är synkroniserade med Azure AD, går det tillbaka till att identifiera AD FS slut punkten och slutför autentiseringen genom att komma åt AD FS-slutpunkten.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram som visar Authentication Flow med HDInsight ID-Broker.":::
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagram som visar arkitektur med grundläggande autentisering.":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>Aktivera HDInsight ID-Broker
 
 Så här skapar du ett Enterprise Security Package kluster med HDInsight ID Broker aktiverat:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in i [Azure-portalen](https://portal.azure.com).
 1. Följ de grundläggande stegen för att skapa Enterprise Security Package-kluster. Mer information finns i [skapa ett HDInsight-kluster med Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
-1. Välj **Aktivera HDInsight ID Broker** .
+1. Välj **Aktivera HDInsight ID Broker**.
 
 HDInsight ID Broker-funktionen lägger till en extra virtuell dator i klustret. Den här virtuella datorn är noden HDInsight ID Broker och innehåller Server komponenter som stöd för autentisering. HDInsight ID Broker-noden är domän ansluten till Azure AD DS-domänen.
 

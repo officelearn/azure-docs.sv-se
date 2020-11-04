@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: dbc00d37b912ce7efb250aade0ea6790a1a227eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1da7149a41ec8dd08e307394cba3e7feabec42a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296764"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320716"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
 
@@ -26,13 +26,13 @@ Lär dig hur du ändrar åtkomst nycklarna för Azure Storage konton som använd
 Av säkerhets synpunkt kan du behöva ändra åtkomst nycklarna för ett Azure Storage-konto. När du återskapar åtkomst nyckeln måste Azure Machine Learning uppdateras för att använda den nya nyckeln. Azure Machine Learning kan använda lagrings kontot för både modell lagring och som ett data lager.
 
 > [!IMPORTANT]
-> Autentiseringsuppgifterna som registreras med data lager sparas i Azure Key Vault som är kopplade till arbets ytan. Om du har [mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) aktiverat för din Key Vault, se till att följa den här artikeln för att uppdatera autentiseringsuppgifter. Det går inte att avregistrera data lagret och omregistrera det med samma namn.
+> Autentiseringsuppgifterna som registreras med data lager sparas i Azure Key Vault som är kopplade till arbets ytan. Om du har [mjuk borttagning](../key-vault/general/soft-delete-overview.md) aktiverat för din Key Vault, se till att följa den här artikeln för att uppdatera autentiseringsuppgifter. Det går inte att avregistrera data lagret och omregistrera det med samma namn.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 * [Azure Machine Learning CLI-tillägget](reference-azure-machine-learning-cli.md).
 
@@ -110,7 +110,7 @@ Om du vill uppdatera Azure Machine Learning att använda den nya nyckeln använd
         Det här kommandot synkroniserar automatiskt de nya nycklarna för Azure Storage-kontot som används av arbets ytan.
 
 1. Du kan registrera data lager på nytt som använder lagrings kontot via SDK: n eller [Azure Machine Learning Studio](https://ml.azure.com).
-    1. **Om du vill registrera data lager på nytt via python SDK**använder du värdena från avsnittet [vad som behöver uppdateras](#whattoupdate) och nyckeln från steg 1 med följande kod. 
+    1. **Om du vill registrera data lager på nytt via python SDK** använder du värdena från avsnittet [vad som behöver uppdateras](#whattoupdate) och nyckeln från steg 1 med följande kod. 
     
         Eftersom `overwrite=True` har angetts skriver den här koden över den befintliga registreringen och uppdaterar den för att använda den nya nyckeln.
     
@@ -132,13 +132,13 @@ Om du vill uppdatera Azure Machine Learning att använda den nya nyckeln använd
         
         ```
     
-    1. **Om du vill registrera data lager på nytt via Studio**väljer du **data lager** i den vänstra rutan i Studio. 
+    1. **Om du vill registrera data lager på nytt via Studio** väljer du **data lager** i den vänstra rutan i Studio. 
         1. Välj vilket data lager du vill uppdatera.
         1. Välj knappen **uppdatera autentiseringsuppgifter** längst upp till vänster. 
         1. Använd din nya åtkomst nyckel från steg 1 för att fylla i formuläret och klicka på **Spara**.
         
-            Om du uppdaterar autentiseringsuppgifterna för ditt **standard data lager**slutför du det här steget och upprepar steg 2b för att synkronisera om den nya nyckeln med standard data lagret för arbets ytan. 
+            Om du uppdaterar autentiseringsuppgifterna för ditt **standard data lager** slutför du det här steget och upprepar steg 2b för att synkronisera om den nya nyckeln med standard data lagret för arbets ytan. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du registrerar data lager finns i [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true) klass referensen.
+Mer information om hur du registrerar data lager finns i [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py) klass referensen.

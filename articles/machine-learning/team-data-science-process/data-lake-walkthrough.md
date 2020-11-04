@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b45cc87c525ab66a3807f71901728e60d086ea74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6eb0be4d9946907dc5bb2f22b27530a27a37aec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440413"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321248"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalbar data vetenskap med Azure Data Lake: en slut punkt till slut punkts genom gång
-Den här genom gången visar hur du använder Azure Data Lake för att utföra data utforsknings-och binära klassificerings uppgifter på ett exempel av NYC taxi-resan och pris data uppsättningen för att förutsäga huruvida ett tips betalas av en avgift. Det vägleder dig genom stegen i [team data science-processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), från slut punkt till slut punkt från data förvärv till modell träning, och sedan till distributionen av en webb tjänst som publicerar modellen.
+Den här genom gången visar hur du använder Azure Data Lake för att utföra data utforsknings-och binära klassificerings uppgifter på ett exempel av NYC taxi-resan och pris data uppsättningen för att förutsäga huruvida ett tips betalas av en avgift. Det vägleder dig genom stegen i [team data science-processen](./index.yml), från slut punkt till slut punkt från data förvärv till modell träning, och sedan till distributionen av en webb tjänst som publicerar modellen.
 
 ## <a name="technologies"></a>Tekniker
 
@@ -92,7 +92,7 @@ Skapa ett ADLA-konto från [Azure Portal](https://portal.azure.com). Mer informa
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>Skapa ett Azure Blob Storage-konto
-Skapa ett Azure Blob Storage-konto från [Azure Portal](https://portal.azure.com). Mer information finns i avsnittet Skapa ett lagrings konto i [om Azure Storage-konton](../../storage/common/storage-create-storage-account.md).
+Skapa ett Azure Blob Storage-konto från [Azure Portal](https://portal.azure.com). Mer information finns i avsnittet Skapa ett lagrings konto i [om Azure Storage-konton](../../storage/common/storage-account-create.md).
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -143,7 +143,7 @@ Data bearbetnings aktiviteterna som illustreras i det här avsnittet omfattar in
 
 U-SQL-skripten beskrivs här och tillhandahålls i en separat fil. Du kan ladda ned fullständiga **U-SQL-skript** från [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-Om du vill köra U-SQL öppnar du Visual Studio, klickar på **Arkiv--> nytt – > projekt**, väljer **U-SQL-projekt**, namn och sparar det i en mapp.
+Om du vill köra U-SQL öppnar du Visual Studio, klickar på **Arkiv--> nytt – > projekt** , väljer **U-SQL-projekt** , namn och sparar det i en mapp.
 
 ![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
 
@@ -156,7 +156,7 @@ Om du vill köra U-SQL öppnar du Visual Studio, klickar på **Arkiv--> nytt –
 
 ### <a name="data-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Data inmatning: läsa in data från offentlig BLOB
 
-Platsen för data i Azure-blobben refereras till som wasb://container- ** \_ namn \@ Blob storage \_ - \_ konto \_ Name.blob.Core.Windows.net/blob_name** och kan extraheras med hjälp av **Extractors.Csv ()**. Ersätt namnet på din behållare och lagrings kontot i följande skript för container \_ namn \@ BLOB \_ Storage \_ \_ -konto namn i wasb-adressen. Eftersom fil namnen är i samma format är det möjligt att använda **rese \_ data \_ \{ \* \} . csv** för att läsa i alla 12-testfiler.
+Platsen för data i Azure-blobben refereras till som wasb://container- **\_ namn \@ Blob storage \_ - \_ konto \_ Name.blob.Core.Windows.net/blob_name** och kan extraheras med hjälp av **Extractors.Csv ()**. Ersätt namnet på din behållare och lagrings kontot i följande skript för container \_ namn \@ BLOB \_ Storage \_ \_ -konto namn i wasb-adressen. Eftersom fil namnen är i samma format är det möjligt att använda **rese \_ data \_ \{ \* \} . csv** för att läsa i alla 12-testfiler.
 
 ```sql
 ///Read in Trip data
@@ -181,7 +181,7 @@ FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyct
 USING Extractors.Csv();
 ```
 
-Eftersom det finns rubriker på den första raden måste du ta bort rubrikerna och ändra kolumn typerna till lämpliga. Du kan antingen spara bearbetade data till Azure Data Lake Storage med hjälp av **swebhdfs://data_lake_storage_name. azuredatalakestorage. net/folder_name/file_name**_ eller till Azure Blob Storage-konto med  **wasb://container_name \@ blob_storage_account_name. blob. Core. windows. net/blob_name**.
+Eftersom det finns rubriker på den första raden måste du ta bort rubrikerna och ändra kolumn typerna till lämpliga. Du kan antingen spara bearbetade data till Azure Data Lake Storage med hjälp av **swebhdfs://data_lake_storage_name. azuredatalakestorage. net/folder_name/file_name** _ eller till Azure Blob Storage-konto med  **wasb://container_name \@ blob_storage_account_name. blob. Core. windows. net/blob_name**.
 
 ```sql
 // change data types
@@ -461,7 +461,7 @@ USING Outputters.Csv();
 ```
 
 ### <a name="run-u-sql-jobs"></a><a name="run"></a>Kör U-SQL-jobb
-När du har redigerat U-SQL-skript kan du skicka dem till servern med hjälp av ditt Azure Data Lake Analytics-konto. Klicka på **data Lake**, **Skicka jobb**, Välj ditt **analys konto**, Välj **parallellitet**och klicka på **Skicka** .
+När du har redigerat U-SQL-skript kan du skicka dem till servern med hjälp av ditt Azure Data Lake Analytics-konto. Klicka på **data Lake** , **Skicka jobb** , Välj ditt **analys konto** , Välj **parallellitet** och klicka på **Skicka** .
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)
 
@@ -671,7 +671,7 @@ Skapa ett HDInsight-kluster (Linux) från [Azure Portal](https://portal.azure.co
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>Skapa Hive-tabell i HDInsight
-Nu skapar du Hive-tabeller som ska användas i Azure Machine Learning Studio (klassisk) i HDInsight-klustret med hjälp av de data som lagras i Azure Data Lake Storage i föregående steg. Gå till HDInsight-klustret har skapats. Klicka på **Inställningar**  -->  **Egenskaper**  -->  **kluster AAD Identity**  -->  **ADLS Access**, kontrol lera att ditt Azure Data Lake Storage-konto har lagts till i listan med Läs-, skriv-och körnings rättigheter.
+Nu skapar du Hive-tabeller som ska användas i Azure Machine Learning Studio (klassisk) i HDInsight-klustret med hjälp av de data som lagras i Azure Data Lake Storage i föregående steg. Gå till HDInsight-klustret har skapats. Klicka på **Inställningar**  -->  **Egenskaper**  -->  **kluster AAD Identity**  -->  **ADLS Access** , kontrol lera att ditt Azure Data Lake Storage-konto har lagts till i listan med Läs-, skriv-och körnings rättigheter.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
@@ -722,7 +722,7 @@ När frågan har slutförts bör du se resultatet så här:
 ### <a name="build-and-deploy-models-in-azure-machine-learning-studio"></a>Bygga och distribuera modeller i Azure Machine Learning Studio
 Nu är du redo att bygga och distribuera en modell som förutsäger om ett tips betalas med Azure Machine Learning. Stratified exempel data är redo att användas i den här binära klassificeringen (Tip eller not). Förutsägande modeller som använder multiklass-klassificering (tip_class) och regression (tip_amount) kan också skapas och distribueras med Azure Machine Learning Studio, men här visas bara hur du hanterar fallet med den binära klassificerings modellen.
 
-1. Hämta data till Azure Machine Learning Studio (klassisk) med modulen **Importera data** som finns i avsnittet **data indata och utdata** . Mer information finns på referens sidan [Importera data modul](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) .
+1. Hämta data till Azure Machine Learning Studio (klassisk) med modulen **Importera data** som finns i avsnittet **data indata och utdata** . Mer information finns på referens sidan [Importera data modul](/azure/machine-learning/studio-module-reference/import-data) .
 2. Välj **Hive-fråga** som **data källa** i panelen **Egenskaper** .
 3. Klistra in följande Hive-skript i Registereditorns **Hive-databas Frågeredigeraren**
 
@@ -738,7 +738,7 @@ Ett exempel på ett binära klassificerings experiment som läser data från Hiv
 
  ![24](./media/data-lake-walkthrough/24-AML-exp.PNG)
 
-När experimentet har skapats klickar du på **Konfigurera**webb tjänst för  -->  **förutsägelse** webb tjänst
+När experimentet har skapats klickar du på **Konfigurera** webb tjänst för  -->  **förutsägelse** webb tjänst
 
  ![25](./media/data-lake-walkthrough/25-AML-exp-deploy.PNG)
 
@@ -754,7 +754,7 @@ Instrument panelen för webb tjänster visas kort:
 Genom att slutföra den här genom gången har du skapat en data vetenskaps miljö för att skapa skalbara lösningar från slut punkt till slut punkt i Azure Data Lake. Den här miljön användes för att analysera en stor offentlig data uppsättning, som tar den genom de kanoniska stegen i data vetenskaps processen, från data förvärv via modell träning och sedan till distributionen av modellen som en webb tjänst. U-SQL användes för att bearbeta, utforska och sampla data. Python och Hive användes med Azure Machine Learning Studio (klassisk) för att bygga och distribuera förutsägande modeller.
 
 ## <a name="whats-next"></a>Nästa steg
-Utbildnings vägen för [team data science-processen (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) innehåller länkar till avsnitt som beskriver varje steg i avancerad analys process. Det finns en serie med genom gångar som är indelade på sidan [genom gång av team data vetenskaps process](walkthroughs.md) som visar hur du använder resurser och tjänster i olika förutsägelse analys scenarier:
+Utbildnings vägen för [team data science-processen (TDSP)](./index.yml) innehåller länkar till avsnitt som beskriver varje steg i avancerad analys process. Det finns en serie med genom gångar som är indelade på sidan [genom gång av team data vetenskaps process](walkthroughs.md) som visar hur du använder resurser och tjänster i olika förutsägelse analys scenarier:
 
 * [Team data science-processen i praktiken: använda Azure Synapse Analytics](sqldw-walkthrough.md)
 * [Team data vetenskaps processen i praktiken: använda HDInsight Hadoop-kluster](hive-walkthrough.md)

@@ -1,6 +1,6 @@
 ---
-title: Fråga CSV-filer med SQL på begäran (för hands version)
-description: I den här artikeln får du lära dig att fråga enkla CSV-filer med olika fil format med hjälp av SQL på begäran (för hands version).
+title: Fråga CSV-filer med Server lös SQL-pool (för hands version)
+description: I den här artikeln får du lära dig att fråga enkla CSV-filer med olika fil format med hjälp av SQL-poolen utan server (för hands version).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288298"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321466"
 ---
 # <a name="query-csv-files"></a>Köra frågor mot CSV-filer
 
-I den här artikeln får du lära dig hur du frågar en enkel CSV-fil med SQL på begäran (för hands version) i Azure Synapse Analytics. CSV-filer kan ha olika format: 
+I den här artikeln får du lära dig hur du frågar en enkel CSV-fil med en server lös SQL-pool (för hands version) i Azure Synapse Analytics. CSV-filer kan ha olika format: 
 
 - Med och utan en rubrik rad
 - Kommatecken och Tabbavgränsade värden

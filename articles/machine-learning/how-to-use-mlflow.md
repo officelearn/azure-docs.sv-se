@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a81e60e3bb7a1b0f34a29ccd9cebf3d82279027e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: cf0817ad1e9fae901bfe2b4a174d95a4f673e4c0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676650"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319012"
 ---
 # <a name="track-experiment-runs-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Spåra experiment körningar och distribuera ML-modeller med MLflow och Azure Machine Learning (för hands version)
 
@@ -24,9 +24,9 @@ I den här artikeln lär du dig hur du aktiverar MLflow för spårnings-och logg
 
 Funktioner som stöds är: 
 
-+ Spåra och logga experiment mått och artefakter i din [Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspaces). Om du redan använder MLflow spårning för dina experiment, tillhandahåller arbets ytan en centraliserad, säker och skalbar plats för att lagra utbildnings mått och-modeller.
++ Spåra och logga experiment mått och artefakter i din [Azure Machine Learning-arbetsyta](./concept-azure-machine-learning-architecture.md#workspace). Om du redan använder MLflow spårning för dina experiment, tillhandahåller arbets ytan en centraliserad, säker och skalbar plats för att lagra utbildnings mått och-modeller.
 
-+ Skicka utbildnings jobb med MLflow-projekt med Azure Machine Learning backend-support (för hands version). Du kan skicka jobb lokalt med Azure Machine Learning spårning eller migrera dina körningar till molnet som via en [Azure Machine Learning-beräkning](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-sdk#amlcompute).
++ Skicka utbildnings jobb med MLflow-projekt med Azure Machine Learning backend-support (för hands version). Du kan skicka jobb lokalt med Azure Machine Learning spårning eller migrera dina körningar till molnet som via en [Azure Machine Learning-beräkning](./how-to-create-attach-compute-cluster.md).
 
 + Spåra och hantera modeller i MLflow och Azure Machine Learning modell register.
 
@@ -48,9 +48,9 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
 
  I följande tabell sammanfattas de olika klienter som kan använda Azure Machine Learning och deras respektive funktioner.
 
- MLflow tracking erbjuder funktioner för mått loggning och artefakt lagring som endast är tillgängliga via [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
+ MLflow tracking erbjuder funktioner för mått loggning och artefakt lagring som endast är tillgängliga via [Azure Machine Learning python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
-| Funktion | MLflow spårning & distribution | Azure Machine Learning python SDK |  Azure Machine Learning CLI | Azure Machine Learning-studio|
+| Kapacitet | MLflow spårning & distribution | Azure Machine Learning python SDK |  Azure Machine Learning CLI | Azure Machine Learning-studio|
 |---|---|---|---|---|
 | Hantera arbets yta |   | ✓ | ✓ | ✓ |
 | Använda data lager  |   | ✓ | ✓ | |
@@ -65,14 +65,14 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Installera `azureml-mlflow`-paketet. 
-    * Det här paketet kommer automatiskt in i `azureml-core` [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), som ger anslutningen för MLflow åtkomst till din arbets yta.
+    * Det här paketet kommer automatiskt in i `azureml-core` [Azure Machine Learning python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), som ger anslutningen för MLflow åtkomst till din arbets yta.
 * [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="track-local-runs"></a>Spåra lokala körningar
 
 Genom MLflow spårning med Azure Machine Learning kan du lagra de inloggade måtten och artefakterna från dina lokala körningar i Azure Machine Learning arbets ytan.
 
-Importera `mlflow` och- [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true) klasserna för att få åtkomst till MLflows spårnings-URI och konfigurera din arbets yta.
+Importera `mlflow` och- [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py) klasserna för att få åtkomst till MLflows spårnings-URI och konfigurera din arbets yta.
 
 I följande kod `get_mlflow_tracking_uri()` tilldelar metoden en unik spårnings-URI-adress till arbets ytan, `ws` och `set_tracking_uri()` pekar på MLflow spårnings-URI: n till den adressen.
 
@@ -119,7 +119,7 @@ dependencies:
     - numpy
 ```
 
-Konfigurera din beräknings-och övnings körnings miljö med klassen i skriptet [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) . Skapa sedan  [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) med fjärrberäkning som beräknings mål.
+Konfigurera din beräknings-och övnings körnings miljö med klassen i skriptet [`Environment`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) . Skapa sedan  [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?preserve-view=true&view=azure-ml-py) med fjärrberäkning som beräknings mål.
 
 ```Python
 import mlflow
@@ -146,7 +146,7 @@ Installera `azureml-mlflow` paketet om du vill använda MLflow spårning med Azu
 pip install azureml-mlflow
 ```
 
-Importera `mlflow` och- [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true) klasserna för att få åtkomst till MLflows spårnings-URI och konfigurera din arbets yta.
+Importera `mlflow` och- [`Workspace`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py) klasserna för att få åtkomst till MLflows spårnings-URI och konfigurera din arbets yta.
 
 ```Python
 import mlflow
@@ -259,7 +259,7 @@ Följande diagram visar att med MLflow distributions-API: t kan du distribuera d
 
 ### <a name="deploy-to-aci"></a>Distribuera till ACI
 
-Konfigurera distributions konfigurationen med metoden [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Du kan också lägga till taggar och beskrivningar för att hålla reda på din webb tjänst.
+Konfigurera distributions konfigurationen med metoden [deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Du kan också lägga till taggar och beskrivningar för att hålla reda på din webb tjänst.
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice
@@ -290,7 +290,7 @@ webservice.wait_for_deployment(show_output=True)
 
 ### <a name="deploy-to-aks"></a>Distribuera till AKS
 
-Om du vill distribuera till AKS måste du först skapa ett AKS-kluster. Skapa ett AKS-kluster med metoden [ComputeTarget. Create ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-workspace--name--provisioning-configuration-) . Det kan ta 20-25 minuter att skapa ett nytt kluster.
+Om du vill distribuera till AKS måste du först skapa ett AKS-kluster. Skapa ett AKS-kluster med metoden [ComputeTarget. Create ()](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--provisioning-configuration-) . Det kan ta 20-25 minuter att skapa ett nytt kluster.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -310,7 +310,7 @@ aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
-Konfigurera distributions konfigurationen med metoden [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Du kan också lägga till taggar och beskrivningar för att hålla reda på din webb tjänst.
+Konfigurera distributions konfigurationen med metoden [deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.aciwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . Du kan också lägga till taggar och beskrivningar för att hålla reda på din webb tjänst.
 
 ```python
 from azureml.core.webservice import Webservice, AksWebservice
@@ -353,9 +353,9 @@ Om du inte planerar att använda de loggade måtten och artefakterna i din arbet
 
 1. Välj den resursgrupp i listan som du har skapat.
 
-1. Välj **Ta bort resursgrupp** .
+1. Välj **Ta bort resursgrupp**.
 
-1. Ange resursgruppsnamnet. Välj sedan **Ta bort** .
+1. Ange resursgruppsnamnet. Välj sedan **Ta bort**.
 
 ## <a name="example-notebooks"></a>Exempelnotebook-filer
 
@@ -367,5 +367,5 @@ Om du inte planerar att använda de loggade måtten och artefakterna i din arbet
 ## <a name="next-steps"></a>Nästa steg
 
 * [Hantera dina modeller](concept-model-management-and-deployment.md).
-* Övervaka dina produktions modeller för [data avvikelser](how-to-monitor-data-drift.md).
-* [Spåra Azure Databricks körs med MLflow](how-to-use-mlflow-azure-databricks.md). 
+* Övervaka dina produktions modeller för [data avvikelser](./how-to-enable-data-collection.md).
+* [Spåra Azure Databricks körs med MLflow](how-to-use-mlflow-azure-databricks.md).

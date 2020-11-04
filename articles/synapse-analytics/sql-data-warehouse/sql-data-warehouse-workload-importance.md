@@ -1,6 +1,6 @@
 ---
 title: Arbetsbelastningsprioritet
-description: Vägledning för att ställa in prioritet för Synapse i SQL-pooler i Azure Synapse Analytics.
+description: Vägledning för att ställa in prioritet för dedikerade frågor om SQL-pooler i Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07c781672874bff306c9d25a464ec66414ebc9f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212351"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322127"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Arbets belastnings prioritet för Azure Synapse Analytics
 
-I den här artikeln förklaras hur arbets belastnings prioriteten kan påverka ordningen för körningen av Synapse för SQL-pooler i Azure Synapse.
+Den här artikeln förklarar hur arbets belastnings prioriteten kan påverka ordningen för körning av dedikerade SQL-pooler i Azure Synapse.
 
 ## <a name="importance"></a>Betydelse
 
@@ -38,7 +38,7 @@ Utöver det grundläggande prioritets scenario som beskrivs ovan med försäljni
 
 ### <a name="locking"></a>Låsning
 
-Åtkomst till Lås för läsnings-och skriv aktivitet är ett av naturliga konkurrens områden. Aktiviteter som [partitions växling](sql-data-warehouse-tables-partition.md) eller [namnbytes objekt](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kräver utökade lås.  Utan arbets belastnings prioritet optimerar Synapse SQL-poolen i Azure Synapse för data flödet. Optimering för data flöde innebär att när du kör och köade begär Anden har samma lås behov och resurser är tillgängliga, kan köade begär Anden kringgå begär Anden med högre låsnings behov som anlänt i kön för begär Anden tidigare. När arbets belastnings prioriteten tillämpas på begär Anden med högre låsnings behov. Begäran med högre prioritet kommer att köras före begäran med lägre prioritet.
+Åtkomst till Lås för läsnings-och skriv aktivitet är ett av naturliga konkurrens områden. Aktiviteter som [partitions växling](sql-data-warehouse-tables-partition.md) eller [namnbytes objekt](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) kräver utökade lås.  Utan arbets belastnings prioritet optimerar dedicerad SQL-pool i Azure Synapse för data flöde. Optimering för data flöde innebär att när du kör och köade begär Anden har samma lås behov och resurser är tillgängliga, kan köade begär Anden kringgå begär Anden med högre låsnings behov som anlänt i kön för begär Anden tidigare. När arbets belastnings prioriteten tillämpas på begär Anden med högre låsnings behov. Begäran med högre prioritet kommer att köras före begäran med lägre prioritet.
 
 Se följande exempel:
 
@@ -50,7 +50,7 @@ Om Q2 och Q3 har samma betydelse och Q1 fortfarande körs, börjar Q3 att köras
 
 ### <a name="non-uniform-requests"></a>Icke-enhetliga begär Anden
 
-Ett annat scenario där prioriteten kan hjälpa till att möta frågor om krav är när förfrågningar med olika resurs klasser skickas.  Som tidigare nämnts har Synapse SQL-poolen i Azure Synapse optimerats för data flödet. När blandade storleks begär Anden (till exempel smallrc eller mediumrc) placeras i kö, kommer Synapse SQL-pool att välja den tidigaste inkommande begäran som passar i de tillgängliga resurserna. Om prioriteten för arbets belastningen används schemaläggs den högsta prioriteten nästa gång.
+Ett annat scenario där prioriteten kan hjälpa till att möta frågor om krav är när förfrågningar med olika resurs klasser skickas.  Som tidigare nämnts har dedikerad SQL-pool i Azure Synapse optimerats för data flödet under samma betydelse. När blandade storleks begär Anden (t. ex. smallrc eller mediumrc) placeras i kö, kommer dedikerad SQL-pool att välja den tidigaste inkommande begäran som passar i de tillgängliga resurserna. Om prioriteten för arbets belastningen används schemaläggs den högsta prioriteten nästa gång.
   
 Tänk på följande exempel på DW500c:
 

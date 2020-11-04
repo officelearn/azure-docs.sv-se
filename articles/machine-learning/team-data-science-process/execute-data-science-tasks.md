@@ -10,20 +10,20 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5fe11b20ff8e96bc4b0d997c49201aafdd2e2cac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbe822b75368a1ab72bcd7f73419770b291d2508
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320531"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321146"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Köra data vetenskaps uppgifter: utforskning, modellering och distribution
 
 Vanliga uppgifter för data vetenskap inkluderar data utforskning, modellering och distribution. Den här artikeln visar hur du använder verktygen för **interaktiva data utforsknings-, analys-och rapporterings** -och **Amar-** verktyg för att utföra flera gemensamma data vetenskaps uppgifter, till exempel interaktiva data utforskning, data analys, rapportering och skapande av modeller. Alternativ för att distribuera en modell i en produktions miljö kan vara:
 
 - [Azure Machine Learning](../index.yml)
-- [SQL-Server med ML-tjänster](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
-- [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [SQL-Server med ML-tjänster](/sql/advanced-analytics/r/r-services)
+- [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
 
 
 ## <a name="1--exploration"></a>1. <a name='DataQualityReportUtility-1'></a> utforskning 
@@ -76,7 +76,7 @@ När flera modeller har skapats, behöver du vanligt vis ett system för att reg
 1. [Azure Machine Learning-modell hanterings tjänst](../index.yml)
 2. [ModelDB från MIT](http://modeldb.csail.mit.edu:3000/projects) 
 3. [SQL-Server som ett modell hanterings system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+4. [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
 ## <a name="3--deployment"></a>3. <a name='Deployment-3'></a> distribution
 
@@ -87,8 +87,8 @@ Det finns olika metoder och plattformar för att ställa in modeller i produktio
 
 
 - [Modell distribution i Azure Machine Learning](../how-to-deploy-and-where.md)
-- [Distribution av en modell i SQL-Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Distribution av en modell i SQL-Server](/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
 > [!NOTE]
 > Innan distributionen är det en som måste kontrol lera svars tiden för att modell poängen är tillräckligt låg för att kunna användas i produktionen.

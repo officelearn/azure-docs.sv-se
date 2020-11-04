@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250665"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322021"
 ---
 # <a name="feature-engineering-in-data-science"></a>Funktions teknik i data vetenskap
 
 I den här artikeln får du lära dig mer om funktions teknik och dess roll i att förbättra data i Machine Learning. Lär dig mer om exempel som ritats från [Azure Machine Learning Studio (klassiska)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) experiment. 
 
-* **Funktions teknik**: processen för att skapa nya funktioner från rå data för att öka den förutsägande kraften hos inlärnings algoritmen. De funktioner som är tillverkade bör fånga ytterligare information som inte är lätt att hitta i den ursprungliga funktions uppsättningen.
-* **Val av funktion**: processen att välja en nyckel del uppsättning av funktioner för att minska inlärnings problemets dimensionalitet.
+* **Funktions teknik** : processen för att skapa nya funktioner från rå data för att öka den förutsägande kraften hos inlärnings algoritmen. De funktioner som är tillverkade bör fånga ytterligare information som inte är lätt att hitta i den ursprungliga funktions uppsättningen.
+* **Val av funktion** : processen att välja en nyckel del uppsättning av funktioner för att minska inlärnings problemets dimensionalitet.
 
 Normalt implementeras **funktions teknik** först för att generera ytterligare funktioner, och **funktions val** görs för att eliminera irrelevanta, redundanta eller mycket korrelerade funktioner.
 
@@ -60,7 +60,7 @@ Förutom feature set A, som redan finns i de ursprungliga rå data, skapas de an
 
 ### <a name="feature-engineering-using-studio-classic"></a>Funktions teknik med Studio (klassisk)
 
-I det klassiska Studio-experimentet skapas dessa fyra inlärnings data uppsättningar via fyra grenar från den förbehandlade indata-datauppsättningen. Förutom för grenen längst till vänster innehåller var och en av dessa grenar en modul för att [köra R-skript](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) där de härledda funktionerna (funktions uppsättning B, C och D) skapas och läggs till i den importerade data uppsättningen.
+I det klassiska Studio-experimentet skapas dessa fyra inlärnings data uppsättningar via fyra grenar från den förbehandlade indata-datauppsättningen. Förutom för grenen längst till vänster innehåller var och en av dessa grenar en modul för att [köra R-skript](/azure/machine-learning/studio-module-reference/execute-r-script) där de härledda funktionerna (funktions uppsättning B, C och D) skapas och läggs till i den importerade data uppsättningen.
 
 Följande bild visar det R-skript som används för att skapa funktions uppsättning B i den andra vänstra grenen.
 
@@ -80,9 +80,9 @@ Funktions teknik används ofta i uppgifter som rör text utvinning, till exempel
 
 ### <a name="feature-hashing"></a>Hashing av funktioner
 
-För att uppnå den här uppgiften används en teknik som kallas [funktion-hash](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) för att effektivt aktivera godtycklig text funktioner i index. I stället för att associera varje text funktion (ord/fraser) till ett visst index, använder den här metoden en hash-funktion för funktionerna och använder sina hash-värden som index direkt.
+För att uppnå den här uppgiften används en teknik som kallas [funktion-hash](/azure/machine-learning/studio-module-reference/feature-hashing) för att effektivt aktivera godtycklig text funktioner i index. I stället för att associera varje text funktion (ord/fraser) till ett visst index, använder den här metoden en hash-funktion för funktionerna och använder sina hash-värden som index direkt.
 
-I Studio (klassisk) finns en modul för [hashing](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) av funktioner som skapar ord/fras-funktioner bekvämt. Följande bild visar ett exempel på hur du använder den här modulen. Data uppsättningen för indata innehåller två kolumner: bok klassificeringen sträcker sig från 1 till 5 och det faktiska gransknings innehållet. Målet med den här modulen är att hämta en massa nya funktioner som visar förekomst frekvensen för motsvarande Word-/phrase i en viss bok granskning. Utför följande steg för att använda den här modulen:
+I Studio (klassisk) finns en modul för [hashing](/azure/machine-learning/studio-module-reference/feature-hashing) av funktioner som skapar ord/fras-funktioner bekvämt. Följande bild visar ett exempel på hur du använder den här modulen. Data uppsättningen för indata innehåller två kolumner: bok klassificeringen sträcker sig från 1 till 5 och det faktiska gransknings innehållet. Målet med den här modulen är att hämta en massa nya funktioner som visar förekomst frekvensen för motsvarande Word-/phrase i en viss bok granskning. Utför följande steg för att använda den här modulen:
 
 * Börja med att markera den kolumn som innehåller indatamängden ("Col2" i det här exemplet).
 * Ange sedan "hashing bitsize" till 8, vilket innebär att 2 ^ 8 = 256 funktioner skapas. Ordet/fasen i all text kommer att hashas till 256-index. Parametern "hashing bitsize" sträcker sig från 1 till 31. Ord/phrase (s) är mindre sannolika att hashas i samma index om det ställs in som ett större tal.

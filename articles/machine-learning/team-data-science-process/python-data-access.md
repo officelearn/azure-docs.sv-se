@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6c8e6fee2b9f01b8d7ab48990760aa4c4d6e11b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 497b8f5598cf7aa7720f47863d465f5e29789b07
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361508"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321949"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
 Förhands granskningen av Microsoft Azure Machine Learning python-klientprogrammet kan ge säker åtkomst till dina Azure Machine Learning data uppsättningar från en lokal python-miljö och möjliggör skapande och hantering av data uppsättningar i en arbets yta.
@@ -73,7 +73,7 @@ Av säkerhets skäl är funktionen för kodfragment bara tillgänglig för anvä
 
 ![Skärm bilden visar inställningarna på sidan användare i Azure Machine Learning Studio.][security]
 
-Om rollen inte har angetts som **ägare**kan du antingen begära att bli inbjuden till en ägare eller be ägaren av arbets ytan att förse dig med kodfragmentet.
+Om rollen inte har angetts som **ägare** kan du antingen begära att bli inbjuden till en ägare eller be ägaren av arbets ytan att förse dig med kodfragmentet.
 
 Du kan välja något av följande alternativ för att hämta autentiseringstoken:
 
@@ -90,7 +90,7 @@ Tokens hanteras på sidan **AUTHORIZATION tokens** under **Inställningar**. Du 
 ### <a name="access-datasets-from-a-local-python-application"></a><a name="accessingDatasets"></a>Få åtkomst till data uppsättningar från ett lokalt python-program
 1. I Machine Learning Studio (klassisk) klickar du på **data uppsättningar** i navigerings fältet till vänster.
 2. Välj den data uppsättning som du vill ha åtkomst till. Du kan välja någon av data uppsättningarna från listan **mina data uppsättningar** eller från listan **samples** .
-3. Klicka på **generera data åtkomst kod**i det nedre verktygsfältet. Om data har ett format som inte är kompatibelt med python-klient biblioteket är den här knappen inaktive rad.
+3. Klicka på **generera data åtkomst kod** i det nedre verktygsfältet. Om data har ett format som inte är kompatibelt med python-klient biblioteket är den här knappen inaktive rad.
    
     ![Skärm bild som visar data uppsättningar med koden generera DATA åtkomst.][datasets]
 4. Välj kodfragmentet i fönstret som visas och kopiera det till Urklipp.
@@ -364,6 +364,5 @@ Om dina data redan är serialiserade använder du `update_from_raw_data` i stäl
 
 
 <!-- Module References -->
-[convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
+[convert-to-csv]: /azure/machine-learning/studio-module-reference/convert-to-csv
+[split]: /azure/machine-learning/studio-module-reference/split-data

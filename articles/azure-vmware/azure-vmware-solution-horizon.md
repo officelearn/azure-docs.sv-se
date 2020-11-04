@@ -3,12 +3,12 @@ title: Distribuera Horisont på Azure VMware-lösning
 description: Lär dig hur du distribuerar VMware-Horisont på Azure VMware-lösningen.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 6a466aea5cbdf4452a2c46b455932042d920c3b9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369020"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321357"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuera Horisont på Azure VMware-lösning 
 
@@ -86,7 +86,7 @@ Med tanke på Azures privata moln och SDDC Max gräns, rekommenderar vi en distr
 
 Anslutningen från Azure Virtual Network till Azures privata moln/SDDCs ska konfigureras med ExpressRoute FastPath. I följande diagram visas en grundläggande Horisont Pod-distribution.
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Horisont för Azure VMware-lösning och Horisont moln i Azure" border="false":::
+:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Typisk Horisont Pod-distribution med snabb sökväg för ExpressPath" border="false":::
 
 ## <a name="network-connectivity-to-scale-horizon-on-azure-vmware-solution"></a>Nätverks anslutning för att skala Horisont på Azure VMware-lösning
 
@@ -94,7 +94,7 @@ I det här avsnittet beskrivs nätverks arkitekturen på hög nivå med några v
 
 ### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Pod för enkel Horisont på Azure VMware-lösning
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Horisont för Azure VMware-lösning och Horisont moln i Azure" border="false":::
+:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Pod för enkel Horisont på Azure VMware-lösning" border="false":::
 
 En enda Horisont pod är det bästa scenariot för vanlig distribution eftersom du bara distribuerar en horisont Pod i regionen USA, östra.  Eftersom varje privat moln och SDDC beräknas för att hantera 4 000 Desktop-sessioner, distribuerar du den maximala Horisont storleken för pod.  Du kan planera distributionen av upp till tre privata moln/SDDCs.
 
@@ -112,7 +112,7 @@ En variant av det grundläggande exemplet kan vara att stödja anslutning för l
 
 Diagrammet visar hur du stöder anslutning för lokala resurser. För att ansluta till företagets nätverk till Azure-Virtual Network behöver du en ExpressRoute-krets.  Du måste också ansluta företagets nätverk till var och en av de privata moln-och SDDCs med hjälp av ExpressRoute Global Reach.  Den tillåter anslutning från SDDC till ExpressRoute-kretsen och lokala resurser. 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Horisont för Azure VMware-lösning och Horisont moln i Azure" border="false":::
+:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Anslut företags nätverket till ett Azure-Virtual Network" border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>Flera Horisont poddar på Azure VMware-lösning i flera regioner
 
@@ -122,7 +122,7 @@ Du ansluter Azure-Virtual Network i varje region till de privata molnen/SDDCs i 
 
 Samma principer gäller om du distribuerar två Horisont poddar i samma region.  Se till att distribuera den andra Horisont Pod i en *separat Azure-Virtual Network*. Precis som i det enkla Pod-exemplet kan du ansluta företagets nätverk och lokala Pod till exemplet på flera Pod/regioner med ExpressRoute och Global Reach. 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Horisont för Azure VMware-lösning och Horisont moln i Azure" border="false":::
+:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text=" Flera Horisont poddar på Azure VMware-lösning i flera regioner" border="false":::
 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Storlek på Azure VMware-lösningar värdar för Horisont distributioner 
 
@@ -211,3 +211,6 @@ Utifrån standard distributions arkitekturen består de virtuella datorerna för
 | Windows-filresurs               | D4sv3          |         | *Valfritt*                               |
 
 Den virtuella datorns infrastruktur kostnad uppgår till \$ 0,36 per användare per månad för distributionen av 2 000-Desktop i exemplet ovan. I det här exemplet används priserna för östra Azure-instansen i juni 2020. Din prissättning kan variera beroende på region, valda alternativ och tids inställning.
+
+## <a name="next-steps"></a>Nästa steg
+Läs mer om VMware-Horisont på Azure VMware-lösningen i [vanliga frågor och svar om VMware-Horisont](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf).

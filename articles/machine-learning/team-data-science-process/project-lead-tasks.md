@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d9b2546553e03d1555cf4c587d699d9a4ea7e51
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76714411"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321933"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Projekt ledar uppgifter i team data science process
 
@@ -36,7 +36,7 @@ Steg 6: Konfigurera säkerhets kontroll för projekt lagrings plats, se [Lägg t
 > [!NOTE] 
 > I den här artikeln används Azure databaser för att skapa ett TDSP-projekt, eftersom det är hur du implementerar TDSP på Microsoft. Om ditt team använder en annan kod värd plattform är projektets lead-uppgifter samma, men det kan vara olika att slutföra dem.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien förutsätter vi att [grupp chefen](group-manager-tasks.md) och [teamets lead](team-lead-tasks.md) har ställt in följande resurser och behörigheter:
 
@@ -49,7 +49,7 @@ Om du vill klona lagrings utrymmen och ändra innehåll på din lokala dator ell
 
 - En Azure-prenumeration.
 - Git installerat på datorn. Om du använder en DSVM är git förinstallerat. I annat fall, se [bilagan plattform och verktyg](platforms-and-tools.md#appendix).
-- Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](/azure/machine-learning/data-science-virtual-machine/).
+- Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](../data-science-virtual-machine/index.yml).
 - För en Windows-DSVM är [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerad på datorn. Rulla ned till avsnittet **Ladda ned och installera** i *Readme.MD* -filen och välj det **senaste installations programmet**. Hämta *exe* -installationsprogrammet från installations sidan och kör det. 
 - För en Linux-DSVM, konfigureras en offentlig SSH-nyckel på din DSVM och läggs till i Azure DevOps. Mer information och instruktioner finns i avsnittet **skapa offentlig SSH-nyckel** i [tillägget plattformar och verktyg](platforms-and-tools.md#appendix). 
 
@@ -57,13 +57,13 @@ Om du vill klona lagrings utrymmen och ändra innehåll på din lokala dator ell
 
 Så här skapar du en projekt databas i teamets **team projekt:**
 
-1. Gå till din grupps projekt **sammanfattnings** sida på *https \/ / \<server name> / \<organization name> / \<team name> :*, till exempel **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**, och välj **databaser** i det vänstra navigerings fältet. 
+1. Gå till din grupps projekt **sammanfattnings** sida på *https \/ / \<server name> / \<organization name> / \<team name> :* , till exempel **https: \/ /dev.Azure.com/DataScienceUnit/myTeam** , och välj **databaser** i det vänstra navigerings fältet. 
    
 1. Välj namn på databasen överst på sidan och välj sedan **ny lagrings plats** i list rutan.
    
    ![Välj ny lagrings plats](./media/project-lead-tasks/project-leads-9-select-repos.png)
    
-1. I dialog rutan **skapa en ny lagrings plats** kontrollerar du att **git** är markerat under **typ**. Skriv *DSProject1* under **databas namn**och välj sedan **skapa**.
+1. I dialog rutan **skapa en ny lagrings plats** kontrollerar du att **git** är markerat under **typ**. Skriv *DSProject1* under **databas namn** och välj sedan **skapa**.
    
    ![Skapa lagrings plats](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
    
@@ -83,7 +83,7 @@ För att fylla i ditt projekts lagrings plats med innehållet i team mal len lag
    
    ![Välj Importera](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. I dialog rutan **Importera en git-lagringsplats** väljer **du git** som **käll typ**och anger URL: en för **TEAMTEMPLATE** -lagringsplatsen under klon- **URL**. URL: en är *https: \/ / \<server name> / \<organization name> / \<team name> /_git \<team template repository name> /*. Till exempel: **https: \/ /dev.Azure.com/DataScienceUnit/myTeam/_git/TeamTemplate**. 
+1. I dialog rutan **Importera en git-lagringsplats** väljer **du git** som **käll typ** och anger URL: en för **TEAMTEMPLATE** -lagringsplatsen under klon- **URL**. URL: en är *https: \/ / \<server name> / \<organization name> / \<team name> /_git \<team template repository name> /*. Till exempel: **https: \/ /dev.Azure.com/DataScienceUnit/myTeam/_git/TeamTemplate**. 
    
 1. Välj **Importera**. Innehållet i lagrings platsen för team mal len importeras till projekt lagrings platsen. 
    

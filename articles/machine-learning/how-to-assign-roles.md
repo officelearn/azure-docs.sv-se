@@ -11,16 +11,16 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18, devx-track-azurecli
-ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: aa84d7cce09b370ab35ef67029f4dbe2ca29cabb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736611"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320846"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
-I den här artikeln får du lära dig hur du hanterar åtkomst till en Azure Machine Learning-arbetsyta. [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](/azure/role-based-access-control/overview) används för att hantera åtkomst till Azure-resurser. Användare i Azure Active Directory tilldelas vissa roller som ger åtkomst till resurser. Azure tillhandahåller både inbyggda roller och möjligheten att skapa anpassade roller.
+I den här artikeln får du lära dig hur du hanterar åtkomst till en Azure Machine Learning-arbetsyta. [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) används för att hantera åtkomst till Azure-resurser. Användare i Azure Active Directory tilldelas vissa roller som ger åtkomst till resurser. Azure tillhandahåller både inbyggda roller och möjligheten att skapa anpassade roller.
 
 ## <a name="default-roles"></a>Standard roller
 
@@ -34,18 +34,18 @@ En Azure Machine Learning-arbetsyta är en Azure-resurs. När en ny Azure Machin
 | **Anpassad roll** | Gör att du kan anpassa åtkomsten till vissa kontroller eller data Plans åtgärder inom en arbets yta. Du kan till exempel skicka en körning, skapa en beräkning, distribuera en modell eller registrera en data uppsättning. |
 
 > [!IMPORTANT]
-> Roll åtkomsten kan begränsas till flera nivåer i Azure. Till exempel kanske någon med ägar åtkomst till en arbets yta saknar ägar åtkomst till den resurs grupp som innehåller arbets ytan. Mer information finns i [så här fungerar Azure RBAC](/azure/role-based-access-control/overview#how-azure-rbac-works).
+> Roll åtkomsten kan begränsas till flera nivåer i Azure. Till exempel kanske någon med ägar åtkomst till en arbets yta saknar ägar åtkomst till den resurs grupp som innehåller arbets ytan. Mer information finns i [så här fungerar Azure RBAC](../role-based-access-control/overview.md#how-azure-rbac-works).
 
-Mer information om de inbyggda rollerna finns i [inbyggda roller i Azure](/azure/role-based-access-control/built-in-roles).
+Mer information om de inbyggda rollerna finns i [inbyggda roller i Azure](../role-based-access-control/built-in-roles.md).
 
 ## <a name="manage-workspace-access"></a>Hantera åtkomst till arbets ytan
 
 Om du är ägare till en arbets yta kan du lägga till och ta bort roller för arbets ytan. Du kan också tilldela roller till användare. Använd följande länkar för att identifiera hur du hanterar åtkomst:
-- [Azure Portal användar gränssnitt](/azure/role-based-access-control/role-assignments-portal)
-- [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
-- [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-- [REST-API](/azure/role-based-access-control/role-assignments-rest)
-- [Azure Resource Manager mallar](/azure/role-based-access-control/role-assignments-template)
+- [Azure Portal användar gränssnitt](../role-based-access-control/role-assignments-portal.md)
+- [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+- [Azure CLI](../role-based-access-control/role-assignments-cli.md)
+- [REST-API](../role-based-access-control/role-assignments-rest.md)
+- [Azure Resource Manager mallar](../role-based-access-control/role-assignments-template.md)
 
 Om du har installerat [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md)kan du använda CLI-kommandon för att tilldela roller till användare:
 
@@ -65,7 +65,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="azure-machine-learning-operations"></a>Azure Machine Learning åtgärder
 
-Azure Machine Learning inbyggda åtgärder för många åtgärder och uppgifter. En fullständig lista finns i [åtgärder för Azure Resource Provider](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Azure Machine Learning inbyggda åtgärder för många åtgärder och uppgifter. En fullständig lista finns i [åtgärder för Azure Resource Provider](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices).
 
 ## <a name="mlflow-operations-in-azure-machine-learning"></a>MLflow-åtgärder i Azure Machine Learning
 
@@ -135,7 +135,7 @@ Efter distributionen blir den här rollen tillgänglig på den angivna arbets yt
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Mer information om anpassade roller finns i [Azure-anpassade roller](/azure/role-based-access-control/custom-roles). Mer information om åtgärder (åtgärder och inte åtgärder) kan användas med anpassade roller i [Resource Provider-åtgärder](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Mer information om anpassade roller finns i [Azure-anpassade roller](../role-based-access-control/custom-roles.md). Mer information om åtgärder (åtgärder och inte åtgärder) kan användas med anpassade roller i [Resource Provider-åtgärder](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -165,7 +165,7 @@ Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och
 
 ### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>F. Publicerar vi de inbyggda Azure-rollerna för den Machine Learning tjänsten?
 
-Vi publicerar för närvarande inte [inbyggda Azure-roller](/azure/role-based-access-control/built-in-roles) för tjänsten Machine Learning. En inbyggd roll när den har publicerats kan inte uppdateras och vi bekräftar fortfarande roll definitionerna baserat på kund scenarier och feedback. 
+Vi publicerar för närvarande inte [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md) för tjänsten Machine Learning. En inbyggd roll när den har publicerats kan inte uppdateras och vi bekräftar fortfarande roll definitionerna baserat på kund scenarier och feedback. 
 
 <a id="customroles"></a>
 
@@ -419,7 +419,7 @@ Kör följande kommando i Azure CLI.
 az provider operation show –n Microsoft.MachineLearningServices
 ```
 
-De kan även finnas i listan över [resurs leverantörs åtgärder](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+De kan även finnas i listan över [resurs leverantörs åtgärder](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices).
 
 
 ### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>F. Vad är några vanliga information när du använder Azure RBAC?
@@ -427,18 +427,18 @@ De kan även finnas i listan över [resurs leverantörs åtgärder](/azure/role-
 Här är några saker som du bör känna till när du använder rollbaserad åtkomst kontroll i Azure (Azure RBAC):
 
 - När du skapar en resurs i Azure, t. ex. en arbets yta, är du inte direkt ägaren till arbets ytan. Rollen ärvs från den högsta omfattnings rollen som du har behörighet för i den prenumerationen. Om du till exempel är nätverks administratör och har behörighet att skapa en Machine Learning arbets yta, kan du tilldela rollen som nätverks administratör till arbets ytan och inte till ägar rollen.
-- Om det finns två roll tilldelningar för samma Azure Active Directory användare med motstridiga avsnitt i åtgärder/NotActions, kanske dina åtgärder som anges i NotActions från en roll inte börjar gälla om de också visas som åtgärder i en annan roll. Om du vill veta mer om hur Azure kan parsa roll tilldelningar läser du [hur Azure RBAC avgör om en användare har åtkomst till en resurs](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- Om det finns två roll tilldelningar för samma Azure Active Directory användare med motstridiga avsnitt i åtgärder/NotActions, kanske dina åtgärder som anges i NotActions från en roll inte börjar gälla om de också visas som åtgärder i en annan roll. Om du vill veta mer om hur Azure kan parsa roll tilldelningar läser du [hur Azure RBAC avgör om en användare har åtkomst till en resurs](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 - Om du vill distribuera dina beräknings resurser i ett VNet måste du uttryckligen ha behörighet för följande åtgärder:
     - "Microsoft. Network/virtualNetworks/Join/Action" på VNet-resursen.
     - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" på under näts resursen.
     
-    För mer information om Azure RBAC med nätverk, se de [inbyggda nätverks rollerna](/azure/role-based-access-control/built-in-roles#networking).
+    För mer information om Azure RBAC med nätverk, se de [inbyggda nätverks rollerna](../role-based-access-control/built-in-roles.md#networking).
 
 - Det kan ibland ta upp till 1 timme innan dina nya roll tilldelningar börjar gälla för cachelagrade behörigheter i stacken.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>F. Vilka behörigheter behöver jag för att använda en användardefinierad hanterad identitet med mina Amlcompute-kluster?
 
-För att tilldela en tilldelad identitet i Amlcompute-kluster, måste en ha Skriv behörighet för att skapa Compute och ha [rollen hanterad identitets operatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Mer information om Azure RBAC med hanterade identiteter finns i [hantera användarens tilldelade identitet](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+För att tilldela en tilldelad identitet i Amlcompute-kluster, måste en ha Skriv behörighet för att skapa Compute och ha [rollen hanterad identitets operatör](../role-based-access-control/built-in-roles.md#managed-identity-operator). Mer information om Azure RBAC med hanterade identiteter finns i [hantera användarens tilldelade identitet](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>F. Stöder vi rollbaserad åtkomst kontroll på Studio-portalen?
@@ -480,4 +480,4 @@ Du behöver behörigheter på prenumerations nivå för att utföra en kvot rela
 - [Översikt över Enterprise Security](concept-enterprise-security.md)
 - [Översikt över virtuella nätverks isolering och sekretess](how-to-network-security-overview.md)
 - [Självstudie: träna modeller](tutorial-train-models-with-aml.md)
-- [Åtgärder för resursprovider](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)
+- [Åtgärder för resursprovider](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)

@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 5eb392fdfc1ffdb6d7cfee64734cca32c9abcd33
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 0e94288b49cd57b59c126c95ca507477f1c56946
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913287"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321519"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Självstudie: Använd R för att skapa en Machine Learning-modell (för hands version)
 
@@ -50,7 +50,7 @@ Det finns många [sätt att skapa en arbets yta](how-to-manage-workspace.md). I 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
-> Anteckna din **arbets yta** och din **prenumeration** . Du behöver dessa för att se till att du skapar experimentet på rätt plats. 
+> Anteckna din **arbets yta** och din **prenumeration**. Du behöver dessa för att se till att du skapar experimentet på rätt plats. 
 
 
 ## <a name="open-rstudio"></a><a name="open"></a>Öppna RStudio
@@ -74,7 +74,7 @@ Klona https://github.com/Azure/azureml-sdk-for-r GitHub-lagringsplatsen för en 
 
 1. Kör `git clone https://github.com/Azure/azureml-sdk-for-r` i terminalen för att klona lagrings platsen.
 
-1. I RStudio navigerar du till mappen *vignettes* i mappen klonad *azureml-SDK-for-r* .  Under *vignettes* väljer du *först modellen träna-och-Deploy-First. RMD* -fil för att hitta Vignette som används i den här självstudien. De ytterligare filer som används för Vignette finns i undermappen *träna-och-distribuera-First-Model* . När du har öppnat Vignette anger du arbets katalogen till filens plats via **Session > anger arbets katalog > till käll filens plats** . 
+1. I RStudio navigerar du till mappen *vignettes* i mappen klonad *azureml-SDK-for-r* .  Under *vignettes* väljer du *först modellen träna-och-Deploy-First. RMD* -fil för att hitta Vignette som används i den här självstudien. De ytterligare filer som används för Vignette finns i undermappen *träna-och-distribuera-First-Model* . När du har öppnat Vignette anger du arbets katalogen till filens plats via **Session > anger arbets katalog > till käll filens plats**. 
 
 > [!Important]
 > Resten av den här artikeln innehåller samma innehåll som du ser i "  *träna-and-Deploy-First-Model". RMD* -fil. Om du har erfarenhet av RMarkdown kan du använda koden från filen.  Eller så kan du kopiera/klistra in kodfragment från där, eller från den här artikeln till ett R-skript eller kommando raden. 
@@ -188,7 +188,7 @@ Ett utbildnings skript kallat `accidents.R` har angetts för dig i katalogen *tr
 
 * Övnings skriptet använder ett argument `-d` för att hitta den katalog som innehåller tränings data. När du definierar och skickar jobbet senare pekar du på data lagret för det här argumentet. Azure ML kommer att montera lagringsmappen till fjärrklusteret för utbildnings jobbet.
 * Övnings skriptet loggar den slutliga noggrannheten som ett Mät värde för körnings posten i Azure ML med `log_metric_to_run()` . Azure ML SDK innehåller en uppsättning loggnings-API: er för att logga olika mått under inlärnings körningar. Dessa mått registreras och behålls i experiment körnings posten. Måtten kan sedan nås när som helst eller visas på sidan körnings information i [Studio](https://ml.azure.com). Se [referensen](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) för en fullständig uppsättning loggnings metoder `log_*()` .
-* Övnings skriptet sparar din modell i en katalog med namnet **outputs** . `./outputs`Mappen får särskild behandling av Azure ml. Under utbildningen överförs filer som skrivs till `./outputs` automatiskt till din körnings post av Azure ml och behålls som artefakter. Genom att spara den tränade modellen till `./outputs` , kommer du att kunna komma åt och hämta modell filen även när körningen är över och du inte längre har åtkomst till din fjärran sluten miljö.
+* Övnings skriptet sparar din modell i en katalog med namnet **outputs**. `./outputs`Mappen får särskild behandling av Azure ml. Under utbildningen överförs filer som skrivs till `./outputs` automatiskt till din körnings post av Azure ml och behålls som artefakter. Genom att spara den tränade modellen till `./outputs` , kommer du att kunna komma åt och hämta modell filen även när körningen är över och du inte längre har åtkomst till din fjärran sluten miljö.
 
 ### <a name="create-an-estimator"></a>Skapa ett beräkningsobjekt
 
@@ -212,7 +212,7 @@ est <- estimator(source_directory = "train-and-deploy-first-model",
 
 ### <a name="submit-the-job-on-the-remote-cluster"></a>Skicka jobbet till det fjärranslutna klustret
 
-Skicka slutligen jobbet som ska köras i klustret. `submit_experiment()` Returnerar ett körnings objekt som du sedan använder för att gränssnittet med körningen. Den första körningen tar totalt **cirka 10 minuter** . Men för senare körningar används samma Docker-avbildning igen så länge skript beroendena inte ändras.  I det här fallet cachelagras avbildningen och behållar start tiden är mycket snabbare.
+Skicka slutligen jobbet som ska köras i klustret. `submit_experiment()` Returnerar ett körnings objekt som du sedan använder för att gränssnittet med körningen. Den första körningen tar totalt **cirka 10 minuter**. Men för senare körningar används samma Docker-avbildning igen så länge skript beroendena inte ändras.  I det här fallet cachelagras avbildningen och behållar start tiden är mycket snabbare.
 
 ```R
 run <- submit_experiment(exp, est)
@@ -289,7 +289,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>Distribuera som en webbtjänst
 
-Med din modell kan du förutsäga risken för dödsfall från en kollision. Använd Azure ML för att distribuera din modell som en förutsägelse tjänst. I den här självstudien ska du distribuera-webb tjänsten i [Azure Container instances](https://docs.microsoft.com/azure/container-instances/) (ACI).
+Med din modell kan du förutsäga risken för dödsfall från en kollision. Använd Azure ML för att distribuera din modell som en förutsägelse tjänst. I den här självstudien ska du distribuera-webb tjänsten i [Azure Container instances](../container-instances/index.yml) (ACI).
 
 ### <a name="register-the-model"></a>Registrera modellen
 
@@ -329,7 +329,7 @@ I den här självstudien ska du distribuera tjänsten till ACI. Den här koden t
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
 ```
 
-Nu distribuerar du din modell som en webb tjänst. Distributionen **kan ta flera minuter** . 
+Nu distribuerar du din modell som en webb tjänst. Distributionen **kan ta flera minuter**. 
 
 ```R
 aci_service <- deploy_model(ws, 
@@ -392,7 +392,7 @@ delete_compute(compute)
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-Du kan också behålla resursgruppen men ta bort en enstaka arbetsyta. Visa arbetsytans egenskaper och välj **Ta bort** .
+Du kan också behålla resursgruppen men ta bort en enstaka arbetsyta. Visa arbetsytans egenskaper och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

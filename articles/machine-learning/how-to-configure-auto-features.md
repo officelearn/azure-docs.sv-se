@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 0138715e4c9df8ae05c9a3eade64d539eb7cdeda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 229bcbb8c8c429b7fe4e5878b0e57e74dd828b72
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756559"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320666"
 ---
-# <a name="featurization-in-automated-machine-learning"></a>Funktionalisering i Automatisk maskin inlärning
+# <a name="featurization-in-automated-machine-learning"></a>Funktionalisering i automatiserad maskininlärning
 
 
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig:
 - Vilka funktionalisering-inställningar Azure Machine Learning erbjudanden.
 - Så här anpassar du funktionerna för dina [automatiserade maskin inlärnings experiment](concept-automated-ml.md).
 
-*Funktions teknik* är en process där du använder domän information om data för att skapa funktioner som hjälper Machine Learning-algoritmer (ml) att lära sig bättre. I Azure Machine Learning tillämpas teknikerna för data skalning och normalisering för att göra det enklare att använda funktionen. Tillsammans kallas dessa tekniker och den här typen av teknik för *funktionalisering* i automatiserad maskin inlärning eller *AutoML*, experiment.
+*Funktions teknik* är en process där du använder domän information om data för att skapa funktioner som hjälper Machine Learning-algoritmer (ml) att lära sig bättre. I Azure Machine Learning tillämpas teknikerna för data skalning och normalisering för att göra det enklare att använda funktionen. Tillsammans kallas dessa tekniker och den här typen av teknik för *funktionalisering* i automatiserad maskin inlärning eller *AutoML* , experiment.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -38,7 +38,7 @@ Den här artikeln förutsätter att du redan vet hur du konfigurerar ett AutoML 
 
 ## <a name="configure-featurization"></a>Konfigurera funktionalisering
 
-I varje automatiserad maskin inlärnings experiment tillämpas [automatiska skalnings-och normaliserings metoder](#featurization) på dina data som standard. Dessa metoder är typer av funktionalisering som hjälper *vissa* algoritmer som är känsliga för funktioner i olika skalor. Du kan dock också aktivera ytterligare funktionalisering, t. ex. *saknade värden Imputation*, *encoding*och *transformationer*.
+I varje automatiserad maskin inlärnings experiment tillämpas [automatiska skalnings-och normaliserings metoder](#featurization) på dina data som standard. Dessa metoder är typer av funktionalisering som hjälper *vissa* algoritmer som är känsliga för funktioner i olika skalor. Du kan dock också aktivera ytterligare funktionalisering, t. ex. *saknade värden Imputation* , *encoding* och *transformationer*.
 
 > [!NOTE]
 > Steg för automatisk Machine Learning-funktionalisering (till exempel funktion normalisering, hantering av data som saknas eller konvertering av text till numeriska) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma funktionalisering-steg som tillämpas på din indata automatiskt.
@@ -64,11 +64,11 @@ I följande tabell sammanfattas de tekniker som automatiskt tillämpas på dina 
 
 |Funktionalisering- &nbsp; steg| Beskrivning |
 | ------------- | ------------- |
-|**Släpp hög kardinalitet eller inga varians funktioner*** |Släpp dessa funktioner från utbildning och validerings uppsättningar. Gäller för funktioner med alla värden som saknas, med samma värde för alla rader eller med hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
-|**Imputerade värden som saknas*** |För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det vanligaste värdet.|
-|**Generera ytterligare funktioner*** |För DateTime-funktioner: år, månad, dag, veckodag, dag på år, kvartal, vecka på år, timme, minut och sekund.<br><br> *För prognostisering av uppgifter* skapas dessa ytterligare datetime-funktioner: ISO-år, halvår, kalender månad som sträng, vecka, veckodag som sträng, dag i kvartal, dag på år, fm/em (0 om timmen är före 12.00 (12 PM), fm/em som sträng, timme på dagen (12 timmar)<br/><br/>För text funktioner: term frekvens baserat på unigrams, bigram och trigrams. Läs mer om [hur detta görs med Bert.](#bert-integration)|
-|**Transformera och koda***|Transformera numeriska funktioner med några få unika värden i kategoriska-funktioner.<br/><br/>En-frekvent kodning används för kategoriska-funktioner med låg kardinalitet. En-frekvent-hash-kodning används för kategoriska-funktioner med hög kardinalitet.|
-|**Word-inbäddningar**|En text upplärda konverterar vektorer med text-token till menings vektorer med hjälp av en förtränad modell. Varje ords inbäddnings vektor i ett dokument sammanställs med resten för att skapa en dokument funktions vektor.|
+|**Släpp hög kardinalitet eller inga varians funktioner** _ |Släpp dessa funktioner från utbildning och validerings uppsättningar. Gäller för funktioner med alla värden som saknas, med samma värde för alla rader eller med hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
+|_*Imputerade värden som saknas**_ |För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det vanligaste värdet.|
+|_*Generera ytterligare funktioner**_ |För DateTime-funktioner: år, månad, dag, veckodag, dag på år, kvartal, vecka på år, timme, minut och sekund.<br><br> _For prognos uppgifter, * dessa ytterligare DateTime-funktioner skapas: ISO-år, halvår, kalender månad som sträng, vecka, veckodag som sträng, dag i kvartal, dag på år, fm/em (0 om timme är före 12.00 (12 PM), 1, AM/PM som sträng, timme på dagen (12 timmar)<br/><br/>För text funktioner: term frekvens baserat på unigrams, bigram och trigrams. Läs mer om [hur detta görs med Bert.](#bert-integration)|
+|**Transformera och koda** _|Transformera numeriska funktioner med några få unika värden i kategoriska-funktioner.<br/><br/>En-frekvent kodning används för kategoriska-funktioner med låg kardinalitet. En-frekvent-hash-kodning används för kategoriska-funktioner med hög kardinalitet.|
+|_ *Word-inbäddningar**|En text upplärda konverterar vektorer med text-token till menings vektorer med hjälp av en förtränad modell. Varje ords inbäddnings vektor i ett dokument sammanställs med resten för att skapa en dokument funktions vektor.|
 |**Mål kodningar**|För kategoriska-funktioner mappar det här steget varje kategori med ett genomsnittligt målvärde för Regressions problem, och till sannolikheten för varje klass för klassificerings problem. Frekvens-baserad viktning och n:te kors validering används för att minska överanpassningen av mappningen och bruset som orsakas av glesa data kategorier.|
 |**Kodning av text mål**|För text inmatare används en staplad linjär modell med ord uppsättnings ord för att generera sannolikheten för varje klass.|
 |**Vikt på bevis (WoE)**|Beräknar WoE som ett mått på korrelation av kategoriska-kolumner till mål kolumnen. WoE beräknas som loggen för förhållandet mellan sannolikheten för inaktuella klasser och sannolikheter. Det här steget skapar en numerisk funktions kolumn per klass och tar bort behovet av att uttryckligen kräva in saknade värden och avvikare-behandling.|
@@ -80,8 +80,8 @@ I följande tabell sammanfattas de tekniker som automatiskt tillämpas på dina 
 
 Data guardrails tillämpas:
 
-- **För SDK-experiment**: När parametrarna `"featurization": 'auto'` eller `validation=auto` anges i `AutoMLConfig` objektet.
-- **För Studio experiment**: när automatisk funktionalisering har Aktiver ATS.
+- **För SDK-experiment** : När parametrarna `"featurization": 'auto'` eller `validation=auto` anges i `AutoMLConfig` objektet.
+- **För Studio experiment** : när automatisk funktionalisering har Aktiver ATS.
 
 Du kan granska data guardrails för ditt experiment:
 
@@ -105,18 +105,18 @@ I följande tabell beskrivs de data guardrails som för närvarande stöds och d
 
 Guardrail|Status|Villkor &nbsp; för &nbsp; utlösare
 ---|---|---
-**Funktions värden saknas Imputation** |Parametrarna <br><br><br> Klart| Inga funktions värden som saknas hittades i dina tränings data. Läs mer om [saknat värde för Imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> De funktions värden som saknas har identifierats i dina utbildnings data och tillräknades.
+**Funktions värden saknas Imputation** |Parametrarna <br><br><br> Klart| Inga funktions värden som saknas hittades i dina tränings data. Läs mer om [saknat värde för Imputation.](./how-to-use-automated-ml-for-ml-models.md#customize-featurization) <br><br> De funktions värden som saknas har identifierats i dina utbildnings data och tillräknades.
 **Funktions hantering med hög kardinalitet** |Parametrarna <br><br><br> Klart| Dina indata analyserades och inga funktioner för hög kardinalitet upptäcktes. <br><br> Funktioner med hög kardinalitet upptäcktes i dina indata och hanterades.
-**Verifiering av delad hantering** |Klart| Verifierings konfigurationen har angetts till `'auto'` och tränings data innehöll *färre än 20 000 rader*. <br> Varje iteration av den tränade modellen verifierades med hjälp av kors validering. Läs mer om [verifierings data](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> Verifierings konfigurationen har angetts till `'auto'` och tränings data innehöll *mer än 20 000 rader*. <br> Indata har delats in i en tränings data uppsättning och en validerings data uppsättning för att verifiera modellen.
-**Identifiering av klass balansering** |Parametrarna <br><br><br><br>Aviserad <br><br><br>Klart | Dina indata analyserades och alla klasser är balanserade i dina tränings data. En data uppsättning anses vara bal anse rad om varje klass har en god representation i data uppsättningen, mätt enligt antal och samplings förhållandet. <br><br> Obalanserade klasser upptäcktes i dina indata. Åtgärda problem med balanseringen om du vill åtgärda modell kompensation. Läs mer om [obalanserade data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br> Obalanserade klasser upptäcktes i dina indata och den svepande logiken har bestämt sig för att tillämpa balansering.
-**Identifiering av minnes problem** |Parametrarna <br><br><br><br> Klart |<br> De valda värdena (horisont, fördröjning, rullande fönster) har analyser ATS och inga potentiella minnes problem har identifierats. Lär dig mer om [Prognosticering-konfigurationer](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment)för tids serier. <br><br><br>De valda värdena (horisont, fördröjning, rullande fönster) har analyser ATS och kan orsaka att experimentet får slut på minne. Inställningarna för fördröjning eller rullande fönster har inaktiverats.
-**Frekvens identifiering** |Parametrarna <br><br><br><br> Klart |<br> Tids serien analyserades och alla data punkter justeras med den frekvens som upptäcktes. <br> <br> Tids serien analyserades och data punkter som inte överensstämmer med den identifierade frekvensen upptäcktes. Dessa data punkter togs bort från data uppsättningen. Lär dig mer om [förberedelse av data för tids serie prognoser](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
+**Verifiering av delad hantering** |Klart| Verifierings konfigurationen har angetts till `'auto'` och tränings data innehöll *färre än 20 000 rader*. <br> Varje iteration av den tränade modellen verifierades med hjälp av kors validering. Läs mer om [verifierings data](./how-to-configure-auto-train.md#training-validation-and-test-data). <br><br> Verifierings konfigurationen har angetts till `'auto'` och tränings data innehöll *mer än 20 000 rader*. <br> Indata har delats in i en tränings data uppsättning och en validerings data uppsättning för att verifiera modellen.
+**Identifiering av klass balansering** |Parametrarna <br><br><br><br>Aviserad <br><br><br>Klart | Dina indata analyserades och alla klasser är balanserade i dina tränings data. En data uppsättning anses vara bal anse rad om varje klass har en god representation i data uppsättningen, mätt enligt antal och samplings förhållandet. <br><br> Obalanserade klasser upptäcktes i dina indata. Åtgärda problem med balanseringen om du vill åtgärda modell kompensation. Läs mer om [obalanserade data](./concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data).<br><br> Obalanserade klasser upptäcktes i dina indata och den svepande logiken har bestämt sig för att tillämpa balansering.
+**Identifiering av minnes problem** |Parametrarna <br><br><br><br> Klart |<br> De valda värdena (horisont, fördröjning, rullande fönster) har analyser ATS och inga potentiella minnes problem har identifierats. Lär dig mer om [Prognosticering-konfigurationer](./how-to-auto-train-forecast.md#configuration-settings)för tids serier. <br><br><br>De valda värdena (horisont, fördröjning, rullande fönster) har analyser ATS och kan orsaka att experimentet får slut på minne. Inställningarna för fördröjning eller rullande fönster har inaktiverats.
+**Frekvens identifiering** |Parametrarna <br><br><br><br> Klart |<br> Tids serien analyserades och alla data punkter justeras med den frekvens som upptäcktes. <br> <br> Tids serien analyserades och data punkter som inte överensstämmer med den identifierade frekvensen upptäcktes. Dessa data punkter togs bort från data uppsättningen. Lär dig mer om [förberedelse av data för tids serie prognoser](./how-to-auto-train-forecast.md#preparing-data).
 
 ## <a name="customize-featurization"></a>Anpassa funktionalisering
 
 Du kan anpassa dina funktionalisering-inställningar för att säkerställa att de data och funktioner som används för att träna din ML-modell leder till relevanta förutsägelser.
 
-Om du vill anpassa featurizations anger du  `"featurization": FeaturizationConfig` i ditt `AutoMLConfig` objekt. Om du använder Azure Machine Learning Studio för experimentet går du till [instruktions artikeln](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Information om hur du anpassar funktionalisering för olika typer av prognoser finns i [prognosen How-to](how-to-auto-train-forecast.md#customize-featurization).
+Om du vill anpassa featurizations anger du `"featurization": FeaturizationConfig` i ditt `AutoMLConfig` objekt. Om du använder Azure Machine Learning Studio för experimentet går du till [instruktions artikeln](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Information om hur du anpassar funktionalisering för olika typer av prognoser finns i [prognosen How-to](how-to-auto-train-forecast.md#customize-featurization).
 
 Anpassningar som stöds är:
 
@@ -318,7 +318,7 @@ AutoML vidtar följande steg för BERT.
 
 1. **För bearbetning och tokenisering av alla text kolumner**. Transformeraren "StringCast" kan till exempel hittas i den slutliga modellens funktionalisering-Sammanfattning. Ett exempel på hur du kan skapa modellens funktionalisering-sammanfattning finns i [den här antecknings boken](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
-2. **Sammanfoga alla text kolumner till en enda text kolumn**, och därför `StringConcatTransformer` i den slutliga modellen. 
+2. **Sammanfoga alla text kolumner till en enda text kolumn** , och därför `StringConcatTransformer` i den slutliga modellen. 
 
     Vår implementering av BERT begränsar den totala text längden för ett utbildnings exempel till 128-token. Det innebär att alla text kolumner som är sammanfogade bör helst vara högst 128 tokens. Om det finns flera kolumner bör varje kolumn rensas så att villkoret är uppfyllt. Annars trunkerar den sammansatta kolumner med längden >128-token BERT tokenizer-lagret denna inmatare till 128-token.
 

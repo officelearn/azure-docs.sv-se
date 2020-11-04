@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1662af6cd3499fdf851d4e1bd8a0db48da7635b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864153"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320132"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Genom gång av HDInsight Spark data science-instruktioner med PySpark och Scala på Azure
 
@@ -40,12 +40,11 @@ Se [Avancerad data granskning och modellering med Spark](spark-advanced-data-exp
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Förutsägelse taxi-tips med Scala på Azure Spark
 
-I genom gången [Använd Scala med Spark på Azure](scala-walkthrough.md) förutsägs om ett tips betalas ut och intervallet av de belopp som förväntas betalas. Det visar hur du använder Scala för övervakade Machine Learning-uppgifter med Spark Machine Learning Library (MLlib) och SparkML-paketen på ett Azure HDInsight Spark-kluster. Den vägleder dig genom de uppgifter som utgör [data vetenskaps processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): data inmatning och utforskning, visualisering, funktions teknik, modellering och modell användning. De modeller som är inbyggda är logistik och linjär regression, slumpmässiga skogar och tonings utökat träd.
+I genom gången [Använd Scala med Spark på Azure](scala-walkthrough.md) förutsägs om ett tips betalas ut och intervallet av de belopp som förväntas betalas. Det visar hur du använder Scala för övervakade Machine Learning-uppgifter med Spark Machine Learning Library (MLlib) och SparkML-paketen på ett Azure HDInsight Spark-kluster. Den vägleder dig genom de uppgifter som utgör [data vetenskaps processen](./index.yml): data inmatning och utforskning, visualisering, funktions teknik, modellering och modell användning. De modeller som är inbyggda är logistik och linjär regression, slumpmässiga skogar och tonings utökat träd.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 En översikt över team data science-processen finns i [Översikt över team data science-processen](overview.md).
 
-En beskrivning av livs cykeln för team data science process finns i [livs cykeln för team data science process](lifecycle.md). Den här livs cykeln beskriver stegen, från början till slut, som vanligt vis följer de projekt som körs. 
-
+En beskrivning av livs cykeln för team data science process finns i [livs cykeln för team data science process](lifecycle.md). Den här livs cykeln beskriver stegen, från början till slut, som vanligt vis följer de projekt som körs.

@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f432b417140440584bf4dfd01ed45814a746953
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440362"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320912"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data plattformar som stöds på Data Science Virtual Machine
 
@@ -103,5 +103,4 @@ Bibliotek för att komma åt data från Azure Blob Storage eller Azure Data Lake
 
 För Spark-instansen på DSVM för att komma åt data som lagras i Blob Storage eller Azure Data Lake Storage, måste du skapa och konfigurera `core-site.xml` filen baserat på mallen som finns i $SPARK _HOME/conf/core-site.xml. mall. Du måste också ha rätt autentiseringsuppgifter för att få åtkomst till Blob Storage och Azure Data Lake Storage. (Observera att mallfilerna använder plats hållare för Blob Storage och Azure Data Lake Storage konfigurationer.)
 
-Mer detaljerad information om hur du skapar Azure Data Lake Storage autentiseringsuppgifter för tjänsten finns i [autentisering med Azure Data Lake Storage gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). När autentiseringsuppgifterna för Blob Storage eller Azure Data Lake Storage har angetts i core-site.xml-filen kan du referera till de data som lagras i dessa källor via URI-prefixet wasb://eller adl://.
-
+Mer detaljerad information om hur du skapar Azure Data Lake Storage autentiseringsuppgifter för tjänsten finns i [autentisering med Azure Data Lake Storage gen1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). När autentiseringsuppgifterna för Blob Storage eller Azure Data Lake Storage har angetts i core-site.xml-filen kan du referera till de data som lagras i dessa källor via URI-prefixet wasb://eller adl://.

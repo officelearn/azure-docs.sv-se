@@ -1,6 +1,6 @@
 ---
-title: Optimera transaktioner för SQL-pool
-description: Lär dig hur du optimerar prestandan för transaktions koden i SQL-poolen.
+title: Optimera transaktioner för dedikerad SQL-pool
+description: Lär dig hur du optimerar prestandan för transaktions koden i en dedikerad SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 174ae84e66f10db4ad24ed561b228f0031492d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a17e3c80f15bb1e4c5aacba4dc974e363eca285e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288655"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319866"
 ---
-# <a name="optimize-transactions-in-sql-pool"></a>Optimera transaktioner i SQL-poolen
+# <a name="optimize-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Optimera transaktioner med dedikerad SQL-pool i Azure Synapse Analytics 
 
-Lär dig hur du optimerar prestandan för transaktions koden i SQL-poolen samtidigt som du minimerar risken för långa återställningar.
+Lär dig hur du optimerar prestandan för transaktions koden i en dedikerad SQL-pool och minimerar risken för långa återställningar.
 
 ## <a name="transactions-and-logging"></a>Transaktioner och loggning
 
-Transaktioner är en viktig komponent i en Relations databas motor. SQL-poolen använder transaktioner under data ändringen. Dessa transaktioner kan vara explicita eller implicita. Ett enda INSERT-, UPDATE-och DELETE-uttryck är exempel på implicita transaktioner. Explicita transaktioner använder påbörja omstart, genomför omlägg eller Återställ omlastning. Explicita transaktioner används vanligt vis när flera ändrings instruktioner måste knytas ihop till en enda atomisk enhet.
+Transaktioner är en viktig komponent i en Relations databas motor. Dedikerad SQL-pool använder transaktioner under data modifieringen. Dessa transaktioner kan vara explicita eller implicita. Ett enda INSERT-, UPDATE-och DELETE-uttryck är exempel på implicita transaktioner. Explicita transaktioner använder påbörja omstart, genomför omlägg eller Återställ omlastning. Explicita transaktioner används vanligt vis när flera ändrings instruktioner måste knytas ihop till en enda atomisk enhet.
 
-SQL-poolen genomför ändringar i databasen med transaktions loggar. Varje distribution har sin egen transaktions logg. Transaktions logg skrivningar är automatiskt. Ingen konfiguration krävs. Men även om den här processen garanterar Skriv åtgärden, introduceras en omkostnader i systemet. Du kan minimera den här effekten genom att skriva en transaktions effektiv kod. Transaktions effektiv kod i stort sett hamnar i två kategorier.
+Dedikerad SQL-pool genomför ändringar i databasen med transaktions loggar. Varje distribution har sin egen transaktions logg. Transaktions logg skrivningar är automatiskt. Ingen konfiguration krävs. Men även om den här processen garanterar Skriv åtgärden, introduceras en omkostnader i systemet. Du kan minimera den här effekten genom att skriva en transaktions effektiv kod. Transaktions effektiv kod i stort sett hamnar i två kategorier.
 
 * Använd minimala loggnings konstruktioner när det är möjligt
 * Bearbeta data med hjälp av omfångs batchar för att undvika att transaktioner med lång tid körs
@@ -50,7 +50,7 @@ Följande åtgärder kan vara minimalt loggade:
 * ÄNDRA INDEX ÅTERSKAPA
 * DROP INDEX
 * TRUNCATE TABLE
-* TA BORT TABELL
+* DROP TABLE
 * ÄNDRA PARTITION FÖR TABELL VÄXEL
 
 <!--
@@ -68,7 +68,7 @@ CTAS och infoga... SELECT är både Mass inläsnings åtgärder. Båda påverkas
 
 | Primärt index | Läs in scenario | Loggnings läge |
 | --- | --- | --- |
-| Heap |Alla |**Minimal** |
+| Heap |Valfri |**Minimal** |
 | Grupperat index |Tom mål tabell |**Minimal** |
 | Grupperat index |Inlästa rader överlappar inte befintliga sidor i mål |**Minimal** |
 | Grupperat index |Inlästa rader överlappar befintliga sidor i målet |Fullständig |
@@ -78,7 +78,7 @@ CTAS och infoga... SELECT är både Mass inläsnings åtgärder. Båda påverkas
 Det är värt att notera att alla skrivningar för att uppdatera sekundära eller icke-grupperade index alltid är fullständigt loggade.
 
 > [!IMPORTANT]
-> SQL-poolen har 60 distributioner. Detta förutsätter att alla rader är jämnt distribuerade och landningar i en enda partition, men din batch måste innehålla 6 144 000 rader eller större för att få minimal inloggning vid skrivning till ett grupperat columnstore-index. Om tabellen är partitionerad och de rader som infogas sträcker sig över diskpartitioner, behöver du 6 144 000 rader per partition, förutsatt att du har till och med data distribution. Varje partition i varje distribution måste vara oberoende av gränsen på 102 400 rader för att infogningen ska vara minimalt inloggad i distributionen.
+> Dedikerad SQL-pool har 60-distributioner. Detta förutsätter att alla rader är jämnt distribuerade och landningar i en enda partition, men din batch måste innehålla 6 144 000 rader eller större för att få minimal inloggning vid skrivning till ett grupperat columnstore-index. Om tabellen är partitionerad och de rader som infogas sträcker sig över diskpartitioner, behöver du 6 144 000 rader per partition, förutsatt att du har till och med data distribution. Varje partition i varje distribution måste vara oberoende av gränsen på 102 400 rader för att infogningen ska vara minimalt inloggad i distributionen.
 
 Inläsning av data i en icke-tom tabell med ett grupperat index kan ofta innehålla en blandning av fullständigt loggade och minimalt loggade rader. Ett grupperat index är ett balanserat träd (b-Tree) av sidor. Om sidan som skrivs till redan innehåller rader från en annan transaktion, kommer dessa skrivningar att loggas fullständigt. Men om sidan är tom loggas skrivningen till sidan av minimalt.
 
@@ -177,7 +177,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Att återskapa stora tabeller kan dra nytta av SQL-poolens funktioner för hantering av arbets belastning. Mer information finns i [resurs klasser för hantering av arbets belastning](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Att återskapa stora tabeller kan dra nytta av dedikerade funktioner för arbets belastnings hantering i SQL-pooler. Mer information finns i [resurs klasser för hantering av arbets belastning](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="optimize-with-partition-switching"></a>Optimera med partition växling
 
@@ -406,20 +406,20 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Guide för paus och skalning
 
-Med Azure Synapse Analytics kan du [pausa, återuppta och skala](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) din SQL-pool på begäran. 
+Med Azure Synapse Analytics kan du [pausa, återuppta och skala](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) din DEDIKERADe SQL-pool på begäran. 
 
-När du pausar eller skalar SQL-poolen är det viktigt att förstå att alla transaktioner i flygningen avslutas omedelbart. orsaka att eventuella öppna transaktioner återställs. 
+När du pausar eller skalar en dedikerad SQL-pool är det viktigt att förstå att alla pågående transaktioner avbryts omedelbart. orsaka att eventuella öppna transaktioner återställs. 
 
-Om din arbets belastning har utfärdat en tids krävande och ofullständig data ändring innan paus-eller skalnings åtgärden, måste det här arbetet utföras. Detta kan påverka tiden det tar att pausa eller skala SQL-poolen. 
+Om din arbets belastning har utfärdat en tids krävande och ofullständig data ändring innan paus-eller skalnings åtgärden, måste det här arbetet utföras. Detta kan påverka tiden det tar att pausa eller skala din dedikerade SQL-pool. 
 
 > [!IMPORTANT]
 > Både `UPDATE` och `DELETE` är fullständigt loggade och därmed kan dessa åtgärder för att ångra/upprepa ta betydligt längre tid än motsvarande minimalt loggade åtgärder.
 
-Det bästa scenariot är att tillåta att ändringar i Flight-transaktioner slutförs innan SQL-poolen pausas eller skalas. Det här scenariot är dock inte alltid praktiskt. Överväg något av följande alternativ för att minska risken för en lång återställning:
+Det bästa scenariot är att låta ändringar i Flight-datatransaktionerna slutföras innan du pausar eller skalar din dedikerade SQL-pool. Det här scenariot är dock inte alltid praktiskt. Överväg något av följande alternativ för att minska risken för en lång återställning:
 
 * Skriv över tids krävande åtgärder med [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Bryt åtgärden i segment. körs på en delmängd av raderna
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [transaktioner i SQL-poolen](develop-transactions.md) om du vill lära dig mer om isolerings nivåer och transaktionella gränser.  En översikt över andra bästa metoder finns i [metod tips för SQL-pool](best-practices-sql-pool.md).
+Mer information om isolerings nivåer och transaktionella gränser finns i [transaktioner i dedikerad SQL-pool](develop-transactions.md) .  En översikt över andra bästa metoder finns i [metod tips för SQL-pool](best-practices-sql-pool.md).

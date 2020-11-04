@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ca0f1e82b81c8aad53938a5475f1ece68c0e33
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906695"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321554"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Träna och distribuera en bild klassificering TensorFlow modell med Azure Machine Learning Visual Studio Code Extension (för hands version)
 
@@ -33,7 +33,7 @@ I den här självstudien går du igenom följande aktiviteter:
 > * Registrera en modell
 > * Distribuera en modell
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har ett kan du registrera dig och prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 - Installera [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), en lätt, plattforms oberoende kod redigerare.
@@ -97,7 +97,7 @@ Så här skapar du ett beräknings mål:
     > ![Skapa ett beräknings mål](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
 1. Välj **Azure Machine Learning Compute (AmlCompute)**. Azure Machine Learning Compute är en hanterad beräknings infrastruktur som gör det möjligt för användaren att enkelt skapa en enda eller flera noder som kan användas med andra användare i din arbets yta.
-1. Välj storlek på den virtuella datorn. Välj **Standard_F2s_v2** i listan med alternativ. Storleken på den virtuella datorn påverkar hur lång tid det tar att träna dina modeller. Mer information om storlekar för virtuella datorer finns i [storlekar för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+1. Välj storlek på den virtuella datorn. Välj **Standard_F2s_v2** i listan med alternativ. Storleken på den virtuella datorn påverkar hur lång tid det tar att träna dina modeller. Mer information om storlekar för virtuella datorer finns i [storlekar för virtuella Linux-datorer i Azure](../virtual-machines/sizes.md).
 1. Namnge beräkningen "TeamWkspc-com" och tryck på **RETUR** för att skapa din beräkning.
 
     En fil visas i VS Code med innehåll som liknar det som visas nedan:
@@ -414,4 +414,3 @@ I det här läget skickas en begäran till Azure för att distribuera din webb t
 
 * En genom gång av hur du tränar med Azure Machine Learning utanför Visual Studio Code finns i [Självstudier: träna modeller med Azure Machine Learning](tutorial-train-models-with-aml.md).
 * En genom gång av hur du kan redigera, köra och felsöka kod lokalt finns i [själv studie kursen om python Hello-World](https://code.visualstudio.com/docs/Python/Python-tutorial).
-

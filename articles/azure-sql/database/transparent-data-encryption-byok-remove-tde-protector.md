@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 657e3967d9e34147364114cec4d946e900f60032
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a879ac81859c855bb7b7bc2eddb1e3c9b62adb34
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791383"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321411"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Ta bort ett transparent datakryptering-skydd (TDE) med PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "92791383"
 I det här avsnittet beskrivs hur du svarar på en potentiellt komprometterad TDE-skydd för Azure SQL Database eller Azure Synapse Analytics som använder TDE med Kundhanterade nycklar i Azure Key Vault-Bring Your Own Key (BYOK) support. Mer information om BYOK-stöd för TDE finns på [sidan Översikt](transparent-data-encryption-byok-overview.md).
 
 > [!CAUTION]
-> De procedurer som beskrivs i den här artikeln bör endast göras i extrema fall eller i test miljöer. Granska stegen noggrant, som att ta bort aktivt använda TDE-skydd från Azure Key Vault resulterar i att **databasen blir otillgänglig** .
+> De procedurer som beskrivs i den här artikeln bör endast göras i extrema fall eller i test miljöer. Granska stegen noggrant, som att ta bort aktivt använda TDE-skydd från Azure Key Vault resulterar i att **databasen blir otillgänglig**.
 
 Om en nyckel någonsin misstänks vara komprometterad, så att en tjänst eller användare har obehörig åtkomst till nyckeln, är det bäst att ta bort nyckeln.
 
@@ -34,8 +34,8 @@ Tänk på att när TDE-skyddet tas bort i Key Vault, i upp till 10 minuter, komm
 
 Den här instruktions guiden går över två metoder beroende på önskat resultat efter ett komprometterat incident svar:
 
-- För att göra databaserna i Azure SQL Database/Azure Synapse Analytics **otillgängliga** .
-- För att göra databaserna i Azure SQL Database/Azure Azure Synapse Analytics (tidigare SQL Data Warehouse) **otillgängliga** .
+- För att göra databaserna i Azure SQL Database/Azure Synapse Analytics **otillgängliga**.
+- För att göra databaserna i Azure SQL Database/Azure Azure Synapse Analytics (tidigare SQL Data Warehouse) **otillgängliga**.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: använda SQL på begäran'
-description: I den här snabb starten får du se och lära dig hur enkelt det är att fråga olika typer av filer med hjälp av SQL på begäran (för hands version).
+title: 'Snabb start: Använd Server lös SQL-pool'
+description: I den här snabb starten får du se och lära dig hur enkelt det är att fråga olika typer av filer med hjälp av SQL-poolen utan server (för hands version).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2e502a984e71a06eb57b345371d70d659c6a031
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86274177"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321674"
 ---
-# <a name="quickstart-use-sql-on-demand"></a>Snabb start: använda SQL på begäran
+# <a name="quickstart-use-serverless-sql-pool"></a>Snabb start: Använd Server lös SQL-pool
 
-Synapse SQL on-demand (för hands version) är en server lös Query-tjänst som gör att du kan köra SQL-frågor på filer som placerats i Azure Storage. I den här snabb starten får du lära dig hur du frågar olika typer av filer med SQL på begäran. Format som stöds visas i [OpenRowSet](sql/develop-openrowset.md).
+Synapse server utan SQL-pool (för hands version) är en server lös Query-tjänst som gör att du kan köra SQL-frågor på filer som placerats i Azure Storage. I den här snabb starten får du lära dig hur du frågar olika typer av filer med hjälp av SQL-poolen utan server. Format som stöds visas i [OpenRowSet](sql/develop-openrowset.md).
 
 Den här snabb starten visar frågor: CSV-, Apache Parquet-och JSON-filer.
 
@@ -34,8 +34,8 @@ Parametrar för den här snabb starten:
 
 | Parameter                                 | Beskrivning                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Slut punkts adress för SQL-tjänst på begäran    | Används som server namn                                   |
-| Tjänstens slut punkts region för SQL på begäran     | Används för att avgöra vilken lagrings enhet som ska användas i exempel |
+| slut punkts adress för SQL-adresspool i Server    | Används som server namn                                   |
+| slut punkts region för Server lös SQL-adresspool     | Används för att avgöra vilken lagrings enhet som ska användas i exempel |
 | Användar namn och lösen ord för slut punkts åtkomst | Används för att komma åt slut punkten                               |
 | Databasen som används för att skapa vyer         | Databas som används som start punkt i exempel       |
 
@@ -44,7 +44,7 @@ Parametrar för den här snabb starten:
 Innan du använder exemplen:
 
 - Skapa databas för dina vyer (om du vill använda vyer)
-- Skapa autentiseringsuppgifter som ska användas av SQL på begäran för att komma åt filer i lagringen
+- Skapa autentiseringsuppgifter som ska användas av Server lös SQL-poolen för att komma åt filer i lagring
 
 ### <a name="create-database"></a>Skapa databas
 
@@ -62,7 +62,7 @@ CREATE DATABASE mydbname
 
 ### <a name="create-data-source"></a>Skapa data Källa
 
-Om du vill köra frågor med SQL på begäran kan du skapa data källor som SQL på begäran kan använda för att komma åt filer i lagring.
+Om du vill köra frågor med en server lös SQL-pool skapar du en data källa som server lös SQL-poolen kan använda för att komma åt filer i lagring.
 Kör följande kodfragment för att skapa en data källa som används i exempel i det här avsnittet:
 
 ```sql
@@ -115,7 +115,7 @@ Fler exempel finns i [fråga CSV-fil](sql/query-single-csv-file.md).
 I följande exempel visas de automatiska schema härlednings funktionerna för att fråga Parquet-filer. Det returnerar antalet rader i september 2017 utan att ange schema.
 
 > [!NOTE]
-> Du behöver inte ange columns i- `OPENROWSET WITH` satsen när du läser Parquet-filer. I så fall använder SQL på begäran metadata i Parquet-filen och binder kolumner efter namn.
+> Du behöver inte ange columns i- `OPENROWSET WITH` satsen när du läser Parquet-filer. I så fall använder Server lös SQL-poolen metadata i Parquet-filen och binder kolumner efter namn.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -133,7 +133,7 @@ Hitta mer information om att [fråga Parquet-filer](sql/query-parquet-files.md).
 
 ### <a name="json-sample-file"></a>JSON-exempel fil
 
-Filer lagras i *JSON* *-behållare, mappträdet och*innehåller en post i en bok med följande struktur:
+Filer lagras i *JSON* *-behållare, mappträdet och* innehåller en post i en bok med följande struktur:
 
 ```json
 {  
@@ -153,7 +153,7 @@ Filer lagras i *JSON* *-behållare, mappträdet och*innehåller en post i en bok
 
 ### <a name="query-json-files"></a>Efterfråga JSON-filer
 
-Följande fråga visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta skalära värden (title, Publisher) från en bok med rubriken *Probabilistic och statistiska metoder i Cryptology, en introduktion av valda artiklar*:
+Följande fråga visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) för att hämta skalära värden (title, Publisher) från en bok med rubriken *Probabilistic och statistiska metoder i Cryptology, en introduktion av valda artiklar* :
 
 ```sql
 SELECT

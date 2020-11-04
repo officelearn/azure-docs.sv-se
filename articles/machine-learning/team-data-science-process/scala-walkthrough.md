@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 56f266eaba76bb990a4d2bc3d902f4c5911d9c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae4549fe343422bbf60275a97768ca407f2dc7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026193"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321380"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Datavetenskap med Scala och Spark på Azure
-Den här artikeln visar hur du använder Scala för övervakade Machine Learning-uppgifter med Spark Scalable MLlib-och Spark ML-paket i ett Azure HDInsight Spark-kluster. Den vägleder dig genom de uppgifter som utgör [data vetenskaps processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): data inmatning och utforskning, visualisering, funktions teknik, modellering och modell användning. Modellerna i artikeln är logistik och linjär regression, slumpmässiga skogar och GBTs (gradient-Boosted trees), förutom två vanliga övervakade Machine Learning-uppgifter:
+Den här artikeln visar hur du använder Scala för övervakade Machine Learning-uppgifter med Spark Scalable MLlib-och Spark ML-paket i ett Azure HDInsight Spark-kluster. Den vägleder dig genom de uppgifter som utgör [data vetenskaps processen](./index.yml): data inmatning och utforskning, visualisering, funktions teknik, modellering och modell användning. Modellerna i artikeln är logistik och linjär regression, slumpmässiga skogar och GBTs (gradient-Boosted trees), förutom två vanliga övervakade Machine Learning-uppgifter:
 
 * Regressions problem: förutsägelse av Tip-mängd ($) för en taxi resa
 * Binära klassificering: förutsägelse av tips eller inget tips (1/0) för en taxi resa
@@ -39,7 +39,7 @@ Installations stegen och koden i den här artikeln är för Azure HDInsight 3,4 
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Du måste ha en Azure-prenumeration. Om du inte redan har ett kan du [Skaffa en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Du behöver ett Azure HDInsight 3,4 spark 1,6-kluster för att utföra följande procedurer. Information om hur du skapar ett kluster finns i anvisningarna i [Kom igång: skapa Apache Spark på Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Ange kluster typ och version på menyn **Välj kluster typ** .
 
@@ -52,7 +52,7 @@ Installations stegen och koden i den här artikeln är för Azure HDInsight 3,4 
 En beskrivning av NYC taxi-resan och anvisningar om hur du kör kod från en Jupyter-anteckningsbok i Spark-klustret finns i relevanta avsnitt i [Översikt över data vetenskap med Spark på Azure HDInsight](spark-overview.md).  
 
 ## <a name="execute-scala-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Köra Scala-kod från en Jupyter-anteckningsbok i Spark-klustret
-Du kan starta en Jupyter-anteckningsbok från Azure Portal. Leta upp Spark-klustret på instrument panelen och klicka sedan på det för att ange hanterings sidan för klustret. Klicka sedan på **kluster instrument paneler**och klicka sedan på **Jupyter Notebook** för att öppna den antecknings bok som är kopplad till Spark-klustret.
+Du kan starta en Jupyter-anteckningsbok från Azure Portal. Leta upp Spark-klustret på instrument panelen och klicka sedan på det för att ange hanterings sidan för klustret. Klicka sedan på **kluster instrument paneler** och klicka sedan på **Jupyter Notebook** för att öppna den antecknings bok som är kopplad till Spark-klustret.
 
 ![Kluster instrument panel och Jupyter-anteckningsböcker](./media/scala-walkthrough/spark-jupyter-on-portal.png)
 
@@ -257,9 +257,9 @@ sqlResultsDF.show(3)
 
 | fare_amount | passenger_count | tip_amount | lutad |
 | --- | --- | --- | --- |
-|        13,5 |1.0 |2.9 |1.0 |
-|        16,0 |2,0 |3.4 |1.0 |
-|        10.5 |2,0 |1.0 |1.0 |
+|        13,5 |1,0 |2.9 |1,0 |
+|        16,0 |2.0 |3.4 |1,0 |
+|        10.5 |2.0 |1,0 |1,0 |
 
 ## <a name="data-exploration-and-visualization"></a>Data utforskning och visualisering
 När du hämtar data till Spark är nästa steg i data vetenskaps processen att få en djupare förståelse för data genom utforskning och visualisering. I det här avsnittet undersöker du taxi-data med hjälp av SQL-frågor. Importera sedan resultaten till en data ram för att rita upp målvärdena och potentiella funktioner för visuell granskning med hjälp av funktionen för automatisk visualiserings Jupyter.
@@ -300,7 +300,7 @@ sqlResults
 
  Spark-kärnan visualiserar automatiskt utdata från SQL-frågor (HiveQL) när du har kört koden. Du kan välja mellan flera olika typer av visualiseringar:
 
-* Tabell
+* Tabeller
 * Cirkel
 * Linje
 * Område
@@ -353,7 +353,7 @@ För Tree-baserade modellerings funktioner från Spark ML och MLlib måste du f�
 1. Skapa en ny funktion genom att **diskretisering** timmar i tid-buckets.
 2. Använd **indexering och en snabb kodning** för kategoriska-funktioner.
 3. **Sampla och dela data uppsättningen** i utbildning och test-bråk.
-4. **Ange inlärnings variabel och funktioner**och skapa sedan indexerad eller en enkel, kodad utbildning och testa indata med märkta punkt elastiska data uppsättningar (RDD) eller data ramar.
+4. **Ange inlärnings variabel och funktioner** och skapa sedan indexerad eller en enkel, kodad utbildning och testa indata med märkta punkt elastiska data uppsättningar (RDD) eller data ramar.
 5. **Kategorisera och vectorize automatiskt funktioner och mål** som ska användas som indata för Machine Learning-modeller.
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Skapa en ny funktion genom diskretisering timmar i tid-buckets
@@ -922,7 +922,7 @@ I det här avsnittet ska du använda Machine Learning-verktyg som utvecklare oft
 * Optimera modellen med hjälp av Cross-Validation och rensning av Hyper-parameter med Spark ML CrossValidator-funktion (binära klassificering)
 * Optimera modellen med hjälp av anpassad kod för kors validering och parameter rensning för att använda valfri maskin inlärnings funktion och parameter uppsättning (linjär regression)
 
-**Kors validering** är en teknik som utvärderar hur väl en modell som är utbildad på en känd uppsättning data generaliseras för att förutsäga funktionerna i data uppsättningar som inte har tränats. Den allmänna idén bakom den här metoden är att en modell har tränats på en data uppsättning kända data och att dess noggrannhet testas mot en oberoende data uppsättning. En vanlig implementering är att dela upp en data uppsättning i *k*-vikning och sedan träna modellen i en Round-Robin på alla utom en av vikningarna.
+**Kors validering** är en teknik som utvärderar hur väl en modell som är utbildad på en känd uppsättning data generaliseras för att förutsäga funktionerna i data uppsättningar som inte har tränats. Den allmänna idén bakom den här metoden är att en modell har tränats på en data uppsättning kända data och att dess noggrannhet testas mot en oberoende data uppsättning. En vanlig implementering är att dela upp en data uppsättning i *k* -vikning och sedan träna modellen i en Round-Robin på alla utom en av vikningarna.
 
 **Optimering av Hyper-parameter** är ett problem med att välja en uppsättning Hyper-Parameters för en Learning-algoritm, vanligt vis med målet att optimera ett mått på algoritmens prestanda på en oberoende data uppsättning. En Hyper-parameter är ett värde som du måste ange utanför modell inlärnings proceduren. Antaganden om Hyper-parameter-värden kan påverka modellens flexibilitet och noggrannhet. Besluts träd har Hyper-Parameters, till exempel, till exempel det önskade djupet och antalet löv i trädet. Du måste ange en straff period för en felklassificering för en support vektor dator (SVM).
 
@@ -1135,9 +1135,8 @@ val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 Tid för att köra cellen: 61 sekunder.
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Använda Spark-integrerade maskin inlärnings modeller automatiskt med Scala
-En översikt över avsnitt som vägleder dig genom de uppgifter som ingår i data vetenskaps processen i Azure finns i [team data science process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+En översikt över avsnitt som vägleder dig genom de uppgifter som ingår i data vetenskaps processen i Azure finns i [team data science process](./index.yml).
 
 [Genom gång av team data science process](walkthroughs.md) beskrivs andra slut punkt till slut punkts guider som demonstrerar stegen i team data science-processen för särskilda scenarier. Genom gången illustreras också hur du kombinerar molnet och lokala verktyg och tjänster i ett arbets flöde eller en pipeline för att skapa ett intelligent program.
 
 [Poängen Spark-inbyggda Machine Learning-modeller](spark-model-consumption.md) visar hur du använder Scala-kod för att automatiskt läsa in och Visa nya data uppsättningar med Machine Learning-modeller som byggts i Spark och sparats i Azure Blob Storage. Du kan följa anvisningarna och bara ersätta python-koden med Scala-koden i den här artikeln för automatisk konsumtion.
-

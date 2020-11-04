@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc4262d0190084064103aeabe48bec806213ea7f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76721361"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321227"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Team data science process Group Manager-uppgifter
 
@@ -43,7 +43,7 @@ I följande självstudie går vi igenom stegen i detalj.
    
    ![Logga in på din Microsoft-konto](./media/group-manager-tasks/signinvs.png)
    
-   Om du inte har någon Microsoft-konto väljer du **Registrera dig nu**, skapar en Microsoft-konto och loggar in med det här kontot. Om din organisation har en Visual Studio-prenumeration loggar du in med autentiseringsuppgifterna för den prenumerationen.
+   Om du inte har någon Microsoft-konto väljer du **Registrera dig nu** , skapar en Microsoft-konto och loggar in med det här kontot. Om din organisation har en Visual Studio-prenumeration loggar du in med autentiseringsuppgifterna för den prenumerationen.
    
 1. När du har loggat in, längst upp till höger på sidan Azure-DevOps, väljer du **Skapa ny organisation**.
    
@@ -53,7 +53,7 @@ I följande självstudie går vi igenom stegen i detalj.
    
 1. I dialog rutan för registrering namnger du din Azure DevOps-organisation och godkänner tilldelningen av värd området, eller så väljer du en annan region. Välj sedan **Fortsätt**. 
 
-1. Under **skapa ett projekt för att komma igång skriver du** *GroupCommon*och väljer sedan **skapa projekt**. 
+1. Under **skapa ett projekt för att komma igång skriver du** *GroupCommon* och väljer sedan **skapa projekt**. 
    
    ![Skapa projekt](./media/group-manager-tasks/create-project.png)
 
@@ -65,9 +65,9 @@ Sidan **GroupCommon** Project **Summary** öppnas. Sidans URL är *https: \/ / \
 
 Azure-databaser är värd för följande typer av databaser för din grupp:
 
-- **Gruppera vanliga databaser**: allmänna databaser som flera team inom en data vetenskaps enhet kan använda för många data vetenskaps projekt. 
-- **Team-databaser**: databaser för vissa team inom en data vetenskaps enhet. De här databaserna är speciella för ett grupp behov och kan användas för flera projekt i teamet, men de är inte allmänt nog att användas i flera team inom en data vetenskaps enhet.
-- **Projekt databaser**: databaser för vissa projekt. Sådana databaser får inte vara generella för flera projekt i ett team, eller för andra team i en data vetenskaps enhet.
+- **Gruppera vanliga databaser** : allmänna databaser som flera team inom en data vetenskaps enhet kan använda för många data vetenskaps projekt. 
+- **Team-databaser** : databaser för vissa team inom en data vetenskaps enhet. De här databaserna är speciella för ett grupp behov och kan användas för flera projekt i teamet, men de är inte allmänt nog att användas i flera team inom en data vetenskaps enhet.
+- **Projekt databaser** : databaser för vissa projekt. Sådana databaser får inte vara generella för flera projekt i ett team, eller för andra team i en data vetenskaps enhet.
 
 Om du vill ställa in gemensamma grupper för gruppen i projektet kan du: 
 - Byt namn på standard lagrings platsen för **GroupCommon** till **GroupProjectTemplate**
@@ -75,7 +75,7 @@ Om du vill ställa in gemensamma grupper för gruppen i projektet kan du:
 
 ### <a name="rename-the-default-project-repository-to-groupprojecttemplate"></a>Byt namn på Standard projekt lagrings platsen till GroupProjectTemplate
 
-Så här byter du namn på standard **GroupCommon** Project-lagringsplats till **GroupProjectTemplate**:
+Så här byter du namn på standard **GroupCommon** Project-lagringsplats till **GroupProjectTemplate** :
 
 1. På sidan **GroupCommon** Project **Summary** väljer du **databaser**. Den här åtgärden tar dig till standard **GroupCommon** -lagringsplatsen för GroupCommon-projektet, som är tom för tillfället.
    
@@ -83,11 +83,11 @@ Så här byter du namn på standard **GroupCommon** Project-lagringsplats till *
    
    ![Hantera databaser](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
    
-1. På sidan **projekt inställningar** väljer du **...** bredvid **GroupCommon**och väljer sedan **Byt namn på lagrings plats**. 
+1. På sidan **projekt inställningar** väljer du **...** bredvid **GroupCommon** och väljer sedan **Byt namn på lagrings plats**. 
    
    ![Välj... och välj sedan Byt namn på lagrings plats](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
    
-1. I popup-fönstret för **att byta namn på GroupCommon-lagringsplatsen anger du** *GroupProjectTemplate*och väljer sedan **Byt namn**. 
+1. I popup-fönstret för **att byta namn på GroupCommon-lagringsplatsen anger du** *GroupProjectTemplate* och väljer sedan **Byt namn**. 
    
    ![Byt namn på lagrings plats](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
 
@@ -101,7 +101,7 @@ Så här skapar du **GroupUtilities** -lagringsplatsen:
    
    ![Välj ny lagrings plats](./media/group-manager-tasks/create-grouputilities-repo-1.png)
    
-1. I dialog rutan **skapa en ny lagrings plats** väljer du **git** som **typ**, anger *GroupUtilities* som **namn på databasen**och väljer sedan **skapa**.
+1. I dialog rutan **skapa en ny lagrings plats** väljer du **git** som **typ** , anger *GroupUtilities* som **namn på databasen** och väljer sedan **skapa**.
    
    ![Skapa GroupUtilities-lagringsplats](./media/group-manager-tasks/create-grouputilities-repo-2.png)
    
@@ -121,13 +121,13 @@ Så här importerar du TDSP team-databaser:
    
    ![Välj Importera](./media/group-manager-tasks/import-repo.png)
    
-1. I dialog rutan **Importera en git-lagringsplats** väljer **du git** som **käll typ**och anger *https: \/ /GitHub.com/Azure/Azure-TDSP-ProjectTemplate.git* för klon- **URL: en**. Välj sedan **Importera**. Innehållet i Microsoft TDSP team ProjectTemplate-lagringsplatsen importeras till GroupProjectTemplate-lagringsplatsen. 
+1. I dialog rutan **Importera en git-lagringsplats** väljer **du git** som **käll typ** och anger *https: \/ /GitHub.com/Azure/Azure-TDSP-ProjectTemplate.git* för klon- **URL: en**. Välj sedan **Importera**. Innehållet i Microsoft TDSP team ProjectTemplate-lagringsplatsen importeras till GroupProjectTemplate-lagringsplatsen. 
    
    ![Importera Microsoft TDSP team-lagringsplats](./media/group-manager-tasks/import-repo-2.png)
    
 1. Längst upp på sidan **databaser** , väljer du den **GroupUtilities** databasen.
    
-1. Upprepa import processen för att importera innehållet i Microsoft TDSP team **utilitiess** -lagringsplatsen, *https: \/ /GitHub.com/Azure/Azure-TDSP-Utilities.git*, till **GroupUtilities** -lagringsplatsen. 
+1. Upprepa import processen för att importera innehållet i Microsoft TDSP team **utilitiess** -lagringsplatsen, *https: \/ /GitHub.com/Azure/Azure-TDSP-Utilities.git* , till **GroupUtilities** -lagringsplatsen. 
    
 Var och en av dina två grupp databaser innehåller nu alla filer, förutom de i katalogen *. git* , från Microsoft TDSP-teamets motsvarande lagrings plats. 
 
@@ -167,7 +167,7 @@ Om du vill göra ändringar med hjälp av din lokala dator eller DSVM och skicka
 
 - En Azure-prenumeration, om du vill skapa en DSVM.
 - Git installerat på datorn. Om du använder en DSVM är git förinstallerat. I annat fall, se [bilagan plattform och verktyg](platforms-and-tools.md#appendix).
-- Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](/azure/machine-learning/data-science-virtual-machine/).
+- Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](../data-science-virtual-machine/index.yml).
 - För en Windows-DSVM är [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerad på datorn. Rulla ned till avsnittet **Ladda ned och installera** i *Readme.MD* -filen och välj det **senaste installations programmet**. Hämta *exe* -installationsprogrammet från installations sidan och kör det. 
 - För en Linux-DSVM, konfigureras en offentlig SSH-nyckel på din DSVM och läggs till i Azure DevOps. Mer information och instruktioner finns i avsnittet **skapa offentlig SSH-nyckel** i [tillägget plattformar och verktyg](platforms-and-tools.md#appendix). 
 
@@ -229,7 +229,7 @@ Så här lägger du till medlemmar i gruppen:
 
 1. I Azure DevOps väljer du **projekt inställningar** i det vänstra navigerings fönstret på **GroupCommon** -projektets start sida. 
    
-1. I det vänstra navigerings fältet i **Project** väljer du **team**och på sidan **team** väljer du sedan **GroupCommon-teamet**. 
+1. I det vänstra navigerings fältet i **Project** väljer du **team** och på sidan **team** väljer du sedan **GroupCommon-teamet**. 
    
    ![Konfigurera team](./media/group-manager-tasks/teams.png)
    
@@ -244,11 +244,11 @@ Så här lägger du till medlemmar i gruppen:
 
 Konfigurera behörigheter för medlemmar:
 
-1. Välj **behörigheter**från det vänstra navigerings fältet i **Project** . 
+1. Välj **behörigheter** från det vänstra navigerings fältet i **Project** . 
    
 1. På sidan **behörigheter** väljer du den grupp som du vill lägga till medlemmar i. 
    
-1. Välj **medlemmar**på sidan för gruppen och välj sedan **Lägg till**. 
+1. Välj **medlemmar** på sidan för gruppen och välj sedan **Lägg till**. 
    
 1. I popup-fönstret **Bjud in medlemmar** söker du efter och väljer medlemmar som ska läggas till i gruppen. Välj sedan **Spara**. 
    

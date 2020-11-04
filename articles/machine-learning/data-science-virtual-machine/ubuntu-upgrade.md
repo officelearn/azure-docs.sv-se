@@ -10,12 +10,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: d57de4d52ccf3a029a8dd1350635fb65dd3ac829
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b98384d4d735f4c124c6af40d6edbff896900ce
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828681"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320980"
 ---
 # <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Uppgradera din Data Science Virtual Machine till Ubuntu 18.04
 
@@ -38,9 +38,9 @@ I Azure Portal använder du Sök fältet för att hitta funktionerna för **ögo
 
 :::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Skärm bild som visar Azure Portal och Sök fältet, med * * ögonblicks bilder * * markerat":::
 
-1. Välj **Lägg till**, vilket leder dig till sidan **skapa ögonblicks bild** . Välj den virtuella datorns prenumeration och resurs grupp. För **region**väljer du den region där mål lagringen finns. Välj DSVM lagrings disk och ytterligare alternativ för säkerhets kopiering. **Standard HDD** är en lämplig lagrings typ för det här säkerhets kopierings scenariot.
+1. Välj **Lägg till** , vilket leder dig till sidan **skapa ögonblicks bild** . Välj den virtuella datorns prenumeration och resurs grupp. För **region** väljer du den region där mål lagringen finns. Välj DSVM lagrings disk och ytterligare alternativ för säkerhets kopiering. **Standard HDD** är en lämplig lagrings typ för det här säkerhets kopierings scenariot.
 
-:::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Skärm bild som visar Azure Portal och Sök fältet, med * * ögonblicks bilder * * markerat":::
+:::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Skärm bild som visar alternativ för att skapa ögonblicks bilder":::
 
 2. När alla uppgifter är fyllda och verifierings pass väljer du **Granska + skapa** för att validera och skapa ögonblicks bilden. När ögonblicks bilden har slutförts visas ett meddelande om att distributionen har slutförts.
 
@@ -65,9 +65,14 @@ Det tar en stund att slutföra uppgraderings processen. När den är över ber p
 
 När du har uppgraderat och startat om den virtuella datorn försöker du komma åt den igen via SSH. IP-adressen kan ha ändrats under omstarten, så bekräfta den innan den försöker ansluta.
 
-Om du får en fel **identifiering av FJÄRRvärden har ändrats**måste du återskapa dina SSH-autentiseringsuppgifter.
+Om du får en fel **identifiering av FJÄRRvärden har ändrats** måste du återskapa dina SSH-autentiseringsuppgifter.
 
-:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Skärm bild som visar Azure Portal och Sök fältet, med * * ögonblicks bilder * * markerat"
+:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="PowerShell-skärm bild som visar ändrad varning för fjärrvärd-identifiering":::
+
+Det gör du genom att köra kommandot på den lokala datorn:
+
+```bash
+ssh-keygen -R "your server hostname or ip"
 ```
 
 Nu bör du kunna ansluta med SSH. Om du fortfarande har problem går du till sidan **Anslut** och följer länken för att **FELSÖKA problem med ssh-anslutningen**.
@@ -98,19 +103,19 @@ Du kan välja att uppgradera operativ systemets delar av fil systemet och lämna
 
 Om du inte redan har skapat en ögonblicks bild av en virtuell dator enligt beskrivningen ovan, gör du det. 
 
-1. Sök efter **diskar** i Azure Portal och välj **Lägg till**, så öppnas sidan **disk** .
+1. Sök efter **diskar** i Azure Portal och välj **Lägg till** , så öppnas sidan **disk** .
 
-:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Skärm bild som visar Azure Portal och Sök fältet, med * * ögonblicks bilder * * markerat":::
+:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Skärm bild av Azure Portal som visar sidan Sök efter diskar och knappen Lägg till":::
 
-2. Ange **prenumeration**, **resurs grupp**och **region** till värdena för ögonblicks bilden av den virtuella datorn. Välj ett **namn** för disken som ska skapas.
+2. Ange **prenumeration** , **resurs grupp** och **region** till värdena för ögonblicks bilden av den virtuella datorn. Välj ett **namn** för disken som ska skapas.
 
 3. Välj **Källtyp** som **ögonblicks** bild och välj den virtuella dator ögonblicks bilden som **käll ögonblicks bild**. Granska och skapa disken. 
 
-:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Skärm bild som visar Azure Portal och Sök fältet, med * * ögonblicks bilder * * markerat":::
+:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Skärm bild av dialog rutan för att skapa diskar med alternativ":::
 
 ### <a name="create-a-new-ubuntu-data-science-virtual-machine"></a>Skapa en ny Ubuntu-Data Science Virtual Machine
 
-Skapa en ny Ubuntu-Data Science Virtual Machine med hjälp av [Azure Portal](https://portal.azure.com) eller en [arm-mall](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager). 
+Skapa en ny Ubuntu-Data Science Virtual Machine med hjälp av [Azure Portal](https://portal.azure.com) eller en [arm-mall](./dsvm-tutorial-resource-manager.md). 
 
 ### <a name="recreate-user-accounts-on-your-new-data-science-virtual-machine"></a>Återskapa användar kontona på den nya Data Science Virtual Machine
 
@@ -118,7 +123,7 @@ Eftersom du bara ska kopiera data från den gamla datorn måste du återskapa de
 
 Linux är tillräckligt flexibelt för att du ska kunna anpassa kataloger och sökvägar på den nya installationen så att de följer din gamla dator. I allmänhet är det enklare att använda den moderna Ubuntu-layouten och ändra användar miljön och skripten för att anpassa.
 
-Mer information finns i [snabb start: konfigurera data science Virtual Machine för Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+Mer information finns i [snabb start: konfigurera data science Virtual Machine för Linux (Ubuntu)](./dsvm-ubuntu-intro.md).
 
 ### <a name="mount-the-disk-of-the-snapshotted-vm-as-a-data-disk-on-your-new-data-science-virtual-machine"></a>Montera disken för den virtuella datorn snapshotted som en datadisk på din nya Data Science Virtual Machine
 
@@ -128,7 +133,7 @@ Mer information finns i [snabb start: konfigurera data science Virtual Machine f
 
 3. I list rutan **disk namn** väljer du den disk som du skapade från den gamla ögonblicks bilden av den virtuella datorn.
 
-:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="Skärm bild som visar Azure Portal och Sök fältet, med * * ögonblicks bilder * * markerat":::
+:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="Skärm bild av sidan med DSVM alternativ med alternativ för disk bilagor":::
 
 4. Välj **Spara** för att uppdatera den virtuella datorn.
 
@@ -147,7 +152,7 @@ Mer information finns i [snabb start: konfigurera data science Virtual Machine f
     
     Resultaten bör se ut ungefär som på följande bild. I avbildningen `sda1` monteras disken i roten och `sdb2` är den `/mnt` virtuella hård disken. Data disken som skapas från ögonblicks bilden av den gamla virtuella datorn identifieras som `sdc1` men är ännu inte tillgänglig, vilket framgår av bristen på en monterings plats. Resultaten kan ha olika identifierare, men du bör se ett liknande mönster.
     
-    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Skärm bild som visar Azure Portal och Sök fältet, med * * ögonblicks bilder * * markerat":::
+    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Skärm bild av lsblk-utdata, som visar frånkopplad data enhet":::
     
 3. Skapa en plats för data enheten och montera den för att få åtkomst till den. Ersätt `/dev/sdc1` med lämpligt värde som returneras av `lsblk` :
 
@@ -157,7 +162,7 @@ Mer information finns i [snabb start: konfigurera data science Virtual Machine f
     
 4. Nu `/datadrive` innehåller kataloger och filer för din gamla data science Virtual Machine. Flytta eller kopiera de kataloger eller filer som du vill från data enheten till den nya virtuella datorn som du vill.
 
-Mer information finns i [använda portalen för att koppla en datadisk till en virtuell Linux-dator](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk).
+Mer information finns i [använda portalen för att koppla en datadisk till en virtuell Linux-dator](../../virtual-machines/linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 ## <a name="connect-and-confirm-version-upgrade"></a>Anslut och bekräfta versions uppgradering
 
@@ -169,13 +174,13 @@ cat /etc/os-release
 
 Vi bör se att du kör Ubuntu 18,04.
 
-:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="Skärm bild som visar Azure Portal och Sök fältet, med * * ögonblicks bilder * * markerat":::
+:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="Skärm bild av Ubuntu-terminalen som visar data för operativ system version":::
 
 Ändring av version visas också i Azure Portal.
 
-:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="Skärm bild som visar Azure Portal och Sök fältet, med * * ögonblicks bilder * * markerat":::
+:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="Skärm bild av portalen som visar DSVM-egenskaper inklusive OS-version":::
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Data vetenskap med en Ubuntu data science-dator i Azure](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough)
-- [Vilka verktyg ingår i Azure Data Science Virtual Machine?](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/tools-included)
+- [Data vetenskap med en Ubuntu data science-dator i Azure](./linux-dsvm-walkthrough.md)
+- [Vilka verktyg ingår i Azure Data Science Virtual Machine?](./tools-included.md)

@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c024b12210d408fe2a9987cba56a08e4b660ae1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f4a8fb82a42c5121105ddf7bb9d3d886b531350
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027553"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321341"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Avancerad datagranskning och modellering med Spark
 
-Den här genom gången använder HDInsight Spark för att utföra data utforskning och träna binära klassificerings-och Regressions modeller med optimering av kors validering och globala parametrar i ett exempel på NYC taxi-resan och biljett 2013-datamängden. Det vägleder dig genom stegen i [data vetenskaps processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), från slut punkt till slut punkt, med ett HDInsight Spark-kluster för bearbetning och Azure-blobbar för att lagra data och modeller. Processen utforskar och visualiserar data som förts in från en Azure Storage Blob och förbereder sedan data för att skapa förutsägande modeller. Python har använts för att koda lösningen och visa relevanta områden. Dessa modeller bygger på Spark MLlib Toolkit för att utföra binära klassificerings-och Regressions modellerings uppgifter. 
+Den här genom gången använder HDInsight Spark för att utföra data utforskning och träna binära klassificerings-och Regressions modeller med optimering av kors validering och globala parametrar i ett exempel på NYC taxi-resan och biljett 2013-datamängden. Det vägleder dig genom stegen i [data vetenskaps processen](./index.yml), från slut punkt till slut punkt, med ett HDInsight Spark-kluster för bearbetning och Azure-blobbar för att lagra data och modeller. Processen utforskar och visualiserar data som förts in från en Azure Storage Blob och förbereder sedan data för att skapa förutsägande modeller. Python har använts för att koda lösningen och visa relevanta områden. Dessa modeller bygger på Spark MLlib Toolkit för att utföra binära klassificerings-och Regressions modellerings uppgifter. 
 
 * Den **binära klassificerings** uppgiften är att förutsäga om ett tips betalas ut för resan. 
 * **Regressions** uppgiften är att förutsäga hur mycket av tipset som baseras på andra Tip-funktioner. 
@@ -119,7 +119,7 @@ PySpark-kernelerna som medföljer Jupyter notebook-datorer har en förinställd 
 PySpark-kärnan innehåller fördefinierade "MAGICS", som är särskilda kommandon som du kan anropa med%%. Det finns två sådana kommandon som används i dessa kod exempel.
 
 * **%% lokal** Anger att koden i efterföljande rader ska köras lokalt. Koden måste vara en giltig python-kod.
-* **%% SQL-o \<variable name> ** Kör en Hive-fråga mot sqlContext. Om-o-parametern skickas sparas resultatet av frågan i den lokala python-kontexten%% som en Pandas-DataFrame.
+* **%% SQL-o \<variable name>** Kör en Hive-fråga mot sqlContext. Om-o-parametern skickas sparas resultatet av frågan i den lokala python-kontexten%% som en Pandas-DataFrame.
 
 Mer information om kerneler för Jupyter-anteckningsböcker och de fördefinierade "magiska" som de tillhandahåller finns i [kernels som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -202,7 +202,7 @@ När data har förts in i Spark, är nästa steg i data vetenskaps processen att
 Den här koden och efterföljande kodfragment använder SQL Magic för att fråga exemplet och det lokala Magic för att rita data.
 
 * **SQL Magic ( `%%sql` )** HDInsight PySpark-kärnan stöder enkla infogade HiveQL-frågor mot sqlContext. Argumentet (-o VARIABLE_NAME) behåller SQL-frågans utdata som en Pandas-DataFrame på Jupyter-servern. Det innebär att den är tillgänglig i det lokala läget.
-* ** `%%local` Magic** används för att köra kod lokalt på Jupyter-servern, som är huvudnoden för HDInsight-klustret. Normalt använder du `%%local` Magic när `%%sql -o` Magic används för att köra en fråga. Parametern-o behåller utdata från SQL-frågan lokalt. Sedan `%%local` utlöser Magic nästa uppsättning kodfragment för att köras lokalt mot utdata från de SQL-frågor som har sparats lokalt. Utdata visualiseras automatiskt när du har kört koden.
+* **`%%local` Magic** används för att köra kod lokalt på Jupyter-servern, som är huvudnoden för HDInsight-klustret. Normalt använder du `%%local` Magic när `%%sql -o` Magic används för att köra en fråga. Parametern-o behåller utdata från SQL-frågan lokalt. Sedan `%%local` utlöser Magic nästa uppsättning kodfragment för att köras lokalt mot utdata från de SQL-frågor som har sparats lokalt. Utdata visualiseras automatiskt när du har kört koden.
 
 Den här frågan hämtar antalet resor per passagerare. 
 
@@ -764,7 +764,7 @@ Tids åtgång för att köra ovanför cell: 2,67 sekunder
 
 **Rita upp ROC-kurvan.**
 
-*PredictionAndLabelsDF* är registrerad som en tabell *tmp_results*i föregående cell. *tmp_results* kan användas för att utföra frågor och utmatnings resultat i sqlResults data-ram för att rita. Här är koden.
+*PredictionAndLabelsDF* är registrerad som en tabell *tmp_results* i föregående cell. *tmp_results* kan användas för att utföra frågor och utmatnings resultat i sqlResults data-ram för att rita. Här är koden.
 
 ```python
 # QUERY RESULTS                              
@@ -895,7 +895,7 @@ Tids åtgång för att köra ovanför cell: 107,98 sekunder
 
 **Rita upp ROC-kurvan.**
 
-*PredictionAndLabelsDF* är registrerad som en tabell *tmp_results*i föregående cell. *tmp_results* kan användas för att utföra frågor och utmatnings resultat i sqlResults data-ram för att rita. Här är koden.
+*PredictionAndLabelsDF* är registrerad som en tabell *tmp_results* i föregående cell. *tmp_results* kan användas för att utföra frågor och utmatnings resultat i sqlResults data-ram för att rita. Här är koden.
 
 ```python
 # QUERY RESULTS
@@ -1508,4 +1508,3 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 Nu när du har skapat Regressions-och klassificerings modeller med Spark-MlLib är du redo att lära dig hur du utvärderar och utvärderar dessa modeller.
 
 **Modell förbrukning:** Information om hur du utvärderar och utvärderar klassificerings-och Regressions modeller som skapats i det här avsnittet finns i [Poäng och utvärdera Spark-skapade maskin inlärnings modeller](spark-model-consumption.md).
-

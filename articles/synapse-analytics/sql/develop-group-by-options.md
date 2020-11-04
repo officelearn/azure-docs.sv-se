@@ -11,25 +11,26 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 0d9d28bacac02326ee781ca56309b7a72e921960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d160040620fcaa60a8adc955efcc54ac3ca2609e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289177"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321437"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Gruppera efter alternativ i Synapse SQL
+
 Med Synapse SQL kan du utveckla lösningar genom att implementera olika grupper med alternativ. 
 
-## <a name="what-does-group-by-do"></a>Vad sker gruppera efter
+## <a name="what-group-by-does"></a>Vad GROUP BY gör
 
 [Group by](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL-satsen sammanställer data till en sammanfattande uppsättning rader.
 
-SQL på begäran stöder hela intervallet av GROUP BY-alternativ. SQL-poolen stöder ett begränsat antal grupper med alternativ.
+SQL-poolen utan Server stöder hela intervallet av GROUP BY-alternativ. Dedikerad SQL-pool stöder ett begränsat antal grupper med alternativ.
 
-## <a name="group-by-options-supported-in-sql-pool"></a>Gruppera efter alternativ som stöds i SQL-poolen
+## <a name="group-by-options-supported-in-dedicated-sql-pool"></a>Gruppera efter alternativ som stöds i dedikerad SQL-pool
 
-GROUP BY har vissa alternativ som SQL-poolen inte stöder. De här alternativen innehåller lösningar, som är följande:
+GROUP BY har vissa alternativ som dedikerade SQL-poolen inte stöder. De här alternativen innehåller lösningar, som är följande:
 
 * Gruppera efter med sammanslagning
 * GRUPPERADE UPPSÄTTNINGAR

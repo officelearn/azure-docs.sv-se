@@ -11,18 +11,18 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c6bcf6f228049c4f5c4d1cd0d22cb69fb9677c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e72784dbdcf08d672a8498609ca3a5bbd11e632d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347037"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319025"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>Spåra Azure Databricks ML experiment med MLflow och Azure Machine Learning (förhands granskning)
 
 I den här artikeln lär du dig hur du aktiverar MLflow för spårnings-och loggnings-API: t, gemensamt känt som [MLflow spårning](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), för att ansluta dina Azure DATABRICKS (ADB) experiment, MLflow och Azure Machine Learning.
 
-[MLflow](https://www.mlflow.org) är ett bibliotek med öppen källkod för hantering av livs cykeln för maskin inlärnings experiment. MLFlow-spårning är en komponent i MLflow som loggar och spårar utbildningens körnings mått och modell artefakter. Läs mer om [Azure Databricks och MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/). 
+[MLflow](https://www.mlflow.org) är ett bibliotek med öppen källkod för hantering av livs cykeln för maskin inlärnings experiment. MLFlow-spårning är en komponent i MLflow som loggar och spårar utbildningens körnings mått och modell artefakter. Läs mer om [Azure Databricks och MLflow](/azure/databricks/applications/mlflow/). 
 
 Se [spåra experiment körningar och skapa slut punkter med MLflow och Azure Machine Learning](how-to-use-mlflow.md) för ytterligare MLflow-och Azure Machine Learning funktions integreringar.
 
@@ -35,8 +35,8 @@ Se [spåra experiment körningar och skapa slut punkter med MLflow och Azure Mac
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Installera `azureml-mlflow`-paketet. 
-    * Det här paketet kommer automatiskt in i `azureml-core` [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), som ger anslutningen för MLflow åtkomst till din arbets yta.
-* En [Azure Databricks arbets yta och ett kluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+    * Det här paketet kommer automatiskt in i `azureml-core` [Azure Machine Learning python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), som ger anslutningen för MLflow åtkomst till din arbets yta.
+* En [Azure Databricks arbets yta och ett kluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 * [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="track-azure-databricks-runs"></a>Spåra Azure Databricks körningar
@@ -156,9 +156,9 @@ När din modell har tränats kan du logga och registrera dina modeller på Serve
 
 Server dels spårnings servern är Azure Databricks arbets ytan som standard. Om du inte väljer att [Ange MLflow spårning för att bara spåra i din Azure Machine Learning-arbetsyta](#set-mlflow-tracking-to-only-track-in-your-azure-machine-learning-workspace), är Server dels spårnings servern Azure Machine Learning arbets yta.   
 
-* **Om en registrerad modell med namnet inte finns**registrerar metoden en ny modell, skapar version 1 och returnerar ett ModelVersion MLflow-objekt. 
+* **Om en registrerad modell med namnet inte finns** registrerar metoden en ny modell, skapar version 1 och returnerar ett ModelVersion MLflow-objekt. 
 
-* **Om det redan finns en registrerad modell med namnet**skapar metoden en ny modell version och returnerar versions objekt. 
+* **Om det redan finns en registrerad modell med namnet** skapar metoden en ny modell version och returnerar versions objekt. 
 
 ```python
 mlflow.spark.log_model(model, artifact_path = "model", 
@@ -234,4 +234,4 @@ Om du inte planerar att använda de loggade måtten och artefakterna i din arbet
 
 * [Hantera dina modeller](concept-model-management-and-deployment.md).
 * [Spåra experiment körningar och skapa slut punkter med MLflow och Azure Machine Learning](how-to-use-mlflow.md). 
-* Läs mer om [Azure Databricks och MLflow](https://docs.microsoft.com/azure/databricks/applications/mlflow/).
+* Läs mer om [Azure Databricks och MLflow](/azure/databricks/applications/mlflow/).

@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: c24c82e6e013734798b75d7c2cfa5ca126e32bc4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 37931aee24e2dbcab03bca400d58f236601c87e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788612"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321430"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Rotera transparent datakryptering-skyddet (TDE)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,7 +28,7 @@ Den här artikeln beskriver nyckel rotation för en [Server](logical-servers.md)
 I den här guiden beskrivs två alternativ för att rotera TDE-skyddskomponenten på servern.
 
 > [!NOTE]
-> En pausad Azure Synapse Analytics SQL-pool måste återupptas innan nyckel rotationen.
+> En pausad dedikerad SQL-pool i Azure Synapse Analytics måste återupptas innan nyckel rotationer.
 
 > [!IMPORTANT]
 > Ta inte bort tidigare versioner av nyckeln efter en omstart. När nycklar överförs är vissa data fortfarande krypterade med de tidigare nycklarna, till exempel äldre databas säkerhets kopior.

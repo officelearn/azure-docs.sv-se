@@ -11,22 +11,22 @@ ms.subservice: core
 ms.date: 02/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ac7420e47077e4e2b5bcfce0f33766554cd5c76d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1789f83f048a2ab0fb75aa33635e58b0850b865b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89647322"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319136"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Använda Azure AD-identitet med din Machine Learning-webbtjänst i Azure Kubernetes-tjänsten
 
-I den här instruktionen får du lära dig hur du tilldelar en Azure Active Directory identitet (AAD) till din distribuerade maskin inlärnings modell i Azure Kubernetes-tjänsten. [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) Project ger program åtkomst till moln resurser på ett säkert sätt med AAD genom att använda en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) och Kubernetes-primitiver. Detta gör att webb tjänsten kan komma åt dina Azure-resurser på ett säkert sätt utan att behöva bädda in autentiseringsuppgifter eller hantera tokens direkt inuti `score.py` skriptet. I den här artikeln beskrivs stegen för att skapa och installera en Azure-identitet i Azure Kubernetes service-klustret och tilldela identiteten till den distribuerade webb tjänsten.
+I den här instruktionen får du lära dig hur du tilldelar en Azure Active Directory identitet (AAD) till din distribuerade maskin inlärnings modell i Azure Kubernetes-tjänsten. [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) Project ger program åtkomst till moln resurser på ett säkert sätt med AAD genom att använda en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) och Kubernetes-primitiver. Detta gör att webb tjänsten kan komma åt dina Azure-resurser på ett säkert sätt utan att behöva bädda in autentiseringsuppgifter eller hantera tokens direkt inuti `score.py` skriptet. I den här artikeln beskrivs stegen för att skapa och installera en Azure-identitet i Azure Kubernetes service-klustret och tilldela identiteten till den distribuerade webb tjänsten.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- [Azure CLI-tillägget för Machine Learning-tjänsten](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)eller [Azure Machine Learning Visual Studio Code-tillägget](tutorial-setup-vscode-extension.md).
+- [Azure CLI-tillägget för Machine Learning-tjänsten](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK för python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)eller [Azure Machine Learning Visual Studio Code-tillägget](tutorial-setup-vscode-extension.md).
 
-- Åtkomst till ditt AKS-kluster med hjälp av `kubectl` kommandot. Mer information finns i [ansluta till klustret](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
+- Åtkomst till ditt AKS-kluster med hjälp av `kubectl` kommandot. Mer information finns i [ansluta till klustret](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)
 
 - En Azure Machine Learning-webbtjänst som distribueras till ditt AKS-kluster.
 
@@ -48,7 +48,7 @@ I den här instruktionen får du lära dig hur du tilldelar en Azure Active Dire
         kubectl apply -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
         ```
     
-    * Om AKS-klustret **inte har RBAC aktive rad**, använder du följande kommando:
+    * Om AKS-klustret **inte har RBAC aktive rad** , använder du följande kommando:
     
         ```azurecli-interactive
         kubectl apply -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
@@ -126,7 +126,7 @@ När poddar är igång kommer webb tjänsterna för den här distributionen nu a
 
 ## <a name="assign-the-appropriate-roles-to-your-azure-identity"></a>Tilldela lämpliga roller till din Azure-identitet
 
-[Tilldela din Azure-hanterade identitet med lämpliga roller](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) för att få åtkomst till andra Azure-resurser. Se till att de roller som du tilldelar har rätt **data åtgärder**. Till exempel har [rollen Storage BLOB data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) Läs behörighet till lagrings-bloben medan den allmänna [läsar rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) kanske inte är det.
+[Tilldela din Azure-hanterade identitet med lämpliga roller](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) för att få åtkomst till andra Azure-resurser. Se till att de roller som du tilldelar har rätt **data åtgärder**. Till exempel har [rollen Storage BLOB data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) Läs behörighet till lagrings-bloben medan den allmänna [läsar rollen](../role-based-access-control/built-in-roles.md#reader) kanske inte är det.
 
 ## <a name="use-azure-identity-with-your-machine-learning-web-service"></a>Använd Azure Identity med din Machine Learning-webbtjänst
 
@@ -134,7 +134,7 @@ Distribuera en modell till ditt AKS-kluster. `score.py`Skriptet kan innehålla �
 
 ### <a name="access-key-vault-from-your-web-service"></a>Åtkomst Key Vault från din webb tjänst
 
-Om du har fått Läs behörighet för Azure Identity till en hemlighet i en **Key Vault**kan du `score.py` komma åt den med följande kod.
+Om du har fått Läs behörighet för Azure Identity till en hemlighet i en **Key Vault** kan du `score.py` komma åt den med följande kod.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -153,11 +153,11 @@ secret = secret_client.get_secret(my_secret_name)
 ```
 
 > [!IMPORTANT]
-> I det här exemplet används DefaultAzureCredential. Om du vill ge din identitet åtkomst med hjälp av en speciell åtkomst princip läser du [tilldela en Key Vault åtkomst princip med hjälp av Azure CLI](/azure/key-vault/general/assign-access-policy-cli).
+> I det här exemplet används DefaultAzureCredential. Om du vill ge din identitet åtkomst med hjälp av en speciell åtkomst princip läser du [tilldela en Key Vault åtkomst princip med hjälp av Azure CLI](../key-vault/general/assign-access-policy-cli.md).
 
 ### <a name="access-blob-from-your-web-service"></a>Få åtkomst till BLOB från webb tjänsten
 
-Om du har fått Läs åtkomst till data i en **lagrings-BLOB**med Azure Identity `score.py` kan du komma åt den med följande kod.
+Om du har fått Läs åtkomst till data i en **lagrings-BLOB** med Azure Identity `score.py` kan du komma åt den med följande kod.
 
 ```python
 from azure.identity import DefaultAzureCredential

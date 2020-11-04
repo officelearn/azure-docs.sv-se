@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864289"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321210"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Uppgifter för team ledare i en team data vetenskap process-grupp
 
@@ -49,7 +49,7 @@ I följande självstudie går vi igenom stegen i detalj.
 > [!NOTE] 
 > I den här artikeln används Azure DevOps och en DSVM för att skapa en TDSP-grupp miljö, eftersom det är hur du implementerar TDSP på Microsoft. Om ditt team använder andra kod värdar eller utvecklings plattformar, är grupp ledar aktiviteterna samma, men det kan vara olika att slutföra dem.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att följande resurser och behörigheter har skapats av din [grupp hanterare](group-manager-tasks.md):
 
@@ -61,7 +61,7 @@ För att kunna klona lagrings utrymmen och ändra innehållet på din lokala dat
 
 - En Azure-prenumeration.
 - Git installerat på datorn. Om du använder en DSVM är git förinstallerat. I annat fall, se [bilagan plattform och verktyg](platforms-and-tools.md#appendix).
-- Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](/azure/machine-learning/data-science-virtual-machine/).
+- Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](../data-science-virtual-machine/index.yml).
 - För en Windows-DSVM är [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerad på datorn. Rulla ned till avsnittet **Ladda ned och installera** i *Readme.MD* -filen och välj det **senaste installations programmet**. Hämta *exe* -installationsprogrammet från installations sidan och kör det. 
 - För en Linux-DSVM, konfigureras en offentlig SSH-nyckel på din DSVM och läggs till i Azure DevOps. Mer information och instruktioner finns i avsnittet **skapa offentlig SSH-nyckel** i [tillägget plattformar och verktyg](platforms-and-tools.md#appendix). 
 
@@ -77,7 +77,7 @@ Namnen som anges för databaserna och katalogerna i den här självstudien föru
 - En liten data vetenskaps grupp som inte har flera data vetenskaps team. 
 - En större data vetenskaps grupp med flera data vetenskaps team som ändå vill optimera samarbetet mellan grupper med aktiviteter som till exempel på grupp-nivå – Sprint planering. 
 
-Om teamen väljer att ha sina teambaserade databaser under ett enda grupp projekt, bör teamet skapa lagrings platser med namn som * \<TeamName> mall* och * \<TeamName> verktyg*. Till exempel: *TeamATemplate* och *TeamAUtilities*. 
+Om teamen väljer att ha sina teambaserade databaser under ett enda grupp projekt, bör teamet skapa lagrings platser med namn som *\<TeamName> mall* och *\<TeamName> verktyg*. Till exempel: *TeamATemplate* och *TeamAUtilities*. 
 
 I alla fall måste grupp ledare låta sina team medlemmar veta vilka mallar för mallar och verktyg som ska ställas in och klonas. Projekt leads bör följa [projektets ledar aktiviteter för ett data vetenskaps team](project-lead-tasks.md) för att skapa projekt databaser, oavsett om de finns under separata projekt eller i ett enda projekt. 
 
@@ -85,17 +85,17 @@ I alla fall måste grupp ledare låta sina team medlemmar veta vilka mallar för
 
 Så här skapar du ett separat projekt för ditt team:
 
-1. I webbläsaren går du till din grupps Azure DevOps-organisations start sida på URL *https: \/ / \<server name> / \<organization name> *och väljer **nytt projekt**. 
+1. I webbläsaren går du till din grupps Azure DevOps-organisations start sida på URL *https: \/ / \<server name> / \<organization name>* och väljer **nytt projekt**. 
    
    ![Välj nytt projekt](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
-1. I dialog rutan **skapa projekt** anger du ditt grupp namn, till exempel min *team*, under **projekt namn**och väljer sedan **Avancerat**. 
+1. I dialog rutan **skapa projekt** anger du ditt grupp namn, till exempel min *team* , under **projekt namn** och väljer sedan **Avancerat**. 
    
-1. Under **versions kontroll**väljer du **git**och under **arbets objekts process**väljer du **Agile**. Välj sedan **Skapa**. 
+1. Under **versions kontroll** väljer du **git** och under **arbets objekts process** väljer du **Agile**. Välj sedan **Skapa**. 
    
    ![Skapa projekt](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-Sidan **Sammanfattning** av grup projekt öppnas med sidans URL *https: \/ / \<server name> / \<organization name> / \<team name> *.
+Sidan **Sammanfattning** av grup projekt öppnas med sidans URL *https: \/ / \<server name> / \<organization name> / \<team name>*.
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Byt namn på standard lagrings platsen för min team till TeamUtilities
 
@@ -110,7 +110,7 @@ Sidan **Sammanfattning** av grup projekt öppnas med sidans URL *https: \/ / \<s
    
    ![Välj Byt namn på lagrings plats](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
    
-1. I popup-fönstret för **att byta namn på min team-lagringsplats anger du** *TeamUtilities*och väljer sedan **Byt namn**. 
+1. I popup-fönstret för **att byta namn på min team-lagringsplats anger du** *TeamUtilities* och väljer sedan **Byt namn**. 
 
 ### <a name="create-the-teamtemplate-repository"></a>Skapa TeamTemplate-lagringsplatsen
 
@@ -120,7 +120,7 @@ Sidan **Sammanfattning** av grup projekt öppnas med sidans URL *https: \/ / \<s
    
    Eller Välj **databaser** i det vänstra navigerings fönstret på sidan projekt **Sammanfattning** för min **grupp** , Välj en lagrings plats överst på sidan och välj sedan **ny lagrings plats** i list rutan.
    
-1. I dialog rutan **skapa en ny lagrings plats** kontrollerar du att **git** är markerat under **typ**. Skriv *TeamTemplate* under **databas namn**och välj sedan **skapa**.
+1. I dialog rutan **skapa en ny lagrings plats** kontrollerar du att **git** är markerat under **typ**. Skriv *TeamTemplate* under **databas namn** och välj sedan **skapa**.
    
    ![Skapa lagrings plats](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
    
@@ -140,7 +140,7 @@ För att fylla i dina team databaser med innehållet i gruppen gemensamma databa
    
    ![Välj Importera](./media/team-lead-tasks/import-repo.png)
    
-1. I dialog rutan **Importera en git-lagringsplats** väljer du **git** som **käll typ**och anger URL: en för din grupps gemensamma mall lagrings plats under **klon-URL**. URL: en är *https: \/ / \<server name> / \<organization name> /_git \<repository name> /*. Till exempel: *https: \/ /dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. I dialog rutan **Importera en git-lagringsplats** väljer du **git** som **käll typ** och anger URL: en för din grupps gemensamma mall lagrings plats under **klon-URL**. URL: en är *https: \/ / \<server name> / \<organization name> /_git \<repository name> /*. Till exempel: *https: \/ /dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Välj **Importera**. Innehållet i din gruppmalls lagrings plats importeras till lagrings platsen för din grupp. 
    
@@ -148,7 +148,7 @@ För att fylla i dina team databaser med innehållet i gruppen gemensamma databa
    
 1. Längst upp på projektets **databaser** -sida, list rutan och välj **TeamUtilities** -lagringsplatsen.
    
-1. Upprepa import processen för att importera innehållet i din grupp vanliga verktyg-lagringsplats, till exempel *GroupUtilities*, till din **TeamUtilities** -lagringsplats. 
+1. Upprepa import processen för att importera innehållet i din grupp vanliga verktyg-lagringsplats, till exempel *GroupUtilities* , till din **TeamUtilities** -lagringsplats. 
    
 Var och en av dina två team-databaser innehåller nu filerna från motsvarande grupps gemensamma lagrings plats. 
 
@@ -184,11 +184,11 @@ Om du vill arbeta med databaser på din lokala dator eller DSVM kopierar du elle
 
 Klona databaser:
 
-1. På sidan projekt **Sammanfattning** för min **team** väljer du **databaser**och väljer den lagrings plats som du vill klona längst upp på sidan.
+1. På sidan projekt **Sammanfattning** för min **team** väljer du **databaser** och väljer den lagrings plats som du vill klona längst upp på sidan.
    
 1. På sidan lagrings platsen väljer du **klona** längst upp till höger.
    
-1. I dialog rutan **klona databas** väljer du **https** för en HTTP-anslutning eller **SSH** för en SSH-anslutning under **kommando rad**och kopierar klon-URL: en till Urklipp.
+1. I dialog rutan **klona databas** väljer du **https** för en HTTP-anslutning eller **SSH** för en SSH-anslutning under **kommando rad** och kopierar klon-URL: en till Urklipp.
    
    ![Kopiera klon-URL](./media/team-lead-tasks/clone.png)
    
@@ -240,7 +240,7 @@ Så här lägger du till medlemmar i teamet:
 
 1. I Azure DevOps väljer du **projekt inställningar** från den vänstra navigeringen på Start sidan för mitt **team** projekt. 
    
-1. I det vänstra navigerings fältet i **Project** väljer du **team**och på sidan **team** väljer **du teamet team.** 
+1. I det vänstra navigerings fältet i **Project** väljer du **team** och på sidan **team** väljer **du teamet team.** 
    
    ![Konfigurera team](./media/team-lead-tasks/teams.png)
    
@@ -255,11 +255,11 @@ Så här lägger du till medlemmar i teamet:
 
 Så här konfigurerar du behörigheter för grupp medlemmar:
 
-1. Välj **behörigheter**från det vänstra navigerings fältet i **Project** . 
+1. Välj **behörigheter** från det vänstra navigerings fältet i **Project** . 
    
 1. På sidan **behörigheter** väljer du den grupp som du vill lägga till medlemmar i. 
    
-1. Välj **medlemmar**på sidan för gruppen och välj sedan **Lägg till**. 
+1. Välj **medlemmar** på sidan för gruppen och välj sedan **Lägg till**. 
    
 1. I popup-fönstret **Bjud in medlemmar** söker du efter och väljer medlemmar som ska läggas till i gruppen. Välj sedan **Spara**. 
    
@@ -296,7 +296,7 @@ Information om hur du delar andra resurser med ditt team, till exempel Azure HDI
    
 1. Välj det lagrings konto som du vill använda, eller skapa ett nytt under den valda prenumerationen. Du kan använda gemener, siffror och bindestreck för Azure File Storage-namnet.
    
-1. För att under lätta montering och delning av lagringen, tryck på RETUR eller ange *Y* för att spara informationen om Azure File Storage i en textfil i den aktuella katalogen. Du kan kontrol lera text filen i **TeamTemplate** -lagringsplatsen, helst under **Docs\DataDictionaries**, så att alla projekt i teamet kan komma åt den. Du behöver också fil informationen för att montera Azure File Storage i Azure-DSVM i nästa avsnitt. 
+1. För att under lätta montering och delning av lagringen, tryck på RETUR eller ange *Y* för att spara informationen om Azure File Storage i en textfil i den aktuella katalogen. Du kan kontrol lera text filen i **TeamTemplate** -lagringsplatsen, helst under **Docs\DataDictionaries** , så att alla projekt i teamet kan komma åt den. Du behöver också fil informationen för att montera Azure File Storage i Azure-DSVM i nästa avsnitt. 
    
 ### <a name="mount-azure-file-storage-on-your-local-machine-or-dsvm"></a>Montera Azure File Storage på din lokala dator eller DSVM
 
@@ -318,7 +318,7 @@ Information om hur du delar andra resurser med ditt team, till exempel Azure HDI
    
 1. Fortsätt genom att trycka på RETUR eller ange *Y* om du sparade en informations fil för Azure File Storage i föregående steg. Ange den fullständiga sökvägen till och namnet på den fil som du har skapat. 
    
-   Om du inte har en fil lagrings informations fil för Azure anger du *n*och följer anvisningarna för att ange din prenumeration, ditt Azure Storage-konto och information om Azure File Storage.
+   Om du inte har en fil lagrings informations fil för Azure anger du *n* och följer anvisningarna för att ange din prenumeration, ditt Azure Storage-konto och information om Azure File Storage.
    
 1. Ange namnet på en lokal eller TDSP enhet för att montera fil resursen på. På skärmen visas en lista över befintliga enhets namn. Ange ett enhets namn som inte redan finns.
    

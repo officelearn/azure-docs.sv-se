@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 13d43eb788c750a2f24033a6138ebf00ac57fffe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 123e55202de8a33bca88afcfd1f0dc0c7edeae77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372585"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320100"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Självstudie: Använd dina egna data (del 4 av 4)
 
@@ -37,7 +37,7 @@ I den här kursen får du:
 > * Skicka in och kör ditt utbildnings skript.
 > * Visa kodens utdata i molnet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slut för ande av [del 3](tutorial-1st-experiment-sdk-train.md) av serien.
 * Introduktions kunskap om python-språket och Machine Learning-arbetsflöden.
@@ -202,7 +202,7 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 `target_path`Värdet anger sökvägen till data lagret där CIFAR10-data ska överföras.
 
 >[!TIP] 
-> När du använder Azure Machine Learning för att överföra data kan du använda [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ladda upp Ad hoc-filer. Om du behöver ett ETL-verktyg kan du använda [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) för att mata in dina data i Azure.
+> När du använder Azure Machine Learning för att överföra data kan du använda [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ladda upp Ad hoc-filer. Om du behöver ett ETL-verktyg kan du använda [Azure Data Factory](../data-factory/introduction.md) för att mata in dina data i Azure.
 
 Kör python-filen för att överföra data. (Uppladdningen ska vara snabb, mindre än 60 sekunder.)
 
@@ -271,7 +271,7 @@ Kontroll skriptet liknar det som finns i [del 3 i den här serien](tutorial-1st-
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      En [data uppsättning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) används för att referera till de data som du överförde till Azure Blob Storage. Data uppsättningar är ett abstraktions lager ovanpå dina data som är utformade för att förbättra tillförlitligheten och tillförlitligheten.
+      En [data uppsättning](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) används för att referera till de data som du överförde till Azure Blob Storage. Data uppsättningar är ett abstraktions lager ovanpå dina data som är utformade för att förbättra tillförlitligheten och tillförlitligheten.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -279,7 +279,7 @@ Kontroll skriptet liknar det som finns i [del 3 i den här serien](tutorial-1st-
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) har ändrats för att innehålla en lista över argument som ska skickas till `train.py` . `dataset.as_named_input('input').as_mount()`Argumentet innebär att den angivna katalogen kommer att _monteras_ på beräknings målet.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) har ändrats för att innehålla en lista över argument som ska skickas till `train.py` . `dataset.as_named_input('input').as_mount()`Argumentet innebär att den angivna katalogen kommer att _monteras_ på beräknings målet.
    :::column-end:::
 :::row-end:::
 

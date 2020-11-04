@@ -11,24 +11,24 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0be75b3b0a7b9b5aaec0da1d9f41f67a7108e77a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c20bf1c5856276c4c7ee0e37ed4ef2120d1d93d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085318"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322037"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Skapa funktioner för data i SQL Server med SQL och Python
 Det här dokumentet visar hur du genererar funktioner för data som lagras i en SQL Server VM på Azure som hjälper algoritmer att lära sig effektivare från data. Du kan använda SQL eller ett programmeringsspråk som python för att utföra den här uppgiften. Båda metoderna visas här.
 
-Den här uppgiften är ett steg i [TDSP (Team data science process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Den här uppgiften är ett steg i [TDSP (Team data science process)](./index.yml).
 
 > [!NOTE]
 > Ett praktiskt exempel är att du kan se [NYC taxi-datauppsättningen](https://www.andresmh.com/nyctaxitrips/) och REFERERA till IPNB- [NYC data datatransformering med hjälp av IPython Notebook och SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) för en genom gång från slut punkt till slut punkt.
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har:
 
 * Skapat ett Azure Storage-konto. Om du behöver instruktioner, se [skapa ett Azure Storage konto](../../storage/common/storage-account-create.md)
@@ -99,12 +99,12 @@ Dessa platsbaserade funktioner kan användas ytterligare för att generera fler 
 
 > [!TIP]
 > Du kan infoga posterna program mässigt med ditt eget språk. Du kan behöva infoga data i segment för att förbättra Skriv effektiviteten. [Här är ett exempel på hur du gör detta med hjälp av pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
-> Ett annat alternativ är att infoga data i databasen med hjälp av [BCP-verktyget](https://msdn.microsoft.com/library/ms162802.aspx)
+> Ett annat alternativ är att infoga data i databasen med hjälp av [BCP-verktyget](/sql/tools/bcp-utility)
 > 
 > 
 
 ### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Ansluter till Azure Machine Learning
-Den nyligen genererade funktionen kan läggas till som en kolumn i en befintlig tabell eller lagras i en ny tabell och kopplas till den ursprungliga tabellen för Machine Learning. Funktioner kan genereras eller nås om de redan har skapats, med hjälp av modulen [Importera data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) i Azure ml som visas nedan:
+Den nyligen genererade funktionen kan läggas till som en kolumn i en befintlig tabell eller lagras i en ny tabell och kopplas till den ursprungliga tabellen för Machine Learning. Funktioner kan genereras eller nås om de redan har skapats, med hjälp av modulen [Importera data](/azure/machine-learning/studio-module-reference/import-data) i Azure ml som visas nedan:
 
 ![Azure ML-läsare](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
@@ -126,5 +126,4 @@ conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>
 data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 ```
 
-Nu kan du arbeta med data ramen Pandas som beskrivs i avsnittet [skapa funktioner för Azure Blob Storage-data med hjälp av Panda](create-features-blob.md).
-
+Nu kan du arbeta med data ramen Pandas som beskrivs i avsnittet [skapa funktioner för Azure Blob Storage-data med hjälp av Panda](./explore-data-blob.md).

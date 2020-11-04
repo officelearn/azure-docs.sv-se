@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5a0804ae5ee2dbffaa57fc967fda29701562ab44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ee92a9eaf9316cbd453ea1ec4def58bb543a5a6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085709"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321132"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Utforska data i Azure Blob Storage med Pandas
 
@@ -24,11 +24,11 @@ Den här artikeln beskriver hur du utforskar data som lagras i Azure Blob-behål
 
 Den här uppgiften är ett steg i [processen för team data vetenskap](overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har:
 
 * Skapat ett Azure Storage-konto. Om du behöver instruktioner, se [skapa ett Azure Storage konto](../../storage/common/storage-account-create.md)
-* Lagrat dina data i ett Azure Blob Storage-konto. Om du behöver instruktioner, se [Flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md)
+* Lagrat dina data i ett Azure Blob Storage-konto. Om du behöver instruktioner, se [Flytta data till och från Azure Storage](../../storage/common/storage-choose-data-transfer-solution.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Läs in data i en Pandas-DataFrame
 Om du vill utforska och ändra en data uppsättning måste du först ladda ned den från BLOB-källan till en lokal fil som sedan kan läsas in i en Pandas-DataFrame. Följ anvisningarna nedan för den här proceduren:

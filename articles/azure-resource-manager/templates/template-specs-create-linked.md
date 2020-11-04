@@ -2,17 +2,17 @@
 title: Skapa en mall-specifikation med länkade mallar
 description: Lär dig hur du skapar en mall-specifikation med länkade mallar.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: b1862789ede4a9d2ab8c57bdb913c449a560dc58
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728547"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321601"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Självstudie: skapa en mall-specifikation med länkade mallar (förhands granskning)
 
-Lär dig hur du skapar en [mall-specifikation](template-specs.md) med en [länkad mall](linked-templates.md#linked-template). Du använder mall-specifikationer för att dela ARM-mallar med andra användare i din organisation. Den här artikeln visar hur du skapar en mall-specifikation för att paketera en huvud-mall och dess länkade mallar med hjälp av `relativePath` egenskapen för [distributions resursen](/azure/templates/microsoft.resources/deployments).
+Lär dig hur du skapar en [mall-specifikation](template-specs.md) med en huvud-mall och en [länkad mall](linked-templates.md#linked-template). Du använder mall-specifikationer för att dela ARM-mallar med andra användare i din organisation. Den här artikeln visar hur du skapar en mall-specifikation för att paketera en huvud-mall och dess länkade mallar med hjälp av `relativePath` egenskapen för [distributions resursen](/azure/templates/microsoft.resources/deployments).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -27,7 +27,7 @@ Skapa huvud mal len och den länkade mallen.
 
 Om du vill länka en mall lägger du till en [distributions resurs](/azure/templates/microsoft.resources/deployments) i huvud mal len. I `templateLink` egenskapen anger du den relativa sökvägen till den länkade mallen i enlighet med sökvägen till den överordnade mallen.
 
-Den länkade mallen kallas **linkedTemplate.jspå**och lagras i en undermapp som kallas **artefakter** i sökvägen där huvud mal len lagras.  Du kan använda något av följande värden för relativePath:
+Den länkade mallen kallas **linkedTemplate.jspå** och lagras i en undermapp som kallas **artefakter** i sökvägen där huvud mal len lagras.  Du kan använda något av följande värden för relativePath:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8789050257b8bc67649233760baefe7e2ee9adf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864102"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320144"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>SQL Server data vetenskaps genom gångar med R, python och T-SQL
 
@@ -32,21 +32,21 @@ I genom gången [använd SQL Server](sql-walkthrough.md) visas hur du skapar och
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Förutsägelse taxi-tips med Microsoft R med SQL Server 
 
-I genom gången [använd SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) visas hur du skapar och distribuerar en R-modell till SQL Server. Genom gången är utformad för att introducera R-utvecklare för R-tjänster (i databasen).
+I genom gången [använd SQL Server R Services](/sql/machine-learning/tutorials/walkthrough-data-science-end-to-end-walkthrough) visas hur du skapar och distribuerar en R-modell till SQL Server. Genom gången är utformad för att introducera R-utvecklare för R-tjänster (i databasen).
 
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Förutsäg taxi-tips med R från T-SQL eller lagrade procedurer med SQL Server
 
-I [genom gången av data vetenskap för R och SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) finns SQL-programmerare med erfarenhet av att skapa en avancerad analys lösning med Transact-SQL med hjälp av SQL Server R Services för att operationalisera en R-lösning. 
+I [genom gången av data vetenskap för R och SQL Server](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) finns SQL-programmerare med erfarenhet av att skapa en avancerad analys lösning med Transact-SQL med hjälp av SQL Server R Services för att operationalisera en R-lösning. 
 
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Förutsägelse taxi-tips med python i SQL Server lagrade procedurer
 
-Genom gången [Använd T-SQL med SQL Server python-tjänster](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) finns SQL-programmerare med erfarenhet av att skapa en maskin inlärnings lösning i SQL Server. Det visar hur du införlivar python i ett program genom att lägga till python-kod till lagrade procedurer.
+Genom gången [Använd T-SQL med SQL Server python-tjänster](/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) finns SQL-programmerare med erfarenhet av att skapa en maskin inlärnings lösning i SQL Server. Det visar hur du införlivar python i ett program genom att lägga till python-kod till lagrade procedurer.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 En beskrivning av de viktiga komponenter som utgör team data vetenskaps processen finns i [Översikt över team data science-processen](overview.md).
 
-En beskrivning av livs cykeln för team data vetenskaps process som du kan använda för att strukturera data vetenskaps projekt finns i [livs cykeln för team data science process](lifecycle.md). Livs cykeln beskriver stegen, från början till slut, som vanligt vis följer de projekt som körs. 
+En beskrivning av livs cykeln för team data vetenskaps process som du kan använda för att strukturera data vetenskaps projekt finns i [livs cykeln för team data science process](lifecycle.md). Livs cykeln beskriver stegen, från början till slut, som vanligt vis följer de projekt som körs.

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 09429e26c5b7192141262e1a31c0ef90427bdd32
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 16e13a18f93da9063a7eb08e3a2df27db9e3090f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899040"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321690"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Vad är Azure Synapse Analytics (för hands versioner av arbets ytor)?
 
@@ -22,7 +22,7 @@ ms.locfileid: "92899040"
 
 Enterprise Analytics måste arbeta i massiv skala på alla typer av data, oavsett om de är råa, raffinerade eller mycket anpassade. Detta kräver vanligt vis att företag samlar ihop Big data och data lager teknik i komplexa datapipeliner som fungerar mellan data i Relations lager och data sjöar. Dessa typer av lösningar är svåra att bygga, underhålla och säkra. Deras komplexitets fördröjningar ger insikter Enteprises-behov.
 
-**Azure Synapse** är en integrerad analys tjänst som påskyndar tiden för att bli inblick i informations lager och stora data system. Azure Synapse kombinerar det bästa av **SQL** -teknikerna som används i företags data lager, **Spark** -tekniker som används för Big data och **pipelines** för data integrering och ETL/ELT. **Synapse Studio** ger en enhetlig upplevelse för hantering, övervakning, kodning och säkerhet. Synapse har djupgående integrering med andra Azure-tjänster som **PowerBI** , **CosmosDB** och **azureml** .
+**Azure Synapse** är en integrerad analys tjänst som påskyndar tiden för att bli inblick i informations lager och stora data system. Azure Synapse kombinerar det bästa av **SQL** -teknikerna som används i företags data lager, **Spark** -tekniker som används för Big data och **pipelines** för data integrering och ETL/ELT. **Synapse Studio** ger en enhetlig upplevelse för hantering, övervakning, kodning och säkerhet. Synapse har djupgående integrering med andra Azure-tjänster som **PowerBI** , **CosmosDB** och **azureml**.
 
 ## <a name="key-features--benefits"></a>Viktiga funktioner & förmåner
 
@@ -79,4 +79,4 @@ Azure Synapse erbjuder ett enda sätt för företag att hantera analys resurser,
 
 * [Kom igång med Azure Synapse Analytics](get-started.md)
 * [Skapa en arbetsyta](quickstart-create-workspace.md)
-* [Använda SQL på begäran](quickstart-sql-on-demand.md)
+* [Använd Server lös SQL-pool](quickstart-sql-on-demand.md)

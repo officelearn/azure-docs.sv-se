@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e43c343b27dfe2dc0c364e58ed7305bdcec37215
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ac1fc5688dad3406041f36ff858e6fd27c7272f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026074"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321875"
 ---
 # <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Exempeldata i SQL Server på Azure
 
@@ -30,9 +30,9 @@ Python-samplingen använder [pyodbc](https://code.google.com/p/pyodbc/) ODBC-bib
 > 
 
 **Varför ska du testa dina data?**
-Om data uppsättningen som du planerar att analysera är stor är det vanligt vis en bra idé att stänga av data för att minska den till en mindre men representativ och mer hanterbar storlek. Sampling underlättar data förståelse, utforskning och funktions teknik. Dess roll i [TDSP (Team data science process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) är att möjliggöra snabb prototyper av data bearbetnings funktioner och maskin inlärnings modeller.
+Om data uppsättningen som du planerar att analysera är stor är det vanligt vis en bra idé att stänga av data för att minska den till en mindre men representativ och mer hanterbar storlek. Sampling underlättar data förståelse, utforskning och funktions teknik. Dess roll i [TDSP (Team data science process)](./index.yml) är att möjliggöra snabb prototyper av data bearbetnings funktioner och maskin inlärnings modeller.
 
-Den här samplings aktiviteten är ett steg i [TDSP (Team data science process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Den här samplings aktiviteten är ett steg i [TDSP (Team data science process)](./index.yml).
 
 ## <a name="using-sql"></a><a name="SQL"></a>Använda SQL
 I det här avsnittet beskrivs flera metoder som använder SQL för att utföra enkla slumpmässiga samplingar mot data i databasen. Välj en metod baserat på din data storlek och dess distribution.
@@ -134,4 +134,4 @@ Om du vill gå igenom ett exempel på en grupp data vetenskaps process a med en 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png
 
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

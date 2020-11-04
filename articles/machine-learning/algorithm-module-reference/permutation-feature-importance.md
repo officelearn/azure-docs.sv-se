@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bddd9a6825899f646a86ae274c539b54156667c5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905276"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319407"
 ---
 # <a name="permutation-feature-importance"></a>Permutationfunktionsprioritet
 
@@ -24,7 +24,7 @@ I den här modulen är funktions värden slumpmässigt blandade, en kolumn i tag
 
 Poängen som modulen returnerar representerar *ändringen* av prestandan för en utbildad modell efter permutation. Viktiga funktioner är ofta mer känsliga för blandning-processen, så de resulterar i högre prioritets poäng. 
 
-Den här artikeln innehåller en översikt över permutation-funktionen, dess teoretiska bas och dess program i Machine Learning: [permutation-funktionen är viktig](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+Den här artikeln innehåller en översikt över permutation-funktionen, dess teoretiska bas och dess program i Machine Learning: [permutation-funktionen är viktig](/archive/blogs/machinelearning/permutation-feature-importance).  
 
 ## <a name="how-to-use-permutation-feature-importance"></a>Så här använder du permutations funktions prioritet
 
@@ -40,7 +40,7 @@ Att generera en uppsättning funktions resultat kräver att du har en redan utbi
 
      Ett Seed-värde är valfritt, men du bör ange ett värde om du vill ha reproducerbarhet i samma pipeline.  
 
-5.  För Mät **värden för att mäta prestanda**väljer du ett mått som ska användas när du beräknar modell kvalitet efter permutation.  
+5.  För Mät **värden för att mäta prestanda** väljer du ett mått som ska användas när du beräknar modell kvalitet efter permutation.  
 
      Azure Machine Learning Designer stöder följande mått, beroende på om du utvärderar en klassificerings-eller Regressions modell:  
 
@@ -69,4 +69,4 @@ Orsaken till skillnaden är att permutations funktionens prioritet inte mäter a
   
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

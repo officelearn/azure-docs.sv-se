@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2da8bd0b36b553a4b5f85b6f79987ab1a7b8d5a7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 82dd2f16fa43b52ba4c6dfacd26da5da622523b2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286573"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321717"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Viktig information – Azure Arc-aktiverade data tjänster (för hands version)
 
@@ -28,7 +28,7 @@ Versions nummer för Azure Data CLI ( `azdata` ): 20.2.3. Ladda ned på [https:/
 
 I den här versionen införs följande ändringar: 
 
-* PostgreSQL-filer för anpassade resurs definitioner (CRD) ersätter termen `shards` med ett nytt namn `workers` . Den här termen ( `workers` ) matchar kommando rads parameterns namn.
+* I PostgreSQL-CRD (Custom Resource definition) `shards` ändras termen till `workers` . Den här termen ( `workers` ) matchar kommando rads parameterns namn.
 
 * `azdata arc postgres server delete` du uppmanas att bekräfta innan du tar bort en postgres-instans.  Använd `--force` för att hoppa över prompten.
 
@@ -50,15 +50,15 @@ I den här versionen införs följande ändringar:
 
    * Om inga data har lästs in i Azure kan du prova att försöka igen.
 
-* `azdata arc dc debug copy-logs` läser nu även från `/var/opt/controller/log` mapp och samlar in postgres-loggar.
+* `azdata arc dc debug copy-logs` läser nu även från `/var/opt/controller/log` mapp och samlar in postgresql-motor loggar i Linux.
 
-*   Visa en fungerande indikator under postgres skapa och återställa säkerhets kopiering.
+*   Visa en fungerande indikator när du skapar och återställer säkerhets kopia med PostgreSQL-skalning.
 
 * `azdata arc postrgres backup list` innehåller nu information om säkerhets kopierings storlek.
 
 * Egenskapen administratörs namn för SQL-hanterad instans har lagts till i den högra kolumnen i översikts bladet i Azure Portal.
 
-* Azure Data Studio stöder konfiguration av antal arbetsnoder, vCore och minnes inställningar för en Server grupp. 
+* Azure Data Studio stöder konfiguration av antal arbetsnoder, vCore och minnes inställningar för PostgreSQL-skalning. 
 
 * För hands versionen har stöd för säkerhets kopiering/återställning av postgres version 11 och 12.
 
@@ -80,9 +80,7 @@ Mer information finns i [Vad är Azure Arc-aktiverade data tjänster?](overview.
 - Om du använder NFS måste du ange `allowRunAsRoot` till `true` i din distributions profil fil innan du skapar data styrenheten för Azure-bågen.
 - Endast SQL-och PostgreSQL-inloggning.  Inget stöd för Azure Active Directory eller Active Directory.
 - Att skapa en datakontrollant i OpenShift kräver avslappnad säkerhets begränsningar.  I dokumentationen finns mer information.
-- Det går inte att skala antalet PostgresSQL för storskaliga _arbets noder._
 - Om du använder Azure Kubernetes service Engine (AKS Engine) på Azure Stack hubb med data styrenheten för Azure Arc och databas instanser, stöds inte uppgradering till en nyare Kubernetes-version. Avinstallera Azure Arc data Controller och alla databas instanser innan du uppgraderar Kubernetes-klustret.
-- För hands versionen stöder inte säkerhets kopiering/återställning för postgres version 11-motorn. (Löst i oktober 2020) Den stöder bara säkerhets kopiering/återställning för postgres version 12.
 - Azure Kubernetes service (AKS), kluster som sträcker sig över [flera tillgänglighets zoner](../../aks/availability-zones.md) stöds för närvarande inte för Azure Arc-aktiverade data tjänster. Du undviker det här problemet genom att ta bort alla zoner från urvals kontrollen när du skapar AKS-klustret i Azure Portal, om du väljer en region där zoner är tillgängliga. Se följande bild:
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Avmarkera kryss rutorna för varje zon för att ange ingen.":::
@@ -90,10 +88,11 @@ Mer information finns i [Vad är Azure Arc-aktiverade data tjänster?](overview.
 
 ### <a name="known-issues-for-azure-arc-enabled-postgresql-hyperscale"></a>Kända problem för Azure Arc Enabled PostgreSQL-skalning   
 
+- För hands versionen stöder inte säkerhets kopiering/återställning för PostgreSQL version 11-motorn. Den stöder bara säkerhets kopiering/återställning för PostgreSQL version 12.
+- `azdata arc dc debug copy-logs` ndoes inte insamling av PostgreSQL-motorns loggar i Windows.
 - Om du återskapar en Server grupp med namnet på en Server grupp som just har tagits bort kanske det Miss lyckas eller låser sig. 
    - **Lösning** Återanvänd inte samma namn när du återskapar en Server grupp eller väntar på en belastningsutjämnare/extern tjänst för den tidigare borttagna Server gruppen. Förutsatt att namnet på den server grupp som du tog bort var `postgres01` och den fanns i ett namn område `arc` , innan du återskapar en Server grupp med samma namn, väntar du tills `postgres01-external-svc` inte visas i utdata från kommandot kubectl `kubectl get svc -n arc` .
- 
-- Det går långsamt att läsa in sidan Översikt och beräknings-och lagrings konfiguration i Azure Data Studio. 
+ - Det går långsamt att läsa in sidan Översikt och beräknings-och lagrings konfiguration i Azure Data Studio. 
 
 
 

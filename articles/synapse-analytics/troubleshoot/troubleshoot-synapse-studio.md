@@ -8,28 +8,28 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287755"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321011"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Fel sökning för Azure Synapse Studio (för hands version)
 
 Den här fel söknings guiden innehåller instruktioner om vilken information som ska tillhandahållas när du öppnar ett support ärende om problem med nätverks anslutningen. Med rätt information kan vi eventuellt lösa problemet snabbare.
 
-## <a name="sql-on-demand-preview-service-connectivity-issue"></a>Problem med tjänst anslutning för SQL på begäran (för hands version)
+## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>Anslutnings problem för tjänsten Server lös SQL-pool (förhands granskning)
 
 ### <a name="symptom-1"></a>Symptom 1
 
-Alternativet "SQL on-demand" är nedtonat i list rutan "Anslut till".
+Alternativet "Server lös SQL-pool" är nedtonat i list rutan "Anslut till".
 
 ![symptom1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### <a name="symptom-2"></a>Symptom 2
 
-Genom att köra frågan med "SQL på begäran" får du fel meddelandet "Det gick inte att upprätta anslutningen till servern".
+Om du kör frågan med "Server lös SQL-pool" får du fel meddelandet "Det gick inte att upprätta en anslutning till servern".
 
 ![symptom 2](media/troubleshooting-synapse-studio/symptom2.png)
  
@@ -45,7 +45,7 @@ Genom att köra frågan med "SQL på begäran" får du fel meddelandet "Det gick
 
 Starta fel sökningen genom att försöka utföra åtgärden igen i Azure Synapse Studio.
 
-- För symptom 1 väljer du knappen Uppdatera till höger om List rutan "Använd databas" på fliken "SQL-skript" och kontrollerar om du kan se "SQL på begäran".
+- För symptom 1 väljer du knappen Uppdatera till höger om List rutan "Använd databas" på fliken "SQL-skript" och kontrollerar om du kan se "Server lös SQL-pool".
 - Prova att köra frågan igen för att se om den körs korrekt, för symptom 2.
 
 Om problemet fortfarande finns trycker du på F12 i webbläsaren för att öppna "Utvecklarverktyg" (DevTools).
@@ -61,7 +61,7 @@ Hitta objektet vars URL-kolumn matchar följande mönster:
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Där [*A*] är namnet på din arbets yta och "-OnDemand" kan vara "-sqlod" och var [*B*] ska vara ett databas namn, till exempel "Master". Det får finnas högst två objekt med samma URL-värde men olika metod värden. ALTERNATIV och POST. Kontrol lera om dessa två objekt har "200" eller "20x" under kolumnen status, där "x" kan vara valfri siffra.
+Där [ *A* ] är namnet på din arbets yta och "-OnDemand" kan vara "-sqlod" och var [ *B* ] ska vara ett databas namn, till exempel "Master". Det får finnas högst två objekt med samma URL-värde men olika metod värden. ALTERNATIV och POST. Kontrol lera om dessa två objekt har "200" eller "20x" under kolumnen status, där "x" kan vara valfri siffra.
 
 Om någon av dem har något annat än "20x" och:
 
@@ -71,7 +71,7 @@ Om någon av dem har något annat än "20x" och:
 
     - Om du ser ERR_NAME_NOT_RESOLVED och du har skapat din arbets yta inom 10 minuter, vänta i 10 minuter och försök att se om problemet fortfarande finns.
     - Om du ser ERR_INTERNET_DISCONNECTED eller ERR_NETWORK_CHANGED kan det bero på att din DATORs nätverks anslutning har problem. Kontrol lera nätverks anslutningen och försök igen.
-    - Om du ser ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR eller andra felkoder som innehåller "SSL", kan det tyda på att den lokala SSL-konfigurationen har problem eller att nätverks administratören har blockerat åtkomst till SQL-servern på begäran. Öppna ett support ärende och bifoga felkoden i beskrivningen.
+    - Om du ser ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR eller andra felkoder som innehåller "SSL", kan det tyda på att den lokala SSL-konfigurationen har problem eller att nätverks administratören har blockerat åtkomst till serverns SQL-pool Server. Öppna ett support ärende och bifoga felkoden i beskrivningen.
     - Om du ser ERR_NETWORK_ACCESS_DENIED kan du behöva kontrol lera med administratören om den lokala brand Väggs principen har blockerat åtkomst till antingen *. database.windows.net-domän eller Fjärrport 1443.
     - Du kan också prova samma åtgärd direkt på en annan dator och/eller nätverks miljö för att utesluta ett problem med nätverks konfigurationen på din dator.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 742dc4b613c180550a4b3ec02827061acbf0bf78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3edeee8f41c806c90f32208c0c4f174c76ba38d0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122953"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321994"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Teknisk guide till lösnings mal len för förutsägande underhåll i Aerospace
 
@@ -58,7 +58,7 @@ Tjänsten [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) ä
 Använd [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) för att tillhandahålla analys i nära real tid i indata-dataströmmen från tjänsten [Azure Event Hub](#azure-event-hub) . Sedan publicerar du resultaten på en [Power BI](https://powerbi.microsoft.com) instrument panel och arkiverar alla rå inkommande händelser till tjänsten [Azure Storage](https://azure.microsoft.com/services/storage/) för senare bearbetning av [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) -tjänsten.
 
 ### <a name="hdinsight-custom-aggregation"></a>Anpassad agg regering för HDInsight
-Kör [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skript (dirigerad av Azure Data Factory) med HDInsight för att tillhandahålla agg regeringar för de råa händelser som arkiveras med hjälp av Azure Stream Analytics resursen.
+Kör [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skript (dirigerad av Azure Data Factory) med HDInsight för att tillhandahålla agg regeringar för de råa händelser som arkiveras med hjälp av Azure Stream Analytics resursen.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Gör förutsägelser för återstående livs längd (RUL) för en viss flyg Plans motor med hjälp av de indata som tagits emot med [Azure Machine Learning-tjänsten](https://azure.microsoft.com/services/machine-learning/) (dirigerad av Azure Data Factory). 
@@ -96,7 +96,7 @@ Azure Stream Analyticss frågan kan hittas av:
   
   * ***Indata** _ för att Visa frågans indata _ * **fråga** _ för att Visa själva frågan _ * **utdata** _ för att visa de olika utmatningarna
 
-Information om hur du Azure Stream Analytics Query-konstruktion finns i [referensen Stream Analytics frågor](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) på MSDN.
+Information om hur du Azure Stream Analytics Query-konstruktion finns i [referensen Stream Analytics frågor](/stream-analytics-query/stream-analytics-query-language-reference) på MSDN.
 
 I den här lösningen skickar frågorna tre data uppsättningar med information om den inkommande data strömmen till en Power BI instrument panel som finns som en del av den här lösnings mal len. Eftersom det finns en implicit kunskap om det inkommande data formatet, måste dessa frågor ändras baserat på ditt data format.
 
@@ -111,27 +111,27 @@ I det här avsnittet beskrivs nödvändiga [pipeliner och aktiviteter](../../dat
 
 ![Azure Data Factory](./media/predictive-maintenance-technical-guide/azure-data-factory.png)
 
-Två av pipelinen i den här fabriken innehåller [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skript som används för att partitionera och samla in data. När detta anges finns skripten i det [Azure Storage](https://azure.microsoft.com/services/storage/) konto som skapades under installationen. Deras plats är: maintenancesascript \\ \\ -Skriptets \\ \\ Hive \\ \\ (eller https://[ditt lösnings namn]. blob. Core. Windows. net/maintenancesascript).
+Två av pipelinen i den här fabriken innehåller [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skript som används för att partitionera och samla in data. När detta anges finns skripten i det [Azure Storage](https://azure.microsoft.com/services/storage/) konto som skapades under installationen. Deras plats är: maintenancesascript \\ \\ -Skriptets \\ \\ Hive \\ \\ (eller https://[ditt lösnings namn]. blob. Core. Windows. net/maintenancesascript).
 
-Precis som med [Azure Stream Analytics](#azure-stream-analytics-1) frågor, har [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skripten implicit kunskap om det inkommande data formatet och måste ändras baserat på ditt data format.
+Precis som med [Azure Stream Analytics](#azure-stream-analytics-1) frågor, har [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skripten implicit kunskap om det inkommande data formatet och måste ändras baserat på ditt data format.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-Den här [pipelinen](../../data-factory/concepts-pipelines-activities.md) innehåller en enskild aktivitet – en [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktivitet som använder en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör ett [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skript för att partitionera data i [Azure Storage](https://azure.microsoft.com/services/storage/) under [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobbet.
+Den här [pipelinen](../../data-factory/concepts-pipelines-activities.md) innehåller en enskild aktivitet – en [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktivitet som använder en [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) som kör ett [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skript för att partitionera data i [Azure Storage](https://azure.microsoft.com/services/storage/) under [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobbet.
 
-[Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skriptet för den här partitionerings aktiviteten är * **AggregateFlightInfo. HQL** _
+[Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skriptet för den här partitionerings aktiviteten är * **AggregateFlightInfo. HQL** _
 
 #### <a name="_mlscoringpipeline"></a>_MLScoringPipeline *
 Den här [pipelinen](../../data-factory/concepts-pipelines-activities.md) innehåller flera aktiviteter vars slut resultat är de poäng förutsägelser från det [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet som är associerat med den här lösnings mal len.
 
 Följande aktiviteter ingår:
 
-* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktivitet med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör ett [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skript för att utföra agg regeringar och funktions teknik som krävs för [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet.
-  [Hive](https://docs.microsoft.com/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skriptet för den här partitionerings aktiviteten är * **PrepareMLInput. HQL** _.
-  _ [Kopierings](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultatet från [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktiviteten till en enda [Azure Storage](https://azure.microsoft.com/services/storage/) -blob som används av [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) -aktiviteten.
-* [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) -aktiviteten anropar [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet med resultat som finns i en enda [Azure Storage](https://azure.microsoft.com/services/storage/) -blob.
+* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktivitet med en [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) som kör ett [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skript för att utföra agg regeringar och funktions teknik som krävs för [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet.
+  [Hive](/archive/blogs/uk_faculty_connection/getting-started-with-microsoft-big-data-hive-hdinsight-jump-start) -skriptet för den här partitionerings aktiviteten är * **PrepareMLInput. HQL** _.
+  _ [Kopierings](/previous-versions/azure/dn835035(v=azure.100)) aktivitet som flyttar resultatet från [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktiviteten till en enda [Azure Storage](https://azure.microsoft.com/services/storage/) -blob som används av [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) -aktiviteten.
+* [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) -aktiviteten anropar [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet med resultat som finns i en enda [Azure Storage](https://azure.microsoft.com/services/storage/) -blob.
 
 #### <a name="copyscoredresultpipeline"></a>*CopyScoredResultPipeline*
-Den [här pipelinen](../../data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – [en kopierings](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultatet från [Azure Machine Learning](#azure-machine-learning) experimentet från * **MLScoringPipeline** _ till den [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) som ingår i installationen av lösnings mal len.
+Den [här pipelinen](../../data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – [en kopierings](/previous-versions/azure/dn835035(v=azure.100)) aktivitet som flyttar resultatet från [Azure Machine Learning](#azure-machine-learning) experimentet från * **MLScoringPipeline** _ till den [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) som ingår i installationen av lösnings mal len.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet som används för den här lösnings mal len tillhandahåller återstående livs längd (RUL) för en flyg Plans motor. Experimentet är särskilt för den mängd data som förbrukas och kräver ändring eller ersättning som är särskilt för de data som hämtas.
@@ -139,7 +139,7 @@ Den [här pipelinen](../../data-factory/concepts-pipelines-activities.md) inneh�
 ## <a name="monitor-progress"></a>Övervaka förlopp
 När data generatorn har startats börjar pipelinen att dehydratiseras och de olika komponenterna i lösningen börjar i åtgärd efter de kommandon som utfärdas av data fabriken. Det finns två sätt att övervaka pipelinen.
 
-_ Ett av de Stream Analytics jobben skriver rå inkommande data till Blob Storage. Om du klickar på Blob Storage komponent i din lösning från skärmen har du distribuerat lösningen och klickar sedan på öppna i den högra panelen, så tar du till [Azure Portal](https://portal.azure.com/). När du är där klickar du på blobbar. I nästa panel visas en lista över behållare. Klicka på **maintenancesadata** . I nästa panel finns mappen **rawData** . Inuti mappen rawData finns mappar med namn som timme = 17 och timme = 18. Förekomsten av dessa mappar anger att rå data genereras på din dator och lagras i Blob Storage. Du bör se CSV-filer med begränsade storlekar i MB i dessa mappar.
+_ Ett av de Stream Analytics jobben skriver rå inkommande data till Blob Storage. Om du klickar på Blob Storage komponent i din lösning från skärmen har du distribuerat lösningen och klickar sedan på öppna i den högra panelen, så tar du till [Azure Portal](https://portal.azure.com/). När du är där klickar du på blobbar. I nästa panel visas en lista över behållare. Klicka på **maintenancesadata**. I nästa panel finns mappen **rawData** . Inuti mappen rawData finns mappar med namn som timme = 17 och timme = 18. Förekomsten av dessa mappar anger att rå data genereras på din dator och lagras i Blob Storage. Du bör se CSV-filer med begränsade storlekar i MB i dessa mappar.
 * Det sista steget i pipelinen är att skriva data (till exempel förutsägelser från maskin inlärning) till SQL Database. Du kan behöva vänta högst tre timmar innan data visas i SQL Database. Ett sätt att övervaka hur mycket data som är tillgängligt i SQL Database är genom [Azure Portal](https://portal.azure.com/). Leta upp SQL-databaser på den vänstra panelen :::image type="icon" source="./media/predictive-maintenance-technical-guide/icon-SQL-databases.png" border="false"::: och klicka på den. Leta sedan reda på databasens **pmaintenancedb** och klicka på den. Klicka på hantera på nästa sida längst ned.
    
     ![Ikonen hantera](./media/predictive-maintenance-technical-guide/icon-manage.png)
@@ -157,7 +157,7 @@ Power BI ansluter till en Azure SQL Database som data källa där förutsägelse
 
 Obs! 
 1.    När du distribuerar din lösning visas en förutsägelse i databasen inom tre timmar. Pbix-filen som medföljde Generator-hämtningen innehåller vissa Dirigerings data så att du kan skapa Power BI instrument panelen direkt. 
-2.    I det här steget är förutsättningen att ladda ned och installera den kostnads fria program varan [Power BI Skriv bordet](https://docs.microsoft.com/power-bi/fundamentals/desktop-get-the-desktop).
+2.    I det här steget är förutsättningen att ladda ned och installera den kostnads fria program varan [Power BI Skriv bordet](/power-bi/fundamentals/desktop-get-the-desktop).
 
 Följande steg vägleder dig om hur du ansluter pbix-filen till den SQL Database som har varit i kraft vid den tidpunkt då lösnings distributionen innehåller data (till exempel förutsägelse resultat) för visualisering.
 
@@ -165,21 +165,21 @@ Följande steg vägleder dig om hur du ansluter pbix-filen till den SQL Database
    
    Du behöver **databas server namn, databas namn, användar namn och lösen ord** innan du fortsätter till nästa steg. Här följer stegen för att få hjälp att hitta dem.
    
-   * När **Azure SQL Database** i lösningens diagram blir grönt, klickar du på det och sedan på **Öppna** .
+   * När **Azure SQL Database** i lösningens diagram blir grönt, klickar du på det och sedan på **Öppna**.
    * Du ser en ny webbflik/fönster som visar Azure Portal sidan. Klicka på **resurs grupper** på den vänstra panelen.
-   * Välj den prenumeration som du använder för att distribuera lösningen och välj sedan **"YourSolutionName \_ ResourceGroup"** .
-   * I den nya popup-panelen klickar du på  :::image type="icon" source="./media/predictive-maintenance-technical-guide/icon-sql.png" border="false"::: ikonen för att få åtkomst till din databas. Ditt databas namn är intill den här ikonen (till exempel **' pmaintenancedb '** ) och **databas Server namnet** visas under egenskapen Server namn och bör se ut ungefär som **YourSolutionName.Database.Windows.net** .
+   * Välj den prenumeration som du använder för att distribuera lösningen och välj sedan **"YourSolutionName \_ ResourceGroup"**.
+   * I den nya popup-panelen klickar du på  :::image type="icon" source="./media/predictive-maintenance-technical-guide/icon-sql.png" border="false"::: ikonen för att få åtkomst till din databas. Ditt databas namn är intill den här ikonen (till exempel **' pmaintenancedb '** ) och **databas Server namnet** visas under egenskapen Server namn och bör se ut ungefär som **YourSolutionName.Database.Windows.net**.
    * Ditt **användar namn** och **lösen ord** för databasen är samma som det användar namn och lösen ord som tidigare registrerades under distributionen av lösningen.
 2. Uppdatera data källan för den kall Sök vägs rapport filen med Power BI Desktop.
    
    * I mappen där du laddade ned och zippa Generator-filen dubbelklickar du på filen **PowerBI \\ PredictiveMaintenanceAerospace. pbix** . Om du ser ett varnings meddelande när du öppnar filen, ignorera dem. Klicka på **Redigera frågor** överst i filen.
      
      ![Redigera frågor](./media/predictive-maintenance-technical-guide/edit-queries.png)
-   * Du ser två tabeller, **RemainingUsefulLife** och **PMResult** . Markera den första tabellen och klicka på ![ ikonen frågeinställningar ](./media/predictive-maintenance-technical-guide/icon-query-settings.png) bredvid **"källa"** under **"tillämpade steg"** på den högra panelens **inställnings** panel. Ignorera eventuella varnings meddelanden som visas.
-   * Ersätt **"Server"** och **"Database"** i fönstret för popup-fönster med dina egna Server-och databas namn och klicka sedan på **OK** . För Server namn, se till att du anger port 1433 ( **YourSolutionName.Database.Windows.net, 1433** ). Lämna databas fältet som **pmaintenancedb** . Ignorera varnings meddelandena som visas på skärmen.
-   * I nästa popup-fönster visas två alternativ i den vänstra rutan ( **Windows** och **databas** ). Klicka på **"databas"** , Fyll i ditt **"username"** och **"Password"** (användar namn och lösen ord som du angav när du först distribuerade lösningen och skapade en Azure SQL Database). I **_Välj vilken nivå de här inställningarna ska tillämpas på_*_, kontrol lera alternativet på databas nivå. Klicka sedan på _* Anslut** .
+   * Du ser två tabeller, **RemainingUsefulLife** och **PMResult**. Markera den första tabellen och klicka på ![ ikonen frågeinställningar ](./media/predictive-maintenance-technical-guide/icon-query-settings.png) bredvid **"källa"** under **"tillämpade steg"** på den högra panelens **inställnings** panel. Ignorera eventuella varnings meddelanden som visas.
+   * Ersätt **"Server"** och **"Database"** i fönstret för popup-fönster med dina egna Server-och databas namn och klicka sedan på **OK**. För Server namn, se till att du anger port 1433 ( **YourSolutionName.Database.Windows.net, 1433** ). Lämna databas fältet som **pmaintenancedb**. Ignorera varnings meddelandena som visas på skärmen.
+   * I nästa popup-fönster visas två alternativ i den vänstra rutan ( **Windows** och **databas** ). Klicka på **"databas"** , Fyll i ditt **"username"** och **"Password"** (användar namn och lösen ord som du angav när du först distribuerade lösningen och skapade en Azure SQL Database). I **_Välj vilken nivå de här inställningarna ska tillämpas på_*_, kontrol lera alternativet på databas nivå. Klicka sedan på _* Anslut**.
    * Klicka på den andra tabellens **PMResult** klicka sedan på ![ navigerings ikonen ](./media/predictive-maintenance-technical-guide/icon-navigation.png) bredvid **"källa"** under **"tillämpade steg"** på den högra panelens **inställnings** panel och uppdatera Server-och databas namnen som i ovanstående steg och klicka på OK.
-   * När du har gå tillbaka till föregående sida stänger du fönstret. Ett meddelande visas – klicka på **Använd** . Klicka slutligen på knappen **Spara** för att spara ändringarna. Din Power BI-fil har nu upprättat en anslutning till servern. Om visualiseringarna är tomma ser du till att ta bort valen i visualiseringarna för att visualisera alla data genom att klicka på rader gummi-ikonen i det övre högra hörnet av förklaringarna. Använd knappen Uppdatera för att visa nya data på visualiseringarna. Först ser du bara Dirigerings data i dina visualiseringar när data fabriken har schemalagts att uppdateras var tredje timme. Efter 3 timmar visas nya förutsägelser i dina visualiseringar när du uppdaterar data.
+   * När du har gå tillbaka till föregående sida stänger du fönstret. Ett meddelande visas – klicka på **Använd**. Klicka slutligen på knappen **Spara** för att spara ändringarna. Din Power BI-fil har nu upprättat en anslutning till servern. Om visualiseringarna är tomma ser du till att ta bort valen i visualiseringarna för att visualisera alla data genom att klicka på rader gummi-ikonen i det övre högra hörnet av förklaringarna. Använd knappen Uppdatera för att visa nya data på visualiseringarna. Först ser du bara Dirigerings data i dina visualiseringar när data fabriken har schemalagts att uppdateras var tredje timme. Efter 3 timmar visas nya förutsägelser i dina visualiseringar när du uppdaterar data.
 3. Valfritt Publicera instrument panelen för kall bana till [Power BI online](https://www.powerbi.com/). Det här steget behöver ett Power BI konto (eller ett arbets-eller skol konto).
    
    * Klicka på **publicera** och få sekunder senare visas ett fönster som visar publicering till Power BI lyckades! med en grön bock markering. Klicka på länken nedan "Open PredictiveMaintenanceAerospace. pbix in Power BI". Detaljerade instruktioner finns i [publicera från Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
@@ -189,7 +189,7 @@ Följande steg vägleder dig om hur du ansluter pbix-filen till den SQL Database
      <br/>
      ![Slutgiltig vy](./media/predictive-maintenance-technical-guide/final-view.png)
      <br/>
-   * Om du vill schemalägga uppdatering av data håller du mus pekaren över **PredictiveMaintenanceAerospace** -datauppsättningen, klickar på ![ ikonen ellips ](./media/predictive-maintenance-technical-guide/icon-elipsis.png) och väljer sedan **Schemalägg uppdatering** .
+   * Om du vill schemalägga uppdatering av data håller du mus pekaren över **PredictiveMaintenanceAerospace** -datauppsättningen, klickar på ![ ikonen ellips ](./media/predictive-maintenance-technical-guide/icon-elipsis.png) och väljer sedan **Schemalägg uppdatering**.
      <br/>
      > [!NOTE]
      > Om du ser ett varnings meddelande klickar du på **Redigera autentiseringsuppgifter** och kontrollerar att autentiseringsuppgifterna för databasen är desamma som de som beskrivs i steg 1.
@@ -206,7 +206,7 @@ Följande steg vägleder dig hur du visualiserar datautdata från Stream Analyti
 1. Lägg till Power BI utdata i Azure Stream Analytics (ASA).
    
    * Du måste följa anvisningarna i [Azure Stream Analytics & Power BI: en analys instrument panel för real tids visning av strömmande data](../../stream-analytics/stream-analytics-power-bi-dashboard.md) för att konfigurera utdata för ditt Azure Stream Analytics-jobb som Power BI instrument panel.
-   * ASA-frågan har tre utdata som är **aircraftmonitor** , **aircraftalert** och **flightsbyhour** . Du kan visa frågan genom att klicka på fliken fråga. Som motsvarar var och en av dessa tabeller måste du lägga till utdata till ASA. När du lägger till den första utdatan ( **aircraftmonitor** ) kontrollerar du att **utdata-aliaset** , **data uppsättningens namn** och **tabell namnet** är samma ( **aircraftmonitor** ). Upprepa stegen för att lägga till utdata för **aircraftalert** och **flightsbyhour** . När du har lagt till alla tre utgående tabeller och startat jobbet ASA, bör du få ett bekräftelse meddelande ("startar Stream Analytics jobbet maintenancesa02asapbi lyckades").
+   * ASA-frågan har tre utdata som är **aircraftmonitor** , **aircraftalert** och **flightsbyhour**. Du kan visa frågan genom att klicka på fliken fråga. Som motsvarar var och en av dessa tabeller måste du lägga till utdata till ASA. När du lägger till den första utdatan ( **aircraftmonitor** ) kontrollerar du att **utdata-aliaset** , **data uppsättningens namn** och **tabell namnet** är samma ( **aircraftmonitor** ). Upprepa stegen för att lägga till utdata för **aircraftalert** och **flightsbyhour**. När du har lagt till alla tre utgående tabeller och startat jobbet ASA, bör du få ett bekräftelse meddelande ("startar Stream Analytics jobbet maintenancesa02asapbi lyckades").
 2. Logga in på [Power BI online](https://www.powerbi.com)
    
    * På den vänstra panelen data uppsättningar i min arbets yta visas * **data uppsättningen** _ namn _ * aircraftmonitor * *, **aircraftalert** och **flightsbyhour** . Det här är de strömmande data som du har överfört från Azure Stream Analytics i föregående steg. Data uppsättningen **flightsbyhour** får inte visas samtidigt som de andra två data uppsättningarna på grund av SQL-frågans natur. Det bör dock visas efter en timme.
@@ -226,11 +226,10 @@ Följande steg vägleder dig hur du visualiserar datautdata från Stream Analyti
    * Hovra över musen över den här panelen på instrument panelen, klicka på ikonen "redigera" i det övre högra hörnet för att ändra titeln till "flottan av sensor 11 vs. Threshold 48,26" och under rubrik till "genomsnitt över flottan över tid".
 
 ## <a name="delete-your-solution"></a>Ta bort din lösning
-Se till att du stoppar data generatorn när du inte aktivt använder lösningen eftersom data generatorn kommer att ådra sig högre kostnader. Ta bort lösningen om du inte använder den. Om du tar bort lösningen tas alla komponenter som tillhandahålls i prenumerationen bort när du distribuerade lösningen. Om du vill ta bort lösningen klickar du på lösningens namn i den vänstra panelen i lösnings mal len och sedan på **ta bort** .
+Se till att du stoppar data generatorn när du inte aktivt använder lösningen eftersom data generatorn kommer att ådra sig högre kostnader. Ta bort lösningen om du inte använder den. Om du tar bort lösningen tas alla komponenter som tillhandahålls i prenumerationen bort när du distribuerade lösningen. Om du vill ta bort lösningen klickar du på lösningens namn i den vänstra panelen i lösnings mal len och sedan på **ta bort**.
 
 ## <a name="cost-estimation-tools"></a>Verktyg för kostnads uppskattning
 Följande två verktyg är tillgängliga för att hjälpa dig att bättre förstå de totala kostnaderna för att köra förebyggande underhåll för flyg lösnings mal len i din prenumeration:
 
 * [Verktyget Microsoft Azure kostnads uppskattning (online)](https://azure.microsoft.com/pricing/calculator/)
 * [Verktyget Microsoft Azure kostnads uppskattning (skriv bord)](https://www.microsoft.com/download/details.aspx?id=43376)
-

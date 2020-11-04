@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 04528d28e9f54710cd0a63372e32b099c2e07fb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026176"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321906"
 ---
 # <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Exempeldata i Azure Blob Storage
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver samplings data som lagras i Azure Blob Storage genom
 **Varför ska du testa dina data?**
 Om data uppsättningen som du planerar att analysera är stor är det vanligt vis en bra idé att stänga av data för att minska den till en mindre men representativ och mer hanterbar storlek. Sampling underlättar data förståelse, utforskning och funktions teknik. Dess roll i Cortana Analytics-processen är att möjliggöra snabb prototyper av data bearbetnings funktioner och maskin inlärnings modeller.
 
-Den här samplings aktiviteten är ett steg i [TDSP (Team data science process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Den här samplings aktiviteten är ett steg i [TDSP (Team data science process)](./index.yml).
 
 ## <a name="download-and-down-sample-data"></a>Hämta och stänga av exempel data
 1. Hämta data från Azure Blob Storage med hjälp av Blob Service från följande exempel på python-kod: 
@@ -102,7 +102,6 @@ Du kan använda följande exempel kod för att hämta exempel på data och anvä
         print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
     ```
 
-3. Läs data från Azure-blobben med Azure Machine Learning [Importera data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) som visas på bilden nedan:
+3. Läs data från Azure-blobben med Azure Machine Learning [Importera data](/azure/machine-learning/studio-module-reference/import-data) som visas på bilden nedan:
 
 ![läsar BLOB](./media/sample-data-blob/reader_blob.png)
-

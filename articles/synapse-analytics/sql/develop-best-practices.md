@@ -10,17 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: fe00d7f107911e2245041419c20f86e2e32a0480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5e514602668c96d63562e45fb114cf9770a54a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289267"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321491"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Bästa metoder för utveckling för Synapse SQL
+
 I den här artikeln beskrivs vägledning och bästa praxis när du utvecklar din lösning för data lager. 
 
-## <a name="sql-pool-development-best-practices"></a>Metod tips för utveckling av SQL-pool
+## <a name="dedicated-sql-pool-development-best-practices"></a>Bästa metoder för utveckling av dedikerade SQL-pooler
 
 ### <a name="reduce-cost-with-pause-and-scale"></a>Minska kostnaderna genom att pausa och skala
 
@@ -55,12 +56,12 @@ Se följande länkar om du vill ha mer information om hur du väljer en distribu
 Se även [tabell översikt](develop-tables-overview.md), [tabell distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [val av tabell distribution](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)och [CREATE TABLE som Välj](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="do-not-over-partition"></a>Överpartitionera inte
-När du partitionerar data kan det vara effektivt att underhålla dina data genom att byta partitionering eller optimera genomsökningar med hjälp av partition Eli minering, så att för många partitioner kan sakta ned dina frågor.  Ofta är en partitionerings strategi för hög granularitet som fungerar bra på SQL Server kanske inte fungerar bra på SQL-poolen.  
+När du partitionerar data kan det vara effektivt att underhålla dina data genom att byta partitionering eller optimera genomsökningar med hjälp av partition Eli minering, så att för många partitioner kan sakta ned dina frågor.  Ofta är en partitionerings strategi för hög granularitet som fungerar bra på SQL Server kanske inte fungerar bra på en dedikerad SQL-pool.  
 
 > [!NOTE]
-> Ofta är en partitionerings strategi för hög granularitet som fungerar bra på SQL Server kanske inte fungerar bra på SQL-poolen.  
+> Ofta är en partitionerings strategi för hög granularitet som fungerar bra på SQL Server kanske inte fungerar bra på en dedikerad SQL-pool.  
 
-För många partitioner kan också minska effektiviteten i grupperade columnstore-index om varje partition har färre än 1 miljoner rader. SQL-poolen partitionerar dina data till 60-databaser. 
+För många partitioner kan också minska effektiviteten i grupperade columnstore-index om varje partition har färre än 1 miljoner rader. Dedikerad SQL-pool partitionerar dina data till 60-databaser. 
 
 Om du skapar en tabell med 100 partitioner blir resultatet 6000 partitioner.  Alla arbetsbelastningar är olika så det bästa rådet är att experimentera med partitioneringen för att se vad som fungerar bäst med din arbetsbelastning.  
 
@@ -95,7 +96,7 @@ Se även [tabell översikt](develop-tables-overview.md), [tabell data typer](dev
 
 ### <a name="optimize-clustered-columnstore-tables"></a>Optimera grupperade columnstore-tabeller
 
-Grupperade columnstore-index är ett av de mest effektiva sätten att lagra data i SQL-poolen.  Som standard skapas tabeller i SQL-poolen som grupperade ColumnStore-tabeller.  
+Grupperade columnstore-index är ett av de mest effektiva sätten att lagra data i en dedikerad SQL-pool.  Som standard skapas tabeller i dedikerad SQL-pool som grupperade ColumnStore-objekt.  
 
 Det är viktigt att segmentkvaliteten är bra för att uppnå bästa prestanda med frågor mot columnstore-tabeller.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  
 
@@ -103,7 +104,7 @@ Segmentkvaliteten kan mätas utifrån antalet rader i en komprimerad radgrupp.  
 
 Eftersom ett columnstore-segment av hög kvalitet är viktigt är det en bra idé att använda användar-ID: n som finns i resurs klassen medel eller stor för att läsa in data. Genom att använda lägre [data lager enheter](resource-consumption-models.md) kan du tilldela en större resurs klass till din inläsnings användare.
 
-Eftersom columnstore-tabeller vanligt vis inte skickar data till ett komprimerat columnstore-segment förrän det finns fler än 1 000 000 rader per tabell, och varje SQL-adresspool är partitionerad i 60-tabeller, kommer columnstore-tabeller inte att dra nytta av en fråga om tabellen har fler än 60 000 000 rader.  
+Eftersom columnstore-tabeller vanligt vis inte skickar data till ett komprimerat columnstore-segment förrän det finns fler än 1 000 000 rader per tabell, och varje dedikerad SQL-adresspool är partitionerad i 60-tabeller, kommer columnstore-tabeller inte att dra nytta av en fråga om tabellen har fler än 60 000 000 rader.  
 
 > [!TIP]
 > För tabeller med färre än 60 000 000 rader är det inte säkert att ett columnstore-index är den optimala lösningen.  
@@ -116,23 +117,23 @@ När du kör frågor mot en columnstore-tabell körs frågorna snabbare om du ba
 
 Se även [tabell index](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [columnstore-index, guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [Återskapa columnstore-index](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
 
-## <a name="sql-on-demand-development-best-practices"></a>Metod tips för utveckling av SQL på begäran
+## <a name="serverless-sql-pool-development-best-practices"></a>Metod tips för utveckling av SQL-pooler utan Server
 
 ### <a name="general-considerations"></a>Generella saker att tänka på
 
-Med SQL på begäran kan du söka efter filer i dina Azure Storage-konton. Den har inte funktioner för lokal lagring eller inmatning, vilket innebär att alla filer som fråge målen är externa för SQL på begäran. Allt som rör läsning av filer från lagring kan därför påverka frågans prestanda.
+Med Server lös SQL-pool kan du söka efter filer i dina Azure Storage-konton. Den har inte funktioner för lokal lagring eller inmatning, vilket innebär att alla filer som fråge målen är externa för SQL-poolen utan server. Allt som rör läsning av filer från lagring kan därför påverka frågans prestanda.
 
-### <a name="colocate-azure-storage-account-and-sql-on-demand"></a>Samplacera Azure Storage konto och SQL på begäran
+### <a name="colocate-azure-storage-account-and-serverless-sql-pool"></a>Samplacera Azure Storage konto och SQL-pool utan Server
 
-Du kan minimera svars tiden genom att samplacera ditt Azure Storage-konto och din SQL-slutpunkt på begäran. Lagrings konton och slut punkter som tillhandahålls när arbets ytan skapas befinner sig i samma region.
+Du kan minimera svars tiden genom att samplacera ditt Azure Storage-konto och slut punkten för SQL-poolen utan server. Lagrings konton och slut punkter som tillhandahålls när arbets ytan skapas befinner sig i samma region.
 
-För optimala prestanda bör du kontrol lera att de finns i samma region om du har åtkomst till andra lagrings konton med SQL på begäran. Annars ökar svars tiden för data överföring från fjärrregionen till slut punktens region.
+För optimala prestanda bör du kontrol lera att de finns i samma region om du har åtkomst till andra lagrings konton med en server lös SQL-pool. Annars ökar svars tiden för data överföring från fjärrregionen till slut punktens region.
 
 ### <a name="azure-storage-throttling"></a>Azure Storage begränsning
 
-Flera program och tjänster kan komma åt ditt lagrings konto. När den kombinerade IOPS eller data flödet som genereras av program, tjänster och SQL-belastning på begäran överskrider lagrings kontots gränser, sker lagrings begränsningen. När lagrings begränsningen inträffar finns det en betydande negativ inverkan på frågans prestanda.
+Flera program och tjänster kan komma åt ditt lagrings konto. När den kombinerade IOPS eller data flödet som genereras av program, tjänster och arbets belastningen på den serverbaserade SQL-poolen överskrider lagrings kontots gränser, sker lagrings begränsningen. När lagrings begränsningen inträffar finns det en betydande negativ inverkan på frågans prestanda.
 
-När begränsningen har identifierats har SQL på begäran inbyggd hantering av det här scenariot. SQL på begäran kommer att göra begär anden till lagringen i en långsammare takt tills begränsningen har lösts. 
+När begränsningen har identifierats har SQL-poolen utan Server en inbyggd hantering av det här scenariot. SQL-poolen utan Server gör begär anden till lagringen långsammare tills begränsningen har lösts. 
 
 För optimal frågekörning rekommenderar vi dock att du inte överbelastar lagrings kontot med andra arbets belastningar under frågekörningen.
 
@@ -140,7 +141,7 @@ För optimal frågekörning rekommenderar vi dock att du inte överbelastar lagr
 
 Om möjligt kan du förbereda filer för bättre prestanda:
 
-- Konvertera CSV till Parquet – Parquet är kolumn format. Eftersom den är komprimerad har den mindre fil storlekar än CSV-filer med samma data, och SQL på begäran behöver mindre tid och lagrings begär Anden för att kunna läsa det.
+- Konvertera CSV till Parquet – Parquet är kolumn format. Eftersom den är komprimerad har den mindre fil storlekar än CSV-filer med samma data, och SQL-poolen utan server behöver mindre tid och lagrings begär Anden för att kunna läsa den.
 - Om en fråga är riktad mot en enda stor fil kan du dra nytta av att dela upp den på flera mindre filer.
 - Försök att behålla CSV-filens storlek under 10 GB.
 - Det är önskvärt att ha lika stora filer för en enskild OpenRowSet-sökväg eller en extern tabell plats.
@@ -148,17 +149,17 @@ Om möjligt kan du förbereda filer för bättre prestanda:
 
 ### <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Använda fileinfo-och fil Sök vägar för att fokusera på specifika partitioner
 
-Data är ofta ordnade i partitioner. Du kan instruera SQL på begäran att fråga specifika mappar och filer. Detta minskar antalet filer och mängden data som frågan behöver läsa och bearbeta. 
+Data är ofta ordnade i partitioner. Du kan instruera Server lös SQL-poolen att fråga specifika mappar och filer. Detta minskar antalet filer och mängden data som frågan behöver läsa och bearbeta. 
 
 Därför kommer du att få bättre prestanda. Mer information finns i funktioner för [fil namn](query-data-storage.md#filename-function) och fil [Sök väg](query-data-storage.md#filepath-function) och exempel på hur du [frågar efter vissa filer](query-specific-files.md).
 
 Om dina data i lagringen inte är partitionerade bör du överväga att partitionera dem så att du kan använda dessa funktioner för att optimera frågor som riktar sig mot dessa filer.
 
-När du [frågar partitionerade Apache Spark för externa Azure Synapse-tabeller](develop-storage-files-spark-tables.md) från SQL på begäran, kommer frågan automatiskt att endast rikta in de filer som behövs.
+När du [frågar partitionerade Apache Spark för externa Azure Synapse-tabeller](develop-storage-files-spark-tables.md) från en server lös SQL-pool, kommer frågan automatiskt att endast rikta in de filer som behövs.
 
 ### <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Använd CETAS för att förbättra frågornas prestanda och kopplingar
 
-[CETAS](develop-tables-cetas.md) är en av de viktigaste funktionerna som är tillgängliga i SQL på begäran. CETAS är en parallell åtgärd som skapar externa tabellens metadata och exporterar resultatet av URVALs frågan till en uppsättning filer i ditt lagrings konto.
+[CETAS](develop-tables-cetas.md) är en av de viktigaste funktionerna som finns i SQL-poolen utan server. CETAS är en parallell åtgärd som skapar externa tabellens metadata och exporterar resultatet av URVALs frågan till en uppsättning filer i ditt lagrings konto.
 
 Du kan använda CETAS för att lagra ofta använda delar av frågor som kopplade referens tabeller till en ny uppsättning filer. Senare kan du koppla till den här enskilda externa tabellen i stället för att upprepa vanliga kopplingar i flera frågor. 
 
@@ -166,7 +167,7 @@ När CETAS genererar Parquet-filer skapas statistik automatiskt när den första
 
 ### <a name="next-steps"></a>Nästa steg
 
-Om du behöver information som inte anges i den här artikeln använder du funktionen **Sök efter dokument** till vänster på den här sidan för att söka i alla dokument i SQL-poolen.  [Sidan Microsoft Q&en fråga för SQL-poolen](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) är en plats där du kan ställa frågor till andra användare och till produkt gruppen för SQL-poolen.  
+Om du behöver information som inte anges i den här artikeln använder du funktionen **Sök efter dokument** till vänster på den här sidan för att söka i alla dokument i SQL-poolen.  På [sidan Microsoft Q&en fråga för Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) kan du ställa frågor till andra användare och till produkt gruppen för Azure Synapse Analytics. Vi övervakar aktivt detta forum för att kontrollera att dina frågor besvaras antingen av en annan användare eller av någon av oss.  
 
-Vi övervakar aktivt detta forum för att kontrollera att dina frågor besvaras antingen av en annan användare eller av någon av oss.  Om du föredrar att ställa dina frågor på Stack Overflow, har vi också en [Azure SQL-pool Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
+Om du föredrar att ställa dina frågor på Stack Overflow har vi också ett [Azure Synapse Analytics Stack Overflow-forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

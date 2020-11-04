@@ -11,14 +11,15 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 4a4ce92278d5f6704fec4a5b9d30b44ddf89b0ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad7e98fcd544a538d45485cfb79acb3e7a6c843f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033446"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321469"
 ---
 # <a name="dynamic-sql-in-synapse-sql"></a>Dynamisk SQL i Synapse SQL
+
 I den här artikeln hittar du tips om hur du använder dynamiska SQL och utvecklar lösningar med Synapse SQL.
 
 ## <a name="dynamic-sql-example"></a>Dynamiskt SQL-exempel
@@ -26,7 +27,7 @@ I den här artikeln hittar du tips om hur du använder dynamiska SQL och utveckl
 När du utvecklar program kod kan du behöva använda dynamisk SQL för att leverera flexibla, generiska och modulära lösningar.
 
 > [!NOTE]
-> SQL-poolen stöder inte BLOB-datatyper för tillfället. Om du inte stöder BLOB-datatyper kan du begränsa storleken på dina strängar eftersom BLOB-datatyper inkluderar båda typerna varchar (max) och nvarchar (max). Om du har använt dessa typer i program koden för att bygga stora strängar måste du dela upp koden i segment och använda EXEC-instruktionen i stället.
+> Dedikerad SQL-pool stöder inte BLOB-datatyper för tillfället. Om du inte stöder BLOB-datatyper kan du begränsa storleken på dina strängar eftersom BLOB-datatyper inkluderar båda typerna varchar (max) och nvarchar (max). Om du har använt dessa typer i program koden för att bygga stora strängar måste du dela upp koden i segment och använda EXEC-instruktionen i stället.
 
 Ett enkelt exempel:
 
@@ -38,7 +39,7 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Om strängen är kort kan du använda [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) som normalt.
+Om strängen är kort kan du använda [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) som normalt.
 
 > [!NOTE]
 > Instruktioner som körs i dynamisk SQL kommer fortfarande att omfattas av alla verifierings regler för T-SQL.

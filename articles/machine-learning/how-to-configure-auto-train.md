@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: fc5b958813ea1107d98525b6dfc1b0b56c9c5400
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 09fe93d4e3ba50ced6c8f07d6fe25ace2376c388
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091210"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320530"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 
 
-I den här guiden får du lära dig hur du definierar olika konfigurations inställningar för dina automatiserade maskin inlärnings experiment med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Automatisk maskin inlärning väljer en algoritm och sina egenskaper för dig och genererar en modell som är klar för distribution. Det finns flera alternativ som du kan använda för att konfigurera automatiserade maskin inlärnings experiment.
+I den här guiden får du lära dig hur du definierar olika konfigurations inställningar för dina automatiserade maskin inlärnings experiment med [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Automatisk maskin inlärning väljer en algoritm och sina egenskaper för dig och genererar en modell som är klar för distribution. Det finns flera alternativ som du kan använda för att konfigurera automatiserade maskin inlärnings experiment.
 
 Om du vill visa exempel på automatiserade Machine Learning-experiment, se [Självstudier: träna en klassificerings modell med automatiserad maskin inlärning](tutorial-auto-train-models.md) eller [träna modeller med automatiserad maskin inlärning i molnet](how-to-auto-train-remote.md).
 
@@ -46,7 +46,7 @@ För den här artikeln behöver du
     Om du vill installera SDK kan du antingen 
     * Skapa en beräknings instans som automatiskt installerar SDK och som är förkonfigurerat för ML-arbetsflöden. Mer information finns i [skapa och hantera en Azure Machine Learning beräknings instans](how-to-create-manage-compute-instance.md) . 
 
-    * [Installera SDK själv](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). Se bara till att inkludera `automl` extra. 
+    * [Installera SDK själv](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). Se bara till att inkludera `automl` extra. 
 
 ## <a name="select-your-experiment-type"></a>Välj experimenttyp
 
@@ -61,20 +61,20 @@ from azureml.train.automl import AutoMLConfig
 automl_config = AutoMLConfig(task = "classification")
 ```
 
-## <a name="data-source-and-format"></a>Data källa och format
+## <a name="data-source-and-format"></a>Datakällor och format
 
-Automatisk Machine Learning stöder data som finns på ditt lokala skriv bord eller i molnet, till exempel Azure Blob Storage. Data kan läsas i en Pandas- **DataFrame** eller en **Azure Machine Learning TabularDataset**. [Läs mer om data uppsättningar](how-to-create-register-datasets.md).
+Automatiserad maskininlärning har stöd för både lokala data och data i molnlagring som Azure Blob Storage. Data kan läsas i en Pandas- **DataFrame** eller en **Azure Machine Learning TabularDataset**. [Läs mer om datamängder](how-to-create-register-datasets.md).
 
-Krav för tränings data:
+Krav på träningsdata:
 - Data måste vara i tabell form.
 - Värdet som ska förutsäga, mål kolumnen, måste finnas i datan.
 
-**För fjärrexperiment**måste inlärnings data vara tillgängliga från fjärrdatorn. AutoML accepterar bara [Azure Machine Learning TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) när du arbetar med en fjärrberäkning. 
+**För fjärrexperiment** måste inlärnings data vara tillgängliga från fjärrdatorn. AutoML tar bara emot [TabularDatasets i Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) när du arbetar från en fjärransluten dator. 
 
-Azure Machine Learning data uppsättningar visar funktioner för att:
+Azure Machine Learning-datamängder exponerar funktioner för att:
 
 * Överför enkelt data från statiska filer eller URL-källor till din arbets yta.
-* Gör dina data tillgängliga för att träna skript när de körs på moln beräknings resurser. Se [hur du tränar med data uppsättningar](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) för att få ett exempel på hur du använder `Dataset` klassen för att montera data till fjärrdatorns beräknings mål.
+* Göra data tillgängliga för träningsskript när de körs på beräkningsresurser i molnet. Se [hur du tränar med data uppsättningar](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) för att få ett exempel på hur du använder `Dataset` klassen för att montera data till fjärrdatorns beräknings mål.
 
 Följande kod skapar en TabularDataset från en webb-URL. Se [skapa en TabularDatasets](how-to-create-register-datasets.md#create-a-tabulardataset) för kod exempel för hur du skapar data uppsättningar från andra källor som lokala filer och data lager.
 
@@ -83,7 +83,7 @@ from azureml.core.dataset import Dataset
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
 dataset = Dataset.Tabular.from_delimited_files(data)
   ```
-**För lokala Compute-experiment**rekommenderar vi Pandas-dataframes för snabbare bearbetnings tider.
+**För lokala Compute-experiment** rekommenderar vi Pandas-dataframes för snabbare bearbetnings tider.
 
   ```python
   import pandas as pd
@@ -103,21 +103,21 @@ Om du inte uttryckligen anger en `validation_data` -eller `n_cross_validation` -
 |Tränings &nbsp; data &nbsp; storlek| Verifierings teknik |
 |---|-----|
 |**Större &nbsp; än &nbsp; 20 000 &nbsp; rader**| Data delning för träna/verifiering används. Standardvärdet är att ta 10% av den inledande tränings data uppsättningen som validerings uppsättningen. I sin tur används validerings uppsättningen för mått beräkning.
-|**Mindre &nbsp; än &nbsp; 20 000 &nbsp; rader**| Metoden för kors validering används. Standard antalet vikningar beror på antalet rader. <br> **Om data uppsättningen är mindre än 1 000 rader**används 10 vikning. <br> **Om raderna är mellan 1 000 och 20 000**används tre vik.
+|**Mindre &nbsp; än &nbsp; 20 000 &nbsp; rader**| Metoden för kors validering används. Standard antalet vikningar beror på antalet rader. <br> **Om data uppsättningen är mindre än 1 000 rader** används 10 vikning. <br> **Om raderna är mellan 1 000 och 20 000** används tre vik.
 
 För tillfället måste du ange dina egna **test data** för utvärdering av modeller. Ett kod exempel på hur du får dina egna test data för modell utvärdering finns i avsnittet **test** i [den här Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
 
 ## <a name="compute-to-run-experiment"></a>Beräkning för att köra experiment
 
-Härnäst bestämmer var modellen ska tränas. Ett automatiskt experiment med Machine Learning-utbildning kan köras med följande beräknings alternativ. Lär dig [om-och nack delar med lokala och fjärranslutna beräknings](concept-automated-ml.md#local-remote) alternativ. 
+Härnäst bestämmer var modellen ska tränas. Ett träningsexperiment i automatiserad maskininlärning kan köras med följande beräkningsalternativ. Läs mer om [fördelar och nackdelar med lokala och fjärranslutna beräkningar](concept-automated-ml.md#local-remote). 
 
-* Din **lokala** dator, till exempel ett lokalt skriv bord eller en bärbar dator – vanligt vis när du har en liten data uppsättning och du fortfarande befinner dig i utforsknings fasen. Se [den här antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) för ett lokalt Compute-exempel. 
+* Din **lokala** dator, till exempel ett lokalt skriv bord eller en bärbar dator – vanligt vis när du har en liten data uppsättning och du fortfarande befinner dig i utforsknings fasen. Det finns ett exempel med lokala beräkningar i [den här notebook-filen](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb). 
  
 * En **fjärrdator** i molnet – [Azure Machine Learning hanterad beräkning](concept-compute-target.md#amlcompute) är en hanterad tjänst som gör det möjligt att träna maskin inlärnings modeller på kluster av virtuella Azure-datorer. 
 
-    Se [den här antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) för ett fjärrexempel med Azure Machine Learning Managed Compute. 
+    Det finns ett exempel med fjärrberäkningar med Azure Machine Learning Managed Compute i [den här notebook-filen](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). 
 
-* Ett **Azure Databricks kluster** i din Azure-prenumeration. Du hittar mer information här – [konfigurera Azure Databricks kluster för automatisk ml](how-to-configure-environment.md#aml-databricks). Se den här [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) för exempel på antecknings böcker med Azure Databricks.
+* Ett **Azure Databricks kluster** i din Azure-prenumeration. Läs mer här – [Konfigurera Azure Databricks-kluster för automatisk maskininlärning](how-to-configure-environment.md#aml-databricks). Se den här [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) för exempel på antecknings böcker med Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -198,10 +198,10 @@ Klassificering | Regression | Prognostisering för tidsserier
 [Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Extremt slumpmässiga träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremt slumpmässiga träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremt slumpmässiga träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[Genomsnittlig Perceptron-klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest&preserve-view=true)|[Brantaste modellerings regressor för online-gradient](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest&preserve-view=true) |[ARIMA automatiskt](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Fast linjär modellerings regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest&preserve-view=true)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+[Genomsnittlig Perceptron-klassificerare](/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)|[Brantaste modellerings regressor för online-gradient](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) |[ARIMA automatiskt](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Fast linjär modellerings regressor](/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?preserve-view=true&view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
 [Stochastic gradient brantaste (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
-|[Linjär SVM-klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest&preserve-view=true)*||
+|[Linjär SVM-klassificerare](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)*||
 
 ### <a name="primary-metric"></a>Primärt mått
 `primary metric`Parametern bestämmer det mått som ska användas vid modell träning för optimering. Tillgängliga mått som du kan välja bestäms av den aktivitets typ som du väljer och följande tabell visar giltiga primära mått för varje aktivitets typ.
@@ -333,7 +333,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 Det finns några alternativ som du kan definiera för att avsluta experimentet.
 
-|Kriterie| description
+|Kriterie| beskrivning
 |----|----
 Inga &nbsp; kriterier | Om du inte definierar några avslutnings parametrar fortsätter experimentet tills inga ytterligare framsteg görs på ditt primära mått.
 Efter &nbsp; en &nbsp; viss &nbsp; &nbsp; tid| Använd `experiment_timeout_minutes` i dina inställningar för att definiera hur lång tid, i minuter, som experimentet ska fortsätta att köras. <br><br> För att undvika tids brist på experiment, det finns minst 15 minuter eller 60 minuter om raden efter kolumn storlek överskrider 10 000 000.

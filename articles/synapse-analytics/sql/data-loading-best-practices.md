@@ -1,6 +1,6 @@
 ---
 title: Metodtips för datainläsning
-description: Rekommendationer och prestanda optimeringar för inläsning av data i Synapse SQL
+description: Rekommendationer och prestanda optimeringar för att läsa in data i en dedikerad Azure Synapse-analys i SQL-pool.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4c07ad2aaf6c682dc370e3223dba1f199242ca2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e706f12a251cd38c3525a48553743606ed199b6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289239"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321508"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Regelverk för inläsning av data för datalagerhantering
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Metod tips för att läsa in data i en dedikerad SQL-pool Azure Synapse Analytics
 
 I den här artikeln hittar du rekommendationer och prestanda optimeringar för att läsa in data.
 
 ## <a name="prepare-data-in-azure-storage"></a>Förbereda data i Azure Storage
 
-Du kan minimera svars tiden genom att samplacera ditt lagrings lager och ditt informations lager.
+Du kan minimera svars tiden genom att samplacera ditt lagrings lager och din dedikerade SQL-pool.
 
 När du exporterar data till ett ORC-filformat kan du råka ut för ”slut på minne”-fel i Java när det finns kolumner med mycket text. Du kan undvika denna begränsning genom att bara exportera en del av kolumnerna.
 
@@ -36,7 +36,7 @@ Dela upp stora komprimerade filer i små komprimerade filer.
 
 ## <a name="run-loads-with-enough-compute"></a>Kör belastningar med tillräckligt med beräkning
 
-För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om detta inte är möjligt, kör du ett minimalt antal belastningar samtidigt. Om du förväntar dig ett stort inläsnings jobb kan du skala upp SQL-poolen före belastningen.
+För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om detta inte är möjligt, kör du ett minimalt antal belastningar samtidigt. Om du förväntar dig ett stort inläsnings jobb kan du skala upp din dedikerade SQL-pool före belastningen.
 
 För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsnings användare till en angiven resurs klass eller arbets belastnings grupp. Om du vill köra en inläsning loggar du in som en inläsnings användare och kör sedan belastningen. Inläsningen körs med användarens resursklass.  Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535077"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321283"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Självstudie: träna bild klassificerings modeller med MNIST-data och scikit-lär 
 
@@ -34,12 +34,12 @@ Läs hur du vidtar följande åtgärder:
 
 Du lär dig hur du väljer en modell och distribuerar den i [del två av den här självstudien](tutorial-deploy-models-with-aml.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 >[!NOTE]
-> Koden i den här artikeln har testats med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) -version 1.13.0.
+> Koden i den här artikeln har testats med [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) -version 1.13.0.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [självstudien: kom igång med att skapa ditt första Azure ml-experiment](tutorial-1st-experiment-sdk-setup.md) för att:
     * Skapa en arbetsyta
@@ -159,7 +159,7 @@ Innan du tränar en modell så måste du förstå de data som du använder för 
 
 ### <a name="download-the-mnist-dataset"></a>Ladda ned MNIST-datauppsättningen
 
-Använd Azures öppna data uppsättningar för att hämta RAW MNIST-datafilerna. [Azure Open-datauppsättningar](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) är granskade offentliga data uppsättningar som du kan använda för att lägga till scenario-/regionsspecifika funktioner till maskin inlärnings lösningar för mer exakta modeller. Varje data uppsättning har en motsvarande klass, `MNIST` i det här fallet för att hämta data på olika sätt.
+Använd Azures öppna data uppsättningar för att hämta RAW MNIST-datafilerna. [Azure Open-datauppsättningar](../open-datasets/overview-what-are-open-datasets.md) är granskade offentliga data uppsättningar som du kan använda för att lägga till scenario-/regionsspecifika funktioner till maskin inlärnings lösningar för mer exakta modeller. Varje data uppsättning har en motsvarande klass, `MNIST` i det här fallet för att hämta data på olika sätt.
 
 Den här koden hämtar data som ett `FileDataset` objekt, vilket är en underordnad klass till `Dataset` . En `FileDataset` refererar till en eller flera filer i alla format i dina data lager eller offentliga URL: er. Klassen ger dig möjlighet att ladda ned eller montera filerna i beräkningen genom att skapa en referens till data käll platsen. Dessutom registrerar du data uppsättningen på din arbets yta för enkel hämtning under utbildningen.
 
@@ -309,7 +309,7 @@ Observera hur skriptet hämtar data och sparar modeller:
 
 ### <a name="configure-the-training-job"></a>Konfigurera utbildnings jobbet
 
-Skapa ett [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) -objekt om du vill ange konfigurations information för ditt utbildnings jobb, inklusive ditt utbildnings skript, vilken miljö som ska användas och vilket beräknings mål som ska köras. Konfigurera ScriptRunConfig genom att ange:
+Skapa ett [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) -objekt om du vill ange konfigurations information för ditt utbildnings jobb, inklusive ditt utbildnings skript, vilken miljö som ska användas och vilket beräknings mål som ska köras. Konfigurera ScriptRunConfig genom att ange:
 
 * Katalogen som innehåller dina skript. Alla filer i den här katalogen laddas upp till klusternoderna för körning.
 * Beräkningsmålet. I det här fallet använder du Azure Machine Learning-beräkningsklustret som du skapade.
@@ -368,21 +368,21 @@ Den första körningen tar totalt **cirka 10 minuter**. Men för efterföljande 
 
 Vad händer medan du väntar:
 
-- **Skapa bild**: en Docker-avbildning skapas som matchar python-miljön som anges i Azure ml-miljön. Avbildningen laddas upp till arbetsytan. Det tar **cirka fem minuter** att skapa och överföra avbildningen.
+- **Skapa bild** : en Docker-avbildning skapas som matchar python-miljön som anges i Azure ml-miljön. Avbildningen laddas upp till arbetsytan. Det tar **cirka fem minuter** att skapa och överföra avbildningen.
 
   Den här fasen sker en gång för varje Python-miljö eftersom containern cachelagras för efterföljande körningar. När avbildningen skapas strömmas loggar till körningshistoriken. Du kan övervaka förloppet för avbildningsgenereringen med de här loggarna.
 
-- **Skalning**: om fjärrklusteret kräver fler noder för att köra körningen än vad som är tillgängligt, läggs ytterligare noder till automatiskt. Skalningen tar normalt **cirka fem minuter.**
+- **Skalning** : om fjärrklusteret kräver fler noder för att köra körningen än vad som är tillgängligt, läggs ytterligare noder till automatiskt. Skalningen tar normalt **cirka fem minuter.**
 
-- **Körs**: i det här steget skickas nödvändiga skript och filer till Compute-målet. Datalagren monteras eller kopieras därefter. Och sedan körs **entry_script**. Medan jobbet körs strömmas **STDOUT** och katalogen **./logs** till körnings historiken. Du kan övervaka körningens förlopp med hjälp av de här loggarna.
+- **Körs** : i det här steget skickas nödvändiga skript och filer till Compute-målet. Datalagren monteras eller kopieras därefter. Och sedan körs **entry_script**. Medan jobbet körs strömmas **STDOUT** och katalogen **./logs** till körnings historiken. Du kan övervaka körningens förlopp med hjälp av de här loggarna.
 
-- **Efter bearbetning**: katalogen **./outputs** i körningen kopieras till körnings historiken i din arbets yta, så att du kan komma åt dessa resultat.
+- **Efter bearbetning** : katalogen **./outputs** i körningen kopieras till körnings historiken i din arbets yta, så att du kan komma åt dessa resultat.
 
 Du kan kontrollera förloppet för ett jobb som körs på flera olika sätt. Den här självstudien använder en Jupyter-widget samt en `wait_for_completion`-metod.
 
 ### <a name="jupyter-widget"></a>Jupyter-widget
 
-Se förloppet för [widgeten](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)kör med en Jupyter-widget. Precis som körningsöverföringen så är widgeten asynkron och tillhandahåller liveuppdateringar var 10:e till 15:e sekund tills jobbet slutförts:
+Se förloppet för [widgeten](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py)kör med en Jupyter-widget. Precis som körningsöverföringen så är widgeten asynkron och tillhandahåller liveuppdateringar var 10:e till 15:e sekund tills jobbet slutförts:
 
 ```python
 from azureml.widgets import RunDetails
@@ -393,7 +393,7 @@ Widgeten kommer att se ut så här i slutet av utbildningen:
 
 ![Anteckningsbok-widget](./media/tutorial-train-models-with-aml/widget.png)
 
-Om du vill avbryta en körning kan du följa [instruktionerna](https://aka.ms/aml-docs-cancel-run).
+Om du vill avbryta en körning kan du följa [instruktionerna](./how-to-manage-runs.md).
 
 ### <a name="get-log-results-upon-completion"></a>Hämta loggresultat när åtgärden har slutförts
 

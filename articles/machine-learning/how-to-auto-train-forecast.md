@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: ce8ff8bedc6f6e4f99a940bbdb26bd3fafc930d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b708d85e94782ea264432ae3780b2b1f0d240396
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296781"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320811"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 
 
-I den här artikeln får du lära dig hur du konfigurerar och tränar en uppskattnings Regressions modell i Time-serien med hjälp av automatisk maskin inlärning, AutoML, i [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
+I den här artikeln får du lära dig hur du konfigurerar och tränar en uppskattnings Regressions modell i Time-serien med hjälp av automatisk maskin inlärning, AutoML, i [Azure Machine Learning python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
 Det gör du på följande sätt: 
 
@@ -120,7 +120,7 @@ Lär dig mer om hur AutoML använder kors validering för att [förhindra övera
 
 ## <a name="configure-experiment"></a>Konfigurera experiment
 
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)Objektet definierar de inställningar och data som krävs för en automatiserad maskin inlärnings uppgift. Konfigurationen för en prognos modell liknar installationen av en standard Regressions modell, men vissa modeller, konfigurations alternativ och funktionalisering-steg finns specifikt för Time-seriens data. 
+[`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py)Objektet definierar de inställningar och data som krävs för en automatiserad maskin inlärnings uppgift. Konfigurationen för en prognos modell liknar installationen av en standard Regressions modell, men vissa modeller, konfigurations alternativ och funktionalisering-steg finns specifikt för Time-seriens data. 
 
 ### <a name="supported-models"></a>Modeller som stöds
 Automatisk maskin inlärning försöker automatiskt med olika modeller och algoritmer som en del av processen för att skapa och justera modeller. Som användare behöver du inte ange algoritmen. För prognostisering av experiment är både interna Time-Series-och djup inlärnings modeller en del av rekommendations systemet. I följande tabell sammanfattas den här del mängden av modeller. 
@@ -138,7 +138,7 @@ ForecastTCN (för hands version)| ForecastTCN är en neurala-nätverks modell so
 
 Precis som med ett Regressions problem definierar du standard utbildnings parametrar som aktivitets typ, antal iterationer, tränings data och antalet kors valideringar. För prognos uppgifter finns det ytterligare parametrar som måste anges som påverkar experimentet. 
 
-I följande tabell sammanfattas dessa ytterligare parametrar. I [referens dokumentationen](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) finns mönster för utformning av syntax.
+I följande tabell sammanfattas dessa ytterligare parametrar. I [referens dokumentationen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) finns mönster för utformning av syntax.
 
 | Parameter &nbsp; namn | Beskrivning | Krävs |
 |-------|-------|-------|
@@ -149,10 +149,11 @@ I följande tabell sammanfattas dessa ytterligare parametrar. I [referens dokume
 |`target_lags`|Antal rader att ange för fördröjning av målvärdena baserat på data frekvensen. Fördröjningen visas som en lista eller ett enda heltal. Fördröjning ska användas när relationen mellan oberoende variabler och beroende variabel inte matchar eller korrelerar som standard. ||
 |`feature_lags`| Funktionerna i fördröjningen väljs automatiskt av automatisk ML när `target_lags` har angetts och `feature_lags` är inställt på `auto` . Att aktivera funktionen lags kan hjälpa till att förbättra noggrannheten. Funktionen lags är inaktive rad som standard. ||
 |`target_rolling_window_size`|*n* historiska perioder som ska användas för att generera prognostiserade värden <= storlek för tränings uppsättning. Om det utelämnas är *n* den fullständiga inlärnings uppsättningens storlek. Ange den här parametern när du bara vill ta hänsyn till en viss mängd historik när du tränar modellen. Lär dig mer om [agg regerings fönster för mål](#target-rolling-window-aggregation).||
+|`short_series_handling`| Möjliggör kort tids serie hantering för att undvika misslyckande vid utbildning på grund av otillräckliga data. Hantering av korta serier har angetts till true som standard.|
 
 
 Följande kod, 
-* Skapar `time-series settings` som ett Dictionary-objekt. 
+* Utnyttjar klassen för `ForecastingParameters` att definiera prognos parametrar för din experiment utbildning
 * Anger `time_column_name` `day_datetime` fältet i data uppsättningen. 
 * Definierar `time_series_id_column_names` parametern till `"store"` . Detta säkerställer att **två separata tids serie grupper** skapas för data. en för Store A och B.
 * Ställer in `forecast_horizon` till 50 för att förutsäga för hela test uppsättningen. 
@@ -161,16 +162,18 @@ Följande kod,
 * Anger `target_lags` den rekommenderade inställningen "Auto", som automatiskt identifierar det här värdet.
 
 ```python
-time_series_settings = {
-    "time_column_name": "day_datetime",
-    "time_series_id_column_names": ["store"],
-    "forecast_horizon": 50,
-    "target_lags": "auto",
-    "target_rolling_window_size": 10,
-}
+from azureml.automl.core.forecasting_parameters import ForecastingParameters
+
+forecasting_parameters = ForecastingParameters(
+    time_column_name='day_datetime', 
+    forecast_horizon=50,
+    time_series_id_column_names=["store"],
+    target_lags='auto',
+    target_rolling_window_size=10
+)
 ```
 
-De `time_series_settings` skickas sedan till standard- `AutoMLConfig` objektet tillsammans med `forecasting` uppgifts typ, primärt mått, avslutnings villkor och tränings data. 
+De `forecasting_parameters` skickas sedan till standard- `AutoMLConfig` objektet tillsammans med `forecasting` uppgifts typ, primärt mått, avslutnings villkor och tränings data. 
 
 ```python
 from azureml.core.workspace import Workspace
@@ -346,4 +349,3 @@ Se [exempel antecknings böcker för Prognosticering](https://github.com/Azure/M
 * Lär dig mer om [tolkning: modell förklaringar i Automatisk maskin inlärning (för hands version)](how-to-machine-learning-interpretability-automl.md). 
 * Lär dig hur du tränar flera modeller med AutoML i [många modeller lösnings acceleratorer](https://aka.ms/many-models).
 * Följ [själv studie kursen](tutorial-auto-train-models.md) för ett slut punkt till slut punkts exempel för att skapa experiment med automatiserad maskin inlärning.
-

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91d6d15fc8855b49bece3a7ed903074e716b7ac4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905255"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319413"
 ---
 # <a name="poisson-regression"></a>Poisson-regression
 
@@ -29,7 +29,7 @@ Använd den här modulen för att skapa en Poisson regression-modell i en pipeli
 - En Poisson-distribution är en diskret distribution. Därför är det inte meningsfullt att använda den här metoden med icke-heltal.
 
 > [!TIP]
-> Om målet inte är ett antal är Poisson regression förmodligen inte en lämplig metod. Testa [andra Regressions moduler i designern](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference#machine-learning-algorithms). 
+> Om målet inte är ett antal är Poisson regression förmodligen inte en lämplig metod. Testa [andra Regressions moduler i designern](./module-reference.md#machine-learning-algorithms). 
 
 När du har konfigurerat Regressions metoden måste du träna modellen med en data uppsättning som innehåller exempel på det värde som du vill förutsäga. Den tränade modellen kan sedan användas för att göra förutsägelser.
 
@@ -49,7 +49,7 @@ Eftersom Response-variabeln har en Poisson-distribution, gör modellen olika ant
 
 ## <a name="how-to-configure-poisson-regression"></a>Så här konfigurerar du Poisson-regression
 
-1. Lägg till **Poisson regression** -modulen i din pipeline i designern. Du hittar den här modulen under **Machine Learning algoritmer**i **Regressions** kategorin.
+1. Lägg till **Poisson regression** -modulen i din pipeline i designern. Du hittar den här modulen under **Machine Learning algoritmer** i **Regressions** kategorin.
 
 2. Lägg till en data uppsättning som innehåller tränings data av rätt typ. 
 
@@ -57,13 +57,13 @@ Eftersom Response-variabeln har en Poisson-distribution, gör modellen olika ant
 
 3. I den högra rutan i **Poisson regression** -modulen anger du hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    - **Enskild parameter**: Ange en viss uppsättning värden som argument om du vet hur du vill konfigurera modellen.
+    - **Enskild parameter** : Ange en viss uppsättning värden som argument om du vet hur du vill konfigurera modellen.
   
-    - **Parameter intervall**: om du inte är säker på de bästa parametrarna gör du en parameter rensning med hjälp av modulen för att [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Utbildaren itererar över flera värden som du anger för att hitta den optimala konfigurationen.
+    - **Parameter intervall** : om du inte är säker på de bästa parametrarna gör du en parameter rensning med hjälp av modulen för att [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Utbildaren itererar över flera värden som du anger för att hitta den optimala konfigurationen.
   
-4. **Optimerings tolerans**: Ange ett värde som definierar tolerans intervallet under optimeringen. Ju lägre värde, desto långsammare och mer korrekt passning.
+4. **Optimerings tolerans** : Ange ett värde som definierar tolerans intervallet under optimeringen. Ju lägre värde, desto långsammare och mer korrekt passning.
 
-5. **L1-regulariseringshastigheten vikt** och **L2-regulariseringshastigheten vikt**: Ange värden som ska användas för L1-och L2-regulariseringshastigheten. *Regulariseringshastigheten* lägger till begränsningar i algoritmen för aspekter av modellen som är oberoende av tränings data. Regulariseringshastigheten används ofta för att undvika överanpassning. 
+5. **L1-regulariseringshastigheten vikt** och **L2-regulariseringshastigheten vikt** : Ange värden som ska användas för L1-och L2-regulariseringshastigheten. *Regulariseringshastigheten* lägger till begränsningar i algoritmen för aspekter av modellen som är oberoende av tränings data. Regulariseringshastigheten används ofta för att undvika överanpassning. 
 
     - L1-regulariseringshastigheten är användbart om målet är att ha en modell som är så sparse som möjligt.
 
@@ -73,9 +73,9 @@ Eftersom Response-variabeln har en Poisson-distribution, gör modellen olika ant
 
     I den här modulen kan du använda en kombination av L1-och L2-regularizations. Genom att kombinera L1-och L2-regulariseringshastigheten kan du ställa in en straffning för parameter värdenas storlek. Eleven försöker minimera sanktionen på ett kompromiss med att minimera förlusten.
 
-    En felfri diskussion om L1-och L2-regulariseringshastigheten finns i [L1-och L2-regulariseringshastigheten för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx).
+    En felfri diskussion om L1-och L2-regulariseringshastigheten finns i [L1-och L2-regulariseringshastigheten för Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning).
 
-6. **Minnes storlek för L-BFGS**: Ange mängden minne som ska reserveras för modell anpassning och optimering.
+6. **Minnes storlek för L-BFGS** : Ange mängden minne som ska reserveras för modell anpassning och optimering.
 
      L-BFGS är en metod för optimering baserat på algoritmen Broyden – Fletcher – Goldfarb – Shanno (BFGS). Metoden använder en begränsad mängd minne (L) för att beräkna nästa steg riktning.
 
@@ -83,9 +83,9 @@ Eftersom Response-variabeln har en Poisson-distribution, gör modellen olika ant
 
 7. Anslut inlärnings data uppsättningen och den inte tränade modellen till någon av inlärnings modulerna: 
 
-    - Om du ställer in **skapa utbildare** för **en parameter**använder du modulen [träna modell](train-model.md) .
+    - Om du ställer in **skapa utbildare** för **en parameter** använder du modulen [träna modell](train-model.md) .
 
-    - Om du ställer in **skapa utbildare läge** till **parameter intervall**använder du modulen för att [finjustera modellens egenskaper](tune-model-hyperparameters.md) .
+    - Om du ställer in **skapa utbildare läge** till **parameter intervall** använder du modulen för att [finjustera modellens egenskaper](tune-model-hyperparameters.md) .
 
     > [!WARNING]
     > 
@@ -105,4 +105,4 @@ När utbildningen är klar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

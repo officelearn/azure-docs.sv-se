@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c0dfa06e2ece2ba4631c0d5681b066ab0134daba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7234a8c45c20c64dddb43a52a099aa92f2d297d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085675"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321121"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Utforska data i Hive-tabeller med Hive-frågor
 
@@ -24,13 +24,13 @@ Den här artikeln innehåller exempel på Hive-skript som används för att utfo
 
 Den här uppgiften är ett steg i [processen för team data vetenskap](overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har:
 
 * Skapat ett Azure Storage-konto. Om du behöver instruktioner, se [skapa ett Azure Storage konto](../../storage/common/storage-account-create.md)
-* Etablerade ett anpassat Hadoop-kluster med HDInsight-tjänsten. Om du behöver instruktioner, se [anpassa Azure HDInsight Hadoop kluster för avancerad analys](customize-hadoop-cluster.md).
+* Etablerade ett anpassat Hadoop-kluster med HDInsight-tjänsten. Om du behöver instruktioner, se [anpassa Azure HDInsight Hadoop kluster för avancerad analys](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * Data har laddats upp till Hive-tabeller i Azure HDInsight Hadoop kluster. Om den inte har det följer du anvisningarna i [skapa och läsa in data till Hive-tabeller](move-hive-tables.md) för att ladda upp data till Hive-tabeller först.
-* Fjärråtkomst till klustret har Aktiver ATS. Om du behöver instruktioner, se [åtkomst till Head-noden i Hadoop-klustret](customize-hadoop-cluster.md).
+* Fjärråtkomst till klustret har Aktiver ATS. Om du behöver instruktioner, se [åtkomst till Head-noden i Hadoop-klustret](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * Om du behöver instruktioner om hur du skickar Hive-frågor, se [så här skickar du Hive-frågor](move-hive-tables.md#submit)
 
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>Exempel skript för Hive-frågor för data utforskning
@@ -72,4 +72,3 @@ Den här artikeln förutsätter att du har:
 
 ## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Ytterligare fråge skript för data scenarier för taxi resor
 Exempel på frågor som är speciella för [NYC taxi rese data](https://chriswhong.com/open-data/foil_nyc_taxi/) scenarier finns också i [GitHub-lagringsplatsen](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Dessa frågor har redan angivet data schema och är redo att skickas till att köras.
-

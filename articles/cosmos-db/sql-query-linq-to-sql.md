@@ -3,15 +3,16 @@ title: LINQ to SQL översättning i Azure Cosmos DB
 description: Läs om de LINQ-operatörer som stöds och hur LINQ-frågorna mappas till SQL-frågor i Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: c7d47b0bb167b3211b3859a47b0c8e11876b1614
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38d37d03c99bd3a39b00276da110ea0ef6bb962e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075409"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332380"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL-översättning
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -84,7 +85,7 @@ LINQ-providern som ingår i SQL .NET SDK stöder följande operatorer:
 - **Där** : filter översätter till [WHERE](sql-query-where.md), och stöder översättning mellan `&&` , `||` , och `!` till SQL-operatörerna
 - **SelectMany** : tillåter avlindning av matriser till [Join](sql-query-join.md) -satsen. Används för att kedja eller kapsla uttryck för att filtrera på mat ris element.
 - **OrderBy** och **OrderByDescending** : Översätt till [order by](sql-query-order-by.md) med ASC eller DESC.
-- **Count** -, **Sum** -, **min** -, **Max** -och **genomsnitts** operatorer för [agg regering](sql-query-aggregates.md)och deras async-motsvarigheter **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** och **AverageAsync** .
+- **Count** -, **Sum** -, **min** -, **Max** -och **genomsnitts** operatorer för [agg regering](sql-query-aggregates.md)och deras async-motsvarigheter **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** och **AverageAsync**.
 - **CompareTo** : Översätts till intervalljämförelser. Används ofta för strängar, eftersom de inte är jämförbara i .NET.
 - **Hoppa över** och **vidta** : översätts till [förskjutning och gräns](sql-query-offset-limit.md) för begränsning av resultat från en fråga och sid brytning.
 - **Matematiska funktioner** : stöder översättning från .net,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` , `Floor` , `Log` , `Log10` , `Pow` , `Round` , `Sign` , `Sin` , `Sqrt` , `Tan` , och `Truncate` motsvarande [inbyggda matematiska funktioner](sql-query-mathematical-functions.md).

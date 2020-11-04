@@ -437,5 +437,7 @@
       href: limits-quotas-constraints.md
     - name: Azure-moln och -regioner
       href: azure-clouds-regions.md
+    - name: Regionala kodnamn och slutpunkter
+      href: azure-regions-code-names.md
     - name: Dokumentationsuppdateringar
       href: docs-release-notes.md

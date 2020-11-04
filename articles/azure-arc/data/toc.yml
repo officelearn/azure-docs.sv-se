@@ -116,6 +116,8 @@
           items:
             - name: Säkerhetskopiera och återställa
               href: backup-restore-postgresql-hyperscale.md
+            - name: Ändra PostgreSQL-port
+              href: change-postgresql-port.md
             - name: Konfigurera och skala
               items:
                 - name: Visa konfiguration

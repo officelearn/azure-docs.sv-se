@@ -127,6 +127,8 @@
       href: ../../web-application-firewall/security-baseline.md
     - name: Säkerhetsbaslinje för Batch
       href: ../../batch/security-baseline.md
+    - name: Säkerhetsbaslinje för Cloud Services
+      href: ../../cloud-services/security-baseline.md
     - name: Cloud Shell-säkerhetsbaslinje
       href: ../../cloud-shell/security-baseline.md
     - name: Cognitive Services-säkerhetsbaslinje
@@ -177,5 +179,7 @@
       href: ../../virtual-machines/windows/security-baseline.md
     - name: Säkerhetsbaslinje för Virtual Network
       href: ../../virtual-network/security-baseline.md
+    - name: Säkerhetsbaslinje för Virtual WAN
+      href: ../../virtual-wan/security-baseline.md
     - name: Säkerhetsbaslinje för VPN Gateway
       href: ../../vpn-gateway/security-baseline.md

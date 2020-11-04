@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: 2ee616bfe9e88f2f3da37f1e4963ec7a73d59468
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: db94a82112f2670facd4d89178f11653c5316c36
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912097"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331785"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd python för att ansluta och fråga efter data i Azure Database for PostgreSQL-enskild server
 
@@ -23,7 +23,7 @@ I den här snabb starten får du lära dig hur du ansluter till databasen på Az
 > Om du vill bygga ett django-program med PostgreSQL kan du checka in självstudien, [distribuera en django-webbapp med en postgresql-](../app-service/tutorial-python-postgresql-app.md) självstudie.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För den här snabb starten behöver du:
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free).
@@ -45,7 +45,7 @@ För den här snabb starten behöver du:
 Att ansluta till en Azure Database for PostgreSQL-databas kräver det fullständigt kvalificerade Server namnet och inloggnings uppgifterna. Du kan hämta den här informationen från Azure Portal.
 
 1. I [Azure Portal](https://portal.azure.com/)söker du efter och väljer Azure Database for postgresql server namnet.
-1. På sidan **Översikt** för servern kopierar du det fullständigt kvalificerade **Server namnet** och **administratörens användar namn** . Det fullständigt kvalificerade **Server namnet** är alltid av formatet *\<my-server-name> . postgres.Database.Azure.com* och **administratörens användar namn** är alltid i formatet *\<my-admin-username>@\<my-server-name>* .
+1. På sidan **Översikt** för servern kopierar du det fullständigt kvalificerade **Server namnet** och **administratörens användar namn**. Det fullständigt kvalificerade **Server namnet** är alltid av formatet *\<my-server-name> . postgres.Database.Azure.com* och **administratörens användar namn** är alltid i formatet *\<my-admin-username>@\<my-server-name>* .
 
    Du behöver också ditt administratörs lösen ord. Om du glömmer bort det kan du återställa det från den här sidan.
 
@@ -101,7 +101,7 @@ conn.close()
 
 När koden körs skapas följande utdata:
 
-:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Azure Database for PostgreSQL-servernamn":::
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Kommandoradsutdata":::
 
 
 [Har du problem? Berätta för oss](https://aka.ms/postgres-doc-feedback)
@@ -149,6 +149,16 @@ print("Deleted 1 row of data")
 ```
 
 [Har du problem? Berätta för oss](https://aka.ms/postgres-doc-feedback)
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du vill rensa alla resurser som används under den här snabb starten tar du bort resurs gruppen med hjälp av följande kommando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

@@ -221,6 +221,8 @@
           href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: 'Referens till IoT Central-API:er'
       href: /rest/api/iotcentral/
+    - name: Kunddatahemvist
+      href: iot-central-customer-data-residency.md
     - name: Kunddataförfrågningar
       href: iot-central-customer-data-requests.md
     - name: Webbläsare som stöds

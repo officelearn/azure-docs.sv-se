@@ -3,16 +3,17 @@ title: Hantera API-resurser för Azure Cosmos DB Core (SQL) med hjälp av PowerS
 description: Hantera API-resurser för Azure Cosmos DB Core (SQL) med hjälp av PowerShell.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 53a44ed15517cad157e43d8de465438537e15121
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2d99a760e3bf44febcee05bf9827479616bf7bd6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088615"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333451"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Hantera API-resurser för Azure Cosmos DB Core (SQL) med PowerShell
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

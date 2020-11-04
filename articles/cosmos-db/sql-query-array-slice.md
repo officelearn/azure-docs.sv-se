@@ -3,16 +3,17 @@ title: ARRAY_SLICE i Azure Cosmos DB frågespråk
 description: Lär dig mer om hur array-funktionen SQL system i Azure Cosmos DB Returnerar en del av ett mat ris uttryck
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c66e9ee2ff4b1c279e0fcc4e735be583cf55a2c8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1808070f374614ae6cac9a27098ddf2f4d9d2d12
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089363"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332533"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

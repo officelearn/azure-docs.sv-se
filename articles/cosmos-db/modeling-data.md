@@ -5,14 +5,15 @@ description: Lär dig mer om data modellering i NoSQL-databaser, skillnader mell
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 0868b0d3e917b857d09c89e3a35d03872c42a23e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096656"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333264"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Data modellering i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,7 +37,7 @@ För jämförelse ska vi först se hur vi kan modellera data i en Relations data
 
 :::image type="content" source="./media/sql-api-modeling-data/relational-data-model.png" alt-text="Relations databas modell" border="false":::
 
-När du arbetar med relations databaser, är strategin att normalisera alla dina data. Att normalisera dina data innebär vanligt vis att ta en entitet, till exempel en person, och dela upp den i diskreta komponenter. I exemplet ovan kan en person ha flera kontakt informations poster, samt flera adress poster. Kontakt uppgifter kan delas vidare genom att ytterligare extrahera vanliga fält som en typ. Samma sak gäller för adress, varje post kan vara av typen *Start* eller *företag* .
+När du arbetar med relations databaser, är strategin att normalisera alla dina data. Att normalisera dina data innebär vanligt vis att ta en entitet, till exempel en person, och dela upp den i diskreta komponenter. I exemplet ovan kan en person ha flera kontakt informations poster, samt flera adress poster. Kontakt uppgifter kan delas vidare genom att ytterligare extrahera vanliga fält som en typ. Samma sak gäller för adress, varje post kan vara av typen *Start* eller *företag*.
 
 Den GUID som är lokal vid normaliserade data är att **undvika att lagra redundanta data** på varje post och i stället referera till data. I det här exemplet, för att läsa en person, med alla sina kontakt uppgifter och adresser, måste du använda kopplingar för att effektivt skriva tillbaka (eller avnormalisera) dina data vid körning.
 
@@ -86,9 +87,9 @@ I allmänhet använder du inbäddade data modeller när:
 
 * Det finns **inneslutna** relationer mellan entiteter.
 * Det finns **en-till-lite-** relationer mellan entiteter.
-* Det finns inbäddade data som **ändras sällan** .
-* Det finns inbäddade data som inte kommer att växa **utan bindning** .
-* Det finns inbäddade data som **frågas ofta tillsammans** .
+* Det finns inbäddade data som **ändras sällan**.
+* Det finns inbäddade data som inte kommer att växa **utan bindning**.
+* Det finns inbäddade data som **frågas ofta tillsammans**.
 
 > [!NOTE]
 > Normalt ger denormaliserade data modeller bättre **Läs** prestanda.
@@ -242,7 +243,7 @@ I allmänhet använder du normaliserade data modeller när:
 
 * Representerar **en-till-många-** relationer.
 * Representerar **många-till-många** -relationer.
-* Relaterade data **ändringar ofta** .
+* Relaterade data **ändringar ofta**.
 * Det gick inte att **binda** data som refereras till.
 
 > [!NOTE]
@@ -300,7 +301,7 @@ I exemplet ovan har vi släppt den obegränsade samlingen i utgivar dokumentet. 
 I en Relations databas *många: många* relationer modelleras ofta med kopplings tabeller som bara kopplar ihop poster från andra tabeller.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Relations databas modell" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Koppla tabeller" border="false":::
 
 Du kanske är frestad att replikera samma sak som med dokument och skapar en data modell som ser ut ungefär så här.
 
@@ -403,7 +404,7 @@ Om författarens namn har ändrats eller om han ville uppdatera sitt foto måste
 
 I exemplet finns det **förberäknade mängd** värden för att spara dyrbar bearbetning vid en Läs åtgärd. I exemplet är några av de data som är inbäddade i författar dokumentet data som beräknas i körnings tid. Varje gång en ny bok publiceras skapas ett bok dokument **och** fältet countOfBooks anges till ett beräknat värde baserat på antalet bok dokument som finns för en viss författare. Den här optimeringen skulle vara lämplig för att läsa tunga system där vi kan ge beräkningar av skrivningar för att optimera läsningar.
 
-Möjligheten att ha en modell med förberäknade fält görs möjlig eftersom Azure Cosmos DB stöder **transaktioner med flera dokument** . Många NoSQL-butiker kan inte utföra transaktioner i flera dokument och därför bör du tänka igenom design beslut, till exempel "alltid bädda in allt", på grund av den här begränsningen. Med Azure Cosmos DB kan du använda utlösare på Server sidan eller lagrade procedurer som infogar böcker och uppdaterar författare i en syra transaktion. Nu **behöver du inte bädda** in allt i ett dokument bara för att vara säker på att dina data är konsekventa.
+Möjligheten att ha en modell med förberäknade fält görs möjlig eftersom Azure Cosmos DB stöder **transaktioner med flera dokument**. Många NoSQL-butiker kan inte utföra transaktioner i flera dokument och därför bör du tänka igenom design beslut, till exempel "alltid bädda in allt", på grund av den här begränsningen. Med Azure Cosmos DB kan du använda utlösare på Server sidan eller lagrade procedurer som infogar böcker och uppdaterar författare i en syra transaktion. Nu **behöver du inte bädda** in allt i ett dokument bara för att vara säker på att dina data är konsekventa.
 
 ## <a name="distinguishing-between-different-document-types"></a>Skilja mellan olika dokument typer
 

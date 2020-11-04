@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 73f5dc6bdc976bd0166cfb1f2621f57f558f944c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 70edf224494fdf1395d59d1c591d0369b9b20557
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478600"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333026"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>Självstudie: utforma en Azure Database for PostgreSQL-enskild server med PowerShell
 
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL är en Relations databas tjänst i Microsoft-molne
 > - Uppdatera data
 > - Återställa data
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -142,7 +142,7 @@ Om din klientdator har PostgreSQL installerat, kan du använda en lokal instans 
    CREATE DATABASE mypgsqldb;
    ```
 
-1. I prompten, kör du följande kommando för att växla anslutning till den nyligen skapade databasen **mypgsqldb**:
+1. I prompten, kör du följande kommando för att växla anslutning till den nyligen skapade databasen **mypgsqldb** :
 
    ```sql
    \c mypgsqldb
@@ -216,6 +216,10 @@ Plats-och pris nivå värden för den återställda servern förblir samma som d
 När återställnings processen har slutförts letar du reda på den nya servern och kontrollerar att data återställs som förväntat. Den nya servern har samma inloggnings namn och lösen ord för Server administratören som var giltiga för den befintliga servern vid den tidpunkt då återställningen startades. Du kan ändra lösen ordet från den nya serverns **översikts** sida.
 
 Den nya servern som skapades under en återställning saknar de VNet-tjänstens slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den nya servern. Brand Väggs regler från den ursprungliga servern återställs.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+I föregående steg skapade du Azure-resurser i en Server grupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort Server gruppen. Tryck på knappen *ta bort* på sidan *Översikt* för Server gruppen. När du uppmanas till ett popup-fönster bekräftar du namnet på Server gruppen och klickar på knappen slutlig *borttagning* .
 
 ## <a name="next-steps"></a>Nästa steg
 

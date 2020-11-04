@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: da2535a9764c909af3a491402311fe263dbb48fb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92038645"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93330986"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Är Azure Virtual WAN i GA?
 
@@ -70,7 +70,7 @@ Det finns två alternativ för att lägga till DNS-servrar för P2S-klienter. De
 
    // Re-generate Vpn profile either from PS/Portal for Vpn clients to have the specified dns servers
    ```
-2. Eller, om du använder Azure VPN-klienten för Windows 10, kan du ändra den hämtade profil-XML-filen och lägga ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** till taggarna innan du importerar den.
+2. Eller, om du använder Azure VPN-klienten för Windows 10, kan du ändra den hämtade profil-XML-filen och lägga **\<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers>** till taggarna innan du importerar den.
 
    ```powershell
       <azvpnprofile>
@@ -259,6 +259,8 @@ Ja. Det här alternativet är för närvarande endast tillgängligt via PowerShe
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Finns det stöd för IPv6 i virtuella WAN-nätverk?
 
 IPv6 stöds inte i Virtual WAN Hub och dess gatewayer. Om du har ett VNet som har stöd för IPv4 och IPv6 och du vill ansluta VNet till ett virtuellt WAN-nätverk stöds inte det här scenariot för närvarande. 
+
+För VPN-scenariot för peka-till-plats (användare) med Internet-grupp via Azure Firewall måste du förmodligen inaktivera IPv6-anslutning på klient enheten för att tvinga trafik till den virtuella WAN-hubben. Detta beror på att moderna enheter som standard använder IPv6-adresser som standard.
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Vilken är den rekommenderade API-versionen som ska användas av skript som automatiserar olika virtuella WAN-funktioner?
 

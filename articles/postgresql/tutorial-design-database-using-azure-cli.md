@@ -8,12 +8,12 @@ ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 475c2dfecbc882575955627d73b7159fa33ac4d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 019e6e738ea312b7e6a16c44354c7dcd54e24f2f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710217"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331904"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Självstudie: utforma en Azure Database for PostgreSQL-enskild server med Azure CLI 
 I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
@@ -27,6 +27,9 @@ I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssni
 > * Återställa data
 
 Du kan använda Azure Cloud Shell i webbläsaren eller [installera Azure CLI ]( /cli/azure/install-azure-cli) lokalt när du ska köra kommandon i den här självstudiekursen.
+
+## <a name="prerequisites"></a>Krav
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -60,7 +63,7 @@ Se dokumentationen om [prisnivåer](./concepts-pricing-tiers.md) för mer inform
 > [!IMPORTANT]
 > Det användarnamn och lösenord för serveradministration du anger här krävs för inloggning på servern och databaserna senare i den här snabbstarten. Kom ihåg eller skriv ned den här informationen så att du kan använda den senare.
 
-Som standard skapas **postgres**-databasen under din server. [Postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html)-databasen är en standarddatabas som är avsedd för användare, verktyg och tredje parts program. 
+Som standard skapas **postgres** -databasen under din server. [Postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html)-databasen är en standarddatabas som är avsedd för användare, verktyg och tredje parts program. 
 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Konfigurera en brandväggsregel på servernivå
@@ -142,7 +145,7 @@ Om din klientdator har PostgreSQL installerat kan du använda en lokal instans a
    CREATE DATABASE mypgsqldb;
    ```
 
-3. I prompten, kör du följande kommando för att växla anslutning till den nyligen skapade databasen **mypgsqldb**:
+3. I prompten, kör du följande kommando för att växla anslutning till den nyligen skapade databasen **mypgsqldb** :
    ```sql
    \c mypgsqldb
    ```
@@ -199,9 +202,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 Följande parametrar behövs för kommandot `az postgres server restore`:
 
-| Inställning | Föreslaget värde | Beskrivning  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
+| resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
 | name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Välj en tidpunkt att återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd datum- och tidsformatet ISO8601. Du kan använda din egen lokala tidszon som t.ex. `2017-04-13T05:59:00-08:00`, eller använda UTC Zulu-formatet `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
@@ -210,16 +213,21 @@ När du återställer en server till en tidpunkt så skapas en ny server. Den ko
 
 Kommandot är synkront och återgår när servern har återställts. När återställningen är klar letar du upp den nya server som skapades. Kontrollera att dina data har återställts som förväntat.
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+I föregående steg skapade du Azure-resurser i en Server grupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort Server gruppen. Tryck på knappen *ta bort* på sidan *Översikt* för Server gruppen. När du uppmanas till ett popup-fönster bekräftar du namnet på Server gruppen och klickar på knappen slutlig *borttagning* .
+
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien lärde du dig att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg för att:
 > [!div class="checklist"]
 > * Skapa en Azure Database for PostgreSQL-server
 > * Konfigurera serverbrandväggen
-> * Använd [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget för att skapa en databas
+> * Använd verktyget **psql** för att skapa en databas
 > * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data
 > * Återställa data
 
-Nu ska du lära dig hur du använder Azure Portal för att utföra liknande aktiviteter. Gå till följande självstudie: [Utforma din första Azure Database for PostgreSQL med Azure Portal](tutorial-design-database-using-azure-portal.md)
+> [!div class="nextstepaction"]
+> [Skapa din första Azure Database for PostgreSQL med Azure-portalen](tutorial-design-database-using-azure-portal.md)

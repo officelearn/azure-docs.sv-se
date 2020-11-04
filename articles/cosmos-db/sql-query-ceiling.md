@@ -3,16 +3,17 @@ title: TAK i Azure Cosmos DB frågespråk
 description: Lär dig mer om hur funktionen tak SQL system i Azure Cosmos DB Returnerar det minsta heltal som är större än eller lika med det angivna numeriska uttrycket.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 2ffc1ba208ca6b587354fcce683dc7db3a8ccb64
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8c5fdda416aca698b9ad0a68ef050957f32aef31
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081696"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332414"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>TAK (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -3,16 +3,17 @@ title: MongoDB-tilläggs kommandon för att hantera data i Azure Cosmos DB s API
 description: Den här artikeln beskriver hur du använder MongoDB-tilläggs kommandon för att hantera data som lagras i Azure Cosmos DB s API för MongoDB.
 author: jasonwhowell
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: 68f7c9331423fa4ef350bd7915ad85e3152c6885
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: db230dc0bd1d5cdddf9446b22d8ae682c019c438
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096554"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333018"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Använd MongoDB-tilläggs kommandon för att hantera data som lagras i Azure Cosmos DB s API för MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -212,7 +213,7 @@ Kommandot Skapa samlings tillägg skapar en ny MongoDB-samling. Databas namnet a
 
 I följande tabell beskrivs parametrarna i kommandot:
 
-| **Fält** | **Typ** | **Krävs** | **Beskrivning** |
+| **Fält** | **Typ** | **Obligatoriskt** | **Beskrivning** |
 |---------|---------|---------|---------|
 | `customAction` | `string` | Obligatorisk | Namnet på det anpassade kommandot. Måste vara "CreateCollection".|
 | `collection` | `string` | Obligatorisk | Samlingens namn. Inga specialtecken eller mellanslag tillåts.|

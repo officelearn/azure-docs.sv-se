@@ -3,17 +3,18 @@ title: 'Självstudie: utveckla mobil program med Xamarin och Azure Cosmos DB'
 description: 'Självstudie: en själv studie kurs som skapar ett Xamarin iOS-, Android-eller Forms-program med hjälp av Azure Cosmos DB. Azure Cosmos DB är en snabb, världsomfattande molndatabas för mobilappar.'
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 13a80541310b40ed2f038b6c71cd9d6eaeb54649
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ec5888ba596579c6bbbf6891ca5e578e80003d80
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096690"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333281"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Självstudie: utveckla mobil program med Xamarin och Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -49,7 +50,7 @@ Följande självstudiekurs visar hur du skapar en mobilapp med Xamarin och Azure
 ### <a name="get-started"></a>Kom igång
 Det är lätt att komma igång med Azure Cosmos DB. Gå till Azure Portal och skapa ett nytt Azure Cosmos DB-konto. Klicka på fliken **snabb start** . Ladda ned Xamarin formulär att göra-listan som redan är ansluten till ditt Azure Cosmos DB-konto. 
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Azure Cosmos DB-funktioner för mobilappar":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Azure Cosmos DB snabbstart för mobilappar":::
 
 Eller om du har en befintlig Xamarin-app kan du lägga till [Azure Cosmos DB NuGet-paketet](sql-api-sdk-dotnet-core.md). Azure Cosmos DB stöder delade bibliotek för Xamarin. iOS, Xamarin. Android och Xamarin Forms.
 
@@ -87,19 +88,19 @@ Följ dessa anvisningar om du vill ändra att göra-appen till en app med en att
 
 Du hittar en fullständig kodsamling för det här mönstret under den [asynkrona meddelandekön för resurstoken på GitHub](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems). Det här diagrammet visar lösningen:
 
-:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Azure Cosmos DB-funktioner för mobilappar" border="false":::
+:::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Azure DB Cosmos-användare och asynkron meddelandekö för behörigheter" border="false":::
 
 Om du vill att två användare ska ha, till gång till samma att göra-lista, kan du lägga till ytterligare behörigheter i åtkomsttoken i Resource token Broker.
 
 ### <a name="scale-on-demand"></a>Skala på begäran
 Azure Cosmos-DB är en hanterad databas som en tjänst. När användarbasen växer behöver du inte tänka på att behöva etablera virtuella datorer eller att öka kärnorna. Allt du behöver tala om för Azure Cosmos DB är hur många åtgärder per sekund (dataflöde) din app behöver. Du kan ange dataflödet via fliken **Skala** genom att använda ett mått på dataflödet som kallas enheter för programbegäran (RU) per sekund. Till exempel kräver en Läs åtgärd på ett 1-KB-dokument ett RU. Du kan också lägga till aviseringar till måttet för **dataflöde** för att övervaka trafiktillväxten och programmässigt ändra dataflödet när aviseringar utlöses.
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Azure Cosmos DB-funktioner för mobilappar":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Azure DB Cosmos skalar dataflödet på begäran":::
 
 ### <a name="go-planet-scale"></a>Världsomfattande skalning
 Allt eftersom din app blir populärare kan du få användare över hela världen. Eller så kanske du vill vara förbered för oförutsedda händelser. Gå till Azure Portal och öppna ditt Azure Cosmos DB-konto. Klicka på kartan för att kontinuerligt replikera dina data till flera regioner över hela världen. Den här funktionen gör dina data tillgängliga oavsett var användarna är. Du kan också lägga till redundans-principer som extra säkerhet.
 
-:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="Azure Cosmos DB-funktioner för mobilappar" border="false":::
+:::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png" alt-text="Azure DB Cosmos skalar över geografiska områden" border="false":::
 
 Grattis! Du har slutfört lösningen och har en mobilapp med Xamarin och Azure Cosmos DB. Cordova-appar byggs på liknande sätt med hjälp av Azure Cosmos DB JavaScript SDK och inbyggda iOS-/Android-appar med hjälp av Azure Cosmos DB REST API:er.
 

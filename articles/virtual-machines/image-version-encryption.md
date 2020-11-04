@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f6bf436110e9822d687419b74a8a22bad7a6d700
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048091"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333472"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>För hands version: Använd Kundhanterade nycklar för att kryptera avbildningar
 
@@ -25,7 +25,7 @@ Kryptering på Server sidan med Kundhanterade nycklar använder Azure Key Vault.
 
 ## <a name="prerequisites"></a>Krav
 
-Den här artikeln kräver att du redan har en disk krypterings uppsättning som ska användas för avbildningen.
+Den här artikeln kräver att du redan har en disk krypterings uppsättning i varje region som du vill replikera avbildningen till.
 
 - Om du bara vill använda en kundhanterad nyckel läser du **Aktivera Kundhanterade nycklar med kryptering på Server sidan** med hjälp av [Azure Portal](./disks-enable-customer-managed-keys-portal.md) eller [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
@@ -210,7 +210,7 @@ När du skapar din avbildnings version i portalen kan du använda fliken **krypt
 
 
 1. På sidan **skapa en avbildnings version** väljer du fliken **kryptering** .
-2. I **krypterings typ**väljer du **kryptering i vila med en kundhanterad nyckel** eller **dubbel kryptering med plattforms hanterade och Kundhanterade nycklar**. 
+2. I **krypterings typ** väljer du **kryptering i vila med en kundhanterad nyckel** eller **dubbel kryptering med plattforms hanterade och Kundhanterade nycklar**. 
 3. För varje disk i avbildningen väljer du den **disk krypterings uppsättning** som ska användas i list rutan. 
 
 ### <a name="create-the-vm"></a>Skapa den virtuella datorn

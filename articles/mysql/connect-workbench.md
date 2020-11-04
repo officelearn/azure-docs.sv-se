@@ -7,18 +7,18 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 5ec6aab8aaa63b848131d44f78867100f154d251
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 57bd8348977270de9b0e445e0a40c006b65d8392
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896323"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332048"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd MySQL Workbench för att ansluta och fråga efter data i Azure Database for MySQL
 
 Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett MySQL Workbench-program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
@@ -35,7 +35,7 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser**. Sök sedan efter den server som du skapade (till exempel **mydemoserver**).
+2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser**. Sök sedan efter den server som du skapade (till exempel **mydemoserver** ).
 
 3. Klicka på servernamnet.
 
@@ -47,9 +47,9 @@ Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
 
 1.    Starta programmet MySQL Workbench på datorn. 
 
-2.    I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
+2.    I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar** :
 
-:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Azure Database för MySQL-servernamn":::
+:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="konfigurera ny anslutning":::
 
 | **Inställning** | **Föreslaget värde** | **Fältbeskrivning** |
 |---|---|---|
@@ -57,7 +57,7 @@ Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
 | Anslutningsmetod | Standard (TCP/IP) | Standard (TCP/IP) är tillräckligt. |
 | Värdnamn | *Server namn* | Ange det värde för servernamn som användes när du tidigare skapade Azure Database för MySQL. Vår exempelserver visas som mydemoserver.mysql.database.azure.com. Använd det fullständiga domännamnet (\*.mysql.database.azure.com) som i det här exemplet. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg namnet på servern.  |
 | Port | 3306 | Använd alltid port 3306 när du ansluter till Azure Database för MySQL. |
-| Användarnamn |  *inloggnings namn för Server administratör* | Ange det användarnamn för serveradministratörsinloggning som användes när du tidigare skapade Azure Database för MySQL. Vår användarnamn i exemplet är myadmin@mydemoserver. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg användarnamnet. Formatet är *användar namn \@ Server*namn.
+| Användarnamn |  *inloggnings namn för Server administratör* | Ange det användarnamn för serveradministratörsinloggning som användes när du tidigare skapade Azure Database för MySQL. Vår användarnamn i exemplet är myadmin@mydemoserver. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg användarnamnet. Formatet är *användar namn \@ Server* namn.
 | Lösenord | ditt lösenord | Klicka på **lagra i valv...** för att spara lösen ordet. |
 
 3.   Klicka på **Testanslutning** för att testa om alla parametrar är rätt konfigurerade. 
@@ -103,13 +103,23 @@ Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
 
     Skärmbilden visar ett exempel på SQL-koden i SQL Workbench och utdata efter att den har körts.
     
-    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Azure Database för MySQL-servernamn":::
+    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Fliken SQL i MySQL Workbench för att köra SQL-exempelkod":::
 
 2. Om du vill köra SQL-exempelkoden klickar du på blixtikonen i verktygsfältet på fliken **SQL-fil**.
 3. Lägg märke till de tre resultaten med flikar i avsnittet med **rutnätet med resultat** mitt på sidan. 
 4. Lägg märke till listan **Output** (Utdata) längst ned på sidan. Status för varje kommando visas. 
 
 Du har nu anslutit till Azure Database for MySQL med MySQL Workbench, och du har frågat data med hjälp av SQL-språket.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du vill rensa alla resurser som används under den här snabb starten tar du bort resurs gruppen med hjälp av följande kommando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 47eae616ffc62e42448da23fb02152dae17aa548
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 29518fb971649087d8a5afa39d69c7fc2c014f98
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116703"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331071"
 ---
 | Resurs | Mål | Hård gräns |
 |----------|--------------|------------|
@@ -21,7 +21,7 @@ ms.locfileid: "92116703"
 | Synkronisera grupper per tjänst för synkronisering av lagring | 200 Sync-grupper | Ja |
 | Registrerade servrar per tjänst för synkronisering av lagring | 99-servrar | Ja |
 | Moln slut punkter per Sync-grupp | 1 moln slut punkt | Ja |
-| Server slut punkter per Sync-grupp | 50 Server slut punkter | Nej |
+| Server slut punkter per Sync-grupp | 100 Server slut punkter | Ja |
 | Server slut punkter per server | 30 Server slut punkter | Ja |
 | Fil system objekt (kataloger och filer) per Sync-grupp | 100 000 000 objekt | Nej |
 | Maximalt antal fil system objekt (kataloger och filer) i en katalog | 5 000 000 objekt | Ja |

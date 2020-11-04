@@ -270,7 +270,7 @@
         - name: Hantera anslutningar
           href: manage-connections.md
           displayName: best practice
-        - name: Felhantering
+        - name: Felhantering och återförsök
           href: functions-bindings-error-pages.md
         - name: Köra en funktion som inte utlösts av HTTP manuellt
           href: functions-manually-run-non-http.md

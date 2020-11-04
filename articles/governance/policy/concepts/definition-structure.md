@@ -1,28 +1,28 @@
 ---
 title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
-ms.date: 10/05/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8e7cea1d03b0a236b9a485c2e640d7bf3f4e8e7e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5f9a110247d4ec93c8f3fb95fc9ed61eb6806787
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132490"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305150"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
-Azure Policy skapar konventioner för resurser. Princip definitioner [beskriver kraven på resursanvändningen och vilken](#conditions) påverkan som ska vidtas om ett villkor är uppfyllt. Ett villkor jämför ett resurs egenskaps [fält](#fields) med ett värde som krävs. Resurs egenskaps fält öppnas med hjälp av [alias](#aliases). Ett resurs egenskaps fält är antingen ett enskilt värde fält eller en [matris](#understanding-the--alias) med flera värden. Villkors utvärderingen är annorlunda för matriser.
+Azure Policy skapar konventioner för resurser. Princip definitioner [beskriver kraven på resursanvändningen och vilken](#conditions) påverkan som ska vidtas om ett villkor är uppfyllt. Ett villkor jämför ett resurs egenskaps [fält](#fields) eller ett [värde](#value) till ett värde som krävs. Resurs egenskaps fält öppnas med hjälp av [alias](#aliases). När ett resurs egenskaps fält är en matris kan ett särskilt [mat ris Ali Aset](#understanding-the--alias) användas för att välja värden från alla mat ris medlemmar och tillämpa ett villkor för var och en.
 Läs mer om [villkor](#conditions).
 
 Genom att definiera konventioner kan du kontrol lera kostnaderna och enklare hantera dina resurser. Du kan till exempel ange att endast vissa typer av virtuella datorer ska tillåtas. Du kan också kräva att resurserna har en viss tagg. Princip tilldelningar ärvs av underordnade resurser. Om en princip tilldelning tillämpas på en resurs grupp, gäller den för alla resurser i resurs gruppen.
 
-_PolicyRule_ -schemat för princip definition finns här:[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+_PolicyRule_ -schemat för princip definition finns här: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Du använder JSON för att skapa en princip definition. Princip definitionen innehåller element för:
 
 - visningsnamn
-- description
+- beskrivning
 - mode
 - metadata
 - parametrar
@@ -75,7 +75,7 @@ Azure Policy inbyggda program och mönster finns på [Azure policy exempel](../s
 Du kan använda **DisplayName** och **Description** för att identifiera princip definitionen och tillhandahålla kontext när den används. **DisplayName** får innehålla högst _128_ tecken och **beskrivningen** får bestå av högst _512_ tecken.
 
 > [!NOTE]
-> Under skapandet eller uppdateringen av en princip definition definieras **ID**, **typ**och **namn** av egenskaper som är externa för JSON och är inte nödvändiga i JSON-filen. Hämtning av princip definitionen via SDK returnerar egenskaperna **ID**, **typ**och **namn** som en del av JSON, men var och en är skrivskyddad information som är relaterad till princip definitionen.
+> Under skapandet eller uppdateringen av en princip definition definieras **ID** , **typ** och **namn** av egenskaper som är externa för JSON och är inte nödvändiga i JSON-filen. Hämtning av princip definitionen via SDK returnerar egenskaperna **ID** , **typ** och **namn** som en del av JSON, men var och en är skrivskyddad information som är relaterad till princip definitionen.
 
 ## <a name="type"></a>Typ
 
@@ -106,9 +106,9 @@ Vi rekommenderar att du ställer in **läget** till `all` i de flesta fall. Alla
 
 Följande resurs leverantörs läge stöds fullt ut:
 
-- `Microsoft.Kubernetes.Data` för hantering av Kubernetes-kluster på eller av Azure. Definitioner som använder detta resurs leverantörs läge använder effekter _granskning_, _neka_och _inaktive rad_. Användning av [EnforceOPAConstraint](./effects.md#enforceopaconstraint) -effekter är _föråldrad_.
+- `Microsoft.Kubernetes.Data` för hantering av Kubernetes-kluster på eller av Azure. Definitioner som använder detta resurs leverantörs läge använder effekter _granskning_ , _neka_ och _inaktive rad_. Användning av [EnforceOPAConstraint](./effects.md#enforceopaconstraint) -effekter är _föråldrad_.
 
-Följande resurs leverantörs lägen stöds för närvarande som en för **hands version**:
+Följande resurs leverantörs lägen stöds för närvarande som en för **hands version** :
 
 - `Microsoft.ContainerService.Data` för hantering av regler för regler för åtkomst kontroll i [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md). Definitioner som använder detta resurs leverantörs läge **måste** använda [EnforceRegoPolicy](./effects.md#enforceregopolicy) -effekter. Det här läget är _föråldrat_.
 - `Microsoft.KeyVault.Data` för hantering av valv och certifikat i [Azure Key Vault](../../../key-vault/general/overview.md). Mer information om dessa princip definitioner finns i [integrera Azure Key Vault med Azure policy](../../../key-vault/general/azure-policy.md).
@@ -128,7 +128,7 @@ Den valfria `metadata` egenskapen innehåller information om princip definitione
 - `deprecated` (boolesk): true eller false flagga för om princip definitionen har marker ATS som _föråldrad_.
 
 > [!NOTE]
-> Azure Policy tjänsten använder `version` , `preview` , och `deprecated` Egenskaper för att förmedla ändrings nivån till en inbyggd princip definition eller initiativ och tillstånd. Formatet `version` är: `{Major}.{Minor}.{Patch}` . Vissa tillstånd, till exempel _föråldrad_ eller för _hands version_, läggs till i `version` egenskapen eller i en annan egenskap som **boolesk**. Mer information om hur Azure Policy inbyggda versioner finns i [inbyggd versions hantering](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+> Azure Policy tjänsten använder `version` , `preview` , och `deprecated` Egenskaper för att förmedla ändrings nivån till en inbyggd princip definition eller initiativ och tillstånd. Formatet `version` är: `{Major}.{Minor}.{Patch}` . Vissa tillstånd, till exempel _föråldrad_ eller för _hands version_ , läggs till i `version` egenskapen eller i en annan egenskap som **boolesk**. Mer information om hur Azure Policy inbyggda versioner finns i [inbyggd versions hantering](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
 
 ## <a name="parameters"></a>Parametrar
 
@@ -143,7 +143,7 @@ Parametrar fungerar på samma sätt när du skapar principer. Genom att inkluder
 En parameter har följande egenskaper som används i princip definitionen:
 
 - `name`: Namnet på din parameter. Används av `parameters` distributions funktionen i princip regeln. Mer information finns i [använda ett parameter värde](#using-a-parameter-value).
-- `type`: Anger om parametern är en **sträng**, en **matris**, ett **objekt**, ett **booleskt värde** **, ett** **flyttal**eller en **datetime**.
+- `type`: Anger om parametern är en **sträng** , en **matris** , ett **objekt** , ett **booleskt värde** **, ett** **flyttal** eller en **datetime**.
 - `metadata`: Definierar under egenskaper som främst används av Azure Portal för att Visa användarvänlig information:
   - `description`: En förklaring av vad parametern används för. Kan användas för att ge exempel på acceptabla värden.
   - `displayName`: Det egna namnet visas i portalen för parametern.
@@ -284,14 +284,14 @@ Ett villkor utvärderar om ett **fält** eller **värde** accessor uppfyller vis
   `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
-För **mindre**, **lessOrEquals**, **större**och **större**, om egenskaps typen inte matchar villkors typen, genereras ett fel. Sträng jämförelser görs med `InvariantCultureIgnoreCase` .
+För **mindre** , **lessOrEquals** , **större** och **större** , om egenskaps typen inte matchar villkors typen, genereras ett fel. Sträng jämförelser görs med `InvariantCultureIgnoreCase` .
 
 När du använder **gilla** -och **notLike** -villkoren anger du ett jokertecken `*` i värdet.
 Värdet får inte ha fler än ett jokertecken `*` .
 
 När du använder **matchnings** -och **notMatch** -villkor, anger `#` du för att matcha en siffra, `?` för en bokstav, för `.` att matcha alla tecken och andra tecken som ska matcha det faktiska tecknet. Även om **match** -och **notMatch** är Skift läges känsliga, är alla andra villkor som utvärderar en _stringValue_ Skift läges känsliga. Skift läges känsliga alternativ är tillgängliga i **matchInsensitively** och **notMatchInsensitively**.
 
-Varje element i matrisen utvärderas individuellt med logiska element **och** mellan element i fältet ** \[ \* \] alias för Ali Aset** . Mer information finns i [utvärdera \[ \* \] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+Varje element i matrisen utvärderas individuellt med logiska element **och** mellan element i fältet **\[ \* \] alias för Ali Aset** . Mer information finns i [referera till mat ris resurs egenskaper](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 ### <a name="fields"></a>Fält
 
@@ -456,12 +456,14 @@ Strukturen för **Count** -uttrycket är:
 }
 ```
 
-Följande egenskaper används med **Count**:
+Följande egenskaper används med **Count** :
 
 - **Count. Field** (required): innehåller sökvägen till matrisen och måste vara ett mat ris alias. Om matrisen saknas utvärderas uttrycket till _false_ utan att ta hänsyn till villkors uttrycket.
 - **Count.** (valfritt): villkors uttrycket för att varje [ \[ \* \] alias](#understanding-the--alias) ska utvärderas individuellt i **fältet Count.** Om den här egenskapen inte anges utvärderas alla mat ris medlemmar med sökvägen för Field till _True_. Alla [villkor](../concepts/definition-structure.md#conditions) kan användas i den här egenskapen.
   [Logiska operatorer](#logical-operators) kan användas i den här egenskapen för att skapa komplexa utvärderings krav.
 - **\<condition\>** (obligatoriskt): värdet jämförs med antalet objekt som uppfyllde **antalet. Where** villkors uttryck. Ett numeriskt [villkor](../concepts/definition-structure.md#conditions) ska användas.
+
+Mer information om hur du arbetar med mat ris egenskaper i Azure Policy, inklusive detaljerad förklaring om hur antalet uttryck utvärderas, finns i [referera till mat ris resurs egenskaper](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="count-examples"></a>Antal exempel
 
@@ -548,17 +550,32 @@ Exempel 5: kontrol lera att minst en mat ris medlem matchar flera egenskaper i v
 }
 ```
 
+Exempel 6: `field()` funktionen use inuti `where` villkoren för att få åtkomst till det litterala värdet för den aktuella utvärderade mat ris medlemmen. Det här villkoret kontrollerar att det inte finns några säkerhets regler med ett jämnt numrerat _prioritets_ värde.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+          "value": "[mod(first(field('Microsoft.Network/networkSecurityGroups/securityRules[*].priority')), 2)]",
+          "equals": 0
+        }
+    },
+    "greater": 0
+}
+```
+
 ### <a name="effect"></a>Effekt
 
 Azure Policy stöder följande typer av påverkan:
 
-- **APPEND**: lägger till den definierade fält uppsättningen i begäran
-- **Granskning**: genererar en varnings händelse i aktivitets loggen men misslyckade begäran
-- **AuditIfNotExists**: genererar en varnings händelse i aktivitets loggen om en relaterad resurs inte finns
-- **Neka**: genererar en händelse i aktivitets loggen och Miss lyckas med begäran
-- **DeployIfNotExists**: distribuerar en relaterad resurs om den inte redan finns
-- **Disabled**: utvärderar inte resurser för efterlevnad för princip regeln
-- **Ändra**: lägger till, uppdaterar eller tar bort definierade taggar från en resurs
+- **APPEND** : lägger till den definierade fält uppsättningen i begäran
+- **Granskning** : genererar en varnings händelse i aktivitets loggen men misslyckade begäran
+- **AuditIfNotExists** : genererar en varnings händelse i aktivitets loggen om en relaterad resurs inte finns
+- **Neka** : genererar en händelse i aktivitets loggen och Miss lyckas med begäran
+- **DeployIfNotExists** : distribuerar en relaterad resurs om den inte redan finns
+- **Disabled** : utvärderar inte resurser för efterlevnad för princip regeln
+- **Ändra** : lägger till, uppdaterar eller tar bort definierade taggar från en resurs
 - **EnforceOPAConstraint** (inaktuell): konfigurerar styrenheten för öppna princip agent med Gatekeeper v3 för självhanterade Kubernetes-kluster på Azure
 - **EnforceRegoPolicy** (inaktuell): konfigurerar styrenheten för öppna Policy Agent-inspelare med Gatekeeper v2 i Azure Kubernetes-tjänsten
 
@@ -589,10 +606,10 @@ Följande funktion är tillgänglig för användning i en princip regel, men ski
 Följande funktioner är endast tillgängliga i princip regler:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **datetime**: [required] sträng sträng i Universal ISO 8601 datetime-formatet ' ÅÅÅÅ-MM-ddTHH: mm: SS. FFFFFFFZ'
-  - **numberOfDaysToAdd**: [required] heltal-antal dagar som ska läggas till
+  - **datetime** : [required] sträng sträng i Universal ISO 8601 datetime-formatet ' ÅÅÅÅ-MM-ddTHH: mm: SS. FFFFFFFZ'
+  - **numberOfDaysToAdd** : [required] heltal-antal dagar som ska läggas till
 - `field(fieldName)`
-  - **FieldName**: [required] sträng-namnet på det [fält](#fields) som ska hämtas
+  - **FieldName** : [required] sträng-namnet på det [fält](#fields) som ska hämtas
   - Returnerar värdet för det fältet från den resurs som utvärderas av IF-villkoret.
   - `field` används i första hand med **AuditIfNotExists** och **DeployIfNotExists** för att referera till fält på den resurs som utvärderas. Ett exempel på den här användningen kan visas i [DeployIfNotExists-exemplet](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
@@ -612,8 +629,8 @@ Följande funktioner är endast tillgängliga i princip regler:
 
 
 - `ipRangeContains(range, targetRange)`
-    - **intervall**: [required] sträng-sträng som anger ett intervall med IP-adresser.
-    - **targetRange**: [required] sträng sträng som anger ett intervall med IP-adresser.
+    - **intervall** : [required] sträng-sträng som anger ett intervall med IP-adresser.
+    - **targetRange** : [required] sträng sträng som anger ett intervall med IP-adresser.
 
     Returnerar om det angivna IP-adressintervallet innehåller mål-IP-adressintervallet. Tomma intervall eller blandning mellan IP-familjer tillåts inte och resulterar i ett utvärderings problem.
 
@@ -718,30 +735,20 @@ Flera av de tillgängliga aliasen har en version som visas som ett normalt namn 
 
 Aliaset "normal" representerar fältet som ett enda värde. Det här fältet är för exakta matchnings scenarier när hela uppsättningen med värden måste vara exakt som definierad, inte mer eller mindre.
 
-**\[\*\]** Aliaset gör det möjligt att jämföra mot värdet för varje element i matrisen och vissa egenskaper för varje element. Den här metoden gör det möjligt att jämföra element egenskaper för "if ingen", "om några", "eller" om alla "-scenarier. För mer komplexa scenarier använder du villkors uttrycket [Count](#count) . Med hjälp av **ipRules \[ \* \] **verifierar ett exempel att varje _åtgärd_ är _nekad_, men inte bekymrar dig om hur många regler som finns eller vad IP- _värdet_ är.
-Den här exempel regeln söker efter eventuella matchningar av **ipRules \[ \* \] . Value** till **10.0.4.1** och tillämpar bara **effectType** om det inte hittar minst en matchning:
+**\[\*\]** Alias representerar en samling värden som valts från elementen i en mat ris resurs egenskap. Exempel:
 
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "10.0.4.1"
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+| Alias | Valda värden |
+|:---|:---|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | Elementen i `ipRules` matrisen. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | Värdena för `action` egenskapen från varje element i `ipRules` matrisen. |
 
-Mer information finns i [utvärdera []- \* aliaset](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+När du använder i ett [fält](#fields) villkor gör mat ris Ali Aset det möjligt att jämföra varje enskilt mat ris element med ett målvärde. När det används med [Count](#count) -uttryck är det möjligt att:
+
+- Kontrol lera storleken på en matris
+- Kontrol lera om all\any\none för mat ris element uppfyller ett komplext villkor
+- Kontrol lera om exakt ***n*** mat ris element uppfyller ett komplext villkor
+
+Mer information och exempel finns i [referera till mat ris resurs egenskaper](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 ## <a name="next-steps"></a>Nästa steg
 

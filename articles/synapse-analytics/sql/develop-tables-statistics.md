@@ -11,30 +11,30 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 368d43283d713b8d4e101c2ee26724242f29756c
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 6d59d64c861b74610e82b962ddd5db2331d3db64
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148260"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305015"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistik i Synapse SQL
 
-I den här artikeln finns rekommendationer och exempel för att skapa och uppdatera statistik för optimering av frågor med hjälp av SQL-Synapse: SQL-pool och SQL på begäran (för hands version).
+I den här artikeln finns rekommendationer och exempel för att skapa och uppdatera statistik för att optimera frågor med hjälp av SQL-Synapse: dedikerad SQL-pool och Server lös SQL-pool (för hands version).
 
-## <a name="statistics-in-sql-pool"></a>Statistik i SQL-pool
+## <a name="statistics-in-dedicated-sql-pool"></a>Statistik i dedikerad SQL-pool
 
 ### <a name="why-use-statistics"></a>Varför använda statistik
 
-Ju mer SQL-gruppresursen vet om dina data, desto snabbare kan den köra frågor. När du har läst in data i SQL-poolen är insamling av statistik för dina data ett av de viktigaste saker som du kan göra för att optimera frågor.  
+Den mer dedikerade SQL-poolen känner till om dina data, desto snabbare kan den köra frågor. Efter inläsning av data i en dedikerad SQL-pool är insamling av statistik för dina data ett av de viktigaste saker som du kan göra för att optimera frågor.  
 
-SQL-poolens fråga optimering är en kostnads baserad optimering. Den Jämför kostnaden för olika fråge planer och väljer sedan planen med den lägsta kostnaden. I de flesta fall väljer den den plan som ska köras snabbast.
+Den dedikerade SQL-poolens fråga optimering är en kostnads baserad optimering. Den Jämför kostnaden för olika fråge planer och väljer sedan planen med den lägsta kostnaden. I de flesta fall väljer den den plan som ska köras snabbast.
 
 Om optimeringen t. ex. beräknar att det datum då frågan filtreras på kommer att returnera en rad, väljs en plan. Om den beräknar att det valda datumet returnerar 1 000 000 rader, returneras ett annat schema.
 
 ### <a name="automatic-creation-of-statistics"></a>Automatisk generering av statistik
 
-SQL-poolen analyserar inkommande användar frågor för saknad statistik när alternativet databas AUTO_CREATE_STATISTICS är inställt på `ON` .  Om statistik saknas skapar Query Optimering statistik för enskilda kolumner i frågesyntaxen eller kopplings villkoret. 
+Den dedikerade SQL-poolen analyserar inkommande användar frågor för saknad statistik när alternativet databas AUTO_CREATE_STATISTICS är inställt på `ON` .  Om statistik saknas skapar Query Optimering statistik för enskilda kolumner i frågesyntaxen eller kopplings villkoret. 
 
 Den här funktionen används för att förbättra beräkningar av kardinalitet för frågeplan.
 
@@ -166,7 +166,7 @@ I de här exemplen visas hur du använder olika alternativ för att skapa statis
 #### <a name="create-single-column-statistics-with-default-options"></a>Skapa en statistik med en kolumn med standard alternativ
 
 Om du vill skapa statistik för en kolumn anger du ett namn för statistik objekt och kolumn namn.
-I den här syntaxen används alla standard alternativ. Som standard samplar SQL-pool **20 procent** av tabellen när den skapar statistik.
+I den här syntaxen används alla standard alternativ. Som standard får en dedikerad SQL-pool **20 procent** av tabellen när den skapar statistik.
 
 ```sql
 CREATE STATISTICS [statistics_name]
@@ -245,7 +245,7 @@ Använd föregående exempel, men ange fler kolumner för att skapa ett statisti
 > [!NOTE]
 > Histogrammet, som används för att uppskatta antalet rader i frågeresultatet, är bara tillgängligt för den första kolumnen som anges i statistik objekt definitionen.
 
-I det här exemplet är histogrammet i *produkt \_ kategorin* . Statistik över kolumner beräknas för *produkt \_ kategori* och *produkt \_ sub_category* :
+I det här exemplet är histogrammet i *produkt \_ kategorin*. Statistik över kolumner beräknas för *produkt \_ kategori* och *produkt \_ sub_category* :
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -430,7 +430,7 @@ UPDATE STATISTICS-instruktionen är enkel att använda. Kom bara ihåg att den u
 Om prestanda inte är ett problem är den här metoden det enklaste och mest kompletta sättet att garantera att statistiken är aktuell.
 
 > [!NOTE]
-> När du uppdaterar all statistik för en tabell gör SQL-poolen en sökning för att sampla tabellen för varje statistik objekt. Om tabellen är stor och har många kolumner och många statistik, kan det vara mer effektivt att uppdatera individuell statistik utifrån behov.
+> När du uppdaterar all statistik i en tabell gör en dedikerad SQL-pool en sökning för att sampla tabellen för varje statistik objekt. Om tabellen är stor och har många kolumner och många statistik, kan det vara mer effektivt att uppdatera individuell statistik utifrån behov.
 
 En implementering av en `UPDATE STATISTICS` procedur finns i [temporära tabeller](develop-tables-temporary.md). Implementerings metoden skiljer sig något från föregående `CREATE STATISTICS` procedur, men resultatet är detsamma.
 Fullständig syntax finns i [Uppdatera statistik](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
@@ -512,7 +512,7 @@ DBCC SHOW_STATISTICS () visar data som lagras i ett statistik objekt. Dessa data
 
 Rubriken är metadata om statistiken. Histogrammet visar fördelningen av värden i den första nyckel kolumnen i statistik-objektet. 
 
-Täthets vektorn mäter en jämförelse mellan kolumner. SQL-poolen beräknar kardinalitet med någon av data i statistik-objektet.
+Täthets vektorn mäter en jämförelse mellan kolumner. Dedikerad SQL-pool beräknar kardinalitet uppskattningar med alla data i statistik-objektet.
 
 #### <a name="show-header-density-and-histogram"></a>Visa rubrik, densitet och histogram
 
@@ -546,7 +546,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### <a name="dbcc-show_statistics-differences"></a>Skillnader mellan DBCC SHOW_STATISTICS ()
 
-`DBCC SHOW_STATISTICS()` är mer strikt implementerat i SQL-poolen jämfört med SQL Server:
+`DBCC SHOW_STATISTICS()` är mer strikt implementerad i dedikerad SQL-pool jämfört med SQL Server:
 
 - Funktioner som inte har dokumenterats stöds inte.
 - Det går inte att använda Stats_stream.
@@ -556,25 +556,22 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - Det går inte att använda kolumn namn för att identifiera statistik objekt.
 - Anpassad fel 2767 stöds inte.
 
-### <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du kan förbättra prestanda för frågor finns i [övervaka din arbets belastning](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-## <a name="statistics-in-sql-on-demand-preview"></a>Statistik i SQL på begäran (för hands version)
+## <a name="statistics-in-serverless-sql-pool-preview"></a>Statistik i SQL-pool utan server (för hands version)
 
 Statistik skapas per viss kolumn för viss data uppsättning (lagrings Sök väg).
 
 ### <a name="why-use-statistics"></a>Varför använda statistik
 
-Ju mer SQL på begäran (för hands version) som vet om dina data, desto snabbare kan den köra frågor mot det. Insamling av statistik för dina data är ett av de viktigaste sakerna du kan göra för att optimera dina frågor. 
+Den mer Server avvisade SQL-poolen (för hands version) vet om dina data, desto snabbare kan den köra frågor mot den. Insamling av statistik för dina data är ett av de viktigaste sakerna du kan göra för att optimera dina frågor. 
 
-SQL on-demand-frågans optimering är en kostnads baserad optimering. Den Jämför kostnaden för olika fråge planer och väljer sedan planen med den lägsta kostnaden. I de flesta fall väljer den den plan som ska köras snabbast. 
+Den serverbaserade SQL-poolens fråga optimering är en kostnads baserad optimering. Den Jämför kostnaden för olika fråge planer och väljer sedan planen med den lägsta kostnaden. I de flesta fall väljer den den plan som ska köras snabbast. 
 
 Om optimeringen t. ex. beräknar att det datum då frågan filtreras på kommer att returnera en rad kommer den att välja en plan. Om den beräknar att det valda datumet returnerar 1 000 000 rader, returneras ett annat schema.
 
 ### <a name="automatic-creation-of-statistics"></a>Automatisk generering av statistik
 
-SQL på begäran analyserar inkommande användar frågor för saknad statistik. Om statistik saknas skapar Query Optimering statistik för enskilda kolumner i frågeuttrycket eller kopplings villkor för att förbättra kardinalitet uppskattningar för frågeplan.
+SQL-pool utan server analyserar inkommande användar frågor för saknad statistik. Om statistik saknas skapar Query Optimering statistik för enskilda kolumner i frågeuttrycket eller kopplings villkor för att förbättra kardinalitet uppskattningar för frågeplan.
 
 SELECT-instruktionen utlöser automatisk skapande av statistik.
 
@@ -585,7 +582,7 @@ Automatisk generering av statistik görs synkront så att du kan få en försäm
 
 ### <a name="manual-creation-of-statistics"></a>Manuell skapande av statistik
 
-Med SQL på begäran kan du skapa statistik manuellt. För CSV-filer måste du skapa statistik manuellt eftersom automatisk generering av statistik inte är aktive rad för CSV-filer. 
+Med Server lös SQL-pool kan du skapa statistik manuellt. För CSV-filer måste du skapa statistik manuellt eftersom automatisk generering av statistik inte är aktive rad för CSV-filer. 
 
 I följande exempel finns anvisningar om hur du manuellt skapar statistik.
 
@@ -593,7 +590,7 @@ I följande exempel finns anvisningar om hur du manuellt skapar statistik.
 
 Ändringar av data i filer, ta bort och lägga till filer resulterar i ändringar i data distributionen och gör statistiken inaktuell. I så fall måste statistik uppdateras.
 
-SQL på begäran återskapar automatiskt statistiken om data ändras markant. Varje gång statistik skapas skapas även det aktuella läget för data uppsättningen: fil Sök vägar, storlekar, senaste ändrings datum.
+SQL-poolen utan server återskapar automatiskt statistiken om data ändras markant. Varje gång statistik skapas skapas även det aktuella läget för data uppsättningen: fil Sök vägar, storlekar, senaste ändrings datum.
 
 När statistiken är inaktuella skapas nya. Algoritmen går igenom data och jämför dem med data uppsättningens aktuella tillstånd. Om storleken på ändringarna är större än det angivna tröskelvärdet tas gammal statistik bort och återskapas över den nya data uppsättningen.
 
@@ -650,7 +647,7 @@ Argument: [ @stmt =] N ' statement_text '-anger en Transact-SQL-instruktion som 
 
 Om du vill skapa statistik för en kolumn anger du en fråga som returnerar kolumnen som du behöver statistik för.
 
-Om du inte anger något annat använder SQL på begäran 100% av de data som anges i data uppsättningen när statistik skapas.
+Om du inte anger något annat använder Server lös SQL-poolen som standard 100% av de data som anges i data uppsättningen när statistik skapas.
 
 Till exempel för att skapa statistik med standard alternativ (FULLSCAN) för en års kolumn i data uppsättningen baserat på population.csv-filen:
 
@@ -816,4 +813,6 @@ CREATE STATISTICS sState
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om prestanda förbättringar finns i [metod tips för SQL-pool](best-practices-sql-pool.md#maintain-statistics).
+Mer information om hur du kan förbättra frågans prestanda för dedikerad SQL-pool finns i [övervaka din arbets belastning](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) och [bästa praxis för dedikerad SQL-pool](best-practices-sql-pool.md#maintain-statistics).
+
+För att ytterligare förbättra frågans prestanda för SQL-pool utan server, se [metod tips för Server lös SQL-pool](best-practices-sql-on-demand.md)

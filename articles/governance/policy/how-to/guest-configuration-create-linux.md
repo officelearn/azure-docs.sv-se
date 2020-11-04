@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en princip för Azure Policy gäst konfigura
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b072a615cfc31f250d1a605a20e1628d601bb25
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c0559e284f1e7022510a458209ec8d985ffc6324
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676635"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305547"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Skapa gästkonfigurationsprinciper för Linux
 
@@ -17,7 +17,7 @@ Innan du skapar anpassade principer läser du översikts informationen på [Azur
  
 Information om hur du skapar principer för gäst konfiguration för Windows finns på sidan [så här skapar du principer för gäst konfiguration för Windows](./guest-configuration-create.md)
 
-Vid Linux-granskning använder gästkonfiguration [Chef InSpec](https://www.inspec.io/). InSpec-profilen definierar det tillstånd som datorn ska ha. Om utvärderingen av konfigurationen Miss lyckas utlöses **auditIfNotExists** för princip inställningen och datorn betraktas som **icke-kompatibel** .
+Vid Linux-granskning använder gästkonfiguration [Chef InSpec](https://www.inspec.io/). InSpec-profilen definierar det tillstånd som datorn ska ha. Om utvärderingen av konfigurationen Miss lyckas utlöses **auditIfNotExists** för princip inställningen och datorn betraktas som **icke-kompatibel**.
 
 [Azure policy gäst konfiguration](../concepts/guest-configuration.md) kan bara användas för att granska inställningar i datorer. Reparationen av inställningar i datorer är inte tillgänglig ännu.
 
@@ -80,7 +80,7 @@ Så här installerar du **GuestConfiguration** -modulen i PowerShell:
 Till och med i Linux-miljöer använder gäst konfigurationen önskad tillstånds konfiguration som en språk abstraktion. Implementeringen är baserad i intern kod (C++) så att den inte kräver inläsning av PowerShell. Men det krävs en konfigurations-MOF som beskriver information om miljön.
 DSC agerar som en omslutning för att standardisera hur den körs, hur parametrar anges och hur utdata returneras till tjänsten. Lite kunskap om DSC krävs när du arbetar med anpassad INSPEC-information.
 
-#### <a name="configuration-requirements"></a>Konfigurations krav
+#### <a name="configuration-requirements"></a>Konfigurationskrav
 
 Namnet på den anpassade konfigurationen måste vara konsekvent överallt. Namnet på. zip-filen för innehålls paketet, konfigurations namnet i MOF-filen och gäst tilldelnings namnet i Azure Resource Manager mall (ARM-mallen) måste vara samma.
 
@@ -160,7 +160,7 @@ De stödfiler som krävs måste paketeras tillsammans. Det slutförda paketet an
 - **Namn** : namn på gäst konfigurations paket.
 - **Konfiguration** : kompilerad fullständig sökväg till konfigurations dokument.
 - **Sökväg** : sökväg till utmatnings katalog. Den här parametern är valfri. Om det inte anges skapas paketet i den aktuella katalogen.
-- **ChefProfilePath** : fullständig sökväg till INSPEC-profil. Den här parametern stöds bara när du skapar innehåll för att granska Linux.
+- **ChefInspecProfilePath** : fullständig sökväg till INSPEC-profil. Den här parametern stöds bara när du skapar innehåll för att granska Linux.
 
 Kör följande kommando för att skapa ett paket med den konfiguration som angavs i föregående steg:
 
@@ -191,7 +191,7 @@ Test-GuestConfigurationPackage `
 Cmdleten stöder även inmatade från PowerShell-pipeline. Skicka utdata från `New-GuestConfigurationPackage` cmdlet till `Test-GuestConfigurationPackage` cmdleten.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
 Nästa steg är att publicera filen till Azure Blob Storage.  Kommandot `Publish-GuestConfigurationPackage` kräver `Az.Storage` modulen.
@@ -235,7 +235,7 @@ Cmdlet-utdata returnerar ett objekt som innehåller initiativets visnings namn o
 
 Publicera sedan princip definitionerna med hjälp av `Publish-GuestConfigurationPolicy` cmdleten. Cmdleten har bara **Sök vägs** parametern som pekar på platsen för de JSON-filer som skapas av `New-GuestConfigurationPolicy` .
 
-Om du vill köra kommandot Publicera måste du ha åtkomst till skapa principer i Azure. De särskilda kraven för auktorisering finns dokumenterade på sidan [Azure policy översikt](../overview.md) . Den bästa inbyggda rollen är **resurs princip deltagare** .
+Om du vill köra kommandot Publicera måste du ha åtkomst till skapa principer i Azure. De särskilda kraven för auktorisering finns dokumenterade på sidan [Azure policy översikt](../overview.md) . Den bästa inbyggda rollen är **resurs princip deltagare**.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
@@ -271,7 +271,7 @@ describe file(attr_path) do
 end
 ```
 
-Cmdletarna `New-GuestConfigurationPolicy` och `Test-GuestConfigurationPolicyPackage` innehåller en parameter med namnet **parameter** . Den här parametern tar en hash-mängd inklusive all information om varje parameter och skapar automatiskt alla nödvändiga avsnitt för de filer som används för att skapa varje Azure Policy definition.
+Cmdletarna `New-GuestConfigurationPolicy` och `Test-GuestConfigurationPolicyPackage` innehåller en parameter med namnet **parameter**. Den här parametern tar en hash-mängd inklusive all information om varje parameter och skapar automatiskt alla nödvändiga avsnitt för de filer som används för att skapa varje Azure Policy definition.
 
 I följande exempel skapas en princip definition för att granska en fil Sök väg där användaren anger sökvägen vid tidpunkten för princip tilldelningen.
 

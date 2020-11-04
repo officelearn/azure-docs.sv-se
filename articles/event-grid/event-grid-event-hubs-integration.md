@@ -4,12 +4,12 @@ description: 'Självstudie: beskriver hur du använder Azure Event Grid och Even
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fb26bf92e6af1fd9e97f3b9434b4ab5e76316b3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270567"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305268"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: strömma Big data till ett informations lager
 Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [Event Hubs och event Grid integrations exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med event Grid för att sömlöst migrera insamlade Event Hubs data från Blob Storage till en Azure Synapse Analytics (tidigare SQL Data Warehouse).
@@ -34,13 +34,13 @@ I den här självstudien gör du följande:
 > * Kör appen som skickar data till händelsehubben.
 > * Visar migrerade data i informationslagret.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Du behöver följande för att kunna slutföra den här självstudiekursen:
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Visual studio 2019](https://www.visualstudio.com/vs/) med arbets belastningar för: .net Skriv bords utveckling, Azure-utveckling, ASP.net och webb utveckling, Node.js utveckling och python-utveckling.
 * Ladda ned [exempelprojektet EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) till din dator.
 
@@ -56,14 +56,14 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Starta Azure Cloud Shell i Azure Portal
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
-2. Välj **Cloud Shell**-knappen överst.
+1. Logga in på [Azure Portal](https://portal.azure.com). 
+2. Välj **Cloud Shell** -knappen överst.
 
     ![Azure Portal](media/event-grid-event-hubs-integration/azure-portal.png)
 3. Du ser att Cloud Shell öppnas längst ned i webbläsaren.
 
     ![Cloud Shell](media/event-grid-event-hubs-integration/launch-cloud-shell.png) 
-4. Om du i Cloud Shell ser ett alternativ för att välja mellan **Bash** och **PowerShell**, väljer du **Bash**. 
+4. Om du i Cloud Shell ser ett alternativ för att välja mellan **Bash** och **PowerShell** , väljer du **Bash**. 
 5. Om du använder Cloud Shell för första gången, skapar du ett lagringskonto genom att välja **Skapa lagring**. Det måste finnas ett Azure-lagringskonto i Azure Cloud Shell för att vissa filer ska kunna lagras. 
 
     ![Skärm bild som visar dialog rutan "du har ingen lagrings monterad" med knappen "skapa lagring" vald.](media/event-grid-event-hubs-integration/create-storage-cloud-shell.png)
@@ -165,7 +165,7 @@ Stäng Cloud Shell genom att välja knappen **Cloud Shell** i portalen (eller) *
 ### <a name="create-a-table-in-azure-synapse-analytics"></a>Skapa en tabell i Azure Synapse Analytics
 Skapa en tabell i informationslagret genom att köra skriptet [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Du kan köra skriptet med Visual Studio eller Frågeredigeraren i portalen. Följande steg visar hur du använder Frågeredigeraren: 
 
-1. I listan över resurser i resurs gruppen väljer du din **SYNAPSE SQL-pool (data lager)**. 
+1. I listan över resurser i resurs gruppen väljer du din **dedikerade SQL-pool**. 
 2. På sidan Azure Synapse Analytics väljer du **Frågeredigeraren (för hands version)** på den vänstra menyn. 
 
     ![Azure Synapse Analytics-sida](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
@@ -210,7 +210,7 @@ Skapa en tabell i informationslagret genom att köra skriptet [CreateDataWarehou
 4. Om du ser följande skärm väljer du **Starta**. 
 
    ![Skärm bild som visar Visual Studios med knappen "starta" i publicerings avsnittet.](media/event-grid-event-hubs-integration/start-publish-button.png) 
-5. I dialog rutan **publicera** väljer du **Azure** for **target**och **sedan nästa**. 
+5. I dialog rutan **publicera** väljer du **Azure** for **target** och **sedan nästa**. 
 
    ![Knappen Starta publicering](media/event-grid-event-hubs-integration/publish-select-azure.png)
 6. Välj **Azure-Funktionsapp (Windows)** och välj **Nästa**. 
@@ -245,7 +245,7 @@ När du har publicerat funktionen är du redo att prenumerera på händelsen.
 7. Välj **Lägg till Event Grid-prenumeration** i verktygsfältet. 
 
     ![Välj Azure-funktion](media/event-grid-event-hubs-integration/select-function-add-button.png)
-8. Gör följande på sidan **Skapa en Event Grid-prenumeration**: 
+8. Gör följande på sidan **Skapa en Event Grid-prenumeration** : 
     1. På sidan **INFORMATION OM HÄNDELSEPRENUMERATION** anger du ett namn för prenumerationen (till exempel: captureEventSub). Välj sedan **Skapa**. 
     2. I avsnittet **INFORMATION OM ÄMNE** gör du följande:
         1. Välj **Event Hubs namnrum** för **ämnes typer**. 

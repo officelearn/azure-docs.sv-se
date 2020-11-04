@@ -1,22 +1,23 @@
 ---
-title: Power BI-och Server lös Synapse SQL-pool för att analysera Azure Cosmos DB data med Synapse-länk
-description: Lär dig hur du skapar en server lös Synapse SQL-adresspool och vyer över Synapse-länken för Azure Cosmos DB, fråga Azure Cosmos-behållare och sedan bygga en modell med Power BI över dessa vyer.
+title: Power BI och Server lös SQL-pool för att analysera Azure Cosmos DB data med Synapse-länk
+description: Lär dig hur du skapar en Synapse SQL Server-databas och vyer över Synapse-länken för Azure Cosmos DB, frågar Azure Cosmos DB containers och sedan skapar en modell med Power BI över dessa vyer.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 8599ebf1932d7c30622855cbf38af867d30b52b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38077dca1b8a27098e8db17354b82340a651b880
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098067"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305177"
 ---
-# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Använd Power BI-och Server lös Synapse SQL-pool för att analysera Azure Cosmos DB data med Synapse-länk (för hands version) 
+# <a name="use-power-bi-and-serverless-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Använd Power BI och Server lös SQL-poolen för att analysera Azure Cosmos DB data med Synapse-länk (för hands version)
+
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
-I den här artikeln får du lära dig hur du skapar en server lös Synapse SQL-pool (som tidigare kallades som **SQL på begäran** )-databas och vyer över Synapse-länken för Azure Cosmos dB. Du kommer att fråga Azure Cosmos-behållare och sedan bygga en modell med Power BI över dessa vyer för att återspegla den frågan.
+I den här artikeln får du lära dig hur du skapar en server lös SQL-pool-databas och vyer över Synapse-länken för Azure Cosmos DB. Du kommer att fråga Azure Cosmos DB behållare och sedan bygga en modell med Power BI över dessa vyer för att återspegla den frågan.
 
 I det här scenariot ska du använda dummy-data om produkt försäljning i en partner butik. Du analyserar intäkterna per butik baserat på närhet till stora hushåll och effekten av annonsering under en viss vecka. I den här artikeln skapar du två vyer med namnet **RetailSales** och **StoreDemographics** och en fråga mellan dem. Du kan hämta exempel produkt data från den här [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) -lagrings platsen.
 
@@ -32,19 +33,19 @@ Se till att skapa följande resurser innan du börjar:
 
 * Läs in produkt data i Azure Cosmos-behållare enligt beskrivningen i den här antecknings boken för [batch-datautdata](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb) .
 
-* [Skapa en Synapse-arbetsyta](../synapse-analytics/quickstart-create-workspace.md) med namnet **SynapseLinkBI** .
+* [Skapa en Synapse-arbetsyta](../synapse-analytics/quickstart-create-workspace.md) med namnet **SynapseLinkBI**.
 
 * [Anslut Azure Cosmos-databasen till arbets ytan Synapse](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json).
 
 ## <a name="create-a-database-and-views"></a>Skapa en databas och vyer
 
-Från arbets ytan Synapse går du till fliken **utveckla** , väljer **+** ikonen och väljer **SQL-skript** .
+Från arbets ytan Synapse går du till fliken **utveckla** , väljer **+** ikonen och väljer **SQL-skript**.
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Lägga till ett SQL-skript i Synapse Analytics-arbetsytan":::
 
-Varje arbets yta levereras med en SQL-slutpunkt utan server. När du har skapat ett SQL-skript från verktygsfältet längst upp ansluter du till **SQL på begäran** .
+Varje arbets yta levereras med en SQL-slutpunkt utan server. När du har skapat ett SQL-skript går du från verktygsfältet överst till **inbyggt**.
 
-:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Lägga till ett SQL-skript i Synapse Analytics-arbetsytan":::
+:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Aktivera SQL-skriptet för att använda Server lös SQL-slutpunkten på arbets ytan":::
 
 Skapa en ny databas med namnet **RetailCosmosDB** och en SQL-vy över Synapse-länkens aktiverade behållare. Följande kommando visar hur du skapar en databas:
 
@@ -104,17 +105,17 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 Välj **körning** som ger följande tabell resultat:
 
-:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Lägga till ett SQL-skript i Synapse Analytics-arbetsytan":::
+:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Fråga efter resultat när du har anslutit till vyerna StoreDemographics och RetailSales":::
 
 ## <a name="model-views-over-containers-with-power-bi"></a>Modellera vyer över behållare med Power BI
 
 Öppna sedan Power BI Skriv bordet och Anslut till den serverbaserade SQL-slutpunkten med hjälp av följande steg:
 
-1. Öppna programmet Power BI Desktop. Välj **Hämta data** och välj **mer** .
+1. Öppna programmet Power BI Desktop. Välj **Hämta data** och välj **mer**.
 
 1. Välj **Azure Synapse Analytics (SQL DW)** i listan över anslutnings alternativ.
 
-1. Ange namnet på den SQL-slutpunkt där databasen finns. Ange `SynapseLinkBI-ondemand.sql.azuresynapse.net` i fältet **Server** . I det här exemplet är  **SynapseLinkBI** namnet på arbets ytan. Ersätt det om du har fått ett annat namn på din arbets yta. Välj **direkt fråga** för data anslutnings läge och klicka sedan på **OK** .
+1. Ange namnet på den SQL-slutpunkt där databasen finns. Ange `SynapseLinkBI-ondemand.sql.azuresynapse.net` i fältet **Server** . I det här exemplet är  **SynapseLinkBI** namnet på arbets ytan. Ersätt det om du har fått ett annat namn på din arbets yta. Välj **direkt fråga** för data anslutnings läge och klicka sedan på **OK**.
 
 1. Välj önskad autentiseringsmetod, till exempel Azure AD.
 
@@ -130,7 +131,7 @@ Välj **körning** som ger följande tabell resultat:
 
 Gå nu till **rapport** fönstret och skapa en rapport för att jämföra den relativa vikten av hushålls storleken med den genomsnittliga intäkten per lager baserat på den spridda representationen av intäkterna och LargeHH index:
 
-1. Välj **punkt diagram** .
+1. Välj **punkt diagram**.
 
 1. Dra och släpp **LargeHH** från **StoreDemographics** -vyn till X-axeln.
 
@@ -139,10 +140,10 @@ Gå nu till **rapport** fönstret och skapa en rapport för att jämföra den re
 1. Dra och släpp **ProductCode** från **RetailSales** -vyn i förklaringen för att välja en speciell produkt linje.
 När du har valt dessa alternativ bör du se ett diagram som följande skärm bild:
 
-:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Lägga till ett SQL-skript i Synapse Analytics-arbetsytan":::
+:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Rapport som jämför den relativa vikten av hushålls storlek med den genomsnittliga intäkten per butik":::
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Använd T-SQL för att fråga Azure Cosmos DB data med Azure Synapse-länk](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 
-Använd Server lös Synapse SQL-pool för att [analysera Azure Open-datauppsättningar och visualisera resultaten i Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)
+Använd Server lös SQL-pool för att [analysera Azure Open-datauppsättningar och visualisera resultaten i Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)

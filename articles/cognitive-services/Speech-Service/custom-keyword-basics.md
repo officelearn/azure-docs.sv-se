@@ -8,15 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ed5c554e6307b08c412de16d1bb92b458c5f15f
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+zone_pivot_groups: keyword-quickstart
+ms.openlocfilehash: 2d15da55c0bab42571d2a9660156a780c5d27881
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166462"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305861"
 ---
 # <a name="get-started-with-custom-keyword"></a>Komma igång med Anpassat nyckelord
 
@@ -36,9 +37,9 @@ Innan du kan använda ett anpassat nyckelord måste du skapa ett nyckelord med h
 
 1. Gå till [tal Studio](https://aka.ms/sdsdk-speechportal) och **Logga** in, eller Välj [**skapa en prenumeration**](https://go.microsoft.com/fwlink/?linkid=2086754)om du inte har en tal prenumeration än.
 
-1. Skapa ett **nytt projekt**på sidan [anpassat nyckelord](https://aka.ms/sdsdk-wakewordportal) . 
+1. Skapa ett **nytt projekt** på sidan [anpassat nyckelord](https://aka.ms/sdsdk-wakewordportal) . 
 
-1. Ange ett **namn**, en valfri **Beskrivning**och välj språket. Du behöver ett projekt per språk och supporten är för närvarande begränsad till `en-US` språket.
+1. Ange ett **namn** , en valfri **Beskrivning** och välj språket. Du behöver ett projekt per språk och supporten är för närvarande begränsad till `en-US` språket.
 
     ![Beskriv ditt nyckelords projekt](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -48,7 +49,7 @@ Innan du kan använda ett anpassat nyckelord måste du skapa ett nyckelord med h
 
 1. Om du vill skapa en ny nyckelords modell klickar du på **träna modell**.
 
-1. Ange ett **namn** för modellen, en valfri **Beskrivning**och valfritt **nyckelord** , och klicka sedan på **Nästa**. Se [rikt linjerna](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) för att välja ett effektivt nyckelord.
+1. Ange ett **namn** för modellen, en valfri **Beskrivning** och valfritt **nyckelord** , och klicka sedan på **Nästa**. Se [rikt linjerna](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) för att välja ett effektivt nyckelord.
 
     ![Ange ditt nyckelord](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -64,25 +65,17 @@ Innan du kan använda ett anpassat nyckelord måste du skapa ett nyckelord med h
 
 ## <a name="use-a-keyword-model-with-the-sdk"></a>Använda en nyckelords modell med SDK
 
-Börja med att läsa in din nyckelords modell fil med hjälp av den `FromFile()` statiska funktionen, som returnerar en `KeywordRecognitionModel` . Använd sökvägen till `.table` filen som du laddade ned från tal Studio. Dessutom skapar du en `AudioConfig` med hjälp av standard mikrofonen och instansierar sedan en ny `KeywordRecognizer` med hjälp av ljud konfigurationen.
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [C# Basics include](includes/how-to/keyword-recognition/keyword-basics-csharp.md)]
+::: zone-end
 
-```csharp
-using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Audio;
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python Basics include](includes/how-to/keyword-recognition/keyword-basics-python.md)]
+::: zone-end
 
-var keywordModel = KeywordRecognitionModel.FromFile("your/path/to/Activate_device.table");
-using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
-using var keywordRecognizer = new KeywordRecognizer(audioConfig);
-```
-
-Sedan utförs körning av nyckelords igenkänning med ett anrop till `RecognizeOnceAsync()` genom att skicka modell objekt. Detta startar en session för att känna igen som varar tills nyckelordet identifieras. Därför använder du vanligt vis det här design mönstret i program med flera trådar, eller i användnings fall där du kan vänta ett Väcknings ord i oändlighet.
-
-```csharp
-KeywordRecognitionResult result = await keywordRecognizer.RecognizeOnceAsync(keywordModel);
-```
-
-> [!NOTE]
-> Exemplet som visas här använder lokal nyckelords igenkänning eftersom det inte kräver ett `SpeechConfig` objekt för autentiserings kontext och inte kontaktar Server delen. Du kan dock köra både nyckelords igenkänning och verifiering för att [använda en kontinuerlig backend-anslutning](https://docs.microsoft.com/azure/cognitive-services/speech-service/tutorial-voice-enable-your-bot-speech-sdk#view-the-source-code-that-enables-keyword).
+::: zone pivot="programming-languages-objectivec-swift"
+[!INCLUDE [ObjectiveC/Swift Basics include](includes/how-to/keyword-recognition/keyword-basics-objc.md)]
+::: zone-end
 
 ## <a name="next-steps"></a>Nästa steg
 

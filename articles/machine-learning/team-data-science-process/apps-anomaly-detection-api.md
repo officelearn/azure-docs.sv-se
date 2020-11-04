@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: f3f35bb7002ea976305b31a27fa6efebecf07710
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e210c1683d5f14181bc0549e73a892eb91d2e746
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087171"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305705"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API för Machine Learning avvikelse identifiering
 
@@ -28,9 +28,9 @@ ms.locfileid: "86087171"
 
 Detta API kan identifiera följande typer av avvikande mönster i tids serie data:
 
-* **Positiva och negativa trender**: om du till exempel övervakar minnes användningen i data behandling kan en uppåtgående trend vara intressant eftersom det kan vara en indikation på en minnes läcka.
-* **Ändringar i det dynamiska värde intervallet**: om du till exempel övervakar undantagen som har utlösts av en moln tjänst kan alla ändringar i det dynamiska värde intervallet vara instabilitet i tjänstens hälso tillstånd.
-* **Toppar och DIP**: om du till exempel övervakar antalet inloggnings försök i en tjänst eller antalet utcheckningar på en e-handelsplats kan toppar eller dip tyda på onormalt beteende.
+* **Positiva och negativa trender** : om du till exempel övervakar minnes användningen i data behandling kan en uppåtgående trend vara intressant eftersom det kan vara en indikation på en minnes läcka.
+* **Ändringar i det dynamiska värde intervallet** : om du till exempel övervakar undantagen som har utlösts av en moln tjänst kan alla ändringar i det dynamiska värde intervallet vara instabilitet i tjänstens hälso tillstånd.
+* **Toppar och DIP** : om du till exempel övervakar antalet inloggnings försök i en tjänst eller antalet utcheckningar på en e-handelsplats kan toppar eller dip tyda på onormalt beteende.
 
 Dessa maskin inlärnings detektorer spårar sådana förändringar i värden över tid och rapporterar pågående ändringar i sina värden som avvikande poäng. De kräver inte justering av adhoc-tröskel och deras resultat kan användas för att styra falsk positiv hastighet. API: t för avvikelse identifiering är användbart i flera scenarier som tjänst övervakning genom att spåra KPI: er över tid, användnings övervakning via mått, till exempel antal sökningar, antal klick, prestanda övervakning via räknare som minne, CPU, fil läsningar osv. över tid.
 
@@ -46,13 +46,13 @@ Identifierings erbjudandet för avvikelse identifiering innehåller användbara 
 -->
 
 ## <a name="api-deployment"></a>API-distribution
-Om du vill använda API: et måste du distribuera det till din Azure-prenumeration där den kommer att vara värd för en Azure Machine Learning-webbtjänst.  Du kan göra detta från [Azure AI Gallery](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  Detta distribuerar två Azure Machine Learning Studio (klassiska) webb tjänster (och deras relaterade resurser) till din Azure-prenumeration – en för avvikelse identifiering med säsongs beroende-identifiering och en utan säsongs beroende identifiering.  När distributionen har slutförts kommer du att kunna hantera dina API: er från sidan [Azure Machine Learning Studio (klassiska) webb tjänster](https://services.azureml.net/webservices/) .  Från den här sidan kan du hitta dina slut punkts platser, API-nycklar och exempel kod för att anropa API: et.  Mer detaljerade instruktioner finns [här](/azure/machine-learning/studio/manage-new-webservice).
+Om du vill använda API: et måste du distribuera det till din Azure-prenumeration där den kommer att vara värd för en Azure Machine Learning-webbtjänst.  Du kan göra detta från [Azure AI Gallery](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  Detta distribuerar två Azure Machine Learning Studio (klassiska) webb tjänster (och deras relaterade resurser) till din Azure-prenumeration – en för avvikelse identifiering med säsongs beroende-identifiering och en utan säsongs beroende identifiering.  När distributionen har slutförts kommer du att kunna hantera dina API: er från sidan [Azure Machine Learning Studio (klassiska) webb tjänster](https://services.azureml.net/webservices/) .  Från den här sidan kan du hitta dina slut punkts platser, API-nycklar och exempel kod för att anropa API: et.  Mer detaljerade instruktioner finns [här](../classic/manage-new-webservice.md).
 
 ## <a name="scaling-the-api"></a>Skalar API: et
 Som standard har din distribution en kostnads fri fakturerings plan för utveckling/testning som innehåller 1 000 transaktioner/månad och 2 beräknings timmar/månad.  Du kan uppgradera till en annan plan efter behov.  Information om prissättningen för olika planer finns [här](https://azure.microsoft.com/pricing/details/machine-learning/) under "Production Web API-prissättning".
 
 ## <a name="managing-aml-plans"></a>Hantera AML-planer
-Du kan hantera din fakturerings plan [här](https://services.azureml.net/plans/).  Plan namnet kommer att baseras på det resurs grupps namn som du valde när du distribuerade API: et, plus en sträng som är unik för din prenumeration.  Anvisningar om hur du uppgraderar planen finns [här](/azure/machine-learning/studio/manage-new-webservice) under avsnittet "hantera fakturerings planer".
+Du kan hantera din fakturerings plan [här](https://services.azureml.net/plans/).  Plan namnet kommer att baseras på det resurs grupps namn som du valde när du distribuerade API: et, plus en sträng som är unik för din prenumeration.  Anvisningar om hur du uppgraderar planen finns [här](../classic/manage-new-webservice.md) under avsnittet "hantera fakturerings planer".
 
 ## <a name="api-definition"></a>API-definition
 Webb tjänsten tillhandahåller ett REST-baserat API över HTTPS som kan användas på olika sätt, till exempel ett webb-eller mobil program, R, python, Excel osv.  Du skickar dina Time Series-data till den här tjänsten via ett REST API samtal och kör en kombination av de tre avvikelse typerna som beskrivs nedan.
@@ -197,4 +197,3 @@ API: et kör alla identifieringar i dina tids serie data och returnerar avvikels
 
 [1]: ./media/apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/apps-anomaly-detection-api/anomaly-detection-seasonal.png
-

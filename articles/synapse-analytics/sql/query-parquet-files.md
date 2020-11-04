@@ -1,6 +1,6 @@
 ---
-title: Fråga Parquet-filer med SQL på begäran (för hands version)
-description: I den här artikeln får du lära dig hur du frågar Parquet-filer med SQL på begäran (för hands version).
+title: Fråga Parquet-filer med Server lös SQL-pool (för hands version)
+description: I den här artikeln får du lära dig hur du frågar Parquet-filer med hjälp av SQL-poolen utan server (för hands version).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e00ecd6048239683951a2d1e60d3bcb0eb5aa68
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242440"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306853"
 ---
-# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga Parquet-filer med SQL on-demand (för hands version) i Azure Synapse Analytics
+# <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Fråga Parquet-filer med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
-I den här artikeln får du lära dig hur du skriver en fråga med SQL på begäran (för hands version) som kommer att läsa Parquet-filer.
+I den här artikeln får du lära dig hur du skriver en fråga med hjälp av SQL-poolen utan server (för hands version) som läser Parquet-filer.
 
 ## <a name="quickstart-example"></a>Exempel på snabb start
 
@@ -111,7 +111,7 @@ Du behöver inte använda OpenRowSet WITH-satsen vid läsning av Parquet-filer. 
 Exemplet nedan visar de automatiska schema härlednings funktionerna för Parquet-filer. Det returnerar antalet rader i september 2017 utan att ange ett schema.
 
 > [!NOTE]
-> Du behöver inte ange kolumner i OpenRowSet WITH-satsen när du läser Parquet-filer. I så fall använder Query-tjänsten SQL på begäran metadata i Parquet-filen och bind kolumner efter namn.
+> Du behöver inte ange kolumner i OpenRowSet WITH-satsen när du läser Parquet-filer. I så fall använder Server lös SQL-poolens fråge tjänst metadata i Parquet-filen och bind kolumner efter namn.
 
 ```sql
 SELECT TOP 10 *
@@ -128,7 +128,7 @@ FROM
 Den data mängd som anges i det här exemplet är uppdelad (partitionerad) i separata undermappar. Du kan fokusera på specifika partitioner med funktionen filsökväg. I det här exemplet visas pris belopp per år, månad och payment_type under de första tre månaderna av 2017.
 
 > [!NOTE]
-> SQL-frågan på begäran är kompatibel med Hive/Hadoop-partitionerings schema.
+> Frågan om SQL-poolen utan server är kompatibel med Hive/Hadoop-partitionerings schema.
 
 ```sql
 SELECT

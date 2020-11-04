@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
-ms.openlocfilehash: 66c9368d06960790c6dc960d2d95bd82be1a6e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9922ddf0859e4f28d5759108581f5ef538f0c294
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345962"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305557"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Använda en Machine Learning Studio (klassisk)-webb tjänst
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 När du har distribuerat en Azure Machine Learning Studio (klassisk) förutsägelse modell som en webb tjänst kan du använda en REST API för att skicka IT-data och hämta förutsägelser. Du kan skicka data i real tid eller i batchläge.
@@ -51,7 +51,7 @@ Hämta API-nyckeln för en ny Machine Learning-webb tjänst:
 
 1. Klicka på **webb tjänster** på den översta menyn i Azure Machine Learning Web Services-portalen.
 2. Klicka på den webb tjänst som du vill hämta nyckeln för.
-3. Klicka på **förbruka**på den översta menyn.
+3. Klicka på **förbruka** på den översta menyn.
 4. Kopiera och spara **primär nyckeln**.
 
 Hämta API-nyckeln för en klassisk Machine Learning-webb tjänst:
@@ -59,7 +59,7 @@ Hämta API-nyckeln för en klassisk Machine Learning-webb tjänst:
 1. Klicka på **klassiska webb tjänster** på den översta menyn i Azure Machine Learning Web Services-portalen.
 2. Klicka på den webb tjänst som du arbetar med.
 3. Klicka på den slut punkt som du vill hämta nyckeln för.
-4. Klicka på **förbruka**på den översta menyn.
+4. Klicka på **förbruka** på den översta menyn.
 5. Kopiera och spara **primär nyckeln**.
 
 ### <a name="classic-web-service"></a>Klassisk webb tjänst
@@ -77,7 +77,7 @@ Machine Learning API-hjälpen innehåller information om en förutsägelse webb 
 
 1. Klicka på den webb tjänst som du arbetar med.
 2. Klicka på den slut punkt som du vill visa API-hjälp sidan för.
-3. Klicka på **förbruka**på den översta menyn.
+3. Klicka på **förbruka** på den översta menyn.
 4. Klicka på **API-hjälp sidan** under antingen Request-Response-eller batch-körningens slut punkter.
 
 **Visa Machine Learning API-hjälp för en ny webb tjänst**

@@ -10,18 +10,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.custom: how-to
-ms.openlocfilehash: eb1a3c1f306b6941987d0981967cf5d096a68735
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: cb4e57cfe8b7494b7d5c38869f83190bff76ef2a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133771"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305765"
 ---
 # <a name="make-predictions-with-an-automl-onnx-model-in-net"></a>Göra förutsägelser med en AutoML ONNX-modell i .NET
 
 I den här artikeln får du lära dig hur du använder en automatiserad ML-AutoML (neurala Network Exchange) för att göra förutsägelser i ett C# .NET Core-konsol program med ML.NET.
 
-[Ml.net](https://docs.microsoft.com/dotnet/machine-learning/) är ett ramverk för maskin inlärning med öppen källkod, plattforms oberoende ramverk för .net-eko system som gör att du kan träna och använda anpassade modeller för maskin inlärning med en kod för första metoden i C# eller F # samt genom att använda verktyg med lågt kod, till exempel [Model Builder](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-model-builder) och [ml.net CLI](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-cli). Ramverket är också utöknings Bart och gör att du kan utnyttja andra populära ramverk för maskin inlärning som TensorFlow och ONNX.
+[Ml.net](/dotnet/machine-learning/) är ett ramverk för maskin inlärning med öppen källkod, plattforms oberoende ramverk för .net-eko system som gör att du kan träna och använda anpassade modeller för maskin inlärning med en kod för första metoden i C# eller F # samt genom att använda verktyg med lågt kod, till exempel [Model Builder](/dotnet/machine-learning/automate-training-with-model-builder) och [ml.net CLI](/dotnet/machine-learning/automate-training-with-cli). Ramverket är också utöknings Bart och gör att du kan utnyttja andra populära ramverk för maskin inlärning som TensorFlow och ONNX.
 
 ONNX är ett format med öppen källkod för AI-modeller. ONNX stöder samverkan mellan ramverk. Det innebär att du kan träna en modell i ett av de många populära ramverken för maskin inlärning som PyTorch, konvertera den till ONNX-format och använda ONNX-modellen i ett annat ramverk som ML.NET. Mer information finns på webbplatsen för [ONNX](https://onnx.ai/).
 
@@ -34,7 +34,7 @@ ONNX är ett format med öppen källkod för AI-modeller. ONNX stöder samverkan
 
 ## <a name="create-a-c-console-application"></a>Skapa ett C#-konsol program
 
-I det här exemplet använder du .NET Core CLI för att skapa programmet, men du kan göra samma uppgifter med Visual Studio. Läs mer om [.net Core CLI](https://docs.microsoft.com/dotnet/core/tools/).
+I det här exemplet använder du .NET Core CLI för att skapa programmet, men du kan göra samma uppgifter med Visual Studio. Läs mer om [.net Core CLI](/dotnet/core/tools/).
 
 1. Öppna en Terminal och skapa ett nytt C# .NET Core-konsolprogram. I det här exemplet är namnet på programmet `AutoMLONNXConsoleApp` . En katalog skapas med samma namn med innehållet i ditt program.
 
@@ -71,7 +71,7 @@ I det här exemplet använder du .NET Core CLI för att skapa programmet, men du
 
 ## <a name="add-a-reference-to-the-onnx-model"></a>Lägg till en referens till ONNX-modellen
 
-Ett sätt för konsol programmet att komma åt ONNX-modellen är att lägga till den i skapa utdata-katalogen.  Mer information om MSBuild common-objekt finns i [MSBuild-guiden](https://docs.microsoft.com/visualstudio/msbuild/common-msbuild-project-items).
+Ett sätt för konsol programmet att komma åt ONNX-modellen är att lägga till den i skapa utdata-katalogen.  Mer information om MSBuild common-objekt finns i [MSBuild-guiden](/visualstudio/msbuild/common-msbuild-project-items).
 
 Lägg till en referens till din ONNX-modell fil i ditt program
 
@@ -86,7 +86,7 @@ Lägg till en referens till din ONNX-modell fil i ditt program
     </ItemGroup>
     ```
 
-    I det här fallet är namnet på ONNX Model *-filen automl-Model. ONNX* .
+    I det här fallet är namnet på ONNX Model *-filen automl-Model. ONNX*.
 
 1. Öppna filen *program.cs* och Lägg till följande rad inuti `Program` klassen.
 
@@ -161,7 +161,7 @@ Med [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) attributet kan du
   
 För numeriska värden fungerar ML.NET endast på [`Single`](xref:System.Single) värde typer. Den ursprungliga data typen för vissa av kolumnerna är dock heltal. [`OnnxMapType`](xref:Microsoft.ML.Transforms.Onnx.OnnxMapTypeAttribute)Attributet Maps typer mellan ONNX och ml.net.
 
-Läs mer om dataattribut i [ml.net load data guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/load-data-ml-net).
+Läs mer om dataattribut i [ml.net load data guide](/dotnet/machine-learning/how-to-guides/load-data-ml-net).
 
 ### <a name="define-model-output-schema"></a>Definiera schema för modell utdata
 
@@ -179,7 +179,7 @@ Liknar `OnnxInput` använder du [`ColumnName`](xref:Microsoft.ML.Data.ColumnName
 
 ## <a name="define-a-prediction-pipeline"></a>Definiera en förutsägelse pipeline
 
-En pipeline i ML.NET är vanligt vis en serie kedjade omvandlingar som fungerar med indata för att generera utdata. Mer information om data [omvandlingar finns i ml.net data Transformation guide](https://docs.microsoft.com/dotnet/machine-learning/resources/transforms).
+En pipeline i ML.NET är vanligt vis en serie kedjade omvandlingar som fungerar med indata för att generera utdata. Mer information om data [omvandlingar finns i ml.net data Transformation guide](/dotnet/machine-learning/resources/transforms).
 
 1. Skapa en ny metod `GetPredictionPipeline` som kallas inuti `Program` klassen
 
@@ -226,7 +226,7 @@ En pipeline i ML.NET är vanligt vis en serie kedjade omvandlingar som fungerar 
     [`Fit`](xref:Microsoft.ML.IEstimator%601.Fit%2A)Metoden förväntar sig ett [`IDataView`](xref:Microsoft.ML.IDataView) as-inflöde för att utföra åtgärder på. En [`IDataView`](xref:Microsoft.ML.IDataView) är ett sätt att visa data i ml.net med hjälp av tabell format. Eftersom pipelinen bara används för förutsägelser, kan du ange en tom [`IDataView`](xref:Microsoft.ML.IDataView) för att ge den [`ITransformer`](xref:Microsoft.ML.ITransformer) nödvändiga informationen om indata och utdata. Den monterade [`ITransformer`](xref:Microsoft.ML.ITransformer) sedan returneras för att användas i ditt program.
 
     > [!TIP]
-    > I det här exemplet definieras pipelinen och används i samma program. Vi rekommenderar dock att du använder separata program för att definiera och använda din pipeline för att göra förutsägelser. I ML.NET kan dina pipelines serialiseras och sparas för att användas på annat sätt i andra .NET-slut användar program. ML.NET har stöd för olika distributions mål som Skriv bords program, webb tjänster, webb sammansättnings program * och många fler. Mer information om hur du sparar pipelines finns i [guiden för att spara och läsa in tränade modeller i ml.net](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net).
+    > I det här exemplet definieras pipelinen och används i samma program. Vi rekommenderar dock att du använder separata program för att definiera och använda din pipeline för att göra förutsägelser. I ML.NET kan dina pipelines serialiseras och sparas för att användas på annat sätt i andra .NET-slut användar program. ML.NET har stöd för olika distributions mål som Skriv bords program, webb tjänster, webb sammansättnings program * och många fler. Mer information om hur du sparar pipelines finns i [guiden för att spara och läsa in tränade modeller i ml.net](/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net).
     >
     > * WebAssembly stöds bara i .NET Core 5 eller senare
 
@@ -284,9 +284,9 @@ Nu när du har en pipeline är det dags att använda den för att göra föruts�
     Predicted Fare: 15.621523
     ```
 
-Mer information om hur du gör förutsägelser i ML.NET finns i [använda en modell för att skapa förutsägelse guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net).
+Mer information om hur du gör förutsägelser i ML.NET finns i [använda en modell för att skapa förutsägelse guide](/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Distribuera din modell som en ASP.NET Core webb-API](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
-- [Distribuera din modell som en server lös .NET Azure-funktion](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)
+- [Distribuera din modell som en ASP.NET Core webb-API](/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
+- [Distribuera din modell som en server lös .NET Azure-funktion](/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)

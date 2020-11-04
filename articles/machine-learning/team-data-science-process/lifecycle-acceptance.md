@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2294ccb1d958b229a71e45bb502b8134d8d5c7f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720528"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305664"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Fas av kund godkännande för processens livs cykel för grupp data vetenskap
 
@@ -34,13 +34,13 @@ Här är en visuell representation av TDSP-livs cykeln:
 
 
 ## <a name="goal"></a>Mål
-**Slutför projektets slut produkter**: bekräfta att pipelinen, modellen och deras distribution i en produktions miljö uppfyller kundens mål.
+**Slutför projektets slut produkter** : bekräfta att pipelinen, modellen och deras distribution i en produktions miljö uppfyller kundens mål.
 
 ## <a name="how-to-do-it"></a>Gör så här
 Det finns två huvudsakliga uppgifter i det här steget:
 
-   * **System verifiering**: bekräfta att den distribuerade modellen och pipelinen uppfyller kundens behov.
-   * **Projektets behållning**: gör om projektet till den entitet som ska köra systemet i produktion.
+   * **System verifiering** : bekräfta att den distribuerade modellen och pipelinen uppfyller kundens behov.
+   * **Projektets behållning** : gör om projektet till den entitet som ska köra systemet i produktion.
 
 Kunden bör kontrol lera att systemet uppfyller deras affärs behov och att det svarar på frågor med acceptabel exakthet för att distribuera systemet till produktion för användning av klientens program. All dokumentation har slutförts och granskats. Projektet har överlämnats till den enhet som ansvarar för åtgärder. Den här entiteten kan t. ex. vara en IT-eller Customer data-science-grupp eller en agent för kunden som ansvarar för att köra systemet i produktion. 
 
@@ -60,4 +60,4 @@ Här följer länkar till varje steg i livs cykeln för TDSP:
 
 Vi tillhandahåller fullständiga genom gångar som demonstrerar alla steg i processen för olika scenarier. [Exempel](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genom gången illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde eller en pipeline för att skapa ett intelligent program. 
 
-Exempel på hur du kör steg i TDSPs som använder Azure Machine Learning Studio finns i [använda TDSP med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Exempel på hur du kör steg i TDSPs som använder Azure Machine Learning Studio finns i [använda TDSP med Azure Machine Learning](./index.yml).

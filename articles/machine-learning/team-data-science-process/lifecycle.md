@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed54fda744978ac43bbffc6a70d6b331e85dc5e7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720460"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305604"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Livs cykeln för team data science process
 
@@ -43,12 +43,12 @@ TDSP-livscykeln modelleras som en sekvens av upprepade steg som ger vägledning 
 
 För varje steg tillhandahåller vi följande information:
 
-   * **Mål**: de speciella målen.
-   * **Gör så här**: en översikt över de olika aktiviteterna och rikt linjerna för hur du utför dem.
-   * **Artefakter**: slut produkter och support för att skapa dem.
+   * **Mål** : de speciella målen.
+   * **Gör så här** : en översikt över de olika aktiviteterna och rikt linjerna för hur du utför dem.
+   * **Artefakter** : slut produkter och support för att skapa dem.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Vi tillhandahåller fullständiga genom gångar som demonstrerar alla steg i processen för särskilda scenarier. [Exempel](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genom gången illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde eller en pipeline för att skapa ett intelligent program. 
 
-Exempel på hur du kör steg i TDSPs som använder Azure Machine Learning Studio finns i [använda TDSP med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Exempel på hur du kör steg i TDSPs som använder Azure Machine Learning Studio finns i [använda TDSP med Azure Machine Learning](./index.yml).

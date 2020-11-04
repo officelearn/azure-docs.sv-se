@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: dd055eecaef00a2f3b555034f44f3c04684a1722
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2857989fb09555ecd808bfdba95bcf58e4444594
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171864"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93304896"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Utforska Synapse Knowledge Center
 
@@ -37,9 +37,9 @@ I **kunskaps centret** kan du göra tre saker:
 * **Tillgängligt exempel för webbläsare**. Med det här alternativet kan du länka exempel data uppsättningar och lägga till exempel kod i formatet SQL-skript, antecknings böcker och pipeliner.
 * **Guidad visning Synapse Studio**. Det här alternativet tar dig en kort genom gång av de grundläggande delarna av Synapse Studio. Detta är användbart om du aldrig har använt Synapse Studio tidigare.
 
-## <a name="exploring-blob-storage-with-sql-on-demand"></a>Utforska Blob Storage med SQL på begäran
+## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Utforska Blob Storage med Server lös SQL-pool
 
-1. **Kunskaps centret**, klicka på **Använd exempel omedelbart**
+1. **Kunskaps centret** , klicka på **Använd exempel omedelbart**
 1. Välj **fråga data med SQL** 
 1. Klicka på **Använd exempel omedelbart**
 1. Ett nytt SQL-skript skapas.
@@ -47,10 +47,10 @@ I **kunskaps centret** kan du göra tre saker:
 1. Klicka på Kör. Den text som du har valt körs.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Läser in fler NYC taxi-data
-1. **Kunskaps centret**, klicka på **Bläddra bland tillgängliga exempel** 
+1. **Kunskaps centret** , klicka på **Bläddra bland tillgängliga exempel** 
 1. Välj fliken **SQL-skript** överst
 1. Välj **Läs in New York taxidata-datauppsättning**
-1. Under **indata**väljer du **Välj en befintlig pool** och väljer **SQLDB1**
+1. Under **indata** väljer du **Välj en befintlig pool** och väljer **SQLDB1**
 1. Klicka på **Öppna skript**
 1. Ett nytt SQL-skript visas.
 1. Klicka på **Kör**
@@ -60,4 +60,4 @@ I **kunskaps centret** kan du göra tre saker:
 
 * [Kom igång med Azure Synapse Analytics](get-started.md)
 * [Skapa en arbetsyta](quickstart-create-workspace.md)
-* [Använda SQL på begäran](quickstart-sql-on-demand.md)
+* [Använd Server lös SQL-pool](quickstart-sql-on-demand.md)

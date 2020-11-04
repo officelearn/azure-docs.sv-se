@@ -1,6 +1,6 @@
 ---
 title: Anslut CEF-data till Azure Sentinel Preview | Microsoft Docs
-description: Anslut en extern lösning som skickar CEF-meddelanden (common Event format) till Azure Sentinel genom att använda en Linux-dator som proxy.
+description: Anslut en extern lösning som skickar CEF-meddelanden (common Event format) till Azure Sentinel genom att använda en Linux-dator som en logg vidarebefordrare.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e09b44504623516d41b6d310a82e78619477367c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747904"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93304988"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ansluta din externa lösning med hjälp av vanligt händelse format
 
@@ -50,40 +50,49 @@ Om du vill använda TLS-kommunikation mellan syslog-källan och syslog-vidarebef
  
 ## <a name="prerequisites"></a>Förutsättningar
 
-Kontrol lera att Linux-datorn som du använder som proxy kör något av följande operativ system:
+Kontrol lera att Linux-datorn som du använder som en logg vidarebefordrare kör något av följande operativ system:
 
 - 64-bitars
-  - CentOS 7 och under versioner, och högre (inte 6)
+  - CentOS 7 och 8, inklusive under versioner (inte 6)
   - Amazon Linux 2017,09
   - Oracle Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 och under versioner, och högre (inte 6)
-  - Debian GNU/Linux 8 och 9
+  - Red Hat Enterprise Linux (RHEL) Server 7 och 8, inklusive under versioner (inte 6)
+  - Debian GNU/Linux 8, 9 och 10
   - Ubuntu Linux 14,04 LTS 16,04 LTS och 18,04 LTS
-  - SUSE Linux Enterprise Server 12
+  - SUSE Linux Enterprise Server 12, 15
+
 - 32-bitars
-   - CentOS 7
-   - Oracle Linux 7
-   - Red Hat Enterprise Linux Server 7
-   - Debian GNU/Linux 8 och 9
-   - Ubuntu Linux 14,04 LTS och 16,04 LTS
+  - CentOS 7 och 8, inklusive under versioner (inte 6)
+  - Oracle Linux 7
+  - Red Hat Enterprise Linux (RHEL) Server 7 och 8, inklusive under versioner (inte 6)
+  - Debian GNU/Linux 8, 9 och 10
+  - Ubuntu Linux 14,04 LTS och 16,04 LTS
  
- - Daemon-versioner
-   - Syslog-ng: 2,1-3.22.1
-   - Rsyslog: V8
+- Daemon-versioner
+  - Syslog-ng: 2,1-3.22.1
+  - Rsyslog: V8
   
- - Syslog-RFC stöds
-   - Syslog RFC 3164
-   - Syslog RFC 5424
+- Syslog-RFC stöds
+  - Syslog RFC 3164
+  - Syslog RFC 5424
  
 Kontrol lera att datorn också uppfyller följande krav: 
+
 - Behörigheter
-    - Du måste ha förhöjd behörighet (sudo) på datorn. 
+  - Du måste ha förhöjd behörighet (sudo) på datorn. 
+
 - Programvarukrav
-    - Se till att python 2,7 körs på datorn.
+  - Se till att python 2,7 körs på datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här dokumentet har du lärt dig hur du ansluter CEF-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+I det här dokumentet har du lärt dig hur Azure Sentinel samlar in CEF-loggar från säkerhetslösningar och apparater. Information om hur du ansluter din lösning till Azure Sentinel finns i följande artiklar:
+
+- STEG 1: [Anslut CEF genom att distribuera en syslog/CEF-vidarebefordrare](connect-cef-agent.md)
+- STEG 2: [utföra lösningar – vissa steg](connect-cef-solution-config.md)
+- STEG 3: [kontrol lera anslutningen](connect-cef-verify.md)
+
+Mer information om vad du kan göra med de data som du har samlat in i Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
 

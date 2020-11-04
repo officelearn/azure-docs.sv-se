@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e66bd0a4e56f63185d8361355d6cf8e0e29bc30b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336657"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305944"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team data science-processen i praktiken – använda ett Azure HDInsight Hadoop-kluster på en data uppsättning på 1 TB
 
@@ -50,11 +50,11 @@ Det finns saknade värden i båda kolumnerna numeric och kategoriska i den här 
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Exempel på förutsägelse aktiviteter
 I den här genom gången är två exempel på förutsägelse problem:
 
-1. **Binära klassificering**: förutsäger om en användare har klickat på Lägg till:
+1. **Binära klassificering** : förutsäger om en användare har klickat på Lägg till:
 
    * Klass 0: inget klick
    * Klass 1: Klicka på
-2. **Regression**: förutsäger sannolikheten för att en annons klickar på användar funktioner.
+2. **Regression** : förutsäger sannolikheten för att en annons klickar på användar funktioner.
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-data-science"></a><a name="setup"></a>Konfigurera ett HDInsight Hadoop-kluster för data vetenskap
 > [!NOTE]
@@ -63,7 +63,7 @@ I den här genom gången är två exempel på förutsägelse problem:
 Konfigurera din Azure Data Science-miljö för att skapa förutsägelse analys lösningar med HDInsight-kluster i tre steg:
 
 1. [Skapa ett lagrings konto](../../storage/common/storage-account-create.md): det här lagrings kontot används för att lagra data i Azure Blob Storage. Data som används i HDInsight-kluster lagras här.
-2. [Anpassa Azure HDInsight Hadoop kluster för data vetenskap](customize-hadoop-cluster.md): det här steget skapar ett Azure HDInsight Hadoop-kluster med 64-bitars Anaconda python 2,7 installerat på alla noder. Det finns två viktiga steg (beskrivs i det här avsnittet) att slutföra när du anpassar HDInsight-klustret.
+2. [Anpassa Azure HDInsight Hadoop kluster för data vetenskap](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md): det här steget skapar ett Azure HDInsight Hadoop-kluster med 64-bitars Anaconda python 2,7 installerat på alla noder. Det finns två viktiga steg (beskrivs i det här avsnittet) att slutföra när du anpassar HDInsight-klustret.
 
    * Länka lagrings kontot som skapades i steg 1 med ditt HDInsight-kluster när det skapas. Det här lagrings kontot används för att komma åt data som kan bearbetas i klustret.
    * Aktivera fjärråtkomst till Head-noden i klustret när den har skapats. Kom ihåg de autentiseringsuppgifter för fjärråtkomst som du anger här (skiljer sig från de autentiseringsuppgifter som angavs när klustret skapas): utför följande procedurer.
@@ -76,7 +76,7 @@ Konfigurera din Azure Data Science-miljö för att skapa förutsägelse analys l
 
 Klicka på **Fortsätt för att ladda ned** för att läsa mer om data uppsättningen och dess tillgänglighet.
 
-Data finns på en [Azure Blob Storage](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) -plats: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/ . "Wasb" syftar på Azure Blob Storage-platsen.
+Data finns på en [Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-dotnet.md) -plats: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/ . "Wasb" syftar på Azure Blob Storage-platsen.
 
 1. Data i Azure Blob Storage består av tre undermappar med zippade data.
 
@@ -99,7 +99,7 @@ Till vänster visas "Hadoop kommando rad", som är vår WorkHorse för data utfo
 Nu är du redo att börja första delen av genom gången: data utforskning med Hive och hämtning av data som är redo för Azure Machine Learning.
 
 ## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Skapa Hive-databas och tabeller
-Om du vill skapa Hive-tabeller för vår Criteo-datauppsättning öppnar du ***kommando raden för Hadoop*** på Skriv bordet för Head-noden och anger Hive-katalogen genom att ange kommandot
+Om du vill skapa Hive-tabeller för vår Criteo-datauppsättning öppnar du * *_Hadoop kommando rad_* _ på Skriv bordet för Head-noden och anger Hive-katalogen genom att ange kommandot
 
 ```console
 cd %hive_home%\bin
@@ -118,7 +118,7 @@ När Hive-REPL visas med ett "Hive >"-tecken kan du helt enkelt klippa ut och kl
 
 Följande kod skapar en databas "Criteo" och genererar sedan fyra tabeller:
 
-* en *tabell för generering av antal* som skapats på dagar \_ till dag \_ 20,
+_ en *tabell för generering av antal* som skapats på dagar dag \_ 00 till dag \_ 20,
 * en *tabell som används som tågets data uppsättning* byggd dag \_ 21 och
 * två *tabeller som ska användas som test data uppsättningar* byggda dag \_ 22 respektive dag \_ 23.
 
@@ -161,7 +161,7 @@ Alla dessa tabeller är externa så att du kan peka på deras Azure Blob Storage
 
 **Det finns två sätt att köra en Hive-fråga:**
 
-* **Med hjälp av kommando raden för Hive-repl**: det första är att utfärda ett Hive-kommando och kopiera och klistra in en fråga på HIVE-repl kommando rad:
+* **Med hjälp av kommando raden för Hive-repl** : det första är att utfärda ett Hive-kommando och kopiera och klistra in en fråga på HIVE-repl kommando rad:
 
   ```console
   cd %hive_home%\bin
@@ -169,7 +169,7 @@ Alla dessa tabeller är externa så att du kan peka på deras Azure Blob Storage
   ```
 
      Nu körs den här frågan på kommando raden för REPL och inklistringen klistras in.
-* **Spara frågor till en fil och köra kommandot**: det andra är att spara frågorna till en. HQL-fil ([exempel&#95;hive&#95;skapa&#95;criteo&#95;database&#95;och&#95;tables. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) och utfärda sedan följande kommando för att köra frågan:
+* **Spara frågor till en fil och köra kommandot** : det andra är att spara frågorna till en. HQL-fil ( [exempel&#95;hive&#95;skapa&#95;criteo&#95;database&#95;och&#95;tables. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) och utfärda sedan följande kommando för att köra frågan:
 
   ```console
   hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
@@ -354,7 +354,7 @@ Detta ger:
 Time taken: 448.116 seconds, Fetched: 1 row(s)
 ```
 
-Col15 har 19M unika värden! Det är inte möjligt att använda naïve-tekniker som "en-frekvent kodning" för att koda sådana avancerade kategoriska-variabler. I synnerhet förklaras och visas en kraftfull, robust teknik som kallas [inlärning](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för att lösa problemet effektivt.
+Col15 har 19M unika värden! Det är inte möjligt att använda naïve-tekniker som "en-frekvent kodning" för att koda sådana avancerade kategoriska-variabler. I synnerhet förklaras och visas en kraftfull, robust teknik som kallas [inlärning](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) för att lösa problemet effektivt.
 
 Titta slutligen på antalet unika värden för några andra kategoriska-kolumner. Innehållet i [exemplet&#95;hive&#95;criteo&#95;unika&#95;värden&#95;flera&#95;categoricals. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) :
 
@@ -472,7 +472,7 @@ Med det här alternativet är du redo att använda vårt insamlade tränat tåg 
 Det finns en slutlig viktig komponent innan du går vidare till Azure Machine Learning, vilket avser Count-tabellen. I nästa avsnitt beskrivs tabellen Count i viss detalj.
 
 ## <a name="a-brief-discussion-on-the-count-table"></a><a name="count"></a> En kort diskussion om Count-tabellen
-Som du såg har flera kategoriska-variabler en hög dimensionalitet. I genom gången är en kraftfull teknik som kallas [inlärning med antal](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för att koda dessa variabler på ett effektivt och robust sätt presenteras. Mer information om den här tekniken finns i den angivna länken.
+Som du såg har flera kategoriska-variabler en hög dimensionalitet. I genom gången är en kraftfull teknik som kallas [inlärning med antal](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) för att koda dessa variabler på ett effektivt och robust sätt presenteras. Mer information om den här tekniken finns i den angivna länken.
 
 >[!NOTE]
 >I den här genom gången är fokus på att använda Count-tabeller för att skapa komprimerade representationer av avancerade kategoriska funktioner. Detta är inte det enda sättet att koda kategoriska-funktioner. Om du vill ha mer information om andra tekniker kan intresserade användare titta på [en-frekvent kodning](https://en.wikipedia.org/wiki/One-hot) och [funktion-hash](https://en.wikipedia.org/wiki/Feature_hashing).
@@ -502,13 +502,13 @@ För modulen **Importera data** är värdena för de parametrar som anges i graf
 
 1. Välj Hive-fråga för **data källa**
 2. I rutan **Hive-databasfrågor** , en enkel Select * från <ditt \_ databas \_ namn. \_ tabell \_ namnet>-är tillräckligt.
-3. **HCatalog Server-URI**: om klustret är "ABC" är detta bara: https: \/ /ABC.azurehdinsight.net
-4. **Hadoop-användar konto namn**: det användar namn som valdes vid tidpunkten för att ställa in klustret. (Inte användar namn för fjärråtkomst!)
-5. **Lösen ord för Hadoop-användarkonto**: lösen ordet för det användar namn som valts vid tiden för klustret. (Inte lösen ordet för fjärråtkomst!)
-6. **Plats för utgående data**: Välj "Azure"
-7. **Azure Storage konto namn**: det lagrings konto som är kopplat till klustret
-8. **Azure Storage konto nyckel**: nyckeln för det lagrings konto som är kopplat till klustret.
-9. **Namn på Azure-behållare**: om kluster namnet är "ABC" är detta bara "ABC", vanligt vis.
+3. **HCatalog Server-URI** : om klustret är "ABC" är detta bara: https: \/ /ABC.azurehdinsight.net
+4. **Hadoop-användar konto namn** : det användar namn som valdes vid tidpunkten för att ställa in klustret. (Inte användar namn för fjärråtkomst!)
+5. **Lösen ord för Hadoop-användarkonto** : lösen ordet för det användar namn som valts vid tiden för klustret. (Inte lösen ordet för fjärråtkomst!)
+6. **Plats för utgående data** : Välj "Azure"
+7. **Azure Storage konto namn** : det lagrings konto som är kopplat till klustret
+8. **Azure Storage konto nyckel** : nyckeln för det lagrings konto som är kopplat till klustret.
+9. **Namn på Azure-behållare** : om kluster namnet är "ABC" är detta bara "ABC", vanligt vis.
 
 När data har hämtats av **importen** (du ser det gröna skalet i modulen) sparar du dessa data som en data uppsättning (med ett namn som du väljer). Så här ser det ut:
 
@@ -626,7 +626,7 @@ Slutligen bör du analysera modell prestanda. För två klassificerings problem 
 
 ![Utvärdera modulen BDT modell](./media/hive-criteo-walkthrough/0Tl0cdg.png)
 
-I binära (eller två klass-) klassificerings problem är ett utmärkt mått på förutsägelse noggrannhet den yta under kurvan (AUC). I följande avsnitt visas våra resultat med den här modellen i vår test data uppsättning. Högerklicka på utdataporten för modulen **utvärdera modell** och **visualisera**sedan.
+I binära (eller två klass-) klassificerings problem är ett utmärkt mått på förutsägelse noggrannhet den yta under kurvan (AUC). I följande avsnitt visas våra resultat med den här modellen i vår test data uppsättning. Högerklicka på utdataporten för modulen **utvärdera modell** och **visualisera** sedan.
 
 ![Visualisera modell modul för bedömning](./media/hive-criteo-walkthrough/IRfc7fH.png)
 

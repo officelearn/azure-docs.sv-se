@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 04c315f593b90204faaeaec562c18e9e4be301d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b3bec9c4d4476b95279e35953ff89177f4488d4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881888"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305839"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Azure Synapse Analytics-utdata från Azure Stream Analytics
 
 [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (tidigare SQL Data Warehouse) är en obegränsad analys tjänst som sammanför företags data lager hantering och stor data analys. 
 
-Azure Stream Analytics jobb kan matas ut till en SQL-adresspool i Azure Synapse Analytics och kan bearbeta data flödes hastigheter upp till 200 MB/s. Detta stöder de mest krävande real tids analys och frekventa data bearbetnings behov för arbets belastningar som rapportering och instrument paneler.  
+Azure Stream Analytics jobb kan matas ut till en dedikerad SQL-adresspool i Azure Synapse Analytics och kan bearbeta data flödes hastigheter upp till 200 MB/s. Detta stöder de mest krävande real tids analys och frekventa data bearbetnings behov för arbets belastningar som rapportering och instrument paneler.  
 
-Tabellen SQL-pool måste finnas innan du kan lägga till den som utdata till ditt Stream Analytics-jobb. Tabellens schema måste matcha fälten och deras typer i jobbets utdata. 
+Tabellen för den dedikerade SQL-poolen måste finnas innan du kan lägga till den som utdata till ditt Stream Analytics-jobb. Tabellens schema måste matcha fälten och deras typer i jobbets utdata. 
 
 Om du vill använda Azure-Synapse som utdata måste du kontrol lera att lagrings kontot har kon figurer ATS. Gå till lagrings konto inställningarna för att konfigurera lagrings kontot. Endast de lagrings konto typer som stöder tabeller är tillåtna: General-Purpose v2 och General-Purpose v1. Välj endast standard nivå. Premium-nivån stöds inte.
 
@@ -31,11 +31,11 @@ I följande tabell visas egenskaps namn och beskrivningar för att skapa am Azur
 |Egenskapsnamn|Beskrivning|
 |-|-|
 |Utdataalias |Ett eget namn som används i frågor för att dirigera frågeresultatet till den här databasen. |
-|Databas |SQL-poolnamn där du ska skicka utdata. |
+|Databas |ett dedikerat SQL-poolnamn där du skickar dina utdata. |
 |Servernamn |Namn på Azure Synapse-Server.  |
 |Användarnamn |Det användar namn som har Skriv behörighet till databasen. Stream Analytics stöder endast SQL-autentisering. |
 |lösenordsinställning |Lösen ordet för att ansluta till databasen. |
-|Tabell  | Tabell namnet där utdata skrivs. Tabell namnet är Skift läges känsligt. Schemat för den här tabellen ska exakt matcha det antal fält och deras typer som jobbets utdata genererar.|
+|Tabeller  | Tabell namnet där utdata skrivs. Tabell namnet är Skift läges känsligt. Schemat för den här tabellen ska exakt matcha det antal fält och deras typer som jobbets utdata genererar.|
 
 ## <a name="next-steps"></a>Nästa steg
 

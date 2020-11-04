@@ -8,17 +8,17 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e643a7ce5ccf4aa5107df1e505d90a0767517350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a7502d48095fe18b983c1971d5145f51e766c95
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070419"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306912"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Utför Azure Table Storage-åtgärder med Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-Azure Table Storage är ett NoSQL-datalager som du kan använda för att lagra och fråga enorma mängder strukturerade, icke-relationella data. Huvud komponenterna i tjänsten är tabeller, entiteter och egenskaper. En tabell är en samling entiteter. En entitet är en uppsättning egenskaper. Varje entitet kan ha upp till 252 egenskaper, vilket är alla namn/värde-par. Den här artikeln förutsätter att du redan är bekant med Azure Table Storage-tjänstens koncept. Detaljerad information finns i [förstå tabell tjänstens data modell](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) och [komma igång med Azure Table Storage med hjälp av .net](../../cosmos-db/table-storage-how-to-use-dotnet.md).
+Azure Table Storage är ett NoSQL-datalager som du kan använda för att lagra och fråga enorma mängder strukturerade, icke-relationella data. Huvud komponenterna i tjänsten är tabeller, entiteter och egenskaper. En tabell är en samling entiteter. En entitet är en uppsättning egenskaper. Varje entitet kan ha upp till 252 egenskaper, vilket är alla namn/värde-par. Den här artikeln förutsätter att du redan är bekant med Azure Table Storage-tjänstens koncept. Detaljerad information finns i [förstå tabell tjänstens data modell](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) och [komma igång med Azure Table Storage med hjälp av .net](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
 Den här instruktions artikeln beskriver vanliga åtgärder för Azure Table Storage. Lär dig att: 
 
@@ -38,7 +38,7 @@ I exemplen krävs AZ PowerShell-moduler `Az.Storage (1.1.0 or greater)` och `Az.
 > Om du använder den här Azure-funktionen från PowerShell måste du ha `Az` installerat modulen. Den aktuella versionen av `AzTable` är inte kompatibel med den äldre AzureRM-modulen.
 > Följ de [senaste installations anvisningarna för att installera AZ-modulen](/powershell/azure/install-az-ps) om det behövs.
 
-När Azure PowerShell har installerats eller uppdaterats måste du installera module **AzTable**, som har kommandon för att hantera entiteterna. Om du vill installera den här modulen kör du PowerShell som administratör och använder kommandot **install-module** .
+När Azure PowerShell har installerats eller uppdaterats måste du installera module **AzTable** , som har kommandon för att hantera entiteterna. Om du vill installera den här modulen kör du PowerShell som administratör och använder kommandot **install-module** .
 
 > [!IMPORTANT]
 > För kompatibilitetsproblem kan vi fortfarande publicera samma modul under det gamla namnet `AzureRmStorageTables` i PowerShell-galleriet. Det här dokumentet refererar endast till det nya namnet.
@@ -120,7 +120,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 > [!IMPORTANT]
 > Användningen av CloudTable är obligatorisk när du arbetar med **AzTable** PowerShell-modulen. Anropa kommandot **Get-AzStorageTable** för att hämta referensen till det här objektet. Det här kommandot skapar även tabellen om den inte redan finns.
 
-Om du vill utföra åtgärder för en tabell med **AzTable**måste du ha en referens till egenskapen CloudTable för en speciell tabell.
+Om du vill utföra åtgärder för en tabell med **AzTable** måste du ha en referens till egenskapen CloudTable för en speciell tabell.
 
 ```powershell
 $cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable

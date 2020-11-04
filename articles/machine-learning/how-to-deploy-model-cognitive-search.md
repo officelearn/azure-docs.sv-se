@@ -1,7 +1,7 @@
 ---
 title: Distribuera en modell för användning med Cognitive Search
 titleSuffix: Azure Machine Learning
-description: Den här artikeln lär dig hur du använder Azure Machine Learning för att distribuera en modell för användning med Azure Kognitiv sökning. Kognitiv sökning kan använda modeller som distribuerats av Azure Machine Learning som en anpassad färdighet för att förbättra Sök funktionen.
+description: Lär dig hur du använder Azure Machine Learning för att distribuera en modell för användning med Kognitiv sökning. Modellen används som en anpassad färdighet för att förbättra Sök funktionen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 06/11/2020
 ms.custom: deploy
-ms.openlocfilehash: 5d198a27d7aeca679f1ee17f35d3f4384283f13c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: e1eebf88b72c87ce9db02760c5c44a0aa25c57cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998914"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305927"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Distribuera en modell för användning med Cognitive Search
 
@@ -25,7 +25,7 @@ Den här artikeln lär dig hur du använder Azure Machine Learning för att dist
 
 Kognitiv sökning utför innehålls bearbetning över heterogena-innehåll, så att den kan frågas av människor eller program. Den här processen kan utökas med hjälp av en modell som distribueras från Azure Machine Learning.
 
-Azure Machine Learning kan distribuera en utbildad modell som en webb tjänst. Webb tjänsten är sedan inbäddad i en Kognitiv sökning- _kunskap_, som blir en del av bearbetnings pipelinen.
+Azure Machine Learning kan distribuera en utbildad modell som en webb tjänst. Webb tjänsten är sedan inbäddad i en Kognitiv sökning- _kunskap_ , som blir en del av bearbetnings pipelinen.
 
 > [!IMPORTANT]
 > Informationen i den här artikeln är speciell för distributionen av modellen. Den innehåller information om de distributions konfigurationer som stöds och som tillåter att modellen används av Kognitiv sökning.
@@ -46,7 +46,7 @@ När du distribuerar en modell för användning med Azure Kognitiv sökning mås
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
-* En python-utvecklings miljö med Azure Machine Learning SDK installerat. Mer information finns i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).  
+* En python-utvecklings miljö med Azure Machine Learning SDK installerat. Mer information finns i [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
 
 * En registrerad modell. Om du inte har någon modell använder du exempel antecknings boken på [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill) .
 
@@ -75,7 +75,7 @@ except:
 
 ## <a name="create-a-kubernetes-cluster"></a>Skapa ett Kubernetes-kluster
 
-**Tids uppskattning**: cirka 20 minuter.
+**Tids uppskattning** : cirka 20 minuter.
 
 Ett Kubernetes-kluster är en uppsättning instanser av virtuella datorer (kallas noder) som används för att köra program i behållare.
 
@@ -252,7 +252,7 @@ from azureml.core.model import InferenceConfig
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
 ```
 
-Mer information finns i referens dokumentationen för [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true).
+Mer information finns i referens dokumentationen för [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
 
 ## <a name="deploy-the-model"></a>Distribuera modellen
 
@@ -277,7 +277,7 @@ aks_service.wait_for_deployment(show_output = True)
 print(aks_service.state)
 ```
 
-Mer information finns i referens dokumentationen för- [modellen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true).
+Mer information finns i referens dokumentationen för- [modellen](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
 
 ## <a name="issue-a-sample-query-to-your-service"></a>Skicka en exempel fråga till din tjänst
 

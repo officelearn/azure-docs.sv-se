@@ -8,14 +8,14 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 6b475e34c01ca26abd3d8ab1d904521de19f941b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 01efb5736d7becf1b46c7c2898c22648b0421dd1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947874"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305819"
 ---
-# <a name="create-and-delete-jobs-in-an-azure-stream-analytics-cluster"></a>Skapa och ta bort jobb i ett Azure Stream Analytics kluster
+# <a name="add-and-remove-jobs-in-an-azure-stream-analytics-cluster"></a>Lägga till och ta bort jobb i ett Azure Stream Analytics kluster
 
 Du kan köra flera Azure Stream Analytics jobb på ett Stream Analytics-kluster. Jobb som körs i ett kluster är en enkel 2-stegs process: Lägg till jobbet i klustret och starta jobbet. Den här artikeln visar hur du lägger till och tar bort jobb från ett befintligt kluster. Följ snabb starten för att [skapa ett Stream Analytics kluster](create-cluster.md) om du inte redan har en.
 
@@ -25,7 +25,7 @@ Det går bara att lägga till befintliga Stream Analytics jobb i kluster. Följ 
 
 1. Leta upp och välj ditt Stream Analytics-kluster i Azure Portal.
 
-1. Under **Inställningar**väljer du **Stream Analytics jobb**. Välj sedan **Lägg till befintligt jobb**.
+1. Under **Inställningar** väljer du **Stream Analytics jobb**. Välj sedan **Lägg till befintligt jobb**.
 
 1. Välj den prenumeration och det Stream Analytics jobb som du vill lägga till i klustret. Endast Stream Analytics jobb i samma region som klustret kan läggas till i klustret.
 
@@ -41,7 +41,7 @@ Stream Analytics jobb måste vara i ett stoppat tillstånd innan det kan tas bor
 
 1. Leta upp och välj ditt Stream Analytics-kluster.
 
-1. Under **Inställningar**väljer du **Stream Analytics jobb**.
+1. Under **Inställningar** väljer du **Stream Analytics jobb**.
 
 1. Välj de jobb som du vill ta bort från klustret och välj sedan **ta bort**.
 

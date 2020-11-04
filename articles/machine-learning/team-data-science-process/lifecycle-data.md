@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7770e929e51ee51b09060e4247c5f92b27d1035
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195073"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311870"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Data hämtning och förståelse av steg för team data vetenskaps processen
 
@@ -67,8 +67,8 @@ I det här steget utvecklar du en lösnings arkitektur för data pipelinen. Du u
 Följande är slut produkterna i det här skedet:
 
    * [Data kvalitets rapport](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): den här rapporten innehåller data sammanfattningar, relationerna mellan varje attribut och mål, variabel rangordning med mera. [Idé](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) verktyget som tillhandahålls som en del av TDSP kan snabbt generera den här rapporten på valfri tabell data uppsättning, till exempel en CSV-fil eller en Relations tabell. 
-   * **Lösnings arkitektur**: lösnings arkitekturen kan vara ett diagram eller en beskrivning av din datapipeline som du använder för att köra poängsättning eller förutsägelser på nya data när du har skapat en modell. Den innehåller också pipelinen för att träna om modellen baserat på nya data. Lagra dokumentet i [projekt](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) katalogen när du använder TDSP katalog struktur mal len.
-   * **Kontroll punkts beslut**: innan du påbörjar fullständig teknik och modell utveckling kan du utvärdera om projektet för att avgöra om det förväntade värdet är tillräckligt för att fortsätta med det. Du kan till exempel vara redo att fortsätta, behöva samla in mer data eller överge projektet eftersom data inte finns för att besvara frågan.
+   * **Lösnings arkitektur** : lösnings arkitekturen kan vara ett diagram eller en beskrivning av din datapipeline som du använder för att köra poängsättning eller förutsägelser på nya data när du har skapat en modell. Den innehåller också pipelinen för att träna om modellen baserat på nya data. Lagra dokumentet i [projekt](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) katalogen när du använder TDSP katalog struktur mal len.
+   * **Kontroll punkts beslut** : innan du påbörjar fullständig teknik och modell utveckling kan du utvärdera om projektet för att avgöra om det förväntade värdet är tillräckligt för att fortsätta med det. Du kan till exempel vara redo att fortsätta, behöva samla in mer data eller överge projektet eftersom data inte finns för att besvara frågan.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -82,4 +82,4 @@ Här följer länkar till varje steg i livs cykeln för TDSP:
 
 Vi tillhandahåller fullständiga genom gångar som demonstrerar alla steg i processen för olika scenarier. [Exempel](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genom gången illustrerar hur du kombinerar moln, lokala verktyg och tjänster till ett arbets flöde eller en pipeline för att skapa ett intelligent program. 
 
-Exempel på hur du kör steg i TDSPs som använder Azure Machine Learning Studio finns i [använda TDSP med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle-data).
+Exempel på hur du kör steg i TDSPs som använder Azure Machine Learning Studio finns i [använda TDSP med Azure Machine Learning]().

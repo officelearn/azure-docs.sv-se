@@ -1,6 +1,6 @@
 ---
-title: Fråga efter data i Storage med SQL på begäran (för hands version)
-description: Den här artikeln beskriver hur du frågar Azure Storage med hjälp av resursen SQL on-demand (för hands version) i Azure Synapse Analytics.
+title: Fråga data lagring med Server lös SQL-pool (för hands version)
+description: Den här artikeln beskriver hur du frågar Azure Storage med hjälp av resursen Server lös SQL-pool (för hands version) i Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0ac54eb5d6350cc234eb7036a3a1dc97a4f1b083
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3fd3a94efd6e7870ae3919a011fc24f66b97c559
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288383"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310946"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Fråga Storage-filer med hjälp av SQL on-demand-resurser (för hands version) i Synapse SQL
+# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Fråga Storage-filer med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
-SQL på begäran (för hands version) gör det möjligt att fråga efter data i data Lake. Den innehåller en fråge yta för T-SQL-frågor som hanterar halv strukturerade och ostrukturerade data frågor. För frågor stöds följande T-SQL-aspekter:
+Med Server lös SQL-pool (för hands version) kan du fråga efter data i data Lake. Den innehåller en fråge yta för T-SQL-frågor som hanterar halv strukturerade och ostrukturerade data frågor. För frågor stöds följande T-SQL-aspekter:
 
 - Fullständigt [val](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) av yta, inklusive majoriteten av [SQL Functions och operatorer](overview-features.md).
 - Skapa extern tabell som SELECT ([CETAS](develop-tables-cetas.md)) skapar en [extern tabell](develop-tables-external-tables.md) och sedan exporterar parallellt resultatet av en Transact-SQL SELECT-instruktion till Azure Storage.
 
-Mer information om vad är vs. vad som inte stöds för närvarande finns i [översikts artikeln om SQL på begäran](on-demand-workspace-overview.md) eller följande artiklar:
+Mer information om vad är vs. vad som inte stöds för närvarande finns i [översikts](on-demand-workspace-overview.md) artikeln om SQL-poolen utan server eller följande artiklar:
 - [Utveckla lagrings åtkomst](develop-storage-files-overview.md) där du kan lära dig hur du använder den [externa tabell](develop-tables-external-tables.md) -och [OpenRowSet](develop-openrowset.md) -funktionen för att läsa data från lagringen.
 - [Kontrol lera lagrings åtkomst](develop-storage-files-storage-access-control.md) där du kan lära dig hur du aktiverar Synapse SQL för att få åtkomst till lagring med SAS-autentisering eller arbets ytans hanterade identitet.
 
 ## <a name="overview"></a>Översikt
 
-För att ge stöd för en smidig upplevelse för att skicka frågor till data som finns i Azure Storage filer, använder SQL på begäran funktionen [OpenRowSet](develop-openrowset.md) med ytterligare funktioner:
+För att ge stöd för en smidig upplevelse för att skicka frågor till data som finns i Azure Storage filer, använder SQL-poolen utan server funktionen [OpenRowSet](develop-openrowset.md) med ytterligare funktioner:
 
 - [Fråga efter flera filer eller mappar](#query-multiple-files-or-folders)
 - [PARQUET-filformat](#query-parquet-files)
@@ -65,7 +65,7 @@ WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 Det finns ytterligare alternativ som kan användas för att justera tolknings regler till anpassat CSv-format:
 - ESCAPE_CHAR = char anger det tecken i filen som används för att undanta sig själv och alla avgränsare värden i filen. Om Escape-symbolen följs av ett annat värde än sig själv, eller någon av avgränsarna, ignoreras escape-tecken vid läsning av värdet.
 Parametern ESCAPE_CHAR tillämpas om FIELDQUOTE är eller inte är aktive rad. Den används inte för att undanta citat tecken. Citat tecken måste föregås av ett annat citat tecken. Citat tecken får bara förekomma i kolumn värden om värdet är kapslat med citat tecken.
-- FIELDTERMINATOR = ' field_terminator ' anger vilken fält avslutning som ska användas. Standard fält avslutning är ett kommatecken ("**,**")
+- FIELDTERMINATOR = ' field_terminator ' anger vilken fält avslutning som ska användas. Standard fält avslutning är ett kommatecken (" **,** ")
 - ROWTERMINATOR = ' row_terminator ' anger rad avslutningen som ska användas. Standard rads avgränsaren är ett rad matnings tecken: **\r\n**.
 
 ## <a name="file-schema"></a>Filschema
@@ -146,7 +146,7 @@ Retur data typen är nvarchar (1024). För bästa prestanda måste du alltid ski
 
 ## <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Arbeta med komplexa typer och kapslade eller upprepade data strukturer
 
-Om du vill aktivera en smidig upplevelse med data som lagras i kapslade eller upprepade data typer, till exempel i [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) -filer, har SQL på begäran lagt till de tillägg som följer.
+Om du vill aktivera en smidig upplevelse med data som lagras i kapslade eller upprepade data typer, t. ex. i [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) -filer, har SQL-poolen utan server lagt till de tillägg som följer.
 
 #### <a name="project-nested-or-repeated-data"></a>Projekt kapslade eller upprepade data
 

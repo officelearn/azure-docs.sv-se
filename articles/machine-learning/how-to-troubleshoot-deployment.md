@@ -1,32 +1,32 @@
 ---
-title: Fel sökning av Docker-distribution
+title: Felsöka webb tjänst distribution
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du arbetar runt, löser och felsöker vanliga Docker-distributions fel med Azure Kubernetes service och Azure Container Instances med Azure Machine Learning.
+description: Lär dig hur du arbetar runt, löser och felsöker vanliga Docker-distributions fel med Azure Kubernetes service och Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: clauren42
-ms.author: clauren
+author: gvashishtha
+ms.author: gopalv
 ms.reviewer: jmartens
-ms.date: 08/06/2020
+ms.date: 11/02/2020
 ms.topic: troubleshooting
 ms.custom: contperfq4, devx-track-python, deploy
-ms.openlocfilehash: 259b5c789d2323dbc797116cf0d09045811a6873
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: dfbfea22738e6aeb0df31ad941b2ff10e53795a4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073350"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311299"
 ---
-# <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Felsöka Docker-distribution av modeller med Azure Kubernetes service och Azure Container Instances 
+# <a name="troubleshoot-model-deployment"></a>Felsöka modell distribution
 
 Lär dig att felsöka och lösa, eller Undvik, vanliga Docker-distributions fel med Azure Container Instances (ACI) och Azure Kubernetes service (AKS) med Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En **Azure-prenumeration**. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * För att felsöka lokalt måste du ha en fungerande Docker-installation på det lokala systemet.
 
@@ -34,66 +34,48 @@ Lär dig att felsöka och lösa, eller Undvik, vanliga Docker-distributions fel 
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Steg för Docker-distribution av Machine Learning-modeller
 
-När du distribuerar en modell i Azure Machine Learning använder du API: t [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) och ett [miljö](how-to-use-environments.md) objekt. Tjänsten skapar en bas Docker-avbildning under distributions fasen och monterar de nödvändiga modellerna alla i ett anrop. De grundläggande distributions uppgifterna är:
+När du distribuerar en modell till icke-lokal beräkning i Azure Machine Learning händer följande:
 
-1. Registrera modellen i arbets ytans modell register.
+1. Dockerfile som du angav i ditt miljö objekt i din InferenceConfig skickas till molnet, tillsammans med innehållet i din käll katalog
+1. Om en tidigare skapad avbildning inte är tillgänglig i behållar registret, skapas en ny Docker-avbildning i molnet och lagras i arbets ytans standard behållar register.
+1. Docker-avbildningen från behållar registret laddas ned till beräknings målet.
+1. Din arbets ytas standard-BLOB-butik är monterad på ditt beräknings mål, vilket ger dig åtkomst till registrerade modeller
+1. Webb servern initieras genom att köra ditt Entry-skripts `init()` funktion
+1. När din distribuerade modell tar emot en begäran, `run()` hanterar din funktion den begäran
 
-2. Definiera konfiguration av härledning:
-    1. Skapa ett [miljö](how-to-use-environments.md) objekt. Det här objektet kan använda beroenden i en miljö yaml-fil, en av våra granskade miljöer.
-    2. Skapa en konfiguration för en konfiguration (InferenceConfig-objekt) baserat på miljön och bedömnings skriptet.
+Den största skillnaden när du använder en lokal distribution är att behållar avbildningen bygger på din lokala dator, vilket är anledningen till att du måste ha Docker installerat för en lokal distribution.
 
-3. Distribuera modellen till Azure Container instance-tjänsten (ACI) eller till Azure Kubernetes service (AKS).
+Att förstå dessa avancerade steg bör hjälpa dig att förstå var felen inträffar.
 
-Läs mer om den här processen i Introduktion till [modellhantering](concept-model-management-and-deployment.md) .
+## <a name="get-deployment-logs"></a>Hämta distributions loggar
 
-## <a name="before-you-begin"></a>Innan du börjar
+Det första steget vid fel sökning är att hämta distributions loggarna. Börja med att följa [anvisningarna här](how-to-deploy-and-where.md#connect-to-your-workspace) för att ansluta till din arbets yta.
 
-Om du stöter på ett problem är det första du ska göra är att dela upp distributions aktiviteten (tidigare beskriven) i enskilda steg för att isolera problemet.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
-När du använder [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) med ett [miljö](how-to-use-environments.md) objekt som indataparameter, kan din kod delas upp i tre viktiga steg:
+Om du vill hämta loggarna från en distribuerad WebService gör du följande:
 
-1. Registrera modellen. Här följer några exempel kod:
+```bash
+az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
+```
 
-    ```python
-    from azureml.core.model import Model
-
-
-    # register a model out of a run record
-    model = best_run.register_model(model_name='my_best_model', model_path='outputs/my_model.pkl')
-
-    # or, you can register a file or a folder of files as a model
-    model = Model.register(model_path='my_model.pkl', model_name='my_best_model', workspace=ws)
-    ```
-
-2. Definiera konfiguration av drifts störningar för distribution:
-
-    ```python
-    from azureml.core.model import InferenceConfig
-    from azureml.core.environment import Environment
+# <a name="python"></a>[Python](#tab/python)
 
 
-    # create inference configuration based on the requirements defined in the YAML
-    myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
-    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-    ```
+Förutsatt att du har ett objekt av typen som `azureml.core.Workspace` kallas kan `ws` du göra följande:
 
-3. Distribuera modellen med hjälp av den konfigurations konfiguration som skapades i föregående steg:
+```python
+print(ws.webservices)
 
-    ```python
-    from azureml.core.webservice import AciWebservice
+# Choose the webservice you are interested in
 
+from azureml.core import Webservice
 
-    # deploy the model
-    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
-    aci_service = Model.deploy(workspace=ws,
-                           name='my-service',
-                           models=[model],
-                           inference_config=inference_config,
-                           deployment_config=aci_config)
-    aci_service.wait_for_deployment(show_output=True)
-    ```
+service = Webservice(ws, '<insert name of webservice>')
+print(service.get_logs())
+```
 
-Genom att bryta Thee-distributions processen till enskilda aktiviteter blir det enklare att identifiera några av de vanligaste felen.
+---
 
 ## <a name="debug-locally"></a>Felsök lokalt
 
@@ -161,7 +143,7 @@ print(service.run(input_data=test_sample))
 > [!NOTE]
 > Skriptet läses in på nytt från den plats som anges av det `InferenceConfig` objekt som används av tjänsten.
 
-Om du vill ändra modellen, Conda-beroenden eller distributions konfigurationen använder du [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueupdate--args-). I följande exempel uppdateras modellen som används av tjänsten:
+Om du vill ändra modellen, Conda-beroenden eller distributions konfigurationen använder du [Update ()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-). I följande exempel uppdateras modellen som används av tjänsten:
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -169,7 +151,7 @@ service.update([different_model], inference_config, deployment_config)
 
 ### <a name="delete-the-service"></a>Ta bort tjänsten
 
-Om du vill ta bort tjänsten använder du [Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--).
+Om du vill ta bort tjänsten använder du [Delete ()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
 
 ### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a> Granska Docker-loggen
 
@@ -187,7 +169,7 @@ Du kan åtgärda felet genom att öka värdet för `memory_gb` i `deployment_con
  
 ## <a name="container-cannot-be-scheduled"></a>Behållaren kan inte schemaläggas
 
-När en tjänst distribueras till ett beräknings mål för Azure Kubernetes-tjänsten försöker Azure Machine Learning schemalägga tjänsten med den begärda mängden resurser. Om det inte finns några tillgängliga noder i klustret med en lämplig mängd resurser efter 5 minuter, kommer distributionen att Miss par. Fel meddelandet är `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Du kan åtgärda det här felet genom att antingen lägga till fler noder, ändra SKU: er för dina noder eller ändra resurs kraven för din tjänst. 
+När du distribuerar en tjänst till ett Azure Kubernetes Service-beräkningsmål försöker Azure Machine Learning schemalägga tjänsten med det begärda antalet resurser. Om det inte finns några tillgängliga noder i klustret med en lämplig mängd resurser efter 5 minuter, kommer distributionen att Miss par. Fel meddelandet är `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Du kan åtgärda det här felet genom att antingen lägga till fler noder, ändra SKU: er för dina noder eller ändra resurs kraven för din tjänst. 
 
 Fel meddelandet indikerar vanligt vis vilken resurs du behöver mer av – om du ser ett fel meddelande som anger att `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` tjänsten kräver GPU: er och det finns tre noder i klustret som inte har tillgängliga GPU: er. Detta kan åtgärdas genom att lägga till fler noder om du använder en GPU-SKU och växlar till en GPU-aktiverad SKU om du inte eller ändrar din miljö till att inte kräva GPU: er.  
 
@@ -199,7 +181,7 @@ Använd informationen i avsnittet [Granska Docker-loggen](#dockerlog) för att k
 
 ## <a name="function-fails-get_model_path"></a>Funktionen misslyckades: get_model_path ()
 
-I `init()` funktionen i bedömnings skriptet anropas ofta funktionen [Model.get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) för att hitta en modell fil eller en mapp med modell filer i behållaren. Om modell filen eller mappen inte kan hittas Miss lyckas funktionen. Det enklaste sättet att felsöka det här felet är att köra följande python-kod i container Shell:
+I `init()` funktionen i bedömnings skriptet anropas ofta funktionen [Model.get_model_path ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) för att hitta en modell fil eller en mapp med modell filer i behållaren. Om inte modellfilen eller mappen hittas misslyckas funktionen. Det enklaste sättet att felsöka det här felet är att köra följande python-kod i container Shell:
 
 ```python
 from azureml.core.model import Model
@@ -239,7 +221,7 @@ En status kod för 502 visar att tjänsten har utlöst ett undantag eller krasch
 
 Distributioner av Azure Kubernetes-tjänster stöder automatisk skalning, vilket gör att repliker kan läggas till för att stödja ytterligare belastning. Autoskalning är utformat för att hantera **gradvisa** ändringar i belastningen. Om du får stora toppar i begär Anden per sekund, kan klienterna få HTTP-statuskod 503. Även om autoskalning reagerar snabbt, tar det AKS en stor del av tiden för att skapa ytterligare behållare.
 
-Beslut om att skala upp/ned baseras på användning av aktuella behållares repliker. Det totala antalet repliker som är upptagna (bearbetning av en begäran) dividerat med det totala antalet aktuella repliker är den aktuella användningen. Om det här värdet överskrider så `autoscale_target_utilization` skapas fler repliker. Om den är lägre minskas replikerna. Beslut om att lägga till repliker är Eager och snabbt (cirka 1 sekund). Beslut att ta bort repliker är försiktigt (cirka 1 minut). Som standard är den automatiska skalnings mål användningen inställd på **70%**, vilket innebär att tjänsten kan hantera toppar i begär Anden per sekund (RPS) på **upp till 30%**.
+Beslut om att skala upp/ned baseras på användning av aktuella behållares repliker. Det totala antalet repliker som är upptagna (bearbetning av en begäran) dividerat med det totala antalet aktuella repliker är den aktuella användningen. Om det här värdet överskrider så `autoscale_target_utilization` skapas fler repliker. Om den är lägre minskas replikerna. Beslut om att lägga till repliker är Eager och snabbt (cirka 1 sekund). Beslut att ta bort repliker är försiktigt (cirka 1 minut). Som standard är den automatiska skalnings mål användningen inställd på **70%** , vilket innebär att tjänsten kan hantera toppar i begär Anden per sekund (RPS) på **upp till 30%**.
 
 Det finns två saker som kan hjälpa till att förhindra 503 status koder:
 
@@ -277,7 +259,7 @@ Det finns två saker som kan hjälpa till att förhindra 503 status koder:
     > [!NOTE]
     > Om du får begär ande toppar som är större än de nya minsta replikerna kan hantera kan du få 503s igen. När trafik till tjänsten ökar kan du till exempel behöva öka de lägsta replikerna.
 
-Mer information om hur du ställer in `autoscale_target_utilization` , `autoscale_max_replicas` och `autoscale_min_replicas` för finns i [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true) -modulens referens.
+Mer information om hur du ställer in `autoscale_target_utilization` , `autoscale_max_replicas` och `autoscale_min_replicas` för finns i [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) -modulens referens.
 
 ## <a name="http-status-code-504"></a>HTTP-statuskod 504
 
@@ -287,11 +269,11 @@ Du kan öka tids gränsen eller försöka påskynda tjänsten genom att ändra s
 
 ## <a name="advanced-debugging"></a>Avancerad fel sökning
 
-Du kan behöva interaktivt felsöka python-koden som finns i modell distributionen. Om Entry-skriptet till exempel inte fungerar och orsaken inte kan fastställas av ytterligare loggning. Genom att använda Visual Studio Code och debugpy kan du koppla till koden som körs i Docker-behållaren.
+Du kan behöva felsöka Python-koden i modelldistributionen interaktivt. Om Entry-skriptet till exempel inte fungerar och orsaken inte kan fastställas av ytterligare loggning. Genom att använda Visual Studio Code och debugpy kan du koppla till koden som körs i Docker-behållaren.
 
 Mer information finns [i interaktiv fel sökning i vs Code guide](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
-## <a name="model-deployment-user-forum"></a>[Användar forum för modell distribution](https://docs.microsoft.com/answers/topics/azure-machine-learning-inference.html)
+## <a name="model-deployment-user-forum"></a>[Användar forum för modell distribution](/answers/topics/azure-machine-learning-inference.html)
 
 ## <a name="next-steps"></a>Nästa steg
 

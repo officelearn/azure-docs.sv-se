@@ -1,6 +1,6 @@
 ---
 title: Fråga Azure Cosmos DB data med Server lös SQL-pool i Azure Synapse Link (för hands version)
-description: I den här artikeln får du lära dig hur du frågar Azure Cosmos DB med SQL på begäran i Azure Synapse Link (för hands version).
+description: I den här artikeln får du lära dig hur du frågar Azure Cosmos DB att använda Server lös SQL-pool i Azure Synapse Link (för hands version).
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b1af6fa5b0ccb95476c4ae169481e4aaa15f4f9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737842"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310309"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med Server lös SQL-pool i Azure Synapse Link (för hands version)
 
 Med Synapse server utan SQL-pool kan du analysera data i Azure Cosmos DB behållare som är aktiverade med [Azure Synapse-länk](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i nära real tid utan att påverka prestandan för dina transaktions arbets belastningar. Den erbjuder en välkänd T-SQL-syntax för att fråga data från [analys lagret](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) och integrerad anslutning till en mängd olika bi-och ad hoc-frågemeddelanden via T-SQL-gränssnittet.
 
-För att skicka frågor till Azure Cosmos DB stöds det fullständiga [Select](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) -området via funktionen [OpenRowSet](develop-openrowset.md) , inklusive majoriteten av [SQL Functions och operatorer](overview-features.md). Du kan också lagra resultat från frågan som läser data från Azure Cosmos DB tillsammans med data i Azure Blob Storage eller Azure Data Lake Storage med hjälp av [skapa extern tabell som Välj](develop-tables-cetas.md#cetas-in-sql-on-demand). För närvarande kan du inte lagra frågeresultat för SQL-pooler för att Azure Cosmos DB med [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+För att skicka frågor till Azure Cosmos DB stöds det fullständiga [Select](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) -området via funktionen [OpenRowSet](develop-openrowset.md) , inklusive majoriteten av [SQL Functions och operatorer](overview-features.md). Du kan också lagra resultat från frågan som läser data från Azure Cosmos DB tillsammans med data i Azure Blob Storage eller Azure Data Lake Storage med hjälp av [skapa extern tabell som Välj](develop-tables-cetas.md#cetas-in-serverless-sql-pool). För närvarande kan du inte lagra frågeresultat för SQL-pooler för att Azure Cosmos DB med CETAS. 
 
 I den här artikeln får du lära dig hur du skriver en fråga med en server lös SQL-pool som kommer att fråga efter data från Azure Cosmos DB behållare som är Synapse-länk aktiverade. Du kan sedan lära dig mer om hur du skapar SQL-pooler utan server över Azure Cosmos DB behållare och ansluter dem till Power BI modeller i [den här](./tutorial-data-analyst.md) självstudien. 
 
@@ -358,6 +358,6 @@ Du kan rapportera förslag och problem på [feedback-sidan för Azure Synapse](h
 
 Mer information finns i följande artiklar:
 
-- [Använda Power BI och Server lös Synapse SQL-pool med Azure Synapse-länk](../../cosmos-db/synapse-link-power-bi.md)
-- [Så här skapar du och använder vyer i SQL på begäran](create-use-views.md) 
-- [Självstudie om att skapa SQL-vyer på begäran över Azure Cosmos DB och ansluta dem till Power BI modeller via DirectQuery](./tutorial-data-analyst.md)
+- [Använd Power BI-och Server lös SQL-pool med Azure Synapse-länk](../../cosmos-db/synapse-link-power-bi.md)
+- [Anvisningar för att skapa och använda vyer i SQL-poolen utan Server](create-use-views.md) 
+- [Självstudie om hur du skapar SQL-pooler utan server över Azure Cosmos DB och ansluter dem till Power BI modeller via DirectQuery](./tutorial-data-analyst.md)

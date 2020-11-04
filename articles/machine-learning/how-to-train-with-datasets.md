@@ -12,38 +12,38 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: aa1ba4aa07ee4cdc097bd4ed3e6e4d7563360a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70fd8796eb4d17662697410bf97caee835e998ab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331802"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311326"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Träna med data uppsättningar i Azure Machine Learning
 
 
-I den här artikeln får du lära dig hur du arbetar med [Azure Machine Learning data uppsättningar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true) i dina utbildnings experiment.  Du kan använda data uppsättningar i det lokala eller fjärranslutna beräknings målet utan att behöva oroa dig om anslutnings strängar eller data Sök vägar.
+I den här artikeln får du lära dig hur du arbetar med [Azure Machine Learning data uppsättningar](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) i dina utbildnings experiment.  Du kan använda data uppsättningar i det lokala eller fjärranslutna beräknings målet utan att behöva oroa dig om anslutnings strängar eller data Sök vägar.
 
-Azure Machine Learning data uppsättningar ger en sömlös integrering med Azure Machine Learning inlärnings funktioner som [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true) och [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
+Azure Machine Learning data uppsättningar ger en sömlös integrering med Azure Machine Learning inlärnings funktioner som [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) och [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att skapa och träna med data uppsättningar behöver du:
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
-* [Azure Machine Learning SDK för python installerat](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0), som innehåller paketet azureml-data uppsättningar.
+* [Azure Machine Learning SDK för python installerat](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), som innehåller paketet azureml-data uppsättningar.
 
 > [!Note]
-> Vissa data uppsättnings klasser är beroende av [azureml-nu-](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true) paketet. För Linux-användare stöds dessa klasser endast för följande distributioner: Red Hat Enterprise Linux, Ubuntu, Fedora och CentOS.
+> Vissa data uppsättnings klasser är beroende av [azureml-nu-](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) paketet. För Linux-användare stöds dessa klasser endast för följande distributioner: Red Hat Enterprise Linux, Ubuntu, Fedora och CentOS.
 
 ## <a name="use-datasets-directly-in-training-scripts"></a>Använda data uppsättningar direkt i tränings skript
 
 Om du har strukturerade data som ännu inte har registrerats som en data uppsättning skapar du en TabularDataset och använder den direkt i ditt utbildnings skript för ditt lokala eller fjärranslutna experiment.
 
-I det här exemplet skapar du ett oregistrerat [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) och anger det som ett skript argument i ScriptRunConfig-objektet för träning. Om du vill återanvända den här TabularDataset med andra experiment i din arbets yta, se [så här registrerar du data uppsättningar på din arbets yta](how-to-create-register-datasets.md#register-datasets).
+I det här exemplet skapar du ett oregistrerat [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) och anger det som ett skript argument i ScriptRunConfig-objektet för träning. Om du vill återanvända den här TabularDataset med andra experiment i din arbets yta, se [så här registrerar du data uppsättningar på din arbets yta](how-to-create-register-datasets.md#register-datasets).
 
 ### <a name="create-a-tabulardataset"></a>Skapa en TabularDataset
 
@@ -60,7 +60,7 @@ TabularDataset-objekt ger möjlighet att läsa in data i din TabularDataset i en
 
 ### <a name="access-dataset-in-training-script"></a>Åtkomst data uppsättning i övnings skript
 
-Följande kod konfigurerar ett skript argument `--input-data` som du anger när du konfigurerar din utbildnings körning (se nästa avsnitt). När tabell data uppsättningen skickas som argumentvärdet kommer Azure ML att matcha detta med ID för data uppsättningen, som du sedan kan använda för att få åtkomst till data uppsättningen i ditt utbildnings skript (utan att behöva hårdkoda namnet eller ID: t för data uppsättningen i skriptet). Den använder sedan [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) metoden för att läsa in data uppsättningen i en Pandas-dataframe för ytterligare data utforskning och förberedelser innan utbildning.
+Följande kod konfigurerar ett skript argument `--input-data` som du anger när du konfigurerar din utbildnings körning (se nästa avsnitt). När tabell data uppsättningen skickas som argumentvärdet kommer Azure ML att matcha detta med ID för data uppsättningen, som du sedan kan använda för att få åtkomst till data uppsättningen i ditt utbildnings skript (utan att behöva hårdkoda namnet eller ID: t för data uppsättningen i skriptet). Den använder sedan [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) metoden för att läsa in data uppsättningen i en Pandas-dataframe för ytterligare data utforskning och förberedelser innan utbildning.
 
 > [!Note]
 > Om den ursprungliga data källan innehåller NaN, tomma strängar eller tomma värden, `to_pandas_dataframe()` ersätts dessa värden som ett *Null* -värde.
@@ -88,7 +88,7 @@ df = dataset.to_pandas_dataframe()
 ```
 
 ### <a name="configure-the-training-run"></a>Konfigurera utbildnings körningen
-Ett [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py&preserve-view=true) -objekt används för att konfigurera och skicka utbildnings körningen.
+Ett [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py) -objekt används för att konfigurera och skicka utbildnings körningen.
 
 Den här koden skapar ett ScriptRunConfig-objekt, `src` som anger
 
@@ -115,7 +115,7 @@ run.wait_for_completion(show_output=True)
 
 ## <a name="mount-files-to-remote-compute-targets"></a>Montera filer på fjärranslutna beräknings mål
 
-Om du har ostrukturerade data kan du skapa en [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) och antingen montera eller ladda ned dina datafiler så att de blir tillgängliga för ditt fjärrberäknings mål för utbildning. Lär dig mer om hur du använder [montering jämfört med att ladda ned](#mount-vs-download) för dina experiment. 
+Om du har ostrukturerade data kan du skapa en [FileDataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) och antingen montera eller ladda ned dina datafiler så att de blir tillgängliga för ditt fjärrberäknings mål för utbildning. Lär dig mer om hur du använder [montering jämfört med att ladda ned](#mount-vs-download) för dina experiment. 
 
 I följande exempel skapas en FileDataset och monterar data uppsättningen till Compute-målet genom att skicka den som ett argument till övnings skriptet. 
 
@@ -222,7 +222,7 @@ print (mounted_path)
 
 ## <a name="directly-access-datasets-in-your-script"></a>Direkt åtkomst till data uppsättningar i skriptet
 
-Registrerade data uppsättningar kan nås både lokalt och via fjärr anslutning på beräknings kluster som Azure Machine Learning Compute. Använd följande kod för att komma åt din arbets yta och registrerad data uppsättning efter namn för att få åtkomst till din registrerade data uppsättning över experiment. Som standard [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-by-name-workspace--name--version--latest--) returnerar metoden i `Dataset` klassen den senaste versionen av data uppsättningen som är registrerad på arbets ytan.
+Registrerade data uppsättningar kan nås både lokalt och via fjärr anslutning på beräknings kluster som Azure Machine Learning Compute. Använd följande kod för att komma åt din arbets yta och registrerad data uppsättning efter namn för att få åtkomst till din registrerade data uppsättning över experiment. Som standard [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) returnerar metoden i `Dataset` klassen den senaste versionen av data uppsättningen som är registrerad på arbets ytan.
 
 ```Python
 %%writefile $script_folder/train.py

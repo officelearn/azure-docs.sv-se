@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090305"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312684"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Data vetenskaps kod testning på Azure med team data science-processen och Azure DevOps-tjänster
 Den här artikeln innehåller preliminära rikt linjer för testning av kod i ett data vetenskaps flöde. Sådan testning ger data experter ett systematiskt och effektivt sätt att kontrol lera kvaliteten och förväntat resultat av koden. Vi använder ett TDSP-projekt (Team data science process) [som använder den data uppsättning för den sexuella](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) värde som vi publicerade tidigare för att visa hur kod testning kan göras. 
@@ -89,7 +89,7 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
 
       ![Kod för att kontrol lera förutsägelse värden](./media/code-test/check_prediction_values.PNG)
 
-1. Sätt ihop alla test funktioner i ett Python-skript med namnet **test_funcs. py**:
+1. Sätt ihop alla test funktioner i ett Python-skript med namnet **test_funcs. py** :
 
     ![Python-skript för test funktioner](./media/code-test/create_file_test_func.PNG)
 
@@ -112,7 +112,7 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
 
 1. Konfigurera automatisk version och testning i Azure DevOps:
 
-    a. I projekt databasen väljer du **build och release**och väljer sedan **+ ny** för att skapa en ny versions process.
+    a. I projekt databasen väljer du **build och release** och väljer sedan **+ ny** för att skapa en ny versions process.
 
     ![Val för att starta en ny versions process](./media/code-test/create_new_build.PNG)
 
@@ -124,7 +124,7 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
 
     ![Lista över mallar och knappen "tom process"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Namnge bygget och välj agenten. Du kan välja standardvärdet här om du vill använda en DSVM för att slutföra Bygg processen. Mer information om hur du ställer in agenter finns i [skapa och släppa agenter](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Namnge bygget och välj agenten. Du kan välja standardvärdet här om du vill använda en DSVM för att slutföra Bygg processen. Mer information om hur du ställer in agenter finns i [skapa och släppa agenter](/azure/devops/pipelines/agents/agents?view=vsts).
     
     ![Build-och agent-val](./media/code-test/select_agent.PNG)
 
@@ -134,7 +134,7 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
 
     f. I PowerShell-informationen fyller du i nödvändig information, till exempel namn och version av PowerShell. Välj **infogat skript** som typ. 
     
-    I rutan under **infogat skript**kan du skriva python- **test1.py**. Kontrol lera att miljövariabeln är korrekt konfigurerad för python. Om du behöver en annan version eller kernel av python kan du uttryckligen ange sökvägen så som visas i bilden: 
+    I rutan under **infogat skript** kan du skriva python- **test1.py**. Kontrol lera att miljövariabeln är korrekt konfigurerad för python. Om du behöver en annan version eller kernel av python kan du uttryckligen ange sökvägen så som visas i bilden: 
     
     ![PowerShell-information](./media/code-test/powershell_scripts.PNG)
 
@@ -155,7 +155,7 @@ Om aviseringar ställs in korrekt får du ett meddelande via e-post när version
 * Följ den föregående dispositionen och exemplen från det avförutsägande scenariot för en värde modell i dina egna data vetenskaps projekt.
 
 ## <a name="references"></a>Referenser
-* [TDSP (Team Data Science Process)](https://aka.ms/tdsp)
+* [TDSP (Team Data Science Process)](./index.yml)
 * [Test verktyg för Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Test resurser för Azure DevOps](https://www.visualstudio.com/team-services/)
 * [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

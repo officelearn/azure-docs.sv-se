@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 525293c7ae3d0af49f6deaa0ce9d3cb037d9ba38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bd42b6e9f1498db294b57d0ea1ffdac5245be8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907707"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309981"
 ---
 # <a name="two-class-logistic-regression-module"></a>Two-Class logistik Regressions modul
 
@@ -40,13 +40,13 @@ Etikett kolumnen kan till exempel vara [röstat] med möjliga värden "Yes" elle
   
 2.  Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
   
-    -   **Enskild parameter**: om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.  
+    -   **Enskild parameter** : om du vet hur du vill konfigurera modellen kan du ange en viss uppsättning värden som argument.  
 
-    -   **Parameter intervall**: om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.
+    -   **Parameter intervall** : om du inte är säker på de bästa parametrarna kan du hitta de optimala parametrarna med hjälp av modulen [finjustera modellens standardparametrar](tune-model-hyperparameters.md) . Du anger några värden och utbildaren upprepas över flera kombinationer av inställningarna för att avgöra vilken kombination av värden som ger bäst resultat.
   
-3.  För **optimerings tolerans**anger du ett tröskelvärde som ska användas när modellen optimeras. Om förbättringen mellan iterationer sjunker under det angivna tröskelvärdet anses algoritmen ha konvergerat till en lösning och träningen stoppas.  
+3.  För **optimerings tolerans** anger du ett tröskelvärde som ska användas när modellen optimeras. Om förbättringen mellan iterationer sjunker under det angivna tröskelvärdet anses algoritmen ha konvergerat till en lösning och träningen stoppas.  
   
-4.  För **L1-regulariseringshastigheten vikt** och **L2-regulariseringshastigheten**anger du ett värde som ska användas för regulariseringshastigheten-parametrarna L1 och L2. Ett värde som inte är noll rekommenderas för båda.  
+4.  För **L1-regulariseringshastigheten vikt** och **L2-regulariseringshastigheten** anger du ett värde som ska användas för regulariseringshastigheten-parametrarna L1 och L2. Ett värde som inte är noll rekommenderas för båda.  
      *Regulariseringshastigheten* är en metod för att förhindra övermontering genom att motverka modeller med extrema koefficient värden. Regulariseringshastigheten fungerar genom att lägga till den påföljd som är kopplad till koefficienterna till felet i hypotesen. Därför skulle en korrekt modell med extrema koefficienter bli mer, men en mindre exakt modell med fler restriktiva värden skulle bli mindre.  
   
      L1-och L2-regulariseringshastigheten har olika effekter och användnings områden.  
@@ -58,11 +58,11 @@ Etikett kolumnen kan till exempel vara [röstat] med möjliga värden "Yes" elle
      Den här algoritmen stöder en linjär kombination av L1-och L2-regulariseringshastigheten värden: det vill säga om <code>x = L1</code> och <code>y = L2</code> definierar den <code>ax + by = c</code> linjära omfånget för regulariseringshastigheten-villkoren.  
   
     > [!NOTE]
-    >  Vill du veta mer om L1-och L2-regulariseringshastigheten? Följande artikel innehåller en beskrivning av hur L1-och L2-regulariseringshastigheten skiljer sig från varandra och hur de påverkar modell anpassning, med kod exempel för logistik regression och neurala nätverks modeller:  [L1-och L2-regulariseringshastigheten för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Vill du veta mer om L1-och L2-regulariseringshastigheten? Följande artikel innehåller en beskrivning av hur L1-och L2-regulariseringshastigheten skiljer sig från varandra och hur de påverkar modell anpassning, med kod exempel för logistik regression och neurala nätverks modeller:  [L1-och L2-regulariseringshastigheten för Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)  
     >
     > Olika linjära kombinationer av L1-och L2-villkor har gjorts för logistik Regressions modeller: till exempel [elastiska net-regulariseringshastigheten](https://wikipedia.org/wiki/Elastic_net_regularization). Vi rekommenderar att du refererar till dessa kombinationer för att definiera en linjär kombination som är effektiv i din modell.
       
-5.  För **minnes storlek för l-BFGS**anger du hur mycket minne som ska användas för att optimera *l-BFGS* .  
+5.  För **minnes storlek för l-BFGS** anger du hur mycket minne som ska användas för att optimera *l-BFGS* .  
   
      L-BFGS står för "begränsat minne Broyden-Fletcher-Goldfarb-Shanno". Det är en optimerings algoritm som är populär för parameter uppskattning. Den här parametern anger antalet tidigare positioner och toningar som ska lagras för att beräkna nästa steg.  
   
@@ -73,9 +73,9 @@ Etikett kolumnen kan till exempel vara [röstat] med möjliga värden "Yes" elle
   
 8. Lägg till en etikettad data uppsättning i pipelinen och träna modellen:
 
-    + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
+    + Om du ställer in **skapa utbildare** för en **parameter** ansluter du en taggad data uppsättning och modulen [träna modell](train-model.md) .  
   
-    + Om du ställer in **skapa utbildare** för **parameter intervall**ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
+    + Om du ställer in **skapa utbildare** för **parameter intervall** ansluter du en taggad data uppsättning och tränar modellen med hjälp av [finjustera modellens egenskaper](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 
@@ -97,4 +97,4 @@ När utbildningen är klar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

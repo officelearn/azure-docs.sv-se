@@ -11,29 +11,29 @@ author: jhirono
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: b16c8873a1778b907b288486c204d74ee31683cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 168dc342eaf61a9ede632fb429311f6f5c1d4be4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097965"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311563"
 ---
-# <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Så här använder du din arbets yta med en anpassad DNS-Server
+# <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Så här använder du din arbetsyta med en anpassad DNS-server
 
-När du använder Azure Machine Learning med ett virtuellt nätverk finns det [flera sätt att hantera DNS-namnmatchning](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances). Som standard hanterar Azure automatiskt namn matchning för din arbets yta och privat slut punkt. Men __när du använder din egen anpassade DNS-Server__ måste du skapa DNS-poster för arbets ytan manuellt.
+När du använder Azure Machine Learning med ett virtuellt nätverk finns det [flera sätt att hantera DNS-namnmatchning](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Som standard hanterar Azure automatiskt namn matchning för din arbets yta och privat slut punkt. Men __när du använder din egen anpassade DNS-Server__ måste du skapa DNS-poster för arbets ytan manuellt.
 
 > [!IMPORTANT]
 > Den här artikeln beskriver bara hur du hittar det fullständigt kvalificerade domän namnet (FQDN) och IP-adresser för dessa poster. det ger inte information om hur du konfigurerar DNS-poster för dessa objekt. I dokumentationen för DNS-programvaran finns information om hur du lägger till poster.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-Virtual Network som använder [din egen DNS-Server](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+- En Azure-Virtual Network som använder [din egen DNS-Server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 - En Azure Machine Learning-arbetsyta med en privat slut punkt. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
-- Du är van vid att använda [nätverks isolering under utbildning &s störningar](how-to-enable-virtual-network.md).
+- Du är van vid att använda [nätverks isolering under utbildning &s störningar](./how-to-network-security-overview.md).
 
-- Valfritt, [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) eller [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Valfritt, [Azure CLI](/cli/azure/install-azure-cli) eller [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="find-the-ip-addresses"></a>Hitta IP-adresserna
 
@@ -68,8 +68,8 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 # <a name="azure-portal"></a>[Azure-portalen](#tab/azure-portal)
 
-1. I [Azure Portal](https://portal.azure.com)väljer du Azure Machine Learning __arbets ytan__ .
-1. I avsnittet __Inställningar__ väljer du __anslutningar för privata slut punkter__ .
+1. I [Azure Portal](https://portal.azure.com)väljer du Azure Machine Learning __arbets ytan__.
+1. I avsnittet __Inställningar__ väljer du __anslutningar för privata slut punkter__.
 1. Välj länken i kolumnen för den __privata slut punkten__ som visas.
 1. En lista över de fullständigt kvalificerade domän namnen (FQDN) och IP-adresserna för den privata slut punkten för arbets ytan finns längst ned på sidan.
 

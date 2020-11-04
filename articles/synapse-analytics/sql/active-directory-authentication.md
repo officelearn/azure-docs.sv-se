@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a3bd565b26d011e6186cc6957769db57f9cd1c9c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7518d6ac8bc0cde515ab8da2f3d9c1496cb93f08
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093420"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311718"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Använd Azure Active Directory autentisering för autentisering med Synapse SQL
 
@@ -39,7 +39,7 @@ Konfigurations stegen innehåller följande procedurer för att konfigurera och 
 3. Tilldela roll till skapande av Azure Active Directory identitet i Synapse-arbetsytan (för hands version)
 4. Anslut till Synapse Studio med hjälp av Azure AD-identiteter.
 
-## <a name="aad-pass-through-in-azure-synapse-analytics"></a>AAD-vidarekoppling i Azure Synapse Analytics
+## <a name="azure-ad-pass-through-in-azure-synapse-analytics"></a>Azure AD-vidarekoppling i Azure Synapse Analytics
 
 Med Azure Synapse Analytics kan du komma åt data i data Lake med din Azure Active Directory identitet.
 
@@ -49,13 +49,13 @@ Genom att definiera åtkomst rättigheter för filer och data som respekteras i 
 
 I följande diagram i hög grad sammanfattas lösnings arkitekturen för att använda Azure AD-autentisering med Synapse SQL. För att ge stöd åt Azure AD Native User Password anses bara moln delen och Azure AD/Synapse Synapse SQL. För att stödja federerad autentisering (eller användare/lösen ord för Windows-autentiseringsuppgifter) krävs kommunikation med ADFS-block. Pilarna visar kommunikations vägar.
 
-![AAD-auth-diagram](./media/aad-authentication/1-active-directory-authentication-diagram.png)
+![Azure AD auth-diagram](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
 Följande diagram visar de Federations-, förtroende-och värd relationer som gör det möjligt för en klient att ansluta till en databas genom att skicka en token. Token autentiseras av en Azure AD och är betrodd av databasen. 
 
 Kund 1 kan representera ett Azure Active Directory med interna användare eller en Azure AD med federerade användare. Kund 2 representerar en möjlig lösning inklusive importerade användare. i det här exemplet kommer från en federerad Azure Active Directory med ADFS synkroniseras med Azure Active Directory. 
 
-Det är viktigt att förstå att åtkomst till en databas med Azure AD-autentisering kräver att värd prenumerationen är kopplad till Azure AD. Samma prenumeration måste användas för att skapa SQL Server som är värd för Azure SQL Database eller SQL-poolen.
+Det är viktigt att förstå att åtkomst till en databas med Azure AD-autentisering kräver att värd prenumerationen är kopplad till Azure AD. Samma prenumeration måste användas för att skapa SQL Server som är värd för Azure SQL Database eller dedikerad SQL-pool.
 
 ![prenumerations relation](./media/aad-authentication/2-subscription-relationship.png)
 
@@ -109,7 +109,7 @@ Azure Active Directory-autentisering stöder följande metoder för att ansluta 
 - Azure Active Directory universell med MFA
 - Använda autentisering med program-token
 
-Följande autentiseringsmetoder stöds för Azure AD server-Huvudkonton (inloggningar) (**offentlig för hands version**):
+Följande autentiseringsmetoder stöds för Azure AD server-Huvudkonton (inloggningar) ( **offentlig för hands version** ):
 
 - Azure Active Directory lösen ord
 - Azure Active Directory integrerad
@@ -119,10 +119,10 @@ Följande autentiseringsmetoder stöds för Azure AD server-Huvudkonton (inloggn
 
 - För att förbättra hanterbarheten rekommenderar vi att du etablerar en dedikerad Azure AD-grupp som administratör.
 - Endast en Azure AD-administratör (en användare eller grupp) kan konfigureras för Synapse SQL-pool när som helst.
-  - Genom att lägga till Azure AD server-huvudobjekt (inloggningar) för SQL på begäran (för hands version) kan du skapa flera Azure AD server-huvudobjekt (inloggningar) som kan läggas till i `sysadmin` rollen.
+  - Genom att lägga till Azure AD server-huvudobjekt (inloggningar) för Synapse SQL (för hands version) kan du skapa flera Azure AD server-huvudobjekt (inloggningar) som kan läggas till i `sysadmin` rollen.
 - Endast en Azure AD-administratör för Synapse SQL kan ansluta till Synapse SQL med ett Azure Active Directory-konto. Active Directory-administratören kan konfigurera efterföljande Azure AD Database-användare.
 - Vi rekommenderar att du ställer in tids gränsen för anslutningen på 30 sekunder.
-- SQL Server 2016 Management Studio och SQL Server Data Tools för Visual Studio 2015 (version 14.0.60311.1 april 2016 eller senare) stöder Azure Active Directory autentisering. (Azure AD-autentisering stöds av **.NET Framework Data Provider för SQLServer**; minst version .NET Framework 4,6). De nyaste versionerna av dessa verktyg och data skikts program (DAC och. BACPAC) kan använda Azure AD-autentisering.
+- SQL Server 2016 Management Studio och SQL Server Data Tools för Visual Studio 2015 (version 14.0.60311.1 april 2016 eller senare) stöder Azure Active Directory autentisering. (Azure AD-autentisering stöds av **.NET Framework Data Provider för SQLServer** ; minst version .NET Framework 4,6). De nyaste versionerna av dessa verktyg och data skikts program (DAC och. BACPAC) kan använda Azure AD-autentisering.
 - Från och med version 15.0.1, [SQLCMD-verktyget](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) och BCP- [verktyget](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) stöds Active Directory interaktiv autentisering med MFA.
 - SQL Server Data Tools för Visual Studio 2015 kräver minst april 2016-versionen av data verktyg (version 14.0.60311.1). Azure AD-användare visas för närvarande inte i SSDT Object Explorer. Som en lösning kan du Visa användare i [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 - [Microsoft JDBC-drivrutin 6,0 för SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) stöder Azure AD-autentisering. Se även [Ange anslutnings egenskaper](/sql/connect/jdbc/setting-the-connection-properties?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186628"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312034"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version) 
 
@@ -36,7 +36,7 @@ För att skydda en Synapse-arbetsyta (för hands version) följer du ett mönste
 
 I det här dokumentet används standard namn för att förenkla anvisningarna. Ersätt dem med valfritt namn.
 
-|Inställning | Exempelvärde | Description |
+|Inställningen | Exempelvärde | Beskrivning |
 | :------ | :-------------- | :---------- |
 | **Synapse-arbetsyta** | WS1 |  Namnet som Synapse-arbetsytan kommer att ha. |
 | **ADLSGEN2-konto** | STG1 | ADLS-kontot som ska användas med din arbets yta. |
@@ -92,7 +92,7 @@ Synapse-arbetsytan behöver åtkomst till STG1 och CNT1 så att den kan köra pi
   - Om du inte ser den tilldelade tilldelar du den.
   - MSI har samma namn som arbets ytan. I det här fallet är det &quot; WS1 &quot; .
 
-## <a name="step-5-configure-admin-access-for-sql-pools"></a>STEG 5: Konfigurera administratörs åtkomst för SQL-pooler
+## <a name="step-5-configure-admin-access-for-synapse-sql"></a>STEG 5: Konfigurera administratörs åtkomst för Synapse SQL
 
 - Öppna Azure-portalen
 - Navigera till WS1
@@ -114,11 +114,11 @@ Användare i varje roll behöver utföra följande steg:
 | Antal | Steg | Arbetsytesadministratörer | Spark-administratörer | SQL-administratörer |
 | --- | --- | --- | --- | --- |
 | 1 | Ladda upp en Parquet-fil till CNT1 | JA | JA | JA |
-| 2 | Läs filen Parquet med SQL på begäran | JA | NO | JA |
-| 3 | Skapa en spark-pool | JA [1] | JA [1] | NO  |
+| 2 | Läs filen Parquet med Server lös SQL-pool | JA | NO | JA |
+| 3 | Skapa en server lös Apache Spark-pool | JA [1] | JA [1] | NO  |
 | 4 | Läser filen Parquet med en bärbar dator | JA | JA | NO |
 | 5 | Skapa en pipeline från antecknings boken och Utlös pipelinen för att köras nu | JA | NO | NO |
-| 6 | Skapa en SQL-pool och kör ett SQL-skript, till exempel &quot; Select 1&quot; | JA [1] | NO | JA [1] |
+| 6 | Skapa en dedikerad SQL-pool och kör ett SQL-skript, till exempel &quot; Select 1&quot; | JA [1] | NO | JA [1] |
 
 > [!NOTE]
 > [1] om du vill skapa SQL-eller Spark-pooler måste användaren ha minst deltagar rollen i Synapse-arbetsytan.
@@ -148,8 +148,8 @@ Synapse Studio fungerar olika beroende på användar roller. Vissa objekt kan va
 | Data Hub/se länkade ADLS Gen2 konton och behållare | JA [1] | JA [1] | JA [1] |
 | Data Hub/se databaser | JA | JA | JA |
 | Data Hub/se objekt i databaser | JA | JA | JA |
-| Data Hub/Access-data i SQL-poolens databaser | JA   | NO   | JA   |
-| Data Hub/Access-data i SQL-databaser på begäran | JA [2]  | NO  | JA [2]  |
+| Data Hub/Access-data i Synapse SQL-databaser | JA   | NO   | JA   |
+| Data Hub/Access-data i databaser med SQL-pooler utan Server | JA [2]  | NO  | JA [2]  |
 | Data Hub/Access-data i Spark-databaser | JA [2] | JA [2] | JA [2] |
 | Använd utveckla hubben | JA | JA | JA |
 | Utveckla hubb/Author SQL-skript | JA | NO | JA |
@@ -159,7 +159,7 @@ Synapse Studio fungerar olika beroende på användar roller. Vissa objekt kan va
 | Använda Orchestration-hubben | JA | JA | JA |
 | Dirigera hubb/Använd pipeliner | JA | NO | NO |
 | Använd hantera hubb | JA | JA | JA |
-| Hantera hubb/SQL-pooler | JA | NO | JA |
+| Hantera hubb/Synapse SQL | JA | NO | JA |
 | Hantera hubb/Spark-pooler | JA | JA | NO |
 | Hantera hubb/utlösare | JA | NO | NO |
 | Hantera hubb/länkade tjänster | JA | JA | JA |

@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf4b321425ccaae877c2ff5c9b54f429d95a3515
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541721"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312310"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Förstärka inlärningen (för hands version) med Azure Machine Learning
 
@@ -49,8 +49,8 @@ Kör den här koden i någon av följande miljöer. Vi rekommenderar att du för
  
  - Din egen Jupyter Notebook Server
 
-    - Installera [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
-    - Installera [Azure Machine Learning HUVUDWEBBADRESS SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true): `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Installera [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+    - Installera [Azure Machine Learning HUVUDWEBBADRESS SDK](/python/api/azureml-contrib-reinforcementlearning/?preserve-view=true&view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Skapa en [konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
     - Kör den virtuella [datorn för installation](https://aka.ms/azure-rl-env-setup) av virtuella nätverk för att öppna nätverks portar som används för distribuerad förstärknings inlärning.
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>Skapa ett förstärkt inlärnings experiment
 
-Skapa ett [experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) för att spåra din effektiviserade inlärnings körning. I Azure Machine Learning är experiment logiska samlingar av relaterade försök för att organisera körnings loggar, historik, utdata och mycket annat.
+Skapa ett [experiment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) för att spåra din effektiviserade inlärnings körning. I Azure Machine Learning är experiment logiska samlingar av relaterade försök för att organisera körnings loggar, historik, utdata och mycket annat.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -131,7 +131,7 @@ I det här exemplet används separata beräknings mål för noderna för Ray-Hea
 
 I det här exemplet används ett GPU-utrustat huvud kluster för att optimera prestanda för djup inlärning. Head-noden tågen neurala-nätverket som agenten använder för att fatta beslut. Head-noden samlar även in data punkter från arbetsnoderna för att ytterligare träna neurala-nätverket.
 
-Huvud beräkningen använder en enda [ `STANDARD_NC6` virtuell dator](https://docs.microsoft.com/azure/virtual-machines/nc-series) (VM). Den har 6 virtuella processorer, vilket innebär att den kan distribuera arbete över 6 fungerande processorer.
+Huvud beräkningen använder en enda [ `STANDARD_NC6` virtuell dator](../virtual-machines/nc-series.md) (VM). Den har 6 virtuella processorer, vilket innebär att den kan distribuera arbete över 6 fungerande processorer.
 
 
 ```python
@@ -173,7 +173,7 @@ else:
 
 ### <a name="worker-computing-cluster"></a>Arbets kluster för arbete
 
-I det här exemplet används fyra [ `STANDARD_D2_V2` virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/nc-series) för arbets beräknings målet. Varje arbetsnod har 2 tillgängliga processorer för totalt 8 tillgängliga CPU: er som parallellisera fungerar.
+I det här exemplet används fyra [ `STANDARD_D2_V2` virtuella datorer](../virtual-machines/nc-series.md) för arbets beräknings målet. Varje arbetsnod har 2 tillgängliga processorer för totalt 8 tillgängliga CPU: er som parallellisera fungerar.
 
 GPU: er behövs inte för arbetsnoder eftersom de inte utför djup inlärning. Arbets tagarna kör spel simuleringarna och samlar in data.
 
@@ -213,7 +213,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Skapa en uppskattad uppskattnings utbildning
 
-I det här avsnittet får du lära dig hur du använder [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) för att skicka ett utbildnings jobb till Azure Machine Learning.
+I det här avsnittet får du lära dig hur du använder [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?preserve-view=true&view=azure-ml-py) för att skicka ett utbildnings jobb till Azure Machine Learning.
 
 Azure Machine Learning använder uppskattnings klasser för att kapsla in kör konfigurations information. På så sätt kan du enkelt ange hur skript körningen ska konfigureras. 
 
@@ -248,7 +248,7 @@ I Entry-skriptet `pong_rllib.py` accepteras en lista över parametrar som defini
 
 Att ange rätt `num_workers` kommer att få ut mesta möjliga av dina parallellisering-ansträngningar. Ange antalet arbetare till samma som antalet tillgängliga processorer. I det här exemplet kan du beräkna detta på följande sätt:
 
-Head-noden är en [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) med 6 virtuella processorer. Arbets klustret är 4 [Standard_D2_V2 virtuella datorer](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs#dv2-series) med 2 processorer per, för totalt 8 processorer. Du måste dock subtrahera 1 processor från antalet arbetare sedan 1 måste vara dedikerat till Head-nodens roll. 6 processorer + 8 processorer – 1 Head CPU = 13 samtidiga arbetare. Azure Machine Learning använder huvud-och arbets kluster för att särskilja beräknings resurser. Dock skiljer sig inte mellan huvud och arbetare, och alla CPU: er är tillgängliga processorer för körning av arbets trådar.
+Head-noden är en [Standard_NC6](../virtual-machines/nc-series.md) med 6 virtuella processorer. Arbets klustret är 4 [Standard_D2_V2 virtuella datorer](../cloud-services/cloud-services-sizes-specs.md#dv2-series) med 2 processorer per, för totalt 8 processorer. Du måste dock subtrahera 1 processor från antalet arbetare sedan 1 måste vara dedikerat till Head-nodens roll. 6 processorer + 8 processorer – 1 Head CPU = 13 samtidiga arbetare. Azure Machine Learning använder huvud-och arbets kluster för att särskilja beräknings resurser. Dock skiljer sig inte mellan huvud och arbetare, och alla CPU: er är tillgängliga processorer för körning av arbets trådar.
 
 
 ```python
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Skicka in en körning
 
-[Kör](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) hanterar körnings historiken för pågående eller fullständiga jobb. 
+[Kör](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) hanterar körnings historiken för pågående eller fullständiga jobb. 
 
 ```python
 run = exp.submit(config=rl_estimator)

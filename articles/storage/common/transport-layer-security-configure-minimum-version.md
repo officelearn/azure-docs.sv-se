@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5098d87d63d4002c4f219c5d2703ec1375599e00
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 5f772bd996b126a4cd7182a2ce088c2d3edc8e7d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289455"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312024"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Framtvinga en minsta version av Transport Layer Security (TLS) som krävs för begär anden till ett lagrings konto
 
@@ -89,7 +89,7 @@ När du är säker på att trafik från klienter som använder äldre versioner 
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>Konfigurera den lägsta TLS-versionen för ett lagrings konto
 
-Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto anger du **MinimumTlsVersion** -versionen för kontot. Den här egenskapen är tillgänglig för alla lagrings konton som skapas med Azure Resource Manager distributions modell i det offentliga Azure-molnet eller i Azure Government moln. Mer information om distributions modellen för Azure Resource Manager finns i [Översikt över lagrings konto](storage-account-overview.md).
+Om du vill konfigurera den lägsta TLS-versionen för ett lagrings konto anger du **MinimumTlsVersion** -versionen för kontot. Den här egenskapen är tillgänglig för alla lagrings konton som skapas med Azure Resource Manager distributions modell. Mer information om distributions modellen för Azure Resource Manager finns i [Översikt över lagrings konto](storage-account-overview.md).
 
 Egenskapen **MinimumTlsVersion** har inte angetts som standard och returnerar inte något värde förrän du uttryckligen anger det.  Om egenskap svärdet är **Null** tillåter lagrings kontot begär Anden som skickas med TLS version 1,0 eller senare.
 

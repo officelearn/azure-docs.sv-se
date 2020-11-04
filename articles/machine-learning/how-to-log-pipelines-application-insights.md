@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8a3a82e091791b39ddf36e39987590dcddea320f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 624409be4d7e2cfba37dbe16e083904766ae1389
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897499"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309655"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Samla in loggfiler för Machine Learning-pipeline i Application Insights för aviseringar och fel sökning
 
@@ -38,7 +38,7 @@ Om du loggar in på samma plats får du en historik över undantag och fel medde
 
 Det här avsnittet är en introduktion till hur du använder openräkning från en Azure Machine Learning pipeline. En detaljerad själv studie kurs finns i [Openinventering Azure Monitor exportörer](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Lägg till en PythonScriptStep i din Azure ML-pipeline. Konfigurera din [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) med beroendet av openinventering-ext-Azure. Konfigurera `APPLICATIONINSIGHTS_CONNECTION_STRING` miljövariabeln.
+Lägg till en PythonScriptStep i din Azure ML-pipeline. Konfigurera din [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) med beroendet av openinventering-ext-Azure. Konfigurera `APPLICATIONINSIGHTS_CONNECTION_STRING` miljövariabeln.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -100,7 +100,7 @@ Anpassade dimensioner utgör en ord lista med nyckel värdes par (lagrade som st
 
 ### <a name="helpful-context-to-include"></a>Användbart sammanhang för att inkludera
 
-| Field                          | Uppföljning/exempel                                                                                                                                                                       |
+| Fält                          | Uppföljning/exempel                                                                                                                                                                       |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | parent_run_id                  | Kan fråga efter loggar med samma parent_run_id för att se loggar över tid för alla steg, i stället för att behöva gå in i varje enskilt steg                                        |
 | step_id                        | Kan fråga efter loggar med samma step_id för att se var ett problem har inträffat med en smal omfattning för bara det enskilda steget                                                        |
@@ -112,7 +112,7 @@ Anpassade dimensioner utgör en ord lista med nyckel värdes par (lagrade som st
 
 De här fälten kan kräva ytterligare kod Instrumentation och tillhandahålls inte av körnings kontexten.
 
-| Field                   | Uppföljning/exempel                                                                                                                                                                                                           |
+| Fält                   | Uppföljning/exempel                                                                                                                                                                                                           |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | build_url/build_version | Om du använder CI/CD för att distribuera, kan det här fältet korrelera loggar till den kod version som tillhandahöll steget och pipeline-logiken. Den här länken kan hjälpa dig att diagnostisera problem eller identifiera modeller med specifika egenskaper (log/Metric-värden) |
 | run_type                       | Kan skilja mellan olika modell typer eller utbildningar jämfört med poängsättnings körningar |
@@ -153,7 +153,7 @@ Resultatet i Application Insights visar logg meddelandet och nivån, fil Sök v�
 
 ### <a name="additional-helpful-queries"></a>Ytterligare användbara frågor
 
-Några av frågorna nedan använder "customDimensions. level". Dessa allvarlighets nivåer motsvarar den nivå som python-loggen ursprungligen skickades med. Mer information om frågor finns i [Azure Monitor logg frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Några av frågorna nedan använder "customDimensions. level". Dessa allvarlighets nivåer motsvarar den nivå som python-loggen ursprungligen skickades med. Mer information om frågor finns i [Azure Monitor logg frågor](/azure/data-explorer/kusto/query/).
 
 | Användningsfall                                                               | Söka i data                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -166,4 +166,4 @@ Några av frågorna nedan använder "customDimensions. level". Dessa allvarlighe
 
 När du har loggat in Application Insights-instansen kan de användas för att ange [Azure Monitor aviseringar](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) baserat på frågeresultat.
 
-Du kan också lägga till resultat från frågor till en [Azure-instrumentpanel](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards#add-logs-analytics-query) för ytterligare insikter.
+Du kan också lägga till resultat från frågor till en [Azure-instrumentpanel](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) för ytterligare insikter.

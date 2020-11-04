@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: f159e38eb66e1758feaf743c32d8de30c614b234
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe30a2a0885e1a579eb32ad84ef467f7162febe4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288519"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310317"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Transact-SQL-funktioner som stöds i Azure Synapse SQL
 
@@ -37,7 +37,7 @@ Med förbruknings modeller i Synapse SQL kan du använda olika databas objekt. J
 | **Utlösare** | Nej | Nej |
 | **Externa tabeller** | [Ja](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Se [data format](#data-formats)som stöds. | [Ja](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Se [data format](#data-formats)som stöds. |
 | **Cachelagra frågor** | Ja, flera formulär (SSD-baserad cachelagring, minnes intern cachelagring, ResultSet). Dessutom stöds materialiserad vy | Nej |
-| **Table-variabler** | [Nej](/sql/t-sql/data-types/table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), Använd temporära tabeller | Nej |
+| **Tabellvariabler** | [Nej](/sql/t-sql/data-types/table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), Använd temporära tabeller | Nej |
 | **[Tabell distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**               | Ja | Nej |
 | **[Tabell index](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                           | Ja | Nej |
 | **[Table-partitioner](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                     | Ja | Nej |
@@ -79,8 +79,8 @@ Synapse SQL gör att du kan använda inbyggda säkerhetsfunktioner för att skyd
 | **Användare** |  Ej tillämpligt (endast inneslutna användare stöds i databaser) | Ja |
 | **[Inneslutna användare](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** | Ja. **Obs:** endast en Azure AD-användare kan vara obegränsad administratör | Ja |
 | **SQL username/Password Authentication**| Ja | Ja |
-| **Azure Active Directory autentisering (AAD)**| Ja, Azure AD-användare | Ja, Azure AD-inloggningar och användare |
-| **Storage Azure Active Directory (AAD) genom strömnings autentisering** | Ja | Ja |
+| **Azure Active Directory (Azure AD)-autentisering**| Ja, Azure AD-användare | Ja, Azure AD-inloggningar och användare |
+| **Lagrings Azure Active Directory (Azure AD) genom strömnings autentisering** | Ja | Ja |
 | **Autentisering av SAS-token för lagring** | Nej | Ja, Använd [databasens begränsade autentiseringsuppgifter](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) i den [externa data källan](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) eller på instans nivåns [autentiseringsuppgifter](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). |
 | **Autentisering av lagrings åtkomst nyckel** | Ja, Använd [databasens begränsade autentiseringsuppgifter](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) i den [externa data källan](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Nej |
 | **Autentisering med [hanterad identitet](../security/synapse-workspace-managed-identity.md) för lagring** | Ja, med [hanterad tjänstidentitet autentiseringsuppgift](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Ja, med hjälp av `Managed Identity` autentiseringsuppgifter. |
@@ -103,7 +103,7 @@ Synapse SQL gör att du kan använda inbyggda säkerhetsfunktioner för att skyd
 | **[Brandväggsregler](../security/synapse-workspace-ip-firewall.md)**| Ja | Ja |
 | **[Privat slut punkt](../security/synapse-workspace-managed-private-endpoints.md)**| Ja | Ja |
 
-SQL-pool och SQL på begäran använder standard Transact-SQL-språk för att fråga data. För detaljerade skillnader, se [språk referens för Transact-SQL](/sql/t-sql/language-reference).
+Dedikerad SQL-pool och SQL-pool utan server använder standard språket Transact-SQL för att fråga efter data. För detaljerade skillnader, se [språk referens för Transact-SQL](/sql/t-sql/language-reference).
 
 ## <a name="tools"></a>Verktyg
 
@@ -118,7 +118,7 @@ Du kan använda olika verktyg för att ansluta till Synapse SQL för att fråga 
 | **SQL Server Management Studio** | Ja | Ja, version 18,5 eller senare |
 
 > [!NOTE]
-> Du kan använda SSMS för att ansluta till SQL på begäran (för hands version) och en fråga. Den stöds delvis från och med version 18,5. du kan bara använda den för att ansluta och fråga.
+> Du kan använda SSMS för att ansluta till en server lös SQL-pool (för hands version) och fråga. Den stöds delvis från och med version 18,5. du kan bara använda den för att ansluta och fråga.
 
 De flesta av programmen använder standard Transact-SQL-språk och kan fråga både etablerade och serverbaserade förbruknings modeller i Synapse SQL.
 
@@ -140,7 +140,7 @@ Data som analyseras kan lagras i olika lagrings format. I följande tabell visas
 |   | Etablerad | Utan server |
 | --- | --- | --- |
 | **Avgränsade** | [Ja](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | [Ja](query-single-csv-file.md) |
-| **SKV** | Ja (avgränsare för flera tecken stöds inte) | [Ja](query-single-csv-file.md) |
+| **CSV** | Ja (avgränsare för flera tecken stöds inte) | [Ja](query-single-csv-file.md) |
 | **Parquet** | [Ja](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | [Ja](query-parquet-files.md), inklusive filer med [kapslade typer](query-parquet-nested-types.md) |
 | **Hive-ORC** | [Ja](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Nej |
 | **Hive RC** | [Ja](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Nej |
@@ -150,7 +150,7 @@ Data som analyseras kan lagras i olika lagrings format. I följande tabell visas
 | **[COMMON data service](https://docs.microsoft.com/common-data-model/)** | Nej | Nej |
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om metod tips för SQL-poolen och SQL på begäran finns i följande artiklar:
+Mer information om metod tips för dedikerad SQL-pool och Server lös SQL-pool finns i följande artiklar:
 
-- [Metod tips för SQL-pool](best-practices-sql-pool.md)
-- [Metod tips för SQL på begäran](best-practices-sql-on-demand.md)
+- [Metod tips för dedikerad SQL-pool](best-practices-sql-pool.md)
+- [Metod tips för Server lös SQL-pool](best-practices-sql-on-demand.md)

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 166d598528d8fe38e2bc22b76c659326c5e0ba45
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288791"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311128"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Ansluta till Synapse-SQL med SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "91288791"
 > 
 > 
 
-Du kan använda [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) för att ansluta till och fråga Synapse SQL i Azure Synapse Analytics genom antingen SQL on-demand (för hands version) eller SQL-pool-resurser. 
+Du kan använda [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) för att ansluta till och fråga Synapse SQL i Azure Synapse Analytics genom antingen Server lös SQL-pool (för hands version) eller dedikerade SQL pool-resurser. 
 
-### <a name="supported-tools-for-sql-on-demand-preview"></a>Verktyg som stöds för SQL på begäran (för hands version)
+### <a name="supported-tools-for-serverless-sql-pool-preview"></a>Verktyg som stöds för Server lös SQL-pool (för hands version)
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) stöds fullt ut från version 1.18.0. SSMS stöds delvis från och med version 18,5. du kan bara använda den för att ansluta och fråga.
 
@@ -40,41 +40,41 @@ Du kan använda [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-ser
 Innan du börjar måste du kontrol lera att du har följande krav:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* För SQL-pool behöver du ett befintligt informations lager. Information om hur du skapar en SQL-pool finns i [skapa en SQL-pool](../quickstart-create-sql-pool-portal.md). För SQL på begäran är en redan etablerad i din arbets yta när du skapar den. 
+* För dedikerad SQL-pool behöver du ett befintligt informations lager. Om du vill skapa en, se [skapa en dedikerad SQL-pool](../quickstart-create-sql-pool-portal.md). För en server utan SQL-pool är en redan etablerad, namngiven inbyggda, i din arbets yta när den skapades. 
 * Det fullständigt kvalificerade SQL Server namnet. Du hittar det här namnet i [Anslut till SYNAPSE SQL](connect-overview.md).
 
-## <a name="connect"></a>Ansluta
+## <a name="connect"></a>Anslut
 
-### <a name="sql-pool"></a>SQL-pool
+### <a name="dedicated-sql-pool"></a>Dedikerad SQL-pool
 
-Följ dessa steg om du vill ansluta till Synapse SQL med SQL-pool: 
+Följ dessa steg om du vill ansluta till Synapse SQL med dedikerad SQL-pool: 
 
 1. Öppna SQL Server Management Studio (SSMS). 
-1. Fyll i fälten i dialog rutan **Anslut till Server** och välj sedan **Anslut**: 
+1. Fyll i fälten i dialog rutan **Anslut till Server** och välj sedan **Anslut** : 
   
     ![Anslut till Server 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **Server namn**: Ange det **Server namn** som du identifierade tidigare.
-   * **Autentisering**: Välj en autentiseringstyp, till exempel **SQL Server autentisering** eller **Active Directory integrerad autentisering**.
-   * **Användar namn** och **lösen ord**: Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
+   * **Server namn** : Ange det **Server namn** som du identifierade tidigare.
+   * **Autentisering** : Välj en autentiseringstyp, till exempel **SQL Server autentisering** eller **Active Directory integrerad autentisering**.
+   * **Användar namn** och **lösen ord** : Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
 
 1. Expandera Azure-SQL Server i **Object Explorer**. Du kan visa databaserna som är kopplade till servern, till exempel AdventureWorksDW-databasen. Du kan expandera databasen för att se tabellerna:
    
     ![Utforska AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### <a name="sql-on-demand-preview"></a>SQL på begäran (för hands version)
+### <a name="serverless-sql-pool-preview"></a>SQL-pool utan server (för hands version)
 
-Följ dessa steg om du vill ansluta till Synapse SQL med SQL på begäran: 
+Följ dessa steg om du vill ansluta till Synapse SQL med en server lös SQL-pool: 
 
 1. Öppna SQL Server Management Studio (SSMS).
-1. Fyll i fälten i dialog rutan **Anslut till Server** och välj sedan **Anslut**: 
+1. Fyll i fälten i dialog rutan **Anslut till Server** och välj sedan **Anslut** : 
    
     ![Anslut till Server 2](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **Server namn**: Ange det **Server namn** som du identifierade tidigare.
-   * **Autentisering**: Välj en autentiseringstyp, till exempel **SQL Server autentisering** eller **Active Directory integrerad autentisering**:
-   * **Användar namn** och **lösen ord**: Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
+   * **Server namn** : Ange det **Server namn** som du identifierade tidigare.
+   * **Autentisering** : Välj en autentiseringstyp, till exempel **SQL Server autentisering** eller **Active Directory integrerad autentisering** :
+   * **Användar namn** och **lösen ord** : Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
    * Välj **Anslut**.
 
 4. Expandera din Azure SQL-server för att utforska. Du kan se de databaser som är associerade med servern. Expandera *demonstration* för att se innehållet i exempel databasen.
@@ -84,7 +84,7 @@ Följ dessa steg om du vill ansluta till Synapse SQL med SQL på begäran:
 
 ## <a name="run-a-sample-query"></a>Kör en exempelfråga
 
-### <a name="sql-pool"></a>SQL-pool
+### <a name="dedicated-sql-pool"></a>Dedikerad SQL-pool
 
 Nu när en databas anslutning har upprättats kan du fråga efter data.
 
@@ -104,7 +104,7 @@ Nu när en databas anslutning har upprättats kan du fråga efter data.
    
     ![Frågeresultat 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
-### <a name="sql-on-demand"></a>SQL på begäran
+### <a name="serverless-sql-pool"></a>SQL-pool utan Server
 
 Nu när du har upprättat en databas anslutning kan du fråga efter data.
 

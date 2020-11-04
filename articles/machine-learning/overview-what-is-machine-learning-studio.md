@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 345c925d3b1350dfc2ea69d65d8d14688c6930b9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495992"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310177"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 
@@ -74,7 +74,7 @@ Hantera dina Machine Learning-tillgångar direkt i webbläsaren. Till gångar de
 
 **Azure Machine Learning Studio** är en webb portal *i* Azure Machine Learning som innehåller alternativ med låg kod och ingen kod för projekt redigering och till gångs hantering. 
 
-Vi rekommenderar att nya användare väljer **Azure Machine Learning**, i stället för ml Studio (klassisk), för den senaste mängden data vetenskaps verktyg.
+Vi rekommenderar att nya användare väljer **Azure Machine Learning** , i stället för ml Studio (klassisk), för den senaste mängden data vetenskaps verktyg.
 
 ### <a name="feature-comparison"></a>Jämför funktioner
 
@@ -83,7 +83,7 @@ I följande tabell sammanfattas viktiga skillnader mellan ML Studio (klassisk) o
 | Funktion | ML Studio (klassisk) | Azure Machine Learning |
 |---| --- | --- |
 | Dra och släpp gränssnitt | Klassisk miljö | Uppdaterad erfarenhet – [Azure Machine Learning designer](concept-designer.md)| 
-| Kod-SDK: er | Stöd saknas | Fullständigt integrerat med [Azure Machine Learning python](https://docs.microsoft.com/python/api/overview/azure/ml/) -och [R](tutorial-1st-r-experiment.md) SDK: er |
+| Kod-SDK: er | Stöd saknas | Fullständigt integrerat med [Azure Machine Learning python](/python/api/overview/azure/ml/) -och [R](tutorial-1st-r-experiment.md) SDK: er |
 | Experiment | Skalbar (10 GB inlärnings data gräns) | Skala med beräknings mål |
 | Inlärnings mål | Patentskyddat beräknings mål, endast CPU-stöd | Brett utbud av anpassningsbara [inlärnings mål](concept-compute-target.md#train). Innehåller stöd för GPU och CPU | 
 | Beräknings mål för distribution | Eget webb tjänst format, inte anpassningsbart | Brett utbud av anpassningsbara [beräknings mål för distribution](concept-compute-target.md#deploy). Innehåller stöd för GPU och CPU |
@@ -103,4 +103,3 @@ Besök [Studio](https://ml.azure.com)eller utforska de olika redigerings alterna
   + [Använd Jupyter notebooks på en beräknings instans för att träna & distribuera modeller](tutorial-1st-experiment-sdk-setup.md)
   + [Använd automatisk maskin inlärning för att träna & distribuera modeller](tutorial-first-experiment-automated-ml.md)  
   + [Använd designern för att träna & distribuera modeller](tutorial-designer-automobile-price-train-score.md)
-

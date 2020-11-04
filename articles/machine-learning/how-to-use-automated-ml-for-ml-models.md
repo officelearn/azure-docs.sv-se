@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 47df04a0195c4cfcc4e40db5bf21387a284f682c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad84d3d3fd58edc6f7967c6f50440dcc90625617
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362256"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311273"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning
 
@@ -31,7 +31,7 @@ För ett slut punkt till slut punkts exempel kan du prova [självstudien för at
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En Azure Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md). 
 
@@ -56,7 +56,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 1. Välj en data uppsättning från din lagrings behållare eller skapa en ny data uppsättning. Data uppsättningar kan skapas från lokala filer, webb-URL: er, data lager eller Azure Open-datauppsättningar. Lär dig mer om att [skapa data uppsättning](how-to-create-register-datasets.md).  
 
     >[!Important]
-    > Krav för tränings data:
+    > Krav på träningsdata:
     >* Data måste vara i tabell form.
     >* Värdet som du vill förutse (mål kolumnen) måste finnas i data.
 
@@ -72,7 +72,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
     1. Granska **inställningarna och för hands versions** formuläret för noggrannhet. Formuläret fylls i intelligent baserat på filtypen. 
 
-        Field| Beskrivning
+        Fält| Beskrivning
         ----|----
         Filformat| Definierar layout och typ av data som lagras i en fil.
         Avgränsare| Ett eller flera tecken för att ange avgränsningen mellan separata, oberoende regioner i oformaterad text eller andra data strömmar.
@@ -99,7 +99,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Välj **skapa en ny beräkning** för att konfigurera din beräknings kontext för det här experimentet.
 
-    Field|Beskrivning
+    Fält|Beskrivning
     ---|---
     Namn på beräkning| Ange ett unikt namn som identifierar din beräknings kontext.
     Prioritet för virtuell dator| Virtuella datorer med låg prioritet är billigare men garanterar inte Compute-noderna. 
@@ -117,7 +117,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. I formuläret **uppgifts typ och inställningar** väljer du uppgifts typ: klassificering, regression eller Prognosticering. Mer information finns i [aktivitets typer som stöds](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
-    1. För **klassificering**kan du också aktivera djup inlärning.
+    1. För **klassificering** kan du också aktivera djup inlärning.
     
         Om djup inlärning är aktiverat begränsas verifieringen till _train_validation delning_. [Läs mer om verifierings alternativ](how-to-configure-cross-validation-data-splits.md).
 
@@ -126,9 +126,9 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
     
         1. Aktivera djup inlärning.
     
-        1. Välj *tids kolumn*: den här kolumnen innehåller de tids data som ska användas.
+        1. Välj *tids kolumn* : den här kolumnen innehåller de tids data som ska användas.
 
-        1. Välj *prognos Horisont*: Ange hur många tidsenheter (minuter/timmar/dagar/veckor/månader/år) som modellen ska kunna förutsäga till framtiden. Den ytterligare modellen krävs för att förutsäga i framtiden. den mindre exakta den blir. [Lär dig mer om prognostisering av prognoser och prognoser](how-to-auto-train-forecast.md).
+        1. Välj *prognos Horisont* : Ange hur många tidsenheter (minuter/timmar/dagar/veckor/månader/år) som modellen ska kunna förutsäga till framtiden. Den ytterligare modellen krävs för att förutsäga i framtiden. den mindre exakta den blir. [Lär dig mer om prognostisering av prognoser och prognoser](how-to-auto-train-forecast.md).
 
 1. Valfritt Visa ytterligare konfigurations inställningar: ytterligare inställningar som du kan använda för att styra utbildnings jobbet bättre. Annars tillämpas standardvärdena utifrån experiment val och data. 
 
@@ -136,10 +136,10 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
     ------|------
     Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#primary-metric).
     Förklara bästa modell | Välj om du vill aktivera eller inaktivera för att visa förklaringar för den rekommenderade bästa modellen. <br> Den här funktionen är för närvarande inte tillgänglig för [vissa algoritmer för Prognosticering](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
-    Blockerad algoritm| Välj algoritmer som du vill undanta från utbildnings jobbet. <br><br> Att tillåta algoritmer är bara tillgängligt för [SDK-experiment](how-to-configure-auto-train.md#supported-models). <br> Se de [modeller som stöds för varje aktivitets typ](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true).
-    Avslutnings kriterium| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (timmar)*: hur lång tid det tar att köra utbildnings jobbet. <br> *Mät*värdes tröskel: minsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
+    Blockerad algoritm| Välj algoritmer som du vill undanta från utbildnings jobbet. <br><br> Att tillåta algoritmer är bara tillgängligt för [SDK-experiment](how-to-configure-auto-train.md#supported-models). <br> Se de [modeller som stöds för varje aktivitets typ](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
+    Avslutnings kriterium| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (timmar)* : hur lång tid det tar att köra utbildnings jobbet. <br> *Mät* värdes tröskel: minsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
     Validering| Välj ett av de kors validerings alternativ som ska användas i övnings jobbet. <br> [Läs mer om kors validering](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>Prognosticering stöder endast mellanvalidering av n:te vikning.
-    Samtidighet| *Max. antal samtidiga iterationer*: maximalt antal pipelines (iterationer) som ska testas i utbildnings jobbet. Jobbet kan inte köra fler än det angivna antalet iterationer.
+    Samtidighet| *Max. antal samtidiga iterationer* : maximalt antal pipelines (iterationer) som ska testas i utbildnings jobbet. Jobbet kan inte köra fler än det angivna antalet iterationer.
 
 1. Valfritt Visa funktionalisering-inställningar: om du väljer att aktivera **Automatisk funktionalisering** i formuläret för **ytterligare konfigurations inställningar** tillämpas standard funktionalisering-teknikerna. I **Visa funktionalisering-inställningar** kan du ändra dessa standardvärden och anpassa dem efter behov. Lär dig hur du [anpassar featurizations](#customize-featurization). 
 
@@ -196,7 +196,7 @@ Automatiserad ML hjälper dig att distribuera modellen utan att skriva kod:
 
 1. Fyll i fönstret **distribuera modell** .
 
-    Field| Värde
+    Fält| Värde
     ----|----
     Namn| Ange ett unikt namn för din distribution.
     Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
@@ -217,6 +217,6 @@ Nu har du ett fungerande webbtjänst för att generera förutsägelser! Du kan t
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du använder en webb tjänst](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).
+* [Lär dig hur du använder en webb tjänst](./how-to-consume-web-service.md).
 * [Förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
 * [Lär dig mer om automatisk maskin inlärning](concept-automated-ml.md) och Azure Machine Learning.

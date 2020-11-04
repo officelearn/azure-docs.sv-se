@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4b512d0817c56bc2daabff057c8bc4aa1afa1dee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44c9dbb0eed5e8f7a868832af93a3b841f67f784
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826515"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310704"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Använda .NET för Apache Spark med Azure Synapse Analytics
 
@@ -68,7 +68,7 @@ Data tekniker, data forskare, affärsanalytiker och maskin inlärnings tekniker 
 
 När du skapar en ny antecknings bok väljer du en språk kärna som du vill uttrycka affärs logiken för. Kernel-support är tillgängligt för flera språk, inklusive C#.
 
-Om du vill använda .NET för Apache Spark i din Azure Synapse Analytics-anteckningsbok väljer du **.net Spark (C#)** som kernel och ansluter antecknings boken till en befintlig Spark-pool.
+Om du vill använda .NET för Apache Spark i din Azure Synapse Analytics-anteckningsbok väljer du **.net Spark (C#)** som kernel och ansluter antecknings boken till en befintlig server lös Apache Spark-pool.
 
 .NET Spark-anteckningsboken baseras på de interaktiva funktionerna i .NET och ger interaktiva C#-upplevelser möjlighet att använda .NET för Spark med en spark-sessionsvariabel som `spark` redan är fördefinierad.
 

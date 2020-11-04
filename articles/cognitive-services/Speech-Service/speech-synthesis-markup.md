@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2c60d2e874e861eebac54e24ba0cb949bfb9a57b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e0625fd257ed9995fb567785ce07dcb0b0422c61
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207690"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311635"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -218,7 +218,7 @@ För kinesisk röst XiaoxiaoNeural kan du ytterligare ändra utseendet på tal f
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `style` | Anger tal formatet. För närvarande är det röst alternativ att tala om format. | Krävs om du justerar tal formatet för en neurala röst. Om du använder `mstts:express-as` , måste format tillhandahållas. Om ett ogiltigt värde har angetts ignoreras det här elementet. |
-| `styledegree` | Anger intensiteten för tal format. **Godkända värden**: 0,01 till 2. Standardvärdet är 1 vilket innebär den fördefinierade stil intensiteten. Den minsta enheten är 0,01 vilket resulterar i en något tendens för mål formatet. Värdet 2 resulterar i en dubblerad standard stil.  | Valfritt (för tillfället `styledegree` stöder endast XiaoxiaoNeural.)|
+| `styledegree` | Anger intensiteten för tal format. **Godkända värden** : 0,01 till 2. Standardvärdet är 1 vilket innebär den fördefinierade stil intensiteten. Den minsta enheten är 0,01 vilket resulterar i en något tendens för mål formatet. Värdet 2 resulterar i en dubblerad standard stil.  | Valfritt (för tillfället `styledegree` stöder endast XiaoxiaoNeural.)|
 
 Använd den här tabellen för att avgöra vilka tal format som stöds för varje neurala röst.
 
@@ -233,6 +233,7 @@ Använd den här tabellen för att avgöra vilka tal format som stöds för varj
 | `en-US-JennyNeural`     | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kund support  |
 |                         | `style="chat"`            | Uttrycker en vardaglig och avslappnad ton                         |
 |                         | `style="assistant"`       | Uttrycker en varm och avslappnad ton för digitala assistenter    |
+|                         | `style="newscast"`        | Uttrycker en mångsidig och vardaglig ton för allmän nyhets leverans   |
 | `en-US-GuyNeural`       | `style="newscast"`        | Uttrycker en formell och professionell ton för nya berättarröstinspelningar |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Uttrycker en formell och professionell ton för nya berättarröstinspelningar |
 |                         | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kund support  |
@@ -630,7 +631,7 @@ Följande är de innehålls typer som stöds för `interpret-as` `format` attrib
 | `address` | | Texten talas som en adress. Tal syntes motorn uttalar:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Som "Jag är på 150th-domstolen norra östra Redmond Washington". |
 | `cardinal`, `number` | | Texten talas som ett kardinal nummer. Tal syntes motorn uttalar:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Det finns tre alternativ. " |
 | `characters`, `spell-out` | | Texten talas som enskilda bokstäver (rättstavade). Tal syntes motorn uttalar:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />T. ex. "T E S." |
-| `date` | DMY, MDÅ, YMD, ådm, YM, My, MD, DM, d, m, y | Texten talas som ett datum. `format`Attributet anger datumets format (*d = dag, m = månad och y = år*). Tal syntes motorn uttalar:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Som "idag är den Nineteenth oktober 2016". |
+| `date` | DMY, MDÅ, YMD, ådm, YM, My, MD, DM, d, m, y | Texten talas som ett datum. `format`Attributet anger datumets format ( *d = dag, m = månad och y = år* ). Tal syntes motorn uttalar:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Som "idag är den Nineteenth oktober 2016". |
 | `digits`, `number_digit` | | Texten talas som en sekvens med enskilda siffror. Tal syntes motorn uttalar:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Som "1 2 3 4 5 6 7 8 9". |
 | `fraction` | | Texten talas som ett bråk tals tal. Tal syntes motorn uttalar:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Som "tre åttondelar av en tum". |
 | `ordinal` | | Texten talas som ett ordnings tal. Tal syntes motorn uttalar:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Som "Välj det tredje alternativet". |
@@ -716,9 +717,9 @@ Endast en bakgrunds ljud fil tillåts per SSML-dokument. Du kan dock blanda `aud
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `src` | Anger plats/URL för bakgrunds ljud filen. | Krävs om du använder bakgrunds ljud i ditt SSML-dokument. |
-| `volume` | Anger bakgrunds ljud filens volym. **Godkända värden**: `0` till `100` inklusiv. Standardvärdet är `1`. | Valfritt |
-| `fadein` | Anger bakgrunds ljudets varaktighet "tona in" som millisekunder. Standardvärdet är `0` , vilket motsvarar ingen toning i. **Godkända värden**: `0` till `10000` inklusiv.  | Valfritt |
-| `fadeout` | Anger bakgrunds ljudets varaktighet tonar ut i millisekunder. Standardvärdet är `0` , vilket motsvarar ingen toning. **Godkända värden**: `0` till `10000` inklusiv.  | Valfritt |
+| `volume` | Anger bakgrunds ljud filens volym. **Godkända värden** : `0` till `100` inklusiv. Standardvärdet är `1`. | Valfritt |
+| `fadein` | Anger bakgrunds ljudets varaktighet "tona in" som millisekunder. Standardvärdet är `0` , vilket motsvarar ingen toning i. **Godkända värden** : `0` till `10000` inklusiv.  | Valfritt |
+| `fadeout` | Anger bakgrunds ljudets varaktighet tonar ut i millisekunder. Standardvärdet är `0` , vilket motsvarar ingen toning. **Godkända värden** : `0` till `10000` inklusiv.  | Valfritt |
 
 **Exempel**
 

@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708262"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311601"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Använd tolknings paketet till att förklara ML-modeller & förutsägelser i python (för hands version)
 
@@ -354,7 +354,7 @@ Följ någon av dessa sökvägar för att få åtkomst till instrument panelen f
    [![Instrument panelens lokala funktions betydelse i AzureML Studio i experiment](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Fönstret **modeller**
-  1. Om du har registrerat din ursprungliga modell genom att följa stegen i [Distribuera modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), kan du välja **modeller** i det vänstra fönstret för att visa den.
+  1. Om du har registrerat din ursprungliga modell genom att följa stegen i [Distribuera modeller med Azure Machine Learning](./how-to-deploy-and-where.md), kan du välja **modeller** i det vänstra fönstret för att visa den.
   1. Välj en modell och sedan fliken **förklaringar** för att visa instrument panelen för förklarings visualisering.
 
 ## <a name="interpretability-at-inference-time"></a>Tolkning vid en fördröjning
@@ -419,7 +419,7 @@ Du kan distribuera förklaringen tillsammans med den ursprungliga modellen och a
 
 1. Distribuera avbildningen till ett beräknings mål genom att följa dessa steg:
 
-   1. Om det behövs registrerar du den ursprungliga förutsägelse modellen genom att följa stegen i [Distribuera modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+   1. Om det behövs registrerar du den ursprungliga förutsägelse modellen genom att följa stegen i [Distribuera modeller med Azure Machine Learning](./how-to-deploy-and-where.md).
 
    1. Skapa en bedömnings fil.
 
@@ -553,4 +553,3 @@ Du kan distribuera förklaringen tillsammans med den ursprungliga modellen och a
 [Lär dig mer om modell tolkning](how-to-machine-learning-interpretability.md)
 
 [Ta en titt på exempel antecknings böcker för Azure Machine Learning tolkning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
-

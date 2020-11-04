@@ -1,6 +1,6 @@
 ---
 title: Temporära tabeller
-description: Grundläggande rikt linjer för att använda temporära tabeller i Synapse SQL-pool, som markerar principerna för temporära tabeller på sidnivå.
+description: Grundläggande rikt linjer för att använda temporära tabeller i dedikerad SQL-pool, som markerar principerna för temporära tabeller på sidnivå.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,30 +10,32 @@ ms.subservice: sql-dw
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 61cc351470c0446b58d83d2d7f9c998d959c3649
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 077782099d6d61982052dc1690d545e58e928d8c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85414410"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310680"
 ---
-# <a name="temporary-tables-in-synapse-sql-pool"></a>Temporära tabeller i Synapse SQL-pool
+# <a name="temporary-tables-in-dedicated-sql-pool"></a>Temporära tabeller i dedikerad SQL-pool
+
 Den här artikeln innehåller grundläggande information om hur du använder temporära tabeller och visar principerna för temporära tabeller på sidnivå. 
 
 Med hjälp av informationen i den här artikeln kan hjälpa dig att modularize din kod, förbättra både åter användning och enklare underhåll.
 
 ## <a name="what-are-temporary-tables"></a>Vad är temporära tabeller?
-Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandling där de mellanliggande resultaten är tillfälliga. I SQL-poolen finns temporära tabeller på den tillfälliga nivån.  
+
+Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandling där de mellanliggande resultaten är tillfälliga. I en dedikerad SQL-pool finns temporära tabeller på sessions nivå.  
 
 Temporära tabeller visas bara för den session där de skapades och tas bort automatiskt när sessionen loggar ut.  
 
 Temporära tabeller ger en prestanda förmån eftersom deras resultat skrivs till lokala platser i stället för Fjärrlagring.
 
-Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandling där de mellanliggande resultaten är tillfälliga. Med SQL-poolen finns temporära tabeller på den tillfälliga nivån.  De är bara synliga för den session där de skapades. De tas då bort automatiskt när sessionen loggar ut. 
+Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandling där de mellanliggande resultaten är tillfälliga. Med en dedikerad SQL-pool finns temporära tabeller på sessions nivå.  De är bara synliga för den session där de skapades. De tas då bort automatiskt när sessionen loggar ut. 
 
-## <a name="temporary-tables-in-sql-pool"></a>Temporära tabeller i SQL-poolen
+## <a name="temporary-tables-in-dedicated-sql-pool"></a>Temporära tabeller i dedikerad SQL-pool
 
-I SQL-gruppresursen ger temporära tabeller en prestanda förmån eftersom deras resultat skrivs till lokala platser i stället för Fjärrlagring.
+I den dedikerade SQL-poolen ger temporära tabeller en prestanda förmån eftersom deras resultat skrivs till lokala platser i stället för Fjärrlagring.
 
 ### <a name="create-a-temporary-table"></a>Skapa en tillfällig tabell
 
@@ -205,7 +207,7 @@ Den här lagrade proceduren släpper en befintlig #stats_ddl för att säkerstä
 
 Men eftersom det inte finns något `DROP TABLE` i slutet av den lagrade proceduren när den lagrade proceduren har slutförts, så lämnar den den skapade tabellen så att den kan läsas utanför den lagrade proceduren.  
 
-I SQL-poolen, till skillnad från andra SQL Server databaser, är det möjligt att använda den temporära tabellen utanför proceduren som skapade den.  Tillfälliga tabeller i SQL-pool kan användas **var som helst** i sessionen. Den här funktionen kan leda till mer modulär och hanterbar kod som i följande exempel:
+I en dedikerad SQL-pool, till skillnad från andra SQL Server databaser, är det möjligt att använda den temporära tabellen utanför proceduren som skapade den.  Dedikerade tillfälliga tabeller i SQL-pool kan användas **var som helst** i sessionen. Den här funktionen kan leda till mer modulär och hanterbar kod som i följande exempel:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -227,11 +229,11 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Tillfälligt tabell begränsningar
-SQL-poolen ger ett par begränsningar när du implementerar tillfälliga tabeller.  För närvarande stöds endast temporära tabeller för session definitions område.  Globala temporära tabeller stöds inte.  
+Dedikerad SQL-pool ger ett par begränsningar när du implementerar tillfälliga tabeller.  För närvarande stöds endast temporära tabeller för session definitions område.  Globala temporära tabeller stöds inte.  
 
 Vyer kan inte heller skapas i temporära tabeller.  Temporära tabeller kan bara skapas med hash-eller resursallokering-distribution.  Replikerad temporär tabell distribution stöds inte. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du utvecklar tabeller finns i avsnittet [utforma tabeller med hjälp av artikeln SYNAPSE SQL-resurser](sql-data-warehouse-tables-overview.md) .
+Mer information om hur du utvecklar tabeller finns i artikeln [designa tabeller med dedikerad SQL-pool](sql-data-warehouse-tables-overview.md) .
 

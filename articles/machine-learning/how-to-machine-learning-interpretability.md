@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f98e18abb8ba06ea632ee9c63c1a726879e825d2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322367"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311508"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Modell tolkning i Azure Machine Learning (för hands version)
 
@@ -39,7 +39,7 @@ Att göra det möjligt att förklara en maskin inlärnings modell är viktigt un
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Tolkning med Azure Machine Learning
 
-Tolknings klasser görs tillgängliga via följande SDK-paket: (Lär dig hur du [installerar SDK-paket för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
+Tolknings klasser görs tillgängliga via följande SDK-paket: (Lär dig hur du [installerar SDK-paket för Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
 
 * `azureml.interpret`, innehåller funktioner som stöds av Microsoft.
 
@@ -66,7 +66,7 @@ Lär dig mer om tolknings tekniker som stöds, maskin inlärnings modeller som s
 |--|--|--------------------|
 |SHAP Tree-förklaring| [SHAP](https://github.com/slundberg/shap): s träd förklaring, som fokuserar på polynomed Time fast SHAP för värde uppskattning som är speciell för träd **och ensembler för träd**.|Modell-/regionsspecifika|
 |SHAP djup förklaring| Baserat på förklaringen från SHAP är djupgående förklaring en algoritm för hög hastighet för SHAP värden i djup inlärnings modeller som bygger på en anslutning med DeepLIFT som beskrivs i [SHAP Nips-papper](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). **TensorFlow** -modeller och **keras** -modeller med TensorFlow-backend stöds (det finns även stöd för PyTorch) ".|Modell-/regionsspecifika|
-|SHAP linjär förklara| SHAP är en linjär uppskattning som beräknar SHAP-värden för en **linjär modell**, vilket kan vara att redovisa mellan funktions korrelationer.|Modell-/regionsspecifika|
+|SHAP linjär förklara| SHAP är en linjär uppskattning som beräknar SHAP-värden för en **linjär modell** , vilket kan vara att redovisa mellan funktions korrelationer.|Modell-/regionsspecifika|
 |SHAP kernel-förklaring| SHAPs kernel-förklaring använder en särskilt viktad lokal linjär regression för att beräkna SHAP-värden för **alla modeller**.|Modell – oberoende|
 |Imitera förklaring (globalt surrogat)| Härma förklarar vad som är baserat på idén med [globala surrogat modeller](https://christophm.github.io/interpretable-ml-book/global.html) för att efterlikna blackbox-modeller. En global surrogat modell är en modell med en inbyggd tolkning som är utbildad för att approximera förutsägelserna för **en svart Box-modell** så exakt som möjligt. Data forskare kan tolka surrogat modellen för att rita slut satser om den svarta Box-modellen. Du kan använda någon av följande tolknings bara modeller som surrogat modell: LightGBM (LGBMExplainableModel), linjär regression (LinearExplainableModel), Stochastic gradient brantaste-förklarande modell (SGDExplainableModel) och besluts träd (DecisionTreeExplainableModel).|Modell – oberoende|
 |Förklaring av permutations-funktions prioritet (PFI)| Permutations funktionens betydelse är en teknik som används för att förklara klassificerings-och Regressions modeller som inspireras av [Breiman-bladet för slumpmässiga skogar](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är det sättet som det fungerar genom att slumpmässigt blandning data en funktion i taget för hela data uppsättningen och att beräkna hur mycket prestanda måtten för räntan förändras. Ju större ändringen är, desto viktigare är funktionen. PFI kan förklara det övergripande beteendet för **en underliggande modell** men förklarar inte enskilda förutsägelser. |Modell – oberoende|

@@ -15,6 +15,10 @@
       href: virtual-wan-expressroute-portal.md
 - name: Begrepp
   items:
+    - name: Säkerhet
+      items:
+        - name: Grundläggande säkerhet
+          href: security-baseline.md
     - name: Distansarbete
       items:
         - name: Stöd för distansarbete

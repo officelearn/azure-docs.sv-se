@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: f3bbab14152f16515c93972e6b41ef34693e1143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f16ed3c455067ff2fa185bff023a6993ccda58c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367962"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311973"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guide till net # neurala Network Specification language för Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 NET # är ett språk som utvecklats av Microsoft och som används för att definiera komplexa neurala-nätverks arkitekturer som djup neurala nätverk eller convolutions för godtyckliga dimensioner. Du kan använda komplexa strukturer för att förbättra inlärningen på data, till exempel bild, video eller ljud.
 
 Du kan använda en net # Architecture-specifikation i följande kontexter:
 
-+ Alla neurala i Microsoft Azure Machine Learning Studio (klassisk): [neurala nätverk](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network)i flera klasser, [två neurala nätverk](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)och [neurala nätverks regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Neurala Network Functions in Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) och [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)för R-språket och [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) för python.
++ Alla neurala i Microsoft Azure Machine Learning Studio (klassisk): [neurala nätverk](/azure/machine-learning/studio-module-reference/multiclass-neural-network)i flera klasser, [två neurala nätverk](/azure/machine-learning/studio-module-reference/two-class-neural-network)och [neurala nätverks regression](/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Neurala Network Functions in Microsoft ML Server: [NeuralNet](/machine-learning-server/r-reference/microsoftml/neuralnet) och [rxNeuralNet](/machine-learning-server/r-reference/microsoftml/rxneuralnet)för R-språket och [rx_neural_network](/machine-learning-server/python-reference/microsoftml/rx-neural-network) för python.
 
 
 I den här artikeln beskrivs de grundläggande begreppen och syntaxen som behövs för att utveckla ett anpassat neurala-nätverk med net #:
@@ -44,7 +44,7 @@ Varje skiktat lager (ett dolt eller ett utmatnings lager) har ett eller flera **
 
 NET # stöder olika typer av anslutnings paket, vilket gör att du kan anpassa hur indata mappas till dolda lager och mappas till utdata.
 
-Standard-eller standard-paketet är ett **fullständigt paket**där varje nod i käll skiktet är ansluten till varje nod i mål lagret.
+Standard-eller standard-paketet är ett **fullständigt paket** där varje nod i käll skiktet är ansluten till varje nod i mål lagret.
 
 NET # stöder dessutom följande fyra typer av avancerade anslutnings paket:
 
@@ -80,7 +80,7 @@ Exempel på hur du definierar neurala-nätverk för några vanliga Machine Learn
 
 ## <a name="structure-specifications"></a>Specifikationer för struktur
 
-En neurala nätverks struktur specifikation består av tre delar: **konstant deklaration**, **lager deklaration**, **anslutnings deklarationen**. Det finns även ett valfritt **resurs deklarations** avsnitt. Avsnitten kan anges i vilken ordning som helst.
+En neurala nätverks struktur specifikation består av tre delar: **konstant deklaration** , **lager deklaration** , **anslutnings deklarationen**. Det finns även ett valfritt **resurs deklarations** avsnitt. Avsnitten kan anges i vilken ordning som helst.
 
 ## <a name="constant-declaration"></a>Konstant deklaration
 
@@ -192,21 +192,21 @@ När tränings data har en homogen struktur, används (convolutional-anslutninga
 
 **InputShape** definierar skiktets dimensionalitet i (convolutional-paketets syfte. Värdet måste vara en tupel av positiva heltal. Heltals produkten måste vara lika med antalet noder i käll skiktet, men annars behöver den inte matcha den dimensionalitet som har deklarerats för käll skiktet. Den här tupelens längd blir **aritet** -värdet för (convolutional-paketet. Aritet refererar vanligt vis till antalet argument eller operander som en funktion kan utföra.
 
-Om du vill definiera form och platser för kerneln använder du attributen **KernelShape**, **kliv**, **utfyllnad**, **LowerPad**och **UpperPad**:
+Om du vill definiera form och platser för kerneln använder du attributen **KernelShape** , **kliv** , **utfyllnad** , **LowerPad** och **UpperPad** :
 
-+ **KernelShape**: (obligatoriskt) definierar dimensionalheten för varje kernel för (convolutional-paketet. Värdet måste vara en tupel av positiva heltal med en längd som är lika med aritet för paketet. Varje komponent i denna tupel får inte vara större än motsvarande komponent i **InputShape**.
++ **KernelShape** : (obligatoriskt) definierar dimensionalheten för varje kernel för (convolutional-paketet. Värdet måste vara en tupel av positiva heltal med en längd som är lika med aritet för paketet. Varje komponent i denna tupel får inte vara större än motsvarande komponent i **InputShape**.
 
-+ **Kliv**: (valfritt) definierar de glidande steg storlekarna för convolution (en steg storlek för varje dimension), det vill säga avståndet mellan de centrala noderna. Värdet måste vara en tupel av positiva heltal med en längd som är aritet för paketet. Varje komponent i denna tupel får inte vara större än motsvarande komponent i **KernelShape**. Standardvärdet är en tupel med alla komponenter som är lika med ett.
++ **Kliv** : (valfritt) definierar de glidande steg storlekarna för convolution (en steg storlek för varje dimension), det vill säga avståndet mellan de centrala noderna. Värdet måste vara en tupel av positiva heltal med en längd som är aritet för paketet. Varje komponent i denna tupel får inte vara större än motsvarande komponent i **KernelShape**. Standardvärdet är en tupel med alla komponenter som är lika med ett.
 
-+ **Delning**: (valfritt) definierar vikt delning för varje dimension i convolution. Värdet kan vara ett enstaka booleskt värde eller en tupel av booleska värden med en längd som är aritet för paketet. Ett enda booleskt värde utökas till att vara en tupel av rätt längd med alla komponenter som är lika med det angivna värdet. Standardvärdet är en tupel som består av alla sanna värden.
++ **Delning** : (valfritt) definierar vikt delning för varje dimension i convolution. Värdet kan vara ett enstaka booleskt värde eller en tupel av booleska värden med en längd som är aritet för paketet. Ett enda booleskt värde utökas till att vara en tupel av rätt längd med alla komponenter som är lika med det angivna värdet. Standardvärdet är en tupel som består av alla sanna värden.
 
-+ **MapCount**: (valfritt) definierar antalet funktions mappningar för (convolutional-paketet. Värdet kan vara ett positivt heltal eller en tupel med positiva heltal med en längd som är aritet för paketet. Ett enda heltals värde utökas till att vara en tupel av rätt längd med de första komponenterna som är lika med det angivna värdet och alla återstående komponenter som är lika med ett. Standardvärdet är ett. Det totala antalet funktions kartor är produkten av komponenterna i tuppeln. Det totala antalet i alla komponenter bestämmer hur värdet för funktions kartan grupperas i målnoden.
++ **MapCount** : (valfritt) definierar antalet funktions mappningar för (convolutional-paketet. Värdet kan vara ett positivt heltal eller en tupel med positiva heltal med en längd som är aritet för paketet. Ett enda heltals värde utökas till att vara en tupel av rätt längd med de första komponenterna som är lika med det angivna värdet och alla återstående komponenter som är lika med ett. Standardvärdet är ett. Det totala antalet funktions kartor är produkten av komponenterna i tuppeln. Det totala antalet i alla komponenter bestämmer hur värdet för funktions kartan grupperas i målnoden.
 
-+ **Vikter**: (valfritt) definierar paketets initiala vikt. Värdet måste vara en tupel av flytt ALS värden med en längd som är antalet kärnor gånger antalet vikter per kernel, enligt definitionen längre fram i den här artikeln. Standard vikterna genereras slumpmässigt.
++ **Vikter** : (valfritt) definierar paketets initiala vikt. Värdet måste vara en tupel av flytt ALS värden med en längd som är antalet kärnor gånger antalet vikter per kernel, enligt definitionen längre fram i den här artikeln. Standard vikterna genereras slumpmässigt.
 
 Det finns två uppsättningar egenskaper som styr utfyllnaden. egenskaperna är ömsesidigt uteslutande:
 
-+ **Utfyllnad**: (valfritt) avgör om indatatypen ska fyllas i med ett **standardfyllnads schema**. Värdet kan vara ett enskilt booleskt värde, eller så kan det vara en tupel av booleska värden med en längd som är aritet för paketet.
++ **Utfyllnad** : (valfritt) avgör om indatatypen ska fyllas i med ett **standardfyllnads schema**. Värdet kan vara ett enskilt booleskt värde, eller så kan det vara en tupel av booleska värden med en längd som är aritet för paketet.
 
     Ett enda booleskt värde utökas till att vara en tupel av rätt längd med alla komponenter som är lika med det angivna värdet.
 
@@ -214,7 +214,7 @@ Det finns två uppsättningar egenskaper som styr utfyllnaden. egenskaperna är 
 
     Om värdet för en dimension är falskt definieras kernelerna så att antalet noder på varje sida som lämnas ut är detsamma (upp till en skillnad på 1). Standardvärdet för det här attributet är en tupel med alla komponenter som är lika med falskt.
 
-+ **UpperPad** och **LowerPad**: (valfritt) ger bättre kontroll över mängden utfyllnad som ska användas. **Viktigt:** Dessa attribut kan definieras om och endast om egenskapen **utfyllnad** ovan ***inte*** har definierats. Värdena ska vara heltals-värdes par med längd som är aritet för paketet. När de här attributen anges läggs "provdocka"-noder till i de nedre och övre ändarna i varje dimension i Indatakällan. Antalet noder som läggs till i de nedre och övre ändarna i varje dimension bestäms av **LowerPad**[i] respektive **UpperPad**[i].
++ **UpperPad** och **LowerPad** : (valfritt) ger bättre kontroll över mängden utfyllnad som ska användas. **Viktigt:** Dessa attribut kan definieras om och endast om egenskapen **utfyllnad** ovan **_inte_ är *_ definierad. Värdena ska vara heltals-värdes par med längd som är aritet för paketet. När de här attributen anges läggs "provdocka"-noder till i de nedre och övre ändarna i varje dimension i Indatakällan. Antalet noder som läggs till i de nedre och övre ändarna i varje dimension bestäms av _* LowerPad** [i] respektive **UpperPad** [i].
 
     För att säkerställa att kärnan endast motsvarar "verkliga" noder och inte till "dummy"-noder måste följande villkor vara uppfyllda:
   - Varje komponent i **LowerPad** måste vara strikt mindre än `KernelShape[d]/2` .
@@ -230,7 +230,7 @@ Mer information om (convolutional-nätverk och deras program finns i följande a
 
 ## <a name="pooling-bundles"></a>Samlings paket
 
-Ett **pooling-paket** använder en geometri som liknar (convolutional-anslutning, men använder fördefinierade funktioner för att härleda målnoden. Därför har pooling-paket inte något tåg tillstånd (vikt eller bias). Pooling-paket stöder alla (convolutional-attribut förutom **delning**, **MapCount**och **vikter**.
+Ett **pooling-paket** använder en geometri som liknar (convolutional-anslutning, men använder fördefinierade funktioner för att härleda målnoden. Därför har pooling-paket inte något tåg tillstånd (vikt eller bias). Pooling-paket stöder alla (convolutional-attribut förutom **delning** , **MapCount** och **vikter**.
 
 Normalt överlappas inte de kärnor som sammanfattas av intilliggande pooling-enheter. Om kliv [d] är lika med KernelShape [d] i varje dimension är det lager som erhålls det traditionella lokala skikt lagret, som vanligt vis används i (convolutional neurala-nätverk. Varje målnod beräknar det maximala antalet eller medelvärdet för dess kernels aktiviteter i käll skiktet.
 
@@ -260,15 +260,15 @@ Mer information om pool lager finns i följande artiklar:
 
 **Normalisering av svar** är ett lokalt normaliserings schema som först introducerades av Geoffrey Hinton, et al i pappers [ImageNet klassificering med djup (convolutional neurala-nätverk](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
 
-Normalisering av svar används för att under lätta generaliseringen i neurala-näten. När en neuron startar på en mycket hög aktiverings nivå, undertrycker ett lokalt normaliserings lager på aktiverings nivån för den omgivande neurons. Detta görs med hjälp av tre parametrar ( `α` , `β` , och `k` ) och en (convolutional-struktur (eller form). Varje neuron i mål skiktet **y** motsvarar ett neuron **x** i käll skiktet. Aktiverings nivån för **y** anges av följande formel, där `f` är aktiverings nivån för en neuron och `Nx` är kärnan (eller uppsättningen som innehåller neurons i **x**), som definieras av följande (convolutional-struktur:
+Normalisering av svar används för att under lätta generaliseringen i neurala-näten. När en neuron startar på en mycket hög aktiverings nivå, undertrycker ett lokalt normaliserings lager på aktiverings nivån för den omgivande neurons. Detta görs med hjälp av tre parametrar ( `α` , `β` , och `k` ) och en (convolutional-struktur (eller form). Varje neuron i mål skiktet **y** motsvarar ett neuron **x** i käll skiktet. Aktiverings nivån för **y** anges av följande formel, där `f` är aktiverings nivån för en neuron och `Nx` är kärnan (eller uppsättningen som innehåller neurons i **x** ), som definieras av följande (convolutional-struktur:
 
 ![formel för (convolutional-struktur](./media/azure-ml-netsharp-reference-guide/formula_large.png)
 
-Paket för normalisering av svar har stöd för alla (convolutional-attribut förutom **delning**, **MapCount**och **vikter**.
+Paket för normalisering av svar har stöd för alla (convolutional-attribut förutom **delning** , **MapCount** och **vikter**.
 
-+ Om kärnan innehåller neurons i samma karta som ***x***, kallas normaliserings schemat av **samma mappnings-normalisering**. Om du vill definiera samma mappnings-normalisering måste den första koordinaten i **InputShape** ha värdet 1.
++ Om kärnan innehåller neurons i samma karta som **_x_*_, kallas normaliserings schemat för _* samma mappnings-normalisering**. Om du vill definiera samma mappnings-normalisering måste den första koordinaten i **InputShape** ha värdet 1.
 
-+ Om kärnan innehåller neurons i samma spatialdata som ***x***, men neurons finns i andra Maps, anropas normaliserings schemat **över Maps-normalisering**. Den här typen av svars normalisering implementerar en form av lateralt hämmande som inspireras av den typ som påträffades i verklig neurons, vilket skapar en tävling för stor aktiverings nivå bland neuron utdata som beräknas på olika kartor. För att definiera över Maps-normalisering måste den första koordinaten vara ett heltal som är större än ett och inte större än antalet mappningar, och resten av koordinaterna måste ha värdet 1.
++ Om kärnan innehåller neurons i samma spatialdata som **_x_*_, men neurons finns i andra Maps, kallas normaliserings schemat _* över Maps-normalisering**. Den här typen av svars normalisering implementerar en form av lateralt hämmande som inspireras av den typ som påträffades i verklig neurons, vilket skapar en tävling för stor aktiverings nivå bland neuron utdata som beräknas på olika kartor. För att definiera över Maps-normalisering måste den första koordinaten vara ett heltal som är större än ett och inte större än antalet mappningar, och resten av koordinaterna måste ha värdet 1.
 
 Eftersom paket för normalisering av svar tillämpar en fördefinierad funktion för Källnoden för att fastställa värdet för målnoden, har de inte något tåg tillstånd (vikt eller bias).
 
@@ -277,9 +277,9 @@ Eftersom paket för normalisering av svar tillämpar en fördefinierad funktion 
 
 Förutom de fyra attribut som beskrivits tidigare, stöder svars normaliserings paket även följande attribut:
 
-+ **Alfa**: (obligatoriskt) anger ett flytt ALS värde som motsvarar `α` i föregående formel.
-+ **Beta**: (obligatoriskt) anger ett flytt ALS värde som motsvarar `β` i föregående formel.
-+ **Offset**: (valfritt) anger ett flyt punkts värde som motsvarar `k` i föregående formel. Standardvärdet är 1.
++ **Alfa** : (obligatoriskt) anger ett flytt ALS värde som motsvarar `α` i föregående formel.
++ **Beta** : (obligatoriskt) anger ett flytt ALS värde som motsvarar `β` i föregående formel.
++ **Offset** : (valfritt) anger ett flyt punkts värde som motsvarar `k` i föregående formel. Standardvärdet är 1.
 
 I följande exempel definieras ett paket för normalisering av svar med följande attribut:
 
@@ -463,4 +463,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>Erkännanden
 
-NET #-språket för anpassning av arkitekturen i neurala-nätverk utvecklades på Microsoft av Shon Katzenberger (arkitekt, Machine Learning) och Alexey Kamenev (program varu tekniker, Microsoft Research). Den används internt för maskin inlärnings projekt och program som sträcker sig från bild identifiering till text analys. Mer information finns i [neurala Garns i Azure Machine Learning Studio – introduktion till net #](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+NET #-språket för anpassning av arkitekturen i neurala-nätverk utvecklades på Microsoft av Shon Katzenberger (arkitekt, Machine Learning) och Alexey Kamenev (program varu tekniker, Microsoft Research). Den används internt för maskin inlärnings projekt och program som sträcker sig från bild identifiering till text analys. Mer information finns i [neurala Garns i Azure Machine Learning Studio – introduktion till net #](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net)

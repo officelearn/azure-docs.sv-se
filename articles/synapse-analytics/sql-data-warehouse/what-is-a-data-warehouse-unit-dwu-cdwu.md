@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b0df359a25810f09d530b5f0cca9cabbd485c795
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfcd9c6430deea948804ba8c1d37e404b1897c5f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461994"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311882"
 ---
 # <a name="data-warehouse-units-dwus"></a>Informations lager enheter (DWU: er)
 
@@ -24,7 +24,7 @@ Rekommendationer för att välja det idealiska antalet informations lager enhete
 
 ## <a name="what-are-data-warehouse-units"></a>Vad är informations lager enheter
 
-En [SYNAPSE SQL-pool](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representerar en samling analys resurser som tillhandahålls. Analys resurser definieras som en kombination av CPU, minne och IO.
+En [SYNAPSE SQL-pool](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) representerar en samling analys resurser som tillhandahålls. Analys resurser definieras som en kombination av CPU, minne och IO.
 
 Dessa tre resurser paketeras i enheter med beräknings skala som kallas informations lager enheter (DWU: er). En DWU representerar ett abstrakt, normaliserat mått för beräkningsresurser och prestanda.
 
@@ -34,8 +34,8 @@ För högre prestanda kan du öka antalet informations lager enheter. Minska dat
 
 Prestanda för informations lager enheter baseras på dessa data lager arbets belastnings mått:
 
-- Hur snabbt en vanlig SQL-pool-fråga kan genomsöka ett stort antal rader och sedan utföra en komplex agg regering. Den här åtgärden är I/O och processor intensiv.
-- Hur snabbt SQL-poolen kan mata in data från Azure Storage blobbar eller Azure Data Lake. Den här åtgärden är nätverks-och processor intensiv.
+- Hur snabbt en standard fråga för en dedikerad SQL-pool kan genomsöka ett stort antal rader och sedan utföra en komplex agg regering. Den här åtgärden är I/O och processor intensiv.
+- Hur snabbt den dedikerade SQL-poolen kan mata in data från Azure Storage blobbar eller Azure Data Lake. Den här åtgärden är nätverks-och processor intensiv.
 - Hur snabbt [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL-kommandot kan kopiera en tabell. Den här åtgärden innebär att läsa data från lagring, distribuera dem mellan noderna i enheten och skriva till lagrings utrymme igen. Den här åtgärden är CPU, i/o och nätverks intensiv.
 
 Ökande DWU: er:
@@ -48,12 +48,12 @@ Prestanda för informations lager enheter baseras på dessa data lager arbets be
 
 Service nivå målet (service nivå målet) är inställningen för skalbarhet som avgör data lagrets kostnad och prestanda nivå. Service nivåerna för Gen2 mäts i beräknings data lager enheter (cDWU), till exempel DW2000c. Gen1 service nivåer mäts i DWU: er, till exempel DW2000.
 
-Service nivå målet (service nivå målet) är den skalbarhets inställning som bestämmer SQL-poolens kostnad och prestanda nivå. Tjänst nivåerna för Gen2 SQL-poolen mäts i informations lager enheter (DWU), till exempel DW2000c.
+Service nivå målet (service nivå målet) är den skalbarhets inställning som avgör den dedikerade SQL-poolens kostnad och prestanda nivå. Tjänst nivåerna för Gen2 dedikerade SQL-poolen mäts i informations lager enheter (DWU), till exempel DW2000c.
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2 nyligen tillagda ytterligare skalnings funktioner som stöd för beräknings nivåer så lågt som 100 cDWU. Befintliga data lager för närvarande på gen1 som kräver lägre beräknings nivåer kan nu uppgraderas till Gen2 i de regioner som för närvarande är tillgängliga utan extra kostnad.  Om din region inte stöds ännu kan du fortfarande uppgradera till en region som stöds. Mer information finns i [Uppgradera till Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-I T-SQL bestämmer inställningen för SERVICE_OBJECTIVE tjänst nivå och prestanda nivå för SQL-poolen.
+I T-SQL bestämmer inställningen för SERVICE_OBJECTIVE tjänst nivå och prestanda nivå för din dedikerade SQL-pool.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -88,7 +88,7 @@ Steg för att hitta den bästa DWU för din arbets belastning:
 2. Övervaka program prestanda när du testar data inläsningar i systemet och som beaktar antalet DWU: er som valts jämfört med den prestanda du har.
 3. Identifiera eventuella ytterligare krav för periodiska perioder med hög belastnings aktivitet. Arbets belastningar som visar betydande toppar och troughs i aktivitet kan behöva skalas ofta.
 
-SQL-poolen är ett skalbart system som kan etablera stora mängder data bearbetning och fråga betydande mängder data.
+Dedikerad SQL-pool är ett skalbart system som kan etablera stora mängder data bearbetning och fråga betydande mängder data.
 
 Om du vill se de verkliga funktionerna för skalning, särskilt vid större DWU: er, rekommenderar vi att du skalar data uppsättningen när du skalar för att säkerställa att du har tillräckligt med data för att kunna mata in processorerna. För skalnings testning rekommenderar vi att du använder minst 1 TB.
 
@@ -98,7 +98,7 @@ Om du vill se de verkliga funktionerna för skalning, särskilt vid större DWU:
 
 ## <a name="permissions"></a>Behörigheter
 
-Om du ändrar data lagrets enheter krävs de behörigheter som beskrivs i [Alter Database](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Om du ändrar data lagrets enheter krävs de behörigheter som beskrivs i [Alter Database](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Inbyggda Azure-roller som SQL DB-deltagare och SQL Server deltagare kan ändra DWU-inställningar.
 
@@ -127,7 +127,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 1. Öppna [Azure Portal](https://portal.azure.com), öppna databasen och klicka på **skala**.
 
-2. Under **skala**flyttar du skjutreglaget åt vänster eller höger för att ändra DWU-inställningen.
+2. Under **skala** flyttar du skjutreglaget åt vänster eller höger för att ändra DWU-inställningen.
 
 3. Klicka på **Spara**. Ett bekräftelsemeddelande visas. Klicka på **Ja** för att bekräfta eller **Nej** för att avbryta.
 
@@ -150,7 +150,7 @@ Med T-SQL kan du Visa den aktuella DWUsettings, ändra inställningarna och kont
 Så här ändrar du DWU: er:
 
 1. Anslut till huvud databasen som är associerad med servern.
-2. Använd instruktionen [Alter Database](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) tsql. I följande exempel anges service nivå målet till DW1000c för databasen MySQLDW.
+2. Använd instruktionen [Alter Database](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) tsql. I följande exempel anges service nivå målet till DW1000c för databasen MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -204,7 +204,7 @@ FROM      sys.databases
     ;
     ```
 
-Denna DMV returnerar information om olika hanterings åtgärder på SQL-poolen, till exempel åtgärden och status för åtgärden, som antingen IN_PROGRESS eller har SLUTFÖRts.
+I denna DMV returneras information om olika hanterings åtgärder på din dedikerade SQL-pool, till exempel åtgärden och status för åtgärden, som antingen IN_PROGRESS eller har SLUTFÖRts.
 
 ## <a name="the-scaling-workflow"></a>Arbets flödet för skalning
 

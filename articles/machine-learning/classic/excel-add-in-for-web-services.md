@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 69eefce50cefe9f54ed931c96ccbe94b2057cae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb87afcc6edc02d241dca763aff9ecdd594e4711
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362375"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310081"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Excel-tillägg för Azure Machine Learning Studio (klassiska) webb tjänster
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Excel gör det enkelt att anropa webb tjänster direkt utan att behöva skriva någon kod.
@@ -38,7 +38,7 @@ Excel gör det enkelt att anropa webb tjänster direkt utan att behöva skriva n
     ![Välj webb tjänst](./media/excel-add-in-for-web-services/image1.png)
 3. Det tar dig till **predict** -avsnittet.  Den här arbets boken innehåller redan exempel data, men för en tom arbets bok kan du välja en cell i Excel och klicka på **Använd exempel data**.
 4. Välj data med rubriker och klicka på ikonen för indata-området.  Kontrol lera att rutan mina data har rubriker är markerad.
-5. Under **utdata**anger du det cell nummer där du vill att utdata ska vara, till exempel "H1" här.
+5. Under **utdata** anger du det cell nummer där du vill att utdata ska vara, till exempel "H1" här.
 6. Klicka på **predict**. Om du markerar kryss rutan "Auto-predict" för alla ändringar på de valda områdena (de som anges som indata) utlöser en begäran och en uppdatering av utdata-cellerna utan att du behöver trycka på predict-knappen.
    
     ![Förutsägelse avsnitt](./media/excel-add-in-for-web-services/image1.png)
@@ -65,7 +65,7 @@ Hämta API-nyckeln för webb tjänsten. Var du utför den här åtgärden beror 
 
 **Använd en ny webb tjänst**
 
-1. I [Azure Machine Learning Web Services-](https://services.azureml.net) portalen klickar du på **webb tjänster**och väljer sedan din webb tjänst. 
+1. I [Azure Machine Learning Web Services-](https://services.azureml.net) portalen klickar du på **webb tjänster** och väljer sedan din webb tjänst. 
 2. Klicka på **förbruka**.
 3. Leta upp avsnittet **grundläggande förbruknings information** . Kopiera och spara **primär nyckeln** och URL: en för **begäran-svar** .
 
@@ -88,4 +88,4 @@ Hämta API-nyckeln för webb tjänsten. Var du utför den här åtgärden beror 
 ## <a name="sharing-your-workbook"></a>Dela din arbets bok
 Om du sparar din arbets bok sparas även API: n/primär nyckeln för de webb tjänster som du har lagt till. Det innebär att du endast bör dela arbets boken med individer som du litar på.
 
-Ställ frågor i följande kommentars avsnitt eller i vårt [Forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).
+Ställ frågor i följande kommentars avsnitt eller i vårt [Forum](/answers/topics/azure-machine-learning.html).

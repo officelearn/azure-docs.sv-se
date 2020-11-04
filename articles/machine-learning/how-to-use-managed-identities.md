@@ -10,16 +10,16 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: c4ea7609c343532f17144e388be7583eab427eee
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3490e3004e5f5dd99795967f0deb8510200fa50b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440458"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311043"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Använda hanterade identiteter med Azure Machine Learning (förhands granskning)
 
-Med [hanterade identiteter](/azure/active-directory/managed-identities-azure-resources/overview) kan du konfigurera din arbets yta med *minsta behörighet som krävs för att få åtkomst till resurser*. 
+Med [hanterade identiteter](../active-directory/managed-identities-azure-resources/overview.md) kan du konfigurera din arbets yta med *minsta behörighet som krävs för att få åtkomst till resurser*. 
 
 När du konfigurerar Azure Machine Learning arbets ytan på ett tillförlitligt sätt är det viktigt att se till att olika tjänster som är kopplade till arbets ytan har rätt åtkomst nivå. Arbets ytan för Machine Learning måste till exempel ha åtkomst till Azure Container Registry (ACR) för Docker-avbildningar och lagrings konton för tränings data. 
 
@@ -33,20 +33,20 @@ I den här artikeln får du lära dig hur du använder hanterade identiteter fö
 > [!IMPORTANT]
 > Att använda hanterade identiteter för att kontrol lera åtkomst till resurser med Azure Machine Learning för närvarande finns som för hands version. Förhands gransknings funktionerna tillhandahålls "i befintligt skick", utan garanti av support eller service nivå avtal. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 - [Azure CLI-tillägget för Machine Learning tjänst](reference-azure-machine-learning-cli.md)
-- [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-- För att tilldela roller måste inloggningen för din Azure-prenumeration ha rollen [hanterad identitets operatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) eller annan roll som ger nödvändiga åtgärder (till exempel __ägare__).
-- Du måste vara bekant med att skapa och arbeta med [hanterade identiteter](/azure/active-directory/managed-identities-azure-resources/overview).
+- [Azure Machine Learning python SDK](/python/api/overview/azure/ml/intro?view=azure-ml-py).
+- För att tilldela roller måste inloggningen för din Azure-prenumeration ha rollen [hanterad identitets operatör](../role-based-access-control/built-in-roles.md#managed-identity-operator) eller annan roll som ger nödvändiga åtgärder (till exempel __ägare__ ).
+- Du måste vara bekant med att skapa och arbeta med [hanterade identiteter](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="configure-managed-identities"></a>Konfigurera hanterade identiteter
 
 I vissa situationer är det nödvändigt att inte tillåta administratörs användarens åtkomst till Azure Container Registry. Till exempel kan ACR delas och du måste neka administratörs åtkomst av andra användare. Eller också är det inte tillåtet att skapa ACR med administratörs användare aktiverat av en princip på prenumerations nivå.
 
 > [!IMPORTANT]
-> När du använder Azure Machine Learning för att få en utgångs punkt på Azure Container Instance (ACI) __krävs__administratörs användarens åtkomst på ACR. Inaktivera det inte om du planerar att distribuera modeller till ACI för att kunna bli mer härlednings.
+> När du använder Azure Machine Learning för att få en utgångs punkt på Azure Container Instance (ACI) __krävs__ administratörs användarens åtkomst på ACR. Inaktivera det inte om du planerar att distribuera modeller till ACI för att kunna bli mer härlednings.
 
 När du skapar ACR utan att aktivera administratörs användarens åtkomst används hanterade identiteter för att få åtkomst till ACR för att skapa och hämta Docker-avbildningar.
 
@@ -56,10 +56,10 @@ Du kan ta med din egen ACR med administratörs användaren inaktive rad när du 
 
 Om ACR admin-användare inte tillåts av en prenumerations princip bör du först skapa ACR utan Administratörs användare och sedan koppla den till arbets ytan. Om du har en befintlig ACR med administratörs användaren inaktive rad kan du också koppla den till arbets ytan.
 
-[Skapa ACR från Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli) utan att ange ```--admin-enabled``` argument eller från Azure Portal utan att aktivera administratörs användare. När du sedan skapar Azure Machine Learning arbets ytan anger du Azure-resurs-ID: t för ACR. I följande exempel visas hur du skapar en ny Azure ML-arbetsyta som använder en befintlig ACR:
+[Skapa ACR från Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) utan att ange ```--admin-enabled``` argument eller från Azure Portal utan att aktivera administratörs användare. När du sedan skapar Azure Machine Learning arbets ytan anger du Azure-resurs-ID: t för ACR. I följande exempel visas hur du skapar en ny Azure ML-arbetsyta som använder en befintlig ACR:
 
 > [!TIP]
-> Hämta värdet för `--container-registry` parametern genom att använda kommandot [AZ ACR show](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az_acr_show) för att visa information för din ACR. `id`Fältet innehåller resurs-ID för din ACR.
+> Hämta värdet för `--container-registry` parametern genom att använda kommandot [AZ ACR show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) för att visa information för din ACR. `id`Fältet innehåller resurs-ID för din ACR.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> \
@@ -106,7 +106,7 @@ För att få åtkomst till arbets ytans ACR skapar du beräknings kluster för m
 
 # <a name="python"></a>[Python](#tab/python)
 
-När du skapar ett beräknings kluster med [AmlComputeProvisioningConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py)använder du `identity_type` parametern för att ange den hanterade identitets typen.
+När du skapar ett beräknings kluster med [AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py)använder du `identity_type` parametern för att ange den hanterade identitets typen.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -190,7 +190,7 @@ I det här scenariot skapar Azure Machine Learning-tjänsten utbildnings-eller m
 
         Resurs-ID: t för UAI är Azure-resurs-ID för den tilldelade användaren identitet i formatet `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAI name>` .
 
-1. Ange det externa ACR och klient-ID: t för den __användarspecifika hanterade identiteten__ i arbets ytans anslutningar med hjälp av [Workspace.set_connection metod](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-):
+1. Ange det externa ACR och klient-ID: t för den __användarspecifika hanterade identiteten__ i arbets ytans anslutningar med hjälp av [Workspace.set_connection metod](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-):
 
     ```python
     workspace.set_connection(
@@ -210,7 +210,7 @@ env = Environment(name="my-env")
 env.docker.base_image = "<acr url>/my-repo/my-image:latest"
 ```
 
-Alternativt kan du ange den hanterade identitets resurs-URL: en och klient-ID i själva miljö definitionen med hjälp av [RegistryIdentity](https://docs.microsoft.com/python/api/azureml-core/azureml.core.container_registry.registryidentity?view=azure-ml-py). Om du använder register identiteten explicit, åsidosätter den eventuella arbets ytans anslutningar som angetts tidigare:
+Alternativt kan du ange den hanterade identitets resurs-URL: en och klient-ID i själva miljö definitionen med hjälp av [RegistryIdentity](/python/api/azureml-core/azureml.core.container_registry.registryidentity?view=azure-ml-py). Om du använder register identiteten explicit, åsidosätter den eventuella arbets ytans anslutningar som angetts tidigare:
 
 ```python
 from azureml.core.container_registry import RegistryIdentity

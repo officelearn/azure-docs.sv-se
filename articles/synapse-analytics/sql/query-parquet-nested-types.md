@@ -1,6 +1,6 @@
 ---
-title: Fråga Parquet kapslade typer med SQL på begäran (för hands version)
-description: I den här artikeln får du lära dig hur du frågar Parquet-kapslade typer med hjälp av SQL på begäran (för hands version).
+title: Fråga Parquet kapslade typer med Server lös SQL-pool (för hands version)
+description: I den här artikeln får du lära dig hur du frågar Parquet-kapslade typer med hjälp av SQL-poolen utan server (för hands version).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08502704515c791bf63f4803b7446a0471c0a869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3463e4dfc423a3f12ce7a42cb0def36574bcb2d3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288264"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312013"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga efter kapslade typer i Parquet-och JSON-filer med SQL on-demand (för hands version) i Azure Synapse Analytics
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Fråga kapslade typer i Parquet-och JSON-filer med hjälp av Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
-I den här artikeln får du lära dig hur du skriver en fråga med SQL på begäran (för hands version) i Azure Synapse Analytics. Frågan läser Parquet-kapslade typer.
+I den här artikeln får du lära dig hur du skriver en fråga med hjälp av SQL-poolen utan server (för hands version) i Azure Synapse Analytics. Frågan läser Parquet-kapslade typer.
 Kapslade typer är komplexa strukturer som representerar objekt eller matriser. Kapslade typer kan lagras i: 
 - [Parquet](query-parquet-files.md), där du kan ha flera komplexa kolumner som innehåller matriser och objekt.
 - Hierarkiska [JSON-filer](query-json-files.md)där du kan läsa komplexa JSON-dokument som en enda kolumn.
 - Azure Cosmos DB samlingar (för närvarande med en överbelastad, offentlig för hands version), där varje dokument kan innehålla komplexa kapslade egenskaper.
 
-Azure Synapse SQL på begäran formaterar alla kapslade typer som JSON-objekt och matriser. Så du kan [extrahera eller ändra komplexa objekt med hjälp av JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) Functions eller [parsa JSON-data med hjälp av openjson-funktionen](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+SQL-pool utan server formaterar alla kapslade typer som JSON-objekt och matriser. Så du kan [extrahera eller ändra komplexa objekt med hjälp av JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) Functions eller [parsa JSON-data med hjälp av openjson-funktionen](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
 Här är ett exempel på en fråga som extraherar skalära värden och objekt värden från [COVID-19 Open Research data uppsättning JSON-](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) filen, som innehåller kapslade objekt: 
 

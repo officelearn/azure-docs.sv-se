@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503291"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311754"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Hantera åtkomst till arbets ytor, data och pipelines
 
@@ -64,7 +64,7 @@ När du etablerade arbets ytan var du tvungen att välja ett [Azure Data Lake St
 
 1. Gå till [ **webb gränssnittet för Azure Synapse Web**](https://web.azuresynapse.net)
 2. Gå till **Hantera**   >  **säkerhets**  >  **åtkomst kontroll**
-3. Välj **Lägg till administratör**och välj `Synapse_WORKSPACENAME_Admins`
+3. Välj **Lägg till administratör** och välj `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Steg 4: Konfigurera SQL admin-åtkomst för arbets ytan
 
@@ -94,21 +94,21 @@ När du etablerade arbets ytan var du tvungen att välja ett [Azure Data Lake St
 Åtkomst kontroll till underliggande data delas upp i tre delar:
 
 - Data-plan åtkomst till lagrings kontot (redan konfigurerat ovan i steg 2)
-- Data Plans åtkomst till SQL-databaserna (för både SQL-pooler och SQL på begäran)
-- Skapa autentiseringsuppgifter för SQL-databaser på begäran över lagrings kontot
+- Data Plans åtkomst till SQL-databaserna (för både dedikerade SQL-pooler och SQL-pool utan server)
+- Skapa en autentiseringsuppgift för databaser utan server med SQL-pooler över lagrings kontot
 
 ## <a name="access-control-to-sql-databases"></a>Åtkomst kontroll till SQL-databaser
 
 > [!TIP]
 > Stegen nedan måste köras för **varje** SQL-databas för att ge användarna åtkomst till alla SQL-databaser, förutom i avsnittet [Server nivå behörighet](#server-level-permission) där du kan tilldela användare en sysadmin-roll.
 
-### <a name="sql-on-demand"></a>SQL på begäran
+### <a name="serverless-sql-pool"></a>SQL-pool utan Server
 
 I det här avsnittet hittar du exempel på hur du ger användaren behörighet till en viss databas eller fullständiga Server behörigheter.
 
 #### <a name="database-level-permission"></a>Behörighet på databas nivå
 
-Om du vill bevilja åtkomst till en användare till en **enda** SQL-databas på begäran följer du stegen i det här exemplet:
+Om du vill bevilja åtkomst till en användare till en **enskild** server utan server för SQL-pool följer du stegen i det här exemplet:
 
 1. Skapa inloggning
 
@@ -140,16 +140,16 @@ Om du vill bevilja åtkomst till en användare till en **enda** SQL-databas på 
 
 #### <a name="server-level-permission"></a>Behörighet på server nivå
 
-Om du vill ge fullständig åtkomst till en användare till **alla** SQL på begäran-databaser följer du stegen i det här exemplet:
+Följ stegen i det här exemplet om du vill ge fullständig åtkomst till en användare till **alla** databaser i SQL-poolen utan server:
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### <a name="sql-pools"></a>SQL-pooler
+### <a name="dedicated-sql-pool"></a>Dedikerad SQL-pool
 
-Följ dessa steg om du vill bevilja åtkomst till en användare till en **enda** SQL Database:
+Följ dessa steg om du vill bevilja åtkomst till en användare till en **enskild** SQL-databas:
 
 1. Skapa användaren i databasen genom att köra följande kommando som mål för önskad databas i kontext väljaren (listruta för att välja databaser):
 
@@ -167,18 +167,18 @@ Följ dessa steg om du vill bevilja åtkomst till en användare till en **enda**
 
 > [!IMPORTANT]
 > *db_datareader* och *db_datawriter* kan arbeta med Läs-/Skriv behörighet om beviljandet *db_owner* behörighet är oönskade.
-> För att en spark-användare ska kunna läsa och skriva direkt från Spark till/från en SQL-pool krävs *db_owner* behörighet.
+> För att en spark-användare ska kunna läsa och skriva direkt från Spark till/från en dedikerad SQL-pool krävs *db_owner* behörighet.
 
-När du har skapat användarna kontrollerar du att SQL på begäran kan fråga lagrings kontot.
+När du har skapat användarna kontrollerar du att du kan fråga lagrings kontot med hjälp av SQL-poolen utan server.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>Åtkomst kontroll till arbets ytans pipelines körs
 
 ### <a name="workspace-managed-identity"></a>Hanterad identitet för arbets yta
 
 > [!IMPORTANT]
-> För att kunna köra pipelines som innehåller data uppsättningar eller aktiviteter som refererar till en SQL-pool, måste arbets ytans identitet beviljas åtkomst till SQL-poolen direkt.
+> För att kunna köra pipelines som innehåller data uppsättningar eller aktiviteter som refererar till en dedikerad SQL-pool, måste arbets ytans identitet beviljas åtkomst till SQL-poolen direkt.
 
-Kör följande kommandon på varje SQL-pool för att tillåta att den arbetsytans hanterade identiteten kör pipeliner på SQL-poolens databas:
+Kör följande kommandon på varje dedikerad SQL-pool för att tillåta att den arbetsytans hanterade identiteten kör pipelines på SQL-poolens databas:
 
 ```sql
 --Create user in DB

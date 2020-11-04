@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: a62f8aee0bd0a0d2b7009a48e9d5f00ea3c5155f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1bf5dd070ac12878c608f744ff450395de84c48
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883217"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310037"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>Moduler för indata för webb tjänst och webb tjänst
 
@@ -26,7 +26,7 @@ Webb tjänstens inmatnings modul visar var användar data går in i pipelinen. W
 
 ## <a name="how-to-use-web-service-input-and-output"></a>Använda webb tjänstens indata och utdata
 
-När du [skapar en härlednings pipeline i real tid](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline) från din utbildnings pipeline, läggs webb tjänstens utdata-och webb tjänst utmatnings moduler automatiskt till för att visa var användar data går in i pipelinen och var data returneras. 
+När du [skapar en härlednings pipeline i real tid](../tutorial-designer-automobile-price-deploy.md#create-a-real-time-inference-pipeline) från din utbildnings pipeline, läggs webb tjänstens utdata-och webb tjänst utmatnings moduler automatiskt till för att visa var användar data går in i pipelinen och var data returneras. 
 
 > [!NOTE]
 > Automatisk generering av en härlednings pipeline i real tid är en regel baserad och bästa process. Det finns ingen garanti för korrekthet. 
@@ -48,6 +48,6 @@ När du har skickat pipelinen och körningen är klar kan du distribuera real ti
 >  I föregående exempel **anger data manuellt** data schema för webb tjänstens indata och är nödvändigt för att distribuera real tids slut punkten. I allmänhet bör du alltid ansluta en modul eller data uppsättning till porten där **webb tjänstens indata** är anslutna för att tillhandahålla data schemat.
    
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om [att distribuera real tids slut punkten](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint).
+Lär dig mer om [att distribuera real tids slut punkten](../tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
 
 Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

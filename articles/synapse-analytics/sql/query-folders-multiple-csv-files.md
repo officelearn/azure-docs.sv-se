@@ -1,6 +1,6 @@
 ---
-title: Fråga mappar och flera filer med SQL på begäran (för hands version)
-description: SQL på begäran (för hands version) stöder läsning av flera filer/mappar med jokertecken, som liknar de jokertecken som används i Windows OS.
+title: Fråga mappar och flera filer med hjälp av SQL-poolen utan server (för hands version)
+description: SQL-poolen utan server (för hands version) stöder läsning av flera filer/mappar med hjälp av jokertecken, som liknar de jokertecken som används i Windows OS.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71ed590440a8c7e37a071b4eadfc09977ef91d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288349"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310831"
 ---
 # <a name="query-folders-and-multiple-files"></a>Efterfråga mappar och flera filer  
 
-I den här artikeln får du lära dig hur du skriver en fråga med SQL på begäran (för hands version) i Azure Synapse Analytics.
+I den här artikeln får du lära dig hur du skriver en fråga med Server lös SQL-pool (för hands version) i Azure Synapse Analytics.
 
-SQL på begäran stöder läsning av flera filer/mappar med jokertecken som liknar de jokertecken som används i Windows OS. Det finns dock större flexibilitet eftersom flera jokertecken är tillåtna.
+SQL-poolen utan Server stöder läsning av flera filer/mappar med jokertecken, som liknar de jokertecken som används i Windows OS. Det finns dock större flexibilitet eftersom flera jokertecken är tillåtna.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

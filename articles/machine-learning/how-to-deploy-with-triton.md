@@ -1,7 +1,7 @@
 ---
 title: Modell med höga prestanda med Triton (för hands version)
 titleSuffix: Azure Machine Learning
-description: Lär dig att distribuera en modell med Triton-Härlednings server i Azure Machine Learning
+description: Lär dig att distribuera din modell med NVIDIA Triton-Härlednings server i Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3a3600c4065d331ca1cfc129cd55dd56add21424
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: afa1d958e054a769ea0f19b82afdf55a94c3d0cf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92428342"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309717"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Högpresterande tjänster med Triton-Härlednings Server (för hands version) 
 
@@ -36,7 +36,7 @@ Triton är ett ramverk som är *optimerat för en härledning*. Den ger bättre 
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 * Bekanta dig med [hur och var du distribuerar en modell](how-to-deploy-and-where.md) med Azure Machine Learning.
-* [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) **eller** [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) och [Machine Learning-tillägget](reference-azure-machine-learning-cli.md).
+* [Azure Machine Learning SDK för python](/python/api/overview/azure/ml/?view=azure-ml-py) **eller** [Azure CLI](/cli/azure/?view=azure-cli-latest) och [Machine Learning-tillägget](reference-azure-machine-learning-cli.md).
 * En fungerande installation av Docker för lokal testning. Information om hur du installerar och validerar Docker finns i [orientering och konfiguration](https://docs.docker.com/get-started/) i Docker-dokumentationen.
 
 ## <a name="architectural-overview"></a>Översikt över arkitekturen
@@ -47,7 +47,7 @@ Innan du försöker använda Triton för din egen modell är det viktigt att du 
 
 * Flera [Gunicorn](https://gunicorn.org/) -arbetskrafter börjar samtidigt hantera inkommande begär Anden.
 * Dessa arbetare hanterar för bearbetning, anropar modellen och efter bearbetning. 
-* Härlednings begär Anden använder __poängsättnings-URI__. Till exempel `https://myserevice.azureml.net/score`.
+* Härlednings begär Anden använder __poängsättnings-URI__. Exempelvis `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Normalt, icke-Triton, distributions arkitektur diagram":::
 
@@ -56,9 +56,9 @@ Innan du försöker använda Triton för din egen modell är det viktigt att du 
 * Flera [Gunicorn](https://gunicorn.org/) -arbetskrafter börjar samtidigt hantera inkommande begär Anden.
 * Begär Anden vidarebefordras till Triton- **servern**. 
 * Triton bearbetar förfrågningar i batchar för att maximera GPU-användningen.
-* Klienten använder bedömnings- __URI: n__ för att göra förfrågningar. Till exempel `https://myserevice.azureml.net/score`.
+* Klienten använder bedömnings- __URI: n__ för att göra förfrågningar. Exempelvis `https://myserevice.azureml.net/score`.
 
-:::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Normalt, icke-Triton, distributions arkitektur diagram":::
+:::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Inferenceconfig-distribution med Triton":::
 
 Arbets flödet för att använda Triton för din modell distribution är:
 
@@ -228,7 +228,7 @@ Med en konfiguration för konfigurations störningar kan du använda ett Entry-s
 > [!IMPORTANT]
 > Du måste ange den `AzureML-Triton` [granskade miljön](./resource-curated-environments.md).
 >
-> Python-kod exemplet klonas `AzureML-Triton` i en annan miljö som kallas `My-Triton` . Azure CLI-koden använder också den här miljön. Mer information om kloning av en miljö finns i referens för [Environment. clone ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#clone-new-name-) .
+> Python-kod exemplet klonas `AzureML-Triton` i en annan miljö som kallas `My-Triton` . Azure CLI-koden använder också den här miljön. Mer information om kloning av en miljö finns i referens för [Environment. clone ()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) .
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -283,7 +283,7 @@ az ml model deploy -n triton-densenet-onnx \
 
 ---
 
-När distributionen är klar visas bedömnings-URI: n. För den här lokala distributionen är det `http://localhost:6789/score` . Om du distribuerar till molnet kan du använda kommandot [AZ ml-tjänsten show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI för att hämta bedömnings-URI: n.
+När distributionen är klar visas bedömnings-URI: n. För den här lokala distributionen är det `http://localhost:6789/score` . Om du distribuerar till molnet kan du använda kommandot [AZ ml-tjänsten show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI för att hämta bedömnings-URI: n.
 
 Information om hur du skapar en klient som skickar en uppräknings förfrågan till bedömnings-URI finns i [använda en modell som distribueras som en webb tjänst](how-to-consume-web-service.md).
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2
-ms.openlocfilehash: d66c5001d94d0c2d28ae3c55b468fbaf45871c98
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 681e965d5fb64e35374b580cbbb238defd619492
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280360"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311481"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Utvärdera resultat från automatiska maskin inlärnings experiment
 
@@ -41,7 +41,7 @@ AutoML tillhandahåller till exempel olika diagram för klassificerings-och Regr
 
 När din automatiserade maskin inlärnings experiment har slutförts kan du hitta en historik över körningarna i din Machine Learning-arbetsyta via [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md). 
 
-För SDK-experiment kan du se samma resultat under en körning när du använder Jupyter- `RunDetails` [widgeten](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
+För SDK-experiment kan du se samma resultat under en körning när du använder Jupyter- `RunDetails` [widgeten](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py).
 
 Följande steg och animering visar hur du visar körnings historik och prestanda mått och diagram för en speciell modell i Studio.
 

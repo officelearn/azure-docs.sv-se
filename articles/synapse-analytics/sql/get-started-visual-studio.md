@@ -1,6 +1,6 @@
 ---
 title: Anslut och fråga Synapse SQL med Visual Studio och SSDT
-description: Använd Visual Studio för att fråga SQL-pool med Azure Synapse Analytics.
+description: Använd Visual Studio för att fråga en dedikerad SQL-pool med Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,15 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 93c975bbbc69a43f1bd47bd4b1e7b857338ac1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 098256c3174f5a737bec4f6a62cb1d2af99e6f4f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089251"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311076"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Ansluta till Synapse SQL med Visual Studio och SSDT
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -26,19 +27,20 @@ ms.locfileid: "87089251"
 > 
 > 
 
-Använd Visual Studio för att fråga SQL-pool med Azure Synapse Analytics. Den här metoden använder tillägget SQL Server Data Tools (SSDT) i Visual Studio 2019. 
+Använd Visual Studio för att fråga en dedikerad SQL-pool med Azure Synapse Analytics. Den här metoden använder tillägget SQL Server Data Tools (SSDT) i Visual Studio 2019. 
 
 > [!NOTE]
-> SQL på begäran (för hands version) stöds inte av SSDT.
+> SQL-poolen utan server (för hands version) stöds inte av SSDT.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 Om du vill använda den här självstudien måste du ha följande komponenter:
 
-* En befintlig SQL-pool. Om du inte har en sådan, se [skapa en SQL-pool](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att slutföra det här kravet.
+* En befintlig dedikerad SQL-pool. Om du inte har en sådan, se [skapa en dedikerad SQL-pool](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att slutföra den här förutsättningen.
 * SSDT för Visual Studio. Om du har Visual Studio har du förmodligen redan den här komponenten. Installationsinstruktioner och alternativ finns i [Installera Visual Studio och SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* Det fullständigt kvalificerade servernamnet. För att hitta det här Server namnet, se [Anslut till SQL-pool](connect-overview.md).
+* Det fullständigt kvalificerade servernamnet. För att hitta det här Server namnet, se [Anslut till en dedikerad SQL-pool](connect-overview.md).
 
-## <a name="1-connect-to-sql-pool"></a>1. Anslut till SQL-pool
+## <a name="1-connect-to-a-dedicated-sql-pool"></a>1. Anslut till en dedikerad SQL-pool
 1. Öppna Visual Studio 2019.
 2. Öppna SQL Server Object Explorer genom att välja **Visa**  >  **SQL Server Object Explorer**.
    
@@ -50,9 +52,9 @@ Om du vill använda den här självstudien måste du ha följande komponenter:
    
     ![Anslut till server](./media/get-started-visual-studio/connection-dialog.png)
    
-   * **Server namn**: Ange det **Server namn** som du identifierade tidigare.
-   * **Autentisering**: Välj **SQL Server autentisering** eller **Active Directory integrerad autentisering**:
-   * **Användar namn** och **lösen ord**: Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
+   * **Server namn** : Ange det **Server namn** som du identifierade tidigare.
+   * **Autentisering** : Välj **SQL Server autentisering** eller **Active Directory integrerad autentisering** :
+   * **Användar namn** och **lösen ord** : Ange ditt användar namn och lösen ord om SQL Server autentisering valdes ovan.
    * Klicka på **Anslut**.
 5. Expandera din Azure SQL-server för att utforska. Du kan se de databaser som är associerade med servern. Expandera AdventureWorksDW för att se tabellerna i din exempeldatabas.
    
@@ -79,5 +81,5 @@ Nu när en anslutning har upprättats till databasen skriver du en fråga.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du kan ansluta och fråga kan du prova [att visualisera data med Power BI](get-started-power-bi-professional.md).
-Information om hur du konfigurerar din miljö för Azure Active Directory autentisering finns i [autentisera till SQL-pool](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Information om hur du konfigurerar din miljö för Azure Active Directory autentisering finns i [autentisera till dedikerad SQL-pool](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
  

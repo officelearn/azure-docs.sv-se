@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: cff4704b388594511809d92957cbbce97e948f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca369f8a3e680a4d2aae49df83dda0cdd3dc4075
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362426"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310160"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Utvärdera modell prestanda i Azure Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 I den här artikeln får du lära dig mer om de mått som du kan använda för att övervaka modell prestanda i Azure Machine Learning Studio (klassisk).  Utvärdering av prestanda för en modell är en av kärn stegen i data vetenskaps processen. Det visar hur framgångs poängen (förutsägelserna) av en data uppsättning har varit av en utbildad modell. Azure Machine Learning Studio (klassisk) stöder utvärdering av modeller genom två av dess huvudsakliga Machine Learning-moduler: 
@@ -47,7 +47,7 @@ Du kan också använda kors validering för att utföra ett antal åtgärder fö
 I följande avsnitt kommer vi att bygga enkla Regressions-och klassificerings modeller och utvärdera deras prestanda med hjälp av modulerna [utvärdera modell][evaluate-model] och [kors validering][cross-validate-model] .
 
 ## <a name="evaluating-a-regression-model"></a>Utvärdera en Regressions modell
-Anta att vi vill förutsäga priset på en bil med hjälp av funktioner som dimensioner, häst krafter, motor specifikationer och så vidare. Detta är ett typiskt Regressions problem, där mål variabeln (*pris*) är ett kontinuerligt numeriskt värde. Vi kan få en linjär Regressions modell som, med tanke på funktions värden för en viss bil, kan förutsäga priset på den bilen. Denna Regressions modell kan användas för att räkna med samma data uppsättning som vi tränade på. När vi har de förutsagda bil priserna kan vi utvärdera modell prestandan genom att titta på hur mycket förutsägelserna avviker från de faktiska priserna i genomsnitt. För att illustrera detta använder vi *data uppsättningen för Automobile-pris (RAW)* som är tillgänglig i avsnittet **sparade data uppsättningar** i Machine Learning Studio (klassisk).
+Anta att vi vill förutsäga priset på en bil med hjälp av funktioner som dimensioner, häst krafter, motor specifikationer och så vidare. Detta är ett typiskt Regressions problem, där mål variabeln ( *pris* ) är ett kontinuerligt numeriskt värde. Vi kan få en linjär Regressions modell som, med tanke på funktions värden för en viss bil, kan förutsäga priset på den bilen. Denna Regressions modell kan användas för att räkna med samma data uppsättning som vi tränade på. När vi har de förutsagda bil priserna kan vi utvärdera modell prestandan genom att titta på hur mycket förutsägelserna avviker från de faktiska priserna i genomsnitt. För att illustrera detta använder vi *data uppsättningen för Automobile-pris (RAW)* som är tillgänglig i avsnittet **sparade data uppsättningar** i Machine Learning Studio (klassisk).
 
 ### <a name="creating-the-experiment"></a>Skapa experimentet
 Lägg till följande moduler till din arbets yta i Azure Machine Learning Studio (klassisk):
@@ -65,7 +65,7 @@ Anslut portarna enligt beskrivningen nedan i bild 1 och Ställ in kolumnen etike
 Bild 1. Utvärdera en Regressions modell.
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspektera utvärderings resultaten
-När du har kört experimentet kan du klicka på utdataporten för modulen [utvärdera modell][evaluate-model] och välja *visualisera* för att se utvärderings resultatet. De utvärderings mått som är tillgängliga för Regressions modeller är: *medels absolut fel*, *rot medelvärde absolut fel*, *relativt absolut fel*, *relativt kvadratvärde*och *koefficienten för bestämning*.
+När du har kört experimentet kan du klicka på utdataporten för modulen [utvärdera modell][evaluate-model] och välja *visualisera* för att se utvärderings resultatet. De utvärderings mått som är tillgängliga för Regressions modeller är: *medels absolut fel* , *rot medelvärde absolut fel* , *relativt absolut fel* , *relativt kvadratvärde* och *koefficienten för bestämning*.
 
 Termen "fel" här representerar skillnaden mellan det förväntade värdet och det sanna värdet. Det absoluta värdet eller kvadraten av denna skillnad beräknas vanligt vis för att fånga den totala storleken på fel i alla instanser, eftersom skillnaden mellan det förväntade och sanna värdet kan vara negativ i vissa fall. Fel måtten mäter förutsägelse prestanda för en Regressions modell i termer av genomsnitts avvikelsen för dess förutsägelser från de sanna värdena. Lägre fel värden innebär att modellen är mer exakt för att göra förutsägelser. En övergripande felvärdet noll innebär att modellen passar data perfekt.
 
@@ -107,7 +107,7 @@ Anslut portarna enligt vad som visas nedan i bild 5 och Ställ in kolumnen etike
 Bild 5. Utvärdera en binär klassificerings modell.
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspektera utvärderings resultaten
-När du har kört experimentet kan du klicka på utdataporten för modulen [utvärdera modell][evaluate-model] och välja *visualisera* för att se utvärderings resultaten (bild 7). De utvärderings mått som är tillgängliga för binära klassificerings modeller är: *precision*, *precision*, *återkallande*, *F1-Poäng*och *AUC*. Dessutom visar modulen en Förväxlings mat ris som visar antalet sanna positiva identifieringar, falska negativa tal, falska positiva identifieringar och sanna negativ, samt *Roc*, *precision/återkallande*och *lyft* kurvor.
+När du har kört experimentet kan du klicka på utdataporten för modulen [utvärdera modell][evaluate-model] och välja *visualisera* för att se utvärderings resultaten (bild 7). De utvärderings mått som är tillgängliga för binära klassificerings modeller är: *precision* , *precision* , *återkallande* , *F1-Poäng* och *AUC*. Dessutom visar modulen en Förväxlings mat ris som visar antalet sanna positiva identifieringar, falska negativa tal, falska positiva identifieringar och sanna negativ, samt *Roc* , *precision/återkallande* och *lyft* kurvor.
 
 Noggrannhet är bara den andel av korrekt klassificerade instanser. Det är vanligt vis det första mått du tittar på när du utvärderar en klassificerare. Men om test data inte är balanserade (där de flesta instanserna tillhör en av klasserna), eller om du är mer intresserade av prestandan i någon av klasserna, så är noggrannheten inte riktigt att en klassificerare är effektiv. I klassificerings scenariot för inkomst nivån förutsätter du att du testar på vissa data där 99% av instanserna representerar personer som har mindre än eller lika med 50 000 per år. Det är möjligt att uppnå en 0,99 precision genom att förutsäga klassen "<= 50 000" för alla instanser. Klassificeraren i det här fallet verkar vara en effektiv uppgift, men i verkligheten går det inte att klassificera någon av de enskilda inkomst personerna (1%) Bra.
 
@@ -117,13 +117,13 @@ Av den anledningen är det bra att beräkna ytterligare mått som fångar upp me
 
 Bild 6. Visualiserings mat ris för binära klassificering.
 
-Om du går tillbaka till intäkts klassificeringen skulle vi vilja ställa flera utvärderings frågor som hjälper oss att förstå prestandan för den klassificerare som används. En naturlig fråga: "av de personer som modellen förutsäger för att tjäna >50 K (TP + RP), hur många klassificerades korrekt (TP)?" Den här frågan kan besvaras genom att titta på modellens **precision** , som är den andel av positiva resultat som klassificeras korrekt: TP/(TP + RP). En annan vanlig fråga är "av alla anställda med inkomst >50 000 (TP + FN), hur många klassificerar klassificeraren korrekt (TP)". Detta är i själva verket **återställnings**punkt eller den verkliga positiva HASTIGHETEN: TP/(TP + FN) för klassificeraren. Du kanske märker att det finns en uppenbar kompromiss mellan precisionen och återställningen. Till exempel med en relativt bal anse rad data uppsättning skulle en klassificerare som förutser mest positiva instanser ha en hög återkallning, men en ganska låg precision då många av de negativa instanserna skulle bli felklassificerade som resulterar i ett stort antal falska positiva identifieringar. Om du vill se ett diagram över hur dessa två mått varierar kan du klicka på kurvan **precision/återkalla** på sidan för resultat av utvärderings resultat (övre vänstra delen av figur 7).
+Om du går tillbaka till intäkts klassificeringen skulle vi vilja ställa flera utvärderings frågor som hjälper oss att förstå prestandan för den klassificerare som används. En naturlig fråga: "av de personer som modellen förutsäger för att tjäna >50 K (TP + RP), hur många klassificerades korrekt (TP)?" Den här frågan kan besvaras genom att titta på modellens **precision** , som är den andel av positiva resultat som klassificeras korrekt: TP/(TP + RP). En annan vanlig fråga är "av alla anställda med inkomst >50 000 (TP + FN), hur många klassificerar klassificeraren korrekt (TP)". Detta är i själva verket **återställnings** punkt eller den verkliga positiva HASTIGHETEN: TP/(TP + FN) för klassificeraren. Du kanske märker att det finns en uppenbar kompromiss mellan precisionen och återställningen. Till exempel med en relativt bal anse rad data uppsättning skulle en klassificerare som förutser mest positiva instanser ha en hög återkallning, men en ganska låg precision då många av de negativa instanserna skulle bli felklassificerade som resulterar i ett stort antal falska positiva identifieringar. Om du vill se ett diagram över hur dessa två mått varierar kan du klicka på kurvan **precision/återkalla** på sidan för resultat av utvärderings resultat (övre vänstra delen av figur 7).
 
 ![Resultat av binära klassificerings utvärdering](./media/evaluate-model-performance/7.png)
 
 Bild 7. Resultat av binära klassificerings utvärdering.
 
-Ett annat relaterat mått som ofta används är **F1-poängen**, som tar både precision och åter användning. Det är det harmoniska medelvärdet av dessa två mått och beräknas som sådant: F1 = 2 (precision x återkalla)/(precision + återkalla). F1-poängen är ett bra sätt att sammanfatta utvärderingen i ett enda tal, men det är alltid en bra idé att titta på både precisionen och återkalla tillsammans för att bättre förstå hur en klassificerare fungerar.
+Ett annat relaterat mått som ofta används är **F1-poängen** , som tar både precision och åter användning. Det är det harmoniska medelvärdet av dessa två mått och beräknas som sådant: F1 = 2 (precision x återkalla)/(precision + återkalla). F1-poängen är ett bra sätt att sammanfatta utvärderingen i ett enda tal, men det är alltid en bra idé att titta på både precisionen och återkalla tillsammans för att bättre förstå hur en klassificerare fungerar.
 
 Dessutom kan en granska den sanna positiva nivån jämfört med den falska positiva positiva frekvensen i **Roc-kurvan (receiver Operational)** och motsvarande **del under värdet kurva (AUC)** . Den närmare kurvan är i det övre vänstra hörnet, desto bättre klassificerarens prestanda (som maximerar den sanna positiva hastigheten och minimerar den falska positiva positiva frekvensen). Kurvor som ligger nära ritytans Diagonal, är resultatet av klassificerare som tenderar att göra förutsägelser som är nära att gissa sig.
 
@@ -155,7 +155,7 @@ Anslut portarna enligt bilden i bild 10.
 
 Ställ in etikett kolumn index för modulen [träna modell][train-model] på 5. Data uppsättningen har ingen rubrik rad men vi vet att klass etiketterna är i den femte kolumnen.
 
-Klicka på modulen [Importera data][import-data] och ange egenskapen *data källa* till webb- *URL via http*och *URL: en* till http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data .
+Klicka på modulen [Importera data][import-data] och ange egenskapen *data källa* till webb- *URL via http* och *URL: en* till http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data .
 
 Ange del av instanser som ska användas för utbildning i modulen [dela data][split] (till exempel 0,7).
 
@@ -182,12 +182,12 @@ Figur 12. Kors validering av en klassificerings modell med multiklass.
 Figur 13. Kors validerings resultat för en klassificerings modell i multiklass.
 
 <!-- Module References -->
-[cross-validate-model]: https://msdn.microsoft.com/library/azure/75fb875d-6b86-4d46-8bcc-74261ade5826/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
+[cross-validate-model]: /azure/machine-learning/studio-module-reference/cross-validate-model
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[multiclass-decision-forest]: /azure/machine-learning/studio-module-reference/multiclass-decision-forest
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-logistic-regression]: /azure/machine-learning/studio-module-reference/two-class-logistic-regression

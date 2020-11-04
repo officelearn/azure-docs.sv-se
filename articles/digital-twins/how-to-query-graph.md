@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8aad0d9fde30a235903364d57a73c1c53f08ecce
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7bb38824f2071e2575877940795f9b90a2a384b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145794"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325769"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
@@ -85,7 +85,7 @@ Med hjälp av projektioner kan du välja vilka kolumner som en fråga ska return
 >[!NOTE]
 >För tillfället stöds inte komplexa egenskaper. För att se till att projektions egenskaperna är giltiga kombinerar du projektionerna med en `IS_PRIMITIVE` bock.
 
-Här är ett exempel på en fråga som använder projektion för att returnera dubbla och relationer. Följande fråga projekterar *konsumenten* , *fabriken* och *Edge* från ett scenario där en *fabrik* med ID: t *ABC* är relaterad till *konsumenten* via en relation av *fabriken. kunden* och relationen presenteras som en *gräns* .
+Här är ett exempel på en fråga som använder projektion för att returnera dubbla och relationer. Följande fråga projekterar *konsumenten* , *fabriken* och *Edge* från ett scenario där en *fabrik* med ID: t *ABC* är relaterad till *konsumenten* via en relation av *fabriken. kunden* och relationen presenteras som en *gräns*.
 
 ```sql
 SELECT Consumer, Factory, Edge
@@ -94,7 +94,7 @@ JOIN Consumer RELATED Factory.customer Edge
 WHERE Factory.$dtId = 'ABC'
 ```
 
-Du kan också använda projektion för att returnera en dubbels egenskap. I följande fråga visas *namn* egenskapen för de *konsumenter* som är relaterade till *fabriken* med ID: t *ABC* via en relation av *Factory. Custom* .
+Du kan också använda projektion för att returnera en dubbels egenskap. I följande fråga visas *namn* egenskapen för de *konsumenter* som är relaterade till *fabriken* med ID: t *ABC* via en relation av *Factory. Custom*.
 
 ```sql
 SELECT Consumer.name
@@ -104,7 +104,7 @@ WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Consumer.name)
 ```
 
-Du kan också använda projektion för att returnera en egenskap för en relation. Som i föregående exempel projekt i följande fråga projektets *namn* egenskap för de *konsumenter* som är relaterade till *fabriken* med ID: t *ABC* genom en relation mellan *fabrik. kund* ; men nu returnerar den även två egenskaper för relationen, *prop1* och *prop2* . Det gör detta genom att namnge Relations *kanten* och samla in dess egenskaper.  
+Du kan också använda projektion för att returnera en egenskap för en relation. Som i föregående exempel projekt i följande fråga projektets *namn* egenskap för de *konsumenter* som är relaterade till *fabriken* med ID: t *ABC* genom en relation mellan *fabrik. kund* ; men nu returnerar den även två egenskaper för relationen, *prop1* och *prop2*. Det gör detta genom att namnge Relations *kanten* och samla in dess egenskaper.  
 
 ```sql
 SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area
@@ -151,7 +151,7 @@ AND T.Temperature = 70
 > [!TIP]
 > ID: t för en digital delad frågas med hjälp av fältet metadata `$dtId` .
 
-Du kan också skapa dubbla baserat på **om en viss egenskap har definierats** . Här är en fråga som hämtar dubbla med en definierad *plats* egenskap:
+Du kan också skapa dubbla baserat på **om en viss egenskap har definierats**. Här är en fråga som hämtar dubbla med en definierad *plats* egenskap:
 
 ```sql
 SELECT *
@@ -164,7 +164,7 @@ Detta kan hjälpa dig att få en upplösning med hjälp av taggarnas *egenskaper
 select * from digitaltwins where is_defined(tags.red)
 ```
 
-Du kan också få dubbla baserat på **typen av egenskap** . Här är en fråga som sammanfaller vars *temperatur* egenskap är ett tal:
+Du kan också få dubbla baserat på **typen av egenskap**. Här är en fråga som sammanfaller vars *temperatur* egenskap är ett tal:
 
 ```sql
 SELECT * FROM DIGITALTWINS T
@@ -175,39 +175,41 @@ WHERE IS_NUMBER(T.Temperature)
 
 `IS_OF_MODEL`Operatorn kan användas för att filtrera baserat på den dubbla [**modellen**](concepts-models.md).
 
-Det tar hänsyn till [arv](concepts-models.md#model-inheritance) och [versions sortering](how-to-manage-model.md#update-models) , och utvärderas till **Sant** för en bestämd mellan om den dubbla uppfyller något av följande villkor:
+Den tar hänsyn till [arvs](concepts-models.md#model-inheritance) -och modell [versioner](how-to-manage-model.md#update-models)och utvärderas till **Sant** för en bestämd mitt om det dubbla uppfyller något av följande villkor:
 
 * Den dubbla implementerar modellen direkt `IS_OF_MODEL()` och versions numret för modellen på den dubbla är *större än eller lika* med versions numret för den angivna modellen
 * Den dubbla implementerar en modell som *utökar* modellen till `IS_OF_MODEL()` och den dubblans utökade modell versions nummer är *större än eller lika* med versions numret för den angivna modellen
 
-Den här metoden har flera alternativ för överlagring.
+Om du t. ex. frågar efter dubbla modeller `dtmi:example:widget;4` , returnerar frågan alla dubbla baserat på **version 4 eller senare** av **widgets** modellen, och kan också dela baserat på version **4 eller senare** av **modeller som ärver från widgeten**.
+
+`IS_OF_MODEL` kan ta flera olika parametrar, och resten av det här avsnittet är avsedda för olika alternativ för överlagring.
 
 Den enklaste användningen av `IS_OF_MODEL` tar bara en `twinTypeName` parameter: `IS_OF_MODEL(twinTypeName)` .
 Här är ett exempel på en fråga som skickar ett värde i den här parametern:
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1')
 ```
 
 Om du vill ange en dubbel samling att söka i när det finns mer än en (t. ex. När en `JOIN` används) lägger du till `twinCollection` parametern: `IS_OF_MODEL(twinCollection, twinTypeName)` .
 Här är ett exempel på en fråga som lägger till ett värde för den här parametern:
 
 ```sql
-SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1')
 ```
 
 Om du vill göra en exakt matchning lägger du till `exact` parametern: `IS_OF_MODEL(twinTypeName, exact)` .
 Här är ett exempel på en fråga som lägger till ett värde för den här parametern:
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1', exact)
 ```
 
 Du kan också skicka alla tre argumenten tillsammans: `IS_OF_MODEL(twinCollection, twinTypeName, exact)` .
 Här är ett exempel på en fråga som anger ett värde för alla tre parametrar:
 
 ```sql
-SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
 ```
 
 ### <a name="query-based-on-relationships"></a>Fråga baserat på relationer
@@ -242,7 +244,7 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Fråga egenskaperna för en relation
 
-På samma sätt som digitala dubbla har egenskaper som beskrivs via DTDL, kan relationer också ha egenskaper. Du kan fråga efter varandra **utifrån egenskaperna för deras relationer** .
+På samma sätt som digitala dubbla har egenskaper som beskrivs via DTDL, kan relationer också ha egenskaper. Du kan fråga efter varandra **utifrån egenskaperna för deras relationer**.
 Med Azures digitala Flätaa frågespråk kan du filtrera och projicera relationer genom att tilldela ett alias till relationen i- `JOIN` satsen.
 
 Anta till exempel en *servicedBy* -relation som har en *reportedCondition* -egenskap. I nedanstående fråga får den här relationen ett alias för R för att referera till egenskapen.
@@ -297,7 +299,7 @@ Följande operatorer stöds:
 | Jämförelse |=,! =, <, >, <=, >= |
 | Innehåller | I, NOM |
 
-### <a name="functions"></a>Funktioner
+### <a name="functions"></a>Functions
 
 Följande typ av kontroll och data typs funktioner stöds:
 
@@ -321,7 +323,7 @@ Följande sträng funktioner stöds:
 
 ## <a name="run-queries-with-an-api-call"></a>Köra frågor med ett API-anrop
 
-När du har bestämt dig för en frågesträng kör du den genom att anropa API: et för **frågor** .
+När du har bestämt dig för en frågesträng kör du den genom att anropa API: et för **frågor**.
 Följande kodfragment visar det här anropet från klient appen:
 
 ```csharp
@@ -373,7 +375,7 @@ Nedan visas några tips för att fråga med Azure Digital-dubbla.
 
 * Tänk på fråge mönstret under modell design fasen. Försök att se till att relationer som behöver besvaras i en enskild fråga modelleras som en relation med en nivå.
 * Utforma egenskaper på ett sätt som gör det möjligt att undvika stora resultat uppsättningar från graf Traversal.
-* Du kan avsevärt minska antalet frågor som du behöver genom att skapa en matris med dubbla och frågor med `IN` operatorn. Anta till exempel ett scenario där *byggnader* som innehåller *golv* och *golv* innehåller *rum* . Om du vill söka efter rum i en byggnad som är frekventa kan du:
+* Du kan avsevärt minska antalet frågor som du behöver genom att skapa en matris med dubbla och frågor med `IN` operatorn. Anta till exempel ett scenario där *byggnader* som innehåller *golv* och *golv* innehåller *rum*. Om du vill söka efter rum i en byggnad som är frekventa kan du:
 
     1. Hitta golv i byggnaden baserat på `contains` relation
 

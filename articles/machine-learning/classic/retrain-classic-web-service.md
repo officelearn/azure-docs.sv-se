@@ -9,23 +9,23 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 0064509c1158d8b016413046cb528bfd125b5f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 158541d34568b7ea02ea82dbfe90f5801824716f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362324"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325781"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Omträna och distribuera en klassisk Studio (klassisk) webb tjänst
 
-**gäller för:** ![ Grön bock markering. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassiskt) ![ X som anger Nej.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Grön bock markering. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassiskt) ![ X som anger Nej. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Retraining Machine Learning-modeller är ett sätt att se till att de håller sig noggrann och utifrån de mest relevanta data som finns tillgängliga. I den här artikeln visas hur du återskapar en klassisk Studio (klassisk) webb tjänst. En guide om hur du återskapar en ny Studio-webbtjänst (klassisk) finns i [den här instruktions artikeln.](retrain-machine-learning-model.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du redan har både ett omskolnings experiment och ett förutsägelse experiment. De här stegen beskrivs i [omträna och distribuera en maskin inlärnings modell.](/azure/machine-learning/studio/retrain-machine-learning-model) Men i stället för att distribuera din Machine Learning-modell som en ny webb tjänst, kommer du att distribuera ditt förutsägelse experiment som en klassisk webb tjänst.
+Den här artikeln förutsätter att du redan har både ett omskolnings experiment och ett förutsägelse experiment. De här stegen beskrivs i [omträna och distribuera en maskin inlärnings modell.](./retrain-machine-learning-model.md) Men i stället för att distribuera din Machine Learning-modell som en ny webb tjänst, kommer du att distribuera ditt förutsägelse experiment som en klassisk webb tjänst.
      
 ## <a name="add-a-new-endpoint"></a>Lägg till en ny slut punkt
 
@@ -47,7 +47,7 @@ Du kan lägga till bedömnings slut punkter med hjälp av exempel koden som ange
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Använd Azure Web Services-portalen för att lägga till en slut punkt
 
 1. I Machine Learning Studio (klassisk) i den vänstra navigerings kolumnen klickar du på webb tjänster.
-1. Klicka på **Hantera slut punkter för förhands granskning**längst ned på instrument panelen för webb tjänster.
+1. Klicka på **Hantera slut punkter för förhands granskning** längst ned på instrument panelen för webb tjänster.
 1. Klicka på **Lägg till**.
 1. Ange ett namn och en beskrivning för den nya slut punkten. Välj loggnings nivå och om exempel data är aktiverade. Mer information om loggning finns i [Aktivera loggning för Machine Learning-webbtjänster](web-services-logging.md).
 
@@ -76,7 +76,7 @@ Hjälp sidan för KORRIGERINGs filen innehåller KORRIGERINGs-URL: en som du må
 
 Nu kan du använda den tränade modellen för att uppdatera poäng slut punkten som du skapade tidigare.
 
-Följande exempel kod visar hur du använder URL: en för *BaseLocation*, *RelativeLocation*, *SasBlobToken*och patch för att uppdatera slut punkten.
+Följande exempel kod visar hur du använder URL: en för *BaseLocation* , *RelativeLocation* , *SasBlobToken* och patch för att uppdatera slut punkten.
 
 ```csharp
 private async Task OverwriteModel()
@@ -122,12 +122,12 @@ private async Task OverwriteModel()
 
 Värdet för *namn* parametern i *resurser* måste matcha resurs namnet för den sparade tränade modellen i förutsägande experimentet. Så här hämtar du resurs namnet:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Klicka på **Machine Learning**på den vänstra menyn.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Klicka på **Machine Learning** på den vänstra menyn.
 1. Under namn klickar du på din arbets yta och sedan på **webb tjänster**.
 1. Under namn klickar du på **inventerings modell [förutsägande exp.]**.
 1. Klicka på den nya slut punkten som du har lagt till.
-1. Klicka på **Uppdatera resurs**på instrument panelen för slut punkten.
+1. Klicka på **Uppdatera resurs** på instrument panelen för slut punkten.
 1. På sidan för uppdatering av resurs-API-dokumentation för-webb tjänsten kan du hitta **resurs namnet** under **uppdaterings bara resurser**.
 
 Om din SAS-token upphör att gälla innan du Slutför uppdateringen av slut punkten måste du utföra en GET med jobb-ID: t för att hämta en ny token.

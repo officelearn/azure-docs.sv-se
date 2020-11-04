@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 2f115313b17ed159973d2545b947e2ff031508eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff0378871139a038f096a44b9ee0c6af2cb67d73
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362341"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325823"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Omträna och distribuera en maskin inlärnings modell
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Retraining är ett sätt att se till att maskin inlärnings modeller hålls korrekta och baseras på de mest relevanta data som finns tillgängliga. Den här artikeln visar hur du omtränar och distribuerar en maskin inlärnings modell som en ny webb tjänst i Studio (klassisk). Om du vill träna en klassisk webb tjänst kan du [läsa den här instruktions artikeln.](retrain-classic-web-service.md)
@@ -35,7 +35,7 @@ Du följer de här stegen för att omträna och distribuera en ny webb tjänst f
 
 ## <a name="deploy-the-retraining-web-service"></a>Distribuera webb tjänsten för retraining
 
-Med en retraining-webbtjänst kan du träna om din modell med en ny uppsättning parametrar, t. ex. nya data och spara den för senare. När du ansluter en **webb tjänst utmatning**  till en **tåg modell**, kommer övnings experimentet att generera en ny modell som du kan använda.
+Med en retraining-webbtjänst kan du träna om din modell med en ny uppsättning parametrar, t. ex. nya data och spara den för senare. När du ansluter en **webb tjänst utmatning**  till en **tåg modell** , kommer övnings experimentet att generera en ny modell som du kan använda.
 
 Använd följande steg för att distribuera en retraining-webb tjänst:
 
@@ -65,7 +65,7 @@ Använd följande steg för att anropa API: erna för omträning:
 1. Logga in på Machine Learning Web Services-portalen.
 1. Klicka på den webb tjänst som du arbetar med.
 1. Klicka på **förbruka**.
-1. Klicka på **batch**i avsnittet **exempel kod** längst ned på sidan **förbrukare** .
+1. Klicka på **batch** i avsnittet **exempel kod** längst ned på sidan **förbrukare** .
 1. Kopiera exempel koden C# för batch-körning och klistra in den i Program.cs-filen. Se till att namn området förblir intakt.
 
 Lägg till NuGet-paketet Microsoft. ASPNET. WebApi. client enligt vad som anges i kommentarerna. Om du vill lägga till referensen i Microsoft.WindowsAzure.Storage.dll kan du behöva installera [klient biblioteket för Azure Storage-tjänster](https://www.nuget.org/packages/WindowsAzure.Storage).
@@ -89,14 +89,14 @@ I avsnittet **grundläggande förbruknings information** på sidan **förbruknin
 Exempel koden BES laddar upp en fil från en lokal enhet (till exempel "C:\temp\CensusInput.csv") för att Azure Storage, bearbetar den och skriver tillbaka resultatet till Azure Storage.
 
 1. Logga in på Azure-portalen
-1. Klicka på **fler tjänster**i den vänstra navigerings kolumnen, Sök efter **lagrings konton**och markera det.
+1. Klicka på **fler tjänster** i den vänstra navigerings kolumnen, Sök efter **lagrings konton** och markera det.
 1. I listan över lagrings konton väljer du ett för att lagra den omtränade modellen.
-1. Klicka på **åtkomst nycklar**i den vänstra navigerings kolumnen.
+1. Klicka på **åtkomst nycklar** i den vänstra navigerings kolumnen.
 1. Kopiera och spara den **primära åtkomst nyckeln**.
-1. Klicka på **blobbar**i den vänstra navigerings kolumnen.
+1. Klicka på **blobbar** i den vänstra navigerings kolumnen.
 1. Välj en befintlig behållare eller skapa en ny och spara namnet.
 
-Leta upp *StorageAccountName*-, *StorageAccountKey*-och *StorageContainerName* -deklarationerna och uppdatera värdena som du sparade från portalen.
+Leta upp *StorageAccountName* -, *StorageAccountKey* -och *StorageContainerName* -deklarationerna och uppdatera värdena som du sparade från portalen.
 
 ```csharp
 const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
@@ -130,11 +130,11 @@ Här är ett exempel på omskolning av utdata:
 
 När du kör programmet, innehåller utdata URL och signaturer för delad åtkomst som krävs för att få åtkomst till utvärderings resultatet.
 
-Du kan se prestanda resultatet för den omtränade modellen genom att kombinera *BaseLocation*, *RelativeLocation*och *SasBlobToken* från resultatet av utdata för *output2* och klistra in den fullständiga URL-adressen i webbläsarens Adress fält.
+Du kan se prestanda resultatet för den omtränade modellen genom att kombinera *BaseLocation* , *RelativeLocation* och *SasBlobToken* från resultatet av utdata för *output2* och klistra in den fullständiga URL-adressen i webbläsarens Adress fält.
 
 Granska resultaten för att avgöra om den nyligen intränade modellen fungerar bättre än den befintliga.
 
-Spara *BaseLocation*, *RelativeLocation*och *SasBlobToken* från resultatet av utdata.
+Spara *BaseLocation* , *RelativeLocation* och *SasBlobToken* från resultatet av utdata.
 
 ## <a name="update-the-predictive-experiment"></a>Uppdatera förutsägande experiment
 
@@ -144,7 +144,7 @@ Logga först in på ditt Azure-konto inifrån PowerShell-miljön med hjälp av c
 
 ### <a name="get-the-web-service-definition-object"></a>Hämta definitions objekt för webb tjänst
 
-Hämta sedan webb tjänst definitions objekt genom att anropa cmdleten [Get-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservice) .
+Hämta sedan webb tjänst definitions objekt genom att anropa cmdleten [Get-AzMlWebService](/powershell/module/az.machinelearning/get-azmlwebservice) .
 
 ```azurepowershell
 $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
@@ -167,7 +167,7 @@ Du kan också ta reda på resurs grupp namnet för en befintlig webb tjänst gen
 
 ### <a name="export-the-web-service-definition-object-as-json"></a>Exportera webb tjänst definitions objekt som JSON
 
-Om du vill ändra definitionen av den tränade modellen till att använda den nyligen utbildade modellen måste du först använda cmdleten [export-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) för att exportera den till en JSON-format fil.
+Om du vill ändra definitionen av den tränade modellen till att använda den nyligen utbildade modellen måste du först använda cmdleten [export-AzMlWebService](/powershell/module/az.machinelearning/export-azmlwebservice) för att exportera den till en JSON-format fil.
 
 ```azurepowershell
 Export-AzMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
@@ -194,7 +194,7 @@ Leta upp [tränad modell] i till gångarna och uppdatera *URI* -värdet i *locat
 
 ### <a name="import-the-json-into-a-web-service-definition-object"></a>Importera JSON till ett webb tjänst definitions objekt
 
-Använd cmdleten [import-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/import-azmlwebservice) för att konvertera den ändrade JSON-filen tillbaka till ett definitions objekt för webb tjänsten som du kan använda för att uppdatera predicative-experimentet.
+Använd cmdleten [import-AzMlWebService](/powershell/module/az.machinelearning/import-azmlwebservice) för att konvertera den ändrade JSON-filen tillbaka till ett definitions objekt för webb tjänsten som du kan använda för att uppdatera predicative-experimentet.
 
 ```azurepowershell
 $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
@@ -202,7 +202,7 @@ $wsd = Import-AzMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 ### <a name="update-the-web-service"></a>Uppdatera webb tjänsten
 
-Använd slutligen cmdleten [Update-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/update-azmlwebservice) för att uppdatera förutsägelse experimentet.
+Använd slutligen cmdleten [Update-AzMlWebService](/powershell/module/az.machinelearning/update-azmlwebservice) för att uppdatera förutsägelse experimentet.
 
 ```azurepowershell
 Update-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'

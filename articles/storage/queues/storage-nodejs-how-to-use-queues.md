@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 77c35ae4b9e845cd3c0f638407c0d71c36fcf9f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a9fb1a179164d24c84213762ee7e2332a1aa25
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289692"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345949"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Så här använder du Azure Queue Storage från Node.js
 
@@ -44,7 +44,7 @@ Om du vill skapa en tom Node.js-app, se [skapa en Node.js webbapp i Azure App Se
 
 1. Skriv **NPM installera \@ Azure/Storage – Queue** i kommando fönstret.
 
-1. Verifiera att en mapp för **Node- \_ moduler** har skapats. I den mappen hittar du ** \@ Azure/Storage-kösystemet** , som innehåller klient biblioteket som du behöver för att komma åt lagringen.
+1. Verifiera att en mapp för **Node- \_ moduler** har skapats. I den mappen hittar du **\@ Azure/Storage-kösystemet** , som innehåller klient biblioteket som du behöver för att komma åt lagringen.
 
 # <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
 
@@ -160,13 +160,13 @@ I följande exempel uppdateras texten i ett meddelande.
 
 # <a name="javascript-v12"></a>[JavaScript-V12](#tab/javascript)
 
-Ändra innehållet i ett meddelande på plats i kön genom att anropa [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-). 
+Ändra innehållet i ett meddelande på plats i kön genom att anropa [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-).
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
 
-Ändra innehållet i ett meddelande på plats i kön genom att anropa **updateMessage**. 
+Ändra innehållet i ett meddelande på plats i kön genom att anropa **updateMessage**.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -234,8 +234,8 @@ Om du använder **GetMessage** när det inte finns några meddelanden i kön ret
 
 Det finns två sätt att anpassa meddelande hämtning från en kö:
 
-* [Options. numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) – hämta en batch med meddelanden (upp till 32.)
-* [Options. visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) – ange en längre eller kortare tids gräns för insikt.
+- [Options. numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) – hämta en batch med meddelanden (upp till 32.)
+- [Options. visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) – ange en längre eller kortare tids gräns för insikt.
 
 I följande exempel används metoden **receiveMessages** för att hämta fem meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en `for` loop. Den anger också timeout för insikter till fem minuter för alla meddelanden som returneras av den här metoden.
 
@@ -245,8 +245,8 @@ I följande exempel används metoden **receiveMessages** för att hämta fem med
 
 Det finns två sätt att anpassa meddelande hämtning från en kö:
 
-* `options.numOfMessages` – Hämta en batch med meddelanden (upp till 32.)
-* `options.visibilityTimeout` -Ange en längre eller kortare tids gräns för insikt.
+- `options.numOfMessages` – Hämta en batch med meddelanden (upp till 32.)
+- `options.visibilityTimeout` -Ange en längre eller kortare tids gräns för insikt.
 
 I följande exempel används metoden **GetMessage** för att få 15 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en `for` loop. Den anger också timeout för insikter till fem minuter för alla meddelanden som returneras av den här metoden.
 
@@ -301,7 +301,7 @@ Anropa [QueueServiceClient. listQueues]()om du vill hämta en lista över köer.
 
 # <a name="javascript-v2"></a>[Java Script v2](#tab/javascript2)
 
-Använd **listQueuesSegmented**om du vill hämta en lista över köer. Om du vill hämta en lista som filtrerats efter ett angivet prefix använder du **listQueuesSegmentedWithPrefix**.
+Använd **listQueuesSegmented** om du vill hämta en lista över köer. Om du vill hämta en lista som filtrerats efter ett angivet prefix använder du **listQueuesSegmentedWithPrefix**.
 
 ```javascript
 queueSvc.listQueuesSegmented(null, function(error, results, response){
@@ -347,8 +347,8 @@ Om du vill rensa alla meddelanden från en kö utan att ta bort den, anropa **cl
 
 Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter.
 
-* Besök [Azure Storage teamets blogg][Azure Storage Team Blog] och lär dig vad som är nytt
-* Besök [Azure Storage klient bibliotek för Java Script][Azure Storage client library for JavaScript] -lagringsplats på GitHub
+- Besök [Azure Storage teamets blogg][Azure Storage Team Blog] och lär dig vad som är nytt
+- Besök [Azure Storage klient bibliotek för Java Script][Azure Storage client library for JavaScript] -lagringsplats på GitHub
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

@@ -4,18 +4,22 @@ description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 0de25cc804844b5aa414e521fa641761d9a4b4f4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3d459f4249c65f2d09f9d8df6e7958adf852a2ea
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108430"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346323"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
 Den här artikeln är en introduktion till att utveckla Azure Functions med python. Innehållet nedan förutsätter att du redan har läst [guiden Azure Functions utvecklare](functions-reference.md).
 
-Exempel projekt för fristående funktioner i python finns i [exempel på python-funktioner](/samples/browse/?products=azure-functions&languages=python).
+Som python-utvecklare kanske du också är intresse rad av någon av följande artiklar:
+
+| Komma igång | Begrepp| Scenarier/exempel |
+| -- | -- | -- | 
+| <ul><li>[Python-funktionen med Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-python)</li><li>[Python-funktionen med Terminal/kommando-prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)</li></ul> | <ul><li>[Utvecklarguide](functions-reference.md)</li><li>[Värdalternativ](functions-scale.md)</li><li>[Prestanda &nbsp; överväganden](functions-best-practices.md)</li></ul> | <ul><li>[Bildklassificering med PyTorch](machine-learning-pytorch.md)</li><li>[Azure Automation-exempel](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Maskininlärning med TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Sök i python-exempel](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 ## <a name="programming-model"></a>Programmeringsmodell
 
@@ -44,7 +48,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-Använd python-anteckningarna som ingår i [Azure. functions. *](/python/api/azure-functions/azure.functions?view=azure-python) -paketet för att binda indata och utdata till dina metoder.
+Använd python-anteckningarna som ingår i [Azure. functions. *](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true) -paketet för att binda indata och utdata till dina metoder.
 
 ## <a name="alternate-entry-point"></a>Alternativ Start punkt
 
@@ -83,19 +87,19 @@ Den rekommenderade mappstrukturen för ett python Functions-projekt ser ut som i
 ```
 Huvudprojektmappen ( \_ \_ app \_ \_ ) kan innehålla följande filer:
 
-* *local.settings.jspå*: används för att lagra appinställningar och anslutnings strängar när de körs lokalt. Den här filen publiceras inte i Azure. Mer information finns i [Local. Settings. File](functions-run-local.md#local-settings-file).
-* *requirements.txt*: innehåller listan över paket som systemet installerar vid publicering till Azure.
-* *host.jspå*: innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure. Alla alternativ stöds inte när du kör lokalt. Läs mer i [host.jspå](functions-host-json.md).
-* *. funcignore*: (valfritt) deklarerar filer som inte ska publiceras i Azure.
-* *Dockerfile*: (valfritt) används vid publicering av ditt projekt i en [anpassad behållare](functions-create-function-linux-custom-image.md).
+* *local.settings.jspå* : används för att lagra appinställningar och anslutnings strängar när de körs lokalt. Den här filen publiceras inte i Azure. Mer information finns i [Local. Settings. File](functions-run-local.md#local-settings-file).
+* *requirements.txt* : innehåller listan över paket som systemet installerar vid publicering till Azure.
+* *host.jspå* : innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure. Alla alternativ stöds inte när du kör lokalt. Läs mer i [host.jspå](functions-host-json.md).
+* *. funcignore* : (valfritt) deklarerar filer som inte ska publiceras i Azure.
+* *Dockerfile* : (valfritt) används vid publicering av ditt projekt i en [anpassad behållare](functions-create-function-linux-custom-image.md).
 
 Varje funktion har sin egen kod fil och bindnings konfigurations fil (function.jspå).
 
-När du distribuerar ditt projekt till en Function-app i Azure, ska hela innehållet i huvudprojektet (* \_ \_ app \_ \_ *)-mappen inkluderas i paketet, men inte själva mappen. Vi rekommenderar att du underhåller dina tester i en mapp separat från projektmappen i det här exemplet `tests` . Detta gör att du inte distribuerar test koden med din app. Mer information finns i [enhets testning](#unit-testing).
+När du distribuerar ditt projekt till en Function-app i Azure, ska hela innehållet i huvudprojektet ( *\_ \_ app \_ \_* )-mappen inkluderas i paketet, men inte själva mappen. Vi rekommenderar att du underhåller dina tester i en mapp separat från projektmappen i det här exemplet `tests` . Detta gör att du inte distribuerar test koden med din app. Mer information finns i [enhets testning](#unit-testing).
 
 ## <a name="import-behavior"></a>Import beteende
 
-Du kan importera moduler i funktions koden med både explicita relativa och absoluta referenser. Baserat på mappstrukturen som visas ovan fungerar följande importer från funktionen File * \_ \_ app \_ \_ \Mina \_ First \_ Function \\ _ \_ init \_ \_ . py*:
+Du kan importera moduler i funktions koden med både explicita relativa och absoluta referenser. Baserat på mappstrukturen som visas ovan fungerar följande importer från funktionen File *\_ \_ app \_ \_ \Mina \_ First \_ Function \\ _ \_ init \_ \_ . py* :
 
 ```python
 from . import example #(explicit relative)
@@ -127,7 +131,7 @@ from example import some_helper_code
 import shared_code
 ```
 
-Delad kod ska lagras i en separat mapp i * \_ \_ appen \_ \_ *. Om du vill referera till moduler i den *delade \_ Code* -mappen kan du använda följande syntax:
+Delad kod ska lagras i en separat mapp i *\_ \_ appen \_ \_*. Om du vill referera till moduler i den *delade \_ Code* -mappen kan du använda följande syntax:
 
 ```python
 from __app__.shared_code import my_first_helper_function
@@ -194,7 +198,7 @@ Utdata kan uttryckas både i retur värde och utdataparametrar. Om det bara finn
 
 Om du vill använda returvärdet för en funktion som värde för en utgående bindning `name` ska egenskapen för bindningen anges till `$return` i `function.json` .
 
-Om du vill skapa flera utdata använder du `set()` metoden som tillhandahålls av [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) gränssnittet för att tilldela ett värde till bindningen. Följande funktion kan till exempel skicka ett meddelande till en kö och även returnera ett HTTP-svar.
+Om du vill skapa flera utdata använder du `set()` metoden som tillhandahålls av [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) gränssnittet för att tilldela ett värde till bindningen. Följande funktion kan till exempel skicka ett meddelande till en kö och även returnera ett HTTP-svar.
 
 ```json
 {
@@ -310,7 +314,7 @@ En nyckel för att förbättra prestandan är att förstå hur appen använder r
 
 Standardkonfigurationerna passar för de flesta Azure Functions-program. Du kan dock förbättra prestandan för dina programs data flöde genom att använda konfigurationer baserade på din arbets belastnings profil. Det första steget är att förstå vilken typ av arbets belastning som körs.
 
-|| I/O-Bound-arbetsbelastning | PROCESSOR-bindande arbets belastning |
+|&nbsp;| I/O-Bound-arbetsbelastning | PROCESSOR-bindande arbets belastning |
 |--| -- | -- |
 |Egenskaper för Function-appen| <ul><li>Appen måste hantera många samtidiga anrop.</li> <li> App bearbetar ett stort antal I/O-händelser, t. ex. nätverks anrop och disk läsning/skrivning.</li> </ul>| <ul><li>I appen körs tids krävande beräkningar, till exempel bild storleks ändring.</li> <li>Data omvandlingen används av appen.</li> </ul> |
 |Exempel| <ul><li>Webb-API:er</li><ul> | <ul><li>Databearbetning</li><li> Maskin inlärnings störningar</li><ul>|
@@ -381,7 +385,7 @@ FUNCTIONS_WORKER_PROCESS_COUNT gäller för varje värd som fungerar när du ska
 
 ## <a name="context"></a>Kontext
 
-Om du vill hämta anrops kontexten för en funktion under körningen ska du inkludera [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) argumentet i signaturen.
+Om du vill hämta anrops kontexten för en funktion under körningen ska du inkludera [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) argumentet i signaturen.
 
 Exempel:
 
@@ -394,7 +398,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-[**Kontext**](/python/api/azure-functions/azure.functions.context?view=azure-python) klassen har följande String-attribut:
+[**Kontext**](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) klassen har följande String-attribut:
 
 `function_directory` Katalogen där funktionen körs.
 
@@ -746,7 +750,7 @@ Alla kända problem och funktions begär Anden spåras med hjälp av listan med 
 
 Mer information finns i följande resurser:
 
-* [Dokumentation om Azure Functions Package API](/python/api/azure-functions/azure.functions?view=azure-python)
+* [Dokumentation om Azure Functions Package API](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true)
 * [Metodtips för Azure Functions](functions-best-practices.md)
 * [Azure Functions utlösare och bindningar](functions-triggers-bindings.md)
 * [Blob Storage-bindningar](functions-bindings-storage-blob.md)
@@ -755,5 +759,5 @@ Mer information finns i följande resurser:
 * [Timerutlösare](functions-bindings-timer.md)
 
 
-[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python
-[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python&preserve-view=true

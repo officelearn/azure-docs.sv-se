@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: db396bbd2f26638c39f2573fb6014cd2602279d0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 362c16a87e5a24c35b3aa637171b6a3f77aa62a6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129753"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346340"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics utdata till Azure SQL Database
 
@@ -35,7 +35,7 @@ Här följer några konfigurationer i varje tjänst som kan hjälpa till att fö
 
 ## <a name="sql-azure"></a>SQL Azure
 
-- **Partitionerade tabeller och index** – med hjälp av en [partitionerad](/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) SQL-tabell och partitionerade index i tabellen med samma kolumn som din partitionsnyckel (till exempel PartitionID) kan du avsevärt minska inblandning mellan partitioner under skrivningar. För en partitionerad tabell måste du skapa en [partitions funktion](/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) och ett [PARTITIONSSCHEMA](/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) på den primära fil gruppen. Detta kommer också att öka tillgängligheten för befintliga data medan nya data läses in. Loggens IO-gräns kan uppnås baserat på antalet partitioner som kan ökas genom att du uppgraderar SKU: n.
+- **Partitionerade tabeller och index** – med hjälp av en [partitionerad](/sql/relational-databases/partitions/partitioned-tables-and-indexes) SQL-tabell och partitionerade index i tabellen med samma kolumn som din partitionsnyckel (till exempel PartitionID) kan du avsevärt minska inblandning mellan partitioner under skrivningar. För en partitionerad tabell måste du skapa en [partitions funktion](/sql/t-sql/statements/create-partition-function-transact-sql) och ett [PARTITIONSSCHEMA](/sql/t-sql/statements/create-partition-scheme-transact-sql) på den primära fil gruppen. Detta kommer också att öka tillgängligheten för befintliga data medan nya data läses in. Loggens IO-gräns kan uppnås baserat på antalet partitioner som kan ökas genom att du uppgraderar SKU: n.
 
 - **Undvik unika nyckel överträdelser** – om du får [varnings meddelanden om flera nyckel](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) överträdelser i Azure Stream Analytics aktivitets loggen, kontrollerar du att jobbet inte påverkas av unika begränsnings överträdelser som sannolikt kommer att inträffa under återställnings fall. Detta kan undvikas genom att ange alternativet för att [Ignorera \_ duplicera- \_ nyckeln](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) i dina index.
 

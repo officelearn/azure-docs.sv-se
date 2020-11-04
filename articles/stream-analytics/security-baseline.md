@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7cf3caa0e309c1640db6ca2817a91f9db71c5110
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 03655e88d4d4c9183bff71e04bf447f470fcf557
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129923"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348414"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Azures säkerhets bas linje för Stream Analytics
 
@@ -238,9 +238,9 @@ Mer information finns i [Översikt över Azure Security-bas linjer](../security/
 
 **Vägledning** : Azure AD har inbyggda roller som måste tilldelas explicit. Roller kan frågas om att identifiera medlemskap. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
 
-* [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center övervakning** : Ja
 
@@ -542,7 +542,7 @@ Microsoft utför sårbarhets hantering på de underliggande system som har stöd
 
 * [Så här skapar du frågor med Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription)
 
 * [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
@@ -682,7 +682,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 **Vägledning** : Använd Azure policy alias i namn området "Microsoft. StreamAnalytics" för att skapa anpassade principer som ska granskas eller tillämpas på konfigurationen av din Azure Stream Analytics. Du kan också använda inbyggda princip definitioner som är relaterade till din Azure Stream Analytics, till exempel:-diagnostikloggar i Azure Stream Analytics ska aktive ras
 
-* [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Azure Policy inbyggda princip definitioner](../governance/policy/samples/built-in-policies.md)
 
@@ -724,7 +724,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 **Vägledning** : Använd Azure-databaser för att lagra och hantera din kod på ett säkert sätt, inklusive anpassade Azure-principer, Azure Resource Manager mallar, önskade tillstånds konfigurations skript, användardefinierade funktioner, frågor. För att få åtkomst till de resurser som du hanterar i Azure DevOps, kan du bevilja eller neka behörigheter till särskilda användare, inbyggda säkerhets grupper eller grupper som definierats i Azure Active Directory (Azure AD) om det är integrerat med Azure DevOps eller Active Directory om det är integrerat med TFS.
 
-* [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
 * [Om behörigheter och grupper i Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -880,7 +880,7 @@ För att säkerhetskopiera data från lagrings konto tjänster som stöds, finns
 
 Kundhanterade/tillhandahållna nycklar kan säkerhets kopie ras i Azure Key Vault med Azure CLI eller PowerShell.
 
-* [Så här säkerhetskopierar du nyckel valv nycklar i Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Så här säkerhetskopierar du nyckel valv nycklar i Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure Security Center övervakning** : för närvarande inte tillgängligt
 

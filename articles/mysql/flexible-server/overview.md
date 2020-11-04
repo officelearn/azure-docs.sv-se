@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4cb706bfa1c10e941e6d2d44358c784549973302
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f6ec6bced9c84e4e5b0f04cc32eebb438052bd6c
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927982"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348295"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -50,7 +50,7 @@ Om zonens redundanta hög tillgänglighet har kon figurer ATS, etableras tjänst
 
 Se [begrepp med hög tillgänglighet](concepts-high-availability.md) för mer information.
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Konceptuellt diagram med hög tillgänglighet för en zon"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Konceptuellt diagram över redundant hög tillgänglighet för zoner"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Automatiserad uppdatering med hanterat underhålls fönster
 
@@ -66,7 +66,7 @@ Se [säkerhets kopierings begrepp](concepts-backup-restore.md) för mer informat
 
 ## <a name="network-isolation"></a>Nätverksisolering
 
-Du har två nätverks alternativ för att ansluta till din Azure Database for MySQL flexibla Server. Alternativen är **privat åtkomst (VNet-integrering)** och **offentlig åtkomst (tillåtna IP-adresser)** . 
+Du har två nätverks alternativ för att ansluta till din Azure Database for MySQL flexibla Server. Alternativen är **privat åtkomst (VNet-integrering)** och **offentlig åtkomst (tillåtna IP-adresser)**. 
 
 * **Privat åtkomst (VNet-integrering)** – du kan distribuera din flexibla server till [Azure-Virtual Network](../../virtual-network/virtual-networks-overview.md). Virtuella Azure-nätverk tillhandahåller privat och säker nätverkskommunikation. Resurser i ett virtuellt nätverk kan kommunicera via privata IP-adresser.
 
@@ -75,7 +75,7 @@ Du har två nätverks alternativ för att ansluta till din Azure Database for My
    * Använd VPN eller ExpressRoute för att ansluta från icke-Azure-resurser till din flexibla Server
    * Ingen offentlig slut punkt
 
-* **Offentlig åtkomst (tillåtna IP-adresser)** – du kan distribuera din flexibla server med en offentlig slut punkt. Den offentliga slut punkten är en DNS-adress som kan matchas offentligt. Frasen "tillåtna IP-adresser" syftar på ett intervall med IP-adresser som du väljer för att ge åtkomst behörighet till servern. Dessa behörigheter kallas **brand Väggs regler** .
+* **Offentlig åtkomst (tillåtna IP-adresser)** – du kan distribuera din flexibla server med en offentlig slut punkt. Den offentliga slut punkten är en DNS-adress som kan matchas offentligt. Frasen "tillåtna IP-adresser" syftar på ett intervall med IP-adresser som du väljer för att ge åtkomst behörighet till servern. Dessa behörigheter kallas **brand Väggs regler**.
 
 Mer information finns i [nätverks koncept](concepts-networking.md) .
 
@@ -89,9 +89,9 @@ Mer information finns i [beräknings-och lagrings koncept](concepts-compute-stor
 
 MySQL är en av de populära databas motorerna för att köra webb-och mobil program på Internet-skala. Många av våra kunder använder den för sina utbildnings tjänster online, video strömnings tjänster, digitala betalnings lösningar, e-handelsplattformar, spel tjänster, nyhets portaler, myndigheter och sjukvårds webbplatser. Dessa tjänster krävs för att betjäna och skala när trafiken på webben eller det mobila programmet ökar.
 
-På program sidan, utvecklas programmet vanligt vis i Java eller php och migreras till att köras på [Azures skalnings uppsättningar för virtuella datorer](/azure/virtual-machine-scale-sets/overview.md)   eller [Azure App tjänster](/azure/app-service/overview.md)   eller behållare som ska köras på [Azure Kubernetes service (AKS)](/azure/aks/intro-kubernetes.md). Med den virtuella datorns skalnings uppsättning, App Service eller AKS som en underliggande infrastruktur, är program skalningen förenklad genom att tillfälligt tillhandahålla nya virtuella datorer och replikera tillstånds lösa komponenter för program till följd av begär Anden, men ofta avslutas databasen som en Flask hals som centraliserad tillstånds känslig komponent.
+På program sidan, utvecklas programmet vanligt vis i Java eller php och migreras till att köras på [Azures skalnings uppsättningar för virtuella datorer](../../virtual-machine-scale-sets/overview.md)   eller [Azure App tjänster](../../app-service/overview.md)   eller behållare som ska köras på [Azure Kubernetes service (AKS)](../../aks/intro-kubernetes.md). Med den virtuella datorns skalnings uppsättning, App Service eller AKS som en underliggande infrastruktur, är program skalningen förenklad genom att tillfälligt tillhandahålla nya virtuella datorer och replikera tillstånds lösa komponenter för program till följd av begär Anden, men ofta avslutas databasen som en Flask hals som centraliserad tillstånds känslig komponent.
 
-Med funktionen Läs replik kan du replikera data från en Azure Database for MySQL flexibel server till en skrivskyddad Server. Du kan replikera från käll servern till **upp till 10 repliker** . Repliker uppdateras asynkront med MySQL-motorns interna [binära logg (BinLog)-baserad teknik för replikering](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html). Du kan använda en proxyserver för belastningsutjämnare som [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) för att enkelt skala ut din program arbets belastning för att läsa repliker utan att behöva göra några omkostnader för programmet. 
+Med funktionen Läs replik kan du replikera data från en Azure Database for MySQL flexibel server till en skrivskyddad Server. Du kan replikera från käll servern till **upp till 10 repliker**. Repliker uppdateras asynkront med MySQL-motorns interna [binära logg (BinLog)-baserad teknik för replikering](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html). Du kan använda en proxyserver för belastningsutjämnare som [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) för att enkelt skala ut din program arbets belastning för att läsa repliker utan att behöva göra några omkostnader för programmet. 
 
 Mer information finns i [läsa replik begrepp](concepts-read-replicas.md) . 
 
@@ -133,7 +133,7 @@ Tjänsten kör community-versionen av MySQL. Detta möjliggör fullständig prog
 En av fördelarna med att köra din arbets belastning i Azure är den globala räckvidden. Den flexibla servern för Azure Database for MySQL är tillgänglig idag i följande Azure-regioner:
 
 - Europa, västra
-- Europa, norra
+- Norra Europa
 - Storbritannien, södra
 - USA, östra 2
 - USA, västra 2

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e4e5f4c1a50c814174dbbd5d419fe24b2e9f88e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f89dd6b7926baf6c1c64cff81e8b613461a3e925
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336688"
+ms.locfileid: "93345507"
 ---
 # <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
 
@@ -49,7 +49,7 @@ Precis som med alla funktioner i tal tjänsten skapar du en prenumerations nycke
 Om du planerar att anpassa modeller följer du stegen i [akustisk anpassning](how-to-customize-acoustic-models.md) och [språk anpassning](how-to-customize-language-model.md). Om du vill använda de skapade modellerna i batch-avskriftering behöver du deras modell plats. Du kan hämta modell platsen när du har granskat informationen om modellen ( `self` egenskap). Det *behövs ingen* distribuerad anpassad slut punkt för batch-avskrifts tjänsten.
 
 >[!NOTE]
-> Som en del av REST API har batch-avskriften en uppsättning [kvoter och begränsningar](speech-services-quotas-and-limits.md#speech-to-text-quotas-and-limits-per-speech-resource)som vi uppmuntrar att granska. För att dra full nytta av batch-avskrifts möjligheten att effektivt skriva över ett stort antal ljudfiler rekommenderar vi att du alltid skickar flera filer per begäran eller pekar på en Blob Storage behållare med ljudfilerna som ska skrivas över. Tjänsten kommer att skriva över filerna samtidigt som den minskar tiden för leverans. Att använda flera filer i en enskild begäran är mycket enkelt och enkelt att se [konfigurations](#configuration) avsnittet. 
+> Som en del av REST API har batch-avskriften en uppsättning [kvoter och begränsningar](speech-services-quotas-and-limits.md#batch-transcription)som vi uppmuntrar att granska. För att dra full nytta av batch-avskrifts möjligheten att effektivt skriva över ett stort antal ljudfiler rekommenderar vi att du alltid skickar flera filer per begäran eller pekar på en Blob Storage behållare med ljudfilerna som ska skrivas över. Tjänsten kommer att skriva över filerna samtidigt som den minskar tiden för leverans. Att använda flera filer i en enskild begäran är mycket enkelt och enkelt att se [konfigurations](#configuration) avsnittet. 
 
 ## <a name="batch-transcription-api"></a>API för batch-avskriftering
 

@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a2f1229ab8a292b06dfc43b95d9047ed8d233523
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791145"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345731"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utför Azure Queue Storage-åtgärder med Azure PowerShell
 
@@ -22,12 +22,12 @@ Azure Queue Storage är en tjänst för att lagra ett stort antal meddelanden so
 
 > [!div class="checklist"]
 >
-> * Skapa en kö
-> * Hämta en kö
-> * Lägg till ett meddelande
-> * Läsa ett meddelande
-> * Ta bort ett meddelande
-> * Ta bort en kö
+> - Skapa en kö
+> - Hämta en kö
+> - Lägg till ett meddelande
+> - Läsa ett meddelande
+> - Ta bort ett meddelande
+> - Ta bort en kö
 
 Den här instruktionen kräver Azure PowerShell-modulen AZ version 0,7 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
@@ -45,7 +45,7 @@ Connect-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Hämta lista över platser
 
-Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. I den här övningen används **öster** . Lagra detta på variabel **platsen** för framtida bruk.
+Om du inte vet vilken plats du vill använda kan du visa en lista med tillgängliga platser. Hitta den du vill använda i listan som visas. I den här övningen används **öster**. Lagra detta på variabel **platsen** för framtida bruk.
 
 ```powershell
 Get-AzLocation | Select-Object Location
@@ -127,13 +127,13 @@ Om du använder [Azure Storage Explorer](https://storageexplorer.com)kan du ansl
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Läs ett meddelande från kön och ta sedan bort det
 
-Meddelanden läses in i bästa möjliga försök från första och följande. Detta är inte garanterat. När du läser meddelandet från kön blir det osynligt för alla andra processer som tittar på kön. Detta säkerställer att om din kod inte kan bearbeta meddelandet på grund av maskin-eller program varu fel, kan en annan instans av koden Hämta samma meddelande och försöka igen.  
+Meddelanden läses in i bästa möjliga försök från första och följande. Detta är inte garanterat. När du läser meddelandet från kön blir det osynligt för alla andra processer som tittar på kön. Detta säkerställer att om din kod inte kan bearbeta meddelandet på grund av maskin-eller program varu fel, kan en annan instans av koden Hämta samma meddelande och försöka igen.
 
 Denna **timeout för insikt** definierar hur länge meddelandet förblir osynligt innan det blir tillgängligt igen för bearbetning. Standardvärdet är 30 sekunder.
 
 Koden läser ett meddelande från kön i två steg. När du anropar metoden [Microsoft. Azure. Storage. Queue. CloudQueue. GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) får du nästa meddelande i kön. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Om du vill slutföra borttagningen av meddelandet från kön anropar du metoden [Microsoft. Azure. Storage. Queue. CloudQueue. DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) .
 
-I följande exempel läser du igenom de tre meddelandena i kön och väntar sedan 10 sekunder (tids gräns för insynlighet). Sedan läser du de tre meddelandena igen och tar bort meddelandena när de har lästs genom att anropa **DeleteMessage** . Om du försöker läsa kön när meddelandena har tagits bort kommer $queueMessage att returneras som NULL.
+I följande exempel läser du igenom de tre meddelandena i kön och väntar sedan 10 sekunder (tids gräns för insynlighet). Sedan läser du de tre meddelandena igen och tar bort meddelandena när de har lästs genom att anropa **DeleteMessage**. Om du försöker läsa kön när meddelandena har tagits bort kommer $queueMessage att returneras som NULL.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -185,17 +185,17 @@ I den här instruktions artikeln har du lärt dig om grundläggande lagrings han
 
 > [!div class="checklist"]
 >
-> * Skapa en kö
-> * Hämta en kö
-> * Lägg till ett meddelande
-> * Läs nästa meddelande
-> * Ta bort ett meddelande
-> * Ta bort en kö
+> - Skapa en kö
+> - Hämta en kö
+> - Lägg till ett meddelande
+> - Läs nästa meddelande
+> - Ta bort ett meddelande
+> - Ta bort en kö
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell Storage-cmdletar
 
-* [Storage PowerShell cmdletar](/powershell/module/az.storage)
+- [Storage PowerShell cmdletar](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
+- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.

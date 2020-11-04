@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 57fc0ebc10158b41539d4802aa6a8ebdd466dd90
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 50f15d041f9bcea66400eda0877e9d7914335d74
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783308"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345729"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för python
 
@@ -21,26 +21,26 @@ Kom igång med Azure Queue Storage klient bibliotek version 12 för python. Azur
 
 Använd klient biblioteket V12 i Azure Queue Storage för python för att:
 
-* Skapa en kö
-* Lägga till meddelanden i en kö
-* Granska meddelanden i en kö
-* Uppdatera ett meddelande i en kö
-* Ta emot meddelanden från en kö
-* Ta bort meddelanden från en kö
-* Ta bort en kö
+- Skapa en kö
+- Lägga till meddelanden i en kö
+- Granska meddelanden i en kö
+- Uppdatera ett meddelande i en kö
+- Ta emot meddelanden från en kö
+- Ta bort meddelanden från en kö
+- Ta bort en kö
 
 Ytterligare resurser:
 
-* [Referensdokumentation för API](/python/api/azure-storage-queue/index)
-* [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
-* [Paket (python-paket index)](https://pypi.org/project/azure-storage-queue/)
-* [Exempel](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Referensdokumentation för API](/python/api/azure-storage-queue/index)
+- [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
+- [Paket (python-paket index)](https://pypi.org/project/azure-storage-queue/)
+- [Exempel](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Azure Storage-konto – [skapa ett lagrings konto](../common/storage-account-create.md)
-* [Python](https://www.python.org/downloads/) för ditt operativ system – 2,7, 3,5 eller högre
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- Azure Storage-konto – [skapa ett lagrings konto](../common/storage-account-create.md)
+- [Python](https://www.python.org/downloads/) för ditt operativ system – 2,7, 3,5 eller högre
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -48,7 +48,7 @@ Det här avsnittet beskriver hur du förbereder ett projekt så att det fungerar
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-Skapa ett python-program med namnet *köer-snabb start-V12* .
+Skapa ett python-program med namnet *köer-snabb start-V12*.
 
 1. Skapa en ny katalog för projektet i ett konsol fönster (till exempel cmd, PowerShell eller bash).
 
@@ -101,9 +101,9 @@ Det här kommandot installerar klient biblioteket för Azure Queue Storage för 
 
 Azure Queue Storage är en tjänst för lagring av ett stort antal meddelanden. Ett Queue-meddelande kan vara upp till 64 KB stort. En kö kan innehålla miljon tals meddelanden, upp till den totala kapacitets gränsen för ett lagrings konto. Köer används ofta för att skapa en efter släpning av arbete som ska bearbetas asynkront. Queue Storage erbjuder tre typer av resurser:
 
-* Lagrings kontot
-* En kö i lagrings kontot
-* Meddelanden i kön
+- Lagrings kontot
+- En kö i lagrings kontot
+- Meddelanden i kön
 
 Följande diagram visar relationen mellan de här resurserna.
 
@@ -111,22 +111,22 @@ Följande diagram visar relationen mellan de här resurserna.
 
 Använd följande python-klasser för att interagera med dessa resurser:
 
-* [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): med `QueueServiceClient` kan du hantera alla köer i ditt lagrings konto.
-* [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): `QueueClient` klassen låter dig hantera och ändra en enskild kö och dess meddelanden.
-* [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): `QueueMessage` klassen representerar de enskilda objekt som returneras när [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) anropas i en kö.
+- [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): med `QueueServiceClient` kan du hantera alla köer i ditt lagrings konto.
+- [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): `QueueClient` klassen låter dig hantera och ändra en enskild kö och dess meddelanden.
+- [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): `QueueMessage` klassen representerar de enskilda objekt som returneras när [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) anropas i en kö.
 
 ## <a name="code-examples"></a>Kodexempel
 
 De här exempel kods tycken visar hur du utför följande åtgärder med klient biblioteket för Azure Queue Storage för python:
 
-* [Hämta anslutningssträngen](#get-the-connection-string)
-* [Skapa en kö](#create-a-queue)
-* [Lägga till meddelanden i en kö](#add-messages-to-a-queue)
-* [Granska meddelanden i en kö](#peek-at-messages-in-a-queue)
-* [Uppdatera ett meddelande i en kö](#update-a-message-in-a-queue)
-* [Ta emot meddelanden från en kö](#receive-messages-from-a-queue)
-* [Ta bort meddelanden från en kö](#delete-messages-from-a-queue)
-* [Ta bort en kö](#delete-a-queue)
+- [Hämta anslutningssträngen](#get-the-connection-string)
+- [Skapa en kö](#create-a-queue)
+- [Lägga till meddelanden i en kö](#add-messages-to-a-queue)
+- [Granska meddelanden i en kö](#peek-at-messages-in-a-queue)
+- [Uppdatera ett meddelande i en kö](#update-a-message-in-a-queue)
+- [Ta emot meddelanden från en kö](#receive-messages-from-a-queue)
+- [Ta bort meddelanden från en kö](#delete-messages-from-a-queue)
+- [Ta bort en kö](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Hämta anslutningssträngen
 
@@ -316,5 +316,5 @@ För självstudier, exempel, snabb starter och annan dokumentation går du till:
 > [!div class="nextstepaction"]
 > [Azure för python-utvecklare](/azure/python/)
 
-* Mer information finns i [Azure Storage bibliotek för python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
-* Om du vill se fler Azure Queue Storage-exempelprogram fortsätter du till [Azure Queue Storage V12 python-klient biblioteks exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).
+- Mer information finns i [Azure Storage bibliotek för python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
+- Om du vill se fler Azure Queue Storage-exempelprogram fortsätter du till [Azure Queue Storage V12 python-klient biblioteks exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).

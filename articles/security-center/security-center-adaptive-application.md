@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 95c3ad6f689893195e0e5c17c59ab31143cf238d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339721"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346527"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Använd anpassningsbara program kontroller för att minska dina datorers attack ytor
 
@@ -65,7 +65,7 @@ Om Security Center har identifierat grupper av datorer i dina prenumerationer so
 
 Välj rekommendationen eller öppna sidan adaptiva program kontroller om du vill visa en lista över föreslagna kända säkra program och grupper av datorer.
 
-1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller**i avsnittet Avancerat skydd.
+1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller** i avsnittet Avancerat skydd.
 
     :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Öppna adaptiva program kontroller från Azure-instrumentpanelen" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
@@ -123,7 +123,7 @@ Du kan välja att redigera listan över tillåtna för en grupp datorer på grun
 
 Redigera reglerna för en grupp datorer:
 
-1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller**i avsnittet Avancerat skydd.
+1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller** i avsnittet Avancerat skydd.
 
 1. Från fliken **konfigurerad** väljer du gruppen med den regel som du vill redigera.
 
@@ -135,7 +135,7 @@ Redigera reglerna för en grupp datorer:
 
       ![Lägg till en anpassad regel](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. Om du definierar en känd säker sökväg ändrar du **regel typen** till sökväg. Du kan inkludera jokertecken i sökvägen.
+   1. Om du definierar en känd säker sökväg ändrar du **regel typen** till sökväg och anger en enda sökväg. Du kan inkludera jokertecken i sökvägen.
    
       > [!TIP]
       > Vissa scenarier för vilka jokertecken i en sökväg kan vara användbara:
@@ -156,12 +156,12 @@ Redigera reglerna för en grupp datorer:
 
     I det här fönstret visas namnet på gruppen (som kan ändras), OS-typen, platsen och annan relevant information.
 
-    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Öppna adaptiva program kontroller från Azure-instrumentpanelen" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Sidan grupp inställningar för anpassningsbara program kontroller" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
     > Alternativet **tillämpa** i inställningarna för fil typs skydds läge är grått i **alla** scenarier. Det finns inga tillgängliga tvingande alternativ för tillfället. 
     >
-    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Öppna adaptiva program kontroller från Azure-instrumentpanelen":::
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Tvingande läge för fil skydd är nedtonat. Det finns inga tvingande alternativ.":::
 
 1. Du kan också ändra gruppens namn eller skydds lägen för filtyper.
 
@@ -188,7 +188,7 @@ Så här åtgärdar du problemen:
 
 ## <a name="audit-alerts-and-violations"></a>Granska aviseringar och överträdelser
 
-1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller**i avsnittet Avancerat skydd.
+1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller** i avsnittet Avancerat skydd.
 
 1. Om du vill se grupper med datorer som har nya aviseringar granskar du grupperna som visas på fliken **konfigurerad** .
 
@@ -204,7 +204,7 @@ Så här åtgärdar du problemen:
 
 När du flyttar en dator från en grupp till en annan så ändras den program kontroll princip som tillämpas på den till inställningarna för den grupp som du flyttade den till. Du kan också flytta en dator från en konfigurerad grupp till en icke-konfigurerad grupp. om du gör det tas alla program kontroll regler bort som har tillämpats på datorn.
 
-1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller**i avsnittet Avancerat skydd.
+1. Öppna Azure Defender-instrumentpanelen och välj **adaptiva program kontroller** i avsnittet Avancerat skydd.
 
 1. På sidan **adaptiva program kontroller** går du till fliken **konfigurerad** och väljer den grupp som innehåller den dator som ska flyttas.
 
@@ -214,7 +214,7 @@ När du flyttar en dator från en grupp till en annan så ändras den program ko
 
 1. Välj mål gruppen och välj **Flytta dator**.
 
-1. Välj **Spara**om du vill spara ändringarna.
+1. Välj **Spara** om du vill spara ändringarna.
 
 
 

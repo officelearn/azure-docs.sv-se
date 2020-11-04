@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b36a71899be43f40ec16c76b5e53c8c3e7fb3552
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2ea92ad2e9c81b568e11ff97d7b6a88eeb4f188e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124534"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346612"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Snabb start: skapa ett Stream Analytics jobb med Azure PowerShell
 
@@ -28,7 +28,7 @@ Exempeljobbet läser strömmande data från en IoT Hub-enhet. Indata genereras a
 
 * Den här snabbstarten kräver Azure PowerShell-modulen. Hitta versionen som är installerad på den lokala datorn genom att köra `Get-Module -ListAvailable Az`. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
-* Vissa IoT Hub åtgärder stöds inte av Azure PowerShell och måste slutföras med hjälp av Azure CLI version 2.0.70 eller senare och IoT-tillägget för Azure CLI. [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) och använd `az extension add --name azure-iot` för att installera IoT-tillägget.
+* Vissa IoT Hub åtgärder stöds inte av Azure PowerShell och måste slutföras med hjälp av Azure CLI version 2.0.70 eller senare och IoT-tillägget för Azure CLI. [Installera Azure CLI](/cli/azure/install-azure-cli) och använd `az extension add --name azure-iot` för att installera IoT-tillägget.
 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -68,9 +68,9 @@ Innan du definierar Stream Analytics-jobbet förbereder du de data som har konfi
 
 Följande Azure CLI-kodblock utför många kommandon som förbereder de indata som krävs för jobbet. Läs avsnitten för att förstå koden.
 
-1. I PowerShell-fönstret kör du kommandot [az login](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) för att logga in på ditt Azure-konto.
+1. I PowerShell-fönstret kör du kommandot [az login](/cli/azure/authenticate-azure-cli) för att logga in på ditt Azure-konto.
 
-    När du har loggat in returnerar Azure CLI en lista över dina prenumerationer. Kopiera den prenumeration som du använder för den här snabbstarten och kör kommandot [az account set](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) för att välja den prenumerationen. Välj samma prenumeration som du valde i föregående avsnitt med PowerShell. Ersätt `<your subscription name>` med namnet på prenumerationen.
+    När du har loggat in returnerar Azure CLI en lista över dina prenumerationer. Kopiera den prenumeration som du använder för den här snabbstarten och kör kommandot [az account set](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) för att välja den prenumerationen. Välj samma prenumeration som du valde i föregående avsnitt med PowerShell. Ersätt `<your subscription name>` med namnet på prenumerationen.
 
     ```azurecli
     az login
@@ -78,19 +78,19 @@ Följande Azure CLI-kodblock utför många kommandon som förbereder de indata s
     az account set --subscription "<your subscription>"
     ```
 
-2. Skapa en IoT-hubb med hjälp av kommandot [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). I det här exemplet skapas en IoT-hubb som heter **MyASAIoTHub** . Eftersom namn på IoT-hubbar är unika behöver du skapa ett eget IoT-hubbnamn. Ange SKU:n till F1 för att använda den kostnadsfria nivån om den är tillgänglig med din prenumeration. Annars väljer du nästa lägsta nivå.
+2. Skapa en IoT-hubb med hjälp av kommandot [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). I det här exemplet skapas en IoT-hubb som heter **MyASAIoTHub**. Eftersom namn på IoT-hubbar är unika behöver du skapa ett eget IoT-hubbnamn. Ange SKU:n till F1 för att använda den kostnadsfria nivån om den är tillgänglig med din prenumeration. Annars väljer du nästa lägsta nivå.
 
     ```azurecli
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    När IoT-hubben har skapats hämtar du anslutningssträngen för IoT-hubben med hjälp av kommandot [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest). Kopiera hela anslutningssträngen och spara den för användning när du lägger till IoT-hubben som indata i ditt Stream Analytics-jobb.
+    När IoT-hubben har skapats hämtar du anslutningssträngen för IoT-hubben med hjälp av kommandot [az iot hub show-connection-string](/cli/azure/iot/hub). Kopiera hela anslutningssträngen och spara den för användning när du lägger till IoT-hubben som indata i ditt Stream Analytics-jobb.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-3. Lägg till en enhet i IoT-hubben med hjälp av kommandot [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). I det här exemplet skapas en enhet med namnet **MyASAIoTDevice** .
+3. Lägg till en enhet i IoT-hubben med hjälp av kommandot [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). I det här exemplet skapas en enhet med namnet **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
@@ -304,7 +304,7 @@ New-AzStreamAnalyticsTransformation `
 
 2. Ersätt platshållaren på rad 15 med hela Azure IoT Hub-enhetens anslutningssträng, som du sparade i ett tidigare avsnitt.
 
-3. Klicka på **Kör** . Utdata bör visas de sensordata och meddelanden som skickas till din IoT-hubb.
+3. Klicka på **Kör**. Utdata bör visas de sensordata och meddelanden som skickas till din IoT-hubb.
 
     ![Raspberry Pi Azure IoT-onlinesimulator](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
 ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92131147"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Lägga till eller uppdatera ett kreditkort för Azure
@@ -41,29 +41,29 @@ Du kan ändra standardkreditkortet för din Azure-prenumeration till ett nytt kr
 Så här ändrar du standardkreditkortet för din prenumeration till ett nytt kreditkort:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering + fakturering** .  
+1. Sök efter **Kostnadshantering + fakturering**.  
     ![Skärmbild som visar sökningen](./media/change-credit-card/search.png)
 1. Välj den prenumeration som du vill lägga till kreditkortet till.
-1. Välj **Betalningsmetoder** .  
+1. Välj **Betalningsmetoder**.  
     ![Skärmbild som visar det valda alternativet Hantera betalningsmetoder](./media/change-credit-card/payment-methods-blade-x.png)
 1. Välj ”+” i det övre vänstra hörnet om du vill lägga till ett kort. Ett kreditkortsformulär visas till höger.
 1. Ange kreditkortsinformation.  
     ![Skärmbild som visar tillägg av ett nytt kort](./media/change-credit-card/sub-add-new-x.png)
 1. Om du vill göra det här kortet till din aktiva betalningsmetod markerar du kryssrutan intill **Gör det här till min aktiva betalningsmetod** ovanför formuläret. Det här kortet blir det aktiva betalningsmedlet för alla prenumerationer som använder samma kort som den valda prenumerationen.
-1. Välj **Nästa** .
+1. Välj **Nästa**.
 
 ### <a name="change-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>Ändra kreditkort för en prenumeration till ett tidigare sparat kreditkort
 
 Du kan också ändra standardkreditkortet för prenumerationen till ett kreditkort som redan har sparats på ditt konto. Gör så här:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering + fakturering** .  
+1. Sök efter **Kostnadshantering + fakturering**.  
     ![Skärmbild som visar sökningen](./media/change-credit-card/search.png)
 1. Välj den prenumeration som du vill lägga till kreditkortet till.
-1. Välj **Betalningsmetoder** .
+1. Välj **Betalningsmetoder**.
     ![Skärmbild som visar det valda alternativet Hantera betalningsmetoder](./media/change-credit-card/payment-methods-blade-x.png)
 1. Markera kryssrutan intill det kort som du vill ange som aktiv betalningsmetod.
-1. Välj **Ange som aktiv** .
+1. Välj **Ange som aktiv**.
     ![Skärmbild som visar valt och aktiverat kreditkort](./media/change-credit-card/sub-change-active-x.png)
 
 ### <a name="edit-credit-card-details"></a>Ange kreditkortsinformation
@@ -71,14 +71,14 @@ Du kan också ändra standardkreditkortet för prenumerationen till ett kreditko
 Om ditt kreditkort förnyas och siffran förblir densamma uppdaterar du befintliga kreditkortsuppgifter, däribland förfallodatum. Om ditt kreditkortsnummer ändras eftersom kortet tappas bort, blir stulet eller upphör att gälla följer du stegen i avsnittet [Lägga till ett kreditkort som betalningsmetod](#addcard). Du behöver inte uppdatera CVV.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering + fakturering** .
+1. Sök efter **Kostnadshantering + fakturering**.
     ![Skärmbild som visar sökningen](./media/change-credit-card/search.png)
-1. Välj **Betalningsmetoder** .
+1. Välj **Betalningsmetoder**.
     ![Skärmbild som visar det valda alternativet Hantera betalningsmetoder](./media/change-credit-card/payment-methods-blade-x.png)
 1. Välj det kreditkort som du vill redigera. Ett kreditkortsformulär visas till höger.
     ![Skärmbild som visar valt kreditkort](./media/change-credit-card/edit-card-x.png)
 1. Uppdatera kreditkortsinformationen.
-1. Välj **Spara** .
+1. Välj **Spara**.
 
 ## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Hantera kreditkort för ett Microsoft-kundavtal
 
@@ -93,14 +93,14 @@ Om du vill ändra standardbetalningsmetoden till check/banköverföring kan du l
 Så här ändrar du kreditkort:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter **Kostnadshantering och fakturering** .
-1. I menyn till vänster väljer du **Faktureringsprofiler** .
+1. Sök efter **Kostnadshantering och fakturering**.
+1. I menyn till vänster väljer du **Faktureringsprofiler**.
 1. Välj en faktureringsprofil.
-1. I menyn till vänster väljer du **Betalningsmetoder** .  
+1. I menyn till vänster väljer du **Betalningsmetoder**.  
    ![Skärmbild som visar betalningsmetoder i menyn](./media/change-credit-card/payment-methods-tab-mca.png)
-1. I avsnittet **Standardbetalningsmetod** väljer du **Ersätt** .  
+1. I avsnittet **Standardbetalningsmetod** väljer du **Ersätt**.  
     :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Skärmbild som visar alternativet Ersätt" :::
-1. I det nya området till höger väljer du antingen ett befintligt kort i listrutan eller lägger till ett nytt genom att välja den blå länken **Lägg till ny betalningsmetod** .
+1. I det nya området till höger väljer du antingen ett befintligt kort i listrutan eller lägger till ett nytt genom att välja den blå länken **Lägg till ny betalningsmetod**.
 
 ### <a name="edit-a-credit-card"></a>Redigera ett kreditkort
 
@@ -109,14 +109,14 @@ Du kan redigera kreditkortsinformation (till exempel uppdatera utgångsdatumet) 
 Så här redigerar du ett kreditkort:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter **Kostnadshantering och fakturering** .
-1. I menyn till vänster väljer du **Faktureringsprofiler** .
+1. Sök efter **Kostnadshantering och fakturering**.
+1. I menyn till vänster väljer du **Faktureringsprofiler**.
 1. Välj en faktureringsprofil.
-1. I menyn till vänster väljer du **Betalningsmetoder** .  
+1. I menyn till vänster väljer du **Betalningsmetoder**.  
    ![Skärmbild som visar betalningsmetoder i menyn](./media/change-credit-card/payment-methods-tab-mca.png)
 1. I avsnittet **Dina kreditkort** letar du upp det kreditkort som du vill redigera.
 1. Klicka på ellipsen (`...`) i slutet av raden.  
-    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Skärmbild som visar alternativet Ersätt" :::
+    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Skärmbild på ellipsen" :::
 1. Om du vill redigera kreditkortsinformationen väljer du **Redigera** på snabbmenyn.
 
 ## <a name="troubleshooting"></a>Felsökning
@@ -143,7 +143,7 @@ Om du [betalar med faktura](pay-by-invoice.md) skickar du betalningen till den p
 
 ### <a name="how-do-i-change-the-tax-id"></a>Hur ändrar jag organisationsnummer?
 
-Om du vill lägga till eller uppdatera organisationsnummer uppdaterar du din profil i [Azure-portalen](https://portal.azure.com) och väljer **Skattepost** . Det här skatte-ID:t används för att beräkna skattebefrielse och visas på fakturan.
+Om du vill lägga till eller uppdatera organisationsnummer uppdaterar du din profil i [Azure-portalen](https://portal.azure.com) och väljer **Skattepost**. Det här skatte-ID:t används för att beräkna skattebefrielse och visas på fakturan.
 
 ## <a name="check-the-type-of-your-account"></a>Kontrollera vilken typ av konto du har
 

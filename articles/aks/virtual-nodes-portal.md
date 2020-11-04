@@ -5,22 +5,23 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 21bbe15a37e95df297f580064beb63ebd5debe57
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9becd6341baad54a74f10ae2f38cf9ccf1fd3037
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899905"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347904"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Skapa och konfigurera ett Azure Kubernetes Services-kluster (AKS) för att använda virtuella noder i Azure Portal
 
-Om du snabbt vill distribuera arbets belastningar i ett Azure Kubernetes service-kluster (AKS) kan du använda virtuella noder. Med virtuella noder har du snabb etablering av poddar och betalar bara per sekund för körnings tiden. I ett skalnings scenario behöver du inte vänta på att Kubernetes-klustret ska distribuera virtuella dator beräknings noder för att köra ytterligare poddar. Virtuella noder stöds bara med Linux-poddar och noder.
+Den här artikeln visar hur du använder Azure Portal för att skapa och konfigurera virtuella nätverks resurser och ett AKS-kluster med virtuella noder aktiverade.
 
-Den här artikeln visar hur du skapar och konfigurerar virtuella nätverks resurser och ett AKS-kluster med virtuella noder aktiverade.
+> [!NOTE]
+> [Den här artikeln](virtual-nodes.md) ger en översikt över regionens tillgänglighet och begränsningar med hjälp av virtuella noder.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Virtuella noder möjliggör nätverkskommunikation mellan poddar som körs i Azure Container Instances (ACI) och AKS-klustret. För att tillhandahålla den här kommunikationen skapas ett virtuellt nätverks under nät och delegerade behörigheter tilldelas. Virtuella noder fungerar bara med AKS-kluster som skapats med *avancerade* nätverksfunktioner. Som standard skapas AKS-kluster med *grundläggande* nätverk. Den här artikeln visar hur du skapar ett virtuellt nätverk och undernät och sedan distribuerar ett AKS-kluster som använder avancerade nätverk.
+Virtuella noder möjliggör nätverkskommunikation mellan poddar som körs i Azure Container Instances (ACI) och AKS-klustret. För att tillhandahålla den här kommunikationen skapas ett virtuellt nätverks under nät och delegerade behörigheter tilldelas. Virtuella noder fungerar bara med AKS-kluster som skapats med *Advanced* Networking (Azure cni). Som standard skapas AKS-kluster med *Basic* Networking (Kubernetes). Den här artikeln visar hur du skapar ett virtuellt nätverk och undernät och sedan distribuerar ett AKS-kluster som använder avancerade nätverk.
 
 Om du inte tidigare har använt ACI registrerar du tjänst leverantören med din prenumeration. Du kan kontrol lera statusen för registreringen av ACI-providern med kommandot [AZ Provider List][az-provider-list] , som du ser i följande exempel:
 
@@ -42,52 +43,24 @@ Om providern visas som *NotRegistered* registrerar du providern med [AZ-provider
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>Regional tillgänglighet
-
-Följande regioner stöds för distribution av virtuella noder:
-
-* Östra Australien (australiaeast)
-* Centrala USA (centrala)
-* USA, östra (östra)
-* USA, östra 2 (eastus2)
-* Japan, östra (japanöstra)
-* Nord Europa (europanorra)
-* Sydostasien (Sydostasien)
-* USA, västra centrala (westcentralus)
-* Västeuropa (westeurope)
-* USA, västra (väst)
-* USA, västra 2 (westus2)
-
-## <a name="known-limitations"></a>Kända begränsningar
-Funktioner för virtuella noder är kraftigt beroende av ACI funktions uppsättning. Förutom [kvoter och gränser för Azure Container instances](../container-instances/container-instances-quotas.md), stöds inte följande scenarier ännu med virtuella noder:
-
-* Använda tjänstens huvud namn för att hämta ACR-avbildningar. [Lösning](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) är att använda [Kubernetes hemligheter](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Virtual Network begränsningar](../container-instances/container-instances-virtual-network-concepts.md) , inklusive VNet-peering, Kubernetes nätverks principer och utgående trafik till Internet med nätverks säkerhets grupper.
-* Init-behållare
-* [Värd Ali Aset](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [Argument](../container-instances/container-instances-exec.md#restrictions) för exec i Aci
-* [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) kommer inte att distribuera poddar till den virtuella noden
-* Virtuella noder stöder schemaläggning av Linux-poddar. Du kan manuellt installera den [virtuella KUBELET ACI](https://github.com/virtual-kubelet/azure-aci) -providern med öppen källkod för att schemalägga Windows Server-behållare till ACI.
-* Virtuella noder kräver AKS-kluster med Azure CNI Networking
-
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
-I det övre vänstra hörnet av Azure Portal väljer du **skapa en resurs**  >  **Kubernetes-tjänst** .
+I det övre vänstra hörnet av Azure Portal väljer du **skapa en resurs**  >  **Kubernetes-tjänst**.
 
 På sidan **Grunder** konfigurerar du följande alternativ:
 
-- *PROJEKTINFORMATION* : Välj en Azure-prenumeration och välj sedan eller skapa en Azure-resursgrupp, till exempel *myResourceGroup* . Ange ett **Kubernetes-klusternamn** , till exempel *myAKSCluster* .
+- *PROJEKTINFORMATION* : Välj en Azure-prenumeration och välj sedan eller skapa en Azure-resursgrupp, till exempel *myResourceGroup*. Ange ett **Kubernetes-klusternamn** , till exempel *myAKSCluster*.
 - *KLUSTERINFORMATION* : Välj en region, en Kubernetes-version och ett DNS-namnprefix för AKS-klustret.
 - *Primär Node-pool* : Välj en VM-storlek för AKS-noderna. VM-storleken **kan inte** ändras efter att ett AKS-kluster har distribuerats.
-     - Välj även det antal noder som ska distribueras till klustret. I den här artikeln ställer du in **antal noder** på *1* . Antalet noder **kan** justeras efter att klustret har distribuerats.
+     - Välj även det antal noder som ska distribueras till klustret. I den här artikeln ställer du in **antal noder** på *1*. Antalet noder **kan** justeras efter att klustret har distribuerats.
 
-Klicka på **Nästa: skala** .
+Klicka på **Nästa: skala**.
 
-På sidan **skala** väljer du *aktive rad* under **virtuella noder** .
+På sidan **skala** väljer du *aktive rad* under **virtuella noder**.
 
 ![Skapa AKS-kluster och aktivera de virtuella noderna](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -95,7 +68,7 @@ Som standard skapas en Azure Active Directory tjänstens huvud namn. Tjänstens 
 
 Klustret är också konfigurerat för avancerade nätverk. De virtuella noderna har kon figurer ATS för att använda sina egna Azure Virtual Network-undernät. Det här under nätet har delegerade behörigheter för att ansluta Azure-resurser mellan AKS-klustret. Om du inte redan har ett delegerat undernät skapar och konfigurerar Azure Portal det virtuella Azure-nätverket och under nätet för användning med de virtuella noderna.
 
-Välj **Granska + skapa** . När verifieringen är klar väljer du **skapa** .
+Välj **Granska + skapa**. När verifieringen är klar väljer du **skapa**.
 
 Det tar några minuter för AKS-klustret att skapas och bli redo för användning.
 
@@ -241,5 +214,5 @@ Virtuella noder är en komponent i en skalnings lösning i AKS. Mer information 
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider#az-provider-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-provider-list]: /cli/azure/provider&preserve-view=true#az-provider-list
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest&preserve-view=true#az-provider-register

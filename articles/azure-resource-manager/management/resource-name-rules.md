@@ -3,12 +3,12 @@ title: Begränsningar för resurs namn
 description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 206bd6604ecd9dfece9c946c653b2720e75ff1e3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653374"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347802"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -494,6 +494,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | firewallPolicies | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
 > | firewallPolicies / ruleGroups | brand Väggs princip | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
 > | frontDoors | EAN | 5-64 | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | frontdoorWebApplicationFirewallPolicies | Resursgrupp | 1-128 | Alfanumeriska tecken.<br><br>Börja med en bokstav. |
 > | Belastningsutjämnare | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
 > | Belastningsutjämnare/inboundNatRules | belastningsutjämnare | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
 > | localNetworkGateways | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |

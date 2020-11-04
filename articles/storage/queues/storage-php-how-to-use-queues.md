@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e5b7ed75f22659a9a38ac761cc61c841102a067
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809206"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345847"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Använda Queue Storage från PHP
 
@@ -38,7 +38,7 @@ I den här guiden använder du funktionerna i kö Storage service som kan anropa
 ### <a name="install-via-composer"></a>Installera via Composer
 
 1. Skapa en fil med namnet **composer.js** i roten i projektet och Lägg till följande kod i den:
-   
+
     ```json
     {
       "require": {
@@ -46,9 +46,10 @@ I den här guiden använder du funktionerna i kö Storage service som kan anropa
       }
     }
     ```
+
 2. Hämta **[Composer. Phar][composer-phar]** i projekt roten.
 3. Öppna en kommando tolk och kör följande kommando i projekt roten
-   
+
     ```
     php composer.phar install
     ```
@@ -89,8 +90,9 @@ UseDevelopmentStorage=true
 
 Om du vill skapa en Azure Kötjänst-klient måste du använda klassen **QueueRestProxy** . Du kan använda någon av följande metoder:
 
-* Skicka anslutnings strängen direkt till den.
-* Använd miljövariabler i din webbapp för att lagra anslutnings strängen. Se dokumentet [konfigurations inställningar i Azure Web App](../../app-service/configure-common.md) för att konfigurera anslutnings strängar.
+- Skicka anslutnings strängen direkt till den.
+- Använd miljövariabler i din webbapp för att lagra anslutnings strängen. Se dokumentet [konfigurations inställningar i Azure Web App](../../app-service/configure-common.md) för att konfigurera anslutnings strängar.
+
 I exemplen som beskrivs här anges anslutningssträngen direkt.
 
 ```php
@@ -139,8 +141,6 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > Du bör inte förlita dig på SKIFT läges känslighet för metadata-nycklar. Alla nycklar läses från tjänsten med gemener.
-> 
-> 
 
 ## <a name="add-a-message-to-a-queue"></a>Lägga till ett meddelande i en kö
 
@@ -223,7 +223,7 @@ else{
 
 ## <a name="de-queue-the-next-message"></a>Ta bort nästa meddelande från kön
 
-Koden tar bort ett meddelande från en kö i två steg. Först anropar du **QueueRestProxy->listMessages**, vilket gör meddelandet osynligt för all annan kod som läser från kön. Som standard är det här meddelandet osynligt i 30 sekunder. (Om meddelandet inte tas bort under den här tids perioden blir det synligt i kön igen.) Om du vill slutföra borttagningen av meddelandet från kön måste du anropa **QueueRestProxy->deleteMessage**. Den här två stegs processen för att ta bort ett meddelande säkerställer att när din kod inte kan bearbeta ett meddelande på grund av maskin-eller program varu fel, kan en annan instans av koden Hämta samma meddelande och försöka igen. Din kod anropar **deleteMessage** direkt efter att meddelandet har bearbetats.
+Koden tar bort ett meddelande från en kö i två steg. Först anropar du **QueueRestProxy->listMessages** , vilket gör meddelandet osynligt för all annan kod som läser från kön. Som standard är det här meddelandet osynligt i 30 sekunder. (Om meddelandet inte tas bort under den här tids perioden blir det synligt i kön igen.) Om du vill slutföra borttagningen av meddelandet från kön måste du anropa **QueueRestProxy->deleteMessage**. Den här två stegs processen för att ta bort ett meddelande säkerställer att när din kod inte kan bearbeta ett meddelande på grund av maskin-eller program varu fel, kan en annan instans av koden Hämta samma meddelande och försöka igen. Din kod anropar **deleteMessage** direkt efter att meddelandet har bearbetats.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -425,8 +425,8 @@ catch(ServiceException $e){
 
 Nu när du har lärt dig grunderna i Azure Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter:
 
-* Besök [API-referensen för klient biblioteket för Azure Storage php](https://azure.github.io/azure-storage-php/)
-* Se [exempel på avancerad kö](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
+- Besök [API-referensen för klient biblioteket för Azure Storage php](https://azure.github.io/azure-storage-php/)
+- Se [exempel på avancerad kö](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
 Mer information finns även i [php Developer Center](https://azure.microsoft.com/develop/php/).
 

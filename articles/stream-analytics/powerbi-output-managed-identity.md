@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: f81b6dabbd9053a69ff60d1a3c71d03fff38f627
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 29f02f80aa5bff1304dc593d68954e15fe6e66bb
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129770"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346442"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Power BI
 
@@ -35,7 +35,7 @@ Följande krävs för att använda den här funktionen:
 
 2. Innan du konfigurerar utdata ger du Stream Analytics jobb åtkomst till din Power BI arbets yta genom att följa anvisningarna i avsnittet [ge Stream Analytics jobb åtkomst till din Power BI arbets yta](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) i den här artikeln.
 
-3. Gå till avsnittet **utdata** i Stream-analysens jobb, Välj **+ Lägg till** och välj sedan **Power BI** . Välj sedan knappen **auktorisera** och logga in med ditt Power BI-konto.
+3. Gå till avsnittet **utdata** i Stream-analysens jobb, Välj **+ Lägg till** och välj sedan **Power BI**. Välj sedan knappen **auktorisera** och logga in med ditt Power BI-konto.
 
    ![Auktorisera med Power BI konto](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 
@@ -45,7 +45,7 @@ Följande krävs för att använda den här funktionen:
 
 ## <a name="azure-resource-manager-deployment"></a>Azure Resource Manager-distribution
 
-Med Azure Resource Manager kan du helt automatisera distributionen av ditt Stream Analytics-jobb. Du kan distribuera Resource Manager-mallar med antingen Azure PowerShell eller [Azure CLI](/cli/azure/?view=azure-cli-latest). I exemplen nedan används Azure CLI.
+Med Azure Resource Manager kan du helt automatisera distributionen av ditt Stream Analytics-jobb. Du kan distribuera Resource Manager-mallar med antingen Azure PowerShell eller [Azure CLI](/cli/azure/). I exemplen nedan används Azure CLI.
 
 
 1. Du kan skapa en **Microsoft. StreamAnalytics/streamingjobs-** resurs med en hanterad identitet genom att inkludera följande egenskap i resurs avsnittet i Resource Manager-mallen:

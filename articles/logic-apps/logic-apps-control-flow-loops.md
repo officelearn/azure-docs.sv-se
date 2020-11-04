@@ -6,21 +6,21 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657469"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348074"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som upprepar arbetsflödesåtgärder eller processmatriser i Azure Logic Apps
 
-Om du vill bearbeta en matris i din Logic app kan du skapa en ["förgrunds"-slinga](#foreach-loop). Den här slingan upprepar en eller flera åtgärder för varje objekt i matrisen. För gränser för antalet mat ris objekt som "förgrunds" loopar kan bearbeta, se [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
+Om du vill bearbeta en matris i din Logic app kan du skapa en ["förgrunds"-slinga](#foreach-loop). Den här slingan upprepar en eller flera åtgärder för varje objekt i matrisen. För att begränsa antalet mat ris objekt som en "förgrunds" slinga kan bearbeta, se [samtidighets-, loop-och avbatchorders gränser](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ändras, kan du skapa en ["till"-loop](#until-loop). Din Logic app kör först alla åtgärder i slingan och kontrollerar sedan villkoret eller tillståndet. Om villkoret är uppfyllt stoppas loopen. Annars upprepas loopen. För gränser för antalet "tills"-slingor i en Logic app-körning, se [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md). 
+Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ändras, kan du skapa en ["till"-loop](#until-loop). Din Logic app kör först alla åtgärder i slingan och kontrollerar sedan villkoret eller tillståndet. Om villkoret är uppfyllt stoppas loopen. Annars upprepas loopen. För begränsningen av antalet fram till-loopar som en Logic app-körning kan ha, se [samtidighets-, loop-och avbatchorders gränser](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
-> Om du har en utlösare som tar emot en matris och vill köra ett arbets flöde för varje mat ris objekt, kan du *Avgruppera* matrisen med [egenskapen **SplitOn** trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
+> Om du har en utlösare som tar emot en matris och vill köra ett arbets flöde för varje mat ris objekt, kan du *Avgruppera* matrisen med [egenskapen **SplitOn** trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,7 +32,9 @@ Om du vill upprepa åtgärder tills ett villkor uppfylls eller ett tillstånd ä
 
 ## <a name="foreach-loop"></a>"Förgrunds"-loop
 
-En "förgrunds slinga" upprepar en eller flera åtgärder på varje mat ris objekt och fungerar bara på matriser. Här följer några saker att tänka på när du använder "förgrunds" slingor:
+En "förgrunds åtgärd" upprepar en eller flera åtgärder på varje mat ris objekt och fungerar bara på matriser. Här följer några saker att tänka på när du använder "förgrunds" slingor:
+
+* "Förgrunds"-loopen kan bearbeta ett begränsat antal mat ris objekt. För den här gränsen, se [samtidighets-, slingor-och debatch-gränser](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 * Som standard körs iterationer i en "förgrunds" loop vid samma tidpunkt eller parallellt. Det här beteendet skiljer sig från automatisk [energi förbrukning **för varje** slinga](/power-automate/apply-to-each) där iterationer körs en i taget eller sekventiellt. Du kan dock [ställa in sekventiella upprepningar av "förgrunds slingor"](#sequential-foreach-loop). Om du till exempel vill pausa nästa iteration i en "förgrunds" slinga med hjälp av [fördröjnings åtgärden](../connectors/connectors-native-delay.md)måste du ställa in loopen så att den körs sekventiellt.
 
@@ -122,11 +124,11 @@ Om du arbetar i kodvyn för din Logi Kap par kan du definiera `Foreach` slingan 
 
 Som standard körs cykler i en "förgrunds" loop parallellt. Om du vill köra varje cykel sekventiellt ställer du in loopens **sekventiella** alternativ. "Förgrunds" slingor måste köras sekventiellt när du har kapslade slingor eller variabler inuti slingor där du förväntar sig förutsägbara resultat. 
 
-1. I loopens övre högra hörn väljer du **ellipser** (**...**) > **Inställningar**.
+1. I loopens övre högra hörn väljer du **ellipser** ( **...** ) > **Inställningar**.
 
    ![I "förgrunds"-loopen väljer du "..." > "Inställningar"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Under **Samtidighets kontroll**aktiverar du **samtidighets kontroll** inställningen till **på**. Flytta skjutreglaget **för parallellitet** till **1**och välj **Slutför**.
+1. Under **Samtidighets kontroll** aktiverar du **samtidighets kontroll** inställningen till **på**. Flytta skjutreglaget **för parallellitet** till **1** och välj **Slutför**.
 
    ![Aktivera samtidighets kontroll](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
@@ -150,7 +152,7 @@ Om du arbetar med din Logic Apps JSON-definition kan du använda `Sequential` al
 
 ## <a name="until-loop"></a>"Until"-loop
   
-Om du vill köra och upprepa åtgärder tills ett villkor har uppfyllts eller ett tillstånd ändras, ska du införa dessa åtgärder i en "till"-slinga. Din Logic app kör först alla åtgärder i slingan och kontrollerar sedan villkoret eller tillståndet. Om villkoret är uppfyllt stoppas loopen. Annars upprepas loopen.
+Om du vill köra och upprepa åtgärder tills ett villkor har uppfyllts eller ett tillstånd ändras, ska du införa dessa åtgärder i en "till"-slinga. Din Logic app kör först alla åtgärder i slingan och kontrollerar sedan villkoret eller tillståndet. Om villkoret är uppfyllt stoppas loopen. Annars upprepas loopen. För begränsningen av antalet fram till-loopar som en Logic app-körning kan ha, se [samtidighets-, loop-och avbatchorders gränser](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Här följer några vanliga scenarier där du kan använda en "till"-slinga:
 
@@ -164,7 +166,7 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 > De här stegen använder Office 365 Outlook, men du kan använda vilken e-postprovider som helst som Logic Apps stöder. 
 > [Kontrol lera anslutnings listan här](/connectors/). Om du använder ett annat e-postkonto förblir de allmänna stegen desamma, men användar gränssnittet kan se lite annorlunda ut. 
 
-1. Skapa en tom logikapp. I Logic App Designer väljer du **alla**under sökrutan. Sök efter "upprepning". 
+1. Skapa en tom logikapp. I Logic App Designer väljer du **alla** under sökrutan. Sök efter "upprepning". 
    Välj den här utlösaren i listan utlösare: **upprepnings schema**
 
    ![Lägg till utlösare för upprepnings schema](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
@@ -213,7 +215,7 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 
    ![Lägg till åtgärd för att öka variabeln](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. I **namn**väljer du variabeln **Limit** . För **värde**anger du "1". 
+1. I **namn** väljer du variabeln **Limit** . För **värde** anger du "1". 
 
      ![Öka "gräns" med 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
@@ -232,7 +234,7 @@ Från och med 8:00 varje dag, ökar den här exempel Logic app en variabel tills
 
       | Egenskap | Värde | Beskrivning |
       | -------- | ----- | ----------- | 
-      | **Om du vill** | *\<email-address\@domain>* | Mottagarens e-postadress. För testning använder du din egen e-postadress. | 
+      | **Att** | *\<email-address\@domain>* | Mottagarens e-postadress. För testning använder du din egen e-postadress. | 
       | **Ämne** | Det aktuella värdet för "Limit" är **begränsat** | Ange e-postmeddelandets ämne. I det här exemplet ska du se till att du inkluderar **Limit** -variabeln. | 
       | **Brödtext** | <*e-post – innehåll*> | Ange det e-postmeddelande innehåll som du vill skicka. I det här exemplet anger du vilken text du vill. | 
       |||| 

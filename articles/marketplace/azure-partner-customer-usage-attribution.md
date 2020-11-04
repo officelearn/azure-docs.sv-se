@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 91de9aff154dec1a61360477edebc90b7a13cf24
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125180"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348346"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Marknads plats partner och kund användnings behörighet
 
@@ -74,7 +74,7 @@ När du har lagt till ett GUID i mallen eller i användar agenten och registrera
    * Partner kan registrera flera GUID.
    * Partner kan registrera GUID för mallar och erbjudanden för icke-Marketplace-lösningar.
 
-1. I det övre högra hörnet väljer du kugg hjuls ikonen Inställningar och väljer sedan **Inställningar för utvecklare** .
+1. I det övre högra hörnet väljer du kugg hjuls ikonen Inställningar och väljer sedan **Inställningar för utvecklare**.
 
 1. På **sidan konto inställningar** väljer du **Lägg till spårnings-GUID.**
 
@@ -82,7 +82,7 @@ När du har lagt till ett GUID i mallen eller i användar agenten och registrera
 
 1. Om du vill registrera fler än ett GUID väljer du **Lägg till spårnings-GUID** igen. Fler rutor visas på sidan.
 
-1. Välj **Spara** .
+1. Välj **Spara**.
 
 ## <a name="use-resource-manager-templates"></a>Använda Resource Manager-mallar
 Många partner lösningar distribueras med hjälp av Azure Resource Manager mallar. Om du har en Resource Manager-mall som är tillgänglig i Azure Marketplace, på GitHub eller som en snabb start, kan du ändra mallen så att du kan göra det rakt framåt i kund användnings behörighet.
@@ -102,7 +102,7 @@ Om du vill lägga till en globalt unik identifierare (GUID) gör du en enskild �
 
 1. Lägg till en ny resurs av typen [Microsoft. Resources/distributioner](/azure/templates/microsoft.resources/deployments) i filen main Template. Resursen måste vara i **mainTemplate.jspå** eller **azuredeploy.jsendast på** fil och inte i några kapslade eller länkade mallar.
 
-1. Ange GUID-värdet efter `pid-` prefixet som namnet på resursen. Om GUID till exempel är eb7927c8-dd66-43e1-b0cf-c346a422063 blir resurs namnet _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_ .
+1. Ange GUID-värdet efter `pid-` prefixet som namnet på resursen. Om GUID till exempel är eb7927c8-dd66-43e1-b0cf-c346a422063 blir resurs namnet _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Kontrol lera om det finns några fel i mallen.
 
@@ -159,7 +159,7 @@ För python använder du **config** -attributet. Du kan bara lägga till attribu
 
 #### <a name="example-the-net-sdk"></a>Exempel: .NET SDK
 
-För .NET, se till att ange användar agenten. Du kan använda [Microsoft. Azure. Management. Fluent](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) -biblioteket för att ange användar agenten med följande kod (exempel i C#):
+För .NET, se till att ange användar agenten. Du kan använda [Microsoft. Azure. Management. Fluent](/dotnet/api/microsoft.azure.management.fluent) -biblioteket för att ange användar agenten med följande kod (exempel i C#):
 
 ```csharp
 

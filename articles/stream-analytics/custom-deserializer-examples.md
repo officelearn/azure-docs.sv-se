@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 87f3e2014281580cc35f941ad62046dcb24539df
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9a69ca707577ceddc56ae691d6e5e701458cae28
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129413"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346609"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Läs in inläsningar i alla format med anpassade .NET-deserialiserare
 
@@ -201,7 +201,7 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="serialization-format-for-rest-apis"></a>Serialization-format för REST API: er
 
-Alla Stream Analytics-indatatyper har ett **serialiserings-format** . För ytterligare information om indata-alternativ, se REST API dokumentation om [indata](./stream-analytics-define-inputs.md) .
+Alla Stream Analytics-indatatyper har ett **serialiserings-format**. För ytterligare information om indata-alternativ, se REST API dokumentation om [indata](/rest/api/streamanalytics/2016-03-01/inputs) .
 
 Följande JavaScript-kod är ett exempel på formatet .NET deserialiserare när du använder REST API:
 
@@ -227,7 +227,7 @@ Följande JavaScript-kod är ett exempel på formatet .NET deserialiserare när 
 Den här funktionen är tillgänglig i följande regioner:
 
 * USA, västra centrala
-* Europa, norra
+* Norra Europa
 * East US
 * USA, västra
 * USA, östra 2

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: bc630fc5ea9407c284e2e2e879c349a83302cd9f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6942fd68625fd8eac18ea899330fd99f31f771f7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122631"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346119"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Felsöka Azure Stream Analytics utdata
 
@@ -67,7 +67,7 @@ Under normal drift av ett jobb kan utdata ha längre och längre tids perioder. 
 * Anger om den överordnade källan är begränsad
 * Om bearbetnings logiken i frågan är beräknings intensiv
 
-Om du vill visa information om utdata väljer du direkt uppspelnings jobbet i Azure Portal och väljer sedan **jobb diagram** . För varje Indatatyp finns det ett händelse mått per partition. Om måttet håller på att öka är det en indikator att system resurserna är begränsade. Ökningen kan bero på begränsning av utgående mottagare eller hög CPU-användning. Mer information finns i [data driven fel sökning med hjälp av jobb diagrammet](stream-analytics-job-diagram-with-metrics.md).
+Om du vill visa information om utdata väljer du direkt uppspelnings jobbet i Azure Portal och väljer sedan **jobb diagram**. För varje Indatatyp finns det ett händelse mått per partition. Om måttet håller på att öka är det en indikator att system resurserna är begränsade. Ökningen kan bero på begränsning av utgående mottagare eller hög CPU-användning. Mer information finns i [data driven fel sökning med hjälp av jobb diagrammet](stream-analytics-job-diagram-with-metrics.md).
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Varning om nyckel fel med Azure SQL Database utdata
 
@@ -91,7 +91,7 @@ När ett Stream Analytics jobb med SQL-utdata tar emot den första batchen med h
 2. Jobbet hämtar schemat för mål tabellen.
 3. Jobbet verifierar kolumn namn och typer mot mål tabellens schema.
 4. Jobbet förbereder en InMemory-datatabell från utgående poster i batchen.
-5. Jobbet skriver data tabellen till SQL med BulkCopy- [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1).
+5. Jobbet skriver data tabellen till SQL med BulkCopy- [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver).
 
 Under de här stegen kan SQL-utdata uppleva följande typer av fel:
 

@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en princip för Azure Policy gäst konfigura
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c0559e284f1e7022510a458209ec8d985ffc6324
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305547"
+ms.locfileid: "93346884"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Skapa gästkonfigurationsprinciper för Linux
 
@@ -24,7 +24,11 @@ Vid Linux-granskning använder gästkonfiguration [Chef InSpec](https://www.insp
 Använd följande åtgärder för att skapa en egen konfiguration för att verifiera tillstånd för en Azure-eller icke-Azure-dator.
 
 > [!IMPORTANT]
+> Anpassade princip definitioner med gäst konfiguration i Azure Government-och Azure Kina-miljöer är en förhands gransknings funktion.
+>
 > Gästkonfigurationstillägget krävs för att utföra granskningar på virtuella Azure-datorer. Om du vill distribuera tillägget i skala över alla Linux-datorer tilldelar du följande princip definition: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 
+> Använd inte hemligheter eller konfidentiell information i anpassade innehålls paket.
 
 ## <a name="install-the-powershell-module"></a>Installera PowerShell-modulen
 
@@ -49,7 +53,9 @@ Operativ system där modulen kan installeras:
 - Windows
 
 > [!NOTE]
-> Cmdleten "test-GuestConfigurationPackage" kräver OpenSSL version 1,0, på grund av ett beroende på OMI. Detta orsakar ett fel i en miljö med OpenSSL 1,1 eller senare.
+> Cmdleten `Test-GuestConfigurationPackage` kräver openssl version 1,0, på grund av ett beroende av OMI. Detta orsakar ett fel i en miljö med OpenSSL 1,1 eller senare.
+>
+> Det `Test-GuestConfigurationPackage` finns bara stöd för att köra cmdleten i Windows för modulen för gäst konfigurations 2.1.0.
 
 Resurs modulen för gäst konfiguration kräver följande program vara:
 
@@ -319,13 +325,16 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>Princip livs cykel
 
-Om du vill frigöra en uppdatering till princip definitionen finns det två fält som kräver åtgärder.
+För att kunna släppa en uppdatering av princip definitionen finns det tre fält som kräver uppmärksamhet.
 
-- **Version** : när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat. Egenskapen uppdaterar versionen av gäst konfigurations tilldelningen så att agenten identifierar det uppdaterade paketet.
+> [!NOTE]
+> `version`Egenskapen för gäst konfigurations tilldelningen påverkar bara paket som är värd för Microsoft. Den bästa metoden för att konfigurera anpassade innehålls versioner är att inkludera versionen i fil namnet.
+
+- **Version** : när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat.
+- **contentUri** : när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange en URI till paketets plats. Genom att inkludera en paket version i fil namnet ser du till att värdet för egenskapen ändras i varje version.
 - **contentHash** : den här egenskapen uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten. Det är ett hash-värde för det paket som skapats av `New-GuestConfigurationPackage` . Egenskapen måste vara korrekt för den `.zip` fil som du publicerar. Om endast egenskapen **contentUri** uppdateras, accepterar inte tillägget innehålls paketet.
 
 Det enklaste sättet att frigöra ett uppdaterat paket är att upprepa processen som beskrivs i den här artikeln och ange ett uppdaterat versions nummer. Den processen garanterar att alla egenskaper har uppdaterats korrekt.
-
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrera principer för gäst konfiguration med Taggar
 

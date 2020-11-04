@@ -8,37 +8,42 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 7270ea589d82c09081aec5d81d1cd0b50b1b8a9f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3acce276a12a0437ad8e1d11f85ceaf40943a4c0
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785586"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348278"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Använda Queue Storage från Ruby
+
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du utför vanliga scenarier med hjälp av tjänsten Microsoft Azure Queue Storage. Exemplen skrivs med ruby Azure-API: et.
-De scenarier som beskrivs är att **Infoga** , **Granska** , **Hämta** och **ta bort** Kömeddelanden, samt **skapa och ta bort köer** .
+
+Den här guiden visar hur du utför vanliga scenarier med hjälp av tjänsten Microsoft Azure Queue Storage. Exemplen skrivs med ruby Azure-API: et. De scenarier som beskrivs är att **Infoga** , **Granska** , **Hämta** och **ta bort** Kömeddelanden, samt **skapa och ta bort köer**.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Skapa ett ruby-program
+
 Skapa ett ruby-program. Instruktioner finns i [skapa en Ruby-app i App Service på Linux](../../app-service/quickstart-ruby.md).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurera ditt program för åtkomst till lagring
+
 Om du vill använda Azure Storage måste du ladda ned och använda ruby Azure-paketet, som innehåller en uppsättning bekvämlighets bibliotek som kommunicerar med lagrings REST tjänsterna.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>Hämta paketet med hjälp av RubyGems
+
 1. Använd ett kommandoradsgränssnitt som **PowerShell** (Windows), **Terminal** (Mac) eller **Bash** (Unix).
 2. Skriv "gem install Azure" i kommando fönstret för att installera symbolen och beroendena.
 
 ### <a name="import-the-package"></a>Importera paketet
+
 Använd din text redigerare och Lägg till följande överst i ruby-filen där du tänker använda Storage:
 
 ```ruby
@@ -46,6 +51,7 @@ require "azure"
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Konfigurera en Azure Storage anslutning
+
 Azure-modulen läser miljövariablerna **Azure \_ Storage- \_ kontot** och **Azure \_ Storage- \_ ACCESS_KEY** för information som krävs för att ansluta till ditt Azure Storage-konto. Om de här miljövariablerna inte har angetts måste du ange konto informationen innan du använder **Azure:: QueueService** med följande kod:
 
 ```ruby
@@ -58,10 +64,11 @@ Du kan hämta dessa värden från ett klassiskt eller Resource Manager-baserat l
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Navigera till det lagrings konto som du vill använda.
 3. Klicka på **Åtkomstnycklar** till höger på bladet Inställningar.
-4. Åtkomstnyckel 1 och åtkomstnyckel 2 visas på bladet som öppnas. Du kan använda vilken av nycklarna du vill. 
-5. Kopiera nyckeln till Urklipp genom att klicka på kopieringsikonen. 
+4. Åtkomstnyckel 1 och åtkomstnyckel 2 visas på bladet som öppnas. Du kan använda vilken av nycklarna du vill.
+5. Kopiera nyckeln till Urklipp genom att klicka på kopieringsikonen.
 
 ## <a name="how-to-create-a-queue"></a>Gör så här: skapa en kö
+
 Följande kod skapar ett **Azure:: QueueService** -objekt, vilket gör att du kan arbeta med köer.
 
 ```ruby
@@ -79,6 +86,7 @@ end
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Så här gör du: infoga ett meddelande i en kö
+
 Om du vill infoga ett meddelande i en kö använder du metoden **create_message ()** för att skapa ett nytt meddelande och lägger till det i kön.
 
 ```ruby
@@ -86,6 +94,7 @@ azure_queue_service.create_message("test-queue", "test message")
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>Gör så här: granska vid nästa meddelande
+
 Du kan titta på meddelandet överst i en kö utan att ta bort det från kön genom att anropa metoden **läsa \_ meddelanden ()** . Som standard tittar **gransknings \_ meddelanden ()** på ett enskilt meddelande. Du kan också ange hur många meddelanden du vill granska.
 
 ```ruby
@@ -94,30 +103,33 @@ result = azure_queue_service.peek_messages("test-queue",
 ```
 
 ## <a name="how-to-dequeue-the-next-message"></a>Gör så här: ta bort nästa meddelande i kö
+
 Du kan ta bort ett meddelande från en kö i två steg.
 
 1. När du anropar **list \_ meddelanden ()** får du nästa meddelande i en kö som standard. Du kan också ange hur många meddelanden du vill hämta. Meddelanden som returneras från **list \_ meddelanden ()** blir osynliga för all annan kod som läser meddelanden från den här kön. Du skickar tids gränsen för synlighet i sekunder som en parameter.
-2. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **delete_message ()** .
+2. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **delete_message ()**.
 
 Den här två stegs processen för att ta bort ett meddelande säkerställer att när din kod inte kan bearbeta ett meddelande på grund av maskin-eller program varu fel, kan en annan instans av koden Hämta samma meddelande och försöka igen. Kod anropen **ta bort \_ meddelandet ()** direkt efter att meddelandet har bearbetats.
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)
-azure_queue_service.delete_message("test-queue", 
+azure_queue_service.delete_message("test-queue",
   messages[0].id, messages[0].pop_receipt)
 ```
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>Så här gör du: ändra innehållet i ett köat meddelande
+
 Du kan ändra innehållet i ett meddelande direkt i kön. I koden nedan används metoden **update_message ()** för att uppdatera ett meddelande. Metoden returnerar en tupel som innehåller pop-kvittot för Queue-meddelandet och ett UTC-datum/tid-värde som representerar när meddelandet ska visas i kön.
 
 ```ruby
 message = azure_queue_service.list_messages("test-queue", 30)
 pop_receipt, time_next_visible = azure_queue_service.update_message(
-  "test-queue", message.id, message.pop_receipt, "updated test message", 
+  "test-queue", message.id, message.pop_receipt, "updated test message",
   30)
 ```
 
 ## <a name="how-to-additional-options-for-dequeuing-messages"></a>Gör så här: ytterligare alternativ för att avköa meddelanden
+
 Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö.
 
 1. Du kan få en batch med meddelandet.
@@ -134,6 +146,7 @@ end
 ```
 
 ## <a name="how-to-get-the-queue-length"></a>Så här gör du: Hämta Kölängd
+
 Du kan få en uppskattning av antalet meddelanden i kön. Metoden **get \_ Queue \_ metadata ()** uppmanar Queue Service att returnera det ungefärliga antalet meddelanden och metadata om kön.
 
 ```ruby
@@ -142,16 +155,18 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
 ```
 
 ## <a name="how-to-delete-a-queue"></a>Så här gör du: ta bort en kö
+
 Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden **Delete \_ Queue ()** i objektet köobjekt.
 
 ```ruby
 azure_queue_service.delete_queue("test-queue")
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
+
 Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter.
 
-* Besök [Azure Storage teamets blogg](/archive/blogs/windowsazurestorage/)
-* Besök [Azure SDK för ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) -lagringsplatsen på GitHub
+- Besök [Azure Storage teamets blogg](/archive/blogs/windowsazurestorage/)
+- Besök [Azure SDK för ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) -lagringsplatsen på GitHub
 
 En jämförelse mellan Azure Queue Service som diskuteras i den här artikeln och Azure Service Bus köer som beskrivs i artikeln [så här använder du Service Bus köer](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) , se [Azure-köer och Service Bus köer-jämförda och kontrasterande](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 2f61fef58485a905b96bdada32b915106e60d1a8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c2ee32b3ced8fdcd5f9f889c4fd0183e46ad5d8d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425135"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346017"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Använda Queue Storage från Java
 
@@ -22,7 +22,7 @@ ms.locfileid: "92425135"
 
 ## <a name="overview"></a>Översikt
 
-I den här guiden får du lära dig hur du kodar vanliga scenarier med Azure Queue Storage-tjänsten. Exemplen är skrivna i Java och använder [Azure Storage SDK för Java][Azure Storage SDK for Java]. Scenarier innefattar att **Infoga**, **Granska**, **Hämta**och **ta bort** Kömeddelanden. Kod för att **skapa** och **ta bort** köer omfattas också. Mer information om köer finns i avsnittet [Nästa steg](#next-steps) .
+I den här guiden får du lära dig hur du kodar vanliga scenarier med Azure Queue Storage-tjänsten. Exemplen är skrivna i Java och använder [Azure Storage SDK för Java][Azure Storage SDK for Java]. Scenarier innefattar att **Infoga** , **Granska** , **Hämta** och **ta bort** Kömeddelanden. Kod för att **skapa** och **ta bort** köer omfattas också. Mer information om köer finns i avsnittet [Nästa steg](#next-steps) .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig hur du kodar vanliga scenarier med Azure Que
 
 Kontrol lera först att utvecklings systemet uppfyller de krav som anges i [klient biblioteket för Azure Queue Storage för Java-V12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
 
-Så här skapar du ett Java-program med namnet *köer – How-to-V12*:
+Så här skapar du ett Java-program med namnet *köer – How-to-V12* :
 
 1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du Maven för att skapa en ny konsol app med namnet *köer – How-to-V12*. Skriv följande **mvn** -kommando för att skapa en "Hello World!" Java-projekt.
 
@@ -152,7 +152,8 @@ final String storageConnectionString =
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
-Du kan lagra strängen i tjänst konfigurations filen med namnet *ServiceConfiguration. cscfg*. För en app som körs i en Microsoft Azure roll får du åtkomst till anslutnings strängen genom att anropa **RoleEnvironment. getConfigurationSettings**. Här är ett exempel på hur du hämtar anslutnings strängen från ett **inställnings** element med namnet *StorageConnectionString*:
+
+Du kan lagra strängen i tjänst konfigurations filen med namnet *ServiceConfiguration. cscfg*. För en app som körs i en Microsoft Azure roll får du åtkomst till anslutnings strängen genom att anropa **RoleEnvironment. getConfigurationSettings**. Här är ett exempel på hur du hämtar anslutnings strängen från ett **inställnings** element med namnet *StorageConnectionString* :
 
 ```java
 // Retrieve storage account from connection-string.
@@ -393,13 +394,13 @@ Du kan hämta en uppskattning av antalet meddelanden i en kö.
 
 # <a name="java-v12"></a>[Java-V12](#tab/java)
 
-Metoden **getProperties** frågar kötjänst efter flera aktuella värden. Ett av värdena är ett antal av hur många meddelanden som finns i en kö. Antalet är bara ungefärlig eftersom meddelanden kan läggas till eller tas bort efter din begäran. Metoden **getApproximateMessageCount** returnerar det sista värdet som hämtades av anropet till **getProperties**, utan att kötjänst anropas.
+Metoden **getProperties** frågar kötjänst efter flera aktuella värden. Ett av värdena är ett antal av hur många meddelanden som finns i en kö. Antalet är bara ungefärlig eftersom meddelanden kan läggas till eller tas bort efter din begäran. Metoden **getApproximateMessageCount** returnerar det sista värdet som hämtades av anropet till **getProperties** , utan att kötjänst anropas.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_GetQueueLength":::
 
 # <a name="java-v8"></a>[Java-V8](#tab/java8)
 
-Metoden **downloadAttributes** frågar kötjänst efter flera aktuella värden. Ett av värdena är ett antal av hur många meddelanden som finns i en kö. Antalet är bara ungefärlig eftersom meddelanden kan läggas till eller tas bort efter din begäran. Metoden **getApproximateMessageCount** returnerar det sista värdet som hämtades av anropet till **downloadAttributes**, utan att kötjänst anropas.
+Metoden **downloadAttributes** frågar kötjänst efter flera aktuella värden. Ett av värdena är ett antal av hur många meddelanden som finns i en kö. Antalet är bara ungefärlig eftersom meddelanden kan läggas till eller tas bort efter din begäran. Metoden **getApproximateMessageCount** returnerar det sista värdet som hämtades av anropet till **downloadAttributes** , utan att kötjänst anropas.
 
 ```java
 try
@@ -436,13 +437,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java-V12](#tab/java)
 
-Din kod avstår ett meddelande från en kö i två steg. När du anropar **receiveMessage**får du nästa meddelande i en kö. Ett meddelande som returnerades från **receiveMessage** blir osynligt för all annan kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **deleteMessage**. Om din kod inte kan bearbeta ett meddelande, säkerställer den här processen att du får samma meddelande och försöker igen. Din kod anropar **deleteMessage** direkt efter att meddelandet har bearbetats.
+Din kod avstår ett meddelande från en kö i två steg. När du anropar **receiveMessage** får du nästa meddelande i en kö. Ett meddelande som returnerades från **receiveMessage** blir osynligt för all annan kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **deleteMessage**. Om din kod inte kan bearbeta ett meddelande, säkerställer den här processen att du får samma meddelande och försöker igen. Din kod anropar **deleteMessage** direkt efter att meddelandet har bearbetats.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessage":::
 
 # <a name="java-v8"></a>[Java-V8](#tab/java8)
 
-Din kod avstår ett meddelande från en kö i två steg. När du anropar **retrieveMessage**får du nästa meddelande i en kö. Ett meddelande som returnerades från **retrieveMessage** blir osynligt för all annan kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **deleteMessage**. Om din kod inte kan bearbeta ett meddelande, säkerställer den här processen att du får samma meddelande och försöker igen. Din kod anropar **deleteMessage** direkt efter att meddelandet har bearbetats.
+Din kod avstår ett meddelande från en kö i två steg. När du anropar **retrieveMessage** får du nästa meddelande i en kö. Ett meddelande som returnerades från **retrieveMessage** blir osynligt för all annan kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa **deleteMessage**. Om din kod inte kan bearbeta ett meddelande, säkerställer den här processen att du får samma meddelande och försöker igen. Din kod anropar **deleteMessage** direkt efter att meddelandet har bearbetats.
 
 ```java
 try
@@ -481,13 +482,13 @@ Det finns två sätt att anpassa meddelande hämtning från en kö. Börja med a
 
 # <a name="java-v12"></a>[Java-V12](#tab/java)
 
-I följande kod exempel används metoden **receiveMessages** för att få 20 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en **for** -slinga. Den anger också timeout för insikter till fem minuter (300 sekunder) för varje meddelande. Tids gränsen startar för alla meddelanden samtidigt. Om fem minuter har passerat sedan anropet till **receiveMessages**, kommer alla meddelanden som inte tas bort att bli synliga igen.
+I följande kod exempel används metoden **receiveMessages** för att få 20 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en **for** -slinga. Den anger också timeout för insikter till fem minuter (300 sekunder) för varje meddelande. Tids gränsen startar för alla meddelanden samtidigt. Om fem minuter har passerat sedan anropet till **receiveMessages** , kommer alla meddelanden som inte tas bort att bli synliga igen.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessages":::
 
 # <a name="java-v8"></a>[Java-V8](#tab/java8)
 
-I följande kod exempel används metoden **retrieveMessages** för att få 20 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en **for** -slinga. Den anger också timeout för insikter till fem minuter (300 sekunder) för varje meddelande. Tids gränsen startar för alla meddelanden samtidigt. Om fem minuter har passerat sedan anropet till **retrieveMessages**, kommer alla meddelanden som inte tas bort att bli synliga igen.
+I följande kod exempel används metoden **retrieveMessages** för att få 20 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en **for** -slinga. Den anger också timeout för insikter till fem minuter (300 sekunder) för varje meddelande. Tids gränsen startar för alla meddelanden samtidigt. Om fem minuter har passerat sedan anropet till **retrieveMessages** , kommer alla meddelanden som inte tas bort att bli synliga igen.
 
 ```java
 try
@@ -600,10 +601,10 @@ catch (Exception e)
 
 Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter.
 
-* [Azure Storage SDK för Java][Azure Storage SDK for Java]
-* [Azure Storage Client SDK-referens][Azure Storage Client SDK Reference]
-* [REST-API för Azure Storage Services][Azure Storage Services REST API]
-* [Azure Storage teamets blogg][Azure Storage Team Blog]
+- [Azure Storage SDK för Java][Azure Storage SDK for Java]
+- [Azure Storage Client SDK-referens][Azure Storage Client SDK Reference]
+- [REST-API för Azure Storage Services][Azure Storage Services REST API]
+- [Azure Storage teamets blogg][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
 [Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage

@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för utvärdering av virtuella VMware-datorer med Azure Migrate Server-utvärdering.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9d5c954be2a6f05e5132a5f57f8169f436719a8d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8b119b56e7e4c7fac74c57cc5c48fb44f91a7ee6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332278"
+ms.locfileid: "93345439"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -67,12 +67,11 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **Support** | **Detaljer**
 --- | ---
 **Datorer som stöds** | Identifiering av appar stöds för närvarande endast för virtuella VMware-datorer. Du kan identifiera appar som är installerade på upp till 10000 virtuella VMware-datorer från varje Azure Migrate-apparat.
+**Operativsystem** | App-Discovery stöds för virtuella datorer som kör alla Windows-och Linux-versioner.
+**Krav för virtuell dator** | VMware-verktyg måste installeras och köras på de virtuella datorer där du vill identifiera appar. <br/><br/> VMware Tools-versionen måste vara senare än 10.2.0.<br/><br/> Virtuella datorer måste ha PowerShell version 2,0 eller senare installerat.
 **Identifiering** | Identifiering av appar är agenten. Den använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer via WMI och SSH-samtal.
-**Stöd för virtuella datorer** | App-Discovery stöds för virtuella datorer som kör alla Windows-och Linux-versioner.
 **vCenter** | VCenter Server skrivskyddat konto som används för utvärdering måste ha behörighet som är aktiverat för **Virtual Machines**  >  **gäst åtgärder** för att kunna interagera med den virtuella datorn för program identifiering.
 **VM-åtkomst** | Identifiering av appar behöver ett lokalt användar konto på den virtuella datorn för program identifiering.<br/><br/> Azure Migrate har för närvarande stöd för att använda en autentiseringsuppgift för alla Windows-servrar och en autentiseringsuppgift för alla Linux-servrar.<br/><br/> Du skapar ett gäst användar konto för virtuella Windows-datorer och ett vanligt/vanligt användar konto (icke-sudo åtkomst) för alla virtuella Linux-datorer.
-**VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill identifiera. <br/><br/> VMware Tools-versionen måste vara senare än 10.2.0.
-**PowerShell** | Virtuella datorer måste ha PowerShell version 2,0 eller senare installerat.
 **Port åtkomst** | Azure Migrate-installationen måste kunna ansluta till TCP-port 443 på ESXi-värdar som kör virtuella datorer där du vill identifiera appar. VCenter Server returnerar en ESXI-värd anslutning för att ladda ned den fil som innehåller information om appen.
 **Gränser** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: f6bf436110e9822d687419b74a8a22bad7a6d700
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e0534fa6eaccbfb9318369e0a4224d84fa8de7c8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333472"
+ms.locfileid: "93347717"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>För hands version: Använd Kundhanterade nycklar för att kryptera avbildningar
 
@@ -23,7 +23,7 @@ Du kan förlita dig på plattforms hanterade nycklar för kryptering av dina avb
 
 Kryptering på Server sidan med Kundhanterade nycklar använder Azure Key Vault. Du kan antingen importera [dina RSA-nycklar](../key-vault/keys/hsm-protected-keys.md) till Key Vault eller generera nya RSA-nycklar i Azure Key Vault.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln kräver att du redan har en disk krypterings uppsättning i varje region som du vill replikera avbildningen till.
 
@@ -134,7 +134,7 @@ För data diskar måste du lägga till `-DiskEncryptionSetId $setID` parametern 
 
 ## <a name="cli"></a>CLI 
 
-För den allmänt tillgängliga för hands versionen måste du först registrera funktionen.
+För den allmänt tillgängliga för hands versionen måste du först registrera dig för funktionen. Registreringen tar cirka 30 minuter.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SIGEncryption

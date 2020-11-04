@@ -3,12 +3,12 @@ title: Kontinuerlig video inspelning till molnet och uppspelningen från Cloud-s
 description: I den här självstudien får du lära dig hur du använder Azure Live Video Analytics på Azure IoT Edge för att kontinuerligt spela in video i molnet och strömma någon del av videon med hjälp av Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 4333ceb9c02f39629e4bd06d3d9634b97bb2e2d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e8bf1202e95cb4e76b54473f9d84076d24accea
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91774036"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346374"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Självstudie: kontinuerlig video inspelning till molnet och uppspelningen från molnet
 
@@ -33,7 +33,7 @@ Läs de här artiklarna innan du börjar:
 * [Media Graph-begrepp](media-graph-concept.md) 
 * [Scenarier för kontinuerlig video inspelning](continuous-video-recording-concept.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Krav för den här självstudien är:
 
@@ -74,8 +74,8 @@ Innan du börjar bör du kontrol lera att du har slutfört den tredje punkten i 
 
 Av intresse i den här självstudien är filerna:
 
-* **~/clouddrive/lva-Sample/Edge-Deployment/.env**: innehåller egenskaper som Visual Studio Code använder för att distribuera moduler till en Edge-enhet.
-* **~/clouddrive/lva-sample/appsettings.jspå**: används av Visual Studio Code för att köra exempel koden.
+* **~/clouddrive/lva-Sample/Edge-Deployment/.env** : innehåller egenskaper som Visual Studio Code använder för att distribuera moduler till en Edge-enhet.
+* **~/clouddrive/lva-sample/appsettings.jspå** : används av Visual Studio Code för att köra exempel koden.
 
 Du behöver filerna för följande steg:
 
@@ -93,7 +93,7 @@ Du behöver filerna för följande steg:
     Med anslutnings strängen IoT Hub kan du använda Visual Studio Code för att skicka kommandon till Edge-modulerna via Azure IoT Hub.
     
 1. Bläddra sedan till mappen src/Edge och skapa en fil med namnet **. kuvert**.
-1. Kopiera innehållet från ~/clouddrive/lva-Sample/.env-filen. Texten bör se ut så här:
+1. Kopiera innehållet från ~/clouddrive/lva-Sample/Edge-Deployment/.env-filen. Texten bör se ut så här:
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  
@@ -114,14 +114,14 @@ Du behöver filerna för följande steg:
 
 Öppna src/Edge/deployment.template.jspå i Visual Studio Code. Den här mallen definierar vilka Edge-moduler du distribuerar till gräns enheten (den virtuella Azure Linux-datorn). Det finns två poster under avsnittet **moduler** med följande namn:
 
-* **lvaEdge**: det här är video analys i real tid i IoT Edge modul.
-* **rtspsim**: Detta är RTSP-simulatorn.
+* **lvaEdge** : det här är video analys i real tid i IoT Edge modul.
+* **rtspsim** : Detta är RTSP-simulatorn.
 
 Bläddra sedan till mappen src/Cloud-to-Device-console-app. Här ser du appsettings.jspå filen som du skapade tillsammans med några andra filer:
 
-* **C2D-console-app. CSPROJ**: projekt filen för Visual Studio Code.
-* **operations.jspå**: den här filen visar de olika åtgärder som du skulle köra.
-* **Program.cs**: kod för exempel program som:
+* **C2D-console-app. CSPROJ** : projekt filen för Visual Studio Code.
+* **operations.jspå** : den här filen visar de olika åtgärder som du skulle köra.
+* **Program.cs** : kod för exempel program som:
     * Läser in appinställningar.
     * Anropar direkta metoder som exponeras av direktsänd video analys i IoT Edge modul. Du kan använda modulen för att analysera direktuppspelade video strömmar genom att anropa dess [direkta metoder](direct-methods.md).
     * Pausar så att du kan granska utdata från programmet i **terminalfönstret** och de händelser som genererats av modulen i fönstret **utdata** .
@@ -143,8 +143,8 @@ Distributions manifestet definierar vilka moduler som distribueras till en grän
    ![Skapa distribution för en enskild enhet](./media/quickstarts/create-deployment-single-device.png)
 1. Sedan uppmanas du att **välja en IoT Hub enhet**. Välj lva-Sample-Device i list rutan.
 1. Om 30 sekunder uppdaterar du Azure-IoT Hub i det nedre vänstra avsnittet. Du bör se att Edge-enheten har följande moduler distribuerade:
-    * Video analys i real tid för IoT Edge (Modulnamn **lvaEdge**)
-    * RTSP Simulator (Modulnamn **rtspsim**)
+    * Video analys i real tid för IoT Edge (Modulnamn **lvaEdge** )
+    * RTSP Simulator (Modulnamn **rtspsim** )
  
     ![IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
 
@@ -164,11 +164,63 @@ När du använder live video analys i IoT Edge-modulen för att spela in direktu
 1. Högerklicka och välj **Inställningar för tillägg**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Mediegraf":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Tilläggs inställningar":::
 1. Sök och aktivera "Visa utförligt meddelande".
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Mediegraf"
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Visa utförligt meddelande":::
+1. <!--In Visual Studio Code, go-->Gå till src/Cloud-to-Device-console-app/operations.jspå.
+1. Under noden **GraphTopologySet** redigerar du följande:
+
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
+1. Se sedan till att värdet för **topologyName** matchar värdet för egenskapen **Name** i föregående graf-topologi under **GraphInstanceSet** -och **GraphTopologyDelete** -noderna:
+
+    `"topologyName" : "CVRToAMSAsset"`  
+1. Öppna [topologin](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) i en webbläsare och titta på assetNamePattern. För att se till att du har en till gång med ett unikt namn kanske du vill ändra graf-instansnamnet i operations.jspå filen (från standardvärdet för Sample-Graph-1).
+
+    `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
+1. Starta en felsökningssession genom att välja F5. Du ser vissa meddelanden som skrivs ut i **terminalfönstret** .
+1. operations.jspå filen börjar med anrop till GraphTopologyList och GraphInstanceList. Om du har rensat resurser efter tidigare snabb starter eller självstudier returnerar den här åtgärden tomma listor och pausar sedan för att välja **RETUR** , som visas:
+
+    ```
+    --------------------------------------------------------------------------
+    Executing operation GraphTopologyList
+    -----------------------  Request: GraphTopologyList  --------------------------------------------------
+    {
+      "@apiVersion": "1.0"
+    }
+    ---------------  Response: GraphTopologyList - Status: 200  ---------------
+    {
+      "value": []
+    }
+    --------------------------------------------------------------------------
+    Executing operation WaitForInput
+    Press Enter to continue
+    ```
+
+1. När du har valt **Ange** i **terminalfönstret** görs nästa uppsättning direkta metod anrop:
+   * Ett anrop till GraphTopologySet med föregående topologyUrl
+   * Ett anrop till GraphInstanceSet med hjälp av följande text
+     
+     ```
+     {
+       "@apiVersion": "1.0",
+       "name": "Sample-Graph-1",
+       "properties": {
+         "topologyName": "CVRToAMSAsset",
+         "description": "Sample graph description",
+         "parameters": [
+           {
+             "name": "rtspUrl",
+             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+           },
+           {
+             "name": "rtspUserName",
+             "value": "testuser"
+           },
+           {
+             "name": "rtspPassword",
+             "value": "testpassword"
            }
          ]
        }

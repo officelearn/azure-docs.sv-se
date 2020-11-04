@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148535"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347003"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -262,7 +262,8 @@ Bild karantänen är för närvarande en förhands gransknings funktion i ACR. D
 Att konfigurera ett Azure Container Registry för anonym (offentlig) pull-åtkomst är för närvarande en för hands versions funktion. Om du har en [omfattnings karta (användare) eller tokens](./container-registry-repository-scoped-permissions.md) i registret kan du ta bort dem innan du höjer ett support ärende (system definitions kartor kan ignoreras). Om du vill aktivera offentlig åtkomst öppnar du ett support ärende på https://aka.ms/acr/support/create-ticket . Mer information finns i [Azure feedback-forumet](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
-> Det går bara att komma åt anonyma API: er som krävs för att hämta en känd bild. Inga andra API: er för åtgärder som tagg lista eller lagrings plats lista kan användas anonymt.
+> * Det går bara att komma åt anonyma API: er som krävs för att hämta en känd bild. Inga andra API: er för åtgärder som tagg lista eller lagrings plats lista kan användas anonymt.
+> * Innan du försöker utföra en anonym pull-åtgärd `docker logout` ska du köra för att se till att du rensar eventuella befintliga Docker-autentiseringsuppgifter.
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnostik-och hälso kontroller
 

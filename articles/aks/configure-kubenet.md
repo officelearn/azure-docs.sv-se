@@ -5,16 +5,16 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 3bc245fa02f57a433a76a316caac67ed5d884fe9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 82745d4f86a440c671e73ac3c74702a4a0c56b2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072755"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348210"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
-Som standard använder AKS-kluster [Kubernetes][kubenet]och ett virtuellt Azure-nätverk och undernät skapas åt dig. Med *Kubernetes*hämtar noder en IP-adress från det virtuella nätverkets undernät i Azure. Poddar får en IP-adress från ett annat logiskt adressutrymme än det virtuella Azure-nätverkets undernät för noderna. NAT (Network Address Translation) konfigureras sedan så att poddarna kan komma åt resurser i det virtuella Azure-nätverket. Käll-IP-adressen för trafiken är NAT till nodens primära IP-adress. Den här metoden minskar antalet IP-adresser som du behöver reservera i ditt nätverks utrymme för att poddar ska kunna användas.
+Som standard använder AKS-kluster [Kubernetes][kubenet]och ett virtuellt Azure-nätverk och undernät skapas åt dig. Med *Kubernetes* hämtar noder en IP-adress från det virtuella nätverkets undernät i Azure. Poddar får en IP-adress från ett annat logiskt adressutrymme än det virtuella Azure-nätverkets undernät för noderna. NAT (Network Address Translation) konfigureras sedan så att poddarna kan komma åt resurser i det virtuella Azure-nätverket. Käll-IP-adressen för trafiken är NAT till nodens primära IP-adress. Den här metoden minskar antalet IP-adresser som du behöver reservera i ditt nätverks utrymme för att poddar ska kunna användas.
 
 Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod en IP-adress från under nätet och kan nås direkt. De här IP-adresserna måste vara unika i ditt nätverks utrymme och måste planeras i förväg. Varje nod har en konfigurations parameter för det maximala antalet poddar som stöds. Motsvarande antal IP-adresser per nod är sedan reserverade för den noden. Den här metoden kräver mer planering, och leder ofta till IP-prisslutning eller behovet av att återskapa kluster i ett större undernät när ditt program kräver en tillväxt. Du kan konfigurera den maximala poddar som kan distribueras till en nod vid klustrets skapande tid eller när du skapar nya nodkonfigurationer. Om du inte anger maxPods när du skapar nya Node-pooler får du ett standardvärde på 110 för Kubernetes.
 
@@ -34,19 +34,19 @@ Den här artikeln visar hur du använder *Kubernetes* -nätverk för att skapa o
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver Azure CLI-versionen 2.0.65 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du behöver Azure CLI-versionen 2.0.65 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Översikt över Kubernetes-nätverk med ditt eget undernät
 
-I många miljöer har du definierat virtuella nätverk och undernät med allokerade IP-adressintervall. Dessa virtuella nätverks resurser används för att stödja flera tjänster och program. För att tillhandahålla nätverks anslutning kan AKS-kluster använda *Kubernetes* (grundläggande nätverk) eller Azure cni (*avancerade nätverk*).
+I många miljöer har du definierat virtuella nätverk och undernät med allokerade IP-adressintervall. Dessa virtuella nätverks resurser används för att stödja flera tjänster och program. För att tillhandahålla nätverks anslutning kan AKS-kluster använda *Kubernetes* (grundläggande nätverk) eller Azure cni ( *avancerade nätverk* ).
 
-Med *Kubernetes*får bara noderna en IP-adress i det virtuella nätverkets undernät. Poddar kan inte kommunicera direkt med varandra. I stället används UDR (User Defined routing) och IP-vidarebefordring för anslutning mellan poddar över noder. Som standard skapas och underhålls UDR och underhålls konfigurationen av AKS-tjänsten, men du måste välja att [ta med din egen routningstabell för anpassad väg hantering][byo-subnet-route-table]. Du kan också distribuera poddar bakom en tjänst som tar emot en tilldelad IP-adress och belastnings Utjämnings trafik för programmet. Följande diagram visar hur AKS-noder får en IP-adress i det virtuella nätverkets undernät, men inte poddar:
+Med *Kubernetes* får bara noderna en IP-adress i det virtuella nätverkets undernät. Poddar kan inte kommunicera direkt med varandra. I stället används UDR (User Defined routing) och IP-vidarebefordring för anslutning mellan poddar över noder. Som standard skapas och underhålls UDR och underhålls konfigurationen av AKS-tjänsten, men du måste välja att [ta med din egen routningstabell för anpassad väg hantering][byo-subnet-route-table]. Du kan också distribuera poddar bakom en tjänst som tar emot en tilldelad IP-adress och belastnings Utjämnings trafik för programmet. Följande diagram visar hur AKS-noder får en IP-adress i det virtuella nätverkets undernät, men inte poddar:
 
 ![Kubernetes nätverks modell med ett AKS-kluster](media/use-kubenet/kubenet-overview.png)
 
 Azure har stöd för högst 400 vägar i en UDR, så du kan inte ha ett AKS-kluster som är större än 400 noder. AKS [virtuella noder][virtual-nodes] och Azure Network policies stöds inte med *Kubernetes*.  Du kan använda [Calico nätverks principer][calico-network-policies]eftersom de stöds med Kubernetes.
 
-Med *Azure cni*får varje Pod en IP-adress i IP-undernätet och kan kommunicera direkt med andra poddar och tjänster. Klustren kan vara så stora som det IP-adressintervall som du anger. IP-adressintervallet måste dock planeras i förväg, och alla IP-adresser används av AKS-noderna baserat på det maximala antalet poddar som de kan stödja. Avancerade nätverksfunktioner och scenarier som [virtuella noder][virtual-nodes] eller nätverks principer (antingen Azure eller Calico) stöds med *Azure cni*.
+Med *Azure cni* får varje Pod en IP-adress i IP-undernätet och kan kommunicera direkt med andra poddar och tjänster. Klustren kan vara så stora som det IP-adressintervall som du anger. IP-adressintervallet måste dock planeras i förväg, och alla IP-adresser används av AKS-noderna baserat på det maximala antalet poddar som de kan stödja. Avancerade nätverksfunktioner och scenarier som [virtuella noder][virtual-nodes] eller nätverks principer (antingen Azure eller Calico) stöds med *Azure cni*.
 
 ### <a name="limitations--considerations-for-kubenet"></a>Begränsningar & överväganden för Kubernetes
 
@@ -57,22 +57,22 @@ Med *Azure cni*får varje Pod en IP-adress i IP-undernätet och kan kommunicera 
 * Funktioner som **inte stöds i Kubernetes** är:
    * Nätverks [principer i Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), men Calico nätverks principer stöds på Kubernetes
    * [Windows-noder i pooler](./windows-faq.md)
-   * [Tillägg för virtuella noder](virtual-nodes-portal.md#known-limitations)
+   * [Tillägg för virtuella noder](virtual-nodes.md#network-requirements)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Tillgänglighet och utbelastning för IP-adress
 
-Med *Azure cni*är ett vanligt problem att det tilldelade IP-adressintervallet är för litet för att lägga till ytterligare noder när du skalar eller uppgraderar ett kluster. Nätverks teamet kanske inte heller kan utfärda ett stort tillräckligt med IP-adressintervall för att stödja förväntade program krav.
+Med *Azure cni* är ett vanligt problem att det tilldelade IP-adressintervallet är för litet för att lägga till ytterligare noder när du skalar eller uppgraderar ett kluster. Nätverks teamet kanske inte heller kan utfärda ett stort tillräckligt med IP-adressintervall för att stödja förväntade program krav.
 
 Som en kompromiss kan du skapa ett AKS-kluster som använder *Kubernetes* och ansluter till ett befintligt undernät för virtuella nätverk. Med den här metoden kan noderna ta emot definierade IP-adresser, utan att behöva reservera ett stort antal IP-adresser fram för alla potentiella poddar som kan köras i klustret.
 
-Med *Kubernetes*kan du använda ett mycket mindre IP-adressintervall och kunna stödja stora kluster och program krav. Till exempel, även med ett */27* IP-adressintervall i ditt undernät, kan du köra ett 20-25-nods-kluster med tillräckligt utrymme för att skala eller uppgradera. Den här kluster storleken har stöd för upp till *2200-2750* poddar (med ett standardvärde på högst 110 poddar per nod). Det maximala antalet poddar per nod som du kan konfigurera med *Kubernetes* i AKS är 110.
+Med *Kubernetes* kan du använda ett mycket mindre IP-adressintervall och kunna stödja stora kluster och program krav. Till exempel, även med ett */27* IP-adressintervall i ditt undernät, kan du köra ett 20-25-nods-kluster med tillräckligt utrymme för att skala eller uppgradera. Den här kluster storleken har stöd för upp till *2200-2750* poddar (med ett standardvärde på högst 110 poddar per nod). Det maximala antalet poddar per nod som du kan konfigurera med *Kubernetes* i AKS är 110.
 
 Följande grundläggande beräkningar Jämför skillnaden i nätverks modeller:
 
 - **Kubernetes** – ett enkelt */24* -adressintervall har stöd för upp till *251* noder i klustret (varje Azure Virtual Network-undernät reserverar de första tre IP-adresserna för hanterings åtgärder)
-  - Antalet noder kan stödja upp till *27 610* poddar (med ett standardvärde som är högst 110 poddar per nod med *Kubernetes*)
+  - Antalet noder kan stödja upp till *27 610* poddar (med ett standardvärde som är högst 110 poddar per nod med *Kubernetes* )
 - **Azure-cni** – samma bas *-/24* -undernät kan bara stödja högst *8* noder i klustret
-  - Antalet noder kunde bara stödja upp till *240* poddar (med ett standardvärde som är högst 30 poddar per nod med *Azure cni*)
+  - Antalet noder kunde bara stödja upp till *240* poddar (med ett standardvärde som är högst 30 poddar per nod med *Azure cni* )
 
 > [!NOTE]
 > Dessa maximum tar inte hänsyn till uppgradering eller skalnings åtgärder. I praktiken kan du inte köra det maximala antalet noder som under nätets IP-adressintervall stöder. Du måste lämna vissa IP-adresser tillgängliga för användning under skalningen av uppgraderings åtgärder.
@@ -168,7 +168,7 @@ Följande IP-adressintervall definieras också som en del av klustret Create pro
 
 * *--Pod-CIDR* bör vara ett stort adress utrymme som inte används någon annan stans i din nätverks miljö. Det här intervallet omfattar alla lokala nätverks intervall om du ansluter eller planerar att ansluta, dina virtuella Azure-nätverk med Express Route eller en VPN-anslutning från plats till plats.
     * Adress intervallet måste vara tillräckligt stort för att rymma antalet noder som du förväntar dig att skala upp till. Du kan inte ändra det här adress intervallet när klustret har distribuerats om du behöver fler adresser för ytterligare noder.
-    * IP-adressintervallet Pod används för att tilldela ett */24* -adressutrymme till varje nod i klustret. I följande exempel tilldelar *--Pod-CIDR-* *10.244.0.0/16* den första noden *10.244.0.0/24*, den andra noden *10.244.1.0/24*och den tredje noden *10.244.2.0/24*.
+    * IP-adressintervallet Pod används för att tilldela ett */24* -adressutrymme till varje nod i klustret. I följande exempel tilldelar *--Pod-CIDR-* *10.244.0.0/16* den första noden *10.244.0.0/24* , den andra noden *10.244.1.0/24* och den tredje noden *10.244.2.0/24*.
     * När klustret skalas eller uppgraderas fortsätter Azure-plattformen att tilldela ett Pod IP-adressintervall till varje ny nod.
     
 * *--Docker-Bridge-Address* låter AKS-noderna kommunicera med den underliggande hanterings plattformen. Den här IP-adressen får inte ligga inom det virtuella nätverkets IP-adressintervall och får inte överlappa andra adress intervall som används i nätverket.

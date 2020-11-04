@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/04/2020
 ms.author: alexeyo
-ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567170"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345405"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Kvoter och gränser för Speech-tjänster
 
@@ -24,20 +24,35 @@ Den här artikeln innehåller en snabb referens och en **detaljerad beskrivning*
 ## <a name="quotas-and-limits-quick-reference"></a>Snabb referens för kvoter och begränsningar
 Hoppa till [text till tal-kvoter och begränsningar](#text-to-speech-quotas-and-limits-per-speech-resource)
 ### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Tal till text-kvoter och -gränser per Speech-resurs
-I tabellen nedan, utan att raden "justerbar", **inte** är justerbar för alla pris nivåer.
+I tabellerna nedan, utan att raden "justerbar" **inte** är justerbar för alla pris nivåer.
+
+#### <a name="online-transcription"></a>Online-avskriftering
 
 | Kvot | Kostnads fri (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Gräns för samtidig begränsning av online-avskrift (bas-och anpassade modeller)** |  |  |
-| Standardvärde | 1 | 20 |
+| **Gräns för samtidiga förfrågningar (bas-och anpassade modeller)** | 1 | 20 (standardvärde) |
 | Justerbar | Nr<sup>2</sup> | Ja<sup>2</sup> |
-| **REST API begär ande gräns ([API Management](../../api-management/api-management-key-concepts.md) slut punkter)** | 100 förfrågningar per 10 sekunder | 100 förfrågningar per 10 sekunder |
-| **Maximal data uppsättnings fil storlek för data import** | 2 GB | 2 GB |
-| **Max storlek för BLOB-inflöde för batch-avskriftering** | E.t. | 2,5 GB |
-| **Maximal BLOB container-storlek för batch-avskriftering** | E.t. | 5 GB |
-| **Högsta antal blobbar per behållare för batch-avskriftering** | E.t. | 10000 |
-| **Maximalt antal filer per avskrifts förfrågan för batch-avskrift (när flera innehålls webb adresser används som indatafiler)** | E.t. | 1000  |
-| **Maximalt antal jobb som körs samtidigt för batch-avskriftering** | E.t. | 2000  |
+
+#### <a name="batch-transcription"></a>Batch-avskrift
+| Kvot | Kostnads fri (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| REST API gräns | Batch-avskrift är inte tillgängligt för F0 | 300 förfrågningar per minut |
+| Max fil storlek för ljud inspelning | E.t. | 1 GB |
+| Maximal BLOB-storlek för indata (kan innehålla fler än en fil, till exempel i ett zip-arkiv, se till att observera fil storleks begränsningen ovan) | E.t. | 2,5 GB |
+| Maximal storlek på BLOB-behållare | E.t. | 5 GB |
+| Högsta antal blobbar per behållare | E.t. | 10000 |
+| Maximalt antal filer per avskrifts förfrågan (när flera innehålls-URL: er används som inmatade) | E.t. | 1000  |
+| Maximalt antal jobb som körs samtidigt | E.t. | 2000  |
+
+#### <a name="model-customization"></a>Modell anpassning
+| Kvot | Kostnads fri (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| REST API gräns | 300 förfrågningar per minut | 300 förfrågningar per minut |
+| Högsta antal tal uppsättningar för tal | 2 | 500 |
+| Maximal fil storlek för akustiska data uppsättningar för data import | 2 GB | 2 GB |
+| Maximal språk data uppsättnings fil storlek för data import | 200 MB | 1,5 GB |
+| Maximal data uppsättnings fil storlek för data import | 1 kB | 1 MB |
+| Max text storlek när `text` parameter används i [create Model](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) API-begäran | 200 KB | 500 kB |
 
 <sup>1</sup> **kostnads fri (F0)** pris nivå se även månads traktamenten på [sidan med priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> se [ytterligare förklaringar](#detailed-description-quota-adjustment-and-best-practices), [metod tips](#general-best-practices-to-mitigate-throttling-during-autoscaling)och [anpassnings anvisningar](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
@@ -57,7 +72,7 @@ I tabellen nedan, utan att raden "justerbar", **inte** är justerbar för alla p
 | **WebSocket-/regionsspecifika kvoter** |  |  |
 |Maximal ljud längd som produceras per turn | 10 min | 10 min |
 |Max storlek för SSML-meddelande per turn |64 kB |64 kB |
-| **Gräns för REST API begäran** | 20 förfrågningar per minut | 25 förfrågningar per 5 sekunder |
+| **REST API gräns** | 20 förfrågningar per minut | 25 förfrågningar per 5 sekunder |
 
 
 <sup>3</sup> **kostnads fri (F0)** pris nivå se även månads traktamenten på [sidan med priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
@@ -92,22 +107,22 @@ Det befintliga värdet för begränsnings parametern för samtidiga förfrågnin
 >[Tal behållare](speech-container-howto.md) kräver ingen ökning av gränsen för samtidiga förfrågningar, eftersom behållare endast begränsas av CPU: er för den maskin vara som de är värd för.
 
 #### <a name="have-the-required-information-ready"></a>Ha nödvändig information som är klar:
-- För **bas modell**:
+- För **bas modell** :
   - Tal resurs-ID
   - Region
-- För **anpassad modell**: 
+- För **anpassad modell** : 
   - Region
   - ID för anpassad slut punkt
 
-- **Så här hämtar du information (bas modell)**:  
+- **Så här hämtar du information (bas modell)** :  
   - Gå till [Azure Portal](https://portal.azure.com/)
   - Välj den tal resurs för vilken du vill öka gränsen för samtidiga begär Anden
-  - Välj *Egenskaper* (*resurs hanterings* grupp) 
+  - Välj *Egenskaper* ( *resurs hanterings* grupp) 
   - Kopiera och spara värdena för följande fält:
     - **Resurs-ID**
     - **Plats** (din slut punkts region)
 
-- **Så här hämtar du information (anpassad modell)**:
+- **Så här hämtar du information (anpassad modell)** :
   - Gå till [tal Studio](https://speech.microsoft.com/) Portal
   - Logga in vid behov
   - Gå till Custom Speech
@@ -124,7 +139,7 @@ Påbörja ökningen av gränsen för samtidiga förfrågningar för din resurs e
 - Se till att du har [nödvändig information](#have-the-required-information-ready)
 - Gå till [Azure Portal](https://portal.azure.com/)
 - Välj den tal resurs för vilken du vill öka (eller kontrol lera) gränsen för samtidiga begär Anden
-- Välj *ny supportbegäran* (*support + fel söknings* grupp) 
+- Välj *ny supportbegäran* ( *support + fel söknings* grupp) 
 - Ett nytt fönster visas med automatiskt ifylld information om din Azure-prenumeration och Azure-resurs
 - Ange *Sammanfattning* (till exempel "öka STT för samtidighet")
 - Välj "kvot-eller prenumerations problem" i *problem typ*
@@ -176,7 +191,7 @@ Påbörja ökningen av gränsen för samtidiga förfrågningar för din resurs e
 - Se till att du har [nödvändig information](#prepare-the-required-information)
 - Gå till [Azure Portal](https://portal.azure.com/)
 - Välj den tal resurs för vilken du vill öka (eller kontrol lera) gränsen för samtidiga begär Anden
-- Välj *ny supportbegäran* (*support + fel söknings* grupp) 
+- Välj *ny supportbegäran* ( *support + fel söknings* grupp) 
 - Ett nytt fönster visas med automatiskt ifylld information om din Azure-prenumeration och Azure-resurs
 - Ange *Sammanfattning* (till exempel "öka storleks gränsen för den anpassade slut punkten för tal)
 - Välj "kvot-eller prenumerations problem" i *problem typ*

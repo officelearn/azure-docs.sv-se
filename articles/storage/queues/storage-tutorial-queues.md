@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d661800c53cc0795efde1f411675d17661fb968
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400578"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345541"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Självstudie: arbeta med Azure Storage-köer i .NET
 
@@ -35,7 +35,7 @@ I den här guiden får du lära dig att:
 > - Sök efter kommando rads argument
 > - Kompilera och köra appen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Få en kostnads fri kopia av den plattforms oberoende kod redigeraren i [Visual Studio](https://code.visualstudio.com/download) .
 - Hämta och installera [.net Core SDK](https://dotnet.microsoft.com/download) version 3,1 eller senare.
@@ -95,6 +95,8 @@ Skapa ett .NET Core-program med namnet **QueueApp**. För enkelhetens skull komm
    C:\Tutorials\QueueApp>_
    ```
 
+<!-- markdownlint-disable MD023 -->
+
 ## <a name="add-the-azure-client-libraries"></a>Lägg till Azures klient bibliotek
 
 1. Lägg till Azure Storage klient bibliotek i projektet med hjälp av `dotnet add package` kommandot.
@@ -134,7 +136,7 @@ Skapa ett .NET Core-program med namnet **QueueApp**. För enkelhetens skull komm
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
-1. Spara filen **Program.cs**.
+1. Spara **Program.cs** -filen.
 
 ## <a name="add-support-for-asynchronous-code"></a>Lägg till stöd för asynkron kod
 
@@ -146,7 +148,7 @@ Eftersom appen använder moln resurser körs koden asynkront.
    static async Task Main(string[] args)
    ```
 
-1. Spara filen **Program.cs**.
+1. Spara **Program.cs** -filen.
 
 ## <a name="create-a-queue"></a>Skapa en kö
 
@@ -160,7 +162,7 @@ Lägg till anslutnings strängen i appen så att den kan komma åt lagrings kont
 
 1. Växla tillbaka till Visual Studio Code.
 
-1. I **main**  -metoden ersätter du `Console.WriteLine("Hello World!");` koden med följande rad som hämtar anslutnings strängen från miljö variabeln.
+1. I **main** -metoden ersätter du `Console.WriteLine("Hello World!");` koden med följande rad som hämtar anslutnings strängen från miljö variabeln.
 
    # <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
 
@@ -204,13 +206,13 @@ Skapa en ny metod för att skicka ett meddelande till kön.
 
    # <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
 
-    Använd `Timespan.FromSeconds(-1)` i anropet till **SendMessageAsync**för att lägga till ett meddelande som inte upphör att gälla.
+    Använd `Timespan.FromSeconds(-1)` i anropet till **SendMessageAsync** för att lägga till ett meddelande som inte upphör att gälla.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_SendNonExpiringMessage":::
 
    # <a name="net-v11"></a>[\.NET-v11](#tab/dotnetv11)
 
-    Använd `Timespan.FromSeconds(-1)` i anropet till **AddMessageAsync**för att lägga till ett meddelande som inte upphör att gälla.
+    Använd `Timespan.FromSeconds(-1)` i anropet till **AddMessageAsync** för att lägga till ett meddelande som inte upphör att gälla.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Initial.cs" id="snippet_SendNonExpiringMessage":::
 

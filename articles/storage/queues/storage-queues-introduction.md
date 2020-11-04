@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: d1ec251edf384e8032a67dc66982787d17c75dbd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f618b7203cdbf99d79079cf81de38c6d15c91981
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781472"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345575"
 ---
 # <a name="what-are-azure-queues"></a>Vad är Azure-köer?
 
@@ -23,23 +23,23 @@ Azure Queue Storage är en tjänst för lagring av ett stort antal meddelanden. 
 
 Kötjänsten består av följande komponenter:
 
-![Diagram över relationen mellan ett lagrings konto, köer och meddelanden](./media/storage-queues-introduction/queue1.png)
+![Diagram över relationen mellan ett lagrings konto, köer och meddelanden.](./media/storage-queues-introduction/queue1.png)
 
-* **URL-format:** köer är adresserbara via följande URL-format:
+- **URL-format:** köer är adresserbara via följande URL-format:
 
-    `https://<storage account>.queue.core.windows.net/<queue>`
-  
-    Följande URL adresserar en kö i diagrammet:  
-  
-    `https://myaccount.queue.core.windows.net/images-to-download`
+  `https://<storage account>.queue.core.windows.net/<queue>`
 
-* **Lagrings konto:** All åtkomst till Azure Storage görs via ett lagrings konto. Information om kapacitet för lagrings konton finns i [skalbarhets-och prestanda mål för standard lagrings konton](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+  Följande URL adresserar en kö i diagrammet:
 
-* **Kö:** en kö innehåller en uppsättning meddelanden. Könamnet **får** bara innehålla gemener. Mer information om namngivning av köer finns i [namngivning av köer och metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
+  `https://myaccount.queue.core.windows.net/images-to-download`
 
-* **Meddelande:** ett meddelande i valfritt format, som är upp till 64 KB. Före version 2017-07-29 är den högsta tillåtna tiden till Live sju dagar. För version 2017-07-29 eller senare kan den maximala tiden till Live vara ett positivt tal eller-1 som anger att meddelandet inte upphör att gälla. Om den här parametern utelämnas, är standardvärdet för Time-to-Live sju dagar.
+- **Lagrings konto:** All åtkomst till Azure Storage görs via ett lagrings konto. Information om kapacitet för lagrings konton finns i [skalbarhets-och prestanda mål för standard lagrings konton](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+
+- **Kö:** en kö innehåller en uppsättning meddelanden. Könamnet **får** bara innehålla gemener. Mer information om namngivning av köer finns i [namngivning av köer och metadata](/rest/api/storageservices/Naming-Queues-and-Metadata).
+
+- **Meddelande:** ett meddelande i valfritt format, som är upp till 64 KB. Före version 2017-07-29 är den högsta tillåtna tiden till Live sju dagar. För version 2017-07-29 eller senare kan den maximala tiden till Live vara ett positivt tal eller-1 som anger att meddelandet inte upphör att gälla. Om den här parametern utelämnas, är standardvärdet för Time-to-Live sju dagar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa ett lagringskonto](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
-* [Komma igång med köer med hjälp av .NET](storage-dotnet-how-to-use-queues.md)
+- [Skapa ett lagringskonto](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
+- [Komma igång med köer med hjälp av .NET](storage-dotnet-how-to-use-queues.md)

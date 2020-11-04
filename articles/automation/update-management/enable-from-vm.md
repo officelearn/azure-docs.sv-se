@@ -2,19 +2,19 @@
 title: Aktivera Azure Automation Uppdateringshantering från en virtuell Azure-dator
 description: Den här artikeln beskriver hur du aktiverar Uppdateringshantering från en virtuell Azure-dator.
 services: automation
-ms.date: 09/16/2020
+ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 2d81b822986f641e64b9211300f83e3b254f316d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 1ed4ad3e1bae34b5007d13c7d092f46e972ac8a8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92223049"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347088"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Aktivera Uppdateringshantering från en virtuell Azure-dator
 
-I den här artikeln beskrivs hur du kan använda en virtuell Azure-dator för att aktivera [uppdateringshantering](overview.md) -funktionen på andra datorer. Om du vill aktivera virtuella Azure-datorer i stor skala måste du aktivera en befintlig virtuell dator med hjälp av Uppdateringshantering.
+Den här artikeln beskriver hur du kan aktivera funktionen [uppdateringshantering](overview.md) på en eller flera virtuella Azure-datorer (VM). Om du vill aktivera virtuella Azure-datorer i stor skala måste du aktivera en befintlig virtuell Azure-dator med hjälp av Uppdateringshantering.
 
 > [!NOTE]
 > När du aktiverar Uppdateringshantering, stöds bara vissa regioner för att länka en Log Analytics arbets yta och ett Automation-konto. En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](../how-to/region-mappings.md).
@@ -27,7 +27,7 @@ I den här artikeln beskrivs hur du kan använda en virtuell Azure-dator för at
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in i [Azure-portalen](https://portal.azure.com).
 
 ## <a name="enable-the-feature-for-deployment"></a>Aktivera funktionen för distribution
 
@@ -35,7 +35,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Välj den virtuella dator som du vill aktivera Uppdateringshantering för. Virtuella datorer kan finnas i vilken region som helst, oavsett platsen för ditt Automation-konto. Du
 
-3. Välj **gäst + värd uppdateringar**under **åtgärder**på sidan VM.
+3. Välj **gäst + värd uppdateringar** under **åtgärder** på sidan VM.
 
     ![Välj gäst + värd uppdateringar från vänster fönster](media/enable-from-vm/select-guest-and-os-updates.png)
 

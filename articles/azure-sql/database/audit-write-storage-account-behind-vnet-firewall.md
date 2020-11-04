@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: dde6cf40e7609e902540e08fcaff65d9fe32c85c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289650"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348261"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Skriv granskning till ett lagrings konto bakom VNet och brand vägg
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,7 +33,7 @@ Om du vill veta mer om VNet-begreppen, bästa praxis och många fler, se [Vad ä
 
 Mer information om hur du skapar ett virtuellt nätverk finns i [snabb start: skapa ett virtuellt nätverk med hjälp av Azure Portal](../../virtual-network/quick-create-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande förutsättningar måste vara uppfyllda för att granskning ska kunna skrivas till ett lagrings konto bakom ett VNet eller en brand vägg:
 
@@ -114,6 +114,7 @@ Konfigurera SQL audit för att skriva händelser till ett lagrings konto bakom e
      "administratorLoginPassword": "<complex password>",
      "version": "12.0",
      "state": "Ready"
+     }
    }
    ```
 

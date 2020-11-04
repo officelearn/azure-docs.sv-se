@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 21821bbb41126a53c2b137bf1f5e5684ff1ae267
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: 8c042032fb12e63ae32eb5a51b06e07386e5fbfc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096299"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308838"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,16 +40,16 @@ För Linux och andra plattformar som inte stöds, där ServiceInterop.dll inte �
 
 De fyra program typerna som anges här använder 32-bitars värd bearbetning som standard. Om du vill ändra värd bearbetningen till 64-bitars bearbetning för din program typ gör du följande:
 
-- **För körbara program** : i fönstret **projekt egenskaper** går du till fönstret **skapa** och anger [plattforms målet](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) till **x64** .
+- **För körbara program** : i fönstret **projekt egenskaper** går du till fönstret **skapa** och anger [plattforms målet](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) till **x64**.
 
-- **För VSTest-baserade test projekt** : på **test** -menyn i Visual Studio väljer du **testa**  >  **test inställningar** och anger sedan **standard processor arkitekturen** till **x64** .
+- **För VSTest-baserade test projekt** : på **test** -menyn i Visual Studio väljer du **testa**  >  **test inställningar** och anger sedan **standard processor arkitekturen** till **x64**.
 
-- **För lokalt distribuerade ASP.net-webb program** : Välj **verktyg**  >  **alternativ**  >  **projekt och lösningar**  >  **webb projekt** och välj sedan **Använd 64-bitars versionen av IIS Express för webbplatser och projekt** .
+- **För lokalt distribuerade ASP.net-webb program** : Välj **verktyg**  >  **alternativ**  >  **projekt och lösningar**  >  **webb projekt** och välj sedan **Använd 64-bitars versionen av IIS Express för webbplatser och projekt**.
 
-- **För ASP.net webb program som distribueras på Azure** : i Azure Portal väljer du **64-bitars** plattformen i **program inställningar** .
+- **För ASP.net webb program som distribueras på Azure** : i Azure Portal väljer du **64-bitars** plattformen i **program inställningar**.
 
 > [!NOTE] 
-> Som standard har nya Visual Studio-projekt angetts till **valfri processor** . Vi rekommenderar att du ställer in projektet på **x64** så att det inte växlar till **x86** . Ett projekt som är inställt på **valfri CPU** kan enkelt växla till **x86** om ett x86-enda beroende läggs till.<br/>
+> Som standard har nya Visual Studio-projekt angetts till **valfri processor**. Vi rekommenderar att du ställer in projektet på **x64** så att det inte växlar till **x86**. Ett projekt som är inställt på **valfri CPU** kan enkelt växla till **x86** om ett x86-enda beroende läggs till.<br/>
 > ServiceInterop.dll-filen måste finnas i den mapp som SDK-DLL-filen körs från. Detta bör endast vara en risk om du manuellt kopierar dll: er eller har anpassade bygg-och distributions system.
     
 **Aktivera skräp insamling på Server Sidan**

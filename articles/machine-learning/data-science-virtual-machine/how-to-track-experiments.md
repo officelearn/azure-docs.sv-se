@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254808"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307455"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Spåra experiment och distribuera modeller i Azure Machine Learning
 
@@ -26,11 +26,11 @@ Följande diagram illustrerar att med MLflow spårning spårar du ett Experiment
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Du måste [etablera en Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
+* Du måste [etablera en Azure Machine Learning-arbetsyta](../how-to-manage-workspace.md#create-a-workspace)
 
 ## <a name="create-a-new-notebook"></a>Skapa en ny notebook
 
-Azure Machine Learning-och MLFlow SDK är förinstallerade på Data Science VM och kan nås i **azureml_py36_ \* ** Conda-miljön. I Jupyterlab klickar du på starta och väljer följande kernel:
+Azure Machine Learning-och MLFlow SDK är förinstallerade på Data Science VM och kan nås i * *azureml_py36_ \** _ Conda-miljön. I Jupyterlab klickar du på starta och väljer följande kernel:
 
 ![Val av kernel](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -137,7 +137,7 @@ På den vänstra menyn i [azureml Studio](https://ml.azure.com) klickar du på _
 
 I fönstret __nytt__ fyllnings kluster fyllnings information för:
 
-* Compute-namn
+_ Compute Name
 * Kubernetes-tjänst – Välj Skapa ny
 * Välj region
 * Välj den virtuella datorns storlek (i den här självstudien är standardvärdet för Standard_D3_v2 tillräckligt)
@@ -204,4 +204,4 @@ Ta bort den Härlednings beräkning som du skapade i steg 1 så att du inte debi
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att [Distribuera modeller i azureml](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)
+* Lär dig mer om att [Distribuera modeller i azureml](../how-to-deploy-and-where.md)

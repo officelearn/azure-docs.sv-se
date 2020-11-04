@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8b4b86656e7b1b4dfd8b69cbc8386f5b6ff6a8c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 791b50f1458ba7ee127d45ee374b5589ade588e0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674936"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308196"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Självstudie: Implementera Data Lake Capture-mönstret för att uppdatera en Databricks delta tabell
 
@@ -22,7 +22,7 @@ Den här självstudien visar hur du hanterar händelser i ett lagrings konto som
 
 Du skapar en liten lösning som gör att en användare kan fylla i en Databricks delta tabell genom att överföra en fil med kommaavgränsade värden (CSV) som beskriver en försäljnings order. Du skapar den här lösningen genom att ansluta samman en Event Grid prenumeration, en Azure-funktion och ett [jobb](https://docs.azuredatabricks.net/user-guide/jobs.html) i Azure Databricks.
 
-I den här självstudien kommer vi att:
+I de här självstudierna får du:
 
 > [!div class="checklist"]
 > * Skapa en Event Grid-prenumeration som anropar en Azure-funktion.
@@ -37,7 +37,7 @@ Vi bygger den här lösningen i omvänd ordning, från och med Azure Databricks 
 
 * Skapa ett lagrings konto med ett hierarkiskt namn område (Azure Data Lake Storage Gen2). I den här självstudien används ett lagrings konto med namnet `contosoorders` . Se till att ditt användarkonto har tilldelats rollen [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
 
-  Se [skapa ett Azure Data Lake Storage Gen2-konto](data-lake-storage-quickstart-create-account.md).
+   Se [skapa ett lagrings konto som ska användas med Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 * Skapa ett huvudnamn för tjänsten. Se [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -69,7 +69,7 @@ Skapa först en CSV-fil som beskriver en försäljnings order och överför seda
    536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
    ```
 
-4. Spara filen på den lokala datorn och ge den namnet **data.csv** .
+4. Spara filen på den lokala datorn och ge den namnet **data.csv**.
 
 5. I Storage Explorer laddar du upp den här filen till mappen **indata** .  
 
@@ -87,7 +87,7 @@ I det här avsnittet ska du utföra följande uppgifter:
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. I Azure Portal väljer du **skapa en resurs**  >  **analys**  >  **Azure Databricks** .
+1. I Azure Portal väljer du **skapa en resurs**  >  **analys**  >  **Azure Databricks**.
 
     ![Databricks på Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
@@ -99,7 +99,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 ### <a name="create-a-spark-cluster-in-databricks"></a>Skapa ett Spark-kluster i Databricks
 
-1. I [Azure Portal](https://portal.azure.com)går du till arbets ytan Azure Databricks som du skapade och väljer sedan **Starta arbets yta** .
+1. I [Azure Portal](https://portal.azure.com)går du till arbets ytan Azure Databricks som du skapade och väljer sedan **Starta arbets yta**.
 
 2. Du omdirigeras till Azure Databricks-portalen. Välj **nytt**  >  **kluster** från portalen.
 
@@ -112,23 +112,23 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     Godkänn alla övriga standardvärden, förutom följande:
 
     * Ange ett namn för klustret.
-    * Se till att markera kryssrutan **Avsluta efter 120 minuters inaktivitet** . Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
+    * Se till att markera kryssrutan **Avsluta efter 120 minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
 
-4. Välj **skapa kluster** . När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
+4. Välj **skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
 Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
 ### <a name="create-a-notebook"></a>Skapa en notebook-fil
 
-1. Välj **Arbetsyta** i det vänstra fönstret. I listrutan **Arbetsyta** väljer du **Skapa** > **Anteckningsbok** .
+1. Välj **Arbetsyta** i det vänstra fönstret. I listrutan **Arbetsyta** väljer du **Skapa** > **Anteckningsbok**.
 
     ![Skapa antecknings bok i Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Skapa antecknings bok i Databricks")
 
-2. Ge anteckningsboken ett namn i dialogrutan **Skapa anteckningsbok** . Välj **Python** som språk och välj sedan det Spark-kluster du skapade tidigare.
+2. Ge anteckningsboken ett namn i dialogrutan **Skapa anteckningsbok**. Välj **Python** som språk och välj sedan det Spark-kluster du skapade tidigare.
 
     ![Skärm bild som visar dialog rutan skapa antecknings bok och var du väljer python som språk.](./media/data-lake-storage-events/new-databricks-notebook.png "Skapa antecknings bok i Databricks")
 
-    Välj **Skapa** .
+    Välj **Skapa**.
 
 ### <a name="create-and-populate-a-databricks-delta-table"></a>Skapa och fylla i en Databricks delta tabell
 
@@ -150,7 +150,7 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
     customerTablePath = adlsPath + 'delta-tables/customers'
     ```
 
-    Den här koden skapar en widget med namnet **source_file** . Senare kommer du att skapa en Azure-funktion som anropar den här koden och skickar en fil Sök väg till widgeten.  Den här koden autentiserar också tjänstens huvud namn med lagrings kontot och skapar vissa variabler som du kommer att använda i andra celler.
+    Den här koden skapar en widget med namnet **source_file**. Senare kommer du att skapa en Azure-funktion som anropar den här koden och skickar en fil Sök väg till widgeten.  Den här koden autentiserar också tjänstens huvud namn med lagrings kontot och skapar vissa variabler som du kommer att använda i andra celler.
 
     > [!NOTE]
     > I en produktionsinställning bör du överväga att lagra din autentiseringsnyckel i Azure Databricks. Sedan lägger du till en lookup-nyckel i kodblocket i stället för autentiseringsnyckeln. <br><br>I stället för att använda den här kodraden: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")` använder du till exempel följande rad med kod: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))` . <br><br>När du har slutfört den här kursen kan du se exempel på den här metoden i [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artikeln på Azure Databricks webbplats.
@@ -238,9 +238,9 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
 
 Skapa ett jobb som kör den antecknings bok som du skapade tidigare. Senare kommer du att skapa en Azure-funktion som kör det här jobbet när en händelse utlöses.
 
-1. Klicka på **jobb** .
+1. Klicka på **jobb**.
 
-2. På sidan **jobb** klickar du på **skapa jobb** .
+2. På sidan **jobb** klickar du på **skapa jobb**.
 
 3. Ge jobbet ett namn och välj sedan `upsert-order-data` arbets boken.
 
@@ -250,7 +250,7 @@ Skapa ett jobb som kör den antecknings bok som du skapade tidigare. Senare komm
 
 Skapa en Azure-funktion som kör jobbet.
 
-1. I det övre hörnet av arbets ytan Databricks väljer du ikonen personer och väljer sedan **användar inställningar** .
+1. I det övre hörnet av arbets ytan Databricks väljer du ikonen personer och väljer sedan **användar inställningar**.
 
    ![Hantera kontot](./media/data-lake-storage-events/generate-token.png "Användarinställningar")
 
@@ -258,7 +258,7 @@ Skapa en Azure-funktion som kör jobbet.
 
    Se till att kopiera token till en säker plats. Din Azure-funktion behöver denna token för att autentisera med Databricks så att den kan köra jobbet.
   
-3. Välj knappen **skapa en resurs** i det övre vänstra hörnet av Azure Portal och välj sedan **Compute > Funktionsapp** .
+3. Välj knappen **skapa en resurs** i det övre vänstra hörnet av Azure Portal och välj sedan **Compute > Funktionsapp**.
 
    ![Skapa en Azure-funktion](./media/data-lake-storage-events/function-app-create-flow.png "Skapa Azure Function")
 
@@ -266,7 +266,7 @@ Skapa en Azure-funktion som kör jobbet.
 
    ![Konfigurera funktionsappen](./media/data-lake-storage-events/new-function-app.png "Konfigurera funktionsappen")
 
-5. På sidan **Översikt** i Funktionsapp klickar du på **konfiguration** .
+5. På sidan **Översikt** i Funktionsapp klickar du på **konfiguration**.
 
    ![Skärm bild som visar konfigurations alternativet under konfigurerade funktioner.](./media/data-lake-storage-events/configure-function-app.png "Konfigurera funktionsappen")
 
@@ -285,7 +285,7 @@ Skapa en Azure-funktion som kör jobbet.
 
    ![Ny funktion](./media/data-lake-storage-events/new-function.png "Ny funktion")
 
-8. Välj **Azure Event Grid utlösare** .
+8. Välj **Azure Event Grid utlösare**.
 
    Installera tillägget **Microsoft. Azure. WebJobs. Extensions. EventGrid** om du uppmanas att göra det. Om du måste installera den måste du välja **Azure Event Grid trigger** igen för att skapa funktionen.
 
@@ -409,7 +409,7 @@ I det här avsnittet ska du skapa en Event Grid-prenumeration som anropar Azure-
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen och alla relaterade resurser när de inte längre behövs. Det gör du genom att välja resursgruppen för lagringskontot och sedan **Ta bort** .
+Ta bort resursgruppen och alla relaterade resurser när de inte längre behövs. Det gör du genom att välja resursgruppen för lagringskontot och sedan **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087679c49c3cc025268e6f895757ae5f5c47c917
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012414"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309122"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Maskin inlärnings-och data vetenskaps verktyg i Azure Data Science Virtual Machines
 Azure Data Science Virtual Machines (Dsvm) har en omfattande uppsättning verktyg och bibliotek för maskin inlärning som är tillgängligt på populära språk, till exempel python, R och Julia.
@@ -24,7 +24,7 @@ Här följer några av verktygen och biblioteken för maskin inlärning på Dsvm
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>Azure Machine Learning-SDK för Python
 
-Se den fullständiga referensen för [Azure Machine Learning SDK för python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+Se den fullständiga referensen för [Azure Machine Learning SDK för python](../overview-what-is-azure-ml.md).
 
 | Kategori | Värde |
 | ------------- | ------------- |
@@ -113,5 +113,3 @@ Det finns flera andra maskin inlärnings bibliotek på Dsvm, till exempel det po
 | Vanliga användnings områden      |  För data utforskning på plats utan att behöva extrahera, transformera, läsa in (ETL). Fråga olika data källor och format, inklusive CSV, JSON, Relations tabeller och Hadoop.     |
 | Använda och köra den      | Skriv bords gen väg  <br/> [Kom igång med att detaljgranska på 10 minuter](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Relaterade verktyg på DSVM      |   Rattle, Wekas, SQL Server Management Studio      |
-
-

@@ -8,16 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 186289826273e85c9faa7f972b6f48d34e38416f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5c9e27e894541d71986fe929cbc5d6fde31bc18
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357394"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308805"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Hantering av program livs cykel i Azure Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Azure Machine Learning Studio (klassisk) är ett verktyg för att utveckla maskin inlärnings experiment som används i Azure Cloud Platform. Det är precis som Visual Studio IDE och skalbar moln tjänst som är kopplad till en enda plattform. Du kan införliva ALM-metoder (standard Application Lifecycle Management) från versioner av olika till gångar till automatiserad körning och distribution i Azure Machine Learning Studio (klassisk). I den här artikeln beskrivs några av alternativen och metoderna.
@@ -46,7 +46,7 @@ Om du tar bort experimentet raderas alla ögonblicks bilder av experimentet.
 JSON-filen är en text representation av experiment grafen, som kan innehålla en referens till till gångar i arbets ytan, till exempel en data uppsättning eller en utbildad modell. Den innehåller inte en serialiserad version av till gången. Om du försöker importera JSON-dokumentet tillbaka till arbets ytan måste refererade till gångar redan finnas med samma till gångs-ID: n som refereras till i experimentet. Annars kan du inte komma åt det importerade experimentet.
 
 ## <a name="versioning-trained-model"></a>Version av tränad modell
-En utbildad modell i Azure Machine Learning Studio (klassisk) serialiseras i ett format som kallas en iLearner-fil ( `.iLearner` ) och lagras i Azure Blob Storage-kontot som är kopplat till arbets ytan. Ett sätt att hämta en kopia av iLearner-filen är genom omtränings-API: et. I [den här artikeln](/azure/machine-learning/studio/retrain-machine-learning-model) förklaras hur du arbetar med retraining-API. Steg på hög nivå:
+En utbildad modell i Azure Machine Learning Studio (klassisk) serialiseras i ett format som kallas en iLearner-fil ( `.iLearner` ) och lagras i Azure Blob Storage-kontot som är kopplat till arbets ytan. Ett sätt att hämta en kopia av iLearner-filen är genom omtränings-API: et. I [den här artikeln](./retrain-machine-learning-model.md) förklaras hur du arbetar med retraining-API. Steg på hög nivå:
 
 1. Konfigurera ditt utbildnings experiment.
 2. Lägg till en utgående port för webb tjänst i modulen träna modell, eller den modul som skapar den tränade modellen, till exempel en fin modell för att finjustera modell eller skapa R-modell.
@@ -78,7 +78,7 @@ Med tiden kan du ha många slut punkter som skapats i samma webb tjänst. Varje 
 Du kan också skapa många identiska slut punkter för webb tjänster och sedan korrigera olika versioner av iLearner-filen till slut punkten för att uppnå liknande påverkan. I [den här artikeln](create-models-and-endpoints-with-powershell.md) beskrivs mer information hur du utför det.
 
 ### <a name="new-web-service"></a>Ny webb tjänst
-Om du skapar en ny Azure Resource Manager-baserad webb tjänst är slut punkts konstruktionen inte längre tillgänglig. I stället kan du generera WSD-filer (Web Service definition) i JSON-format från ditt förutsägande experiment genom att använda [AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell-kommandot, eller genom att använda [*export-AzMlWebservice*](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) PowerShell-kommandot från en distribuerad Resource Manager-baserad webb tjänst.
+Om du skapar en ny Azure Resource Manager-baserad webb tjänst är slut punkts konstruktionen inte längre tillgänglig. I stället kan du generera WSD-filer (Web Service definition) i JSON-format från ditt förutsägande experiment genom att använda [AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell-kommandot, eller genom att använda [*export-AzMlWebservice*](/powershell/module/az.machinelearning/export-azmlwebservice) PowerShell-kommandot från en distribuerad Resource Manager-baserad webb tjänst.
 
 När du har exporterat WSD-filen och-versionen kan du även distribuera WSD som en ny webb tjänst i en annan webb tjänst plan i en annan Azure-region. Se bara till att du anger rätt lagrings konto konfiguration och det nya ID: t för webb tjänst planen. Om du vill korrigera i olika iLearner-filer kan du ändra WSD-filen och uppdatera plats referensen för den tränade modellen och distribuera den som en ny webb tjänst.
 

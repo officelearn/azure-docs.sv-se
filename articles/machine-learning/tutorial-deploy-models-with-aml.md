@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0d78fc55ca60fa883c742885acf2fa98ede61ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc048a523fabdd70c57cb5d75442d440a1753a79
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896577"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309555"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudie: Distribuera en bild klassificerings modell i Azure Container Instances
 
@@ -35,7 +35,7 @@ Container Instances är en bra lösning för testning och för att förstå arbe
 >[!NOTE]
 > Koden i den här artikeln har testats med Azure Machine Learning SDK-version 1.0.83.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra antecknings boken börjar du med att slutföra modell utbildningen i [Självstudier (del 1): träna en bild klassificerings modell](tutorial-train-models-with-aml.md).   Öppna sedan antecknings boken  *img-klassificering-part2-Deploy. ipynb* i dina klonade *självstudier/data klassificering-mnist-* datamapp.
 
@@ -358,6 +358,6 @@ service.delete()
 
 + Lär dig mer om alla [distributions alternativ för Azure Machine Learning](how-to-deploy-and-where.md).
 + Lär dig att [skapa klienter för webbtjänsten](how-to-consume-web-service.md).
-+  [Göra förutsägelser kring stora mängder data](how-to-use-parallel-run-step.md) asynkront.
++  [Göra förutsägelser kring stora mängder data](./tutorial-pipeline-batch-scoring-classification.md) asynkront.
 + Övervaka dina Azure Machine Learning-modeller med [Application Insights](how-to-enable-app-insights.md).
-+ Prova självstudien [automatiskt algoritmval](tutorial-auto-train-models.md). 
++ Prova självstudien [automatiskt algoritmval](tutorial-auto-train-models.md).

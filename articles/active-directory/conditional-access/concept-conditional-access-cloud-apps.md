@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 658d18ed3c9eefeedffd82bbccedbde0621fe748
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1b3b4da4e21bca421b76f820c04ba68375be5ca0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145512"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307767"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Villkorlig åtkomst: molnappar eller åtgärder
 
@@ -36,7 +36,7 @@ Administratörer kan tilldela en princip för villkorlig åtkomst till följande
 - [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
-- [Azure SQL Database och Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
+- [Azure SQL Database-och Azure Synapse-analys](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
@@ -125,7 +125,7 @@ Förutom Microsoft-appar kan administratörer lägga till alla registrerade Azur
 
 ## <a name="user-actions"></a>Användaråtgärder
 
-Användar åtgärder är uppgifter som kan utföras av en användare. Den enda åtgärd som stöds för närvarande är att **Registrera säkerhets information**, vilket gör det möjligt för principen för villkorlig åtkomst att genomdriva när användare som har Aktiver ATS för kombinerad registrering försöker registrera sin säkerhets information. Mer information finns i artikeln [kombinerad säkerhets informations registrering](../authentication/concept-registration-mfa-sspr-combined.md).
+Användar åtgärder är uppgifter som kan utföras av en användare. Den enda åtgärd som stöds för närvarande är att **Registrera säkerhets information** , vilket gör det möjligt för principen för villkorlig åtkomst att genomdriva när användare som har Aktiver ATS för kombinerad registrering försöker registrera sin säkerhets information. Mer information finns i artikeln [kombinerad säkerhets informations registrering](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

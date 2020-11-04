@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: ae3b54ca72c92722dffa370b0b8be1ca2c490f97
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 22cbd0b4ce512df70d13d89c5f2539420dac2b85
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476016"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307022"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Azure Synapse SQL-arkitektur 
 
@@ -27,9 +27,9 @@ I den här artikeln beskrivs arkitektur komponenterna i Synapse SQL.
 
 Synapse SQL utnyttjar en skalbar arkitektur för att distribuera beräknings bearbetning av data över flera noder. Compute är separat från lagring, vilket gör att du kan skala beräkningarna oberoende av data i systemet. 
 
-För SQL-pool är enhets skalan en abstraktion av beräknings kraften som kallas för en [informations lager enhet](resource-consumption-models.md). 
+För dedikerad SQL-pool är enheten för skala en abstraktion av beräknings kraften som kallas för en [informations lager enhet](resource-consumption-models.md). 
 
-För SQL på begäran, som server lös, görs skalningen automatiskt för att uppfylla resurs kraven för frågor. När topologin ändras över tid genom att lägga till, ta bort noder eller redundans, anpassas till ändringar och kontrollerar att frågan har tillräckligt med resurser och har slutförts. Bilden nedan visar till exempel SQL på begäran som använder 4 Compute-noder för att köra en fråga.
+För SQL-poolen utan server, som är utan server, görs skalning automatiskt för att hantera krav på resurs krav. När topologin ändras över tid genom att lägga till, ta bort noder eller redundans, anpassas till ändringar och kontrollerar att frågan har tillräckligt med resurser och har slutförts. Bilden nedan visar till exempel Server lös SQL-pool som använder 4 Compute-noder för att köra en fråga.
 
 ![Synapse SQL-arkitektur](./media//overview-architecture/sql-architecture.png)
 
@@ -37,13 +37,13 @@ Synapse SQL använder en Node-baserad arkitektur. Program ansluter och utfärdar
 
 Azure Synapse SQL Control-noden använder en distribuerad frågemotor för att optimera frågor för parallell bearbetning och skickar sedan åtgärder till Compute-noder för att utföra sitt arbete parallellt. 
 
-Noden SQL-kontroll på begäran använder sig av DQP-motorn (Distributed Query Processing) för att optimera och dirigera distribuerad körning av användar fråga genom att dela upp den i mindre frågor som ska utföras på Compute-noder. Varje liten fråga kallas aktivitet och representerar distribuerad körnings enhet. Den läser fil (er) från lagringen, ger resultat från andra aktiviteter, grupper eller order data som hämtats från andra uppgifter. 
+Noden Server lös SQL-adresspool använder DQP-motorn (Distributed Query Processing) för att optimera och dirigera distribuerad körning av användar fråga genom att dela upp den i mindre frågor som ska utföras på Compute-noder. Varje liten fråga kallas aktivitet och representerar distribuerad körnings enhet. Den läser fil (er) från lagringen, ger resultat från andra aktiviteter, grupper eller order data som hämtats från andra uppgifter. 
 
 Beräkningsnoderna lagrar alla användardata i Azure Storage och kör de parallella frågorna. Data Movement Service (DMS) är en intern tjänst på systemnivå som flyttar data mellan noder efter behov för att köra frågor parallellt och returnera korrekta resultat. 
 
-När du använder Synapse SQL kan du med fristående lagrings utrymme och data bearbetning dra nytta av oberoende storleks ändring av beräknings kraften oavsett dina lagrings behov. För SQL-skalning på begäran görs automatiskt, medan för SQL-pool kan:
+När du använder Synapse SQL kan du med fristående lagrings utrymme och data bearbetning dra nytta av oberoende storleks ändring av beräknings kraften oavsett dina lagrings behov. För automatisk skalning i SQL-poolen görs automatiskt, medan för en dedikerad SQL-pool kan:
 
-* Öka eller minska beräknings kraften i en SQL-pool (data lager) utan att flytta data.
+* Öka eller minska beräknings kraften, inom en dedikerad SQL-pool, utan att flytta data.
 * Pausa beräkningskapaciteten och lämna data intakta, så att du bara betalar för lagring.
 * Återuppta beräkningskapacitet under driftstimmar.
 
@@ -51,7 +51,7 @@ När du använder Synapse SQL kan du med fristående lagrings utrymme och data b
 
 Synapse SQL utnyttjar Azure Storage för att skydda dina användar data. Eftersom dina data lagras och hanteras av Azure Storage, finns det en separat avgift för lagrings användningen. 
 
-Med SQL på begäran kan du fråga filer i data Lake i skrivskyddat läge, medan SQL-poolen gör att du kan mata in data också. När data matas in i SQL-poolen, är data shardade i **distributioner** för att optimera systemets prestanda. Du kan välja vilket horisontell partitionering-mönster som ska användas för att distribuera data när du definierar tabellen. Dessa horisontell partitionering-mönster stöds:
+Med Server lös SQL-poolen kan du söka i filer i data Lake på skrivskyddat sätt, medan SQL-poolen låter dig mata in data. När data matas in i en dedikerad SQL-pool, är data shardade i **distributioner** för att optimera systemets prestanda. Du kan välja vilket horisontell partitionering-mönster som ska användas för att distribuera data när du definierar tabellen. Dessa horisontell partitionering-mönster stöds:
 
 * Hash
 * Resursallokering (round robin)
@@ -61,34 +61,34 @@ Med SQL på begäran kan du fråga filer i data Lake i skrivskyddat läge, medan
 
 Kontrollnoden är hjärnan i arkitekturen. Det är den som är klientdelen som interagerar med alla program och anslutningar. 
 
-I Synapse SQL körs den distribuerade frågespråket på noden kontroll för att optimera och koordinera parallella frågor. När du skickar en T-SQL-fråga till SQL-poolen, omvandlar noden kontroll den till frågor som körs mot varje distribution parallellt.
+I Synapse SQL körs den distribuerade frågespråket på noden kontroll för att optimera och koordinera parallella frågor. När du skickar en T-SQL-fråga till en dedikerad SQL-pool, omvandlas kontroll noden till frågor som körs mot varje distribution parallellt.
 
-I SQL på begäran körs DQP-motorn på noden kontroll för att optimera och koordinera distribuerad körning av användar frågor genom att dela upp den i mindre frågor som ska utföras på datornoderna. Det tilldelar också uppsättningar av filer som ska bearbetas av varje nod.
+I en server lös SQL-pool körs DQP-motorn på Control-noden för att optimera och koordinera distribuerad körning av användar frågan genom att dela upp den i mindre frågor som ska utföras på Compute-noder. Det tilldelar också uppsättningar av filer som ska bearbetas av varje nod.
 
 ## <a name="compute-nodes"></a>Beräkningsnoder
 
 Beräkningsnoderna ger dataresurser. 
 
-I SQL-poolen mappar distributioner till Compute-noder för bearbetning. När du betalar för fler beräknings resurser mappar poolen om distributionerna till de tillgängliga datornoderna. Antalet datornoder sträcker sig från 1 till 60 och bestäms av Service nivån för SQL-poolen. Varje Compute-nod har ett nod-ID som visas i systemvyer. Du kan se Compute Node ID genom att leta efter kolumnen node_id i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa system visningar finns i [SYNAPSE SQL system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+I dedikerad SQL-pool mappas distributioner till datornoder för bearbetning. När du betalar för fler beräknings resurser mappar poolen om distributionerna till de tillgängliga datornoderna. Antalet datornoder sträcker sig från 1 till 60 och bestäms av Service nivån för den dedikerade SQL-poolen. Varje Compute-nod har ett nod-ID som visas i systemvyer. Du kan se Compute Node ID genom att leta efter kolumnen node_id i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa system visningar finns i [SYNAPSE SQL system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
 
-I SQL på begäran tilldelas varje datornod en uppgift och en uppsättning filer att köra uppgiften på. Uppgiften är distribuerad frågekörning, som faktiskt är en del av frågan som användaren skickat. Automatisk skalning används för att se till att tillräckligt många datornoder används för att köra användar frågor.
+I SQL-poolen utan server tilldelas varje datornod en aktivitet och en uppsättning filer att köra aktiviteten på. Uppgiften är distribuerad frågekörning, som faktiskt är en del av frågan som användaren skickat. Automatisk skalning används för att se till att tillräckligt många datornoder används för att köra användar frågor.
 
 ## <a name="data-movement-service"></a>Data Movement Service
 
-Data flyttnings tjänsten (DMS) är data transport teknik i SQL-poolen som samordnar data förflyttningen mellan Compute-noderna. Vissa frågor kräver data förflyttning för att säkerställa att de parallella frågorna returnerar korrekta resultat. När data förflyttning krävs säkerställer DMS att rätt data får rätt plats.
+Data flyttnings tjänsten (DMS) är data transport teknik i dedikerad SQL-pool som samordnar data förflyttningen mellan Compute-noderna. Vissa frågor kräver data förflyttning för att säkerställa att de parallella frågorna returnerar korrekta resultat. När data förflyttning krävs säkerställer DMS att rätt data får rätt plats.
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="distributions"></a>Distributioner
 
-En distribution är den grundläggande enheten för lagring och bearbetning av parallella frågor som körs på distribuerade data i SQL-poolen. När SQL-poolen kör en fråga delas arbetet upp i 60 mindre frågor som körs parallellt. 
+En distribution är den grundläggande enheten för lagring och bearbetning av parallella frågor som körs på distribuerade data i en dedikerad SQL-pool. När en dedikerad SQL-pool kör en fråga delas arbetet upp i 60 mindre frågor som körs parallellt. 
 
-Var och en av de 60 mindre frågorna körs på en av data distributionerna. Varje Compute-nod hanterar en eller flera av 60-distributionerna. En SQL-pool med maximala beräknings resurser har en distribution per Compute-nod. En SQL-pool med minsta beräknings resurser har alla distributioner på en Compute-nod. 
+Var och en av de 60 mindre frågorna körs på en av data distributionerna. Varje Compute-nod hanterar en eller flera av 60-distributionerna. En dedikerad SQL-pool med maximala beräknings resurser har en distribution per Compute-nod. En dedikerad SQL-pool med minsta beräknings resurser har alla distributioner på en Compute-nod. 
 
 ## <a name="hash-distributed-tables"></a>Hash-distribuerade tabeller
 En hash-distribuerad tabell kan leverera högsta frågeprestanda för kopplingar och aggregeringar för stora tabeller. 
 
-För att Shard data till en hash-distribuerad tabell använder SQL-poolen en hash-funktion för att deterministiskt tilldela varje rad till en distribution. I tabelldefinitionen utses en av kolumnerna till distributionskolumnen. Hash-funktionen använder värdena i distributionskolumnen för att tilldela varje rad till en distribution.
+För att Shard data till en hash-distribuerad tabell använder dedikerade SQL-poolen en hash-funktion för att deterministiskt tilldela varje rad till en distribution. I tabelldefinitionen utses en av kolumnerna till distributionskolumnen. Hash-funktionen använder värdena i distributionskolumnen för att tilldela varje rad till en distribution.
 
 Följande diagram illustrerar hur en fullständig (icke-distribuerad tabell) lagras som en hash-distribuerad tabell. 
 
@@ -117,4 +117,4 @@ Diagrammet nedan visar en replikerad tabell som cachelagras på den första dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du vet lite om Synapse SQL, lär dig hur du snabbt [skapar en SQL-pool](../quickstart-create-sql-pool-portal.md) och [läser in exempel data](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./SQL-Data-Warehouse-load-Sample-databases.MD). Eller så börjar du [använda SQL på begäran](../quickstart-sql-on-demand.md). Om du inte har erfarenhet av Azure kan [Azure-ordlistan](../../azure-glossary-cloud-terminology.md) vara till hjälp om du stöter på ny terminologi. 
+Nu när du vet lite om Synapse SQL, lär dig hur du snabbt [skapar en dedikerad SQL-pool](../quickstart-create-sql-pool-portal.md) och [läser in exempel data](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./SQL-Data-Warehouse-load-Sample-databases.MD). Eller så börjar du [använda SQL-poolen utan server](../quickstart-sql-on-demand.md). Om du inte har erfarenhet av Azure kan [Azure-ordlistan](../../azure-glossary-cloud-terminology.md) vara till hjälp om du stöter på ny terminologi. 

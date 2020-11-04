@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: c7bdf3e0300bffaffb7191aea019bed719cdc6fa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 01ec0c7c0d2d060bbd930a099fe3db54de6cb150
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220643"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308961"
 ---
 # <a name="azure-media-services-v3-overview"></a>Översikt över Azure Media Services v3
 
@@ -59,12 +59,12 @@ Med Media Services kan du bygga en mängd olika medie arbets flöden i molnet. N
 * Använd Azure Media Services tillsammans med [API:er för Cognitive Services](../../index.yml?pivot=products&panel=ai) för att lägga till textning och beskrivningar till videor och därmed tillgodose en bredare publik (till exempel personer med handikapp) eller användare som vill kunna läsa på ett annat språk.
 * Aktivera Azure CDN för att uppnå hög skalning för att bättre hantera omedelbara höga belastningar (till exempel start av en produktlansering).
 
-## <a name="how-can-i-get-started-with-v3"></a>Hur kan jag komma igång med v3? 
+## <a name="how-can-i-get-started-with-v3"></a>Hur kan jag komma igång med v3?
 
 Lär dig att koda och paketera innehåll, strömma videor på begäran, sända live och analysera dina videor med Media Services v3. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare.
 
 > [!TIP]
-> Innan du börjar utveckla bör du gå igenom följande:<br/>* [Grundläggande begrepp](concepts-overview.md) (inklusive viktiga begrepp som paketering, kodning och skydd)<br/>* [Utveckla med Media Services v3-API: er](media-services-apis-overview.md) (innehåller information om åtkomst till API: er, namn konventioner och så vidare)
+> Innan du börjar utveckla, granska: [grundläggande begrepp](concepts-overview.md) som innehåller viktiga begrepp som paketering, kodning och skydd och [utveckling med Media Services v3-API: er](media-services-apis-overview.md) som innehåller information om åtkomst till API: er, namngivnings konventioner och så vidare.
 
 ### <a name="sdks"></a>SDK:er
 

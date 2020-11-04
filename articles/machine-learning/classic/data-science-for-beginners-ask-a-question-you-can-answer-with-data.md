@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: ff08af00649cf61134c3e27d07b329e40169ea66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbac7c8818300ffb09959969e6b79f949177f457
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345699"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307666"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Ställ en fråga som du kan svara på med data
 ## <a name="video-3-data-science-for-beginners-series"></a>Video 3: data vetenskap för nybörjare-serien
@@ -91,4 +91,4 @@ Se till att ta en titt på de andra videorna i "data vetenskap för nybörjare" 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Testa ett första data vetenskaps experiment med Machine Learning Studio (klassisk)](create-experiment.md)
-* [Få en introduktion till Machine Learning på Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Få en introduktion till Machine Learning på Microsoft Azure](../overview-what-is-azure-ml.md)

@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 22e834ccc31e2d01646250c973080848173661de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbc532acf704128e2311f440aabe8f707fc03aea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743785"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307236"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Träna PyTorch-modeller i skala med Azure Machine Learning
 
@@ -36,7 +36,7 @@ Kör den här koden i någon av följande miljöer:
     - I mappen exempel djup inlärning på Notebook-servern hittar du en slutförd och utökad antecknings bok genom att gå till den här katalogen: **How-to-use-azureml > ml-framework > pytorch > träna--parameter-Tune-Deploy-with-pytorch** -mappen. 
  
  - Din egen Jupyter Notebook Server
-    - [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.15.0).
+    - [Installera Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
     - [Skapa en konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
     - [Hämta exempel skript filen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch)`pytorch_train.py`
      
@@ -63,7 +63,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Initiera en arbets yta
 
-[Azure Machine Learning-arbetsytan](concept-workspace.md) är resursen på den översta nivån för tjänsten. Det ger dig en central plats för att arbeta med alla artefakter som du skapar. I python SDK har du åtkomst till arbets ytans artefakter genom att skapa ett [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) objekt.
+[Azure Machine Learning-arbetsytan](concept-workspace.md) är resursen på den översta nivån för tjänsten. Det ger dig en central plats för att arbeta med alla artefakter som du skapar. I python SDK har du åtkomst till arbets ytans artefakter genom att skapa ett [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) objekt.
 
 Skapa ett objekt för arbets ytan från `config.json` filen som skapats i [avsnittet krav](#prerequisites).
 
@@ -182,7 +182,7 @@ Mer information om hur du skapar och använder miljöer finns [i skapa och anvä
 
 ### <a name="create-a-scriptrunconfig"></a>Skapa en ScriptRunConfig
 
-Skapa ett [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) -objekt om du vill ange konfigurations information för ditt utbildnings jobb, inklusive ditt utbildnings skript, vilken miljö som ska användas och vilket beräknings mål som ska köras. Alla argument till ditt utbildnings skript skickas via kommando raden om de anges i `arguments` parametern. 
+Skapa ett [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) -objekt om du vill ange konfigurations information för ditt utbildnings jobb, inklusive ditt utbildnings skript, vilken miljö som ska användas och vilket beräknings mål som ska köras. Alla argument till ditt utbildnings skript skickas via kommando raden om de anges i `arguments` parametern. 
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -204,7 +204,7 @@ Mer information om hur du konfigurerar jobb med ScriptRunConfig finns i [Konfigu
 
 ## <a name="submit-your-run"></a>Skicka in din körning
 
-[Kör-objektet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) tillhandahåller gränssnittet till körnings historiken medan jobbet körs och när det har slutförts.
+[Kör-objektet](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) tillhandahåller gränssnittet till körnings historiken medan jobbet körs och när det har slutförts.
 
 ```Python
 run = Experiment(ws, name='pytorch-birds').submit(src)
@@ -214,13 +214,13 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>Vad händer under körningen
 När körningen körs går den igenom följande steg:
 
-- **Förbereder**: en Docker-avbildning skapas enligt den miljö som definierats. Avbildningen överförs till arbets ytans behållar register och cachelagras för senare körningar. Loggarna strömmas också till körnings historiken och kan visas för att övervaka förloppet. Om en granskad miljö anges i stället används den cachelagrade avbildningen som ska användas för att återställa den hanterade miljön.
+- **Förbereder** : en Docker-avbildning skapas enligt den miljö som definierats. Avbildningen överförs till arbets ytans behållar register och cachelagras för senare körningar. Loggarna strömmas också till körnings historiken och kan visas för att övervaka förloppet. Om en granskad miljö anges i stället används den cachelagrade avbildningen som ska användas för att återställa den hanterade miljön.
 
-- **Skalning**: klustret försöker skala upp om det batch AI klustret kräver fler noder för att köra körning än vad som är tillgängligt.
+- **Skalning** : klustret försöker skala upp om det batch AI klustret kräver fler noder för att köra körning än vad som är tillgängligt.
 
-- **Körs**: alla skript i mappen skript överförs till Compute-målet, data lager monteras eller kopieras och `script` utförs. Utdata från STDOUT och **./logs** -mappen strömmas till körnings historiken och kan användas för att övervaka körningen.
+- **Körs** : alla skript i mappen skript överförs till Compute-målet, data lager monteras eller kopieras och `script` utförs. Utdata från STDOUT och **./logs** -mappen strömmas till körnings historiken och kan användas för att övervaka körningen.
 
-- **Efter bearbetning**: mappen **./outputs** i körningen kopieras till körnings historiken.
+- **Efter bearbetning** : mappen **./outputs** i körningen kopieras till körnings historiken.
 
 ## <a name="register-or-download-a-model"></a>Registrera eller ladda ned en modell
 
@@ -268,7 +268,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-För att kunna köra ett distribuerat jobb med MPI/Horovod på Azure ML måste du ange en [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) till- `distributed_job_config` parametern för ScriptRunConfig-konstruktorn. I koden nedan kan du konfigurera ett distribuerat jobb med två noder som kör en process per nod. Om du också vill köra flera processer per nod (dvs. om klustrets SKU har flera GPU: er) anger du även `process_count_per_node` parametern i MpiConfiguration (Standardvärdet är `1` ).
+För att kunna köra ett distribuerat jobb med MPI/Horovod på Azure ML måste du ange en [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) till- `distributed_job_config` parametern för ScriptRunConfig-konstruktorn. I koden nedan kan du konfigurera ett distribuerat jobb med två noder som kör en process per nod. Om du också vill köra flera processer per nod (dvs. om klustrets SKU har flera GPU: er) anger du även `process_count_per_node` parametern i MpiConfiguration (Standardvärdet är `1` ).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -286,7 +286,7 @@ En fullständig själv studie kurs om att köra distribuerade PyTorch med Horovo
 ### <a name="distributeddataparallel"></a>DistributedDataParallel
 Om du använder PyTorch inbyggda [DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) -modulen som har skapats med hjälp av paketet **Torch. Distributed** i din utbildnings kod kan du också starta det distribuerade jobbet via Azure ml.
 
-För att kunna köra ett distribuerat PyTorch-jobb med DistributedDataParallel, anger du en [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true) till- `distributed_job_config` parametern för ScriptRunConfig-konstruktorn. Om du vill använda NCCL-Server delen för Torch. Distributed anger `communication_backend='Nccl'` du i PyTorchConfiguration. I koden nedan kan du konfigurera ett distribuerat jobb med två noder. NCCL-Server delen är den rekommenderade Server delen för distribuerad GPU-utbildning i PyTorch.
+För att kunna köra ett distribuerat PyTorch-jobb med DistributedDataParallel, anger du en [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) till- `distributed_job_config` parametern för ScriptRunConfig-konstruktorn. Om du vill använda NCCL-Server delen för Torch. Distributed anger `communication_backend='Nccl'` du i PyTorchConfiguration. I koden nedan kan du konfigurera ett distribuerat jobb med två noder. NCCL-Server delen är den rekommenderade Server delen för distribuerad GPU-utbildning i PyTorch.
 
 För distribuerade PyTorch-jobb som kon figurer ATS via PyTorchConfiguration kommer Azure ML att ange följande miljövariabler för nodernas beräknings mål:
 

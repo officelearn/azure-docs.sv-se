@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a559b29502adb1c507b1543463d84eb3bd15d5a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3587ef6be9d6c9969dff5d1af2181ed51aea7d29
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083294"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308288"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Gör så här: planera din Azure AD Join-implementering
 
@@ -119,7 +119,7 @@ Det finns två metoder för att hantera Azure AD-anslutna enheter:
 - **Endast MDM** – en enhet hanteras exklusivt av en MDM-provider som Intune. Alla principer levereras som en del av processen för MDM-registrering. För Azure AD Premium-eller EMS-kunder är MDM-registrering ett automatiserat steg som ingår i en Azure AD-anslutning.
 - **Co-Management** – en enhet hanteras av en MDM-Provider och SCCM. I den här metoden installeras SCCM-agenten på en MDM-hanterad enhet för att administrera vissa aspekter.
 
-Om du använder grup principer utvärderar du MDM-principens paritet med hjälp av [MDM-verktyget för migrations analys (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
+Om du använder grup principer utvärderar du GRUPPRINCIPOBJEKTet och MDM-principens paritet genom att använda [Grupprincip Analytics](/mem/intune/configuration/group-policy-analytics) i Microsoft Endpoint Manager. 
 
 Granska principer som stöds och som inte stöds för att avgöra om du kan använda en MDM-lösning i stället för grup principer. Tänk på följande för principer som inte stöds:
 
@@ -246,7 +246,7 @@ Innan du kan konfigurera dina mobilitets inställningar kan du behöva lägga ti
 **Så här lägger du till en MDM-Provider** :
 
 1. På **sidan Azure Active Directory** går du till avsnittet **Hantera** och klickar på `Mobility (MDM and MAM)` . 
-1. Klicka på **Lägg till program** .
+1. Klicka på **Lägg till program**.
 1. Välj MDM-providern i listan.
 
    :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Skärm bild av Azure Active Directory lägga till en program sida. Flera M D M-leverantörer visas." border="false":::
@@ -272,7 +272,7 @@ Det finns tre URL: er som är relaterade till din MDM-konfiguration:
 - Webbadress till MDM-identifiering 
 - Webbadress till MDM-kompatibilitet
 
-:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Skärm bild av Azure Active Directory lägga till en program sida. Flera M D M-leverantörer visas." border="false":::
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Skärm bild av en del av konfigurations avsnittet Azure Active Directory M D M, med U R L-fält för M D M användnings villkor, identifiering och efterlevnad." border="false":::
 
 Varje URL har ett fördefinierat standardvärde. Om dessa fält är tomma kontaktar du MDM-providern för mer information.
 

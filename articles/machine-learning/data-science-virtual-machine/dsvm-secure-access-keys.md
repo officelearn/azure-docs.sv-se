@@ -10,20 +10,20 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 1cb0c5094d49eac5a1c8f63406a28d2927d8fa94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5604e42c2c27463e10c136ccd18c3c21846fc5a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79477331"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309157"
 ---
 # <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Lagra autentiseringsuppgifter på ett säkert sätt på en Azure-Data Science Virtual Machine
 
 Det är vanligt att koden i moln program innehåller autentiseringsuppgifter för autentisering till moln tjänster. Hur du hanterar och skyddar dessa autentiseringsuppgifter är en välkänd utmaning i att skapa moln program. Vi rekommenderar att autentiseringsuppgifterna aldrig visas på Developer-arbetsstationer eller är incheckade i käll kontrollen.
 
-Funktionen [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) gör det enklare att lösa det här problemet genom att ge Azure-tjänster en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden.
+Funktionen [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md) gör det enklare att lösa det här problemet genom att ge Azure-tjänster en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden.
 
-Ett sätt att skydda autentiseringsuppgifter är att använda Windows Installer (MSI) i kombination med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), en hanterad Azure-tjänst för att lagra hemligheter och kryptografiska nycklar på ett säkert sätt. Du kan komma åt ett nyckel valv med hjälp av den hanterade identiteten och sedan hämta de auktoriserade hemligheterna och krypterings nycklarna från nyckel valvet.
+Ett sätt att skydda autentiseringsuppgifter är att använda Windows Installer (MSI) i kombination med [Azure Key Vault](../../key-vault/index.yml), en hanterad Azure-tjänst för att lagra hemligheter och kryptografiska nycklar på ett säkert sätt. Du kan komma åt ett nyckel valv med hjälp av den hanterade identiteten och sedan hämta de auktoriserade hemligheterna och krypterings nycklarna från nyckel valvet.
 
 Dokumentationen om hanterade identiteter för Azure-resurser och Key Vault omfattar en omfattande resurs för detaljerad information om dessa tjänster. Resten av den här artikeln vägleder dig genom den grundläggande användningen av MSI och Key Vault på Data Science Virtual Machine (DSVM) för att få åtkomst till Azure-resurser. 
 

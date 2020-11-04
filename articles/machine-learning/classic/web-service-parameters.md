@@ -11,16 +11,16 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: 1a4e4e8f97f543132e4295cca59312b0e78a6637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a5857e44623f545f2807592c0f6f7b6dae366f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362847"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308620"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Använd Azure Machine Learning Studio (klassiska) webb tjänst parametrar
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 En Azure Machine Learning-webbtjänst skapas genom att publicera ett experiment som innehåller moduler med konfigurerbara parametrar. I vissa fall kanske du vill ändra modulens beteende medan webb tjänsten körs. Med *webb tjänst parametrar* kan du göra det här. 
@@ -51,8 +51,8 @@ Vi kan till exempel anta att vi har ett experiment med en modul för [export av 
 1. I Machine Learning Studio (klassisk) klickar du på modulen [Exportera data][writer] för att markera den. Egenskaperna visas i fönstret Egenskaper till höger om arbets ytan för experimentet.
 2. Ange lagrings typ:
    
-   * Under **ange data mål väljer du**Azure Blob Storage.
-   * Under **Ange Autentiseringstyp väljer du**"konto".
+   * Under **ange data mål väljer du** Azure Blob Storage.
+   * Under **Ange Autentiseringstyp väljer du** "konto".
    * Ange konto informationen för Azure Blob Storage. 
 
 3. Klicka på ikonen till höger om **sökvägen till bloben som börjar med container parametern**. Det ser ut så här:
@@ -75,13 +75,12 @@ Vi kan till exempel anta att vi har ett experiment med en modul för [export av 
 Användaren av webb tjänsten kan nu ange ett nytt mål för modulen [Exportera data][writer] vid åtkomst till webb tjänsten.
 
 ## <a name="more-information"></a>Mer information
-Ett mer detaljerat exempel finns i posten [Web Service Parameters](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) i [Machine Learning blogg](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
+Ett mer detaljerat exempel finns i posten [Web Service Parameters](/archive/blogs/machinelearning/azureml-web-service-parameters) i [Machine Learning blogg](/archive/blogs/machinelearning/azureml-web-service-parameters).
 
 Mer information om hur du kommer åt en Machine Learning-webbtjänst finns i [så här använder du en Azure Machine Learning-webb tjänst](consume-web-services.md).
 
 <!-- Module References -->
-[feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
-[filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
-
+[feature-hashing]: /azure/machine-learning/studio-module-reference/feature-hashing
+[filter-based-feature-selection]: /previous-versions/azure/dn905854(v=azure.100)
+[reader]: /azure/machine-learning/studio-module-reference/import-data
+[writer]: /azure/machine-learning/studio-module-reference/export-data

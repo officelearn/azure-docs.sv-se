@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: använda SQL på begäran (för hands version) för att analysera Azure Open-datauppsättningar i Azure Synapse Studio (för hands version)'
-description: Den här självstudien visar hur du enkelt kan utföra analys av analys data som kombinerar olika Azure Open-datauppsättningar med SQL på begäran (för hands version) och visualisera resultatet i Azure Synapse Studio.
+title: 'Självstudie: Använd Server lös SQL-pool (för hands version) för att analysera Azure Open-datauppsättningar i Azure Synapse Studio (för hands version)'
+description: Den här självstudien visar hur du enkelt kan utföra analys av analys data som kombinerar olika Azure Open-datauppsättningar med hjälp av SQL-poolen utan server (för hands version) och visualisera resultatet i Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec16041edd10a57088df4ae9cfe0587906919eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539528"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309289"
 ---
-# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Självstudie: Använd SQL på begäran för att analysera Azure Open-datauppsättningar och visualisera resultaten i Azure Synapse Studio
+# <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Självstudie: Använd Server lös SQL-pool för att analysera Azure Open-datauppsättningar och visualisera resultaten i Azure Synapse Studio
 
-I den här självstudien får du lära dig hur du utför analys av exempel data genom att kombinera olika Azure Open-datauppsättningar med SQL på begäran och sedan visualisera resultaten i Azure Synapse Studio.
+I den här självstudien får du lära dig hur du utför analys av exempel data genom att kombinera olika Azure Open-datauppsättningar med hjälp av SQL-poolen utan server och visualisera resultaten i Azure Synapse Studio.
 
 I synnerhet analyseras den [nya taxi-datauppsättningen Göteborg (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) som innehåller:
 
@@ -102,7 +102,7 @@ Följande kodfragment visar resultatet för det årliga antalet taxi-åsidosätt
 
 ![Årligt antal taxi-åsidosättningar resultat-kodfragment](./media/tutorial-data-analyst/4.png)
 
-Data kan visualiseras i Synapse Studio genom att växla från **tabellen** till **diagramvyn** . Du kan välja bland olika diagram typer, till exempel **yt**-, **stapel**-, **kolumn**-, **linje**-, **cirkel**-och **punkt**diagram. I det här fallet ska du rita **stapeldiagrammet** med **kategori** kolumnen inställt på **current_year**:
+Data kan visualiseras i Synapse Studio genom att växla från **tabellen** till **diagramvyn** . Du kan välja bland olika diagram typer, till exempel **yt** -, **stapel** -, **kolumn** -, **linje** -, **cirkel** -och **punkt** diagram. I det här fallet ska du rita **stapeldiagrammet** med **kategori** kolumnen inställt på **current_year** :
 
 ![Stapeldiagram med val per år](./media/tutorial-data-analyst/5.png)
 
@@ -213,9 +213,9 @@ Resultatet av frågan tyder på att minskningen av antalet taxi-åsidosättninga
 - Den var kall (temperatur var lägre än noll grader Celsius).
 - Den var lindning (~ 10 m/s).
 
-I den här självstudien visas hur en dataanalytiker snabbt kan utföra analys av analys av data, vilket enkelt kombinerar olika data uppsättningar med SQL på begäran och visualiserar resultaten med hjälp av Azure Synapse Studio.
+Den här självstudien visar hur en dataanalytiker snabbt kan utföra analys av analys av data, enkelt kombinera olika data uppsättningar med hjälp av SQL-poolen utan server och visualisera resultaten med hjälp av Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du ansluter SQL på begäran till Power BI Desktop och skapar rapporter finns i [ansluta SQL på begäran till Power BI Desktop och skapa rapporter](tutorial-connect-power-bi-desktop.md).
+Information om hur du ansluter en server lös SQL-pool för att Power BI Desktop och skapa rapporter finns i [ansluta Server lös SQL-pool till Power BI Desktop och skapa rapporter](tutorial-connect-power-bi-desktop.md).
  

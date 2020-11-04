@@ -1,6 +1,6 @@
 ---
-title: Utforma en PolyBase data inläsnings strategi för SQL-pool
-description: I stället för ETL kan du utforma en process för extrahering, inläsning och transformering (ELT) för inläsning av data eller SQL-pool.
+title: Utforma en PolyBase data inläsnings strategi för dedikerad SQL-pool
+description: I stället för ETL kan du utforma en process för att extrahera, läsa in och transformera (ELT) för att läsa in data med dedikerad SQL.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a57abd080bdbbaefbe07258a2b241c093dc8c441
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474673"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308738"
 ---
-# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Utforma en PolyBase data inläsnings strategi för Azure Synapse SQL-poolen
+# <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Utforma en PolyBase data inläsnings strategi för dedikerad SQL-pool i Azure Synapse Analytics
 
 Traditionella SMP-datalager använder en process för extrahering, transformering och inläsning (ETL) för att läsa in data. Azure SQL-poolen är en minnes trycks arkitektur med massivt parallell bearbetning (MPP) som drar nytta av skalbarheten och flexibiliteten i beräknings-och lagrings resurser. Att använda en process för att extrahera, läsa in och transformera (ELT) kan dra nytta av inbyggda funktioner för distribuerad frågekörning och eliminera de resurser som behövs för att transformera data innan de läses in.
 
@@ -29,12 +29,12 @@ SQL-poolen stöder många inläsnings metoder, inklusive icke-PolyBase-alternati
 
 Extrahera, läsa in och transformera (ELT) är en process som data extraheras från ett käll system, läses in i ett data lager och sedan omvandlas.
 
-De grundläggande stegen för att implementera en PolyBase-ELT för SQL-poolen är:
+De grundläggande stegen för att implementera en PolyBase-ELT för dedikerad SQL-pool är:
 
 1. Extrahera källdata till textfiler.
 2. Landa data i Azure Blob Storage eller Azure Data Lake Store.
 3. Förbered data för inläsning.
-4. Läs in data i SQL-poolens mellanlagrings tabeller med PolyBase.
+4. Läs in data i dedikerade SQL-pool för mellanlagring av tabeller med PolyBase.
 5. Transformera data.
 6. Infoga data i produktionstabeller.
 
@@ -85,11 +85,11 @@ Verktyg och tjänster som du kan använda för att flytta data till Azure Storag
 
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) service förbättrar nätverks data flöde, prestanda och förutsägbarhet. ExpressRoute är en tjänst som dirigerar dina data via en dedikerad privat anslutning till Azure. ExpressRoute-anslutningar dirigerar inte data via det offentliga Internet. Anslutningarna ger högre tillförlitlighet, snabbare hastighet, lägre fördröjning och högre säkerhet än vanliga anslutningar via det offentliga Internet.
 - [AzCopy-verktyget](../../storage/common/storage-use-azcopy-v10.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) flyttar data till Azure Storage över det offentliga Internet. Detta fungerar om data storlekarna är mindre än 10 TB. Om du vill utföra belastningen regelbundet med AZCopy testar du nätverks hastigheten för att se om den är acceptabel.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) har en gateway som du kan installera på den lokala servern. Sedan kan du skapa en pipeline för att flytta data från din lokala server upp till Azure Storage. Om du vill använda Data Factory med SQL-pool läser du [läsa in data i SQL-poolen](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) har en gateway som du kan installera på den lokala servern. Sedan kan du skapa en pipeline för att flytta data från din lokala server upp till Azure Storage. Om du vill använda Data Factory med dedikerad SQL-pool, se [Läs in data i dedikerad SQL-pool](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Förbered data för inläsning
 
-Du kan behöva förbereda och rensa data i ditt lagrings konto innan du läser in dem i SQL-poolen. Data förberedelse kan utföras medan dina data är i källan, när du exporterar data till textfiler, eller när data har Azure Storage.  Det är enklast att arbeta med data så tidigt i processen som möjligt.  
+Du kan behöva förbereda och rensa data i ditt lagrings konto innan du läser in det i en dedikerad SQL-pool. Data förberedelse kan utföras medan dina data är i källan, när du exporterar data till textfiler, eller när data har Azure Storage.  Det är enklast att arbeta med data så tidigt i processen som möjligt.  
 
 ### <a name="define-external-tables"></a>Definiera externa tabeller
 
@@ -110,7 +110,7 @@ Formatera textfilerna:
 - Formatera data i text filen så att de överensstämmer med kolumnerna och data typerna i SQL-poolens mål tabell. Fel justering mellan data typer i externa textfiler och data lager tabellen gör att rader avvisas under belastningen.
 - Separera fält i text filen med en avslutning.  Se till att du använder ett Character eller en teckensekvens som inte finns i dina källdata. Använd den avslutnings fil som du angav med [Skapa externt fil format](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. Läs in data i mellanlagrings tabeller för SQL-pool med PolyBase
+## <a name="4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase"></a>4. Läs in data i dedikerade SQL-pool för mellanlagrings tabeller med PolyBase
 
 Vi rekommenderar att du läser in data i en mellanlagringsplats. Med mellanlagrings tabeller kan du hantera fel utan att störa produktions tabellerna. Med en mellanlagringsplats får du också möjlighet att använda SQL-poolen inbyggda funktioner för distribuerad frågekörning för data transformationer innan du infogar data i produktions tabeller.
 
@@ -125,7 +125,7 @@ Om du vill läsa in data med PolyBase kan du använda något av följande inläs
 
 ### <a name="non-polybase-loading-options"></a>Alternativ för icke-PolyBase-inläsning
 
-Om dina data inte är kompatibla med PolyBase kan du använda [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) -eller [SQLBulkCopy-API: et](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). BCP läser in direkt till SQL-poolen utan att gå via Azure Blob Storage och är endast avsedd för små belastningar. Obs! belastnings prestandan för de här alternativen är betydligt långsammare än PolyBase.
+Om dina data inte är kompatibla med PolyBase kan du använda [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) -eller [SQLBulkCopy-API: et](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). BCP läser in direkt till dedikerad SQL-pool utan att gå via Azure Blob Storage, och är endast avsedd för små belastningar. Obs! belastnings prestandan för de här alternativen är betydligt långsammare än PolyBase.
 
 ## <a name="5-transform-the-data"></a>5. transformera data
 

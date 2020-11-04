@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 3c269f07c177d99e46dcc343b80979835b429b68
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0ea46122cffe03ffe2e6a4e07afc6995d88a3acb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369360"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306986"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics"></a>Apache Spark i Azure Synapse Analytics
 
-Apache Spark är ett ramverk för parallellbearbetning som stöder minnesintern bearbetning för att öka prestanda i program för stordataanalys. Apache Spark i Azure Synapse Analytics är en av Microsofts implementeringar av Apache Spark i molnet. Med Azure Synapse kan du enkelt skapa och konfigurera en spark-pool (för hands version) i Azure. Spark-pooler i Azure Synapse är kompatibla med Azure Storage och Azure Data Lake generation 2-lagring. Så du kan använda Azure Spark-pooler för att bearbeta dina data som lagras i Azure.
+Apache Spark är ett ramverk för parallellbearbetning som stöder minnesintern bearbetning för att öka prestanda i program för stordataanalys. Apache Spark i Azure Synapse Analytics är en av Microsofts implementeringar av Apache Spark i molnet. Med Azure-Synapse är det enkelt att skapa och konfigurera en server lös Apache Spark pool (för hands version) i Azure. Spark-pooler i Azure Synapse är kompatibla med Azure Storage och Azure Data Lake generation 2-lagring. Så du kan använda Spark-pooler för att bearbeta dina data som lagras i Azure.
 
 ![Spark: ett enhetligt ramverk](./media/apache-spark-overview/spark-overview.png)
 

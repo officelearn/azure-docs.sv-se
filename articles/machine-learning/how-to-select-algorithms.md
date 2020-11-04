@@ -11,12 +11,12 @@ author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
-ms.openlocfilehash: 5ad0d2c520d5347e36a9cead4ed6c5526d885ca4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27b18fdc2dda40f8361483e6ecce28d0ccbd0310
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319532"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308229"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Så här väljer du algoritmer för Azure Machine Learning
 
@@ -30,12 +30,12 @@ En vanlig fråga är "vilken Machine Learning-algoritm ska jag använda?" Vilken
 
 ## <a name="business-scenarios-and-the-machine-learning-algorithm-cheat-sheet"></a>Affärs scenarier och lathund-bladet för Machine Learning algorithm
 
-I [lathund-bladet Azure Machine Learning algorithm](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri) får du den första överväganden: **vad du vill göra med dina data**? Leta upp den uppgift som du vill göra Machine Learning i lathund-och leta reda på en [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri) -algoritm för lösningen för förutsägelse analys. 
+I [lathund-bladet Azure Machine Learning algorithm](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri) får du den första överväganden: **vad du vill göra med dina data** ? Leta upp den uppgift som du vill göra Machine Learning i lathund-och leta reda på en [Azure Machine Learning designer](./concept-designer.md?WT.mc_id=docs-article-lazzeri) -algoritm för lösningen för förutsägelse analys. 
 
-Machine Learning designer innehåller en omfattande portfölj med algoritmer som [besluts skog](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri)i flera klasser [, rekommendations system](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-recommender?WT.mc_id=docs-article-lazzeri), [neurala Network regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri), [neurala nätverk](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri)för flera klasser och [K-innebär klustring](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri). Varje algoritm är utformad för att hantera en annan typ av Machine Learning-problem. Se [algoritmen för Machine Learning designer och module](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri) för en fullständig lista tillsammans med dokumentation om hur varje algoritm fungerar och hur du kan finjustera parametrarna för att optimera algoritmen.
+Machine Learning designer innehåller en omfattande portfölj med algoritmer som [besluts skog](./algorithm-module-reference/multiclass-decision-forest.md?WT.mc_id=docs-article-lazzeri)i flera klasser [, rekommendations system](./algorithm-module-reference/evaluate-recommender.md?WT.mc_id=docs-article-lazzeri), [neurala Network regression](./algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri), [neurala nätverk](./algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri)för flera klasser och [K-innebär klustring](./algorithm-module-reference/k-means-clustering.md?WT.mc_id=docs-article-lazzeri). Varje algoritm är utformad för att hantera en annan typ av Machine Learning-problem. Se [algoritmen för Machine Learning designer och module](./algorithm-module-reference/module-reference.md?WT.mc_id=docs-article-lazzeri) för en fullständig lista tillsammans med dokumentation om hur varje algoritm fungerar och hur du kan finjustera parametrarna för att optimera algoritmen.
 
 > [!NOTE]
-> Hämta lathund-bladet för Machine Learning-algoritmen genom att gå till [lathund-bladet för Azure Machine Learning-algoritmen](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri)
+> Hämta lathund-bladet för Machine Learning-algoritmen genom att gå till [lathund-bladet för Azure Machine Learning-algoritmen](./algorithm-cheat-sheet.md?WT.mc_id=docs-article-lazzeri)
 > 
 > 
 
@@ -50,24 +50,24 @@ I följande tabell sammanfattas några av de viktigaste egenskaperna för algori
 | **Integritetsalgoritm** | **Noggrannhet** | **Träningstid** | **Linearitet** | **Parametrar** | **Kommentarer** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **Klassificerings familj** | | | | | |
-| [Logistik regression med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |Bra  |Snabb |Ja |4 | |
-| [Besluts skog med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Inga |5 |Visar långsamma Poäng tider. Föreslå att inte arbeta med En-mot-alla – multiklass, på grund av långsammare poängsättnings tider som orsakas av Trappstegs låsning i ackumulerade träd förutsägelser |
-| [Besluts träd med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Inga |6 |Stor minnes storlek |
-| [Neurala nätverk med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Inga |8 | |
-| [Genomsnittlig Perceptron i två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Ja |4 | |
-| [Dubbelriktad Vector-dator](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |Bra |Snabb |Ja |5 |Lämpligt för stora funktions uppsättningar |
-| [Logistik regression med multiklass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |Bra |Snabb |Ja |4 | |
-| [Besluts skog med flera klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Inga |5 |Visar långsamma Poäng tider |
-| [Besluts träd med djup klass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Inga |6 | Vi vill förbättra noggrannheten med liten risk för mindre täckning |
-| [Neurala nätverk i multiklass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Inga |8 | |
-| [En-vs-all multiklass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/one-vs-all-multiclass?WT.mc_id=docs-article-lazzeri) | - | - | - | - |Se egenskaperna för den två klass metoden som valts |
+| [Logistik regression med två klasser](./algorithm-module-reference/two-class-logistic-regression.md?WT.mc_id=docs-article-lazzeri) |Bra  |Snabb |Ja |4 | |
+| [Besluts skog med två klasser](./algorithm-module-reference/two-class-decision-forest.md?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Nej |5 |Visar långsamma Poäng tider. Föreslå att inte arbeta med En-mot-alla – multiklass, på grund av långsammare poängsättnings tider som orsakas av Trappstegs låsning i ackumulerade träd förutsägelser |
+| [Besluts träd med två klasser](./algorithm-module-reference/two-class-boosted-decision-tree.md?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Nej |6 |Stor minnes storlek |
+| [Neurala nätverk med två klasser](./algorithm-module-reference/two-class-neural-network.md?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Nej |8 | |
+| [Genomsnittlig Perceptron i två klasser](./algorithm-module-reference/two-class-averaged-perceptron.md?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Ja |4 | |
+| [Dubbelriktad Vector-dator](./algorithm-module-reference/two-class-support-vector-machine.md?WT.mc_id=docs-article-lazzeri) |Bra |Snabb |Ja |5 |Lämpligt för stora funktions uppsättningar |
+| [Logistik regression med multiklass](./algorithm-module-reference/multiclass-logistic-regression.md?WT.mc_id=docs-article-lazzeri) |Bra |Snabb |Ja |4 | |
+| [Besluts skog med flera klasser](./algorithm-module-reference/multiclass-decision-forest.md?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Nej |5 |Visar långsamma Poäng tider |
+| [Besluts träd med djup klass](./algorithm-module-reference/multiclass-boosted-decision-tree.md?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Nej |6 | Vi vill förbättra noggrannheten med liten risk för mindre täckning |
+| [Neurala nätverk i multiklass](./algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Nej |8 | |
+| [En-vs-all multiklass](./algorithm-module-reference/one-vs-all-multiclass.md?WT.mc_id=docs-article-lazzeri) | - | - | - | - |Se egenskaperna för den två klass metoden som valts |
 | **Regressions familj** | | | | | |
-| [Linjär regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |Bra |Snabb |Ja |4 | |
-| [Besluts skogs regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|Utmärkt |Medel |Inga |5 | |
-| [Regressions analys av besluts träd](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Inga |6 |Stor minnes storlek |
-| [Neurala nätverks regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Inga |8 | |
+| [Linjär regression](./algorithm-module-reference/linear-regression.md?WT.mc_id=docs-article-lazzeri) |Bra |Snabb |Ja |4 | |
+| [Besluts skogs regression](./algorithm-module-reference/decision-forest-regression.md?WT.mc_id=docs-article-lazzeri)|Utmärkt |Medel |Nej |5 | |
+| [Regressions analys av besluts träd](./algorithm-module-reference/boosted-decision-tree-regression.md?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Nej |6 |Stor minnes storlek |
+| [Neurala nätverks regression](./algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri) |Bra |Medel |Nej |8 | |
 | **Kluster serie** | | | | | |
-| [K-innebär klustring](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Ja |8 |En klustrad algoritm |
+| [K-innebär klustring](./algorithm-module-reference/k-means-clustering.md?WT.mc_id=docs-article-lazzeri) |Utmärkt |Medel |Ja |8 |En klustrad algoritm |
 
 ## <a name="requirements-for-a-data-science-scenario"></a>Krav för ett data vetenskaps scenario
 
@@ -83,7 +83,7 @@ Gör alternativ och eventuellt kompromisser för följande krav:
 
 ## <a name="accuracy"></a>Noggrannhet
 
-Noggrannhet i Machine Learning mäter effektiviteten hos en modell som den andel av det faktiska resultatet av det totala antalet fall. I Machine Learning designer beräknar [modulen utvärdera modell](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri) en uppsättning utvärderings mått som är bransch standard. Du kan använda den här modulen för att mäta noggrannheten för en utbildad modell.
+Noggrannhet i Machine Learning mäter effektiviteten hos en modell som den andel av det faktiska resultatet av det totala antalet fall. I Machine Learning designer beräknar [modulen utvärdera modell](./algorithm-module-reference/evaluate-model.md?WT.mc_id=docs-article-lazzeri) en uppsättning utvärderings mått som är bransch standard. Du kan använda den här modulen för att mäta noggrannheten för en utbildad modell.
 
 Det är inte alltid nödvändigt att få det mest exakta svaret. Ibland är en uppskattning tillräckligt, beroende på vad du vill använda det för. Om så är fallet kanske du kan minska bearbetnings tiden dramatiskt genom att hålla mer ungefärliga metoder. Ungefärliga metoder tenderar också att undvika överanpassning.
 
@@ -93,7 +93,7 @@ Det finns tre sätt att använda modulen utvärdera modell:
 - Generera poäng i modellen, men jämför dessa resultat med resultat från en reserverad test uppsättning
 - Jämför poängen för två olika men relaterade modeller med samma uppsättning data
 
-En fullständig lista över mått och metoder som du kan använda för att utvärdera maskin inlärnings modellens exakthet finns i [utvärdera modell-modulen](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/evaluate-model?WT.mc_id=docs-article-lazzeri).
+En fullständig lista över mått och metoder som du kan använda för att utvärdera maskin inlärnings modellens exakthet finns i [utvärdera modell-modulen](./algorithm-module-reference/evaluate-model.md?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="training-time"></a>Träningstid
 
@@ -105,9 +105,9 @@ I Machine Learning designer är det vanligt vis en tre stegs process att skapa o
 
 1.  Konfigurera en modell genom att välja en viss typ av algoritm och definiera sedan dess parametrar eller dess egenskaper. 
 
-2.  Ange en data mängd som är märkt och har data som är kompatibla med algoritmen. Anslut både data och modellen för att [träna modulen modell](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/train-model?WT.mc_id=docs-article-lazzeri).
+2.  Ange en data mängd som är märkt och har data som är kompatibla med algoritmen. Anslut både data och modellen för att [träna modulen modell](./algorithm-module-reference/train-model.md?WT.mc_id=docs-article-lazzeri).
 
-3.  När utbildningen har slutförts använder du den tränade modellen med en av [poängsättnings-modulerna](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/score-model?WT.mc_id=docs-article-lazzeri) för att göra förutsägelser på nya data.
+3.  När utbildningen har slutförts använder du den tränade modellen med en av [poängsättnings-modulerna](./algorithm-module-reference/score-model.md?WT.mc_id=docs-article-lazzeri) för att göra förutsägelser på nya data.
 
 ## <a name="linearity"></a>Linearitet
 
@@ -115,25 +115,25 @@ Linjärt i statistik och maskin inlärning innebär att det finns en linjär rel
 
 Många Machine Learning-algoritmer använder linjäritet. I Azure Machine Learning designer är de: 
 
-- [Logistik regression med multiklass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri)
-- [Logistik regression med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri)
-- [Stöd för vektor datorer](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri)  
+- [Logistik regression med multiklass](./algorithm-module-reference/multiclass-logistic-regression.md?WT.mc_id=docs-article-lazzeri)
+- [Logistik regression med två klasser](./algorithm-module-reference/two-class-logistic-regression.md?WT.mc_id=docs-article-lazzeri)
+- [Stöd för vektor datorer](./algorithm-module-reference/two-class-support-vector-machine.md?WT.mc_id=docs-article-lazzeri)  
 
 Algoritmer för linjär regression förutsätter att data trender följer en rak linje. Detta antagande är inte skadat för vissa problem, men för andra minskar precisionen. Även om nack delarna är linjära algoritmer populära som en första strategi. De brukar vara algorithmically enkla och snabba att träna.
 
 ![Streckad klass-gränser](./media/how-to-select-algorithms/nonlinear-class-boundary.png)
 
-***Kant linje***som inte är linjär: *förlitar sig på en algoritm för linjär klassificering skulle resultera i låg exakthet.*
+*Streckad *_klass_* : _Relying på en algoritm för linjär klassificering skulle resultera i låg exakthet. *
 
 ![Data med en linjär trend](./media/how-to-select-algorithms/nonlinear-trend.png)
 
-***Data med en linjär trend: om***du *använder en linjär Regressions metod genereras mycket större fel än vad som behövs.*
+***Data med en linjär trend** : _Using en linjär Regressions metod genererar mycket större fel än vad som behövs. *
 
 ## <a name="number-of-parameters"></a>Antal parametrar
 
 Parametrar är de rattar som en data expert kommer att sätta igång när en algoritm konfigureras. De är tal som påverkar algoritmens beteende, t. ex. fel tolerans eller antal iterationer eller alternativ mellan varianter av hur algoritmen fungerar. Algoritmens inlärnings tid och exakthet kan ibland vara känsligt för att bara få rätt inställningar. Vanligt vis kräver algoritmer med ett stort antal parametrar den vanligaste utvärderings versionen och fel för att hitta en lämplig kombination.
 
-Det kan också finnas i [modulen för att finjustera modells parametrar](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/tune-model-hyperparameters?WT.mc_id=docs-article-lazzeri) i Machine Learning designer: målet för den här modulen är att fastställa de optimala egenskaperna för en maskin inlärnings modell. Modulen bygger och testar flera modeller genom att använda olika kombinationer av inställningar. Den jämför mått över alla modeller för att hämta kombinationer av inställningar. 
+Det kan också finnas i [modulen för att finjustera modells parametrar](./algorithm-module-reference/tune-model-hyperparameters.md?WT.mc_id=docs-article-lazzeri) i Machine Learning designer: målet för den här modulen är att fastställa de optimala egenskaperna för en maskin inlärnings modell. Modulen bygger och testar flera modeller genom att använda olika kombinationer av inställningar. Den jämför mått över alla modeller för att hämta kombinationer av inställningar. 
 
 Även om det är ett bra sätt att se till att du har använt parameter utrymmet, ökar den tid som krävs för att träna en modell exponentiellt med antalet parametrar. Det finns många parametrar som vanligt vis indikerar att en algoritm har större flexibilitet. Det kan ofta uppnå mycket bra precision, förutsatt att du kan hitta rätt kombination av parameter inställningar.
 
@@ -141,14 +141,14 @@ Det kan också finnas i [modulen för att finjustera modells parametrar](https:/
 
 I Machine Learning är en funktion en kvantifierbar variabel av fenomenet som du försöker analysera. För vissa typer av data kan antalet funktioner vara mycket stort jämfört med antalet data punkter. Detta är ofta fallet med genetiska data eller text data. 
 
-Ett stort antal funktioner kan bli rörigt ned vissa Learning-algoritmer, vilket gör utbildnings tiden unfeasibly lång. [Support Vector-datorer](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) är särskilt väl lämpade för scenarier med ett stort antal funktioner. Därför har de använts i många program från informations hämtning till text och bild klassificering. Support vektor datorer kan användas för både klassificerings-och Regressions uppgifter.
+Ett stort antal funktioner kan bli rörigt ned vissa Learning-algoritmer, vilket gör utbildnings tiden unfeasibly lång. [Support Vector-datorer](./algorithm-module-reference/two-class-support-vector-machine.md?WT.mc_id=docs-article-lazzeri) är särskilt väl lämpade för scenarier med ett stort antal funktioner. Därför har de använts i många program från informations hämtning till text och bild klassificering. Support vektor datorer kan användas för både klassificerings-och Regressions uppgifter.
 
-Val av funktioner syftar på hur du tillämpar statistiska tester på indata, baserat på en angiven utmatning. Målet är att avgöra vilka kolumner som är mer förutsägbara för utdata. Den [filterbaserade modulen för funktions val](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/filter-based-feature-selection?WT.mc_id=docs-article-lazzeri) i Machine Learning designer innehåller flera algoritmer för val av funktioner som du kan välja mellan. Modulen innehåller korrelations metoder som Pearson-korrelation och chi2-värden.
+Val av funktioner syftar på hur du tillämpar statistiska tester på indata, baserat på en angiven utmatning. Målet är att avgöra vilka kolumner som är mer förutsägbara för utdata. Den [filterbaserade modulen för funktions val](./algorithm-module-reference/filter-based-feature-selection.md?WT.mc_id=docs-article-lazzeri) i Machine Learning designer innehåller flera algoritmer för val av funktioner som du kan välja mellan. Modulen innehåller korrelations metoder som Pearson-korrelation och chi2-värden.
 
-Du kan också använda [funktionen för permutations prioritet](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) för att beräkna en uppsättning funktions resultat för din data uppsättning. Du kan sedan använda dessa Poäng för att hjälpa dig att fastställa de bästa funktionerna i en modell.
+Du kan också använda [funktionen för permutations prioritet](./algorithm-module-reference/permutation-feature-importance.md?WT.mc_id=docs-article-lazzeri) för att beräkna en uppsättning funktions resultat för din data uppsättning. Du kan sedan använda dessa Poäng för att hjälpa dig att fastställa de bästa funktionerna i en modell.
 
 ## <a name="next-steps"></a>Nästa steg
 
- - [Läs mer om Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri)
- - Beskrivningar av alla Machine Learning-algoritmer som är tillgängliga i Azure Machine Learning Designer finns i [Machine Learning designer-algoritmen och module-referensen](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri)
- - Om du vill utforska förhållandet mellan djup inlärning, maskin inlärning och AI, se [djup inlärning mot Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)
+ - [Läs mer om Azure Machine Learning designer](./concept-designer.md?WT.mc_id=docs-article-lazzeri)
+ - Beskrivningar av alla Machine Learning-algoritmer som är tillgängliga i Azure Machine Learning Designer finns i [Machine Learning designer-algoritmen och module-referensen](./algorithm-module-reference/module-reference.md?WT.mc_id=docs-article-lazzeri)
+ - Om du vill utforska förhållandet mellan djup inlärning, maskin inlärning och AI, se [djup inlärning mot Machine Learning](./concept-deep-learning-vs-machine-learning.md?WT.mc_id=docs-article-lazzeri)

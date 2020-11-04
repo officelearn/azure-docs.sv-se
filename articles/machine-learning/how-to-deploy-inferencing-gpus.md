@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 9a18b35ce974aebb38f8f58b892fd93b94f5e3c8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8480a0b8722fbfff0f1d8a8fafc1a64f38d21d6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314792"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307219"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
 
@@ -26,7 +26,7 @@ Den här artikeln lär dig hur du använder Azure Machine Learning för att dist
 Härlednings-eller modell poängsättning är den fas där den distribuerade modellen används för att skapa förutsägelser. Att använda GPU: er i stället för processorer ger prestanda för delar med mycket kan göras parallella beräkning.
 
 > [!IMPORTANT]
-> För webb tjänst distributioner stöds endast GPU-härledning i Azure Kubernetes-tjänsten. För en härledning med en __Machine Learning-pipeline__stöds endast GPU: er i Azure Machine Learning Compute. Mer information om hur du använder ML-pipelines finns i [Självstudier: bygga en Azure Machine Learning pipeline för batch-Poäng](tutorial-pipeline-batch-scoring-classification.md). 
+> För webb tjänst distributioner stöds endast GPU-härledning i Azure Kubernetes-tjänsten. För en härledning med en __Machine Learning-pipeline__ stöds endast GPU: er i Azure Machine Learning Compute. Mer information om hur du använder ML-pipelines finns i [Självstudier: bygga en Azure Machine Learning pipeline för batch-Poäng](tutorial-pipeline-batch-scoring-classification.md). 
 
 > [!TIP]
 > Även om kodfragmenten i den här artikeln använder en TensorFlow-modell kan du använda informationen för alla Machine Learning-ramverk som stöder GPU: er.
@@ -38,7 +38,7 @@ Härlednings-eller modell poängsättning är den fas där den distribuerade mod
 
 * En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
-* En python-utvecklings miljö med Azure Machine Learning SDK installerat. Mer information finns i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).  
+* En python-utvecklings miljö med Azure Machine Learning SDK installerat. Mer information finns i [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
 
 * En registrerad modell som använder en GPU.
 
@@ -192,7 +192,7 @@ inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 ```
 
 Mer information om miljöer finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
-Mer information finns i referens dokumentationen för [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true).
+Mer information finns i referens dokumentationen för [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
 
 ## <a name="deploy-the-model"></a>Distribuera modellen
 
@@ -217,7 +217,7 @@ aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
 
-Mer information finns i referens dokumentationen för- [modellen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true).
+Mer information finns i referens dokumentationen för- [modellen](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
 
 ## <a name="issue-a-sample-query-to-your-service"></a>Skicka en exempel fråga till din tjänst
 

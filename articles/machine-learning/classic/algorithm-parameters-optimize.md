@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0ed958d24a7ff499c8cf33974648afb0f4e0a81d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b08318d4c12fd2e6ea8055771ca6792b0fb280dd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91368000"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307860"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Välj parametrar för att optimera algoritmerna i Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 I det här avsnittet beskrivs hur du väljer rätt aktiv parameter för en algoritm i Azure Machine Learning Studio (klassisk). De flesta Machine Learning-algoritmer har parametrar att ställa in. När du tränar en modell måste du ange värden för dessa parametrar. Den tränade modellens effektivitet beror på de modell parametrar som du väljer. Processen för att hitta den optimala uppsättningen parametrar kallas *modell val*.
 
@@ -28,10 +28,10 @@ Det finns olika sätt att göra modell val. I Machine Learning är kors valideri
 
 Det finns fyra steg i processen att hitta den bästa parameter uppsättningen:
 
-1. **Definiera parameter utrymmet**: för algoritmen ska du först bestämma de exakta parameter värden som du vill ta hänsyn till.
-2. **Definiera kors validerings inställningarna**: Bestäm hur du vill välja kors validerings vikning för data uppsättningen.
-3. **Definiera måttet**: Bestäm vilka mått som ska användas för att fastställa den bästa uppsättningen parametrar, till exempel precision, Rotors medelvärde, precision, återkallande eller f-poäng.
-4. **Träna, utvärdera och jämför**: för varje unik kombination av parameter värden utförs kors validering av och baserat på det fel mått som du definierar. Efter utvärdering och jämförelse kan du välja den bästa modellen.
+1. **Definiera parameter utrymmet** : för algoritmen ska du först bestämma de exakta parameter värden som du vill ta hänsyn till.
+2. **Definiera kors validerings inställningarna** : Bestäm hur du vill välja kors validerings vikning för data uppsättningen.
+3. **Definiera måttet** : Bestäm vilka mått som ska användas för att fastställa den bästa uppsättningen parametrar, till exempel precision, Rotors medelvärde, precision, återkallande eller f-poäng.
+4. **Träna, utvärdera och jämför** : för varje unik kombination av parameter värden utförs kors validering av och baserat på det fel mått som du definierar. Efter utvärdering och jämförelse kan du välja den bästa modellen.
 
 Följande bild illustrerar hur detta kan uppnås i Azure Machine Learning Studio (klassisk).
 
@@ -66,12 +66,12 @@ Modulen har också en valfri data uppsättnings indata. Anslut data uppsättning
 
 ![Ökad klassificerare för besluts träd](./media/algorithm-parameters-optimize/fig6a.png)
 
-Modellen utvärderas sedan i validerings data uppsättningen. Den vänstra utdataporten i modulen visar olika mått som funktioner för parameter värden. Den högra utdataporten ger den tränade modellen som motsvarar bästa möjliga modell enligt valt mått (**noggrannhet** i det här fallet).  
+Modellen utvärderas sedan i validerings data uppsättningen. Den vänstra utdataporten i modulen visar olika mått som funktioner för parameter värden. Den högra utdataporten ger den tränade modellen som motsvarar bästa möjliga modell enligt valt mått ( **noggrannhet** i det här fallet).  
 
 ![Verifierings data uppsättning](./media/algorithm-parameters-optimize/fig6b.png)
 
 Du kan se de exakta parametrarna som valts genom att visualisera rätt utgående port. Den här modellen kan användas i en bedömning av en test uppsättning eller i en fungerande webb tjänst efter att ha sparats som en utbildad modell.
 
 <!-- Module References -->
-[partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
+[partition-and-sample]: /azure/machine-learning/studio-module-reference/partition-and-sample
+[tune-model-hyperparameters]: /azure/machine-learning/studio-module-reference/tune-model-hyperparameters

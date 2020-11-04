@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6f2e0b9a797edb2d5529bb0645ed56c44df3121c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02fd6c1d4cbd1c2db287a38e086045042b5f220a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440029"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309543"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Flytta data från en SQL Server databas till SQL Database med Azure Data Factory
 
@@ -43,7 +43,7 @@ Vi konfigurerar en ADF-pipeline som består av två data migrerings aktiviteter.
 * Kopiera data från Azure Blob Storage-kontot till Azure SQL Database.
 
 > [!NOTE]
-> Stegen som visas här har anpassats från den mer detaljerade självstudien som tillhandahålls av ADF-teamet: [Kopiera data från en SQL Server databas till Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) -referenser till de relevanta avsnitten i det här avsnittet, om det är lämpligt.
+> Stegen som visas här har anpassats från den mer detaljerade självstudien som tillhandahålls av ADF-teamet: [Kopiera data från en SQL Server databas till Azure Blob Storage](../../data-factory/tutorial-hybrid-copy-portal.md) -referenser till de relevanta avsnitten i det här avsnittet, om det är lämpligt.
 >
 >
 
@@ -52,7 +52,7 @@ Den här självstudien förutsätter att du har:
 
 * En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
 * Ett **Azure Storage-konto**. Du använder ett Azure Storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure Storage-konto går du till artikeln [skapa ett lagrings konto](../../storage/common/storage-account-create.md) . När du har skapat lagrings kontot måste du hämta den konto nyckel som används för att få åtkomst till lagringen. Se [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
-* Åtkomst till en **Azure SQL Database**. Om du måste konfigurera en Azure SQL Database innehåller avsnittet [komma igång med Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) information om hur du etablerar en ny instans av en Azure SQL Database.
+* Åtkomst till en **Azure SQL Database**. Om du måste konfigurera en Azure SQL Database innehåller avsnittet [komma igång med Microsoft Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md) information om hur du etablerar en ny instans av en Azure SQL Database.
 * Installerat och konfigurerat **Azure PowerShell** lokalt. Instruktioner finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).
 
 > [!NOTE]
@@ -71,7 +71,7 @@ Instruktioner för att skapa en ny Azure Data Factory och en resurs grupp i [Azu
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installera och konfigurera Azure Data Factory Integration Runtime
 Integration Runtime är en kundhanterad infrastruktur för data integrering som används av Azure Data Factory för att tillhandahålla funktioner för data integrering i olika nätverks miljöer. Den här körningen kallades tidigare för Data Management Gateway.
 
-Konfigurera genom att [följa anvisningarna för att skapa en pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Konfigurera genom att [följa anvisningarna för att skapa en pipeline](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)
 
 ## <a name="create-linked-services-to-connect-to-the-data-resources"></a><a name="adflinkedservices"></a>Skapa länkade tjänster för att ansluta till data resurserna
 En länkad tjänst definierar den information som krävs för att Azure Data Factory ska kunna ansluta till en data resurs. Vi har tre resurser i det här scenariot för vilka länkade tjänster behövs:
@@ -87,7 +87,7 @@ Steg för steg-proceduren för att skapa länkade tjänster finns i [Skapa länk
 Skapa tabeller som anger strukturen, platsen och tillgängligheten för data uppsättningarna med följande skriptbaserade procedurer. JSON-filer används för att definiera tabeller. Mer information om strukturen för dessa filer finns i [data uppsättningar](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
-> Du bör köra `Add-AzureAccount` cmdleten innan du kör cmdleten [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) för att bekräfta att rätt Azure-prenumeration har valts för kommando körningen. Dokumentation av den här cmdleten finns i [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
+> Du bör köra `Add-AzureAccount` cmdleten innan du kör cmdleten [New-AzureDataFactoryTable](/previous-versions/azure/dn835096(v=azure.100)) för att bekräfta att rätt Azure-prenumeration har valts för kommando körningen. Dokumentation av den här cmdleten finns i [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 
@@ -138,7 +138,7 @@ Tabell definitionen för SQL Server anges i följande JSON-fil:
 
 Kolumn namnen ingår inte här. Du kan välja att markera kolumn namnen genom att inkludera dem här (mer information finns i artikeln om [dokumentation om ADF](../../data-factory/copy-activity-overview.md) .
 
-Kopiera JSON-definitionen för tabellen till en fil med namnet *onpremtabledef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\onpremtabledef.jspå*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera JSON-definitionen för tabellen till en fil med namnet *onpremtabledef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\onpremtabledef.jspå* ). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
@@ -173,7 +173,7 @@ Definitionen för tabellen för BLOB-platsen för utdata är i följande (detta 
 }
 ```
 
-Kopiera JSON-definitionen för tabellen till en fil med namnet *bloboutputtabledef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\bloboutputtabledef.jspå*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera JSON-definitionen för tabellen till en fil med namnet *bloboutputtabledef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\bloboutputtabledef.jspå* ). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
@@ -207,7 +207,7 @@ Definitionen för tabellen för SQL Azure utdata finns i följande (det här sch
 }
 ```
 
-Kopiera JSON-definitionen för tabellen till en fil med namnet *AzureSqlTable.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\AzureSqlTable.jspå*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera JSON-definitionen för tabellen till en fil med namnet *AzureSqlTable.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\AzureSqlTable.jspå* ). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
@@ -294,7 +294,7 @@ Med de tabell definitioner som tillhandahölls tidigare, anges pipelinen för AD
 }
 ```
 
-Kopiera den här JSON-definitionen för pipelinen till en fil * med namnetpipelinedef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\pipelinedef.jspå*). Skapa pipelinen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera den här JSON-definitionen för pipelinen till en fil *med namnetpipelinedef.jspå* filen och spara den på en känd plats (här förutsätts vara *C:\temp\pipelinedef.jspå* ). Skapa pipelinen i ADF med följande Azure PowerShell-cmdlet:
 
 ```azurepowershell
 New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json

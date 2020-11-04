@@ -11,16 +11,16 @@ ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a963a9f10ee23c50f50e66191e92f0839c457d9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc348318401c9362636893d70294496c7012408
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362856"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308474"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio (klassiska) webb tjänster som använder moduler för data import och data export
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 När du skapar ett förutsägelse experiment lägger du vanligt vis till en webb tjänst indata och utdata. När du distribuerar experimentet kan konsumenter skicka och ta emot data från webb tjänsten via indata och utdata. För vissa program kan en konsument data vara tillgängliga från en datafeed eller finnas redan i en extern data källa, till exempel Azure Blob Storage. I dessa fall behöver de inte läsa och skriva data med hjälp av webb tjänst indata och utdata. De kan i stället använda BES (batch execution service) för att läsa data från data källan med hjälp av en modul för att importera data och skriva poängsättnings resultatet till en annan data plats med hjälp av en export data-modul.
@@ -41,7 +41,7 @@ Så här läser du data från Azure SQL-tabellen:
 3. Lägg till en modul för att *Importera data* till arbets ytan för experimentet i resultat listan.
 4. Anslut utdata från modulen *Importera data* indata för modulen *Rensa data som saknas* .
 5. I fönstret Egenskaper väljer du **Azure SQL Database** i list rutan **data källa** .
-6. I fälten **databas server namn**, **databas namn**, **användar namn**och **lösen ord** anger du lämplig information för databasen.
+6. I fälten **databas server namn** , **databas namn** , **användar namn** och **lösen ord** anger du lämplig information för databasen.
 7. Ange följande fråga i fältet databas fråga.
 
     ```tsql
@@ -62,7 +62,7 @@ Så här läser du data från Azure SQL-tabellen:
         [income]
      from dbo.censusdata;
     ```
-8. Klicka på **Kör**längst ned i experiment arbets ytan.
+8. Klicka på **Kör** längst ned i experiment arbets ytan.
 
 ## <a name="create-the-predictive-experiment"></a>Skapa förutsägande experiment
 Härnäst ställer du in det förutsägelse experiment som du använder för att distribuera webb tjänsten.
@@ -73,12 +73,12 @@ Härnäst ställer du in det förutsägelse experiment som du använder för att
 4. Lägg till en modul för att *Exportera data* till experimentets arbets yta i resultat listan.
 5. Anslut utdata från modulen *Poäng modell* indata för modulen *Exportera data* .
 6. I fönstret Egenskaper väljer du **Azure SQL Database** i list rutan data mål.
-7. I fälten **databas server namn**, **databas namn**, **serverns användar konto namn**och **lösen ord för serverns användar konto** anger du lämplig information för databasen.
+7. I fälten **databas server namn** , **databas namn** , **serverns användar konto namn** och **lösen ord för serverns användar konto** anger du lämplig information för databasen.
 8. Skriv betygs etiketter i den **kommaavgränsade listan över kolumner som ska sparas** .
-9. I **fältet data tabell namn**skriver du dbo. ScoredLabels. Om tabellen inte finns skapas den när experimentet körs eller så anropas webb tjänsten.
+9. I **fältet data tabell namn** skriver du dbo. ScoredLabels. Om tabellen inte finns skapas den när experimentet körs eller så anropas webb tjänsten.
 10. I fältet **kommaavgränsad lista över DataTable-kolumner** skriver du ScoredLabels.
 
-När du skriver ett program som anropar den slutliga webb tjänsten kanske du vill ange en annan indatamängds fråga eller mål tabell vid körning. Om du vill konfigurera dessa indata och utdata använder du funktionen för webb tjänst parametrar för att ange *data källans egenskap för data källa* i modulen *Importera data* och egenskapen *Exportera* Dataläge.  Mer information om parametrarna för webb tjänsten finns i [posten Azure Machine Learning Studio Web Service Parameters](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) på Cortana Intelligence och Machine Learning blogg.
+När du skriver ett program som anropar den slutliga webb tjänsten kanske du vill ange en annan indatamängds fråga eller mål tabell vid körning. Om du vill konfigurera dessa indata och utdata använder du funktionen för webb tjänst parametrar för att ange *data källans egenskap för data källa* i modulen *Importera data* och egenskapen *Exportera* Dataläge.  Mer information om parametrarna för webb tjänsten finns i [posten Azure Machine Learning Studio Web Service Parameters](/archive/blogs/machinelearning/azureml-web-service-parameters) på Cortana Intelligence och Machine Learning blogg.
 
 Konfigurera webb tjänst parametrarna för import frågan och mål tabellen:
 
@@ -129,10 +129,10 @@ När körningen har slutförts läggs en ny tabell till i databasen som innehål
 
 Distribuera som en ny webb tjänst och skapa ett program för att använda den:
 
-1. Klicka på **Kör**längst ned i experiment arbets ytan.
+1. Klicka på **Kör** längst ned i experiment arbets ytan.
 2. När körningen har slutförts klickar du på **distribuera webb tjänst** och väljer **distribuera webb tjänst [ny]**.
 3. På sidan distribuera experiment anger du ett namn för din webb tjänst och väljer en pris plan och klickar sedan på **distribuera**.
-4. Klicka på **förbruka**på sidan **snabb start** .
+4. Klicka på **förbruka** på sidan **snabb start** .
 5. I avsnittet **exempel kod** klickar du på **batch**.
 6. I Visual Studio skapar du ett C#-konsol program: **nytt**  >  **projekt**  >  **Visual C#**  >  **Windows klassisk Desktop**  >  **console-app (.NET Framework)**.
 7. Kopiera och klistra in C#-exempel koden i din Program.cs-fil.
@@ -152,4 +152,3 @@ Distribuera som en ny webb tjänst och skapa ett program för att använda den:
     };
     ```
 10. Kör appen.
-

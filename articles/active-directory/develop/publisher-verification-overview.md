@@ -12,16 +12,20 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363427"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308771"
 ---
 # <a name="publisher-verification"></a>Verifiering av utgivare
 
-Utgivar verifieringen hjälper administratörer och slutanvändare att förstå äktheten hos programutvecklare som integreras med Microsoft Identity Platform. När ett program har marker ATS som utgivare verifierat, innebär det att utgivaren har verifierat sin identitet med hjälp av ett [Microsoft Partner Network](https://partner.microsoft.com/membership) konto som har slutfört [verifierings](/partner-center/verification-responses) processen och ASSOCIERAt det här MPN-kontot med sin program registrering. 
+Utgivar verifieringen hjälper administratörer och slutanvändare att förstå äktheten hos programutvecklare som integreras med Microsoft Identity Platform. 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+När ett program har marker ATS som utgivare verifierat, innebär det att utgivaren har verifierat sin identitet med hjälp av ett [Microsoft Partner Network](https://partner.microsoft.com/membership) konto som har slutfört [verifierings](/partner-center/verification-responses) processen och ASSOCIERAt det här MPN-kontot med sin program registrering. 
 
 Ett blått "verifierat"-märke visas i frågan om godkännande i Azure AD och andra skärmar: ![ medgivande-prompt](./media/publisher-verification-overview/consent-prompt.png)
 
@@ -29,11 +33,11 @@ Den här funktionen är främst avsedd för utvecklare som skapar appar för fle
 
 ## <a name="benefits"></a>Fördelar
 Utgivar verifieringen ger följande fördelar:
-- **Ökad transparens och risk minskning för kunder**– den här funktionen hjälper kunder att förstå vilka appar som används i sina organisationer publiceras av utvecklare som de litar på. 
+- **Ökad transparens och risk minskning för kunder** – den här funktionen hjälper kunder att förstå vilka appar som används i sina organisationer publiceras av utvecklare som de litar på. 
 
-- **Förbättrat varumärke**– ett "verifierat"-märke visas på sidan Azure AD [medgivande](application-consent-experience.md), sidan företags appar och ytterligare UX-ytor som används av slutanvändare och administratörer. 
+- **Förbättrat varumärke** – ett "verifierat"-märke visas på sidan Azure AD [medgivande](application-consent-experience.md), sidan företags appar och ytterligare UX-ytor som används av slutanvändare och administratörer. 
 
-- **Smidigare företags införande**– administratörer kan konfigurera [principer för användar medgivande](../manage-apps/configure-user-consent.md), med status för utgivarens verifierings status som ett av de primära princip villkoren.
+- **Smidigare företags införande** – administratörer kan konfigurera [principer för användar medgivande](../manage-apps/configure-user-consent.md), med status för utgivarens verifierings status som ett av de primära princip villkoren.
 
 > [!NOTE]
 > Från och med november 2020 kan slutanvändare inte längre bevilja medgivande till de senast registrerade apparna för flera klient organisationer utan verifierade utgivare. Detta gäller för appar som registrerats efter den 8 november 2020, använder OAuth 2.0 för att begära behörigheter bortom Basic-inloggning och läsa användar profil och begära medgivande från användare i olika klienter än den som appen är registrerad i. En varning visas på skärmen medgivande som informerar användarna om att dessa appar är riskfyllda och kommer från ej verifierade utgivare.    

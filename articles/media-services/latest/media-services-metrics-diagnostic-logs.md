@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: c03950d64c9ead17dfa5c07ef70ab2b7ee0e90bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296659"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309065"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Övervaka Media Services mått och diagnostikloggar via Azure Monitor
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Övervaka Media Servicess statistik och diagnostiska loggar med Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -67,8 +67,10 @@ Följande Media Services [slut punkter för direkt uppspelnings](/rest/api/media
 |Begäranden|Begäranden|Visar det totala antalet HTTP-begäranden som hanteras av slut punkten för direkt uppspelning.|
 |Utgående|Utgående|Utgående byte totalt per minut per slut punkt för direkt uppspelning.|
 |SuccessE2ELatency|Slutför svars tid för slut punkt till slut punkt|Varaktighet från när strömnings slut punkten fick begäran till när den sista byten av svaret skickades.|
+|CPU-användning| CPU-användning för förstklassiga strömnings slut punkter. Dessa data är inte tillgängliga för standard slut punkter för direkt uppspelning. |
+|Utgående bandbredd | Utgående bandbredd i bitar per sekund.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>Varför skulle jag vilja använda mått?
+### <a name="metrics-are-useful"></a>Mått är användbara
 
 Här följer exempel på hur du kan använda övervaknings Media Services mått för att förstå hur dina appar presterar. Några frågor som kan åtgärdas med Media Services mått är:
 
@@ -79,6 +81,8 @@ Här följer exempel på hur du kan använda övervaknings Media Services mått 
 * Hur kan jag se en nedbrytning av begär Anden som Miss lyckas och vad som orsakar felet?
 * Hur kan jag se hur många HLS-eller BINDESTRECKs-begäranden som hämtas från Paketeraren?
 * Hur gör jag för att ange en avisering för att veta när tröskelvärdet för antal misslyckade misslyckade förfrågningar träffades?
+
+Samtidighet blir ett problem för antalet slut punkter för direkt uppspelning som används i ett enda konto över tid. Du måste tänka på förhållandet mellan antalet samtidiga strömmar med komplexa publicerings parametrar som dynamisk paketering till flera protokoll, flera DRM-krypteringar osv. Varje ytterligare publicerad Live-dataström lägger till processor-och utgående bandbredd på slut punkten för direkt uppspelning. Med det i åtanke bör du använda Azure Monitor för att se hur strömnings slut punkten utnyttjar användningen (CPU och utgående kapacitet) för att försäkra dig om att du skalar den korrekt (eller delar upp trafiken mellan flera slut punkter för direkt uppspelning om du får mycket hög samtidighet).
 
 ### <a name="example"></a>Exempel
 
@@ -94,7 +98,7 @@ Media Services stöder följande diagnostikloggar:
 
 ### <a name="key-delivery"></a>Nyckel leverans
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |Begäran om nyckel leverans tjänst|Loggar som visar information om viktiga leverans tjänst begär Anden. Mer information finns i [scheman](media-services-diagnostic-logs-schema.md).|
 

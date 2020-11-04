@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: 3f192493dfd6bfc2fb3d5802b1dd94cd4ca3a9a9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e337cef9121dc5992f87b9996cfd01d16d9cc188
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285230"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309368"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure Resource Provider-åtgärder
 
@@ -4100,7 +4100,7 @@ Azure-tjänst: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQL
 > | Microsoft. SQL/Servers/databaser/dataMaskingPolicies/Rules/Delete | Ta bort data mask princip regel för en specifik databas |
 > | Microsoft. SQL/Servers/databaser/dataWarehouseQueries/Read | Returnerar information om distributions frågan för data lagret för det valda fråge-ID: t |
 > | Microsoft. SQL/Servers/databases/dataWarehouseQueries/dataWarehouseQuerySteps/Read | Returnerar steg informationen för den distribuerade frågan för data lager frågan för valt steg-ID |
-> | Microsoft. SQL/Servers/databaser/dataWarehouseUserActivities/Read | Hämtar användar aktiviteter för en SQL Data Warehouse-instans som omfattar körnings-och inaktiverade frågor |
+> | Microsoft. SQL/Servers/databaser/dataWarehouseUserActivities/Read | Hämtar användar aktiviteter för en dedicerad SQL-pool i Azure Synapse Analytics, inklusive körnings-och inaktiverade frågor |
 > | Microsoft. SQL/Servers/databaser/extendedAuditingSettings/Read | Hämta information om den utökade blobb gransknings principen som kon figurer ATS för en viss databas |
 > | Microsoft. SQL/Servers/databaser/extendedAuditingSettings/Write | Ändra den utökade blobb gransknings principen för en viss databas |
 > | Microsoft. SQL/Servers/databaser/tillägg/läsa | Hämtar en samling tillägg för databasen. |

@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790890"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308329"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent datakryptering i Azure SQL med kundhanterad nyckel
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -82,7 +82,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 
 - Bevilja servern eller hanterad instans åtkomst till nyckel valvet (get, wrapKey, unwrapKey) med sin Azure Active Directory identitet. När du använder Azure Portal skapas Azure AD-identiteten automatiskt. När du använder PowerShell eller CLI måste Azure AD-identiteten skapas och slutföras måste verifieras. Se [Konfigurera TDE med BYOK](transparent-data-encryption-byok-configure.md) och [Konfigurera TDE med BYOK för SQL-hanterad instans](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) för detaljerade steg-för-steg-instruktioner när du använder PowerShell.
 
-- När du använder en brand vägg med AKV måste du aktivera alternativet *Tillåt att betrodda Microsoft-tjänster kringgår brand väggen* .
+- När du använder en brand vägg med AKV måste du aktivera alternativet *Tillåt att betrodda Microsoft-tjänster kringgår brand väggen*.
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Krav för att konfigurera TDE-skydd
 
@@ -95,7 +95,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 - Om du importerar en befintlig nyckel till nyckel valvet ska du se till att tillhandahålla den i de fil format som stöds (. pfx,. BYOK eller. säkerhets kopiering).
 
 > [!NOTE]
-> Azure SQL stöder nu användning av en RSA-nyckel som lagras i en hanterad HSM som TDE-skydd. Den här funktionen finns i **offentlig för hands version** . Azure Key Vault hanterad HSM är en fullständigt hanterad moln tjänst med hög tillgänglighet, en standard som är kompatibel med en enda klient, som gör att du kan skydda kryptografiska nycklar för dina moln program med hjälp av FIPS 140-2 nivå 3-verifierade HSM: er. Läs mer om [hanterade HSM: er](../../key-vault/managed-hsm/index.yml).
+> Azure SQL stöder nu användning av en RSA-nyckel som lagras i en hanterad HSM som TDE-skydd. Den här funktionen finns i **offentlig för hands version**. Azure Key Vault hanterad HSM är en fullständigt hanterad moln tjänst med hög tillgänglighet, en standard som är kompatibel med en enda klient, som gör att du kan skydda kryptografiska nycklar för dina moln program med hjälp av FIPS 140-2 nivå 3-verifierade HSM: er. Läs mer om [hanterade HSM: er](../../key-vault/managed-hsm/index.yml).
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Rekommendationer vid konfigurering av Kundhanterade TDE
@@ -126,7 +126,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 
 ## <a name="inaccessible-tde-protector"></a>Oåtkomligt TDE-skydd
 
-När transparent data kryptering har kon figurer ATS för att använda en kundhanterad nyckel, krävs kontinuerlig åtkomst till TDE-skydd för att databasen ska vara online. Om servern förlorar åtkomsten till det Kundhanterade TDE-skyddskomponenten i AKV, på upp till 10 minuter kommer en databas att starta neka alla anslutningar med motsvarande fel meddelande och ändra dess tillstånd till *otillgängligt* . Den enda åtgärden som tillåts för en databas i det otillgängliga läget tar bort den.
+När transparent data kryptering har kon figurer ATS för att använda en kundhanterad nyckel, krävs kontinuerlig åtkomst till TDE-skydd för att databasen ska vara online. Om servern förlorar åtkomsten till det Kundhanterade TDE-skyddskomponenten i AKV, på upp till 10 minuter kommer en databas att starta neka alla anslutningar med motsvarande fel meddelande och ändra dess tillstånd till *otillgängligt*. Den enda åtgärden som tillåts för en databas i det otillgängliga läget tar bort den.
 
 > [!NOTE]
 > Om databasen inte är tillgänglig på grund av ett tillfälligt nätverks avbrott, krävs ingen åtgärd och databaserna kommer att anslutas igen automatiskt.
@@ -135,7 +135,7 @@ När åtkomst till nyckeln har återställts krävs ytterligare tid och steg, vi
 
 - Om nyckel åtkomsten återställs inom 8 timmar kommer databasen automatiskt att korrigeras inom nästa timma.
 
-- Om nyckelåtkomsten återställs efter mer än åtta timmar går det inte att reparera automatiskt. Det kan då krävas ytterligare steg i portalen för att få databasen online igen, vilket kan ta lång tid för stora databaser. När databasen är online igen, har tidigare konfigurerade inställningar på server nivå, till exempel konfiguration av [redundanskonfiguration](auto-failover-group-overview.md) , punkt-i-tid-återställnings historik och taggar går **förlorade** . Därför rekommenderar vi att du implementerar ett meddelande system som gör det möjligt att identifiera och åtgärda de underliggande åtkomst problemen för nycklar inom 8 timmar.
+- Om nyckelåtkomsten återställs efter mer än åtta timmar går det inte att reparera automatiskt. Det kan då krävas ytterligare steg i portalen för att få databasen online igen, vilket kan ta lång tid för stora databaser. När databasen är online igen, har tidigare konfigurerade inställningar på server nivå, till exempel konfiguration av [redundanskonfiguration](auto-failover-group-overview.md) , punkt-i-tid-återställnings historik och taggar går **förlorade**. Därför rekommenderar vi att du implementerar ett meddelande system som gör det möjligt att identifiera och åtgärda de underliggande åtkomst problemen för nycklar inom 8 timmar.
 
 Nedan visas de ytterligare steg som krävs på portalen för att den oåtkomliga databasen ska bli online igen.
 
@@ -156,7 +156,7 @@ Det kan hända att någon med tillräckliga åtkomst rättigheter till Key Vault
 
 - tar bort den hanterade identiteten för servern i Azure Active Directory
 
-Lär dig mer om [de vanligaste orsakerna till att databasen blir oåtkomlig](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible).
+Lär dig mer om [de vanligaste orsakerna till att databasen blir oåtkomlig](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible).
 
 ## <a name="monitoring-of-the-customer-managed-tde"></a>Övervakning av Kundhanterade TDE
 
@@ -179,7 +179,7 @@ Om nyckeln som behövs för att återställa en säkerhets kopia inte längre ä
 
 För att minimera den, kör cmdleten [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) för mål servern eller [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) för den hanterade mål instansen för att returnera listan över tillgängliga nycklar och identifiera de som saknas. Se till att mål servern för återställningen har åtkomst till alla nycklar som behövs för att säkerställa att alla säkerhets kopior kan återställas. Dessa nycklar behöver inte markeras som TDE-skydd.
 
-Mer information om säkerhets kopierings återställning för SQL Database finns [i återställa en databas i SQL Database](recovery-using-backups.md). Mer information om säkerhets kopierings återställning för SQL-poolen finns i [återställa en SQL-pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). För SQL Server interna säkerhets kopiering/återställning med SQL-hanterad instans, se [snabb start: återställa en databas till SQL-hanterad instans](../managed-instance/restore-sample-database-quickstart.md)
+Mer information om säkerhets kopierings återställning för SQL Database finns [i återställa en databas i SQL Database](recovery-using-backups.md). Mer information om säkerhets kopierings återställning för dedikerad SQL-pool i Azure Synapse Analytics finns i [återställa en dedikerad SQL-pool](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). För SQL Server interna säkerhets kopiering/återställning med SQL-hanterad instans, se [snabb start: återställa en databas till SQL-hanterad instans](../managed-instance/restore-sample-database-quickstart.md)
 
 Ytterligare överväganden för loggfiler: säkerhetskopierade loggfiler förblir krypterade med det ursprungliga TDE-skyddet, även om det roterats och databasen nu använder ett nytt TDE-skydd.  Vid återställnings tiden krävs båda nycklarna för att återställa databasen.  Om logg filen använder ett TDE-skydd som lagras i Azure Key Vault, krävs den här nyckeln vid återställnings tiden, även om databasen har ändrats för att använda tjänstehanterade TDE under tiden.
 

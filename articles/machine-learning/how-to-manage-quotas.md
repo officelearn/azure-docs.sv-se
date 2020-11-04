@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a8a04d9e1b17c7e65be946cb51bfc41019e0706d
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234010"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309076"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Hantera och öka kvoter för resurser med Azure Machine Learning
 
@@ -52,7 +52,7 @@ I det här avsnittet får du lära dig om standard-och Max kvot gränserna för 
 + Azure Storage
 
 > [!IMPORTANT]
-> Begränsningar kan komma att ändras. Den senaste informationen finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) för alla Azure.
+> Begränsningar kan komma att ändras. Den senaste informationen finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md) för alla Azure.
 
 ### <a name="virtual-machines"></a>Virtuella datorer
 Varje Azure-prenumeration har en gräns för antalet virtuella datorer i alla tjänster. Virtuella dator kärnor har en regional total gräns och en regional gräns per storleks serie. Båda gränserna tillämpas separat.
@@ -100,7 +100,7 @@ I följande tabell visas ytterligare gränser som du inte kan överskrida.
 
 ### <a name="container-instances"></a>Container Instances
 
-Mer information finns i [container instances gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
+Mer information finns i [container instances gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
 ### <a name="storage"></a>Storage
 Azure Storage har en gräns på 250 lagrings konton per region, per prenumeration. Den här gränsen omfattar både standard-och Premium lagrings konton.
@@ -156,7 +156,7 @@ Du kan inte höja gränserna över de maximala värdena som visas i föregående
 När du begär en kvot ökning väljer du den tjänst som du har i åtanke. Välj till exempel Azure Machine Learning, Container Instances eller lagring. För Azure Machine Learning Compute kan du välja knappen **begär kvot** när du visar kvoten i föregående steg.
 
 > [!NOTE]
-> [Kostnads fria utvärderings prenumerationer](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en kostnads fri utvärderings prenumeration kan du uppgradera till en prenumeration [där du betalar per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning. Mer information finns i [Uppgradera Azures kostnads fria utvärderings version till](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) [vanliga frågor och svar om](https://azure.microsoft.com/free/free-account-faq)att betala per användning och kostnads fritt Azure-konto.
+> [Kostnads fria utvärderings prenumerationer](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en kostnads fri utvärderings prenumeration kan du uppgradera till en prenumeration [där du betalar per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning. Mer information finns i [Uppgradera Azures kostnads fria utvärderings version till](../cost-management-billing/manage/upgrade-azure-subscription.md) [vanliga frågor och svar om](https://azure.microsoft.com/free/free-account-faq)att betala per användning och kostnads fritt Azure-konto.
 
 ## <a name="private-endpoint-and-private-dns-quota-increases"></a>Högre kvot för privat slutpunkt och privat DNS
 
@@ -172,7 +172,7 @@ Azure Machine Learning skapar resurser i din prenumeration (kund), men vissa sce
 
 Använd följande steg för att begära en ersättning för dessa scenarier:
 
-1. [Skapa en support förfrågan för Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) och välj följande alternativ i avsnittet __grundläggande__ information:
+1. [Skapa en support förfrågan för Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) och välj följande alternativ i avsnittet __grundläggande__ information:
 
     | Fält | Urval |
     | ----- | ----- |

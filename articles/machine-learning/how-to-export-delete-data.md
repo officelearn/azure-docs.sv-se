@@ -11,12 +11,12 @@ ms.author: laobri
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e847f62c2ae3d1d68c39685a38b67e1d0ada8c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82e128ffdc215a084110a68170ac12accd8fca0e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251022"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308132"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportera eller ta bort data för din Machine Learning service-arbetsyta
 
@@ -50,7 +50,7 @@ De här resurserna kan tas bort genom att markera dem i listan och välja **ta b
 
 Kör historik dokument, som kan innehålla personlig användar information, lagras i lagrings kontot i Blob Storage i undermappar i `/azureml` . Du kan ladda ned och ta bort data från portalen.
 
-:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Skärm bild av portalen, med ikonen Ta bort markerad":::
+:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Skärm bild av azureml-katalogen i lagrings kontot i portalen":::
 
 ## <a name="export-and-delete-machine-learning-resources-using-azure-machine-learning-studio"></a>Exportera och ta bort maskin inlärnings resurser med Azure Machine Learning Studio
 
@@ -62,7 +62,7 @@ Du kan hämta utbildnings artefakter från experimentella körningar med Studio.
 
 Du kan ladda ned en registrerad modell genom att gå till önskad **modell** och välja **Ladda ned**. 
 
-:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Skärm bild av portalen, med ikonen Ta bort markerad":::
+:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Skärm bild av sidan Studio-modell med alternativet för nedladdning markerat":::
 
 ## <a name="export-and-delete-resources-using-the-python-sdk"></a>Exportera och ta bort resurser med python SDK
 
@@ -84,8 +84,7 @@ Följande Machine Learning-resurser kan tas bort med python SDK:
 
 | Typ | Funktions anrop | Obs! | 
 | --- | --- | --- |
-| `Workspace` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | Använd `delete-dependent-resources` för att överlappa borttagningen |
-| `Model` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--) | | 
-| `ComputeTarget` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--) | |
-| `WebService` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) | | 
-
+| `Workspace` | [`delete`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | Använd `delete-dependent-resources` för att överlappa borttagningen |
+| `Model` | [`delete`](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | | 
+| `ComputeTarget` | [`delete`](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | |
+| `WebService` | [`delete`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) | |

@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: a0c99c05701c7f2d64fcfc2f70081f2d7475ce5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345629"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307481"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Datavetenskap för nybörjare, video 1: Fem frågor och svar om datavetenskap
 
@@ -45,7 +45,7 @@ I den första videon pratar vi om "de 5 frågorna om data vetenskaps svar".
 
 Data vetenskap använder siffror och namn (kallas även kategorier eller etiketter) för att förutse svar på frågor.
 
-Det kan bli överrasknings, men *det finns bara fem frågor som data vetenskaps svar*:
+Det kan bli överrasknings, men *det finns bara fem frågor som data vetenskaps svar* :
 
 * Är det här en eller B?
 * Är det här underligt?
@@ -136,4 +136,4 @@ Så det är det – de 5 frågorna data science kan svara.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Testa ett första data vetenskaps experiment med Machine Learning Studio (klassisk)](create-experiment.md)
-* [Få en introduktion till Machine Learning på Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Få en introduktion till Machine Learning på Microsoft Azure](../overview-what-is-azure-ml.md)

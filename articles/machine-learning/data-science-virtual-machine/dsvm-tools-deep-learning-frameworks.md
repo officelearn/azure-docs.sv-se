@@ -11,12 +11,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 29f1949cbe9998ac569b0389986023a72e7845b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070924"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309038"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Djup inlärnings-och AI-ramverk för Azure-Data Science VM
 Ramverk för djup inlärning i DSVM visas nedan.
@@ -76,7 +76,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 | Hur konfigureras den/installeras på DSVM?  | Keras installeras i python 3,6 på Windows och i python 3,5 i Linux |
 | Så här kör du det      | Aktivera rätt miljö vid terminalen och kör sedan python. |
 
-## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](/cognitive-toolkit/)
 
 | Kategori | Värde |
 | ------------- | ------------- |
@@ -110,7 +110,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 | DSVM-versioner som stöds      | Windows Server 2019<br>Ubuntu 18.04<br> Windows 2016<br> Ubuntu 16.04   |
 | Vad är det för? | NVIDIA-verktyg för att fråga GPU-aktivitet |
 | Hur konfigureras den/installeras på DSVM?  | `nvidia-smi` finns på system Sök vägen. |
-| Så här kör du det      | Öppna en kommando tolk (i Windows) eller en Terminal (på Linux) på en virtuell dator **med GPU: n**och kör sedan `nvidia-smi` . |
+| Så här kör du det      | Öppna en kommando tolk (i Windows) eller en Terminal (på Linux) på en virtuell dator **med GPU: n** och kör sedan `nvidia-smi` . |
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
@@ -146,5 +146,5 @@ Ramverk för djup inlärning i DSVM visas nedan.
 | ------------- | ------------- |
 | Version (er) som stöds | 1.0.3 |
 | DSVM-versioner som stöds      | Ubuntu 16.04 |
-| Hur konfigureras den/installeras på DSVM?  |Theano installeras i python 2,7 (_root_) och i python 3,5 (_py35_)-miljö. |
+| Hur konfigureras den/installeras på DSVM?  |Theano installeras i python 2,7 ( _root_ ) och i python 3,5 ( _py35_ )-miljö. |
 | Så här kör du det      |  Terminal: Aktivera den python-version som du vill använda (root eller py35), kör python och importera sedan Theano.<br/>* Jupyter: Välj python 2,7-eller 3,5-kernel och importera sedan Theano.  <br/>För att undvika ett tidigare MKL-fel (math kernel Library) måste du först ställa in MKL-tråd skiktet på följande sätt:<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

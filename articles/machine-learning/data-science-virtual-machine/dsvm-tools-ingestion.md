@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 736504febea16af53c2c05bc367513b2dde93ccf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89cf81f8d0a66c29a345f56676fbb97601743710
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012322"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308983"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data Science Virtual Machine verktyg för data inmatning
 
@@ -31,7 +31,7 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 | DSVM-versioner som stöds      | Windows      |
 | Vanliga användnings områden      | Importera flera blobbar från Azure Blob Storage till Azure Data Lake Store.      |
 |  Hur använder man/kör den?    |   Öppna en kommando tolk och skriv `adlcopy` för att få hjälp.    |
-| Länkar till exempel      | [Använda AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Länkar till exempel      | [Använda AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)      |
 | Relaterade verktyg på DSVM      | AzCopy, Azure CLI     |
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -42,7 +42,7 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 | DSVM-versioner som stöds      | Windows, Linux     |
 | Vanliga användnings områden      | Importera och exportera data till och från Azure Storage och Azure Data Lake Store.      |
 |  Hur använder man/kör den?    |   Öppna en kommando tolk och skriv `az` för att få hjälp.    |
-| Länkar till exempel      | [Använda Azure CLI](https://docs.microsoft.com/cli/azure)     |
+| Länkar till exempel      | [Använda Azure CLI](/cli/azure)     |
 | Relaterade verktyg på DSVM      | AzCopy, AdlCopy      |
 
 
@@ -54,7 +54,7 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 | DSVM-versioner som stöds      | Windows      |
 | Vanliga användnings områden      | Kopiera filer till Azure Blob Storage och kopiera blobbar mellan konton.      |
 |  Hur använder man/kör den?    |   Öppna en kommando tolk och skriv `azcopy` för att få hjälp.    |
-| Länkar till exempel      | [AzCopy i Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
+| Länkar till exempel      | [AzCopy i Windows](../../storage/common/storage-use-azcopy-v10.md)      |
 | Relaterade verktyg på DSVM      | AdlCopy     |
 
 
@@ -66,7 +66,7 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 | DSVM-versioner som stöds      | Windows      |
 | Vanliga användnings områden      | Importera filer från en virtuell dator till CosmosDB, importera data från Azure Table Storage till CosmosDB och importera data från en Microsoft SQL Server databas till CosmosDB.     |
 |  Hur använder man/kör den?    |   Om du vill använda kommando rads versionen öppnar du en kommando tolk och skriver `dt` . Om du vill använda GUI-verktyget öppnar du en kommando tolk och skriver `dtui` .    |
-| Länkar till exempel      | [Importera data för CosmosDB](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
+| Länkar till exempel      | [Importera data för CosmosDB](../../cosmos-db/import-data.md)      |
 | Relaterade verktyg på DSVM      | AzCopy, AdlCopy      |
 
 ## <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
@@ -88,7 +88,7 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 | DSVM-versioner som stöds      | Windows      |
 | Vanliga användnings områden      | Importera en CSV-fil till en SQL Server tabell och exportera en SQL Server tabell till en fil.      |
 |  Hur använder man/kör den?    |   Öppna en kommando tolk och skriv `bcp` för att få hjälp.    |
-| Länkar till exempel      | [BCP-verktyg](https://docs.microsoft.com/sql/tools/bcp-utility)      |
+| Länkar till exempel      | [BCP-verktyg](/sql/tools/bcp-utility)      |
 | Relaterade verktyg på DSVM      | SQL Server, SQLCMD      |
 
 ## <a name="blobfuse"></a>blobfuse

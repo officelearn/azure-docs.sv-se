@@ -1,6 +1,6 @@
 ---
-title: Kopiera Synapse-länk för Azure Cosmos DB data till en SQL-pool med Apache Spark
-description: Läs in data i en spark-dataframe, granska data och Läs in dem i en SQL-adresspool
+title: Kopiera Synapse-länk för Azure Cosmos DB data till en dedikerad SQL-pool med Apache Spark
+description: Läs in data i en spark-dataframe, granska data och Läs in dem i en dedikerad SQL-adresspool
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
@@ -9,35 +9,35 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 409f1ecee5ccf42a0168d500b40337366e07bfc0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 13891f9614e658be39adbb69fed1503a0c66d5e4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91287858"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309215"
 ---
-# <a name="copy-data-from-azure-cosmos-db-into-a-sql-pool-using-apache-spark"></a>Kopiera data från Azure Cosmos DB till en SQL-pool med Apache Spark
+# <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Kopiera data från Azure Cosmos DB till en dedikerad SQL-pool med Apache Spark
 
 Azure Synapse-länken för Azure Cosmos DB gör det möjligt för användare att köra nära real tids analys över drifts data i Azure Cosmos DB. Det finns dock tillfällen då vissa data behöver aggregeras och berikas för att hantera informations lager användare. Att granska och exportera Synapse länk data kan göras med bara några få celler i en bärbar dator.
 
 ## <a name="prerequisites"></a>Förutsättningar
 * [Etablera en Synapse-arbetsyta](../quickstart-create-workspace.md) med:
-    * [Spark-pool](../quickstart-create-apache-spark-pool-studio.md)
-    * [SQL-pool](../quickstart-create-sql-pool-studio.md)
+    * [Server lös Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md)
+    * [dedikerad SQL-pool](../quickstart-create-sql-pool-studio.md)
 * [Etablera ett Cosmos DB-konto med en HTAP-behållare med data](../../cosmos-db/configure-synapse-link.md)
 * [Anslut Azure Cosmos DB HTAP-behållaren till arbets ytan](./how-to-connect-synapse-link-cosmos-db.md)
-* [Har rätt installation för att importera data till en SQL-pool från Spark](../spark/synapse-spark-sql-pool-import-export.md)
+* [Har rätt installation för att importera data till en dedikerad SQL-pool från Spark](../spark/synapse-spark-sql-pool-import-export.md)
 
 ## <a name="steps"></a>Steg
 I den här självstudien ansluter du till analys lagret så att det inte påverkar transaktions lagringen (den kommer inte att förbruka några enheter för programbegäran). Vi går igenom följande steg:
 1. Läs Cosmos DB HTAP-behållaren i en spark-dataframe
 2. Sammanställ resultatet i en ny dataframe
-3. Mata in data i en SQL-pool
+3. Mata in data i en dedikerad SQL-pool
 
 [![Spark till SQL steg 1](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
 
 ## <a name="data"></a>Data
-I det exemplet använder vi en HTAP-behållare som heter **RetailSales**. Den är en del av en länkad tjänst med namnet **ConnectedData**och har följande schema:
+I det exemplet använder vi en HTAP-behållare som heter **RetailSales**. Den är en del av en länkad tjänst med namnet **ConnectedData** och har följande schema:
 * _rid: sträng (Nullable = true)
 * _ts: långt (Nullable = true)
 * logQuantity: Double (Nullable = true)
@@ -50,7 +50,7 @@ I det exemplet använder vi en HTAP-behållare som heter **RetailSales**. Den ä
 * weekStarting: långt (Nullable = true)
 * _etag: sträng (Nullable = true)
 
-Vi sammanställer försäljningen (*kvantitet*, *intäkt* (pris × kvantitet) av *ProductCode* och *weekStarting* för rapportering. Slutligen ska vi exportera dessa data till en SQL-adresspool med namnet **dbo. productsales**.
+Vi sammanställer försäljningen ( *kvantitet* , *intäkt* (pris × kvantitet) av *ProductCode* och *weekStarting* för rapportering. Slutligen ska vi exportera dessa data till en dedikerad SQL-pool med namnet **dbo. productsales**.
 
 ## <a name="configure-a-spark-notebook"></a>Konfigurera en spark-anteckningsbok
 Skapa en spark-anteckningsbok med Scala som Spark (Scala) som huvud språk. Vi använder antecknings bokens standardinställning för sessionen.
@@ -67,7 +67,7 @@ val df_olap = spark.read.format("cosmos.olap").
 
 ## <a name="aggregate-the-results-in-a-new-dataframe"></a>Sammanställ resultatet i en ny dataframe
 
-I den andra cellen kör vi den omvandling och de agg regeringar som behövs för den nya dataframe innan du läser in den i en SQL-adresspool.
+I den andra cellen kör vi den omvandling och de agg regeringar som krävs för den nya dataframe innan du läser in den i en dedikerad SQL-adresspool.
 
 ```java
 // Select relevant columns and create revenue
@@ -77,12 +77,12 @@ val df_olap_aggr = df_olap_step1.groupBy("productCode","weekStarting").agg(sum("
     withColumn("AvgPrice",col("Sum_revenue")/col("Sum_quantity"))
 ```
 
-## <a name="load-the-results-into-a-sql-pool"></a>Läs in resultaten i en SQL-pool
+## <a name="load-the-results-into-a-dedicated-sql-pool"></a>Läs in resultaten i en dedikerad SQL-pool
 
-I den tredje cellen läser vi in data i en SQL-pool. Det skapar automatiskt en temporär extern tabell, extern data källa och ett externt fil format som tas bort när jobbet är färdigt.
+I den tredje cellen läser vi in data i en dedikerad SQL-pool. Det skapar automatiskt en temporär extern tabell, extern data källa och ett externt fil format som tas bort när jobbet är färdigt.
 
 ```java
-df_olap_aggr.write.sqlanalytics("arnaudpool.dbo.productsales", Constants.INTERNAL)
+df_olap_aggr.write.sqlanalytics("userpool.dbo.productsales", Constants.INTERNAL)
 ```
 
 ## <a name="query-the-results-with-sql"></a>Fråga resultatet med SQL

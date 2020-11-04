@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: cc5c72c2d0db7c17fdbc29e7fb815f1d06134730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f06777e559187a57bfe0625cde700f30fb636a2b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033225"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309332"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Mata in data i Azure Data Lake Storage Gen2 
 
@@ -22,15 +22,15 @@ I den här artikeln får du lära dig hur du matar in data från en plats till e
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Azure-prenumeration**: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure Storage konto**: du använder Azure Data Lake gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att skapa ett.
+* **Azure-prenumeration** : om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* **Azure Storage konto** : du använder Azure Data Lake gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att skapa ett.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 
 I Azure Synapse Analytics är en länkad tjänst där du definierar din anslutnings information till andra tjänster. I det här avsnittet ska du lägga till Azure Synapse Analytics och Azure Data Lake gen 2 som länkade tjänster.
 
 1. Öppna Azure Synapse Analytics-UX och gå till fliken **Hantera** .
-1. Under **externa anslutningar**väljer du **länkade tjänster**.
+1. Under **externa anslutningar** väljer du **länkade tjänster**.
 1. Om du vill lägga till en länkad tjänst väljer du **ny**.
 1. Välj panelen Azure Data Lake Storage Gen2 i listan och välj **Fortsätt**.
 1. Ange autentiseringsuppgifterna för autentisering. Konto nyckel, tjänstens huvud namn och hanterad identitet stöds för närvarande autentiseringstyper som stöds. Kontrol lera att dina autentiseringsuppgifter är korrekta genom att välja testa anslutning. 
@@ -38,7 +38,7 @@ I Azure Synapse Analytics är en länkad tjänst där du definierar din anslutni
 
 ## <a name="create-pipeline"></a>Skapa pipeline
 
-En pipeline innehåller det logiska flödet för en körning av en uppsättning aktiviteter. I det här avsnittet ska du skapa en pipeline som innehåller en kopierings aktivitet som matar in data från Azure Data Lake gen 2 i en SQL-pool.
+En pipeline innehåller det logiska flödet för en körning av en uppsättning aktiviteter. I det här avsnittet ska du skapa en pipeline som innehåller en kopierings aktivitet som matar in data från Azure Data Lake gen 2 i en dedikerad SQL-pool.
 
 1. Gå till fliken **dirigera** . Välj på plus ikonen bredvid pipelinens huvud och välj **pipeline**.
 1. Under **flytta och transformera** i fönstret aktiviteter drar du **Kopiera data** till pipeline-arbetsytan.
@@ -67,9 +67,9 @@ I det här steget aktiverar du pipelinen som publicerades i föregående steg ma
 1. Välj **Lägg till utlösare** i verktygsfältet och välj sedan **Utlös nu**. På sidan **Pipeline Run** (Pipelinekörning) väljer du **Slutför**.  
 1. Gå till fliken **övervakare** som finns i den vänstra panelen. Du ser en pipelinekörning som är utlöst av en manuell utlösare. Du kan använda länkar i kolumnen **åtgärder** för att Visa aktivitets information och köra pipelinen igen.
 1. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Actions** (Åtgärder). I det här exemplet finns det bara en aktivitet, så du ser bara en post i listan. Om du vill se mer information om kopieringsåtgärden väljer du länken för **detaljer** (glasögonikonen) i kolumnen **Actions** (Åtgärder). Välj **pipeline-körningar** överst för att gå tillbaka till vyn pipelines-körningar. Välj **Uppdatera** för att uppdatera vyn.
-1. Kontrol lera att dina data är korrekt skrivna i SQL-poolen.
+1. Kontrol lera att dina data är korrekt skrivna i den dedikerade SQL-poolen.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om data integrering för Synapse-analys finns i artikeln om att mata [in data i en SQL-pool](data-integration-sql-pool.md) .
+Mer information om data integrering för Synapse-analys finns i artikeln mata [in data i en särskild SQL-pool](data-integration-sql-pool.md) .

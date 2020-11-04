@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: f942525f1360a134f58f18e0ec76a84b0ceee50b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b8c7792a09dd86e7d4ac043c572f69fc47ee6e63
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738189"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307180"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Självstudie: skapa Apache Spark jobb definition i Synapse Studio
 
-Den här självstudien visar hur du använder Azure Synapse Studio för att skapa Apache Spark jobb definitioner och sedan skickar dem till en Apache Spark pool.
+Den här självstudien visar hur du använder Azure Synapse Studio för att skapa Apache Spark jobb definitioner och sedan skickar dem till en server lös Apache Spark-pool.
 
 Den här självstudien omfattar följande uppgifter:
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ Den här självstudien omfattar följande uppgifter:
 Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
 * En Azure Synapse Analytics-arbetsyta. Instruktioner finns i [skapa en Azure Synapse Analytics-arbetsyta](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
-* En Apache Spark pool.
+* En server lös Apache Spark pool.
 * Ett ADLS Gen2 lagrings konto. Du måste vara ägare till **Storage BLOB-data** för det ADLS Gen2-filsystem som du vill arbeta med. Om du inte gör det måste du lägga till behörigheten manuellt.
 * Om du inte vill använda arbets ytans standard lagring länkar du det obligatoriska ADLS Gen2 lagrings kontot i Synapse Studio. 
 
@@ -93,7 +93,7 @@ I det här avsnittet skapar du en Apache Spark jobb definition för Apache Spark
  
      ![Förbered Scala-struktur](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Välj **utveckla** hubb, Välj ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. (Exempel bilden är samma som steg 4 i **skapa en Apache Spark jobb definition (python) för PySpark** .)
+ 4. Välj **utveckla** hubb, Välj ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. (Exempel bilden är samma som steg 4 i **skapa en Apache Spark jobb definition (python) för PySpark**.)
 
  5. Välj **Spark (Scala)** i list rutan språk i den Apache Spark jobb definitionens huvud fönster.
 
@@ -133,7 +133,7 @@ I det här avsnittet skapar du en Apache Spark jobb definition för .NET Spark (
  
      ![Förbered dotNet-struktur](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Välj **utveckla** hubb, Välj ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. (Exempel bilden är samma som steg 4 i **skapa en Apache Spark jobb definition (python) för PySpark** .)
+ 4. Välj **utveckla** hubb, Välj ikonen "+" och välj **Spark jobb definition** för att skapa en ny Spark-jobbiljett. (Exempel bilden är samma som steg 4 i **skapa en Apache Spark jobb definition (python) för PySpark**.)
 
  5. Välj **.net Spark (C#/f #)** från List rutan språk i fönstret för Apache Spark jobb definitions huvud.
 
@@ -197,7 +197,7 @@ I det här avsnittet lägger du till en Apache Spark jobb definition i pipeline.
 
  1. Öppna en befintlig Apache Spark jobb definition.
 
- 2. Välj ikonen längst upp till höger i Apache Spark jobb definition, Välj **befintlig pipeline** eller **ny pipeline** . Mer information hittar du på pipeline-sidan.
+ 2. Välj ikonen längst upp till höger i Apache Spark jobb definition, Välj **befintlig pipeline** eller **ny pipeline**. Mer information hittar du på pipeline-sidan.
 
      ![Lägg till i pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 

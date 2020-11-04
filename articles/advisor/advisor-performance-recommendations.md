@@ -3,12 +3,12 @@ title: Förbättra prestanda för Azure Apps med Advisor
 description: Använd prestanda rekommendationer i Azure Advisor för att förbättra hastighet och svars tider för affärs kritiska program.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 44252171a714acec0a9c0e83c9272b2f845560b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6a008411d4422853e6a98fad59bd4519b42a9548
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077821"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308679"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Förbättra prestanda för Azure-program med hjälp av Azure Advisor
 
@@ -22,7 +22,7 @@ Azure Advisor identifierar Traffic Manager profiler som har ett längre TTL-vär
 
 ## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>Förbättra databasens prestanda genom att använda SQL Database Advisor (tillfälligt inaktive rad)
 
-Azure Advisor ger en enhetlig, sammanslagen översikt över rekommendationer för alla dina Azure-resurser. Den integreras med SQL Database Advisor för att få rekommendationer för att förbättra prestandan för dina databaser.SQL Database Advisor utvärderar prestanda för dina databaser genom att analysera användnings historiken. Den erbjuder sedan rekommendationer som passar bäst för att köra databasens typiska arbets belastning.
+Azure Advisor ger en enhetlig, sammanslagen översikt över rekommendationer för alla dina Azure-resurser. Den integreras med SQL Database Advisor för att få rekommendationer för att förbättra prestandan för dina databaser. SQL Database Advisor utvärderar prestanda för dina databaser genom att analysera användnings historiken. Den erbjuder sedan rekommendationer som passar bäst för att köra databasens typiska arbets belastning.
 
 > [!NOTE]
 > Innan du kan få rekommendationer måste databasen användas i ungefär en vecka och inom den veckan måste det vara en konsekvent aktivitet. SQL Database Advisor kan optimeras enklare för konsekventa fråge mönster än för slumpmässiga aktiviteter.
@@ -108,7 +108,7 @@ Advisor identifierar om du kan öka belastnings prestanda och data flöde genom 
 
 ## <a name="co-locate-the-storage-account-in-the-same-region-to-minimize-latency-when-loading"></a>Samplacera lagrings kontot i samma region för att minimera svars tiden vid inläsning
 
-Advisor identifierar om du läser in från en annan region än SQL-poolen. Överväg att läsa in från ett lagrings konto som är i samma region som SQL-poolen för att minimera svars tiden vid inläsning av data. Den här ändringen bidrar till att minimera svars tiden och öka belastnings prestandan.
+Advisor identifierar om du läser in från en annan region än den dedikerade SQL-poolen. Överväg att läsa in från ett lagrings konto som är i samma region som din dedikerade SQL-pool för att minimera svars tiden vid inläsning av data. Den här ändringen bidrar till att minimera svars tiden och öka belastnings prestandan.
 
 ## <a name="use-a-supported-kubernetes-version"></a>Använd en Kubernetes-version som stöds
 
@@ -120,17 +120,17 @@ Advisor identifierar versioner av Kubernetes som inte stöds.
 Hög användning av processorn under en längre period kan orsaka långsamma prestanda för frågor för din arbets belastning. Att öka processor storleken bidrar till att optimera körningen av databas frågorna och förbättra den övergripande prestandan. Advisor identifierar servrar med hög processor användning som troligen kör CPU-begränsade arbets belastningar och rekommenderar att du skalar beräkningen.
 
 ### <a name="reduce-memory-constraints-on-your-azure-database-for-mysql-azure-database-for-postgresql-and-azure-database-for-mariadb-servers-or-move-to-a-memory-optimized-sku"></a>Minska minnes begränsningar på Azure Database for MySQL, Azure Database for PostgreSQL och Azure Database for MariaDB servrar eller flytta till en Minnesoptimerade SKU
-Ett lågt cacheträffar kan resultera i sämre prestanda för frågor och ökad IOPS. Det här tillståndet kan orsakas av en dålig frågeplan eller en minnes intensiv arbets belastning. Om du korrigerar en frågeplan eller [ökar minnet](../postgresql/concepts-pricing-tiers.md) för Azure Database for PostgreSQL, Azure Database for MySQL eller Azure Database for MariaDB servern kan du optimera körningen av databasens arbets belastning. Azure Advisor identifierar servrar som påverkas av den här omsättningen för den stora bufferten. Vi rekommenderar att du vidtar följande åtgärder: 
+Ett lågt cacheträffar kan resultera i sämre prestanda för frågor och ökad IOPS. Det här tillståndet kan orsakas av en dålig frågeplan eller en minnes intensiv arbets belastning. Om du korrigerar en frågeplan eller [ökar minnet](../postgresql/concepts-pricing-tiers.md) för Azure Database for PostgreSQL, Azure Database for MySQL eller Azure Database for MariaDB servern kan du optimera körningen av databasens arbets belastning. Azure Advisor identifierar servrar som påverkas av den här omsättningen för den stora bufferten. Vi rekommenderar att du vidtar följande åtgärder: 
 - Åtgärda frågeuttrycket
 - Flytta till en SKU som har mer minne 
 - Öka lagrings utrymmet för att få mer IOPS.
 
 ### <a name="use-an-azure-database-for-mysql-or-azure-database-for-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Använd en Azure Database for MySQL eller Azure Database for PostgreSQL Läs replik för att skala upp läsningar för Läs intensiva arbets belastningar
-Advisor använder arbetsbaserade heuristik som förhållandet mellan läsningar och skrivningar på servern under de senaste sju dagarna för att identifiera Läs intensiva arbets belastningar. En Azure Database for PostgreSQL-eller Azure Database for MySQL resurs med högt Läs/skriv-förhållande kan leda till processor-eller minnes innehåll och leda till långsam frågans prestanda. Om du lägger till en [replik](../postgresql/howto-read-replicas-portal.md) kan du skala upp läsningar till replik servern och förhindra processor-eller minnes begränsningar på den primära servern. Advisor identifierar servrar med Läs intensiva arbets belastningar och rekommenderar att du lägger till en [Läs replik](../postgresql/concepts-read-replicas.md)   för att avlasta några av de Läs arbets belastningarna.
+Advisor använder arbetsbaserade heuristik som förhållandet mellan läsningar och skrivningar på servern under de senaste sju dagarna för att identifiera Läs intensiva arbets belastningar. En Azure Database for PostgreSQL-eller Azure Database for MySQL resurs med högt Läs/skriv-förhållande kan leda till processor-eller minnes innehåll och leda till långsam frågans prestanda. Om du lägger till en [replik](../postgresql/howto-read-replicas-portal.md) kan du skala upp läsningar till replik servern och förhindra processor-eller minnes begränsningar på den primära servern. Advisor identifierar servrar med Läs intensiva arbets belastningar och rekommenderar att du lägger till en [Läs replik](../postgresql/concepts-read-replicas.md) för att avlasta några av de Läs arbets belastningarna.
 
 
 ### <a name="scale-your-azure-database-for-mysql-azure-database-for-postgresql-or-azure-database-for-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skala din Azure Database for MySQL, Azure Database for PostgreSQL eller Azure Database for MariaDB server till en högre SKU för att förhindra anslutnings begränsningar
-Varje ny anslutning till databas servern upptar minne. Databas serverns prestanda försämras om anslutningar till servern inte kan utföras på grund av en [övre gräns](../postgresql/concepts-limits.md) i minnet. Azure Advisor identifierar servrar som kör med många anslutnings problem. Vi rekommenderar att du uppgraderar serverns anslutnings gränser för att ge mer minne till servern genom att vidta någon av följande åtgärder:
+Varje ny anslutning till databas servern upptar minne. Databas serverns prestanda försämras om anslutningar till servern inte kan utföras på grund av en [övre gräns](../postgresql/concepts-limits.md) i minnet. Azure Advisor identifierar servrar som kör med många anslutnings problem. Vi rekommenderar att du uppgraderar serverns anslutnings gränser för att ge mer minne till servern genom att vidta någon av följande åtgärder:
 - Skala upp beräkning. 
 - Använd Minnesoptimerade SKU: er, som har mer data bearbetning per kärna.
 

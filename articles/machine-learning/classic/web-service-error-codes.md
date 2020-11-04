@@ -11,16 +11,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: c48c59db2d9b830367276d39a82bc7fc8fdc34d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e0fa530b370782af730a2383df1240bbf5c859
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357258"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308664"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (klassisk) REST API felkoder
 
-**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Gäller för. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ gäller inte för. ](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Följande felkoder kan returneras av en åtgärd på en Azure Machine Learning Studio (klassisk)-webb tjänst.
@@ -252,4 +252,3 @@ Tjänsten är inte tillgänglig för tillfället.
 | ---------- |--------------|
 | BackendInitializationTimeout | Det gick inte att slutföra initieringen av webb tjänsten inom den tillåtna tiden. |
 | BackendScoreTimeout | Det gick inte att utföra körningen av webb tjänst begär Anden inom den tillåtna tiden. |
- 

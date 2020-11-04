@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 813f229d414ab911169f404dfc6b3cbf93fa96b3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780792"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308825"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Resurs gränser för Azure SQL Database-och Azure Synapse Analytics-servrar
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,7 +61,7 @@ När du räknar med hög beräknings användning är följande alternativ för m
 - Öka beräknings storleken för databasen eller den elastiska poolen för att tillhandahålla databasen med fler beräknings resurser. Se [skala resurser för enkel databas](single-database-scale.md) och [skala elastiska pooler](elastic-pool-scale.md).
 - Optimera frågor för att minska användningen av CPU-resurser för varje fråga. Mer information finns i avsnittet om [frågeoptimering och frågetips](performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 
 När databas utrymmet som används når den maximala storleks gränsen, infogas och uppdateras databasen som ökar data storleken och klienterna får ett [fel meddelande](troubleshoot-common-errors-issues.md). SELECT-och DELETE-instruktioner fortsätter att fungera.
 
@@ -131,7 +131,7 @@ Azure SQL Database resurs styrning är hierarkiskt beslagen. Från uppifrån och
 
 Data IO-styrning är en process i Azure SQL Database som används för att begränsa både Läs-och skriv fysisk IO mot datafiler i en databas. IOPS-gränser ställs in för varje service nivå för att minimera effekterna "störnings Grans kraft", för att tillhandahålla skälighet i tjänsten för flera innehavare och för att hålla sig inom funktionerna i den underliggande maskin varan och lagringen.
 
-För enskilda databaser tillämpas gränser för arbets belastnings grupper på all lagrings-i/o mot databasen, medan gränserna för resurspooler gäller för all lagrings-i/o för alla databaser i samma SQL-pool, inklusive- `tempdb` databasen. För elastiska pooler gäller begränsningarna för arbets belastnings gruppen för varje databas i poolen, medan gränsen för resurspooler gäller hela den elastiska poolen, inklusive `tempdb` databasen, som delas mellan alla databaser i poolen. I allmänhet är det inte säkert att gränserna för resurspooler kan uppnås av arbets belastningen mot en databas (antingen en eller en pool), eftersom gränserna för arbets belastnings gruppen är lägre än begränsningen för resurspool och begränsar IOPS/genomflöde tidigare. Poolens gränser kan dock nås av den kombinerade arbets belastningen mot flera databaser i samma pool.
+För enskilda databaser tillämpas gränser för arbets belastnings grupper för alla lagrings-i/o mot databasen, medan gränserna för resurspooler gäller för alla lagrings-i/o-databaser i samma dedikerade SQL-pool, inklusive `tempdb` databasen. För elastiska pooler gäller begränsningarna för arbets belastnings gruppen för varje databas i poolen, medan gränsen för resurspooler gäller hela den elastiska poolen, inklusive `tempdb` databasen, som delas mellan alla databaser i poolen. I allmänhet är det inte säkert att gränserna för resurspooler kan uppnås av arbets belastningen mot en databas (antingen en eller en pool), eftersom gränserna för arbets belastnings gruppen är lägre än begränsningen för resurspool och begränsar IOPS/genomflöde tidigare. Poolens gränser kan dock nås av den kombinerade arbets belastningen mot flera databaser i samma pool.
 
 Om en fråga till exempel genererar 1000 IOPS utan någon IO-resurs styrning, men den högsta IOPS-gränsen för arbets belastnings gruppen är inställd på 900 IOPS, kan inte frågan generera mer än 900 IOPS. Men om max antalet IOPS för resurspoolen är inställt på 1500 IOPS och total i/o från alla arbets belastnings grupper som är associerade med resurspoolen överskrider 1500 IOPS, kan i/o för samma fråga minskas under arbets gruppens gräns på 900 IOPS.
 
@@ -158,7 +158,7 @@ De faktiska taxan för logg skapande som påförs vid körning kan också påver
 
 Trafikstyrningen för logg takts trafik sker via följande vänte lägen (visas i [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) och [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) vyer):
 
-| Wait-typ | Kommentarer |
+| Wait-typ | Obs! |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | Databas begränsning |
 | POOL_LOG_RATE_GOVERNOR | Begränsning av pool |

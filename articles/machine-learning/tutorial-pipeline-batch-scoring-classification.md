@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: 3f131e1f8d5604e566c8d7b41fa9d45cb7d2a7a2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f7d1cffb44914535fe218980c750270ebba14445
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054890"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309459"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Självstudie: Bygg en Azure Machine Learning pipeline för batch-Poäng
 
@@ -63,7 +63,7 @@ ws = Workspace.from_config()
 
 På `pipelinedata` kontot hämtar du ImageNet för utvärdering av offentliga data från den `sampledata` offentliga BLOB-behållaren. Anropa `register_azure_blob_container()` för att göra data tillgängliga för arbets ytan under namnet `images_datastore` . Ange sedan standard data lagret för arbets ytan som utdata-datalager. Använd utdata-datalagret för att räkna ut utdata i pipelinen.
 
-Mer information om hur du kommer åt data finns i [så här kommer du åt data](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#python-sdk).
+Mer information om hur du kommer åt data finns i [så här kommer du åt data](./how-to-access-data.md).
 
 ```python
 from azureml.core.datastore import Datastore
@@ -142,7 +142,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 Det går inte att köra maskin inlärnings pipeliner lokalt, så du kör dem på moln resurser eller *fjärranslutna beräknings mål*. Ett fjärran sluten beräknings mål är en återanvändbar virtuell beräknings miljö där du kör experiment och Machine Learning-arbetsflöden. 
 
-Kör följande kod för att skapa ett GPU-aktiverat [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) mål och koppla det sedan till din arbets yta. Mer information om beräknings mål finns i den [konceptuella artikeln](https://docs.microsoft.com/azure/machine-learning/concept-compute-target).
+Kör följande kod för att skapa ett GPU-aktiverat [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) mål och koppla det sedan till din arbets yta. Mer information om beräknings mål finns i den [konceptuella artikeln](./concept-compute-target.md).
 
 
 ```python
@@ -305,7 +305,7 @@ Ett pipeline-steg är ett objekt som kapslar in allt du behöver för att köra 
 * Indata och utdata och eventuella anpassade parametrar
 * Referens till ett skript eller en SDK-logik som ska köras under steget
 
-Flera klasser ärver från den överordnade klassen [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py&preserve-view=true) . Du kan välja klasser för att använda specifika ramverk eller stackar för att bygga ett steg. I det här exemplet använder du `ParallelRunStep` klassen för att definiera din steg logik genom att använda ett anpassat Python-skript. Om ett argument i skriptet antingen är indata till steget eller utdata från steget, måste argumentet definieras *både* i `arguments` matrisen *och* i respektive `input` `output` parameter. 
+Flera klasser ärver från den överordnade klassen [`PipelineStep`](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py) . Du kan välja klasser för att använda specifika ramverk eller stackar för att bygga ett steg. I det här exemplet använder du `ParallelRunStep` klassen för att definiera din steg logik genom att använda ett anpassat Python-skript. Om ett argument i skriptet antingen är indata till steget eller utdata från steget, måste argumentet definieras *både* i `arguments` matrisen *och* i respektive `input` `output` parameter. 
 
 I scenarier där det finns mer än ett steg blir en objekt referens i `outputs` matrisen tillgänglig som *inmatad* för ett efterföljande pipeline-steg.
 
@@ -329,7 +329,7 @@ batch_score_step = ParallelRunStep(
 )
 ```
 
-En lista över alla klasser du kan använda för olika steg typer finns i [steg paketet](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true).
+En lista över alla klasser du kan använda för olika steg typer finns i [steg paketet](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py).
 
 ## <a name="submit-the-pipeline"></a>Skicka pipelinen
 
@@ -386,9 +386,9 @@ published_pipeline
 
 Om du vill köra pipelinen från REST-slutpunkten behöver du ett OAuth2 Bearer-huvud. I följande exempel används interaktiv autentisering (för illustrations ändamål), men för de flesta produktions scenarier som kräver automatiserad eller riktad autentisering, använder du tjänstens huvud namns autentisering enligt [beskrivningen i den här artikeln](how-to-setup-authentication.md).
 
-Autentisering av tjänstens huvud konto innebär att skapa en *app-registrering* i *Azure Active Directory*. Först genererar du en klient hemlighet och sedan beviljar du *rollen* som tjänst huvud namn till din Machine Learning-arbetsyta. Använd- [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) klassen för att hantera ditt autentiserings flöde. 
+Autentisering av tjänstens huvud konto innebär att skapa en *app-registrering* i *Azure Active Directory*. Först genererar du en klient hemlighet och sedan beviljar du *rollen* som tjänst huvud namn till din Machine Learning-arbetsyta. Använd- [`ServicePrincipalAuthentication`](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) klassen för att hantera ditt autentiserings flöde. 
 
-Både [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) och `ServicePrincipalAuthentication` ärver från `AbstractAuthentication` . I båda fallen använder du [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-authentication-header--) funktionen på samma sätt för att hämta rubriken:
+Både [`InteractiveLoginAuthentication`](/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?preserve-view=true&view=azure-ml-py) och `ServicePrincipalAuthentication` ärver från `AbstractAuthentication` . I båda fallen använder du [`get_authentication_header()`](/python/api/azureml-core/azureml.core.authentication.abstractauthentication?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-authentication-header--) funktionen på samma sätt för att hämta rubriken:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
@@ -438,7 +438,7 @@ Slutför inte det här avsnittet om du planerar att köra andra Azure Machine Le
 
 Om du inte planerar att använda de resurser som du skapade, tar du bort dem så att du inte debiteras:
 
-1. I Azure Portal väljer du **resurs grupper**på den vänstra menyn.
+1. I Azure Portal väljer du **resurs grupper** på den vänstra menyn.
 1. I listan över resurs grupper väljer du den resurs grupp som du skapade.
 1. Välj **Ta bort resursgrupp**.
 1. Ange resursgruppsnamnet. Välj sedan **ta bort**.

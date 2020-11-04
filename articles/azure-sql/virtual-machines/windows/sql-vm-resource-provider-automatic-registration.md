@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: 23ecc3bdfb0ca85caf219fc262348937923f53c3
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d4a2d9e43dadc53008c04b44ea1dda9cb337da99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286130"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308358"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>Automatisk registrering med SQL VM Resource Provider
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,11 +34,11 @@ När automatisk registrering har Aktiver ATS för en prenumeration registreras a
 > [!IMPORTANT]
 > SQL IaaS agent-tillägget samlar in data i Express syfte att ge kunderna valfria förmåner när de använder SQL Server i Azure Virtual Machines. Microsoft kommer inte att använda dessa data för licens granskningar utan kundens medgivande. Se [SQL Server sekretess tillägg](/sql/sql-server/sql-server-privacy#non-personal-data) för mer information.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att registrera SQL Server VM med resurs leverantören behöver du: 
 
-- En [Azure-prenumeration](https://azure.microsoft.com/free/).
+- En [Azure-prenumeration](https://azure.microsoft.com/free/) och minst [deltagar roll](../../../role-based-access-control/built-in-roles.md#all) behörigheter.
 - En virtuell dator med Azure resurs modell [Windows Server 2008 R2 (eller senare)](../../../virtual-machines/windows/quick-create-portal.md) med [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) distribuerad till det offentliga molnet eller Azure Government molnet. Windows Server 2008 stöds inte. 
 
 

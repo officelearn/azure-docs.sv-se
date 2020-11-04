@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: b723c77b193b499286a692bd5145131a904a7f07
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d7c5bd2d1918ecebe2d2aabc213de43e7cdb1fef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369343"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306980"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Självstudie: Bygg en Machine Learning-app med Apache Spark MLlib och Azure Synapse Analytics
 
@@ -31,9 +31,9 @@ MLlib är ett Core Spark-bibliotek som innehåller många verktyg som är använ
 
 ## <a name="understand-classification-and-logistic-regression"></a>Förstå klassificering och logistik regression
 
-*Klassificering*, en populär maskin inlärnings uppgift, är processen att sortera indata i kategorier. Det är jobbet i en klassificerings algoritm för att ta reda på hur du tilldelar *Etiketter* till inmatade data som du anger. Du kan till exempel tänka på en Machine Learning-algoritm som tar emot aktie information som indata och delar upp lagret i två kategorier: aktier som du bör sälja och de bestånd som du bör behålla.
+*Klassificering* , en populär maskin inlärnings uppgift, är processen att sortera indata i kategorier. Det är jobbet i en klassificerings algoritm för att ta reda på hur du tilldelar *Etiketter* till inmatade data som du anger. Du kan till exempel tänka på en Machine Learning-algoritm som tar emot aktie information som indata och delar upp lagret i två kategorier: aktier som du bör sälja och de bestånd som du bör behålla.
 
-*Logistisk regression* är en algoritm som du kan använda för klassificering. Spark: s logistik Regressions-API är användbart för *binär klassificering*eller klassificerar indata till en av två grupper. Mer information om logistiska regressioner finns i [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
+*Logistisk regression* är en algoritm som du kan använda för klassificering. Spark: s logistik Regressions-API är användbart för *binär klassificering* eller klassificerar indata till en av två grupper. Mer information om logistiska regressioner finns i [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
 I sammanfattning skapar processen för Logistisk regression en logistisk- *funktion* som kan användas för att förutsäga sannolikheten att en indataport tillhör en grupp eller en annan.
 
@@ -49,7 +49,7 @@ I följande steg utvecklar du en modell för att förutsäga om en viss resa inn
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Skapa en Apache Spark MLlib Machine Learning-appen
 
 1. Skapa en bärbar dator med PySpark-kärnan. Anvisningar finns i [skapa en antecknings bok](../quickstart-apache-spark-notebook.md#create-a-notebook).
-2. Importera de typer som krävs för det här programmet. Kopiera och klistra in följande kod i en tom cell och tryck sedan på **SKIFT + RETUR**eller kör cellen med hjälp av den blå uppspelnings ikonen till vänster om koden.
+2. Importera de typer som krävs för det här programmet. Kopiera och klistra in följande kod i en tom cell och tryck sedan på **SKIFT + RETUR** eller kör cellen med hjälp av den blå uppspelnings ikonen till vänster om koden.
 
     ```python
     import matplotlib.pyplot as plt
@@ -71,7 +71,7 @@ I följande steg utvecklar du en modell för att förutsäga om en viss resa inn
 
 Eftersom rå data är i ett Parquet-format kan du använda Spark-kontexten för att hämta filen till minnet som en dataframe direkt. Medan koden nedan använder standard alternativen, är det möjligt att tvinga mappning av data typer och andra schemaattribut om det behövs.
 
-1. Kör följande rader för att skapa en spark-dataframe genom att klistra in koden i en ny cell. Detta hämtar data via det öppna data uppsättnings-API: et. Att hämta alla dessa data genererar cirka 1 500 000 000 rader. Beroende på storleken på din spark-pool (för hands version) kan rå data vara för stora eller ta för lång tid att arbeta med. Du kan filtrera bort dessa data till något mindre. I följande kod exempel används start_date och end_date för att tillämpa ett filter som returnerar en enda månad med data.
+1. Kör följande rader för att skapa en spark-dataframe genom att klistra in koden i en ny cell. Detta hämtar data via det öppna data uppsättnings-API: et. Att hämta alla dessa data genererar cirka 1 500 000 000 rader. Beroende på storleken på den server lösa Apache Spark-poolen (för hands version) kan rå data vara för stora eller ta för lång tid att arbeta med. Du kan filtrera bort dessa data till något mindre. I följande kod exempel används start_date och end_date för att tillämpa ett filter som returnerar en enda månad med data.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -193,7 +193,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Skapa en logistik Regressions modell
 
-Den sista uppgiften är att konvertera etiketterade data till ett format som kan analyseras av Logistisk regression. Indata till en logistik Regressions algoritm måste vara en uppsättning med *etikett funktions vektor par*, där *funktions vektorn* är en Vector med tal som representerar ingångs punkten. Därför måste vi konvertera kategoriska-kolumnerna till siffror. `trafficTimeBins` `weekdayString` Kolumnerna och behöver konverteras till heltals representationer. Det finns flera metoder för att utföra konverteringen, men metoden som tas i det här exemplet är *OneHotEncoding*, ett vanligt tillvägagångs sätt.
+Den sista uppgiften är att konvertera etiketterade data till ett format som kan analyseras av Logistisk regression. Indata till en logistik Regressions algoritm måste vara en uppsättning med *etikett funktions vektor par* , där *funktions vektorn* är en Vector med tal som representerar ingångs punkten. Därför måste vi konvertera kategoriska-kolumnerna till siffror. `trafficTimeBins` `weekdayString` Kolumnerna och behöver konverteras till heltals representationer. Det finns flera metoder för att utföra konverteringen, men metoden som tas i det här exemplet är *OneHotEncoding* , ett vanligt tillvägagångs sätt.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed

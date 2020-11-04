@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: d23702a71bababec2e172181c8e75c26241d0460
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b7ec7273848b9e8bb5be809b9cf48cdc919d3949
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91349052"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307977"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Snabb start: skapa ditt första data vetenskaps experiment i Machine Learning Studio (klassisk)
 
-**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -47,7 +47,7 @@ Den här snabbstarten följer standardarbetsflödet för ett experiment:
 ## <a name="get-the-data"></a>Hämta data
 
 Det första du behöver för maskininlärning är data.
-Det finns flera exempel data uppsättningar som ingår i Studio (klassisk) som du kan använda, eller så kan du importera data från många källor. I det här exemplet kommer vi att använda exempeluppsättningen **Automobile price data (Raw)**, som ingår i arbetsytan.
+Det finns flera exempel data uppsättningar som ingår i Studio (klassisk) som du kan använda, eller så kan du importera data från många källor. I det här exemplet kommer vi att använda exempeluppsättningen **Automobile price data (Raw)** , som ingår i arbetsytan.
 Den här datauppsättningen innehåller poster för ett antal olika bilar, inklusive uppgifter om modell, tekniska specifikationer och pris.
 
 > [!TIP]
@@ -78,7 +78,7 @@ I den här datamängden representerar varje rad en bil, och de variabler som är
 
 ![Visa bildata i datavisualiseringsfönstret](./media/create-experiment/visualize-auto-data.png)
 
-Stäng visualiseringsfönstret genom att klicka på ”**x**” i det övre högra hörnet.
+Stäng visualiseringsfönstret genom att klicka på ” **x** ” i det övre högra hörnet.
 
 ## <a name="prepare-the-data"></a>Förbereda data
 
@@ -191,7 +191,7 @@ Vi använder våra data både för träning och testning av modellen genom att d
 
 1. Klicka på modulen [Träna modell][train-model], klicka på **Starta kolumnväljaren** i rutan **Egenskaper** och välj kolumnen **price**. **Pris** är det värde som vår modell ska förutsäga.
 
-    Du väljer **pris**kolumnen i kolumnväljaren genom att dra den från listan över **tillgängliga kolumner** till listan över **markerade kolumner**.
+    Du väljer **pris** kolumnen i kolumnväljaren genom att dra den från listan över **tillgängliga kolumner** till listan över **markerade kolumner**.
 
     ![Välja priskolumnen för modulen ”Träna modell”](./media/create-experiment/select-price-column.png)
 
@@ -227,9 +227,9 @@ För vår modell visas följande statistik:
 
 - **Medelabsolutfel** (MAE): Medelvärdet av absoluta fel (ett *fel* är skillnaden mellan det förväntade och faktiska värdet).
 - **Medelkvadratfel** (RMSE): Kvadratroten av genomsnittet av kvadratfel i förutsägelser som görs mot testdatauppsättningen.
-- **Relativa absoluta fel**: Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
-- **Relativa kvadratfel**: Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
-- **Bestämningskoefficient**: Kallas också för **R-kvadratvärdet** och är ett statistiskt mått som anger hur väl en modell passar data.
+- **Relativa absoluta fel** : Medelvärdet av absoluta fel i förhållande till den absoluta skillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
+- **Relativa kvadratfel** : Medelvärdet av kvadratfel i förhållande till kvadratskillnaden mellan faktiska värden och medelvärdet av alla faktiska värden.
+- **Bestämningskoefficient** : Kallas också för **R-kvadratvärdet** och är ett statistiskt mått som anger hur väl en modell passar data.
 
 För all felstatistik gäller att mindre är bättre. Ett mindre värde anger att förutsägelser bättre överensstämmer med de faktiska värdena. För **bestämningskoefficient** är förutsägelserna bättre ju närmare värdet är ett (1,0).
 
@@ -245,10 +245,10 @@ I den här snabbstarten skapade du ett enkelt experiment med hjälp av en exempe
 > [Självstudie: utveckla en förutsägelse lösning i Studio (klassisk)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model

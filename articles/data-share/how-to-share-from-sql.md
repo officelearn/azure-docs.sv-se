@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: 85ddda4bbb6702ed8c82a40d603c8ca87ffb7053
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c13b71858915ab262ab3e0e99ab8c482d19160ea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217549"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318497"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Dela och ta emot data från Azure SQL Database och Azure Synapse Analytics
 
@@ -58,7 +58,7 @@ Nedan visas en lista över förutsättningar för att dela data från SQL-källa
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ### <a name="create-a-data-share-account"></a>Skapa ett data resurs konto
 
@@ -77,10 +77,10 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som du vill använda för ditt data resurs konto.|
     | Resursgrupp | *test-resurs-grupp* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
     | Plats | *USA, östra 2* | Välj en region för ditt data resurs konto.
-    | Namn | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
+    | Name | *datashareaccount* | Ange ett namn för ditt data resurs konto. |
     | | |
 
-1. Välj **Granska + skapa**och sedan **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto. 
+1. Välj **Granska + skapa** och sedan **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto. 
 
 1. När distributionen är klar väljer du **Gå till resurs**.
 
@@ -173,13 +173,13 @@ Om du väljer att ta emot data i Azure SQL Database, är Azure Synapse Analytics
 
 ### <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ### <a name="open-invitation"></a>Öppna inbjudan
 
 1. Du kan öppna inbjudan från e-post eller direkt från Azure Portal. 
 
-   Om du vill öppna inbjudan från e-post, kontrollerar du Inkorgen för en inbjudan från din data leverantör. Inbjudan är från Microsoft Azure, med titeln **Azure Data Share-inbjudan från <yourdataprovider@domain.com> **. Klicka på **Visa inbjudan** för att se din inbjudan i Azure. 
+   Om du vill öppna inbjudan från e-post, kontrollerar du Inkorgen för en inbjudan från din data leverantör. Inbjudan är från Microsoft Azure, med titeln **Azure Data Share-inbjudan från <yourdataprovider@domain.com>**. Klicka på **Visa inbjudan** för att se din inbjudan i Azure. 
 
    Du öppnar inbjudan från Azure Portal direkt genom att söka efter **inbjudningar för data delning** i Azure Portal. Då går du till listan med data resurs inbjudningar.
 
@@ -192,7 +192,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
    ![Villkor för användning](./media/terms-of-use.png "Villkor för användning") 
 
-1. Under *konto för mål data resurs*väljer du den prenumeration och resurs grupp som du ska distribuera data resursen till. 
+1. Under *konto för mål data resurs* väljer du den prenumeration och resurs grupp som du ska distribuera data resursen till. 
 
    För fältet **data resurs konto** väljer du **Skapa nytt** om du inte har ett befintligt data resurs konto. Annars väljer du ett befintligt data resurs konto som du vill acceptera data resursen till. 
 
@@ -228,7 +228,7 @@ De här stegen gäller endast för Snapshot-baserad delning.
 
    ![Utlös ögonblicks bild](./media/trigger-snapshot.png "Utlös ögonblicks bild") 
 
-1. När den senaste körnings statusen har *slutförts*går du till mål data lagret för att Visa mottagna data. Välj **data uppsättningar**och klicka på länken i mål Sök vägen. 
+1. När den senaste körnings statusen har *slutförts* går du till mål data lagret för att Visa mottagna data. Välj **data uppsättningar** och klicka på länken i mål Sök vägen. 
 
    ![Konsument data uppsättningar](./media/consumer-datasets.png "Mappning av konsument data uppsättning") 
 
@@ -244,13 +244,13 @@ När du delar data från SQL-källa används följande mappning från SQL Server
 | binary |Byte [] |
 | bit |Boolesk |
 | char |Sträng, char [] |
-| datum |DateTime |
+| date |DateTime |
 | Datumtid |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM-attribut (varbinary (max)) |Byte [] |
-| Flyttal |Double |
+| Float |Double |
 | image |Byte [] |
 | int |Int32 |
 | money |Decimal |
@@ -275,7 +275,7 @@ När du delar data från SQL-källa används följande mappning från SQL Server
 
 >[!NOTE]
 > 1. För data typer som mappar till typen decimal, stöder ögonblicks bilder precisionen upp till 28. Om du har data som kräver precision som är större än 28, bör du överväga att konvertera till en sträng. 
-> 1.  Om du delar data från Azure SQL Database till Azure Synapse Analytics stöds inte alla typer av data. Mer information finns [i tabell data typer i SYNAPSE SQL-pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) . 
+> 1.  Om du delar data från Azure SQL Database till Azure Synapse Analytics stöds inte alla typer av data. Mer information finns [i tabell data typer i dedikerad SQL-pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) . 
 
 ## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL-Always Encrypted eller dynamisk data maskning
 För närvarande stöder inte Azure Data Share Azure SQL-databaser med Always Encrypted konfigurerade. 

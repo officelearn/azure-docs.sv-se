@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a21cee6806c4200a73b35afba73cf04d7ca60308
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 33571283b876506e419ed675dde0988974c3841e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280010"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317875"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics Business Intelligence partners
 
@@ -41,7 +41,7 @@ Om du vill skapa din data lager lösning kan du välja mellan olika typer av bra
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>Tableau för självbetjänings analys hjälper alla att se och förstå sina data i många olika typer av data från flata filer till databaser. Tableau har en inbyggd, optimerad koppling till Synapse SQL-pool som stöder både real tids data och minnes intern analys. |[Produkt sida](https://www.tableau.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tableau.tableau-server)<br>|
 | ![Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**Targit (besluts svit)**<br>Targit besluts paket tillhandahåller en BI-plattform som levererar instrument paneler i real tid, självbetjänings analys, användarvänlig rapportering, fantastiska mobila funktioner och enkel data identifierings teknik. Allt i en enda, sammanhängande lösning. Targit ger företag som rekommenderas att agera. |[Produkt sida](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/targit.targit-decision-suite)<br> |
 | ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>Använd search för att få detaljerade insikter från miljard tals rader eller låt AI få insikter från frågor som du kanske inte trodde om. ThoughtSpot hjälper businesspeople att hitta insikter dolda i sina företags data på några sekunder. Använd Sök för att analysera dina data och få automatiska insikter när du behöver dem.|[Produkt sida](https://www.thoughtspot.com)<br>|
-| ![Yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>Yellowfin är en förstklassig molnbaserad BI-leverantör för _ad hoc_ -rapportering och instrument paneler av Barc; BI-undersökningen. Anslut till Synapse SQL-pool och skapa och dela snygga rapporter och instrument paneler med prisbelönta funktioner för samarbete i BI och plats information. |[Produkt sida](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/yellowfin.yellowfin-for-azure-byol) |
+| ![Yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>Yellowfin är en förstklassig molnbaserad BI-leverantör för _ad hoc_ -rapportering och instrument paneler av Barc; BI-undersökningen. Anslut till en dedikerad SQL-pool i Azure Synapse Analytics och skapa och dela snygga rapporter och instrument paneler med prisbelönta funktioner för samarbete BI och plats information. |[Produkt sida](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/yellowfin.yellowfin-for-azure-byol) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 

@@ -1,6 +1,6 @@
 ---
 title: Skydda en databas
-description: Tips för att skydda en databas och utveckla lösningar i en Synapse för SQL-pool.
+description: Tips för att skydda en dedikerad SQL-pool och utveckla lösningar i Azure Synapse Analytics.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -11,14 +11,14 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: c94924c973a1095a4bebf6231d9853968facc1b2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f6c1370cab573926183a937b8e749ef490c19334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516891"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317697"
 ---
-# <a name="secure-a-database-in-azure-synapse"></a>Skydda en databas i Azure Synapse
+# <a name="secure-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Skydda en dedikerad SQL-pool i Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >
@@ -27,7 +27,7 @@ ms.locfileid: "92516891"
 > * [Kryptering (portal)](sql-data-warehouse-encryption-tde.md)
 > * [Kryptering (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-I den här artikeln får du stegvisa anvisningar om hur du skyddar din Synapse SQL-pool. I synnerhet hjälper den här artikeln dig att komma igång med resurser för att begränsa åtkomst, skydda data och övervaka aktiviteter på en databas som har skapats med SQL-poolen.
+I den här artikeln får du stegvisa anvisningar om hur du skyddar din dedikerade SQL-pool. I synnerhet hjälper den här artikeln dig att komma igång med resurser för att begränsa åtkomst, skydda data och övervaka aktiviteter med hjälp av dedikerad SQL-pool.
 
 ## <a name="connection-security"></a>Anslutningssäkerhet
 
@@ -35,15 +35,15 @@ Anslutningssäkerhet avser hur du begränsar och säkrar anslutningar till datab
 
 Brand Väggs regler används av både den [logiska SQL-servern](../../azure-sql/database/logical-servers.md) och dess databaser för att avvisa anslutnings försök från IP-adresser som inte har godkänts explicit. Om du vill tillåta anslutningar från ditt program eller klient datorns offentliga IP-adress måste du först skapa en brand Väggs regel på server nivå med hjälp av Azure Portal, REST API eller PowerShell.
 
-Som bästa praxis bör du begränsa de IP-adressintervall som tillåts via brand väggen på server nivå så mycket som möjligt.  Om du vill komma åt SQL-poolen från den lokala datorn kontrollerar du att brand väggen på nätverket och den lokala datorn tillåter utgående kommunikation på TCP-port 1433.  
+Som bästa praxis bör du begränsa de IP-adressintervall som tillåts via brand väggen på server nivå så mycket som möjligt.  För att få åtkomst till din dedikerade SQL-pool från den lokala datorn kontrollerar du att brand väggen på nätverket och den lokala datorn tillåter utgående kommunikation på TCP-port 1433.  
 
 Azure Synapse Analytics använder IP-brandvägg på server nivå. Den har inte stöd för IP-brandväggs regler på databas nivå. Mer information finns i se [Azure SQL Database brand Väggs regler](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
-Anslutningar till SQL-poolen är krypterade som standard.  Ändring av anslutnings inställningar för att inaktivera kryptering ignoreras.
+Anslutningar till din dedikerade SQL-pool krypteras som standard.  Ändring av anslutnings inställningar för att inaktivera kryptering ignoreras.
 
 ## <a name="authentication"></a>Autentisering
 
-Autentisering refererar till hur du styrkt din identitet vid anslutning till databasen. SQL-poolen stöder för närvarande SQL Server autentisering med ett användar namn och lösen ord och med Azure Active Directory.
+Autentisering refererar till hur du styrkt din identitet vid anslutning till databasen. Dedikerad SQL-pool stöder för närvarande SQL Server autentisering med ett användar namn och lösen ord och med Azure Active Directory.
 
 När du skapade servern för din databas angav du en "Server administratör"-inloggning med ett användar namn och lösen ord. Med dessa autentiseringsuppgifter kan du autentisera till valfri databas på servern som databasens ägare, eller "dbo" genom SQL Server autentisering.
 
@@ -57,7 +57,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Anslut sedan till din **SQL-adresspool** med Server Administratörs inloggning och skapa en databas användare baserat på Server inloggningen som du skapade.
+Anslut sedan till din **dedikerade SQL-adresspool** med din server Administratörs inloggning och skapa en databas användare baserat på Server inloggningen som du skapade.
 
 ```sql
 -- Connect to the database and create a database user
@@ -104,4 +104,4 @@ Du kan kryptera databasen med hjälp av [Azure Portal](sql-data-warehouse-encryp
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information och exempel på hur du ansluter till ditt lager med olika protokoll finns i [Anslut till SQL-pool](../sql/connect-overview.md).
+Mer information och exempel på hur du ansluter till ditt lager med olika protokoll finns i [Anslut till dedikerad SQL-pool](../sql/connect-overview.md).

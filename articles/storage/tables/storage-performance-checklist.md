@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89458340"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316189"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Check lista för prestanda och skalbarhet för tabell lagring
 
@@ -153,7 +153,7 @@ Ange anslutnings gränsen innan du öppnar några anslutningar.
 
 Information om andra programmeringsspråk finns i språk dokumentationen för att fastställa hur du ställer in anslutnings gränsen.  
 
-Mer information finns i blogg inlägget [webb tjänster: samtidiga anslutningar](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Mer information finns i blogg inlägget [webb tjänster: samtidiga anslutningar](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Öka det minsta antalet trådar
 
@@ -171,7 +171,7 @@ Parallellitet kan vara bra för prestanda, var noga med att använda obegränsad
 
 ## <a name="client-libraries-and-tools"></a>Klient bibliotek och verktyg
 
-Använd alltid de senaste klient biblioteken och verktygen från Microsoft för bästa prestanda. Azure Storage klient bibliotek är tillgängliga för flera olika språk. Azure Storage stöder också PowerShell och Azure CLI. Microsoft utvecklar aktivt dessa klient bibliotek och verktyg med prestanda i åtanke, håller dem uppdaterade med de senaste service versionerna och ser till att de hanterar många av de beprövade prestanda metoderna internt. Mer information finns i [referens dokumentationen för Azure Storage](/azure/storage/#reference).
+Använd alltid de senaste klient biblioteken och verktygen från Microsoft för bästa prestanda. Azure Storage klient bibliotek är tillgängliga för flera olika språk. Azure Storage stöder också PowerShell och Azure CLI. Microsoft utvecklar aktivt dessa klient bibliotek och verktyg med prestanda i åtanke, håller dem uppdaterade med de senaste service versionerna och ser till att de hanterar många av de beprövade prestanda metoderna internt.
 
 ## <a name="handle-service-errors"></a>Hantera tjänst fel
 
@@ -197,7 +197,7 @@ Det här avsnittet innehåller flera snabb konfigurations inställningar som du 
 
 Från och med Storage Service version 2013-08-15 har Table service stöd för JSON i stället för det XML-baserade AtomPub-formatet för överföring av tabell data. Med JSON kan du minska nytto Last storlekarna med så mycket som 75% och kan förbättra programmets prestanda avsevärt.
 
-Mer information finns i post [Microsoft Azures tabeller: Introduktion till JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) och [nytto Last format för tabell tjänst åtgärder](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Mer information finns i post [Microsoft Azures tabeller: Introduktion till JSON](/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) och [nytto Last format för tabell tjänst åtgärder](/rest/api/storageservices/Payload-Format-for-Table-Service-Operations).
 
 ### <a name="disable-nagle"></a>Inaktivera Nagle
 
@@ -243,7 +243,7 @@ I det här avsnittet beskrivs beprövade metoder för att skicka frågor till Ta
 
 Det finns flera sätt att ange intervallet för entiteter att fråga. I följande lista beskrivs varje alternativ för fråge omfånget.
 
-- **Punkt frågor:**-en punkt fråga hämtar exakt en entitet genom att ange både partitionsnyckel och rad nyckel för entiteten som ska hämtas. Dessa frågor är effektiva och du bör använda dem där det är möjligt.
+- **Punkt frågor:** -en punkt fråga hämtar exakt en entitet genom att ange både partitionsnyckel och rad nyckel för entiteten som ska hämtas. Dessa frågor är effektiva och du bör använda dem där det är möjligt.
 - **Partitions frågor:** En partitions fråga är en fråga som hämtar en uppsättning data som delar en gemensam partitionsnyckel. Normalt anger frågan ett intervall med rad nyckel värden eller ett värde intervall för viss enhets egenskap utöver en partitionsnyckel. Dessa frågor är mindre effektiva än punkt frågor och bör användas sparsamt.
 - **Tabell frågor:** En tabell fråga är en fråga som hämtar en uppsättning entiteter som inte delar en gemensam partitionsnyckel. Dessa frågor är inte effektiva och du bör undvika dem om möjligt.
 
@@ -273,10 +273,10 @@ Batch-transaktioner kallas för enhets grupp transaktioner i Azure Storage. Alla
 
 #### <a name="upsert"></a>Upsert
 
-Använd Table **upsert** -åtgärder där det är möjligt. Det finns två typer av **upsert**, som båda kan vara mer effektiva än vanliga **insert** -och **uppdaterings** åtgärder:  
+Använd Table **upsert** -åtgärder där det är möjligt. Det finns två typer av **upsert** , som båda kan vara mer effektiva än vanliga **insert** -och **uppdaterings** åtgärder:  
 
-- **InsertOrMerge**: Använd den här åtgärden när du vill ladda upp en delmängd av entitetens egenskaper, men är osäker på om entiteten redan finns. Om entiteten finns uppdaterar det här anropet egenskaperna som ingår i **upsert** -åtgärden och lämnar alla befintliga egenskaper, om entiteten inte finns, infogar den nya entiteten. Detta liknar att använda projektion i en fråga, i att du bara behöver överföra de egenskaper som ändras.
-- **InsertOrReplace**: Använd den här åtgärden när du vill ladda upp en helt ny entitet, men är osäker på om den redan finns. Använd den här åtgärden när du vet att den nyligen överförda entiteten är helt korrekt, eftersom den gamla entiteten skrivs över helt. Till exempel vill du uppdatera entiteten som lagrar en användares aktuella plats oavsett om programmet har lagrat plats data tidigare lagrat för användaren. entiteten ny plats har slutförts och du behöver inte någon information från någon tidigare entitet.
+- **InsertOrMerge** : Använd den här åtgärden när du vill ladda upp en delmängd av entitetens egenskaper, men är osäker på om entiteten redan finns. Om entiteten finns uppdaterar det här anropet egenskaperna som ingår i **upsert** -åtgärden och lämnar alla befintliga egenskaper, om entiteten inte finns, infogar den nya entiteten. Detta liknar att använda projektion i en fråga, i att du bara behöver överföra de egenskaper som ändras.
+- **InsertOrReplace** : Använd den här åtgärden när du vill ladda upp en helt ny entitet, men är osäker på om den redan finns. Använd den här åtgärden när du vet att den nyligen överförda entiteten är helt korrekt, eftersom den gamla entiteten skrivs över helt. Till exempel vill du uppdatera entiteten som lagrar en användares aktuella plats oavsett om programmet har lagrat plats data tidigare lagrat för användaren. entiteten ny plats har slutförts och du behöver inte någon information från någon tidigare entitet.
 
 #### <a name="storing-data-series-in-a-single-entity"></a>Lagra data serier i en enskild entitet
 

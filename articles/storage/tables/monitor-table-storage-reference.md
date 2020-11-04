@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: e86be87faf6bb0c58674a15882e52dcef43fe42e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66155e5dce00caf73af64fb0b8a4ab75f7c948a7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711525"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316629"
 ---
 # <a name="azure-table-storage-monitoring-data-reference"></a>Övervaknings data referens för Azure Table Storage
 
@@ -36,7 +36,7 @@ Azure Storage tillhandahåller följande kapacitets mått i Azure Monitor.
 
 #### <a name="table-storage"></a>Table Storage
 
-I den här tabellen visas [mått för tabell lagring](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices).
+I den här tabellen visas [mått för tabell lagring](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices).
 
 | Mått | Beskrivning |
 | ------------------- | ----------------- |

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285949"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316688"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Övervaka och Visa ML körnings loggar och mått
 
@@ -58,7 +58,7 @@ När en körning har slutförts visas den inte längre på den här sidan. Om du
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Övervaka körningar med hjälp av widgeten Jupyter Notebook
 
-När du använder **ScriptRunConfig** -metoden för att skicka körningar kan du se förloppet för körningen med hjälp av [Jupyter-widgeten](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Precis som körningsöverföringen är widgeten asynkron och tillhandahåller liveuppdateringar var 10:e till var 15:e sekund tills jobbet har slutförts.
+När du använder **ScriptRunConfig** -metoden för att skicka körningar kan du se förloppet för körningen med hjälp av [Jupyter-widgeten](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Precis som körningsöverföringen är widgeten asynkron och tillhandahåller liveuppdateringar var 10:e till var 15:e sekund tills jobbet har slutförts.
 
 Visa widgeten Jupyter i väntan på att körningen ska slutföras.
     
@@ -134,4 +134,3 @@ Prova följande steg för att lära dig hur du använder Azure Machine Learning:
 * Lär dig hur du [spårar experiment och aktiverar loggar i Azure Machine Learning designer](how-to-track-designer-experiments.md).
 
 * Se ett exempel på hur du registrerar den bästa modellen och distribuerar den i självstudien [Träna en bildklassificeringsmodell med Azure Machine Learning](tutorial-train-models-with-aml.md).
-

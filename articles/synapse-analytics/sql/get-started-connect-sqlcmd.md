@@ -1,6 +1,6 @@
 ---
 title: Ansluta till Synapse SQL med SQLCMD
-description: Använd kommando rads verktyget sqlcmd för att ansluta till och fråga SQL på begäran (för hands version) och SQL-poolen.
+description: Använd kommando rads verktyget sqlcmd för att ansluta till och fråga Server lös SQL-pool (för hands version) och dedikerad SQL-pool.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1af42a838463132a241447c11b90bfb489f879ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 10f15ec2108e897164206543358d7a9e7bd40f64
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87059461"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316491"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Ansluta till Synapse SQL med SQLCMD
 
@@ -25,7 +25,7 @@ ms.locfileid: "87059461"
 > * [SQLCMD](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Du kan använda kommando rads verktyget [SQLCMD](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att ansluta till och fråga SQL på begäran (för hands version) och SQL-poolen i Synapse SQL.  
+Du kan använda kommando rads verktyget [SQLCMD](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att ansluta till och fråga Server lös SQL-pool (för hands version) och dedikerad SQL-pool i Synapse SQL.  
 
 ## <a name="1-connect"></a>1. Anslut
 Kom igång med [SQLCMD](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)genom att öppna kommando tolken och ange **SQLCMD** följt av anslutnings STRÄNGEN för din Synapse SQL-databas. Anslutningssträngen kräver följande parametrar:
@@ -41,13 +41,13 @@ Om du vill använda SQL Server autentisering måste du lägga till parametrarna 
 
 Anslutnings strängen kan se ut som i följande exempel:
 
-**SQL på begäran**
+**SQL-pool utan Server**
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
 ```
 
-**SQL-pool**
+**Dedikerad SQL-pool**
 
 ```
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -59,13 +59,13 @@ Om du vill använda Azure Active Directory-integrerad autentisering måste du l�
 
 Anslutnings strängen kan se ut som i följande exempel:
 
-**SQL på begäran**
+**SQL-pool utan Server**
 
 ```
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -G -I
 ```
 
-**SQL-pool**
+**Dedikerad SQL-pool**
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
@@ -76,7 +76,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 ## <a name="2-query"></a>2. fråga
 
-### <a name="use-sql-pool"></a>Använd SQL-pool
+### <a name="use-dedicated-sql-pool"></a>Använd dedikerad SQL-pool
 
 Efter anslutningen kan du skicka alla [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) -uttryck (T-SQL) som stöds mot instansen. I det här exemplet skickas frågor i interaktivt läge:
 
@@ -87,7 +87,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-För SQL-pool visar följande exempel hur du kör frågor i batch-läge med alternativet-Q eller skickar din SQL till SQLCMD:
+För dedikerad SQL-pool visar följande exempel hur du kör frågor i batch-läge med alternativet-Q eller skickar din SQL till SQLCMD:
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -97,7 +97,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-### <a name="use-sql-on-demand"></a>Använda SQL på begäran
+### <a name="use-serverless-sql-pool"></a>Använd Server lös SQL-pool
 
 När du har anslutit kan du skicka alla [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) -uttryck (T-SQL) som stöds mot instansen.  I följande exempel skickas frågor i interaktivt läge:
 
@@ -108,7 +108,7 @@ C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Her
 3> QUIT
 ```
 
-I SQL på begäran visar exemplen som följer dig hur du kör frågor i batch-läge med alternativet-Q eller skickar din SQL till SQLCMD:
+I SQL-pool utan Server visar exemplen som följer dig hur du kör frågor i batch-läge med alternativet-Q eller skickar din SQL till SQLCMD:
 
 ```sql
 sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P 'Enter_Your_Password_Here' -I -Q "SELECT COUNT(*) FROM  OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet', FORMAT='PARQUET')"

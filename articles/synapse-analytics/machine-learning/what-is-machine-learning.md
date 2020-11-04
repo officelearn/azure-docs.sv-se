@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 5e422b5292f77150e2755cb5963e2cd95d148654
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 382ba871f95b3b36c3f819de8d582ba2c5dc358a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939111"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316083"
 ---
 # <a name="machine-learning-capabilities-in-azure-synapse-analytics-workspaces-preview"></a>Machine Learning funktioner i Azure Synapse Analytics (för hands versioner av arbets ytor)
 
@@ -81,4 +81,4 @@ Modeller som har tränats antingen i Azure Synapse eller utanför Azure Synapse 
 * [Kom igång med Azure Synapse Analytics](../get-started.md)
 * [Skapa en arbetsyta](../get-started-create-workspace.md)
 * [Snabb start: skapa en ny Azure Machine Learning länkad tjänst i Synapse](quickstart-integrate-azure-machine-learning.md)
-* [Självstudie: guiden bedömnings modell för Machine Learning – SQL-pool](tutorial-sql-pool-model-scoring-wizard.md)
+* [Självstudie: bedömnings guide för Machine Learning-modell – dedikerad SQL-pool](tutorial-sql-pool-model-scoring-wizard.md)

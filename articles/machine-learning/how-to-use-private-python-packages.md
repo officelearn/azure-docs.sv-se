@@ -1,7 +1,7 @@
 ---
 title: Använda privata Python-paket
 titleSuffix: Azure Machine Learning
-description: Få åtkomst till privata python-paket på ett säkert sätt från Azure Machine Learning miljöer.
+description: Lär dig hur du säkert arbetar med privata python-paket från dina Azure Machine Learning-miljöer.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 58bb08cad111e0744f7831783169901cd76caef4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a722746c8e06a691e702b095d3081f1530645de
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772642"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318921"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Använd privata python-paket med Azure Machine Learning
 
@@ -27,16 +27,16 @@ I den här artikeln lär du dig att använda privata python-paket på ett säker
 
 Den rekommenderade metoden beror på om du har några paket för en enskild Azure Machine Learning arbets yta eller en hel lagrings plats för paket för alla arbets ytor inom en organisation.
 
-Privata paket används via [miljö](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment) klass. I en miljö deklarerar du vilka python-paket som ska användas, inklusive privata. Mer information om miljön i Azure Machine Learning i allmänhet finns i [så här använder du miljöer](how-to-use-environments.md). 
+Privata paket används via [miljö](/python/api/azureml-core/azureml.core.environment.environment) klass. I en miljö deklarerar du vilka python-paket som ska användas, inklusive privata. Mer information om miljön i Azure Machine Learning i allmänhet finns i [så här använder du miljöer](how-to-use-environments.md). 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
- * [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+ * [Azure Machine Learning SDK för python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
  * En [Azure Machine Learning arbets yta](how-to-manage-workspace.md)
 
 ## <a name="use-small-number-of-packages-for-development-and-testing"></a>Använd ett litet antal paket för utveckling och testning
 
-För ett litet antal privata paket för en enskild arbets yta använder du den statiska [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) metoden. Med den här metoden kan du snabbt lägga till ett privat paket i arbets ytan, och det passar utmärkt för utvecklings-och testnings ändamål.
+För ett litet antal privata paket för en enskild arbets yta använder du den statiska [`Environment.add_private_pip_wheel()`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) metoden. Med den här metoden kan du snabbt lägga till ett privat paket i arbets ytan, och det passar utmärkt för utvecklings-och testnings ändamål.
 
 Peka fil Sök vägs argumentet till en lokal Wheel-fil och kör ```add_private_pip_wheel``` kommandot. Kommandot returnerar en URL som används för att spåra platsen för paketet i din arbets yta. Avbilda lagrings-URL: en och skicka den till `add_pip_package()` metoden.
 
@@ -52,13 +52,13 @@ Internt ersätter Azure Machine Learning-tjänsten URL: en med säker SAS-URL, s
 
 ## <a name="use-a-repository-of-packages-from-azure-devops-feed"></a>Använd en lagrings plats för paket från Azure DevOps-feed
 
-Om du aktivt utvecklar python-paket för ditt Machine Learning-program kan du vara värd för dem i en Azure DevOps-lagringsplats som artefakter och publicera dem som en feed. Med den här metoden kan du integrera DevOps-arbetsflödet för att skapa paket med din Azure Machine Learning-arbetsyta. Läs [komma igång med python-paket i Azure-artefakter](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops&preserve-view=true) för att lära dig hur du konfigurerar python-flöden med Azure DevOps
+Om du aktivt utvecklar python-paket för ditt Machine Learning-program kan du vara värd för dem i en Azure DevOps-lagringsplats som artefakter och publicera dem som en feed. Med den här metoden kan du integrera DevOps-arbetsflödet för att skapa paket med din Azure Machine Learning-arbetsyta. Läs [komma igång med python-paket i Azure-artefakter](/azure/devops/artifacts/quickstarts/python-packages?preserve-view=true&view=azure-devops) för att lära dig hur du konfigurerar python-flöden med Azure DevOps
 
 Den här metoden använder personlig åtkomsttoken för att autentisera mot lagrings platsen. Samma metod gäller för andra databaser med token-baserad autentisering, till exempel privata GitHub-databaser. 
 
- 1. [Skapa en personlig åtkomsttoken (Pat)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&preserve-view=true&tabs=preview-page#create-a-pat) för din Azure DevOps-instans. Ange omfånget för token som ska __paketera > läsa__. 
+ 1. [Skapa en personlig åtkomsttoken (Pat)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?preserve-view=true&tabs=preview-page&view=azure-devops#create-a-pat) för din Azure DevOps-instans. Ange omfånget för token som ska __paketera > läsa__. 
 
- 2. Lägg till URL-och PAT för Azure-DevOps som egenskaper för arbets ytan med hjälp av metoden [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
+ 2. Lägg till URL-och PAT för Azure-DevOps som egenskaper för arbets ytan med hjälp av metoden [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
 
      ```python
     from azureml.core import Workspace

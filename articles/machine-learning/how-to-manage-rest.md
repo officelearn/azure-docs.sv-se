@@ -1,7 +1,7 @@
 ---
 title: Använd REST för att hantera ML-resurser
 titleSuffix: Azure Machine Learning
-description: 'Använda REST-API: er för att skapa, köra och ta bort Azure ML-resurser'
+description: 'Använda REST-API: er för att skapa, köra och ta bort Azure Machine Learning resurser, till exempel en arbets yta eller registrera modeller.'
 author: lobrien
 ms.author: laobri
 services: machine-learning
@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b733fbc44deefe46e3496e288ebad525346ef005
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a0580adbe6d51e4de811a57ee17203d65a2435
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322316"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316903"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Skapa, köra och ta bort Azure ML-resurser med REST
 
 
 
-Det finns flera sätt att hantera dina Azure ML-resurser. Du kan använda [portalen](https://portal.azure.com/), [kommando rads gränssnittet](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true)eller [python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Alternativt kan du välja REST API. I REST API används HTTP-verb på ett standardiserat sätt för att skapa, Hämta, uppdatera och ta bort resurser. REST API fungerar med valfritt språk eller verktyg som kan göra HTTP-förfrågningar. I resten är en enkel struktur att det är ett bra val i skript miljöer och för MLOps Automation. 
+Det finns flera sätt att hantera dina Azure ML-resurser. Du kan använda [portalen](https://portal.azure.com/), [kommando rads gränssnittet](/cli/azure/?preserve-view=true&view=azure-cli-latest)eller [python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Alternativt kan du välja REST API. I REST API används HTTP-verb på ett standardiserat sätt för att skapa, Hämta, uppdatera och ta bort resurser. REST API fungerar med valfritt språk eller verktyg som kan göra HTTP-förfrågningar. I resten är en enkel struktur att det är ett bra val i skript miljöer och för MLOps Automation. 
 
 I den här artikeln kan du se hur du:
 
@@ -36,9 +36,9 @@ I den här artikeln kan du se hur du:
 ## <a name="prerequisites"></a>Förutsättningar
 
 - En **Azure-prenumeration** som du har administratörs behörighet för. Om du inte har en sådan prenumeration kan du prova den [kostnads fria eller betalda personliga prenumerationen](https://aka.ms/AMLFree)
-- En [Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
-- Administrativa REST-begäranden använder autentisering av tjänstens huvud namn. Följ stegen i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) för att skapa ett huvud namn för tjänsten på din arbets yta
-- Verktyget **vändning** . Programmet **svänga** är tillgängligt i [Windows-undersystemet för Linux](https://aka.ms/wslinstall/) eller UNIX-distribution. I PowerShell är **sväng** ett alias för **Invoke-webbegäran** och `curl -d "key=val" -X POST uri` blir `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri` . 
+- En [Azure Machine Learning-arbetsyta](./how-to-manage-workspace.md)
+- Administrativa REST-begäranden använder autentisering av tjänstens huvud namn. Följ stegen i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](./how-to-setup-authentication.md#service-principal-authentication) för att skapa ett huvud namn för tjänsten på din arbets yta
+- Verktyget **vändning** . Programmet **svänga** är tillgängligt i [Windows-undersystemet för Linux](/windows/wsl/install-win10) eller UNIX-distribution. I PowerShell är **sväng** ett alias för **Invoke-webbegäran** och `curl -d "key=val" -X POST uri` blir `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri` . 
 
 ## <a name="retrieve-a-service-principal-authentication-token"></a>Hämta en autentiseringstoken för tjänstens huvud namn
 
@@ -48,7 +48,7 @@ Administrativa REST-begäranden autentiseras med ett OAuth2 implicit flöde. Det
 - Ditt klient-ID (som ska associeras med den skapade token)
 - Din klient hemlighet (som du bör skydda)
 
-Du bör ha dessa värden från svaret på skapandet av tjänstens huvud namn. Att hämta dessa värden beskrivs i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Om du använder din företags prenumeration kanske du inte har behörighet att skapa ett huvud namn för tjänsten. I så fall bör du använda antingen en [kostnads fri eller betald personlig prenumeration](https://aka.ms/AMLFree).
+Du bör ha dessa värden från svaret på skapandet av tjänstens huvud namn. Att hämta dessa värden beskrivs i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](./how-to-setup-authentication.md#service-principal-authentication). Om du använder din företags prenumeration kanske du inte har behörighet att skapa ett huvud namn för tjänsten. I så fall bör du använda antingen en [kostnads fri eller betald personlig prenumeration](https://aka.ms/AMLFree).
 
 Hämta en token:
 
@@ -236,7 +236,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/com
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Om du vill skapa eller skriva över en namngiven beräknings resurs, använder du en begäran om placering. I följande, utöver de nu välkända ersättningarna `your-subscription-id` , `your-resource-group` ,, `your-workspace-name` och `your-access-token` , Substitute `your-compute-name` och värden för,,,, `location` `vmSize` `vmPriority` `scaleSettings` `adminUserName` och `adminUserPassword` . Som anges i referensen i [Machine Learning-beräkning-skapa eller uppdatera SDK-referens](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate)skapar följande kommando en dedikerad Standard_D1 för en enda nod (en grundläggande processor beräknings resurs) som kommer att skalas ned efter 30 minuter:
+Om du vill skapa eller skriva över en namngiven beräknings resurs, använder du en begäran om placering. I följande, utöver de nu välkända ersättningarna `your-subscription-id` , `your-resource-group` ,, `your-workspace-name` och `your-access-token` , Substitute `your-compute-name` och värden för,,,, `location` `vmSize` `vmPriority` `scaleSettings` `adminUserName` och `adminUserPassword` . Som anges i referensen i [Machine Learning-beräkning-skapa eller uppdatera SDK-referens](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate)skapar följande kommando en dedikerad Standard_D1 för en enda nod (en grundläggande processor beräknings resurs) som kommer att skalas ned efter 30 minuter:
 
 ```bash
 curl -X PUT \
@@ -349,7 +349,7 @@ curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscriptio
 
 ### <a name="delete-resources-you-no-longer-need"></a>Ta bort resurser som du inte längre behöver
 
-Vissa, men inte alla, resurser stöder DELETE-verbet. Kontrol lera [API-referensen](https://docs.microsoft.com/rest/api/azureml/) innan du genomför till REST API för borttagning av användnings fall. Om du t. ex. vill ta bort en modell kan du använda:
+Vissa, men inte alla, resurser stöder DELETE-verbet. Kontrol lera [API-referensen](/rest/api/azureml/) innan du genomför till REST API för borttagning av användnings fall. Om du t. ex. vill ta bort en modell kan du använda:
 
 ```bash
 curl
@@ -422,6 +422,6 @@ I arbets ytan Azure Machine Learning används Azure Container Registry (ACR) fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Utforska den kompletta [azureml-REST API referensen](https://docs.microsoft.com/rest/api/azureml/).
-- Lär dig hur du använder design verktyget för att [förutsäga det mobila priset med designern](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
-- Utforska [Azure Machine Learning med Jupyter-anteckningsböcker](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).
+- Utforska den kompletta [azureml-REST API referensen](/rest/api/azureml/).
+- Lär dig hur du använder design verktyget för att [förutsäga det mobila priset med designern](./tutorial-designer-automobile-price-train-score.md).
+- Utforska [Azure Machine Learning med Jupyter-anteckningsböcker](..//machine-learning/samples-notebooks.md).

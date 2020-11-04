@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8edf782c03300cf22bd349548da425669f492bc1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 460fed7244ba8094da41ae6b5b8161de3d9efe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093539"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317282"
 ---
 # <a name="sql-authentication"></a>SQL-autentisering
 
@@ -22,14 +22,14 @@ Azure Synapse Analytics har två SQL Forms-faktorer som gör att du kan styra re
 
 Du kan använda två typer av auktorisering för att auktorisera till Synapse SQL:
 
-- AAD-auktorisering
+- Azure Active Directory auktorisering
 - SQL-auktorisering
 
-AAD-auktorisering förlitar sig på Azure Active Directory och gör det möjligt att ha en enda plats för användar hantering. SQL-auktorisering gör att äldre program kan använda Synapse SQL på ett välbekant sätt.
+Med Azure Active Directory kan du ha en enda plats för användar hantering. SQL-auktorisering gör att äldre program kan använda Synapse SQL på ett välbekant sätt.
 
 ## <a name="administrative-accounts"></a>Administrativa konton
 
-Det finns två administrativa konton (**Serveradministratör** och **Active Directory-administratör**) som fungerar som administratörer. Om du vill identifiera administratörs kontona för din SQL-Server öppnar du Azure Portal och navigerar till fliken Egenskaper i din Synapse SQL.
+Det finns två administrativa konton ( **Serveradministratör** och **Active Directory-administratör** ) som fungerar som administratörer. Om du vill identifiera administratörs kontona för din SQL-Server öppnar du Azure Portal och navigerar till fliken Egenskaper i din Synapse SQL.
 
 ![SQL-serveradministratörer](./media/sql-authentication/sql-admins.png)
 
@@ -51,18 +51,18 @@ Administratörs kontona för **Server administratören** och **Azure AD** har f�
 - Kan lägga till och ta bort medlemmar `dbmanager` i `loginmanager` rollerna och.
 - Kan visa `sys.sql_logins` system tabellen.
 
-## <a name="sql-on-demand-preview"></a>[SQL på begäran (för hands version)](#tab/serverless)
+## <a name="serverless-sql-pool-preview"></a>[SQL-pool utan server (för hands version)](#tab/serverless)
 
-Om du vill hantera användare som har åtkomst till SQL på begäran kan du använda instruktionerna nedan.
+Om du vill hantera användare som har åtkomst till en server utan SQL-pool kan du använda instruktionerna nedan.
 
-Om du vill skapa en inloggning till SQL på begäran, använder du följande syntax:
+Om du vill skapa en inloggning till en server lös SQL-pool använder du följande syntax:
 
 ```sql
 CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
 ```
-När inloggningen finns kan du skapa användare i de enskilda databaserna i SQL-slutpunkten på begäran och bevilja de här användarna nödvändig behörighet. Om du vill skapa en användning kan du använda följande syntax:
+När inloggningen finns kan du skapa användare i de enskilda databaserna inom den serverbaserade slut punkten för SQL-poolen och bevilja dessa användare nödvändiga behörigheter. Om du vill skapa en användning kan du använda följande syntax:
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or
@@ -87,7 +87,7 @@ Vid användning av en öppen port i brandväggen på servernivå kan administrat
 
 ### <a name="database-creators"></a>Databasskapare
 
-En av dessa administrativa roller är **DBManager** -rollen. Medlemmar i den här rollen kan skapa nya databaser. För att använda den här rollen skapar du en användare i `master`-databasen och lägger sedan till användaren i **dbmanager**-databasrollen. 
+En av dessa administrativa roller är **DBManager** -rollen. Medlemmar i den här rollen kan skapa nya databaser. För att använda den här rollen skapar du en användare i `master`-databasen och lägger sedan till användaren i **dbmanager** -databasrollen. 
 
 Om du vill skapa en databas måste användaren vara en användare baserad på en SQL Server inloggning i `master` databasen eller innesluten databas användare baserat på en Azure Active Directory användare.
 
@@ -127,7 +127,7 @@ Användaren kan nu ansluta till `master` databasen och kan skapa nya databaser. 
 
 ### <a name="login-managers"></a>Inloggningshanterare
 
-Den andra administrativa rollen är inloggningshanterare-rollen. Medlemmar i den här rollen kan skapa nya inloggningar i huvuddatabasen. Om du vill kan du slutföra samma steg (skapa en inloggning och användare och lägga till en användare i rollen **loginmanager**) så att en användare kan skapa nya inloggningar i huvuddatabasen. Vanligt vis är inloggningar inte nödvändiga eftersom Microsoft rekommenderar att du använder inneslutna databas användare, som autentiseras på databas nivå i stället för att använda användare baserat på inloggningar. Mer information finns i [Användare av oberoende databas – göra databasen portabel](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Den andra administrativa rollen är inloggningshanterare-rollen. Medlemmar i den här rollen kan skapa nya inloggningar i huvuddatabasen. Om du vill kan du slutföra samma steg (skapa en inloggning och användare och lägga till en användare i rollen **loginmanager** ) så att en användare kan skapa nya inloggningar i huvuddatabasen. Vanligt vis är inloggningar inte nödvändiga eftersom Microsoft rekommenderar att du använder inneslutna databas användare, som autentiseras på databas nivå i stället för att använda användare baserat på inloggningar. Mer information finns i [Användare av oberoende databas – göra databasen portabel](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ---
 
@@ -158,7 +158,7 @@ Använd instruktionen i Azure SQL Database eller Synapse server utan Server `ALT
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-Använd [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)i SQL-poolen.
+Använd [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)i dedikerad SQL-pool.
 
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
@@ -187,7 +187,7 @@ Effektiv åtkomsthantering använder behörigheter tilldelade grupper och roller
 
 - När du använder SQL Server-autentisering kan du skapa inneslutna databasanvändare i databasen. Placera en eller flera användare i en [databasrollen](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) och tilldela sedan [behörigheter](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) till databasrollen.
 
-Databasrollerna kan vara de inbyggda rollerna, som **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** och **db_denydatareader**. **db_owner** används ofta för att endast ge fullständig behörighet till några användare. De andra fasta databasrollerna är användbara för att snabbt få en enkel databas i utveckling, men de rekommenderas inte för de flesta produktionsdatabaserna. 
+Databasrollerna kan vara de inbyggda rollerna, som **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** och **db_denydatareader**. **db_owner** används ofta för att endast ge fullständig behörighet till några användare. De andra fasta databasrollerna är användbara för att snabbt få en enkel databas i utveckling, men de rekommenderas inte för de flesta produktionsdatabaserna. 
 
 Till exempel ger den fasta databasrollen **db_datareader** läsbehörighet till alla tabeller i databasen, vilket vanligtvis är mer än är absolut nödvändigt. 
 
@@ -211,7 +211,7 @@ Tänk på följande när du hanterar inloggningar och användare i SQL Database:
 - Endast administratörer (inloggningen som **serveradministratör** eller Azure AD-administratör) och medlemmar i databasrollen **dbmanager** i **huvuddatabasen** har behörighet att köra `CREATE DATABASE`- och `DROP DATABASE`-uttrycken.
 - Du måste vara ansluten till huvuddatabasen när du kör uttrycket `CREATE/ALTER/DROP LOGIN`. Att använda inloggningar rekommenderas inte. Använd i stället oberoende databasanvändare.
 - Du måste ange namnet på databasen i anslutningssträngen för att ansluta till en användardatabas.
-- Endast huvudsaklig inloggning på servernivå och medlemmarna i databasrollen **loginmanager** i **huvud**databasen har behörighet att köra uttryck `CREATE LOGIN`, `ALTER LOGIN` och `DROP LOGIN`.
+- Endast huvudsaklig inloggning på servernivå och medlemmarna i databasrollen **loginmanager** i **huvud** databasen har behörighet att köra uttryck `CREATE LOGIN`, `ALTER LOGIN` och `DROP LOGIN`.
 - När du kör `CREATE/ALTER/DROP LOGIN` `CREATE/ALTER/DROP DATABASE` -satserna i ett ADO.NET-program är det inte tillåtet att använda parametriserade kommandon. Mer information finns i [Kommandon och parametrar](/dotnet/framework/data/adonet/commands-and-parameters?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 - När du kör uttrycket `CREATE/ALTER/DROP DATABASE` och `CREATE/ALTER/DROP LOGIN`, måste vart och ett av dessa uttryck vara den enda instruktionen i en Transact-SQL-batch. Annars uppstår ett fel. Till exempel kontrollerar följande Transact-SQL huruvida databasen finns. Om den finns anropas ett `DROP DATABASE`-uttryck för att ta bort databasen. Eftersom `DROP DATABASE`-uttrycket inte är det enda uttrycket i batchen, ger körning av följande Transact-SQL-uttryck ett fel.
 

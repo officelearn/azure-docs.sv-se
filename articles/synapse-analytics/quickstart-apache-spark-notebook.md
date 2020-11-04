@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skapa en Apache Spark pool i Azure Synapse Analytics med hjälp av webb verktyg'
-description: Den här snabb starten visar hur du använder webb verktygen för att skapa en Apache Spark-pool i Azure Synapse Analytics och köra en Spark SQL-fråga.
+title: 'Snabb start: skapa en server lös Apache Spark pool med hjälp av webb verktyg'
+description: Den här snabb starten visar hur du använder webb verktygen för att skapa en server lös Apache Spark-pool i Azure Synapse Analytics och hur du kör en Spark SQL-fråga.
 services: synapse-analytics
 author: euangMS
 ms.author: euang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b20f2ce88695cb68de496d126c5e3cd52f9eb6c8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742526"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316144"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Snabb start: skapa en Apache Spark pool i Azure Synapse Analytics med hjälp av webb verktyg
+# <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Snabb start: skapa en server lös Apache Spark pool i Azure Synapse Analytics med hjälp av webb verktyg
 
-I den här snabb starten får du lära dig hur du skapar en Apache Spark pool (för hands version) i Azure Synapse med hjälp av webb verktyg. Du lär dig sedan att ansluta till Apache Spark-poolen och köra Spark SQL-frågor mot filer och tabeller. Apache Spark möjliggör snabb data-analys och kluster-computing med minnesintern bearbetning. Information om spark i Azure Synapse finns i [Översikt: Apache Spark på Azure Synapse](./spark/apache-spark-overview.md).
+I den här snabb starten får du lära dig hur du skapar en server lös Apache Spark pool (för hands version) i Azure Synapse med hjälp av webb verktyg. Du lär dig sedan att ansluta till Apache Spark-poolen och köra Spark SQL-frågor mot filer och tabeller. Apache Spark möjliggör snabb data-analys och kluster-computing med minnesintern bearbetning. Information om spark i Azure Synapse finns i [Översikt: Apache Spark på Azure Synapse](./spark/apache-spark-overview.md).
 
 > [!IMPORTANT]
 > Faktureringen för Spark-instanser beräknas per minut, oavsett om du använder dem eller inte. Se till att stänga av Spark-instansen när du är färdig med den, eller ange en kort tids gräns. Mer information finns i avsnittet **Rensa resurser** i den här artikeln.
@@ -29,11 +29,11 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Synapse Analytics-arbetsyta](quickstart-create-workspace.md)
-- [Apache Spark pool](quickstart-create-apache-spark-pool-studio.md)
+- [Server lös Apache Spark pool](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -41,16 +41,16 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 En antecknings bok är en interaktiv miljö som har stöd för olika programmeringsspråk. Med antecknings boken kan du interagera med dina data, kombinera kod med markdown, text och utföra enkla visualiseringar.
 
-1. Från vyn Azure Portal för den Azure Synapse-arbetsyta som du vill använda väljer du **Starta Synapse Studio** .
-2. När Synapse Studio har lanserats väljer du **utveckla** . Välj sedan **+** ikonen "" om du vill lägga till en ny resurs.
-3. Därifrån väljer du **antecknings bok** . En ny antecknings bok skapas och öppnas med ett automatiskt genererat namn.
+1. Från vyn Azure Portal för den Azure Synapse-arbetsyta som du vill använda väljer du **Starta Synapse Studio**.
+2. När Synapse Studio har lanserats väljer du **utveckla**. Välj sedan **+** ikonen "" om du vill lägga till en ny resurs.
+3. Därifrån väljer du **antecknings bok**. En ny antecknings bok skapas och öppnas med ett automatiskt genererat namn.
  
      ![Ny antecknings bok](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Ny antecknings bok")
 
 4. I fönstret **Egenskaper** anger du ett namn för antecknings boken.
 5. Klicka på **publicera** i verktygsfältet.
 6. Om det bara finns en Apache Spark pool i din arbets yta, är den markerad som standard. Använd List rutan för att välja rätt Apache Spark pool om ingen är markerad.
-7. Klicka på **Lägg till kod** . Standard språket är `Pyspark` . Du kommer att använda en blandning av Pyspark och Spark SQL, så att standard valet är bra. Andra språk som stöds är Scala och .NET för Spark.
+7. Klicka på **Lägg till kod**. Standard språket är `Pyspark` . Du kommer att använda en blandning av Pyspark och Spark SQL, så att standard valet är bra. Andra språk som stöds är Scala och .NET för Spark.
 8. Därefter skapar du ett enkelt Spark DataFrame-objekt som du kan ändra. I det här fallet skapar du den från kod. Det finns tre rader och tre kolumner:
 
    ```python
@@ -61,7 +61,7 @@ En antecknings bok är en interaktiv miljö som har stöd för olika programmeri
 
 9. Kör nu cellen med någon av följande metoder:
 
-   - Tryck på **SKIFT + RETUR** .
+   - Tryck på **SKIFT + RETUR**.
    - Välj den blå uppspelnings ikonen till vänster om cellen.
    - Välj knappen **Kör alla** i verktygsfältet.
 
@@ -114,13 +114,13 @@ Structured Query Language (SQL) är det vanligaste språket som används för at
 
     ![Fråga utdata i Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Fråga utdata i Azure Synapse Spark")
 
-3. I **vyn** växlaren väljer du **diagram** .
+3. I **vyn** växlaren väljer du **diagram**.
 4. Välj ikonen **visnings alternativ** längst till höger.
 5. I fältet **diagram typ** väljer du stapeldiagram.
 6. I kolumn fältet X-axel väljer du "State".
 7. I kolumn fältet Y-axel väljer du "lön".
 8. I fältet **agg regering** väljer du till "medel".
-9. Välj **Tillämpa** .
+9. Välj **Använd**.
 
    ![Diagramets utdata i Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Diagramets utdata i Azure Synapse Spark")
 
@@ -130,11 +130,14 @@ Structured Query Language (SQL) är det vanligaste språket som används för at
     display(spark.sql('SELECT * FROM demo_df'))
     ```
 
-11. Varje cell som kördes tidigare hade alternativet att gå till **Historik Server** och **övervakning** . Genom att klicka på länkarna går du till olika delar av användar upplevelsen.
+11. Varje cell som kördes tidigare hade alternativet att gå till **Historik Server** och **övervakning**. Genom att klicka på länkarna går du till olika delar av användar upplevelsen.
+
+> [!NOTE]
+> En del av den [Apache Spark officiella dokumentationen](https://spark.apache.org/docs/latest/) använder Spark-konsolen, som inte är tillgänglig på Synapse Spark. Använd [antecknings boken](quickstart-apache-spark-notebook.md) eller [IntelliJ](./spark/intellij-tool-synapse.md) -upplevelser i stället.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Azure Synapse sparar dina data i Azure Data Lake Storage. Du kan på ett säkert sätt låta en spark-instans stängas av när den inte används. Du debiteras för en Azure Synapse Apache Spark-pool så länge den körs, även om den inte används. 
+Azure Synapse sparar dina data i Azure Data Lake Storage. Du kan på ett säkert sätt låta en spark-instans stängas av när den inte används. Du debiteras för en server lös Apache Spark pool så länge den körs, även om den inte används. 
 
 Eftersom avgifterna för poolen är många gånger mer än avgifterna för lagring, är det ekonomiskt klokt att låta Spark-instanser stängas av när de inte används.
 
@@ -142,11 +145,10 @@ Om du vill se till att Spark-instansen stängs av avslutar du alla anslutna sess
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du skapar en Azure Synapse Apache Spark-pool och kör en grundläggande Spark SQL-fråga.
+I den här snabb starten har du lärt dig hur du skapar en server lös Apache Spark pool och kör en grundläggande Spark SQL-fråga.
 
 - [Azure Synapse Analytics](overview-what-is.md)
 - [Dokumentation om .NET för Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Apache Spark officiell dokumentation](https://spark.apache.org/docs/latest/)
 
->[!NOTE]
-> En del av den officiella Apache Spark dokumentationen använder Spark-konsolen, som inte är tillgänglig på Azure Synapse Spark. Använd [antecknings boken](quickstart-apache-spark-notebook.md) eller [IntelliJ](./spark/intellij-tool-synapse.md) -upplevelser i stället.
+
+

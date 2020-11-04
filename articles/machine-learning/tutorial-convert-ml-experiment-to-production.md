@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3a6ce5860704e6fd16b79fc253650dd45ec743e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f7746f079e740493348731376d0a5a7b1a9e954
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852624"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317858"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Självstudie: konvertera ML experiment till produktion python-kod
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Skapa Python-skript för relaterade aktiviteter
 > * Skapa enhetstester
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Generera [MLOpsPython-mallen](https://github.com/microsoft/MLOpsPython/generate) och Använd `experimentation/Diabetes Ridge Regression Training.ipynb` `experimentation/Diabetes Ridge Regression Scoring.ipynb` antecknings böckerna och. Dessa antecknings böcker används som exempel på konvertering från experiment till produktion. Du kan hitta de här antecknings böckerna på [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation) .
 - Installera `nbconvert`. Följ bara installations anvisningarna under avsnittet __Installera nbconvert__ på [installations](https://nbconvert.readthedocs.io/en/latest/install.html) sidan.
@@ -67,7 +67,7 @@ args = {
 }
 
 reg_model = Ridge(**args)
-reg.fit(data["train"]["X"], data["train"]["y"])
+reg_model.fit(data["train"]["X"], data["train"]["y"])
 
 preds = reg_model.predict(data["test"]["X"])
 mse = mean_squared_error(preds, y_test)
@@ -527,5 +527,5 @@ def test_train_model():
 Nu när du förstår hur du konverterar från ett experiment till produktions koden kan du läsa följande länkar för mer information och nästa steg:
 
 + [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): skapa en CI/CD-pipeline för att träna, utvärdera och distribuera din egen modell med hjälp av Azure pipelines och Azure Machine Learning
-+ [Övervaka körningar och mått för Azure ML-experiment](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-+ [Övervaka och samla in data från ML webb tjänst slut punkter](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)
++ [Övervaka körningar och mått för Azure ML-experiment](./how-to-track-experiments.md)
++ Se [Övervaka och samla in data från webbtjänstslutpunkter i ML](./how-to-enable-app-insights.md)

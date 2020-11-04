@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521075"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317088"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Hantera Runbooks i Azure Automation
 
@@ -45,7 +45,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importera en Runbook
 
-Du kan importera ett PowerShell-eller PowerShell-arbetsflöde (**. ps1**), en grafisk Runbook (**. graphrunbook**) eller ett python 2-skript (**. py**) för att skapa en egen Runbook. Du måste ange vilken [typ av Runbook](automation-runbook-types.md) som skapas under importen, med hänsyn till följande överväganden.
+Du kan importera ett PowerShell-eller PowerShell-arbetsflöde ( **. ps1** ), en grafisk Runbook ( **. graphrunbook** ) eller ett python 2-skript ( **. py** ) för att skapa en egen Runbook. Du måste ange vilken [typ av Runbook](automation-runbook-types.md) som skapas under importen, med hänsyn till följande överväganden.
 
 * Du kan importera en **. ps1** -fil som inte innehåller ett arbets flöde till antingen en [PowerShell-Runbook](automation-runbook-types.md#powershell-runbooks) eller en [PowerShell Workflow-Runbook](automation-runbook-types.md#powershell-workflow-runbooks). Om du importerar den till en PowerShell Workflow-Runbook konverteras den till ett arbets flöde. I det här fallet ingår kommentarer i runbooken för att beskriva de ändringar som gjorts.
 
@@ -228,7 +228,7 @@ Så här använder du ett anpassat skript:
 
 ## <a name="test-a-runbook"></a>Testa en Runbook
 
-När du testar en runbook körs [utkast versionen](#publish-a-runbook) och alla åtgärder som den utför slutförs. Ingen jobb historik skapas, men data strömmarna för [utdata](automation-runbook-output-and-messages.md#use-the-output-stream) och [fel](automation-runbook-output-and-messages.md#monitor-message-streams) visas i fönstret Testa utdata. Meddelanden till [utförlig data ström](automation-runbook-output-and-messages.md#monitor-message-streams) visas endast i fönstret utdata om variabeln [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) har värdet `Continue` .
+När du testar en runbook körs [utkast versionen](#publish-a-runbook) och alla åtgärder som den utför slutförs. Ingen jobb historik skapas, men data strömmarna för [utdata](automation-runbook-output-and-messages.md#use-the-output-stream) och [fel](automation-runbook-output-and-messages.md#working-with-message-streams) visas i fönstret Testa utdata. Meddelanden till [utförlig data ström](automation-runbook-output-and-messages.md#write-output-to-verbose-stream) visas endast i fönstret utdata om variabeln [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) har värdet `Continue` .
 
 Även om utkastet körs körs inte runbooken normalt och utför alla åtgärder mot resurser i miljön. Därför bör du bara testa Runbooks på icke-produktions resurser.
 
@@ -298,7 +298,7 @@ Du kan filtrera listan över jobb genom att välja **filter jobb**. Filtrera på
 
 Du kan också Visa jobb sammanfattnings information för en angiven Runbook genom att välja denna Runbook från sidan Runbooks i ditt Automation-konto och sedan välja **jobb**. Den här åtgärden visar sidan jobb. Härifrån kan du klicka på en jobb post för att visa information och utdata.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Skärm bild av sidan jobb.":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Skärm bild av sidan jobb med knappen fel markerat.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Hämta jobb status med PowerShell
 

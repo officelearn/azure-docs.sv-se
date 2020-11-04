@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 35c0b5529cd9ada612caf4884683fbeaacb25b33
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2c91b330f52733a91fbceb1dc9ca2309c0d10547
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100141"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317101"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurera flera region skrivningar i dina program som använder Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,22 @@ När ett konto har skapats med flera Skriv regioner aktiverade måste du göra t
 
 > [!Note]
 > Cosmos-konton som ursprungligen konfigureras med en enda Skriv region kan konfigureras till flera Skriv regioner utan tids gräns. Läs mer i [Konfigurera flera-Write-regioner](how-to-manage-database-account.md#configure-multiple-write-regions)
+
+## <a name="azure-portal"></a><a id="portal"></a> Azure Portal
+
+Använd följande steg för att aktivera skrivningar i flera regioner från Azure Portal:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+
+1. Gå till ditt Azure Cosmos-konto och öppna fönstret **replikera data globalt** i menyn.
+
+1. Under alternativet **flera regioner** väljer du **Aktivera**. De befintliga regionerna läggs automatiskt till för att läsa och skriva regioner.
+
+1. Du kan lägga till fler regioner genom att välja ikonerna på kartan eller genom att välja knappen **Lägg till region** . Alla regioner som du lägger till får både Läs-och skriv åtgärder aktiverade.
+
+1. När du har uppdaterat listan region väljer du **Spara** för att tillämpa ändringarna.
+
+   :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="Skärm bild som aktiverar skrivningar i flera regioner med hjälp av Azure Portal" lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
 

@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8082694b9f08023653d47e1f7fb442219cf8b475
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672864"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316704"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Skydda en Azure Machine Learning arbets yta med virtuella nätverk
 
@@ -48,7 +48,7 @@ I den här artikeln får du lära dig hur du aktiverar följande arbets ytor res
     - "Microsoft. Network/virtualNetworks/Join/Action" på den virtuella nätverks resursen.
     - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" på under näts resursen.
 
-    Mer information om Azure RBAC med nätverk finns i [inbyggda nätverks roller](/azure/role-based-access-control/built-in-roles#networking)
+    Mer information om Azure RBAC med nätverk finns i [inbyggda nätverks roller](../role-based-access-control/built-in-roles.md#networking)
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>Skydda arbets ytan med privat slut punkt
@@ -66,7 +66,7 @@ Azure Machine Learning stöder lagrings konton som kon figurer ATS att använda 
 >
 > Standard lagrings kontot tillhandahålls automatiskt när du skapar en arbets yta.
 >
-> För lagrings konton som inte är standard `storage_account` kan du ange ett anpassat lagrings konto per Azure-resurs-ID i-parametern i [ `Workspace.create()` funktionen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) .
+> För lagrings konton som inte är standard `storage_account` kan du ange ett anpassat lagrings konto per Azure-resurs-ID i-parametern i [ `Workspace.create()` funktionen](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-&preserve-view=true) .
 
 Använd följande steg för att använda ett Azure Storage-konto för arbets ytan i ett virtuellt nätverk:
 
@@ -74,12 +74,12 @@ Använd följande steg för att använda ett Azure Storage-konto för arbets yta
 
    [![Lagrings utrymmet som är kopplat till arbets ytan Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. På sidan Storage Service-konto väljer du __brand väggar och virtuella nätverk__ .
+1. På sidan Storage Service-konto väljer du __brand väggar och virtuella nätverk__.
 
    ![Avsnittet "brand väggar och virtuella nätverk" på sidan Azure Storage i Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
 1. På sidan __brand väggar och virtuella nätverk__ utför du följande åtgärder:
-    1. Välj __Valda nätverk__ .
+    1. Välj __Valda nätverk__.
     1. Under __virtuella nätverk__ väljer du länken __Lägg till befintligt virtuellt nätverk__ . Den här åtgärden lägger till det virtuella nätverk där din beräkning finns (se steg 1).
 
         > [!IMPORTANT]
@@ -95,7 +95,7 @@ Använd följande steg för att använda ett Azure Storage-konto för arbets yta
     > [!IMPORTANT]
     > När du arbetar med Azure Machine Learning SDK måste utvecklings miljön kunna ansluta till Azure Storage-kontot. När lagrings kontot finns i ett virtuellt nätverk måste brand väggen tillåta åtkomst från utvecklings miljöns IP-adress.
     >
-    > Om du vill aktivera åtkomst till lagrings kontot går du till __brand väggarna och de virtuella nätverken__ för lagrings kontot *från en webbläsare på utvecklings klienten* . Använd sedan kryss rutan __Lägg till din klient-IP-adress__ för att lägga till KLIENTens IP-adress i __adress intervallet__ . Du kan också använda fältet __adress intervall__ för att manuellt ange IP-adressen för utvecklings miljön. När IP-adressen för klienten har lagts till kan den komma åt lagrings kontot med hjälp av SDK.
+    > Om du vill aktivera åtkomst till lagrings kontot går du till __brand väggarna och de virtuella nätverken__ för lagrings kontot *från en webbläsare på utvecklings klienten*. Använd sedan kryss rutan __Lägg till din klient-IP-adress__ för att lägga till KLIENTens IP-adress i __adress intervallet__. Du kan också använda fältet __adress intervall__ för att manuellt ange IP-adressen för utvecklings miljön. När IP-adressen för klienten har lagts till kan den komma åt lagrings kontot med hjälp av SDK.
 
    [![Fönstret "brand väggar och virtuella nätverk" i Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -178,9 +178,9 @@ Använd följande steg för att använda Azure Machine Learning experiment funkt
 1. På sidan __Key Vault__ väljer du __nätverk__ i det vänstra fönstret.
 
 1. Utför följande åtgärder på fliken __brand väggar och virtuella nätverk__ :
-    1. Under __Tillåt åtkomst från__ väljer du __privat slut punkt och valda nätverk__ .
+    1. Under __Tillåt åtkomst från__ väljer du __privat slut punkt och valda nätverk__.
     1. Under __virtuella nätverk__ väljer du __Lägg till befintliga virtuella nätverk__ för att lägga till det virtuella nätverk där din experiment beräkning finns.
-    1. Under __Tillåt betrodda Microsoft-tjänster att kringgå den här brand väggen? väljer du__ __Ja__ .
+    1. Under __Tillåt betrodda Microsoft-tjänster att kringgå den här brand väggen? väljer du__ __Ja__.
 
    [![Avsnittet "brand väggar och virtuella nätverk" i fönstret Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -188,7 +188,7 @@ Använd följande steg för att använda Azure Machine Learning experiment funkt
 
 Om du vill använda Azure Container Registry inuti ett virtuellt nätverk måste du uppfylla följande krav:
 
-* Din Azure Container Registry måste vara en Premium version. Mer information om hur du uppgraderar finns i [ändra SKU: er](/azure/container-registry/container-registry-skus#changing-skus).
+* Din Azure Container Registry måste vara en Premium version. Mer information om hur du uppgraderar finns i [ändra SKU: er](../container-registry/container-registry-skus.md#changing-tiers).
 
 * Ditt Azure Container Registry måste finnas i samma virtuella nätverk och undernät som lagrings kontot och beräknings målen som används för utbildning eller härledning.
 
@@ -233,7 +233,7 @@ När dessa krav är uppfyllda använder du följande steg för att aktivera Azur
     > [!IMPORTANT]
     > Ditt lagrings konto, beräknings kluster och Azure Container Registry måste finnas i samma undernät i det virtuella nätverket.
     
-    Mer information finns i metod referensen [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) .
+    Mer information finns i metod referensen [Update ()](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-&preserve-view=true) .
 
 1. Använd följande Azure Resource Manager mall. Med den här mallen kan din arbets yta kommunicera med ACR.
 
@@ -289,7 +289,7 @@ När dessa krav är uppfyllda använder du följande steg för att aktivera Azur
 
     Den här mallen skapar en _privat slut punkt_ för nätverks åtkomst från arbets ytan till din ACR. Skärm bilden nedan visar ett exempel på den här privata slut punkten.
 
-    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Azure Container Registry för arbets ytan":::
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="ACR inställningar för privat slut punkt":::
 
     > [!IMPORTANT]
     > Ta inte bort den här slut punkten! Om du tar bort den av misstag kan du använda mallen i det här steget för att skapa en ny.

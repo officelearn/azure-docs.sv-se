@@ -1,6 +1,6 @@
 ---
 title: Delad databas
-description: Azure Synapse Analytics tillhandahåller en delad metadata modell där du skapar en databas i Apache Spark, vilket gör den tillgänglig från SQL on-demand (för hands version) och SQL-poolens motorer.
+description: Azure Synapse Analytics tillhandahåller en delad metadata modell där du skapar en databas i en server lös Apache Spark pool kommer att vara tillgänglig från sin server utan SQL-pool (för hands version) och SQL-pooler.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,36 +10,36 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58c1aea944d89872a79d0672a925b1696791c1a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e17eb44a5f4f4aace9ce9d541b8218b35db0f5d3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260860"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317836"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Delad Azure Synapse Analytics-databas
 
-Med Azure Synapse Analytics kan olika data behandlings arbets Ytors motorer dela databaser och tabeller mellan dess Spark-pooler (för hands version) och SQL on-demand (för hands version)-motorn.
+Med Azure Synapse Analytics kan olika data behandlings arbets Ytors motorer dela databaser och tabeller mellan server lös Apache Spark pooler (för hands version) och Server lös SQL-pool (för hands version).
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-En databas som skapats med ett Spark-jobb blir synlig med samma namn på alla aktuella och framtida Spark-pooler (för hands version) i arbets ytan, inklusive SQL-motorn på begäran.
+En databas som skapats med ett Spark-jobb visas med samma namn för alla aktuella och framtida Spark-pooler (för hands version) i arbets ytan, inklusive SQL-poolen utan server.
 
-Spark-standarddatabasen, `default` som anropas, visas också i SQL-kontexten på begäran som en databas som kallas `default` .
+Spark-standarddatabasen, `default` som anropas, visas också i den serverbaserade SQL-poolen kontext som en databas som kallas `default` .
 
-Eftersom databaserna synkroniseras till SQL på begäran asynkront kommer det att finnas en fördröjning tills de visas.
+Eftersom databaserna är synkroniserade med en server lös SQL-pool asynkront kommer det att finnas en fördröjning tills de visas.
 
 ## <a name="manage-a-spark-created-database"></a>Hantera en spark-skapad databas
 
 Använd Spark för att hantera Spark-skapade databaser. Du kan t. ex. ta bort den via ett Spark-jobb och skapa tabeller i det från Spark.
 
-Om du skapar objekt i en spark-databas som skapats med SQL på begäran, eller om du försöker släppa databasen, kommer åtgärden att lyckas. Men den ursprungliga Spark-databasen ändras inte.
+Om du skapar objekt i en spark-skapad databas med SQL-pool utan server eller försöker släppa databasen, lyckas åtgärden. Men den ursprungliga Spark-databasen ändras inte.
 
 ## <a name="how-name-conflicts-are-handled"></a>Hur namn konflikter hanteras
 
-Om namnet på en spark-databas står i konflikt med namnet på en befintlig SQL-databas på begäran, läggs ett suffix till i SQL på begäran till Spark-databasen. Suffixet i SQL på begäran är `_<workspace name>-ondemand-DefaultSparkConnector` .
+Om namnet på en spark-databas är i konflikt med namnet på en befintlig databas för server utan SQL-pool, läggs ett suffix till i Spark-databasen i SQL-poolen utan server. Suffixet i SQL-poolen utan server är `_<workspace name>-ondemand-DefaultSparkConnector` .
 
-Om t. ex. en spark-databas som heter `mydb` skapas i Azure DataSynapses-arbetsytan `myws` och det redan finns en SQL-databas på begäran med det namnet, måste Spark-databasen i SQL på begäran refereras till med namnet `mydb_myws-ondemand-DefaultSparkConnector` .
+Om t. ex. en spark-databas som heter `mydb` skapas i Azure DataSynapses-arbetsytan `myws` och det redan finns en databas för SQL-poolen utan server med det namnet, måste Spark-databasen i SQL-poolen utan server refereras med namnet `mydb_myws-ondemand-DefaultSparkConnector` .
 
 > [!CAUTION]
 > Varning: du bör inte ta ett beroende på detta beteende.
@@ -58,7 +58,7 @@ Om ett säkerhets objekt kräver möjlighet att skapa objekt eller släppa objek
 
 ## <a name="examples"></a>Exempel
 
-### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Skapa och Anslut till Spark-databasen med SQL på begäran
+### <a name="create-and-connect-to-spark-database-with-serverless-sql-pool"></a>Skapa och Anslut till Spark-databasen med en server lös SQL-pool
 
 Skapa först en ny Spark-databas `mytestdb` som heter med ett Spark-kluster som du redan har skapat i din arbets yta. Du kan till exempel använda en spark C#-anteckningsbok med följande .NET for Spark-instruktion:
 
@@ -66,7 +66,7 @@ Skapa först en ny Spark-databas `mytestdb` som heter med ett Spark-kluster som 
 spark.Sql("CREATE DATABASE mytestdb")
 ```
 
-Efter en kort fördröjning kan du se databasen från SQL på begäran. Kör till exempel följande uttryck från SQL på begäran.
+Efter en kort fördröjning kan du se databasen från Server lös SQL-pool. Kör till exempel följande uttryck från SQL-poolen utan server.
 
 ```sql
 SELECT * FROM sys.databases;

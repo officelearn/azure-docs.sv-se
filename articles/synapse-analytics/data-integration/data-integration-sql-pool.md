@@ -1,6 +1,6 @@
 ---
-title: Mata in data i en SQL-pool
-description: Lär dig hur du matar in data i en SQL-pool i Azure Synapse Analytics
+title: Mata in data i en dedikerad SQL-pool
+description: Lär dig hur du matar in data i en dedikerad SQL-pool i Azure Synapse Analytics
 services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 40f8834a69101682abaaa7eac8ec9cafe8ef3d9e
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 44d17bafe534fea2d408c92a3a01efb699250a78
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279375"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317787"
 ---
-# <a name="ingest-data-into-a-sql-pool"></a>Mata in data i en SQL-pool
+# <a name="ingest-data-into-a-dedicated-sql-pool"></a>Mata in data i en dedikerad SQL-pool
 
-I den här artikeln får du lära dig hur du matar in data från ett Azure Data Lake gen 2-lagrings konto i en SQL-pool med Azure Synapse Analytics.
+I den här artikeln får du lära dig hur du matar in data från ett Azure Data Lake gen 2-lagrings konto till en dedikerad SQL-pool i Azure Synapse Analytics.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration** : om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto** : du använder Azure Data Lake Storage gen 2 som *käll* data lager. Om du inte har ett lagrings konto kan du läsa [skapa ett Azure Storage-konto](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att skapa ett.
-* **Azure Synapse Analytics** : du använder en SQL-pool som data lager för *mottagare* . Om du inte har en Azure Synapse Analytics-instans går du till [skapa en SQL-pool](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för steg för att skapa en.
+* **Azure Synapse Analytics** : du använder en dedikerad SQL-pool som data lager för *mottagare* . Om du inte har en Azure Synapse Analytics-instans kan du läsa [skapa en dedikerad SQL-pool](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för steg för att skapa en.
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 
@@ -39,7 +39,7 @@ I Azure Synapse Analytics är en länkad tjänst där du definierar din anslutni
 
 ## <a name="create-pipeline"></a>Skapa pipeline
 
-En pipeline innehåller det logiska flödet för en körning av en uppsättning aktiviteter. I det här avsnittet ska du skapa en pipeline som innehåller en kopierings aktivitet som matar in data från ADLS Gen2 i en SQL-pool.
+En pipeline innehåller det logiska flödet för en körning av en uppsättning aktiviteter. I det här avsnittet ska du skapa en pipeline som innehåller en kopierings aktivitet som matar in data från ADLS Gen2 i en dedikerad SQL-pool.
 
 1. Gå till fliken **integrera** . Välj på plus ikonen bredvid pipelinens huvud och välj **pipeline**.
 1. Under **flytta och transformera** i fönstret aktiviteter drar du **Kopiera data** till pipeline-arbetsytan.
@@ -68,7 +68,7 @@ I det här steget aktiverar du pipelinen som publicerades i föregående steg ma
 1. Välj **Lägg till utlösare** i verktygsfältet och välj sedan **Utlös nu**. På sidan **Pipeline Run** (Pipelinekörning) väljer du **Slutför**.  
 1. Gå till fliken **övervakare** som finns i den vänstra panelen. Du ser en pipelinekörning som är utlöst av en manuell utlösare. Du kan använda länkar i kolumnen **åtgärder** för att Visa aktivitets information och köra pipelinen igen.
 1. Om du vill se aktivitetskörningar som är associerade med pipelinekörningen, väljer du länken **View Activity Runs** (Visa aktivitetskörningar) i kolumnen **Actions** (Åtgärder). I det här exemplet finns det bara en aktivitet, så du ser bara en post i listan. Om du vill se mer information om kopieringsåtgärden väljer du länken för **detaljer** (glasögonikonen) i kolumnen **Actions** (Åtgärder). Välj **pipeline-körningar** överst för att gå tillbaka till vyn pipelines-körningar. Välj **Uppdatera** för att uppdatera vyn.
-1. Kontrol lera att dina data är korrekt skrivna i SQL-poolen.
+1. Kontrol lera att dina data är korrekt skrivna i den dedikerade SQL-poolen.
 
 
 ## <a name="next-steps"></a>Nästa steg

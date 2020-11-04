@@ -1,5 +1,5 @@
 ---
-title: Anpassa SQL information Protection – Azure Security Center
+title: Princip för SQL information Protection i Azure Security Center
 description: Lär dig hur du anpassar information Protection-principer i Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -11,76 +11,125 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 11/04/2020
 ms.author: memildin
-ms.openlocfilehash: 6991c222590b52ca4dadb2b9f5a9661bf731c4c4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: aa3492cb67a4ccd1c09a1f1cb55ddc4f2e00953d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340843"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318591"
 ---
-# <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Anpassa SQL information Protection-principen i Azure Security Center (för hands version)
+# <a name="sql-information-protection-policy-in-azure-security-center"></a>Princip för SQL information Protection i Azure Security Center
  
-Du kan definiera och anpassa en princip för SQL information Protection för hela Azure-klienten i Azure Security Center.
+SQL information Protections [mekanism för data identifiering och klassificering](../azure-sql/database/data-discovery-and-classification-overview.md) är inbyggd i [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), [Azure SQL-hanterad instans](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)och [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Den innehåller avancerade funktioner för att upptäcka, klassificera, märka och rapportera känsliga data i dina databaser.
 
-Information Protection är en avancerad säkerhets funktion för att upptäcka, klassificera, märka och rapportera känsliga data i dina Azure-dataresurser. Att upptäcka och klassificera dina mest känsliga data (affärs-, finans-, sjukvårds-och person uppgifter osv.) kan spela en pivot-roll i din organisations informations skydds datasekretesstandarder. Tjänsten kan fungera som infrastruktur inom följande områden:
-- Hjälpa till att uppfylla data integritets standarder och krav för regelefterlevnad
-- Säkerhets scenarier som övervakning (granskning) och aviseringar vid avvikande åtkomst till känsliga data
-- Kontrol lera åtkomst till och härdning av säkerheten för data lager som innehåller mycket känsliga data
- 
-[Sql information Protection](../azure-sql/database/data-discovery-and-classification-overview.md) implementerar den här paradigmen för dina SQL-datalager, som för närvarande stöds för Azure SQL Database. SQL Information Protection identifierar och klassificerar automatiskt potentiellt känsliga data, innehåller en etikett för att permanent tagga känsliga data med klassificerings attribut, och innehåller en detaljerad instrument panel som visar databasens klassificerings tillstånd. Dessutom beräknar den resultat uppsättnings känslighet för SQL-frågor, så att frågor som extraherar känsliga data kan granskas explicit och att data kan skyddas. Mer information om SQL-Information Protection finns i [Azure SQL Database identifiering och klassificering av data](../azure-sql/database/data-discovery-and-classification-overview.md).
- 
-Klassificerings mekanismen baseras på två primära konstruktioner som utgör klassificeringens taxonomier, **Etiketter** och **informations typer**.
+Klassificerings mekanismen baseras på två primära konstruktioner som utgör klassificerings taxonomin:
+
 - **Etiketter** – huvudattributen för klassificering som används för att definiera känslighets nivån för de data som lagras i kolumnen. 
 - **Informations typer** – ger ytterligare detaljerad information om vilken typ av data som lagras i kolumnen.
- 
-Information Protection levereras med en inbyggd uppsättning etiketter och informations typer som används som standard. Om du vill anpassa dessa etiketter och typer kan du anpassa information Protection-principen i Security Center.
- 
-## <a name="customize-the-information-protection-policy"></a>Anpassa informationsskyddsprincipen
-Om du vill anpassa information Protection-principen för din Azure-klient måste du ha [administratörs behörighet för klient organisationens rot hanterings grupp](security-center-management-groups.md). 
- 
-1. **Gå till** **data & lagring** på Security Center huvud menyn och klicka på knappen **SQL-information Protection** .
 
-   ![Konfigurera information Protection-princip](./media/security-center-info-protection-policy/security-policy.png) 
+Alternativen för information Protection-princip i Security Center ger en fördefinierad uppsättning etiketter och informations typer som fungerar som standardvärden för klassificerings motorn. Du kan anpassa principen enligt organisationens behov enligt beskrivningen nedan.
+
+:::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="Sidan visar din SQL information Protection-princip":::
  
-2. På sidan **SQL-information Protection** kan du Visa din aktuella uppsättning etiketter. Detta är de viktigaste klassificerings attributen som används för att kategorisera data känslighets nivån. Härifrån kan du konfigurera **Information Protection-etiketter** och **informations typer** för klient organisationen. 
+
+
+
+## <a name="how-do-i-access-the-sql-information-protection-policy"></a>Hur gör jag för att åtkomst till SQL information Protection-principen?
+
+Det finns tre sätt att komma åt information Protection-principen:
+
+- **(Rekommenderas)** På sidan priser och inställningar i Security Center.
+- Från säkerhets rekommendationen är känsliga data i SQL-databaserna klassificerade.
+- Från sidan för identifiering av Azure SQL DB-data.
+
+Var och en av dem visas på fliken relevant nedan.
+
+
+
+### <a name="from-security-centers-settings"></a>[**Från Security Center inställningar**](#tab/sqlip-tenant)
+
+### <a name="access-the-policy-from-security-centers-pricing-and-settings-page"></a>Öppna principen från Security Center sidan priser och inställningar <a name="sqlip-tenant"></a>
+
+Om du vill anpassa information Protection-principen för din Azure-klient måste du ha [administratörs behörighet för klient organisationens rot hanterings grupp](security-center-management-groups.md). 
+
+Välj **SQL information Protection** på sidan **priser och inställningar** för Security Center.
+
+:::image type="content" source="./media/security-center-info-protection-policy/pricing-settings-link-to-information-protection.png" alt-text="Åtkomst till SQL Information Protection-principen på sidan priser och inställningar i Azure Security Center":::
+
+
+
+### <a name="from-security-centers-recommendation"></a>[**Från Security Center rekommendation**](#tab/sqlip-db)
+
+### <a name="access-the-policy-from-the-security-center-recommendation"></a>Få åtkomst till principen från Security Center rekommendation <a name="sqlip-db"></a>
+
+Använd Security Center rekommendation, "känsliga data i dina SQL-databaser ska klassificeras", för att visa sidan data identifiering och klassificering för din databas. Där visas även de kolumner som identifierats för att innehålla information som vi rekommenderar att du klassificerar.
+
+1. Från Security Center sidan **rekommendationer** ska du söka efter rekommendations **känsliga data i dina SQL-databaser, klassificeras**.
+
+    :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="Hitta den rekommendation som ger åtkomst till SQL information Protection-principer":::
+
+1. På sidan rekommendations information väljer du relevant databas från flikarna **felfria** eller **felaktiga** .
+
+1. Sidan **klassificering av data identifierings &** öppnas. Välj **Konfigurera**. 
+
+    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-security-center-recommendation.png" alt-text="Att öppna SQL information Protection-principen från rekommendationen i Azure Security Center":::
+
+
+
+### <a name="from-azure-sql"></a>[**Från Azure SQL**](#tab/sqlip-azuresql)
+
+### <a name="access-the-policy-from-azure-sql"></a>Få åtkomst till principen från Azure SQL <a name="sqlip-azuresql"></a>
+
+1. Öppna Azure SQL från Azure Portal.
+
+    :::image type="content" source="./media/security-center-info-protection-policy/open-azure-sql.png" alt-text="Öppna Azure SQL från Azure Portal":::
+
+1. Välj en databas.
+
+1. På menyn **säkerhet** på menyn öppnar du sidan för **data identifiering & klassificering** (1) och väljer **Konfigurera** (2).
+
+    :::image type="content" source="./media/security-center-info-protection-policy/access-policy-from-azure-sql.png" alt-text="Öppnar SQL information Protection-principen från Azure SQL":::
+
+--- 
+
+
+## <a name="customize-your-information-types"></a>Anpassa dina informations typer
+
+Så här hanterar och anpassar du informations typer:
+
+1. Välj **Hantera informations typer**.
+
+    :::image type="content" source="./media/security-center-info-protection-policy/manage-types.png" alt-text="Hantera informations typer för din information Protection-princip":::
+
+1. Om du vill lägga till en ny **informations typ** väljer du **skapa informations typ** på den översta menyn. Du kan konfigurera ett namn, en beskrivning och Sök efter mönster strängar för **informations typen**. Sök mönster strängar kan också använda nyckelord med jokertecken (med tecknet%) som den automatiserade identifierings motorn använder för att identifiera känsliga data i dina databaser, baserat på kolumnernas metadata.
  
-### <a name="customizing-labels"></a>Anpassa etiketter
+    :::image type="content" source="./media/security-center-info-protection-policy/configure-new-type.png" alt-text="Konfigurera en ny informations typ för din information Protection-princip":::
+
+1. Du kan också konfigurera inbyggda **informations typer** genom att lägga till fler Sök mönster strängar, inaktivera några av de befintliga strängarna eller genom att ändra beskrivningen. Du kan inte ta bort inbyggda **informations typer** eller redigera deras namn. 
+1. **Informations typer** visas i ordning efter stigande identifierings rangordning, vilket innebär att typerna som är högre i listan försöker matcha först. Om du vill ändra rangordningen mellan informations typer drar du typerna till rätt plats i tabellen eller använder knapparna **Flytta upp** och **Flytta ned** för att ändra ordningen. 
+1. Välj **OK** när du är färdig.
+1. När du har slutfört hanteringen av dina informations typer måste du associera de relevanta typerna med relevanta etiketter, genom att klicka på **Konfigurera** för en viss etikett och lägga till eller ta bort informations typer efter behov.
+1. Om du vill tillämpa ändringarna väljer du **Spara** på sidan huvud **Etiketter** .
  
-1. Du kan redigera eller ta bort en befintlig etikett eller lägga till en ny etikett. Om du vill redigera en befintlig etikett väljer du etiketten och klickar sedan på **Konfigurera**, antingen överst eller på snabb menyn till höger. Om du vill lägga till en ny etikett klickar du på **skapa etikett** i den översta meny raden eller längst ned i tabellen etiketter.
-2. På skärmen **Konfigurera känslighets etikett** kan du skapa eller ändra etikett namnet och beskrivningen. Du kan också ange om etiketten är aktiv eller inaktive rad genom att aktivera eller inaktivera den **aktiverade** växeln. Slutligen kan du lägga till eller ta bort informations typer som är kopplade till etiketten. Alla data som har identifierats som matchar den informations typen kommer automatiskt att inkludera den tillhör ande känslighets etiketten i klassificerings rekommendationerna.
-3. Klicka på **OK**.
- 
-   ![Konfigurera känslighets etikett](./media/security-center-info-protection-policy/config-sensitivity-label.png)
- 
-4. Etiketter visas i stigande känslighets ordning. Om du vill ändra rangordningen mellan etiketter drar du etiketterna för att ändra ordning på dem i tabellen, eller Använd knapparna **Flytta upp** och **Flytta ned** för att ändra ordningen. 
- 
-    ![Etikett lista](./media/security-center-info-protection-policy/move-up.png)
- 
-5. Se till att klicka på **Spara** längst upp på skärmen när du är färdig.
- 
- 
-## <a name="adding-and-customizing-information-types"></a>Lägga till och anpassa informations typer
- 
-1. Du kan hantera och anpassa informations typer genom att klicka på **Hantera informations typer**.
-2. Om du vill lägga till en ny **informations typ**väljer du **skapa informations typ** på den översta menyn. Du kan konfigurera ett namn, en beskrivning och Sök efter mönster strängar för **informations typen**. Sök mönster strängar kan också använda nyckelord med jokertecken (med tecknet%) som den automatiserade identifierings motorn använder för att identifiera känsliga data i dina databaser, baserat på kolumnernas metadata.
- 
-    ![Skapa informations typ](./media/security-center-info-protection-policy/info-types.png)
- 
-3. Du kan också konfigurera inbyggda **informations typer** genom att lägga till fler Sök mönster strängar, inaktivera några av de befintliga strängarna eller genom att ändra beskrivningen. Du kan inte ta bort inbyggda **informations typer** eller redigera deras namn. 
-4. **Informations typer** visas i ordning efter stigande identifierings rangordning, vilket innebär att typerna som är högre i listan försöker matcha först. Om du vill ändra rangordningen mellan informations typer drar du typerna till rätt plats i tabellen eller använder knapparna **Flytta upp** och **Flytta ned** för att ändra ordningen. 
-5. Klicka på **OK** när du är färdig.
-6. När du har slutfört hanteringen av dina informations typer måste du associera de relevanta typerna med relevanta etiketter, genom att klicka på **Konfigurera** för en viss etikett och lägga till eller ta bort informations typer efter behov.
-7. Se till att klicka på **Spara** i bladet med huvud **Etiketter** för att tillämpa alla ändringar.
- 
-När din information Protection-princip är fullständigt definierad och Sparad, kommer den att gälla för klassificering av data på alla Azure SQL-databaser i din klient organisation.
+
+## <a name="exporting-and-importing-a-policy"></a>Exportera och importera en princip
+
+Du kan ladda ned en JSON-fil med dina definierade etiketter och informations typer, redigera filen i valfritt redigerings program och sedan importera den uppdaterade filen. 
+
+:::image type="content" source="./media/security-center-info-protection-policy/export-import.png" alt-text="Exportera och importera information Protection-princip":::
+
+> [!NOTE]
+> Du behöver behörighet som klient organisations nivå för att importera en princip fil. 
+
 
 ## <a name="manage-sql-information-protection-using-azure-powershell"></a>Hantera SQL information Protection med Azure PowerShell
 
 - [Get-AzSqlInformationProtectionPolicy](/powershell/module/az.security/get-azsqlinformationprotectionpolicy): hämtar den effektiva klientens SQL information Protection-princip.
 - [Set-AzSqlInformationProtectionPolicy](/powershell/module/az.security/set-azsqlinformationprotectionpolicy): anger den effektiva klientens SQL information Protection-princip.
  
+
 ## <a name="next-steps"></a>Nästa steg
  
 I den här artikeln har du lärt dig hur du definierar en princip för SQL-Information Protection i Azure Security Center. Mer information om hur du använder SQL-Information Protection för att klassificera och skydda känsliga data i dina SQL-databaser finns i [Azure SQL Database identifiering och klassificering av data](../azure-sql/database/data-discovery-and-classification-overview.md). 

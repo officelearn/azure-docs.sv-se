@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: ansluta SQL på begäran till Power BI Desktop & Skapa rapport'
-description: I den här självstudien får du lära dig hur du ansluter SQL på begäran i Azure Synapse Analytics till Power BI Desktop och skapar en demo rapport som baseras på en vy.
+title: 'Självstudie: Anslut Server lös SQL-pool till Power BI Desktop & Skapa rapport'
+description: I den här självstudien får du lära dig hur du ansluter Server lös SQL-pool i Azure Synapse Analytics till Power BI Desktop och skapar en demo rapport baserat på en vy.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2b068dd7c5e7fb3f9e3505f93245515d90ae23
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539562"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317194"
 ---
-# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Självstudie: använda SQL på begäran med Power BI Desktop & skapa en rapport
+# <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Självstudie: Använd Server lös SQL-pool med Power BI Desktop & skapa en rapport
 
 I den här självstudien får du lära dig att:
 
@@ -24,10 +24,10 @@ I den här självstudien får du lära dig att:
 >
 > - Skapa demo databas
 > - Skapa vy som används för rapport
-> - Anslut Power BI Desktop till SQL på begäran
+> - Anslut Power BI Desktop till en server lös SQL-pool
 > - Skapa rapport baserat på vy
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
@@ -42,8 +42,8 @@ Värden för följande parametrar:
 
 | Parameter                                 | Beskrivning                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Slut punkts adress för SQL-tjänst på begäran    | Används som server namn                                   |
-| Tjänstens slut punkts region för SQL på begäran     | Används för att fastställa lagringen som används i exemplen |
+| Slut punkts adress för SQL-adresspool i Server    | Används som server namn                                   |
+| Slut punkts region för Server lös SQL-adresspool     | Används för att fastställa lagringen som används i exemplen |
 | Användar namn och lösen ord för slut punkts åtkomst | Används för att komma åt slut punkten                               |
 | Databas som du ska använda för att skapa vyer     | Databasen som används som start punkt i exemplen       |
 
@@ -65,7 +65,7 @@ GO
 
 ## <a name="2---create-data-source"></a>2 – Skapa data Källa
 
-Det krävs en data källa för SQL-tjänsten på begäran för att komma åt filer i lagringen. Skapa data källan för ett lagrings konto som finns i samma region som din slut punkt. Även om SQL på begäran kan komma åt lagrings konton från olika regioner, ger lagring och slut punkt i samma region bättre prestanda.
+En data källa krävs för att servern utan SQL-adresspool ska kunna komma åt filer i lagringen. Skapa data källan för ett lagrings konto som finns i samma region som din slut punkt. Även om SQL-poolen utan server kan komma åt lagrings konton från olika regioner ger lagring och slut punkt i samma region bättre prestanda.
 
 Skapa data källan genom att köra följande skript för Transact-SQL (T-SQL):
 
@@ -113,7 +113,7 @@ Skapa rapporten för Power BI Desktop med hjälp av följande steg:
 
    ![Öppna Power BI Desktop-programmet och välj Hämta data.](./media/tutorial-connect-power-bi-desktop/step-0-open-powerbi.png)
 
-2. Välj **Azure**-  >  **Azure SQL Database**. 
+2. Välj **Azure** -  >  **Azure SQL Database**. 
 
    ![Välj data källa.](./media/tutorial-connect-power-bi-desktop/step-1-select-data-source.png)
 

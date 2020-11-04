@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601434628258b8af3fb5fb9336f701be72441c64
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776127"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318123"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -39,12 +39,12 @@ I den här artikeln får du lära dig att:
 > * Exportera etiketterna
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * De data som du vill märka, antingen i lokala filer eller i Azure Blob Storage.
 * Den uppsättning etiketter som du vill använda.
 * Anvisningarna för att märka.
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
 * En Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="create-a-labeling-project"></a>Skapa ett etikett projekt
@@ -53,7 +53,7 @@ Att märka projekt administreras från Azure Machine Learning. Du kan använda s
 
 Om dina data redan finns i Azure Blob Storage bör du göra det tillgängligt som ett data lager innan du skapar ett etikettande projekt. Ett exempel på hur du använder ett data lager finns i [Självstudier: skapa ditt första bild klassificerings projekt](tutorial-labeling.md).
 
-Välj **Lägg till projekt**om du vill skapa ett projekt. Ge projektet ett lämpligt namn och välj **uppgifts typ för etiketter**.
+Välj **Lägg till projekt** om du vill skapa ett projekt. Ge projektet ett lämpligt namn och välj **uppgifts typ för etiketter**.
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Guiden skapa etikett för projekt":::
 
@@ -152,7 +152,7 @@ Välj *Enable ml-etikettering* och ange en GPU för att aktivera assisterad mär
 * Klustring
 * För markering
 
-Det exakta antalet etiketterade bilder som krävs för att kunna starta assisterad etikettering är inte ett fast nummer.  Detta kan variera markant från ett etikett projekt till ett annat. För vissa projekt är det ibland möjligt att se förmärknings-eller kluster aktiviteter efter att 300-bilder har märkts manuellt. ML-märkning använder en teknik som kallas *överförings Inlärning*, som använder en förtränad modell för att komma igång med inlärnings processen. Om din data uppsättnings klasser liknar dem i den förtränade modellen kan det finnas etiketter som är tillgängliga efter några hundra manuellt märkta bilder. Om din data uppsättning skiljer sig avsevärt från de data som används för att förträna modellen, kan det ta mycket längre tid.
+Det exakta antalet etiketterade bilder som krävs för att kunna starta assisterad etikettering är inte ett fast nummer.  Detta kan variera markant från ett etikett projekt till ett annat. För vissa projekt är det ibland möjligt att se förmärknings-eller kluster aktiviteter efter att 300-bilder har märkts manuellt. ML-märkning använder en teknik som kallas *överförings Inlärning* , som använder en förtränad modell för att komma igång med inlärnings processen. Om din data uppsättnings klasser liknar dem i den förtränade modellen kan det finnas etiketter som är tillgängliga efter några hundra manuellt märkta bilder. Om din data uppsättning skiljer sig avsevärt från de data som används för att förträna modellen, kan det ta mycket längre tid.
 
 Eftersom de slutliga etiketterna fortfarande är beroende av inmatade Labeler, kallas den här tekniken ibland *mänsklig i slingan* .
 
@@ -189,7 +189,7 @@ Om du vill pausa eller starta om projektet kan du växla **körnings** status l�
 
 Fliken **instrument panel** visar förloppet för etikett uppgiften.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Guiden skapa etikett för projekt":::
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Instrument panel för data etiketter":::
 
 I förlopps diagrammet visas hur många objekt som har märkts och hur många som ännu inte har gjorts.  Objekt som väntar kan vara:
 
@@ -213,7 +213,7 @@ På den högra sidan finns en fördelning av etiketterna för de aktiviteter som
 
 ### <a name="data-tab"></a>Fliken data
 
-På fliken **data** kan du se din data uppsättning och granska etiketterade data. Om du ser felaktigt märkta data markerar du den och väljer **avvisa**, vilket tar bort etiketterna och sätter tillbaka dem i den omärkta kön.
+På fliken **data** kan du se din data uppsättning och granska etiketterade data. Om du ser felaktigt märkta data markerar du den och väljer **avvisa** , vilket tar bort etiketterna och sätter tillbaka dem i den omärkta kön.
 
 ### <a name="details-tab"></a>Fliken information
 
@@ -260,4 +260,4 @@ COCO-filen skapas i standard-BLOB-arkivet för Azure Machine Learning arbets yta
 
 * [Självstudie: skapa din första bild klassificerings etikett för projekt](tutorial-labeling.md).
 * Etikett bilder för [bild klassificering eller objekt identifiering](how-to-label-images.md)
-* Läs mer om [Azure Machine Learning och Machine Learning Studio (klassisk)](compare-azure-ml-to-studio-classic.md)
+* Läs mer om [Azure Machine Learning och Machine Learning Studio (klassisk)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

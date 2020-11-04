@@ -1,6 +1,6 @@
 ---
 title: Ansluta till Synapse SQL med Power BI Professional
-description: I den här självstudien går vi igenom steg hur du ansluter Power BI Desktop till SQL på begäran (för hands version).
+description: I den här självstudien får vi steg för steg hur du ansluter Power BI Desktop till en server lös SQL-pool (för hands version).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d88406646099a136d196a104f9cf4352a367f6d2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 97b611c449302c95d4b24c305ce50ee7683e85ea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899126"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316474"
 ---
-# <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Ansluta till Synapse SQL med Power BI Professional
+# <a name="connect-to-serverless-sql-pool-with-power-bi-professional"></a>Anslut till en server lös SQL-pool med Power BI Professional
 
 > [!div class="op_single_selector"]
 >
@@ -26,7 +26,7 @@ ms.locfileid: "92899126"
 > - [SQLCMD](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-I den här självstudien ska vi gå igenom stegen för att ansluta Power BI Desktop till SQL på begäran (för hands version).
+I den här självstudien ska vi gå igenom stegen för att ansluta Power BI Desktop till en server lös SQL-pool (för hands version).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -43,17 +43,17 @@ Parametrar:
 
 | Parameter                                 | Beskrivning                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Slut punkts adress för SQL-tjänst på begäran    | Kommer att användas som server namn                                   |
-| Tjänstens slut punkts region för SQL på begäran     | Kommer att användas för att avgöra vilken lagrings enhet vi använder i exempel |
+| Slut punkts adress för SQL-adresspool i Server    | Kommer att användas som server namn                                   |
+| Slut punkts region för Server lös SQL-adresspool     | Kommer att användas för att avgöra vilken lagrings enhet vi använder i exempel |
 | Användar namn och lösen ord för slut punkts åtkomst | Kommer att användas för att komma åt slut punkten                               |
-| Databas som du ska använda för att skapa vyer     | Den här databasen kommer att användas som start punkt i exempel       |
+| Databas som du ska använda för att skapa vyer       | Den här databasen kommer att användas som start punkt i exempel       |
 
 ## <a name="first-time-setup"></a>Installation vid första tiden
 
 Det finns två steg innan du använder exempel:
 
 1. Skapa databas för dina vyer
-2. Skapa autentiseringsuppgifter som ska användas av SQL på begäran för att komma åt filer i lagringen
+2. Skapa autentiseringsuppgifter som ska användas av Server lös SQL-poolen för att komma åt filer i lagring
 
 ### <a name="create-database"></a>Skapa databas
 
@@ -70,10 +70,10 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Skapa autentiseringsuppgifter
 
-Vi måste skapa autentiseringsuppgifter innan du kan köra frågor. Den här autentiseringsuppgiften används av SQL-tjänsten på begäran för att komma åt filer i lagrings utrymmet.
+Vi måste skapa autentiseringsuppgifter innan du kan köra frågor. Den här autentiseringsuppgiften används av Server lös tjänsten SQL-pool för att komma åt filer i lagringen.
 
 > [!NOTE]
-> Du måste skapa autentiseringsuppgifter för åtkomst till lagrings kontot. Även om SQL på begäran kan komma åt lagring från olika regioner, ger lagrings-och Azure Synapse-arbetsytan i samma region en bättre prestanda upplevelse.
+> Du måste skapa autentiseringsuppgifter för åtkomst till lagrings kontot. Även om SQL-poolen utan server kan komma åt lagring från olika regioner, ger lagrings-och Azure Synapse-arbetsytan i samma region en bättre prestanda upplevelse.
 
 Kodfragment för **att skapa autentiseringsuppgifter för inventerings data behållare** , kör:
 
@@ -98,7 +98,7 @@ GO
 
 ### <a name="step-1---select-data-source"></a>Steg 1 – Välj data Källa
 
-Välj **Azure** i menyn och **Azure SQL Database** .
+Välj **Azure** i menyn och **Azure SQL Database**.
 ![Välj data källa.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>Steg 2 – Välj databas
@@ -108,5 +108,4 @@ Skriv webb adressen till databasen och namnet på databasen där vyn finns.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fortsätt att [fråga Storage-filer](get-started-azure-data-studio.md) och lär dig hur du ansluter till SQL på begäran med hjälp av Azure Data Studio.
- 
+Fortsätt att [fråga Storage-filer](get-started-azure-data-studio.md) och lär dig hur du ansluter till en server lös SQL-pool med hjälp av Azure Data Studio.

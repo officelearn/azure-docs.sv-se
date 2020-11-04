@@ -9,22 +9,22 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 394521156d6192d25c3a4d254ac2c9b94c6231f5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093556"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318397"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse för SQL-resursförbrukning
 
 I den här artikeln beskrivs resurs förbruknings modeller av Synapse SQL (för hands version).
 
-## <a name="sql-on-demand"></a>SQL på begäran
+## <a name="serverless-sql-pool"></a>SQL-pool utan Server
 
-SQL på begäran är en betal tjänst per fråga som inte kräver att du väljer rätt storlek. Systemet justeras automatiskt baserat på dina krav, vilket frigör dig från att hantera infrastrukturen och välja rätt storlek för din lösning.
+SQL-poolen utan server är en betal tjänst per fråga som inte kräver att du väljer rätt storlek. Systemet justeras automatiskt baserat på dina krav, vilket frigör dig från att hantera infrastrukturen och välja rätt storlek för din lösning.
 
-## <a name="sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>SQL-pool – informations lager enheter (DWU: er) och beräknings data lager enheter (cDWUs)
+## <a name="dedicated-sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Dedikerad SQL-pool – informations lager enheter (DWU: er) och beräknings data lager enheter (cDWUs)
 
 Rekommendationer för att välja det idealiska antalet informations lager enheter (DWU: er) för att optimera pris och prestanda och hur du ändrar antalet enheter.
 
@@ -50,12 +50,12 @@ Prestanda för informations lager enheter baseras på dessa data lager arbets be
 
 Service nivå målet (service nivå målet) är inställningen för skalbarhet som avgör data lagrets kostnad och prestanda nivå. Service nivåerna för Gen2 mäts i beräknings data lager enheter (cDWU), till exempel DW2000c. Gen1 service nivåer mäts i DWU: er, till exempel DW2000.
 
-Service nivå målet (service nivå målet) är inställningen för skalbarhet som avgör data lagrets kostnad och prestanda nivå. Tjänst nivåerna för Gen2 SQL-poolen mäts i informations lager enheter (DWU), till exempel DW2000c.
+Service nivå målet (service nivå målet) är inställningen för skalbarhet som avgör data lagrets kostnad och prestanda nivå. Tjänst nivåerna för Gen2 dedikerade SQL-poolen mäts i informations lager enheter (DWU), till exempel DW2000c.
 
 > [!NOTE]
 > Azure Synapse Analytics Gen2 nyligen tillagda ytterligare skalnings funktioner som stöd för beräknings nivåer så lågt som 100 cDWU. Befintliga data lager för närvarande på gen1 som kräver lägre beräknings nivåer kan nu uppgraderas till Gen2 i de regioner som för närvarande är tillgängliga utan extra kostnad.  Om din region inte stöds ännu kan du fortfarande uppgradera till en region som stöds. Mer information finns i [Uppgradera till Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-I T-SQL bestämmer inställningen för SERVICE_OBJECTIVE tjänst nivå och prestanda nivå för SQL-poolen.
+I T-SQL bestämmer inställningen för SERVICE_OBJECTIVE tjänst nivå och prestanda nivå för din dedikerade SQL-pool.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -127,7 +127,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 1. Öppna [Azure Portal](https://portal.azure.com), öppna databasen och välj **skala**.
 
-2. Under **skala**flyttar du skjutreglaget åt vänster eller höger för att ändra DWU-inställningen.
+2. Under **skala** flyttar du skjutreglaget åt vänster eller höger för att ändra DWU-inställningen.
 
 3. Välj **Spara**. Ett bekräftelsemeddelande visas. Välj **Ja** för att bekräfta eller **Nej** för att avbryta.
 
@@ -204,7 +204,7 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-Denna DMV returnerar information om olika hanterings åtgärder på SQL-poolen, till exempel åtgärden och status för åtgärden, som antingen IN_PROGRESS eller har SLUTFÖRts.
+I denna DMV returneras information om olika hanterings åtgärder på din dedikerade SQL-pool, till exempel åtgärden och status för åtgärden, som antingen IN_PROGRESS eller har SLUTFÖRts.
 
 ### <a name="the-scaling-workflow"></a>Arbets flödet för skalning
 

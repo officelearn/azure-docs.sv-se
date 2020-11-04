@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
-ms.openlocfilehash: a15415ab7f5e01619a4a022d7254ef3995a825b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ae21d97bc9d8292270ae62006e649f4bcf540b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88236343"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316154"
 ---
 # <a name="design-for-querying"></a>Utforma för frågor
 Table service lösningar kan vara av intensiv, skriv intensiv eller en blandning av de två. Den här artikeln fokuserar på saker som du bör tänka på när du utformar Table service som stöder Läs åtgärder effektivt. Vanligt vis är en design som stöder Läs åtgärder effektiv för Skriv åtgärder. Det finns dock ytterligare saker att tänka på när du utformar för att stödja Skriv åtgärder, som beskrivs i artikeln [design för data ändringar](table-storage-design-for-modification.md).
@@ -44,15 +44,15 @@ I följande exempel förutsätts att tabell tjänsten lagrar anställdas entitet
 | **Age** |Integer |
 | **EmailAddress** |Sträng |
 
-I artikeln [Översikt över Azure Table Storage](table-storage-overview.md) beskrivs några av de viktigaste funktionerna i Azure Table service som direkt påverkar utformningen av frågor. Detta resulterar i följande allmänna rikt linjer för att utforma Table service frågor. Observera att den filter-syntax som används i exemplen nedan är från Table service REST API. mer information finns i [fråga om entiteter](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
+I artikeln [Översikt över Azure Table Storage](table-storage-overview.md) beskrivs några av de viktigaste funktionerna i Azure Table service som direkt påverkar utformningen av frågor. Detta resulterar i följande allmänna rikt linjer för att utforma Table service frågor. Observera att den filter-syntax som används i exemplen nedan är från Table service REST API. mer information finns i [fråga om entiteter](/rest/api/storageservices/Query-Entities).  
 
-* En ***punkt fråga*** är den mest effektiva sökningen som ska användas och rekommenderas för att använda stora volymer eller sökningar som kräver lägsta latens. En sådan fråga kan använda indexen för att hitta en enskild entitet effektivt genom att ange både **PartitionKey** -och **RowKey** -värden. Exempel: $filter = (PartitionKey EQ ' Sales ') och (RowKey EQ 2)  
-* Det andra bästa är en ***intervall fråga*** som använder **PartitionKey** och filter på ett intervall med **RowKey** -värden för att returnera mer än en entitet. **PartitionKey** -värdet identifierar en viss partition och **RowKey** -värdena identifierar en delmängd av entiteterna i den partitionen. Exempel: $filter = PartitionKey EQ ' Sales ' och RowKey ge ' och RowKey lt '  
-* Det tredje bästa är en ***partitions ökning*** som använder **PartitionKey** och filter på en annan icke-nyckel egenskap och som kan returnera fler än en entitet. **PartitionKey** -värdet identifierar en viss partition och egenskaps värden väljer för en delmängd av entiteterna i den partitionen. Exempel: $filter = PartitionKey EQ ' Sales ' och LastName ' Svensson '  
-* En ***tabells ökning*** inkluderar inte **PartitionKey** och är väldigt ineffektiv eftersom den söker igenom alla partitioner som utgör tabellen i tur och följd för alla matchande entiteter. En tabells ökning utförs oavsett om filtret använder **RowKey**eller inte. Exempel: $filter = LastName EQ ' Johansson '  
+* En * **Point-fråga** _ är den mest effektiva sökningen som används och rekommenderas för att användas för hög volyms ökningar eller sökningar som kräver lägsta latens. En sådan fråga kan använda indexen för att hitta en enskild entitet effektivt genom att ange värdena _ *PartitionKey* * och **RowKey** . Exempel: $filter = (PartitionKey EQ ' Sales ') och (RowKey EQ 2)  
+* Andra bästa är en * **Range-fråga** _ som använder _ *PartitionKey* * och filter på ett intervall med **RowKey** -värden för att returnera mer än en entitet. **PartitionKey** -värdet identifierar en viss partition och **RowKey** -värdena identifierar en delmängd av entiteterna i den partitionen. Exempel: $filter = PartitionKey EQ ' Sales ' och RowKey ge ' och RowKey lt '  
+* Tredje bästa är en * **partitions ökning** _ som använder _ *PartitionKey* * och filter på en annan icke-nyckel egenskap och som kan returnera fler än en entitet. **PartitionKey** -värdet identifierar en viss partition och egenskaps värden väljer för en delmängd av entiteterna i den partitionen. Exempel: $filter = PartitionKey EQ ' Sales ' och LastName ' Svensson '  
+* En * **tabells ökning** _ inkluderar inte _ *PartitionKey* * och är väldigt ineffektiv eftersom den söker igenom alla partitioner som utgör tabellen i tur och följd för matchande entiteter. En tabells ökning utförs oavsett om filtret använder **RowKey** eller inte. Exempel: $filter = LastName EQ ' Johansson '  
 * Frågor som returnerar flera entiteter returnerar dem sorterade i **PartitionKey** -och **RowKey** -ordningen. Välj en **RowKey** som definierar den vanligaste sorterings ordningen för att undvika att enheterna i klienten används.  
 
-Observera att om du använder en "**eller**" för att ange ett filter baserat på **RowKey** -värden resulterar det i en partitions ökning och behandlas inte som en områdes fråga. Därför bör du undvika frågor som använder filter som: $filter = PartitionKey EQ ' Sales ' och (RowKey EQ ' 121 ' eller RowKey EQ ' 322 ')  
+Observera att om du använder en " **eller** " för att ange ett filter baserat på **RowKey** -värden resulterar det i en partitions ökning och behandlas inte som en områdes fråga. Därför bör du undvika frågor som använder filter som: $filter = PartitionKey EQ ' Sales ' och (RowKey EQ ' 121 ' eller RowKey EQ ' 322 ')  
 
 Exempel på kod på klient sidan som använder lagrings klient biblioteket för att köra effektiva frågor finns i:  
 

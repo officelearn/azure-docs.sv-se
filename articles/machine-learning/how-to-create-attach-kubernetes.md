@@ -1,7 +1,7 @@
 ---
 title: Skapa och ansluta Azure Kubernetes-tjänsten
 titleSuffix: Azure Machine Learning
-description: Azure Kubernetes service (AKS) kan användas för att distribuera en maskin inlärnings modell som en webb tjänst. Lär dig hur du skapar ett nytt AKS-kluster via Azure Machine Learning. Du får också lära dig hur du ansluter ett befintligt AKS-kluster till din Azure Machine Learning-arbetsyta.
+description: Lär dig hur du skapar ett nytt Azure Kubernetes service-kluster via Azure Machine Learning eller hur du ansluter ett befintligt AKS-kluster till din arbets yta.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 1126798bdf07f54811c83b932af9928f3e3115dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b14ba12c9f9b679d1d63008d31825647f42619d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792012"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318065"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Skapa och ansluta ett Azure Kubernetes service-kluster
 
@@ -26,25 +26,25 @@ Azure Machine Learning kan distribuera utbildade maskin inlärnings modeller til
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
-- [Azure CLI-tillägget för Machine Learning-tjänst](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)eller [Azure Machine Learning Visual Studio Code-tillägget](tutorial-setup-vscode-extension.md).
+- [Azure CLI-tillägget för Machine Learning-tjänst](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)eller [Azure Machine Learning Visual Studio Code-tillägget](tutorial-setup-vscode-extension.md).
 
-- Om du planerar att använda en Azure-Virtual Network för att skydda kommunikationen mellan din Azure ML-arbetsyta och AKS-klustret kan du läsa [nätverks isoleringen under övnings &](how-to-enable-virtual-network.md) artikeln.
+- Om du planerar att använda en Azure-Virtual Network för att skydda kommunikationen mellan din Azure ML-arbetsyta och AKS-klustret kan du läsa [nätverks isoleringen under övnings &](./how-to-network-security-overview.md) artikeln.
 
 ## <a name="limitations"></a>Begränsningar
 
 - Om du behöver ett **standard Load Balancer (SLB)** distribuerat i klustret i stället för en grundläggande load BALANCER (BLB) skapar du ett kluster i AKS-portalen/CLI/SDK och **kopplar** det sedan till AML-arbetsytan.
 
-- Om du har en Azure Policy som begränsar skapandet av offentliga IP-adresser kommer AKS-kluster inte att kunna skapas. AKS kräver en offentlig IP-adress för [utgående trafik](/azure/aks/limit-egress-traffic). Artikeln om utgående trafik ger också vägledning för att låsa utgående trafik från klustret via den offentliga IP-adressen, förutom några få fullständigt kvalificerade domän namn. Det finns två sätt att aktivera en offentlig IP-adress:
+- Om du har en Azure Policy som begränsar skapandet av offentliga IP-adresser kommer AKS-kluster inte att kunna skapas. AKS kräver en offentlig IP-adress för [utgående trafik](../aks/limit-egress-traffic.md). Artikeln om utgående trafik ger också vägledning för att låsa utgående trafik från klustret via den offentliga IP-adressen, förutom några få fullständigt kvalificerade domän namn. Det finns två sätt att aktivera en offentlig IP-adress:
     - Klustret kan använda den offentliga IP-adressen som skapas som standard med BLB eller SLB, eller
-    - Klustret kan skapas utan en offentlig IP-adress och en offentlig IP-adress konfigureras med en brand vägg med en användardefinierad väg. Mer information finns i [Anpassa klustret utgående med en användardefinierad väg](/azure/aks/egress-outboundtype).
+    - Klustret kan skapas utan en offentlig IP-adress och en offentlig IP-adress konfigureras med en brand vägg med en användardefinierad väg. Mer information finns i [Anpassa klustret utgående med en användardefinierad väg](../aks/egress-outboundtype.md).
     
     Kontroll planet för AML pratar inte med den här offentliga IP-adressen. Den pratar med AKS-kontroll planet för distributioner. 
 
-- Om du **ansluter** ett AKS-kluster, som har ett [auktoriserat IP-adressintervall som är aktiverat för att få åtkomst till API-servern](/azure/aks/api-server-authorized-ip-ranges), aktiverar du IP-intervallen för AML Control plan för AKS-klustret. Kontroll planet för AML distribueras i kopplade regioner och distribuerar poddar på AKS-klustret. Utan åtkomst till API-servern går det inte att distribuera poddar. Använd [IP-intervallen](https://www.microsoft.com/download/confirmation.aspx?id=56519) för båda [kopplade regionerna](/azure/best-practices-availability-paired-regions) när du aktiverar IP-intervall i ett AKS-kluster.
+- Om du **ansluter** ett AKS-kluster, som har ett [auktoriserat IP-adressintervall som är aktiverat för att få åtkomst till API-servern](../aks/api-server-authorized-ip-ranges.md), aktiverar du IP-intervallen för AML Control plan för AKS-klustret. Kontroll planet för AML distribueras i kopplade regioner och distribuerar poddar på AKS-klustret. Utan åtkomst till API-servern går det inte att distribuera poddar. Använd [IP-intervallen](https://www.microsoft.com/download/confirmation.aspx?id=56519) för båda [kopplade regionerna](../best-practices-availability-paired-regions.md) när du aktiverar IP-intervall i ett AKS-kluster.
 
     Auktoriserade IP-intervall fungerar endast med Standard Load Balancer.
 
-- Om du vill använda ett privat AKS-kluster (med Azures privata länk) måste du först skapa klustret och sedan **koppla** det till arbets ytan. Mer information finns i [skapa ett privat Azure Kubernetes service-kluster](/azure/aks/private-clusters).
+- Om du vill använda ett privat AKS-kluster (med Azures privata länk) måste du först skapa klustret och sedan **koppla** det till arbets ytan. Mer information finns i [skapa ett privat Azure Kubernetes service-kluster](../aks/private-clusters.md).
 
 - Compute-namnet för AKS-klustret måste vara unikt i din Azure ML-arbetsyta.
     - Namnet måste vara mellan 3 och 24 tecken långt.
@@ -54,12 +54,12 @@ Azure Machine Learning kan distribuera utbildade maskin inlärnings modeller til
    
  - Om du vill distribuera modeller till **GPU** -noder eller **FPGA** -noder (eller vissa SKU: er) måste du skapa ett kluster med den angivna SKU: n. Det finns inget stöd för att skapa en sekundär Node-pool i ett befintligt kluster och distribuera modeller i den sekundära noden.
  
-- När du skapar eller ansluter ett kluster kan du välja om du vill skapa klustret för __utveckling och testning__ eller __produktion__ . Om du vill skapa ett AKS-kluster för __utveckling__ , __verifiering__ och __testning__ i stället för produktion, ställer du in __kluster syftet__ med __utveckling och testning__ . Om du inte anger klustrets syfte skapas ett __produktions__ kluster. 
+- När du skapar eller ansluter ett kluster kan du välja om du vill skapa klustret för __utveckling och testning__ eller __produktion__. Om du vill skapa ett AKS-kluster för __utveckling__ , __verifiering__ och __testning__ i stället för produktion, ställer du in __kluster syftet__ med __utveckling och testning__. Om du inte anger klustrets syfte skapas ett __produktions__ kluster. 
 
     > [!IMPORTANT]
     > Ett __dev-test-__ kluster lämpar sig inte för trafik på produktions nivå och kan öka eventuella härlednings tider. Utvecklings-och test kluster garanterar inte heller fel tolerans.
 
-- Om klustret ska användas för __produktion__ när du skapar eller ansluter ett kluster måste det innehålla minst 12 __virtuella processorer__ . Antalet virtuella processorer kan beräknas genom att multiplicera __antalet noder__ i klustret med __antalet kärnor__ som anges av den virtuella dator storleken som valts. Om du till exempel använder en VM-storlek på "Standard_D3_v2", som har 4 virtuella kärnor, väljer du 3 eller större som antalet noder.
+- Om klustret ska användas för __produktion__ när du skapar eller ansluter ett kluster måste det innehålla minst 12 __virtuella processorer__. Antalet virtuella processorer kan beräknas genom att multiplicera __antalet noder__ i klustret med __antalet kärnor__ som anges av den virtuella dator storleken som valts. Om du till exempel använder en VM-storlek på "Standard_D3_v2", som har 4 virtuella kärnor, väljer du 3 eller större som antalet noder.
 
     För ett __dev-test-__ kluster ska vi på minst 2 virtuella processorer.
 
@@ -70,7 +70,7 @@ Azure Machine Learning kan distribuera utbildade maskin inlärnings modeller til
 
 ## <a name="azure-kubernetes-service-version"></a>Azure Kubernetes service-version
 
-Med Azure Kubernetes-tjänsten kan du skapa ett kluster med hjälp av en rad olika Kubernetes-versioner. Mer information om tillgängliga versioner finns [i Kubernetes-versioner som stöds i Azure Kubernetes-tjänsten](/azure/aks/supported-kubernetes-versions).
+Med Azure Kubernetes-tjänsten kan du skapa ett kluster med hjälp av en rad olika Kubernetes-versioner. Mer information om tillgängliga versioner finns [i Kubernetes-versioner som stöds i Azure Kubernetes-tjänsten](../aks/supported-kubernetes-versions.md).
 
 När du **skapar** ett Azure Kubernetes service-kluster med någon av följande metoder *har du inte något val i den version* av klustret som skapas:
 
@@ -124,7 +124,7 @@ Result
 1.16.13
 ```
 
-Om du vill **kontrol lera om det finns tillgängliga versioner program mässigt** kan du använda [behållar tjänstens klient list Dirigerings](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API. Ta reda på vilka versioner som är tillgängliga genom att titta på posterna där `orchestratorType` är `Kubernetes` . De associerade `orchestrationVersion` posterna innehåller de tillgängliga versioner som kan **kopplas** till din arbets yta.
+Om du vill **kontrol lera om det finns tillgängliga versioner program mässigt** kan du använda [behållar tjänstens klient list Dirigerings](/rest/api/container-service/container%20service%20client/listorchestrators) REST API. Ta reda på vilka versioner som är tillgängliga genom att titta på posterna där `orchestratorType` är `Kubernetes` . De associerade `orchestrationVersion` posterna innehåller de tillgängliga versioner som kan **kopplas** till din arbets yta.
 
 Om du vill hitta standard versionen som används när du **skapar** ett kluster via Azure Machine Learning söker du efter posten där `orchestratorType` är `Kubernetes` och `default` `true` . Det associerade `orchestratorVersion` värdet är standard versionen. Följande JSON-kodfragment visar ett exempel på en post:
 
@@ -183,10 +183,10 @@ aks_target.wait_for_completion(show_output = True)
 
 Mer information om klasser, metoder och parametrar som används i det här exemplet finns i följande referens dokument:
 
-* [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
+* [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
 * [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [ComputeTarget. Create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#wait-for-completion-show-output-false-)
+* [ComputeTarget. Create](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
+* [ComputeTarget.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -194,7 +194,7 @@ Mer information om klasser, metoder och parametrar som används i det här exemp
 az ml computetarget create aks -n myaks
 ```
 
-Mer information finns i [AZ ml computetarget Create AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
+Mer information finns i [AZ ml computetarget Create AKS](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -215,12 +215,12 @@ Om du redan har AKS-kluster i din Azure-prenumeration och det är version 1,17 e
 > [!WARNING]
 > Skapa inte flera, samtidiga bilagor till samma AKS-kluster från din arbets yta. Du kan till exempel koppla ett AKS-kluster till en arbets yta med två olika namn. Varje ny bilaga kommer att dela upp de tidigare befintliga bifogade filerna.
 >
-> Om du vill koppla ett AKS-kluster på nytt, t. ex. ändra TLS eller en annan kluster konfigurations inställning, måste du först ta bort den befintliga bilagan med hjälp av [AksCompute. Detached ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#detach--).
+> Om du vill koppla ett AKS-kluster på nytt, t. ex. ändra TLS eller en annan kluster konfigurations inställning, måste du först ta bort den befintliga bilagan med hjälp av [AksCompute. Detached ()](/python/api/azureml-core/azureml.core.compute.akscompute?preserve-view=true&view=azure-ml-py#detach--).
 
 Mer information om hur du skapar ett AKS-kluster med hjälp av Azure CLI eller portalen finns i följande artiklar:
 
-* [Skapa ett AKS-kluster (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest&preserve-view=true#az-aks-create)
-* [Skapa ett AKS-kluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest&preserve-view=true)
+* [Skapa ett AKS-kluster (CLI)](/cli/azure/aks?bc=%252fazure%252fbread%252ftoc.json&preserve-view=true&toc=%252fazure%252faks%252fTOC.json&view=azure-cli-latest#az-aks-create)
+* [Skapa ett AKS-kluster (portal)](../aks/kubernetes-walkthrough-portal.md?preserve-view=true&view=azure-cli-latest)
 * [Skapa ett AKS-kluster (ARM-mall i Azure snabb starts mallar)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 Följande exempel visar hur du kopplar ett befintligt AKS-kluster till din arbets yta:
@@ -248,8 +248,8 @@ aks_target.wait_for_completion(show_output = True)
 Mer information om klasser, metoder och parametrar som används i det här exemplet finns i följande referens dokument:
 
 * [AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
-* [AksCompute. attach](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#attach-workspace--name--attach-configuration-)
+* [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
+* [AksCompute. attach](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#attach-workspace--name--attach-configuration-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -271,7 +271,7 @@ Använd följande kommando för att koppla det befintliga klustret till din arbe
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Mer information finns i [AZ ml computetarget Attach AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference.
+Mer information finns i [AZ ml computetarget Attach AKS](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -284,7 +284,7 @@ Information om hur du kopplar ett AKS-kluster i portalen finns i [skapa beräkni
 Använd någon av följande metoder för att koppla från ett kluster från din arbets yta:
 
 > [!WARNING]
-> Om du använder Azure Machine Learning Studio, SDK eller Azure CLI-tillägget för Machine Learning för att koppla från ett AKS-kluster **tas inte AKS-klustret bort** . Information om hur du tar bort klustret finns i [använda Azure CLI med AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
+> Om du använder Azure Machine Learning Studio, SDK eller Azure CLI-tillägget för Machine Learning för att koppla från ett AKS-kluster **tas inte AKS-klustret bort**. Information om hur du tar bort klustret finns i [använda Azure CLI med AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster).
 
 # <a name="python"></a>[Python](#tab/python)
 

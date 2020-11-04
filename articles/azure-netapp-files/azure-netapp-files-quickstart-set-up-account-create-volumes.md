@@ -8,33 +8,25 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: d2ea7233ee923881ee430aba8d8c23a37c29da7c
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 70441c3a1953fa1b6ebd69ef9cdb324d6cc04a5b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027728"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336471"
 ---
-# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume-using-an-arm-template"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym med en ARM-mall
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym
 
-Den här artikeln visar hur du snabbt konfigurerar Azure NetApp Files och skapar en volym med hjälp av en Azure Resource Manager-mall (ARM-mall).
-
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+Den här artikeln visar hur du snabbt konfigurerar Azure NetApp Files och skapar en volym.
 
 I den här snabb starten ska du konfigurera följande objekt:
 
-- Registrering för Azure NetApp Files-och NetApp-resurs leverantör.
-- Ett NetApp-konto.
-- En kapacitets grupp.
-- En NFS-volym för Azure NetApp Files.
+- Registrering för Azure NetApp Files-och NetApp Resource Provider
+- Ett NetApp-konto
+- En kapacitets grupp
+- En NFS-volym för Azure NetApp Files
 
-Om din miljö uppfyller förutsättningarna har du slutfört avsnittet [innan du börjar](#before-you-begin) och du är van att använda arm-mallar genom att välja knappen **distribuera till Azure** . Mallen öppnas på Azure-portalen.
-
-[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-anf-nfs-volume%2Fazuredeploy.json)
-
-## <a name="prerequisites"></a>Krav
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -43,24 +35,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="review-the-template"></a>Granska mallen
-
-Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-anf-nfs-volume).
-
- Om du vill visa mallen går du till [azuredeploy.jspå](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-anf-nfs-volume/azuredeploy.json).
-
-Flera resurser definieras i mallen:
-
-- [Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-- [Microsoft. NetApp/netAppAccounts](/azure/templates/microsoft.netapp/netappaccounts)
-- [Microsoft. NetApp/netAppAccounts/capacityPools](/azure/templates/microsoft.netapp/netappaccounts/capacitypools)
-- [Microsoft. NetApp/netAppAccounts/capacityPools/Volumes](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes)
-
-## <a name="deploy-the-template"></a>Distribuera mallen
-
 ---
 
-### <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registrera dig för Azure NetApp Files-och NetApp Resource Provider
+## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registrera dig för Azure NetApp Files-och NetApp Resource Provider
 
 > [!NOTE]
 > Registreringsprocessen kan ta lite tid att slutföra.
@@ -100,7 +77,7 @@ Mer information finns i [Registrera för Azure NetApp Files](azure-netapp-files-
 
 ---
 
-### <a name="create-a-netapp-account"></a>Skapa ett NetApp-konto
+## <a name="create-a-netapp-account"></a>Skapa ett NetApp-konto
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -115,7 +92,7 @@ Mer information finns i [Registrera för Azure NetApp Files](azure-netapp-files-
 3. I fönstret nytt NetApp-konto anger du följande information:
    1. Ange **myaccount1** som konto namn.
    2. Välj din prenumeration.
-   3. Välj **Skapa ny** för att skapa en ny resurs grupp. Ange **myRG1** som resurs grupps namn. Klicka på **OK** .
+   3. Välj **Skapa ny** för att skapa en ny resurs grupp. Ange **myRG1** som resurs grupps namn. Klicka på **OK**.
    4. Välj din konto plats.
 
       ![Fönstret nytt NetApp-konto](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)
@@ -185,9 +162,9 @@ Mer information finns i [Registrera för Azure NetApp Files](azure-netapp-files-
 
 # <a name="template"></a>[Mall](#tab/template)
 
-<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Följande kodfragment visar hur du skapar ett NetApp-konto i en ARM-mall med hjälp av resursen [Microsoft. NetApp/netAppAccounts](/azure/templates/microsoft.netapp/netappaccounts) . Om du vill köra koden laddar du ned [hela arm-mallen](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-anf-nfs-volume/azuredeploy.json) från vår GitHub-lagrings platsen.
+Följande kodfragment visar hur du skapar ett NetApp-konto i en Azure Resource Manager-mall (ARM-mall) med hjälp av resursen [Microsoft. NetApp/netAppAccounts](/azure/templates/microsoft.netapp/netappaccounts) . Om du vill köra koden laddar du ned [hela arm-mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) från vår GitHub-lagrings platsen.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
 
@@ -195,7 +172,7 @@ Följande kodfragment visar hur du skapar ett NetApp-konto i en ARM-mall med hj�
 
 ---
 
-### <a name="set-up-a-capacity-pool"></a>Konfigurera en kapacitetspool
+## <a name="set-up-a-capacity-pool"></a>Konfigurera en kapacitetspool
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -207,7 +184,7 @@ Följande kodfragment visar hur du skapar ett NetApp-konto i en ARM-mall med hj�
 
     ![Klicka på kapacitets grupper](../media/azure-netapp-files/azure-netapp-files-click-capacity-pools.png)
 
-3. Klicka på **+ Lägg till pooler** .
+3. Klicka på **+ Lägg till pooler**.
 
     ![Klicka på Lägg till pooler](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
@@ -217,7 +194,7 @@ Följande kodfragment visar hur du skapar ett NetApp-konto i en ARM-mall med hj�
     * Ange **4 (TIB)** som pool-storlek.
     * Använd den **automatiska** QoS-typen.
 
-5. Klicka på **Skapa** .
+5. Klicka på **Skapa**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -261,7 +238,7 @@ Följande kodfragment visar hur du skapar ett NetApp-konto i en ARM-mall med hj�
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
 
-Följande kodfragment visar hur du skapar en pool för kapacitet i en ARM-mall med hjälp av resursen [Microsoft. NetApp/netAppAccounts/capacityPools](/azure/templates/microsoft.netapp/netappaccounts/capacitypools) . Om du vill köra koden laddar du ned [hela arm-mallen](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-anf-nfs-volume/azuredeploy.json) från vår GitHub-lagrings platsen.
+Följande kodfragment visar hur du skapar en pool för kapacitet i en Azure Resource Manager-mall (ARM-mall) med hjälp av resursen [Microsoft. NetApp/netAppAccounts/capacityPools](/azure/templates/microsoft.netapp/netappaccounts/capacitypools) . Om du vill köra koden laddar du ned [hela arm-mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) från vår GitHub-lagrings platsen.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
 
@@ -269,15 +246,15 @@ Följande kodfragment visar hur du skapar en pool för kapacitet i en ARM-mall m
 
 ---
 
-### <a name="create-nfs-volume-for-azure-netapp-files"></a>Skapa NFS-volym för Azure NetApp Files
+## <a name="create-nfs-volume-for-azure-netapp-files"></a>Skapa NFS-volym för Azure NetApp Files
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Från bladet Azure NetApp Files hantering i ditt NetApp-konto klickar du på **volymer** .
+1. Från bladet Azure NetApp Files hantering i ditt NetApp-konto klickar du på **volymer**.
 
     ![Klicka på Volymer](../media/azure-netapp-files/azure-netapp-files-click-volumes.png)
 
-2. Klicka på **+ Lägg till volymen** .
+2. Klicka på **+ Lägg till volymen**.
 
     ![Klicka på Lägg till volymer](../media/azure-netapp-files/azure-netapp-files-click-add-volumes.png)
 
@@ -306,11 +283,11 @@ Följande kodfragment visar hur du skapar en pool för kapacitet i en ARM-mall m
 
     ![Ange NFS-protokoll för snabb start](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
-5. Klicka på **Granska + skapa** .
+5. Klicka på **Granska + skapa**.
 
     ![Granska och skapa fönster](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)
 
-6. Granska informationen för volymen och klicka sedan på **skapa** .
+6. Granska informationen för volymen och klicka sedan på **skapa**.
     Den skapade volymen visas på bladet volymer.
 
     ![Volym skapad](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)
@@ -410,7 +387,7 @@ Följande kodfragment visar hur du skapar en pool för kapacitet i en ARM-mall m
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
 
-Följande kodfragment visar hur du konfigurerar ett VNet och skapar en Azure NetApp Files volym i en ARM-mall. VNet-installationen använder [Microsoft. Network/virtualNetworks-](/azure/templates/Microsoft.Network/virtualNetworks) resursen. Med volym skapande används resursen [Microsoft. NetApp/netAppAccounts/capacityPools/Volumes](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) . Om du vill köra koden laddar du ned [hela arm-mallen](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-anf-nfs-volume/azuredeploy.json) från vår GitHub-lagrings platsen.
+Följande kodfragment visar hur du konfigurerar ett VNet och skapar en Azure NetApp Files volym i en Azure Resource Manager mall (ARM-mall). VNet-installationen använder [Microsoft. Network/virtualNetworks-](/azure/templates/Microsoft.Network/virtualNetworks) resursen. Med volym skapande används resursen [Microsoft. NetApp/netAppAccounts/capacityPools/Volumes](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) . Om du vill köra koden laddar du ned [hela arm-mallen](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) från vår GitHub-lagrings platsen.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="148-176":::
 
@@ -438,13 +415,13 @@ När du är färdig och om du vill kan du ta bort resurs gruppen. Åtgärden att
     ![Navigera till resurs grupper](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
 
 
-3. På sidan resurs grupp klickar du på **ta bort resurs grupp** .
+3. På sidan resurs grupp klickar du på **ta bort resurs grupp**.
 
     ![Skärm bild som visar knappen Ta bort resurs grupp.](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png)
 
     Ett fönster öppnas och visar en varning om vilka resurser som tas bort med resursgruppen.
 
-4. Ange namnet på resurs gruppen (myRG1) för att bekräfta att du vill ta bort resurs gruppen och alla resurser i den permanent och klicka sedan på **ta bort** .
+4. Ange namnet på resurs gruppen (myRG1) för att bekräfta att du vill ta bort resurs gruppen och alla resurser i den permanent och klicka sedan på **ta bort**.
 
     ![Bekräfta borttagning av resurs grupp](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png )
 

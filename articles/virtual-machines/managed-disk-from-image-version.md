@@ -6,27 +6,24 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 10/06/2020
+ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 35edcfb4bdb0715245f4a3190fb22638b1162429
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5873f28fed492f9ef906a9d7c1364d8ae07033a7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370992"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336069"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>Skapa en hanterad disk från en avbildnings version
 
-Om du behöver kan du göra en hanterad disk från en avbildnings version som lagras i ett delat avbildnings Galleri.
+Om det behövs kan du exportera operativ systemet eller en enskild datadisk från en avbildnings version som en hanterad disk från en avbildnings version som lagras i ett delat avbildnings Galleri.
 
 
 ## <a name="cli"></a>CLI
 
-Ange `source` variabeln till ID för avbildnings versionen och Använd sedan [AZ disk Create](/cli/azure/disk#az_disk_create) för att skapa den hanterade disken. 
-
-
-Du kan se en lista över avbildnings versioner med hjälp av [AZ sig-avbildnings versions listan](/cli/azure/sig/image-version#az_sig_image_version_list). I det här exemplet letar vi efter alla avbildnings versioner som ingår i *myImageDefinition* -bilddefinitionen i galleriet för *gallerier* .
+Visa en lista över avbildnings versionerna i ett galleri med hjälp av [AZ sig-avbildning – versions lista](/cli/azure/sig/image-version.md#az_sig_image_version_list). I det här exemplet letar vi efter alla avbildnings versioner som ingår i *myImageDefinition* -bilddefinitionen i galleriet för *gallerier* .
 
 ```azurecli-interactive
 az sig image-version list \
@@ -36,28 +33,37 @@ az sig image-version list \
    -o table
 ```
 
+Ange `source` variabeln till ID för avbildnings versionen och Använd sedan [AZ disk Create](/cli/azure/disk.md#az_disk_create) för att skapa den hanterade disken. 
 
-I det här exemplet skapar vi en hanterad disk med namnet *myManagedDisk*i regionen *östra* i en resurs grupp med namnet *myResourceGroup*. 
+I det här exemplet exporterar vi OS-disken för avbildnings versionen för att skapa en hanterad disk med namnet *myManagedOSDisk* i regionen *östra* i en resurs grupp med namnet *myResourceGroup*. 
 
 ```azurecli-interactive
 source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
 
-az disk create --resource-group myResourceGroup --location EastUS --name myManagedDisk --gallery-image-reference $source 
+az disk create --resource-group myResourceGroup --location EastUS --name myManagedOSDisk --gallery-image-reference $source 
 ```
 
-Om disken är en data disk lägger du till `--gallery-image-reference-lun` för att ange LUN.
+
+
+Om du vill exportera en datadisk från avbildnings versionen lägger du till `--gallery-image-reference-lun` för att ange LUN-platsen för data disken som ska exporteras. 
+
+I det här exemplet exporterar vi data disken som finns på LUN 0 i avbildnings versionen för att skapa en hanterad disk med namnet *myManagedDataDisk* i regionen *östra* i en resurs grupp med namnet *myResourceGroup*. 
+
+```azurecli-interactive
+source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
+
+az disk create --resource-group myResourceGroup --location EastUS --name myManagedDataDisk --gallery-image-reference $source --gallery-image-reference-lun 0
+``` 
 
 ## <a name="powershell"></a>PowerShell
 
-Du kan visa en lista över alla avbildnings versioner med [Get-AzResource](/powershell/module/az.resources/get-azresource). 
+Visa en lista med bild versioner i ett galleri med [Get-AzResource](/powershell/module/az.resources/get-azresource). 
 
 ```azurepowershell-interactive
 Get-AzResource `
    -ResourceType Microsoft.Compute/galleries/images/versions | `
    Format-Table -Property Name,ResourceId,ResourceGroupName
 ```
-
-
 
 När du har all information du behöver kan du använda [Get-AzGalleryImageVersion](/powershell/module/az.compute/get-azgalleryimageversion) för att hämta den käll avbildnings version som du vill använda och tilldela den till en variabel. I det här exemplet hämtar vi `1.0.0` avbildnings versionen av `myImageDefinition` definitionen i `myGallery` käll galleriet i `myResourceGroup` resurs gruppen.
 
@@ -69,29 +75,44 @@ $sourceImgVer = Get-AzGalleryImageVersion `
    -Name 1.0.0
 ```
 
-Konfigurera vissa variabler för disk informationen.
+När du har angett `source` variabeln till ID för avbildnings versionen använder du [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) för att skapa en disk konfiguration och [New-AzDisk](/powershell/module/az.compute/new-azdisk) för att skapa disken. 
 
-```azurepowershell-interactive
-$location = "East US"
-$resourceGroup = "myResourceGroup"
-$diskName = "myDisk"
-```
+I det här exemplet exporterar vi OS-disken för avbildnings versionen för att skapa en hanterad disk med namnet *myManagedOSDisk* i regionen *östra* i en resurs grupp med namnet *myResourceGroup*. 
 
-Skapa en disk konfiguration och sedan disken med käll avbildningens versions-ID. För `-GalleryImageReference` krävs det bara LUN om källan är en datadisk.
-
+Skapa en disk konfiguration.
 ```azurepowershell-interactive
 $diskConfig = New-AzDiskConfig `
-   -Location $location `
+   -Location EastUS `
    -CreateOption FromImage `
-   -GalleryImageReference @{Id = $sourceImgVer.Id; Lun=1}
+   -GalleryImageReference @{Id = $sourceImgVer.Id}
 ```
 
 Skapa disken.
 
 ```azurepowershell-interactive
 New-AzDisk -Disk $diskConfig `
-   -ResourceGroupName $resourceGroup `
-   -DiskName $diskName
+   -ResourceGroupName myResourceGroup `
+   -DiskName myManagedOSDisk
+```
+
+Om du vill exportera en datadisk på avbildnings versionen lägger du till ett LUN-ID i disk konfigurationen för att ange LUN-platsen för data disken som ska exporteras. 
+
+I det här exemplet exporterar vi data disken som finns på LUN 0 i avbildnings versionen för att skapa en hanterad disk med namnet *myManagedDataDisk* i regionen *östra* i en resurs grupp med namnet *myResourceGroup*. 
+
+Skapa en disk konfiguration.
+```azurepowershell-interactive
+$diskConfig = New-AzDiskConfig `
+   -Location EastUS `
+   -CreateOption FromImage `
+   -GalleryImageReference @{Id = $sourceImgVer.Id; Lun=0}
+```
+
+Skapa disken.
+
+```azurepowershell-interactive
+New-AzDisk -Disk $diskConfig `
+   -ResourceGroupName myResourceGroup `
+   -DiskName myManagedDataDisk
 ```
 
 ## <a name="next-steps"></a>Nästa steg

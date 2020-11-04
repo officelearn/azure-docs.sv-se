@@ -3,16 +3,17 @@ title: Definiera unika nycklar för en Azure Cosmos-behållare
 description: 'Lär dig hur du definierar unika nycklar för en Azure Cosmos-behållare med hjälp av Azure Portal, PowerShell, .NET, Java och flera andra SDK: er.'
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: b814100097897aff6047b8b6d6cc0e8ebaa409ba
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101535"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336647"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definiera unika nycklar för en Azure Cosmos-behållare
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,13 +22,13 @@ Den här artikeln visar olika sätt att definiera [unika nycklar](unique-keys.md
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in i [Azure-portalen](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account) eller Välj ett befintligt.
 
 1. Öppna fönstret **datautforskaren** och välj den behållare som du vill arbeta med.
 
-1. Klicka på **ny behållare** .
+1. Klicka på **ny behållare**.
 
 1. I dialog rutan **Lägg till behållare** klickar du på **+ Lägg till unik nyckel** för att lägga till en unik nyckel post.
 

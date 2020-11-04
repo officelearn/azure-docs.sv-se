@@ -2,18 +2,19 @@
 title: Avancerat skydd för Azure Cosmos DB
 description: Lär dig hur Azure Cosmos DB tillhandahåller kryptering av data i vila och hur de implementeras.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: d8398dbded8753bac193f973026fb63d5f1fc6b3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ea7524b32b7637aa7c36308f8b869aa5207c08a2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097727"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334420"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Avancerat skydd för Azure Cosmos DB (för hands version)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,13 +48,13 @@ Du kan konfigurera Avancerat skydd på flera sätt, som beskrivs i följande avs
 
 1. Starta Azure Portal på  [https://portal.azure.com](https://portal.azure.com/) .
 
-2. Från Azure Cosmos DB-kontot går du till menyn **Inställningar** och väljer **avancerad säkerhet** .
+2. Från Azure Cosmos DB-kontot går du till menyn **Inställningar** och väljer **avancerad säkerhet**.
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png" alt-text="Konfigurera ATP":::
 
 3. På bladet **Avancerad säkerhets** konfiguration:
 
-    * Klicka på alternativet **Avancerat skydd** för att ställa in det på **på** .
+    * Klicka på alternativet **Avancerat skydd** för att ställa in det på **på**.
     * Klicka på **Spara** för att spara den nya eller uppdaterade Advanced Threat Protection-principen.   
 
 ### <a name="rest-api"></a>[REST-API](#tab/rest-api)
@@ -82,19 +83,19 @@ Använd en Azure Policy för att aktivera avancerat skydd mot Cosmos DB.
 
 1. Starta sidan Azure **policy-definitions** och Sök efter principen **distribuera avancerat skydd för Cosmos DB** .
 
-    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="Konfigurera ATP"::: 
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="Sök princip"::: 
 
-1. Klicka på principen **distribuera Avancerat skydd för CosmosDB** och klicka sedan på **tilldela** .
+1. Klicka på principen **distribuera Avancerat skydd för CosmosDB** och klicka sedan på **tilldela**.
 
-    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="Konfigurera ATP":::
-
-
-1. Klicka på de tre punkterna i fältet **scope** , Välj en Azure-prenumeration eller resurs grupp och klicka sedan på **Välj** .
-
-    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="Konfigurera ATP":::
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="Välj prenumeration eller grupp":::
 
 
-1. Ange de andra parametrarna och klicka på **tilldela** .
+1. Klicka på de tre punkterna i fältet **scope** , Välj en Azure-prenumeration eller resurs grupp och klicka sedan på **Välj**.
+
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="Sidan princip definitioner":::
+
+
+1. Ange de andra parametrarna och klicka på **tilldela**.
 
 
 
@@ -105,11 +106,11 @@ När Azure Cosmos DB aktivitets avvikelser uppstår utlöses en säkerhets avise
 
  Från Azure Security Center kan du granska och hantera dina aktuella [säkerhets aviseringar](../security-center/security-center-alerts-overview.md).  Klicka på en avisering i [Security Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) om du vill visa möjliga orsaker och rekommenderade åtgärder för att undersöka och minimera det potentiella hotet. Följande bild visar ett exempel på aviserings information som finns i Security Center.
 
- :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png" alt-text="Konfigurera ATP":::
+ :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png" alt-text="Hot information":::
 
 Ett e-postmeddelande skickas också med aviserings information och rekommenderade åtgärder. Följande bild visar ett exempel på ett e-postmeddelande om aviseringar.
 
- :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png" alt-text="Konfigurera ATP":::
+ :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png" alt-text="Aviserings information":::
 
 ## <a name="cosmos-db-atp-alerts"></a>Cosmos DB ATP-aviseringar
 

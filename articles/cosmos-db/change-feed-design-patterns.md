@@ -4,14 +4,15 @@ description: Översikt över design mönster för vanliga ändrings flöden
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 0c890d50bbfe498f9d90698394b2cc2d373c0d8b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 443d00e61e593daacca04a4451b90bb78cc7d854
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073002"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334620"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Ändra feed design mönster i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,7 +40,7 @@ Du kan också selektivt utlösa ett meddelande eller skicka ett anrop till ett A
 Azure Cosmos DB ändra feed kan användas för data ström bearbetning i real tid för IoT-eller real tids analys bearbetning av drift data.
 Du kan till exempel ta emot och lagra händelse data från enheter, sensorer, infrastruktur och program och bearbeta dessa händelser i real tid med hjälp av [Spark](../hdinsight/spark/apache-spark-overview.md). Följande bild visar hur du kan implementera en lambda-arkitektur med hjälp av Azure Cosmos DB via ändra feed:
 
-:::image type="content" source="./media/change-feed/lambda.png" alt-text="Använda Azure Cosmos DB ändra feed till Power real tids analys och händelse drivna scenarier" border="false":::
+:::image type="content" source="./media/change-feed/lambda.png" alt-text="Azure Cosmos DB-baserad lambda-pipeline för inmatning och fråga" border="false":::
 
 I många fall får implementationen av data bearbetningen först en stor mängd inkommande data till en tillfällig meddelandekö, till exempel Azure Event Hub eller Apache Kafka. Ändrings flödet är ett bra alternativ på grund av Azure Cosmos DBs möjlighet att stödja en varaktig hög takt med data inmatning med garanterad låg Läs-och skriv fördröjning. Fördelarna med Azure Cosmos DB ändra feed över en meddelandekö är:
 

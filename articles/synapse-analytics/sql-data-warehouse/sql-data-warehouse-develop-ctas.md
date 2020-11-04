@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: a6550ff9bc3a7cec3d9c50b6c60a02ef1af851f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d9a842af5e1d3fac73515d96644bef250d7d0c4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213490"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334577"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE SOM SELECT (CTAS)
 
@@ -206,62 +206,29 @@ AND     CTAS_acs.[CalendarYear]  = AnnualCategorySales.[CalendarYear] ;
 DROP TABLE CTAS_acs;
 ```
 
-## <a name="ansi-join-replacement-for-delete-statements"></a>ANSI Join-ersättning för Delete-instruktioner
+## <a name="ansi-join-replacement-for-merge"></a>ANSI Join-ersättning för sammanfogning 
 
-Ibland är den bästa metoden för att ta bort data att använda CTAS, särskilt för `DELETE` instruktioner som använder ANSI Join-syntax. Detta beror på att Synapse SQL inte stöder ANSI-kopplingar i `FROM` instruktions satsen `DELETE` . I stället för att ta bort data väljer du de data som du vill behålla.
-
-Följande är ett exempel på en konverterad `DELETE` instruktion:
+I Azure Synapse Analytics måste målet vara en HASH-distribuerad tabell för att det ska gå att [sammanfoga](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (för hands version) utan MATCHADE av mål.  Användare kan använda ANSI-kopplingen med [Update](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) eller [Delete](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15) som en lösning för att ändra mål tabell data baserat på resultatet från att gå med i en annan tabell.  Här är ett exempel.
 
 ```sql
-CREATE TABLE dbo.DimProduct_upsert
-WITH
-(   Distribution=HASH(ProductKey)
-,   CLUSTERED INDEX (ProductKey)
-)
-AS -- Select Data you want to keep
-SELECT p.ProductKey
-, p.EnglishProductName
-,  p.Color
-FROM  dbo.DimProduct p
-RIGHT JOIN dbo.stg_DimProduct s
-ON p.ProductKey = s.ProductKey;
+CREATE TABLE dbo.Table1   
+    (ColA INT NOT NULL, ColB DECIMAL(10,3) NOT NULL);  
+GO  
+CREATE TABLE dbo.Table2   
+    (ColA INT NOT NULL, ColB DECIMAL(10,3) NOT NULL);  
+GO  
+INSERT INTO dbo.Table1 VALUES(1, 10.0);  
+INSERT INTO dbo.Table2 VALUES(1, 0.0);  
+GO  
+UPDATE dbo.Table2   
+SET dbo.Table2.ColB = dbo.Table2.ColB + dbo.Table1.ColB  
+FROM dbo.Table2   
+    INNER JOIN dbo.Table1   
+    ON (dbo.Table2.ColA = dbo.Table1.ColA);  
+GO  
+SELECT ColA, ColB   
+FROM dbo.Table2;
 
-RENAME OBJECT dbo.DimProduct TO DimProduct_old;
-RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
-```
-
-## <a name="replace-merge-statements"></a>Ersätt merge-instruktioner
-
-Du kan ersätta sammanslagnings instruktioner, minst delvis, genom att använda CTAS. Du kan kombinera `INSERT` och i `UPDATE` ett enda uttryck. Eventuella borttagna poster bör begränsas från `SELECT` instruktionen som ska uteslutas från resultaten.
-
-Följande exempel är för en `UPSERT` :
-
-```sql
-CREATE TABLE dbo.[DimProduct_upsert]
-WITH
-(   DISTRIBUTION = HASH([ProductKey])
-,   CLUSTERED INDEX ([ProductKey])
-)
-AS
--- New rows and new versions of rows
-SELECT s.[ProductKey]
-, s.[EnglishProductName]
-, s.[Color]
-FROM      dbo.[stg_DimProduct] AS s
-UNION ALL  
--- Keep rows that are not being touched
-SELECT      p.[ProductKey]
-, p.[EnglishProductName]
-, p.[Color]
-FROM      dbo.[DimProduct] AS p
-WHERE NOT EXISTS
-(   SELECT  *
-    FROM    [dbo].[stg_DimProduct] s
-    WHERE   s.[ProductKey] = p.[ProductKey]
-);
-
-RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
-RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
 ```
 
 ## <a name="explicitly-state-data-type-and-nullability-of-output"></a>Explicit tillstånds data typ och null-värde för utdata

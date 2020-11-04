@@ -3,16 +3,17 @@ title: Konflikt lösnings typer och lösnings principer i Azure Cosmos DB
 description: I den här artikeln beskrivs de olika kategorierna och konflikt lösnings principerna i Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: bfe4bd8483485ffc3b09e77e7683d2d0ec38ba75
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ba55d88de3a5a4087db30613b22a7d2441de9be1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090196"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334386"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Konflikt typer och lösnings principer när flera Skriv regioner används
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,7 +32,7 @@ För Azure Cosmos-konton som kon figurer ATS med flera Skriv regioner kan uppdat
 
 Azure Cosmos DB erbjuder en flexibel princip driven mekanism för att lösa Skriv konflikter. Du kan välja mellan två principer för konflikt lösning på en Azure Cosmos-behållare:
 
-* **Senaste Skriv WINS (LWW)** : den här lösnings principen använder som standard en systemdefinierad timestamp-egenskap. Den baseras på Time-Synchronize Clock-protokollet. Om du använder SQL-API: et kan du ange andra anpassade numeriska egenskaper (t. ex. det egna begreppet tidstämpel) som ska användas för konflikt lösning. En anpassad numerisk egenskap kallas även för *konflikt lösnings Sök vägen* . 
+* **Senaste Skriv WINS (LWW)** : den här lösnings principen använder som standard en systemdefinierad timestamp-egenskap. Den baseras på Time-Synchronize Clock-protokollet. Om du använder SQL-API: et kan du ange andra anpassade numeriska egenskaper (t. ex. det egna begreppet tidstämpel) som ska användas för konflikt lösning. En anpassad numerisk egenskap kallas även för *konflikt lösnings Sök vägen*. 
 
   Om två eller flera objekt står i konflikt med åtgärderna Infoga eller Ersätt, blir objektet med det högsta värdet för matchnings Sök vägen för konflikten den vinnare. Systemet fastställer vinnare om flera objekt har samma numeriska värde för matchnings Sök vägen för konflikten. Alla regioner konvergerar till en enda vinnare och får samma version av det allokerade objektet. När borttagnings konflikter är inblandade är den borttagna versionen alltid WINS över antingen infoga eller Ersätt konflikter. Detta inträffar oavsett vad värdet för konflikt lösnings Sök vägen är.
 
@@ -40,7 +41,7 @@ Azure Cosmos DB erbjuder en flexibel princip driven mekanism för att lösa Skri
 
   Läs mer i [exempel som använder LWW konflikt lösnings principer](how-to-manage-conflicts.md).
 
-* **Anpassad** : den här lösnings principen är utformad för programdefinierade semantik för avstämning av konflikter. När du ställer in den här principen på din Azure Cosmos-behållare måste du också registrera en *lagrad lagrad procedur* . Den här proceduren anropas automatiskt när konflikter identifieras under en databas transaktion på servern. Systemet ger exakt en garanti för körning av en sammanfognings procedur som en del av åtagande protokollet.  
+* **Anpassad** : den här lösnings principen är utformad för programdefinierade semantik för avstämning av konflikter. När du ställer in den här principen på din Azure Cosmos-behållare måste du också registrera en *lagrad lagrad procedur*. Den här proceduren anropas automatiskt när konflikter identifieras under en databas transaktion på servern. Systemet ger exakt en garanti för körning av en sammanfognings procedur som en del av åtagande protokollet.  
 
   Om du konfigurerar din behållare med alternativet för anpassad upplösning och du inte kan registrera en sammanfognings procedur på behållaren eller om sammanfognings proceduren genererar ett undantag vid körningen, skrivs konflikterna till den *konflikter* som uppstår. Ditt program måste sedan manuellt lösa konflikterna i den motstridiga feeden. Mer information finns i [exempel på hur du använder den anpassade lösnings principen och hur du använder den här feeden](how-to-manage-conflicts.md).
 

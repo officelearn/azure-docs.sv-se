@@ -3,16 +3,17 @@ title: StartsWith i Azure Cosmos DB frågespråk
 description: Lär dig mer om SQL system Function STARTSWITH i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c1ef1a815469e7fb2dd10311b92a28b828772be7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7217a8416354de260f958bfb5b980a8fdc391618
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079928"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334930"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTSWITH (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +32,7 @@ STARTSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
    Är ett sträng uttryck.
   
 *str_expr2*  
-   Är ett sträng uttryck som ska jämföras med början av *str_expr1* .
+   Är ett sträng uttryck som ska jämföras med början av *str_expr1*.
 
 *bool_expr* Valfritt värde för att ignorera Skift läge. När värdet är true kommer STARTSWITH att göra en Skift läges känslig sökning. Värdet är false när det har angetts.
 

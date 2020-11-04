@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: f65707d80461385c28369e75a294865e03f8c662
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cbe3ef7080397b135ea0fb17cd50de9b1ccfdf09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367745"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336127"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -20,31 +20,31 @@ Den här artikeln visar hur du skapar och hanterar åtgärds grupper i Azure Por
 
 Varje åtgärd består av följande egenskaper:
 
-* **Typ**: meddelandet eller åtgärden som utförs. Exempel på detta är att skicka ett röst samtal, SMS, e-post; eller utlöser olika typer av automatiserade åtgärder. Se typer längre fram i den här artikeln.
-* **Namn**: en unik identifierare i åtgärds gruppen.
-* **Information**: motsvarande information som varierar efter *typ*.
+* **Typ** : meddelandet eller åtgärden som utförs. Exempel på detta är att skicka ett röst samtal, SMS, e-post; eller utlöser olika typer av automatiserade åtgärder. Se typer längre fram i den här artikeln.
+* **Namn** : en unik identifierare i åtgärds gruppen.
+* **Information** : motsvarande information som varierar efter *typ*.
 
 Information om hur du använder Azure Resource Manager mallar för att konfigurera åtgärds grupper finns i [Åtgärds grupp Resource Manager-mallar](./action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Skapa en åtgärds grupp med hjälp av Azure Portal
 
-1. Sök efter och välj **övervaka**i [Azure Portal](https://portal.azure.com). I **övervaknings** fönstret samlas alla övervaknings inställningar och data i en vy.
+1. Sök efter och välj **övervaka** i [Azure Portal](https://portal.azure.com). I **övervaknings** fönstret samlas alla övervaknings inställningar och data i en vy.
 
-1. Välj **aviseringar**och välj sedan **Hantera åtgärder**.
+1. Välj **aviseringar** och välj sedan **Hantera åtgärder**.
 
     ![Knappen hantera åtgärder](./media/action-groups/manage-action-groups.png)
     
-1. Välj **Lägg till åtgärds grupp**och fyll i de relevanta fälten i guiden.
+1. Välj **Lägg till åtgärds grupp** och fyll i de relevanta fälten i guiden.
 
     ![Kommandot Lägg till åtgärds grupp](./media/action-groups/add-action-group.PNG)
 
 ### <a name="configure-basic-action-group-settings"></a>Konfigurera grundläggande inställningar för åtgärds grupp
 
-Under **projekt information**:
+Under **projekt information** :
 
 Välj den **prenumeration** och **resurs grupp** där du vill spara åtgärds gruppen.
 
-Under **instans information**:
+Under **instans information** :
 
 1. Ange ett **namn på åtgärds gruppen**.
 
@@ -59,15 +59,15 @@ Under **instans information**:
 
 1. Definiera en lista med meddelanden som ska skickas när en avisering utlöses. Ange följande för varje meddelande:
 
-    a. **Meddelande typ**: Välj den typ av meddelande som du vill skicka. De tillgängliga alternativen är:
+    a. **Meddelande typ** : Välj den typ av meddelande som du vill skicka. De tillgängliga alternativen är:
       * E-Azure Resource Manager roll – skicka ett e-postmeddelande till användare som tilldelats vissa ARM-roller på prenumerations nivå.
       * E-post/SMS/push/röst – skicka dessa meddelande typer till vissa mottagare.
     
-    b. **Namn**: Ange ett unikt namn för meddelandet.
+    b. **Namn** : Ange ett unikt namn för meddelandet.
 
-    c. **Information**: baserat på vald meddelande typ anger du en e-postadress, telefonnummer osv.
+    c. **Information** : baserat på vald meddelande typ anger du en e-postadress, telefonnummer osv.
     
-    d. **Vanligt aviserings schema**: du kan välja att aktivera det [vanliga aviserings schemat](./alerts-common-schema.md), vilket ger fördelen att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor.
+    d. **Vanligt aviserings schema** : du kan välja att aktivera det [vanliga aviserings schemat](./alerts-common-schema.md), vilket ger fördelen att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor.
 
     ![Fliken meddelanden](./media/action-groups/action-group-2-notifications.png)
     
@@ -77,13 +77,13 @@ Under **instans information**:
 
 1. Definiera en lista med åtgärder som ska utlösas när en avisering utlöses. Ange följande för varje åtgärd:
 
-    a. **Åtgärds typ**: Välj Automation Runbook, Azure Function, ITSM, Logic app, säker webhook, webhook.
+    a. **Åtgärds typ** : Välj Automation Runbook, Azure Function, ITSM, Logic app, säker webhook, webhook.
     
-    b. **Namn**: Ange ett unikt namn för åtgärden.
+    b. **Namn** : Ange ett unikt namn för åtgärden.
 
-    c. **Information**: baserat på åtgärds typ anger du en webhook-URI, Azure app, ITSM-anslutning eller Automation-Runbook. För ITSM-åtgärd anger du även **arbets objekt** och andra fält som ditt ITSM-verktyg kräver.
+    c. **Information** : baserat på åtgärds typ anger du en webhook-URI, Azure app, ITSM-anslutning eller Automation-Runbook. För ITSM-åtgärd anger du även **arbets objekt** och andra fält som ditt ITSM-verktyg kräver.
     
-    d. **Vanligt aviserings schema**: du kan välja att aktivera det [vanliga aviserings schemat](./alerts-common-schema.md), vilket ger fördelen att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor.
+    d. **Vanligt aviserings schema** : du kan välja att aktivera det [vanliga aviserings schemat](./alerts-common-schema.md), vilket ger fördelen att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor.
     
     ![Fliken åtgärder](./media/action-groups/action-group-3-actions.png)
 
@@ -287,7 +287,9 @@ Om du vill ta emot uppdateringar om ändringar av dessa IP-adresser rekommendera
 
 Du kan ha ett begränsat antal webhook-åtgärder i en åtgärds grupp.
 
-### <a name="service-tag"></a>Service tag
+Frekventa uppdateringar av käll-IP-adresser kan ta lång tid i webhook. Genom att använda **service tag** för *ActionGroup* kan du minimera komplexiteten vid frekventa uppdateringar av IP-adresser manuellt. IP-adresser för käll-IP-adress intervall som delas ovan hanteras automatiskt av Microsoft som omfattas av **service tag**.
+
+#### <a name="service-tag"></a>Service tag
 En service-tagg representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras, vilket minimerar komplexiteten vid frekventa uppdateringar av nätverks säkerhets regler för en ActionGroup.
 
 1. I Azure Portal under Azure-tjänster Sök efter *nätverks säkerhets grupp*.
@@ -311,8 +313,6 @@ En service-tagg representerar en grupp med IP-adressprefix från en specifik Azu
     1.  Klicka på **Lägg till**.
     
     :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Exempel på hur du lägger till service tag-koden."border="true":::
-
-Genom att använda **service tag** för ActionGroup kan du minimera komplexiteten vid frekventa uppdateringar av IP-adresser.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [SMS-aviserings beteende](./alerts-sms-behavior.md).  

@@ -3,15 +3,16 @@ title: SQL-fråga operatörer för Azure Cosmos DB
 description: Lär dig om SQL-operatorer som likheter, jämförelse och logiska operatörer som stöds av Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: a2f79e2ca751ce9c1016f32effeca532d6ffe7fb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c1409bd7f098c24efbb4196d78c6dffb6048119b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101246"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335455"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operatorer i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,11 +23,11 @@ Den här artikeln beskriver de olika operatörer som stöds av Azure Cosmos DB.
 
 I följande tabell visas resultatet av likhetsjämförelser i SQL API mellan två godtyckliga JSON-typer.
 
-| **Op** | **Odefinierad** | **Null** | **Booleskt** | **Nummer** | **Sträng** | **Jobbobjektet** | **Lagringsmatriser** |
+| **Op** | **Odefinierad** | **Null** | **Boolesk** | **Nummer** | **Sträng** | **Jobbobjektet** | **Lagringsmatriser** |
 |---|---|---|---|---|---|---|---|
 | **Odefinierad** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
 | **Null** | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
-| **Booleskt** | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
+| **Boolesk** | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
 | **Nummer** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) |
 | **Sträng** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) | Undefined (Odefinierad) |
 | **Jobbobjektet** | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | Undefined (Odefinierad) | **Okej** | Undefined (Odefinierad) |
@@ -123,4 +124,4 @@ Använd?? operatör för att effektivt söka efter en egenskap i ett objekt vid 
 
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Nyckelord](sql-query-keywords.md)
-- [SELECT-sats](sql-query-select.md)
+- [SELECT-satsen](sql-query-select.md)

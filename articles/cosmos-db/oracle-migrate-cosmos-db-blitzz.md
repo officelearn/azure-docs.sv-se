@@ -3,16 +3,17 @@ title: Migrera data från Oracle till Azure Cosmos DB API för Cassandra med Bli
 description: Lär dig hur du migrerar data från Oracle Database till Azure Cosmos DB API för Cassandra med hjälp av Blitzz.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 263c38e330bad00833bd31bc8a43208c3784bcf4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 15bcd0c54fc5f6614f4d1925759704309048acae
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097489"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336450"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrera data från Oracle till Azure Cosmos DB API för Cassandra konto med Blitzz
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -57,7 +58,7 @@ I det här avsnittet beskrivs de steg som krävs för att konfigurera Blitzz och
 
    :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/blitzz-replicant-download.png" alt-text="Hämtning av Blitzz replicant-verktyget":::
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Hämtning av Blitzz replicant-verktyget":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/replicant-files.png" alt-text="Blitzz replicant-filer":::
 
 1. Konfigurera käll databas konfigurationen från CLI-terminalen. Öppna konfigurations filen med **`vi conf/conn/oracle.yml`** kommandot och Lägg till en kommaavgränsad lista med IP-adresser för Oracle-noder, port nummer, användar namn, lösen ord och annan information som krävs. Följande kod visar ett exempel på en konfigurations fil:
 
@@ -76,9 +77,9 @@ I det här avsnittet beskrivs de steg som krävs för att konfigurera Blitzz och
    use-ssl: false
    ```
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/open-connection-editor-oracle.png" alt-text="Hämtning av Blitzz replicant-verktyget":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/open-connection-editor-oracle.png" alt-text="Öppna redigeraren för Oracle-anslutning":::
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-connection-configuration.png" alt-text="Hämtning av Blitzz replicant-verktyget":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-connection-configuration.png" alt-text="Konfiguration av Oracle-anslutning":::
 
    Spara och Stäng filen när du har fyllt i konfigurations informationen.
 
@@ -97,7 +98,7 @@ I det här avsnittet beskrivs de steg som krävs för att konfigurera Blitzz och
 
 1. Innan du migrerar data ska du öka behållar flödet till det antal som krävs för att ditt program ska kunna migrera snabbt. Du kan till exempel öka data flödet till 100000 ru: er. Genom att skala data flödet innan du påbörjar migreringen kan du migrera dina data på kortare tid. 
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Hämtning av Blitzz replicant-verktyget":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/scale-throughput.png" alt-text="Skala Azure Cosmos-behållaren i hela":::
 
    Du måste minska data flödet när migreringen är klar. Baserat på mängden data som lagras och ru: er krävs för varje åtgärd kan du beräkna data flödet som krävs efter datamigreringen. Mer information om hur du uppskattar de ru: er som krävs finns i [etablera data flöde på behållare och databaser](set-throughput.md) och [Beräkna ru/s med hjälp av artiklar om kapacitets planering för Azure Cosmos DB](estimate-ru-with-capacity-planner.md) .
 
@@ -135,7 +136,7 @@ I det här avsnittet beskrivs de steg som krävs för att konfigurera Blitzz och
 
    Replicant-ANVÄNDARGRÄNSSNITTET visar replikeringens förlopp. När schema migreringen och ögonblicks bild åtgärden är klar, visar förloppet 100%. När migreringen är klar kan du verifiera data i Azure Cosmos-databasen.
 
-   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-data-migration-output.png" alt-text="Hämtning av Blitzz replicant-verktyget":::
+   :::image type="content" source="./media/oracle-migrate-cosmos-db-blitzz/oracle-data-migration-output.png" alt-text="Utdata för Oracle-datamigrering":::
 
 1. Eftersom du har använt fullständigt läge för migrering kan du utföra åtgärder som att infoga, uppdatera eller ta bort data på käll-Oracle-databasen. Senare kan du kontrol lera att de är replikerade real tid i Azure Cosmos-databasen. Efter migreringen ser du till att minska det data flöde som kon figurer ATS för din Azure Cosmos-behållare.
 

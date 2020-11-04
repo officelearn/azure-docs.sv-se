@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e4e5f4c1a50c814174dbbd5d419fe24b2e9f88e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360760"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336688"
 ---
 # <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
 
@@ -36,8 +36,6 @@ Du kan använda REST-API: er för batch-avskrift för att anropa följande metod
 
 Du kan granska och testa det detaljerade API: et, som är tillgängligt som ett [Swagger-dokument](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 
-Detta API kräver inte anpassade slut punkter och saknar samtidiga krav.
-
 Jobb för batch-avskrifter schemaläggs enligt bästa prestanda.
 Det går inte att beräkna när ett jobb ska ändras till körnings tillstånd, men det bör ske inom några minuter under normal system belastning. När den är i körnings tillstånd sker avskriften snabbare än uppspelnings hastigheten för ljud körningen.
 
@@ -49,6 +47,9 @@ Precis som med alla funktioner i tal tjänsten skapar du en prenumerations nycke
 > En standard prenumeration (S0) för tal tjänst krävs för att använda batch-avskriftering. Kostnads fria prenumerations nycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 Om du planerar att anpassa modeller följer du stegen i [akustisk anpassning](how-to-customize-acoustic-models.md) och [språk anpassning](how-to-customize-language-model.md). Om du vill använda de skapade modellerna i batch-avskriftering behöver du deras modell plats. Du kan hämta modell platsen när du har granskat informationen om modellen ( `self` egenskap). Det *behövs ingen* distribuerad anpassad slut punkt för batch-avskrifts tjänsten.
+
+>[!NOTE]
+> Som en del av REST API har batch-avskriften en uppsättning [kvoter och begränsningar](speech-services-quotas-and-limits.md#speech-to-text-quotas-and-limits-per-speech-resource)som vi uppmuntrar att granska. För att dra full nytta av batch-avskrifts möjligheten att effektivt skriva över ett stort antal ljudfiler rekommenderar vi att du alltid skickar flera filer per begäran eller pekar på en Blob Storage behållare med ljudfilerna som ska skrivas över. Tjänsten kommer att skriva över filerna samtidigt som den minskar tiden för leverans. Att använda flera filer i en enskild begäran är mycket enkelt och enkelt att se [konfigurations](#configuration) avsnittet. 
 
 ## <a name="batch-transcription-api"></a>API för batch-avskriftering
 
@@ -65,12 +66,16 @@ Om du vill skapa en sorterad slutlig avskrift använder du de tidsstämplar som 
 
 ### <a name="configuration"></a>Konfiguration
 
-Konfigurations parametrar tillhandahålls som JSON (en eller flera enskilda filer):
+Konfigurations parametrar tillhandahålls som JSON.
+
+**Att skriva av en eller flera enskilda filer.** Om du har fler än en fil för att skriva över rekommenderar vi att du skickar flera filer i en begäran. Exemplet nedan använder tre filer:
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -80,7 +85,7 @@ Konfigurations parametrar tillhandahålls som JSON (en eller flera enskilda file
 }
 ```
 
-Konfigurations parametrar tillhandahålls som JSON (bearbetning av en hel lagrings behållare):
+**Bearbetar en hel lagrings behållare:**
 
 ```json
 {
@@ -93,12 +98,14 @@ Konfigurations parametrar tillhandahålls som JSON (bearbetning av en hel lagrin
 }
 ```
 
-Följande JSON anger en anpassad tränad modell som ska användas i en batch-avskriftering:
+**Använd en anpassad tränad modell i en batch-avskriftering.** Exemplet använder tre filer:
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -156,14 +163,14 @@ Använd dessa valfria egenskaper för att konfigurera avskrifter:
       `channels`
    :::column-end:::
    :::column span="2":::
-      Valfritt `0` och har `1` tilldelats som standard. En matris med kanal nummer att bearbeta. Här kan du ange en delmängd av tillgängliga kanaler i ljud filen som ska bearbetas (t. ex. `0` endast).
+      Valfritt `0` och har `1` tilldelats som standard. En matris med kanal nummer att bearbeta. Här kan du ange en delmängd av tillgängliga kanaler i ljud filen som ska bearbetas (till exempel `0` endast).
 :::row-end:::
 :::row:::
    :::column span="1":::
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      Valfritt, ingen borttagning som standard. Varaktigheten för att automatiskt ta bort avskrifter när avskriften har slutförts. `timeToLive`Är användbart vid Mass bearbetnings avskrifter för att se till att de kommer att tas bort (t. ex. `PT12H` i 12 timmar).
+      Valfritt, ingen borttagning som standard. Varaktigheten för att automatiskt ta bort avskrifter när avskriften har slutförts. `timeToLive`Är användbart vid Mass bearbetnings avskrifter för att se till att de kommer att tas bort (till exempel `PT12H` i 12 timmar).
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -323,11 +330,84 @@ Uppdatera exempel koden med din prenumerations information, tjänste region, URI
 
 Exempel koden konfigurerar klienten och skickar in avskrifts förfrågan. Den söker sedan efter statusinformation och skriver ut information om avskrifts förloppet.
 
-[!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#transcriptionstatus)]
+```csharp
+// get the status of our transcriptions periodically and log results
+int completed = 0, running = 0, notStarted = 0;
+while (completed < 1)
+{
+    completed = 0; running = 0; notStarted = 0;
+
+    // get all transcriptions for the user
+    paginatedTranscriptions = null;
+    do
+    {
+        // <transcriptionstatus>
+        if (paginatedTranscriptions == null)
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync().ConfigureAwait(false);
+        }
+        else
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync(paginatedTranscriptions.NextLink).ConfigureAwait(false);
+        }
+
+        // delete all pre-existing completed transcriptions. If transcriptions are still running or not started, they will not be deleted
+        foreach (var transcription in paginatedTranscriptions.Values)
+        {
+            switch (transcription.Status)
+            {
+                case "Failed":
+                case "Succeeded":
+                    // we check to see if it was one of the transcriptions we created from this client.
+                    if (!createdTranscriptions.Contains(transcription.Self))
+                    {
+                        // not created form here, continue
+                        continue;
+                    }
+
+                    completed++;
+
+                    // if the transcription was successful, check the results
+                    if (transcription.Status == "Succeeded")
+                    {
+                        var paginatedfiles = await client.GetTranscriptionFilesAsync(transcription.Links.Files).ConfigureAwait(false);
+
+                        var resultFile = paginatedfiles.Values.FirstOrDefault(f => f.Kind == ArtifactKind.Transcription);
+                        var result = await client.GetTranscriptionResultAsync(new Uri(resultFile.Links.ContentUrl)).ConfigureAwait(false);
+                        Console.WriteLine("Transcription succeeded. Results: ");
+                        Console.WriteLine(JsonConvert.SerializeObject(result, SpeechJsonContractResolver.WriterSettings));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Transcription failed. Status: {0}", transcription.Properties.Error.Message);
+                    }
+
+                    break;
+
+                case "Running":
+                    running++;
+                    break;
+
+                case "NotStarted":
+                    notStarted++;
+                    break;
+            }
+        }
+
+        // for each transcription in the list we check the status
+        Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
+    }
+    while (paginatedTranscriptions.NextLink != null);
+
+    // </transcriptionstatus>
+    // check again after 1 minute
+    await Task.Delay(TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+}
+```
 
 Fullständig information om föregående anrop finns i vårt Swagger- [dokument](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). För det fullständiga exemplet som visas här går du till [GitHub](https://aka.ms/csspeech/samples) i under `samples/batch` katalogen.
 
-I det här exemplet används en asynkron konfiguration för att skicka ljud-och mottagnings status.
+I det här exemplet används en asynkron installation för att skicka ljud-och mottagnings status.
 `PostTranscriptions`Metoden skickar ljud filens information och `GetTranscriptions` metoden tar emot tillstånden.
 `PostTranscriptions` Returnerar en referens och `GetTranscriptions` använder den för att skapa en referens för att hämta avskrifts status.
 

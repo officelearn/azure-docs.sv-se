@@ -3,16 +3,17 @@ title: Felsöka tids gräns undantag för Azure Cosmos DB tjänstbegäran
 description: Lär dig hur du diagnostiserar och åtgärdar tids gränser för Azure Cosmos DB tjänstbegäran.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: a18c4cf2f2bc1882a82afe0ba201f0d8b070924d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9e52acd2f7f594523059b22fefd121314bd77921
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081373"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340083"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-timeout-exceptions"></a>Diagnostisera och Felsök Azure Cosmos DB begär timeout-undantag
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

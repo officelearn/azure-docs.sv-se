@@ -3,16 +3,17 @@ title: Etablera databas data flöde i Azure Cosmos DB SQL API
 description: 'Lär dig hur du etablerar data flöde på databas nivå i Azure Cosmos DB SQL API med Azure Portal, CLI, PowerShell och andra SDK: er.'
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 63de1c970a118ddf24c52e7e14a0632a4eee7fba
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4ecbee2260da735cd6ba74d3b9ffb55b4a652e9e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086303"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342010"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Etablera standard (manuell) genom strömning på en databas i Azure Cosmos DB-SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -23,16 +24,16 @@ Om du använder ett annat API, se [API för MongoDB](how-to-provision-throughput
 
 ## <a name="provision-throughput-using-azure-portal"></a>Etablera dataflöde med hjälp av Azure-portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in i [Azure-portalen](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account)eller Välj ett befintligt Azure Cosmos-konto.
 
-1. Öppna rutan **Data Explorer** och välj **Ny databas** . Ange följande information:
+1. Öppna rutan **Data Explorer** och välj **Ny databas**. Ange följande information:
 
    * Ange ett databas-ID.
    * Välj **data flödes alternativet etablera databas** .
    * Ange ett dataflöde (till exempel 1000 RU:er).
-   * Välj **OK** .
+   * Välj **OK**.
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Skärmbild av dialogrutan Ny databas":::
 

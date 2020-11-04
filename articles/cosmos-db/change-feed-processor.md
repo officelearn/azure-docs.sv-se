@@ -4,17 +4,18 @@ description: Lär dig hur du använder Azure Cosmos DB ändra feed-processorn f�
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dfd96e7c62d700ccec2ecd4b223668d7aca4f18f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072814"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340234"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Ändringsflödesprocessorn i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +32,7 @@ Det finns fyra huvudkomponenter i implementeringen av ändringsflödesprocessorn
 
 1. **Lånecontainern:** Lånecontainern fungerar som en lagerplats för tillstånd och samordnar bearbetning av ändringsflödet över flera arbetsroller. Lånecontainern kan lagras i samma konto som den övervakade containern eller i ett separat konto.
 
-1. **Värden:** En värd är en programinstans som använder ändringsflödesprocessorn för att lyssna efter ändringar. Flera instanser med samma lånekonfiguration kan köras parallellt, men varje instans bör ha ett unikt **instansnamn** .
+1. **Värden:** En värd är en programinstans som använder ändringsflödesprocessorn för att lyssna efter ändringar. Flera instanser med samma lånekonfiguration kan köras parallellt, men varje instans bör ha ett unikt **instansnamn**.
 
 1. **Ombudet:** Ombudet är den kod som definierar vad du, utvecklaren, vill göra med varje batch av ändringar som ändringsflödesprocessor läser. 
 
@@ -62,7 +63,7 @@ Den normala livscykeln för en värdinstans är:
 
 1. Läs ändrings flödet.
 1. Om det inte finns några ändringar kan du försätta i vilo läge under en fördefinierad tid (anpassningsbar med `WithPollInterval` i-verktyget) och gå till #1.
-1. Om det finns ändringar skickar du dem till **ombudet** .
+1. Om det finns ändringar skickar du dem till **ombudet**.
 1. När ombudet har slutfört bearbetningen **av ändringarna uppdaterar** du leasing lagret med den senaste bearbetade tidpunkten och går till #1.
 
 ## <a name="error-handling"></a>Felhantering
@@ -113,7 +114,7 @@ Processorn för ändrings flöden initieras för det aktuella datumet och den ak
 
 ### <a name="reading-from-the-beginning"></a>Läser från början
 
-I andra scenarier, t. ex. datamigrering eller analys av hela historiken för en behållare, måste vi läsa ändrings flödet från **början av behållarens livs längd** . Vi kan göra det med hjälp av `WithStartTime` tillägget Builder, men genom att skicka `DateTime.MinValue.ToUniversalTime()` , vilket genererar UTC-representationen av det lägsta `DateTime` värdet, så här:
+I andra scenarier, t. ex. datamigrering eller analys av hela historiken för en behållare, måste vi läsa ändrings flödet från **början av behållarens livs längd**. Vi kan göra det med hjälp av `WithStartTime` tillägget Builder, men genom att skicka `DateTime.MinValue.ToUniversalTime()` , vilket genererar UTC-representationen av det lägsta `DateTime` värdet, så här:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
 

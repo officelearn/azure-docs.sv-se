@@ -8,18 +8,18 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 4afe6f175095d146c7feed04d469d78203179e0f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bb2ff066089e3348c40f5a22bd73ea376ecef6de
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91707888"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341407"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd ruby för att ansluta och fråga efter data i Azure Database for PostgreSQL-enskild server
 
 Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett [Ruby](https://www.ruby-lang.org)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om Ruby och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa DB – Portal](quickstart-create-server-database-portal.md)
 - [Skapa DB – Azure CLI](quickstart-create-server-database-azure-cli.md)
@@ -32,7 +32,7 @@ Du måste också ha installerat:
 Hämta den information som du behöver för att ansluta till Azure Database för PostgreSQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser**. Sök sedan efter den server som du skapade (till exempel **mydemoserver**).
+2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser**. Sök sedan efter den server som du skapade (till exempel **mydemoserver** ).
 3. Klicka på servernamnet.
 4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
  :::image type="content" source="./media/connect-ruby/1-connection-string.png" alt-text="Azure Database for PostgreSQL-servernamn":::
@@ -41,7 +41,7 @@ Hämta den information som du behöver för att ansluta till Azure Database för
 > `@`Symbolen i Azure postgres-användarnamnet har varit URL-kodad som `%40` i alla anslutnings strängar.
 
 ## <a name="connect-and-create-a-table"></a>Ansluta och skapa en tabell
-Använd följande kod för att ansluta och skapa en tabell med hjälp av **CREATE TABLE**-SQL-instruktionen följt av **INSERT INTO**-SQL-instruktioner för att lägga till rader i tabellen.
+Använd följande kod för att ansluta och skapa en tabell med hjälp av **CREATE TABLE** -SQL-instruktionen följt av **INSERT INTO** -SQL-instruktioner för att lägga till rader i tabellen.
 
 I koden används ett ```PG::Connection``` objekt med en konstruktor ```new``` för att ansluta till Azure Database for PostgreSQL. Sedan anropas metoden ```exec()``` för att köra kommandona Drop, CREATE TABLE och INSERT INTO. Koden söker efter fel med hjälp av ```PG::Error``` klassen. Sedan anropas metoden ```close()``` för att stänga anslutningen innan den avslutas. Mer information om dessa klasser och metoder finns i [ruby PG Reference-dokumentation](https://www.rubydoc.info/gems/pg/PG) .
 
@@ -85,7 +85,7 @@ end
 ```
 
 ## <a name="read-data"></a>Läsa data
-Använd följande kod för att ansluta och läsa data med en **SELECT**-SQL-instruktion.
+Använd följande kod för att ansluta och läsa data med en **SELECT** -SQL-instruktion.
 
 I koden används ett  ```PG::Connection``` objekt med en konstruktor ```new``` för att ansluta till Azure Database for PostgreSQL. Sedan anropar den metoden ```exec()``` för att köra kommandot SELECT och behåller resultatet i en resultat uppsättning. Resultatuppsättningen itereras igenom med loopen `resultSet.each do` som sparar de aktuella radvärdena i variabeln `row`. Koden söker efter fel med hjälp av ```PG::Error``` klassen. Sedan anropas metoden ```close()``` för att stänga anslutningen innan den avslutas. Mer information om dessa klasser och metoder finns i [ruby PG Reference-dokumentation](https://www.rubydoc.info/gems/pg/PG) .
 
@@ -119,7 +119,7 @@ end
 ```
 
 ## <a name="update-data"></a>Uppdatera data
-Använd följande kod för att ansluta och uppdatera data med en **UPDATE**-SQL-instruktion.
+Använd följande kod för att ansluta och uppdatera data med en **UPDATE** -SQL-instruktion.
 
 I koden används ett  ```PG::Connection``` objekt med en konstruktor ```new``` för att ansluta till Azure Database for PostgreSQL. Sedan anropas metoden ```exec()``` för att köra kommandot Update. Koden söker efter fel med hjälp av ```PG::Error``` klassen. Sedan anropas metoden ```close()``` för att stänga anslutningen innan den avslutas. Mer information om dessa klasser och metoder finns i [ruby PG Reference-dokumentation](https://www.rubydoc.info/gems/pg/PG) .
 
@@ -153,7 +153,7 @@ end
 
 
 ## <a name="delete-data"></a>Ta bort data
-Använd följande kod för att ansluta och läsa data med en **DELETE**-SQL-instruktion.
+Använd följande kod för att ansluta och läsa data med en **DELETE** -SQL-instruktion.
 
 I koden används ett  ```PG::Connection``` objekt med en konstruktor ```new``` för att ansluta till Azure Database for PostgreSQL. Sedan anropas metoden ```exec()``` för att köra kommandot Update. Koden söker efter fel med hjälp av ```PG::Error``` klassen. Sedan anropas metoden ```close()``` för att stänga anslutningen innan den avslutas.
 
@@ -183,6 +183,16 @@ rescue PG::Error => e
 ensure
     connection.close if connection
 end
+```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du vill rensa alla resurser som används under den här snabb starten tar du bort resurs gruppen med hjälp av följande kommando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Nästa steg

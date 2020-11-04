@@ -4,15 +4,16 @@ description: Lär dig mer om åtkomst kontroll koncept i Azure Cosmos DB, inklus
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68f3fd34081868884782e007885befff59fa05da
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 936e98b3efa27f2d0a85c373ccae0ab223f4fd95
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096129"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340914"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Säker åtkomst till data i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -90,7 +91,7 @@ Här är ett typiskt design mönster där du kan begära, generera och leverera 
 7. Phone-appen kan fortsätta att använda resurs-token för att direkt komma åt Cosmos DB resurser med behörigheterna som definierats av resurs-token och för intervallet som tillåts av resurs-token.
 8. När resursens token upphör att gälla får efterföljande begär Anden ett 401 obehörigt undantag.  I det här läget upprättar Phone-appen identiteten igen och begär en ny resurs-token.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Primär nyckel rotation i Azure Portal – demonstrera NoSQL Database-säkerhet" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Arbets flöde för Azure Cosmos DB-resurs-token" border="false":::
 
 Generering och hantering av resurs-token hanteras av de interna Cosmos DB klient biblioteken. men om du använder REST måste du skapa huvudena för begäran/autentisering. Mer information om hur du skapar autentiseringsscheman för REST finns i [Access Control på Cosmos DB resurser](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) eller käll koden för vår [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) eller [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
@@ -157,12 +158,12 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 Om du vill lägga till Azure Cosmos DB konto läsar åtkomst till ditt användar konto, har du en prenumerations ägare som utför följande steg i Azure Portal.
 
 1. Öppna Azure Portal och välj ditt Azure Cosmos DB-konto.
-2. Klicka på fliken **åtkomst kontroll (IAM)** och klicka sedan på  **+ Lägg till roll tilldelning** .
+2. Klicka på fliken **åtkomst kontroll (IAM)** och klicka sedan på  **+ Lägg till roll tilldelning**.
 3. I fönstret **Lägg till roll tilldelning** väljer du **Cosmos DB konto läsar roll** i rutan **roll** .
-4. I **rutan tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller program** .
+4. I **rutan tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller program**.
 5. Välj den användare, grupp eller det program i din katalog som du vill bevilja åtkomst till.  Du kan söka i katalogen efter visnings namn, e-postadress eller objekt identifierare.
     Den valda användaren, gruppen eller programmet visas i listan med valda medlemmar.
-6. Klicka på **Spara** .
+6. Klicka på **Spara**.
 
 Entiteten kan nu läsa Azure Cosmos DB-resurser.
 

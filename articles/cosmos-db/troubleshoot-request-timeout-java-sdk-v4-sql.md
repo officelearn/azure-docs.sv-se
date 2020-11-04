@@ -3,18 +3,21 @@ title: Felsök Azure Cosmos DB HTTP 408 eller begär timeout-problem med Java v4
 description: Lär dig hur du diagnostiserar och åtgärdar timeout-undantag i Java SDK med Java v4 SDK.
 author: kushagrathapar
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 45452109582be40f007ae57a00c2a151f216bdb8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 442d6638e88462b1dc87e9321dc631fe0a4f3a10
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103168"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340093"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>Diagnostisera och Felsök Azure Cosmos DB timeout-undantag för Java v4 SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 HTTP 408-felet uppstår om SDK: n inte kunde slutföra begäran innan tids gränsen nåddes.
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar

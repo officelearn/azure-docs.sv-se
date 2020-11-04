@@ -2,14 +2,14 @@
 title: Lås resurser för att förhindra ändringar
 description: Förhindra att användare uppdaterar eller tar bort kritiska Azure-resurser genom att använda ett lås för alla användare och roller.
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 11/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3830c7e78cf3cc607c7abfca63e6ae74f89b7aff
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 57b4fecd0293c714dfd910ae2ad4866397646ce8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281748"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340149"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsa resurser för att förhindra oväntade ändringar
 
@@ -24,7 +24,7 @@ När du använder ett lås vid en överordnad omfattning ärver alla resurser in
 
 Till skillnad från rollbaserad åtkomstkontroll använder du hanteringslås för att tillämpa en begränsning för alla användare och roller. Information om hur du anger behörigheter för användare och roller finns i [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
-Resource Manager-lås gäller endast för åtgärder som sker i hanteringsplanet, som består av åtgärder som skickas till `https://management.azure.com`. Låsen begränsar inte hur resurser utför sina egna funktioner. Resursändringar är begränsade, men resursåtgärder är inte begränsade. Ett skrivskyddat lås på en SQL Database hindrar dig till exempel från att ta bort eller ändra databasen. Det hindrar dig inte från att skapa, uppdatera eller ta bort data i databasen. Datatransaktioner tillåts eftersom dessa åtgärder inte skickas till `https://management.azure.com`.
+Resource Manager-lås gäller endast för åtgärder som sker i hanteringsplanet, som består av åtgärder som skickas till `https://management.azure.com`. Låsen begränsar inte hur resurser utför sina egna funktioner. Resursändringar är begränsade, men resursåtgärder är inte begränsade. Ett skrivskyddat lås på en SQL Database logisk server förhindrar till exempel att du tar bort eller ändrar servern. Det hindrar dig inte från att skapa, uppdatera eller ta bort data i databaserna på den servern. Datatransaktioner tillåts eftersom dessa åtgärder inte skickas till `https://management.azure.com`.
 
 ## <a name="considerations-before-applying-locks"></a>Att tänka på innan du använder lås
 
@@ -76,12 +76,12 @@ Om du vill ta bort allt för tjänsten, inklusive resurs gruppen låst infrastru
 
 När du använder en Resource Manager-mall för att distribuera ett lås, använder du olika värden för namn och typ beroende på låsets omfång.
 
-Använd följande format när du använder ett lås på en **resurs**:
+Använd följande format när du använder ett lås på en **resurs** :
 
 * ändrat `{resourceName}/Microsoft.Authorization/{lockName}`
 * bastyp `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
-Använd följande format när du använder ett lås till en **resurs grupp** eller **prenumeration**:
+Använd följande format när du använder ett lås till en **resurs grupp** eller **prenumeration** :
 
 * ändrat `{lockName}`
 * bastyp `Microsoft.Authorization/locks`
@@ -237,7 +237,7 @@ Skapa ett lås genom att köra:
 PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 ```
 
-Omfånget kan vara en prenumeration, en resurs grupp eller en resurs. Namnet på låset är vad du vill för att anropa låset. Använd **2016-09-01**för API-version.
+Omfånget kan vara en prenumeration, en resurs grupp eller en resurs. Namnet på låset är vad du vill för att anropa låset. Använd **2016-09-01** för API-version.
 
 I begäran inkluderar du ett JSON-objekt som anger egenskaperna för låset.
 

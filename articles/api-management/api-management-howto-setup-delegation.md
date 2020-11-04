@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 76b82d3c008ede99e69f3a19a56911fbfecd5642
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 54193c9333c75fd8b973ebe33470fca3617e2f2d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148765"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341849"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Så här delegerar du användar registrering och produkt prenumeration
 
@@ -52,18 +52,18 @@ Nu måste du skapa **Delegerings slut punkten**. Det måste utföra ett antal å
    
     Frågeparametrar för inloggnings-/registrerings fallet:
    
-   * **åtgärd**: identifierar vilken typ av delegeringsbegäran det är – det kan bara vara **inloggning** i det här fallet
-   * **ReturnUrl**: URL: en till sidan där användaren klickade på inloggnings-eller registrerings länk
-   * **salt**: en särskild salt sträng som används för att beräkna en säkerhets-hash
-   * **sig**: en beräknad säkerhets-hash som ska användas för jämförelse med din egen beräknade hash
+   * **åtgärd** : identifierar vilken typ av delegeringsbegäran det är – det kan bara vara **inloggning** i det här fallet
+   * **ReturnUrl** : URL: en till sidan där användaren klickade på inloggnings-eller registrerings länk
+   * **salt** : en särskild salt sträng som används för att beräkna en säkerhets-hash
+   * **sig** : en beräknad säkerhets-hash som ska användas för jämförelse med din egen beräknade hash
 2. Kontrol lera att begäran kommer från Azure API Management (valfritt, men rekommenderas för säkerhet)
    
-   * Beräkna en HMAC-SHA512 hash av en sträng baserat på parametrarna **ReturnUrl** och **salt** fråga ([exempel kod anges nedan]):
+   * Beräkna en HMAC-SHA512 hash av en sträng baserat på parametrarna **ReturnUrl** och **salt** fråga ( [exempel kod anges nedan]):
      
-     > HMAC (**salt** + ' \n ' + **ReturnUrl**)
+     > HMAC ( **salt** + ' \n ' + **ReturnUrl** )
 
    * Jämför det ovan beräknade hashvärdet med värdet för **sig** -Frågeparametern. Om de två hasharna matchar går du vidare till nästa steg, annars nekar du begäran.
-3. Kontrol lera att du får en begäran om att logga in/registrera: **åtgärdens** frågeparameter anges till "**signin**".
+3. Kontrol lera att du får en begäran om att logga in/registrera: **åtgärdens** frågeparameter anges till " **signin** ".
 4. Presentera användaren användar gränssnitt för att logga in eller registrera dig
 5. Om användaren är inloggad måste du skapa ett motsvarande konto för dem i API Management. [Skapa en användare] med API Management REST API. När du gör det, se till att du anger användar-ID: t till samma värde som i ditt användar arkiv eller till ett ID som du kan hålla reda på.
 6. När användaren har autentiserats:
@@ -71,7 +71,7 @@ Nu måste du skapa **Delegerings slut punkten**. Det måste utföra ett antal å
    * [Begär en delad] åtkomsttoken via API Management REST API
    * Lägg till en returnUrl-frågeparameter till URL: en för SSO som du har fått från API-anropet ovan:
      
-     > till exempel `https://customer.portal.azure-api.net/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
+     > till exempel `https://<developer portal domain, for example: contoso.developer.azure-api.net>/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
      
    * Omdirigera användaren till den ovan producerade URL: en
 
@@ -84,10 +84,10 @@ Förutom **inloggnings** åtgärden kan du också utföra konto hantering genom 
 
 Du måste skicka följande frågeparametrar för konto hanterings åtgärder.
 
-* **åtgärd**: identifierar vilken typ av delegeringsbegäran den är (ChangePassword, ChangeProfile eller closeaccount)
-* **userId**: användar-ID för det konto som ska hanteras
-* **salt**: en särskild salt sträng som används för att beräkna en säkerhets-hash
-* **sig**: en beräknad säkerhets-hash som ska användas för jämförelse med din egen beräknade hash
+* **åtgärd** : identifierar vilken typ av delegeringsbegäran den är (ChangePassword, ChangeProfile eller closeaccount)
+* **userId** : användar-ID för det konto som ska hanteras
+* **salt** : en särskild salt sträng som används för att beräkna en säkerhets-hash
+* **sig** : en beräknad säkerhets-hash som ska användas för jämförelse med din egen beräknade hash
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegera produkt prenumeration
 
@@ -97,7 +97,7 @@ Att delegera produkt prenumeration fungerar på samma sätt som att delegera anv
 2. Webbläsaren omdirigeras till Delegerings slut punkten.
 3. Delegerings slut punkten utför nödvändiga produkt prenumerations steg. Det är upp till dig att utforma stegen. De kan omfatta omdirigering till en annan sida för att begära fakturerings information, ställa in ytterligare frågor eller bara lagra informationen och inte kräva någon användar åtgärd.
 
-Om du vill aktivera funktionen klickar du på **delegera produkt prenumeration**på sidan **delegering** .
+Om du vill aktivera funktionen klickar du på **delegera produkt prenumeration** på sidan **delegering** .
 
 Se sedan till att Delegerings slut punkten utför följande åtgärder:
 
@@ -108,21 +108,21 @@ Se sedan till att Delegerings slut punkten utför följande åtgärder:
    
     Frågeparametrar för ärende om produkt prenumeration:
    
-   * **åtgärd**: identifierar vilken typ av Delegerings förfrågan den är. För produkt prenumerations begär Anden är giltiga alternativ:
+   * **åtgärd** : identifierar vilken typ av Delegerings förfrågan den är. För produkt prenumerations begär Anden är giltiga alternativ:
      * "Prenumerera": en begäran om att prenumerera på användaren till en viss produkt med angivet ID (se nedan)
      * "Avregistrera": en begäran om att avbryta prenumerationen på en användare från en produkt
      * "Förnya": en begäran om att förnya en prenumeration (till exempel som kan upphöra att gälla)
-   * **productId**: vid *prenumeration* – ID för produkten som användaren har begärt att prenumerera på
-   * **subscriptionId**: vid avregistrering och *förnyelse* -ID: *t för produkt* prenumerationen
-   * **userId**: vid *prenumeration* – ID för användaren som begäran görs om
-   * **salt**: en särskild salt sträng som används för att beräkna en säkerhets-hash
-   * **sig**: en beräknad säkerhets-hash som ska användas för jämförelse med din egen beräknade hash
+   * **productId** : vid *prenumeration* – ID för produkten som användaren har begärt att prenumerera på
+   * **subscriptionId** : vid avregistrering och *förnyelse* -ID: *t för produkt* prenumerationen
+   * **userId** : vid *prenumeration* – ID för användaren som begäran görs om
+   * **salt** : en särskild salt sträng som används för att beräkna en säkerhets-hash
+   * **sig** : en beräknad säkerhets-hash som ska användas för jämförelse med din egen beräknade hash
 
 2. Kontrol lera att begäran kommer från Azure API Management (valfritt, men rekommenderas för säkerhet)
    
-   * Beräkna en HMAC-SHA512 av en sträng baserat på parametrarna **productId**, **userId**och **salt** fråga:
+   * Beräkna en HMAC-SHA512 av en sträng baserat på parametrarna **productId** , **userId** och **salt** fråga:
      
-     > HMAC (**salt** + ' \n ' + **productId** + ' \n ' + **userId**)
+     > HMAC ( **salt** + ' \n ' + **productId** + ' \n ' + **userId** )
      > 
      > 
    * Jämför det ovan beräknade hashvärdet med värdet för **sig** -Frågeparametern. Om de två hasharna matchar går du vidare till nästa steg, annars nekar du begäran.
@@ -133,7 +133,7 @@ Se sedan till att Delegerings slut punkten utför följande åtgärder:
 
 Följande kod exempel visar hur du:
 
-* Ta *Delegerings validerings nyckeln*, som anges på skärmen delegering på utgivar portalen
+* Ta *Delegerings validerings nyckeln* , som anges på skärmen delegering på utgivar portalen
 * Skapa en HMAC som sedan används för att validera signaturen och bevisa giltigheten för den skickade returnUrl.
 
 Samma kod fungerar för productId och userId med mindre modifiering.

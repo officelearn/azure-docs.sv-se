@@ -3,16 +3,17 @@ title: 'Arbeta med lagrade procedurer, utlösare och UDF: er i Azure Cosmos DB'
 description: Den här artikeln beskriver begreppen, till exempel lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 7dc81581846f8abdae81fa3552d9fa4645f32a05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101314"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340710"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Lagrade procedurer, utlösare och användardefinierade funktioner
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,7 +43,7 @@ Genom att skriva lagrade procedurer, utlösare och användardefinierade funktion
 
 ## <a name="transactions"></a>Transaktioner
 
-Transaktion i en typisk databas kan definieras som en sekvens med åtgärder som utförs som en enda logisk arbets enhet. Varje transaktion ger **garantier för syra egenskaper** . SYRA är en välkänd förkortning som står för: **a** tomicity, **C** onsistency, **I** solation och **D** urability. 
+Transaktion i en typisk databas kan definieras som en sekvens med åtgärder som utförs som en enda logisk arbets enhet. Varje transaktion ger **garantier för syra egenskaper**. SYRA är en välkänd förkortning som står för: **a** tomicity, **C** onsistency, **I** solation och **D** urability. 
 
 * Atomisk garanterar att alla åtgärder som utförs i en transaktion behandlas som en enda enhet, och att alla är antingen bekräftade eller inga av dem. 
 

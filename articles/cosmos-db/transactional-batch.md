@@ -4,16 +4,18 @@ description: Lär dig hur du använder TransactionalBatch i Azure Cosmos DB .NET
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: c27eb2b4e0dc0d269e1cffc9e213cebeb93443e2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1f541b947c04619892291e47002ea9b0dbb6d38d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328737"
+ms.locfileid: "93340574"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>Transaktionella batch-åtgärder i Azure Cosmos DB med hjälp av .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Transaktionell batch beskriver en grupp punkt åtgärder som måste utföras eller Miss lyckas tillsammans med samma partitionsnyckel i en behållare. I .NET SDK `TranscationalBatch` används klassen för att definiera den här batchen med åtgärder. Om alla åtgärder lyckas i den ordning som de beskrivs i transaktions batch-åtgärden, kommer transaktionen att bekräftas. Men om en åtgärd Miss lyckas återställs hela transaktionen.
 

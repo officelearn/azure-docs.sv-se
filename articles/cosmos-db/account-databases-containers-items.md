@@ -4,16 +4,15 @@ description: I den här artikeln beskrivs Azure Cosmos DB resurs modell som inne
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 23adbd289ae2be484f1aef86b2224097c6ba489c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 37f1c9f59b6ffb45e1b874d2a6969bf263d2d5eb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087935"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341373"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Resursmodell för Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +33,7 @@ När du har skapat ett konto i din Azure-prenumeration kan du hantera data i dit
 
 Följande bild visar hierarkin för olika entiteter i ett Azure Cosmos DB konto:
 
-:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Hierarki för ett Azure Cosmos-konto" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos Account-entiteter" border="false":::
 
 ## <a name="azure-cosmos-databases"></a>Azure Cosmos-databaser
 
@@ -42,7 +41,7 @@ Du kan skapa en eller flera Azure Cosmos-databaser under ditt konto. En databas 
 
 | Azure Cosmos-entitet | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos-databas | Databas | Keyspace | Databas | Databas | Ej tillämpligt |
+|Azure Cosmos-databas | Databas | Keyspace | Databas | Databas | NA |
 
 > [!NOTE]
 > När du skapar din första tabell med Tabell-API-konton skapas en standard databas automatiskt i ditt Azure Cosmos-konto.
@@ -53,10 +52,10 @@ Du kan interagera med en Azure Cosmos-databas med Azure Cosmos-API: er enligt be
 
 | Åtgärd | Azure CLI | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- |
-|Räkna upp alla databaser| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | Ej tillämpligt |
-|Läs databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | Ej tillämpligt |
-|Skapa ny databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | Ej tillämpligt |
-|Uppdatera databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Yes | NA | Ej tillämpligt |
+|Räkna upp alla databaser| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | NA |
+|Läs databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | NA |
+|Skapa ny databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | NA |
+|Uppdatera databas| Ja | Ja | Ja (databasen är mappad till ett tecken utrymme) | Ja | NA | NA |
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos-containrar
 
@@ -73,7 +72,7 @@ När du skapar en behållare konfigurerar du data flödet i något av följande 
 
 En Azure Cosmos-behållare kan skala elastiskt, oavsett om du skapar behållare med hjälp av dedikerade eller delade allokerade data flödes lägen.
 
-En behållare är en schema-oberoende behållare med objekt. Objekt i en behållare kan ha godtyckliga scheman. Till exempel kan ett objekt som representerar en person och ett objekt som representerar en bil placeras i *samma behållare* . Som standard indexeras alla objekt som du lägger till i en behållare automatiskt utan att det krävs explicita index eller schema hantering. Du kan anpassa indexerings beteendet genom att konfigurera [indexerings principen](index-overview.md) på en behållare. 
+En behållare är en schema-oberoende behållare med objekt. Objekt i en behållare kan ha godtyckliga scheman. Till exempel kan ett objekt som representerar en person och ett objekt som representerar en bil placeras i *samma behållare*. Som standard indexeras alla objekt som du lägger till i en behållare automatiskt utan att det krävs explicita index eller schema hantering. Du kan anpassa indexerings beteendet genom att konfigurera [indexerings principen](index-overview.md) på en behållare. 
 
 Du kan ställa in [Time to Live (TTL)](time-to-live.md) på valda objekt i en behållare eller för hela behållaren för att på ett städat sätt Rensa objekten från systemet. Azure Cosmos DB tar automatiskt bort objekten när de upphör att gälla. Det garanterar också att en fråga som utförs på behållaren inte returnerar de inaktuella objekten inom en fast bindning. Läs mer i [Konfigurera TTL på din behållare](how-to-time-to-live.md).
 
@@ -114,11 +113,11 @@ En Azure Cosmos-behållare stöder följande åtgärder när du använder någon
 
 | Åtgärd | Azure CLI | API för SQL | Cassandra-API | API för Azure Cosmos DB för MongoDB | Gremlin-API | Tabell-API |
 | --- | --- | --- | --- | --- | --- | --- |
-| Räkna upp behållare i en databas | Ja | Ja | Ja | Ja | NA | Ej tillämpligt |
-| Läsa en behållare | Ja | Ja | Ja | Ja | NA | Ej tillämpligt |
-| Skapa en ny behållare | Ja | Ja | Ja | Ja | NA | Ej tillämpligt |
-| Uppdatera en behållare | Ja | Ja | Ja | Ja | NA | Ej tillämpligt |
-| Ta bort en container | Ja | Ja | Ja | Ja | NA | Ej tillämpligt |
+| Räkna upp behållare i en databas | Ja | Ja | Ja | Ja | NA | NA |
+| Läsa en behållare | Ja | Ja | Ja | Ja | NA | NA |
+| Skapa en ny behållare | Ja | Ja | Ja | Ja | NA | NA |
+| Uppdatera en behållare | Ja | Ja | Ja | Ja | NA | NA |
+| Ta bort en container | Ja | Ja | Ja | Ja | NA | NA |
 
 ## <a name="azure-cosmos-items"></a>Azure Cosmos-objekt
 

@@ -3,15 +3,16 @@ title: Uppskatta kostnader med hjälp av Azure Cosmos DB Capacity Planner
 description: Med Azure Cosmos DB kapacitets planeraren kan du uppskatta det data flöde (RU/s) som krävs och kostnaden för din arbets belastning. Den här artikeln beskriver hur du använder den nya versionen av kapacitets planeraren för att beräkna det data flöde och den kostnad som krävs.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: 460f47ce453f183821ec0f49c38865c44b15ba9f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 017aeaaa24e8ac2d493d0de81a7abb655bae5611
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096724"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342087"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Beräkna RU/s med hjälp av Azure Cosmos DB Capacity Planner
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +41,7 @@ Om du vill få en snabb uppskattning för din arbets belastning med hjälp av Ba
 |Läsningar/SEK per region|Antalet läsningar som förväntas per sekund. |
 |Skrivningar/s per region|Antal förväntade skrivningar per sekund. |
 
-När du har fyllt i de nödvändiga uppgifterna väljer du **Beräkna** . På fliken **kostnads uppskattning** visas den totala kostnaden för lagring och allokerat data flöde. Du kan expandera länken **Visa information** på den här fliken för att få en uppdelning av data flödet som krävs för Läs-och skriv förfrågningar. Varje gång du ändrar värdet för ett fält väljer du **Beräkna** för att beräkna den uppskattade kostnaden igen. 
+När du har fyllt i de nödvändiga uppgifterna väljer du **Beräkna**. På fliken **kostnads uppskattning** visas den totala kostnaden för lagring och allokerat data flöde. Du kan expandera länken **Visa information** på den här fliken för att få en uppdelning av data flödet som krävs för Läs-och skriv förfrågningar. Varje gång du ändrar värdet för ett fält väljer du **Beräkna** för att beräkna den uppskattade kostnaden igen. 
 
 :::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Basic-läge för Capacity Planner":::
 
@@ -63,7 +64,7 @@ När du har loggat in kan du se ytterligare fält jämfört med fälten i grundl
 
 Du kan också använda knappen **Spara uppskattning** för att ladda ned en CSV-fil som innehåller den aktuella uppskattningen. 
 
-:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Basic-läge för Capacity Planner":::
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Avancerat läge för kapacitets planering":::
 
 Priserna som visas i Azure Cosmos DB kapacitets planeraren beräknas utifrån de offentliga pris nivåerna för data flöde och lagring. Alla priser visas i amerikanska dollar. På [sidan Azure Cosmos DB priser](https://azure.microsoft.com/pricing/details/cosmos-db/) kan du se alla priser per region.  
 

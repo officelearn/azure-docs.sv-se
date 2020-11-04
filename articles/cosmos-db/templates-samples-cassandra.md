@@ -3,15 +3,16 @@ title: Resource Manager-mallar för Azure Cosmos DB API för Cassandra
 description: Använd Azure Resource Manager mallar för att skapa och konfigurera Azure Cosmos DB API för Cassandra.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 7d4f0c3928dbbe2b029a4bbf0096da7a763515e4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: eb746e8105717883b029586db2bfce8e31290e93
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074927"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340676"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB API för Cassandra resurser med Azure Resource Manager mallar
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

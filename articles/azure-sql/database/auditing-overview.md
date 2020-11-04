@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8fd794822e9e4fe282d6ef8a8ccf1eb908c03560
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321659"
+ms.locfileid: "93340047"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Granskning för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -82,7 +82,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
   > [!NOTE]
   > Det går inte att aktivera granskning på en pausad dedikerad SQL-pool. Om du vill aktivera granskning avbryter du den dedikerade SQL-poolen. Läs mer om [dedikerad SQL-pool](../..//synapse-analytics/sql/best-practices-sql-pool.md).
 
-1. Gå till [Azure-portalen](https://portal.azure.com).
+1. Öppna [Azure-portalen](https://portal.azure.com).
 2. Navigera till **granskning** under säkerhets rubriken i **SQL Database** eller **SQL Server** -fönstret.
 3. Om du vill konfigurera en server gransknings princip kan du välja länken **Visa Server inställningar** på sidan databas granskning. Du kan sedan Visa eller ändra server gransknings inställningarna. Server gransknings principer gäller för alla befintliga och nyligen skapade databaser på den här servern.
 
@@ -104,6 +104,13 @@ Om du vill aktivera granskning av Microsoft Support åtgärder (för hands versi
   > Granskning av Microsofts support åtgärder (för hands version) stöder inte lagrings kontots destination. Om du vill aktivera funktionen måste en Log Analytics arbets yta eller ett mål för Event Hub konfigureras.
 
 ![Skärm bild av Microsoft Support åtgärder](./media/auditing-overview/support-operations.png)
+
+Om du vill granska gransknings loggarna för Microsoft Support åtgärder på arbets ytan Log Analytics använder du följande fråga:
+
+```kusto
+AzureDiagnostics
+| where Category == "DevOpsOperationsAudit"
+```
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Granska till lagrings mål
 
@@ -205,9 +212,7 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
 - Ytterligare metoder:
 
   - När du har laddat ned flera filer eller en undermapp som innehåller loggfiler kan du sammanfoga dem lokalt enligt beskrivningen i anvisningarna för SSMS-sammanslagning av filer som beskrivs ovan.
-  - Visa BLOB-gransknings loggar program mässigt:
-
-    - [Fråga om utökade Events-filer](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) med hjälp av PowerShell.
+  - Visa blobb gransknings loggar program mässigt: [fråga utökade Events-filer](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) med hjälp av PowerShell.
 
 ## <a name="production-practices"></a><a id="production-practices"></a>Produktions metoder
 

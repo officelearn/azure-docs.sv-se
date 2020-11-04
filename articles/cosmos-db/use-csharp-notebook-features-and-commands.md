@@ -3,16 +3,17 @@ title: Använd inbyggda Notebook-kommandon och-funktioner i Azure Cosmos DB C#-a
 description: Lär dig hur du använder inbyggda kommandon och funktioner för att utföra vanliga åtgärder med hjälp av Azure Cosmos DB inbyggda C#-antecknings böcker.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 5fab63a0a0a34cd0417eb0a891133ac256ef3ac0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 67fe71d8e2d6ab239989cb30e9bf5a1b4d731037
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099172"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340489"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Använd inbyggda Notebook-kommandon och-funktioner i Azure Cosmos DB C#-anteckningsböcker (för hands version)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -118,12 +119,12 @@ I exemplet *GetingStarted_Csharp. ipynb* kan vi till exempel skriva ut variabeln
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Csharp Query-cell":::
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Csharp Query-cell":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="nteract data Utforskare":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>Använd inbyggda ordboks visnings program
 Du kan använda det inbyggda lexikon visnings programmet för att visa en variabel. I en cell ska du placera variabeln som du vill visualisera på den sista raden, som visas automatiskt när cellen körs.
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Csharp Query-cell":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Inbyggda ordboks visnings program":::
 
 ## <a name="upload-json-items-to-a-container"></a>Ladda upp JSON-objekt till en behållare
 Du kan använda ``%%upload`` kommandot Magic för att överföra data från en JSON-fil till en angiven Azure Cosmos-behållare. Använd följande kommando för att ladda upp objekten:
@@ -161,7 +162,7 @@ Ersätt ``{notebookName}`` med namnet på den antecknings bok som du vill köra.
 ## <a name="reset-notebooks-workspace"></a>Återställ arbets ytan för antecknings böcker
 Om du vill återställa arbets ytan för antecknings böcker till standardinställningarna väljer du **Återställ arbets yta** i kommando fältet. Detta tar bort alla anpassade installerade paket och startar om Jupyter-servern. Dina antecknings böcker, filer och Azure Cosmos-resurser kommer inte att påverkas.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Csharp Query-cell":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Återställ arbets ytan för antecknings böcker":::
 
 ## <a name="next-steps"></a>Nästa steg
 

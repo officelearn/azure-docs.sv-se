@@ -2,20 +2,21 @@
 title: Anslut Qlik Sense till Azure Cosmos DB och visualisera dina data
 description: I den här artikeln beskrivs de steg som krävs för att ansluta Azure Cosmos DB till Qlik Sense och visualisera dina data.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ccd9f10bcf8be5539528be1f513f7e7dd74549e7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2401786a82b6a3e5bf6c6a893a8e7cd3656f3402
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073697"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340438"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Anslut Qlik Sense till Azure Cosmos DB och visualisera dina data
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Qlik Sense är ett verktyg för data visualisering som kombinerar data från olika källor i en enda vy. Qlik Sense indexerar varje möjlig relation i dina data så att du kan få omedelbara insikter om data. Du kan visualisera Azure Cosmos DB data med hjälp av Qlik Sense. I den här artikeln beskrivs de steg som krävs för att ansluta Azure Cosmos DB till Qlik Sense och visualisera dina data. 
 
@@ -53,25 +54,25 @@ Innan du följer anvisningarna i den här artikeln ser du till att du har följa
 
 ## <a name="connect-qlik-sense-to-cosmos-db"></a>Anslut Qlik Sense till Cosmos DB
 
-1. Öppna Qlik Sense och välj **Skapa ny app** . Ange ett namn för din app och välj **skapa** .
+1. Öppna Qlik Sense och välj **Skapa ny app**. Ange ett namn för din app och välj **skapa**.
 
    :::image type="content" source="./media/visualize-qlik-sense/create-new-qlik-sense-app.png" alt-text="Skapa en ny Qlik Sense-app":::
 
-2. När den nya appen har skapats väljer du **Öppna App** och väljer **Lägg till data från filer och andra källor** . 
+2. När den nya appen har skapats väljer du **Öppna App** och väljer **Lägg till data från filer och andra källor**. 
 
 3. Från data källorna väljer du **ODBC** för att öppna fönstret ny anslutnings konfiguration. 
 
-4. Växla till **användar-DSN** och välj den ODBC-anslutning som du skapade tidigare. Ange ett namn för anslutningen och välj **skapa** . 
+4. Växla till **användar-DSN** och välj den ODBC-anslutning som du skapade tidigare. Ange ett namn för anslutningen och välj **skapa**. 
 
-   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Skapa en ny Qlik Sense-app":::
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Skapa en ny anslutning":::
 
 5. När du har skapat anslutningen kan du välja databasen, samlingen där video spelets data finns och sedan förhandsgranska den.
 
-   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Skapa en ny Qlik Sense-app"::: 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Välj databas och samling"::: 
 
 6. Välj sedan **Lägg till data** för att läsa in data till Qlik Sense. När du har läst in data till Qlik Sense kan du generera insikter och analysera data. Du kan antingen använda insikter eller bygga din egen app för att utforska video spels försäljningen. Följande bild visar 
 
-   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Skapa en ny Qlik Sense-app":::
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Visualisera data":::
 
 ### <a name="limitations-when-connecting-with-odbc"></a>Begränsningar vid anslutning med ODBC 
 

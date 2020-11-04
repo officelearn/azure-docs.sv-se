@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 9f55d65b215c03769caa7c812dcda138f8e83595
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 16b37258d922db59f520d4e30c45773f6d1108cf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322465"
+ms.locfileid: "93341140"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Använd Synapse Studio för att övervaka dina Apache Spark-program
 
@@ -29,33 +29,17 @@ Den här självstudien omfattar följande uppgifter:
 * Visa avbrutna Apache Spark program
 * Det gick inte att felsöka Apache Spark programmet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
 - En Synapse Studio-arbetsyta. Instruktioner finns i [skapa en Synapse Studio-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
 
-- En server lös Apache Spark pool.
+- En Apache Spark pool.
 
-## <a name="monitor-running-apache-spark-application"></a>Övervakare som kör Apache Spark program
-
-Öppna **övervakaren** och välj **Apache Spark program**. Om du vill visa information om de Apache Spark-program som körs väljer du sändnings Apache Spark programmet och visar informationen. Om Apache Spark programmet fortfarande körs kan du övervaka förloppet.
-
-  ![Välj pågående jobb](./media/how-to-monitor-spark-applications/select-running-job.png)
-
-1. Kontrol lera **slutförda aktiviteter** , **status** och **total varaktighet**.
-
-2. Avbryt Apache Spark programmet.
-
-3. Uppdatera logg fråga.
-
-4. Visa grafen.
-
-5. Kontrol lera **sammanfattnings** informationen.
-
-6. Kontrol lera **loggarna**. Logg informationen är tom vid körning.
-
-    ![Visa jobb som körs](./media/how-to-monitor-spark-applications/view-running-job.png)
+## <a name="view-apache-spark-applications"></a>Visa Apache Spark program 
+Du kan visa alla Apache Spark program från **övervaka**  ->  **Apache Spark program**.
+   ![Apache Spark-program](./media/how-to-monitor-spark-applications/apache-spark-applications.png)
 
 ## <a name="view-completed-apache-spark-application"></a>Visa slutförda Apache Spark program
 
@@ -69,17 +53,17 @@ Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
 3. Öppna Apache Spark historik Server länk genom att klicka på **Spark historik Server**.
 
-4. Kontrol lera **sammanfattnings** informationen genom att klicka på ikonen i diagrammet.
+4. Kontrol lera **sammanfattnings** informationen.
 
-5. Kontrol lera **loggarna**. Du kan välja olika typer av loggar i list rutan och du kan hämta logg informationen genom att klicka på **Hämta loggar**.
+5. Kontrol lera **loggarna**. Du kan välja olika typer av loggar i list rutan och du kan hämta logg informationen genom att klicka på **Hämta loggar** och markera kryss rutan för **filter fel och varningar** för att filtrera felen och varningarna som du behöver.
 
 6. Du kan se en översikt över jobbet i diagrammet genererat jobb. Som standard visar diagrammet alla jobb. Du kan filtrera den här vyn efter **jobb-ID**.
 
-7. Som standard är visnings **förloppet** markerat. Du kan kontrol lera data flödet genom att välja **läsa** eller **skriva** i list rutan **Visa** .
+7. Som standard är visnings **förloppet** markerat. Du kan kontrol lera data flödet genom att välja **status** för Läs-och / **Skriv** / **Written** / **varaktighet** i list rutan **Visa** .
 
-8. Om du vill spela upp jobbet väljer du **uppspelning**. Du kan välja **stoppa** när som helst för att stoppa.
+8. Om du vill spela upp jobbet klickar du på knappen **uppspelning** . Du kan stoppa genom att klicka på **stopp** -knappen när som helst.
 
-9. Använd musen för att zooma in och ut i jobb diagrammet, eller Välj **Zooma för** att anpassas för att få plats på skärmen.
+9. Använd mus rullning eller rullnings list för att zooma in och zooma ut grafen. du kan också välja **Zooma så** att det passar på skärmen.
 
 10. I noden jobb diagram visas följande information om varje steg:
 
@@ -101,9 +85,34 @@ Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
      ![Visa slutfört jobb](./media/how-to-monitor-spark-applications/view-completed-job.png)
     
-11. Klicka på diagrammet så visas detaljerna för scenen.
+11. Klicka på **Visa information** i diagrammet så visas informationen för scenen.
 
-   ![information för steg](./media/how-to-monitor-spark-applications/details-for-stage.png)
+    ![information för steg](./media/how-to-monitor-spark-applications/details-for-stage.png)
+
+
+## <a name="monitor-running-apache-spark-application"></a>Övervakare som kör Apache Spark program
+
+Öppna **övervakaren** och välj **Apache Spark program**. Om du vill visa information om de Apache Spark-program som körs väljer du sändnings Apache Spark programmet och visar informationen. Om Apache Spark programmet fortfarande körs kan du övervaka förloppet.
+
+   ![Välj pågående jobb](./media/how-to-monitor-spark-applications/select-running-job.png)
+
+1. Kontrol lera **slutförda aktiviteter** , **status** och **total varaktighet**.
+
+2. **Avbryt** Apache Spark programmet.
+
+3. **Uppdatera** Logg fråga.
+
+4. Klicka på **Spark UI** knappen för att gå till Spark-jobbet.
+
+5. Visa grafen. Du kan se en översikt över jobbet i diagrammet genererat jobb. Se steg 6, 7, 8, 9, 10 av [vyn har slutförts Apache Spark programmet](#view-completed-apache-spark-application).
+
+6. Kontrol lera **sammanfattnings** informationen.
+
+7. Kontrol lera diagnostiken på fliken **diagnostik** .
+
+8. Kontrol lera **loggarna** på den här fliken. Du kan välja olika typer av loggar i list rutan och du kan hämta logg informationen genom att klicka på **Hämta loggar** och markera kryss rutan för **filter fel och varningar** för att filtrera felen och varningarna som du behöver.
+
+    ![Visa jobb som körs](./media/how-to-monitor-spark-applications/view-running-job.png)
 
 ## <a name="view-canceled-apache-spark-application"></a>Visa avbrutna Apache Spark program
 
@@ -117,11 +126,13 @@ Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
 3. Öppna Apache historik Server länk genom att klicka på **Spark historik Server**.
 
-4. Visa grafen.
+4. Visa grafen. Du kan se en översikt över jobbet i diagrammet genererat jobb. Se steg 6, 7, 8, 9, 10 av [vyn har slutförts Apache Spark programmet](#view-completed-apache-spark-application).
 
 5. Kontrol lera **sammanfattnings** informationen.
 
-6. Kontrol lera **loggarna**. Du kan välja olika typer av loggar i list rutan och du kan hämta logg informationen genom att klicka på **Hämta loggar**.
+6. Kontrol lera **loggarna**. Du kan välja olika typer av loggar i list rutan och du kan hämta logg informationen genom att klicka på **Hämta** loggar och markera kryss rutan för **filter fel och varningar** för att filtrera felen och varningarna som du behöver.
+
+7. Klicka på **Visa information** i diagrammet så visas informationen för scenen.
 
    ![Visa avbrutna jobb](./media/how-to-monitor-spark-applications/view-cancelled-job.png)
 
@@ -137,7 +148,7 @@ Innan du börjar med den här självstudien måste du uppfylla följande krav:
 
 3. Öppna Apache Spark historik Server länk genom att klicka på **Spark historik Server**.
 
-4. Visa grafen.
+4. Visa grafen. Du kan se en översikt över jobbet i diagrammet genererat jobb. Se steg 6, 7, 8, 9, 10 av [vyn har slutförts Apache Spark program](#view-completed-apache-spark-application)
 
 5. Kontrol lera **sammanfattnings** informationen.
 

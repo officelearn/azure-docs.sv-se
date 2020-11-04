@@ -11,12 +11,12 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: fe20304341d6e99eb77ad2818e675b0063efd693
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a50554c73958400f1f16348d3b8fb2bac88ac61b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319523"
+ms.locfileid: "93340285"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Felsöka Synapse SQL i Azure Synapse Analytics
 
@@ -67,8 +67,6 @@ Den här artikeln innehåller vanliga fel söknings problem i Synapse SQL.
 | :------------------------------------ | :----------------------------------------------------------- |
 | SQL Database funktioner som inte stöds     | Se [tabell funktioner som inte stöds](sql-data-warehouse-tables-overview.md#unsupported-table-features). |
 | SQL Database data typer som inte stöds   | Se [data typer som inte stöds](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types).        |
-| TA bort och uppdatera begränsningar         | Se [uppdaterings lösningar](sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements), [ta bort lösningar](sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements) och [Använd CTAs för att arbeta runt en uppdaterings-och borttagnings-syntax som inte stöds](sql-data-warehouse-develop-ctas.md). |
-| MERGE-instruktionen stöds inte      | Se [sammanfognings lösningar](sql-data-warehouse-develop-ctas.md#replace-merge-statements).                  |
 | Begränsningar för lagrade procedurer          | Se [begränsningar för lagrade](sql-data-warehouse-develop-stored-procedures.md#limitations) procedurer för att förstå vissa begränsningar för lagrade procedurer. |
 | UDF: er stöder inte SELECT-instruktioner | Detta är en aktuell begränsning i vår UDF: er.  Se [skapa funktion](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för den syntax som vi stöder. |
 

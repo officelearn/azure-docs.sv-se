@@ -4,12 +4,12 @@ description: Lär dig hur du skalar din resurs-webbapp, moln tjänst, virtuell d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: b43b7488f2bb3fec810e8a9de67829a676f6b599
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369275"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342223"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med autoskalning i Azure
 I den här artikeln beskrivs hur du konfigurerar inställningarna för autoskalning för resursen i Microsoft Azure-portalen.
@@ -32,9 +32,9 @@ Du kan använda filter fönstret överst för att begränsa listan till att väl
 
 För varje resurs hittar du aktuella instans antal och status för autoskalning. Status för autoskalning kan vara:
 
-- **Inte konfigurerad**: du har inte aktiverat autoskalning än för den här resursen.
-- **Aktive rad**: du har aktiverat autoskalning för den här resursen.
-- **Inaktive rad**: du har inaktiverat autoskalning för den här resursen.
+- **Inte konfigurerad** : du har inte aktiverat autoskalning än för den här resursen.
+- **Aktive rad** : du har aktiverat autoskalning för den här resursen.
+- **Inaktive rad** : du har inaktiverat autoskalning för den här resursen.
 
 ## <a name="create-your-first-autoscale-setting"></a>Skapa din första inställning för autoskalning
 
@@ -45,7 +45,7 @@ Nu ska vi gå igenom en enkel steg-för-steg-genom gång för att skapa din för
   ![Skalnings inställning för ny webbapp][5]
 1. Ange ett namn för skalnings inställningen och klicka sedan på **Lägg till en regel**. Observera de skalnings regel alternativ som öppnas som ett kontext fönster på den högra sidan. Som standard anger detta alternativet att skala antalet instanser med 1 om resursens procent andel överstiger 70 procent. Låt standardvärdena vara kvar och klicka på **Lägg till**.
   ![Skapa skalnings inställning för en webbapp][6]
-1. Nu har du skapat din första skalnings regel. Observera att UX rekommenderar bästa praxis och anger att "det rekommenderas att ha minst en skala i regeln". Så här gör du:
+1. Nu har du skapat din första skalnings regel. Observera att UX rekommenderar bästa praxis och anger att "det rekommenderas att ha minst en skala i regeln". Gör så här:
 
     a. Klicka på **Lägg till en regel**.
 
@@ -121,7 +121,7 @@ Om du vill aktivera funktionen med ARM-mallar anger du `healthcheckpath` egenska
 
 ### <a name="health-check-path"></a>Hälso kontroll Sök väg
 
-Sökvägen måste svara inom en minut med en status kod mellan 200 och 299 (inklusive). Om sökvägen inte svarar inom en minut eller returnerar en status kod utanför intervallet, betraktas instansen som "ej felfri". App Service följer inte 302 omdirigeringar på hälso kontroll Sök vägen. Hälso kontrollen integreras med App Service funktioner för autentisering och auktorisering, systemet når slut punkten även om dessa secuity-funktioner är aktiverade. Om du använder ett eget autentiseringspaket måste sökvägen till hälso kontrollen tillåta anonym åtkomst. Om webbplatsen bara har HTTP**s**– aktive rad skickas Healthcheck-begäran via http**s**.
+Sökvägen måste svara inom en minut med en status kod mellan 200 och 299 (inklusive). Om sökvägen inte svarar inom en minut eller returnerar en status kod utanför intervallet, betraktas instansen som "ej felfri". App Service följer inte 302 omdirigeringar på hälso kontroll Sök vägen. Hälso kontrollen integreras med App Service funktioner för autentisering och auktorisering, systemet når slut punkten även om dessa secuity-funktioner är aktiverade. Om du använder ett eget autentiseringspaket måste sökvägen till hälso kontrollen tillåta anonym åtkomst. Om webbplatsen bara har HTTP **s** – aktive rad skickas Healthcheck-begäran via http **s**.
 
 Hälso kontroll Sök vägen bör kontrol lera de kritiska komponenterna i ditt program. Om ditt program till exempel är beroende av en databas och ett meddelande system bör hälso kontrollens slut punkt ansluta till dessa komponenter. Om programmet inte kan ansluta till en kritisk komponent, ska sökvägen returnera en svars kod på 500 nivå för att indikera att appen inte är felfri.
 
@@ -131,7 +131,7 @@ Utvecklings grupper i stora företag måste ofta följa säkerhets kraven för d
 
 ### <a name="behavior"></a>Beteende
 
-När hälso kontroll Sök vägen anges skickar App Service pinga sökvägen på alla instanser. Om en lyckad svarskod inte tas emot efter fem pingar anses den instansen vara "ej felfri". Felaktiga instansen kommer att uteslutas från belastnings Utjämnings rotationen. När du skalar upp eller ut kommer App Service att pinga hälso kontroll Sök vägen för att se till att de nya instanserna är klara för begär Anden.
+När hälso kontroll Sök vägen anges skickar App Service pinga sökvägen på alla instanser. Om en lyckad svarskod inte tas emot efter fem pingar anses den instansen vara "ej felfri". Felaktiga instansen kommer att uteslutas från belastnings Utjämnings rotationen. Du kan konfigurera det obligatoriska antalet misslyckade pingar med `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` appens inställning. Den här inställningen för appen kan anges till ett heltal mellan 2 och 10. Om detta exempelvis är inställt på `2` , tas instanserna bort från belastningsutjämnaren efter två misslyckade ping-signaler. När du skalar upp eller ut kommer App Service att pinga hälso kontroll Sök vägen för att se till att de nya instanserna är klara för begär Anden innan de läggs till i belastningsutjämnaren.
 
 De återstående felfria instanserna kan uppleva ökad belastning. För att undvika att de återstående instanserna blir överbelastade är inte fler än hälften av instanserna uteslutna. Till exempel, om en App Services plan skalas ut till 4 instanser och 3 av vilka inte är felfri, kommer den högst 2 att uteslutas från belastningsutjämnarens rotation. De andra 2 instanserna (1 felfri och 1 är inte felfria) fortsätter att ta emot begär Anden. I värsta fall där alla instanser är felaktiga kommer ingen att undantas. Om du vill åsidosätta detta beteende kan du ange `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` ett värde mellan och för appens inställning `0` `100` . Om du anger ett högre värde innebär det att fler skadade instanser tas bort (Standardvärdet är 50).
 

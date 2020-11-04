@@ -3,15 +3,16 @@ title: Resurs delning mellan ursprung (CORS) i Azure Cosmos DB
 description: Den här artikeln beskriver hur du konfigurerar CORS (Cross-Origin resurs delning) i Azure Cosmos DB med Azure Portal och Azure Resource Manager mallar.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: 863c31ecac13337ea3f91d7a7ced49b0f7141e58
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: eba49ff45ba9ab1f5cfaa1d75973d656ac32ca6a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086422"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339911"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Konfigurera resurs delning mellan ursprung (CORS)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +30,7 @@ Använd följande steg för att aktivera resurs delning mellan ursprung genom at
 
 1. Gå till ditt Azure Cosmos DB-konto. Öppna **CORS** -bladet.
 
-2. Ange en kommaavgränsad lista över ursprung som kan göra cross-origin-anrop till ditt Azure Cosmos DB-konto. Till exempel,,, `https://www.mydomain.com` `https://mydomain.com` `https://api.mydomain.com` . Du kan också använda jokertecken \* för att tillåta alla ursprung och välja **Skicka** . 
+2. Ange en kommaavgränsad lista över ursprung som kan göra cross-origin-anrop till ditt Azure Cosmos DB-konto. Till exempel,,, `https://www.mydomain.com` `https://mydomain.com` `https://api.mydomain.com` . Du kan också använda jokertecken \* för att tillåta alla ursprung och välja **Skicka**. 
 
    > [!NOTE]
    > För närvarande kan du inte använda jokertecken som en del av domän namnet. `https://*.mydomain.net`Formatet stöds till exempel inte ännu. 

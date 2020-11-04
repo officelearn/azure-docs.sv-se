@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71ed590440a8c7e37a071b4eadfc09977ef91d5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 424a1ef7a73b5abbdba0d89ededb44cb9efdd116
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310831"
+ms.locfileid: "93340996"
 ---
 # <a name="query-folders-and-multiple-files"></a>Efterfråga mappar och flera filer  
 
@@ -22,14 +22,14 @@ I den här artikeln får du lära dig hur du skriver en fråga med Server lös S
 
 SQL-poolen utan Server stöder läsning av flera filer/mappar med jokertecken, som liknar de jokertecken som används i Windows OS. Det finns dock större flexibilitet eftersom flera jokertecken är tillåtna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ditt första steg är att **skapa en databas** där du ska köra frågorna. Initiera sedan objekten genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) för den databasen. Det här installations skriptet skapar data källorna, autentiseringsuppgifterna för databasen och de externa fil formaten som används i de här exemplen.
 
 Du använder mappen *CSV/taxi* för att följa exempel frågorna. Den innehåller NYC taxi-Yellow taxi-resa registrerar data från 2016 juli till 2018 juni. Filerna i *CSV/taxi* har namnet efter år och månad med följande mönster: yellow_tripdata_ <year> - <month> . csv
 
 ## <a name="read-all-files-in-folder"></a>Läsa alla filer i mappen
-    
+
 Exemplet nedan läser alla NYC gula taxi-datafiler från *CSV/taxi-* mappen och returnerar det totala antalet passagerare och sina val per år. Den visar också användningen av mängd funktioner.
 
 ```sql
@@ -180,6 +180,49 @@ ORDER BY
 > Alla filer som används med den enda OpenRowSet-rad uppsättningen måste ha samma struktur (d.v.s. antalet kolumner och deras data typer).
 
 Eftersom du bara har en mapp som matchar villkoren är frågeresultatet detsamma som [i mappen läsa alla filer i mappen](#read-all-files-in-folder).
+
+## <a name="traverse-folders-recursively"></a>Bläddra mappar rekursivt
+
+SQL-poolen utan server kan förflytta sig rekursivt i mappar om du anger/* * i slutet av sökvägen. Följande fråga läser alla filer från alla mappar och undermappar som finns i *CSV* -mappen.
+
+```sql
+SELECT
+    YEAR(pickup_datetime) as [year],
+    SUM(passenger_count) AS passengers_total,
+    COUNT(*) AS [rides_total]
+FROM OPENROWSET(
+        BULK 'csv/taxi/**', 
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count INT,
+        trip_distance FLOAT,
+        rate_code INT,
+        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
+        pickup_location_id INT,
+        dropoff_location_id INT,
+        payment_type INT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS nyc
+GROUP BY
+    YEAR(pickup_datetime)
+ORDER BY
+    YEAR(pickup_datetime);
+```
+
+> [!NOTE]
+> Alla filer som används med den enda OpenRowSet-rad uppsättningen måste ha samma struktur (d.v.s. antalet kolumner och deras data typer).
 
 ## <a name="multiple-wildcards"></a>Flera jokertecken
 

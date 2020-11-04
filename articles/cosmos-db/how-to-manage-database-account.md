@@ -3,15 +3,16 @@ title: Lär dig hur du hanterar databaskonton i Azure Cosmos DB
 description: Lär dig hur du hanterar Azure Cosmos DB-resurser med hjälp av mallarna Azure Portal, PowerShell, CLI och Azure Resource Manager
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4977a9ef8af75797f1e1989975688d7904f0c7b1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d8763a794d2fb96d0c464fb1249b9eb400fd23e7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086456"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339877"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Hantera ett Azure Cosmos-konto
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -48,7 +49,7 @@ Information om hur du [skapar Azure Cosmos DB konto med Azure Resource Manager m
 
 1. Om du vill ta bort regioner avmarkerar du en eller flera regioner från kartan genom att välja de blå sexhörningarna med kryssmarkeringar. Eller välj ”papperskorgsikonen” (🗑) intill regionen på höger sida.
 
-1. Spara ändringarna genom att välja **OK** .
+1. Spara ändringarna genom att välja **OK**.
 
    :::image type="content" source="./media/how-to-manage-database-account/add-region.png" alt-text="Lägga till eller ta bort regionsmenyn":::
 
@@ -70,7 +71,7 @@ Se [lägga till eller ta bort regioner med PowerShell](manage-with-powershell.md
 
 Öppna fliken **replikera data globalt** och välj **Aktivera** för att aktivera flera regioner. När du har aktiverat skrivningar i flera regioner blir alla Läs regioner som du för närvarande har på kontot Läs-och skriv regioner.
 
-:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Lägga till eller ta bort regionsmenyn":::
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Azure Cosmos-konto konfigurerar skärm bild för flera regioner":::
 
 ### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
@@ -148,15 +149,15 @@ Med alternativet automatisk redundans kan Azure Cosmos DB redundansväxla till d
 
 1. Öppna fönstret **replikera data globalt** från ditt Azure Cosmos-konto.
 
-2. Längst upp i fönsterrutan väljer du **Automatisk redundans** .
+2. Längst upp i fönsterrutan väljer du **Automatisk redundans**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Lägga till eller ta bort regionsmenyn":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menyn Replikera data globalt":::
 
-3. I fönsterrutan **Automatisk redundans** ser du till att **Aktivera automatisk redundans** är inställt på **PÅ** . 
+3. I fönsterrutan **Automatisk redundans** ser du till att **Aktivera automatisk redundans** är inställt på **PÅ**. 
 
-4. Välj **Spara** .
+4. Välj **Spara**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Lägga till eller ta bort regionsmenyn":::
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menyn Automatisk redundans i portalen":::
 
 ### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
@@ -177,17 +178,17 @@ När ett Cosmos-konto har kon figurer ATS för automatisk redundans kan växling
 
 1. Öppna fönstret **replikera data globalt** från ditt Azure Cosmos-konto.
 
-2. Längst upp i fönsterrutan väljer du **Automatisk redundans** .
+2. Längst upp i fönsterrutan väljer du **Automatisk redundans**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Lägga till eller ta bort regionsmenyn":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menyn Replikera data globalt":::
 
-3. I fönsterrutan **Automatisk redundans** ser du till att **Aktivera automatisk redundans** är inställt på **PÅ** .
+3. I fönsterrutan **Automatisk redundans** ser du till att **Aktivera automatisk redundans** är inställt på **PÅ**.
 
 4. Du ändrar redundansprioritet genom att dra läsregionerna via de tre punkterna till vänster om raden som visas när du hovrar över dem.
 
-5. Välj **Spara** .
+5. Välj **Spara**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Lägga till eller ta bort regionsmenyn":::
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menyn Automatisk redundans i portalen":::
 
 ### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Azure CLI
 
@@ -211,15 +212,15 @@ Processen för att utföra en manuell redundansväxling innebär att ändra kont
 
 1. Gå till ditt Azure Cosmos-konto och öppna menyn **replikera data globalt** .
 
-2. Längst upp på menyn väljer du **Manuell redundans** .
+2. Längst upp på menyn väljer du **Manuell redundans**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Lägga till eller ta bort regionsmenyn":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menyn Replikera data globalt":::
 
 3. På menyn **Manuell redundans** väljer du din nya skrivregion. Markera kryssrutan för att bekräfta att du förstår att det här alternativet ändrar din skrivregion.
 
-4. Utlös redundansväxlingen genom att välja **OK** .
+4. Utlös redundansväxlingen genom att välja **OK**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Lägga till eller ta bort regionsmenyn":::
+   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Menyn Manuell redundans i portalen":::
 
 ### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Azure CLI
 

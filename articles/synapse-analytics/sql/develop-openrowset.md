@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5059b051b16107ac7508e509d319159651de11e3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e7713239391b49663328a7a058f8f6fd5b444335
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324407"
+ms.locfileid: "93341339"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Använda OpenRowSet med Server lös SQL-pool (för hands version) i Azure Synapse Analytics
 
@@ -96,6 +96,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , DATA_COMPRESSION = 'data_compression_method' ]
 [ , PARSER_VERSION = 'parser_version' ]
 [ , HEADER_ROW = { TRUE | FALSE } ]
+[ , DATAFILETYPE = { 'char' | 'widechar' } ]
 ```
 
 ## <a name="arguments"></a>Argument
@@ -112,7 +113,7 @@ Unstructured_data_path som upprättar en sökväg till data kan vara en absolut 
 - Absoluta sökvägar i formatet " \<prefix> :// \<storage_account_path> / \<storage_path> " gör att en användare kan läsa filerna direkt.
 - Relativ sökväg i formatet <storage_path> som måste användas med `DATA_SOURCE` parametern och beskriver fil mönstret i <storage_account_path> plats som definierats i `EXTERNAL DATA SOURCE` . 
 
- Nedan hittar du relevanta <storage account path> värden som länkar till din specifika externa data källa. 
+Nedan hittar du relevanta <storage account path> värden som länkar till din specifika externa data källa. 
 
 | Extern data Källa       | Prefix | Sökväg till lagrings konto                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
@@ -125,16 +126,18 @@ Unstructured_data_path som upprättar en sökväg till data kan vara en absolut 
 
 '\<storage_path>'
 
- Anger en sökväg i lagrings utrymmet som pekar på den mapp eller fil som du vill läsa. Om sökvägen pekar på en behållare eller mapp kommer alla filer att läsas från den aktuella behållaren eller mappen. Filer i undermappar tas inte med. 
+Anger en sökväg i lagrings utrymmet som pekar på den mapp eller fil som du vill läsa. Om sökvägen pekar på en behållare eller mapp kommer alla filer att läsas från den aktuella behållaren eller mappen. Filer i undermappar tas inte med. 
 
- Du kan använda jokertecken för att rikta in flera filer eller mappar. Användning av flera jokertecken som inte är i följd tillåts.
+Du kan använda jokertecken för att rikta in flera filer eller mappar. Användning av flera jokertecken som inte är i följd tillåts.
 Nedan visas ett exempel som läser alla *CSV* -filer som börjar med *ifyllning* från alla mappar som börjar med */CSV/population* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Om du anger att unstructured_data_path ska vara en mapp, kommer en server lös SQL-pool fråga att hämta filer från den mappen. 
 
+Du kan instruera Server lös SQL-poolen att bläddra igenom mappar genom att ange/* i slutet av sökvägen som i exempel: `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
+
 > [!NOTE]
-> Till skillnad från Hadoop och PolyBase returnerar inte Server lös SQL-poolen undermappar. Till skillnad från Hadoop och PolyBase returnerar även Server fri SQL-pool de filer som fil namnet börjar med en understrykning (_) eller en punkt (.).
+> Till skillnad från Hadoop och PolyBase returnerar inte Server lös SQL-poolen undermappar om du inte anger/* * i slutet av sökvägen. Till skillnad från Hadoop och PolyBase returnerar även Server fri SQL-pool de filer som fil namnet börjar med en understrykning (_) eller en punkt (.).
 
 I exemplet nedan, om unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , kommer en server lös SQL-pool fråga returnera rader från mydata.txt och _hidden.txt. Den returnerar inte mydata2.txt och mydata3.txt eftersom de finns i en undermapp.
 
@@ -222,6 +225,10 @@ HEADER_ROW = {TRUE | !
 
 Anger om CSV-filen innehåller en rubrik rad. Standardvärdet är FALSe. Stöds i PARSER_VERSION = ' 2.0 '. Om värdet är TRUE kommer kolumn namn att läsas från första raden enligt FIRSTROW-argumentet.
 
+DATAFILETYPE = {' char ' | ' widechar '}
+
+Anger encoding: char används för UTF8, widechar används för UTF16-filer.
+
 ## <a name="fast-delimited-text-parsing"></a>Snabb avgränsad text tolkning
 
 Det finns två avgränsade versioner av text tolkare som du kan använda. CSV-parser version 1,0 är standard och funktions rik medan parser version 2,0 har skapats för prestanda. Prestanda förbättring i parsa 2,0 kommer från avancerade tolknings tekniker och multi-threading. Skillnaden i hastigheten blir större när fil storleken ökar.
@@ -235,7 +242,7 @@ Parquet-filer innehåller kolumn-metadata som ska läsas, typ mappningar kan hit
 Kolumn namn för CSV-filer kan läsas från rubrik raden. Du kan ange om rubrik raden finns med HEADER_ROW argument. Om HEADER_ROW = falskt används generiska kolumn namn: C1, C2,... CN där n är antalet kolumner i filen. Data typer härleds från första 100 data rader. Kontrol lera [att läsa CSV-filer utan att ange schema](#read-csv-files-without-specifying-schema) för exempel.
 
 > [!IMPORTANT]
-> Det finns fall när lämplig datatyp inte kan härledas på grund av bristande information och större data typ används i stället. Detta ger bättre prestanda och är särskilt viktigt för Character-kolumner som kommer att härledas som varchar (8000). Om du har Character-kolumner i dina filer och använder schema härledning för bästa prestanda kontrollerar du [härledda data typer](best-practices-sql-on-demand.md#check-inferred-data-types) och [använder lämpliga data typer](best-practices-sql-on-demand.md#use-appropriate-data-types).
+> Det finns fall när lämplig datatyp inte kan härledas på grund av bristande information och större data typ används i stället. Detta ger bättre prestanda och är särskilt viktigt för Character-kolumner som kommer att härledas som varchar (8000). För optimala prestanda [kontrollerar du härledda data typer](best-practices-sql-on-demand.md#check-inferred-data-types) och [använder lämpliga data typer](best-practices-sql-on-demand.md#use-appropriate-data-types).
 
 ### <a name="type-mapping-for-parquet"></a>Typ mappning för Parquet
 

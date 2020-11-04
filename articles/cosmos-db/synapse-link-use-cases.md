@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 3132f19bd80d6958d4d073f63eb6a01c103c2776
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7621a19b510d302454465f9fcbacec27a14dddf9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101357"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340183"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link för Azure Cosmos DB: Användningsfall för nära realtidsanalys
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 [Azure Synapse-länken](synapse-link.md) för Azure Cosmos DB är en inbyggd hybrid transaktions-och analys bearbetnings funktion (HTAP) i molnet som gör det möjligt att köra nära real tids analys över drift data. Synapse-länken skapar en tätt sömlös integrering mellan Azure Cosmos DB och Azure Synapse Analytics.
 
@@ -71,7 +71,7 @@ Nedan följer några rikt linjer för data integrering för batch & strömma dat
 
 Detaljister idag måste bygga säkra och skalbara e-handelslösningar som uppfyller kraven för både kunder och företag. Dessa e-handelslösningar behöver engagera kunder genom anpassade produkter och erbjudanden, bearbeta transaktioner snabbt och säkert och fokusera på uppfyllelse och kund tjänst. Azure Cosmos DB tillsammans med den senaste Synapse-länken för Azure Cosmos DB gör det möjligt för åter försäljare att skapa anpassade rekommendationer för kunder i real tid. De använder konsekvens inställningar med låg latens och justerbara för omedelbara insikter som du ser i följande arkitektur:
 
-:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Azure Synapse-länk för Azure Cosmos DB i tillhandahållar kedje analys " border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Azure Synapse-länk för Azure Cosmos DB i real tids anpassning" border="false":::
 
 Synapse-länk för Azure Cosmos DB användnings fall:
 
@@ -83,7 +83,7 @@ Industriella IOT-innovationer har drastiskt minskat drift stopp i maskiner och �
 
 Följande är en arkitektur som utnyttjar molnets inbyggda HTAP-funktioner i Azure Synapse-länken för Azure Cosmos DB i förutsägbart underhåll av IoT:
 
-:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Azure Synapse-länk för Azure Cosmos DB i tillhandahållar kedje analys " border="false" :::
+:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Azure Synapse-länk för Azure Cosmos DB i förutsägande underhåll i IOT" border="false" :::
 
 Synapse-länk för Azure Cosmos DB användnings fall:
 
@@ -105,7 +105,7 @@ I följande lista visas en översikt över de olika arbets belastnings mönster 
 
 Med Azure dataSynapses-länken kan Azure Cosmos DB inte bara driva transaktions arbets belastningar utan även utföra analytiska arbets belastningar i nära real tid över historiska drift data. Det sker utan ETL-krav och garanterad prestanda isolering från transaktions arbets belastningar.
 
-Följande bild visar arbets belastnings mönster med Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Azure Synapse-länk för Azure Cosmos DB i tillhandahållar kedje analys " border="false":::
+Följande bild visar arbets belastnings mönster med Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Azure Synapse-länk för Azure Cosmos DB arbets belastnings mönster" border="false":::
 
 Låt oss ta ett exempel på ett e-handelsföretags CompanyXYZ med globala åtgärder i 20 länder/regioner för att illustrera fördelarna med att välja Azure Cosmos DB som enkel real tids databas med både transaktions-och analys krav för en inventerings hanterings plattform.
 

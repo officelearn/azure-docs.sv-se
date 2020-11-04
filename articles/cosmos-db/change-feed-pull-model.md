@@ -4,16 +4,17 @@ description: Lär dig hur du använder pull-modellen för Azure Cosmos DB ändra
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 6d2f39eae94b217ad1f95a6a559aa3e1044d10da
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b3f7a8fbe2afcf9b5603f288fe6e3bc429b14532
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072690"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340203"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Ändra flödes hämtnings modell i Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,14 +41,14 @@ Du bör överväga att använda pull-modellen i följande scenarier:
 
 Här är några viktiga skillnader mellan processorn för förändrings matnings processor och pull-modell:
 
-|Visning av aktuellt objekt  | Ändringsflödesprocessor| Hämta modell |
+|Funktion  | Ändringsflödesprocessor| Hämta modell |
 | --- | --- | --- |
 | Hålla koll på den aktuella punkten vid bearbetning av ändrings flöde | Lån (lagras i en Azure Cosmos DB container) | Fortsättnings-token (lagras i minnet eller sparas manuellt) |
 | Möjlighet att spela upp tidigare ändringar | Ja, med push-modell | Ja, med pull-modell|
 | Söker efter framtida ändringar | Söker automatiskt efter ändringar baserat på användardefinierad `WithPollInterval` | Manuell |
 | Beteende där det inte finns några nya ändringar | Vänta `WithPollInterval` och kontrol lera automatiskt | Måste fånga upp undantag och manuellt kontrol lera manuellt |
 | Bearbeta ändringar från hela behållaren | Ja, och automatiskt parallellt över flera trådar/datorer som konsumeras från samma behållare| Ja, och manuellt parallellt med FeedTokens |
-| Bearbeta ändringar från bara en enda partitionsnyckel | Stöds inte | Yes|
+| Bearbeta ändringar från bara en enda partitionsnyckel | Stöds inte | Ja|
 | Support nivå | Allmänt tillgänglig | Förhandsgranskning |
 
 > [!NOTE]

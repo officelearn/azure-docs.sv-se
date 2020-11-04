@@ -1,6 +1,6 @@
 ---
-title: Använda Java och JDBC med Azure Database for PostgreSQL
-description: Lär dig hur du använder Java och JDBC med en Azure Database for PostgreSQL.
+title: 'Snabb start: Använd Java och JDBC med Azure Database for PostgreSQL'
+description: I den här snabb starten får du lära dig hur du använder Java och JDBC med en Azure Database for PostgreSQL.
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
@@ -8,20 +8,20 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 402e69606196ecb1030023c49fa5afefd31b9e94
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92734975"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341424"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Använda Java och JDBC med Azure Database for PostgreSQL
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>Snabb start: Använd Java och JDBC med Azure Database for PostgreSQL
 
 Det här avsnittet visar hur du skapar ett exempel program som använder Java och [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) för att lagra och hämta information i [Azure Database for PostgreSQL](./index.yml).
 
 JDBC är standard Java-API: et för att ansluta till traditionella Relations databaser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto. Om du inte har någon kan du [få en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
 - [Azure Cloud Shell](../cloud-shell/quickstart.md) eller [Azure CLI](/cli/azure/install-azure-cli). Vi rekommenderar Azure Cloud Shell så att du loggas in automatiskt och har åtkomst till alla verktyg du behöver.
@@ -485,7 +485,7 @@ Att köra huvud klassen bör nu generera följande utdata:
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>Slutsats och resurser rensas
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Grattis! Du har skapat ett Java-program som använder JDBC för att lagra och hämta data från Azure Database for PostgreSQL.
 

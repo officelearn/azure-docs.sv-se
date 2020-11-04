@@ -3,16 +3,17 @@ title: Modeller och partitionera data på Azure Cosmos DB med ett verkligt exemp
 description: Lär dig att modellera och partitionera ett verkligt globalt exempel med hjälp av Azure Cosmos DB Core API
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 92d15337f511f534c23ff97d274b344714812a5e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ef999d4b452f3f31942e1fb2ddb46efe760acff0
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100260"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342155"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Så här modellerar och partitionerar du data i Azure Cosmos DB med ett verkligt exempel
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -23,10 +24,10 @@ Om du vanligt vis arbetar med relations databaser har du förmodligen skapat van
 
 ## <a name="the-scenario"></a>Scenariot
 
-I den här övningen ska vi fundera över domänen för en blogg plattform där *användarna* kan skapa *inlägg* . Användarna kan också *gilla* och lägga till *kommentarer* till dessa inlägg.
+I den här övningen ska vi fundera över domänen för en blogg plattform där *användarna* kan skapa *inlägg*. Användarna kan också *gilla* och lägga till *kommentarer* till dessa inlägg.
 
 > [!TIP]
-> Vi har markerat några ord i *kursiv stil* . dessa ord identifierar typen av "saker" som vår modell kommer att behöva manipulera.
+> Vi har markerat några ord i *kursiv stil*. dessa ord identifierar typen av "saker" som vår modell kommer att behöva manipulera.
 
 Lägga till fler krav i vår specifikation:
 
@@ -138,7 +139,7 @@ Den här begäran är enkel att implementera när vi bara skapar eller uppdatera
 
 Hämtning av en användare görs genom att läsa motsvarande objekt från `users` behållaren.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="Hämta ett enskilt objekt från behållaren användare" border="false":::
 
 | **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
@@ -148,7 +149,7 @@ Hämtning av en användare görs genom att läsa motsvarande objekt från `users
 
 På samma sätt som **[C1]** behöver vi bara skriva till `posts` behållaren.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Skriva ett enskilt objekt till behållaren inlägg" border="false":::
 
 | **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
@@ -158,7 +159,7 @@ På samma sätt som **[C1]** behöver vi bara skriva till `posts` behållaren.
 
 Vi börjar med att hämta motsvarande dokument från `posts` behållaren. Men det är inte tillräckligt, enligt vår specifikation, som vi också måste samla in användar namnet för postens författare och antalet kommentarer och hur många gillar det här inlägget, vilket kräver tre ytterligare SQL-frågor som ska utfärdas.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="Hämta ett inlägg och aggregera ytterligare data" border="false":::
 
 Var och en av de ytterligare frågorna filtrerar på partitionsnyckel för dess respektive behållare, vilket är exakt vad vi vill maximera prestanda och skalbarhet. Men vi måste behöva utföra fyra åtgärder för att returnera ett enda inlägg, så vi ska förbättra det i en nästa iteration.
 
@@ -170,7 +171,7 @@ Var och en av de ytterligare frågorna filtrerar på partitionsnyckel för dess 
 
 Först måste vi hämta de önskade inläggen med en SQL-fråga som hämtar de inlägg som motsvarar den specifika användaren. Men vi måste också utfärda fler frågor för att sammanställa författarens användar namn och antalet kommentarer och gillar.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="Hämta alla inlägg för en användare och aggregera ytterligare data" border="false":::
 
 Den här implementeringen visar många nack delar:
 
@@ -185,7 +186,7 @@ Den här implementeringen visar många nack delar:
 
 En kommentar skapas genom att skriva motsvarande objekt i `posts` behållaren.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Skriva ett enskilt objekt till behållaren inlägg" border="false":::
 
 | **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
@@ -195,7 +196,7 @@ En kommentar skapas genom att skriva motsvarande objekt i `posts` behållaren.
 
 Vi börjar med en fråga som hämtar alla kommentarer för det inlägget och återigen måste du samla in användar namn separat för varje kommentar.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="Hämta alla kommentarer för ett inlägg och aggregera ytterligare data" border="false":::
 
 Även om huvud frågan filtrerar på behållarens partitionsnyckel, lägger till användar namn för att aggregera de övergripande prestandan separat. Vi ska förbättra det senare.
 
@@ -207,7 +208,7 @@ Vi börjar med en fråga som hämtar alla kommentarer för det inlägget och åt
 
 Precis som **[C3]** skapar vi motsvarande objekt i `posts` behållaren.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Skriva ett enskilt objekt till behållaren inlägg" border="false":::
 
 | **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
@@ -217,7 +218,7 @@ Precis som **[C3]** skapar vi motsvarande objekt i `posts` behållaren.
 
 Precis som **[Q4]** frågar vi efter det inlägget och sammanställer sedan sina användar namn.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Hämta alla gillar för ett inlägg och aggregera ytterligare data" border="false":::
 
 | **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
@@ -227,7 +228,7 @@ Precis som **[Q4]** frågar vi efter det inlägget och sammanställer sedan sina
 
 Vi hämtar de senaste inläggen genom att fråga `posts` behållaren sorterad efter fallande skapande datum, sedan aggregera användar namn och antal kommentarer och gilla för varje inlägg.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="Hämtar de senaste inläggen och aggregerar ytterligare data" border="false":::
 
 En gång till, filtrerar den ursprungliga frågan inte på `posts` behållarens partitionsnyckel, som utlöser en kostsam fläkt. Det här är ännu sämre eftersom vi riktar in sig på en mycket större resultat uppsättning och sorterar resultaten med en `ORDER BY` -sats, vilket gör det dyrare i termer av enheter för programbegäran.
 
@@ -338,7 +339,7 @@ Användar namn kräver en annan metod eftersom användare inte bara är i olika 
 
 I vårt exempel använder vi ändrings flödet för `users` behållaren för att reagera när användare uppdaterar sina användar namn. När detta inträffar sprider vi ändringen genom att anropa en annan lagrad procedur på `posts` behållaren:
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="Avnormalisera användar namn i behållaren inlägg" border="false":::
 
 ```javascript
 function updateUsernames(userId, username) {
@@ -378,7 +379,7 @@ Den här lagrade proceduren använder ID: t för användaren och användarens ny
 
 Nu när vår avnormalisering är på plats behöver vi bara hämta ett enskilt objekt för att hantera denna begäran.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="Hämta ett enskilt objekt från behållaren inlägg" border="false":::
 
 | **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
@@ -388,7 +389,7 @@ Nu när vår avnormalisering är på plats behöver vi bara hämta ett enskilt o
 
 Här igen kan vi frigöra de extra begär Anden som hämtade användar namnen och som slutförs med en enda fråga som filtrerar på partitionsnyckel.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="Hämta alla kommentarer för ett inlägg" border="false":::
 
 | **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
@@ -398,7 +399,7 @@ Här igen kan vi frigöra de extra begär Anden som hämtade användar namnen oc
 
 Exakt samma situation vid registrering av gillar.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="Hämta alla gillar för ett inlägg" border="false":::
 
 | **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
@@ -406,13 +407,13 @@ Exakt samma situation vid registrering av gillar.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: se till att alla begär Anden är skalbara
 
-Titta på våra övergripande prestanda förbättringar, det finns fortfarande två begär Anden som vi inte har optimerat fullständigt: **[Q3]** och **[Q6]** . De är förfrågningar som avser frågor som inte filtrerar på partitionsnyckel för de behållare som de är riktade till.
+Titta på våra övergripande prestanda förbättringar, det finns fortfarande två begär Anden som vi inte har optimerat fullständigt: **[Q3]** och **[Q6]**. De är förfrågningar som avser frågor som inte filtrerar på partitionsnyckel för de behållare som de är riktade till.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>Q3 Lista en användares inlägg i kort form
 
 Den här begäran har redan nytta av förbättringarna som introducerades i v2, vilket frigör ytterligare frågor.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Diagram som visar frågan för att lista en användares inlägg i kort form." border="false":::
 
 Men den återstående frågan filtreras fortfarande inte i `posts` behållarens partitionsnyckel.
 
@@ -456,11 +457,11 @@ Tänk på följande:
 
 För att uppnå den avnormaliseringen ska vi återigen använda ändrings flödet. Den här gången reagerar vi på ändrings flödet för `posts` behållaren för att skicka in nya eller uppdaterade inlägg till `users` behållaren. Eftersom registrering av inlägg inte kräver att deras fullständiga innehåll returneras kan vi trunkera dem i processen.
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="Avnormaliserar inlägg i användar behållaren" border="false":::
 
 Vi kan nu dirigera vår fråga till `users` behållaren, filtrera på behållarens partitionsnyckel.
 
-:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="Hämtar alla inlägg för en användare" border="false":::
 
 | **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |
@@ -470,7 +471,7 @@ Vi kan nu dirigera vår fråga till `users` behållaren, filtrera på behållare
 
 Vi måste ta itu med en liknande situation här: även när du har behållit ytterligare frågor som inte behövs av avnormaliseringen som introducerades i v2, filtreras inte den återstående frågan på behållarens partitionsnyckel:
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Diagram som visar frågan för att visa en lista över de x senaste inlägg som skapats i kort form." border="false":::
 
 På samma sätt måste du maximera den här begärans prestanda och skalbarhet kräver att den bara träffar en partition. Detta är det enda eftersom vi bara behöver returnera ett begränsat antal objekt. för att kunna fylla i vår blogg plattforms start sida behöver vi bara hämta de 100 senaste inläggen, utan att behöva gå över hela data uppsättningen.
 
@@ -495,7 +496,7 @@ Den här behållaren är partitionerad av `type` , som alltid kommer att finnas 
 
 För att uppnå avnormaliseringen behöver vi bara ansluta till pipelinen Change feed som vi tidigare har lanserat för att skicka inlägg till den nya behållaren. En viktig sak att tänka på är att vi måste se till att vi endast lagrar 100 senaste inlägg. Annars kan behållarens innehåll växa utanför den maximala storleken på en partition. Detta görs genom att anropa en [efter utlösare](stored-procedures-triggers-udfs.md#triggers) varje gång ett dokument läggs till i behållaren:
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="Avnormaliserar inlägg i feed-behållaren" border="false":::
 
 Här är innehållet i den post-trigger som trunkerar samlingen:
 
@@ -546,7 +547,7 @@ function truncateFeed() {
 
 Det sista steget är att omdirigera vår fråga till vår nya `feed` behållare:
 
-:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="Skriva ett enskilt objekt till behållaren användare" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="Hämtar de senaste inläggen" border="false":::
 
 | **Svarstid** | **Avgift för RU** | **Prestanda** |
 | --- | --- | --- |

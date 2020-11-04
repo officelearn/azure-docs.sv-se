@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 96a655c99a5b6846e5f286e31d22a3756e69d06e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8820fd7b0812d925af6aca923a2b205d5bc92f3e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912131"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341458"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: använda .NET (C#) för att ansluta och fråga efter data i Azure Database for PostgreSQL-enskild server
 
@@ -40,13 +40,13 @@ För den här snabb starten behöver du:
 Hämta den information som du behöver för att ansluta till Azure Database för PostgreSQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser** . Sök sedan efter den server som du skapade (till exempel **mydemoserver** ).
+2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser**. Sök sedan efter den server som du skapade (till exempel **mydemoserver** ).
 3. Klicka på servernamnet.
-4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören** . Om du glömmer lösenordet kan du även återställa det på den här panelen.
+4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
  :::image type="content" source="./media/connect-csharp/1-connection-string.png" alt-text="Azure Database for PostgreSQL-servernamn":::
 
 ## <a name="step-1-connect-and-insert-data"></a>Steg 1: Anslut och infoga data
-Använd följande kod för att ansluta och läsa in data med hjälp av SQL-instruktionerna **CREATE TABLE** och **INSERT** . Koden använder klassen klassen npgsqlcommand med metoden: 
+Använd följande kod för att ansluta och läsa in data med hjälp av SQL-instruktionerna **CREATE TABLE** och **INSERT**. Koden använder klassen klassen npgsqlcommand med metoden: 
 - [Öppna ()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) för att upprätta en anslutning till PostgreSQL-databasen.
 - [CreateCommand ()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) anger egenskapen CommandText.
 - [ExecuteNonQuery ()-](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) metoden för att köra databas kommandona. 
@@ -200,7 +200,7 @@ namespace Driver
 [Har du problem? Berätta för oss.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="step-3-update-data"></a>Steg 3: uppdatera data
-Använd följande kod för att ansluta och uppdatera data med SQL-instruktionen **UPDATE** . Koden använder klassen klassen npgsqlcommand med metoden:
+Använd följande kod för att ansluta och uppdatera data med SQL-instruktionen **UPDATE**. Koden använder klassen klassen npgsqlcommand med metoden:
 - [Öppna ()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) för att upprätta en anslutning till postgresql. 
 - [CreateCommand ()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand)anger egenskapen CommandText.
 - [ExecuteNonQuery ()-](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) metoden för att köra databas kommandona.
@@ -265,7 +265,7 @@ namespace Driver
 [Har du problem? Berätta för oss.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="step-4-delete-data"></a>Steg 4: ta bort data
-Använd följande kod för att ansluta och läsa data med SQL-instruktionen **DELETE** . 
+Använd följande kod för att ansluta och läsa data med SQL-instruktionen **DELETE**. 
 
 Koden använder klassen NpgsqlCommand med metoden [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) för att upprätta en anslutning till PostgreSQL-databasen. Sedan använder koden metoden [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), anger egenskapen CommandText och anropar metoden [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) för att köra databaskommandona.
 
@@ -321,6 +321,16 @@ namespace Driver
     }
 }
 
+```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du vill rensa alla resurser som används under den här snabb starten tar du bort resurs gruppen med hjälp av följande kommando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Nästa steg

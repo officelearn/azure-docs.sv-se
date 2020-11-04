@@ -3,15 +3,16 @@ title: Använd inbyggda antecknings boks kommandon och funktioner i Azure Cosmos
 description: Lär dig hur du använder inbyggda kommandon och funktioner för att utföra vanliga åtgärder med hjälp av Azure Cosmos DB inbyggda python-anteckningsböcker.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 32c433455e1075045323dc466b41ad19ac68f454
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074360"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340421"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Använd inbyggda antecknings boks kommandon och funktioner i Azure Cosmos DB python-anteckningsböcker (förhands granskning)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -201,7 +202,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Återställ arbets ytan för antecknings böcker
 Om du vill återställa arbets ytan för antecknings böcker till standardinställningarna väljer du **Återställ arbets yta** i kommando fältet. Detta tar bort alla anpassade installerade paket och startar om Jupyter-servern. Dina antecknings böcker, filer och Azure Cosmos-resurser kommer inte att påverkas.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="nteract data Utforskare":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Återställ arbets ytan för antecknings böcker":::
 
 ## <a name="next-steps"></a>Nästa steg
 

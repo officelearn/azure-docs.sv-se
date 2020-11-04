@@ -4,16 +4,17 @@ description: Lär dig hur du importerar eller matar in data till Azure Cosmos DB
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e80a67890dcf76d115464ea62c0729aedd444667
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6e50fe1f5b1658458a2d561f8157f04d1cbceb41
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099240"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341256"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Mass import av data till Azure Cosmos DB SQL API-konto med hjälp av .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +46,7 @@ Se till att du har följande resurser innan du följer anvisningarna i den här 
 
 ## <a name="step-2-set-up-your-net-project"></a>Steg 2: Konfigurera ditt .NET-projekt
 
-Öppna kommando tolken i Windows eller ett terminalfönster från den lokala datorn. Du kommer att köra alla kommandon i nästa avsnitt från kommando tolken eller terminalen. Kör följande dotNet New-kommando för att skapa en ny app med namnet *bulk-import-demo* . `--langVersion`Parametern anger egenskapen *LangVersion* i den skapade projekt filen.
+Öppna kommando tolken i Windows eller ett terminalfönster från den lokala datorn. Du kommer att köra alla kommandon i nästa avsnitt från kommando tolken eller terminalen. Kör följande dotNet New-kommando för att skapa en ny app med namnet *bulk-import-demo*. `--langVersion`Parametern anger egenskapen *LangVersion* i den skapade projekt filen.
 
    ```bash
    dotnet new console –langVersion:8 -n bulk-import-demo
@@ -83,7 +84,7 @@ När du fortfarande är i program katalogen installerar du Azure Cosmos DB klien
 
 Exempel programmet måste autentisera till ditt Azure Cosmos-konto. För att autentisera bör du skicka autentiseringsuppgifter för Azure Cosmos-kontot till programmet. Hämta dina autentiseringsuppgifter för Azure Cosmos-kontot genom att följa dessa steg:
 
-1.  Logga in på [Azure-portalen](https://portal.azure.com/).
+1.  Logga in i [Azure-portalen](https://portal.azure.com/).
 1.  Navigera till ditt Azure Cosmos-konto.
 1.  Öppna rutan **nycklar** och kopiera **URI: n** och **primär nyckeln** för ditt konto.
 

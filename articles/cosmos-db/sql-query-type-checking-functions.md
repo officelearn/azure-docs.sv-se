@@ -3,23 +3,24 @@ title: Typ kontroll funktioner i Azure Cosmos DB frågespråk
 description: Lär dig mer om typ kontroll av SQL system-funktioner i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bafc599ddb502d5714b08ff58ed942e9c17557a8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 96fea7cb53c89c02583a6dba8434cd33641d6a09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093766"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341510"
 ---
 # <a name="type-checking-functions-azure-cosmos-db"></a>Typ kontroll funktioner (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Med typ kontroll funktionerna kan du kontrol lera typen av uttryck i en SQL-fråga. Du kan använda typ kontroll funktioner för att avgöra vilka typer av egenskaper som finns i objekt i farten, när de är variabla eller okända. 
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 Här är en tabell över inbyggda typ kontroll funktioner som stöds:
 

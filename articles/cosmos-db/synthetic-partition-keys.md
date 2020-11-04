@@ -2,21 +2,22 @@
 title: Skapa en syntetisk partitionsnyckel i Azure Cosmos DB
 description: Lär dig hur du använder syntetiska partitionsuppsättningar i dina Azure Cosmos-behållare för att distribuera data och arbets belastning jämnt över partitionernas nycklar
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: d6868859247fc430ee96581ae85fb7077af04999
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6b8bc44f1ba5624c37620205aaa574e618ef395f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098033"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340661"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Skapa en syntetisk partitionsnyckel
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Vi rekommenderar att du har en partitionsnyckel med många distinkta värden, till exempel hundratals eller tusentals. Målet är att distribuera data och arbets belastning jämnt mellan objekten som är kopplade till dessa nyckel värden. Om sådan egenskap inte finns i dina data, kan du skapa en *syntetisk partitionsnyckel* . I det här dokumentet beskrivs flera grundläggande metoder för att skapa en syntetisk partitionsnyckel för Cosmos-behållaren.
+Vi rekommenderar att du har en partitionsnyckel med många distinkta värden, till exempel hundratals eller tusentals. Målet är att distribuera data och arbets belastning jämnt mellan objekten som är kopplade till dessa nyckel värden. Om sådan egenskap inte finns i dina data, kan du skapa en *syntetisk partitionsnyckel*. I det här dokumentet beskrivs flera grundläggande metoder för att skapa en syntetisk partitionsnyckel för Cosmos-behållaren.
 
 ## <a name="concatenate-multiple-properties-of-an-item"></a>Sammanfoga flera egenskaper för ett objekt
 

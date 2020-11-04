@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: d21b59b8822684598ac2fc3fd813278c1cf0c698
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8aae75aca585c30c0678c88247a8ecfe8a0b801d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319808"
+ms.locfileid: "93340268"
 ---
 # <a name="virtual-network-service-tags"></a>Tjänst taggar för virtuellt nätverk
 <a name="network-service-tags"></a>
@@ -84,7 +84,6 @@ Som standard återspeglar service märken intervallen för hela molnet. Vissa se
 | **DataFactory**  | Azure Data Factory | Båda | Nej | Nej |
 | **DataFactoryManagement** | Hanterings trafik för Azure Data Factory. | Utgående | Nej | Nej |
 | **Dynamics365ForMarketingEmail** | Adress intervallen för Marketing e-posttjänsten för Dynamics 365. | Utgående | Ja | Nej |
-| **ElasticAFD** | Elastisk Azure-front dörr. | Båda | Nej | Nej |
 | **EventHub** | Azure-Event Hubs. | Utgående | Ja | Ja |
 | **GatewayManager** | Hanterings trafik för distributioner avsedda för Azure VPN Gateway och Application Gateway. | Inkommande | Nej | Nej |
 | **GuestAndHybridManagement** | Azure Automation-och gäst konfiguration. | Utgående | Nej | Ja |

@@ -8,18 +8,18 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 66d09503f5db95811f807aa7faa83b92facca992
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a6923f0a1d568cc695b86d1538ba55a3eb3444da
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543703"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341492"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Självstudie: etablera en Azure Database for MySQL server med Azure Resource Manager-mall
 
 [Azure Database for MySQL REST API](/rest/api/mysql/) låter DevOps-tekniker automatisera och integrera etablering, konfiguration och drift för hanterade MySQL-servrar och databaser i Azure.  API:et låter dig skapa, uppräkna, hantera och ta bort MySQL-servrar och databaser på Azure Database for MySQL-tjänsten.
 
-Azure Resource Manager utnyttjar det underliggande REST-API:et för att deklarera och programmera de Azure-resurser som krävs för distributioner i skala, vilket överensstämmer med konceptet om ”infrastruktur som kod”. Mallen parameteriserar Azure-resursens namn, SKU, nätverk, brandväggskonfiguration och inställningar, vilket låter den skapas en gång och användas flera gånger.  Azure Resource Manager-mallar kan enkelt skapas med [Azure-portalen](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) eller [Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI). De möjliggör programpaketering, standardisering och distributionsautomatisering som kan integreras i DevOps CI/CD-pipelinen.  Om du till exempel snabbt vill distribuera en Webbapp med en Azure Database for MySQL-serverdel så kan du utföra distributionen från början till slut med den här [Snabbstartsmallen](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) från GitHub-galleriet.
+Azure Resource Manager använder den underliggande REST API för att deklarera och program de Azure-resurser som krävs för distributioner i skala, anpassas med infrastruktur som ett kod begrepp. Mallen parameteriserar Azure-resursens namn, SKU, nätverk, brandväggskonfiguration och inställningar, vilket låter den skapas en gång och användas flera gånger.  Azure Resource Manager-mallar kan enkelt skapas med [Azure-portalen](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) eller [Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI). De möjliggör programpaketering, standardisering och distributionsautomatisering som kan integreras i DevOps CI/CD-pipelinen.  Om du till exempel snabbt vill distribuera en Webbapp med en Azure Database for MySQL-serverdel så kan du utföra distributionen från början till slut med den här [Snabbstartsmallen](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) från GitHub-galleriet.
 
 I den här självstudien ska du använda Azure Resource Manager-mallar och andra verktyg för att lära dig:
 
@@ -29,6 +29,8 @@ I den här självstudien ska du använda Azure Resource Manager-mallar och andra
 > * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data
+
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -115,7 +117,7 @@ För att ansluta till servern måste du ange värddatorinformationen och autenti
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **administratorLogin** .
+Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -199,13 +201,47 @@ Raden uppdateras när du hämtar data.
 SELECT * FROM inventory;
 ```
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När den inte längre behövs tar du bort resurs gruppen, som tar bort resurserna i resurs gruppen.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **resurs grupper**.
+
+2. I listan resurs grupp väljer du namnet på din resurs grupp.
+
+3. På sidan **Översikt** i resurs gruppen väljer du **ta bort resurs grupp**.
+
+4. I bekräftelse dialog rutan skriver du namnet på din resurs grupp och väljer sedan **ta bort**.
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+---
+
 ## <a name="next-steps"></a>Nästa steg
 I de här självstudierna lärde du dig att:
 > [!div class="checklist"]
 > * Skapa en Azure Database for MySQL-server med VNet-tjänstslutpunkt med en Azure Resource Manager-mall
-> * Använd [kommando rads verktyget MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) för att skapa en databas
+> * Använda kommandoradsverktyget mysql till att skapa en databas
 > * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data
-> 
+
+> [!div class="nextstepaction"]
 > [Så ansluter du program till Azure Database for MySQL](./howto-connection-string.md)

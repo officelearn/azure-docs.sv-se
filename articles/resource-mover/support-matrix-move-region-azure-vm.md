@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b59bc33698be516ec5a2e289b52dafcb9e9efcbe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521313"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341866"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Stöd för att flytta virtuella Azure-datorer mellan Azure-regioner
 
@@ -101,7 +101,7 @@ SUSE Linux Enterprise Server 15 och 15 SP1 |  Alla börs-och 15-kernels och 15 k
 **Inställning** | **Support** | **Detaljer**
 --- | --- | ---
 Storlek | Valfri storlek på virtuella Azure-datorer med minst två processor kärnor och 1 GB RAM | Verifiera [storleken på virtuella Azure-datorer](../virtual-machines/sizes-general.md).
-Tillgänglighetsuppsättningar | Stöds för närvarande inte | Om du lägger till en virtuell Azure-dator med en tillgänglighets uppsättning i flyttnings samlingen med standard alternativen, Miss lyckas förberedelse processen. Du kan antingen välja att flytta den virtuella datorn till en tillgänglighets zon till eller flytta den som en enskild instans av en virtuell dator. Du kan ändra inställningarna på sidan Redigera mål egenskaper.
+Tillgänglighetsuppsättningar | Stöds | Stöds.
 Tillgänglighetszoner | Stöds | Stöds, beroende på stöd för mål region.
 Azure Gallery-avbildningar (publicerat av Microsoft) | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Azure Gallery-avbildningar (publicerat av tredje part)  | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.

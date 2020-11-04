@@ -3,7 +3,7 @@ title: Översikt över Azure Media Services | Microsoft Docs
 description: Microsoft Azure Media Services är en utökningsbar molnbaserad plattform som gör att utvecklare kan skapa skalbara program för mediehantering och medieleverans. Den här artikeln ger en översikt över Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
-ms.author: juliako
-ms.openlocfilehash: 0d896b0ce23116f1b87718f492d407ac094b9e6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.openlocfilehash: c6f889963e87d900040d1fe77031f943ab368837
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261163"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348754"
 ---
 # <a name="azure-media-services-overview"></a>Översikt över Azure Media Services
 
@@ -69,7 +69,7 @@ Bygg Media Services-lösningar genom att använda:
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Azure Media Services för Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (detta är en icke-Microsoft-version av en Node.js SDK. Den underhålls av ett community och har för närvarande inte en 100-procentig täckning av AMS API:er).
 * Befintliga verktyg:
-    * [Azure Portal](https://portal.azure.com/)
+    * [Azure-portalen](https://portal.azure.com/)
     * [Azure-Media Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) är ett Winforms/C#-program för Windows)
 
 > [!NOTE]
@@ -78,7 +78,7 @@ Bygg Media Services-lösningar genom att använda:
 
 ## <a name="code-samples"></a>Kodexempel
 
-Du hittar flera exempel i galleriet med **kodexempel för Azure**: [kodexempel för Azure Media Services](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+Du hittar flera exempel i galleriet med **kodexempel för Azure** : [kodexempel för Azure Media Services](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 ## <a name="concepts"></a>Begrepp
 
@@ -86,13 +86,12 @@ Azure Media Services-koncepten finns i [Koncept](media-services-concepts.md).
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>Scenarier som stöds och tillgänglighet för Media Services över datacenter
 
-Detaljerad information finns i [AMS-scenarier och tillgänglighet för funktioner och tjänster över datacenter](scenarios-and-availability.md).
+Mer information om vanliga scenarier för Azure finns i [AMS-scenarier](scenarios-and-availability.md).
+Information om regional tillgänglighet finns i [tillgänglighet för medie tjänster](availability-regions-v-2.md).
 
 ## <a name="service-level-agreement-sla"></a>Serviceavtal (SLA)
 
 Mer information finns i [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
-
-Information om tillgänglighet i datacenter finns i avsnittet [Tillgänglighet](scenarios-and-availability.md#availability).
 
 ## <a name="support"></a>Support
 

@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 6a272294ca602e3f482156a7334084bf041f683e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1570bd9dfa62caa749d5a3983b93c2555be058ec
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307559"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348742"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Konfigurera haveriberedskap för virtuella Azure-datorer med Azure PowerShell
 
@@ -249,6 +249,15 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
+#### <a name="fabric-and-container-creation-when-enabling-zone-to-zone-replication"></a>Skapande av infrastruktur och behållare vid aktivering av zon till zon-replikering
+
+När zon-till-zon-replikering aktive ras skapas bara en infrastruktur resurs. Men det kommer att finnas två behållare. Om du antar att regionen är Västeuropa, använder du följande kommandon för att hämta de primära och skydds behållarna –
+
+```azurepowershell
+$primaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-container"
+$recoveryPprotectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-t-container"
+```
+
 ### <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
 
 ```azurepowershell
@@ -287,6 +296,14 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
+#### <a name="protection-container-mapping-creation-when-enabling-zone-to-zone-replication"></a>Skapa skydds behållar mappning vid aktivering av zon till zon replikering
+
+När du aktiverar zon-till-zon-replikering använder du kommandot nedan för att skapa skydds behållar mappning. Om vi antar att regionen är Västeuropa, är kommandot-
+
+```azurepowershell
+$protContainerMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimprotectionContainer -Name "westeurope-westeurope-24-hour-retention-policy-s"
+```
+
 ### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Skapa en skydds behållar mappning för återställning efter fel (omvänd replikering efter en redundansväxling)
 
 När du är redo att återställa den virtuella datorn till den ursprungliga Azure-regionen efter en redundansväxling gör du en återställning efter fel. Om du vill växla tillbaka replikeras den misslyckade över virtuella datorn från den felande över-regionen till den ursprungliga regionen. För omvänd replikering är rollerna för den ursprungliga regionen och växeln för återställnings regionen. Den ursprungliga regionen blir nu den nya återställnings regionen och det som ursprungligen var återställnings regionen blir den primära regionen. Skydds behållar mappningen för omvänd replikering representerar de växlade rollerna i original-och återställnings regionerna.
@@ -316,7 +333,7 @@ Ett cache Storage-konto är ett standard lagrings konto i samma Azure-region som
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-För virtuella datorer som **inte använder hanterade diskar**är mål lagrings kontot det lagrings konto i återställnings regionen som diskarna på den virtuella datorn replikeras till. Mål lagrings kontot kan antingen vara ett standard lagrings konto eller ett Premium Storage-konto. Välj den typ av lagrings konto som krävs baserat på data ändrings frekvensen (i/o-bildfrekvensen) för diskarna och Azure Site Recovery omsättnings gränser som stöds för lagrings typen.
+För virtuella datorer som **inte använder hanterade diskar** är mål lagrings kontot det lagrings konto i återställnings regionen som diskarna på den virtuella datorn replikeras till. Mål lagrings kontot kan antingen vara ett standard lagrings konto eller ett Premium Storage-konto. Välj den typ av lagrings konto som krävs baserat på data ändrings frekvensen (i/o-bildfrekvensen) för diskarna och Azure Site Recovery omsättnings gränser som stöds för lagrings typen.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account

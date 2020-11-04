@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: d26354d8c247f0839bb96564c4e004158743bd88
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 36540de8924a1433f16f942d9aedc059efae05de
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742214"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348686"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
-Du kan använda Uppdateringshantering i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-datorer i Azure, i lokala miljöer och i andra moln miljöer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agent datorer och hantera processen för att installera nödvändiga uppdateringar för servrar.
+Du kan använda Uppdateringshantering i Azure Automation för att hantera operativ system uppdateringar för virtuella Windows-och Linux-datorer i Azure, i lokala miljöer och i andra moln miljöer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agent datorer och hantera processen för att installera nödvändiga uppdateringar för servrar.
 
 > [!NOTE]
 > Du kan inte använda en dator som kon figurer ATS med Uppdateringshantering för att köra anpassade skript från Azure Automation. Den här datorn kan bara köra det Microsoft-signerade uppdaterings skriptet.
@@ -25,12 +25,12 @@ Innan du distribuerar Uppdateringshantering och aktiverar dina datorer för hant
 
 ## <a name="about-update-management"></a>Om Uppdateringshantering
 
-Datorer som hanteras med Uppdateringshantering använder följande konfigurationer för att utföra utvärderingen och för att uppdatera distributioner:
+Datorer som hanteras av Uppdateringshantering förlitar sig på följande för att utföra utvärderingen och distribuera uppdateringar:
 
-* Log Analytics agent för Windows eller Linux
+* [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) för Windows eller Linux
 * Önskad PowerShell-tillståndskonfiguration (DSC) för Linux
-* Automation Hybrid Runbook Worker
-* Microsoft Update eller Windows Server Update Services (WSUS) för Windows-datorer
+* Automation-Hybrid Runbook Worker (installeras automatiskt när du aktiverar Uppdateringshantering på datorn)
+* Microsoft Update eller [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS) för Windows-datorer
 * Antingen en privat eller offentlig uppdaterings plats för Linux-datorer
 
 I följande diagram illustreras hur Uppdateringshantering utvärderar och tillämpar säkerhets uppdateringar på alla anslutna Windows Server-och Linux-servrar på en arbets yta:
@@ -64,7 +64,7 @@ En dator som är registrerad för Uppdateringshantering i fler än en Log Analyt
 
 ### <a name="supported-client-types"></a>Klient typer som stöds
 
-I följande tabell visas de operativ system som stöds för uppdaterings bedömning och uppdatering. Uppdatering kräver en Hybrid Runbook Worker. Information om Hybrid Runbook Worker krav finns i [distribuera en Windows-hybrid Runbook Worker](../automation-windows-hrw-install.md) och [distribuera en Linux-hybrid Runbook Worker](../automation-linux-hrw-install.md).
+I följande tabell visas de operativ system som stöds för uppdaterings bedömning och uppdatering. Uppdatering kräver en Hybrid Runbook Worker, som installeras automatiskt när du aktiverar den virtuella datorn eller servern för hantering genom att Uppdateringshantering. Information om Hybrid Runbook Worker system krav finns i [distribuera en Windows-hybrid Runbook Worker](../automation-windows-hrw-install.md) och [distribuera en Linux-hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
 > [!NOTE]
 > Uppdaterings utvärdering av Linux-datorer stöds bara i vissa regioner enligt listan i Automation-kontot och Log Analytics [mappnings tabellen](../how-to/region-mappings.md#supported-mappings)för arbets ytan.
@@ -97,7 +97,7 @@ Följande information beskriver särskilda klient krav för operativ systemet. Y
 
 #### <a name="windows"></a>Windows
 
-Windows-agenter måste konfigureras för att kommunicera med en WSUS-server, eller de kräver åtkomst till Microsoft Update. Information om Log Analytics agent finns i [Översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md). För Hybrid datorer rekommenderar vi att du installerar Log Analytics agent för Windows genom att först ansluta datorn till [Azure Arc-aktiverade servrar](../../azure-arc/servers/overview.md)och sedan använda Azure policy för att tilldela en inbyggd princip för [att distribuera Log Analytics agent till Windows Azure Arc-datorer](../../governance/policy/samples/built-in-policies.md#monitoring) . Om du också planerar att övervaka datorerna med Azure Monitor for VMs använder du i stället [aktivera Azure Monitor for VMS](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiativ.
+Windows-agenter måste konfigureras för att kommunicera med en WSUS-server, eller de kräver åtkomst till Microsoft Update. För Hybrid datorer rekommenderar vi att du installerar Log Analytics agent för Windows genom att först ansluta datorn till [Azure Arc-aktiverade servrar](../../azure-arc/servers/overview.md)och sedan använda Azure policy för att tilldela den inbyggda principen [distribuera Log Analytics agent till Windows Azure Arc-datorer](../../governance/policy/samples/built-in-policies.md#monitoring) . Alternativt, om du planerar att övervaka datorerna med Azure Monitor for VMs, använder du i stället [aktivera Azure Monitor for VMS](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiativ.
 
 Du kan använda Uppdateringshantering med Microsoft Endpoint Configuration Manager. Mer information om integrations scenarier finns i [integrera uppdateringshantering med Windows-slutpunkt Configuration Manager](mecmintegration.md). [Log Analytics agent för Windows](../../azure-monitor/platform/agent-windows.md) krävs för Windows-servrar som hanteras av-platser i din Configuration Manager-miljö. 
 
@@ -113,7 +113,7 @@ För Linux kräver datorn åtkomst till ett uppdaterings lager, antingen privat 
 > [!NOTE]
 > Uppdaterings utvärdering av Linux-datorer stöds bara i vissa regioner. Se tabellen Automation-konto och Log Analytics [mappningar](../how-to/region-mappings.md#supported-mappings)för arbets ytor.
 
-Information om Log Analytics agent finns i [Översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md). För Hybrid datorer rekommenderar vi att du installerar Log Analytics agent för Linux genom att först ansluta datorn till [Azure Arc-aktiverade servrar](../../azure-arc/servers/overview.md)och sedan använda Azure policy för att tilldela den inbyggda principen [distribuera Log Analytics agent till Linux Azure Arc-datorer](../../governance/policy/samples/built-in-policies.md#monitoring) . Om du även planerar att övervaka datorerna med Azure Monitor for VMs använder du i stället [aktivera Azure Monitor for VMS](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiativ.
+För Hybrid datorer rekommenderar vi att du installerar Log Analytics agent för Linux genom att först ansluta datorn till [Azure Arc-aktiverade servrar](../../azure-arc/servers/overview.md)och sedan använda Azure policy för att tilldela den inbyggda principen [distribuera Log Analytics agent till Linux Azure Arc-datorer](../../governance/policy/samples/built-in-policies.md#monitoring) . Alternativt, om du planerar att övervaka datorerna med Azure Monitor for VMs, använder du i stället [aktivera Azure Monitor for VMS](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiativ.
 
 Virtuella datorer som skapats från RHEL-avbildningar (på begäran Red Hat Enterprise Linux) som är tillgängliga på Azure Marketplace är registrerade för att få åtkomst till [Red Hat-(RHUI)](../../virtual-machines/workloads/redhat/redhat-rhui.md) som har distribuerats i Azure. Alla andra Linux-distributioner måste uppdateras från distributionens online-fillagringsplats genom att använda de metoder som stöds av distributionen.
 
@@ -182,7 +182,7 @@ Följande adresser krävs specifikt för Uppdateringshantering. Kommunikationen 
 |`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 |`*.azure-automation.net` | `*.azure-automation.us`|
 
-När du skapar säkerhets regler för nätverks grupper eller konfigurerar Azure-brandväggen för att tillåta trafik till Automation-tjänsten och Log Analytics arbets ytan, använder du [service tag-](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** och **AzureMonitor** . Detta fören klar den löpande hanteringen av dina nätverks säkerhets regler. Om du vill ansluta till Automation-tjänsten från dina virtuella Azure-datorer på ett säkert och privat sätt kan du läsa [Använd Azure privat länk](../how-to/private-link-security.md). För att hämta den aktuella service tag-koden och intervall informationen som ska ingå som en del av dina lokala brand Väggs konfigurationer, se [nedladdnings bara JSON-filer](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+När du skapar säkerhets regler för nätverks grupper eller konfigurerar Azure-brandväggen för att tillåta trafik till Automation-tjänsten och Log Analytics arbets ytan, använder du [service tag-](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** och **AzureMonitor**. Detta fören klar den löpande hanteringen av dina nätverks säkerhets regler. Om du vill ansluta till Automation-tjänsten från dina virtuella Azure-datorer på ett säkert och privat sätt kan du läsa [Använd Azure privat länk](../how-to/private-link-security.md). För att hämta den aktuella service tag-koden och intervall informationen som ska ingå som en del av dina lokala brand Väggs konfigurationer, se [nedladdnings bara JSON-filer](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 För Windows-datorer måste du också tillåta trafik till alla slut punkter som krävs av Windows Update. Du hittar en uppdaterad lista med nödvändiga slut punkter i [problem som rör http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Om du har en lokal [Windows Update-Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)måste du också tillåta trafik till servern som anges i [WSUS-nyckeln](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -247,9 +247,11 @@ Här är hur du kan aktivera Uppdateringshantering och välja datorer som ska ha
 
 - Från ditt [Automation-konto](enable-from-automation-account.md) för en eller flera Azure-datorer och icke-Azure-datorer, inklusive Arc-aktiverade servrar.
 
-- För en [vald virtuell Azure-dator](enable-from-vm.md) från sidan virtuell dator i Azure Portal. Det här scenariot är tillgängligt för virtuella Linux-och Windows-datorer.
+- Använda metoden **Enable-AutomationSolution** [Runbook](enable-from-runbook.md) .
 
-- För [flera virtuella Azure-datorer](enable-from-portal.md) genom att välja dem från sidan virtuella datorer i Azure Portal.
+- För en [vald virtuell Azure-dator](enable-from-vm.md) från sidan **virtuella datorer** i Azure Portal. Det här scenariot är tillgängligt för virtuella Linux-och Windows-datorer.
+
+- För [flera virtuella Azure-datorer](enable-from-portal.md) genom att välja dem från sidan **virtuella datorer** i Azure Portal.
 
 > [!NOTE]
 > Uppdateringshantering måste länka en Log Analytics arbets yta till ditt Automation-konto. En slutgiltig lista över regioner som stöds finns i [mappningar för Azure-arbetsytor](../how-to/region-mappings.md). Region mappningarna påverkar inte möjligheten att hantera virtuella datorer i en separat region från ditt Automation-konto.

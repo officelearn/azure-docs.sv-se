@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 99b7891f332298024c82103322cc6b58d066f587
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 7eb610f741681be89ef44f8288ed47674c1d6440
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123242"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348584"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Azure Blob Storage utdata
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du aktiverar hanterad identitet för BLOB-utdata fö
 
    ![Konfigurera Stream Analytics hanterad identitet](./media/common/stream-analytics-enable-managed-identity.png)
 
-2. I fönstret utdata-egenskaper i Azure Blob Storage utgående mottagare väljer du List rutan autentiseringsläge och väljer **hanterad identitet** . Information om andra egenskaper för utdata finns i [förstå utdata från Azure Stream Analytics](./stream-analytics-define-outputs.md). När du är klar klickar du på **Spara** .
+2. I fönstret utdata-egenskaper i Azure Blob Storage utgående mottagare väljer du List rutan autentiseringsläge och väljer **hanterad identitet**. Information om andra egenskaper för utdata finns i [förstå utdata från Azure Stream Analytics](./stream-analytics-define-outputs.md). När du är klar klickar du på **Spara**.
 
    ![Konfigurera Azure Blob Storage-utdata](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
 
@@ -33,7 +33,7 @@ Den här artikeln visar hur du aktiverar hanterad identitet för BLOB-utdata fö
 
 ## <a name="azure-resource-manager-deployment"></a>Azure Resource Manager-distribution
 
-Med hjälp av Azure Resource Manager kan du helt automatisera distributionen av ditt Stream Analytics-jobb. Du kan distribuera Resource Manager-mallar med antingen Azure PowerShell eller [Azure CLI](/cli/azure/?view=azure-cli-latest). I exemplen nedan används Azure CLI.
+Med hjälp av Azure Resource Manager kan du helt automatisera distributionen av ditt Stream Analytics-jobb. Du kan distribuera Resource Manager-mallar med antingen Azure PowerShell eller [Azure CLI](/cli/azure/). I exemplen nedan används Azure CLI.
 
 
 1. Du kan skapa en **Microsoft. StreamAnalytics/streamingjobs-** resurs med en hanterad identitet genom att inkludera följande egenskap i resurs avsnittet i Resource Manager-mallen:
@@ -168,14 +168,14 @@ Om du inte behöver jobbet för att skapa behållare för din räkning bör du v
 
 2. Välj **Access Control (IAM)** på den vänstra sidan.
 
-3. Under avsnittet "Lägg till en roll tilldelning" klickar du på **Lägg till** .
+3. Under avsnittet "Lägg till en roll tilldelning" klickar du på **Lägg till**.
 
 4. I fönstret roll tilldelning:
 
     1. Ange **rollen** som "Storage BLOB data Contributor"
     2. Se till att List rutan **tilldela** till listruta är inställd på "Azure AD User, Group eller service huvud namn".
     3. Skriv namnet på ditt Stream Analytics jobb i Sök fältet.
-    4. Välj ditt Stream Analytics jobb och klicka på **Spara** .
+    4. Välj ditt Stream Analytics jobb och klicka på **Spara**.
 
    ![Bevilja container åtkomst](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-container-access-portal.png)
 
@@ -185,14 +185,14 @@ Om du inte behöver jobbet för att skapa behållare för din räkning bör du v
 
 2. Välj **Access Control (IAM)** på den vänstra sidan.
 
-3. Under avsnittet "Lägg till en roll tilldelning" klickar du på **Lägg till** .
+3. Under avsnittet "Lägg till en roll tilldelning" klickar du på **Lägg till**.
 
 4. I fönstret roll tilldelning:
 
     1. Ange **rollen** som "Storage BLOB data Contributor"
     2. Se till att List rutan **tilldela** till listruta är inställd på "Azure AD User, Group eller service huvud namn".
     3. Skriv namnet på ditt Stream Analytics jobb i Sök fältet.
-    4. Välj ditt Stream Analytics jobb och klicka på **Spara** .
+    4. Välj ditt Stream Analytics jobb och klicka på **Spara**.
 
    ![Bevilja konto åtkomst](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-account-access-portal.png)
 
@@ -218,9 +218,9 @@ Om du vill ge åtkomst till hela kontot kör du följande kommando med hjälp av
 
 När du konfigurerar ditt lagrings kontos **brand väggar och virtuella nätverk** kan du välja att tillåta nätverks trafik från andra betrodda Microsoft-tjänster. När Stream Analytics autentiserar med hjälp av hanterad identitet, ger det bevis på att begäran kommer från en betrodd tjänst. Nedan visas instruktioner för att aktivera detta undantag för VNET-åtkomst.
 
-1.  Navigera till fönstret brand väggar och virtuella nätverk i lagrings kontots konfigurations fönster.
-2.  Se till att alternativet "Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot" är aktiverat.
-3.  Om du har aktiverat det klickar du på **Spara** .
+1.    Navigera till fönstret brand väggar och virtuella nätverk i lagrings kontots konfigurations fönster.
+2.    Se till att alternativet "Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot" är aktiverat.
+3.    Om du har aktiverat det klickar du på **Spara**.
 
    ![Aktivera VNET-åtkomst](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
 

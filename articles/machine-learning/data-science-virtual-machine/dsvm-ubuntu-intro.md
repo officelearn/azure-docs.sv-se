@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 631717252abe956357cf8b588fa653890037bbc9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 97283a096d1b1549b2c7fa8f34a32b4bb4dca1eb
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322172"
+ms.locfileid: "93349060"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Snabb start: Konfigurera Data Science Virtual Machine för Linux (Ubuntu)
 
@@ -30,7 +30,7 @@ Om du vill skapa en Ubuntu 18,04-Data Science Virtual Machine måste du ha en Az
 
 Här följer stegen för att skapa en instans av Data Science Virtual Machine Ubuntu 18,04:
 
-1. Gå till [Azure-portalen](https://portal.azure.com). Du kan uppmanas att logga in på ditt Azure-konto om du inte redan har loggat in.
+1. Öppna [Azure-portalen](https://portal.azure.com). Du kan uppmanas att logga in på ditt Azure-konto om du inte redan har loggat in.
 1. Hitta listan med virtuella datorer genom att skriva in "data science Virtual Machine" och välja "Data Science Virtual Machine-Ubuntu 18,04"
 
 1. I nästa fönster väljer du **skapa**.
@@ -121,12 +121,16 @@ Ubuntu-DSVM kör [JupyterHub](https://github.com/jupyterhub/jupyterhub), en Jupy
 
    1. Från din lokala dator öppnar du en webbläsare och navigerar till https: \/ /Your-VM-IP: 8000, ersätter "Your-VM-IP" med IP-adressen som du antecknade tidigare.
    1. Webbläsaren hindrar förmodligen dig från att öppna sidan direkt, vilket innebär att det finns ett certifikat fel. DSVM tillhandahåller säkerhet via ett självsignerat certifikat. I de flesta webbläsare kan du klicka dig igenom efter den här varningen. Många webbläsare kommer även fortsättnings vis att tillhandahålla en viss typ av visuell varning om certifikatet i en webbsession.
+
+      >[!NOTE]
+      > Om du ser `ERR_EMPTY_RESPONSE` fel meddelandet i webbläsaren, se till att du har åtkomst till datorn genom att uttryckligen använda *https* -protokollet och inte med *http* eller bara webb adressen. Om du skriver in webb adressen utan `https://` i adress raden, kommer de flesta webbläsare att standardvärdet `http` och du ser det här felet.
+
    1. Ange det användar namn och lösen ord som du använde för att skapa den virtuella datorn och logga in. 
 
       ![Ange Jupyter-inloggning](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
->[!NOTE]
-> Om du får ett 500-fel i det här skedet är det troligt att du har använt versaler i ditt användar namn. Detta är en känd interaktion mellan Jupyter Hub och den PAMAuthenticator som används. Om du får fel meddelandet "det går inte att komma åt den här sidan" är det troligt att dina behörigheter för nätverks säkerhets gruppen måste justeras. I Azure Portal letar du reda på nätverks säkerhets grupp resursen i din resurs grupp. För att få åtkomst till JupyterHub från det offentliga Internet måste du ha port 8000 öppen. (Avbildningen visar att den virtuella datorn har kon figurer ATS för just-in-Time-åtkomst, vilket är starkt rekommenderat. Se [skydda dina hanterings portar med just-in-Time-åtkomst](../../security-center/security-center-just-in-time.md).) ![Konfiguration av nätverks säkerhets grupp](./media/dsvm-ubuntu-intro/nsg-permissions.png)
+      >[!NOTE]
+      > Om du får ett 500-fel i det här skedet är det troligt att du har använt versaler i ditt användar namn. Detta är en känd interaktion mellan Jupyter Hub och den PAMAuthenticator som används. Om du får fel meddelandet "det går inte att komma åt den här sidan" är det troligt att dina behörigheter för nätverks säkerhets gruppen måste justeras. I Azure Portal letar du reda på nätverks säkerhets grupp resursen i din resurs grupp. För att få åtkomst till JupyterHub från det offentliga Internet måste du ha port 8000 öppen. (Avbildningen visar att den virtuella datorn har kon figurer ATS för just-in-Time-åtkomst, vilket är starkt rekommenderat. Se [skydda dina hanterings portar med just-in-Time-åtkomst](../../security-center/security-center-just-in-time.md).) ![Konfiguration av nätverks säkerhets grupp](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Bläddra bland de många exempel antecknings böcker som är tillgängliga.
 

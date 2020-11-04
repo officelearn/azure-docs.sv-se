@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 3bea474ae61ba4a0213d880934d9536d6ad71796
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1b8b95ea318dd7a82d9512908838209bc5cc2995
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131640"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349111"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 Azure cache för Redis tillhandahåller ett minnes intern data lager baserat på [Redis](https://redis.io/) -programvaran. Redis förbättrar prestanda och skalbarhet för ett program som använder på backend-data lagrar mycket. Det går att bearbeta stora mängder programbegäran genom att lagra data som används ofta i Server minnet som kan skrivas till och läsas från snabbt. Redis ger en kritisk data lagrings lösning med låg latens och hög data flöde till moderna program.
@@ -35,9 +35,6 @@ Azure cache för Redis förbättrar program prestandan genom att stödja vanliga
 
 Azure cache för Redis stöder OSS Redis version 4. x och, som en för hands version, 6,0. Vi har gjort beslutet att hoppa över Redis 5,0 för att ta dig till den senaste versionen. Tidigare bevarade Azure cache för Redis endast en enda Redis-version. Det ger en nyare uppgradering av större versioner och minst en äldre stabil version går framåt. Du kan [välja vilken version som](cache-how-to-version.md) passar bäst för ditt program.
 
-> [!NOTE]
-> Redis 6,0 är för närvarande i för hands version – [kontakta oss](mailto:azurecache@microsoft.com) om du är intresse rad av. Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="service-tiers"></a>Tjänstnivåer
 Azure Cache for Redis är tillgänglig på följande nivåer:
@@ -93,7 +90,7 @@ Företags nivåerna är beroende av Redis Enterprise, en kommersiell version av 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa en Azure-cache för Redis-instans](quickstart-create-redis.md)
-* [Skapa en cacheminne för företags nivå](quickstart-create-redis-enterprise.md)
+* [Skapa en cache i företagsnivå](quickstart-create-redis-enterprise.md)
 * [Använda Azure cache för Redis i en ASP.NET-webbapp](cache-web-app-howto.md)
 * [Använda Azure cache för Redis i .NET Core](cache-dotnet-core-quickstart.md)
 * [Använd Azure cache för Redis i .NET Framework](cache-dotnet-how-to-use-azure-redis-cache.md)

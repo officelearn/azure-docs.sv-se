@@ -2,18 +2,18 @@
 title: Översikt över Azure Arc-aktiverade servrar
 description: Lär dig hur du använder Azure Arc-aktiverade servrar för att hantera servrar som ligger utanför Azure som en Azure-resurs.
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
-ms.date: 10/15/2020
+ms.date: 11/04/2020
 ms.topic: overview
-ms.openlocfilehash: 01de579d2e1ea84c0e9da4ceafbd33dbad4c6e27
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 2c92d7c73ab17bd5a7bba980e20baa181899eb4e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460860"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349162"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Vad är Azure Arc-aktiverade servrar?
 
-Med Azure Arc-aktiverade servrar kan du hantera dina Windows-och Linux-datorer utanför Azure, i företagets nätverk eller annan moln leverantör, på samma sätt som du hanterar virtuella datorer i Azure. När en hybrid dator är ansluten till Azure blir den en ansluten dator och behandlas som en resurs i Azure. Varje ansluten dator har ett resurs-ID, hanteras som en del av en resurs grupp i en prenumeration och fördelar med Azures standard konstruktioner, till exempel Azure Policy och att använda taggar. Tjänste leverantörer som hanterar en kunds lokala infrastruktur kan hantera sina hybrid datorer, precis som de gör i dag med interna Azure-resurser, i flera kund miljöer med [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) med Azure Arc.
+Med Azures Arc-aktiverade servrar kan du hantera dina Windows-och Linux-datorer utanför Azure, i företags nätverket eller annan moln leverantör som stämmer överens med hur du hanterar interna virtuella Azure-datorer. När en hybrid dator är ansluten till Azure blir den en ansluten dator och behandlas som en resurs i Azure. Varje ansluten dator har ett resurs-ID, ingår i en resurs grupp och fördelar med Azures standard konstruktioner, till exempel Azure Policy och att använda taggar. Tjänste leverantörer som hanterar en kunds lokala infrastruktur kan hantera sina hybrid datorer, precis som de gör i dag med interna Azure-resurser, i flera kund miljöer med [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) med Azure Arc.
 
 För att kunna leverera den här upplevelsen med dina hybrid datorer utanför Azure måste den Azure-anslutna dator agenten installeras på varje dator som du planerar att ansluta till Azure. Den här agenten levererar inga andra funktioner och ersätter inte Azure [Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill övervaka operativ system och arbets belastningar som körs på datorn proaktivt, hantera den med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-introduction.md).
 
@@ -29,7 +29,10 @@ När du ansluter datorn till Azure Arc-aktiverade servrar kan du utföra följan
 
 - Förenkla distributionen med andra Azure-tjänster som Azure Automation [tillstånds konfiguration](../../automation/automation-dsc-overview.md) och Azure Monitor Log Analytics arbets yta med de [Azure VM-tillägg](manage-vm-extensions.md) som stöds för din icke-Azure Windows-eller Linux-dator. Detta inkluderar konfiguration av konfiguration eller program vara efter distribution med hjälp av tillägget för anpassat skript.
 
-- Använd [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md) i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-servrar.
+- Använd [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md) i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-servrar
+
+    > [!NOTE]
+    > För närvarande stöds inte aktivering av Uppdateringshantering från den valda Arc-aktiverad servern. Se [aktivera uppdateringshantering från ditt Automation-konto](../../automation/update-management/enable-from-automation-account.md) för att förstå kraven och hur du aktiverar för servern.
 
 - Ta med dina icke-Azure-servrar för hot identifiering och proaktiv övervakning för potentiella säkerhetshot med hjälp av [Azure Security Center](../../security-center/security-center-introduction.md).
 
@@ -41,7 +44,7 @@ Loggdata som samlas in och lagras i en Log Analytics-arbetsyta från hybrid dato
 
 En slutgiltig lista över regioner som stöds med Azure Arc-aktiverade servrar finns på sidan [Azure-produkter efter region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc) .
 
-I de flesta fall ska den plats som du väljer när du skapar installations skriptet vara den Azure-region som är geografiskt närmast din dators plats. Data i vila lagras i den region i Azure som innehåller den region som du anger, vilket även kan påverka ditt val av region om du har data placering krav. Om den Azure-region som datorn är ansluten till påverkas av ett avbrott påverkas inte den anslutna datorn, men hanterings åtgärder som använder Azure kan inte slutföras. I händelse av ett regionalt avbrott, om du har flera platser som stöder en geografiskt redundant tjänst, är det bäst att ansluta datorerna på varje plats till en annan Azure-region.
+I de flesta fall ska den plats som du väljer när du skapar installations skriptet vara den Azure-region som är geografiskt närmast din dators plats. Data i vila lagras i den region i Azure som innehåller den region som du anger, vilket även kan påverka ditt val av region om du har data placering krav. Om den Azure-region som datorn ansluter till påverkas av ett avbrott påverkas inte den anslutna datorn, men hanterings åtgärder som använder Azure kan inte slutföras. I händelse av ett regionalt avbrott, om du har flera platser som stöder en geografiskt redundant tjänst, är det bäst att ansluta datorerna på varje plats till en annan Azure-region.
 
 ### <a name="agent-status"></a>Agent status
 

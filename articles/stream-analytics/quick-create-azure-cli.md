@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 37cbd1b05249c694aaaa4ff5196a3b6328ccda7f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8c2e7b6a02c0a0fea32fb1effb30b682971c3f6f
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126303"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348822"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Snabb start: skapa ett Azure Stream Analytics jobb med hjälp av Azure CLI
 
@@ -71,19 +71,19 @@ Innan du definierar Stream Analytics jobbet förbereder du de data som används 
 
 Följande kod block i Azure CLI är kommandon som förbereder de indata som krävs för jobbet. Läs avsnitten för att förstå koden.
 
-1. Skapa en IoT-hubb med hjälp av kommandot [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). I det här exemplet skapas en IoT-hubb som heter **MyASAIoTHub** . Eftersom namn på IoT-hubbar är unika behöver du skapa ett eget IoT-hubbnamn. Ange SKU:n till F1 för att använda den kostnadsfria nivån om den är tillgänglig med din prenumeration. Annars väljer du nästa lägsta nivå.
+1. Skapa en IoT-hubb med hjälp av kommandot [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub). I det här exemplet skapas en IoT-hubb som heter **MyASAIoTHub**. Eftersom namn på IoT-hubbar är unika behöver du skapa ett eget IoT-hubbnamn. Ange SKU:n till F1 för att använda den kostnadsfria nivån om den är tillgänglig med din prenumeration. Annars väljer du nästa lägsta nivå.
 
     ```azurecli
     az iot hub create --name "MyASAIoTHub" --resource-group streamanalyticsrg --sku S1
     ```
 
-    När IoT-hubben har skapats hämtar du anslutningssträngen för IoT-hubben med hjälp av kommandot [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest). Kopiera hela anslutningssträngen och spara den för användning när du lägger till IoT-hubben som indata i ditt Stream Analytics-jobb.
+    När IoT-hubben har skapats hämtar du anslutningssträngen för IoT-hubben med hjälp av kommandot [az iot hub show-connection-string](/cli/azure/iot/hub). Kopiera hela anslutningssträngen och spara den för användning när du lägger till IoT-hubben som indata i ditt Stream Analytics-jobb.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-2. Lägg till en enhet i IoT-hubben med hjälp av kommandot [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). I det här exemplet skapas en enhet med namnet **MyASAIoTDevice** .
+2. Lägg till en enhet i IoT-hubben med hjälp av kommandot [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). I det här exemplet skapas en enhet med namnet **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
@@ -138,7 +138,7 @@ Följande kod block i Azure CLI skapar ett Blob Storage-konto som används för 
 
 Följande kod block i Azure CLI skapar ett Stream Analytics jobb. Läs avsnitten för att förstå koden
 
-1. Skapa ett Stream Analytics jobb med kommandot [AZ Stream-Analytics Job Create](/cli/azure/ext/stream-analytics/stream-analytics/job?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-job-create) .
+1. Skapa ett Stream Analytics jobb med kommandot [AZ Stream-Analytics Job Create](/cli/azure/ext/stream-analytics/stream-analytics/job#ext-stream-analytics-az-stream-analytics-job-create) .
 
 ```azurecli
 az stream-analytics job create \
@@ -154,7 +154,7 @@ az stream-analytics job create \
 
 ## <a name="configure-input-to-the-job"></a>Konfigurera indata för jobbet
 
-Lägg till indata till jobbet med hjälp av [AZ Stream-Analytics-indata-](/cli/azure/ext/stream-analytics/stream-analytics/input?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-input-create) cmdlet. Den här cmdleten tar jobbnamnet, jobbindatanamnet, resursgruppens namn och jobbindatadefinitionen som parametrar. Definitionen av jobb indata är en JSON-fil som innehåller de egenskaper som krävs för att konfigurera jobbets indata. I det här exemplet ska du skapa en IoT Hub som inmatad.
+Lägg till indata till jobbet med hjälp av [AZ Stream-Analytics-indata-](/cli/azure/ext/stream-analytics/stream-analytics/input#ext-stream-analytics-az-stream-analytics-input-create) cmdlet. Den här cmdleten tar jobbnamnet, jobbindatanamnet, resursgruppens namn och jobbindatadefinitionen som parametrar. Definitionen av jobb indata är en JSON-fil som innehåller de egenskaper som krävs för att konfigurera jobbets indata. I det här exemplet ska du skapa en IoT Hub som inmatad.
 
 Skapa en fil med namnet `datasource.json` på den lokala datorn och lägg till följande JSON-data i den. Ersätt värdet för `sharedAccessPolicyKey` med `SharedAccessKey`-delen i den anslutningssträng för IoT Hub som du sparade i ett tidigare avsnitt.
 
@@ -196,7 +196,7 @@ az stream-analytics input create
 
 ## <a name="configure-output-to-the-job"></a>Konfigurera utdata för jobbet
 
-Lägg till utdata till jobbet med hjälp av cmdleten [AZ Stream-Analytics output Create](/cli/azure/ext/stream-analytics/stream-analytics/output?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-output-create) . Den här cmdleten tar jobbnamnet, jobbutdatanamnet, resursgruppens namn och jobbutdatadefinitionen som parametrar. Jobbets utdata-definition är en JSON-fil som innehåller de egenskaper som krävs för att konfigurera jobbets utdata. Det här exemplet använder bloblagring som utdata.
+Lägg till utdata till jobbet med hjälp av cmdleten [AZ Stream-Analytics output Create](/cli/azure/ext/stream-analytics/stream-analytics/output#ext-stream-analytics-az-stream-analytics-output-create) . Den här cmdleten tar jobbnamnet, jobbutdatanamnet, resursgruppens namn och jobbutdatadefinitionen som parametrar. Jobbets utdata-definition är en JSON-fil som innehåller de egenskaper som krävs för att konfigurera jobbets utdata. Det här exemplet använder bloblagring som utdata.
 
 Skapa en fil med namnet `datasink.json` på den lokala datorn och lägg till följande JSON-data i den. Se till att ersätta värdet för `accountKey` med lagrings kontots åtkomst nyckel som är det värde som lagras i $storageAccountKey värde.
 
@@ -231,7 +231,7 @@ az stream-analytics output create
 
 ## <a name="define-the-transformation-query"></a>Definiera transformationsfrågan
 
-Lägg till en omvandling ditt jobb med hjälp av [create-cmdleten AZ Stream-Analytics Transformation](/cli/azure/ext/stream-analytics/stream-analytics/transformation?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-transformation-create) . Den här cmdleten tar jobbnamnet, jobbtransformationsnamnet, resursgruppens namn och jobbtransformationsdefinitionen som parametrar. 
+Lägg till en omvandling ditt jobb med hjälp av [create-cmdleten AZ Stream-Analytics Transformation](/cli/azure/ext/stream-analytics/stream-analytics/transformation#ext-stream-analytics-az-stream-analytics-transformation-create) . Den här cmdleten tar jobbnamnet, jobbtransformationsnamnet, resursgruppens namn och jobbtransformationsdefinitionen som parametrar. 
 
 Kör `az stream-analytics transformation create` cmdleten.
 
@@ -249,13 +249,13 @@ az stream-analytics transformation create
 
 2. Ersätt platshållaren på rad 15 med hela Azure IoT Hub-enhetens anslutningssträng, som du sparade i ett tidigare avsnitt.
 
-3. Klicka på **Kör** . Utdata bör visas de sensordata och meddelanden som skickas till din IoT-hubb.
+3. Klicka på **Kör**. Utdata bör visas de sensordata och meddelanden som skickas till din IoT-hubb.
 
     ![Raspberry Pi Azure IoT-onlinesimulator](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Starta Stream Analytics-jobbet och kontrollera utdata
 
-Starta jobbet med hjälp av start cmdleten [AZ Stream-Analytics Job](/cli/azure/ext/stream-analytics/stream-analytics/job?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-job-start) . Den här cmdleten tar jobbnamnet, resursgruppens namn, startläget för utdata och starttiden som parametrar. `OutputStartMode` godkänner värden för `JobStartTime`, `CustomTime` eller `LastOutputEventTime`.
+Starta jobbet med hjälp av start cmdleten [AZ Stream-Analytics Job](/cli/azure/ext/stream-analytics/stream-analytics/job#ext-stream-analytics-az-stream-analytics-job-start) . Den här cmdleten tar jobbnamnet, resursgruppens namn, startläget för utdata och starttiden som parametrar. `OutputStartMode` godkänner värden för `JobStartTime`, `CustomTime` eller `LastOutputEventTime`.
 
 När du har kört följande cmdlet returnerar den `True` som utdata om jobbet startar. En utdatamapp skapas i lagringscontainern med de data som har transformerats.
 

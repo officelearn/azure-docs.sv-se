@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 87ee8a9c57fc456ba02f97bf56db25e4c91e9398
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129821"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348941"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivå för Azure Stream Analytics jobb
 
@@ -33,13 +33,13 @@ När du skapar ett nytt Stream Analytics jobb är det en bra idé att skapa det 
 
 ## <a name="set-the-compatibility-level"></a>Ange kompatibilitetsnivå
 
-Du kan ange kompatibilitetsnivån för ett Stream Analytics jobb i Azure Portal eller med hjälp av [anropet skapa jobb REST API](./stream-analytics-quick-create-portal.md).
+Du kan ange kompatibilitetsnivån för ett Stream Analytics jobb i Azure Portal eller med hjälp av [anropet skapa jobb REST API](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel).
 
 Så här uppdaterar du kompatibilitetsnivån för jobbet i Azure Portal:
 
 1. Använd [Azure Portal](https://portal.azure.com) för att leta upp Stream Analytics jobb.
 2. **Stoppa** jobbet innan du uppdaterar kompatibilitetsnivån. Du kan inte uppdatera kompatibilitetsnivån om jobbet är i ett körnings läge.
-3. Under **Konfigurera** rubrik väljer du **kompatibilitetsnivå** .
+3. Under **Konfigurera** rubrik väljer du **kompatibilitetsnivå**.
 4. Välj det värde för kompatibilitetsnivå som du vill använda.
 5. Välj **Spara** längst ned på sidan.
 
@@ -75,15 +75,15 @@ Mer information finns i [uppdateringar av geospatiala funktioner i Azure Stream 
 
 ### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Intern Mass-API-integrering med CosmosDB-utdata
 
-**Tidigare nivåer:** Upsert beteendet *infogades eller sammanfogades* .
+**Tidigare nivåer:** Upsert beteendet *infogades eller sammanfogades*.
 
 **1,2-nivå:** Intern Mass-API-integrering med CosmosDB-utdata maximerar data flödet och hanterar begränsnings begär Anden effektivt. Mer information finns [på sidan Azure Stream Analytics utdata till Azure Cosmos DB](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
-Upsert beteende är *Infoga eller Ersätt* .
+Upsert beteende är *Infoga eller Ersätt*.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset vid skrivning till SQL-utdata
 
-**Tidigare nivåer:** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) -typerna justerades till UTC.
+**Tidigare nivåer:** [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql) -typerna justerades till UTC.
 
 **1,2-nivå:** DateTimeOffset är inte längre justerad.
 

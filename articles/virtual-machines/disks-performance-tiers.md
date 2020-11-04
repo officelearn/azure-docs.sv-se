@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359687"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348703"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Prestanda nivåer för Managed disks (för hands version)
 
@@ -55,10 +55,6 @@ Information om fakturering finns i [priser för Managed disks](https://azure.mic
 - Du måste antingen frigöra den virtuella datorn eller koppla från disken från en virtuell dator som körs innan du kan ändra diskens nivå.
 - Användningen av prestanda nivåerna P60, P70 och P80 är begränsad till diskar på 4 096 GiB eller högre.
 - En disks prestanda nivå kan bara nedgraderas en gång var 24: e timme.
-
-## <a name="regional-availability"></a>Regional tillgänglighet
-
-Möjligheten att justera prestanda nivån för en hanterad disk är för närvarande endast tillgänglig på Premium-SSD i USA, östra 2, södra centrala USA, västra centrala USA, östra Australien, östra regioner.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Skapa en tom datadisk med en högre nivå än bas linje nivån
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 189fa12b1fc11e79ab64231a7ecd453113b8771a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336018"
+ms.locfileid: "93348924"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Felsöka delade avbildnings gallerier i Azure
 
@@ -223,8 +223,8 @@ Om du får problem när du utför åtgärder i delade bildgallerier, eller för 
 **Orsak** : resurs-ID för den disk krypterings uppsättning som används på en data disk avbildning använder ett ogiltigt format.  
 **Lösning** : kontrol lera att resurs-ID: t för disk krypterings uppsättningen följer formatet/Subscriptions/<subscriptionID \> /ResourceGroups/<ResourceGroupName \> /providers/Microsoft.Compute/<diskEncryptionSetName \> .
 
-*Värdet för parametern galleryArtifactVersion. Properties. publishingProfile. targetRegions. encryption. osDiskImage. diskEncryptionSetId är ogiltigt.* 
- **Orsak** : resurs-ID: t för den disk krypterings uppsättning som används på operativ systemets disk avbildning använder ett ogiltigt format  
+*Värdet för parametern galleryArtifactVersion. Properties. publishingProfile. targetRegions. encryption. osDiskImage. diskEncryptionSetId är ogiltigt.*  
+**Orsak** : resurs-ID: t för den disk krypterings uppsättning som används på operativ systemets disk avbildning använder ett ogiltigt format  
 **Lösning** : kontrol lera att resurs-ID: t för disk krypterings uppsättningen följer formatet/Subscriptions/<subscriptionID \> /ResourceGroups/<ResourceGroupName \> /providers/Microsoft.Compute/<diskEncryptionSetName \> .
 
 *Det går inte att ange den nya data disk avbildningen kryptering LUN [<Number \> ] med en disk krypterings uppsättning i regionen [<region \> ] för uppdaterings galleriets avbildnings versions förfrågan. Ta bort den nya LUN-versionen för att uppdatera den här versionen. Om du behöver ändra krypterings inställningarna för data disk avbildningen måste du skapa en ny Galleri avbildnings version med rätt inställningar.*  

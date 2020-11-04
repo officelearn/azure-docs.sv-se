@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: a9f48d95281971fc49a6a3fda93e4ee13ed8d753
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b344e9e24d15189b805f586227c7253395e8448e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130790"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348992"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Förstå indata för Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Stream Analytics har förstklassig integrering med fyra typer av resurser som in
 
 De här ingångs resurserna kan leva i samma Azure-prenumeration som din Stream Analytics jobb eller från en annan prenumeration.
 
-Du kan använda [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET-API](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](./stream-analytics-define-inputs.md)och [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) för att skapa, redigera och testa Stream Analytics jobb indata.
+Du kan använda [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET-API](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](/rest/api/streamanalytics/2016-03-01/inputs)och [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) för att skapa, redigera och testa Stream Analytics jobb indata.
 
 ## <a name="stream-and-reference-inputs"></a>Data ström-och referens indata
 När data skickas till en data källa förbrukas den av Stream Analytics jobb och bearbetas i real tid. Indata är uppdelade i två typer: inkommande dataströmmar och inkommande referensdata.
@@ -37,7 +37,7 @@ En data ström är en obunden sekvens med händelser över tid. Stream Analytics
 Mer information om strömmande data inmatning finns i [strömma data som indata till Stream Analytics](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Referens data inmatning
-Stream Analytics också stöd för indata som kallas *referens data* . Referens data är antingen helt statiska eller ändringar långsamma. Den används vanligt vis för att utföra korrelationer och sökningar. Du kan till exempel koppla data i data strömmens indata till data i referens data, ungefär som du skulle göra med en SQL-anslutning för att söka efter statiska värden. Azure Blob Storage, Azure Data Lake Storage Gen2 och Azure SQL Database stöds för närvarande som inmatnings källor för referens data. Referens data källans blobbar har en gräns på upp till 300 MB i storlek, beroende på frågan komplexitet och allokerade enheter för strömning (se avsnittet [storleks begränsning](stream-analytics-use-reference-data.md#size-limitation) i dokumentationen för referens data för mer information).
+Stream Analytics också stöd för indata som kallas *referens data*. Referens data är antingen helt statiska eller ändringar långsamma. Den används vanligt vis för att utföra korrelationer och sökningar. Du kan till exempel koppla data i data strömmens indata till data i referens data, ungefär som du skulle göra med en SQL-anslutning för att söka efter statiska värden. Azure Blob Storage, Azure Data Lake Storage Gen2 och Azure SQL Database stöds för närvarande som inmatnings källor för referens data. Referens data källans blobbar har en gräns på upp till 300 MB i storlek, beroende på frågan komplexitet och allokerade enheter för strömning (se avsnittet [storleks begränsning](stream-analytics-use-reference-data.md#size-limitation) i dokumentationen för referens data för mer information).
 
 Mer information om indata från referenser finns i [använda referens data för sökningar i Stream Analytics](stream-analytics-use-reference-data.md)
 

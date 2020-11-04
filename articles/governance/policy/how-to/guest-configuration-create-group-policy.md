@@ -3,25 +3,25 @@ title: Så här skapar du princip definitioner för gäst konfiguration från gr
 description: Lär dig hur du konverterar grupprincip från säkerhets bas linjen för Windows Server 2019 till en princip definition.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893381"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348652"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Så här skapar du princip definitioner för gäst konfiguration från grupprincip bas linje för Windows
 
 Innan du skapar anpassade princip definitioner, är det en bra idé att läsa den konceptuella översikts informationen på [Azure policy gäst konfiguration](../concepts/guest-configuration.md). Information om hur du skapar anpassade princip definitioner för gäst konfiguration för Linux finns i [så här skapar du principer för gäst konfiguration för Linux](./guest-configuration-create-linux.md). Information om hur du skapar anpassade princip definitioner för gäst konfiguration för Windows finns i [så här skapar du principer för gäst konfiguration för Windows](./guest-configuration-create.md).
 
-Vid Windows-granskning använder gästkonfigurationen en [DSC](/powershell/scripting/dsc/overview/overview)-resursmodul (Desired State Configuration) för att skapa konfigurations filen. DSC-konfigurationen definierar det tillstånd som datorn ska ha. Om utvärderingen av konfigurationen är **icke-kompatibel**utlöses *auditIfNotExists* princip påverkan.
+Vid Windows-granskning använder gästkonfigurationen en [DSC](/powershell/scripting/dsc/overview/overview)-resursmodul (Desired State Configuration) för att skapa konfigurations filen. DSC-konfigurationen definierar det tillstånd som datorn ska ha. Om utvärderingen av konfigurationen är **icke-kompatibel** utlöses *auditIfNotExists* princip påverkan.
 [Azure policy endast gäst konfiguration](../concepts/guest-configuration.md) granskar inställningar i datorer.
 
 > [!IMPORTANT]
-> Anpassade princip definitioner med gäst konfiguration är en förhands gransknings funktion.
->
 > Gästkonfigurationstillägget krävs för att utföra granskningar på virtuella Azure-datorer. Tilldela följande princip definitioner för att distribuera tillägget i skala över alla Windows-datorer:
 > - [Distribuera krav för att aktivera principen för gäst konfiguration på virtuella Windows-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> 
+> Använd inte hemligheter eller konfidentiell information i anpassade innehålls paket.
 
 DSC-communityn har publicerat [BaselineManagement-modulen](https://github.com/microsoft/BaselineManagement) för att konvertera exporterade grupprincip-mallar till DSC-format. Tillsammans med GuestConfiguration-cmdleten skapar BaselineManagement-modulen Azure Policy gäst konfigurations paket för Windows från grupprincip innehåll. Mer information om hur du använder BaselineManagement-modulen finns i artikeln [snabb start: konvertera Grupprincip till DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 
@@ -29,7 +29,7 @@ I den här guiden går vi igenom processen för att skapa ett Azure Policy gäst
 
 ## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Hämta säkerhets bas linjen för Windows Server 2019 och installera relaterade PowerShell-moduler
 
-Så här installerar du **DSC**, **GuestConfiguration**, **bas linje hantering**och relaterade Azure-moduler i PowerShell:
+Så här installerar du **DSC** , **GuestConfiguration** , **bas linje hantering** och relaterade Azure-moduler i PowerShell:
 
 1. Kör följande kommando från en PowerShell-kommandotolk:
 
@@ -87,78 +87,12 @@ Sedan konverterar vi den hämtade Server 2019-bas linjen till ett gäst konfigur
 
 ## <a name="create-azure-policy-guest-configuration"></a>Skapa Azure Policy gäst konfiguration
 
-Nästa steg är att publicera filen till Azure Blob Storage. 
-
-1. Skriptet nedan innehåller en funktion som du kan använda för att automatisera den här uppgiften. Observera att de kommandon som används i `publish` funktionen kräver `Az.Storage` modulen.
+1. Nästa steg är att publicera filen till Azure Blob Storage. Kommandot `Publish-GuestConfigurationPackage` kräver `Az.Storage` modulen.
 
    ```azurepowershell-interactive
-    function Publish-Configuration {
-        param(
-        [Parameter(Mandatory=$true)]
-        $resourceGroup,
-        [Parameter(Mandatory=$true)]
-        $storageAccountName,
-        [Parameter(Mandatory=$true)]
-        $storageContainerName,
-        [Parameter(Mandatory=$true)]
-        $filePath,
-        [Parameter(Mandatory=$true)]
-        $blobName
-        )
-
-        # Get Storage Context
-        $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-            -Name $storageAccountName | `
-            ForEach-Object { $_.Context }
-
-        # Upload file
-        $Blob = Set-AzStorageBlobContent -Context $Context `
-            -Container $storageContainerName `
-            -File $filePath `
-            -Blob $blobName `
-            -Force
-
-        # Get url with SAS token
-        $StartTime = (Get-Date)
-        $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-        $SAS = New-AzStorageBlobSASToken -Context $Context `
-            -Container $storageContainerName `
-            -Blob $blobName `
-            -StartTime $StartTime `
-            -ExpiryTime $ExpiryTime `
-            -Permission rl `
-            -FullUri
-
-        # Output
-        return $SAS
-    }
+   Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
    ```
 
-1. Skapa parametrar för att definiera den unika resurs gruppen, lagrings kontot och behållaren. 
-   
-   ```azurepowershell-interactive
-    # Replace the $resourceGroup, $storageAccount, and $storageContainer values below.
-    $resourceGroup = 'rfc_customguestconfig'
-    $storageAccount = 'guestconfiguration'
-    $storageContainer = 'content'
-    $path = 'c:\git\policyfiles\Server2019Baseline\Server2019Baseline.zip'
-    $blob = 'Server2019Baseline.zip' 
-    ```
-
-1. Använd funktionen Publish med de tilldelade parametrarna för att publicera gäst konfigurations paketet till offentliga Blob Storage.
-
-
-   ```azurepowershell-interactive
-   $PublishConfigurationSplat = @{
-       resourceGroup = $resourceGroup
-       storageAccountName = $storageAccount
-       storageContainerName = $storageContainer
-       filePath = $path
-       blobName = $blob
-       FullUri = $true
-   }
-   $uri = Publish-Configuration @PublishConfigurationSplat
-    ```
 1. När ett anpassat princip paket för gäst konfiguration har skapats och överförts skapar du princip definitionen för gäst konfiguration. Använd `New-GuestConfigurationPolicy` cmdleten för att skapa gäst konfigurationen.
 
    ```azurepowershell-interactive

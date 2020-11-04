@@ -4,13 +4,12 @@ description: Lär dig hur du skyddar poddar med Azure Policy på Azure Kubernete
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-author: jluk
-ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 8e437095b3d527647a453ba89adaa2ab62672177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900128"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348533"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Skydda poddar med Azure Policy
 
@@ -61,7 +60,7 @@ Följande allmänna begränsningar gäller för Azure Policy-tillägget för Kub
 Följande begränsningar gäller endast för Azure Policy-tillägget för AKS:
 
 - [AKS Pod-säkerhetsprincipen (för hands version)](use-pod-security-policies.md) och Azure policy-tillägget för AKS kan inte både aktive ras. 
-- Namn områden som undantas automatiskt av Azure Policy tillägg för utvärdering: _Kube-system_ , _Gatekeeper-system_ och _AKS-Periscope_ .
+- Namn områden som undantas automatiskt av Azure Policy tillägg för utvärdering: _Kube-system_ , _Gatekeeper-system_ och _AKS-Periscope_.
 
 ### <a name="recommendations"></a>Rekommendationer
 
@@ -150,7 +149,7 @@ If the built-in initiatives to address pod security do not match your requiremen
 > [!WARNING]
 > Poddar i admin-namnrymder som Kube-system måste köras för att ett kluster ska förbli felfritt. om du tar bort ett obligatoriskt namn område från listan över undantagna fördefinierade namn områden kan det uppstå princip överträdelser på grund av en nödvändig system pod.
 
-AKS kräver att system poddar körs på ett kluster för att tillhandahålla kritiska tjänster, till exempel DNS-matchning. Principer som begränsar Pod-funktioner kan påverka stabiliteten i systemet pod. Därför undantas följande namn rymder **från princip utvärderingen vid begäran om att skapa, uppdatera och granska principer** . Detta innebär att nya distributioner till dessa namn områden exkluderas från Azure-principer.
+AKS kräver att system poddar körs på ett kluster för att tillhandahålla kritiska tjänster, till exempel DNS-matchning. Principer som begränsar Pod-funktioner kan påverka stabiliteten i systemet pod. Därför undantas följande namn rymder **från princip utvärderingen vid begäran om att skapa, uppdatera och granska principer**. Detta innebär att nya distributioner till dessa namn områden exkluderas från Azure-principer.
 
 1. Kube-system
 1. Gatekeeper-system

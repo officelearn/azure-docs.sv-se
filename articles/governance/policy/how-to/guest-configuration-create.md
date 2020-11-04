@@ -3,12 +3,12 @@ title: Så här skapar du gästkonfigurationsprinciper för Windows
 description: Lär dig hur du skapar en princip för Azure Policy gäst konfiguration för Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 563b178b9ba92125967c779b59a78a8e105ec744
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542870"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348890"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du gästkonfigurationsprinciper för Windows
 
@@ -16,15 +16,19 @@ Innan du skapar anpassade princip definitioner, är det en bra idé att läsa de
  
 Information om hur du skapar principer för gäst konfiguration för Linux finns på sidan [hur du skapar principer för gäst konfiguration för Linux](./guest-configuration-create-linux.md)
 
-Vid Windows-granskning använder gästkonfigurationen en [DSC](/powershell/scripting/dsc/overview/overview)-resursmodul (Desired State Configuration) för att skapa konfigurations filen. DSC-konfigurationen definierar det tillstånd som datorn ska ha. Om utvärderingen av konfigurationen Miss lyckas utlöses **auditIfNotExists** för princip inställningen och datorn betraktas som **icke-kompatibel** .
+Vid Windows-granskning använder gästkonfigurationen en [DSC](/powershell/scripting/dsc/overview/overview)-resursmodul (Desired State Configuration) för att skapa konfigurations filen. DSC-konfigurationen definierar det tillstånd som datorn ska ha. Om utvärderingen av konfigurationen Miss lyckas utlöses **auditIfNotExists** för princip inställningen och datorn betraktas som **icke-kompatibel**.
 
 [Azure policy gäst konfiguration](../concepts/guest-configuration.md) kan bara användas för att granska inställningar i datorer. Reparationen av inställningar i datorer är inte tillgänglig ännu.
 
 Använd följande åtgärder för att skapa en egen konfiguration för att verifiera tillstånd för en Azure-eller icke-Azure-dator.
 
 > [!IMPORTANT]
+> Anpassade princip definitioner med gäst konfiguration i Azure Government-och Azure Kina-miljöer är en förhands gransknings funktion.
+>
 > Gästkonfigurationstillägget krävs för att utföra granskningar på virtuella Azure-datorer.
 > Tilldela följande princip definitioner för att distribuera tillägget i skala över alla Windows-datorer: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> Använd inte hemligheter eller konfidentiell information i anpassade innehålls paket.
 
 ## <a name="install-the-powershell-module"></a>Installera PowerShell-modulen
 
@@ -92,9 +96,9 @@ Parametrar i Azure Policy som överför värden till gäst konfigurations tillde
 
 Funktionen `Get-TargetResource` har särskilda krav för gäst konfiguration som inte behövs för Windows önskad tillstånds konfiguration.
 
-- Den hash-tabellen som returneras måste innehålla en egenskap med namnet **skäl** .
+- Den hash-tabellen som returneras måste innehålla en egenskap med namnet **skäl**.
 - Egenskapen orsaker måste vara en matris.
-- Varje objekt i matrisen ska vara en hash med nycklar med namnet **kod** och **fras** .
+- Varje objekt i matrisen ska vara en hash med nycklar med namnet **kod** och **fras**.
 
 Egenskapen orsaker används av tjänsten för att standardisera hur information presenteras när en dator är inkompatibel. Du kan tänka på varje objekt av anledningen som en "orsak" som resursen inte är kompatibel. Egenskapen är en matris eftersom en resurs inte kan vara kompatibel med fler än en orsak.
 
@@ -134,13 +138,13 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
-### <a name="configuration-requirements"></a>Konfigurations krav
+### <a name="configuration-requirements"></a>Konfigurationskrav
 
 Namnet på den anpassade konfigurationen måste vara konsekvent överallt. Namnet på. zip-filen för innehålls paketet, konfigurations namnet i MOF-filen och gäst tilldelnings namnet i Azure Resource Manager mall (ARM-mallen) måste vara samma.
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Ramverk ett gäst konfigurations projekt
 
-Utvecklare som vill påskynda processen med att komma igång och arbeta från exempel kod kan installera ett community-projekt med namnet **gäst konfigurations projekt** . Projektet installerar en mall för en [gips](https://github.com/powershell/plaster) -PowerShell-modul. Det här verktyget kan användas för att Autogenerera ett projekt, inklusive en fungerande konfiguration och exempel resurs, och en uppsättning [pester](https://github.com/pester/pester) -tester för att verifiera projektet. Mallen innehåller också uppgifts utlöpare för Visual Studio Code för att automatisera skapandet och valideringen av gäst konfigurations paketet. Mer information finns i projektet GitHub Project [Guest Configuration](https://github.com/microsoft/guestconfigurationproject).
+Utvecklare som vill påskynda processen med att komma igång och arbeta från exempel kod kan installera ett community-projekt med namnet **gäst konfigurations projekt**. Projektet installerar en mall för en [gips](https://github.com/powershell/plaster) -PowerShell-modul. Det här verktyget kan användas för att Autogenerera ett projekt, inklusive en fungerande konfiguration och exempel resurs, och en uppsättning [pester](https://github.com/pester/pester) -tester för att verifiera projektet. Mallen innehåller också uppgifts utlöpare för Visual Studio Code för att automatisera skapandet och valideringen av gäst konfigurations paketet. Mer information finns i projektet GitHub Project [Guest Configuration](https://github.com/microsoft/guestconfigurationproject).
 
 Mer information om hur du arbetar med konfigurationer i allmänhet finns i [skriva, kompilera och tillämpa en konfiguration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
@@ -274,7 +278,7 @@ Cmdlet-utdata returnerar ett objekt som innehåller initiativets visnings namn o
 
 Publicera sedan princip definitionerna med hjälp av `Publish-GuestConfigurationPolicy` cmdleten. Cmdleten har bara **Sök vägs** parametern som pekar på platsen för de JSON-filer som skapas av `New-GuestConfigurationPolicy` .
 
-Om du vill köra kommandot Publicera måste du ha åtkomst till skapa principer i Azure. De särskilda kraven för auktorisering finns dokumenterade på sidan [Azure policy översikt](../overview.md) . Den bästa inbyggda rollen är **resurs princip deltagare** .
+Om du vill köra kommandot Publicera måste du ha åtkomst till skapa principer i Azure. De särskilda kraven för auktorisering finns dokumenterade på sidan [Azure policy översikt](../overview.md) . Den bästa inbyggda rollen är **resurs princip deltagare**.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy -Path '.\policyDefinitions'
@@ -325,7 +329,7 @@ Ett exempel på en princip definition som filtrerar efter Taggar anges nedan.
 
 Gäst konfiguration stöder åsidosättande egenskaper för en konfiguration vid körning. Den här funktionen innebär att värdena i MOF-filen i paketet inte måste betraktas som statiska. Värdena för åsidosättningar tillhandahålls via Azure Policy och påverkar inte hur konfigurationerna skapas eller kompileras.
 
-Cmdletarna `New-GuestConfigurationPolicy` och `Test-GuestConfigurationPolicyPackage` innehåller en parameter med namnet **parameter** . Den här parametern tar en hash-definition inklusive all information om varje parameter och skapar de nödvändiga avsnitten för varje fil som används för Azure Policy definitionen.
+Cmdletarna `New-GuestConfigurationPolicy` och `Test-GuestConfigurationPolicyPackage` innehåller en parameter med namnet **parameter**. Den här parametern tar en hash-definition inklusive all information om varje parameter och skapar de nödvändiga avsnitten för varje fil som används för Azure Policy definitionen.
 
 I följande exempel skapas en princip definition för granskning av en tjänst där användaren väljer från en lista vid tidpunkten för princip tilldelningen.
 
@@ -487,9 +491,13 @@ New-GuestConfigurationPackage `
 
 ## <a name="policy-lifecycle"></a>Princip livs cykel
 
-Om du vill släppa en uppdatering av principen finns det två fält som kräver åtgärd.
+Om du vill släppa en uppdatering av principen finns det tre fält som kräver åtgärder.
 
-- **Version** : när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat. Egenskapen uppdaterar versionen av gäst konfigurations tilldelningen så att agenten identifierar det uppdaterade paketet.
+> [!NOTE]
+> `version`Egenskapen för gäst konfigurations tilldelningen påverkar bara paket som är värd för Microsoft. Den bästa metoden för att konfigurera anpassade innehålls versioner är att inkludera versionen i fil namnet.
+
+- **Version** : när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat.
+- **contentUri** : när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange en URI till paketets plats. Genom att inkludera en paket version i fil namnet ser du till att värdet för egenskapen ändras i varje version.
 - **contentHash** : den här egenskapen uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten. Det är ett hash-värde för det paket som skapats av `New-GuestConfigurationPackage` . Egenskapen måste vara korrekt för den `.zip` fil som du publicerar. Om endast egenskapen **contentUri** uppdateras, accepterar inte tillägget innehålls paketet.
 
 Det enklaste sättet att frigöra ett uppdaterat paket är att upprepa processen som beskrivs i den här artikeln och ange ett uppdaterat versions nummer. Den processen garanterar att alla egenskaper har uppdaterats korrekt.

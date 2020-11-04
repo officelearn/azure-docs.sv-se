@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 04123d06d22786c9dd2aa08c2dab1153f6d43375
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098458"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348618"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Lägg till komplettera automatiskt och förslag till klient program
 
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Funktionen föreslå
 
-Om du använder C# och ett MVC-program är **HomeController.cs** -filen under katalogen kontrollanter där du kan skapa en klass för föreslagna resultat. I .NET baseras en förslags funktion på [metoden DocumentsOperationsExtensions. föreslå](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Mer information om .NET SDK finns i [så här använder du Azure kognitiv sökning från ett .NET-program](./search-howto-dotnet-sdk.md).
+Om du använder C# och ett MVC-program är **HomeController.cs** -filen under katalogen kontrollanter där du kan skapa en klass för föreslagna resultat. I .NET baseras en förslags funktion på [metoden DocumentsOperationsExtensions. föreslå](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Mer information om .NET SDK finns i [så här använder du Azure kognitiv sökning från ett .NET-program](search-howto-dotnet-sdk.md).
 
 `InitSearch`Metoden skapar en autentiserad HTTP-index-klient till Azure kognitiv sökning-tjänsten. Egenskaperna för [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) -klassen avgör vilka fält som genomsöks och returneras i resultaten, antalet matchningar och om fuzzy Matching används. 
 
@@ -181,7 +181,7 @@ Funktionen Suggest (Föreslå) tar två parametrar som bestämmer om träffmarke
 
 ## <a name="autocomplete"></a>Komplettera automatiskt
 
-Hittills har Sök-UX-koden centrerats på förslag. Nästa kodblock visar komplettera automatiskt med funktionen XDSoft jQuery UI komplettera automatiskt och skickar en begäran om automatisk komplettering av Azure-Kognitiv sökning. Som med förslag, i ett C#-program, går kod som stöder användar interaktionen i **index. cshtml** .
+Hittills har Sök-UX-koden centrerats på förslag. Nästa kodblock visar komplettera automatiskt med funktionen XDSoft jQuery UI komplettera automatiskt och skickar en begäran om automatisk komplettering av Azure-Kognitiv sökning. Som med förslag, i ett C#-program, går kod som stöder användar interaktionen i **index. cshtml**.
 
 ```javascript
 $(function () {
@@ -253,4 +253,3 @@ Följ dessa länkar för slut punkt till slut punkts instruktioner eller kod som
 
 + [Självstudie: skapa din första app i C# (Lektion 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [C#-kod exempel: Azure-Search-dotNet-samples/Create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [C# och Java Script med REST sida vid sida-kod exempel](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

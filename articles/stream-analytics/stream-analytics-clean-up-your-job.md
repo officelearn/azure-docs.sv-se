@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 124d2cf4380153bd3ea68de9233f6a1b5eb6ba78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2652b97c9392d3016bbc52209d4b2bda81c31706
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130705"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348975"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Stoppa eller ta bort ditt Azure Stream Analytics jobb
 
@@ -26,7 +26,7 @@ Azure Stream Analytics-jobb kan stoppas eller tas bort via Azure Portal, Azure P
 
 När du stoppar ett jobb avetableras resurserna och den stoppar bearbetningen av händelser. Avgifter som rör detta jobb stoppas också. Men all konfiguration behålls och du kan starta om jobbet senare 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in i [Azure-portalen](https://portal.azure.com). 
 
 2. Leta upp Stream Analytics jobb som körs och markera det.
 
@@ -57,8 +57,8 @@ Använd cmdleten [Stop-AzStreamAnalyticsJob](/powershell/module/az.streamanalyti
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>Stoppa eller ta bort ett jobb med Azure SDK för .NET
 
-Om du vill stoppa ett jobb med Azure SDK för .NET använder du metoden [StreamingJobsOperationsExtensions. BeginStop](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop?view=azure-dotnet) . Ta bort ett jobb med hjälp av Azure SDK för .NET, metoden [StreamingJobsOperationsExtensions. BeginDelete](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete?view=azure-dotnet) .
+Om du vill stoppa ett jobb med Azure SDK för .NET använder du metoden [StreamingJobsOperationsExtensions. BeginStop](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.beginstop) . Ta bort ett jobb med hjälp av Azure SDK för .NET, metoden [StreamingJobsOperationsExtensions. BeginDelete](/dotnet/api/microsoft.azure.management.streamanalytics.streamingjobsoperationsextensions.begindelete) .
 
 ## <a name="stop-or-delete-a-job-using-rest-api"></a>Stoppa eller ta bort ett jobb med REST API
 
-Om du vill stoppa ett jobb med hjälp av REST API, se [stopp](/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#stop) metoden. Om du vill ta bort ett jobb med hjälp av REST API, se [Delete](/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#delete) -metoden.
+Om du vill stoppa ett jobb med hjälp av REST API, se [stopp](/rest/api/streamanalytics/2016-03-01/streamingjobs/stop) metoden. Om du vill ta bort ett jobb med hjälp av REST API, se [Delete](/rest/api/streamanalytics/2016-03-01/streamingjobs/delete) -metoden.

@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 68eee2d55e3c22b502d17a91f4ba4509c292c31c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a1ca50e1e1374b5e819c9355be1a48e2b7c3e536
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288681"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349094"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -59,13 +59,7 @@ Uppdateringar som görs i själva tjänsten följer Microsoft Azure standard pro
 
 Med den nya Azure VMware-lösningen har Microsoft och VMware en direkt moln leverantörs koppling. Den nya lösningen är helt utformad, byggd och stöds av Microsoft och har godkänts av VMware. Lösningarna är dessutom konsekventa med VMware Technology-stacken som körs på en dedikerad Azure-infrastruktur.
 
-#### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Stöds Red Hat-lösningar i Azure VMware-lösningen?
 
-Microsoft och Red Hat delar ett integrerat, Samplacerat support team som tillhandahåller en enhetlig kontakt punkt för Red Hat eko system som körs på Azure-plattformen.  Precis som andra Azure Platform-tjänster som fungerar med Red Hat Enterprise Linux är Azure VMware-lösningen under moln åtkomst och integrerat support paraply, och Red Hat Enterprise Linux stöds för att köras ovanpå Azure VMware-lösningen i Azure.
-
-#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>Är VMware HCX Enterprise Edition tillgänglig och hur mycket kostar det?
-
-VMware HCX Enterprise Edition (EE) är tillgänglig med Azure VMware-lösningen som en *förhands gransknings* funktion/tjänst. Även om VMware HCX EE för Azure VMware-lösningen är i för hands version, är det en kostnads fri funktion/tjänst och omfattas av förhands gransknings tjänstens allmänna villkor. När VMware HCX EE-tjänsten går till GA får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan stänga av eller avanmäla tjänsten.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Kan virtuella datorer i Azure VMware-lösningen hanteras av VMRC?
 Ja, förutsatt att det system som är installerat på kan komma åt det privata molnet vCenter och använder offentlig DNS för att matcha ESXi-värdnamn.
@@ -236,6 +230,14 @@ Microsoft ger support för Azure VMware-lösningen. Du kan skicka in en [support
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Vilka konton behöver jag för att skapa ett privat moln I Azure VMware-lösningen?
 
 Du behöver ett Azure-konto i en Azure-prenumeration.
+
+#### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Stöds Red Hat-lösningar i Azure VMware-lösningen?
+
+Microsoft och Red Hat delar ett integrerat, Samplacerat support team som tillhandahåller en enhetlig kontakt punkt för Red Hat eko system som körs på Azure-plattformen.  Precis som andra Azure Platform-tjänster som fungerar med Red Hat Enterprise Linux är Azure VMware-lösningen under moln åtkomst och integrerat support paraply, och Red Hat Enterprise Linux stöds för att köras ovanpå Azure VMware-lösningen i Azure.
+
+#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>Är VMware HCX Enterprise Edition tillgänglig och hur mycket kostar det?
+
+VMware HCX Enterprise Edition (EE) är tillgänglig med Azure VMware-lösningen som en *förhands gransknings* funktion/tjänst. Även om VMware HCX EE för Azure VMware-lösningen är i för hands version, är det en kostnads fri funktion/tjänst och omfattas av förhands gransknings tjänstens allmänna villkor. När VMware HCX EE-tjänsten går till GA får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan stänga av eller avanmäla tjänsten.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Hur gör jag för att begära en värd kvot ökning för Azure VMware-lösningen?
 

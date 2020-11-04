@@ -5,16 +5,16 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 681c5e169acc30cc6708b56b5ba180d2729919e5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 73813ffbb6ac1839a48fc455dec5f6ad26ed0164
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222997"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348797"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Aktivera Uppdateringshantering i Azure-portalen
 
-I den här artikeln beskrivs hur du kan aktivera den [uppdateringshantering](overview.md) funktionen för virtuella datorer genom att bläddra i Azure Portal. Om du vill aktivera virtuella Azure-datorer i stor skala måste du aktivera en befintlig virtuell dator med hjälp av Uppdateringshantering.
+I den här artikeln beskrivs hur du kan aktivera den [uppdateringshantering](overview.md) funktionen för virtuella datorer genom att bläddra i Azure Portal. Om du vill aktivera virtuella Azure-datorer i stor skala måste du aktivera en befintlig virtuell Azure-dator med hjälp av Uppdateringshantering.
 
 Antalet resurs grupper som du kan använda för att hantera dina virtuella datorer begränsas av [distributions gränserna för Resource Manager](../../azure-resource-manager/templates/cross-scope-deployment.md). Resource Manager-distributioner, ska inte förväxlas med uppdaterings distributioner, är begränsade till fem resurs grupper per distribution. Två av dessa resurs grupper är reserverade för att konfigurera Log Analytics arbets yta, Automation-konto och relaterade resurser. Detta gör att du har tre resurs grupper som du kan välja för hantering genom att Uppdateringshantering. Den här gränsen gäller endast för samtidig installation, inte antalet resurs grupper som kan hanteras av en automatiserings funktion.
 
@@ -35,7 +35,7 @@ Logga in på Azure på https://portal.azure.com .
 
 1. I Azure Portal navigerar du till **virtuella datorer**.
 
-2. Använd kryss rutorna för att välja de virtuella datorer som ska läggas till Uppdateringshantering. Du kan lägga till datorer för upp till tre olika resurs grupper i taget. Virtuella Azure-datorer kan finnas i vilken region som helst, oavsett var ditt Automation-konto finns.
+2. På sidan **virtuella datorer** använder du kryss rutorna för att välja de virtuella datorer som ska läggas till uppdateringshantering. Du kan lägga till datorer för upp till tre olika resurs grupper i taget. Virtuella Azure-datorer kan finnas i vilken region som helst, oavsett var ditt Automation-konto finns.
 
     ![Lista över virtuella datorer](media/enable-from-portal/vmlist.png)
 

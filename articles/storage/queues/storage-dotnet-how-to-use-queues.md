@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b59c7d2af33efd82f27af9e13fc9c1f36ca788ee
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787473"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348601"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
 
@@ -69,9 +69,9 @@ Du måste referera till följande fyra paket i projektet för att slutföra den 
 - [Azure Storage Queue-bibliotek för .net](https://www.nuget.org/packages/Azure.Storage.Queues/): det här paketet gör det möjligt att arbeta med Azure Storage-kötjänst för att lagra meddelanden som kan kommas åt av en klient.
 - [Configuration Manager bibliotek för .net](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): det här paketet ger till gång till konfigurationsfiler för klient program.
 
-Du kan använda NuGet för att hämta paketen. Följ de här stegen:
+Du kan använda NuGet för att hämta paketen. Gör så här:
 
-1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket** .
+1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket**.
 1. Välj **Bläddra**
 1. Sök online efter "Azure. Storage. Queues" och välj **Installera** för att installera lagrings klient biblioteket och dess beroenden. Detta kommer också att installera Azure. Storage. common och Azure. Core-bibliotek, som är beroenden av kösystemet.
 1. Sök online efter "System.Configuration.ConfigurationManager" och välj **Installera** för att installera Configuration Manager.
@@ -84,9 +84,9 @@ Du måste referera till följande tre paket i projektet för att slutföra den h
 - [Microsoft Azure Storage Queue-bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): det här klient biblioteket gör det möjligt att arbeta med Microsoft Azure Storage-kötjänst för att lagra meddelanden som kan nås av en klient.
 - [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
 
-Du kan använda NuGet för att hämta paketen. Följ de här stegen:
+Du kan använda NuGet för att hämta paketen. Gör så här:
 
-1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket** .
+1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket**.
 1. Välj **Bläddra**
 1. Sök online efter "Microsoft. Azure. Storage. Queue" och välj **Installera** för att installera lagrings klient biblioteket och dess beroenden. Detta kommer också att installera Microsoft. Azure. Storage. common-biblioteket, vilket är ett beroende av Queue-biblioteket.
 1. Sök online efter "Microsoft.Azure.ConfigurationManager" och välj **Installera** för att installera Azure-Configuration Manager.
@@ -114,7 +114,7 @@ Exempelkoden måste autentisera åtkomsten till lagringskontot. När du vill aut
 1. Navigera till [Azure Portal](https://portal.azure.com).
 2. Leta rätt på ditt lagringskonto.
 3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten. Åtkomstnycklarna för kontot visas, samt den fullständiga anslutningssträngen för varje nyckel.
-4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att klicka på **Kopiera** . Du lägger till strängvärdet för anslutningen till en miljövariabel i nästa steg.
+4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att klicka på **Kopiera**. Du lägger till strängvärdet för anslutningen till en miljövariabel i nästa steg.
 
     ![Skärmbild som visar hur man kopierar en anslutningssträng från Azure-portalen](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 

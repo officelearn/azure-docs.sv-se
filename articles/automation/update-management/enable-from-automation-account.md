@@ -2,15 +2,15 @@
 title: Aktivera Azure Automation Uppdateringshantering från Automation-konto
 description: Den här artikeln beskriver hur du aktiverar Uppdateringshantering från ett Automation-konto.
 services: automation
-ms.date: 10/26/2020
+ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 9630b29def0c450ef907219895d1488d72fd78d1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6f14516f36975d84256f9bb1bd3b4949dbf80448
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669897"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348839"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Aktivera Uppdateringshantering från ett Automation-konto
 
@@ -23,15 +23,15 @@ Den här artikeln beskriver hur du kan använda ditt Automation-konto för att a
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation-konto](../index.yml) för att hantera datorer.
-* En [virtuell Azure-dator](../../virtual-machines/windows/quick-create-portal.md)eller virtuell dator eller Server registrerad med ARC-aktiverade servrar (för hands version). Icke-virtuella datorer eller servrar i Azure måste ha [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) för Windows eller Linux installerat och rapportering till arbets ytan som är länkad till Automation-kontot uppdateringshantering är aktive rad i. Vi rekommenderar att du installerar Log Analytics agent för Windows eller Linux genom att först ansluta datorn till [Azure Arc-aktiverade servrar](../../azure-arc/servers/overview.md)och sedan använda Azure policy för att tilldela den inbyggda principen [distribuera Log Analytics agent till *Linux* eller *Windows* Azure Arc Machines](../../governance/policy/samples/built-in-policies.md#monitoring) . Om du även planerar att övervaka datorerna med Azure Monitor for VMs använder du i stället [aktivera Azure Monitor for VMS](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiativ.
+* En [virtuell Azure-dator](../../virtual-machines/windows/quick-create-portal.md)eller virtuell dator eller Server registrerad med ARC-aktiverade servrar. Icke-virtuella datorer eller servrar i Azure måste ha [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) för Windows eller Linux installerat och rapportering till arbets ytan som är länkad till Automation-kontot uppdateringshantering är aktive rad i. Vi rekommenderar att du installerar Log Analytics agent för Windows eller Linux genom att först ansluta datorn till [Azure Arc-aktiverade servrar](../../azure-arc/servers/overview.md)och sedan använda Azure policy för att tilldela den inbyggda principen [distribuera Log Analytics agent till *Linux* -eller *Windows* Azure Arc-datorer](../../governance/policy/samples/built-in-policies.md#monitoring) . Alternativt, om du planerar att övervaka datorerna med Azure Monitor for VMs, använder du i stället [aktivera Azure Monitor for VMS](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiativ.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in i [Azure-portalen](https://portal.azure.com).
 
 ## <a name="enable-update-management"></a>Aktivera uppdateringshantering
 
-1. I ditt Automation-konto väljer du **uppdaterings hantering** under **uppdaterings hantering** .
+1. I ditt Automation-konto väljer du **uppdaterings hantering** under **uppdaterings hantering**.
 
 2. Välj Log Analytics arbets yta och Automation-konto och välj **Aktivera** för att aktivera uppdateringshantering. Det tar upp till 15 minuter att slutföra installationen.
 
@@ -39,7 +39,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="enable-azure-vms"></a>Aktivera virtuella Azure-datorer
 
-1. Från ditt Automation-konto väljer du **uppdaterings hantering** under **uppdaterings hantering** .
+1. Från ditt Automation-konto väljer du **uppdaterings hantering** under **uppdaterings hantering**.
 
 2. Välj **+ Lägg till virtuella Azure-datorer** och välj en eller flera virtuella datorer i listan. Virtuella datorer som inte kan aktive ras är nedtonade och kan inte väljas. Virtuella Azure-datorer kan finnas i vilken region som helst, oavsett platsen för ditt Automation-konto.
 
@@ -51,23 +51,23 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 Datorer som inte i Azure måste läggas till manuellt.
 
-1. Från ditt Automation-konto väljer du **uppdaterings hantering** under **uppdaterings hantering** .
+1. Från ditt Automation-konto väljer du **uppdaterings hantering** under **uppdaterings hantering**.
 
-2. Välj **Lägg till icke-Azure-dator** . Den här åtgärden öppnar ett nytt webbläsarfönster med [instruktioner för att installera och konfigurera Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md) så att datorn kan börja rapportera till uppdateringshantering. Om du aktiverar en dator som för närvarande hanteras av Operations Manager krävs ingen ny agent. Informationen om arbets ytan läggs till i agent konfigurationen.
+2. Välj **Lägg till icke-Azure-dator**. Den här åtgärden öppnar ett nytt webbläsarfönster med [instruktioner för att installera och konfigurera Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md) så att datorn kan börja rapportera till uppdateringshantering. Om du aktiverar en dator som för närvarande hanteras av Operations Manager krävs ingen ny agent. Informationen om arbets ytan läggs till i agent konfigurationen.
 
 ## <a name="enable-machines-in-the-workspace"></a>Aktivera datorer i arbets ytan
 
 Manuellt installerade datorer eller datorer som redan rapporterar till din arbets yta måste läggas till Azure Automation för att Uppdateringshantering ska kunna aktive ras.
 
-1. Från ditt Automation-konto väljer du **uppdaterings hantering** under **uppdaterings hantering** .
+1. Från ditt Automation-konto väljer du **uppdaterings hantering** under **uppdaterings hantering**.
 
-2. Välj **hantera datorer** . Knappen **hantera datorer** kan vara nedtonad om du tidigare har valt alternativet **Aktivera på alla tillgängliga och framtida datorer**
+2. Välj **hantera datorer**. Knappen **hantera datorer** kan vara nedtonad om du tidigare har valt alternativet **Aktivera på alla tillgängliga och framtida datorer**
 
     ![Sparade sökningar](media/enable-from-automation-account/managemachines.png)
 
 3. Om du vill aktivera Uppdateringshantering för alla tillgängliga datorer som rapporterar till arbets ytan väljer du **Aktivera på alla tillgängliga datorer** på sidan hantera datorer. Den här åtgärden inaktiverar kontrollen för att lägga till datorer individuellt och lägger till alla datorer som rapporterar till arbets ytan till dator gruppens sparade Sök fråga `MicrosoftDefaultComputerGroup` . När det här alternativet är markerat inaktiverar den här åtgärden alternativet **hantera datorer** .
 
-4. Om du vill aktivera funktionen för alla tillgängliga datorer och framtida datorer väljer du **Aktivera på alla tillgängliga och framtida datorer** . Det här alternativet tar bort den sparade Sök-och omfattnings konfigurationen från arbets ytan och tillåter att funktionen inkluderar alla Azure-och icke-Azure-datorer som för närvarande eller i framtiden rapporterar till arbets ytan. När det här alternativet är markerat inaktiverar den här åtgärden alternativet **hantera datorer** permanent, eftersom det inte finns någon tillgänglig omfattnings konfiguration.
+4. Om du vill aktivera funktionen för alla tillgängliga datorer och framtida datorer väljer du **Aktivera på alla tillgängliga och framtida datorer**. Det här alternativet tar bort den sparade Sök-och omfattnings konfigurationen från arbets ytan och tillåter att funktionen inkluderar alla Azure-och icke-Azure-datorer som för närvarande eller i framtiden rapporterar till arbets ytan. När det här alternativet är markerat inaktiverar den här åtgärden alternativet **hantera datorer** permanent, eftersom det inte finns någon tillgänglig omfattnings konfiguration.
 
     > [!NOTE]
     > Eftersom det här alternativet tar bort den sparade Sök-och omfattnings konfigurationen inom Log Analytics, är det viktigt att ta bort eventuella borttagnings lås på arbets ytan Log Analytics innan du väljer det här alternativet. Om du inte gör det kan inte alternativet ta bort konfigurationerna och du måste ta bort dem manuellt.

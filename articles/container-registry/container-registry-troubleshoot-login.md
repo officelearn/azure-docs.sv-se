@@ -3,12 +3,12 @@ title: Felsöka inloggning till registret
 description: Symptom, orsaker och lösningar på vanliga problem vid inloggning i ett Azure Container Registry
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148435"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348907"
 ---
 # <a name="troubleshoot-registry-login"></a>Felsöka inloggning av registret
 
@@ -77,10 +77,11 @@ Relaterade länkar:
 Kontrol lera giltigheten för de autentiseringsuppgifter som du använder för ditt scenario, eller tillhandahölls av en register ägare. Möjliga problem:
 
 * Om du använder ett Active Directory tjänstens huvud namn kontrollerar du att du använder rätt autentiseringsuppgifter i Active Directory klient organisationen:
-  * Användar namn – program-ID för tjänstens huvud namn (kallas även *klient-ID*)
-  * Lösen ord för tjänstens huvud namn (kallas även *klient hemlighet*)
+  * Användar namn – program-ID för tjänstens huvud namn (kallas även *klient-ID* )
+  * Lösen ord för tjänstens huvud namn (kallas även *klient hemlighet* )
 * Om du använder en Azure-tjänst som Azure Kubernetes service eller Azure DevOps för att komma åt registret, bekräftar du register konfigurationen för din tjänst.
 * Om du körde `az acr login` med `--expose-token` alternativet, som aktiverar register inloggning utan att använda Docker daemon, måste du se till att du autentiserar med användar namnet `00000000-0000-0000-0000-000000000000` .
+* Om registret är konfigurerat för [Anonym](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)åtkomst kan befintliga Docker-autentiseringsuppgifter som lagras från en tidigare Docker-inloggning förhindra anonym åtkomst. Kör `docker logout` innan du försöker utföra en anonym pull-åtgärd i registret.
 
 Relaterade länkar:
 

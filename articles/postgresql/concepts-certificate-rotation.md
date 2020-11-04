@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 1bd02043183bd0477d8663300fcb7a1d7ac9ea55
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 96720e156963a5fb542e72823a602aa2cc6a0ead
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242083"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349009"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Förstå ändringarna i rot certifikat utfärdarens ändring för Azure Database for PostgreSQL enskild server
 
@@ -31,9 +31,9 @@ Det nya certifikatet kommer att användas från och med 15 februari 2021 (02/15/
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Hur gör jag för att veta om min databas kommer att påverkas?
 
 Alla program som använder SSL/TLS och kontrollerar att rot certifikatet måste uppdatera rot certifikatet. Du kan identifiera om dina anslutningar verifierar rot certifikatet genom att granska anslutnings strängen.
--   Om din anslutnings sträng innehåller `sslmode=verify-ca` eller `sslmode=verify-full` måste du uppdatera certifikatet.
--   Om din anslutnings sträng innehåller `sslmode=disable` , `sslmode=allow` , `sslmode=prefer` eller `sslmode=require` , behöver du inte uppdatera certifikat. 
--   Om anslutnings strängen inte anger sslmode behöver du inte uppdatera certifikat.
+-    Om din anslutnings sträng innehåller `sslmode=verify-ca` eller `sslmode=verify-full` måste du uppdatera certifikatet.
+-    Om din anslutnings sträng innehåller `sslmode=disable` , `sslmode=allow` , `sslmode=prefer` eller `sslmode=require` , behöver du inte uppdatera certifikat. 
+-    Om anslutnings strängen inte anger sslmode behöver du inte uppdatera certifikat.
 
 Om du använder en-klient som sammanfattar anslutnings strängen går du igenom klientens dokumentation för att ta reda på om den verifierar certifikat.
 
@@ -80,19 +80,19 @@ Om du vill undvika att programmets tillgänglighet avbryts på grund av att cert
  </br>-----SLUT CERTIFIKAT-----
 
 *   Ersätt den ursprungliga PEM-filen för rot certifikat utfärdaren med den kombinerade rot-CA-filen och starta om programmet/klienten.
-*   I framtiden kan du efter det nya certifikatet som distribuerats på Server sidan Ändra CA PEM-filen till DigiCertGlobalRootG2. CRT. pem.
+*    I framtiden kan du efter det nya certifikatet som distribuerats på Server sidan Ändra CA PEM-filen till DigiCertGlobalRootG2. CRT. pem.
 
 ## <a name="what-can-be-the-impact-of-not-updating-the-certificate"></a>Vad kan vara effekten av att inte uppdatera certifikatet?
 Om du använder Baltimore CyberTrust-rotcertifikat för att verifiera SSL-anslutningen till Azure Database for PostgreSQL som dokumenteras här kan programmets tillgänglighet avbrytas eftersom databasen inte går att komma åt. Beroende på ditt program kan du få en rad fel meddelanden, inklusive men inte begränsat till:
-*   Ogiltigt certifikat/återkallat certifikat
-*   Anslutningens tidsgräns uppnåddes
+*    Ogiltigt certifikat/återkallat certifikat
+*    Anslutningens tidsgräns uppnåddes
 
 > [!NOTE]
 > Ta inte bort eller ändra **Baltimore-certifikatet** förrän certifikat ändringen har gjorts. Vi kommer att skicka en kommunikation när ändringen har gjorts, och det är säkert att ta bort Baltimore-certifikatet. 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. om jag inte använder SSL/TLS måste jag fortfarande uppdatera rot certifikat utfärdaren?
+###    <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. om jag inte använder SSL/TLS måste jag fortfarande uppdatera rot certifikat utfärdaren?
 Inga åtgärder krävs om du inte använder SSL/TLS. 
 
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. om jag använder SSL/TLS måste jag starta om min databas server för att uppdatera rot certifikat utfärdaren?
@@ -104,7 +104,7 @@ Om du inte uppdaterar rot certifikatet före den 15 februari 2021 (02/15/2021) k
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-postgresql"></a>4. Vad är effekten om du använder App Service med Azure Database for PostgreSQL?
 För Azure App Services, som ansluter till Azure Database for PostgreSQL, kan vi ha två möjliga scenarier och det beror på hur du använder SSL med ditt program.
 *   Det nya certifikatet har lagts till App Service på plattforms nivå. Om du använder SSL-certifikat som finns på App Service plattform i ditt program krävs ingen åtgärd.
-*   Om du uttryckligen inkluderar sökvägen till SSL-cert-filen i din kod måste du hämta det nya certifikatet och uppdatera koden för att använda det nya certifikatet. Ett användbart exempel på det här scenariot är när du använder anpassade behållare i App Service som delas i [App Service-dokumentationen](/azure/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress)
+*   Om du uttryckligen inkluderar sökvägen till SSL-cert-filen i din kod måste du hämta det nya certifikatet och uppdatera koden för att använda det nya certifikatet. Ett användbart exempel på det här scenariot är när du använder anpassade behållare i App Service som delas i [App Service-dokumentationen](../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress)
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-postgresql"></a>5. Vad är effekten om du använder Azure Kubernetes Services (AKS) med Azure Database for PostgreSQL?
 Om du försöker ansluta till Azure Database for PostgreSQL med hjälp av Azure Kubernetes Services (AKS), liknar den ungefär åtkomst från en dedikerad kund värd miljö. Se stegen [här](../aks/ingress-own-tls.md).
@@ -123,10 +123,10 @@ Eftersom klienterna som används för att ansluta till servern måste uppdatera 
 ### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. om jag skapar en ny server efter den 15 februari 2021 (02/15/2021) kommer jag att påverkas?
 För servrar som skapats efter den 15 februari 2021 (02/15/2021) kan du använda det nyligen utfärdade certifikatet för dina program för att ansluta med SSL.
 
-### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. hur ofta uppdaterar Microsoft sina certifikat eller vad är förfallo principen?
+###    <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. hur ofta uppdaterar Microsoft sina certifikat eller vad är förfallo principen?
 Dessa certifikat som används av Azure Database for PostgreSQL tillhandahålls av betrodda certifikat utfärdare (CA). Stöd för dessa certifikat på Azure Database for PostgreSQL är knutet till stöd för dessa certifikat av CA. Men i så fall kan det vara oförutsedda buggar i dessa fördefinierade certifikat, vilket måste åtgärdas tidigast.
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-the-primary-server-or-the-read-replicas"></a>11. om jag använder Läs repliker behöver jag bara utföra den här uppdateringen på den primära servern eller Läs replikerna?
+###    <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-the-primary-server-or-the-read-replicas"></a>11. om jag använder Läs repliker behöver jag bara utföra den här uppdateringen på den primära servern eller Läs replikerna?
 Eftersom den här uppdateringen är en ändring på klient sidan, om klienten som används för att läsa data från replik servern, måste du även tillämpa ändringarna för dessa klienter. 
 
 ### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. har vi en fråga på Server sidan för att kontrol lera om SSL används?
@@ -138,5 +138,5 @@ Nej. Ingen åtgärd krävs om certifikat filen redan har **DigiCertGlobalRootG2*
 ### <a name="14-what-is-you-are-using-docker-image-of-pgbouncer-sidecar-provided-by-microsoft"></a>14. Vad använder du Docker-avbildning av PgBouncer sidvagn från Microsoft?
 En ny Docker-avbildning som stöder både [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) och [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) publiceras [till nedan (](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) senaste taggen). Du kan hämta den här nya avbildningen för att undvika avbrott i anslutningen från den 15 februari 2021. 
 
-### <a name="15-what-if-i-have-further-questions"></a>15. Vad händer om jag har fler frågor?
+###    <a name="15-what-if-i-have-further-questions"></a>15. Vad händer om jag har fler frågor?
 Om du har frågor kan du få svar från community-experter i [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). [Kontakta oss](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com) om du har en Support plan och behöver teknisk hjälp
